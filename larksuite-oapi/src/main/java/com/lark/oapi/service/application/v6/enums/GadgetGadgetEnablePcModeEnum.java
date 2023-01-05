@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * pc 支持的小程序模式，bit 位表示
  */
 public enum GadgetGadgetEnablePcModeEnum {
-  SIDEBAR(1), // sidebar 模式
-  PC(2), // pc 模式
-  NAVIGATE(4), // 主导航模式
-  ;
-  private Integer value;
+    SIDEBAR(1), // sidebar 模式
+    PC(2), // pc 模式
+    NAVIGATE(4), // 主导航模式
+    ;
+    private Integer value;
 
-  GadgetGadgetEnablePcModeEnum(Integer value) {
-    this.value = value;
-  }
+    GadgetGadgetEnablePcModeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

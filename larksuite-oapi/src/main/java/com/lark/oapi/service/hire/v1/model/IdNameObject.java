@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class IdNameObject {
-
-  /**
-   * ID
-   * <p> 示例值：1213213123123
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-
-  // builder 开始
-  public IdNameObject() {
-  }
-
-  public IdNameObject(Builder builder) {
     /**
      * ID
      * <p> 示例值：1213213123123
      */
-    this.id = builder.id;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：1213213123123
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
 
-    /**
-     * ID
-     * <p> 示例值：1213213123123
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public IdNameObject() {
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public IdNameObject(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    public IdNameObject build() {
-      return new IdNameObject(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         */
+        private String id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private I18n name;
+
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public IdNameObject build() {
+            return new IdNameObject(this);
+        }
+    }
 }

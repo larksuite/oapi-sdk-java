@@ -16,162 +16,157 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Acl {
-
-  /**
-   * 权限类型，优先级：Deny > Allow。
-   * <p> 示例值：allow
-   */
-  @SerializedName("access")
-  private String access;
-  /**
-   * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone"
-   * 来表示该数据项对全员可见；
-   * <p> 示例值：d35e3c23
-   */
-  @SerializedName("value")
-  private String value;
-  /**
-   * 权限值类型
-   * <p> 示例值：user
-   */
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public Acl() {
-  }
-
-  public Acl(Builder builder) {
     /**
      * 权限类型，优先级：Deny > Allow。
      * <p> 示例值：allow
      */
-    this.access = builder.access;
+    @SerializedName("access")
+    private String access;
     /**
      * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone" 来表示该数据项对全员可见；
      * <p> 示例值：d35e3c23
      */
-    this.value = builder.value;
-    /**
-     * 权限值类型
-     * <p> 示例值：user
-     */
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAccess() {
-    return this.access;
-  }
-
-  public void setAccess(String access) {
-    this.access = access;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
-    /**
-     * 权限类型，优先级：Deny > Allow。
-     * <p> 示例值：allow
-     */
-    private String access;
-    /**
-     * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone"
-     * 来表示该数据项对全员可见；
-     * <p> 示例值：d35e3c23
-     */
+    @SerializedName("value")
     private String value;
     /**
      * 权限值类型
      * <p> 示例值：user
      */
+    @SerializedName("type")
     private String type;
 
-    /**
-     * 权限类型，优先级：Deny > Allow。
-     * <p> 示例值：allow
-     *
-     * @param access
-     * @return
-     */
-    public Builder access(String access) {
-      this.access = access;
-      return this;
+    // builder 开始
+    public Acl() {
     }
 
-    /**
-     * 权限类型，优先级：Deny > Allow。
-     * <p> 示例值：allow
-     *
-     * @param access {@link com.lark.oapi.service.search.v2.enums.AclAclAccessEnum}
-     * @return
-     */
-    public Builder access(com.lark.oapi.service.search.v2.enums.AclAclAccessEnum access) {
-      this.access = access.getValue();
-      return this;
+    public Acl(Builder builder) {
+        /**
+         * 权限类型，优先级：Deny > Allow。
+         * <p> 示例值：allow
+         */
+        this.access = builder.access;
+        /**
+         * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone" 来表示该数据项对全员可见；
+         * <p> 示例值：d35e3c23
+         */
+        this.value = builder.value;
+        /**
+         * 权限值类型
+         * <p> 示例值：user
+         */
+        this.type = builder.type;
     }
 
-
-    /**
-     * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone"
-     * 来表示该数据项对全员可见；
-     * <p> 示例值：d35e3c23
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 权限值类型
-     * <p> 示例值：user
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getAccess() {
+        return this.access;
     }
 
-    /**
-     * 权限值类型
-     * <p> 示例值：user
-     *
-     * @param type {@link com.lark.oapi.service.search.v2.enums.AclAclTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.search.v2.enums.AclAclTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setAccess(String access) {
+        this.access = access;
     }
 
-
-    public Acl build() {
-      return new Acl(this);
+    public String getValue() {
+        return this.value;
     }
-  }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public static class Builder {
+        /**
+         * 权限类型，优先级：Deny > Allow。
+         * <p> 示例值：allow
+         */
+        private String access;
+        /**
+         * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone" 来表示该数据项对全员可见；
+         * <p> 示例值：d35e3c23
+         */
+        private String value;
+        /**
+         * 权限值类型
+         * <p> 示例值：user
+         */
+        private String type;
+
+        /**
+         * 权限类型，优先级：Deny > Allow。
+         * <p> 示例值：allow
+         *
+         * @param access
+         * @return
+         */
+        public Builder access(String access) {
+            this.access = access;
+            return this;
+        }
+
+        /**
+         * 权限类型，优先级：Deny > Allow。
+         * <p> 示例值：allow
+         *
+         * @param access {@link com.lark.oapi.service.search.v2.enums.AclAclAccessEnum}
+         * @return
+         */
+        public Builder access(com.lark.oapi.service.search.v2.enums.AclAclAccessEnum access) {
+            this.access = access.getValue();
+            return this;
+        }
+
+
+        /**
+         * 设置的权限值，例如 userID ，依赖 type 描述。;;**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone" 来表示该数据项对全员可见；
+         * <p> 示例值：d35e3c23
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        /**
+         * 权限值类型
+         * <p> 示例值：user
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 权限值类型
+         * <p> 示例值：user
+         *
+         * @param type {@link com.lark.oapi.service.search.v2.enums.AclAclTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.search.v2.enums.AclAclTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        public Acl build() {
+            return new Acl(this);
+        }
+    }
 }

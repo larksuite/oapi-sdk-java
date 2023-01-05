@@ -15,16 +15,16 @@ package com.lark.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum NeedNotificationEnum {
-  TRUE(true),
-  FALSE(false),
-  ;
-  private Boolean value;
+    TRUE(true),
+    FALSE(false),
+    ;
+    private Boolean value;
 
-  NeedNotificationEnum(Boolean value) {
-    this.value = value;
-  }
+    NeedNotificationEnum(Boolean value) {
+        this.value = value;
+    }
 
-  public Boolean getValue() {
-    return this.value;
-  }
+    public Boolean getValue() {
+        return this.value;
+    }
 }

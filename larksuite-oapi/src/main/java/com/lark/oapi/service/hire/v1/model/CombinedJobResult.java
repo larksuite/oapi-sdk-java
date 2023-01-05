@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CombinedJobResult {
-
-  /**
-   * 职位广告
-   * <p> 示例值：
-   */
-  @SerializedName("default_job_post")
-  private CombinedJobResultDefaultJobPost defaultJobPost;
-  /**
-   * 职位
-   * <p> 示例值：
-   */
-  @SerializedName("job")
-  private Job job;
-  /**
-   * 职位负责人
-   * <p> 示例值：
-   */
-  @SerializedName("job_manager")
-  private JobManager jobManager;
-
-  // builder 开始
-  public CombinedJobResult() {
-  }
-
-  public CombinedJobResult(Builder builder) {
     /**
      * 职位广告
      * <p> 示例值：
      */
-    this.defaultJobPost = builder.defaultJobPost;
-    /**
-     * 职位
-     * <p> 示例值：
-     */
-    this.job = builder.job;
-    /**
-     * 职位负责人
-     * <p> 示例值：
-     */
-    this.jobManager = builder.jobManager;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CombinedJobResultDefaultJobPost getDefaultJobPost() {
-    return this.defaultJobPost;
-  }
-
-  public void setDefaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
-    this.defaultJobPost = defaultJobPost;
-  }
-
-  public Job getJob() {
-    return this.job;
-  }
-
-  public void setJob(Job job) {
-    this.job = job;
-  }
-
-  public JobManager getJobManager() {
-    return this.jobManager;
-  }
-
-  public void setJobManager(JobManager jobManager) {
-    this.jobManager = jobManager;
-  }
-
-  public static class Builder {
-
-    /**
-     * 职位广告
-     * <p> 示例值：
-     */
+    @SerializedName("default_job_post")
     private CombinedJobResultDefaultJobPost defaultJobPost;
     /**
      * 职位
      * <p> 示例值：
      */
+    @SerializedName("job")
     private Job job;
     /**
      * 职位负责人
      * <p> 示例值：
      */
+    @SerializedName("job_manager")
     private JobManager jobManager;
 
-    /**
-     * 职位广告
-     * <p> 示例值：
-     *
-     * @param defaultJobPost
-     * @return
-     */
-    public Builder defaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
-      this.defaultJobPost = defaultJobPost;
-      return this;
+    // builder 开始
+    public CombinedJobResult() {
     }
 
-
-    /**
-     * 职位
-     * <p> 示例值：
-     *
-     * @param job
-     * @return
-     */
-    public Builder job(Job job) {
-      this.job = job;
-      return this;
+    public CombinedJobResult(Builder builder) {
+        /**
+         * 职位广告
+         * <p> 示例值：
+         */
+        this.defaultJobPost = builder.defaultJobPost;
+        /**
+         * 职位
+         * <p> 示例值：
+         */
+        this.job = builder.job;
+        /**
+         * 职位负责人
+         * <p> 示例值：
+         */
+        this.jobManager = builder.jobManager;
     }
 
-
-    /**
-     * 职位负责人
-     * <p> 示例值：
-     *
-     * @param jobManager
-     * @return
-     */
-    public Builder jobManager(JobManager jobManager) {
-      this.jobManager = jobManager;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public CombinedJobResult build() {
-      return new CombinedJobResult(this);
+    public CombinedJobResultDefaultJobPost getDefaultJobPost() {
+        return this.defaultJobPost;
     }
-  }
+
+    public void setDefaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
+        this.defaultJobPost = defaultJobPost;
+    }
+
+    public Job getJob() {
+        return this.job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public JobManager getJobManager() {
+        return this.jobManager;
+    }
+
+    public void setJobManager(JobManager jobManager) {
+        this.jobManager = jobManager;
+    }
+
+    public static class Builder {
+        /**
+         * 职位广告
+         * <p> 示例值：
+         */
+        private CombinedJobResultDefaultJobPost defaultJobPost;
+        /**
+         * 职位
+         * <p> 示例值：
+         */
+        private Job job;
+        /**
+         * 职位负责人
+         * <p> 示例值：
+         */
+        private JobManager jobManager;
+
+        /**
+         * 职位广告
+         * <p> 示例值：
+         *
+         * @param defaultJobPost
+         * @return
+         */
+        public Builder defaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
+            this.defaultJobPost = defaultJobPost;
+            return this;
+        }
+
+
+        /**
+         * 职位
+         * <p> 示例值：
+         *
+         * @param job
+         * @return
+         */
+        public Builder job(Job job) {
+            this.job = job;
+            return this;
+        }
+
+
+        /**
+         * 职位负责人
+         * <p> 示例值：
+         *
+         * @param jobManager
+         * @return
+         */
+        public Builder jobManager(JobManager jobManager) {
+            this.jobManager = jobManager;
+            return this;
+        }
+
+
+        public CombinedJobResult build() {
+            return new CombinedJobResult(this);
+        }
+    }
 }

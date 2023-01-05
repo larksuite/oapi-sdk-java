@@ -16,62 +16,61 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListAppRoleRespBody {
+    /**
+     * 自定义角色列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private AppRole[] items;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 总数
+     * <p> 示例值：
+     */
+    @SerializedName("total")
+    private Integer total;
 
-  /**
-   * 自定义角色列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private AppRole[] items;
-  /**
-   * 下一页分页的token
-   * <p> 示例值：
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有下一页数据
-   * <p> 示例值：
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 总数
-   * <p> 示例值：
-   */
-  @SerializedName("total")
-  private Integer total;
+    public AppRole[] getItems() {
+        return this.items;
+    }
 
-  public AppRole[] getItems() {
-    return this.items;
-  }
+    public void setItems(AppRole[] items) {
+        this.items = items;
+    }
 
-  public void setItems(AppRole[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public Integer getTotal() {
-    return this.total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
 }

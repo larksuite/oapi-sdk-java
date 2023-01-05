@@ -16,61 +16,59 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SetPermissionMeetingRecordingReqBody {
-
-  /**
-   * 授权对象列表
-   * <p> 示例值：
-   */
-  @SerializedName("permission_objects")
-  private RecordingPermissionObject[] permissionObjects;
-
-  // builder 开始
-  public SetPermissionMeetingRecordingReqBody() {
-  }
-
-  public SetPermissionMeetingRecordingReqBody(Builder builder) {
     /**
      * 授权对象列表
      * <p> 示例值：
      */
-    this.permissionObjects = builder.permissionObjects;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public RecordingPermissionObject[] getPermissionObjects() {
-    return this.permissionObjects;
-  }
-
-  public void setPermissionObjects(RecordingPermissionObject[] permissionObjects) {
-    this.permissionObjects = permissionObjects;
-  }
-
-  public static class Builder {
-
-    /**
-     * 授权对象列表
-     * <p> 示例值：
-     */
+    @SerializedName("permission_objects")
     private RecordingPermissionObject[] permissionObjects;
 
-    /**
-     * 授权对象列表
-     * <p> 示例值：
-     *
-     * @param permissionObjects
-     * @return
-     */
-    public Builder permissionObjects(RecordingPermissionObject[] permissionObjects) {
-      this.permissionObjects = permissionObjects;
-      return this;
+    // builder 开始
+    public SetPermissionMeetingRecordingReqBody() {
     }
 
-
-    public SetPermissionMeetingRecordingReqBody build() {
-      return new SetPermissionMeetingRecordingReqBody(this);
+    public SetPermissionMeetingRecordingReqBody(Builder builder) {
+        /**
+         * 授权对象列表
+         * <p> 示例值：
+         */
+        this.permissionObjects = builder.permissionObjects;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public RecordingPermissionObject[] getPermissionObjects() {
+        return this.permissionObjects;
+    }
+
+    public void setPermissionObjects(RecordingPermissionObject[] permissionObjects) {
+        this.permissionObjects = permissionObjects;
+    }
+
+    public static class Builder {
+        /**
+         * 授权对象列表
+         * <p> 示例值：
+         */
+        private RecordingPermissionObject[] permissionObjects;
+
+        /**
+         * 授权对象列表
+         * <p> 示例值：
+         *
+         * @param permissionObjects
+         * @return
+         */
+        public Builder permissionObjects(RecordingPermissionObject[] permissionObjects) {
+            this.permissionObjects = permissionObjects;
+            return this;
+        }
+
+
+        public SetPermissionMeetingRecordingReqBody build() {
+            return new SetPermissionMeetingRecordingReqBody(this);
+        }
+    }
 }

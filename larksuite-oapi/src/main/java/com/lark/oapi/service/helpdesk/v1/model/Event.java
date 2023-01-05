@@ -16,98 +16,96 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Event {
-
-  /**
-   * 事件类型
-   * <p> 示例值：helpdesk.ticket_message
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 事件子类型
-   * <p> 示例值：ticket_message.created_v1
-   */
-  @SerializedName("subtype")
-  private String subtype;
-
-  // builder 开始
-  public Event() {
-  }
-
-  public Event(Builder builder) {
     /**
      * 事件类型
      * <p> 示例值：helpdesk.ticket_message
      */
-    this.type = builder.type;
-    /**
-     * 事件子类型
-     * <p> 示例值：ticket_message.created_v1
-     */
-    this.subtype = builder.subtype;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getSubtype() {
-    return this.subtype;
-  }
-
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
-
-  public static class Builder {
-
-    /**
-     * 事件类型
-     * <p> 示例值：helpdesk.ticket_message
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 事件子类型
      * <p> 示例值：ticket_message.created_v1
      */
+    @SerializedName("subtype")
     private String subtype;
 
-    /**
-     * 事件类型
-     * <p> 示例值：helpdesk.ticket_message
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public Event() {
     }
 
-
-    /**
-     * 事件子类型
-     * <p> 示例值：ticket_message.created_v1
-     *
-     * @param subtype
-     * @return
-     */
-    public Builder subtype(String subtype) {
-      this.subtype = subtype;
-      return this;
+    public Event(Builder builder) {
+        /**
+         * 事件类型
+         * <p> 示例值：helpdesk.ticket_message
+         */
+        this.type = builder.type;
+        /**
+         * 事件子类型
+         * <p> 示例值：ticket_message.created_v1
+         */
+        this.subtype = builder.subtype;
     }
 
-
-    public Event build() {
-      return new Event(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getSubtype() {
+        return this.subtype;
+    }
+
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
+    }
+
+    public static class Builder {
+        /**
+         * 事件类型
+         * <p> 示例值：helpdesk.ticket_message
+         */
+        private String type;
+        /**
+         * 事件子类型
+         * <p> 示例值：ticket_message.created_v1
+         */
+        private String subtype;
+
+        /**
+         * 事件类型
+         * <p> 示例值：helpdesk.ticket_message
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 事件子类型
+         * <p> 示例值：ticket_message.created_v1
+         *
+         * @param subtype
+         * @return
+         */
+        public Builder subtype(String subtype) {
+            this.subtype = subtype;
+            return this;
+        }
+
+
+        public Event build() {
+            return new Event(this);
+        }
+    }
 }

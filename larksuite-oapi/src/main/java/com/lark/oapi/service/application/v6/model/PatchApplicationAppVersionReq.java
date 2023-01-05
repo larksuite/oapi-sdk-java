@@ -19,229 +19,226 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class PatchApplicationAppVersionReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 操作者的 open_id
-   * <p> 示例值：ou_4065981088f8ef67a504ba8bd6b24d85
-   */
-  @Query
-  @SerializedName("operator_id")
-  private String operatorId;
-  /**
-   * 当修改版本状态为被驳回时，这一项必填
-   * <p> 示例值：拒绝理由
-   */
-  @Query
-  @SerializedName("reject_reason")
-  private String rejectReason;
-  /**
-   * 应用 id
-   * <p> 示例值：cli_9f3ca975326b501b
-   */
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  /**
-   * 唯一标识应用版本的 ID
-   * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-   */
-  @Path
-  @SerializedName("version_id")
-  private String versionId;
-  @Body
-  private ApplicationAppVersion body;
-
-  // builder 开始
-  public PatchApplicationAppVersionReq() {
-  }
-
-  public PatchApplicationAppVersionReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 操作者的 open_id
      * <p> 示例值：ou_4065981088f8ef67a504ba8bd6b24d85
      */
-    this.operatorId = builder.operatorId;
+    @Query
+    @SerializedName("operator_id")
+    private String operatorId;
     /**
      * 当修改版本状态为被驳回时，这一项必填
      * <p> 示例值：拒绝理由
      */
-    this.rejectReason = builder.rejectReason;
+    @Query
+    @SerializedName("reject_reason")
+    private String rejectReason;
     /**
      * 应用 id
      * <p> 示例值：cli_9f3ca975326b501b
      */
-    this.appId = builder.appId;
+    @Path
+    @SerializedName("app_id")
+    private String appId;
     /**
      * 唯一标识应用版本的 ID
      * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
      */
-    this.versionId = builder.versionId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public String getRejectReason() {
-    return this.rejectReason;
-  }
-
-  public void setRejectReason(String rejectReason) {
-    this.rejectReason = rejectReason;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public ApplicationAppVersion getApplicationAppVersion() {
-    return this.body;
-  }
-
-  public void setApplicationAppVersion(ApplicationAppVersion body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String operatorId; // 操作者的 open_id
-    private String rejectReason; // 当修改版本状态为被驳回时，这一项必填
-    private String appId; // 应用 id
-    private String versionId; // 唯一标识应用版本的 ID
+    @Path
+    @SerializedName("version_id")
+    private String versionId;
+    @Body
     private ApplicationAppVersion body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public PatchApplicationAppVersionReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.application.v6.enums.PatchApplicationAppVersionUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.PatchApplicationAppVersionUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public PatchApplicationAppVersionReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 操作者的 open_id
+         * <p> 示例值：ou_4065981088f8ef67a504ba8bd6b24d85
+         */
+        this.operatorId = builder.operatorId;
+        /**
+         * 当修改版本状态为被驳回时，这一项必填
+         * <p> 示例值：拒绝理由
+         */
+        this.rejectReason = builder.rejectReason;
+        /**
+         * 应用 id
+         * <p> 示例值：cli_9f3ca975326b501b
+         */
+        this.appId = builder.appId;
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         */
+        this.versionId = builder.versionId;
+        this.body = builder.body;
     }
 
-    /**
-     * 操作者的 open_id
-     * <p> 示例值：ou_4065981088f8ef67a504ba8bd6b24d85
-     *
-     * @param operatorId
-     * @return
-     */
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 当修改版本状态为被驳回时，这一项必填
-     * <p> 示例值：拒绝理由
-     *
-     * @param rejectReason
-     * @return
-     */
-    public Builder rejectReason(String rejectReason) {
-      this.rejectReason = rejectReason;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    /**
-     * 应用 id
-     * <p> 示例值：cli_9f3ca975326b501b
-     *
-     * @param appId
-     * @return
-     */
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    /**
-     * 唯一标识应用版本的 ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     *
-     * @param versionId
-     * @return
-     */
-    public Builder versionId(String versionId) {
-      this.versionId = versionId;
-      return this;
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    public String getRejectReason() {
+        return this.rejectReason;
+    }
+
+    public void setRejectReason(String rejectReason) {
+        this.rejectReason = rejectReason;
+    }
+
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
     }
 
     public ApplicationAppVersion getApplicationAppVersion() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder applicationAppVersion(ApplicationAppVersion body) {
-      this.body = body;
-      return this;
+    public void setApplicationAppVersion(ApplicationAppVersion body) {
+        this.body = body;
     }
 
-    public PatchApplicationAppVersionReq build() {
-      return new PatchApplicationAppVersionReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String operatorId; // 操作者的 open_id
+        private String rejectReason; // 当修改版本状态为被驳回时，这一项必填
+        private String appId; // 应用 id
+        private String versionId; // 唯一标识应用版本的 ID
+        private ApplicationAppVersion body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.application.v6.enums.PatchApplicationAppVersionUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.application.v6.enums.PatchApplicationAppVersionUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 操作者的 open_id
+         * <p> 示例值：ou_4065981088f8ef67a504ba8bd6b24d85
+         *
+         * @param operatorId
+         * @return
+         */
+        public Builder operatorId(String operatorId) {
+            this.operatorId = operatorId;
+            return this;
+        }
+
+        /**
+         * 当修改版本状态为被驳回时，这一项必填
+         * <p> 示例值：拒绝理由
+         *
+         * @param rejectReason
+         * @return
+         */
+        public Builder rejectReason(String rejectReason) {
+            this.rejectReason = rejectReason;
+            return this;
+        }
+
+        /**
+         * 应用 id
+         * <p> 示例值：cli_9f3ca975326b501b
+         *
+         * @param appId
+         * @return
+         */
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         *
+         * @param versionId
+         * @return
+         */
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
+
+        public ApplicationAppVersion getApplicationAppVersion() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder applicationAppVersion(ApplicationAppVersion body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchApplicationAppVersionReq build() {
+            return new PatchApplicationAppVersionReq(this);
+        }
     }
-  }
 }

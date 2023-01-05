@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户激活状态
  */
 public enum AdminUserStatUserActiveFlagEnum {
-  INACTIVE(0), // 未激活
-  ACTIVE(1), // 已激活
-  ;
-  private Integer value;
+    INACTIVE(0), // 未激活
+    ACTIVE(1), // 已激活
+    ;
+    private Integer value;
 
-  AdminUserStatUserActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    AdminUserStatUserActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

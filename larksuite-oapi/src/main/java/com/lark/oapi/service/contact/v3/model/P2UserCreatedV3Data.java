@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2UserCreatedV3Data {
+    /**
+     * 事件信息
+     * <p> 示例值：
+     */
+    @SerializedName("object")
+    private UserEvent object;
 
-  /**
-   * 事件信息
-   * <p> 示例值：
-   */
-  @SerializedName("object")
-  private UserEvent object;
+    public UserEvent getObject() {
+        return this.object;
+    }
 
-  public UserEvent getObject() {
-    return this.object;
-  }
-
-  public void setObject(UserEvent object) {
-    this.object = object;
-  }
+    public void setObject(UserEvent object) {
+        this.object = object;
+    }
 
 }

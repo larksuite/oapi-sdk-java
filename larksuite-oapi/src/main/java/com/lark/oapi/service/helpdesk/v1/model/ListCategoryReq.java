@@ -17,126 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListCategoryReq {
-
-  /**
-   * 知识库分类语言
-   * <p> 示例值：zh_cn
-   */
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  /**
-   * 排序键。1: 根据知识库分类更新时间排序
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("order_by")
-  private Integer orderBy;
-  /**
-   * 顺序。true: 正序；false：反序
-   * <p> 示例值：true
-   */
-  @Query
-  @SerializedName("asc")
-  private Boolean asc;
-
-  // builder 开始
-  public ListCategoryReq() {
-  }
-
-  public ListCategoryReq(Builder builder) {
     /**
      * 知识库分类语言
      * <p> 示例值：zh_cn
      */
-    this.lang = builder.lang;
+    @Query
+    @SerializedName("lang")
+    private String lang;
     /**
      * 排序键。1: 根据知识库分类更新时间排序
      * <p> 示例值：1
      */
-    this.orderBy = builder.orderBy;
+    @Query
+    @SerializedName("order_by")
+    private Integer orderBy;
     /**
      * 顺序。true: 正序；false：反序
      * <p> 示例值：true
      */
-    this.asc = builder.asc;
-  }
+    @Query
+    @SerializedName("asc")
+    private Boolean asc;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public Integer getOrderBy() {
-    return this.orderBy;
-  }
-
-  public void setOrderBy(Integer orderBy) {
-    this.orderBy = orderBy;
-  }
-
-  public Boolean getAsc() {
-    return this.asc;
-  }
-
-  public void setAsc(Boolean asc) {
-    this.asc = asc;
-  }
-
-  public static class Builder {
-
-    private String lang; // 知识库分类语言
-    private Integer orderBy; // 排序键。1: 根据知识库分类更新时间排序
-    private Boolean asc; // 顺序。true: 正序；false：反序
-
-
-    /**
-     * 知识库分类语言
-     * <p> 示例值：zh_cn
-     *
-     * @param lang
-     * @return
-     */
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
+    // builder 开始
+    public ListCategoryReq() {
     }
 
-
-    /**
-     * 排序键。1: 根据知识库分类更新时间排序
-     * <p> 示例值：1
-     *
-     * @param orderBy
-     * @return
-     */
-    public Builder orderBy(Integer orderBy) {
-      this.orderBy = orderBy;
-      return this;
+    public ListCategoryReq(Builder builder) {
+        /**
+         * 知识库分类语言
+         * <p> 示例值：zh_cn
+         */
+        this.lang = builder.lang;
+        /**
+         * 排序键。1: 根据知识库分类更新时间排序
+         * <p> 示例值：1
+         */
+        this.orderBy = builder.orderBy;
+        /**
+         * 顺序。true: 正序；false：反序
+         * <p> 示例值：true
+         */
+        this.asc = builder.asc;
     }
 
-
-    /**
-     * 顺序。true: 正序；false：反序
-     * <p> 示例值：true
-     *
-     * @param asc
-     * @return
-     */
-    public Builder asc(Boolean asc) {
-      this.asc = asc;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public ListCategoryReq build() {
-      return new ListCategoryReq(this);
+    public String getLang() {
+        return this.lang;
     }
-  }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public Integer getOrderBy() {
+        return this.orderBy;
+    }
+
+    public void setOrderBy(Integer orderBy) {
+        this.orderBy = orderBy;
+    }
+
+    public Boolean getAsc() {
+        return this.asc;
+    }
+
+    public void setAsc(Boolean asc) {
+        this.asc = asc;
+    }
+
+    public static class Builder {
+        private String lang; // 知识库分类语言
+        private Integer orderBy; // 排序键。1: 根据知识库分类更新时间排序
+        private Boolean asc; // 顺序。true: 正序；false：反序
+
+
+        /**
+         * 知识库分类语言
+         * <p> 示例值：zh_cn
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
+
+
+        /**
+         * 排序键。1: 根据知识库分类更新时间排序
+         * <p> 示例值：1
+         *
+         * @param orderBy
+         * @return
+         */
+        public Builder orderBy(Integer orderBy) {
+            this.orderBy = orderBy;
+            return this;
+        }
+
+
+        /**
+         * 顺序。true: 正序；false：反序
+         * <p> 示例值：true
+         *
+         * @param asc
+         * @return
+         */
+        public Builder asc(Boolean asc) {
+            this.asc = asc;
+            return this;
+        }
+
+        public ListCategoryReq build() {
+            return new ListCategoryReq(this);
+        }
+    }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum SubscribeFileFileTypeEnum {
-  DOC("doc"), // 文档
-  DOCX("docx"), // docx文档
-  SHEET("sheet"), // 表格
-  BITABLE("bitable"), // 多维表格
-  ;
-  private String value;
+    DOC("doc"), // 文档
+    DOCX("docx"), // docx文档
+    SHEET("sheet"), // 表格
+    BITABLE("bitable"), // 多维表格
+    ;
+    private String value;
 
-  SubscribeFileFileTypeEnum(String value) {
-    this.value = value;
-  }
+    SubscribeFileFileTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

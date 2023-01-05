@@ -16,283 +16,281 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FaceOcclude {
-
-  /**
-   * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.02345
-   */
-  @SerializedName("eyebrow")
-  private Double eyebrow;
-  /**
-   * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.99876
-   */
-  @SerializedName("nose")
-  private Double nose;
-  /**
-   * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.88767
-   */
-  @SerializedName("cheek")
-  private Double cheek;
-  /**
-   * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.45678
-   */
-  @SerializedName("mouth")
-  private Double mouth;
-  /**
-   * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.66436
-   */
-  @SerializedName("chin")
-  private Double chin;
-  /**
-   * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.87699
-   */
-  @SerializedName("left_eye")
-  private Double leftEye;
-  /**
-   * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-   * <p> 示例值：0.78884
-   */
-  @SerializedName("right_eye")
-  private Double rightEye;
-
-  // builder 开始
-  public FaceOcclude() {
-  }
-
-  public FaceOcclude(Builder builder) {
     /**
      * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.02345
      */
-    this.eyebrow = builder.eyebrow;
-    /**
-     * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.99876
-     */
-    this.nose = builder.nose;
-    /**
-     * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.88767
-     */
-    this.cheek = builder.cheek;
-    /**
-     * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.45678
-     */
-    this.mouth = builder.mouth;
-    /**
-     * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.66436
-     */
-    this.chin = builder.chin;
-    /**
-     * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.87699
-     */
-    this.leftEye = builder.leftEye;
-    /**
-     * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.78884
-     */
-    this.rightEye = builder.rightEye;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Double getEyebrow() {
-    return this.eyebrow;
-  }
-
-  public void setEyebrow(Double eyebrow) {
-    this.eyebrow = eyebrow;
-  }
-
-  public Double getNose() {
-    return this.nose;
-  }
-
-  public void setNose(Double nose) {
-    this.nose = nose;
-  }
-
-  public Double getCheek() {
-    return this.cheek;
-  }
-
-  public void setCheek(Double cheek) {
-    this.cheek = cheek;
-  }
-
-  public Double getMouth() {
-    return this.mouth;
-  }
-
-  public void setMouth(Double mouth) {
-    this.mouth = mouth;
-  }
-
-  public Double getChin() {
-    return this.chin;
-  }
-
-  public void setChin(Double chin) {
-    this.chin = chin;
-  }
-
-  public Double getLeftEye() {
-    return this.leftEye;
-  }
-
-  public void setLeftEye(Double leftEye) {
-    this.leftEye = leftEye;
-  }
-
-  public Double getRightEye() {
-    return this.rightEye;
-  }
-
-  public void setRightEye(Double rightEye) {
-    this.rightEye = rightEye;
-  }
-
-  public static class Builder {
-
-    /**
-     * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.02345
-     */
+    @SerializedName("eyebrow")
     private Double eyebrow;
     /**
      * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.99876
      */
+    @SerializedName("nose")
     private Double nose;
     /**
      * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.88767
      */
+    @SerializedName("cheek")
     private Double cheek;
     /**
      * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.45678
      */
+    @SerializedName("mouth")
     private Double mouth;
     /**
      * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.66436
      */
+    @SerializedName("chin")
     private Double chin;
     /**
      * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.87699
      */
+    @SerializedName("left_eye")
     private Double leftEye;
     /**
      * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
      * <p> 示例值：0.78884
      */
+    @SerializedName("right_eye")
     private Double rightEye;
 
-    /**
-     * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.02345
-     *
-     * @param eyebrow
-     * @return
-     */
-    public Builder eyebrow(Double eyebrow) {
-      this.eyebrow = eyebrow;
-      return this;
+    // builder 开始
+    public FaceOcclude() {
     }
 
-
-    /**
-     * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.99876
-     *
-     * @param nose
-     * @return
-     */
-    public Builder nose(Double nose) {
-      this.nose = nose;
-      return this;
+    public FaceOcclude(Builder builder) {
+        /**
+         * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.02345
+         */
+        this.eyebrow = builder.eyebrow;
+        /**
+         * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.99876
+         */
+        this.nose = builder.nose;
+        /**
+         * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.88767
+         */
+        this.cheek = builder.cheek;
+        /**
+         * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.45678
+         */
+        this.mouth = builder.mouth;
+        /**
+         * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.66436
+         */
+        this.chin = builder.chin;
+        /**
+         * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.87699
+         */
+        this.leftEye = builder.leftEye;
+        /**
+         * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.78884
+         */
+        this.rightEye = builder.rightEye;
     }
 
-
-    /**
-     * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.88767
-     *
-     * @param cheek
-     * @return
-     */
-    public Builder cheek(Double cheek) {
-      this.cheek = cheek;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.45678
-     *
-     * @param mouth
-     * @return
-     */
-    public Builder mouth(Double mouth) {
-      this.mouth = mouth;
-      return this;
+    public Double getEyebrow() {
+        return this.eyebrow;
     }
 
-
-    /**
-     * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.66436
-     *
-     * @param chin
-     * @return
-     */
-    public Builder chin(Double chin) {
-      this.chin = chin;
-      return this;
+    public void setEyebrow(Double eyebrow) {
+        this.eyebrow = eyebrow;
     }
 
-
-    /**
-     * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.87699
-     *
-     * @param leftEye
-     * @return
-     */
-    public Builder leftEye(Double leftEye) {
-      this.leftEye = leftEye;
-      return this;
+    public Double getNose() {
+        return this.nose;
     }
 
-
-    /**
-     * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
-     * <p> 示例值：0.78884
-     *
-     * @param rightEye
-     * @return
-     */
-    public Builder rightEye(Double rightEye) {
-      this.rightEye = rightEye;
-      return this;
+    public void setNose(Double nose) {
+        this.nose = nose;
     }
 
-
-    public FaceOcclude build() {
-      return new FaceOcclude(this);
+    public Double getCheek() {
+        return this.cheek;
     }
-  }
+
+    public void setCheek(Double cheek) {
+        this.cheek = cheek;
+    }
+
+    public Double getMouth() {
+        return this.mouth;
+    }
+
+    public void setMouth(Double mouth) {
+        this.mouth = mouth;
+    }
+
+    public Double getChin() {
+        return this.chin;
+    }
+
+    public void setChin(Double chin) {
+        this.chin = chin;
+    }
+
+    public Double getLeftEye() {
+        return this.leftEye;
+    }
+
+    public void setLeftEye(Double leftEye) {
+        this.leftEye = leftEye;
+    }
+
+    public Double getRightEye() {
+        return this.rightEye;
+    }
+
+    public void setRightEye(Double rightEye) {
+        this.rightEye = rightEye;
+    }
+
+    public static class Builder {
+        /**
+         * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.02345
+         */
+        private Double eyebrow;
+        /**
+         * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.99876
+         */
+        private Double nose;
+        /**
+         * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.88767
+         */
+        private Double cheek;
+        /**
+         * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.45678
+         */
+        private Double mouth;
+        /**
+         * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.66436
+         */
+        private Double chin;
+        /**
+         * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.87699
+         */
+        private Double leftEye;
+        /**
+         * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.78884
+         */
+        private Double rightEye;
+
+        /**
+         * 眉毛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.02345
+         *
+         * @param eyebrow
+         * @return
+         */
+        public Builder eyebrow(Double eyebrow) {
+            this.eyebrow = eyebrow;
+            return this;
+        }
+
+
+        /**
+         * 鼻子被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.99876
+         *
+         * @param nose
+         * @return
+         */
+        public Builder nose(Double nose) {
+            this.nose = nose;
+            return this;
+        }
+
+
+        /**
+         * 脸颊被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.88767
+         *
+         * @param cheek
+         * @return
+         */
+        public Builder cheek(Double cheek) {
+            this.cheek = cheek;
+            return this;
+        }
+
+
+        /**
+         * 嘴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.45678
+         *
+         * @param mouth
+         * @return
+         */
+        public Builder mouth(Double mouth) {
+            this.mouth = mouth;
+            return this;
+        }
+
+
+        /**
+         * 下巴被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.66436
+         *
+         * @param chin
+         * @return
+         */
+        public Builder chin(Double chin) {
+            this.chin = chin;
+            return this;
+        }
+
+
+        /**
+         * 左眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.87699
+         *
+         * @param leftEye
+         * @return
+         */
+        public Builder leftEye(Double leftEye) {
+            this.leftEye = leftEye;
+            return this;
+        }
+
+
+        /**
+         * 右眼睛被遮挡情况：[0, 1] 值越大被遮挡的概率越高
+         * <p> 示例值：0.78884
+         *
+         * @param rightEye
+         * @return
+         */
+        public Builder rightEye(Double rightEye) {
+            this.rightEye = rightEye;
+            return this;
+        }
+
+
+        public FaceOcclude build() {
+            return new FaceOcclude(this);
+        }
+    }
 }

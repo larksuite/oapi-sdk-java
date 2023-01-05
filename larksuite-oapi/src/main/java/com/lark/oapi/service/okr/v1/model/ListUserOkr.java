@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListUserOkr {
 
-  /**
-   * OKR周期总数
-   * <p> 示例值：5
-   */
-  @SerializedName("total")
-  private Integer total;
-  /**
-   * OKR 列表
-   * <p> 示例值：
-   */
-  @SerializedName("okr_list")
-  private OkrBatch[] okrList;
+    /**
+     * OKR周期总数
+     * <p> 示例值：5
+     */
+    @SerializedName("total")
+    private Integer total;
+    /**
+     * OKR 列表
+     * <p> 示例值：
+     */
+    @SerializedName("okr_list")
+    private OkrBatch[] okrList;
 
-  public Integer getTotal() {
-    return this.total;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
-  public OkrBatch[] getOkrList() {
-    return this.okrList;
-  }
+    public OkrBatch[] getOkrList() {
+        return this.okrList;
+    }
 
-  public void setOkrList(OkrBatch[] okrList) {
-    this.okrList = okrList;
-  }
+    public void setOkrList(OkrBatch[] okrList) {
+        this.okrList = okrList;
+    }
 
 }

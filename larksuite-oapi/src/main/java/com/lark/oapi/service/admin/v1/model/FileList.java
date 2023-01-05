@@ -16,61 +16,59 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FileList {
-
-  /**
-   * 文档token
-   * <p> 示例值：
-   */
-  @SerializedName("files")
-  private File[] files;
-
-  // builder 开始
-  public FileList() {
-  }
-
-  public FileList(Builder builder) {
     /**
      * 文档token
      * <p> 示例值：
      */
-    this.files = builder.files;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public File[] getFiles() {
-    return this.files;
-  }
-
-  public void setFiles(File[] files) {
-    this.files = files;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档token
-     * <p> 示例值：
-     */
+    @SerializedName("files")
     private File[] files;
 
-    /**
-     * 文档token
-     * <p> 示例值：
-     *
-     * @param files
-     * @return
-     */
-    public Builder files(File[] files) {
-      this.files = files;
-      return this;
+    // builder 开始
+    public FileList() {
     }
 
-
-    public FileList build() {
-      return new FileList(this);
+    public FileList(Builder builder) {
+        /**
+         * 文档token
+         * <p> 示例值：
+         */
+        this.files = builder.files;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public File[] getFiles() {
+        return this.files;
+    }
+
+    public void setFiles(File[] files) {
+        this.files = files;
+    }
+
+    public static class Builder {
+        /**
+         * 文档token
+         * <p> 示例值：
+         */
+        private File[] files;
+
+        /**
+         * 文档token
+         * <p> 示例值：
+         *
+         * @param files
+         * @return
+         */
+        public Builder files(File[] files) {
+            this.files = files;
+            return this;
+        }
+
+
+        public FileList build() {
+            return new FileList(this);
+        }
+    }
 }

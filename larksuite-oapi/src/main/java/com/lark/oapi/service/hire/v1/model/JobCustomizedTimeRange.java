@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobCustomizedTimeRange {
-
-  /**
-   * 开始时间
-   * <p> 示例值：AA
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 结束时间
-   * <p> 示例值：AA
-   */
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public JobCustomizedTimeRange() {
-  }
-
-  public JobCustomizedTimeRange(Builder builder) {
     /**
      * 开始时间
      * <p> 示例值：AA
      */
-    this.startTime = builder.startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：AA
-     */
-    this.endTime = builder.endTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 开始时间
-     * <p> 示例值：AA
-     */
+    @SerializedName("start_time")
     private String startTime;
     /**
      * 结束时间
      * <p> 示例值：AA
      */
+    @SerializedName("end_time")
     private String endTime;
 
-    /**
-     * 开始时间
-     * <p> 示例值：AA
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    // builder 开始
+    public JobCustomizedTimeRange() {
     }
 
-
-    /**
-     * 结束时间
-     * <p> 示例值：AA
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public JobCustomizedTimeRange(Builder builder) {
+        /**
+         * 开始时间
+         * <p> 示例值：AA
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：AA
+         */
+        this.endTime = builder.endTime;
     }
 
-
-    public JobCustomizedTimeRange build() {
-      return new JobCustomizedTimeRange(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public static class Builder {
+        /**
+         * 开始时间
+         * <p> 示例值：AA
+         */
+        private String startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：AA
+         */
+        private String endTime;
+
+        /**
+         * 开始时间
+         * <p> 示例值：AA
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间
+         * <p> 示例值：AA
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        public JobCustomizedTimeRange build() {
+            return new JobCustomizedTimeRange(this);
+        }
+    }
 }

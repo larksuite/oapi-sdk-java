@@ -17,19 +17,19 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 视频会议类型
  */
 public enum VchatVcTypeEnum {
-  VC("vc"), // 飞书视频会议
-  THIRDPARTY("third_party"), // 第三方链接视频会议
-  NOMEETING("no_meeting"), // 无视频会议
-  LARKLIVE("lark_live"), // Lark直播
-  UNKNOWN("unknown"), // 未知类型
-  ;
-  private String value;
+    VC("vc"), // 飞书视频会议
+    THIRDPARTY("third_party"), // 第三方链接视频会议
+    NOMEETING("no_meeting"), // 无视频会议
+    LARKLIVE("lark_live"), // Lark直播
+    UNKNOWN("unknown"), // 未知类型
+    ;
+    private String value;
 
-  VchatVcTypeEnum(String value) {
-    this.value = value;
-  }
+    VchatVcTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class NavigateMeta {
-
-  /**
-   * 主导航小程序版本号
-   * <p> 示例值：1.0.0
-   */
-  @SerializedName("version")
-  private String version;
-  /**
-   * 默认图片 url
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("image_url")
-  private String imageUrl;
-  /**
-   * 选中态图片 url
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("hover_image_url")
-  private String hoverImageUrl;
-
-  // builder 开始
-  public NavigateMeta() {
-  }
-
-  public NavigateMeta(Builder builder) {
     /**
      * 主导航小程序版本号
      * <p> 示例值：1.0.0
      */
-    this.version = builder.version;
-    /**
-     * 默认图片 url
-     * <p> 示例值：https://www.example.com
-     */
-    this.imageUrl = builder.imageUrl;
-    /**
-     * 选中态图片 url
-     * <p> 示例值：https://www.example.com
-     */
-    this.hoverImageUrl = builder.hoverImageUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getImageUrl() {
-    return this.imageUrl;
-  }
-
-  public void setImageUrl(String imageUrl) {
-    this.imageUrl = imageUrl;
-  }
-
-  public String getHoverImageUrl() {
-    return this.hoverImageUrl;
-  }
-
-  public void setHoverImageUrl(String hoverImageUrl) {
-    this.hoverImageUrl = hoverImageUrl;
-  }
-
-  public static class Builder {
-
-    /**
-     * 主导航小程序版本号
-     * <p> 示例值：1.0.0
-     */
+    @SerializedName("version")
     private String version;
     /**
      * 默认图片 url
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("image_url")
     private String imageUrl;
     /**
      * 选中态图片 url
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("hover_image_url")
     private String hoverImageUrl;
 
-    /**
-     * 主导航小程序版本号
-     * <p> 示例值：1.0.0
-     *
-     * @param version
-     * @return
-     */
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    // builder 开始
+    public NavigateMeta() {
     }
 
-
-    /**
-     * 默认图片 url
-     * <p> 示例值：https://www.example.com
-     *
-     * @param imageUrl
-     * @return
-     */
-    public Builder imageUrl(String imageUrl) {
-      this.imageUrl = imageUrl;
-      return this;
+    public NavigateMeta(Builder builder) {
+        /**
+         * 主导航小程序版本号
+         * <p> 示例值：1.0.0
+         */
+        this.version = builder.version;
+        /**
+         * 默认图片 url
+         * <p> 示例值：https://www.example.com
+         */
+        this.imageUrl = builder.imageUrl;
+        /**
+         * 选中态图片 url
+         * <p> 示例值：https://www.example.com
+         */
+        this.hoverImageUrl = builder.hoverImageUrl;
     }
 
-
-    /**
-     * 选中态图片 url
-     * <p> 示例值：https://www.example.com
-     *
-     * @param hoverImageUrl
-     * @return
-     */
-    public Builder hoverImageUrl(String hoverImageUrl) {
-      this.hoverImageUrl = hoverImageUrl;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public NavigateMeta build() {
-      return new NavigateMeta(this);
+    public String getVersion() {
+        return this.version;
     }
-  }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getImageUrl() {
+        return this.imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getHoverImageUrl() {
+        return this.hoverImageUrl;
+    }
+
+    public void setHoverImageUrl(String hoverImageUrl) {
+        this.hoverImageUrl = hoverImageUrl;
+    }
+
+    public static class Builder {
+        /**
+         * 主导航小程序版本号
+         * <p> 示例值：1.0.0
+         */
+        private String version;
+        /**
+         * 默认图片 url
+         * <p> 示例值：https://www.example.com
+         */
+        private String imageUrl;
+        /**
+         * 选中态图片 url
+         * <p> 示例值：https://www.example.com
+         */
+        private String hoverImageUrl;
+
+        /**
+         * 主导航小程序版本号
+         * <p> 示例值：1.0.0
+         *
+         * @param version
+         * @return
+         */
+        public Builder version(String version) {
+            this.version = version;
+            return this;
+        }
+
+
+        /**
+         * 默认图片 url
+         * <p> 示例值：https://www.example.com
+         *
+         * @param imageUrl
+         * @return
+         */
+        public Builder imageUrl(String imageUrl) {
+            this.imageUrl = imageUrl;
+            return this;
+        }
+
+
+        /**
+         * 选中态图片 url
+         * <p> 示例值：https://www.example.com
+         *
+         * @param hoverImageUrl
+         * @return
+         */
+        public Builder hoverImageUrl(String hoverImageUrl) {
+            this.hoverImageUrl = hoverImageUrl;
+            return this;
+        }
+
+
+        public NavigateMeta build() {
+            return new NavigateMeta(this);
+        }
+    }
 }

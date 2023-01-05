@@ -16,91 +16,91 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1AppStatusChangedV6Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("operator")
-  private P1AppStatusChangeOperatorV6 operator;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("status")
+    private String status;
+    @SerializedName("operator")
+    private P1AppStatusChangeOperatorV6 operator;
 
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getTenantKey() {
-    return tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public P1AppStatusChangeOperatorV6 getOperator() {
-    return operator;
-  }
-
-  public void setOperator(
-      P1AppStatusChangeOperatorV6 operator) {
-    this.operator = operator;
-  }
-
-  public static class P1AppStatusChangeOperatorV6 {
-
-    @SerializedName("union_id")
-    private String unionId;
-    @SerializedName("open_id")
-    private String openId;
-    @SerializedName("user_id")
-    private String userId;
-
-    public String getOpenId() {
-      return openId;
+    public String getType() {
+        return type;
     }
 
-    public void setOpenId(String openId) {
-      this.openId = openId;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getUserId() {
-      return userId;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setUserId(String userId) {
-      this.userId = userId;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getUnionId() {
-      return unionId;
+    public String getTenantKey() {
+        return tenantKey;
     }
 
-    public void setUnionId(String unionId) {
-      this.unionId = unionId;
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
-  }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public P1AppStatusChangeOperatorV6 getOperator() {
+        return operator;
+    }
+
+    public void setOperator(
+            P1AppStatusChangeOperatorV6 operator) {
+        this.operator = operator;
+    }
+
+    public static class P1AppStatusChangeOperatorV6 {
+
+        @SerializedName("union_id")
+        private String unionId;
+        @SerializedName("open_id")
+        private String openId;
+        @SerializedName("user_id")
+        private String userId;
+
+        public String getOpenId() {
+            return openId;
+        }
+
+        public void setOpenId(String openId) {
+            this.openId = openId;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public String getUnionId() {
+            return unionId;
+        }
+
+        public void setUnionId(String unionId) {
+            this.unionId = unionId;
+        }
+
+    }
 
 }

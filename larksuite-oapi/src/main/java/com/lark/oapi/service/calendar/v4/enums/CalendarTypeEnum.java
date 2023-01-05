@@ -15,20 +15,20 @@ package com.lark.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum CalendarTypeEnum {
-  UNKNOWN("unknown"),
-  PRIMARY("primary"),
-  SHARED("shared"),
-  GOOGLE("google"),
-  RESOURCE("resource"),
-  EXCHANGE("exchange"),
-  ;
-  private String value;
+    UNKNOWN("unknown"),
+    PRIMARY("primary"),
+    SHARED("shared"),
+    GOOGLE("google"),
+    RESOURCE("resource"),
+    EXCHANGE("exchange"),
+    ;
+    private String value;
 
-  CalendarTypeEnum(String value) {
-    this.value = value;
-  }
+    CalendarTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

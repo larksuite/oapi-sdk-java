@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobProcess {
-
-  /**
-   * id
-   * <p> 示例值：
-   */
-  @SerializedName("your_property_name")
-  private String yourPropertyName;
-
-  // builder 开始
-  public JobProcess() {
-  }
-
-  public JobProcess(Builder builder) {
     /**
      * id
      * <p> 示例值：
      */
-    this.yourPropertyName = builder.yourPropertyName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getYourPropertyName() {
-    return this.yourPropertyName;
-  }
-
-  public void setYourPropertyName(String yourPropertyName) {
-    this.yourPropertyName = yourPropertyName;
-  }
-
-  public static class Builder {
-
-    /**
-     * id
-     * <p> 示例值：
-     */
+    @SerializedName("your_property_name")
     private String yourPropertyName;
 
-    /**
-     * id
-     * <p> 示例值：
-     *
-     * @param yourPropertyName
-     * @return
-     */
-    public Builder yourPropertyName(String yourPropertyName) {
-      this.yourPropertyName = yourPropertyName;
-      return this;
+    // builder 开始
+    public JobProcess() {
     }
 
-
-    public JobProcess build() {
-      return new JobProcess(this);
+    public JobProcess(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        this.yourPropertyName = builder.yourPropertyName;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getYourPropertyName() {
+        return this.yourPropertyName;
+    }
+
+    public void setYourPropertyName(String yourPropertyName) {
+        this.yourPropertyName = yourPropertyName;
+    }
+
+    public static class Builder {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        private String yourPropertyName;
+
+        /**
+         * id
+         * <p> 示例值：
+         *
+         * @param yourPropertyName
+         * @return
+         */
+        public Builder yourPropertyName(String yourPropertyName) {
+            this.yourPropertyName = yourPropertyName;
+            return this;
+        }
+
+
+        public JobProcess build() {
+            return new JobProcess(this);
+        }
+    }
 }

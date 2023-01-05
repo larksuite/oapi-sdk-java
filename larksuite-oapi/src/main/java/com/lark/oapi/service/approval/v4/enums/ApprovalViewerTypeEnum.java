@@ -17,18 +17,18 @@ package com.lark.oapi.service.approval.v4.enums;
  * 可见人类型，人员、部门或全体
  */
 public enum ApprovalViewerTypeEnum {
-  TENANT("TENANT"), // 所有人可见
-  USER("USER"), // 指定用户可见
-  DEPARTMENT("DEPARTMENT"), // 指定部门可见
-  NONE("NONE"), // 所有人不可见
-  ;
-  private String value;
+    TENANT("TENANT"), // 所有人可见
+    USER("USER"), // 指定用户可见
+    DEPARTMENT("DEPARTMENT"), // 指定部门可见
+    NONE("NONE"), // 所有人不可见
+    ;
+    private String value;
 
-  ApprovalViewerTypeEnum(String value) {
-    this.value = value;
-  }
+    ApprovalViewerTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

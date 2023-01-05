@@ -17,18 +17,18 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 参与人权限
  */
 public enum CalendarEventEventAttendeeAbilityEnum {
-  NONE("none"), // 无法编辑日程、无法邀请其它参与人、无法查看参与人列表
-  CANSEEOTHERS("can_see_others"), // 无法编辑日程、无法邀请其它参与人、可以查看参与人列表
-  CANINVITEOTHERS("can_invite_others"), // 无法编辑日程、可以邀请其它参与人、可以查看参与人列表
-  CANMODIFYEVENT("can_modify_event"), // 可以编辑日程、可以邀请其它参与人、可以查看参与人列表
-  ;
-  private String value;
+    NONE("none"), // 无法编辑日程、无法邀请其它参与人、无法查看参与人列表
+    CANSEEOTHERS("can_see_others"), // 无法编辑日程、无法邀请其它参与人、可以查看参与人列表
+    CANINVITEOTHERS("can_invite_others"), // 无法编辑日程、可以邀请其它参与人、可以查看参与人列表
+    CANMODIFYEVENT("can_modify_event"), // 可以编辑日程、可以邀请其它参与人、可以查看参与人列表
+    ;
+    private String value;
 
-  CalendarEventEventAttendeeAbilityEnum(String value) {
-    this.value = value;
-  }
+    CalendarEventEventAttendeeAbilityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

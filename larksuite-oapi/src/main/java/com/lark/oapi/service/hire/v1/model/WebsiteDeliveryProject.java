@@ -16,283 +16,281 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryProject {
-
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-  /**
-   * 描述
-   * <p> 示例值：项目描述：xxxx
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 结束时间, 如果是至今传值-1
-   * <p> 示例值：1618500278669
-   */
-  @SerializedName("end_time")
-  private Integer endTime;
-  /**
-   * 项目链接
-   * <p> 示例值：www.toutiao.com
-   */
-  @SerializedName("link")
-  private String link;
-  /**
-   * 项目名称
-   * <p> 示例值：XXX项目重构
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 角色
-   * <p> 示例值：项目经理
-   */
-  @SerializedName("role")
-  private String role;
-  /**
-   * 开始时间
-   * <p> 示例值：1609430400
-   */
-  @SerializedName("start_time")
-  private Integer startTime;
-
-  // builder 开始
-  public WebsiteDeliveryProject() {
-  }
-
-  public WebsiteDeliveryProject(Builder builder) {
     /**
      * 自定义字段
      * <p> 示例值：
      */
-    this.customizedData = builder.customizedData;
-    /**
-     * 描述
-     * <p> 示例值：项目描述：xxxx
-     */
-    this.desc = builder.desc;
-    /**
-     * 结束时间, 如果是至今传值-1
-     * <p> 示例值：1618500278669
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 项目链接
-     * <p> 示例值：www.toutiao.com
-     */
-    this.link = builder.link;
-    /**
-     * 项目名称
-     * <p> 示例值：XXX项目重构
-     */
-    this.name = builder.name;
-    /**
-     * 角色
-     * <p> 示例值：项目经理
-     */
-    this.role = builder.role;
-    /**
-     * 开始时间
-     * <p> 示例值：1609430400
-     */
-    this.startTime = builder.startTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public Integer getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(Integer endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getRole() {
-    return this.role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-  public Integer getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(Integer startTime) {
-    this.startTime = startTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
     /**
      * 描述
      * <p> 示例值：项目描述：xxxx
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 结束时间, 如果是至今传值-1
      * <p> 示例值：1618500278669
      */
+    @SerializedName("end_time")
     private Integer endTime;
     /**
      * 项目链接
      * <p> 示例值：www.toutiao.com
      */
+    @SerializedName("link")
     private String link;
     /**
      * 项目名称
      * <p> 示例值：XXX项目重构
      */
+    @SerializedName("name")
     private String name;
     /**
      * 角色
      * <p> 示例值：项目经理
      */
+    @SerializedName("role")
     private String role;
     /**
      * 开始时间
      * <p> 示例值：1609430400
      */
+    @SerializedName("start_time")
     private Integer startTime;
 
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryProject() {
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：项目描述：xxxx
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public WebsiteDeliveryProject(Builder builder) {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 描述
+         * <p> 示例值：项目描述：xxxx
+         */
+        this.desc = builder.desc;
+        /**
+         * 结束时间, 如果是至今传值-1
+         * <p> 示例值：1618500278669
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 项目链接
+         * <p> 示例值：www.toutiao.com
+         */
+        this.link = builder.link;
+        /**
+         * 项目名称
+         * <p> 示例值：XXX项目重构
+         */
+        this.name = builder.name;
+        /**
+         * 角色
+         * <p> 示例值：项目经理
+         */
+        this.role = builder.role;
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         */
+        this.startTime = builder.startTime;
     }
 
-
-    /**
-     * 结束时间, 如果是至今传值-1
-     * <p> 示例值：1618500278669
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(Integer endTime) {
-      this.endTime = endTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 项目链接
-     * <p> 示例值：www.toutiao.com
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
     }
 
-
-    /**
-     * 项目名称
-     * <p> 示例值：XXX项目重构
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
     }
 
-
-    /**
-     * 角色
-     * <p> 示例值：项目经理
-     *
-     * @param role
-     * @return
-     */
-    public Builder role(String role) {
-      this.role = role;
-      return this;
+    public String getDesc() {
+        return this.desc;
     }
 
-
-    /**
-     * 开始时间
-     * <p> 示例值：1609430400
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(Integer startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-
-    public WebsiteDeliveryProject build() {
-      return new WebsiteDeliveryProject(this);
+    public Integer getEndTime() {
+        return this.endTime;
     }
-  }
+
+    public void setEndTime(Integer endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRole() {
+        return this.role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Integer getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(Integer startTime) {
+        this.startTime = startTime;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+        /**
+         * 描述
+         * <p> 示例值：项目描述：xxxx
+         */
+        private String desc;
+        /**
+         * 结束时间, 如果是至今传值-1
+         * <p> 示例值：1618500278669
+         */
+        private Integer endTime;
+        /**
+         * 项目链接
+         * <p> 示例值：www.toutiao.com
+         */
+        private String link;
+        /**
+         * 项目名称
+         * <p> 示例值：XXX项目重构
+         */
+        private String name;
+        /**
+         * 角色
+         * <p> 示例值：项目经理
+         */
+        private String role;
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         */
+        private Integer startTime;
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：项目描述：xxxx
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 结束时间, 如果是至今传值-1
+         * <p> 示例值：1618500278669
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(Integer endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 项目链接
+         * <p> 示例值：www.toutiao.com
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        /**
+         * 项目名称
+         * <p> 示例值：XXX项目重构
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 角色
+         * <p> 示例值：项目经理
+         *
+         * @param role
+         * @return
+         */
+        public Builder role(String role) {
+            this.role = role;
+            return this;
+        }
+
+
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(Integer startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        public WebsiteDeliveryProject build() {
+            return new WebsiteDeliveryProject(this);
+        }
+    }
 }

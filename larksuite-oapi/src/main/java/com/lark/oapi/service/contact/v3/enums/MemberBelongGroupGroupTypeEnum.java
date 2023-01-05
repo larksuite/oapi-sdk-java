@@ -17,16 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 欲获取的用户组类型
  */
 public enum MemberBelongGroupGroupTypeEnum {
-  ASSIGN(1), // 普通用户组
-  DYNAMIC(2), // 动态用户组
-  ;
-  private Integer value;
+    ASSIGN(1), // 普通用户组
+    DYNAMIC(2), // 动态用户组
+    ;
+    private Integer value;
 
-  MemberBelongGroupGroupTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MemberBelongGroupGroupTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

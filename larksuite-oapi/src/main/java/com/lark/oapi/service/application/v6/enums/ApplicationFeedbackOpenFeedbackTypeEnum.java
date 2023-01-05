@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 反馈类型
  */
 public enum ApplicationFeedbackOpenFeedbackTypeEnum {
-  FAULT(1), // 故障反馈
-  ADVICE(2), // 产品建议
-  ;
-  private Integer value;
+    FAULT(1), // 故障反馈
+    ADVICE(2), // 产品建议
+    ;
+    private Integer value;
 
-  ApplicationFeedbackOpenFeedbackTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationFeedbackOpenFeedbackTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

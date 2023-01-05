@@ -16,110 +16,108 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Owner {
-
-  /**
-   * 文档拥有者的ID类型
-   * <p> 示例值：openid
-   */
-  @SerializedName("member_type")
-  private String memberType;
-  /**
-   * 文档拥有者的ID，与文档拥有者的ID类型需要对应
-   * <p> 示例值：string
-   */
-  @SerializedName("member_id")
-  private String memberId;
-
-  // builder 开始
-  public Owner() {
-  }
-
-  public Owner(Builder builder) {
     /**
      * 文档拥有者的ID类型
      * <p> 示例值：openid
      */
-    this.memberType = builder.memberType;
-    /**
-     * 文档拥有者的ID，与文档拥有者的ID类型需要对应
-     * <p> 示例值：string
-     */
-    this.memberId = builder.memberId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberType() {
-    return this.memberType;
-  }
-
-  public void setMemberType(String memberType) {
-    this.memberType = memberType;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档拥有者的ID类型
-     * <p> 示例值：openid
-     */
+    @SerializedName("member_type")
     private String memberType;
     /**
      * 文档拥有者的ID，与文档拥有者的ID类型需要对应
      * <p> 示例值：string
      */
+    @SerializedName("member_id")
     private String memberId;
 
-    /**
-     * 文档拥有者的ID类型
-     * <p> 示例值：openid
-     *
-     * @param memberType
-     * @return
-     */
-    public Builder memberType(String memberType) {
-      this.memberType = memberType;
-      return this;
+    // builder 开始
+    public Owner() {
     }
 
-    /**
-     * 文档拥有者的ID类型
-     * <p> 示例值：openid
-     *
-     * @param memberType {@link com.lark.oapi.service.drive.v1.enums.OwnerMemberTypeEnum}
-     * @return
-     */
-    public Builder memberType(com.lark.oapi.service.drive.v1.enums.OwnerMemberTypeEnum memberType) {
-      this.memberType = memberType.getValue();
-      return this;
+    public Owner(Builder builder) {
+        /**
+         * 文档拥有者的ID类型
+         * <p> 示例值：openid
+         */
+        this.memberType = builder.memberType;
+        /**
+         * 文档拥有者的ID，与文档拥有者的ID类型需要对应
+         * <p> 示例值：string
+         */
+        this.memberId = builder.memberId;
     }
 
-
-    /**
-     * 文档拥有者的ID，与文档拥有者的ID类型需要对应
-     * <p> 示例值：string
-     *
-     * @param memberId
-     * @return
-     */
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Owner build() {
-      return new Owner(this);
+    public String getMemberType() {
+        return this.memberType;
     }
-  }
+
+    public void setMemberType(String memberType) {
+        this.memberType = memberType;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public static class Builder {
+        /**
+         * 文档拥有者的ID类型
+         * <p> 示例值：openid
+         */
+        private String memberType;
+        /**
+         * 文档拥有者的ID，与文档拥有者的ID类型需要对应
+         * <p> 示例值：string
+         */
+        private String memberId;
+
+        /**
+         * 文档拥有者的ID类型
+         * <p> 示例值：openid
+         *
+         * @param memberType
+         * @return
+         */
+        public Builder memberType(String memberType) {
+            this.memberType = memberType;
+            return this;
+        }
+
+        /**
+         * 文档拥有者的ID类型
+         * <p> 示例值：openid
+         *
+         * @param memberType {@link com.lark.oapi.service.drive.v1.enums.OwnerMemberTypeEnum}
+         * @return
+         */
+        public Builder memberType(com.lark.oapi.service.drive.v1.enums.OwnerMemberTypeEnum memberType) {
+            this.memberType = memberType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文档拥有者的ID，与文档拥有者的ID类型需要对应
+         * <p> 示例值：string
+         *
+         * @param memberId
+         * @return
+         */
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+
+        public Owner build() {
+            return new Owner(this);
+        }
+    }
 }

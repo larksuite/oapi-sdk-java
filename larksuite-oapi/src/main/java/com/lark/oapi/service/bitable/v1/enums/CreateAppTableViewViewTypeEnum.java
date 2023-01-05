@@ -17,19 +17,19 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 视图类型
  */
 public enum CreateAppTableViewViewTypeEnum {
-  GRID("grid"), // 表格视图
-  KANBAN("kanban"), // 看板视图
-  GALLERY("gallery"), // 画册视图
-  GANTT("gantt"), // 甘特视图
-  FORM("form"), // 表单视图
-  ;
-  private String value;
+    GRID("grid"), // 表格视图
+    KANBAN("kanban"), // 看板视图
+    GALLERY("gallery"), // 画册视图
+    GANTT("gantt"), // 甘特视图
+    FORM("form"), // 表单视图
+    ;
+    private String value;
 
-  CreateAppTableViewViewTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateAppTableViewViewTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

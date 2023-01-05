@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateProgressRecordReqBody {
-
-  /**
-   * 进展详情 富文本格式
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private ContentBlock content;
-
-  // builder 开始
-  public UpdateProgressRecordReqBody() {
-  }
-
-  public UpdateProgressRecordReqBody(Builder builder) {
     /**
      * 进展详情 富文本格式
      * <p> 示例值：
      */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ContentBlock getContent() {
-    return this.content;
-  }
-
-  public void setContent(ContentBlock content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * 进展详情 富文本格式
-     * <p> 示例值：
-     */
+    @SerializedName("content")
     private ContentBlock content;
 
-    /**
-     * 进展详情 富文本格式
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(ContentBlock content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public UpdateProgressRecordReqBody() {
     }
 
-
-    public UpdateProgressRecordReqBody build() {
-      return new UpdateProgressRecordReqBody(this);
+    public UpdateProgressRecordReqBody(Builder builder) {
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         */
+        this.content = builder.content;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ContentBlock getContent() {
+        return this.content;
+    }
+
+    public void setContent(ContentBlock content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         */
+        private ContentBlock content;
+
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(ContentBlock content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public UpdateProgressRecordReqBody build() {
+            return new UpdateProgressRecordReqBody(this);
+        }
+    }
 }

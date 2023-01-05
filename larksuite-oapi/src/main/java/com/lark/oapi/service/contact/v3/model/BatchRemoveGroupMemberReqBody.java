@@ -16,61 +16,59 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchRemoveGroupMemberReqBody {
-
-  /**
-   * 待移除成员
-   * <p> 示例值：
-   */
-  @SerializedName("members")
-  private Memberlist[] members;
-
-  // builder 开始
-  public BatchRemoveGroupMemberReqBody() {
-  }
-
-  public BatchRemoveGroupMemberReqBody(Builder builder) {
     /**
      * 待移除成员
      * <p> 示例值：
      */
-    this.members = builder.members;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Memberlist[] getMembers() {
-    return this.members;
-  }
-
-  public void setMembers(Memberlist[] members) {
-    this.members = members;
-  }
-
-  public static class Builder {
-
-    /**
-     * 待移除成员
-     * <p> 示例值：
-     */
+    @SerializedName("members")
     private Memberlist[] members;
 
-    /**
-     * 待移除成员
-     * <p> 示例值：
-     *
-     * @param members
-     * @return
-     */
-    public Builder members(Memberlist[] members) {
-      this.members = members;
-      return this;
+    // builder 开始
+    public BatchRemoveGroupMemberReqBody() {
     }
 
-
-    public BatchRemoveGroupMemberReqBody build() {
-      return new BatchRemoveGroupMemberReqBody(this);
+    public BatchRemoveGroupMemberReqBody(Builder builder) {
+        /**
+         * 待移除成员
+         * <p> 示例值：
+         */
+        this.members = builder.members;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Memberlist[] getMembers() {
+        return this.members;
+    }
+
+    public void setMembers(Memberlist[] members) {
+        this.members = members;
+    }
+
+    public static class Builder {
+        /**
+         * 待移除成员
+         * <p> 示例值：
+         */
+        private Memberlist[] members;
+
+        /**
+         * 待移除成员
+         * <p> 示例值：
+         *
+         * @param members
+         * @return
+         */
+        public Builder members(Memberlist[] members) {
+            this.members = members;
+            return this;
+        }
+
+
+        public BatchRemoveGroupMemberReqBody build() {
+            return new BatchRemoveGroupMemberReqBody(this);
+        }
+    }
 }

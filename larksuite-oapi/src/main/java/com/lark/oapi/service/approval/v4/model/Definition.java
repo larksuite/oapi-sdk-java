@@ -16,98 +16,96 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Definition {
-
-  /**
-   * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-   * <p> 示例值：
-   */
-  @SerializedName("approval_code")
-  private String approvalCode;
-  /**
-   * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-   * <p> 示例值：
-   */
-  @SerializedName("approval_name")
-  private String approvalName;
-
-  // builder 开始
-  public Definition() {
-  }
-
-  public Definition(Builder builder) {
     /**
      * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-     * <p> 示例值：
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    this.approvalCode = builder.approvalCode;
-    /**
-     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-     * <p> 示例值：
-     */
-    this.approvalName = builder.approvalName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getApprovalName() {
-    return this.approvalName;
-  }
-
-  public void setApprovalName(String approvalName) {
-    this.approvalName = approvalName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-     * <p> 示例值：
-     */
+    @SerializedName("approval_code")
     private String approvalCode;
     /**
-     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-     * <p> 示例值：
+     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+     * <p> 示例值：请假
      */
+    @SerializedName("approval_name")
     private String approvalName;
 
-    /**
-     * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-     * <p> 示例值：
-     *
-     * @param approvalCode
-     * @return
-     */
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    // builder 开始
+    public Definition() {
     }
 
-
-    /**
-     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-     * <p> 示例值：
-     *
-     * @param approvalName
-     * @return
-     */
-    public Builder approvalName(String approvalName) {
-      this.approvalName = approvalName;
-      return this;
+    public Definition(Builder builder) {
+        /**
+         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+         * <p> 示例值：请假
+         */
+        this.approvalName = builder.approvalName;
     }
 
-
-    public Definition build() {
-      return new Definition(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
+
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    public String getApprovalName() {
+        return this.approvalName;
+    }
+
+    public void setApprovalName(String approvalName) {
+        this.approvalName = approvalName;
+    }
+
+    public static class Builder {
+        /**
+         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        private String approvalCode;
+        /**
+         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+         * <p> 示例值：请假
+         */
+        private String approvalName;
+
+        /**
+         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
+
+
+        /**
+         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置该国际化文案时返回默认语言对应文案
+         * <p> 示例值：请假
+         *
+         * @param approvalName
+         * @return
+         */
+        public Builder approvalName(String approvalName) {
+            this.approvalName = approvalName;
+            return this;
+        }
+
+
+        public Definition build() {
+            return new Definition(this);
+        }
+    }
 }

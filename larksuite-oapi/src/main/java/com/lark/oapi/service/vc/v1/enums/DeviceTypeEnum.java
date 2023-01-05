@@ -15,17 +15,17 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum DeviceTypeEnum {
-  ALL(1),
-  PC(2),
-  MOBILE(3),
-  ;
-  private Integer value;
+    ALL(1),
+    PC(2),
+    MOBILE(3),
+    ;
+    private Integer value;
 
-  DeviceTypeEnum(Integer value) {
-    this.value = value;
-  }
+    DeviceTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

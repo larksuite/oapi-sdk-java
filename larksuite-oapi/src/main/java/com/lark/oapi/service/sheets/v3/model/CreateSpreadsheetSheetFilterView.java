@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSpreadsheetSheetFilterView {
 
-  /**
-   * 创建的筛选视图的 id 、name、range
-   * <p> 示例值：
-   */
-  @SerializedName("filter_view")
-  private FilterView filterView;
+    /**
+     * 创建的筛选视图的 id 、name、range
+     * <p> 示例值：
+     */
+    @SerializedName("filter_view")
+    private FilterView filterView;
 
-  public FilterView getFilterView() {
-    return this.filterView;
-  }
+    public FilterView getFilterView() {
+        return this.filterView;
+    }
 
-  public void setFilterView(FilterView filterView) {
-    this.filterView = filterView;
-  }
+    public void setFilterView(FilterView filterView) {
+        this.filterView = filterView;
+    }
 
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GenerateCaldavConfSettingReqBody {
-
-  /**
-   * 需要同步日历的设备名，在日历中展示用来管理密码
-   * <p> 示例值：iPhone
-   */
-  @SerializedName("device_name")
-  private String deviceName;
-
-  // builder 开始
-  public GenerateCaldavConfSettingReqBody() {
-  }
-
-  public GenerateCaldavConfSettingReqBody(Builder builder) {
     /**
      * 需要同步日历的设备名，在日历中展示用来管理密码
      * <p> 示例值：iPhone
      */
-    this.deviceName = builder.deviceName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDeviceName() {
-    return this.deviceName;
-  }
-
-  public void setDeviceName(String deviceName) {
-    this.deviceName = deviceName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 需要同步日历的设备名，在日历中展示用来管理密码
-     * <p> 示例值：iPhone
-     */
+    @SerializedName("device_name")
     private String deviceName;
 
-    /**
-     * 需要同步日历的设备名，在日历中展示用来管理密码
-     * <p> 示例值：iPhone
-     *
-     * @param deviceName
-     * @return
-     */
-    public Builder deviceName(String deviceName) {
-      this.deviceName = deviceName;
-      return this;
+    // builder 开始
+    public GenerateCaldavConfSettingReqBody() {
     }
 
-
-    public GenerateCaldavConfSettingReqBody build() {
-      return new GenerateCaldavConfSettingReqBody(this);
+    public GenerateCaldavConfSettingReqBody(Builder builder) {
+        /**
+         * 需要同步日历的设备名，在日历中展示用来管理密码
+         * <p> 示例值：iPhone
+         */
+        this.deviceName = builder.deviceName;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDeviceName() {
+        return this.deviceName;
+    }
+
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
+
+    public static class Builder {
+        /**
+         * 需要同步日历的设备名，在日历中展示用来管理密码
+         * <p> 示例值：iPhone
+         */
+        private String deviceName;
+
+        /**
+         * 需要同步日历的设备名，在日历中展示用来管理密码
+         * <p> 示例值：iPhone
+         *
+         * @param deviceName
+         * @return
+         */
+        public Builder deviceName(String deviceName) {
+            this.deviceName = deviceName;
+            return this;
+        }
+
+
+        public GenerateCaldavConfSettingReqBody build() {
+            return new GenerateCaldavConfSettingReqBody(this);
+        }
+    }
 }

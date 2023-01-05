@@ -15,18 +15,18 @@ package com.lark.oapi.service.search.v2.enums;
 
 // 生成枚举值
 public enum DisplayTypeEnum {
-  TITLE("0"),
-  SNIPPET("1"),
-  FOOTER("2"),
-  ICON("3"),
-  ;
-  private String value;
+    TITLE("0"),
+    SNIPPET("1"),
+    FOOTER("2"),
+    ICON("3"),
+    ;
+    private String value;
 
-  DisplayTypeEnum(String value) {
-    this.value = value;
-  }
+    DisplayTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

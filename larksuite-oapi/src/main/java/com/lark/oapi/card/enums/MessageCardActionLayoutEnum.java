@@ -13,15 +13,15 @@
 package com.lark.oapi.card.enums;
 
 public enum MessageCardActionLayoutEnum {
-  BISECTED("bisected"), TRISECTION("trisection"), FLOW("flow");
+    BISECTED("bisected"), TRISECTION("trisection"), FLOW("flow");
 
-  private String value;
+    private String value;
 
-  MessageCardActionLayoutEnum(String value) {
-    this.value = value;
-  }
+    MessageCardActionLayoutEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return value;
-  }
+    public String getValue() {
+        return value;
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Schedule {
-
-  /**
-   * 考勤组名称
-   * <p> 示例值：6919358778597097404
-   */
-  @SerializedName("group_id")
-  private String groupId;
-  /**
-   * 班次列表
-   * <p> 示例值：
-   */
-  @SerializedName("shifts")
-  private String[] shifts;
-
-  // builder 开始
-  public Schedule() {
-  }
-
-  public Schedule(Builder builder) {
     /**
      * 考勤组名称
      * <p> 示例值：6919358778597097404
      */
-    this.groupId = builder.groupId;
-    /**
-     * 班次列表
-     * <p> 示例值：
-     */
-    this.shifts = builder.shifts;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public String[] getShifts() {
-    return this.shifts;
-  }
-
-  public void setShifts(String[] shifts) {
-    this.shifts = shifts;
-  }
-
-  public static class Builder {
-
-    /**
-     * 考勤组名称
-     * <p> 示例值：6919358778597097404
-     */
+    @SerializedName("group_id")
     private String groupId;
     /**
      * 班次列表
      * <p> 示例值：
      */
+    @SerializedName("shifts")
     private String[] shifts;
 
-    /**
-     * 考勤组名称
-     * <p> 示例值：6919358778597097404
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public Schedule() {
     }
 
-
-    /**
-     * 班次列表
-     * <p> 示例值：
-     *
-     * @param shifts
-     * @return
-     */
-    public Builder shifts(String[] shifts) {
-      this.shifts = shifts;
-      return this;
+    public Schedule(Builder builder) {
+        /**
+         * 考勤组名称
+         * <p> 示例值：6919358778597097404
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 班次列表
+         * <p> 示例值：
+         */
+        this.shifts = builder.shifts;
     }
 
-
-    public Schedule build() {
-      return new Schedule(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String[] getShifts() {
+        return this.shifts;
+    }
+
+    public void setShifts(String[] shifts) {
+        this.shifts = shifts;
+    }
+
+    public static class Builder {
+        /**
+         * 考勤组名称
+         * <p> 示例值：6919358778597097404
+         */
+        private String groupId;
+        /**
+         * 班次列表
+         * <p> 示例值：
+         */
+        private String[] shifts;
+
+        /**
+         * 考勤组名称
+         * <p> 示例值：6919358778597097404
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+
+        /**
+         * 班次列表
+         * <p> 示例值：
+         *
+         * @param shifts
+         * @return
+         */
+        public Builder shifts(String[] shifts) {
+            this.shifts = shifts;
+            return this;
+        }
+
+
+        public Schedule build() {
+            return new Schedule(this);
+        }
+    }
 }

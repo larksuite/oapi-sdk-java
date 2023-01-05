@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferApplyFormObjectDisplayConfigInfo {
-
-  /**
-   * 展示条件枚举
-   * <p> 示例值：1
-   */
-  @SerializedName("display_condition")
-  private Integer displayCondition;
-  /**
-   * 字段条件配置
-   * <p> 示例值：
-   */
-  @SerializedName("pre_object_config_list")
-  private OfferApplyFormPreObjectConfigInfo[] preObjectConfigList;
-
-  // builder 开始
-  public OfferApplyFormObjectDisplayConfigInfo() {
-  }
-
-  public OfferApplyFormObjectDisplayConfigInfo(Builder builder) {
     /**
      * 展示条件枚举
      * <p> 示例值：1
      */
-    this.displayCondition = builder.displayCondition;
-    /**
-     * 字段条件配置
-     * <p> 示例值：
-     */
-    this.preObjectConfigList = builder.preObjectConfigList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getDisplayCondition() {
-    return this.displayCondition;
-  }
-
-  public void setDisplayCondition(Integer displayCondition) {
-    this.displayCondition = displayCondition;
-  }
-
-  public OfferApplyFormPreObjectConfigInfo[] getPreObjectConfigList() {
-    return this.preObjectConfigList;
-  }
-
-  public void setPreObjectConfigList(OfferApplyFormPreObjectConfigInfo[] preObjectConfigList) {
-    this.preObjectConfigList = preObjectConfigList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 展示条件枚举
-     * <p> 示例值：1
-     */
+    @SerializedName("display_condition")
     private Integer displayCondition;
     /**
      * 字段条件配置
      * <p> 示例值：
      */
+    @SerializedName("pre_object_config_list")
     private OfferApplyFormPreObjectConfigInfo[] preObjectConfigList;
 
-    /**
-     * 展示条件枚举
-     * <p> 示例值：1
-     *
-     * @param displayCondition
-     * @return
-     */
-    public Builder displayCondition(Integer displayCondition) {
-      this.displayCondition = displayCondition;
-      return this;
+    // builder 开始
+    public OfferApplyFormObjectDisplayConfigInfo() {
     }
 
-
-    /**
-     * 字段条件配置
-     * <p> 示例值：
-     *
-     * @param preObjectConfigList
-     * @return
-     */
-    public Builder preObjectConfigList(OfferApplyFormPreObjectConfigInfo[] preObjectConfigList) {
-      this.preObjectConfigList = preObjectConfigList;
-      return this;
+    public OfferApplyFormObjectDisplayConfigInfo(Builder builder) {
+        /**
+         * 展示条件枚举
+         * <p> 示例值：1
+         */
+        this.displayCondition = builder.displayCondition;
+        /**
+         * 字段条件配置
+         * <p> 示例值：
+         */
+        this.preObjectConfigList = builder.preObjectConfigList;
     }
 
-
-    public OfferApplyFormObjectDisplayConfigInfo build() {
-      return new OfferApplyFormObjectDisplayConfigInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getDisplayCondition() {
+        return this.displayCondition;
+    }
+
+    public void setDisplayCondition(Integer displayCondition) {
+        this.displayCondition = displayCondition;
+    }
+
+    public OfferApplyFormPreObjectConfigInfo[] getPreObjectConfigList() {
+        return this.preObjectConfigList;
+    }
+
+    public void setPreObjectConfigList(OfferApplyFormPreObjectConfigInfo[] preObjectConfigList) {
+        this.preObjectConfigList = preObjectConfigList;
+    }
+
+    public static class Builder {
+        /**
+         * 展示条件枚举
+         * <p> 示例值：1
+         */
+        private Integer displayCondition;
+        /**
+         * 字段条件配置
+         * <p> 示例值：
+         */
+        private OfferApplyFormPreObjectConfigInfo[] preObjectConfigList;
+
+        /**
+         * 展示条件枚举
+         * <p> 示例值：1
+         *
+         * @param displayCondition
+         * @return
+         */
+        public Builder displayCondition(Integer displayCondition) {
+            this.displayCondition = displayCondition;
+            return this;
+        }
+
+
+        /**
+         * 字段条件配置
+         * <p> 示例值：
+         *
+         * @param preObjectConfigList
+         * @return
+         */
+        public Builder preObjectConfigList(OfferApplyFormPreObjectConfigInfo[] preObjectConfigList) {
+            this.preObjectConfigList = preObjectConfigList;
+            return this;
+        }
+
+
+        public OfferApplyFormObjectDisplayConfigInfo build() {
+            return new OfferApplyFormObjectDisplayConfigInfo(this);
+        }
+    }
 }

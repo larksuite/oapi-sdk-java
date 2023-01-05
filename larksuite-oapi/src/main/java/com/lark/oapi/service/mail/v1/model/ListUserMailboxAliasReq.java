@@ -18,119 +18,117 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListUserMailboxAliasReq {
-
-  /**
-   * <p> 示例值：xxx
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 用户邮箱地址
-   * <p> 示例值：user@xxx.xx
-   */
-  @Path
-  @SerializedName("user_mailbox_id")
-  private String userMailboxId;
-
-  // builder 开始
-  public ListUserMailboxAliasReq() {
-  }
-
-  public ListUserMailboxAliasReq(Builder builder) {
     /**
-     *
      * <p> 示例值：xxx
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 用户邮箱地址
      * <p> 示例值：user@xxx.xx
      */
-    this.userMailboxId = builder.userMailboxId;
-  }
+    @Path
+    @SerializedName("user_mailbox_id")
+    private String userMailboxId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getUserMailboxId() {
-    return this.userMailboxId;
-  }
-
-  public void setUserMailboxId(String userMailboxId) {
-    this.userMailboxId = userMailboxId;
-  }
-
-  public static class Builder {
-
-    private String pageToken; //
-    private Integer pageSize; //
-    private String userMailboxId; // 用户邮箱地址
-
-    /**
-     * <p> 示例值：xxx
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    // builder 开始
+    public ListUserMailboxAliasReq() {
     }
 
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public ListUserMailboxAliasReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：xxx
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 用户邮箱地址
+         * <p> 示例值：user@xxx.xx
+         */
+        this.userMailboxId = builder.userMailboxId;
     }
 
-    /**
-     * 用户邮箱地址
-     * <p> 示例值：user@xxx.xx
-     *
-     * @param userMailboxId
-     * @return
-     */
-    public Builder userMailboxId(String userMailboxId) {
-      this.userMailboxId = userMailboxId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public ListUserMailboxAliasReq build() {
-      return new ListUserMailboxAliasReq(this);
+    public String getPageToken() {
+        return this.pageToken;
     }
-  }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getUserMailboxId() {
+        return this.userMailboxId;
+    }
+
+    public void setUserMailboxId(String userMailboxId) {
+        this.userMailboxId = userMailboxId;
+    }
+
+    public static class Builder {
+        private String pageToken; //
+        private Integer pageSize; //
+        private String userMailboxId; // 用户邮箱地址
+
+        /**
+         * <p> 示例值：xxx
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 用户邮箱地址
+         * <p> 示例值：user@xxx.xx
+         *
+         * @param userMailboxId
+         * @return
+         */
+        public Builder userMailboxId(String userMailboxId) {
+            this.userMailboxId = userMailboxId;
+            return this;
+        }
+
+        public ListUserMailboxAliasReq build() {
+            return new ListUserMailboxAliasReq(this);
+        }
+    }
 }

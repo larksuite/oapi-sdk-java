@@ -17,19 +17,19 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 参与人RSVP状态
  */
 public enum CalendarEventAttendeeChatMemberRsvpStatusEnum {
-  NEEDSACTION("needs_action"), // 参与人尚未回复状态，或表示会议室预约中
-  ACCEPT("accept"), // 参与人回复接受，或表示会议室预约成功
-  TENTATIVE("tentative"), // 参与人回复待定
-  DECLINE("decline"), // 参与人回复拒绝，或表示会议室预约失败
-  REMOVED("removed"), // 参与人或会议室已经从日程中被移除
-  ;
-  private String value;
+    NEEDSACTION("needs_action"), // 参与人尚未回复状态，或表示会议室预约中
+    ACCEPT("accept"), // 参与人回复接受，或表示会议室预约成功
+    TENTATIVE("tentative"), // 参与人回复待定
+    DECLINE("decline"), // 参与人回复拒绝，或表示会议室预约失败
+    REMOVED("removed"), // 参与人或会议室已经从日程中被移除
+    ;
+    private String value;
 
-  CalendarEventAttendeeChatMemberRsvpStatusEnum(String value) {
-    this.value = value;
-  }
+    CalendarEventAttendeeChatMemberRsvpStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

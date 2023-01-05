@@ -13,14 +13,14 @@
 package com.lark.oapi.card.enums;
 
 public enum MessageCardButtonTypeEnum {
-  DEFAULT("default"), PRIMARY("primary"), DANGER("danger");
-  private String value;
+    DEFAULT("default"), PRIMARY("primary"), DANGER("danger");
+    private String value;
 
-  MessageCardButtonTypeEnum(String value) {
-    this.value = value;
-  }
+    MessageCardButtonTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return value;
-  }
+    public String getValue() {
+        return value;
+    }
 }

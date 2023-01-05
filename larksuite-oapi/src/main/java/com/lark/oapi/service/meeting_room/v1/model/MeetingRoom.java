@@ -16,61 +16,59 @@ package com.lark.oapi.service.meeting_room.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MeetingRoom {
-
-  /**
-   * your description here
-   * <p> 示例值：
-   */
-  @SerializedName("room_id")
-  private Integer roomId;
-
-  // builder 开始
-  public MeetingRoom() {
-  }
-
-  public MeetingRoom(Builder builder) {
     /**
      * your description here
      * <p> 示例值：
      */
-    this.roomId = builder.roomId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRoomId() {
-    return this.roomId;
-  }
-
-  public void setRoomId(Integer roomId) {
-    this.roomId = roomId;
-  }
-
-  public static class Builder {
-
-    /**
-     * your description here
-     * <p> 示例值：
-     */
+    @SerializedName("room_id")
     private Integer roomId;
 
-    /**
-     * your description here
-     * <p> 示例值：
-     *
-     * @param roomId
-     * @return
-     */
-    public Builder roomId(Integer roomId) {
-      this.roomId = roomId;
-      return this;
+    // builder 开始
+    public MeetingRoom() {
     }
 
-
-    public MeetingRoom build() {
-      return new MeetingRoom(this);
+    public MeetingRoom(Builder builder) {
+        /**
+         * your description here
+         * <p> 示例值：
+         */
+        this.roomId = builder.roomId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
+    public static class Builder {
+        /**
+         * your description here
+         * <p> 示例值：
+         */
+        private Integer roomId;
+
+        /**
+         * your description here
+         * <p> 示例值：
+         *
+         * @param roomId
+         * @return
+         */
+        public Builder roomId(Integer roomId) {
+            this.roomId = roomId;
+            return this;
+        }
+
+
+        public MeetingRoom build() {
+            return new MeetingRoom(this);
+        }
+    }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 操作行还是列，取值：ROWS、COLUMNS
  */
 public enum AppendDimensionMajorDimensionEnum {
-  ROWS("ROWS"), // 行
-  COLUMNS("COLUMNS"), // 列
-  ;
-  private String value;
+    ROWS("ROWS"), // 行
+    COLUMNS("COLUMNS"), // 列
+    ;
+    private String value;
 
-  AppendDimensionMajorDimensionEnum(String value) {
-    this.value = value;
-  }
+    AppendDimensionMajorDimensionEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

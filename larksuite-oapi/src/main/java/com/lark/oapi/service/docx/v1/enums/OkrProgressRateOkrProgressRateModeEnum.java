@@ -17,16 +17,16 @@ package com.lark.oapi.service.docx.v1.enums;
  * 状态模式
  */
 public enum OkrProgressRateOkrProgressRateModeEnum {
-  SIMPLE("simple"), // 简单模式
-  ADVANCED("advanced"), // 高级模式
-  ;
-  private String value;
+    SIMPLE("simple"), // 简单模式
+    ADVANCED("advanced"), // 高级模式
+    ;
+    private String value;
 
-  OkrProgressRateOkrProgressRateModeEnum(String value) {
-    this.value = value;
-  }
+    OkrProgressRateOkrProgressRateModeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

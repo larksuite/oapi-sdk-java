@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InternOfferOffboardingInfo {
-
-  /**
-   * 实际离职日期（实际离职日期需晚于实际入职日期）
-   * <p> 示例值：2022-03-02
-   */
-  @SerializedName("actual_offboarding_date")
-  private String actualOffboardingDate;
-  /**
-   * 备注
-   * <p> 示例值：主动离职
-   */
-  @SerializedName("notes")
-  private String notes;
-
-  // builder 开始
-  public InternOfferOffboardingInfo() {
-  }
-
-  public InternOfferOffboardingInfo(Builder builder) {
     /**
      * 实际离职日期（实际离职日期需晚于实际入职日期）
      * <p> 示例值：2022-03-02
      */
-    this.actualOffboardingDate = builder.actualOffboardingDate;
-    /**
-     * 备注
-     * <p> 示例值：主动离职
-     */
-    this.notes = builder.notes;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getActualOffboardingDate() {
-    return this.actualOffboardingDate;
-  }
-
-  public void setActualOffboardingDate(String actualOffboardingDate) {
-    this.actualOffboardingDate = actualOffboardingDate;
-  }
-
-  public String getNotes() {
-    return this.notes;
-  }
-
-  public void setNotes(String notes) {
-    this.notes = notes;
-  }
-
-  public static class Builder {
-
-    /**
-     * 实际离职日期（实际离职日期需晚于实际入职日期）
-     * <p> 示例值：2022-03-02
-     */
+    @SerializedName("actual_offboarding_date")
     private String actualOffboardingDate;
     /**
      * 备注
      * <p> 示例值：主动离职
      */
+    @SerializedName("notes")
     private String notes;
 
-    /**
-     * 实际离职日期（实际离职日期需晚于实际入职日期）
-     * <p> 示例值：2022-03-02
-     *
-     * @param actualOffboardingDate
-     * @return
-     */
-    public Builder actualOffboardingDate(String actualOffboardingDate) {
-      this.actualOffboardingDate = actualOffboardingDate;
-      return this;
+    // builder 开始
+    public InternOfferOffboardingInfo() {
     }
 
-
-    /**
-     * 备注
-     * <p> 示例值：主动离职
-     *
-     * @param notes
-     * @return
-     */
-    public Builder notes(String notes) {
-      this.notes = notes;
-      return this;
+    public InternOfferOffboardingInfo(Builder builder) {
+        /**
+         * 实际离职日期（实际离职日期需晚于实际入职日期）
+         * <p> 示例值：2022-03-02
+         */
+        this.actualOffboardingDate = builder.actualOffboardingDate;
+        /**
+         * 备注
+         * <p> 示例值：主动离职
+         */
+        this.notes = builder.notes;
     }
 
-
-    public InternOfferOffboardingInfo build() {
-      return new InternOfferOffboardingInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getActualOffboardingDate() {
+        return this.actualOffboardingDate;
+    }
+
+    public void setActualOffboardingDate(String actualOffboardingDate) {
+        this.actualOffboardingDate = actualOffboardingDate;
+    }
+
+    public String getNotes() {
+        return this.notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public static class Builder {
+        /**
+         * 实际离职日期（实际离职日期需晚于实际入职日期）
+         * <p> 示例值：2022-03-02
+         */
+        private String actualOffboardingDate;
+        /**
+         * 备注
+         * <p> 示例值：主动离职
+         */
+        private String notes;
+
+        /**
+         * 实际离职日期（实际离职日期需晚于实际入职日期）
+         * <p> 示例值：2022-03-02
+         *
+         * @param actualOffboardingDate
+         * @return
+         */
+        public Builder actualOffboardingDate(String actualOffboardingDate) {
+            this.actualOffboardingDate = actualOffboardingDate;
+            return this;
+        }
+
+
+        /**
+         * 备注
+         * <p> 示例值：主动离职
+         *
+         * @param notes
+         * @return
+         */
+        public Builder notes(String notes) {
+            this.notes = notes;
+            return this;
+        }
+
+
+        public InternOfferOffboardingInfo build() {
+            return new InternOfferOffboardingInfo(this);
+        }
+    }
 }

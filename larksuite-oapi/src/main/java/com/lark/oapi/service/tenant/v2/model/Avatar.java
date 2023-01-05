@@ -16,172 +16,170 @@ package com.lark.oapi.service.tenant.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Avatar {
-
-  /**
-   * 企业头像
-   * <p> 示例值：https://foo.icon.com/xxxx
-   */
-  @SerializedName("avatar_origin")
-  private String avatarOrigin;
-  /**
-   * 企业头像 72x72
-   * <p> 示例值：https://foo.icon.com/xxxx
-   */
-  @SerializedName("avatar_72")
-  private String avatar72;
-  /**
-   * 企业头像 240x240
-   * <p> 示例值：https://foo.icon.com/xxxx
-   */
-  @SerializedName("avatar_240")
-  private String avatar240;
-  /**
-   * 企业头像 640x640
-   * <p> 示例值：https://foo.icon.com/xxxx
-   */
-  @SerializedName("avatar_640")
-  private String avatar640;
-
-  // builder 开始
-  public Avatar() {
-  }
-
-  public Avatar(Builder builder) {
     /**
      * 企业头像
      * <p> 示例值：https://foo.icon.com/xxxx
      */
-    this.avatarOrigin = builder.avatarOrigin;
-    /**
-     * 企业头像 72x72
-     * <p> 示例值：https://foo.icon.com/xxxx
-     */
-    this.avatar72 = builder.avatar72;
-    /**
-     * 企业头像 240x240
-     * <p> 示例值：https://foo.icon.com/xxxx
-     */
-    this.avatar240 = builder.avatar240;
-    /**
-     * 企业头像 640x640
-     * <p> 示例值：https://foo.icon.com/xxxx
-     */
-    this.avatar640 = builder.avatar640;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAvatarOrigin() {
-    return this.avatarOrigin;
-  }
-
-  public void setAvatarOrigin(String avatarOrigin) {
-    this.avatarOrigin = avatarOrigin;
-  }
-
-  public String getAvatar72() {
-    return this.avatar72;
-  }
-
-  public void setAvatar72(String avatar72) {
-    this.avatar72 = avatar72;
-  }
-
-  public String getAvatar240() {
-    return this.avatar240;
-  }
-
-  public void setAvatar240(String avatar240) {
-    this.avatar240 = avatar240;
-  }
-
-  public String getAvatar640() {
-    return this.avatar640;
-  }
-
-  public void setAvatar640(String avatar640) {
-    this.avatar640 = avatar640;
-  }
-
-  public static class Builder {
-
-    /**
-     * 企业头像
-     * <p> 示例值：https://foo.icon.com/xxxx
-     */
+    @SerializedName("avatar_origin")
     private String avatarOrigin;
     /**
      * 企业头像 72x72
      * <p> 示例值：https://foo.icon.com/xxxx
      */
+    @SerializedName("avatar_72")
     private String avatar72;
     /**
      * 企业头像 240x240
      * <p> 示例值：https://foo.icon.com/xxxx
      */
+    @SerializedName("avatar_240")
     private String avatar240;
     /**
      * 企业头像 640x640
      * <p> 示例值：https://foo.icon.com/xxxx
      */
+    @SerializedName("avatar_640")
     private String avatar640;
 
-    /**
-     * 企业头像
-     * <p> 示例值：https://foo.icon.com/xxxx
-     *
-     * @param avatarOrigin
-     * @return
-     */
-    public Builder avatarOrigin(String avatarOrigin) {
-      this.avatarOrigin = avatarOrigin;
-      return this;
+    // builder 开始
+    public Avatar() {
     }
 
-
-    /**
-     * 企业头像 72x72
-     * <p> 示例值：https://foo.icon.com/xxxx
-     *
-     * @param avatar72
-     * @return
-     */
-    public Builder avatar72(String avatar72) {
-      this.avatar72 = avatar72;
-      return this;
+    public Avatar(Builder builder) {
+        /**
+         * 企业头像
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatarOrigin = builder.avatarOrigin;
+        /**
+         * 企业头像 72x72
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatar72 = builder.avatar72;
+        /**
+         * 企业头像 240x240
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatar240 = builder.avatar240;
+        /**
+         * 企业头像 640x640
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        this.avatar640 = builder.avatar640;
     }
 
-
-    /**
-     * 企业头像 240x240
-     * <p> 示例值：https://foo.icon.com/xxxx
-     *
-     * @param avatar240
-     * @return
-     */
-    public Builder avatar240(String avatar240) {
-      this.avatar240 = avatar240;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 企业头像 640x640
-     * <p> 示例值：https://foo.icon.com/xxxx
-     *
-     * @param avatar640
-     * @return
-     */
-    public Builder avatar640(String avatar640) {
-      this.avatar640 = avatar640;
-      return this;
+    public String getAvatarOrigin() {
+        return this.avatarOrigin;
     }
 
-
-    public Avatar build() {
-      return new Avatar(this);
+    public void setAvatarOrigin(String avatarOrigin) {
+        this.avatarOrigin = avatarOrigin;
     }
-  }
+
+    public String getAvatar72() {
+        return this.avatar72;
+    }
+
+    public void setAvatar72(String avatar72) {
+        this.avatar72 = avatar72;
+    }
+
+    public String getAvatar240() {
+        return this.avatar240;
+    }
+
+    public void setAvatar240(String avatar240) {
+        this.avatar240 = avatar240;
+    }
+
+    public String getAvatar640() {
+        return this.avatar640;
+    }
+
+    public void setAvatar640(String avatar640) {
+        this.avatar640 = avatar640;
+    }
+
+    public static class Builder {
+        /**
+         * 企业头像
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        private String avatarOrigin;
+        /**
+         * 企业头像 72x72
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        private String avatar72;
+        /**
+         * 企业头像 240x240
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        private String avatar240;
+        /**
+         * 企业头像 640x640
+         * <p> 示例值：https://foo.icon.com/xxxx
+         */
+        private String avatar640;
+
+        /**
+         * 企业头像
+         * <p> 示例值：https://foo.icon.com/xxxx
+         *
+         * @param avatarOrigin
+         * @return
+         */
+        public Builder avatarOrigin(String avatarOrigin) {
+            this.avatarOrigin = avatarOrigin;
+            return this;
+        }
+
+
+        /**
+         * 企业头像 72x72
+         * <p> 示例值：https://foo.icon.com/xxxx
+         *
+         * @param avatar72
+         * @return
+         */
+        public Builder avatar72(String avatar72) {
+            this.avatar72 = avatar72;
+            return this;
+        }
+
+
+        /**
+         * 企业头像 240x240
+         * <p> 示例值：https://foo.icon.com/xxxx
+         *
+         * @param avatar240
+         * @return
+         */
+        public Builder avatar240(String avatar240) {
+            this.avatar240 = avatar240;
+            return this;
+        }
+
+
+        /**
+         * 企业头像 640x640
+         * <p> 示例值：https://foo.icon.com/xxxx
+         *
+         * @param avatar640
+         * @return
+         */
+        public Builder avatar640(String avatar640) {
+            this.avatar640 = avatar640;
+            return this;
+        }
+
+
+        public Avatar build() {
+            return new Avatar(this);
+        }
+    }
 }

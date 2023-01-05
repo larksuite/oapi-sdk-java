@@ -18,183 +18,182 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchAppTableFormFieldReq {
-
-  /**
-   * 多维表格文档 Token
-   * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * 表格 ID
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * 表单 ID
-   * <p> 示例值：vewTpR1urY
-   */
-  @Path
-  @SerializedName("form_id")
-  private String formId;
-  /**
-   * 表单问题 ID
-   * <p> 示例值：fldjX7dUj5
-   */
-  @Path
-  @SerializedName("field_id")
-  private String fieldId;
-  @Body
-  private AppTableFormPatchedField body;
-
-  // builder 开始
-  public PatchAppTableFormFieldReq() {
-  }
-
-  public PatchAppTableFormFieldReq(Builder builder) {
     /**
      * 多维表格文档 Token
      * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * 表格 ID
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     /**
      * 表单 ID
      * <p> 示例值：vewTpR1urY
      */
-    this.formId = builder.formId;
+    @Path
+    @SerializedName("form_id")
+    private String formId;
     /**
      * 表单问题 ID
      * <p> 示例值：fldjX7dUj5
      */
-    this.fieldId = builder.fieldId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getFormId() {
-    return this.formId;
-  }
-
-  public void setFormId(String formId) {
-    this.formId = formId;
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public AppTableFormPatchedField getAppTableFormPatchedField() {
-    return this.body;
-  }
-
-  public void setAppTableFormPatchedField(AppTableFormPatchedField body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String appToken; // 多维表格文档 Token
-    private String tableId; // 表格 ID
-    private String formId; // 表单 ID
-    private String fieldId; // 表单问题 ID
+    @Path
+    @SerializedName("field_id")
+    private String fieldId;
+    @Body
     private AppTableFormPatchedField body;
 
-    /**
-     * 多维表格文档 Token
-     * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public PatchAppTableFormFieldReq() {
     }
 
-    /**
-     * 表格 ID
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public PatchAppTableFormFieldReq(Builder builder) {
+        /**
+         * 多维表格文档 Token
+         * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 表格 ID
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * 表单 ID
+         * <p> 示例值：vewTpR1urY
+         */
+        this.formId = builder.formId;
+        /**
+         * 表单问题 ID
+         * <p> 示例值：fldjX7dUj5
+         */
+        this.fieldId = builder.fieldId;
+        this.body = builder.body;
     }
 
-    /**
-     * 表单 ID
-     * <p> 示例值：vewTpR1urY
-     *
-     * @param formId
-     * @return
-     */
-    public Builder formId(String formId) {
-      this.formId = formId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 表单问题 ID
-     * <p> 示例值：fldjX7dUj5
-     *
-     * @param fieldId
-     * @return
-     */
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getFormId() {
+        return this.formId;
+    }
+
+    public void setFormId(String formId) {
+        this.formId = formId;
+    }
+
+    public String getFieldId() {
+        return this.fieldId;
+    }
+
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
     }
 
     public AppTableFormPatchedField getAppTableFormPatchedField() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder appTableFormPatchedField(AppTableFormPatchedField body) {
-      this.body = body;
-      return this;
+    public void setAppTableFormPatchedField(AppTableFormPatchedField body) {
+        this.body = body;
     }
 
-    public PatchAppTableFormFieldReq build() {
-      return new PatchAppTableFormFieldReq(this);
+    public static class Builder {
+
+        private String appToken; // 多维表格文档 Token
+        private String tableId; // 表格 ID
+        private String formId; // 表单 ID
+        private String fieldId; // 表单问题 ID
+        private AppTableFormPatchedField body;
+
+        /**
+         * 多维表格文档 Token
+         * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        /**
+         * 表格 ID
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+        /**
+         * 表单 ID
+         * <p> 示例值：vewTpR1urY
+         *
+         * @param formId
+         * @return
+         */
+        public Builder formId(String formId) {
+            this.formId = formId;
+            return this;
+        }
+
+        /**
+         * 表单问题 ID
+         * <p> 示例值：fldjX7dUj5
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
+            return this;
+        }
+
+        public AppTableFormPatchedField getAppTableFormPatchedField() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder appTableFormPatchedField(AppTableFormPatchedField body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchAppTableFormFieldReq build() {
+            return new PatchAppTableFormFieldReq(this);
+        }
     }
-  }
 }

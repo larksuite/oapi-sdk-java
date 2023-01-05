@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetApplicationReq {
-
-  /**
-   * 投递 ID
-   * <p> 示例值：6949805467799537964
-   */
-  @Path
-  @SerializedName("application_id")
-  private String applicationId;
-
-  // builder 开始
-  public GetApplicationReq() {
-  }
-
-  public GetApplicationReq(Builder builder) {
     /**
      * 投递 ID
      * <p> 示例值：6949805467799537964
      */
-    this.applicationId = builder.applicationId;
-  }
+    @Path
+    @SerializedName("application_id")
+    private String applicationId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public static class Builder {
-
-    private String applicationId; // 投递 ID
-
-    /**
-     * 投递 ID
-     * <p> 示例值：6949805467799537964
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    // builder 开始
+    public GetApplicationReq() {
     }
 
-    public GetApplicationReq build() {
-      return new GetApplicationReq(this);
+    public GetApplicationReq(Builder builder) {
+        /**
+         * 投递 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.applicationId = builder.applicationId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public static class Builder {
+
+        private String applicationId; // 投递 ID
+
+        /**
+         * 投递 ID
+         * <p> 示例值：6949805467799537964
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+        public GetApplicationReq build() {
+            return new GetApplicationReq(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebApp {
-
-  /**
-   * pc 端 url
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("pc_url")
-  private String pcUrl;
-  /**
-   * 移动端 url
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("mobile_url")
-  private String mobileUrl;
-
-  // builder 开始
-  public WebApp() {
-  }
-
-  public WebApp(Builder builder) {
     /**
      * pc 端 url
      * <p> 示例值：https://www.example.com
      */
-    this.pcUrl = builder.pcUrl;
-    /**
-     * 移动端 url
-     * <p> 示例值：https://www.example.com
-     */
-    this.mobileUrl = builder.mobileUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcUrl() {
-    return this.pcUrl;
-  }
-
-  public void setPcUrl(String pcUrl) {
-    this.pcUrl = pcUrl;
-  }
-
-  public String getMobileUrl() {
-    return this.mobileUrl;
-  }
-
-  public void setMobileUrl(String mobileUrl) {
-    this.mobileUrl = mobileUrl;
-  }
-
-  public static class Builder {
-
-    /**
-     * pc 端 url
-     * <p> 示例值：https://www.example.com
-     */
+    @SerializedName("pc_url")
     private String pcUrl;
     /**
      * 移动端 url
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("mobile_url")
     private String mobileUrl;
 
-    /**
-     * pc 端 url
-     * <p> 示例值：https://www.example.com
-     *
-     * @param pcUrl
-     * @return
-     */
-    public Builder pcUrl(String pcUrl) {
-      this.pcUrl = pcUrl;
-      return this;
+    // builder 开始
+    public WebApp() {
     }
 
-
-    /**
-     * 移动端 url
-     * <p> 示例值：https://www.example.com
-     *
-     * @param mobileUrl
-     * @return
-     */
-    public Builder mobileUrl(String mobileUrl) {
-      this.mobileUrl = mobileUrl;
-      return this;
+    public WebApp(Builder builder) {
+        /**
+         * pc 端 url
+         * <p> 示例值：https://www.example.com
+         */
+        this.pcUrl = builder.pcUrl;
+        /**
+         * 移动端 url
+         * <p> 示例值：https://www.example.com
+         */
+        this.mobileUrl = builder.mobileUrl;
     }
 
-
-    public WebApp build() {
-      return new WebApp(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getPcUrl() {
+        return this.pcUrl;
+    }
+
+    public void setPcUrl(String pcUrl) {
+        this.pcUrl = pcUrl;
+    }
+
+    public String getMobileUrl() {
+        return this.mobileUrl;
+    }
+
+    public void setMobileUrl(String mobileUrl) {
+        this.mobileUrl = mobileUrl;
+    }
+
+    public static class Builder {
+        /**
+         * pc 端 url
+         * <p> 示例值：https://www.example.com
+         */
+        private String pcUrl;
+        /**
+         * 移动端 url
+         * <p> 示例值：https://www.example.com
+         */
+        private String mobileUrl;
+
+        /**
+         * pc 端 url
+         * <p> 示例值：https://www.example.com
+         *
+         * @param pcUrl
+         * @return
+         */
+        public Builder pcUrl(String pcUrl) {
+            this.pcUrl = pcUrl;
+            return this;
+        }
+
+
+        /**
+         * 移动端 url
+         * <p> 示例值：https://www.example.com
+         *
+         * @param mobileUrl
+         * @return
+         */
+        public Builder mobileUrl(String mobileUrl) {
+            this.mobileUrl = mobileUrl;
+            return this;
+        }
+
+
+        public WebApp build() {
+            return new WebApp(this);
+        }
+    }
 }

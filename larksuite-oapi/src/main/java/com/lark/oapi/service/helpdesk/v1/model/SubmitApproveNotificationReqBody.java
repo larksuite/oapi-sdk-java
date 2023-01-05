@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SubmitApproveNotificationReqBody {
-
-  /**
-   * 提交审批理由
-   * <p> 示例值：测试发送消息
-   */
-  @SerializedName("reason")
-  private String reason;
-
-  // builder 开始
-  public SubmitApproveNotificationReqBody() {
-  }
-
-  public SubmitApproveNotificationReqBody(Builder builder) {
     /**
      * 提交审批理由
      * <p> 示例值：测试发送消息
      */
-    this.reason = builder.reason;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReason() {
-    return this.reason;
-  }
-
-  public void setReason(String reason) {
-    this.reason = reason;
-  }
-
-  public static class Builder {
-
-    /**
-     * 提交审批理由
-     * <p> 示例值：测试发送消息
-     */
+    @SerializedName("reason")
     private String reason;
 
-    /**
-     * 提交审批理由
-     * <p> 示例值：测试发送消息
-     *
-     * @param reason
-     * @return
-     */
-    public Builder reason(String reason) {
-      this.reason = reason;
-      return this;
+    // builder 开始
+    public SubmitApproveNotificationReqBody() {
     }
 
-
-    public SubmitApproveNotificationReqBody build() {
-      return new SubmitApproveNotificationReqBody(this);
+    public SubmitApproveNotificationReqBody(Builder builder) {
+        /**
+         * 提交审批理由
+         * <p> 示例值：测试发送消息
+         */
+        this.reason = builder.reason;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getReason() {
+        return this.reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public static class Builder {
+        /**
+         * 提交审批理由
+         * <p> 示例值：测试发送消息
+         */
+        private String reason;
+
+        /**
+         * 提交审批理由
+         * <p> 示例值：测试发送消息
+         *
+         * @param reason
+         * @return
+         */
+        public Builder reason(String reason) {
+            this.reason = reason;
+            return this;
+        }
+
+
+        public SubmitApproveNotificationReqBody build() {
+            return new SubmitApproveNotificationReqBody(this);
+        }
+    }
 }

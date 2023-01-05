@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryCertificate {
-
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-  /**
-   * 描述
-   * <p> 示例值：全国普通话级别认证
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 证书名称
-   * <p> 示例值：普通话证书
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public WebsiteDeliveryCertificate() {
-  }
-
-  public WebsiteDeliveryCertificate(Builder builder) {
     /**
      * 自定义字段
      * <p> 示例值：
      */
-    this.customizedData = builder.customizedData;
-    /**
-     * 描述
-     * <p> 示例值：全国普通话级别认证
-     */
-    this.desc = builder.desc;
-    /**
-     * 证书名称
-     * <p> 示例值：普通话证书
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
     /**
      * 描述
      * <p> 示例值：全国普通话级别认证
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 证书名称
      * <p> 示例值：普通话证书
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryCertificate() {
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：全国普通话级别认证
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public WebsiteDeliveryCertificate(Builder builder) {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 描述
+         * <p> 示例值：全国普通话级别认证
+         */
+        this.desc = builder.desc;
+        /**
+         * 证书名称
+         * <p> 示例值：普通话证书
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 证书名称
-     * <p> 示例值：普通话证书
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public WebsiteDeliveryCertificate build() {
-      return new WebsiteDeliveryCertificate(this);
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
     }
-  }
+
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+        /**
+         * 描述
+         * <p> 示例值：全国普通话级别认证
+         */
+        private String desc;
+        /**
+         * 证书名称
+         * <p> 示例值：普通话证书
+         */
+        private String name;
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：全国普通话级别认证
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 证书名称
+         * <p> 示例值：普通话证书
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public WebsiteDeliveryCertificate build() {
+            return new WebsiteDeliveryCertificate(this);
+        }
+    }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 云文档支持模式
  */
 public enum CloudDocCloudDocSupportModeEnum {
-  UNKNOWN(0), // 未知
-  MOBILE(1), // 移动端
-  ;
-  private Integer value;
+    UNKNOWN(0), // 未知
+    MOBILE(1), // 移动端
+    ;
+    private Integer value;
 
-  CloudDocCloudDocSupportModeEnum(Integer value) {
-    this.value = value;
-  }
+    CloudDocCloudDocSupportModeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,302 +16,286 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateChatRespBody {
+    /**
+     * 群 ID，详情参见：[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
+    @SerializedName("chat_id")
+    private String chatId;
+    /**
+     * 群头像 URL
+     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     */
+    @SerializedName("avatar")
+    private String avatar;
+    /**
+     * 群名称
+     * <p> 示例值：测试群名称
+     */
+    @SerializedName("name")
+    private String name;
+    /**
+     * 群描述
+     * <p> 示例值：测试群描述
+     */
+    @SerializedName("description")
+    private String description;
+    /**
+     * 群国际化名称
+     * <p> 示例值：
+     */
+    @SerializedName("i18n_names")
+    private I18nNames i18nNames;
+    /**
+     * 群主 ID，ID值与查询参数中的 ==user_id_type== 对应；不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**注意**：当群主是机器人时，该字段不返回
+     * <p> 示例值：4d7a3c6g
+     */
+    @SerializedName("owner_id")
+    private String ownerId;
+    /**
+     * 群主 ID 对应的ID类型，与查询参数中的 ==user_id_type== 相同。取值为：`open_id`、`user_id`、`union_id`其中之一;;**注意**：当群主是机器人时，该字段不返回
+     * <p> 示例值：user_id
+     */
+    @SerializedName("owner_id_type")
+    private String ownerIdType;
+    /**
+     * 拉 用户或机器人 入群权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
+     * <p> 示例值：all members
+     */
+    @SerializedName("add_member_permission")
+    private String addMemberPermission;
+    /**
+     * 群分享权限;;**可选值有**：;- `allowed`：允许;- `not_allowed`：不允许
+     * <p> 示例值：allowed
+     */
+    @SerializedName("share_card_permission")
+    private String shareCardPermission;
+    /**
+     * at 所有人权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
+     * <p> 示例值：all members
+     */
+    @SerializedName("at_all_permission")
+    private String atAllPermission;
+    /**
+     * 群编辑权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
+     * <p> 示例值：all members
+     */
+    @SerializedName("edit_permission")
+    private String editPermission;
+    /**
+     * 群模式;;**可选值有**：;- `group`：群组
+     * <p> 示例值：group
+     */
+    @SerializedName("chat_mode")
+    private String chatMode;
+    /**
+     * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
+     * <p> 示例值：private
+     */
+    @SerializedName("chat_type")
+    private String chatType;
+    /**
+     * 群标签，如有多个，则按照下列顺序返回第一个;;**可选值有**：;- `inner`：内部群;- `tenant`：公司群;- `department`：部门群;- `edu`：教育群;- `meeting`：会议群;- `customer_service`：客服群
+     * <p> 示例值：inner
+     */
+    @SerializedName("chat_tag")
+    private String chatTag;
+    /**
+     * 是否是外部群
+     * <p> 示例值：false
+     */
+    @SerializedName("external")
+    private Boolean external;
+    /**
+     * 租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     * <p> 示例值：736588c9260f175e
+     */
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    /**
+     * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
+     * <p> 示例值：all_members
+     */
+    @SerializedName("join_message_visibility")
+    private String joinMessageVisibility;
+    /**
+     * 出群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
+     * <p> 示例值：all_members
+     */
+    @SerializedName("leave_message_visibility")
+    private String leaveMessageVisibility;
+    /**
+     * 加群审批;;**可选值有**：;- `no_approval_required`：无需审批;- `approval_required`：需要审批
+     * <p> 示例值：no_approval_required
+     */
+    @SerializedName("membership_approval")
+    private String membershipApproval;
+    /**
+     * 发言权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员;- `moderator_list`：指定群成员
+     * <p> 示例值：all_members
+     */
+    @SerializedName("moderation_permission")
+    private String moderationPermission;
 
-  /**
-   * 群 ID，详情参见：[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-  /**
-   * 群头像 URL
-   * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-   */
-  @SerializedName("avatar")
-  private String avatar;
-  /**
-   * 群名称
-   * <p> 示例值：测试群名称
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 群描述
-   * <p> 示例值：测试群描述
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 群国际化名称
-   * <p> 示例值：
-   */
-  @SerializedName("i18n_names")
-  private I18nNames i18nNames;
-  /**
-   * 群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;当群主是机器人时，该字段不返回
-   * <p> 示例值：4d7a3c6g
-   */
-  @SerializedName("owner_id")
-  private String ownerId;
-  /**
-   * 群主 ID 对应的ID类型，与查询参数中的 user_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。;;当群主是机器人时，该字段不返回
-   * <p> 示例值：user_id
-   */
-  @SerializedName("owner_id_type")
-  private String ownerIdType;
-  /**
-   * 拉 用户或机器人 入群权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
-   * <p> 示例值：all members
-   */
-  @SerializedName("add_member_permission")
-  private String addMemberPermission;
-  /**
-   * 群分享权限;;**可选值有**：;- `allowed`：允许;- `not_allowed`：不允许
-   * <p> 示例值：allowed
-   */
-  @SerializedName("share_card_permission")
-  private String shareCardPermission;
-  /**
-   * at 所有人权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
-   * <p> 示例值：all members
-   */
-  @SerializedName("at_all_permission")
-  private String atAllPermission;
-  /**
-   * 群编辑权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
-   * <p> 示例值：all members
-   */
-  @SerializedName("edit_permission")
-  private String editPermission;
-  /**
-   * 群模式;;**可选值有**：;- `group`：群组
-   * <p> 示例值：group
-   */
-  @SerializedName("chat_mode")
-  private String chatMode;
-  /**
-   * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
-   * <p> 示例值：private
-   */
-  @SerializedName("chat_type")
-  private String chatType;
-  /**
-   * 群标签，如有多个，则按照下列顺序返回第一个;;**可选值有**：;- `inner`：内部群;- `tenant`：公司群;- `department`：部门群;- `edu`：教育群;-
-   * `meeting`：会议群;- `customer_service`：客服群
-   * <p> 示例值：inner
-   */
-  @SerializedName("chat_tag")
-  private String chatTag;
-  /**
-   * 是否是外部群
-   * <p> 示例值：false
-   */
-  @SerializedName("external")
-  private Boolean external;
-  /**
-   * 租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-   * <p> 示例值：736588c9260f175e
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  /**
-   * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
-   * <p> 示例值：all_members
-   */
-  @SerializedName("join_message_visibility")
-  private String joinMessageVisibility;
-  /**
-   * 出群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
-   * <p> 示例值：all_members
-   */
-  @SerializedName("leave_message_visibility")
-  private String leaveMessageVisibility;
-  /**
-   * 加群审批;;**可选值有**：;- `no_approval_required`：无需审批;- `approval_required`：需要审批
-   * <p> 示例值：no_approval_required
-   */
-  @SerializedName("membership_approval")
-  private String membershipApproval;
-  /**
-   * 发言权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员;- `moderator_list`：指定群成员
-   * <p> 示例值：all_members
-   */
-  @SerializedName("moderation_permission")
-  private String moderationPermission;
-  /**
-   * 群快捷组件列表
-   * <p> 示例值：
-   */
-  @SerializedName("toolkit_ids")
-  private String[] toolkitIds;
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public String getAvatar() {
+        return this.avatar;
+    }
 
-  public String getAvatar() {
-    return this.avatar;
-  }
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
-  public void setAvatar(String avatar) {
-    this.avatar = avatar;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public String getDescription() {
-    return this.description;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public I18nNames getI18nNames() {
+        return this.i18nNames;
+    }
 
-  public I18nNames getI18nNames() {
-    return this.i18nNames;
-  }
+    public void setI18nNames(I18nNames i18nNames) {
+        this.i18nNames = i18nNames;
+    }
 
-  public void setI18nNames(I18nNames i18nNames) {
-    this.i18nNames = i18nNames;
-  }
+    public String getOwnerId() {
+        return this.ownerId;
+    }
 
-  public String getOwnerId() {
-    return this.ownerId;
-  }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
 
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
+    public String getOwnerIdType() {
+        return this.ownerIdType;
+    }
 
-  public String getOwnerIdType() {
-    return this.ownerIdType;
-  }
+    public void setOwnerIdType(String ownerIdType) {
+        this.ownerIdType = ownerIdType;
+    }
 
-  public void setOwnerIdType(String ownerIdType) {
-    this.ownerIdType = ownerIdType;
-  }
+    public String getAddMemberPermission() {
+        return this.addMemberPermission;
+    }
 
-  public String getAddMemberPermission() {
-    return this.addMemberPermission;
-  }
+    public void setAddMemberPermission(String addMemberPermission) {
+        this.addMemberPermission = addMemberPermission;
+    }
 
-  public void setAddMemberPermission(String addMemberPermission) {
-    this.addMemberPermission = addMemberPermission;
-  }
+    public String getShareCardPermission() {
+        return this.shareCardPermission;
+    }
 
-  public String getShareCardPermission() {
-    return this.shareCardPermission;
-  }
+    public void setShareCardPermission(String shareCardPermission) {
+        this.shareCardPermission = shareCardPermission;
+    }
 
-  public void setShareCardPermission(String shareCardPermission) {
-    this.shareCardPermission = shareCardPermission;
-  }
+    public String getAtAllPermission() {
+        return this.atAllPermission;
+    }
 
-  public String getAtAllPermission() {
-    return this.atAllPermission;
-  }
+    public void setAtAllPermission(String atAllPermission) {
+        this.atAllPermission = atAllPermission;
+    }
 
-  public void setAtAllPermission(String atAllPermission) {
-    this.atAllPermission = atAllPermission;
-  }
+    public String getEditPermission() {
+        return this.editPermission;
+    }
 
-  public String getEditPermission() {
-    return this.editPermission;
-  }
+    public void setEditPermission(String editPermission) {
+        this.editPermission = editPermission;
+    }
 
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
-  }
+    public String getChatMode() {
+        return this.chatMode;
+    }
 
-  public String getChatMode() {
-    return this.chatMode;
-  }
+    public void setChatMode(String chatMode) {
+        this.chatMode = chatMode;
+    }
 
-  public void setChatMode(String chatMode) {
-    this.chatMode = chatMode;
-  }
+    public String getChatType() {
+        return this.chatType;
+    }
 
-  public String getChatType() {
-    return this.chatType;
-  }
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
+    }
 
-  public void setChatType(String chatType) {
-    this.chatType = chatType;
-  }
+    public String getChatTag() {
+        return this.chatTag;
+    }
 
-  public String getChatTag() {
-    return this.chatTag;
-  }
+    public void setChatTag(String chatTag) {
+        this.chatTag = chatTag;
+    }
 
-  public void setChatTag(String chatTag) {
-    this.chatTag = chatTag;
-  }
+    public Boolean getExternal() {
+        return this.external;
+    }
 
-  public Boolean getExternal() {
-    return this.external;
-  }
+    public void setExternal(Boolean external) {
+        this.external = external;
+    }
 
-  public void setExternal(Boolean external) {
-    this.external = external;
-  }
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
 
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public String getJoinMessageVisibility() {
+        return this.joinMessageVisibility;
+    }
 
-  public String getJoinMessageVisibility() {
-    return this.joinMessageVisibility;
-  }
+    public void setJoinMessageVisibility(String joinMessageVisibility) {
+        this.joinMessageVisibility = joinMessageVisibility;
+    }
 
-  public void setJoinMessageVisibility(String joinMessageVisibility) {
-    this.joinMessageVisibility = joinMessageVisibility;
-  }
+    public String getLeaveMessageVisibility() {
+        return this.leaveMessageVisibility;
+    }
 
-  public String getLeaveMessageVisibility() {
-    return this.leaveMessageVisibility;
-  }
+    public void setLeaveMessageVisibility(String leaveMessageVisibility) {
+        this.leaveMessageVisibility = leaveMessageVisibility;
+    }
 
-  public void setLeaveMessageVisibility(String leaveMessageVisibility) {
-    this.leaveMessageVisibility = leaveMessageVisibility;
-  }
+    public String getMembershipApproval() {
+        return this.membershipApproval;
+    }
 
-  public String getMembershipApproval() {
-    return this.membershipApproval;
-  }
+    public void setMembershipApproval(String membershipApproval) {
+        this.membershipApproval = membershipApproval;
+    }
 
-  public void setMembershipApproval(String membershipApproval) {
-    this.membershipApproval = membershipApproval;
-  }
+    public String getModerationPermission() {
+        return this.moderationPermission;
+    }
 
-  public String getModerationPermission() {
-    return this.moderationPermission;
-  }
+    public void setModerationPermission(String moderationPermission) {
+        this.moderationPermission = moderationPermission;
+    }
 
-  public void setModerationPermission(String moderationPermission) {
-    this.moderationPermission = moderationPermission;
-  }
-
-
-  public String[] getToolkitIds() {
-    return this.toolkitIds;
-  }
-
-  public void setToolkitIds(String[] toolkitIds) {
-    this.toolkitIds = toolkitIds;
-  }
 
 }

@@ -19,162 +19,159 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateCalendarEventAttendeeReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-   */
-  @Path
-  @SerializedName("calendar_id")
-  private String calendarId;
-  /**
-   * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-   * <p> 示例值：xxxxxxxxx_0
-   */
-  @Path
-  @SerializedName("event_id")
-  private String eventId;
-  @Body
-  private CreateCalendarEventAttendeeReqBody body;
-  // builder 开始
-  public CreateCalendarEventAttendeeReq() {
-  }
-
-  public CreateCalendarEventAttendeeReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    this.calendarId = builder.calendarId;
+    @Path
+    @SerializedName("calendar_id")
+    private String calendarId;
     /**
      * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：xxxxxxxxx_0
      */
-    this.eventId = builder.eventId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public CreateCalendarEventAttendeeReqBody getCreateCalendarEventAttendeeReqBody() {
-    return this.body;
-  }
-
-  public void setCreateCalendarEventAttendeeReqBody(CreateCalendarEventAttendeeReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-    private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+    @Path
+    @SerializedName("event_id")
+    private String eventId;
+    @Body
     private CreateCalendarEventAttendeeReqBody body;
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public CreateCalendarEventAttendeeReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventAttendeeUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventAttendeeUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public CreateCalendarEventAttendeeReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         */
+        this.calendarId = builder.calendarId;
+        /**
+         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+         * <p> 示例值：xxxxxxxxx_0
+         */
+        this.eventId = builder.eventId;
+        this.body = builder.body;
     }
 
-    /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-     *
-     * @param calendarId
-     * @return
-     */
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-     * <p> 示例值：xxxxxxxxx_0
-     *
-     * @param eventId
-     * @return
-     */
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    public String getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
     public CreateCalendarEventAttendeeReqBody getCreateCalendarEventAttendeeReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createCalendarEventAttendeeReqBody(CreateCalendarEventAttendeeReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateCalendarEventAttendeeReqBody(CreateCalendarEventAttendeeReqBody body) {
+        this.body = body;
     }
 
-    public CreateCalendarEventAttendeeReq build() {
-      return new CreateCalendarEventAttendeeReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+        private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+        private CreateCalendarEventAttendeeReqBody body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventAttendeeUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.CreateCalendarEventAttendeeUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         *
+         * @param calendarId
+         * @return
+         */
+        public Builder calendarId(String calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
+
+        /**
+         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+         * <p> 示例值：xxxxxxxxx_0
+         *
+         * @param eventId
+         * @return
+         */
+        public Builder eventId(String eventId) {
+            this.eventId = eventId;
+            return this;
+        }
+
+        public CreateCalendarEventAttendeeReqBody getCreateCalendarEventAttendeeReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createCalendarEventAttendeeReqBody(CreateCalendarEventAttendeeReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateCalendarEventAttendeeReq build() {
+            return new CreateCalendarEventAttendeeReq(this);
+        }
     }
-  }
 }

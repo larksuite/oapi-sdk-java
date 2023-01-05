@@ -15,18 +15,18 @@ package com.lark.oapi.service.helpdesk.v1.enums;
 
 // 生成枚举值
 public enum MsgTypeEnum {
-  TEXT("text"),
-  POST("post"),
-  IMAGE("image"),
-  INTERACTIVE("interactive"),
-  ;
-  private String value;
+    TEXT("text"),
+    POST("post"),
+    IMAGE("image"),
+    INTERACTIVE("interactive"),
+    ;
+    private String value;
 
-  MsgTypeEnum(String value) {
-    this.value = value;
-  }
+    MsgTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

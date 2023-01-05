@@ -15,20 +15,20 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum ProcessStatusEnum {
-  NONE("0"),
-  RUNNING("1"),
-  APPROVED("2"),
-  REJECTED("3"),
-  CANCELED("4"),
-  TERMINATED("5"),
-  ;
-  private String value;
+    NONE("0"),
+    RUNNING("1"),
+    APPROVED("2"),
+    REJECTED("3"),
+    CANCELED("4"),
+    TERMINATED("5"),
+    ;
+    private String value;
 
-  ProcessStatusEnum(String value) {
-    this.value = value;
-  }
+    ProcessStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

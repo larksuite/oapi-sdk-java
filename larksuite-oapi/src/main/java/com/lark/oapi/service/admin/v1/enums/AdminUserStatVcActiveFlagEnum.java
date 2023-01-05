@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户音视频会议活跃状态，用户进入会中状态（不包含妙计和直播）即为活跃
  */
 public enum AdminUserStatVcActiveFlagEnum {
-  INACTIVE(0), // 无活跃
-  ACTIVE(1), // 活跃
-  ;
-  private Integer value;
+    INACTIVE(0), // 无活跃
+    ACTIVE(1), // 活跃
+    ;
+    private Integer value;
 
-  AdminUserStatVcActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    AdminUserStatVcActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

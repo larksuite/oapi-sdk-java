@@ -16,61 +16,59 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class RichValue {
-
-  /**
-   * 数据
-   * <p> 示例值：数据
-   */
-  @SerializedName("values")
-  private CellValue[][][] values;
-
-  // builder 开始
-  public RichValue() {
-  }
-
-  public RichValue(Builder builder) {
     /**
-     * 数据
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：数据
      */
-    this.values = builder.values;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CellValue[][][] getValues() {
-    return this.values;
-  }
-
-  public void setValues(CellValue[][][] values) {
-    this.values = values;
-  }
-
-  public static class Builder {
-
-    /**
-     * 数据
-     * <p> 示例值：数据
-     */
+    @SerializedName("values")
     private CellValue[][][] values;
 
-    /**
-     * 数据
-     * <p> 示例值：数据
-     *
-     * @param values
-     * @return
-     */
-    public Builder values(CellValue[][][] values) {
-      this.values = values;
-      return this;
+    // builder 开始
+    public RichValue() {
     }
 
-
-    public RichValue build() {
-      return new RichValue(this);
+    public RichValue(Builder builder) {
+        /**
+         * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+         * <p> 示例值：数据
+         */
+        this.values = builder.values;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public CellValue[][][] getValues() {
+        return this.values;
+    }
+
+    public void setValues(CellValue[][][] values) {
+        this.values = values;
+    }
+
+    public static class Builder {
+        /**
+         * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+         * <p> 示例值：数据
+         */
+        private CellValue[][][] values;
+
+        /**
+         * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+         * <p> 示例值：数据
+         *
+         * @param values
+         * @return
+         */
+        public Builder values(CellValue[][][] values) {
+            this.values = values;
+            return this;
+        }
+
+
+        public RichValue build() {
+            return new RichValue(this);
+        }
+    }
 }

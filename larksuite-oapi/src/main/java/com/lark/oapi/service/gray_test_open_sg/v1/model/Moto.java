@@ -16,172 +16,170 @@ package com.lark.oapi.service.gray_test_open_sg.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Moto {
-
-  /**
-   * desc
-   * <p> 示例值：
-   */
-  @SerializedName("moto_id")
-  private String motoId;
-  /**
-   * desc2
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * name
-   * <p> 示例值：
-   */
-  @SerializedName("user_name")
-  private String userName;
-  /**
-   * type
-   * <p> 示例值：
-   */
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public Moto() {
-  }
-
-  public Moto(Builder builder) {
     /**
      * desc
      * <p> 示例值：
      */
-    this.motoId = builder.motoId;
-    /**
-     * desc2
-     * <p> 示例值：
-     */
-    this.id = builder.id;
-    /**
-     * name
-     * <p> 示例值：
-     */
-    this.userName = builder.userName;
-    /**
-     * type
-     * <p> 示例值：
-     */
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMotoId() {
-    return this.motoId;
-  }
-
-  public void setMotoId(String motoId) {
-    this.motoId = motoId;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getUserName() {
-    return this.userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
-    /**
-     * desc
-     * <p> 示例值：
-     */
+    @SerializedName("moto_id")
     private String motoId;
     /**
      * desc2
      * <p> 示例值：
      */
+    @SerializedName("id")
     private String id;
     /**
      * name
      * <p> 示例值：
      */
+    @SerializedName("user_name")
     private String userName;
     /**
      * type
      * <p> 示例值：
      */
+    @SerializedName("type")
     private String type;
 
-    /**
-     * desc
-     * <p> 示例值：
-     *
-     * @param motoId
-     * @return
-     */
-    public Builder motoId(String motoId) {
-      this.motoId = motoId;
-      return this;
+    // builder 开始
+    public Moto() {
     }
 
-
-    /**
-     * desc2
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public Moto(Builder builder) {
+        /**
+         * desc
+         * <p> 示例值：
+         */
+        this.motoId = builder.motoId;
+        /**
+         * desc2
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * name
+         * <p> 示例值：
+         */
+        this.userName = builder.userName;
+        /**
+         * type
+         * <p> 示例值：
+         */
+        this.type = builder.type;
     }
 
-
-    /**
-     * name
-     * <p> 示例值：
-     *
-     * @param userName
-     * @return
-     */
-    public Builder userName(String userName) {
-      this.userName = userName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * type
-     * <p> 示例值：
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getMotoId() {
+        return this.motoId;
     }
 
-
-    public Moto build() {
-      return new Moto(this);
+    public void setMotoId(String motoId) {
+        this.motoId = motoId;
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public static class Builder {
+        /**
+         * desc
+         * <p> 示例值：
+         */
+        private String motoId;
+        /**
+         * desc2
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * name
+         * <p> 示例值：
+         */
+        private String userName;
+        /**
+         * type
+         * <p> 示例值：
+         */
+        private String type;
+
+        /**
+         * desc
+         * <p> 示例值：
+         *
+         * @param motoId
+         * @return
+         */
+        public Builder motoId(String motoId) {
+            this.motoId = motoId;
+            return this;
+        }
+
+
+        /**
+         * desc2
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * name
+         * <p> 示例值：
+         *
+         * @param userName
+         * @return
+         */
+        public Builder userName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+
+
+        /**
+         * type
+         * <p> 示例值：
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        public Moto build() {
+            return new Moto(this);
+        }
+    }
 }

@@ -16,2473 +16,2459 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SystemFields {
-
-  /**
-   * 中文姓名
-   * <p> 示例值：张三
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 英文姓名
-   * <p> 示例值：Tony Zhang
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 邮箱
-   * <p> 示例值：a@b.com
-   */
-  @SerializedName("email")
-  private String email;
-  /**
-   * 手机号码
-   * <p> 示例值：(+86) 13812345678
-   */
-  @SerializedName("mobile")
-  private String mobile;
-  /**
-   * 部门的飞书 open_department_id
-   * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 上级
-   * <p> 示例值：
-   */
-  @SerializedName("manager")
-  private Manager manager;
-  /**
-   * 职位
-   * <p> 示例值：
-   */
-  @SerializedName("job")
-  private Job job;
-  /**
-   * 职级
-   * <p> 示例值：
-   */
-  @SerializedName("job_level")
-  private JobLevel jobLevel;
-  /**
-   * 工作地点
-   * <p> 示例值：
-   */
-  @SerializedName("work_location")
-  private WorkLocation workLocation;
-  /**
-   * 性别
-   * <p> 示例值：1
-   */
-  @SerializedName("gender")
-  private Integer gender;
-  /**
-   * 出生日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("birthday")
-  private String birthday;
-  /**
-   * 籍贯
-   * <p> 示例值：
-   */
-  @SerializedName("native_region")
-  private NativeRegion nativeRegion;
-  /**
-   * 民族
-   * <p> 示例值：2
-   */
-  @SerializedName("ethnicity")
-  private Integer ethnicity;
-  /**
-   * 婚姻状况
-   * <p> 示例值：2
-   */
-  @SerializedName("marital_status")
-  private Integer maritalStatus;
-  /**
-   * 政治面貌
-   * <p> 示例值：2
-   */
-  @SerializedName("political_status")
-  private Integer politicalStatus;
-  /**
-   * 参加工作日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("entered_workforce_date")
-  private String enteredWorkforceDate;
-  /**
-   * 证件类型
-   * <p> 示例值：1
-   */
-  @SerializedName("id_type")
-  private Integer idType;
-  /**
-   * 证件号
-   * <p> 示例值：110122XXXXXX
-   */
-  @SerializedName("id_number")
-  private String idNumber;
-  /**
-   * 户口类型
-   * <p> 示例值：1
-   */
-  @SerializedName("hukou_type")
-  private Integer hukouType;
-  /**
-   * 户口所在地
-   * <p> 示例值：北京市海淀区XXXX
-   */
-  @SerializedName("hukou_location")
-  private String hukouLocation;
-  /**
-   * 银行卡号
-   * <p> 示例值：1243253453
-   */
-  @SerializedName("bank_account_number")
-  private String bankAccountNumber;
-  /**
-   * 开户行
-   * <p> 示例值：招商银行
-   */
-  @SerializedName("bank_name")
-  private String bankName;
-  /**
-   * 社保账号
-   * <p> 示例值：123124124
-   */
-  @SerializedName("social_security_account")
-  private String socialSecurityAccount;
-  /**
-   * 公积金账号
-   * <p> 示例值：123124235
-   */
-  @SerializedName("provident_fund_account")
-  private String providentFundAccount;
-  /**
-   * 工号
-   * <p> 示例值：TM-00001
-   */
-  @SerializedName("employee_no")
-  private String employeeNo;
-  /**
-   * 雇员类型
-   * <p> 示例值：1
-   */
-  @SerializedName("employee_type")
-  private Integer employeeType;
-  /**
-   * 员工状态
-   * <p> 示例值：2
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * 入职日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("hire_date")
-  private String hireDate;
-  /**
-   * 试用期（月）
-   * <p> 示例值：2
-   */
-  @SerializedName("probation_months")
-  private Double probationMonths;
-  /**
-   * 转正日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("conversion_date")
-  private String conversionDate;
-  /**
-   * 转正申请
-   * <p> 示例值：1
-   */
-  @SerializedName("application")
-  private Integer application;
-  /**
-   * 转正状态
-   * <p> 示例值：2
-   */
-  @SerializedName("application_status")
-  private Integer applicationStatus;
-  /**
-   * 离职日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("last_day")
-  private String lastDay;
-  /**
-   * 离职类型
-   * <p> 示例值：1
-   */
-  @SerializedName("departure_type")
-  private Integer departureType;
-  /**
-   * 离职原因
-   * <p> 示例值：4
-   */
-  @SerializedName("departure_reason")
-  private Integer departureReason;
-  /**
-   * 离职备注
-   * <p> 示例值：世界那么大
-   */
-  @SerializedName("departure_notes")
-  private String departureNotes;
-  /**
-   * 合同公司
-   * <p> 示例值：
-   */
-  @SerializedName("contract_company")
-  private ContractCompany contractCompany;
-  /**
-   * 合同类型
-   * <p> 示例值：1
-   */
-  @SerializedName("contract_type")
-  private Integer contractType;
-  /**
-   * 合同开始日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("contract_start_date")
-  private String contractStartDate;
-  /**
-   * 合同到期日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("contract_expiration_date")
-  private String contractExpirationDate;
-  /**
-   * 劳动合同签订次数
-   * <p> 示例值：2
-   */
-  @SerializedName("contract_sign_times")
-  private Integer contractSignTimes;
-  /**
-   * 个人邮箱
-   * <p> 示例值：personal@email.com
-   */
-  @SerializedName("personal_email")
-  private String personalEmail;
-  /**
-   * 家庭地址
-   * <p> 示例值：北京市海淀区XXXXX
-   */
-  @SerializedName("family_address")
-  private String familyAddress;
-  /**
-   * 主要紧急联系人
-   * <p> 示例值：
-   */
-  @SerializedName("primary_emergency_contact")
-  private EmergencyContact primaryEmergencyContact;
-  /**
-   * 紧急联系人
-   * <p> 示例值：
-   */
-  @SerializedName("emergency_contact")
-  private EmergencyContact[] emergencyContact;
-  /**
-   * 最高学历
-   * <p> 示例值：
-   */
-  @SerializedName("highest_level_of_edu")
-  private Education highestLevelOfEdu;
-  /**
-   * 教育经历
-   * <p> 示例值：
-   */
-  @SerializedName("education")
-  private Education[] education;
-  /**
-   * 前工作经历
-   * <p> 示例值：
-   */
-  @SerializedName("former_work_exp")
-  private WorkExperience formerWorkExp;
-  /**
-   * 工作经历
-   * <p> 示例值：
-   */
-  @SerializedName("work_exp")
-  private WorkExperience[] workExp;
-  /**
-   * 身份证照片（人像面）
-   * <p> 示例值：
-   */
-  @SerializedName("id_photo_po_side")
-  private Attachment[] idPhotoPoSide;
-  /**
-   * 身份证照片（国徽面）
-   * <p> 示例值：
-   */
-  @SerializedName("id_photo_em_side")
-  private Attachment[] idPhotoEmSide;
-  /**
-   * 证件照
-   * <p> 示例值：
-   */
-  @SerializedName("id_photo")
-  private Attachment[] idPhoto;
-  /**
-   * 学位证书
-   * <p> 示例值：
-   */
-  @SerializedName("diploma_photo")
-  private Attachment[] diplomaPhoto;
-  /**
-   * 毕业证书
-   * <p> 示例值：
-   */
-  @SerializedName("graduation_cert")
-  private Attachment[] graduationCert;
-  /**
-   * 奖励证明
-   * <p> 示例值：
-   */
-  @SerializedName("cert_of_merit")
-  private Attachment[] certOfMerit;
-  /**
-   * 离职证明
-   * <p> 示例值：
-   */
-  @SerializedName("offboarding_file")
-  private Attachment[] offboardingFile;
-  /**
-   * 取消入职原因
-   * <p> 示例值：2
-   */
-  @SerializedName("cancel_onboarding_reason")
-  private Integer cancelOnboardingReason;
-  /**
-   * 取消入职备注
-   * <p> 示例值：个人原因
-   */
-  @SerializedName("cancel_onboarding_notes")
-  private String cancelOnboardingNotes;
-  /**
-   * 入职登记表状态
-   * <p> 示例值：1
-   */
-  @SerializedName("employee_form_status")
-  private Integer employeeFormStatus;
-  /**
-   * 创建时间
-   * <p> 示例值：1608690517811
-   */
-  @SerializedName("create_time")
-  private Long createTime;
-  /**
-   * 更新时间
-   * <p> 示例值：1608690517811
-   */
-  @SerializedName("update_time")
-  private Long updateTime;
-
-  // builder 开始
-  public SystemFields() {
-  }
-
-  public SystemFields(Builder builder) {
     /**
      * 中文姓名
      * <p> 示例值：张三
      */
-    this.name = builder.name;
-    /**
-     * 英文姓名
-     * <p> 示例值：Tony Zhang
-     */
-    this.enName = builder.enName;
-    /**
-     * 邮箱
-     * <p> 示例值：a@b.com
-     */
-    this.email = builder.email;
-    /**
-     * 手机号码
-     * <p> 示例值：(+86) 13812345678
-     */
-    this.mobile = builder.mobile;
-    /**
-     * 部门的飞书 open_department_id
-     * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
-     */
-    this.departmentId = builder.departmentId;
-    /**
-     * 上级
-     * <p> 示例值：
-     */
-    this.manager = builder.manager;
-    /**
-     * 职位
-     * <p> 示例值：
-     */
-    this.job = builder.job;
-    /**
-     * 职级
-     * <p> 示例值：
-     */
-    this.jobLevel = builder.jobLevel;
-    /**
-     * 工作地点
-     * <p> 示例值：
-     */
-    this.workLocation = builder.workLocation;
-    /**
-     * 性别
-     * <p> 示例值：1
-     */
-    this.gender = builder.gender;
-    /**
-     * 出生日期
-     * <p> 示例值：2020-01-01
-     */
-    this.birthday = builder.birthday;
-    /**
-     * 籍贯
-     * <p> 示例值：
-     */
-    this.nativeRegion = builder.nativeRegion;
-    /**
-     * 民族
-     * <p> 示例值：2
-     */
-    this.ethnicity = builder.ethnicity;
-    /**
-     * 婚姻状况
-     * <p> 示例值：2
-     */
-    this.maritalStatus = builder.maritalStatus;
-    /**
-     * 政治面貌
-     * <p> 示例值：2
-     */
-    this.politicalStatus = builder.politicalStatus;
-    /**
-     * 参加工作日期
-     * <p> 示例值：2020-01-01
-     */
-    this.enteredWorkforceDate = builder.enteredWorkforceDate;
-    /**
-     * 证件类型
-     * <p> 示例值：1
-     */
-    this.idType = builder.idType;
-    /**
-     * 证件号
-     * <p> 示例值：110122XXXXXX
-     */
-    this.idNumber = builder.idNumber;
-    /**
-     * 户口类型
-     * <p> 示例值：1
-     */
-    this.hukouType = builder.hukouType;
-    /**
-     * 户口所在地
-     * <p> 示例值：北京市海淀区XXXX
-     */
-    this.hukouLocation = builder.hukouLocation;
-    /**
-     * 银行卡号
-     * <p> 示例值：1243253453
-     */
-    this.bankAccountNumber = builder.bankAccountNumber;
-    /**
-     * 开户行
-     * <p> 示例值：招商银行
-     */
-    this.bankName = builder.bankName;
-    /**
-     * 社保账号
-     * <p> 示例值：123124124
-     */
-    this.socialSecurityAccount = builder.socialSecurityAccount;
-    /**
-     * 公积金账号
-     * <p> 示例值：123124235
-     */
-    this.providentFundAccount = builder.providentFundAccount;
-    /**
-     * 工号
-     * <p> 示例值：TM-00001
-     */
-    this.employeeNo = builder.employeeNo;
-    /**
-     * 雇员类型
-     * <p> 示例值：1
-     */
-    this.employeeType = builder.employeeType;
-    /**
-     * 员工状态
-     * <p> 示例值：2
-     */
-    this.status = builder.status;
-    /**
-     * 入职日期
-     * <p> 示例值：2020-01-01
-     */
-    this.hireDate = builder.hireDate;
-    /**
-     * 试用期（月）
-     * <p> 示例值：2
-     */
-    this.probationMonths = builder.probationMonths;
-    /**
-     * 转正日期
-     * <p> 示例值：2020-01-01
-     */
-    this.conversionDate = builder.conversionDate;
-    /**
-     * 转正申请
-     * <p> 示例值：1
-     */
-    this.application = builder.application;
-    /**
-     * 转正状态
-     * <p> 示例值：2
-     */
-    this.applicationStatus = builder.applicationStatus;
-    /**
-     * 离职日期
-     * <p> 示例值：2020-01-01
-     */
-    this.lastDay = builder.lastDay;
-    /**
-     * 离职类型
-     * <p> 示例值：1
-     */
-    this.departureType = builder.departureType;
-    /**
-     * 离职原因
-     * <p> 示例值：4
-     */
-    this.departureReason = builder.departureReason;
-    /**
-     * 离职备注
-     * <p> 示例值：世界那么大
-     */
-    this.departureNotes = builder.departureNotes;
-    /**
-     * 合同公司
-     * <p> 示例值：
-     */
-    this.contractCompany = builder.contractCompany;
-    /**
-     * 合同类型
-     * <p> 示例值：1
-     */
-    this.contractType = builder.contractType;
-    /**
-     * 合同开始日期
-     * <p> 示例值：2020-01-01
-     */
-    this.contractStartDate = builder.contractStartDate;
-    /**
-     * 合同到期日期
-     * <p> 示例值：2020-01-01
-     */
-    this.contractExpirationDate = builder.contractExpirationDate;
-    /**
-     * 劳动合同签订次数
-     * <p> 示例值：2
-     */
-    this.contractSignTimes = builder.contractSignTimes;
-    /**
-     * 个人邮箱
-     * <p> 示例值：personal@email.com
-     */
-    this.personalEmail = builder.personalEmail;
-    /**
-     * 家庭地址
-     * <p> 示例值：北京市海淀区XXXXX
-     */
-    this.familyAddress = builder.familyAddress;
-    /**
-     * 主要紧急联系人
-     * <p> 示例值：
-     */
-    this.primaryEmergencyContact = builder.primaryEmergencyContact;
-    /**
-     * 紧急联系人
-     * <p> 示例值：
-     */
-    this.emergencyContact = builder.emergencyContact;
-    /**
-     * 最高学历
-     * <p> 示例值：
-     */
-    this.highestLevelOfEdu = builder.highestLevelOfEdu;
-    /**
-     * 教育经历
-     * <p> 示例值：
-     */
-    this.education = builder.education;
-    /**
-     * 前工作经历
-     * <p> 示例值：
-     */
-    this.formerWorkExp = builder.formerWorkExp;
-    /**
-     * 工作经历
-     * <p> 示例值：
-     */
-    this.workExp = builder.workExp;
-    /**
-     * 身份证照片（人像面）
-     * <p> 示例值：
-     */
-    this.idPhotoPoSide = builder.idPhotoPoSide;
-    /**
-     * 身份证照片（国徽面）
-     * <p> 示例值：
-     */
-    this.idPhotoEmSide = builder.idPhotoEmSide;
-    /**
-     * 证件照
-     * <p> 示例值：
-     */
-    this.idPhoto = builder.idPhoto;
-    /**
-     * 学位证书
-     * <p> 示例值：
-     */
-    this.diplomaPhoto = builder.diplomaPhoto;
-    /**
-     * 毕业证书
-     * <p> 示例值：
-     */
-    this.graduationCert = builder.graduationCert;
-    /**
-     * 奖励证明
-     * <p> 示例值：
-     */
-    this.certOfMerit = builder.certOfMerit;
-    /**
-     * 离职证明
-     * <p> 示例值：
-     */
-    this.offboardingFile = builder.offboardingFile;
-    /**
-     * 取消入职原因
-     * <p> 示例值：2
-     */
-    this.cancelOnboardingReason = builder.cancelOnboardingReason;
-    /**
-     * 取消入职备注
-     * <p> 示例值：个人原因
-     */
-    this.cancelOnboardingNotes = builder.cancelOnboardingNotes;
-    /**
-     * 入职登记表状态
-     * <p> 示例值：1
-     */
-    this.employeeFormStatus = builder.employeeFormStatus;
-    /**
-     * 创建时间
-     * <p> 示例值：1608690517811
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：1608690517811
-     */
-    this.updateTime = builder.updateTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public Manager getManager() {
-    return this.manager;
-  }
-
-  public void setManager(Manager manager) {
-    this.manager = manager;
-  }
-
-  public Job getJob() {
-    return this.job;
-  }
-
-  public void setJob(Job job) {
-    this.job = job;
-  }
-
-  public JobLevel getJobLevel() {
-    return this.jobLevel;
-  }
-
-  public void setJobLevel(JobLevel jobLevel) {
-    this.jobLevel = jobLevel;
-  }
-
-  public WorkLocation getWorkLocation() {
-    return this.workLocation;
-  }
-
-  public void setWorkLocation(WorkLocation workLocation) {
-    this.workLocation = workLocation;
-  }
-
-  public Integer getGender() {
-    return this.gender;
-  }
-
-  public void setGender(Integer gender) {
-    this.gender = gender;
-  }
-
-  public String getBirthday() {
-    return this.birthday;
-  }
-
-  public void setBirthday(String birthday) {
-    this.birthday = birthday;
-  }
-
-  public NativeRegion getNativeRegion() {
-    return this.nativeRegion;
-  }
-
-  public void setNativeRegion(NativeRegion nativeRegion) {
-    this.nativeRegion = nativeRegion;
-  }
-
-  public Integer getEthnicity() {
-    return this.ethnicity;
-  }
-
-  public void setEthnicity(Integer ethnicity) {
-    this.ethnicity = ethnicity;
-  }
-
-  public Integer getMaritalStatus() {
-    return this.maritalStatus;
-  }
-
-  public void setMaritalStatus(Integer maritalStatus) {
-    this.maritalStatus = maritalStatus;
-  }
-
-  public Integer getPoliticalStatus() {
-    return this.politicalStatus;
-  }
-
-  public void setPoliticalStatus(Integer politicalStatus) {
-    this.politicalStatus = politicalStatus;
-  }
-
-  public String getEnteredWorkforceDate() {
-    return this.enteredWorkforceDate;
-  }
-
-  public void setEnteredWorkforceDate(String enteredWorkforceDate) {
-    this.enteredWorkforceDate = enteredWorkforceDate;
-  }
-
-  public Integer getIdType() {
-    return this.idType;
-  }
-
-  public void setIdType(Integer idType) {
-    this.idType = idType;
-  }
-
-  public String getIdNumber() {
-    return this.idNumber;
-  }
-
-  public void setIdNumber(String idNumber) {
-    this.idNumber = idNumber;
-  }
-
-  public Integer getHukouType() {
-    return this.hukouType;
-  }
-
-  public void setHukouType(Integer hukouType) {
-    this.hukouType = hukouType;
-  }
-
-  public String getHukouLocation() {
-    return this.hukouLocation;
-  }
-
-  public void setHukouLocation(String hukouLocation) {
-    this.hukouLocation = hukouLocation;
-  }
-
-  public String getBankAccountNumber() {
-    return this.bankAccountNumber;
-  }
-
-  public void setBankAccountNumber(String bankAccountNumber) {
-    this.bankAccountNumber = bankAccountNumber;
-  }
-
-  public String getBankName() {
-    return this.bankName;
-  }
-
-  public void setBankName(String bankName) {
-    this.bankName = bankName;
-  }
-
-  public String getSocialSecurityAccount() {
-    return this.socialSecurityAccount;
-  }
-
-  public void setSocialSecurityAccount(String socialSecurityAccount) {
-    this.socialSecurityAccount = socialSecurityAccount;
-  }
-
-  public String getProvidentFundAccount() {
-    return this.providentFundAccount;
-  }
-
-  public void setProvidentFundAccount(String providentFundAccount) {
-    this.providentFundAccount = providentFundAccount;
-  }
-
-  public String getEmployeeNo() {
-    return this.employeeNo;
-  }
-
-  public void setEmployeeNo(String employeeNo) {
-    this.employeeNo = employeeNo;
-  }
-
-  public Integer getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(Integer employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getHireDate() {
-    return this.hireDate;
-  }
-
-  public void setHireDate(String hireDate) {
-    this.hireDate = hireDate;
-  }
-
-  public Double getProbationMonths() {
-    return this.probationMonths;
-  }
-
-  public void setProbationMonths(Double probationMonths) {
-    this.probationMonths = probationMonths;
-  }
-
-  public String getConversionDate() {
-    return this.conversionDate;
-  }
-
-  public void setConversionDate(String conversionDate) {
-    this.conversionDate = conversionDate;
-  }
-
-  public Integer getApplication() {
-    return this.application;
-  }
-
-  public void setApplication(Integer application) {
-    this.application = application;
-  }
-
-  public Integer getApplicationStatus() {
-    return this.applicationStatus;
-  }
-
-  public void setApplicationStatus(Integer applicationStatus) {
-    this.applicationStatus = applicationStatus;
-  }
-
-  public String getLastDay() {
-    return this.lastDay;
-  }
-
-  public void setLastDay(String lastDay) {
-    this.lastDay = lastDay;
-  }
-
-  public Integer getDepartureType() {
-    return this.departureType;
-  }
-
-  public void setDepartureType(Integer departureType) {
-    this.departureType = departureType;
-  }
-
-  public Integer getDepartureReason() {
-    return this.departureReason;
-  }
-
-  public void setDepartureReason(Integer departureReason) {
-    this.departureReason = departureReason;
-  }
-
-  public String getDepartureNotes() {
-    return this.departureNotes;
-  }
-
-  public void setDepartureNotes(String departureNotes) {
-    this.departureNotes = departureNotes;
-  }
-
-  public ContractCompany getContractCompany() {
-    return this.contractCompany;
-  }
-
-  public void setContractCompany(ContractCompany contractCompany) {
-    this.contractCompany = contractCompany;
-  }
-
-  public Integer getContractType() {
-    return this.contractType;
-  }
-
-  public void setContractType(Integer contractType) {
-    this.contractType = contractType;
-  }
-
-  public String getContractStartDate() {
-    return this.contractStartDate;
-  }
-
-  public void setContractStartDate(String contractStartDate) {
-    this.contractStartDate = contractStartDate;
-  }
-
-  public String getContractExpirationDate() {
-    return this.contractExpirationDate;
-  }
-
-  public void setContractExpirationDate(String contractExpirationDate) {
-    this.contractExpirationDate = contractExpirationDate;
-  }
-
-  public Integer getContractSignTimes() {
-    return this.contractSignTimes;
-  }
-
-  public void setContractSignTimes(Integer contractSignTimes) {
-    this.contractSignTimes = contractSignTimes;
-  }
-
-  public String getPersonalEmail() {
-    return this.personalEmail;
-  }
-
-  public void setPersonalEmail(String personalEmail) {
-    this.personalEmail = personalEmail;
-  }
-
-  public String getFamilyAddress() {
-    return this.familyAddress;
-  }
-
-  public void setFamilyAddress(String familyAddress) {
-    this.familyAddress = familyAddress;
-  }
-
-  public EmergencyContact getPrimaryEmergencyContact() {
-    return this.primaryEmergencyContact;
-  }
-
-  public void setPrimaryEmergencyContact(EmergencyContact primaryEmergencyContact) {
-    this.primaryEmergencyContact = primaryEmergencyContact;
-  }
-
-  public EmergencyContact[] getEmergencyContact() {
-    return this.emergencyContact;
-  }
-
-  public void setEmergencyContact(EmergencyContact[] emergencyContact) {
-    this.emergencyContact = emergencyContact;
-  }
-
-  public Education getHighestLevelOfEdu() {
-    return this.highestLevelOfEdu;
-  }
-
-  public void setHighestLevelOfEdu(Education highestLevelOfEdu) {
-    this.highestLevelOfEdu = highestLevelOfEdu;
-  }
-
-  public Education[] getEducation() {
-    return this.education;
-  }
-
-  public void setEducation(Education[] education) {
-    this.education = education;
-  }
-
-  public WorkExperience getFormerWorkExp() {
-    return this.formerWorkExp;
-  }
-
-  public void setFormerWorkExp(WorkExperience formerWorkExp) {
-    this.formerWorkExp = formerWorkExp;
-  }
-
-  public WorkExperience[] getWorkExp() {
-    return this.workExp;
-  }
-
-  public void setWorkExp(WorkExperience[] workExp) {
-    this.workExp = workExp;
-  }
-
-  public Attachment[] getIdPhotoPoSide() {
-    return this.idPhotoPoSide;
-  }
-
-  public void setIdPhotoPoSide(Attachment[] idPhotoPoSide) {
-    this.idPhotoPoSide = idPhotoPoSide;
-  }
-
-  public Attachment[] getIdPhotoEmSide() {
-    return this.idPhotoEmSide;
-  }
-
-  public void setIdPhotoEmSide(Attachment[] idPhotoEmSide) {
-    this.idPhotoEmSide = idPhotoEmSide;
-  }
-
-  public Attachment[] getIdPhoto() {
-    return this.idPhoto;
-  }
-
-  public void setIdPhoto(Attachment[] idPhoto) {
-    this.idPhoto = idPhoto;
-  }
-
-  public Attachment[] getDiplomaPhoto() {
-    return this.diplomaPhoto;
-  }
-
-  public void setDiplomaPhoto(Attachment[] diplomaPhoto) {
-    this.diplomaPhoto = diplomaPhoto;
-  }
-
-  public Attachment[] getGraduationCert() {
-    return this.graduationCert;
-  }
-
-  public void setGraduationCert(Attachment[] graduationCert) {
-    this.graduationCert = graduationCert;
-  }
-
-  public Attachment[] getCertOfMerit() {
-    return this.certOfMerit;
-  }
-
-  public void setCertOfMerit(Attachment[] certOfMerit) {
-    this.certOfMerit = certOfMerit;
-  }
-
-  public Attachment[] getOffboardingFile() {
-    return this.offboardingFile;
-  }
-
-  public void setOffboardingFile(Attachment[] offboardingFile) {
-    this.offboardingFile = offboardingFile;
-  }
-
-  public Integer getCancelOnboardingReason() {
-    return this.cancelOnboardingReason;
-  }
-
-  public void setCancelOnboardingReason(Integer cancelOnboardingReason) {
-    this.cancelOnboardingReason = cancelOnboardingReason;
-  }
-
-  public String getCancelOnboardingNotes() {
-    return this.cancelOnboardingNotes;
-  }
-
-  public void setCancelOnboardingNotes(String cancelOnboardingNotes) {
-    this.cancelOnboardingNotes = cancelOnboardingNotes;
-  }
-
-  public Integer getEmployeeFormStatus() {
-    return this.employeeFormStatus;
-  }
-
-  public void setEmployeeFormStatus(Integer employeeFormStatus) {
-    this.employeeFormStatus = employeeFormStatus;
-  }
-
-  public Long getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Long createTime) {
-    this.createTime = createTime;
-  }
-
-  public Long getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(Long updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 中文姓名
-     * <p> 示例值：张三
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 英文姓名
      * <p> 示例值：Tony Zhang
      */
+    @SerializedName("en_name")
     private String enName;
     /**
      * 邮箱
      * <p> 示例值：a@b.com
      */
+    @SerializedName("email")
     private String email;
     /**
      * 手机号码
      * <p> 示例值：(+86) 13812345678
      */
+    @SerializedName("mobile")
     private String mobile;
     /**
      * 部门的飞书 open_department_id
      * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
      */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 上级
      * <p> 示例值：
      */
+    @SerializedName("manager")
     private Manager manager;
     /**
      * 职位
      * <p> 示例值：
      */
+    @SerializedName("job")
     private Job job;
     /**
      * 职级
      * <p> 示例值：
      */
+    @SerializedName("job_level")
     private JobLevel jobLevel;
     /**
      * 工作地点
      * <p> 示例值：
      */
+    @SerializedName("work_location")
     private WorkLocation workLocation;
     /**
      * 性别
      * <p> 示例值：1
      */
+    @SerializedName("gender")
     private Integer gender;
     /**
      * 出生日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("birthday")
     private String birthday;
     /**
      * 籍贯
      * <p> 示例值：
      */
+    @SerializedName("native_region")
     private NativeRegion nativeRegion;
     /**
      * 民族
      * <p> 示例值：2
      */
+    @SerializedName("ethnicity")
     private Integer ethnicity;
     /**
      * 婚姻状况
      * <p> 示例值：2
      */
+    @SerializedName("marital_status")
     private Integer maritalStatus;
     /**
      * 政治面貌
      * <p> 示例值：2
      */
+    @SerializedName("political_status")
     private Integer politicalStatus;
     /**
      * 参加工作日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("entered_workforce_date")
     private String enteredWorkforceDate;
     /**
      * 证件类型
      * <p> 示例值：1
      */
+    @SerializedName("id_type")
     private Integer idType;
     /**
      * 证件号
      * <p> 示例值：110122XXXXXX
      */
+    @SerializedName("id_number")
     private String idNumber;
     /**
      * 户口类型
      * <p> 示例值：1
      */
+    @SerializedName("hukou_type")
     private Integer hukouType;
     /**
      * 户口所在地
      * <p> 示例值：北京市海淀区XXXX
      */
+    @SerializedName("hukou_location")
     private String hukouLocation;
     /**
      * 银行卡号
      * <p> 示例值：1243253453
      */
+    @SerializedName("bank_account_number")
     private String bankAccountNumber;
     /**
      * 开户行
      * <p> 示例值：招商银行
      */
+    @SerializedName("bank_name")
     private String bankName;
     /**
      * 社保账号
      * <p> 示例值：123124124
      */
+    @SerializedName("social_security_account")
     private String socialSecurityAccount;
     /**
      * 公积金账号
      * <p> 示例值：123124235
      */
+    @SerializedName("provident_fund_account")
     private String providentFundAccount;
     /**
      * 工号
      * <p> 示例值：TM-00001
      */
+    @SerializedName("employee_no")
     private String employeeNo;
     /**
      * 雇员类型
      * <p> 示例值：1
      */
+    @SerializedName("employee_type")
     private Integer employeeType;
     /**
      * 员工状态
      * <p> 示例值：2
      */
+    @SerializedName("status")
     private Integer status;
     /**
      * 入职日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("hire_date")
     private String hireDate;
     /**
      * 试用期（月）
      * <p> 示例值：2
      */
+    @SerializedName("probation_months")
     private Double probationMonths;
     /**
      * 转正日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("conversion_date")
     private String conversionDate;
     /**
      * 转正申请
      * <p> 示例值：1
      */
+    @SerializedName("application")
     private Integer application;
     /**
      * 转正状态
      * <p> 示例值：2
      */
+    @SerializedName("application_status")
     private Integer applicationStatus;
     /**
      * 离职日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("last_day")
     private String lastDay;
     /**
      * 离职类型
      * <p> 示例值：1
      */
+    @SerializedName("departure_type")
     private Integer departureType;
     /**
      * 离职原因
      * <p> 示例值：4
      */
+    @SerializedName("departure_reason")
     private Integer departureReason;
     /**
      * 离职备注
      * <p> 示例值：世界那么大
      */
+    @SerializedName("departure_notes")
     private String departureNotes;
     /**
      * 合同公司
      * <p> 示例值：
      */
+    @SerializedName("contract_company")
     private ContractCompany contractCompany;
     /**
      * 合同类型
      * <p> 示例值：1
      */
+    @SerializedName("contract_type")
     private Integer contractType;
     /**
      * 合同开始日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("contract_start_date")
     private String contractStartDate;
     /**
      * 合同到期日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("contract_expiration_date")
     private String contractExpirationDate;
     /**
      * 劳动合同签订次数
      * <p> 示例值：2
      */
+    @SerializedName("contract_sign_times")
     private Integer contractSignTimes;
     /**
      * 个人邮箱
      * <p> 示例值：personal@email.com
      */
+    @SerializedName("personal_email")
     private String personalEmail;
     /**
      * 家庭地址
      * <p> 示例值：北京市海淀区XXXXX
      */
+    @SerializedName("family_address")
     private String familyAddress;
     /**
      * 主要紧急联系人
      * <p> 示例值：
      */
+    @SerializedName("primary_emergency_contact")
     private EmergencyContact primaryEmergencyContact;
     /**
      * 紧急联系人
      * <p> 示例值：
      */
+    @SerializedName("emergency_contact")
     private EmergencyContact[] emergencyContact;
     /**
      * 最高学历
      * <p> 示例值：
      */
+    @SerializedName("highest_level_of_edu")
     private Education highestLevelOfEdu;
     /**
      * 教育经历
      * <p> 示例值：
      */
+    @SerializedName("education")
     private Education[] education;
     /**
      * 前工作经历
      * <p> 示例值：
      */
+    @SerializedName("former_work_exp")
     private WorkExperience formerWorkExp;
     /**
      * 工作经历
      * <p> 示例值：
      */
+    @SerializedName("work_exp")
     private WorkExperience[] workExp;
     /**
      * 身份证照片（人像面）
      * <p> 示例值：
      */
+    @SerializedName("id_photo_po_side")
     private Attachment[] idPhotoPoSide;
     /**
      * 身份证照片（国徽面）
      * <p> 示例值：
      */
+    @SerializedName("id_photo_em_side")
     private Attachment[] idPhotoEmSide;
     /**
      * 证件照
      * <p> 示例值：
      */
+    @SerializedName("id_photo")
     private Attachment[] idPhoto;
     /**
      * 学位证书
      * <p> 示例值：
      */
+    @SerializedName("diploma_photo")
     private Attachment[] diplomaPhoto;
     /**
      * 毕业证书
      * <p> 示例值：
      */
+    @SerializedName("graduation_cert")
     private Attachment[] graduationCert;
     /**
      * 奖励证明
      * <p> 示例值：
      */
+    @SerializedName("cert_of_merit")
     private Attachment[] certOfMerit;
     /**
      * 离职证明
      * <p> 示例值：
      */
+    @SerializedName("offboarding_file")
     private Attachment[] offboardingFile;
     /**
      * 取消入职原因
      * <p> 示例值：2
      */
+    @SerializedName("cancel_onboarding_reason")
     private Integer cancelOnboardingReason;
     /**
      * 取消入职备注
      * <p> 示例值：个人原因
      */
+    @SerializedName("cancel_onboarding_notes")
     private String cancelOnboardingNotes;
     /**
      * 入职登记表状态
      * <p> 示例值：1
      */
+    @SerializedName("employee_form_status")
     private Integer employeeFormStatus;
     /**
      * 创建时间
      * <p> 示例值：1608690517811
      */
+    @SerializedName("create_time")
     private Long createTime;
     /**
      * 更新时间
      * <p> 示例值：1608690517811
      */
+    @SerializedName("update_time")
     private Long updateTime;
 
-    /**
-     * 中文姓名
-     * <p> 示例值：张三
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
-    }
-
-
-    /**
-     * 英文姓名
-     * <p> 示例值：Tony Zhang
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
-    }
-
-
-    /**
-     * 邮箱
-     * <p> 示例值：a@b.com
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
-    }
-
-
-    /**
-     * 手机号码
-     * <p> 示例值：(+86) 13812345678
-     *
-     * @param mobile
-     * @return
-     */
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
-    }
-
-
-    /**
-     * 部门的飞书 open_department_id
-     * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
-    }
-
-
-    /**
-     * 上级
-     * <p> 示例值：
-     *
-     * @param manager
-     * @return
-     */
-    public Builder manager(Manager manager) {
-      this.manager = manager;
-      return this;
-    }
-
-
-    /**
-     * 职位
-     * <p> 示例值：
-     *
-     * @param job
-     * @return
-     */
-    public Builder job(Job job) {
-      this.job = job;
-      return this;
-    }
-
-
-    /**
-     * 职级
-     * <p> 示例值：
-     *
-     * @param jobLevel
-     * @return
-     */
-    public Builder jobLevel(JobLevel jobLevel) {
-      this.jobLevel = jobLevel;
-      return this;
-    }
-
-
-    /**
-     * 工作地点
-     * <p> 示例值：
-     *
-     * @param workLocation
-     * @return
-     */
-    public Builder workLocation(WorkLocation workLocation) {
-      this.workLocation = workLocation;
-      return this;
-    }
-
-
-    /**
-     * 性别
-     * <p> 示例值：1
-     *
-     * @param gender
-     * @return
-     */
-    public Builder gender(Integer gender) {
-      this.gender = gender;
-      return this;
-    }
-
-    /**
-     * 性别
-     * <p> 示例值：1
-     *
-     * @param gender {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsGenderEnum}
-     * @return
-     */
-    public Builder gender(com.lark.oapi.service.ehr.v1.enums.SystemFieldsGenderEnum gender) {
-      this.gender = gender.getValue();
-      return this;
-    }
-
-
-    /**
-     * 出生日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param birthday
-     * @return
-     */
-    public Builder birthday(String birthday) {
-      this.birthday = birthday;
-      return this;
-    }
-
-
-    /**
-     * 籍贯
-     * <p> 示例值：
-     *
-     * @param nativeRegion
-     * @return
-     */
-    public Builder nativeRegion(NativeRegion nativeRegion) {
-      this.nativeRegion = nativeRegion;
-      return this;
-    }
-
-
-    /**
-     * 民族
-     * <p> 示例值：2
-     *
-     * @param ethnicity
-     * @return
-     */
-    public Builder ethnicity(Integer ethnicity) {
-      this.ethnicity = ethnicity;
-      return this;
-    }
-
-    /**
-     * 民族
-     * <p> 示例值：2
-     *
-     * @param ethnicity {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsEthnicityEnum}
-     * @return
-     */
-    public Builder ethnicity(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsEthnicityEnum ethnicity) {
-      this.ethnicity = ethnicity.getValue();
-      return this;
-    }
-
-
-    /**
-     * 婚姻状况
-     * <p> 示例值：2
-     *
-     * @param maritalStatus
-     * @return
-     */
-    public Builder maritalStatus(Integer maritalStatus) {
-      this.maritalStatus = maritalStatus;
-      return this;
-    }
-
-    /**
-     * 婚姻状况
-     * <p> 示例值：2
-     *
-     * @param maritalStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsMaritalStatusEnum}
-     * @return
-     */
-    public Builder maritalStatus(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsMaritalStatusEnum maritalStatus) {
-      this.maritalStatus = maritalStatus.getValue();
-      return this;
-    }
-
-
-    /**
-     * 政治面貌
-     * <p> 示例值：2
-     *
-     * @param politicalStatus
-     * @return
-     */
-    public Builder politicalStatus(Integer politicalStatus) {
-      this.politicalStatus = politicalStatus;
-      return this;
-    }
-
-    /**
-     * 政治面貌
-     * <p> 示例值：2
-     *
-     * @param politicalStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsPoliticalStatusEnum}
-     * @return
-     */
-    public Builder politicalStatus(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsPoliticalStatusEnum politicalStatus) {
-      this.politicalStatus = politicalStatus.getValue();
-      return this;
-    }
-
-
-    /**
-     * 参加工作日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param enteredWorkforceDate
-     * @return
-     */
-    public Builder enteredWorkforceDate(String enteredWorkforceDate) {
-      this.enteredWorkforceDate = enteredWorkforceDate;
-      return this;
-    }
-
-
-    /**
-     * 证件类型
-     * <p> 示例值：1
-     *
-     * @param idType
-     * @return
-     */
-    public Builder idType(Integer idType) {
-      this.idType = idType;
-      return this;
-    }
-
-    /**
-     * 证件类型
-     * <p> 示例值：1
-     *
-     * @param idType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsIdTypeEnum}
-     * @return
-     */
-    public Builder idType(com.lark.oapi.service.ehr.v1.enums.SystemFieldsIdTypeEnum idType) {
-      this.idType = idType.getValue();
-      return this;
-    }
-
-
-    /**
-     * 证件号
-     * <p> 示例值：110122XXXXXX
-     *
-     * @param idNumber
-     * @return
-     */
-    public Builder idNumber(String idNumber) {
-      this.idNumber = idNumber;
-      return this;
-    }
-
-
-    /**
-     * 户口类型
-     * <p> 示例值：1
-     *
-     * @param hukouType
-     * @return
-     */
-    public Builder hukouType(Integer hukouType) {
-      this.hukouType = hukouType;
-      return this;
-    }
-
-    /**
-     * 户口类型
-     * <p> 示例值：1
-     *
-     * @param hukouType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsHukouTypeEnum}
-     * @return
-     */
-    public Builder hukouType(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsHukouTypeEnum hukouType) {
-      this.hukouType = hukouType.getValue();
-      return this;
-    }
-
-
-    /**
-     * 户口所在地
-     * <p> 示例值：北京市海淀区XXXX
-     *
-     * @param hukouLocation
-     * @return
-     */
-    public Builder hukouLocation(String hukouLocation) {
-      this.hukouLocation = hukouLocation;
-      return this;
-    }
-
-
-    /**
-     * 银行卡号
-     * <p> 示例值：1243253453
-     *
-     * @param bankAccountNumber
-     * @return
-     */
-    public Builder bankAccountNumber(String bankAccountNumber) {
-      this.bankAccountNumber = bankAccountNumber;
-      return this;
-    }
-
-
-    /**
-     * 开户行
-     * <p> 示例值：招商银行
-     *
-     * @param bankName
-     * @return
-     */
-    public Builder bankName(String bankName) {
-      this.bankName = bankName;
-      return this;
-    }
-
-
-    /**
-     * 社保账号
-     * <p> 示例值：123124124
-     *
-     * @param socialSecurityAccount
-     * @return
-     */
-    public Builder socialSecurityAccount(String socialSecurityAccount) {
-      this.socialSecurityAccount = socialSecurityAccount;
-      return this;
-    }
-
-
-    /**
-     * 公积金账号
-     * <p> 示例值：123124235
-     *
-     * @param providentFundAccount
-     * @return
-     */
-    public Builder providentFundAccount(String providentFundAccount) {
-      this.providentFundAccount = providentFundAccount;
-      return this;
-    }
-
-
-    /**
-     * 工号
-     * <p> 示例值：TM-00001
-     *
-     * @param employeeNo
-     * @return
-     */
-    public Builder employeeNo(String employeeNo) {
-      this.employeeNo = employeeNo;
-      return this;
-    }
-
-
-    /**
-     * 雇员类型
-     * <p> 示例值：1
-     *
-     * @param employeeType
-     * @return
-     */
-    public Builder employeeType(Integer employeeType) {
-      this.employeeType = employeeType;
-      return this;
-    }
-
-    /**
-     * 雇员类型
-     * <p> 示例值：1
-     *
-     * @param employeeType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeTypeEnum}
-     * @return
-     */
-    public Builder employeeType(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
-    }
-
-
-    /**
-     * 员工状态
-     * <p> 示例值：2
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
-    }
-
-    /**
-     * 员工状态
-     * <p> 示例值：2
-     *
-     * @param status {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsStatusEnum}
-     * @return
-     */
-    public Builder status(com.lark.oapi.service.ehr.v1.enums.SystemFieldsStatusEnum status) {
-      this.status = status.getValue();
-      return this;
-    }
-
-
-    /**
-     * 入职日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param hireDate
-     * @return
-     */
-    public Builder hireDate(String hireDate) {
-      this.hireDate = hireDate;
-      return this;
-    }
-
-
-    /**
-     * 试用期（月）
-     * <p> 示例值：2
-     *
-     * @param probationMonths
-     * @return
-     */
-    public Builder probationMonths(Double probationMonths) {
-      this.probationMonths = probationMonths;
-      return this;
-    }
-
-
-    /**
-     * 转正日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param conversionDate
-     * @return
-     */
-    public Builder conversionDate(String conversionDate) {
-      this.conversionDate = conversionDate;
-      return this;
-    }
-
-
-    /**
-     * 转正申请
-     * <p> 示例值：1
-     *
-     * @param application
-     * @return
-     */
-    public Builder application(Integer application) {
-      this.application = application;
-      return this;
-    }
-
-    /**
-     * 转正申请
-     * <p> 示例值：1
-     *
-     * @param application {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationEnum}
-     * @return
-     */
-    public Builder application(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationEnum application) {
-      this.application = application.getValue();
-      return this;
-    }
-
-
-    /**
-     * 转正状态
-     * <p> 示例值：2
-     *
-     * @param applicationStatus
-     * @return
-     */
-    public Builder applicationStatus(Integer applicationStatus) {
-      this.applicationStatus = applicationStatus;
-      return this;
-    }
-
-    /**
-     * 转正状态
-     * <p> 示例值：2
-     *
-     * @param applicationStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationStatusEnum}
-     * @return
-     */
-    public Builder applicationStatus(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationStatusEnum applicationStatus) {
-      this.applicationStatus = applicationStatus.getValue();
-      return this;
-    }
-
-
-    /**
-     * 离职日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param lastDay
-     * @return
-     */
-    public Builder lastDay(String lastDay) {
-      this.lastDay = lastDay;
-      return this;
-    }
-
-
-    /**
-     * 离职类型
-     * <p> 示例值：1
-     *
-     * @param departureType
-     * @return
-     */
-    public Builder departureType(Integer departureType) {
-      this.departureType = departureType;
-      return this;
-    }
-
-    /**
-     * 离职类型
-     * <p> 示例值：1
-     *
-     * @param departureType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureTypeEnum}
-     * @return
-     */
-    public Builder departureType(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureTypeEnum departureType) {
-      this.departureType = departureType.getValue();
-      return this;
-    }
-
-
-    /**
-     * 离职原因
-     * <p> 示例值：4
-     *
-     * @param departureReason
-     * @return
-     */
-    public Builder departureReason(Integer departureReason) {
-      this.departureReason = departureReason;
-      return this;
-    }
-
-    /**
-     * 离职原因
-     * <p> 示例值：4
-     *
-     * @param departureReason {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureReasonEnum}
-     * @return
-     */
-    public Builder departureReason(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureReasonEnum departureReason) {
-      this.departureReason = departureReason.getValue();
-      return this;
-    }
-
-
-    /**
-     * 离职备注
-     * <p> 示例值：世界那么大
-     *
-     * @param departureNotes
-     * @return
-     */
-    public Builder departureNotes(String departureNotes) {
-      this.departureNotes = departureNotes;
-      return this;
-    }
-
-
-    /**
-     * 合同公司
-     * <p> 示例值：
-     *
-     * @param contractCompany
-     * @return
-     */
-    public Builder contractCompany(ContractCompany contractCompany) {
-      this.contractCompany = contractCompany;
-      return this;
-    }
-
-
-    /**
-     * 合同类型
-     * <p> 示例值：1
-     *
-     * @param contractType
-     * @return
-     */
-    public Builder contractType(Integer contractType) {
-      this.contractType = contractType;
-      return this;
-    }
-
-    /**
-     * 合同类型
-     * <p> 示例值：1
-     *
-     * @param contractType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsContractTypeEnum}
-     * @return
-     */
-    public Builder contractType(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsContractTypeEnum contractType) {
-      this.contractType = contractType.getValue();
-      return this;
-    }
-
-
-    /**
-     * 合同开始日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param contractStartDate
-     * @return
-     */
-    public Builder contractStartDate(String contractStartDate) {
-      this.contractStartDate = contractStartDate;
-      return this;
-    }
-
-
-    /**
-     * 合同到期日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param contractExpirationDate
-     * @return
-     */
-    public Builder contractExpirationDate(String contractExpirationDate) {
-      this.contractExpirationDate = contractExpirationDate;
-      return this;
-    }
-
-
-    /**
-     * 劳动合同签订次数
-     * <p> 示例值：2
-     *
-     * @param contractSignTimes
-     * @return
-     */
-    public Builder contractSignTimes(Integer contractSignTimes) {
-      this.contractSignTimes = contractSignTimes;
-      return this;
-    }
-
-
-    /**
-     * 个人邮箱
-     * <p> 示例值：personal@email.com
-     *
-     * @param personalEmail
-     * @return
-     */
-    public Builder personalEmail(String personalEmail) {
-      this.personalEmail = personalEmail;
-      return this;
-    }
-
-
-    /**
-     * 家庭地址
-     * <p> 示例值：北京市海淀区XXXXX
-     *
-     * @param familyAddress
-     * @return
-     */
-    public Builder familyAddress(String familyAddress) {
-      this.familyAddress = familyAddress;
-      return this;
-    }
-
-
-    /**
-     * 主要紧急联系人
-     * <p> 示例值：
-     *
-     * @param primaryEmergencyContact
-     * @return
-     */
-    public Builder primaryEmergencyContact(EmergencyContact primaryEmergencyContact) {
-      this.primaryEmergencyContact = primaryEmergencyContact;
-      return this;
-    }
-
-
-    /**
-     * 紧急联系人
-     * <p> 示例值：
-     *
-     * @param emergencyContact
-     * @return
-     */
-    public Builder emergencyContact(EmergencyContact[] emergencyContact) {
-      this.emergencyContact = emergencyContact;
-      return this;
-    }
-
-
-    /**
-     * 最高学历
-     * <p> 示例值：
-     *
-     * @param highestLevelOfEdu
-     * @return
-     */
-    public Builder highestLevelOfEdu(Education highestLevelOfEdu) {
-      this.highestLevelOfEdu = highestLevelOfEdu;
-      return this;
-    }
-
-
-    /**
-     * 教育经历
-     * <p> 示例值：
-     *
-     * @param education
-     * @return
-     */
-    public Builder education(Education[] education) {
-      this.education = education;
-      return this;
-    }
-
-
-    /**
-     * 前工作经历
-     * <p> 示例值：
-     *
-     * @param formerWorkExp
-     * @return
-     */
-    public Builder formerWorkExp(WorkExperience formerWorkExp) {
-      this.formerWorkExp = formerWorkExp;
-      return this;
-    }
-
-
-    /**
-     * 工作经历
-     * <p> 示例值：
-     *
-     * @param workExp
-     * @return
-     */
-    public Builder workExp(WorkExperience[] workExp) {
-      this.workExp = workExp;
-      return this;
-    }
-
-
-    /**
-     * 身份证照片（人像面）
-     * <p> 示例值：
-     *
-     * @param idPhotoPoSide
-     * @return
-     */
-    public Builder idPhotoPoSide(Attachment[] idPhotoPoSide) {
-      this.idPhotoPoSide = idPhotoPoSide;
-      return this;
-    }
-
-
-    /**
-     * 身份证照片（国徽面）
-     * <p> 示例值：
-     *
-     * @param idPhotoEmSide
-     * @return
-     */
-    public Builder idPhotoEmSide(Attachment[] idPhotoEmSide) {
-      this.idPhotoEmSide = idPhotoEmSide;
-      return this;
-    }
-
-
-    /**
-     * 证件照
-     * <p> 示例值：
-     *
-     * @param idPhoto
-     * @return
-     */
-    public Builder idPhoto(Attachment[] idPhoto) {
-      this.idPhoto = idPhoto;
-      return this;
-    }
-
-
-    /**
-     * 学位证书
-     * <p> 示例值：
-     *
-     * @param diplomaPhoto
-     * @return
-     */
-    public Builder diplomaPhoto(Attachment[] diplomaPhoto) {
-      this.diplomaPhoto = diplomaPhoto;
-      return this;
-    }
-
-
-    /**
-     * 毕业证书
-     * <p> 示例值：
-     *
-     * @param graduationCert
-     * @return
-     */
-    public Builder graduationCert(Attachment[] graduationCert) {
-      this.graduationCert = graduationCert;
-      return this;
-    }
-
-
-    /**
-     * 奖励证明
-     * <p> 示例值：
-     *
-     * @param certOfMerit
-     * @return
-     */
-    public Builder certOfMerit(Attachment[] certOfMerit) {
-      this.certOfMerit = certOfMerit;
-      return this;
-    }
-
-
-    /**
-     * 离职证明
-     * <p> 示例值：
-     *
-     * @param offboardingFile
-     * @return
-     */
-    public Builder offboardingFile(Attachment[] offboardingFile) {
-      this.offboardingFile = offboardingFile;
-      return this;
-    }
-
-
-    /**
-     * 取消入职原因
-     * <p> 示例值：2
-     *
-     * @param cancelOnboardingReason
-     * @return
-     */
-    public Builder cancelOnboardingReason(Integer cancelOnboardingReason) {
-      this.cancelOnboardingReason = cancelOnboardingReason;
-      return this;
-    }
-
-    /**
-     * 取消入职原因
-     * <p> 示例值：2
-     *
-     * @param cancelOnboardingReason {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsCancelOnboardingReasonEnum}
-     * @return
-     */
-    public Builder cancelOnboardingReason(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsCancelOnboardingReasonEnum cancelOnboardingReason) {
-      this.cancelOnboardingReason = cancelOnboardingReason.getValue();
-      return this;
-    }
-
-
-    /**
-     * 取消入职备注
-     * <p> 示例值：个人原因
-     *
-     * @param cancelOnboardingNotes
-     * @return
-     */
-    public Builder cancelOnboardingNotes(String cancelOnboardingNotes) {
-      this.cancelOnboardingNotes = cancelOnboardingNotes;
-      return this;
-    }
-
-
-    /**
-     * 入职登记表状态
-     * <p> 示例值：1
-     *
-     * @param employeeFormStatus
-     * @return
-     */
-    public Builder employeeFormStatus(Integer employeeFormStatus) {
-      this.employeeFormStatus = employeeFormStatus;
-      return this;
-    }
-
-    /**
-     * 入职登记表状态
-     * <p> 示例值：1
-     *
-     * @param employeeFormStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeFormStatusEnum}
-     * @return
-     */
-    public Builder employeeFormStatus(
-        com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeFormStatusEnum employeeFormStatus) {
-      this.employeeFormStatus = employeeFormStatus.getValue();
-      return this;
-    }
-
-
-    /**
-     * 创建时间
-     * <p> 示例值：1608690517811
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(Long createTime) {
-      this.createTime = createTime;
-      return this;
-    }
-
-
-    /**
-     * 更新时间
-     * <p> 示例值：1608690517811
-     *
-     * @param updateTime
-     * @return
-     */
-    public Builder updateTime(Long updateTime) {
-      this.updateTime = updateTime;
-      return this;
-    }
-
-
-    public SystemFields build() {
-      return new SystemFields(this);
-    }
-  }
+    // builder 开始
+    public SystemFields() {
+    }
+
+    public SystemFields(Builder builder) {
+        /**
+         * 中文姓名
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 英文姓名
+         * <p> 示例值：Tony Zhang
+         */
+        this.enName = builder.enName;
+        /**
+         * 邮箱
+         * <p> 示例值：a@b.com
+         */
+        this.email = builder.email;
+        /**
+         * 手机号码
+         * <p> 示例值：(+86) 13812345678
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 部门的飞书 open_department_id
+         * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 上级
+         * <p> 示例值：
+         */
+        this.manager = builder.manager;
+        /**
+         * 职位
+         * <p> 示例值：
+         */
+        this.job = builder.job;
+        /**
+         * 职级
+         * <p> 示例值：
+         */
+        this.jobLevel = builder.jobLevel;
+        /**
+         * 工作地点
+         * <p> 示例值：
+         */
+        this.workLocation = builder.workLocation;
+        /**
+         * 性别
+         * <p> 示例值：1
+         */
+        this.gender = builder.gender;
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         */
+        this.birthday = builder.birthday;
+        /**
+         * 籍贯
+         * <p> 示例值：
+         */
+        this.nativeRegion = builder.nativeRegion;
+        /**
+         * 民族
+         * <p> 示例值：2
+         */
+        this.ethnicity = builder.ethnicity;
+        /**
+         * 婚姻状况
+         * <p> 示例值：2
+         */
+        this.maritalStatus = builder.maritalStatus;
+        /**
+         * 政治面貌
+         * <p> 示例值：2
+         */
+        this.politicalStatus = builder.politicalStatus;
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-01-01
+         */
+        this.enteredWorkforceDate = builder.enteredWorkforceDate;
+        /**
+         * 证件类型
+         * <p> 示例值：1
+         */
+        this.idType = builder.idType;
+        /**
+         * 证件号
+         * <p> 示例值：110122XXXXXX
+         */
+        this.idNumber = builder.idNumber;
+        /**
+         * 户口类型
+         * <p> 示例值：1
+         */
+        this.hukouType = builder.hukouType;
+        /**
+         * 户口所在地
+         * <p> 示例值：北京市海淀区XXXX
+         */
+        this.hukouLocation = builder.hukouLocation;
+        /**
+         * 银行卡号
+         * <p> 示例值：1243253453
+         */
+        this.bankAccountNumber = builder.bankAccountNumber;
+        /**
+         * 开户行
+         * <p> 示例值：招商银行
+         */
+        this.bankName = builder.bankName;
+        /**
+         * 社保账号
+         * <p> 示例值：123124124
+         */
+        this.socialSecurityAccount = builder.socialSecurityAccount;
+        /**
+         * 公积金账号
+         * <p> 示例值：123124235
+         */
+        this.providentFundAccount = builder.providentFundAccount;
+        /**
+         * 工号
+         * <p> 示例值：TM-00001
+         */
+        this.employeeNo = builder.employeeNo;
+        /**
+         * 雇员类型
+         * <p> 示例值：1
+         */
+        this.employeeType = builder.employeeType;
+        /**
+         * 员工状态
+         * <p> 示例值：2
+         */
+        this.status = builder.status;
+        /**
+         * 入职日期
+         * <p> 示例值：2020-01-01
+         */
+        this.hireDate = builder.hireDate;
+        /**
+         * 试用期（月）
+         * <p> 示例值：2
+         */
+        this.probationMonths = builder.probationMonths;
+        /**
+         * 转正日期
+         * <p> 示例值：2020-01-01
+         */
+        this.conversionDate = builder.conversionDate;
+        /**
+         * 转正申请
+         * <p> 示例值：1
+         */
+        this.application = builder.application;
+        /**
+         * 转正状态
+         * <p> 示例值：2
+         */
+        this.applicationStatus = builder.applicationStatus;
+        /**
+         * 离职日期
+         * <p> 示例值：2020-01-01
+         */
+        this.lastDay = builder.lastDay;
+        /**
+         * 离职类型
+         * <p> 示例值：1
+         */
+        this.departureType = builder.departureType;
+        /**
+         * 离职原因
+         * <p> 示例值：4
+         */
+        this.departureReason = builder.departureReason;
+        /**
+         * 离职备注
+         * <p> 示例值：世界那么大
+         */
+        this.departureNotes = builder.departureNotes;
+        /**
+         * 合同公司
+         * <p> 示例值：
+         */
+        this.contractCompany = builder.contractCompany;
+        /**
+         * 合同类型
+         * <p> 示例值：1
+         */
+        this.contractType = builder.contractType;
+        /**
+         * 合同开始日期
+         * <p> 示例值：2020-01-01
+         */
+        this.contractStartDate = builder.contractStartDate;
+        /**
+         * 合同到期日期
+         * <p> 示例值：2020-01-01
+         */
+        this.contractExpirationDate = builder.contractExpirationDate;
+        /**
+         * 劳动合同签订次数
+         * <p> 示例值：2
+         */
+        this.contractSignTimes = builder.contractSignTimes;
+        /**
+         * 个人邮箱
+         * <p> 示例值：personal@email.com
+         */
+        this.personalEmail = builder.personalEmail;
+        /**
+         * 家庭地址
+         * <p> 示例值：北京市海淀区XXXXX
+         */
+        this.familyAddress = builder.familyAddress;
+        /**
+         * 主要紧急联系人
+         * <p> 示例值：
+         */
+        this.primaryEmergencyContact = builder.primaryEmergencyContact;
+        /**
+         * 紧急联系人
+         * <p> 示例值：
+         */
+        this.emergencyContact = builder.emergencyContact;
+        /**
+         * 最高学历
+         * <p> 示例值：
+         */
+        this.highestLevelOfEdu = builder.highestLevelOfEdu;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        this.education = builder.education;
+        /**
+         * 前工作经历
+         * <p> 示例值：
+         */
+        this.formerWorkExp = builder.formerWorkExp;
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
+        this.workExp = builder.workExp;
+        /**
+         * 身份证照片（人像面）
+         * <p> 示例值：
+         */
+        this.idPhotoPoSide = builder.idPhotoPoSide;
+        /**
+         * 身份证照片（国徽面）
+         * <p> 示例值：
+         */
+        this.idPhotoEmSide = builder.idPhotoEmSide;
+        /**
+         * 证件照
+         * <p> 示例值：
+         */
+        this.idPhoto = builder.idPhoto;
+        /**
+         * 学位证书
+         * <p> 示例值：
+         */
+        this.diplomaPhoto = builder.diplomaPhoto;
+        /**
+         * 毕业证书
+         * <p> 示例值：
+         */
+        this.graduationCert = builder.graduationCert;
+        /**
+         * 奖励证明
+         * <p> 示例值：
+         */
+        this.certOfMerit = builder.certOfMerit;
+        /**
+         * 离职证明
+         * <p> 示例值：
+         */
+        this.offboardingFile = builder.offboardingFile;
+        /**
+         * 取消入职原因
+         * <p> 示例值：2
+         */
+        this.cancelOnboardingReason = builder.cancelOnboardingReason;
+        /**
+         * 取消入职备注
+         * <p> 示例值：个人原因
+         */
+        this.cancelOnboardingNotes = builder.cancelOnboardingNotes;
+        /**
+         * 入职登记表状态
+         * <p> 示例值：1
+         */
+        this.employeeFormStatus = builder.employeeFormStatus;
+        /**
+         * 创建时间
+         * <p> 示例值：1608690517811
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：1608690517811
+         */
+        this.updateTime = builder.updateTime;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public Manager getManager() {
+        return this.manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
+    public Job getJob() {
+        return this.job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public JobLevel getJobLevel() {
+        return this.jobLevel;
+    }
+
+    public void setJobLevel(JobLevel jobLevel) {
+        this.jobLevel = jobLevel;
+    }
+
+    public WorkLocation getWorkLocation() {
+        return this.workLocation;
+    }
+
+    public void setWorkLocation(WorkLocation workLocation) {
+        this.workLocation = workLocation;
+    }
+
+    public Integer getGender() {
+        return this.gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public String getBirthday() {
+        return this.birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public NativeRegion getNativeRegion() {
+        return this.nativeRegion;
+    }
+
+    public void setNativeRegion(NativeRegion nativeRegion) {
+        this.nativeRegion = nativeRegion;
+    }
+
+    public Integer getEthnicity() {
+        return this.ethnicity;
+    }
+
+    public void setEthnicity(Integer ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public Integer getMaritalStatus() {
+        return this.maritalStatus;
+    }
+
+    public void setMaritalStatus(Integer maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public Integer getPoliticalStatus() {
+        return this.politicalStatus;
+    }
+
+    public void setPoliticalStatus(Integer politicalStatus) {
+        this.politicalStatus = politicalStatus;
+    }
+
+    public String getEnteredWorkforceDate() {
+        return this.enteredWorkforceDate;
+    }
+
+    public void setEnteredWorkforceDate(String enteredWorkforceDate) {
+        this.enteredWorkforceDate = enteredWorkforceDate;
+    }
+
+    public Integer getIdType() {
+        return this.idType;
+    }
+
+    public void setIdType(Integer idType) {
+        this.idType = idType;
+    }
+
+    public String getIdNumber() {
+        return this.idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public Integer getHukouType() {
+        return this.hukouType;
+    }
+
+    public void setHukouType(Integer hukouType) {
+        this.hukouType = hukouType;
+    }
+
+    public String getHukouLocation() {
+        return this.hukouLocation;
+    }
+
+    public void setHukouLocation(String hukouLocation) {
+        this.hukouLocation = hukouLocation;
+    }
+
+    public String getBankAccountNumber() {
+        return this.bankAccountNumber;
+    }
+
+    public void setBankAccountNumber(String bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
+    }
+
+    public String getBankName() {
+        return this.bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getSocialSecurityAccount() {
+        return this.socialSecurityAccount;
+    }
+
+    public void setSocialSecurityAccount(String socialSecurityAccount) {
+        this.socialSecurityAccount = socialSecurityAccount;
+    }
+
+    public String getProvidentFundAccount() {
+        return this.providentFundAccount;
+    }
+
+    public void setProvidentFundAccount(String providentFundAccount) {
+        this.providentFundAccount = providentFundAccount;
+    }
+
+    public String getEmployeeNo() {
+        return this.employeeNo;
+    }
+
+    public void setEmployeeNo(String employeeNo) {
+        this.employeeNo = employeeNo;
+    }
+
+    public Integer getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(Integer employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getHireDate() {
+        return this.hireDate;
+    }
+
+    public void setHireDate(String hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public Double getProbationMonths() {
+        return this.probationMonths;
+    }
+
+    public void setProbationMonths(Double probationMonths) {
+        this.probationMonths = probationMonths;
+    }
+
+    public String getConversionDate() {
+        return this.conversionDate;
+    }
+
+    public void setConversionDate(String conversionDate) {
+        this.conversionDate = conversionDate;
+    }
+
+    public Integer getApplication() {
+        return this.application;
+    }
+
+    public void setApplication(Integer application) {
+        this.application = application;
+    }
+
+    public Integer getApplicationStatus() {
+        return this.applicationStatus;
+    }
+
+    public void setApplicationStatus(Integer applicationStatus) {
+        this.applicationStatus = applicationStatus;
+    }
+
+    public String getLastDay() {
+        return this.lastDay;
+    }
+
+    public void setLastDay(String lastDay) {
+        this.lastDay = lastDay;
+    }
+
+    public Integer getDepartureType() {
+        return this.departureType;
+    }
+
+    public void setDepartureType(Integer departureType) {
+        this.departureType = departureType;
+    }
+
+    public Integer getDepartureReason() {
+        return this.departureReason;
+    }
+
+    public void setDepartureReason(Integer departureReason) {
+        this.departureReason = departureReason;
+    }
+
+    public String getDepartureNotes() {
+        return this.departureNotes;
+    }
+
+    public void setDepartureNotes(String departureNotes) {
+        this.departureNotes = departureNotes;
+    }
+
+    public ContractCompany getContractCompany() {
+        return this.contractCompany;
+    }
+
+    public void setContractCompany(ContractCompany contractCompany) {
+        this.contractCompany = contractCompany;
+    }
+
+    public Integer getContractType() {
+        return this.contractType;
+    }
+
+    public void setContractType(Integer contractType) {
+        this.contractType = contractType;
+    }
+
+    public String getContractStartDate() {
+        return this.contractStartDate;
+    }
+
+    public void setContractStartDate(String contractStartDate) {
+        this.contractStartDate = contractStartDate;
+    }
+
+    public String getContractExpirationDate() {
+        return this.contractExpirationDate;
+    }
+
+    public void setContractExpirationDate(String contractExpirationDate) {
+        this.contractExpirationDate = contractExpirationDate;
+    }
+
+    public Integer getContractSignTimes() {
+        return this.contractSignTimes;
+    }
+
+    public void setContractSignTimes(Integer contractSignTimes) {
+        this.contractSignTimes = contractSignTimes;
+    }
+
+    public String getPersonalEmail() {
+        return this.personalEmail;
+    }
+
+    public void setPersonalEmail(String personalEmail) {
+        this.personalEmail = personalEmail;
+    }
+
+    public String getFamilyAddress() {
+        return this.familyAddress;
+    }
+
+    public void setFamilyAddress(String familyAddress) {
+        this.familyAddress = familyAddress;
+    }
+
+    public EmergencyContact getPrimaryEmergencyContact() {
+        return this.primaryEmergencyContact;
+    }
+
+    public void setPrimaryEmergencyContact(EmergencyContact primaryEmergencyContact) {
+        this.primaryEmergencyContact = primaryEmergencyContact;
+    }
+
+    public EmergencyContact[] getEmergencyContact() {
+        return this.emergencyContact;
+    }
+
+    public void setEmergencyContact(EmergencyContact[] emergencyContact) {
+        this.emergencyContact = emergencyContact;
+    }
+
+    public Education getHighestLevelOfEdu() {
+        return this.highestLevelOfEdu;
+    }
+
+    public void setHighestLevelOfEdu(Education highestLevelOfEdu) {
+        this.highestLevelOfEdu = highestLevelOfEdu;
+    }
+
+    public Education[] getEducation() {
+        return this.education;
+    }
+
+    public void setEducation(Education[] education) {
+        this.education = education;
+    }
+
+    public WorkExperience getFormerWorkExp() {
+        return this.formerWorkExp;
+    }
+
+    public void setFormerWorkExp(WorkExperience formerWorkExp) {
+        this.formerWorkExp = formerWorkExp;
+    }
+
+    public WorkExperience[] getWorkExp() {
+        return this.workExp;
+    }
+
+    public void setWorkExp(WorkExperience[] workExp) {
+        this.workExp = workExp;
+    }
+
+    public Attachment[] getIdPhotoPoSide() {
+        return this.idPhotoPoSide;
+    }
+
+    public void setIdPhotoPoSide(Attachment[] idPhotoPoSide) {
+        this.idPhotoPoSide = idPhotoPoSide;
+    }
+
+    public Attachment[] getIdPhotoEmSide() {
+        return this.idPhotoEmSide;
+    }
+
+    public void setIdPhotoEmSide(Attachment[] idPhotoEmSide) {
+        this.idPhotoEmSide = idPhotoEmSide;
+    }
+
+    public Attachment[] getIdPhoto() {
+        return this.idPhoto;
+    }
+
+    public void setIdPhoto(Attachment[] idPhoto) {
+        this.idPhoto = idPhoto;
+    }
+
+    public Attachment[] getDiplomaPhoto() {
+        return this.diplomaPhoto;
+    }
+
+    public void setDiplomaPhoto(Attachment[] diplomaPhoto) {
+        this.diplomaPhoto = diplomaPhoto;
+    }
+
+    public Attachment[] getGraduationCert() {
+        return this.graduationCert;
+    }
+
+    public void setGraduationCert(Attachment[] graduationCert) {
+        this.graduationCert = graduationCert;
+    }
+
+    public Attachment[] getCertOfMerit() {
+        return this.certOfMerit;
+    }
+
+    public void setCertOfMerit(Attachment[] certOfMerit) {
+        this.certOfMerit = certOfMerit;
+    }
+
+    public Attachment[] getOffboardingFile() {
+        return this.offboardingFile;
+    }
+
+    public void setOffboardingFile(Attachment[] offboardingFile) {
+        this.offboardingFile = offboardingFile;
+    }
+
+    public Integer getCancelOnboardingReason() {
+        return this.cancelOnboardingReason;
+    }
+
+    public void setCancelOnboardingReason(Integer cancelOnboardingReason) {
+        this.cancelOnboardingReason = cancelOnboardingReason;
+    }
+
+    public String getCancelOnboardingNotes() {
+        return this.cancelOnboardingNotes;
+    }
+
+    public void setCancelOnboardingNotes(String cancelOnboardingNotes) {
+        this.cancelOnboardingNotes = cancelOnboardingNotes;
+    }
+
+    public Integer getEmployeeFormStatus() {
+        return this.employeeFormStatus;
+    }
+
+    public void setEmployeeFormStatus(Integer employeeFormStatus) {
+        this.employeeFormStatus = employeeFormStatus;
+    }
+
+    public Long getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public static class Builder {
+        /**
+         * 中文姓名
+         * <p> 示例值：张三
+         */
+        private String name;
+        /**
+         * 英文姓名
+         * <p> 示例值：Tony Zhang
+         */
+        private String enName;
+        /**
+         * 邮箱
+         * <p> 示例值：a@b.com
+         */
+        private String email;
+        /**
+         * 手机号码
+         * <p> 示例值：(+86) 13812345678
+         */
+        private String mobile;
+        /**
+         * 部门的飞书 open_department_id
+         * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
+         */
+        private String departmentId;
+        /**
+         * 上级
+         * <p> 示例值：
+         */
+        private Manager manager;
+        /**
+         * 职位
+         * <p> 示例值：
+         */
+        private Job job;
+        /**
+         * 职级
+         * <p> 示例值：
+         */
+        private JobLevel jobLevel;
+        /**
+         * 工作地点
+         * <p> 示例值：
+         */
+        private WorkLocation workLocation;
+        /**
+         * 性别
+         * <p> 示例值：1
+         */
+        private Integer gender;
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         */
+        private String birthday;
+        /**
+         * 籍贯
+         * <p> 示例值：
+         */
+        private NativeRegion nativeRegion;
+        /**
+         * 民族
+         * <p> 示例值：2
+         */
+        private Integer ethnicity;
+        /**
+         * 婚姻状况
+         * <p> 示例值：2
+         */
+        private Integer maritalStatus;
+        /**
+         * 政治面貌
+         * <p> 示例值：2
+         */
+        private Integer politicalStatus;
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-01-01
+         */
+        private String enteredWorkforceDate;
+        /**
+         * 证件类型
+         * <p> 示例值：1
+         */
+        private Integer idType;
+        /**
+         * 证件号
+         * <p> 示例值：110122XXXXXX
+         */
+        private String idNumber;
+        /**
+         * 户口类型
+         * <p> 示例值：1
+         */
+        private Integer hukouType;
+        /**
+         * 户口所在地
+         * <p> 示例值：北京市海淀区XXXX
+         */
+        private String hukouLocation;
+        /**
+         * 银行卡号
+         * <p> 示例值：1243253453
+         */
+        private String bankAccountNumber;
+        /**
+         * 开户行
+         * <p> 示例值：招商银行
+         */
+        private String bankName;
+        /**
+         * 社保账号
+         * <p> 示例值：123124124
+         */
+        private String socialSecurityAccount;
+        /**
+         * 公积金账号
+         * <p> 示例值：123124235
+         */
+        private String providentFundAccount;
+        /**
+         * 工号
+         * <p> 示例值：TM-00001
+         */
+        private String employeeNo;
+        /**
+         * 雇员类型
+         * <p> 示例值：1
+         */
+        private Integer employeeType;
+        /**
+         * 员工状态
+         * <p> 示例值：2
+         */
+        private Integer status;
+        /**
+         * 入职日期
+         * <p> 示例值：2020-01-01
+         */
+        private String hireDate;
+        /**
+         * 试用期（月）
+         * <p> 示例值：2
+         */
+        private Double probationMonths;
+        /**
+         * 转正日期
+         * <p> 示例值：2020-01-01
+         */
+        private String conversionDate;
+        /**
+         * 转正申请
+         * <p> 示例值：1
+         */
+        private Integer application;
+        /**
+         * 转正状态
+         * <p> 示例值：2
+         */
+        private Integer applicationStatus;
+        /**
+         * 离职日期
+         * <p> 示例值：2020-01-01
+         */
+        private String lastDay;
+        /**
+         * 离职类型
+         * <p> 示例值：1
+         */
+        private Integer departureType;
+        /**
+         * 离职原因
+         * <p> 示例值：4
+         */
+        private Integer departureReason;
+        /**
+         * 离职备注
+         * <p> 示例值：世界那么大
+         */
+        private String departureNotes;
+        /**
+         * 合同公司
+         * <p> 示例值：
+         */
+        private ContractCompany contractCompany;
+        /**
+         * 合同类型
+         * <p> 示例值：1
+         */
+        private Integer contractType;
+        /**
+         * 合同开始日期
+         * <p> 示例值：2020-01-01
+         */
+        private String contractStartDate;
+        /**
+         * 合同到期日期
+         * <p> 示例值：2020-01-01
+         */
+        private String contractExpirationDate;
+        /**
+         * 劳动合同签订次数
+         * <p> 示例值：2
+         */
+        private Integer contractSignTimes;
+        /**
+         * 个人邮箱
+         * <p> 示例值：personal@email.com
+         */
+        private String personalEmail;
+        /**
+         * 家庭地址
+         * <p> 示例值：北京市海淀区XXXXX
+         */
+        private String familyAddress;
+        /**
+         * 主要紧急联系人
+         * <p> 示例值：
+         */
+        private EmergencyContact primaryEmergencyContact;
+        /**
+         * 紧急联系人
+         * <p> 示例值：
+         */
+        private EmergencyContact[] emergencyContact;
+        /**
+         * 最高学历
+         * <p> 示例值：
+         */
+        private Education highestLevelOfEdu;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        private Education[] education;
+        /**
+         * 前工作经历
+         * <p> 示例值：
+         */
+        private WorkExperience formerWorkExp;
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
+        private WorkExperience[] workExp;
+        /**
+         * 身份证照片（人像面）
+         * <p> 示例值：
+         */
+        private Attachment[] idPhotoPoSide;
+        /**
+         * 身份证照片（国徽面）
+         * <p> 示例值：
+         */
+        private Attachment[] idPhotoEmSide;
+        /**
+         * 证件照
+         * <p> 示例值：
+         */
+        private Attachment[] idPhoto;
+        /**
+         * 学位证书
+         * <p> 示例值：
+         */
+        private Attachment[] diplomaPhoto;
+        /**
+         * 毕业证书
+         * <p> 示例值：
+         */
+        private Attachment[] graduationCert;
+        /**
+         * 奖励证明
+         * <p> 示例值：
+         */
+        private Attachment[] certOfMerit;
+        /**
+         * 离职证明
+         * <p> 示例值：
+         */
+        private Attachment[] offboardingFile;
+        /**
+         * 取消入职原因
+         * <p> 示例值：2
+         */
+        private Integer cancelOnboardingReason;
+        /**
+         * 取消入职备注
+         * <p> 示例值：个人原因
+         */
+        private String cancelOnboardingNotes;
+        /**
+         * 入职登记表状态
+         * <p> 示例值：1
+         */
+        private Integer employeeFormStatus;
+        /**
+         * 创建时间
+         * <p> 示例值：1608690517811
+         */
+        private Long createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：1608690517811
+         */
+        private Long updateTime;
+
+        /**
+         * 中文姓名
+         * <p> 示例值：张三
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 英文姓名
+         * <p> 示例值：Tony Zhang
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 邮箱
+         * <p> 示例值：a@b.com
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 手机号码
+         * <p> 示例值：(+86) 13812345678
+         *
+         * @param mobile
+         * @return
+         */
+        public Builder mobile(String mobile) {
+            this.mobile = mobile;
+            return this;
+        }
+
+
+        /**
+         * 部门的飞书 open_department_id
+         * <p> 示例值：od-4d551617a5da3cec26666d33175dc8ca
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 上级
+         * <p> 示例值：
+         *
+         * @param manager
+         * @return
+         */
+        public Builder manager(Manager manager) {
+            this.manager = manager;
+            return this;
+        }
+
+
+        /**
+         * 职位
+         * <p> 示例值：
+         *
+         * @param job
+         * @return
+         */
+        public Builder job(Job job) {
+            this.job = job;
+            return this;
+        }
+
+
+        /**
+         * 职级
+         * <p> 示例值：
+         *
+         * @param jobLevel
+         * @return
+         */
+        public Builder jobLevel(JobLevel jobLevel) {
+            this.jobLevel = jobLevel;
+            return this;
+        }
+
+
+        /**
+         * 工作地点
+         * <p> 示例值：
+         *
+         * @param workLocation
+         * @return
+         */
+        public Builder workLocation(WorkLocation workLocation) {
+            this.workLocation = workLocation;
+            return this;
+        }
+
+
+        /**
+         * 性别
+         * <p> 示例值：1
+         *
+         * @param gender
+         * @return
+         */
+        public Builder gender(Integer gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        /**
+         * 性别
+         * <p> 示例值：1
+         *
+         * @param gender {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsGenderEnum}
+         * @return
+         */
+        public Builder gender(com.lark.oapi.service.ehr.v1.enums.SystemFieldsGenderEnum gender) {
+            this.gender = gender.getValue();
+            return this;
+        }
+
+
+        /**
+         * 出生日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param birthday
+         * @return
+         */
+        public Builder birthday(String birthday) {
+            this.birthday = birthday;
+            return this;
+        }
+
+
+        /**
+         * 籍贯
+         * <p> 示例值：
+         *
+         * @param nativeRegion
+         * @return
+         */
+        public Builder nativeRegion(NativeRegion nativeRegion) {
+            this.nativeRegion = nativeRegion;
+            return this;
+        }
+
+
+        /**
+         * 民族
+         * <p> 示例值：2
+         *
+         * @param ethnicity
+         * @return
+         */
+        public Builder ethnicity(Integer ethnicity) {
+            this.ethnicity = ethnicity;
+            return this;
+        }
+
+        /**
+         * 民族
+         * <p> 示例值：2
+         *
+         * @param ethnicity {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsEthnicityEnum}
+         * @return
+         */
+        public Builder ethnicity(com.lark.oapi.service.ehr.v1.enums.SystemFieldsEthnicityEnum ethnicity) {
+            this.ethnicity = ethnicity.getValue();
+            return this;
+        }
+
+
+        /**
+         * 婚姻状况
+         * <p> 示例值：2
+         *
+         * @param maritalStatus
+         * @return
+         */
+        public Builder maritalStatus(Integer maritalStatus) {
+            this.maritalStatus = maritalStatus;
+            return this;
+        }
+
+        /**
+         * 婚姻状况
+         * <p> 示例值：2
+         *
+         * @param maritalStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsMaritalStatusEnum}
+         * @return
+         */
+        public Builder maritalStatus(com.lark.oapi.service.ehr.v1.enums.SystemFieldsMaritalStatusEnum maritalStatus) {
+            this.maritalStatus = maritalStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 政治面貌
+         * <p> 示例值：2
+         *
+         * @param politicalStatus
+         * @return
+         */
+        public Builder politicalStatus(Integer politicalStatus) {
+            this.politicalStatus = politicalStatus;
+            return this;
+        }
+
+        /**
+         * 政治面貌
+         * <p> 示例值：2
+         *
+         * @param politicalStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsPoliticalStatusEnum}
+         * @return
+         */
+        public Builder politicalStatus(com.lark.oapi.service.ehr.v1.enums.SystemFieldsPoliticalStatusEnum politicalStatus) {
+            this.politicalStatus = politicalStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 参加工作日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param enteredWorkforceDate
+         * @return
+         */
+        public Builder enteredWorkforceDate(String enteredWorkforceDate) {
+            this.enteredWorkforceDate = enteredWorkforceDate;
+            return this;
+        }
+
+
+        /**
+         * 证件类型
+         * <p> 示例值：1
+         *
+         * @param idType
+         * @return
+         */
+        public Builder idType(Integer idType) {
+            this.idType = idType;
+            return this;
+        }
+
+        /**
+         * 证件类型
+         * <p> 示例值：1
+         *
+         * @param idType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsIdTypeEnum}
+         * @return
+         */
+        public Builder idType(com.lark.oapi.service.ehr.v1.enums.SystemFieldsIdTypeEnum idType) {
+            this.idType = idType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 证件号
+         * <p> 示例值：110122XXXXXX
+         *
+         * @param idNumber
+         * @return
+         */
+        public Builder idNumber(String idNumber) {
+            this.idNumber = idNumber;
+            return this;
+        }
+
+
+        /**
+         * 户口类型
+         * <p> 示例值：1
+         *
+         * @param hukouType
+         * @return
+         */
+        public Builder hukouType(Integer hukouType) {
+            this.hukouType = hukouType;
+            return this;
+        }
+
+        /**
+         * 户口类型
+         * <p> 示例值：1
+         *
+         * @param hukouType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsHukouTypeEnum}
+         * @return
+         */
+        public Builder hukouType(com.lark.oapi.service.ehr.v1.enums.SystemFieldsHukouTypeEnum hukouType) {
+            this.hukouType = hukouType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 户口所在地
+         * <p> 示例值：北京市海淀区XXXX
+         *
+         * @param hukouLocation
+         * @return
+         */
+        public Builder hukouLocation(String hukouLocation) {
+            this.hukouLocation = hukouLocation;
+            return this;
+        }
+
+
+        /**
+         * 银行卡号
+         * <p> 示例值：1243253453
+         *
+         * @param bankAccountNumber
+         * @return
+         */
+        public Builder bankAccountNumber(String bankAccountNumber) {
+            this.bankAccountNumber = bankAccountNumber;
+            return this;
+        }
+
+
+        /**
+         * 开户行
+         * <p> 示例值：招商银行
+         *
+         * @param bankName
+         * @return
+         */
+        public Builder bankName(String bankName) {
+            this.bankName = bankName;
+            return this;
+        }
+
+
+        /**
+         * 社保账号
+         * <p> 示例值：123124124
+         *
+         * @param socialSecurityAccount
+         * @return
+         */
+        public Builder socialSecurityAccount(String socialSecurityAccount) {
+            this.socialSecurityAccount = socialSecurityAccount;
+            return this;
+        }
+
+
+        /**
+         * 公积金账号
+         * <p> 示例值：123124235
+         *
+         * @param providentFundAccount
+         * @return
+         */
+        public Builder providentFundAccount(String providentFundAccount) {
+            this.providentFundAccount = providentFundAccount;
+            return this;
+        }
+
+
+        /**
+         * 工号
+         * <p> 示例值：TM-00001
+         *
+         * @param employeeNo
+         * @return
+         */
+        public Builder employeeNo(String employeeNo) {
+            this.employeeNo = employeeNo;
+            return this;
+        }
+
+
+        /**
+         * 雇员类型
+         * <p> 示例值：1
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(Integer employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 雇员类型
+         * <p> 示例值：1
+         *
+         * @param employeeType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 员工状态
+         * <p> 示例值：2
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 员工状态
+         * <p> 示例值：2
+         *
+         * @param status {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.ehr.v1.enums.SystemFieldsStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 入职日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param hireDate
+         * @return
+         */
+        public Builder hireDate(String hireDate) {
+            this.hireDate = hireDate;
+            return this;
+        }
+
+
+        /**
+         * 试用期（月）
+         * <p> 示例值：2
+         *
+         * @param probationMonths
+         * @return
+         */
+        public Builder probationMonths(Double probationMonths) {
+            this.probationMonths = probationMonths;
+            return this;
+        }
+
+
+        /**
+         * 转正日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param conversionDate
+         * @return
+         */
+        public Builder conversionDate(String conversionDate) {
+            this.conversionDate = conversionDate;
+            return this;
+        }
+
+
+        /**
+         * 转正申请
+         * <p> 示例值：1
+         *
+         * @param application
+         * @return
+         */
+        public Builder application(Integer application) {
+            this.application = application;
+            return this;
+        }
+
+        /**
+         * 转正申请
+         * <p> 示例值：1
+         *
+         * @param application {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationEnum}
+         * @return
+         */
+        public Builder application(com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationEnum application) {
+            this.application = application.getValue();
+            return this;
+        }
+
+
+        /**
+         * 转正状态
+         * <p> 示例值：2
+         *
+         * @param applicationStatus
+         * @return
+         */
+        public Builder applicationStatus(Integer applicationStatus) {
+            this.applicationStatus = applicationStatus;
+            return this;
+        }
+
+        /**
+         * 转正状态
+         * <p> 示例值：2
+         *
+         * @param applicationStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationStatusEnum}
+         * @return
+         */
+        public Builder applicationStatus(com.lark.oapi.service.ehr.v1.enums.SystemFieldsApplicationStatusEnum applicationStatus) {
+            this.applicationStatus = applicationStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 离职日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param lastDay
+         * @return
+         */
+        public Builder lastDay(String lastDay) {
+            this.lastDay = lastDay;
+            return this;
+        }
+
+
+        /**
+         * 离职类型
+         * <p> 示例值：1
+         *
+         * @param departureType
+         * @return
+         */
+        public Builder departureType(Integer departureType) {
+            this.departureType = departureType;
+            return this;
+        }
+
+        /**
+         * 离职类型
+         * <p> 示例值：1
+         *
+         * @param departureType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureTypeEnum}
+         * @return
+         */
+        public Builder departureType(com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureTypeEnum departureType) {
+            this.departureType = departureType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 离职原因
+         * <p> 示例值：4
+         *
+         * @param departureReason
+         * @return
+         */
+        public Builder departureReason(Integer departureReason) {
+            this.departureReason = departureReason;
+            return this;
+        }
+
+        /**
+         * 离职原因
+         * <p> 示例值：4
+         *
+         * @param departureReason {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureReasonEnum}
+         * @return
+         */
+        public Builder departureReason(com.lark.oapi.service.ehr.v1.enums.SystemFieldsDepartureReasonEnum departureReason) {
+            this.departureReason = departureReason.getValue();
+            return this;
+        }
+
+
+        /**
+         * 离职备注
+         * <p> 示例值：世界那么大
+         *
+         * @param departureNotes
+         * @return
+         */
+        public Builder departureNotes(String departureNotes) {
+            this.departureNotes = departureNotes;
+            return this;
+        }
+
+
+        /**
+         * 合同公司
+         * <p> 示例值：
+         *
+         * @param contractCompany
+         * @return
+         */
+        public Builder contractCompany(ContractCompany contractCompany) {
+            this.contractCompany = contractCompany;
+            return this;
+        }
+
+
+        /**
+         * 合同类型
+         * <p> 示例值：1
+         *
+         * @param contractType
+         * @return
+         */
+        public Builder contractType(Integer contractType) {
+            this.contractType = contractType;
+            return this;
+        }
+
+        /**
+         * 合同类型
+         * <p> 示例值：1
+         *
+         * @param contractType {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsContractTypeEnum}
+         * @return
+         */
+        public Builder contractType(com.lark.oapi.service.ehr.v1.enums.SystemFieldsContractTypeEnum contractType) {
+            this.contractType = contractType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 合同开始日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param contractStartDate
+         * @return
+         */
+        public Builder contractStartDate(String contractStartDate) {
+            this.contractStartDate = contractStartDate;
+            return this;
+        }
+
+
+        /**
+         * 合同到期日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param contractExpirationDate
+         * @return
+         */
+        public Builder contractExpirationDate(String contractExpirationDate) {
+            this.contractExpirationDate = contractExpirationDate;
+            return this;
+        }
+
+
+        /**
+         * 劳动合同签订次数
+         * <p> 示例值：2
+         *
+         * @param contractSignTimes
+         * @return
+         */
+        public Builder contractSignTimes(Integer contractSignTimes) {
+            this.contractSignTimes = contractSignTimes;
+            return this;
+        }
+
+
+        /**
+         * 个人邮箱
+         * <p> 示例值：personal@email.com
+         *
+         * @param personalEmail
+         * @return
+         */
+        public Builder personalEmail(String personalEmail) {
+            this.personalEmail = personalEmail;
+            return this;
+        }
+
+
+        /**
+         * 家庭地址
+         * <p> 示例值：北京市海淀区XXXXX
+         *
+         * @param familyAddress
+         * @return
+         */
+        public Builder familyAddress(String familyAddress) {
+            this.familyAddress = familyAddress;
+            return this;
+        }
+
+
+        /**
+         * 主要紧急联系人
+         * <p> 示例值：
+         *
+         * @param primaryEmergencyContact
+         * @return
+         */
+        public Builder primaryEmergencyContact(EmergencyContact primaryEmergencyContact) {
+            this.primaryEmergencyContact = primaryEmergencyContact;
+            return this;
+        }
+
+
+        /**
+         * 紧急联系人
+         * <p> 示例值：
+         *
+         * @param emergencyContact
+         * @return
+         */
+        public Builder emergencyContact(EmergencyContact[] emergencyContact) {
+            this.emergencyContact = emergencyContact;
+            return this;
+        }
+
+
+        /**
+         * 最高学历
+         * <p> 示例值：
+         *
+         * @param highestLevelOfEdu
+         * @return
+         */
+        public Builder highestLevelOfEdu(Education highestLevelOfEdu) {
+            this.highestLevelOfEdu = highestLevelOfEdu;
+            return this;
+        }
+
+
+        /**
+         * 教育经历
+         * <p> 示例值：
+         *
+         * @param education
+         * @return
+         */
+        public Builder education(Education[] education) {
+            this.education = education;
+            return this;
+        }
+
+
+        /**
+         * 前工作经历
+         * <p> 示例值：
+         *
+         * @param formerWorkExp
+         * @return
+         */
+        public Builder formerWorkExp(WorkExperience formerWorkExp) {
+            this.formerWorkExp = formerWorkExp;
+            return this;
+        }
+
+
+        /**
+         * 工作经历
+         * <p> 示例值：
+         *
+         * @param workExp
+         * @return
+         */
+        public Builder workExp(WorkExperience[] workExp) {
+            this.workExp = workExp;
+            return this;
+        }
+
+
+        /**
+         * 身份证照片（人像面）
+         * <p> 示例值：
+         *
+         * @param idPhotoPoSide
+         * @return
+         */
+        public Builder idPhotoPoSide(Attachment[] idPhotoPoSide) {
+            this.idPhotoPoSide = idPhotoPoSide;
+            return this;
+        }
+
+
+        /**
+         * 身份证照片（国徽面）
+         * <p> 示例值：
+         *
+         * @param idPhotoEmSide
+         * @return
+         */
+        public Builder idPhotoEmSide(Attachment[] idPhotoEmSide) {
+            this.idPhotoEmSide = idPhotoEmSide;
+            return this;
+        }
+
+
+        /**
+         * 证件照
+         * <p> 示例值：
+         *
+         * @param idPhoto
+         * @return
+         */
+        public Builder idPhoto(Attachment[] idPhoto) {
+            this.idPhoto = idPhoto;
+            return this;
+        }
+
+
+        /**
+         * 学位证书
+         * <p> 示例值：
+         *
+         * @param diplomaPhoto
+         * @return
+         */
+        public Builder diplomaPhoto(Attachment[] diplomaPhoto) {
+            this.diplomaPhoto = diplomaPhoto;
+            return this;
+        }
+
+
+        /**
+         * 毕业证书
+         * <p> 示例值：
+         *
+         * @param graduationCert
+         * @return
+         */
+        public Builder graduationCert(Attachment[] graduationCert) {
+            this.graduationCert = graduationCert;
+            return this;
+        }
+
+
+        /**
+         * 奖励证明
+         * <p> 示例值：
+         *
+         * @param certOfMerit
+         * @return
+         */
+        public Builder certOfMerit(Attachment[] certOfMerit) {
+            this.certOfMerit = certOfMerit;
+            return this;
+        }
+
+
+        /**
+         * 离职证明
+         * <p> 示例值：
+         *
+         * @param offboardingFile
+         * @return
+         */
+        public Builder offboardingFile(Attachment[] offboardingFile) {
+            this.offboardingFile = offboardingFile;
+            return this;
+        }
+
+
+        /**
+         * 取消入职原因
+         * <p> 示例值：2
+         *
+         * @param cancelOnboardingReason
+         * @return
+         */
+        public Builder cancelOnboardingReason(Integer cancelOnboardingReason) {
+            this.cancelOnboardingReason = cancelOnboardingReason;
+            return this;
+        }
+
+        /**
+         * 取消入职原因
+         * <p> 示例值：2
+         *
+         * @param cancelOnboardingReason {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsCancelOnboardingReasonEnum}
+         * @return
+         */
+        public Builder cancelOnboardingReason(com.lark.oapi.service.ehr.v1.enums.SystemFieldsCancelOnboardingReasonEnum cancelOnboardingReason) {
+            this.cancelOnboardingReason = cancelOnboardingReason.getValue();
+            return this;
+        }
+
+
+        /**
+         * 取消入职备注
+         * <p> 示例值：个人原因
+         *
+         * @param cancelOnboardingNotes
+         * @return
+         */
+        public Builder cancelOnboardingNotes(String cancelOnboardingNotes) {
+            this.cancelOnboardingNotes = cancelOnboardingNotes;
+            return this;
+        }
+
+
+        /**
+         * 入职登记表状态
+         * <p> 示例值：1
+         *
+         * @param employeeFormStatus
+         * @return
+         */
+        public Builder employeeFormStatus(Integer employeeFormStatus) {
+            this.employeeFormStatus = employeeFormStatus;
+            return this;
+        }
+
+        /**
+         * 入职登记表状态
+         * <p> 示例值：1
+         *
+         * @param employeeFormStatus {@link com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeFormStatusEnum}
+         * @return
+         */
+        public Builder employeeFormStatus(com.lark.oapi.service.ehr.v1.enums.SystemFieldsEmployeeFormStatusEnum employeeFormStatus) {
+            this.employeeFormStatus = employeeFormStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1608690517811
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Long createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：1608690517811
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(Long updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        public SystemFields build() {
+            return new SystemFields(this);
+        }
+    }
 }

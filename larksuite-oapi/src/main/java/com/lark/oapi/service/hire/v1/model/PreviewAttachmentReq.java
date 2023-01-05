@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class PreviewAttachmentReq {
-
-  /**
-   * 附件id
-   * <p> 示例值：11111
-   */
-  @Path
-  @SerializedName("attachment_id")
-  private String attachmentId;
-
-  // builder 开始
-  public PreviewAttachmentReq() {
-  }
-
-  public PreviewAttachmentReq(Builder builder) {
     /**
      * 附件id
      * <p> 示例值：11111
      */
-    this.attachmentId = builder.attachmentId;
-  }
+    @Path
+    @SerializedName("attachment_id")
+    private String attachmentId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAttachmentId() {
-    return this.attachmentId;
-  }
-
-  public void setAttachmentId(String attachmentId) {
-    this.attachmentId = attachmentId;
-  }
-
-  public static class Builder {
-
-    private String attachmentId; // 附件id
-
-    /**
-     * 附件id
-     * <p> 示例值：11111
-     *
-     * @param attachmentId
-     * @return
-     */
-    public Builder attachmentId(String attachmentId) {
-      this.attachmentId = attachmentId;
-      return this;
+    // builder 开始
+    public PreviewAttachmentReq() {
     }
 
-    public PreviewAttachmentReq build() {
-      return new PreviewAttachmentReq(this);
+    public PreviewAttachmentReq(Builder builder) {
+        /**
+         * 附件id
+         * <p> 示例值：11111
+         */
+        this.attachmentId = builder.attachmentId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAttachmentId() {
+        return this.attachmentId;
+    }
+
+    public void setAttachmentId(String attachmentId) {
+        this.attachmentId = attachmentId;
+    }
+
+    public static class Builder {
+
+        private String attachmentId; // 附件id
+
+        /**
+         * 附件id
+         * <p> 示例值：11111
+         *
+         * @param attachmentId
+         * @return
+         */
+        public Builder attachmentId(String attachmentId) {
+            this.attachmentId = attachmentId;
+            return this;
+        }
+
+        public PreviewAttachmentReq build() {
+            return new PreviewAttachmentReq(this);
+        }
+    }
 }

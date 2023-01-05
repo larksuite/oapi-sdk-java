@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class StreamRecognizeSpeech {
 
-  /**
-   * 16 位 String 随机串作为同一数据流的标识
-   * <p> 示例值：asd1234567890ddd
-   */
-  @SerializedName("stream_id")
-  private String streamId;
-  /**
-   * 数据流分片的序号，序号从 0 开始，每次请求递增 1
-   * <p> 示例值：1
-   */
-  @SerializedName("sequence_id")
-  private Integer sequenceId;
-  /**
-   * 语音流识别后的文本信息
-   * <p> 示例值：你好，尝试使用一下飞书吧
-   */
-  @SerializedName("recognition_text")
-  private String recognitionText;
+    /**
+     * 16 位 String 随机串作为同一数据流的标识
+     * <p> 示例值：asd1234567890ddd
+     */
+    @SerializedName("stream_id")
+    private String streamId;
+    /**
+     * 数据流分片的序号，序号从 0 开始，每次请求递增 1
+     * <p> 示例值：1
+     */
+    @SerializedName("sequence_id")
+    private Integer sequenceId;
+    /**
+     * 语音流识别后的文本信息
+     * <p> 示例值：你好，尝试使用一下飞书吧
+     */
+    @SerializedName("recognition_text")
+    private String recognitionText;
 
-  public String getStreamId() {
-    return this.streamId;
-  }
+    public String getStreamId() {
+        return this.streamId;
+    }
 
-  public void setStreamId(String streamId) {
-    this.streamId = streamId;
-  }
+    public void setStreamId(String streamId) {
+        this.streamId = streamId;
+    }
 
-  public Integer getSequenceId() {
-    return this.sequenceId;
-  }
+    public Integer getSequenceId() {
+        return this.sequenceId;
+    }
 
-  public void setSequenceId(Integer sequenceId) {
-    this.sequenceId = sequenceId;
-  }
+    public void setSequenceId(Integer sequenceId) {
+        this.sequenceId = sequenceId;
+    }
 
-  public String getRecognitionText() {
-    return this.recognitionText;
-  }
+    public String getRecognitionText() {
+        return this.recognitionText;
+    }
 
-  public void setRecognitionText(String recognitionText) {
-    this.recognitionText = recognitionText;
-  }
+    public void setRecognitionText(String recognitionText) {
+        this.recognitionText = recognitionText;
+    }
 
 }

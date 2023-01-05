@@ -17,22 +17,22 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文件类型
  */
 public enum RequestDocDocTypeEnum {
-  DOC("doc"), // 飞书文档
-  SHEET("sheet"), // 飞书电子表格
-  BITABLE("bitable"), // 飞书多维表格
-  MINDNOTE("mindnote"), // 飞书思维笔记
-  FILE("file"), // 飞书文件
-  WIKI("wiki"), // 飞书wiki
-  DOCX("docx"), // 飞书新版文档
-  FOLDER("folder"), // 飞书文件夹
-  ;
-  private String value;
+    DOC("doc"), // 飞书文档
+    SHEET("sheet"), // 飞书电子表格
+    BITABLE("bitable"), // 飞书多维表格
+    MINDNOTE("mindnote"), // 飞书思维笔记
+    FILE("file"), // 飞书文件
+    WIKI("wiki"), // 飞书wiki
+    DOCX("docx"), // 飞书新版文档
+    FOLDER("folder"), // 飞书文件夹
+    ;
+    private String value;
 
-  RequestDocDocTypeEnum(String value) {
-    this.value = value;
-  }
+    RequestDocDocTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

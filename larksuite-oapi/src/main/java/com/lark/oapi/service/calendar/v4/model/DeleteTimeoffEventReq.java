@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTimeoffEventReq {
-
-  /**
-   * 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-   * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
-   */
-  @Path
-  @SerializedName("timeoff_event_id")
-  private String timeoffEventId;
-
-  // builder 开始
-  public DeleteTimeoffEventReq() {
-  }
-
-  public DeleteTimeoffEventReq(Builder builder) {
     /**
      * 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
      * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
      */
-    this.timeoffEventId = builder.timeoffEventId;
-  }
+    @Path
+    @SerializedName("timeoff_event_id")
+    private String timeoffEventId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTimeoffEventId() {
-    return this.timeoffEventId;
-  }
-
-  public void setTimeoffEventId(String timeoffEventId) {
-    this.timeoffEventId = timeoffEventId;
-  }
-
-  public static class Builder {
-
-    private String timeoffEventId; // 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-
-    /**
-     * 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-     * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
-     *
-     * @param timeoffEventId
-     * @return
-     */
-    public Builder timeoffEventId(String timeoffEventId) {
-      this.timeoffEventId = timeoffEventId;
-      return this;
+    // builder 开始
+    public DeleteTimeoffEventReq() {
     }
 
-    public DeleteTimeoffEventReq build() {
-      return new DeleteTimeoffEventReq(this);
+    public DeleteTimeoffEventReq(Builder builder) {
+        /**
+         * 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+         * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
+         */
+        this.timeoffEventId = builder.timeoffEventId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTimeoffEventId() {
+        return this.timeoffEventId;
+    }
+
+    public void setTimeoffEventId(String timeoffEventId) {
+        this.timeoffEventId = timeoffEventId;
+    }
+
+    public static class Builder {
+
+        private String timeoffEventId; // 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+
+        /**
+         * 休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+         * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
+         *
+         * @param timeoffEventId
+         * @return
+         */
+        public Builder timeoffEventId(String timeoffEventId) {
+            this.timeoffEventId = timeoffEventId;
+            return this;
+        }
+
+        public DeleteTimeoffEventReq build() {
+            return new DeleteTimeoffEventReq(this);
+        }
+    }
 }

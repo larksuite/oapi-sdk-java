@@ -17,16 +17,16 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 返回数据类型
  */
 public enum ListEmployeeViewEnum {
-  BASIC("basic"), // 概览, 只返回 id、name 等基本信息
-  FULL("full"), // 返回详细信息
-  ;
-  private String value;
+    BASIC("basic"), // 概览, 只返回 id、name 等基本信息
+    FULL("full"), // 返回详细信息
+    ;
+    private String value;
 
-  ListEmployeeViewEnum(String value) {
-    this.value = value;
-  }
+    ListEmployeeViewEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

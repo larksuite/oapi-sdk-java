@@ -16,468 +16,466 @@ package com.lark.oapi.service.block.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateEntityReqBody {
-
-  /**
-   * 标题
-   * <p> 示例值：已阅block
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * block 类型ID
-   * <p> 示例值：blk_614c1c952f800014b27f87d6
-   */
-  @SerializedName("block_type_id")
-  private String blockTypeId;
-  /**
-   * 内容
-   * <p> 示例值：{"data":"业务数据"}
-   */
-  @SerializedName("source_data")
-  private String sourceData;
-  /**
-   * 元数据
-   * <p> 示例值：{"id":7090084015725608979}
-   */
-  @SerializedName("source_meta")
-  private String sourceMeta;
-  /**
-   * 版本号(自增值)
-   * <p> 示例值：1
-   */
-  @SerializedName("version")
-  private String version;
-  /**
-   * block原链接
-   * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
-   */
-  @SerializedName("source_link")
-  private String sourceLink;
-  /**
-   * 所有者
-   * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
-   */
-  @SerializedName("owner")
-  private String owner;
-  /**
-   * 扩展字段
-   * <p> 示例值：{}
-   */
-  @SerializedName("extra")
-  private String extra;
-  /**
-   * 国际化概括
-   * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
-   */
-  @SerializedName("i18n_summary")
-  private String i18nSummary;
-  /**
-   * 国际化预览
-   * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
-   */
-  @SerializedName("i18n_preview")
-  private String i18nPreview;
-  /**
-   * 概括
-   * <p> 示例值：{"cn":"这是一个block"}
-   */
-  @SerializedName("summary")
-  private String summary;
-  /**
-   * 预览
-   * <p> 示例值：{"cn":"这是一个block"}
-   */
-  @SerializedName("preview")
-  private String preview;
-
-  // builder 开始
-  public CreateEntityReqBody() {
-  }
-
-  public CreateEntityReqBody(Builder builder) {
     /**
      * 标题
      * <p> 示例值：已阅block
      */
-    this.title = builder.title;
-    /**
-     * block 类型ID
-     * <p> 示例值：blk_614c1c952f800014b27f87d6
-     */
-    this.blockTypeId = builder.blockTypeId;
-    /**
-     * 内容
-     * <p> 示例值：{"data":"业务数据"}
-     */
-    this.sourceData = builder.sourceData;
-    /**
-     * 元数据
-     * <p> 示例值：{"id":7090084015725608979}
-     */
-    this.sourceMeta = builder.sourceMeta;
-    /**
-     * 版本号(自增值)
-     * <p> 示例值：1
-     */
-    this.version = builder.version;
-    /**
-     * block原链接
-     * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
-     */
-    this.sourceLink = builder.sourceLink;
-    /**
-     * 所有者
-     * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
-     */
-    this.owner = builder.owner;
-    /**
-     * 扩展字段
-     * <p> 示例值：{}
-     */
-    this.extra = builder.extra;
-    /**
-     * 国际化概括
-     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
-     */
-    this.i18nSummary = builder.i18nSummary;
-    /**
-     * 国际化预览
-     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
-     */
-    this.i18nPreview = builder.i18nPreview;
-    /**
-     * 概括
-     * <p> 示例值：{"cn":"这是一个block"}
-     */
-    this.summary = builder.summary;
-    /**
-     * 预览
-     * <p> 示例值：{"cn":"这是一个block"}
-     */
-    this.preview = builder.preview;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getBlockTypeId() {
-    return this.blockTypeId;
-  }
-
-  public void setBlockTypeId(String blockTypeId) {
-    this.blockTypeId = blockTypeId;
-  }
-
-  public String getSourceData() {
-    return this.sourceData;
-  }
-
-  public void setSourceData(String sourceData) {
-    this.sourceData = sourceData;
-  }
-
-  public String getSourceMeta() {
-    return this.sourceMeta;
-  }
-
-  public void setSourceMeta(String sourceMeta) {
-    this.sourceMeta = sourceMeta;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getSourceLink() {
-    return this.sourceLink;
-  }
-
-  public void setSourceLink(String sourceLink) {
-    this.sourceLink = sourceLink;
-  }
-
-  public String getOwner() {
-    return this.owner;
-  }
-
-  public void setOwner(String owner) {
-    this.owner = owner;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String getI18nSummary() {
-    return this.i18nSummary;
-  }
-
-  public void setI18nSummary(String i18nSummary) {
-    this.i18nSummary = i18nSummary;
-  }
-
-  public String getI18nPreview() {
-    return this.i18nPreview;
-  }
-
-  public void setI18nPreview(String i18nPreview) {
-    this.i18nPreview = i18nPreview;
-  }
-
-  public String getSummary() {
-    return this.summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
-
-  public String getPreview() {
-    return this.preview;
-  }
-
-  public void setPreview(String preview) {
-    this.preview = preview;
-  }
-
-  public static class Builder {
-
-    /**
-     * 标题
-     * <p> 示例值：已阅block
-     */
+    @SerializedName("title")
     private String title;
     /**
      * block 类型ID
      * <p> 示例值：blk_614c1c952f800014b27f87d6
      */
+    @SerializedName("block_type_id")
     private String blockTypeId;
     /**
      * 内容
      * <p> 示例值：{"data":"业务数据"}
      */
+    @SerializedName("source_data")
     private String sourceData;
     /**
      * 元数据
      * <p> 示例值：{"id":7090084015725608979}
      */
+    @SerializedName("source_meta")
     private String sourceMeta;
     /**
      * 版本号(自增值)
      * <p> 示例值：1
      */
+    @SerializedName("version")
     private String version;
     /**
      * block原链接
      * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
      */
+    @SerializedName("source_link")
     private String sourceLink;
     /**
      * 所有者
      * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
      */
+    @SerializedName("owner")
     private String owner;
     /**
      * 扩展字段
      * <p> 示例值：{}
      */
+    @SerializedName("extra")
     private String extra;
     /**
      * 国际化概括
      * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
      */
+    @SerializedName("i18n_summary")
     private String i18nSummary;
     /**
      * 国际化预览
      * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
      */
+    @SerializedName("i18n_preview")
     private String i18nPreview;
     /**
      * 概括
      * <p> 示例值：{"cn":"这是一个block"}
      */
+    @SerializedName("summary")
     private String summary;
     /**
      * 预览
      * <p> 示例值：{"cn":"这是一个block"}
      */
+    @SerializedName("preview")
     private String preview;
 
-    /**
-     * 标题
-     * <p> 示例值：已阅block
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    // builder 开始
+    public CreateEntityReqBody() {
     }
 
-
-    /**
-     * block 类型ID
-     * <p> 示例值：blk_614c1c952f800014b27f87d6
-     *
-     * @param blockTypeId
-     * @return
-     */
-    public Builder blockTypeId(String blockTypeId) {
-      this.blockTypeId = blockTypeId;
-      return this;
+    public CreateEntityReqBody(Builder builder) {
+        /**
+         * 标题
+         * <p> 示例值：已阅block
+         */
+        this.title = builder.title;
+        /**
+         * block 类型ID
+         * <p> 示例值：blk_614c1c952f800014b27f87d6
+         */
+        this.blockTypeId = builder.blockTypeId;
+        /**
+         * 内容
+         * <p> 示例值：{"data":"业务数据"}
+         */
+        this.sourceData = builder.sourceData;
+        /**
+         * 元数据
+         * <p> 示例值：{"id":7090084015725608979}
+         */
+        this.sourceMeta = builder.sourceMeta;
+        /**
+         * 版本号(自增值)
+         * <p> 示例值：1
+         */
+        this.version = builder.version;
+        /**
+         * block原链接
+         * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
+         */
+        this.sourceLink = builder.sourceLink;
+        /**
+         * 所有者
+         * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+         */
+        this.owner = builder.owner;
+        /**
+         * 扩展字段
+         * <p> 示例值：{}
+         */
+        this.extra = builder.extra;
+        /**
+         * 国际化概括
+         * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+         */
+        this.i18nSummary = builder.i18nSummary;
+        /**
+         * 国际化预览
+         * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+         */
+        this.i18nPreview = builder.i18nPreview;
+        /**
+         * 概括
+         * <p> 示例值：{"cn":"这是一个block"}
+         */
+        this.summary = builder.summary;
+        /**
+         * 预览
+         * <p> 示例值：{"cn":"这是一个block"}
+         */
+        this.preview = builder.preview;
     }
 
-
-    /**
-     * 内容
-     * <p> 示例值：{"data":"业务数据"}
-     *
-     * @param sourceData
-     * @return
-     */
-    public Builder sourceData(String sourceData) {
-      this.sourceData = sourceData;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 元数据
-     * <p> 示例值：{"id":7090084015725608979}
-     *
-     * @param sourceMeta
-     * @return
-     */
-    public Builder sourceMeta(String sourceMeta) {
-      this.sourceMeta = sourceMeta;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-
-    /**
-     * 版本号(自增值)
-     * <p> 示例值：1
-     *
-     * @param version
-     * @return
-     */
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-
-    /**
-     * block原链接
-     * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
-     *
-     * @param sourceLink
-     * @return
-     */
-    public Builder sourceLink(String sourceLink) {
-      this.sourceLink = sourceLink;
-      return this;
+    public String getBlockTypeId() {
+        return this.blockTypeId;
     }
 
-
-    /**
-     * 所有者
-     * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
-     *
-     * @param owner
-     * @return
-     */
-    public Builder owner(String owner) {
-      this.owner = owner;
-      return this;
+    public void setBlockTypeId(String blockTypeId) {
+        this.blockTypeId = blockTypeId;
     }
 
-
-    /**
-     * 扩展字段
-     * <p> 示例值：{}
-     *
-     * @param extra
-     * @return
-     */
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public String getSourceData() {
+        return this.sourceData;
     }
 
-
-    /**
-     * 国际化概括
-     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
-     *
-     * @param i18nSummary
-     * @return
-     */
-    public Builder i18nSummary(String i18nSummary) {
-      this.i18nSummary = i18nSummary;
-      return this;
+    public void setSourceData(String sourceData) {
+        this.sourceData = sourceData;
     }
 
-
-    /**
-     * 国际化预览
-     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
-     *
-     * @param i18nPreview
-     * @return
-     */
-    public Builder i18nPreview(String i18nPreview) {
-      this.i18nPreview = i18nPreview;
-      return this;
+    public String getSourceMeta() {
+        return this.sourceMeta;
     }
 
-
-    /**
-     * 概括
-     * <p> 示例值：{"cn":"这是一个block"}
-     *
-     * @param summary
-     * @return
-     */
-    public Builder summary(String summary) {
-      this.summary = summary;
-      return this;
+    public void setSourceMeta(String sourceMeta) {
+        this.sourceMeta = sourceMeta;
     }
 
-
-    /**
-     * 预览
-     * <p> 示例值：{"cn":"这是一个block"}
-     *
-     * @param preview
-     * @return
-     */
-    public Builder preview(String preview) {
-      this.preview = preview;
-      return this;
+    public String getVersion() {
+        return this.version;
     }
 
-
-    public CreateEntityReqBody build() {
-      return new CreateEntityReqBody(this);
+    public void setVersion(String version) {
+        this.version = version;
     }
-  }
+
+    public String getSourceLink() {
+        return this.sourceLink;
+    }
+
+    public void setSourceLink(String sourceLink) {
+        this.sourceLink = sourceLink;
+    }
+
+    public String getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String getI18nSummary() {
+        return this.i18nSummary;
+    }
+
+    public void setI18nSummary(String i18nSummary) {
+        this.i18nSummary = i18nSummary;
+    }
+
+    public String getI18nPreview() {
+        return this.i18nPreview;
+    }
+
+    public void setI18nPreview(String i18nPreview) {
+        this.i18nPreview = i18nPreview;
+    }
+
+    public String getSummary() {
+        return this.summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getPreview() {
+        return this.preview;
+    }
+
+    public void setPreview(String preview) {
+        this.preview = preview;
+    }
+
+    public static class Builder {
+        /**
+         * 标题
+         * <p> 示例值：已阅block
+         */
+        private String title;
+        /**
+         * block 类型ID
+         * <p> 示例值：blk_614c1c952f800014b27f87d6
+         */
+        private String blockTypeId;
+        /**
+         * 内容
+         * <p> 示例值：{"data":"业务数据"}
+         */
+        private String sourceData;
+        /**
+         * 元数据
+         * <p> 示例值：{"id":7090084015725608979}
+         */
+        private String sourceMeta;
+        /**
+         * 版本号(自增值)
+         * <p> 示例值：1
+         */
+        private String version;
+        /**
+         * block原链接
+         * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
+         */
+        private String sourceLink;
+        /**
+         * 所有者
+         * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+         */
+        private String owner;
+        /**
+         * 扩展字段
+         * <p> 示例值：{}
+         */
+        private String extra;
+        /**
+         * 国际化概括
+         * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+         */
+        private String i18nSummary;
+        /**
+         * 国际化预览
+         * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+         */
+        private String i18nPreview;
+        /**
+         * 概括
+         * <p> 示例值：{"cn":"这是一个block"}
+         */
+        private String summary;
+        /**
+         * 预览
+         * <p> 示例值：{"cn":"这是一个block"}
+         */
+        private String preview;
+
+        /**
+         * 标题
+         * <p> 示例值：已阅block
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * block 类型ID
+         * <p> 示例值：blk_614c1c952f800014b27f87d6
+         *
+         * @param blockTypeId
+         * @return
+         */
+        public Builder blockTypeId(String blockTypeId) {
+            this.blockTypeId = blockTypeId;
+            return this;
+        }
+
+
+        /**
+         * 内容
+         * <p> 示例值：{"data":"业务数据"}
+         *
+         * @param sourceData
+         * @return
+         */
+        public Builder sourceData(String sourceData) {
+            this.sourceData = sourceData;
+            return this;
+        }
+
+
+        /**
+         * 元数据
+         * <p> 示例值：{"id":7090084015725608979}
+         *
+         * @param sourceMeta
+         * @return
+         */
+        public Builder sourceMeta(String sourceMeta) {
+            this.sourceMeta = sourceMeta;
+            return this;
+        }
+
+
+        /**
+         * 版本号(自增值)
+         * <p> 示例值：1
+         *
+         * @param version
+         * @return
+         */
+        public Builder version(String version) {
+            this.version = version;
+            return this;
+        }
+
+
+        /**
+         * block原链接
+         * <p> 示例值：{"_data":"https://docs.feishu.cn/block/78","_version":1}
+         *
+         * @param sourceLink
+         * @return
+         */
+        public Builder sourceLink(String sourceLink) {
+            this.sourceLink = sourceLink;
+            return this;
+        }
+
+
+        /**
+         * 所有者
+         * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+         *
+         * @param owner
+         * @return
+         */
+        public Builder owner(String owner) {
+            this.owner = owner;
+            return this;
+        }
+
+
+        /**
+         * 扩展字段
+         * <p> 示例值：{}
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
+            return this;
+        }
+
+
+        /**
+         * 国际化概括
+         * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+         *
+         * @param i18nSummary
+         * @return
+         */
+        public Builder i18nSummary(String i18nSummary) {
+            this.i18nSummary = i18nSummary;
+            return this;
+        }
+
+
+        /**
+         * 国际化预览
+         * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+         *
+         * @param i18nPreview
+         * @return
+         */
+        public Builder i18nPreview(String i18nPreview) {
+            this.i18nPreview = i18nPreview;
+            return this;
+        }
+
+
+        /**
+         * 概括
+         * <p> 示例值：{"cn":"这是一个block"}
+         *
+         * @param summary
+         * @return
+         */
+        public Builder summary(String summary) {
+            this.summary = summary;
+            return this;
+        }
+
+
+        /**
+         * 预览
+         * <p> 示例值：{"cn":"这是一个block"}
+         *
+         * @param preview
+         * @return
+         */
+        public Builder preview(String preview) {
+            this.preview = preview;
+            return this;
+        }
+
+
+        public CreateEntityReqBody build() {
+            return new CreateEntityReqBody(this);
+        }
+    }
 }

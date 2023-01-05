@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class File {
-
-  /**
-   * 附件 Token
-   * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
-   */
-  @SerializedName("token")
-  private String token;
-  /**
-   * 文件名
-   * <p> 示例值：文件名
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
     /**
      * 附件 Token
      * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
      */
-    this.token = builder.token;
-    /**
-     * 文件名
-     * <p> 示例值：文件名
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 附件 Token
-     * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
-     */
+    @SerializedName("token")
     private String token;
     /**
      * 文件名
      * <p> 示例值：文件名
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 附件 Token
-     * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public File() {
     }
 
-
-    /**
-     * 文件名
-     * <p> 示例值：文件名
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public File(Builder builder) {
+        /**
+         * 附件 Token
+         * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+         */
+        this.token = builder.token;
+        /**
+         * 文件名
+         * <p> 示例值：文件名
+         */
+        this.name = builder.name;
     }
 
-
-    public File build() {
-      return new File(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 附件 Token
+         * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+         */
+        private String token;
+        /**
+         * 文件名
+         * <p> 示例值：文件名
+         */
+        private String name;
+
+        /**
+         * 附件 Token
+         * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 文件名
+         * <p> 示例值：文件名
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public File build() {
+            return new File(this);
+        }
+    }
 }

@@ -18,97 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class MeetingListExportReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private MeetingListExportReqBody body;
-
-  // builder 开始
-  public MeetingListExportReq() {
-  }
-
-  public MeetingListExportReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public MeetingListExportReqBody getMeetingListExportReqBody() {
-    return this.body;
-  }
-
-  public void setMeetingListExportReqBody(MeetingListExportReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    @Body
     private MeetingListExportReqBody body;
 
-    /**
-     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public MeetingListExportReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.MeetingListExportUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.vc.v1.enums.MeetingListExportUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public MeetingListExportReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public MeetingListExportReqBody getMeetingListExportReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder meetingListExportReqBody(MeetingListExportReqBody body) {
-      this.body = body;
-      return this;
+    public void setMeetingListExportReqBody(MeetingListExportReqBody body) {
+        this.body = body;
     }
 
-    public MeetingListExportReq build() {
-      return new MeetingListExportReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+        private MeetingListExportReqBody body;
+
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.MeetingListExportUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.MeetingListExportUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        public MeetingListExportReqBody getMeetingListExportReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder meetingListExportReqBody(MeetingListExportReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public MeetingListExportReq build() {
+            return new MeetingListExportReq(this);
+        }
     }
-  }
 }

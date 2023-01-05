@@ -18,84 +18,82 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateSchemaReq {
-
-  /**
-   * 是否只用来校验合法性
-   * <p> 示例值：true
-   */
-  @Query
-  @SerializedName("validate_only")
-  private Boolean validateOnly;
-  @Body
-  private Schema body;
-
-  // builder 开始
-  public CreateSchemaReq() {
-  }
-
-  public CreateSchemaReq(Builder builder) {
     /**
      * 是否只用来校验合法性
      * <p> 示例值：true
      */
-    this.validateOnly = builder.validateOnly;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getValidateOnly() {
-    return this.validateOnly;
-  }
-
-  public void setValidateOnly(Boolean validateOnly) {
-    this.validateOnly = validateOnly;
-  }
-
-  public Schema getSchema() {
-    return this.body;
-  }
-
-  public void setSchema(Schema body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private Boolean validateOnly; // 是否只用来校验合法性
+    @Query
+    @SerializedName("validate_only")
+    private Boolean validateOnly;
+    @Body
     private Schema body;
 
-    /**
-     * 是否只用来校验合法性
-     * <p> 示例值：true
-     *
-     * @param validateOnly
-     * @return
-     */
-    public Builder validateOnly(Boolean validateOnly) {
-      this.validateOnly = validateOnly;
-      return this;
+    // builder 开始
+    public CreateSchemaReq() {
+    }
+
+    public CreateSchemaReq(Builder builder) {
+        /**
+         * 是否只用来校验合法性
+         * <p> 示例值：true
+         */
+        this.validateOnly = builder.validateOnly;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Boolean getValidateOnly() {
+        return this.validateOnly;
+    }
+
+    public void setValidateOnly(Boolean validateOnly) {
+        this.validateOnly = validateOnly;
     }
 
     public Schema getSchema() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder schema(Schema body) {
-      this.body = body;
-      return this;
+    public void setSchema(Schema body) {
+        this.body = body;
     }
 
-    public CreateSchemaReq build() {
-      return new CreateSchemaReq(this);
+    public static class Builder {
+        private Boolean validateOnly; // 是否只用来校验合法性
+        private Schema body;
+
+        /**
+         * 是否只用来校验合法性
+         * <p> 示例值：true
+         *
+         * @param validateOnly
+         * @return
+         */
+        public Builder validateOnly(Boolean validateOnly) {
+            this.validateOnly = validateOnly;
+            return this;
+        }
+
+        public Schema getSchema() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder schema(Schema body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateSchemaReq build() {
+            return new CreateSchemaReq(this);
+        }
     }
-  }
 }

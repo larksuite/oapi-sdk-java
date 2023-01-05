@@ -18,99 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class QueryUserAllowedRemedysUserTaskRemedyReq {
-
-  /**
-   * 请求体和响应体中的 user_id 的员工工号类型
-   * <p> 示例值：employee_id
-   */
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Body
-  private QueryUserAllowedRemedysUserTaskRemedyReqBody body;
-
-  // builder 开始
-  public QueryUserAllowedRemedysUserTaskRemedyReq() {
-  }
-
-  public QueryUserAllowedRemedysUserTaskRemedyReq(Builder builder) {
     /**
      * 请求体和响应体中的 user_id 的员工工号类型
      * <p> 示例值：employee_id
      */
-    this.employeeType = builder.employeeType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public QueryUserAllowedRemedysUserTaskRemedyReqBody getQueryUserAllowedRemedysUserTaskRemedyReqBody() {
-    return this.body;
-  }
-
-  public void setQueryUserAllowedRemedysUserTaskRemedyReqBody(
-      QueryUserAllowedRemedysUserTaskRemedyReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
+    @Query
+    @SerializedName("employee_type")
+    private String employeeType;
+    @Body
     private QueryUserAllowedRemedysUserTaskRemedyReqBody body;
 
-    /**
-     * 请求体和响应体中的 user_id 的员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType
-     * @return
-     */
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
+    // builder 开始
+    public QueryUserAllowedRemedysUserTaskRemedyReq() {
     }
 
-    /**
-     * 请求体和响应体中的 user_id 的员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyEmployeeTypeEnum}
-     * @return
-     */
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyEmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
+    public QueryUserAllowedRemedysUserTaskRemedyReq(Builder builder) {
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         */
+        this.employeeType = builder.employeeType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
     }
 
     public QueryUserAllowedRemedysUserTaskRemedyReqBody getQueryUserAllowedRemedysUserTaskRemedyReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder queryUserAllowedRemedysUserTaskRemedyReqBody(
-        QueryUserAllowedRemedysUserTaskRemedyReqBody body) {
-      this.body = body;
-      return this;
+    public void setQueryUserAllowedRemedysUserTaskRemedyReqBody(QueryUserAllowedRemedysUserTaskRemedyReqBody body) {
+        this.body = body;
     }
 
-    public QueryUserAllowedRemedysUserTaskRemedyReq build() {
-      return new QueryUserAllowedRemedysUserTaskRemedyReq(this);
+    public static class Builder {
+        private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
+        private QueryUserAllowedRemedysUserTaskRemedyReqBody body;
+
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserAllowedRemedysUserTaskRemedyEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
+
+        public QueryUserAllowedRemedysUserTaskRemedyReqBody getQueryUserAllowedRemedysUserTaskRemedyReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder queryUserAllowedRemedysUserTaskRemedyReqBody(QueryUserAllowedRemedysUserTaskRemedyReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public QueryUserAllowedRemedysUserTaskRemedyReq build() {
+            return new QueryUserAllowedRemedysUserTaskRemedyReq(this);
+        }
     }
-  }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum UpdateFileCommentReplyFileTypeEnum {
-  DOC("doc"), // 文档
-  SHEET("sheet"), // 表格
-  FILE("file"), // 文件
-  DOCX("docx"), // 新版文档
-  ;
-  private String value;
+    DOC("doc"), // 文档
+    SHEET("sheet"), // 表格
+    FILE("file"), // 文件
+    DOCX("docx"), // 新版文档
+    ;
+    private String value;
 
-  UpdateFileCommentReplyFileTypeEnum(String value) {
-    this.value = value;
-  }
+    UpdateFileCommentReplyFileTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

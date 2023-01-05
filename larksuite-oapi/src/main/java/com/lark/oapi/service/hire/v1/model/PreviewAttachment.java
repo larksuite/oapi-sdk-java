@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class PreviewAttachment {
 
-  /**
-   * 预览链接
-   * <p> 示例值：链接
-   */
-  @SerializedName("url")
-  private String url;
+    /**
+     * 预览链接
+     * <p> 示例值：链接
+     */
+    @SerializedName("url")
+    private String url;
 
-  public String getUrl() {
-    return this.url;
-  }
+    public String getUrl() {
+        return this.url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }

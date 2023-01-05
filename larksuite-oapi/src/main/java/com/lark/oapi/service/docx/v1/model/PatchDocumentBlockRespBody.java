@@ -16,48 +16,47 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchDocumentBlockRespBody {
+    /**
+     * 更新后的 block 信息
+     * <p> 示例值：
+     */
+    @SerializedName("block")
+    private Block block;
+    /**
+     * 当前更新成功后文档的版本号
+     * <p> 示例值：
+     */
+    @SerializedName("document_revision_id")
+    private Integer documentRevisionId;
+    /**
+     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+     * <p> 示例值：
+     */
+    @SerializedName("client_token")
+    private String clientToken;
 
-  /**
-   * 更新后的 block 信息
-   * <p> 示例值：
-   */
-  @SerializedName("block")
-  private Block block;
-  /**
-   * 当前更新成功后文档的版本号
-   * <p> 示例值：
-   */
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  /**
-   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-   * <p> 示例值：
-   */
-  @SerializedName("client_token")
-  private String clientToken;
+    public Block getBlock() {
+        return this.block;
+    }
 
-  public Block getBlock() {
-    return this.block;
-  }
+    public void setBlock(Block block) {
+        this.block = block;
+    }
 
-  public void setBlock(Block block) {
-    this.block = block;
-  }
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
+    }
 
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
+    }
 
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
+    public String getClientToken() {
+        return this.clientToken;
+    }
 
-  public String getClientToken() {
-    return this.clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
 
 }

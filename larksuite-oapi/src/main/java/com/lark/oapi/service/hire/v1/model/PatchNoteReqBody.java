@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchNoteReqBody {
-
-  /**
-   * 备注内容
-   * <p> 示例值：111
-   */
-  @SerializedName("content")
-  private String content;
-
-  // builder 开始
-  public PatchNoteReqBody() {
-  }
-
-  public PatchNoteReqBody(Builder builder) {
     /**
      * 备注内容
      * <p> 示例值：111
      */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * 备注内容
-     * <p> 示例值：111
-     */
+    @SerializedName("content")
     private String content;
 
-    /**
-     * 备注内容
-     * <p> 示例值：111
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public PatchNoteReqBody() {
     }
 
-
-    public PatchNoteReqBody build() {
-      return new PatchNoteReqBody(this);
+    public PatchNoteReqBody(Builder builder) {
+        /**
+         * 备注内容
+         * <p> 示例值：111
+         */
+        this.content = builder.content;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * 备注内容
+         * <p> 示例值：111
+         */
+        private String content;
+
+        /**
+         * 备注内容
+         * <p> 示例值：111
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public PatchNoteReqBody build() {
+            return new PatchNoteReqBody(this);
+        }
+    }
 }

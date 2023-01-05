@@ -14,20 +14,19 @@
 package com.lark.oapi.service.approval.v4.enums;
 
 /**
- * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当
- * update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
+ * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
  */
 public enum ExternalInstanceUpdateModeEnum {
-  REPLACE("REPLACE"), // 全量替换，默认值
-  UPDATE("UPDATE"), // 增量更新
-  ;
-  private String value;
+    REPLACE("REPLACE"), // 全量替换，默认值
+    UPDATE("UPDATE"), // 增量更新
+    ;
+    private String value;
 
-  ExternalInstanceUpdateModeEnum(String value) {
-    this.value = value;
-  }
+    ExternalInstanceUpdateModeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

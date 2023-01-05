@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 指定返回的语言
  */
 public enum UnderauditlistApplicationI18nKeyEnum {
-  ZH_CN("zh_cn"), // 中文
-  EN_US("en_us"), // 英文
-  JA_JP("ja_jp"), // 日文
-  ;
-  private String value;
+    ZH_CN("zh_cn"), // 中文
+    EN_US("en_us"), // 英文
+    JA_JP("ja_jp"), // 日文
+    ;
+    private String value;
 
-  UnderauditlistApplicationI18nKeyEnum(String value) {
-    this.value = value;
-  }
+    UnderauditlistApplicationI18nKeyEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

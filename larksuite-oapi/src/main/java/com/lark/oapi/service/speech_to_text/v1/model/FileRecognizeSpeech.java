@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileRecognizeSpeech {
 
-  /**
-   * 语音识别后的文本信息
-   * <p> 示例值：你好，使用飞书吧
-   */
-  @SerializedName("recognition_text")
-  private String recognitionText;
+    /**
+     * 语音识别后的文本信息
+     * <p> 示例值：你好，使用飞书吧
+     */
+    @SerializedName("recognition_text")
+    private String recognitionText;
 
-  public String getRecognitionText() {
-    return this.recognitionText;
-  }
+    public String getRecognitionText() {
+        return this.recognitionText;
+    }
 
-  public void setRecognitionText(String recognitionText) {
-    this.recognitionText = recognitionText;
-  }
+    public void setRecognitionText(String recognitionText) {
+        this.recognitionText = recognitionText;
+    }
 
 }

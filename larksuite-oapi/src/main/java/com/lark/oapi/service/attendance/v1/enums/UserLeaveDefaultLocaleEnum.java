@@ -17,17 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
  */
 public enum UserLeaveDefaultLocaleEnum {
-  CH("ch"), // 中文
-  EN("en"), // 英文
-  JA("ja"), // 日文
-  ;
-  private String value;
+    CH("ch"), // 中文
+    EN("en"), // 英文
+    JA("ja"), // 日文
+    ;
+    private String value;
 
-  UserLeaveDefaultLocaleEnum(String value) {
-    this.value = value;
-  }
+    UserLeaveDefaultLocaleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

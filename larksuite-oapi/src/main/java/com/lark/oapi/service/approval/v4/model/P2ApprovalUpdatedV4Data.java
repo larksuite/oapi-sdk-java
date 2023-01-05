@@ -16,19 +16,18 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2ApprovalUpdatedV4Data {
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("object")
+    private ApprovalEvent object;
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("object")
-  private ApprovalEvent object;
+    public ApprovalEvent getObject() {
+        return this.object;
+    }
 
-  public ApprovalEvent getObject() {
-    return this.object;
-  }
-
-  public void setObject(ApprovalEvent object) {
-    this.object = object;
-  }
+    public void setObject(ApprovalEvent object) {
+        this.object = object;
+    }
 
 }

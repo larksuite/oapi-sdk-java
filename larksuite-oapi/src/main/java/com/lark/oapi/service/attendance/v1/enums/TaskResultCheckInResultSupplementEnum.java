@@ -17,23 +17,23 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 上班打卡结果补充
  */
 public enum TaskResultCheckInResultSupplementEnum {
-  NONE("None"), // 无
-  MANAGERMODIFICATION("ManagerModification"), // 管理员修改
-  CARDREPLACEMENT("CardReplacement"), // 补卡通过
-  SHIFTCHANGE("ShiftChange"), // 换班
-  TRAVEL("Travel"), // 出差
-  LEAVE("Leave"), // 请假
-  GOOUT("GoOut"), // 外出
-  CARDREPLACEMENTAPPLICATION("CardReplacementApplication"), // 补卡申请中
-  FIELDPUNCH("FieldPunch"), // 外勤打卡
-  ;
-  private String value;
+    NONE("None"), // 无
+    MANAGERMODIFICATION("ManagerModification"), // 管理员修改
+    CARDREPLACEMENT("CardReplacement"), // 补卡通过
+    SHIFTCHANGE("ShiftChange"), // 换班
+    TRAVEL("Travel"), // 出差
+    LEAVE("Leave"), // 请假
+    GOOUT("GoOut"), // 外出
+    CARDREPLACEMENTAPPLICATION("CardReplacementApplication"), // 补卡申请中
+    FIELDPUNCH("FieldPunch"), // 外勤打卡
+    ;
+    private String value;
 
-  TaskResultCheckInResultSupplementEnum(String value) {
-    this.value = value;
-  }
+    TaskResultCheckInResultSupplementEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

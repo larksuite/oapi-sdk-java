@@ -16,135 +16,133 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Document {
-
-  /**
-   * 文档唯一标识
-   * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
-   */
-  @SerializedName("document_id")
-  private String documentId;
-  /**
-   * 文档版本 ID
-   * <p> 示例值：1
-   */
-  @SerializedName("revision_id")
-  private Integer revisionId;
-  /**
-   * 文档标题
-   * <p> 示例值：undefined
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public Document() {
-  }
-
-  public Document(Builder builder) {
     /**
      * 文档唯一标识
      * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
      */
-    this.documentId = builder.documentId;
-    /**
-     * 文档版本 ID
-     * <p> 示例值：1
-     */
-    this.revisionId = builder.revisionId;
-    /**
-     * 文档标题
-     * <p> 示例值：undefined
-     */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public Integer getRevisionId() {
-    return this.revisionId;
-  }
-
-  public void setRevisionId(Integer revisionId) {
-    this.revisionId = revisionId;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档唯一标识
-     * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
-     */
+    @SerializedName("document_id")
     private String documentId;
     /**
      * 文档版本 ID
      * <p> 示例值：1
      */
+    @SerializedName("revision_id")
     private Integer revisionId;
     /**
      * 文档标题
      * <p> 示例值：undefined
      */
+    @SerializedName("title")
     private String title;
 
-    /**
-     * 文档唯一标识
-     * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
-     *
-     * @param documentId
-     * @return
-     */
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
+    // builder 开始
+    public Document() {
     }
 
-
-    /**
-     * 文档版本 ID
-     * <p> 示例值：1
-     *
-     * @param revisionId
-     * @return
-     */
-    public Builder revisionId(Integer revisionId) {
-      this.revisionId = revisionId;
-      return this;
+    public Document(Builder builder) {
+        /**
+         * 文档唯一标识
+         * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
+         */
+        this.documentId = builder.documentId;
+        /**
+         * 文档版本 ID
+         * <p> 示例值：1
+         */
+        this.revisionId = builder.revisionId;
+        /**
+         * 文档标题
+         * <p> 示例值：undefined
+         */
+        this.title = builder.title;
     }
 
-
-    /**
-     * 文档标题
-     * <p> 示例值：undefined
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Document build() {
-      return new Document(this);
+    public String getDocumentId() {
+        return this.documentId;
     }
-  }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    public Integer getRevisionId() {
+        return this.revisionId;
+    }
+
+    public void setRevisionId(Integer revisionId) {
+        this.revisionId = revisionId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static class Builder {
+        /**
+         * 文档唯一标识
+         * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
+         */
+        private String documentId;
+        /**
+         * 文档版本 ID
+         * <p> 示例值：1
+         */
+        private Integer revisionId;
+        /**
+         * 文档标题
+         * <p> 示例值：undefined
+         */
+        private String title;
+
+        /**
+         * 文档唯一标识
+         * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
+         *
+         * @param documentId
+         * @return
+         */
+        public Builder documentId(String documentId) {
+            this.documentId = documentId;
+            return this;
+        }
+
+
+        /**
+         * 文档版本 ID
+         * <p> 示例值：1
+         *
+         * @param revisionId
+         * @return
+         */
+        public Builder revisionId(Integer revisionId) {
+            this.revisionId = revisionId;
+            return this;
+        }
+
+
+        /**
+         * 文档标题
+         * <p> 示例值：undefined
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        public Document build() {
+            return new Document(this);
+        }
+    }
 }

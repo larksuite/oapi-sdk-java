@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetFaq {
 
-  /**
-   * 知识库详情
-   * <p> 示例值：
-   */
-  @SerializedName("faq")
-  private Faq faq;
+    /**
+     * 知识库详情
+     * <p> 示例值：
+     */
+    @SerializedName("faq")
+    private Faq faq;
 
-  public Faq getFaq() {
-    return this.faq;
-  }
+    public Faq getFaq() {
+        return this.faq;
+    }
 
-  public void setFaq(Faq faq) {
-    this.faq = faq;
-  }
+    public void setFaq(Faq faq) {
+        this.faq = faq;
+    }
 
 }

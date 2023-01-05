@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationOfferAttachment {
-
-  /**
-   * 附件ID
-   * <p> 示例值：
-   */
-  @SerializedName("attachment_id")
-  private String attachmentId;
-  /**
-   * 名字
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public ApplicationOfferAttachment() {
-  }
-
-  public ApplicationOfferAttachment(Builder builder) {
     /**
      * 附件ID
      * <p> 示例值：
      */
-    this.attachmentId = builder.attachmentId;
-    /**
-     * 名字
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAttachmentId() {
-    return this.attachmentId;
-  }
-
-  public void setAttachmentId(String attachmentId) {
-    this.attachmentId = attachmentId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 附件ID
-     * <p> 示例值：
-     */
+    @SerializedName("attachment_id")
     private String attachmentId;
     /**
      * 名字
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 附件ID
-     * <p> 示例值：
-     *
-     * @param attachmentId
-     * @return
-     */
-    public Builder attachmentId(String attachmentId) {
-      this.attachmentId = attachmentId;
-      return this;
+    // builder 开始
+    public ApplicationOfferAttachment() {
     }
 
-
-    /**
-     * 名字
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public ApplicationOfferAttachment(Builder builder) {
+        /**
+         * 附件ID
+         * <p> 示例值：
+         */
+        this.attachmentId = builder.attachmentId;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    public ApplicationOfferAttachment build() {
-      return new ApplicationOfferAttachment(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getAttachmentId() {
+        return this.attachmentId;
+    }
+
+    public void setAttachmentId(String attachmentId) {
+        this.attachmentId = attachmentId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 附件ID
+         * <p> 示例值：
+         */
+        private String attachmentId;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        private String name;
+
+        /**
+         * 附件ID
+         * <p> 示例值：
+         *
+         * @param attachmentId
+         * @return
+         */
+        public Builder attachmentId(String attachmentId) {
+            this.attachmentId = attachmentId;
+            return this;
+        }
+
+
+        /**
+         * 名字
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public ApplicationOfferAttachment build() {
+            return new ApplicationOfferAttachment(this);
+        }
+    }
 }

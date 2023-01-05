@@ -16,61 +16,59 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InviteMeetingReqBody {
-
-  /**
-   * 被邀请的用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("invitees")
-  private MeetingUser[] invitees;
-
-  // builder 开始
-  public InviteMeetingReqBody() {
-  }
-
-  public InviteMeetingReqBody(Builder builder) {
     /**
      * 被邀请的用户列表
      * <p> 示例值：
      */
-    this.invitees = builder.invitees;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public MeetingUser[] getInvitees() {
-    return this.invitees;
-  }
-
-  public void setInvitees(MeetingUser[] invitees) {
-    this.invitees = invitees;
-  }
-
-  public static class Builder {
-
-    /**
-     * 被邀请的用户列表
-     * <p> 示例值：
-     */
+    @SerializedName("invitees")
     private MeetingUser[] invitees;
 
-    /**
-     * 被邀请的用户列表
-     * <p> 示例值：
-     *
-     * @param invitees
-     * @return
-     */
-    public Builder invitees(MeetingUser[] invitees) {
-      this.invitees = invitees;
-      return this;
+    // builder 开始
+    public InviteMeetingReqBody() {
     }
 
-
-    public InviteMeetingReqBody build() {
-      return new InviteMeetingReqBody(this);
+    public InviteMeetingReqBody(Builder builder) {
+        /**
+         * 被邀请的用户列表
+         * <p> 示例值：
+         */
+        this.invitees = builder.invitees;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public MeetingUser[] getInvitees() {
+        return this.invitees;
+    }
+
+    public void setInvitees(MeetingUser[] invitees) {
+        this.invitees = invitees;
+    }
+
+    public static class Builder {
+        /**
+         * 被邀请的用户列表
+         * <p> 示例值：
+         */
+        private MeetingUser[] invitees;
+
+        /**
+         * 被邀请的用户列表
+         * <p> 示例值：
+         *
+         * @param invitees
+         * @return
+         */
+        public Builder invitees(MeetingUser[] invitees) {
+            this.invitees = invitees;
+            return this;
+        }
+
+
+        public InviteMeetingReqBody build() {
+            return new InviteMeetingReqBody(this);
+        }
+    }
 }

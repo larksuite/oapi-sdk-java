@@ -15,17 +15,17 @@ package com.lark.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum EventPermissionsEnum {
-  PRIVATE("private"),
-  SHOWONLYFREEBUSY("show_only_free_busy"),
-  PUBLIC("public"),
-  ;
-  private String value;
+    PRIVATE("private"),
+    SHOWONLYFREEBUSY("show_only_free_busy"),
+    PUBLIC("public"),
+    ;
+    private String value;
 
-  EventPermissionsEnum(String value) {
-    this.value = value;
-  }
+    EventPermissionsEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryAward {
-
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-  /**
-   * 描述
-   * <p> 示例值：ACM国际大学生程序设计竞赛
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 奖项名称
-   * <p> 示例值：ACM 亚洲区金牌
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 获奖时间
-   * <p> 示例值：1609430400
-   */
-  @SerializedName("award_time")
-  private Integer awardTime;
-
-  // builder 开始
-  public WebsiteDeliveryAward() {
-  }
-
-  public WebsiteDeliveryAward(Builder builder) {
     /**
      * 自定义字段
      * <p> 示例值：
      */
-    this.customizedData = builder.customizedData;
-    /**
-     * 描述
-     * <p> 示例值：ACM国际大学生程序设计竞赛
-     */
-    this.desc = builder.desc;
-    /**
-     * 奖项名称
-     * <p> 示例值：ACM 亚洲区金牌
-     */
-    this.title = builder.title;
-    /**
-     * 获奖时间
-     * <p> 示例值：1609430400
-     */
-    this.awardTime = builder.awardTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public Integer getAwardTime() {
-    return this.awardTime;
-  }
-
-  public void setAwardTime(Integer awardTime) {
-    this.awardTime = awardTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
     /**
      * 描述
      * <p> 示例值：ACM国际大学生程序设计竞赛
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 奖项名称
      * <p> 示例值：ACM 亚洲区金牌
      */
+    @SerializedName("title")
     private String title;
     /**
      * 获奖时间
      * <p> 示例值：1609430400
      */
+    @SerializedName("award_time")
     private Integer awardTime;
 
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryAward() {
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：ACM国际大学生程序设计竞赛
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public WebsiteDeliveryAward(Builder builder) {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 描述
+         * <p> 示例值：ACM国际大学生程序设计竞赛
+         */
+        this.desc = builder.desc;
+        /**
+         * 奖项名称
+         * <p> 示例值：ACM 亚洲区金牌
+         */
+        this.title = builder.title;
+        /**
+         * 获奖时间
+         * <p> 示例值：1609430400
+         */
+        this.awardTime = builder.awardTime;
     }
 
-
-    /**
-     * 奖项名称
-     * <p> 示例值：ACM 亚洲区金牌
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 获奖时间
-     * <p> 示例值：1609430400
-     *
-     * @param awardTime
-     * @return
-     */
-    public Builder awardTime(Integer awardTime) {
-      this.awardTime = awardTime;
-      return this;
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
     }
 
-
-    public WebsiteDeliveryAward build() {
-      return new WebsiteDeliveryAward(this);
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
     }
-  }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getAwardTime() {
+        return this.awardTime;
+    }
+
+    public void setAwardTime(Integer awardTime) {
+        this.awardTime = awardTime;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+        /**
+         * 描述
+         * <p> 示例值：ACM国际大学生程序设计竞赛
+         */
+        private String desc;
+        /**
+         * 奖项名称
+         * <p> 示例值：ACM 亚洲区金牌
+         */
+        private String title;
+        /**
+         * 获奖时间
+         * <p> 示例值：1609430400
+         */
+        private Integer awardTime;
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：ACM国际大学生程序设计竞赛
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 奖项名称
+         * <p> 示例值：ACM 亚洲区金牌
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 获奖时间
+         * <p> 示例值：1609430400
+         *
+         * @param awardTime
+         * @return
+         */
+        public Builder awardTime(Integer awardTime) {
+            this.awardTime = awardTime;
+            return this;
+        }
+
+
+        public WebsiteDeliveryAward build() {
+            return new WebsiteDeliveryAward(this);
+        }
+    }
 }

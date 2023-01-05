@@ -16,148 +16,145 @@ package com.lark.oapi.service.passport.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MaskSession {
-
-  /**
-   * 创建时间
-   * <p> 示例值：
-   */
-  @SerializedName("create_time")
-  private String createTime;
-  /**
-   * 客户端类型
-   * <p> 示例值：
-   */
-  @SerializedName("terminal_type")
-  private Integer terminalType;
-  /**
-   * 用户ID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public MaskSession() {
-  }
-
-  public MaskSession(Builder builder) {
     /**
      * 创建时间
      * <p> 示例值：
      */
-    this.createTime = builder.createTime;
-    /**
-     * 客户端类型
-     * <p> 示例值：
-     */
-    this.terminalType = builder.terminalType;
-    /**
-     * 用户ID
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getTerminalType() {
-    return this.terminalType;
-  }
-
-  public void setTerminalType(Integer terminalType) {
-    this.terminalType = terminalType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 创建时间
-     * <p> 示例值：
-     */
+    @SerializedName("create_time")
     private String createTime;
     /**
      * 客户端类型
      * <p> 示例值：
      */
+    @SerializedName("terminal_type")
     private Integer terminalType;
     /**
      * 用户ID
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * 创建时间
-     * <p> 示例值：
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    // builder 开始
+    public MaskSession() {
     }
 
-
-    /**
-     * 客户端类型
-     * <p> 示例值：
-     *
-     * @param terminalType
-     * @return
-     */
-    public Builder terminalType(Integer terminalType) {
-      this.terminalType = terminalType;
-      return this;
+    public MaskSession(Builder builder) {
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 客户端类型
+         * <p> 示例值：
+         */
+        this.terminalType = builder.terminalType;
+        /**
+         * 用户ID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
     }
 
-    /**
-     * 客户端类型
-     * <p> 示例值：
-     *
-     * @param terminalType {@link com.lark.oapi.service.passport.v1.enums.MaskSessionTerminalTypeEnum}
-     * @return
-     */
-    public Builder terminalType(
-        com.lark.oapi.service.passport.v1.enums.MaskSessionTerminalTypeEnum terminalType) {
-      this.terminalType = terminalType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 用户ID
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getCreateTime() {
+        return this.createTime;
     }
 
-
-    public MaskSession build() {
-      return new MaskSession(this);
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
-  }
+
+    public Integer getTerminalType() {
+        return this.terminalType;
+    }
+
+    public void setTerminalType(Integer terminalType) {
+        this.terminalType = terminalType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        private String createTime;
+        /**
+         * 客户端类型
+         * <p> 示例值：
+         */
+        private Integer terminalType;
+        /**
+         * 用户ID
+         * <p> 示例值：
+         */
+        private String userId;
+
+        /**
+         * 创建时间
+         * <p> 示例值：
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 客户端类型
+         * <p> 示例值：
+         *
+         * @param terminalType
+         * @return
+         */
+        public Builder terminalType(Integer terminalType) {
+            this.terminalType = terminalType;
+            return this;
+        }
+
+        /**
+         * 客户端类型
+         * <p> 示例值：
+         *
+         * @param terminalType {@link com.lark.oapi.service.passport.v1.enums.MaskSessionTerminalTypeEnum}
+         * @return
+         */
+        public Builder terminalType(com.lark.oapi.service.passport.v1.enums.MaskSessionTerminalTypeEnum terminalType) {
+            this.terminalType = terminalType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 用户ID
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public MaskSession build() {
+            return new MaskSession(this);
+        }
+    }
 }

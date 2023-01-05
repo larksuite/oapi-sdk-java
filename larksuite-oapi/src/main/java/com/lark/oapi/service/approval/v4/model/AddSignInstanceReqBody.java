@@ -16,320 +16,342 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AddSignInstanceReqBody {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("approval_code")
-  private String approvalCode;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("instance_code")
-  private String instanceCode;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("task_id")
-  private String taskId;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("comment")
-  private String comment;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("add_sign_user_ids")
-  private String[] addSignUserIds;
-  /**
-   * <p> 示例值：1
-   */
-  @SerializedName("add_sign_type")
-  private Integer addSignType;
-  /**
-   * <p> 示例值：1
-   */
-  @SerializedName("approval_method")
-  private Integer approvalMethod;
-
-  // builder 开始
-  public AddSignInstanceReqBody() {
-  }
-
-  public AddSignInstanceReqBody(Builder builder) {
     /**
-     *
-     * <p> 示例值：
+     * 操作用户id
+     * <p> 示例值：b16g66e3
      */
-    this.userId = builder.userId;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.approvalCode = builder.approvalCode;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.instanceCode = builder.instanceCode;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.taskId = builder.taskId;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.comment = builder.comment;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.addSignUserIds = builder.addSignUserIds;
-    /**
-     *
-     * <p> 示例值：1
-     */
-    this.addSignType = builder.addSignType;
-    /**
-     *
-     * <p> 示例值：1
-     */
-    this.approvalMethod = builder.approvalMethod;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getComment() {
-    return this.comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  public String[] getAddSignUserIds() {
-    return this.addSignUserIds;
-  }
-
-  public void setAddSignUserIds(String[] addSignUserIds) {
-    this.addSignUserIds = addSignUserIds;
-  }
-
-  public Integer getAddSignType() {
-    return this.addSignType;
-  }
-
-  public void setAddSignType(Integer addSignType) {
-    this.addSignType = addSignType;
-  }
-
-  public Integer getApprovalMethod() {
-    return this.approvalMethod;
-  }
-
-  public void setApprovalMethod(Integer approvalMethod) {
-    this.approvalMethod = approvalMethod;
-  }
-
-  public static class Builder {
-
-    /**
-     * <p> 示例值：
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
-     * <p> 示例值：
+     * 审批定义code
+     * <p> 示例值：3B68E280-CF10-4198-B4CD-2E3BB97981D8
      */
+    @SerializedName("approval_code")
     private String approvalCode;
     /**
-     * <p> 示例值：
+     * 审批实例code
+     * <p> 示例值：289330DE-FBF1-4A47-91F9-9EFCCF11BCAE
      */
+    @SerializedName("instance_code")
     private String instanceCode;
     /**
-     * <p> 示例值：
+     * 任务id
+     * <p> 示例值：6955096766400167956
      */
+    @SerializedName("task_id")
     private String taskId;
     /**
-     * <p> 示例值：
+     * 意见
+     * <p> 示例值：addSignComment
      */
+    @SerializedName("comment")
     private String comment;
     /**
+     * 被加签人id
      * <p> 示例值：
      */
+    @SerializedName("add_sign_user_ids")
     private String[] addSignUserIds;
     /**
+     * 1/2/3分别代表前加签/后加签/并加签
      * <p> 示例值：1
      */
+    @SerializedName("add_sign_type")
     private Integer addSignType;
     /**
+     * 仅在前加签、后加签时需要填写，1/2 分别代表或签/会签
      * <p> 示例值：1
      */
+    @SerializedName("approval_method")
     private Integer approvalMethod;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public AddSignInstanceReqBody() {
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param approvalCode
-     * @return
-     */
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public AddSignInstanceReqBody(Builder builder) {
+        /**
+         * 操作用户id
+         * <p> 示例值：b16g66e3
+         */
+        this.userId = builder.userId;
+        /**
+         * 审批定义code
+         * <p> 示例值：3B68E280-CF10-4198-B4CD-2E3BB97981D8
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批实例code
+         * <p> 示例值：289330DE-FBF1-4A47-91F9-9EFCCF11BCAE
+         */
+        this.instanceCode = builder.instanceCode;
+        /**
+         * 任务id
+         * <p> 示例值：6955096766400167956
+         */
+        this.taskId = builder.taskId;
+        /**
+         * 意见
+         * <p> 示例值：addSignComment
+         */
+        this.comment = builder.comment;
+        /**
+         * 被加签人id
+         * <p> 示例值：
+         */
+        this.addSignUserIds = builder.addSignUserIds;
+        /**
+         * 1/2/3分别代表前加签/后加签/并加签
+         * <p> 示例值：1
+         */
+        this.addSignType = builder.addSignType;
+        /**
+         * 仅在前加签、后加签时需要填写，1/2 分别代表或签/会签
+         * <p> 示例值：1
+         */
+        this.approvalMethod = builder.approvalMethod;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param instanceCode
-     * @return
-     */
-    public Builder instanceCode(String instanceCode) {
-      this.instanceCode = instanceCode;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param comment
-     * @return
-     */
-    public Builder comment(String comment) {
-      this.comment = comment;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param addSignUserIds
-     * @return
-     */
-    public Builder addSignUserIds(String[] addSignUserIds) {
-      this.addSignUserIds = addSignUserIds;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-
-    /**
-     * <p> 示例值：1
-     *
-     * @param addSignType
-     * @return
-     */
-    public Builder addSignType(Integer addSignType) {
-      this.addSignType = addSignType;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
-    /**
-     * <p> 示例值：1
-     *
-     * @param addSignType {@link com.lark.oapi.service.approval.v4.enums.AddSignInstanceAddSignEnumEnum}
-     * @return
-     */
-    public Builder addSignType(
-        com.lark.oapi.service.approval.v4.enums.AddSignInstanceAddSignEnumEnum addSignType) {
-      this.addSignType = addSignType.getValue();
-      return this;
+    public String getInstanceCode() {
+        return this.instanceCode;
     }
 
-
-    /**
-     * <p> 示例值：1
-     *
-     * @param approvalMethod
-     * @return
-     */
-    public Builder approvalMethod(Integer approvalMethod) {
-      this.approvalMethod = approvalMethod;
-      return this;
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
     }
 
-    /**
-     * <p> 示例值：1
-     *
-     * @param approvalMethod {@link com.lark.oapi.service.approval.v4.enums.AddSignInstanceApprovalMethodEnumEnum}
-     * @return
-     */
-    public Builder approvalMethod(
-        com.lark.oapi.service.approval.v4.enums.AddSignInstanceApprovalMethodEnumEnum approvalMethod) {
-      this.approvalMethod = approvalMethod.getValue();
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-
-    public AddSignInstanceReqBody build() {
-      return new AddSignInstanceReqBody(this);
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
-  }
+
+    public String getComment() {
+        return this.comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String[] getAddSignUserIds() {
+        return this.addSignUserIds;
+    }
+
+    public void setAddSignUserIds(String[] addSignUserIds) {
+        this.addSignUserIds = addSignUserIds;
+    }
+
+    public Integer getAddSignType() {
+        return this.addSignType;
+    }
+
+    public void setAddSignType(Integer addSignType) {
+        this.addSignType = addSignType;
+    }
+
+    public Integer getApprovalMethod() {
+        return this.approvalMethod;
+    }
+
+    public void setApprovalMethod(Integer approvalMethod) {
+        this.approvalMethod = approvalMethod;
+    }
+
+    public static class Builder {
+        /**
+         * 操作用户id
+         * <p> 示例值：b16g66e3
+         */
+        private String userId;
+        /**
+         * 审批定义code
+         * <p> 示例值：3B68E280-CF10-4198-B4CD-2E3BB97981D8
+         */
+        private String approvalCode;
+        /**
+         * 审批实例code
+         * <p> 示例值：289330DE-FBF1-4A47-91F9-9EFCCF11BCAE
+         */
+        private String instanceCode;
+        /**
+         * 任务id
+         * <p> 示例值：6955096766400167956
+         */
+        private String taskId;
+        /**
+         * 意见
+         * <p> 示例值：addSignComment
+         */
+        private String comment;
+        /**
+         * 被加签人id
+         * <p> 示例值：
+         */
+        private String[] addSignUserIds;
+        /**
+         * 1/2/3分别代表前加签/后加签/并加签
+         * <p> 示例值：1
+         */
+        private Integer addSignType;
+        /**
+         * 仅在前加签、后加签时需要填写，1/2 分别代表或签/会签
+         * <p> 示例值：1
+         */
+        private Integer approvalMethod;
+
+        /**
+         * 操作用户id
+         * <p> 示例值：b16g66e3
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 审批定义code
+         * <p> 示例值：3B68E280-CF10-4198-B4CD-2E3BB97981D8
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
+
+
+        /**
+         * 审批实例code
+         * <p> 示例值：289330DE-FBF1-4A47-91F9-9EFCCF11BCAE
+         *
+         * @param instanceCode
+         * @return
+         */
+        public Builder instanceCode(String instanceCode) {
+            this.instanceCode = instanceCode;
+            return this;
+        }
+
+
+        /**
+         * 任务id
+         * <p> 示例值：6955096766400167956
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+
+        /**
+         * 意见
+         * <p> 示例值：addSignComment
+         *
+         * @param comment
+         * @return
+         */
+        public Builder comment(String comment) {
+            this.comment = comment;
+            return this;
+        }
+
+
+        /**
+         * 被加签人id
+         * <p> 示例值：
+         *
+         * @param addSignUserIds
+         * @return
+         */
+        public Builder addSignUserIds(String[] addSignUserIds) {
+            this.addSignUserIds = addSignUserIds;
+            return this;
+        }
+
+
+        /**
+         * 1/2/3分别代表前加签/后加签/并加签
+         * <p> 示例值：1
+         *
+         * @param addSignType
+         * @return
+         */
+        public Builder addSignType(Integer addSignType) {
+            this.addSignType = addSignType;
+            return this;
+        }
+
+        /**
+         * 1/2/3分别代表前加签/后加签/并加签
+         * <p> 示例值：1
+         *
+         * @param addSignType {@link com.lark.oapi.service.approval.v4.enums.AddSignInstanceAddSignEnumEnum}
+         * @return
+         */
+        public Builder addSignType(com.lark.oapi.service.approval.v4.enums.AddSignInstanceAddSignEnumEnum addSignType) {
+            this.addSignType = addSignType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 仅在前加签、后加签时需要填写，1/2 分别代表或签/会签
+         * <p> 示例值：1
+         *
+         * @param approvalMethod
+         * @return
+         */
+        public Builder approvalMethod(Integer approvalMethod) {
+            this.approvalMethod = approvalMethod;
+            return this;
+        }
+
+        /**
+         * 仅在前加签、后加签时需要填写，1/2 分别代表或签/会签
+         * <p> 示例值：1
+         *
+         * @param approvalMethod {@link com.lark.oapi.service.approval.v4.enums.AddSignInstanceApprovalMethodEnumEnum}
+         * @return
+         */
+        public Builder approvalMethod(com.lark.oapi.service.approval.v4.enums.AddSignInstanceApprovalMethodEnumEnum approvalMethod) {
+            this.approvalMethod = approvalMethod.getValue();
+            return this;
+        }
+
+
+        public AddSignInstanceReqBody build() {
+            return new AddSignInstanceReqBody(this);
+        }
+    }
 }

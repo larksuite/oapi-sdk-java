@@ -16,98 +16,96 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppDashboard {
-
-  /**
-   * 仪表盘 ID
-   * <p> 示例值：blknkqrP3RqUkcAW
-   */
-  @SerializedName("block_id")
-  private String blockId;
-  /**
-   * 仪表盘名字
-   * <p> 示例值：仪表盘1
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public AppDashboard() {
-  }
-
-  public AppDashboard(Builder builder) {
     /**
      * 仪表盘 ID
      * <p> 示例值：blknkqrP3RqUkcAW
      */
-    this.blockId = builder.blockId;
-    /**
-     * 仪表盘名字
-     * <p> 示例值：仪表盘1
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 仪表盘 ID
-     * <p> 示例值：blknkqrP3RqUkcAW
-     */
+    @SerializedName("block_id")
     private String blockId;
     /**
      * 仪表盘名字
      * <p> 示例值：仪表盘1
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 仪表盘 ID
-     * <p> 示例值：blknkqrP3RqUkcAW
-     *
-     * @param blockId
-     * @return
-     */
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    // builder 开始
+    public AppDashboard() {
     }
 
-
-    /**
-     * 仪表盘名字
-     * <p> 示例值：仪表盘1
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public AppDashboard(Builder builder) {
+        /**
+         * 仪表盘 ID
+         * <p> 示例值：blknkqrP3RqUkcAW
+         */
+        this.blockId = builder.blockId;
+        /**
+         * 仪表盘名字
+         * <p> 示例值：仪表盘1
+         */
+        this.name = builder.name;
     }
 
-
-    public AppDashboard build() {
-      return new AppDashboard(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getBlockId() {
+        return this.blockId;
+    }
+
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 仪表盘 ID
+         * <p> 示例值：blknkqrP3RqUkcAW
+         */
+        private String blockId;
+        /**
+         * 仪表盘名字
+         * <p> 示例值：仪表盘1
+         */
+        private String name;
+
+        /**
+         * 仪表盘 ID
+         * <p> 示例值：blknkqrP3RqUkcAW
+         *
+         * @param blockId
+         * @return
+         */
+        public Builder blockId(String blockId) {
+            this.blockId = blockId;
+            return this;
+        }
+
+
+        /**
+         * 仪表盘名字
+         * <p> 示例值：仪表盘1
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public AppDashboard build() {
+            return new AppDashboard(this);
+        }
+    }
 }

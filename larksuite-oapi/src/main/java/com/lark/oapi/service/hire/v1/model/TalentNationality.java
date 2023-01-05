@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentNationality {
-
-  /**
-   * 国家编码
-   * <p> 示例值：CN_183
-   */
-  @SerializedName("nationality_code")
-  private String nationalityCode;
-  /**
-   * 中文名
-   * <p> 示例值：测试
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 英文名
-   * <p> 示例值：test
-   */
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public TalentNationality() {
-  }
-
-  public TalentNationality(Builder builder) {
     /**
      * 国家编码
      * <p> 示例值：CN_183
      */
-    this.nationalityCode = builder.nationalityCode;
-    /**
-     * 中文名
-     * <p> 示例值：测试
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 英文名
-     * <p> 示例值：test
-     */
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNationalityCode() {
-    return this.nationalityCode;
-  }
-
-  public void setNationalityCode(String nationalityCode) {
-    this.nationalityCode = nationalityCode;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 国家编码
-     * <p> 示例值：CN_183
-     */
+    @SerializedName("nationality_code")
     private String nationalityCode;
     /**
      * 中文名
      * <p> 示例值：测试
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 英文名
      * <p> 示例值：test
      */
+    @SerializedName("en_name")
     private String enName;
 
-    /**
-     * 国家编码
-     * <p> 示例值：CN_183
-     *
-     * @param nationalityCode
-     * @return
-     */
-    public Builder nationalityCode(String nationalityCode) {
-      this.nationalityCode = nationalityCode;
-      return this;
+    // builder 开始
+    public TalentNationality() {
     }
 
-
-    /**
-     * 中文名
-     * <p> 示例值：测试
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public TalentNationality(Builder builder) {
+        /**
+         * 国家编码
+         * <p> 示例值：CN_183
+         */
+        this.nationalityCode = builder.nationalityCode;
+        /**
+         * 中文名
+         * <p> 示例值：测试
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 英文名
+         * <p> 示例值：test
+         */
+        this.enName = builder.enName;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：test
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public TalentNationality build() {
-      return new TalentNationality(this);
+    public String getNationalityCode() {
+        return this.nationalityCode;
     }
-  }
+
+    public void setNationalityCode(String nationalityCode) {
+        this.nationalityCode = nationalityCode;
+    }
+
+    public String getZhName() {
+        return this.zhName;
+    }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public static class Builder {
+        /**
+         * 国家编码
+         * <p> 示例值：CN_183
+         */
+        private String nationalityCode;
+        /**
+         * 中文名
+         * <p> 示例值：测试
+         */
+        private String zhName;
+        /**
+         * 英文名
+         * <p> 示例值：test
+         */
+        private String enName;
+
+        /**
+         * 国家编码
+         * <p> 示例值：CN_183
+         *
+         * @param nationalityCode
+         * @return
+         */
+        public Builder nationalityCode(String nationalityCode) {
+            this.nationalityCode = nationalityCode;
+            return this;
+        }
+
+
+        /**
+         * 中文名
+         * <p> 示例值：测试
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：test
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        public TalentNationality build() {
+            return new TalentNationality(this);
+        }
+    }
 }

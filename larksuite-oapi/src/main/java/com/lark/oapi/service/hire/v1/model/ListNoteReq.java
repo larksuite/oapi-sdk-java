@@ -17,160 +17,158 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListNoteReq {
-
-  /**
-   * 每页限制, 每页最大不超过100
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 查询游标, 由上一页结果返回, 第一页不传
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 人才ID
-   * <p> 示例值：6916472453069883661
-   */
-  @Query
-  @SerializedName("talent_id")
-  private String talentId;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public ListNoteReq() {
-  }
-
-  public ListNoteReq(Builder builder) {
     /**
      * 每页限制, 每页最大不超过100
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 查询游标, 由上一页结果返回, 第一页不传
      * <p> 示例值：1
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 人才ID
      * <p> 示例值：6916472453069883661
      */
-    this.talentId = builder.talentId;
+    @Query
+    @SerializedName("talent_id")
+    private String talentId;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
-  }
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
-    private Integer pageSize; // 每页限制, 每页最大不超过100
-    private String pageToken; // 查询游标, 由上一页结果返回, 第一页不传
-    private String talentId; // 人才ID
-    private String userIdType; // 此次调用中使用的用户ID的类型
-
-
-    /**
-     * 每页限制, 每页最大不超过100
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    // builder 开始
+    public ListNoteReq() {
     }
 
-
-    /**
-     * 查询游标, 由上一页结果返回, 第一页不传
-     * <p> 示例值：1
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public ListNoteReq(Builder builder) {
+        /**
+         * 每页限制, 每页最大不超过100
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 查询游标, 由上一页结果返回, 第一页不传
+         * <p> 示例值：1
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 人才ID
+         * <p> 示例值：6916472453069883661
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
     }
 
-
-    /**
-     * 人才ID
-     * <p> 示例值：6916472453069883661
-     *
-     * @param talentId
-     * @return
-     */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public ListNoteReq build() {
-      return new ListNoteReq(this);
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
-  }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public static class Builder {
+        private Integer pageSize; // 每页限制, 每页最大不超过100
+        private String pageToken; // 查询游标, 由上一页结果返回, 第一页不传
+        private String talentId; // 人才ID
+        private String userIdType; // 此次调用中使用的用户ID的类型
+
+
+        /**
+         * 每页限制, 每页最大不超过100
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 查询游标, 由上一页结果返回, 第一页不传
+         * <p> 示例值：1
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 人才ID
+         * <p> 示例值：6916472453069883661
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        public ListNoteReq build() {
+            return new ListNoteReq(this);
+        }
+    }
 }

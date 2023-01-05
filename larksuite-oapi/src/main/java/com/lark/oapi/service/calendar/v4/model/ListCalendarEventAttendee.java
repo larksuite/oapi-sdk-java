@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCalendarEventAttendee {
 
-  /**
-   * 日程的参与者列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private CalendarEventAttendee[] items;
-  /**
-   * 是否有下一页数据
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下次请求需要带上的分页标记，90 天有效期
-   * <p> 示例值：38RTjheyXXXX
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    /**
+     * 日程的参与者列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private CalendarEventAttendee[] items;
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下次请求需要带上的分页标记，90 天有效期
+     * <p> 示例值：38RTjheyXXXX
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  public CalendarEventAttendee[] getItems() {
-    return this.items;
-  }
+    public CalendarEventAttendee[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(CalendarEventAttendee[] items) {
-    this.items = items;
-  }
+    public void setItems(CalendarEventAttendee[] items) {
+        this.items = items;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

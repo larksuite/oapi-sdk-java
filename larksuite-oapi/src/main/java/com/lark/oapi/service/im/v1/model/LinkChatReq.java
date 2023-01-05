@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class LinkChatReq {
-
-  /**
-   * 待获取分享链接的群ID
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private LinkChatReqBody body;
-
-  // builder 开始
-  public LinkChatReq() {
-  }
-
-  public LinkChatReq(Builder builder) {
     /**
-     * 待获取分享链接的群ID
+     * 待获取分享链接的群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：单聊、密聊、团队群不支持分享群链接
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public LinkChatReqBody getLinkChatReqBody() {
-    return this.body;
-  }
-
-  public void setLinkChatReqBody(LinkChatReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String chatId; // 待获取分享链接的群ID
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+    @Body
     private LinkChatReqBody body;
 
-    /**
-     * 待获取分享链接的群ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public LinkChatReq() {
+    }
+
+    public LinkChatReq(Builder builder) {
+        /**
+         * 待获取分享链接的群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：单聊、密聊、团队群不支持分享群链接
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
     public LinkChatReqBody getLinkChatReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder linkChatReqBody(LinkChatReqBody body) {
-      this.body = body;
-      return this;
+    public void setLinkChatReqBody(LinkChatReqBody body) {
+        this.body = body;
     }
 
-    public LinkChatReq build() {
-      return new LinkChatReq(this);
+    public static class Builder {
+
+        private String chatId; // 待获取分享链接的群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：单聊、密聊、团队群不支持分享群链接
+        private LinkChatReqBody body;
+
+        /**
+         * 待获取分享链接的群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：单聊、密聊、团队群不支持分享群链接
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public LinkChatReqBody getLinkChatReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder linkChatReqBody(LinkChatReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public LinkChatReq build() {
+            return new LinkChatReq(this);
+        }
     }
-  }
 }

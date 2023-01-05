@@ -13,83 +13,69 @@
 
 package com.lark.oapi.service.meeting_room.v1;
 
-
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
-import com.lark.oapi.service.meeting_room.v1.model.P1ThirdPartyMeetingRoomChangedV1;
-import com.lark.oapi.service.meeting_room.v1.model.P2MeetingRoomCreatedV1;
-import com.lark.oapi.service.meeting_room.v1.model.P2MeetingRoomDeletedV1;
-import com.lark.oapi.service.meeting_room.v1.model.P2MeetingRoomStatusChangedV1;
-import com.lark.oapi.service.meeting_room.v1.model.P2MeetingRoomUpdatedV1;
+import com.lark.oapi.service.meeting_room.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MeetingRoomService {
+    private static final Logger log = LoggerFactory.getLogger(MeetingRoomService.class);
+    private final MeetingRoom meetingRoom; // 事件
 
-  private final MeetingRoom meetingRoom; // 事件
-
-  public MeetingRoomService(Config config) {
-    this.meetingRoom = new MeetingRoom(config);
-  }
-
-  /**
-   * 事件
-   *
-   * @return
-   */
-  public MeetingRoom meetingRoom() {
-    return meetingRoom;
-  }
-
-  public static class MeetingRoom {
-
-    private final Config config;
-
-    public MeetingRoom(Config config) {
-      this.config = config;
+    public MeetingRoomService(Config config) {
+        this.meetingRoom = new MeetingRoom(config);
     }
-  }
 
-  public abstract static class P2MeetingRoomCreatedV1Handler implements
-      IEventHandler<P2MeetingRoomCreatedV1> {
-
-    @Override
-    public P2MeetingRoomCreatedV1 getEvent() {
-      return new P2MeetingRoomCreatedV1();
+    /**
+     * 事件
+     *
+     * @return
+     */
+    public MeetingRoom meetingRoom() {
+        return meetingRoom;
     }
-  }
 
-  public abstract static class P2MeetingRoomDeletedV1Handler implements
-      IEventHandler<P2MeetingRoomDeletedV1> {
+    public static class MeetingRoom {
+        private final Config config;
 
-    @Override
-    public P2MeetingRoomDeletedV1 getEvent() {
-      return new P2MeetingRoomDeletedV1();
+        public MeetingRoom(Config config) {
+            this.config = config;
+        }
     }
-  }
 
-  public abstract static class P2MeetingRoomStatusChangedV1Handler implements
-      IEventHandler<P2MeetingRoomStatusChangedV1> {
-
-    @Override
-    public P2MeetingRoomStatusChangedV1 getEvent() {
-      return new P2MeetingRoomStatusChangedV1();
+    public abstract static class P2MeetingRoomCreatedV1Handler implements IEventHandler<P2MeetingRoomCreatedV1> {
+        @Override
+        public P2MeetingRoomCreatedV1 getEvent() {
+            return new P2MeetingRoomCreatedV1();
+        }
     }
-  }
 
-  public abstract static class P2MeetingRoomUpdatedV1Handler implements
-      IEventHandler<P2MeetingRoomUpdatedV1> {
-
-    @Override
-    public P2MeetingRoomUpdatedV1 getEvent() {
-      return new P2MeetingRoomUpdatedV1();
+    public abstract static class P2MeetingRoomDeletedV1Handler implements IEventHandler<P2MeetingRoomDeletedV1> {
+        @Override
+        public P2MeetingRoomDeletedV1 getEvent() {
+            return new P2MeetingRoomDeletedV1();
+        }
     }
-  }
 
-  public abstract static class P1ThirdPartyMeetingRoomChangedV1Handler implements
-      IEventHandler<P1ThirdPartyMeetingRoomChangedV1> {
-
-    @Override
-    public P1ThirdPartyMeetingRoomChangedV1 getEvent() {
-      return new P1ThirdPartyMeetingRoomChangedV1();
+    public abstract static class P2MeetingRoomStatusChangedV1Handler implements IEventHandler<P2MeetingRoomStatusChangedV1> {
+        @Override
+        public P2MeetingRoomStatusChangedV1 getEvent() {
+            return new P2MeetingRoomStatusChangedV1();
+        }
     }
-  }
+
+    public abstract static class P2MeetingRoomUpdatedV1Handler implements IEventHandler<P2MeetingRoomUpdatedV1> {
+        @Override
+        public P2MeetingRoomUpdatedV1 getEvent() {
+            return new P2MeetingRoomUpdatedV1();
+        }
+    }
+
+    public abstract static class P1ThirdPartyMeetingRoomChangedV1Handler implements IEventHandler<P1ThirdPartyMeetingRoomChangedV1> {
+        @Override
+        public P1ThirdPartyMeetingRoomChangedV1 getEvent() {
+            return new P1ThirdPartyMeetingRoomChangedV1();
+        }
+    }
 }

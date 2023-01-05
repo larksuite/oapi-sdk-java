@@ -16,51 +16,50 @@ package com.lark.oapi.service.contact.v3.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateUnitReq {
-
-  @Body
-  private CreateUnitReqBody body;
-
-  // builder 开始
-  public CreateUnitReq() {
-  }
-
-  public CreateUnitReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateUnitReqBody getCreateUnitReqBody() {
-    return this.body;
-  }
-
-  public void setCreateUnitReqBody(CreateUnitReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateUnitReqBody body;
 
+    // builder 开始
+    public CreateUnitReq() {
+    }
+
+    public CreateUnitReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateUnitReqBody getCreateUnitReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createUnitReqBody(CreateUnitReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateUnitReqBody(CreateUnitReqBody body) {
+        this.body = body;
     }
 
-    public CreateUnitReq build() {
-      return new CreateUnitReq(this);
+    public static class Builder {
+
+        private CreateUnitReqBody body;
+
+        public CreateUnitReqBody getCreateUnitReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createUnitReqBody(CreateUnitReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateUnitReq build() {
+            return new CreateUnitReq(this);
+        }
     }
-  }
 }

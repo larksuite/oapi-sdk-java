@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class ReplaceSpreadsheetSheetReq {
-
-  /**
-   * Spreadsheet token
-   * <p> 示例值：shtcnmBA*****yGehy8
-   */
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-  /**
-   * Sheet id
-   * <p> 示例值：0b**12
-   */
-  @Path
-  @SerializedName("sheet_id")
-  private String sheetId;
-  @Body
-  private Replace body;
-
-  // builder 开始
-  public ReplaceSpreadsheetSheetReq() {
-  }
-
-  public ReplaceSpreadsheetSheetReq(Builder builder) {
     /**
      * Spreadsheet token
      * <p> 示例值：shtcnmBA*****yGehy8
      */
-    this.spreadsheetToken = builder.spreadsheetToken;
+    @Path
+    @SerializedName("spreadsheet_token")
+    private String spreadsheetToken;
     /**
      * Sheet id
      * <p> 示例值：0b**12
      */
-    this.sheetId = builder.sheetId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public String getSheetId() {
-    return this.sheetId;
-  }
-
-  public void setSheetId(String sheetId) {
-    this.sheetId = sheetId;
-  }
-
-  public Replace getReplace() {
-    return this.body;
-  }
-
-  public void setReplace(Replace body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String spreadsheetToken; // Spreadsheet token
-    private String sheetId; // Sheet id
+    @Path
+    @SerializedName("sheet_id")
+    private String sheetId;
+    @Body
     private Replace body;
 
-    /**
-     * Spreadsheet token
-     * <p> 示例值：shtcnmBA*****yGehy8
-     *
-     * @param spreadsheetToken
-     * @return
-     */
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
+    // builder 开始
+    public ReplaceSpreadsheetSheetReq() {
     }
 
-    /**
-     * Sheet id
-     * <p> 示例值：0b**12
-     *
-     * @param sheetId
-     * @return
-     */
-    public Builder sheetId(String sheetId) {
-      this.sheetId = sheetId;
-      return this;
+    public ReplaceSpreadsheetSheetReq(Builder builder) {
+        /**
+         * Spreadsheet token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+        /**
+         * Sheet id
+         * <p> 示例值：0b**12
+         */
+        this.sheetId = builder.sheetId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public String getSheetId() {
+        return this.sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
     }
 
     public Replace getReplace() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder replace(Replace body) {
-      this.body = body;
-      return this;
+    public void setReplace(Replace body) {
+        this.body = body;
     }
 
-    public ReplaceSpreadsheetSheetReq build() {
-      return new ReplaceSpreadsheetSheetReq(this);
+    public static class Builder {
+
+        private String spreadsheetToken; // Spreadsheet token
+        private String sheetId; // Sheet id
+        private Replace body;
+
+        /**
+         * Spreadsheet token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         *
+         * @param spreadsheetToken
+         * @return
+         */
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+        /**
+         * Sheet id
+         * <p> 示例值：0b**12
+         *
+         * @param sheetId
+         * @return
+         */
+        public Builder sheetId(String sheetId) {
+            this.sheetId = sheetId;
+            return this;
+        }
+
+        public Replace getReplace() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder replace(Replace body) {
+            this.body = body;
+            return this;
+        }
+
+        public ReplaceSpreadsheetSheetReq build() {
+            return new ReplaceSpreadsheetSheetReq(this);
+        }
     }
-  }
 }

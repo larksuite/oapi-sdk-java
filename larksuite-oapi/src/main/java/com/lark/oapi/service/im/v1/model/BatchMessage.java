@@ -16,135 +16,133 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchMessage {
-
-  /**
-   * 批量发消息的批次号，代表某次批量发送消息的唯一标识
-   * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
-   */
-  @SerializedName("batch_message_id")
-  private String batchMessageId;
-  /**
-   * 发送进度
-   * <p> 示例值：json结构
-   */
-  @SerializedName("batch_send_progress")
-  private BatchSendProgress batchSendProgress;
-  /**
-   * 撤回进度
-   * <p> 示例值：json结构
-   */
-  @SerializedName("batch_recall_progress")
-  private BatchRecallProgress batchRecallProgress;
-
-  // builder 开始
-  public BatchMessage() {
-  }
-
-  public BatchMessage(Builder builder) {
     /**
      * 批量发消息的批次号，代表某次批量发送消息的唯一标识
      * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
      */
-    this.batchMessageId = builder.batchMessageId;
-    /**
-     * 发送进度
-     * <p> 示例值：json结构
-     */
-    this.batchSendProgress = builder.batchSendProgress;
-    /**
-     * 撤回进度
-     * <p> 示例值：json结构
-     */
-    this.batchRecallProgress = builder.batchRecallProgress;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBatchMessageId() {
-    return this.batchMessageId;
-  }
-
-  public void setBatchMessageId(String batchMessageId) {
-    this.batchMessageId = batchMessageId;
-  }
-
-  public BatchSendProgress getBatchSendProgress() {
-    return this.batchSendProgress;
-  }
-
-  public void setBatchSendProgress(BatchSendProgress batchSendProgress) {
-    this.batchSendProgress = batchSendProgress;
-  }
-
-  public BatchRecallProgress getBatchRecallProgress() {
-    return this.batchRecallProgress;
-  }
-
-  public void setBatchRecallProgress(BatchRecallProgress batchRecallProgress) {
-    this.batchRecallProgress = batchRecallProgress;
-  }
-
-  public static class Builder {
-
-    /**
-     * 批量发消息的批次号，代表某次批量发送消息的唯一标识
-     * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
-     */
+    @SerializedName("batch_message_id")
     private String batchMessageId;
     /**
      * 发送进度
      * <p> 示例值：json结构
      */
+    @SerializedName("batch_send_progress")
     private BatchSendProgress batchSendProgress;
     /**
      * 撤回进度
      * <p> 示例值：json结构
      */
+    @SerializedName("batch_recall_progress")
     private BatchRecallProgress batchRecallProgress;
 
-    /**
-     * 批量发消息的批次号，代表某次批量发送消息的唯一标识
-     * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
-     *
-     * @param batchMessageId
-     * @return
-     */
-    public Builder batchMessageId(String batchMessageId) {
-      this.batchMessageId = batchMessageId;
-      return this;
+    // builder 开始
+    public BatchMessage() {
     }
 
-
-    /**
-     * 发送进度
-     * <p> 示例值：json结构
-     *
-     * @param batchSendProgress
-     * @return
-     */
-    public Builder batchSendProgress(BatchSendProgress batchSendProgress) {
-      this.batchSendProgress = batchSendProgress;
-      return this;
+    public BatchMessage(Builder builder) {
+        /**
+         * 批量发消息的批次号，代表某次批量发送消息的唯一标识
+         * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+         */
+        this.batchMessageId = builder.batchMessageId;
+        /**
+         * 发送进度
+         * <p> 示例值：json结构
+         */
+        this.batchSendProgress = builder.batchSendProgress;
+        /**
+         * 撤回进度
+         * <p> 示例值：json结构
+         */
+        this.batchRecallProgress = builder.batchRecallProgress;
     }
 
-
-    /**
-     * 撤回进度
-     * <p> 示例值：json结构
-     *
-     * @param batchRecallProgress
-     * @return
-     */
-    public Builder batchRecallProgress(BatchRecallProgress batchRecallProgress) {
-      this.batchRecallProgress = batchRecallProgress;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public BatchMessage build() {
-      return new BatchMessage(this);
+    public String getBatchMessageId() {
+        return this.batchMessageId;
     }
-  }
+
+    public void setBatchMessageId(String batchMessageId) {
+        this.batchMessageId = batchMessageId;
+    }
+
+    public BatchSendProgress getBatchSendProgress() {
+        return this.batchSendProgress;
+    }
+
+    public void setBatchSendProgress(BatchSendProgress batchSendProgress) {
+        this.batchSendProgress = batchSendProgress;
+    }
+
+    public BatchRecallProgress getBatchRecallProgress() {
+        return this.batchRecallProgress;
+    }
+
+    public void setBatchRecallProgress(BatchRecallProgress batchRecallProgress) {
+        this.batchRecallProgress = batchRecallProgress;
+    }
+
+    public static class Builder {
+        /**
+         * 批量发消息的批次号，代表某次批量发送消息的唯一标识
+         * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+         */
+        private String batchMessageId;
+        /**
+         * 发送进度
+         * <p> 示例值：json结构
+         */
+        private BatchSendProgress batchSendProgress;
+        /**
+         * 撤回进度
+         * <p> 示例值：json结构
+         */
+        private BatchRecallProgress batchRecallProgress;
+
+        /**
+         * 批量发消息的批次号，代表某次批量发送消息的唯一标识
+         * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+         *
+         * @param batchMessageId
+         * @return
+         */
+        public Builder batchMessageId(String batchMessageId) {
+            this.batchMessageId = batchMessageId;
+            return this;
+        }
+
+
+        /**
+         * 发送进度
+         * <p> 示例值：json结构
+         *
+         * @param batchSendProgress
+         * @return
+         */
+        public Builder batchSendProgress(BatchSendProgress batchSendProgress) {
+            this.batchSendProgress = batchSendProgress;
+            return this;
+        }
+
+
+        /**
+         * 撤回进度
+         * <p> 示例值：json结构
+         *
+         * @param batchRecallProgress
+         * @return
+         */
+        public Builder batchRecallProgress(BatchRecallProgress batchRecallProgress) {
+            this.batchRecallProgress = batchRecallProgress;
+            return this;
+        }
+
+
+        public BatchMessage build() {
+            return new BatchMessage(this);
+        }
+    }
 }

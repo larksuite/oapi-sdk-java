@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListTicketCustomizedFieldReqBody {
-
-  /**
-   * 是否可见
-   * <p> 示例值：true
-   */
-  @SerializedName("visible")
-  private Boolean visible;
-
-  // builder 开始
-  public ListTicketCustomizedFieldReqBody() {
-  }
-
-  public ListTicketCustomizedFieldReqBody(Builder builder) {
     /**
      * 是否可见
      * <p> 示例值：true
      */
-    this.visible = builder.visible;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getVisible() {
-    return this.visible;
-  }
-
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否可见
-     * <p> 示例值：true
-     */
+    @SerializedName("visible")
     private Boolean visible;
 
-    /**
-     * 是否可见
-     * <p> 示例值：true
-     *
-     * @param visible
-     * @return
-     */
-    public Builder visible(Boolean visible) {
-      this.visible = visible;
-      return this;
+    // builder 开始
+    public ListTicketCustomizedFieldReqBody() {
     }
 
-
-    public ListTicketCustomizedFieldReqBody build() {
-      return new ListTicketCustomizedFieldReqBody(this);
+    public ListTicketCustomizedFieldReqBody(Builder builder) {
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        this.visible = builder.visible;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Boolean getVisible() {
+        return this.visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
+    public static class Builder {
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        private Boolean visible;
+
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         *
+         * @param visible
+         * @return
+         */
+        public Builder visible(Boolean visible) {
+            this.visible = visible;
+            return this;
+        }
+
+
+        public ListTicketCustomizedFieldReqBody build() {
+            return new ListTicketCustomizedFieldReqBody(this);
+        }
+    }
 }

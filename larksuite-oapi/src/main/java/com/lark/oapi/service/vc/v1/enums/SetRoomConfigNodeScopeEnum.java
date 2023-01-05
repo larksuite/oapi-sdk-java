@@ -17,20 +17,20 @@ package com.lark.oapi.service.vc.v1.enums;
  * 设置节点范围
  */
 public enum SetRoomConfigNodeScopeEnum {
-  TENANT(1), // 租户
-  COUNTRY_DISTRICT(2), // 国家/地区
-  CITY(3), // 城市
-  BUILDING(4), // 建筑
-  FLOOR(5), // 楼层
-  ROOM(6), // 会议室
-  ;
-  private Integer value;
+    TENANT(1), // 租户
+    COUNTRY_DISTRICT(2), // 国家/地区
+    CITY(3), // 城市
+    BUILDING(4), // 建筑
+    FLOOR(5), // 楼层
+    ROOM(6), // 会议室
+    ;
+    private Integer value;
 
-  SetRoomConfigNodeScopeEnum(Integer value) {
-    this.value = value;
-  }
+    SetRoomConfigNodeScopeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

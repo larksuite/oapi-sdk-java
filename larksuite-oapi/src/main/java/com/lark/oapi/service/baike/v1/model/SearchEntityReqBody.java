@@ -16,61 +16,59 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchEntityReqBody {
-
-  /**
-   * 搜索关键词
-   * <p> 示例值：百科
-   */
-  @SerializedName("query")
-  private String query;
-
-  // builder 开始
-  public SearchEntityReqBody() {
-  }
-
-  public SearchEntityReqBody(Builder builder) {
     /**
      * 搜索关键词
      * <p> 示例值：百科
      */
-    this.query = builder.query;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getQuery() {
-    return this.query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public static class Builder {
-
-    /**
-     * 搜索关键词
-     * <p> 示例值：百科
-     */
+    @SerializedName("query")
     private String query;
 
-    /**
-     * 搜索关键词
-     * <p> 示例值：百科
-     *
-     * @param query
-     * @return
-     */
-    public Builder query(String query) {
-      this.query = query;
-      return this;
+    // builder 开始
+    public SearchEntityReqBody() {
     }
 
-
-    public SearchEntityReqBody build() {
-      return new SearchEntityReqBody(this);
+    public SearchEntityReqBody(Builder builder) {
+        /**
+         * 搜索关键词
+         * <p> 示例值：百科
+         */
+        this.query = builder.query;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getQuery() {
+        return this.query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public static class Builder {
+        /**
+         * 搜索关键词
+         * <p> 示例值：百科
+         */
+        private String query;
+
+        /**
+         * 搜索关键词
+         * <p> 示例值：百科
+         *
+         * @param query
+         * @return
+         */
+        public Builder query(String query) {
+            this.query = query;
+            return this;
+        }
+
+
+        public SearchEntityReqBody build() {
+            return new SearchEntityReqBody(this);
+        }
+    }
 }

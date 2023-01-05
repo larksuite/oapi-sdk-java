@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CommonSchemaConfig {
-
-  /**
-   * 选项信息
-   * <p> 示例值：
-   */
-  @SerializedName("options")
-  private CommonSchemaOption[] options;
-
-  // builder 开始
-  public CommonSchemaConfig() {
-  }
-
-  public CommonSchemaConfig(Builder builder) {
     /**
      * 选项信息
      * <p> 示例值：
      */
-    this.options = builder.options;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CommonSchemaOption[] getOptions() {
-    return this.options;
-  }
-
-  public void setOptions(CommonSchemaOption[] options) {
-    this.options = options;
-  }
-
-  public static class Builder {
-
-    /**
-     * 选项信息
-     * <p> 示例值：
-     */
+    @SerializedName("options")
     private CommonSchemaOption[] options;
 
-    /**
-     * 选项信息
-     * <p> 示例值：
-     *
-     * @param options
-     * @return
-     */
-    public Builder options(CommonSchemaOption[] options) {
-      this.options = options;
-      return this;
+    // builder 开始
+    public CommonSchemaConfig() {
     }
 
-
-    public CommonSchemaConfig build() {
-      return new CommonSchemaConfig(this);
+    public CommonSchemaConfig(Builder builder) {
+        /**
+         * 选项信息
+         * <p> 示例值：
+         */
+        this.options = builder.options;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public CommonSchemaOption[] getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(CommonSchemaOption[] options) {
+        this.options = options;
+    }
+
+    public static class Builder {
+        /**
+         * 选项信息
+         * <p> 示例值：
+         */
+        private CommonSchemaOption[] options;
+
+        /**
+         * 选项信息
+         * <p> 示例值：
+         *
+         * @param options
+         * @return
+         */
+        public Builder options(CommonSchemaOption[] options) {
+            this.options = options;
+            return this;
+        }
+
+
+        public CommonSchemaConfig build() {
+            return new CommonSchemaConfig(this);
+        }
+    }
 }

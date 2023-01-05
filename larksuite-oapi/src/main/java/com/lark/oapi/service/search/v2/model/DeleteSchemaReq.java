@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteSchemaReq {
-
-  /**
-   * 用户自定义数据范式的唯一标识
-   * <p> 示例值：custom_schema_id
-   */
-  @Path
-  @SerializedName("schema_id")
-  private String schemaId;
-
-  // builder 开始
-  public DeleteSchemaReq() {
-  }
-
-  public DeleteSchemaReq(Builder builder) {
     /**
      * 用户自定义数据范式的唯一标识
      * <p> 示例值：custom_schema_id
      */
-    this.schemaId = builder.schemaId;
-  }
+    @Path
+    @SerializedName("schema_id")
+    private String schemaId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSchemaId() {
-    return this.schemaId;
-  }
-
-  public void setSchemaId(String schemaId) {
-    this.schemaId = schemaId;
-  }
-
-  public static class Builder {
-
-    private String schemaId; // 用户自定义数据范式的唯一标识
-
-    /**
-     * 用户自定义数据范式的唯一标识
-     * <p> 示例值：custom_schema_id
-     *
-     * @param schemaId
-     * @return
-     */
-    public Builder schemaId(String schemaId) {
-      this.schemaId = schemaId;
-      return this;
+    // builder 开始
+    public DeleteSchemaReq() {
     }
 
-    public DeleteSchemaReq build() {
-      return new DeleteSchemaReq(this);
+    public DeleteSchemaReq(Builder builder) {
+        /**
+         * 用户自定义数据范式的唯一标识
+         * <p> 示例值：custom_schema_id
+         */
+        this.schemaId = builder.schemaId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSchemaId() {
+        return this.schemaId;
+    }
+
+    public void setSchemaId(String schemaId) {
+        this.schemaId = schemaId;
+    }
+
+    public static class Builder {
+
+        private String schemaId; // 用户自定义数据范式的唯一标识
+
+        /**
+         * 用户自定义数据范式的唯一标识
+         * <p> 示例值：custom_schema_id
+         *
+         * @param schemaId
+         * @return
+         */
+        public Builder schemaId(String schemaId) {
+            this.schemaId = schemaId;
+            return this;
+        }
+
+        public DeleteSchemaReq build() {
+            return new DeleteSchemaReq(this);
+        }
+    }
 }

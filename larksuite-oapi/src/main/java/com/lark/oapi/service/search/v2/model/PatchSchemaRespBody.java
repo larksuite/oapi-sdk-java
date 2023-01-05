@@ -16,20 +16,19 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchSchemaRespBody {
+    /**
+     * 数据范式实例
+     * <p> 示例值：
+     */
+    @SerializedName("schema")
+    private Schema schema;
 
-  /**
-   * 数据范式实例
-   * <p> 示例值：
-   */
-  @SerializedName("schema")
-  private Schema schema;
+    public Schema getSchema() {
+        return this.schema;
+    }
 
-  public Schema getSchema() {
-    return this.schema;
-  }
-
-  public void setSchema(Schema schema) {
-    this.schema = schema;
-  }
+    public void setSchema(Schema schema) {
+        this.schema = schema;
+    }
 
 }

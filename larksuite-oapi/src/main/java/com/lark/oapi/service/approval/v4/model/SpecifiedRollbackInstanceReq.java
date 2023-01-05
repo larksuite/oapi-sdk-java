@@ -18,97 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class SpecifiedRollbackInstanceReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private SpecifiedRollback body;
-
-  // builder 开始
-  public SpecifiedRollbackInstanceReq() {
-  }
-
-  public SpecifiedRollbackInstanceReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public SpecifiedRollback getSpecifiedRollback() {
-    return this.body;
-  }
-
-  public void setSpecifiedRollback(SpecifiedRollback body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    @Body
     private SpecifiedRollback body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public SpecifiedRollbackInstanceReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.SpecifiedRollbackInstanceUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.approval.v4.enums.SpecifiedRollbackInstanceUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public SpecifiedRollbackInstanceReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public SpecifiedRollback getSpecifiedRollback() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder specifiedRollback(SpecifiedRollback body) {
-      this.body = body;
-      return this;
+    public void setSpecifiedRollback(SpecifiedRollback body) {
+        this.body = body;
     }
 
-    public SpecifiedRollbackInstanceReq build() {
-      return new SpecifiedRollbackInstanceReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private SpecifiedRollback body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.SpecifiedRollbackInstanceUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.SpecifiedRollbackInstanceUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        public SpecifiedRollback getSpecifiedRollback() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder specifiedRollback(SpecifiedRollback body) {
+            this.body = body;
+            return this;
+        }
+
+        public SpecifiedRollbackInstanceReq build() {
+            return new SpecifiedRollbackInstanceReq(this);
+        }
     }
-  }
 }

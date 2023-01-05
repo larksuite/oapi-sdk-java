@@ -16,102 +16,101 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2FilePermissionMemberAddedV1Data {
+    /**
+     * 文档类型
+     * <p> 示例值：
+     */
+    @SerializedName("file_type")
+    private String fileType;
+    /**
+     * 文档token
+     * <p> 示例值：
+     */
+    @SerializedName("file_token")
+    private String fileToken;
+    /**
+     * 操作者id
+     * <p> 示例值：
+     */
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    /**
+     * 添加的用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_list")
+    private UserId[] userList;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("chat_list")
+    private String[] chatList;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("open_department_id_list")
+    private String[] openDepartmentIdList;
+    /**
+     * 订阅用户id列表
+     * <p> 示例值：
+     */
+    @SerializedName("subscriber_id_list")
+    private UserId[] subscriberIdList;
 
-  /**
-   * 文档类型
-   * <p> 示例值：
-   */
-  @SerializedName("file_type")
-  private String fileType;
-  /**
-   * 文档token
-   * <p> 示例值：
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 操作者id
-   * <p> 示例值：
-   */
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  /**
-   * 添加的用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_list")
-  private UserId[] userList;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("chat_list")
-  private String[] chatList;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("open_department_id_list")
-  private String[] openDepartmentIdList;
-  /**
-   * 订阅用户id列表
-   * <p> 示例值：
-   */
-  @SerializedName("subscriber_id_list")
-  private UserId[] subscriberIdList;
+    public String getFileType() {
+        return this.fileType;
+    }
 
-  public String getFileType() {
-    return this.fileType;
-  }
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
 
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public String getFileToken() {
-    return this.fileToken;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public UserId[] getUserList() {
+        return this.userList;
+    }
 
-  public UserId[] getUserList() {
-    return this.userList;
-  }
+    public void setUserList(UserId[] userList) {
+        this.userList = userList;
+    }
 
-  public void setUserList(UserId[] userList) {
-    this.userList = userList;
-  }
+    public String[] getChatList() {
+        return this.chatList;
+    }
 
-  public String[] getChatList() {
-    return this.chatList;
-  }
+    public void setChatList(String[] chatList) {
+        this.chatList = chatList;
+    }
 
-  public void setChatList(String[] chatList) {
-    this.chatList = chatList;
-  }
+    public String[] getOpenDepartmentIdList() {
+        return this.openDepartmentIdList;
+    }
 
-  public String[] getOpenDepartmentIdList() {
-    return this.openDepartmentIdList;
-  }
+    public void setOpenDepartmentIdList(String[] openDepartmentIdList) {
+        this.openDepartmentIdList = openDepartmentIdList;
+    }
 
-  public void setOpenDepartmentIdList(String[] openDepartmentIdList) {
-    this.openDepartmentIdList = openDepartmentIdList;
-  }
+    public UserId[] getSubscriberIdList() {
+        return this.subscriberIdList;
+    }
 
-  public UserId[] getSubscriberIdList() {
-    return this.subscriberIdList;
-  }
-
-  public void setSubscriberIdList(UserId[] subscriberIdList) {
-    this.subscriberIdList = subscriberIdList;
-  }
+    public void setSubscriberIdList(UserId[] subscriberIdList) {
+        this.subscriberIdList = subscriberIdList;
+    }
 
 }

@@ -16,19 +16,19 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PreviewInstanceRespBody {
+    /**
+     * 预览节点信息
+     * <p> 示例值：
+     */
+    @SerializedName("preview_nodes")
+    private PreviewNode[] previewNodes;
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("preview_nodes")
-  private PreviewNode[] previewNodes;
+    public PreviewNode[] getPreviewNodes() {
+        return this.previewNodes;
+    }
 
-  public PreviewNode[] getPreviewNodes() {
-    return this.previewNodes;
-  }
-
-  public void setPreviewNodes(PreviewNode[] previewNodes) {
-    this.previewNodes = previewNodes;
-  }
+    public void setPreviewNodes(PreviewNode[] previewNodes) {
+        this.previewNodes = previewNodes;
+    }
 
 }

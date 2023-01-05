@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetSpaceReq {
-
-  /**
-   * 知识空间id
-   * <p> 示例值：6870403571079249922
-   */
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-
-  // builder 开始
-  public GetSpaceReq() {
-  }
-
-  public GetSpaceReq(Builder builder) {
     /**
      * 知识空间id
      * <p> 示例值：6870403571079249922
      */
-    this.spaceId = builder.spaceId;
-  }
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public static class Builder {
-
-    private String spaceId; // 知识空间id
-
-    /**
-     * 知识空间id
-     * <p> 示例值：6870403571079249922
-     *
-     * @param spaceId
-     * @return
-     */
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    // builder 开始
+    public GetSpaceReq() {
     }
 
-    public GetSpaceReq build() {
-      return new GetSpaceReq(this);
+    public GetSpaceReq(Builder builder) {
+        /**
+         * 知识空间id
+         * <p> 示例值：6870403571079249922
+         */
+        this.spaceId = builder.spaceId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public static class Builder {
+
+        private String spaceId; // 知识空间id
+
+        /**
+         * 知识空间id
+         * <p> 示例值：6870403571079249922
+         *
+         * @param spaceId
+         * @return
+         */
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
+
+        public GetSpaceReq build() {
+            return new GetSpaceReq(this);
+        }
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentLink {
-
-  /**
-   * 链接地址
-   * <p> 示例值：https://www.xxxxx.com/
-   */
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public ContentLink() {
-  }
-
-  public ContentLink(Builder builder) {
     /**
      * 链接地址
      * <p> 示例值：https://www.xxxxx.com/
      */
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
-    /**
-     * 链接地址
-     * <p> 示例值：https://www.xxxxx.com/
-     */
+    @SerializedName("url")
     private String url;
 
-    /**
-     * 链接地址
-     * <p> 示例值：https://www.xxxxx.com/
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    // builder 开始
+    public ContentLink() {
     }
 
-
-    public ContentLink build() {
-      return new ContentLink(this);
+    public ContentLink(Builder builder) {
+        /**
+         * 链接地址
+         * <p> 示例值：https://www.xxxxx.com/
+         */
+        this.url = builder.url;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public static class Builder {
+        /**
+         * 链接地址
+         * <p> 示例值：https://www.xxxxx.com/
+         */
+        private String url;
+
+        /**
+         * 链接地址
+         * <p> 示例值：https://www.xxxxx.com/
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        public ContentLink build() {
+            return new ContentLink(this);
+        }
+    }
 }

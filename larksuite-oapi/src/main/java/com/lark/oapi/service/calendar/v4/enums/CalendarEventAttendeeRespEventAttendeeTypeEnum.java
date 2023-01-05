@@ -17,18 +17,18 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 参与人类型，仅当新建参与人时可设置类型。
  */
 public enum CalendarEventAttendeeRespEventAttendeeTypeEnum {
-  USER("user"), // 用户
-  CHAT("chat"), // 群组
-  RESOURCE("resource"), // 会议室
-  THIRDPARTY("third_party"), // 邮箱
-  ;
-  private String value;
+    USER("user"), // 用户
+    CHAT("chat"), // 群组
+    RESOURCE("resource"), // 会议室
+    THIRDPARTY("third_party"), // 邮箱
+    ;
+    private String value;
 
-  CalendarEventAttendeeRespEventAttendeeTypeEnum(String value) {
-    this.value = value;
-  }
+    CalendarEventAttendeeRespEventAttendeeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

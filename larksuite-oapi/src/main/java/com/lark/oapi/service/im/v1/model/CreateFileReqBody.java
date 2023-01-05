@@ -16,184 +16,182 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateFileReqBody {
-
-  /**
-   * 文件类型
-   * <p> 示例值：mp4
-   */
-  @SerializedName("file_type")
-  private String fileType;
-  /**
-   * 带后缀的文件名
-   * <p> 示例值：测试视频.mp4
-   */
-  @SerializedName("file_name")
-  private String fileName;
-  /**
-   * 文件的时长（视频，音频），单位:毫秒。不填充时无法显示具体时长。
-   * <p> 示例值：3000
-   */
-  @SerializedName("duration")
-  private Integer duration;
-  /**
-   * 文件内容
-   * <p> 示例值：二进制文件
-   */
-  @SerializedName("file")
-  private java.io.File file;
-
-  // builder 开始
-  public CreateFileReqBody() {
-  }
-
-  public CreateFileReqBody(Builder builder) {
     /**
      * 文件类型
      * <p> 示例值：mp4
      */
-    this.fileType = builder.fileType;
-    /**
-     * 带后缀的文件名
-     * <p> 示例值：测试视频.mp4
-     */
-    this.fileName = builder.fileName;
-    /**
-     * 文件的时长（视频，音频），单位:毫秒。不填充时无法显示具体时长。
-     * <p> 示例值：3000
-     */
-    this.duration = builder.duration;
-    /**
-     * 文件内容
-     * <p> 示例值：二进制文件
-     */
-    this.file = builder.file;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public Integer getDuration() {
-    return this.duration;
-  }
-
-  public void setDuration(Integer duration) {
-    this.duration = duration;
-  }
-
-  public java.io.File getFile() {
-    return this.file;
-  }
-
-  public void setFile(java.io.File file) {
-    this.file = file;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件类型
-     * <p> 示例值：mp4
-     */
+    @SerializedName("file_type")
     private String fileType;
     /**
      * 带后缀的文件名
      * <p> 示例值：测试视频.mp4
      */
+    @SerializedName("file_name")
     private String fileName;
     /**
-     * 文件的时长（视频，音频），单位:毫秒。不填充时无法显示具体时长。
+     * 文件的时长（视频、音频），单位:毫秒。不填充时无法显示具体时长。
      * <p> 示例值：3000
      */
+    @SerializedName("duration")
     private Integer duration;
     /**
      * 文件内容
      * <p> 示例值：二进制文件
      */
+    @SerializedName("file")
     private java.io.File file;
 
-    /**
-     * 文件类型
-     * <p> 示例值：mp4
-     *
-     * @param fileType
-     * @return
-     */
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
+    // builder 开始
+    public CreateFileReqBody() {
     }
 
-    /**
-     * 文件类型
-     * <p> 示例值：mp4
-     *
-     * @param fileType {@link com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum}
-     * @return
-     */
-    public Builder fileType(com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
+    public CreateFileReqBody(Builder builder) {
+        /**
+         * 文件类型
+         * <p> 示例值：mp4
+         */
+        this.fileType = builder.fileType;
+        /**
+         * 带后缀的文件名
+         * <p> 示例值：测试视频.mp4
+         */
+        this.fileName = builder.fileName;
+        /**
+         * 文件的时长（视频、音频），单位:毫秒。不填充时无法显示具体时长。
+         * <p> 示例值：3000
+         */
+        this.duration = builder.duration;
+        /**
+         * 文件内容
+         * <p> 示例值：二进制文件
+         */
+        this.file = builder.file;
     }
 
-
-    /**
-     * 带后缀的文件名
-     * <p> 示例值：测试视频.mp4
-     *
-     * @param fileName
-     * @return
-     */
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 文件的时长（视频，音频），单位:毫秒。不填充时无法显示具体时长。
-     * <p> 示例值：3000
-     *
-     * @param duration
-     * @return
-     */
-    public Builder duration(Integer duration) {
-      this.duration = duration;
-      return this;
+    public String getFileType() {
+        return this.fileType;
     }
 
-
-    /**
-     * 文件内容
-     * <p> 示例值：二进制文件
-     *
-     * @param file
-     * @return
-     */
-    public Builder file(java.io.File file) {
-      this.file = file;
-      return this;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
-
-    public CreateFileReqBody build() {
-      return new CreateFileReqBody(this);
+    public String getFileName() {
+        return this.fileName;
     }
-  }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Integer getDuration() {
+        return this.duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public java.io.File getFile() {
+        return this.file;
+    }
+
+    public void setFile(java.io.File file) {
+        this.file = file;
+    }
+
+    public static class Builder {
+        /**
+         * 文件类型
+         * <p> 示例值：mp4
+         */
+        private String fileType;
+        /**
+         * 带后缀的文件名
+         * <p> 示例值：测试视频.mp4
+         */
+        private String fileName;
+        /**
+         * 文件的时长（视频、音频），单位:毫秒。不填充时无法显示具体时长。
+         * <p> 示例值：3000
+         */
+        private Integer duration;
+        /**
+         * 文件内容
+         * <p> 示例值：二进制文件
+         */
+        private java.io.File file;
+
+        /**
+         * 文件类型
+         * <p> 示例值：mp4
+         *
+         * @param fileType
+         * @return
+         */
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
+
+        /**
+         * 文件类型
+         * <p> 示例值：mp4
+         *
+         * @param fileType {@link com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum}
+         * @return
+         */
+        public Builder fileType(com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum fileType) {
+            this.fileType = fileType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 带后缀的文件名
+         * <p> 示例值：测试视频.mp4
+         *
+         * @param fileName
+         * @return
+         */
+        public Builder fileName(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+
+        /**
+         * 文件的时长（视频、音频），单位:毫秒。不填充时无法显示具体时长。
+         * <p> 示例值：3000
+         *
+         * @param duration
+         * @return
+         */
+        public Builder duration(Integer duration) {
+            this.duration = duration;
+            return this;
+        }
+
+
+        /**
+         * 文件内容
+         * <p> 示例值：二进制文件
+         *
+         * @param file
+         * @return
+         */
+        public Builder file(java.io.File file) {
+            this.file = file;
+            return this;
+        }
+
+
+        public CreateFileReqBody build() {
+            return new CreateFileReqBody(this);
+        }
+    }
 }

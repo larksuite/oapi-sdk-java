@@ -17,16 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 排序的顺序。默认为 desc
  */
 public enum SchemaSortOptionsSchemaSortOrderEnum {
-  ASC("asc"), // 升序
-  DESC("desc"), // 降序
-  ;
-  private String value;
+    ASC("asc"), // 升序
+    DESC("desc"), // 降序
+    ;
+    private String value;
 
-  SchemaSortOptionsSchemaSortOrderEnum(String value) {
-    this.value = value;
-  }
+    SchemaSortOptionsSchemaSortOrderEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

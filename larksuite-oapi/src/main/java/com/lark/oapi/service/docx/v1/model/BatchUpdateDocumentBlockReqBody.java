@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchUpdateDocumentBlockReqBody {
-
-  /**
-   * 批量更新 Block
-   * <p> 示例值：
-   */
-  @SerializedName("requests")
-  private UpdateBlockRequest[] requests;
-
-  // builder 开始
-  public BatchUpdateDocumentBlockReqBody() {
-  }
-
-  public BatchUpdateDocumentBlockReqBody(Builder builder) {
     /**
      * 批量更新 Block
      * <p> 示例值：
      */
-    this.requests = builder.requests;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UpdateBlockRequest[] getRequests() {
-    return this.requests;
-  }
-
-  public void setRequests(UpdateBlockRequest[] requests) {
-    this.requests = requests;
-  }
-
-  public static class Builder {
-
-    /**
-     * 批量更新 Block
-     * <p> 示例值：
-     */
+    @SerializedName("requests")
     private UpdateBlockRequest[] requests;
 
-    /**
-     * 批量更新 Block
-     * <p> 示例值：
-     *
-     * @param requests
-     * @return
-     */
-    public Builder requests(UpdateBlockRequest[] requests) {
-      this.requests = requests;
-      return this;
+    // builder 开始
+    public BatchUpdateDocumentBlockReqBody() {
     }
 
-
-    public BatchUpdateDocumentBlockReqBody build() {
-      return new BatchUpdateDocumentBlockReqBody(this);
+    public BatchUpdateDocumentBlockReqBody(Builder builder) {
+        /**
+         * 批量更新 Block
+         * <p> 示例值：
+         */
+        this.requests = builder.requests;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public UpdateBlockRequest[] getRequests() {
+        return this.requests;
+    }
+
+    public void setRequests(UpdateBlockRequest[] requests) {
+        this.requests = requests;
+    }
+
+    public static class Builder {
+        /**
+         * 批量更新 Block
+         * <p> 示例值：
+         */
+        private UpdateBlockRequest[] requests;
+
+        /**
+         * 批量更新 Block
+         * <p> 示例值：
+         *
+         * @param requests
+         * @return
+         */
+        public Builder requests(UpdateBlockRequest[] requests) {
+            this.requests = requests;
+            return this;
+        }
+
+
+        public BatchUpdateDocumentBlockReqBody build() {
+            return new BatchUpdateDocumentBlockReqBody(this);
+        }
+    }
 }

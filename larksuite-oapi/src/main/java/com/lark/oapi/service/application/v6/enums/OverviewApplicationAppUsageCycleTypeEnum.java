@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 活跃周期的统计类型
  */
 public enum OverviewApplicationAppUsageCycleTypeEnum {
-  DAY(1), // 日活
-  WEEK(2), // 周活， date字段应该填自然周周一的日期
-  MONTH(3), // 月活， date字段应该填自然月1号的日期
-  ;
-  private Integer value;
+    DAY(1), // 日活
+    WEEK(2), // 周活， date字段应该填自然周周一的日期
+    MONTH(3), // 月活， date字段应该填自然月1号的日期
+    ;
+    private Integer value;
 
-  OverviewApplicationAppUsageCycleTypeEnum(Integer value) {
-    this.value = value;
-  }
+    OverviewApplicationAppUsageCycleTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

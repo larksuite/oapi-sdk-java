@@ -16,61 +16,59 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchUpdateAppTableRecordReqBody {
-
-  /**
-   * 记录
-   * <p> 示例值：
-   */
-  @SerializedName("records")
-  private AppTableRecord[] records;
-
-  // builder 开始
-  public BatchUpdateAppTableRecordReqBody() {
-  }
-
-  public BatchUpdateAppTableRecordReqBody(Builder builder) {
     /**
      * 记录
      * <p> 示例值：
      */
-    this.records = builder.records;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public AppTableRecord[] getRecords() {
-    return this.records;
-  }
-
-  public void setRecords(AppTableRecord[] records) {
-    this.records = records;
-  }
-
-  public static class Builder {
-
-    /**
-     * 记录
-     * <p> 示例值：
-     */
+    @SerializedName("records")
     private AppTableRecord[] records;
 
-    /**
-     * 记录
-     * <p> 示例值：
-     *
-     * @param records
-     * @return
-     */
-    public Builder records(AppTableRecord[] records) {
-      this.records = records;
-      return this;
+    // builder 开始
+    public BatchUpdateAppTableRecordReqBody() {
     }
 
-
-    public BatchUpdateAppTableRecordReqBody build() {
-      return new BatchUpdateAppTableRecordReqBody(this);
+    public BatchUpdateAppTableRecordReqBody(Builder builder) {
+        /**
+         * 记录
+         * <p> 示例值：
+         */
+        this.records = builder.records;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public AppTableRecord[] getRecords() {
+        return this.records;
+    }
+
+    public void setRecords(AppTableRecord[] records) {
+        this.records = records;
+    }
+
+    public static class Builder {
+        /**
+         * 记录
+         * <p> 示例值：
+         */
+        private AppTableRecord[] records;
+
+        /**
+         * 记录
+         * <p> 示例值：
+         *
+         * @param records
+         * @return
+         */
+        public Builder records(AppTableRecord[] records) {
+            this.records = records;
+            return this;
+        }
+
+
+        public BatchUpdateAppTableRecordReqBody build() {
+            return new BatchUpdateAppTableRecordReqBody(this);
+        }
+    }
 }

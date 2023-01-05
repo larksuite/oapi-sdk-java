@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferCustomField {
-
-  /**
-   * 自定义字段 ID
-   * <p> 示例值：6887476510505748749
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 自定义字段名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
-   * <p> 示例值：
-   */
-  @SerializedName("config")
-  private OfferCustomFieldConfig config;
-
-  // builder 开始
-  public OfferCustomField() {
-  }
-
-  public OfferCustomField(Builder builder) {
     /**
      * 自定义字段 ID
      * <p> 示例值：6887476510505748749
      */
-    this.id = builder.id;
-    /**
-     * 自定义字段名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
-     * <p> 示例值：
-     */
-    this.config = builder.config;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public OfferCustomFieldConfig getConfig() {
-    return this.config;
-  }
-
-  public void setConfig(OfferCustomFieldConfig config) {
-    this.config = config;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6887476510505748749
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 自定义字段名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
      * <p> 示例值：
      */
+    @SerializedName("config")
     private OfferCustomFieldConfig config;
 
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6887476510505748749
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OfferCustomField() {
     }
 
-
-    /**
-     * 自定义字段名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public OfferCustomField(Builder builder) {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6887476510505748749
+         */
+        this.id = builder.id;
+        /**
+         * 自定义字段名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
+         * <p> 示例值：
+         */
+        this.config = builder.config;
     }
 
-
-    /**
-     * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
-     * <p> 示例值：
-     *
-     * @param config
-     * @return
-     */
-    public Builder config(OfferCustomFieldConfig config) {
-      this.config = config;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public OfferCustomField build() {
-      return new OfferCustomField(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public OfferCustomFieldConfig getConfig() {
+        return this.config;
+    }
+
+    public void setConfig(OfferCustomFieldConfig config) {
+        this.config = config;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6887476510505748749
+         */
+        private String id;
+        /**
+         * 自定义字段名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
+         * <p> 示例值：
+         */
+        private OfferCustomFieldConfig config;
+
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6887476510505748749
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息
+         * <p> 示例值：
+         *
+         * @param config
+         * @return
+         */
+        public Builder config(OfferCustomFieldConfig config) {
+            this.config = config;
+            return this;
+        }
+
+
+        public OfferCustomField build() {
+            return new OfferCustomField(this);
+        }
+    }
 }

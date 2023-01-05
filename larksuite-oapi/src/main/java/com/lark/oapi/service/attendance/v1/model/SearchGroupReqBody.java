@@ -16,61 +16,59 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchGroupReqBody {
-
-  /**
-   * 考勤组名称
-   * <p> 示例值：考勤组1
-   */
-  @SerializedName("group_name")
-  private String groupName;
-
-  // builder 开始
-  public SearchGroupReqBody() {
-  }
-
-  public SearchGroupReqBody(Builder builder) {
     /**
      * 考勤组名称
      * <p> 示例值：考勤组1
      */
-    this.groupName = builder.groupName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupName() {
-    return this.groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 考勤组名称
-     * <p> 示例值：考勤组1
-     */
+    @SerializedName("group_name")
     private String groupName;
 
-    /**
-     * 考勤组名称
-     * <p> 示例值：考勤组1
-     *
-     * @param groupName
-     * @return
-     */
-    public Builder groupName(String groupName) {
-      this.groupName = groupName;
-      return this;
+    // builder 开始
+    public SearchGroupReqBody() {
     }
 
-
-    public SearchGroupReqBody build() {
-      return new SearchGroupReqBody(this);
+    public SearchGroupReqBody(Builder builder) {
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         */
+        this.groupName = builder.groupName;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGroupName() {
+        return this.groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public static class Builder {
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         */
+        private String groupName;
+
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         *
+         * @param groupName
+         * @return
+         */
+        public Builder groupName(String groupName) {
+            this.groupName = groupName;
+            return this;
+        }
+
+
+        public SearchGroupReqBody build() {
+            return new SearchGroupReqBody(this);
+        }
+    }
 }

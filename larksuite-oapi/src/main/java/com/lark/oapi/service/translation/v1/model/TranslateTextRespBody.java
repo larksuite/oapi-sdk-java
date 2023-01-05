@@ -16,20 +16,19 @@ package com.lark.oapi.service.translation.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TranslateTextRespBody {
+    /**
+     * 翻译后的文本
+     * <p> 示例值：Try to use Lark
+     */
+    @SerializedName("text")
+    private String text;
 
-  /**
-   * 翻译后的文本
-   * <p> 示例值：Try to use Lark
-   */
-  @SerializedName("text")
-  private String text;
+    public String getText() {
+        return this.text;
+    }
 
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
+    public void setText(String text) {
+        this.text = text;
+    }
 
 }

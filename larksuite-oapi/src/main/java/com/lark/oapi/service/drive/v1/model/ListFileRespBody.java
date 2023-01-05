@@ -16,47 +16,46 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListFileRespBody {
+    /**
+     * 文件夹清单列表
+     * <p> 示例值：
+     */
+    @SerializedName("files")
+    private File[] files;
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回下一次遍历的page_token，否则则不返回
+     * <p> 示例值：
+     */
+    @SerializedName("next_page_token")
+    private String nextPageToken;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 文件夹清单列表
-   * <p> 示例值：
-   */
-  @SerializedName("files")
-  private File[] files;
-  /**
-   * 分页标记，当 has_more 为 true 时，会同时返回下一次遍历的page_token，否则则不返回
-   * <p> 示例值：
-   */
-  @SerializedName("next_page_token")
-  private String nextPageToken;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public File[] getFiles() {
+        return this.files;
+    }
 
-  public File[] getFiles() {
-    return this.files;
-  }
+    public void setFiles(File[] files) {
+        this.files = files;
+    }
 
-  public void setFiles(File[] files) {
-    this.files = files;
-  }
+    public String getNextPageToken() {
+        return this.nextPageToken;
+    }
 
-  public String getNextPageToken() {
-    return this.nextPageToken;
-  }
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
 
-  public void setNextPageToken(String nextPageToken) {
-    this.nextPageToken = nextPageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

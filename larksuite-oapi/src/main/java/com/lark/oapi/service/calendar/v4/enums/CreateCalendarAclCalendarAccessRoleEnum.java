@@ -17,19 +17,19 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 对日历的访问权限
  */
 public enum CreateCalendarAclCalendarAccessRoleEnum {
-  UNKONWN("unknown"), // 未知权限
-  FREEBUSYREADER("free_busy_reader"), // 游客，只能看到忙碌/空闲信息
-  READER("reader"), // 订阅者，查看所有日程详情
-  WRITER("writer"), // 编辑者，创建及修改日程
-  OWNER("owner"), // 管理员，管理日历及共享设置
-  ;
-  private String value;
+    UNKONWN("unknown"), // 未知权限
+    FREEBUSYREADER("free_busy_reader"), // 游客，只能看到忙碌/空闲信息
+    READER("reader"), // 订阅者，查看所有日程详情
+    WRITER("writer"), // 编辑者，创建及修改日程
+    OWNER("owner"), // 管理员，管理日历及共享设置
+    ;
+    private String value;
 
-  CreateCalendarAclCalendarAccessRoleEnum(String value) {
-    this.value = value;
-  }
+    CreateCalendarAclCalendarAccessRoleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

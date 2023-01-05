@@ -16,61 +16,59 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppTableRecordReqBody {
-
-  /**
-   * 记录
-   * <p> 示例值：
-   */
-  @SerializedName("records")
-  private AppTableRecord[] records;
-
-  // builder 开始
-  public BatchCreateAppTableRecordReqBody() {
-  }
-
-  public BatchCreateAppTableRecordReqBody(Builder builder) {
     /**
-     * 记录
+     * 本次请求将要新增的记录列表
      * <p> 示例值：
      */
-    this.records = builder.records;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public AppTableRecord[] getRecords() {
-    return this.records;
-  }
-
-  public void setRecords(AppTableRecord[] records) {
-    this.records = records;
-  }
-
-  public static class Builder {
-
-    /**
-     * 记录
-     * <p> 示例值：
-     */
+    @SerializedName("records")
     private AppTableRecord[] records;
 
-    /**
-     * 记录
-     * <p> 示例值：
-     *
-     * @param records
-     * @return
-     */
-    public Builder records(AppTableRecord[] records) {
-      this.records = records;
-      return this;
+    // builder 开始
+    public BatchCreateAppTableRecordReqBody() {
     }
 
-
-    public BatchCreateAppTableRecordReqBody build() {
-      return new BatchCreateAppTableRecordReqBody(this);
+    public BatchCreateAppTableRecordReqBody(Builder builder) {
+        /**
+         * 本次请求将要新增的记录列表
+         * <p> 示例值：
+         */
+        this.records = builder.records;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public AppTableRecord[] getRecords() {
+        return this.records;
+    }
+
+    public void setRecords(AppTableRecord[] records) {
+        this.records = records;
+    }
+
+    public static class Builder {
+        /**
+         * 本次请求将要新增的记录列表
+         * <p> 示例值：
+         */
+        private AppTableRecord[] records;
+
+        /**
+         * 本次请求将要新增的记录列表
+         * <p> 示例值：
+         *
+         * @param records
+         * @return
+         */
+        public Builder records(AppTableRecord[] records) {
+            this.records = records;
+            return this;
+        }
+
+
+        public BatchCreateAppTableRecordReqBody build() {
+            return new BatchCreateAppTableRecordReqBody(this);
+        }
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 学位
  */
 public enum EducationDegreeEnum {
-  BACHELOR(1), // 学士
-  MASTER(2), // 硕士
-  DOCTOR(3), // 博士
-  ;
-  private Integer value;
+    BACHELOR(1), // 学士
+    MASTER(2), // 硕士
+    DOCTOR(3), // 博士
+    ;
+    private Integer value;
 
-  EducationDegreeEnum(Integer value) {
-    this.value = value;
-  }
+    EducationDegreeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -18,191 +18,216 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.ehr.v1.model.GetAttachmentReq;
 import com.lark.oapi.service.ehr.v1.model.GetAttachmentResp;
 import com.lark.oapi.service.ehr.v1.model.ListEmployeeReq;
 import com.lark.oapi.service.ehr.v1.model.ListEmployeeResp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 
 public class EhrService {
+    private static final Logger log = LoggerFactory.getLogger(EhrService.class);
+    private final Attachment attachment; // 飞书人事（标准版)
+    private final Employee employee; // 飞书人事（标准版)
 
-  private final Attachment attachment; // 附件
-  private final Employee employee; // 员工
-
-  public EhrService(Config config) {
-    this.attachment = new Attachment(config);
-    this.employee = new Employee(config);
-  }
-
-  /**
-   * 附件
-   *
-   * @return
-   */
-  public Attachment attachment() {
-    return attachment;
-  }
-
-  /**
-   * 员工
-   *
-   * @return
-   */
-  public Employee employee() {
-    return employee;
-  }
-
-  public static class Attachment {
-
-    private final Config config;
-
-    public Attachment(Config config) {
-      this.config = config;
+    public EhrService(Config config) {
+        this.attachment = new Attachment(config);
+        this.employee = new Employee(config);
     }
 
     /**
-     * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
-     * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java</a>
-     * ;
+     * 飞书人事（标准版)
+     *
+     * @return
      */
-    public GetAttachmentResp get(GetAttachmentReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/ehr/v1/attachments/:token"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      if (httpResponse.getStatusCode() == 200) {
-        GetAttachmentResp resp = new GetAttachmentResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetAttachmentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Attachment attachment() {
+        return attachment;
     }
 
     /**
-     * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
-     * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java</a>
-     * ;
+     * 飞书人事（标准版)
+     *
+     * @return
      */
-    public GetAttachmentResp get(GetAttachmentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/ehr/v1/attachments/:token"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 下载请求，返回流
-      if (httpResponse.getStatusCode() == 200) {
-        GetAttachmentResp resp = new GetAttachmentResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetAttachmentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Employee {
-
-    private final Config config;
-
-    public Employee(Config config) {
-      this.config = config;
+    public Employee employee() {
+        return employee;
     }
 
-    /**
-     * 批量获取员工花名册信息，根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段
-     * / custom_fields」
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java</a>
-     * ;
-     */
-    public ListEmployeeResp list(ListEmployeeReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Attachment {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/ehr/v1/employees"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Attachment(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
+         * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java</a> ;
+         */
+        public GetAttachmentResp get(GetAttachmentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportDownLoad(true);
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/ehr/v1/attachments/:token"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            if (httpResponse.getStatusCode() == 200) {
+                GetAttachmentResp resp = new GetAttachmentResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAttachmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/ehr/v1/attachments/:token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
+         * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/GetAttachmentSample.java</a> ;
+         */
+        public GetAttachmentResp get(GetAttachmentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/ehr/v1/attachments/:token"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 下载请求，返回流
+            if (httpResponse.getStatusCode() == 200) {
+                GetAttachmentResp resp = new GetAttachmentResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAttachmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/ehr/v1/attachments/:token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 批量获取员工花名册信息，根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段
-     * / custom_fields」
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java</a>
-     * ;
-     */
-    public ListEmployeeResp list(ListEmployeeReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Employee {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/ehr/v1/employees"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Employee(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 批量获取员工花名册信息，根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段 / custom_fields」
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java</a> ;
+         */
+        public ListEmployeeResp list(ListEmployeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/ehr/v1/employees"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/ehr/v1/employees"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 批量获取员工花名册信息，根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段 / custom_fields」
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1/ListEmployeeSample.java</a> ;
+         */
+        public ListEmployeeResp list(ListEmployeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/ehr/v1/employees"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/ehr/v1/employees"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-  }
 
 }

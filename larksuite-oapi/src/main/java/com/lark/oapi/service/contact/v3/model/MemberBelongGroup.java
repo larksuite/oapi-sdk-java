@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class MemberBelongGroup {
 
-  /**
-   * 用户组ID列表
-   * <p> 示例值：
-   */
-  @SerializedName("group_list")
-  private String[] groupList;
-  /**
-   * 分页查询Token
-   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有更多结果
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    /**
+     * 用户组ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("group_list")
+    private String[] groupList;
+    /**
+     * 分页查询Token
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有更多结果
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  public String[] getGroupList() {
-    return this.groupList;
-  }
+    public String[] getGroupList() {
+        return this.groupList;
+    }
 
-  public void setGroupList(String[] groupList) {
-    this.groupList = groupList;
-  }
+    public void setGroupList(String[] groupList) {
+        this.groupList = groupList;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

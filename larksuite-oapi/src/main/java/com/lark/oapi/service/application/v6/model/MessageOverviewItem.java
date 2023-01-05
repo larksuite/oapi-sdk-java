@@ -16,248 +16,243 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MessageOverviewItem {
-
-  /**
-   * 用户访问量
-   * <p> 示例值：
-   */
-  @SerializedName("page_view")
-  private String pageView;
-  /**
-   * unique 访问量
-   * <p> 示例值：
-   */
-  @SerializedName("unique_visitor")
-  private String uniqueVisitor;
-  /**
-   * 聊天类型，大小写不敏感，private：私聊；group：群聊
-   * <p> 示例值：
-   */
-  @SerializedName("chat_type")
-  private String chatType;
-  /**
-   * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
-   * <p> 示例值：
-   */
-  @SerializedName("message_type")
-  private String messageType;
-  /**
-   * 事件类型
-   * <p> 示例值：
-   */
-  @SerializedName("event_type")
-  private String eventType;
-
-  // builder 开始
-  public MessageOverviewItem() {
-  }
-
-  public MessageOverviewItem(Builder builder) {
     /**
      * 用户访问量
      * <p> 示例值：
      */
-    this.pageView = builder.pageView;
-    /**
-     * unique 访问量
-     * <p> 示例值：
-     */
-    this.uniqueVisitor = builder.uniqueVisitor;
-    /**
-     * 聊天类型，大小写不敏感，private：私聊；group：群聊
-     * <p> 示例值：
-     */
-    this.chatType = builder.chatType;
-    /**
-     * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
-     * <p> 示例值：
-     */
-    this.messageType = builder.messageType;
-    /**
-     * 事件类型
-     * <p> 示例值：
-     */
-    this.eventType = builder.eventType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageView() {
-    return this.pageView;
-  }
-
-  public void setPageView(String pageView) {
-    this.pageView = pageView;
-  }
-
-  public String getUniqueVisitor() {
-    return this.uniqueVisitor;
-  }
-
-  public void setUniqueVisitor(String uniqueVisitor) {
-    this.uniqueVisitor = uniqueVisitor;
-  }
-
-  public String getChatType() {
-    return this.chatType;
-  }
-
-  public void setChatType(String chatType) {
-    this.chatType = chatType;
-  }
-
-  public String getMessageType() {
-    return this.messageType;
-  }
-
-  public void setMessageType(String messageType) {
-    this.messageType = messageType;
-  }
-
-  public String getEventType() {
-    return this.eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户访问量
-     * <p> 示例值：
-     */
+    @SerializedName("page_view")
     private String pageView;
     /**
      * unique 访问量
      * <p> 示例值：
      */
+    @SerializedName("unique_visitor")
     private String uniqueVisitor;
     /**
      * 聊天类型，大小写不敏感，private：私聊；group：群聊
      * <p> 示例值：
      */
+    @SerializedName("chat_type")
     private String chatType;
     /**
      * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
      * <p> 示例值：
      */
+    @SerializedName("message_type")
     private String messageType;
     /**
      * 事件类型
      * <p> 示例值：
      */
+    @SerializedName("event_type")
     private String eventType;
 
-    /**
-     * 用户访问量
-     * <p> 示例值：
-     *
-     * @param pageView
-     * @return
-     */
-    public Builder pageView(String pageView) {
-      this.pageView = pageView;
-      return this;
+    // builder 开始
+    public MessageOverviewItem() {
     }
 
-
-    /**
-     * unique 访问量
-     * <p> 示例值：
-     *
-     * @param uniqueVisitor
-     * @return
-     */
-    public Builder uniqueVisitor(String uniqueVisitor) {
-      this.uniqueVisitor = uniqueVisitor;
-      return this;
+    public MessageOverviewItem(Builder builder) {
+        /**
+         * 用户访问量
+         * <p> 示例值：
+         */
+        this.pageView = builder.pageView;
+        /**
+         * unique 访问量
+         * <p> 示例值：
+         */
+        this.uniqueVisitor = builder.uniqueVisitor;
+        /**
+         * 聊天类型，大小写不敏感，private：私聊；group：群聊
+         * <p> 示例值：
+         */
+        this.chatType = builder.chatType;
+        /**
+         * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
+         * <p> 示例值：
+         */
+        this.messageType = builder.messageType;
+        /**
+         * 事件类型
+         * <p> 示例值：
+         */
+        this.eventType = builder.eventType;
     }
 
-
-    /**
-     * 聊天类型，大小写不敏感，private：私聊；group：群聊
-     * <p> 示例值：
-     *
-     * @param chatType
-     * @return
-     */
-    public Builder chatType(String chatType) {
-      this.chatType = chatType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 聊天类型，大小写不敏感，private：私聊；group：群聊
-     * <p> 示例值：
-     *
-     * @param chatType {@link com.lark.oapi.service.application.v6.enums.MessageOverviewItemChatTypeEnum}
-     * @return
-     */
-    public Builder chatType(
-        com.lark.oapi.service.application.v6.enums.MessageOverviewItemChatTypeEnum chatType) {
-      this.chatType = chatType.getValue();
-      return this;
+    public String getPageView() {
+        return this.pageView;
     }
 
-
-    /**
-     * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
-     * <p> 示例值：
-     *
-     * @param messageType
-     * @return
-     */
-    public Builder messageType(String messageType) {
-      this.messageType = messageType;
-      return this;
+    public void setPageView(String pageView) {
+        this.pageView = pageView;
     }
 
-    /**
-     * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
-     * <p> 示例值：
-     *
-     * @param messageType {@link com.lark.oapi.service.application.v6.enums.MessageOverviewItemMessageTypeEnum}
-     * @return
-     */
-    public Builder messageType(
-        com.lark.oapi.service.application.v6.enums.MessageOverviewItemMessageTypeEnum messageType) {
-      this.messageType = messageType.getValue();
-      return this;
+    public String getUniqueVisitor() {
+        return this.uniqueVisitor;
     }
 
-
-    /**
-     * 事件类型
-     * <p> 示例值：
-     *
-     * @param eventType
-     * @return
-     */
-    public Builder eventType(String eventType) {
-      this.eventType = eventType;
-      return this;
+    public void setUniqueVisitor(String uniqueVisitor) {
+        this.uniqueVisitor = uniqueVisitor;
     }
 
-    /**
-     * 事件类型
-     * <p> 示例值：
-     *
-     * @param eventType {@link com.lark.oapi.service.application.v6.enums.MessageOverviewItemEventTypeEnum}
-     * @return
-     */
-    public Builder eventType(
-        com.lark.oapi.service.application.v6.enums.MessageOverviewItemEventTypeEnum eventType) {
-      this.eventType = eventType.getValue();
-      return this;
+    public String getChatType() {
+        return this.chatType;
     }
 
-
-    public MessageOverviewItem build() {
-      return new MessageOverviewItem(this);
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
     }
-  }
+
+    public String getMessageType() {
+        return this.messageType;
+    }
+
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
+    }
+
+    public String getEventType() {
+        return this.eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public static class Builder {
+        /**
+         * 用户访问量
+         * <p> 示例值：
+         */
+        private String pageView;
+        /**
+         * unique 访问量
+         * <p> 示例值：
+         */
+        private String uniqueVisitor;
+        /**
+         * 聊天类型，大小写不敏感，private：私聊；group：群聊
+         * <p> 示例值：
+         */
+        private String chatType;
+        /**
+         * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
+         * <p> 示例值：
+         */
+        private String messageType;
+        /**
+         * 事件类型
+         * <p> 示例值：
+         */
+        private String eventType;
+
+        /**
+         * 用户访问量
+         * <p> 示例值：
+         *
+         * @param pageView
+         * @return
+         */
+        public Builder pageView(String pageView) {
+            this.pageView = pageView;
+            return this;
+        }
+
+
+        /**
+         * unique 访问量
+         * <p> 示例值：
+         *
+         * @param uniqueVisitor
+         * @return
+         */
+        public Builder uniqueVisitor(String uniqueVisitor) {
+            this.uniqueVisitor = uniqueVisitor;
+            return this;
+        }
+
+
+        /**
+         * 聊天类型，大小写不敏感，private：私聊；group：群聊
+         * <p> 示例值：
+         *
+         * @param chatType
+         * @return
+         */
+        public Builder chatType(String chatType) {
+            this.chatType = chatType;
+            return this;
+        }
+
+        /**
+         * 聊天类型，大小写不敏感，private：私聊；group：群聊
+         * <p> 示例值：
+         *
+         * @param chatType {@link com.lark.oapi.service.application.v6.enums.MessageOverviewItemChatTypeEnum}
+         * @return
+         */
+        public Builder chatType(com.lark.oapi.service.application.v6.enums.MessageOverviewItemChatTypeEnum chatType) {
+            this.chatType = chatType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
+         * <p> 示例值：
+         *
+         * @param messageType
+         * @return
+         */
+        public Builder messageType(String messageType) {
+            this.messageType = messageType;
+            return this;
+        }
+
+        /**
+         * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
+         * <p> 示例值：
+         *
+         * @param messageType {@link com.lark.oapi.service.application.v6.enums.MessageOverviewItemMessageTypeEnum}
+         * @return
+         */
+        public Builder messageType(com.lark.oapi.service.application.v6.enums.MessageOverviewItemMessageTypeEnum messageType) {
+            this.messageType = messageType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 事件类型
+         * <p> 示例值：
+         *
+         * @param eventType
+         * @return
+         */
+        public Builder eventType(String eventType) {
+            this.eventType = eventType;
+            return this;
+        }
+
+        /**
+         * 事件类型
+         * <p> 示例值：
+         *
+         * @param eventType {@link com.lark.oapi.service.application.v6.enums.MessageOverviewItemEventTypeEnum}
+         * @return
+         */
+        public Builder eventType(com.lark.oapi.service.application.v6.enums.MessageOverviewItemEventTypeEnum eventType) {
+            this.eventType = eventType.getValue();
+            return this;
+        }
+
+
+        public MessageOverviewItem build() {
+            return new MessageOverviewItem(this);
+        }
+    }
 }

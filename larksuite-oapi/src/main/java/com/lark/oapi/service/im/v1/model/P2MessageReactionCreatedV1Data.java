@@ -16,90 +16,89 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2MessageReactionCreatedV1Data {
+    /**
+     * 消息的 open_message_id
+     * <p> 示例值：om_dc1326***************51dba21dcf
+     */
+    @SerializedName("message_id")
+    private String messageId;
+    /**
+     * 表情回复的资源类型
+     * <p> 示例值：
+     */
+    @SerializedName("reaction_type")
+    private Emoji reactionType;
+    /**
+     * 操作人类型;;注意事项：;- 如果操作人类型是"user"，则会返回 ==user_id==;- 如果操作人类型是"app"，则会返回 ==app_id==
+     * <p> 示例值：app/user
+     */
+    @SerializedName("operator_type")
+    private String operatorType;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("user_id")
+    private UserId userId;
+    /**
+     * 应用 ID
+     * <p> 示例值：cli_9f53******712544
+     */
+    @SerializedName("app_id")
+    private String appId;
+    /**
+     * 添加表情回复时间戳（单位：ms）
+     * <p> 示例值：1627641418803
+     */
+    @SerializedName("action_time")
+    private String actionTime;
 
-  /**
-   * 消息的 open_message_id
-   * <p> 示例值：om_dc1326***************51dba21dcf
-   */
-  @SerializedName("message_id")
-  private String messageId;
-  /**
-   * 表情回复的资源类型
-   * <p> 示例值：
-   */
-  @SerializedName("reaction_type")
-  private Emoji reactionType;
-  /**
-   * 操作人类型
-   * <p> 示例值：app/user
-   */
-  @SerializedName("operator_type")
-  private String operatorType;
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private UserId userId;
-  /**
-   * 应用 ID
-   * <p> 示例值：cli_9f53******712544
-   */
-  @SerializedName("app_id")
-  private String appId;
-  /**
-   * 添加表情回复时间戳（单位：ms）
-   * <p> 示例值：1627641418803
-   */
-  @SerializedName("action_time")
-  private String actionTime;
+    public String getMessageId() {
+        return this.messageId;
+    }
 
-  public String getMessageId() {
-    return this.messageId;
-  }
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
+    public Emoji getReactionType() {
+        return this.reactionType;
+    }
 
-  public Emoji getReactionType() {
-    return this.reactionType;
-  }
+    public void setReactionType(Emoji reactionType) {
+        this.reactionType = reactionType;
+    }
 
-  public void setReactionType(Emoji reactionType) {
-    this.reactionType = reactionType;
-  }
+    public String getOperatorType() {
+        return this.operatorType;
+    }
 
-  public String getOperatorType() {
-    return this.operatorType;
-  }
+    public void setOperatorType(String operatorType) {
+        this.operatorType = operatorType;
+    }
 
-  public void setOperatorType(String operatorType) {
-    this.operatorType = operatorType;
-  }
+    public UserId getUserId() {
+        return this.userId;
+    }
 
-  public UserId getUserId() {
-    return this.userId;
-  }
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
 
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public String getActionTime() {
+        return this.actionTime;
+    }
 
-  public String getActionTime() {
-    return this.actionTime;
-  }
-
-  public void setActionTime(String actionTime) {
-    this.actionTime = actionTime;
-  }
+    public void setActionTime(String actionTime) {
+        this.actionTime = actionTime;
+    }
 
 }

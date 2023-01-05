@@ -16,111 +16,108 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchFileSubscriptionReqBody {
-
-  /**
-   * 是否订阅
-   * <p> 示例值：true
-   */
-  @SerializedName("is_subscribe")
-  private Boolean isSubscribe;
-  /**
-   * 文档类型
-   * <p> 示例值：doc
-   */
-  @SerializedName("file_type")
-  private String fileType;
-
-  // builder 开始
-  public PatchFileSubscriptionReqBody() {
-  }
-
-  public PatchFileSubscriptionReqBody(Builder builder) {
     /**
      * 是否订阅
      * <p> 示例值：true
      */
-    this.isSubscribe = builder.isSubscribe;
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     */
-    this.fileType = builder.fileType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsSubscribe() {
-    return this.isSubscribe;
-  }
-
-  public void setIsSubscribe(Boolean isSubscribe) {
-    this.isSubscribe = isSubscribe;
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否订阅
-     * <p> 示例值：true
-     */
+    @SerializedName("is_subscribe")
     private Boolean isSubscribe;
     /**
      * 文档类型
      * <p> 示例值：doc
      */
+    @SerializedName("file_type")
     private String fileType;
 
-    /**
-     * 是否订阅
-     * <p> 示例值：true
-     *
-     * @param isSubscribe
-     * @return
-     */
-    public Builder isSubscribe(Boolean isSubscribe) {
-      this.isSubscribe = isSubscribe;
-      return this;
+    // builder 开始
+    public PatchFileSubscriptionReqBody() {
     }
 
-
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     *
-     * @param fileType
-     * @return
-     */
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
+    public PatchFileSubscriptionReqBody(Builder builder) {
+        /**
+         * 是否订阅
+         * <p> 示例值：true
+         */
+        this.isSubscribe = builder.isSubscribe;
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         */
+        this.fileType = builder.fileType;
     }
 
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     *
-     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.PatchFileSubscriptionFileTypeEnum}
-     * @return
-     */
-    public Builder fileType(
-        com.lark.oapi.service.drive.v1.enums.PatchFileSubscriptionFileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public PatchFileSubscriptionReqBody build() {
-      return new PatchFileSubscriptionReqBody(this);
+    public Boolean getIsSubscribe() {
+        return this.isSubscribe;
     }
-  }
+
+    public void setIsSubscribe(Boolean isSubscribe) {
+        this.isSubscribe = isSubscribe;
+    }
+
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public static class Builder {
+        /**
+         * 是否订阅
+         * <p> 示例值：true
+         */
+        private Boolean isSubscribe;
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         */
+        private String fileType;
+
+        /**
+         * 是否订阅
+         * <p> 示例值：true
+         *
+         * @param isSubscribe
+         * @return
+         */
+        public Builder isSubscribe(Boolean isSubscribe) {
+            this.isSubscribe = isSubscribe;
+            return this;
+        }
+
+
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         *
+         * @param fileType
+         * @return
+         */
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
+
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         *
+         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.PatchFileSubscriptionFileTypeEnum}
+         * @return
+         */
+        public Builder fileType(com.lark.oapi.service.drive.v1.enums.PatchFileSubscriptionFileTypeEnum fileType) {
+            this.fileType = fileType.getValue();
+            return this;
+        }
+
+
+        public PatchFileSubscriptionReqBody build() {
+            return new PatchFileSubscriptionReqBody(this);
+        }
+    }
 }

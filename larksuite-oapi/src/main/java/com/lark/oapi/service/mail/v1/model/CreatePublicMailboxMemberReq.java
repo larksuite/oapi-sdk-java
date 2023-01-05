@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreatePublicMailboxMemberReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 公共邮箱唯一标识或公共邮箱地址
-   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-   */
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-  @Body
-  private PublicMailboxMember body;
-
-  // builder 开始
-  public CreatePublicMailboxMemberReq() {
-  }
-
-  public CreatePublicMailboxMemberReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 公共邮箱唯一标识或公共邮箱地址
      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
      */
-    this.publicMailboxId = builder.publicMailboxId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public PublicMailboxMember getPublicMailboxMember() {
-    return this.body;
-  }
-
-  public void setPublicMailboxMember(PublicMailboxMember body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
+    @Path
+    @SerializedName("public_mailbox_id")
+    private String publicMailboxId;
+    @Body
     private PublicMailboxMember body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public CreatePublicMailboxMemberReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.CreatePublicMailboxMemberUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.mail.v1.enums.CreatePublicMailboxMemberUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public CreatePublicMailboxMemberReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 公共邮箱唯一标识或公共邮箱地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+         */
+        this.publicMailboxId = builder.publicMailboxId;
+        this.body = builder.body;
     }
 
-    /**
-     * 公共邮箱唯一标识或公共邮箱地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-     *
-     * @param publicMailboxId
-     * @return
-     */
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
+    }
+
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
     }
 
     public PublicMailboxMember getPublicMailboxMember() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder publicMailboxMember(PublicMailboxMember body) {
-      this.body = body;
-      return this;
+    public void setPublicMailboxMember(PublicMailboxMember body) {
+        this.body = body;
     }
 
-    public CreatePublicMailboxMemberReq build() {
-      return new CreatePublicMailboxMemberReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
+        private PublicMailboxMember body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.CreatePublicMailboxMemberUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.CreatePublicMailboxMemberUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 公共邮箱唯一标识或公共邮箱地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+         *
+         * @param publicMailboxId
+         * @return
+         */
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
+
+        public PublicMailboxMember getPublicMailboxMember() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder publicMailboxMember(PublicMailboxMember body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreatePublicMailboxMemberReq build() {
+            return new CreatePublicMailboxMemberReq(this);
+        }
     }
-  }
 }

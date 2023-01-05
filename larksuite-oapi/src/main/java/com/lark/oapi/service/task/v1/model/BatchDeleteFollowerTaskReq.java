@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class BatchDeleteFollowerTaskReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 任务ID
-   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Body
-  private Follower body;
-
-  // builder 开始
-  public BatchDeleteFollowerTaskReq() {
-  }
-
-  public BatchDeleteFollowerTaskReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 任务ID
      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    this.taskId = builder.taskId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public Follower getFollower() {
-    return this.body;
-  }
-
-  public void setFollower(Follower body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String taskId; // 任务ID
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
+    @Body
     private Follower body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public BatchDeleteFollowerTaskReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.task.v1.enums.BatchDeleteFollowerTaskUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.task.v1.enums.BatchDeleteFollowerTaskUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public BatchDeleteFollowerTaskReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 任务ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         */
+        this.taskId = builder.taskId;
+        this.body = builder.body;
     }
 
-    /**
-     * 任务ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public Follower getFollower() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder follower(Follower body) {
-      this.body = body;
-      return this;
+    public void setFollower(Follower body) {
+        this.body = body;
     }
 
-    public BatchDeleteFollowerTaskReq build() {
-      return new BatchDeleteFollowerTaskReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String taskId; // 任务ID
+        private Follower body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.task.v1.enums.BatchDeleteFollowerTaskUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.task.v1.enums.BatchDeleteFollowerTaskUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 任务ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public Follower getFollower() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder follower(Follower body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchDeleteFollowerTaskReq build() {
+            return new BatchDeleteFollowerTaskReq(this);
+        }
     }
-  }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 性别
  */
 public enum UserGenderTypeEnum {
-  UNKOWN(0), // 未知
-  MALE(1), // 男
-  FEMALE(2), // 女
-  ;
-  private Integer value;
+    UNKOWN(0), // 未知
+    MALE(1), // 男
+    FEMALE(2), // 女
+    ;
+    private Integer value;
 
-  UserGenderTypeEnum(Integer value) {
-    this.value = value;
-  }
+    UserGenderTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,246 +16,244 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserPosition {
-
-  /**
-   * 岗位Code
-   * <p> 示例值：
-   */
-  @SerializedName("position_code")
-  private String positionCode;
-  /**
-   * 岗位名称
-   * <p> 示例值：
-   */
-  @SerializedName("position_name")
-  private String positionName;
-  /**
-   * 岗位部门ID
-   * <p> 示例值：
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 上级领导ID
-   * <p> 示例值：
-   */
-  @SerializedName("leader_user_id")
-  private String leaderUserId;
-  /**
-   * 本岗位领导的岗位code
-   * <p> 示例值：
-   */
-  @SerializedName("leader_position_code")
-  private String leaderPositionCode;
-  /**
-   * 是否主岗，只允许一个主岗sd
-   * <p> 示例值：
-   */
-  @SerializedName("is_major")
-  private Boolean isMajor;
-
-  // builder 开始
-  public UserPosition() {
-  }
-
-  public UserPosition(Builder builder) {
     /**
      * 岗位Code
      * <p> 示例值：
      */
-    this.positionCode = builder.positionCode;
-    /**
-     * 岗位名称
-     * <p> 示例值：
-     */
-    this.positionName = builder.positionName;
-    /**
-     * 岗位部门ID
-     * <p> 示例值：
-     */
-    this.departmentId = builder.departmentId;
-    /**
-     * 上级领导ID
-     * <p> 示例值：
-     */
-    this.leaderUserId = builder.leaderUserId;
-    /**
-     * 本岗位领导的岗位code
-     * <p> 示例值：
-     */
-    this.leaderPositionCode = builder.leaderPositionCode;
-    /**
-     * 是否主岗，只允许一个主岗sd
-     * <p> 示例值：
-     */
-    this.isMajor = builder.isMajor;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPositionCode() {
-    return this.positionCode;
-  }
-
-  public void setPositionCode(String positionCode) {
-    this.positionCode = positionCode;
-  }
-
-  public String getPositionName() {
-    return this.positionName;
-  }
-
-  public void setPositionName(String positionName) {
-    this.positionName = positionName;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getLeaderUserId() {
-    return this.leaderUserId;
-  }
-
-  public void setLeaderUserId(String leaderUserId) {
-    this.leaderUserId = leaderUserId;
-  }
-
-  public String getLeaderPositionCode() {
-    return this.leaderPositionCode;
-  }
-
-  public void setLeaderPositionCode(String leaderPositionCode) {
-    this.leaderPositionCode = leaderPositionCode;
-  }
-
-  public Boolean getIsMajor() {
-    return this.isMajor;
-  }
-
-  public void setIsMajor(Boolean isMajor) {
-    this.isMajor = isMajor;
-  }
-
-  public static class Builder {
-
-    /**
-     * 岗位Code
-     * <p> 示例值：
-     */
+    @SerializedName("position_code")
     private String positionCode;
     /**
      * 岗位名称
      * <p> 示例值：
      */
+    @SerializedName("position_name")
     private String positionName;
     /**
      * 岗位部门ID
      * <p> 示例值：
      */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 上级领导ID
      * <p> 示例值：
      */
+    @SerializedName("leader_user_id")
     private String leaderUserId;
     /**
      * 本岗位领导的岗位code
      * <p> 示例值：
      */
+    @SerializedName("leader_position_code")
     private String leaderPositionCode;
     /**
      * 是否主岗，只允许一个主岗sd
      * <p> 示例值：
      */
+    @SerializedName("is_major")
     private Boolean isMajor;
 
-    /**
-     * 岗位Code
-     * <p> 示例值：
-     *
-     * @param positionCode
-     * @return
-     */
-    public Builder positionCode(String positionCode) {
-      this.positionCode = positionCode;
-      return this;
+    // builder 开始
+    public UserPosition() {
     }
 
-
-    /**
-     * 岗位名称
-     * <p> 示例值：
-     *
-     * @param positionName
-     * @return
-     */
-    public Builder positionName(String positionName) {
-      this.positionName = positionName;
-      return this;
+    public UserPosition(Builder builder) {
+        /**
+         * 岗位Code
+         * <p> 示例值：
+         */
+        this.positionCode = builder.positionCode;
+        /**
+         * 岗位名称
+         * <p> 示例值：
+         */
+        this.positionName = builder.positionName;
+        /**
+         * 岗位部门ID
+         * <p> 示例值：
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 上级领导ID
+         * <p> 示例值：
+         */
+        this.leaderUserId = builder.leaderUserId;
+        /**
+         * 本岗位领导的岗位code
+         * <p> 示例值：
+         */
+        this.leaderPositionCode = builder.leaderPositionCode;
+        /**
+         * 是否主岗，只允许一个主岗sd
+         * <p> 示例值：
+         */
+        this.isMajor = builder.isMajor;
     }
 
-
-    /**
-     * 岗位部门ID
-     * <p> 示例值：
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 上级领导ID
-     * <p> 示例值：
-     *
-     * @param leaderUserId
-     * @return
-     */
-    public Builder leaderUserId(String leaderUserId) {
-      this.leaderUserId = leaderUserId;
-      return this;
+    public String getPositionCode() {
+        return this.positionCode;
     }
 
-
-    /**
-     * 本岗位领导的岗位code
-     * <p> 示例值：
-     *
-     * @param leaderPositionCode
-     * @return
-     */
-    public Builder leaderPositionCode(String leaderPositionCode) {
-      this.leaderPositionCode = leaderPositionCode;
-      return this;
+    public void setPositionCode(String positionCode) {
+        this.positionCode = positionCode;
     }
 
-
-    /**
-     * 是否主岗，只允许一个主岗sd
-     * <p> 示例值：
-     *
-     * @param isMajor
-     * @return
-     */
-    public Builder isMajor(Boolean isMajor) {
-      this.isMajor = isMajor;
-      return this;
+    public String getPositionName() {
+        return this.positionName;
     }
 
-
-    public UserPosition build() {
-      return new UserPosition(this);
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
     }
-  }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getLeaderUserId() {
+        return this.leaderUserId;
+    }
+
+    public void setLeaderUserId(String leaderUserId) {
+        this.leaderUserId = leaderUserId;
+    }
+
+    public String getLeaderPositionCode() {
+        return this.leaderPositionCode;
+    }
+
+    public void setLeaderPositionCode(String leaderPositionCode) {
+        this.leaderPositionCode = leaderPositionCode;
+    }
+
+    public Boolean getIsMajor() {
+        return this.isMajor;
+    }
+
+    public void setIsMajor(Boolean isMajor) {
+        this.isMajor = isMajor;
+    }
+
+    public static class Builder {
+        /**
+         * 岗位Code
+         * <p> 示例值：
+         */
+        private String positionCode;
+        /**
+         * 岗位名称
+         * <p> 示例值：
+         */
+        private String positionName;
+        /**
+         * 岗位部门ID
+         * <p> 示例值：
+         */
+        private String departmentId;
+        /**
+         * 上级领导ID
+         * <p> 示例值：
+         */
+        private String leaderUserId;
+        /**
+         * 本岗位领导的岗位code
+         * <p> 示例值：
+         */
+        private String leaderPositionCode;
+        /**
+         * 是否主岗，只允许一个主岗sd
+         * <p> 示例值：
+         */
+        private Boolean isMajor;
+
+        /**
+         * 岗位Code
+         * <p> 示例值：
+         *
+         * @param positionCode
+         * @return
+         */
+        public Builder positionCode(String positionCode) {
+            this.positionCode = positionCode;
+            return this;
+        }
+
+
+        /**
+         * 岗位名称
+         * <p> 示例值：
+         *
+         * @param positionName
+         * @return
+         */
+        public Builder positionName(String positionName) {
+            this.positionName = positionName;
+            return this;
+        }
+
+
+        /**
+         * 岗位部门ID
+         * <p> 示例值：
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 上级领导ID
+         * <p> 示例值：
+         *
+         * @param leaderUserId
+         * @return
+         */
+        public Builder leaderUserId(String leaderUserId) {
+            this.leaderUserId = leaderUserId;
+            return this;
+        }
+
+
+        /**
+         * 本岗位领导的岗位code
+         * <p> 示例值：
+         *
+         * @param leaderPositionCode
+         * @return
+         */
+        public Builder leaderPositionCode(String leaderPositionCode) {
+            this.leaderPositionCode = leaderPositionCode;
+            return this;
+        }
+
+
+        /**
+         * 是否主岗，只允许一个主岗sd
+         * <p> 示例值：
+         *
+         * @param isMajor
+         * @return
+         */
+        public Builder isMajor(Boolean isMajor) {
+            this.isMajor = isMajor;
+            return this;
+        }
+
+
+        public UserPosition build() {
+            return new UserPosition(this);
+        }
+    }
 }

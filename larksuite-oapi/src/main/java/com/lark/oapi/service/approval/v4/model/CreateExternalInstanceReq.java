@@ -16,51 +16,50 @@ package com.lark.oapi.service.approval.v4.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateExternalInstanceReq {
-
-  @Body
-  private ExternalInstance body;
-
-  // builder 开始
-  public CreateExternalInstanceReq() {
-  }
-
-  public CreateExternalInstanceReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ExternalInstance getExternalInstance() {
-    return this.body;
-  }
-
-  public void setExternalInstance(ExternalInstance body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private ExternalInstance body;
 
+    // builder 开始
+    public CreateExternalInstanceReq() {
+    }
+
+    public CreateExternalInstanceReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ExternalInstance getExternalInstance() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder externalInstance(ExternalInstance body) {
-      this.body = body;
-      return this;
+    public void setExternalInstance(ExternalInstance body) {
+        this.body = body;
     }
 
-    public CreateExternalInstanceReq build() {
-      return new CreateExternalInstanceReq(this);
+    public static class Builder {
+
+        private ExternalInstance body;
+
+        public ExternalInstance getExternalInstance() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder externalInstance(ExternalInstance body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateExternalInstanceReq build() {
+            return new CreateExternalInstanceReq(this);
+        }
     }
-  }
 }

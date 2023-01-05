@@ -16,135 +16,133 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Unit {
-
-  /**
-   * 单位的自定义ID
-   * <p> 示例值：BU121
-   */
-  @SerializedName("unit_id")
-  private String unitId;
-  /**
-   * 单位的名字
-   * <p> 示例值：消费者事业部
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 单位的类型
-   * <p> 示例值：事业部
-   */
-  @SerializedName("unit_type")
-  private String unitType;
-
-  // builder 开始
-  public Unit() {
-  }
-
-  public Unit(Builder builder) {
     /**
-     * 单位的自定义ID
+     * 单位ID
      * <p> 示例值：BU121
      */
-    this.unitId = builder.unitId;
-    /**
-     * 单位的名字
-     * <p> 示例值：消费者事业部
-     */
-    this.name = builder.name;
-    /**
-     * 单位的类型
-     * <p> 示例值：事业部
-     */
-    this.unitType = builder.unitType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getUnitType() {
-    return this.unitType;
-  }
-
-  public void setUnitType(String unitType) {
-    this.unitType = unitType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 单位的自定义ID
-     * <p> 示例值：BU121
-     */
+    @SerializedName("unit_id")
     private String unitId;
     /**
      * 单位的名字
      * <p> 示例值：消费者事业部
      */
+    @SerializedName("name")
     private String name;
     /**
      * 单位的类型
      * <p> 示例值：事业部
      */
+    @SerializedName("unit_type")
     private String unitType;
 
-    /**
-     * 单位的自定义ID
-     * <p> 示例值：BU121
-     *
-     * @param unitId
-     * @return
-     */
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    // builder 开始
+    public Unit() {
     }
 
-
-    /**
-     * 单位的名字
-     * <p> 示例值：消费者事业部
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Unit(Builder builder) {
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         */
+        this.unitId = builder.unitId;
+        /**
+         * 单位的名字
+         * <p> 示例值：消费者事业部
+         */
+        this.name = builder.name;
+        /**
+         * 单位的类型
+         * <p> 示例值：事业部
+         */
+        this.unitType = builder.unitType;
     }
 
-
-    /**
-     * 单位的类型
-     * <p> 示例值：事业部
-     *
-     * @param unitType
-     * @return
-     */
-    public Builder unitType(String unitType) {
-      this.unitType = unitType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Unit build() {
-      return new Unit(this);
+    public String getUnitId() {
+        return this.unitId;
     }
-  }
+
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUnitType() {
+        return this.unitType;
+    }
+
+    public void setUnitType(String unitType) {
+        this.unitType = unitType;
+    }
+
+    public static class Builder {
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         */
+        private String unitId;
+        /**
+         * 单位的名字
+         * <p> 示例值：消费者事业部
+         */
+        private String name;
+        /**
+         * 单位的类型
+         * <p> 示例值：事业部
+         */
+        private String unitType;
+
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         *
+         * @param unitId
+         * @return
+         */
+        public Builder unitId(String unitId) {
+            this.unitId = unitId;
+            return this;
+        }
+
+
+        /**
+         * 单位的名字
+         * <p> 示例值：消费者事业部
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 单位的类型
+         * <p> 示例值：事业部
+         *
+         * @param unitType
+         * @return
+         */
+        public Builder unitType(String unitType) {
+            this.unitType = unitType;
+            return this;
+        }
+
+
+        public Unit build() {
+            return new Unit(this);
+        }
+    }
 }

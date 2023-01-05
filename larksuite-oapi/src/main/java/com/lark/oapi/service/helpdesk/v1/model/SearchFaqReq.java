@@ -17,156 +17,154 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class SearchFaqReq {
-
-  /**
-   * 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
-   * <p> 示例值：wifi
-   */
-  @Query
-  @SerializedName("query")
-  private String query;
-  /**
-   * 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
-   * <p> 示例值：5bel5Y2V
-   */
-  @Query
-  @SerializedName("base64")
-  private String base64;
-  /**
-   * <p> 示例值：6936004780707807251
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public SearchFaqReq() {
-  }
-
-  public SearchFaqReq(Builder builder) {
     /**
      * 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
      * <p> 示例值：wifi
      */
-    this.query = builder.query;
+    @Query
+    @SerializedName("query")
+    private String query;
     /**
      * 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
      * <p> 示例值：5bel5Y2V
      */
-    this.base64 = builder.base64;
-    /**
-     *
-     * <p> 示例值：6936004780707807251
-     */
-    this.pageToken = builder.pageToken;
-    /**
-     *
-     * <p> 示例值：10
-     */
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getQuery() {
-    return this.query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public String getBase64() {
-    return this.base64;
-  }
-
-  public void setBase64(String base64) {
-    this.base64 = base64;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String query; // 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
-    private String base64; // 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
-    private String pageToken; //
-    private Integer pageSize; //
-
-
-    /**
-     * 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
-     * <p> 示例值：wifi
-     *
-     * @param query
-     * @return
-     */
-    public Builder query(String query) {
-      this.query = query;
-      return this;
-    }
-
-
-    /**
-     * 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
-     * <p> 示例值：5bel5Y2V
-     *
-     * @param base64
-     * @return
-     */
-    public Builder base64(String base64) {
-      this.base64 = base64;
-      return this;
-    }
-
-
+    @Query
+    @SerializedName("base64")
+    private String base64;
     /**
      * <p> 示例值：6936004780707807251
-     *
-     * @param pageToken
-     * @return
      */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
      */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
+
+    // builder 开始
+    public SearchFaqReq() {
     }
 
-    public SearchFaqReq build() {
-      return new SearchFaqReq(this);
+    public SearchFaqReq(Builder builder) {
+        /**
+         * 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
+         * <p> 示例值：wifi
+         */
+        this.query = builder.query;
+        /**
+         * 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
+         * <p> 示例值：5bel5Y2V
+         */
+        this.base64 = builder.base64;
+        /**
+         *
+         * <p> 示例值：6936004780707807251
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getQuery() {
+        return this.query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public String getBase64() {
+        return this.base64;
+    }
+
+    public void setBase64(String base64) {
+        this.base64 = base64;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String query; // 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
+        private String base64; // 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
+        private String pageToken; //
+        private Integer pageSize; //
+
+
+        /**
+         * 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
+         * <p> 示例值：wifi
+         *
+         * @param query
+         * @return
+         */
+        public Builder query(String query) {
+            this.query = query;
+            return this;
+        }
+
+
+        /**
+         * 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
+         * <p> 示例值：5bel5Y2V
+         *
+         * @param base64
+         * @return
+         */
+        public Builder base64(String base64) {
+            this.base64 = base64;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：6936004780707807251
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public SearchFaqReq build() {
+            return new SearchFaqReq(this);
+        }
+    }
 }

@@ -16,383 +16,379 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppRecommendRuleItemInfo {
-
-  /**
-   * 推荐应用项 ID
-   * <p> 示例值：7137896480337625108
-   */
-  @SerializedName("item_id")
-  private String itemId;
-  /**
-   * 推荐应用项类型
-   * <p> 示例值：application
-   */
-  @SerializedName("item_type")
-  private String itemType;
-  /**
-   * 推荐应用项名称
-   * <p> 示例值：审批
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 推荐应用项描述
-   * <p> 示例值：审批应用的描述
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 链接类型应用项的跳转链接（应用类型该字段为空）
-   * <p> 示例值：http://www.example.com
-   */
-  @SerializedName("link_url")
-  private String linkUrl;
-  /**
-   * 应用类型应用项的 app id（链接类型该字段为空）
-   * <p> 示例值：cli_a274440757b8901c
-   */
-  @SerializedName("client_id")
-  private String clientId;
-  /**
-   * 应用项图标链接
-   * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
-   */
-  @SerializedName("icon_url")
-  private String iconUrl;
-  /**
-   * 链接类型应用项的默认展示语种（应用类型该字段为空）
-   * <p> 示例值：zh_cn
-   */
-  @SerializedName("default_locale")
-  private String defaultLocale;
-  /**
-   * 应用项的多语种名称
-   * <p> 示例值：
-   */
-  @SerializedName("i18n_name")
-  private AppRecommendRuleItemInfoI18nName i18nName;
-
-  // builder 开始
-  public AppRecommendRuleItemInfo() {
-  }
-
-  public AppRecommendRuleItemInfo(Builder builder) {
     /**
      * 推荐应用项 ID
      * <p> 示例值：7137896480337625108
      */
-    this.itemId = builder.itemId;
-    /**
-     * 推荐应用项类型
-     * <p> 示例值：application
-     */
-    this.itemType = builder.itemType;
-    /**
-     * 推荐应用项名称
-     * <p> 示例值：审批
-     */
-    this.name = builder.name;
-    /**
-     * 推荐应用项描述
-     * <p> 示例值：审批应用的描述
-     */
-    this.description = builder.description;
-    /**
-     * 链接类型应用项的跳转链接（应用类型该字段为空）
-     * <p> 示例值：http://www.example.com
-     */
-    this.linkUrl = builder.linkUrl;
-    /**
-     * 应用类型应用项的 app id（链接类型该字段为空）
-     * <p> 示例值：cli_a274440757b8901c
-     */
-    this.clientId = builder.clientId;
-    /**
-     * 应用项图标链接
-     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
-     */
-    this.iconUrl = builder.iconUrl;
-    /**
-     * 链接类型应用项的默认展示语种（应用类型该字段为空）
-     * <p> 示例值：zh_cn
-     */
-    this.defaultLocale = builder.defaultLocale;
-    /**
-     * 应用项的多语种名称
-     * <p> 示例值：
-     */
-    this.i18nName = builder.i18nName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getItemId() {
-    return this.itemId;
-  }
-
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
-  }
-
-  public String getItemType() {
-    return this.itemType;
-  }
-
-  public void setItemType(String itemType) {
-    this.itemType = itemType;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getLinkUrl() {
-    return this.linkUrl;
-  }
-
-  public void setLinkUrl(String linkUrl) {
-    this.linkUrl = linkUrl;
-  }
-
-  public String getClientId() {
-    return this.clientId;
-  }
-
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-  public String getIconUrl() {
-    return this.iconUrl;
-  }
-
-  public void setIconUrl(String iconUrl) {
-    this.iconUrl = iconUrl;
-  }
-
-  public String getDefaultLocale() {
-    return this.defaultLocale;
-  }
-
-  public void setDefaultLocale(String defaultLocale) {
-    this.defaultLocale = defaultLocale;
-  }
-
-  public AppRecommendRuleItemInfoI18nName getI18nName() {
-    return this.i18nName;
-  }
-
-  public void setI18nName(AppRecommendRuleItemInfoI18nName i18nName) {
-    this.i18nName = i18nName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 推荐应用项 ID
-     * <p> 示例值：7137896480337625108
-     */
+    @SerializedName("item_id")
     private String itemId;
     /**
      * 推荐应用项类型
      * <p> 示例值：application
      */
+    @SerializedName("item_type")
     private String itemType;
     /**
      * 推荐应用项名称
      * <p> 示例值：审批
      */
+    @SerializedName("name")
     private String name;
     /**
      * 推荐应用项描述
      * <p> 示例值：审批应用的描述
      */
+    @SerializedName("description")
     private String description;
     /**
      * 链接类型应用项的跳转链接（应用类型该字段为空）
      * <p> 示例值：http://www.example.com
      */
+    @SerializedName("link_url")
     private String linkUrl;
     /**
      * 应用类型应用项的 app id（链接类型该字段为空）
      * <p> 示例值：cli_a274440757b8901c
      */
+    @SerializedName("client_id")
     private String clientId;
     /**
      * 应用项图标链接
      * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
      */
+    @SerializedName("icon_url")
     private String iconUrl;
     /**
      * 链接类型应用项的默认展示语种（应用类型该字段为空）
      * <p> 示例值：zh_cn
      */
+    @SerializedName("default_locale")
     private String defaultLocale;
     /**
      * 应用项的多语种名称
      * <p> 示例值：
      */
+    @SerializedName("i18n_name")
     private AppRecommendRuleItemInfoI18nName i18nName;
 
-    /**
-     * 推荐应用项 ID
-     * <p> 示例值：7137896480337625108
-     *
-     * @param itemId
-     * @return
-     */
-    public Builder itemId(String itemId) {
-      this.itemId = itemId;
-      return this;
+    // builder 开始
+    public AppRecommendRuleItemInfo() {
     }
 
-
-    /**
-     * 推荐应用项类型
-     * <p> 示例值：application
-     *
-     * @param itemType
-     * @return
-     */
-    public Builder itemType(String itemType) {
-      this.itemType = itemType;
-      return this;
+    public AppRecommendRuleItemInfo(Builder builder) {
+        /**
+         * 推荐应用项 ID
+         * <p> 示例值：7137896480337625108
+         */
+        this.itemId = builder.itemId;
+        /**
+         * 推荐应用项类型
+         * <p> 示例值：application
+         */
+        this.itemType = builder.itemType;
+        /**
+         * 推荐应用项名称
+         * <p> 示例值：审批
+         */
+        this.name = builder.name;
+        /**
+         * 推荐应用项描述
+         * <p> 示例值：审批应用的描述
+         */
+        this.description = builder.description;
+        /**
+         * 链接类型应用项的跳转链接（应用类型该字段为空）
+         * <p> 示例值：http://www.example.com
+         */
+        this.linkUrl = builder.linkUrl;
+        /**
+         * 应用类型应用项的 app id（链接类型该字段为空）
+         * <p> 示例值：cli_a274440757b8901c
+         */
+        this.clientId = builder.clientId;
+        /**
+         * 应用项图标链接
+         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
+         */
+        this.iconUrl = builder.iconUrl;
+        /**
+         * 链接类型应用项的默认展示语种（应用类型该字段为空）
+         * <p> 示例值：zh_cn
+         */
+        this.defaultLocale = builder.defaultLocale;
+        /**
+         * 应用项的多语种名称
+         * <p> 示例值：
+         */
+        this.i18nName = builder.i18nName;
     }
 
-    /**
-     * 推荐应用项类型
-     * <p> 示例值：application
-     *
-     * @param itemType {@link com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoItemTypeEnum}
-     * @return
-     */
-    public Builder itemType(
-        com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoItemTypeEnum itemType) {
-      this.itemType = itemType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 推荐应用项名称
-     * <p> 示例值：审批
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getItemId() {
+        return this.itemId;
     }
 
-
-    /**
-     * 推荐应用项描述
-     * <p> 示例值：审批应用的描述
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
-
-    /**
-     * 链接类型应用项的跳转链接（应用类型该字段为空）
-     * <p> 示例值：http://www.example.com
-     *
-     * @param linkUrl
-     * @return
-     */
-    public Builder linkUrl(String linkUrl) {
-      this.linkUrl = linkUrl;
-      return this;
+    public String getItemType() {
+        return this.itemType;
     }
 
-
-    /**
-     * 应用类型应用项的 app id（链接类型该字段为空）
-     * <p> 示例值：cli_a274440757b8901c
-     *
-     * @param clientId
-     * @return
-     */
-    public Builder clientId(String clientId) {
-      this.clientId = clientId;
-      return this;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
-
-    /**
-     * 应用项图标链接
-     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
-     *
-     * @param iconUrl
-     * @return
-     */
-    public Builder iconUrl(String iconUrl) {
-      this.iconUrl = iconUrl;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    /**
-     * 链接类型应用项的默认展示语种（应用类型该字段为空）
-     * <p> 示例值：zh_cn
-     *
-     * @param defaultLocale
-     * @return
-     */
-    public Builder defaultLocale(String defaultLocale) {
-      this.defaultLocale = defaultLocale;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * 链接类型应用项的默认展示语种（应用类型该字段为空）
-     * <p> 示例值：zh_cn
-     *
-     * @param defaultLocale {@link com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoDefaultLocaleEnum}
-     * @return
-     */
-    public Builder defaultLocale(
-        com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoDefaultLocaleEnum defaultLocale) {
-      this.defaultLocale = defaultLocale.getValue();
-      return this;
+    public String getDescription() {
+        return this.description;
     }
 
-
-    /**
-     * 应用项的多语种名称
-     * <p> 示例值：
-     *
-     * @param i18nName
-     * @return
-     */
-    public Builder i18nName(AppRecommendRuleItemInfoI18nName i18nName) {
-      this.i18nName = i18nName;
-      return this;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-
-    public AppRecommendRuleItemInfo build() {
-      return new AppRecommendRuleItemInfo(this);
+    public String getLinkUrl() {
+        return this.linkUrl;
     }
-  }
+
+    public void setLinkUrl(String linkUrl) {
+        this.linkUrl = linkUrl;
+    }
+
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getIconUrl() {
+        return this.iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
+    public String getDefaultLocale() {
+        return this.defaultLocale;
+    }
+
+    public void setDefaultLocale(String defaultLocale) {
+        this.defaultLocale = defaultLocale;
+    }
+
+    public AppRecommendRuleItemInfoI18nName getI18nName() {
+        return this.i18nName;
+    }
+
+    public void setI18nName(AppRecommendRuleItemInfoI18nName i18nName) {
+        this.i18nName = i18nName;
+    }
+
+    public static class Builder {
+        /**
+         * 推荐应用项 ID
+         * <p> 示例值：7137896480337625108
+         */
+        private String itemId;
+        /**
+         * 推荐应用项类型
+         * <p> 示例值：application
+         */
+        private String itemType;
+        /**
+         * 推荐应用项名称
+         * <p> 示例值：审批
+         */
+        private String name;
+        /**
+         * 推荐应用项描述
+         * <p> 示例值：审批应用的描述
+         */
+        private String description;
+        /**
+         * 链接类型应用项的跳转链接（应用类型该字段为空）
+         * <p> 示例值：http://www.example.com
+         */
+        private String linkUrl;
+        /**
+         * 应用类型应用项的 app id（链接类型该字段为空）
+         * <p> 示例值：cli_a274440757b8901c
+         */
+        private String clientId;
+        /**
+         * 应用项图标链接
+         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
+         */
+        private String iconUrl;
+        /**
+         * 链接类型应用项的默认展示语种（应用类型该字段为空）
+         * <p> 示例值：zh_cn
+         */
+        private String defaultLocale;
+        /**
+         * 应用项的多语种名称
+         * <p> 示例值：
+         */
+        private AppRecommendRuleItemInfoI18nName i18nName;
+
+        /**
+         * 推荐应用项 ID
+         * <p> 示例值：7137896480337625108
+         *
+         * @param itemId
+         * @return
+         */
+        public Builder itemId(String itemId) {
+            this.itemId = itemId;
+            return this;
+        }
+
+
+        /**
+         * 推荐应用项类型
+         * <p> 示例值：application
+         *
+         * @param itemType
+         * @return
+         */
+        public Builder itemType(String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+
+        /**
+         * 推荐应用项类型
+         * <p> 示例值：application
+         *
+         * @param itemType {@link com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoItemTypeEnum}
+         * @return
+         */
+        public Builder itemType(com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoItemTypeEnum itemType) {
+            this.itemType = itemType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 推荐应用项名称
+         * <p> 示例值：审批
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 推荐应用项描述
+         * <p> 示例值：审批应用的描述
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 链接类型应用项的跳转链接（应用类型该字段为空）
+         * <p> 示例值：http://www.example.com
+         *
+         * @param linkUrl
+         * @return
+         */
+        public Builder linkUrl(String linkUrl) {
+            this.linkUrl = linkUrl;
+            return this;
+        }
+
+
+        /**
+         * 应用类型应用项的 app id（链接类型该字段为空）
+         * <p> 示例值：cli_a274440757b8901c
+         *
+         * @param clientId
+         * @return
+         */
+        public Builder clientId(String clientId) {
+            this.clientId = clientId;
+            return this;
+        }
+
+
+        /**
+         * 应用项图标链接
+         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_6150f3c3-ceee-453e-a1ae-7c11d7f13edj~?image_size=&cut_type=&quality=&format=&sticker_format=.webp
+         *
+         * @param iconUrl
+         * @return
+         */
+        public Builder iconUrl(String iconUrl) {
+            this.iconUrl = iconUrl;
+            return this;
+        }
+
+
+        /**
+         * 链接类型应用项的默认展示语种（应用类型该字段为空）
+         * <p> 示例值：zh_cn
+         *
+         * @param defaultLocale
+         * @return
+         */
+        public Builder defaultLocale(String defaultLocale) {
+            this.defaultLocale = defaultLocale;
+            return this;
+        }
+
+        /**
+         * 链接类型应用项的默认展示语种（应用类型该字段为空）
+         * <p> 示例值：zh_cn
+         *
+         * @param defaultLocale {@link com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoDefaultLocaleEnum}
+         * @return
+         */
+        public Builder defaultLocale(com.lark.oapi.service.application.v6.enums.AppRecommendRuleItemInfoDefaultLocaleEnum defaultLocale) {
+            this.defaultLocale = defaultLocale.getValue();
+            return this;
+        }
+
+
+        /**
+         * 应用项的多语种名称
+         * <p> 示例值：
+         *
+         * @param i18nName
+         * @return
+         */
+        public Builder i18nName(AppRecommendRuleItemInfoI18nName i18nName) {
+            this.i18nName = i18nName;
+            return this;
+        }
+
+
+        public AppRecommendRuleItemInfo build() {
+            return new AppRecommendRuleItemInfo(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppliOfferBasicCustObjOpV {
-
-  /**
-   * 中文名
-   * <p> 示例值：
-   */
-  @SerializedName("zh_cn")
-  private String zhCn;
-  /**
-   * 英文名
-   * <p> 示例值：
-   */
-  @SerializedName("en_us")
-  private String enUs;
-
-  // builder 开始
-  public AppliOfferBasicCustObjOpV() {
-  }
-
-  public AppliOfferBasicCustObjOpV(Builder builder) {
     /**
      * 中文名
      * <p> 示例值：
      */
-    this.zhCn = builder.zhCn;
-    /**
-     * 英文名
-     * <p> 示例值：
-     */
-    this.enUs = builder.enUs;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getZhCn() {
-    return this.zhCn;
-  }
-
-  public void setZhCn(String zhCn) {
-    this.zhCn = zhCn;
-  }
-
-  public String getEnUs() {
-    return this.enUs;
-  }
-
-  public void setEnUs(String enUs) {
-    this.enUs = enUs;
-  }
-
-  public static class Builder {
-
-    /**
-     * 中文名
-     * <p> 示例值：
-     */
+    @SerializedName("zh_cn")
     private String zhCn;
     /**
      * 英文名
      * <p> 示例值：
      */
+    @SerializedName("en_us")
     private String enUs;
 
-    /**
-     * 中文名
-     * <p> 示例值：
-     *
-     * @param zhCn
-     * @return
-     */
-    public Builder zhCn(String zhCn) {
-      this.zhCn = zhCn;
-      return this;
+    // builder 开始
+    public AppliOfferBasicCustObjOpV() {
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：
-     *
-     * @param enUs
-     * @return
-     */
-    public Builder enUs(String enUs) {
-      this.enUs = enUs;
-      return this;
+    public AppliOfferBasicCustObjOpV(Builder builder) {
+        /**
+         * 中文名
+         * <p> 示例值：
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        this.enUs = builder.enUs;
     }
 
-
-    public AppliOfferBasicCustObjOpV build() {
-      return new AppliOfferBasicCustObjOpV(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getZhCn() {
+        return this.zhCn;
+    }
+
+    public void setZhCn(String zhCn) {
+        this.zhCn = zhCn;
+    }
+
+    public String getEnUs() {
+        return this.enUs;
+    }
+
+    public void setEnUs(String enUs) {
+        this.enUs = enUs;
+    }
+
+    public static class Builder {
+        /**
+         * 中文名
+         * <p> 示例值：
+         */
+        private String zhCn;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        private String enUs;
+
+        /**
+         * 中文名
+         * <p> 示例值：
+         *
+         * @param zhCn
+         * @return
+         */
+        public Builder zhCn(String zhCn) {
+            this.zhCn = zhCn;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：
+         *
+         * @param enUs
+         * @return
+         */
+        public Builder enUs(String enUs) {
+            this.enUs = enUs;
+            return this;
+        }
+
+
+        public AppliOfferBasicCustObjOpV build() {
+            return new AppliOfferBasicCustObjOpV(this);
+        }
+    }
 }

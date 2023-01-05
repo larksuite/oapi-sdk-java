@@ -16,20 +16,19 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetMessageRespBody {
+    /**
+     * -
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Message[] items;
 
-  /**
-   * -
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Message[] items;
+    public Message[] getItems() {
+        return this.items;
+    }
 
-  public Message[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(Message[] items) {
-    this.items = items;
-  }
+    public void setItems(Message[] items) {
+        this.items = items;
+    }
 
 }

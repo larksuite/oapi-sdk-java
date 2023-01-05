@@ -16,34 +16,33 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2MessageReadV1Data {
+    /**
+     * -
+     * <p> 示例值：
+     */
+    @SerializedName("reader")
+    private EventMessageReader reader;
+    /**
+     * 消息列表
+     * <p> 示例值：
+     */
+    @SerializedName("message_id_list")
+    private String[] messageIdList;
 
-  /**
-   * -
-   * <p> 示例值：
-   */
-  @SerializedName("reader")
-  private EventMessageReader reader;
-  /**
-   * 消息列表
-   * <p> 示例值：
-   */
-  @SerializedName("message_id_list")
-  private String[] messageIdList;
+    public EventMessageReader getReader() {
+        return this.reader;
+    }
 
-  public EventMessageReader getReader() {
-    return this.reader;
-  }
+    public void setReader(EventMessageReader reader) {
+        this.reader = reader;
+    }
 
-  public void setReader(EventMessageReader reader) {
-    this.reader = reader;
-  }
+    public String[] getMessageIdList() {
+        return this.messageIdList;
+    }
 
-  public String[] getMessageIdList() {
-    return this.messageIdList;
-  }
-
-  public void setMessageIdList(String[] messageIdList) {
-    this.messageIdList = messageIdList;
-  }
+    public void setMessageIdList(String[] messageIdList) {
+        this.messageIdList = messageIdList;
+    }
 
 }

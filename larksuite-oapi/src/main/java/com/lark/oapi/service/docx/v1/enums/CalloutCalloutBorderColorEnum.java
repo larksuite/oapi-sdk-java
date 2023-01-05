@@ -17,21 +17,21 @@ package com.lark.oapi.service.docx.v1.enums;
  * 边框色
  */
 public enum CalloutCalloutBorderColorEnum {
-  RED(1), // 红色
-  ORANGE(2), // 橙色
-  YELLOW(3), // 黄色
-  GREEN(4), // 绿色
-  BLUE(5), // 蓝色
-  PURPLE(6), // 紫色
-  NEUTRAL(7), // 灰色
-  ;
-  private Integer value;
+    RED(1), // 红色
+    ORANGE(2), // 橙色
+    YELLOW(3), // 黄色
+    GREEN(4), // 绿色
+    BLUE(5), // 蓝色
+    PURPLE(6), // 紫色
+    NEUTRAL(7), // 灰色
+    ;
+    private Integer value;
 
-  CalloutCalloutBorderColorEnum(Integer value) {
-    this.value = value;
-  }
+    CalloutCalloutBorderColorEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

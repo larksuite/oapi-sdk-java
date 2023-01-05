@@ -16,98 +16,96 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OuterInfo {
-
-  /**
-   * 外部系统（不能包含中横线 "-"）
-   * <p> 示例值：星云
-   */
-  @SerializedName("provider")
-  private String provider;
-  /**
-   * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
-   * <p> 示例值：client_6539i3498d
-   */
-  @SerializedName("outer_id")
-  private String outerId;
-
-  // builder 开始
-  public OuterInfo() {
-  }
-
-  public OuterInfo(Builder builder) {
     /**
      * 外部系统（不能包含中横线 "-"）
      * <p> 示例值：星云
      */
-    this.provider = builder.provider;
-    /**
-     * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
-     * <p> 示例值：client_6539i3498d
-     */
-    this.outerId = builder.outerId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getProvider() {
-    return this.provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
-  }
-
-  public String getOuterId() {
-    return this.outerId;
-  }
-
-  public void setOuterId(String outerId) {
-    this.outerId = outerId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 外部系统（不能包含中横线 "-"）
-     * <p> 示例值：星云
-     */
+    @SerializedName("provider")
     private String provider;
     /**
      * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
      * <p> 示例值：client_6539i3498d
      */
+    @SerializedName("outer_id")
     private String outerId;
 
-    /**
-     * 外部系统（不能包含中横线 "-"）
-     * <p> 示例值：星云
-     *
-     * @param provider
-     * @return
-     */
-    public Builder provider(String provider) {
-      this.provider = provider;
-      return this;
+    // builder 开始
+    public OuterInfo() {
     }
 
-
-    /**
-     * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
-     * <p> 示例值：client_6539i3498d
-     *
-     * @param outerId
-     * @return
-     */
-    public Builder outerId(String outerId) {
-      this.outerId = outerId;
-      return this;
+    public OuterInfo(Builder builder) {
+        /**
+         * 外部系统（不能包含中横线 "-"）
+         * <p> 示例值：星云
+         */
+        this.provider = builder.provider;
+        /**
+         * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+         * <p> 示例值：client_6539i3498d
+         */
+        this.outerId = builder.outerId;
     }
 
-
-    public OuterInfo build() {
-      return new OuterInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getProvider() {
+        return this.provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public String getOuterId() {
+        return this.outerId;
+    }
+
+    public void setOuterId(String outerId) {
+        this.outerId = outerId;
+    }
+
+    public static class Builder {
+        /**
+         * 外部系统（不能包含中横线 "-"）
+         * <p> 示例值：星云
+         */
+        private String provider;
+        /**
+         * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+         * <p> 示例值：client_6539i3498d
+         */
+        private String outerId;
+
+        /**
+         * 外部系统（不能包含中横线 "-"）
+         * <p> 示例值：星云
+         *
+         * @param provider
+         * @return
+         */
+        public Builder provider(String provider) {
+            this.provider = provider;
+            return this;
+        }
+
+
+        /**
+         * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+         * <p> 示例值：client_6539i3498d
+         *
+         * @param outerId
+         * @return
+         */
+        public Builder outerId(String outerId) {
+            this.outerId = outerId;
+            return this;
+        }
+
+
+        public OuterInfo build() {
+            return new OuterInfo(this);
+        }
+    }
 }

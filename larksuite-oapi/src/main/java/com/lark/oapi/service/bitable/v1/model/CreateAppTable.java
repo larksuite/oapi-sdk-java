@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTable {
 
-  /**
-   * table id
-   * <p> 示例值：tblKz5D60T4JlfcT
-   */
-  @SerializedName("table_id")
-  private String tableId;
+    /**
+     * table id
+     * <p> 示例值：tblKz5D60T4JlfcT
+     */
+    @SerializedName("table_id")
+    private String tableId;
 
-  public String getTableId() {
-    return this.tableId;
-  }
+    public String getTableId() {
+        return this.tableId;
+    }
 
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
 
 }

@@ -17,19 +17,19 @@ package com.lark.oapi.service.application.v6.enums;
  * 消息类型，大小写不敏感，text：文本消息；image：图片消息；interactive：卡片消息；post：富文本消息；share_chat：群名片
  */
 public enum AppMessageTrendItemMessageTypeEnum {
-  TEXT("text"), // 文本消息
-  IMAGE("image"), // 图片消息
-  INTERACTIVE("interactive"), // 卡片消息
-  POST("post"), // 富文本消息
-  SHARE_CHAT("share_chat"), // 群名片
-  ;
-  private String value;
+    TEXT("text"), // 文本消息
+    IMAGE("image"), // 图片消息
+    INTERACTIVE("interactive"), // 卡片消息
+    POST("post"), // 富文本消息
+    SHARE_CHAT("share_chat"), // 群名片
+    ;
+    private String value;
 
-  AppMessageTrendItemMessageTypeEnum(String value) {
-    this.value = value;
-  }
+    AppMessageTrendItemMessageTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

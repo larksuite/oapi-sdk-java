@@ -17,18 +17,18 @@ package com.lark.oapi.service.application.v6.enums;
  * 权限等级描述
  */
 public enum AppScopeScopeLevelEnum {
-  LOW_LEVEL(1), // 低级权限
-  HIGH_LEVEL(2), // 高级权限
-  SUPER_LEVEL(3), // 超敏感权限
-  UNKNOWN_LEVEL(0), // 未知等级
-  ;
-  private Integer value;
+    LOW_LEVEL(1), // 低级权限
+    HIGH_LEVEL(2), // 高级权限
+    SUPER_LEVEL(3), // 超敏感权限
+    UNKNOWN_LEVEL(0), // 未知等级
+    ;
+    private Integer value;
 
-  AppScopeScopeLevelEnum(Integer value) {
-    this.value = value;
-  }
+    AppScopeScopeLevelEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

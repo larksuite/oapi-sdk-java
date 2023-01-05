@@ -16,61 +16,59 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateTitleSpaceNodeReqBody {
-
-  /**
-   * 节点新标题
-   * <p> 示例值：新标题
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public UpdateTitleSpaceNodeReqBody() {
-  }
-
-  public UpdateTitleSpaceNodeReqBody(Builder builder) {
     /**
      * 节点新标题
      * <p> 示例值：新标题
      */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 节点新标题
-     * <p> 示例值：新标题
-     */
+    @SerializedName("title")
     private String title;
 
-    /**
-     * 节点新标题
-     * <p> 示例值：新标题
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    // builder 开始
+    public UpdateTitleSpaceNodeReqBody() {
     }
 
-
-    public UpdateTitleSpaceNodeReqBody build() {
-      return new UpdateTitleSpaceNodeReqBody(this);
+    public UpdateTitleSpaceNodeReqBody(Builder builder) {
+        /**
+         * 节点新标题
+         * <p> 示例值：新标题
+         */
+        this.title = builder.title;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static class Builder {
+        /**
+         * 节点新标题
+         * <p> 示例值：新标题
+         */
+        private String title;
+
+        /**
+         * 节点新标题
+         * <p> 示例值：新标题
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        public UpdateTitleSpaceNodeReqBody build() {
+            return new UpdateTitleSpaceNodeReqBody(this);
+        }
+    }
 }

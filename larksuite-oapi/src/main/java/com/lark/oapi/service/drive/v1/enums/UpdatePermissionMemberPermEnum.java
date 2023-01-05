@@ -17,17 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 需要增加的权限角色
  */
 public enum UpdatePermissionMemberPermEnum {
-  VIEW("view"), // 可阅读角色
-  EDIT("edit"), // 可编辑角色
-  FULL_ACCESS("full_access"), // 可管理角色
-  ;
-  private String value;
+    VIEW("view"), // 可阅读角色
+    EDIT("edit"), // 可编辑角色
+    FULL_ACCESS("full_access"), // 可管理角色
+    ;
+    private String value;
 
-  UpdatePermissionMemberPermEnum(String value) {
-    this.value = value;
-  }
+    UpdatePermissionMemberPermEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Condition {
-
-  /**
-   * 筛选类型
-   * <p> 示例值：number
-   */
-  @SerializedName("filter_type")
-  private String filterType;
-  /**
-   * 比较类型
-   * <p> 示例值：less
-   */
-  @SerializedName("compare_type")
-  private String compareType;
-  /**
-   * 筛选参数
-   * <p> 示例值：6
-   */
-  @SerializedName("expected")
-  private String[] expected;
-
-  // builder 开始
-  public Condition() {
-  }
-
-  public Condition(Builder builder) {
     /**
      * 筛选类型
      * <p> 示例值：number
      */
-    this.filterType = builder.filterType;
-    /**
-     * 比较类型
-     * <p> 示例值：less
-     */
-    this.compareType = builder.compareType;
-    /**
-     * 筛选参数
-     * <p> 示例值：6
-     */
-    this.expected = builder.expected;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFilterType() {
-    return this.filterType;
-  }
-
-  public void setFilterType(String filterType) {
-    this.filterType = filterType;
-  }
-
-  public String getCompareType() {
-    return this.compareType;
-  }
-
-  public void setCompareType(String compareType) {
-    this.compareType = compareType;
-  }
-
-  public String[] getExpected() {
-    return this.expected;
-  }
-
-  public void setExpected(String[] expected) {
-    this.expected = expected;
-  }
-
-  public static class Builder {
-
-    /**
-     * 筛选类型
-     * <p> 示例值：number
-     */
+    @SerializedName("filter_type")
     private String filterType;
     /**
      * 比较类型
      * <p> 示例值：less
      */
+    @SerializedName("compare_type")
     private String compareType;
     /**
      * 筛选参数
      * <p> 示例值：6
      */
+    @SerializedName("expected")
     private String[] expected;
 
-    /**
-     * 筛选类型
-     * <p> 示例值：number
-     *
-     * @param filterType
-     * @return
-     */
-    public Builder filterType(String filterType) {
-      this.filterType = filterType;
-      return this;
+    // builder 开始
+    public Condition() {
     }
 
-
-    /**
-     * 比较类型
-     * <p> 示例值：less
-     *
-     * @param compareType
-     * @return
-     */
-    public Builder compareType(String compareType) {
-      this.compareType = compareType;
-      return this;
+    public Condition(Builder builder) {
+        /**
+         * 筛选类型
+         * <p> 示例值：number
+         */
+        this.filterType = builder.filterType;
+        /**
+         * 比较类型
+         * <p> 示例值：less
+         */
+        this.compareType = builder.compareType;
+        /**
+         * 筛选参数
+         * <p> 示例值：6
+         */
+        this.expected = builder.expected;
     }
 
-
-    /**
-     * 筛选参数
-     * <p> 示例值：6
-     *
-     * @param expected
-     * @return
-     */
-    public Builder expected(String[] expected) {
-      this.expected = expected;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Condition build() {
-      return new Condition(this);
+    public String getFilterType() {
+        return this.filterType;
     }
-  }
+
+    public void setFilterType(String filterType) {
+        this.filterType = filterType;
+    }
+
+    public String getCompareType() {
+        return this.compareType;
+    }
+
+    public void setCompareType(String compareType) {
+        this.compareType = compareType;
+    }
+
+    public String[] getExpected() {
+        return this.expected;
+    }
+
+    public void setExpected(String[] expected) {
+        this.expected = expected;
+    }
+
+    public static class Builder {
+        /**
+         * 筛选类型
+         * <p> 示例值：number
+         */
+        private String filterType;
+        /**
+         * 比较类型
+         * <p> 示例值：less
+         */
+        private String compareType;
+        /**
+         * 筛选参数
+         * <p> 示例值：6
+         */
+        private String[] expected;
+
+        /**
+         * 筛选类型
+         * <p> 示例值：number
+         *
+         * @param filterType
+         * @return
+         */
+        public Builder filterType(String filterType) {
+            this.filterType = filterType;
+            return this;
+        }
+
+
+        /**
+         * 比较类型
+         * <p> 示例值：less
+         *
+         * @param compareType
+         * @return
+         */
+        public Builder compareType(String compareType) {
+            this.compareType = compareType;
+            return this;
+        }
+
+
+        /**
+         * 筛选参数
+         * <p> 示例值：6
+         *
+         * @param expected
+         * @return
+         */
+        public Builder expected(String[] expected) {
+            this.expected = expected;
+            return this;
+        }
+
+
+        public Condition build() {
+            return new Condition(this);
+        }
+    }
 }

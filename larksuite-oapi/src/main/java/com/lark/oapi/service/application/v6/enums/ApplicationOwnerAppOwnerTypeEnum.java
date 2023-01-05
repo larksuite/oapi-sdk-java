@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 应用所有者类型
  */
 public enum ApplicationOwnerAppOwnerTypeEnum {
-  LARKTECHNOLOGY(0), // 飞书科技
-  LARKPARTNERS(1), // 飞书合作伙伴
-  ENTERPRISEMEMBER(2), // 企业内成员
-  ;
-  private Integer value;
+    LARKTECHNOLOGY(0), // 飞书科技
+    LARKPARTNERS(1), // 飞书合作伙伴
+    ENTERPRISEMEMBER(2), // 企业内成员
+    ;
+    private Integer value;
 
-  ApplicationOwnerAppOwnerTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationOwnerAppOwnerTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

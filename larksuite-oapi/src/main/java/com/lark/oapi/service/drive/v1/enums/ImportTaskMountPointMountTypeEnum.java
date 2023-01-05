@@ -17,15 +17,15 @@ package com.lark.oapi.service.drive.v1.enums;
  * 挂载类型
  */
 public enum ImportTaskMountPointMountTypeEnum {
-  SPACE(1), // 挂载到云空间
-  ;
-  private Integer value;
+    SPACE(1), // 挂载到云空间
+    ;
+    private Integer value;
 
-  ImportTaskMountPointMountTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ImportTaskMountPointMountTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

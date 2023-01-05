@@ -16,20 +16,19 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MeetingListExportRespBody {
+    /**
+     * 任务id
+     * <p> 示例值：7111325589855797267
+     */
+    @SerializedName("task_id")
+    private String taskId;
 
-  /**
-   * 任务id
-   * <p> 示例值：7111325589855797267
-   */
-  @SerializedName("task_id")
-  private String taskId;
+    public String getTaskId() {
+        return this.taskId;
+    }
 
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
 }

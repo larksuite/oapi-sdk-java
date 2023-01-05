@@ -16,101 +16,96 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Origin {
-
-  /**
-   * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn,
-   * id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
-   * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
-   */
-  @SerializedName("platform_i18n_name")
-  private String platformI18nName;
-  /**
-   * 任务关联的来源平台详情页链接
-   * <p> 示例值：
-   */
-  @SerializedName("href")
-  private Href href;
-
-  // builder 开始
-  public Origin() {
-  }
-
-  public Origin(Builder builder) {
     /**
-     * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn, id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
+     * 任务来源的名称。;用于在任务中心详情页展示。需要提供一个字典，支持多种语言名称映射。应用在使用不同语言时，导入来源也将展示对应的内容。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
      * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
      */
-    this.platformI18nName = builder.platformI18nName;
-    /**
-     * 任务关联的来源平台详情页链接
-     * <p> 示例值：
-     */
-    this.href = builder.href;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPlatformI18nName() {
-    return this.platformI18nName;
-  }
-
-  public void setPlatformI18nName(String platformI18nName) {
-    this.platformI18nName = platformI18nName;
-  }
-
-  public Href getHref() {
-    return this.href;
-  }
-
-  public void setHref(Href href) {
-    this.href = href;
-  }
-
-  public static class Builder {
-
-    /**
-     * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn,
-     * id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
-     * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
-     */
+    @SerializedName("platform_i18n_name")
     private String platformI18nName;
     /**
      * 任务关联的来源平台详情页链接
      * <p> 示例值：
      */
+    @SerializedName("href")
     private Href href;
 
-    /**
-     * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn,
-     * id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
-     * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
-     *
-     * @param platformI18nName
-     * @return
-     */
-    public Builder platformI18nName(String platformI18nName) {
-      this.platformI18nName = platformI18nName;
-      return this;
+    // builder 开始
+    public Origin() {
     }
 
-
-    /**
-     * 任务关联的来源平台详情页链接
-     * <p> 示例值：
-     *
-     * @param href
-     * @return
-     */
-    public Builder href(Href href) {
-      this.href = href;
-      return this;
+    public Origin(Builder builder) {
+        /**
+         * 任务来源的名称。;用于在任务中心详情页展示。需要提供一个字典，支持多种语言名称映射。应用在使用不同语言时，导入来源也将展示对应的内容。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
+         * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+         */
+        this.platformI18nName = builder.platformI18nName;
+        /**
+         * 任务关联的来源平台详情页链接
+         * <p> 示例值：
+         */
+        this.href = builder.href;
     }
 
-
-    public Origin build() {
-      return new Origin(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getPlatformI18nName() {
+        return this.platformI18nName;
+    }
+
+    public void setPlatformI18nName(String platformI18nName) {
+        this.platformI18nName = platformI18nName;
+    }
+
+    public Href getHref() {
+        return this.href;
+    }
+
+    public void setHref(Href href) {
+        this.href = href;
+    }
+
+    public static class Builder {
+        /**
+         * 任务来源的名称。;用于在任务中心详情页展示。需要提供一个字典，支持多种语言名称映射。应用在使用不同语言时，导入来源也将展示对应的内容。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
+         * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+         */
+        private String platformI18nName;
+        /**
+         * 任务关联的来源平台详情页链接
+         * <p> 示例值：
+         */
+        private Href href;
+
+        /**
+         * 任务来源的名称。;用于在任务中心详情页展示。需要提供一个字典，支持多种语言名称映射。应用在使用不同语言时，导入来源也将展示对应的内容。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
+         * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+         *
+         * @param platformI18nName
+         * @return
+         */
+        public Builder platformI18nName(String platformI18nName) {
+            this.platformI18nName = platformI18nName;
+            return this;
+        }
+
+
+        /**
+         * 任务关联的来源平台详情页链接
+         * <p> 示例值：
+         *
+         * @param href
+         * @return
+         */
+        public Builder href(Href href) {
+            this.href = href;
+            return this;
+        }
+
+
+        public Origin build() {
+            return new Origin(this);
+        }
+    }
 }

@@ -16,64 +16,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1UserChangedV3Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("employee_id")
-  private String employeeId;
-  @SerializedName("union_id")
-  private String unionId;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("open_id")
+    private String openId;
+    @SerializedName("employee_id")
+    private String employeeId;
+    @SerializedName("union_id")
+    private String unionId;
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public String getOpenId() {
-    return openId;
-  }
+    public String getOpenId() {
+        return openId;
+    }
 
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
-  public String getEmployeeId() {
-    return employeeId;
-  }
+    public String getEmployeeId() {
+        return employeeId;
+    }
 
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
-  public String getUnionId() {
-    return unionId;
-  }
+    public String getUnionId() {
+        return unionId;
+    }
 
-  public void setUnionId(String unionId) {
-    this.unionId = unionId;
-  }
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
+    }
 }

@@ -17,15 +17,15 @@ package com.lark.oapi.service.contact.v3.enums;
  * 用户组成员的类型，取值为 user
  */
 public enum AddGroupMemberMemberTypeEnum {
-  USER("user"), // 用户成员
-  ;
-  private String value;
+    USER("user"), // 用户成员
+    ;
+    private String value;
 
-  AddGroupMemberMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    AddGroupMemberMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

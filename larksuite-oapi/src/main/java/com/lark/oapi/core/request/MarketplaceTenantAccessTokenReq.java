@@ -16,59 +16,59 @@ import com.google.gson.annotations.SerializedName;
 
 public class MarketplaceTenantAccessTokenReq {
 
-  @SerializedName("app_access_token")
-  private String appAccessToken;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  public MarketplaceTenantAccessTokenReq(Builder builder) {
-    setAppAccessToken(builder.appAccessToken);
-    setTenantKey(builder.tenantKey);
-  }
-
-  public MarketplaceTenantAccessTokenReq() {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppAccessToken() {
-    return appAccessToken;
-  }
-
-  public void setAppAccessToken(String appAccessToken) {
-    this.appAccessToken = appAccessToken;
-  }
-
-  public String getTenantKey() {
-    return tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static final class Builder {
-
+    @SerializedName("app_access_token")
     private String appAccessToken;
+    @SerializedName("tenant_key")
     private String tenantKey;
 
-    private Builder() {
+    public MarketplaceTenantAccessTokenReq(Builder builder) {
+        setAppAccessToken(builder.appAccessToken);
+        setTenantKey(builder.tenantKey);
     }
 
-    public Builder appAccessToken(String appAccessToken) {
-      this.appAccessToken = appAccessToken;
-      return this;
+    public MarketplaceTenantAccessTokenReq() {
     }
 
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public MarketplaceTenantAccessTokenReq build() {
-      return new MarketplaceTenantAccessTokenReq(this);
+    public String getAppAccessToken() {
+        return appAccessToken;
     }
-  }
+
+    public void setAppAccessToken(String appAccessToken) {
+        this.appAccessToken = appAccessToken;
+    }
+
+    public String getTenantKey() {
+        return tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public static final class Builder {
+
+        private String appAccessToken;
+        private String tenantKey;
+
+        private Builder() {
+        }
+
+        public Builder appAccessToken(String appAccessToken) {
+            this.appAccessToken = appAccessToken;
+            return this;
+        }
+
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+        public MarketplaceTenantAccessTokenReq build() {
+            return new MarketplaceTenantAccessTokenReq(this);
+        }
+    }
 }

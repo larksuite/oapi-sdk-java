@@ -16,320 +16,318 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OkrObjective {
-
-  /**
-   * objective ID
-   * <p> 示例值："7109022409227026460"
-   */
-  @SerializedName("objective_id")
-  private String objectiveId;
-  /**
-   * 是否设置过私密权限
-   * <p> 示例值：false
-   */
-  @SerializedName("confidential")
-  private Boolean confidential;
-  /**
-   * objective 的位置编号，对应 Block 中 O1、O2 的 1、2
-   * <p> 示例值：1
-   */
-  @SerializedName("position")
-  private Integer position;
-  /**
-   * 打分信息
-   * <p> 示例值：0
-   */
-  @SerializedName("score")
-  private Integer score;
-  /**
-   * OKR Block 中是否展示该 objective
-   * <p> 示例值：true
-   */
-  @SerializedName("visible")
-  private Boolean visible;
-  /**
-   * objective 的权重
-   * <p> 示例值：1.0
-   */
-  @SerializedName("weight")
-  private Double weight;
-  /**
-   * 进展信息
-   * <p> 示例值：
-   */
-  @SerializedName("progress_rate")
-  private OkrProgressRate progressRate;
-  /**
-   * objective 的文本内容
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private Text content;
-
-  // builder 开始
-  public OkrObjective() {
-  }
-
-  public OkrObjective(Builder builder) {
     /**
-     * objective ID
+     * Objective ID
      * <p> 示例值："7109022409227026460"
      */
-    this.objectiveId = builder.objectiveId;
-    /**
-     * 是否设置过私密权限
-     * <p> 示例值：false
-     */
-    this.confidential = builder.confidential;
-    /**
-     * objective 的位置编号，对应 Block 中 O1、O2 的 1、2
-     * <p> 示例值：1
-     */
-    this.position = builder.position;
-    /**
-     * 打分信息
-     * <p> 示例值：0
-     */
-    this.score = builder.score;
-    /**
-     * OKR Block 中是否展示该 objective
-     * <p> 示例值：true
-     */
-    this.visible = builder.visible;
-    /**
-     * objective 的权重
-     * <p> 示例值：1.0
-     */
-    this.weight = builder.weight;
-    /**
-     * 进展信息
-     * <p> 示例值：
-     */
-    this.progressRate = builder.progressRate;
-    /**
-     * objective 的文本内容
-     * <p> 示例值：
-     */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getObjectiveId() {
-    return this.objectiveId;
-  }
-
-  public void setObjectiveId(String objectiveId) {
-    this.objectiveId = objectiveId;
-  }
-
-  public Boolean getConfidential() {
-    return this.confidential;
-  }
-
-  public void setConfidential(Boolean confidential) {
-    this.confidential = confidential;
-  }
-
-  public Integer getPosition() {
-    return this.position;
-  }
-
-  public void setPosition(Integer position) {
-    this.position = position;
-  }
-
-  public Integer getScore() {
-    return this.score;
-  }
-
-  public void setScore(Integer score) {
-    this.score = score;
-  }
-
-  public Boolean getVisible() {
-    return this.visible;
-  }
-
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
-  }
-
-  public Double getWeight() {
-    return this.weight;
-  }
-
-  public void setWeight(Double weight) {
-    this.weight = weight;
-  }
-
-  public OkrProgressRate getProgressRate() {
-    return this.progressRate;
-  }
-
-  public void setProgressRate(OkrProgressRate progressRate) {
-    this.progressRate = progressRate;
-  }
-
-  public Text getContent() {
-    return this.content;
-  }
-
-  public void setContent(Text content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * objective ID
-     * <p> 示例值："7109022409227026460"
-     */
+    @SerializedName("objective_id")
     private String objectiveId;
     /**
-     * 是否设置过私密权限
+     * 是否在 OKR 平台设置了私密权限
      * <p> 示例值：false
      */
+    @SerializedName("confidential")
     private Boolean confidential;
     /**
-     * objective 的位置编号，对应 Block 中 O1、O2 的 1、2
+     * Objective 的位置编号，对应 Block 中 O1、O2 的 1、2
      * <p> 示例值：1
      */
+    @SerializedName("position")
     private Integer position;
     /**
      * 打分信息
      * <p> 示例值：0
      */
+    @SerializedName("score")
     private Integer score;
     /**
-     * OKR Block 中是否展示该 objective
+     * OKR Block 中是否展示该 Objective
      * <p> 示例值：true
      */
+    @SerializedName("visible")
     private Boolean visible;
     /**
-     * objective 的权重
+     * Objective 的权重
      * <p> 示例值：1.0
      */
+    @SerializedName("weight")
     private Double weight;
     /**
      * 进展信息
      * <p> 示例值：
      */
+    @SerializedName("progress_rate")
     private OkrProgressRate progressRate;
     /**
-     * objective 的文本内容
+     * Objective 的文本内容
      * <p> 示例值：
      */
+    @SerializedName("content")
     private Text content;
 
-    /**
-     * objective ID
-     * <p> 示例值："7109022409227026460"
-     *
-     * @param objectiveId
-     * @return
-     */
-    public Builder objectiveId(String objectiveId) {
-      this.objectiveId = objectiveId;
-      return this;
+    // builder 开始
+    public OkrObjective() {
     }
 
-
-    /**
-     * 是否设置过私密权限
-     * <p> 示例值：false
-     *
-     * @param confidential
-     * @return
-     */
-    public Builder confidential(Boolean confidential) {
-      this.confidential = confidential;
-      return this;
+    public OkrObjective(Builder builder) {
+        /**
+         * Objective ID
+         * <p> 示例值："7109022409227026460"
+         */
+        this.objectiveId = builder.objectiveId;
+        /**
+         * 是否在 OKR 平台设置了私密权限
+         * <p> 示例值：false
+         */
+        this.confidential = builder.confidential;
+        /**
+         * Objective 的位置编号，对应 Block 中 O1、O2 的 1、2
+         * <p> 示例值：1
+         */
+        this.position = builder.position;
+        /**
+         * 打分信息
+         * <p> 示例值：0
+         */
+        this.score = builder.score;
+        /**
+         * OKR Block 中是否展示该 Objective
+         * <p> 示例值：true
+         */
+        this.visible = builder.visible;
+        /**
+         * Objective 的权重
+         * <p> 示例值：1.0
+         */
+        this.weight = builder.weight;
+        /**
+         * 进展信息
+         * <p> 示例值：
+         */
+        this.progressRate = builder.progressRate;
+        /**
+         * Objective 的文本内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
     }
 
-
-    /**
-     * objective 的位置编号，对应 Block 中 O1、O2 的 1、2
-     * <p> 示例值：1
-     *
-     * @param position
-     * @return
-     */
-    public Builder position(Integer position) {
-      this.position = position;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 打分信息
-     * <p> 示例值：0
-     *
-     * @param score
-     * @return
-     */
-    public Builder score(Integer score) {
-      this.score = score;
-      return this;
+    public String getObjectiveId() {
+        return this.objectiveId;
     }
 
-
-    /**
-     * OKR Block 中是否展示该 objective
-     * <p> 示例值：true
-     *
-     * @param visible
-     * @return
-     */
-    public Builder visible(Boolean visible) {
-      this.visible = visible;
-      return this;
+    public void setObjectiveId(String objectiveId) {
+        this.objectiveId = objectiveId;
     }
 
-
-    /**
-     * objective 的权重
-     * <p> 示例值：1.0
-     *
-     * @param weight
-     * @return
-     */
-    public Builder weight(Double weight) {
-      this.weight = weight;
-      return this;
+    public Boolean getConfidential() {
+        return this.confidential;
     }
 
-
-    /**
-     * 进展信息
-     * <p> 示例值：
-     *
-     * @param progressRate
-     * @return
-     */
-    public Builder progressRate(OkrProgressRate progressRate) {
-      this.progressRate = progressRate;
-      return this;
+    public void setConfidential(Boolean confidential) {
+        this.confidential = confidential;
     }
 
-
-    /**
-     * objective 的文本内容
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(Text content) {
-      this.content = content;
-      return this;
+    public Integer getPosition() {
+        return this.position;
     }
 
-
-    public OkrObjective build() {
-      return new OkrObjective(this);
+    public void setPosition(Integer position) {
+        this.position = position;
     }
-  }
+
+    public Integer getScore() {
+        return this.score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Boolean getVisible() {
+        return this.visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
+    public Double getWeight() {
+        return this.weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public OkrProgressRate getProgressRate() {
+        return this.progressRate;
+    }
+
+    public void setProgressRate(OkrProgressRate progressRate) {
+        this.progressRate = progressRate;
+    }
+
+    public Text getContent() {
+        return this.content;
+    }
+
+    public void setContent(Text content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * Objective ID
+         * <p> 示例值："7109022409227026460"
+         */
+        private String objectiveId;
+        /**
+         * 是否在 OKR 平台设置了私密权限
+         * <p> 示例值：false
+         */
+        private Boolean confidential;
+        /**
+         * Objective 的位置编号，对应 Block 中 O1、O2 的 1、2
+         * <p> 示例值：1
+         */
+        private Integer position;
+        /**
+         * 打分信息
+         * <p> 示例值：0
+         */
+        private Integer score;
+        /**
+         * OKR Block 中是否展示该 Objective
+         * <p> 示例值：true
+         */
+        private Boolean visible;
+        /**
+         * Objective 的权重
+         * <p> 示例值：1.0
+         */
+        private Double weight;
+        /**
+         * 进展信息
+         * <p> 示例值：
+         */
+        private OkrProgressRate progressRate;
+        /**
+         * Objective 的文本内容
+         * <p> 示例值：
+         */
+        private Text content;
+
+        /**
+         * Objective ID
+         * <p> 示例值："7109022409227026460"
+         *
+         * @param objectiveId
+         * @return
+         */
+        public Builder objectiveId(String objectiveId) {
+            this.objectiveId = objectiveId;
+            return this;
+        }
+
+
+        /**
+         * 是否在 OKR 平台设置了私密权限
+         * <p> 示例值：false
+         *
+         * @param confidential
+         * @return
+         */
+        public Builder confidential(Boolean confidential) {
+            this.confidential = confidential;
+            return this;
+        }
+
+
+        /**
+         * Objective 的位置编号，对应 Block 中 O1、O2 的 1、2
+         * <p> 示例值：1
+         *
+         * @param position
+         * @return
+         */
+        public Builder position(Integer position) {
+            this.position = position;
+            return this;
+        }
+
+
+        /**
+         * 打分信息
+         * <p> 示例值：0
+         *
+         * @param score
+         * @return
+         */
+        public Builder score(Integer score) {
+            this.score = score;
+            return this;
+        }
+
+
+        /**
+         * OKR Block 中是否展示该 Objective
+         * <p> 示例值：true
+         *
+         * @param visible
+         * @return
+         */
+        public Builder visible(Boolean visible) {
+            this.visible = visible;
+            return this;
+        }
+
+
+        /**
+         * Objective 的权重
+         * <p> 示例值：1.0
+         *
+         * @param weight
+         * @return
+         */
+        public Builder weight(Double weight) {
+            this.weight = weight;
+            return this;
+        }
+
+
+        /**
+         * 进展信息
+         * <p> 示例值：
+         *
+         * @param progressRate
+         * @return
+         */
+        public Builder progressRate(OkrProgressRate progressRate) {
+            this.progressRate = progressRate;
+            return this;
+        }
+
+
+        /**
+         * Objective 的文本内容
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(Text content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public OkrObjective build() {
+            return new OkrObjective(this);
+        }
+    }
 }

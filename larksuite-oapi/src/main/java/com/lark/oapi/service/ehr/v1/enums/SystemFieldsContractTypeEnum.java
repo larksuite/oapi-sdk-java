@@ -17,21 +17,21 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 合同类型
  */
 public enum SystemFieldsContractTypeEnum {
-  FIXED_TERM_LABOR_CONTRACT(1), // 固定期限劳动合同
-  OPEN_ENDED_LABOR_CONTRACT(2), // 无固定期限劳动合同
-  INTERNSHIP_AGREEMENT(3), // 实习协议
-  OUTSOURCING_AGREEMENT(4), // 外包协议
-  DISPATCHED_CONTRACT(5), // 劳务派遣合同
-  RE_ENGAGEMENT_AGREEMENT(6), // 返聘协议
-  OTHER(7), // 其他
-  ;
-  private Integer value;
+    FIXED_TERM_LABOR_CONTRACT(1), // 固定期限劳动合同
+    OPEN_ENDED_LABOR_CONTRACT(2), // 无固定期限劳动合同
+    INTERNSHIP_AGREEMENT(3), // 实习协议
+    OUTSOURCING_AGREEMENT(4), // 外包协议
+    DISPATCHED_CONTRACT(5), // 劳务派遣合同
+    RE_ENGAGEMENT_AGREEMENT(6), // 返聘协议
+    OTHER(7), // 其他
+    ;
+    private Integer value;
 
-  SystemFieldsContractTypeEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsContractTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

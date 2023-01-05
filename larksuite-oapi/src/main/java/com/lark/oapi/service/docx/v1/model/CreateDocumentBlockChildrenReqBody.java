@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateDocumentBlockChildrenReqBody {
-
-  /**
-   * 添加的孩子列表。
-   * <p> 示例值：
-   */
-  @SerializedName("children")
-  private Block[] children;
-  /**
-   * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-   * <p> 示例值：0
-   */
-  @SerializedName("index")
-  private Integer index;
-
-  // builder 开始
-  public CreateDocumentBlockChildrenReqBody() {
-  }
-
-  public CreateDocumentBlockChildrenReqBody(Builder builder) {
     /**
      * 添加的孩子列表。
      * <p> 示例值：
      */
-    this.children = builder.children;
-    /**
-     * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-     * <p> 示例值：0
-     */
-    this.index = builder.index;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Block[] getChildren() {
-    return this.children;
-  }
-
-  public void setChildren(Block[] children) {
-    this.children = children;
-  }
-
-  public Integer getIndex() {
-    return this.index;
-  }
-
-  public void setIndex(Integer index) {
-    this.index = index;
-  }
-
-  public static class Builder {
-
-    /**
-     * 添加的孩子列表。
-     * <p> 示例值：
-     */
+    @SerializedName("children")
     private Block[] children;
     /**
      * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
      * <p> 示例值：0
      */
+    @SerializedName("index")
     private Integer index;
 
-    /**
-     * 添加的孩子列表。
-     * <p> 示例值：
-     *
-     * @param children
-     * @return
-     */
-    public Builder children(Block[] children) {
-      this.children = children;
-      return this;
+    // builder 开始
+    public CreateDocumentBlockChildrenReqBody() {
     }
 
-
-    /**
-     * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-     * <p> 示例值：0
-     *
-     * @param index
-     * @return
-     */
-    public Builder index(Integer index) {
-      this.index = index;
-      return this;
+    public CreateDocumentBlockChildrenReqBody(Builder builder) {
+        /**
+         * 添加的孩子列表。
+         * <p> 示例值：
+         */
+        this.children = builder.children;
+        /**
+         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
+         * <p> 示例值：0
+         */
+        this.index = builder.index;
     }
 
-
-    public CreateDocumentBlockChildrenReqBody build() {
-      return new CreateDocumentBlockChildrenReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Block[] getChildren() {
+        return this.children;
+    }
+
+    public void setChildren(Block[] children) {
+        this.children = children;
+    }
+
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public static class Builder {
+        /**
+         * 添加的孩子列表。
+         * <p> 示例值：
+         */
+        private Block[] children;
+        /**
+         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
+         * <p> 示例值：0
+         */
+        private Integer index;
+
+        /**
+         * 添加的孩子列表。
+         * <p> 示例值：
+         *
+         * @param children
+         * @return
+         */
+        public Builder children(Block[] children) {
+            this.children = children;
+            return this;
+        }
+
+
+        /**
+         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
+         * <p> 示例值：0
+         *
+         * @param index
+         * @return
+         */
+        public Builder index(Integer index) {
+            this.index = index;
+            return this;
+        }
+
+
+        public CreateDocumentBlockChildrenReqBody build() {
+            return new CreateDocumentBlockChildrenReqBody(this);
+        }
+    }
 }

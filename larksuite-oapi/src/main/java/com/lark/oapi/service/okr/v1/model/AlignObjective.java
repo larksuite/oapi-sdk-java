@@ -16,135 +16,133 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AlignObjective {
-
-  /**
-   * Objective ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * OKR ID
-   * <p> 示例值：
-   */
-  @SerializedName("okr_id")
-  private String okrId;
-  /**
-   * 用户 UUID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public AlignObjective() {
-  }
-
-  public AlignObjective(Builder builder) {
     /**
      * Objective ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * OKR ID
-     * <p> 示例值：
-     */
-    this.okrId = builder.okrId;
-    /**
-     * 用户 UUID
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getOkrId() {
-    return this.okrId;
-  }
-
-  public void setOkrId(String okrId) {
-    this.okrId = okrId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * Objective ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * OKR ID
      * <p> 示例值：
      */
+    @SerializedName("okr_id")
     private String okrId;
     /**
      * 用户 UUID
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * Objective ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public AlignObjective() {
     }
 
-
-    /**
-     * OKR ID
-     * <p> 示例值：
-     *
-     * @param okrId
-     * @return
-     */
-    public Builder okrId(String okrId) {
-      this.okrId = okrId;
-      return this;
+    public AlignObjective(Builder builder) {
+        /**
+         * Objective ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * OKR ID
+         * <p> 示例值：
+         */
+        this.okrId = builder.okrId;
+        /**
+         * 用户 UUID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
     }
 
-
-    /**
-     * 用户 UUID
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AlignObjective build() {
-      return new AlignObjective(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getOkrId() {
+        return this.okrId;
+    }
+
+    public void setOkrId(String okrId) {
+        this.okrId = okrId;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * Objective ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * OKR ID
+         * <p> 示例值：
+         */
+        private String okrId;
+        /**
+         * 用户 UUID
+         * <p> 示例值：
+         */
+        private String userId;
+
+        /**
+         * Objective ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * OKR ID
+         * <p> 示例值：
+         *
+         * @param okrId
+         * @return
+         */
+        public Builder okrId(String okrId) {
+            this.okrId = okrId;
+            return this;
+        }
+
+
+        /**
+         * 用户 UUID
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public AlignObjective build() {
+            return new AlignObjective(this);
+        }
+    }
 }

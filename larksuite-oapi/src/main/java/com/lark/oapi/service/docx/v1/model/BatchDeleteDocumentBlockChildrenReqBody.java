@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteDocumentBlockChildrenReqBody {
-
-  /**
-   * 删除的起始索引（操作区间左闭右开）
-   * <p> 示例值：0
-   */
-  @SerializedName("start_index")
-  private Integer startIndex;
-  /**
-   * 删除的末尾索引（操作区间左闭右开）
-   * <p> 示例值：1
-   */
-  @SerializedName("end_index")
-  private Integer endIndex;
-
-  // builder 开始
-  public BatchDeleteDocumentBlockChildrenReqBody() {
-  }
-
-  public BatchDeleteDocumentBlockChildrenReqBody(Builder builder) {
     /**
      * 删除的起始索引（操作区间左闭右开）
      * <p> 示例值：0
      */
-    this.startIndex = builder.startIndex;
-    /**
-     * 删除的末尾索引（操作区间左闭右开）
-     * <p> 示例值：1
-     */
-    this.endIndex = builder.endIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStartIndex() {
-    return this.startIndex;
-  }
-
-  public void setStartIndex(Integer startIndex) {
-    this.startIndex = startIndex;
-  }
-
-  public Integer getEndIndex() {
-    return this.endIndex;
-  }
-
-  public void setEndIndex(Integer endIndex) {
-    this.endIndex = endIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 删除的起始索引（操作区间左闭右开）
-     * <p> 示例值：0
-     */
+    @SerializedName("start_index")
     private Integer startIndex;
     /**
      * 删除的末尾索引（操作区间左闭右开）
      * <p> 示例值：1
      */
+    @SerializedName("end_index")
     private Integer endIndex;
 
-    /**
-     * 删除的起始索引（操作区间左闭右开）
-     * <p> 示例值：0
-     *
-     * @param startIndex
-     * @return
-     */
-    public Builder startIndex(Integer startIndex) {
-      this.startIndex = startIndex;
-      return this;
+    // builder 开始
+    public BatchDeleteDocumentBlockChildrenReqBody() {
     }
 
-
-    /**
-     * 删除的末尾索引（操作区间左闭右开）
-     * <p> 示例值：1
-     *
-     * @param endIndex
-     * @return
-     */
-    public Builder endIndex(Integer endIndex) {
-      this.endIndex = endIndex;
-      return this;
+    public BatchDeleteDocumentBlockChildrenReqBody(Builder builder) {
+        /**
+         * 删除的起始索引（操作区间左闭右开）
+         * <p> 示例值：0
+         */
+        this.startIndex = builder.startIndex;
+        /**
+         * 删除的末尾索引（操作区间左闭右开）
+         * <p> 示例值：1
+         */
+        this.endIndex = builder.endIndex;
     }
 
-
-    public BatchDeleteDocumentBlockChildrenReqBody build() {
-      return new BatchDeleteDocumentBlockChildrenReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getStartIndex() {
+        return this.startIndex;
+    }
+
+    public void setStartIndex(Integer startIndex) {
+        this.startIndex = startIndex;
+    }
+
+    public Integer getEndIndex() {
+        return this.endIndex;
+    }
+
+    public void setEndIndex(Integer endIndex) {
+        this.endIndex = endIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 删除的起始索引（操作区间左闭右开）
+         * <p> 示例值：0
+         */
+        private Integer startIndex;
+        /**
+         * 删除的末尾索引（操作区间左闭右开）
+         * <p> 示例值：1
+         */
+        private Integer endIndex;
+
+        /**
+         * 删除的起始索引（操作区间左闭右开）
+         * <p> 示例值：0
+         *
+         * @param startIndex
+         * @return
+         */
+        public Builder startIndex(Integer startIndex) {
+            this.startIndex = startIndex;
+            return this;
+        }
+
+
+        /**
+         * 删除的末尾索引（操作区间左闭右开）
+         * <p> 示例值：1
+         *
+         * @param endIndex
+         * @return
+         */
+        public Builder endIndex(Integer endIndex) {
+            this.endIndex = endIndex;
+            return this;
+        }
+
+
+        public BatchDeleteDocumentBlockChildrenReqBody build() {
+            return new BatchDeleteDocumentBlockChildrenReqBody(this);
+        }
+    }
 }

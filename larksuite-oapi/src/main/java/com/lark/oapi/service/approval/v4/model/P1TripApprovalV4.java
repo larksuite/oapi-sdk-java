@@ -17,14 +17,14 @@ import com.lark.oapi.event.model.BaseEvent;
 
 public class P1TripApprovalV4 extends BaseEvent {
 
-  @SerializedName("event")
-  private P1TripApprovalV4Data event;
+    @SerializedName("event")
+    private P1TripApprovalV4Data event;
 
-  public P1TripApprovalV4Data getEvent() {
-    return event;
-  }
+    public P1TripApprovalV4Data getEvent() {
+        return event;
+    }
 
-  public void setEvent(P1TripApprovalV4Data event) {
-    this.event = event;
-  }
+    public void setEvent(P1TripApprovalV4Data event) {
+        this.event = event;
+    }
 }

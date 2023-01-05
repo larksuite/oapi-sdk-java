@@ -17,15 +17,15 @@ package com.lark.oapi.service.bitable.v1.enums;
  * Block类型
  */
 public enum AppRoleBlockRoleBlockTypeEnum {
-  DASHBOARD("dashboard"), // 仪表盘
-  ;
-  private String value;
+    DASHBOARD("dashboard"), // 仪表盘
+    ;
+    private String value;
 
-  AppRoleBlockRoleBlockTypeEnum(String value) {
-    this.value = value;
-  }
+    AppRoleBlockRoleBlockTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

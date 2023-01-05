@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetectText {
 
-  /**
-   * 识别的文本语种，返回符合 ISO 639-1 标准
-   * <p> 示例值：zh
-   */
-  @SerializedName("language")
-  private String language;
+    /**
+     * 识别的文本语种，返回符合 ISO 639-1 标准
+     * <p> 示例值：zh
+     */
+    @SerializedName("language")
+    private String language;
 
-  public String getLanguage() {
-    return this.language;
-  }
+    public String getLanguage() {
+        return this.language;
+    }
 
-  public void setLanguage(String language) {
-    this.language = language;
-  }
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
 }

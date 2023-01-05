@@ -18,6 +18,7 @@
 package com.lark.oapi.okhttp.internal.connection;
 
 import com.lark.oapi.okhttp.internal.Util;
+
 import java.io.IOException;
 
 /**
@@ -26,25 +27,25 @@ import java.io.IOException;
  */
 public final class RouteException extends RuntimeException {
 
-  private IOException firstException;
-  private IOException lastException;
+    private IOException firstException;
+    private IOException lastException;
 
-  RouteException(IOException cause) {
-    super(cause);
-    firstException = cause;
-    lastException = cause;
-  }
+    RouteException(IOException cause) {
+        super(cause);
+        firstException = cause;
+        lastException = cause;
+    }
 
-  public IOException getFirstConnectException() {
-    return firstException;
-  }
+    public IOException getFirstConnectException() {
+        return firstException;
+    }
 
-  public IOException getLastConnectException() {
-    return lastException;
-  }
+    public IOException getLastConnectException() {
+        return lastException;
+    }
 
-  void addConnectException(IOException e) {
-    Util.addSuppressedIfPossible(firstException, e);
-    lastException = e;
-  }
+    void addConnectException(IOException e) {
+        Util.addSuppressedIfPossible(firstException, e);
+        lastException = e;
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateMessageReactionReqBody {
-
-  /**
-   * reaction资源类型
-   * <p> 示例值：
-   */
-  @SerializedName("reaction_type")
-  private Emoji reactionType;
-
-  // builder 开始
-  public CreateMessageReactionReqBody() {
-  }
-
-  public CreateMessageReactionReqBody(Builder builder) {
     /**
      * reaction资源类型
      * <p> 示例值：
      */
-    this.reactionType = builder.reactionType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Emoji getReactionType() {
-    return this.reactionType;
-  }
-
-  public void setReactionType(Emoji reactionType) {
-    this.reactionType = reactionType;
-  }
-
-  public static class Builder {
-
-    /**
-     * reaction资源类型
-     * <p> 示例值：
-     */
+    @SerializedName("reaction_type")
     private Emoji reactionType;
 
-    /**
-     * reaction资源类型
-     * <p> 示例值：
-     *
-     * @param reactionType
-     * @return
-     */
-    public Builder reactionType(Emoji reactionType) {
-      this.reactionType = reactionType;
-      return this;
+    // builder 开始
+    public CreateMessageReactionReqBody() {
     }
 
-
-    public CreateMessageReactionReqBody build() {
-      return new CreateMessageReactionReqBody(this);
+    public CreateMessageReactionReqBody(Builder builder) {
+        /**
+         * reaction资源类型
+         * <p> 示例值：
+         */
+        this.reactionType = builder.reactionType;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Emoji getReactionType() {
+        return this.reactionType;
+    }
+
+    public void setReactionType(Emoji reactionType) {
+        this.reactionType = reactionType;
+    }
+
+    public static class Builder {
+        /**
+         * reaction资源类型
+         * <p> 示例值：
+         */
+        private Emoji reactionType;
+
+        /**
+         * reaction资源类型
+         * <p> 示例值：
+         *
+         * @param reactionType
+         * @return
+         */
+        public Builder reactionType(Emoji reactionType) {
+            this.reactionType = reactionType;
+            return this;
+        }
+
+
+        public CreateMessageReactionReqBody build() {
+            return new CreateMessageReactionReqBody(this);
+        }
+    }
 }

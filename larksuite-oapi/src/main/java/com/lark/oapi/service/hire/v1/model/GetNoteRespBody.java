@@ -16,20 +16,19 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetNoteRespBody {
+    /**
+     * 备注数据
+     * <p> 示例值：
+     */
+    @SerializedName("note")
+    private Note note;
 
-  /**
-   * 备注数据
-   * <p> 示例值：
-   */
-  @SerializedName("note")
-  private Note note;
+    public Note getNote() {
+        return this.note;
+    }
 
-  public Note getNote() {
-    return this.note;
-  }
-
-  public void setNote(Note note) {
-    this.note = note;
-  }
+    public void setNote(Note note) {
+        this.note = note;
+    }
 
 }

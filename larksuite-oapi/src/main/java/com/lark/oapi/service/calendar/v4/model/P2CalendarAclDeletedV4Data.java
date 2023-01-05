@@ -16,62 +16,61 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2CalendarAclDeletedV4Data {
+    /**
+     * acl资源ID
+     * <p> 示例值：
+     */
+    @SerializedName("acl_id")
+    private String aclId;
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：
+     */
+    @SerializedName("role")
+    private String role;
+    /**
+     * 权限范围
+     * <p> 示例值：
+     */
+    @SerializedName("scope")
+    private AclScopeEvent scope;
+    /**
+     * 需要推送事件的用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_id_list")
+    private UserId[] userIdList;
 
-  /**
-   * acl资源ID
-   * <p> 示例值：
-   */
-  @SerializedName("acl_id")
-  private String aclId;
-  /**
-   * 对日历的访问权限
-   * <p> 示例值：
-   */
-  @SerializedName("role")
-  private String role;
-  /**
-   * 权限范围
-   * <p> 示例值：
-   */
-  @SerializedName("scope")
-  private AclScopeEvent scope;
-  /**
-   * 需要推送事件的用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_id_list")
-  private UserId[] userIdList;
+    public String getAclId() {
+        return this.aclId;
+    }
 
-  public String getAclId() {
-    return this.aclId;
-  }
+    public void setAclId(String aclId) {
+        this.aclId = aclId;
+    }
 
-  public void setAclId(String aclId) {
-    this.aclId = aclId;
-  }
+    public String getRole() {
+        return this.role;
+    }
 
-  public String getRole() {
-    return this.role;
-  }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-  public void setRole(String role) {
-    this.role = role;
-  }
+    public AclScopeEvent getScope() {
+        return this.scope;
+    }
 
-  public AclScopeEvent getScope() {
-    return this.scope;
-  }
+    public void setScope(AclScopeEvent scope) {
+        this.scope = scope;
+    }
 
-  public void setScope(AclScopeEvent scope) {
-    this.scope = scope;
-  }
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
 
-  public UserId[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(UserId[] userIdList) {
-    this.userIdList = userIdList;
-  }
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
+    }
 
 }

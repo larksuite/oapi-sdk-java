@@ -16,98 +16,96 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Span {
-
-  /**
-   * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-   * <p> 示例值：0
-   */
-  @SerializedName("start")
-  private Integer start;
-  /**
-   * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-   * <p> 示例值：4
-   */
-  @SerializedName("end")
-  private Integer end;
-
-  // builder 开始
-  public Span() {
-  }
-
-  public Span(Builder builder) {
     /**
      * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
      * <p> 示例值：0
      */
-    this.start = builder.start;
-    /**
-     * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-     * <p> 示例值：4
-     */
-    this.end = builder.end;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStart() {
-    return this.start;
-  }
-
-  public void setStart(Integer start) {
-    this.start = start;
-  }
-
-  public Integer getEnd() {
-    return this.end;
-  }
-
-  public void setEnd(Integer end) {
-    this.end = end;
-  }
-
-  public static class Builder {
-
-    /**
-     * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-     * <p> 示例值：0
-     */
+    @SerializedName("start")
     private Integer start;
     /**
      * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
      * <p> 示例值：4
      */
+    @SerializedName("end")
     private Integer end;
 
-    /**
-     * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-     * <p> 示例值：0
-     *
-     * @param start
-     * @return
-     */
-    public Builder start(Integer start) {
-      this.start = start;
-      return this;
+    // builder 开始
+    public Span() {
     }
 
-
-    /**
-     * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-     * <p> 示例值：4
-     *
-     * @param end
-     * @return
-     */
-    public Builder end(Integer end) {
-      this.end = end;
-      return this;
+    public Span(Builder builder) {
+        /**
+         * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：0
+         */
+        this.start = builder.start;
+        /**
+         * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：4
+         */
+        this.end = builder.end;
     }
 
-
-    public Span build() {
-      return new Span(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getStart() {
+        return this.start;
+    }
+
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+
+    public Integer getEnd() {
+        return this.end;
+    }
+
+    public void setEnd(Integer end) {
+        this.end = end;
+    }
+
+    public static class Builder {
+        /**
+         * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：0
+         */
+        private Integer start;
+        /**
+         * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：4
+         */
+        private Integer end;
+
+        /**
+         * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：0
+         *
+         * @param start
+         * @return
+         */
+        public Builder start(Integer start) {
+            this.start = start;
+            return this;
+        }
+
+
+        /**
+         * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
+         * <p> 示例值：4
+         *
+         * @param end
+         * @return
+         */
+        public Builder end(Integer end) {
+            this.end = end;
+            return this;
+        }
+
+
+        public Span build() {
+            return new Span(this);
+        }
+    }
 }

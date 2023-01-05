@@ -14,27 +14,24 @@
 package com.lark.oapi.service.mail.v1.enums;
 
 /**
- * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
- * is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the
- * organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public
- * mailbox;- OTHER_MEMBER: other internal member
+ * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public mailbox;- OTHER_MEMBER: other internal member
  */
 public enum CreateMailgroupMemberTypeEnum {
-  USER("USER"), // internal user in the team
-  DEPARTMENT("DEPARTMENT"), // member is a department
-  COMPANY("COMPANY"), // member is the company
-  EXTERNAL_USER("EXTERNAL_USER"), // internet user outside the organization
-  MAIL_GROUP("MAIL_GROUP"), // member is another mail group
-  PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // member is a public mailbox
-  OTHER_MEMBER("OTHER_MEMBER"), // other internal member
-  ;
-  private String value;
+    USER("USER"), // internal user in the team
+    DEPARTMENT("DEPARTMENT"), // member is a department
+    COMPANY("COMPANY"), // member is the company
+    EXTERNAL_USER("EXTERNAL_USER"), // internet user outside the organization
+    MAIL_GROUP("MAIL_GROUP"), // member is another mail group
+    PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // member is a public mailbox
+    OTHER_MEMBER("OTHER_MEMBER"), // other internal member
+    ;
+    private String value;
 
-  CreateMailgroupMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateMailgroupMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

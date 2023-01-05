@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateDepartment {
 
-  /**
-   * 部门信息
-   * <p> 示例值：
-   */
-  @SerializedName("department")
-  private Department department;
+    /**
+     * 部门信息
+     * <p> 示例值：
+     */
+    @SerializedName("department")
+    private Department department;
 
-  public Department getDepartment() {
-    return this.department;
-  }
+    public Department getDepartment() {
+        return this.department;
+    }
 
-  public void setDepartment(Department department) {
-    this.department = department;
-  }
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
 }

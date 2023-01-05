@@ -16,98 +16,96 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Point {
-
-  /**
-   * 横轴坐标
-   * <p> 示例值：200
-   */
-  @SerializedName("x")
-  private Double x;
-  /**
-   * 纵轴坐标
-   * <p> 示例值：200
-   */
-  @SerializedName("y")
-  private Double y;
-
-  // builder 开始
-  public Point() {
-  }
-
-  public Point(Builder builder) {
     /**
      * 横轴坐标
      * <p> 示例值：200
      */
-    this.x = builder.x;
-    /**
-     * 纵轴坐标
-     * <p> 示例值：200
-     */
-    this.y = builder.y;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Double getX() {
-    return this.x;
-  }
-
-  public void setX(Double x) {
-    this.x = x;
-  }
-
-  public Double getY() {
-    return this.y;
-  }
-
-  public void setY(Double y) {
-    this.y = y;
-  }
-
-  public static class Builder {
-
-    /**
-     * 横轴坐标
-     * <p> 示例值：200
-     */
+    @SerializedName("x")
     private Double x;
     /**
      * 纵轴坐标
      * <p> 示例值：200
      */
+    @SerializedName("y")
     private Double y;
 
-    /**
-     * 横轴坐标
-     * <p> 示例值：200
-     *
-     * @param x
-     * @return
-     */
-    public Builder x(Double x) {
-      this.x = x;
-      return this;
+    // builder 开始
+    public Point() {
     }
 
-
-    /**
-     * 纵轴坐标
-     * <p> 示例值：200
-     *
-     * @param y
-     * @return
-     */
-    public Builder y(Double y) {
-      this.y = y;
-      return this;
+    public Point(Builder builder) {
+        /**
+         * 横轴坐标
+         * <p> 示例值：200
+         */
+        this.x = builder.x;
+        /**
+         * 纵轴坐标
+         * <p> 示例值：200
+         */
+        this.y = builder.y;
     }
 
-
-    public Point build() {
-      return new Point(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Double getX() {
+        return this.x;
+    }
+
+    public void setX(Double x) {
+        this.x = x;
+    }
+
+    public Double getY() {
+        return this.y;
+    }
+
+    public void setY(Double y) {
+        this.y = y;
+    }
+
+    public static class Builder {
+        /**
+         * 横轴坐标
+         * <p> 示例值：200
+         */
+        private Double x;
+        /**
+         * 纵轴坐标
+         * <p> 示例值：200
+         */
+        private Double y;
+
+        /**
+         * 横轴坐标
+         * <p> 示例值：200
+         *
+         * @param x
+         * @return
+         */
+        public Builder x(Double x) {
+            this.x = x;
+            return this;
+        }
+
+
+        /**
+         * 纵轴坐标
+         * <p> 示例值：200
+         *
+         * @param y
+         * @return
+         */
+        public Builder y(Double y) {
+            this.y = y;
+            return this;
+        }
+
+
+        public Point build() {
+            return new Point(this);
+        }
+    }
 }

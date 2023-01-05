@@ -16,5 +16,4 @@ package com.lark.oapi.service.speech_to_text.v1.model;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class StreamRecognizeSpeechResp extends BaseResponse<StreamRecognizeSpeechRespBody> {
-
 }

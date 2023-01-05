@@ -16,65 +16,65 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.card.enums.MessageCardImageModelEnum;
 
 public class MessageCardEmbedImage extends MessageCardElement implements IMessageCardNoteElement,
-    IMessageCardExtraElement {
+        IMessageCardExtraElement {
 
-  @SerializedName("alt")
-  private MessageCardPlainText alt;
-  @SerializedName("img_key")
-  private String imgKey;
-  @SerializedName("mode")
-  private String mode;
-  @SerializedName("preview")
-  private Boolean preview;
-
-  public MessageCardEmbedImage() {
-    this.tag = "img";
-  }
-
-  public MessageCardEmbedImage(Builder builder) {
-    this.tag = "img";
-    this.alt = builder.alt;
-    this.imgKey = builder.imgKey;
-    if (builder.mode != null) {
-      this.mode = builder.mode.getValue();
-    }
-    this.preview = builder.preview;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
+    @SerializedName("alt")
     private MessageCardPlainText alt;
+    @SerializedName("img_key")
     private String imgKey;
-    private MessageCardImageModelEnum mode;
+    @SerializedName("mode")
+    private String mode;
+    @SerializedName("preview")
     private Boolean preview;
 
-    public Builder alt(MessageCardPlainText alt) {
-      this.alt = alt;
-      return this;
+    public MessageCardEmbedImage() {
+        this.tag = "img";
     }
 
-    public Builder imgKey(String imgKey) {
-      this.imgKey = imgKey;
-      return this;
+    public MessageCardEmbedImage(Builder builder) {
+        this.tag = "img";
+        this.alt = builder.alt;
+        this.imgKey = builder.imgKey;
+        if (builder.mode != null) {
+            this.mode = builder.mode.getValue();
+        }
+        this.preview = builder.preview;
     }
 
-
-    public Builder mode(MessageCardImageModelEnum mode) {
-      this.mode = mode;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Builder preview(Boolean preview) {
-      this.preview = preview;
-      return this;
-    }
+    public static class Builder {
 
-    public MessageCardEmbedImage build() {
-      return new MessageCardEmbedImage(this);
+        private MessageCardPlainText alt;
+        private String imgKey;
+        private MessageCardImageModelEnum mode;
+        private Boolean preview;
+
+        public Builder alt(MessageCardPlainText alt) {
+            this.alt = alt;
+            return this;
+        }
+
+        public Builder imgKey(String imgKey) {
+            this.imgKey = imgKey;
+            return this;
+        }
+
+
+        public Builder mode(MessageCardImageModelEnum mode) {
+            this.mode = mode;
+            return this;
+        }
+
+        public Builder preview(Boolean preview) {
+            this.preview = preview;
+            return this;
+        }
+
+        public MessageCardEmbedImage build() {
+            return new MessageCardEmbedImage(this);
+        }
     }
-  }
 }

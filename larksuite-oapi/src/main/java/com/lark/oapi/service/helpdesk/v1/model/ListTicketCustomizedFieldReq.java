@@ -18,113 +18,111 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListTicketCustomizedFieldReq {
-
-  /**
-   * <p> 示例值：6948728206392295444
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10；默认为20
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Body
-  private ListTicketCustomizedFieldReqBody body;
-
-  // builder 开始
-  public ListTicketCustomizedFieldReq() {
-  }
-
-  public ListTicketCustomizedFieldReq(Builder builder) {
     /**
-     *
      * <p> 示例值：6948728206392295444
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
      * <p> 示例值：10；默认为20
      */
-    this.pageSize = builder.pageSize;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public ListTicketCustomizedFieldReqBody getListTicketCustomizedFieldReqBody() {
-    return this.body;
-  }
-
-  public void setListTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String pageToken; //
-    private Integer pageSize; //
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
+    @Body
     private ListTicketCustomizedFieldReqBody body;
 
-    /**
-     * <p> 示例值：6948728206392295444
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    // builder 开始
+    public ListTicketCustomizedFieldReq() {
     }
 
-    /**
-     * <p> 示例值：10；默认为20
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public ListTicketCustomizedFieldReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：6948728206392295444
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10；默认为20
+         */
+        this.pageSize = builder.pageSize;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
     public ListTicketCustomizedFieldReqBody getListTicketCustomizedFieldReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder listTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
-      this.body = body;
-      return this;
+    public void setListTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
+        this.body = body;
     }
 
-    public ListTicketCustomizedFieldReq build() {
-      return new ListTicketCustomizedFieldReq(this);
+    public static class Builder {
+        private String pageToken; //
+        private Integer pageSize; //
+        private ListTicketCustomizedFieldReqBody body;
+
+        /**
+         * <p> 示例值：6948728206392295444
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：10；默认为20
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListTicketCustomizedFieldReqBody getListTicketCustomizedFieldReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder listTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public ListTicketCustomizedFieldReq build() {
+            return new ListTicketCustomizedFieldReq(this);
+        }
     }
-  }
 }

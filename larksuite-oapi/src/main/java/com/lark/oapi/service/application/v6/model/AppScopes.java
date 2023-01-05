@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppScopes {
-
-  /**
-   * 应用高级权限列表
-   * <p> 示例值：
-   */
-  @SerializedName("high_level_scopes")
-  private String[] highLevelScopes;
-  /**
-   * 应用低级权限列表
-   * <p> 示例值：
-   */
-  @SerializedName("low_level_scopes")
-  private String[] lowLevelScopes;
-
-  // builder 开始
-  public AppScopes() {
-  }
-
-  public AppScopes(Builder builder) {
     /**
      * 应用高级权限列表
      * <p> 示例值：
      */
-    this.highLevelScopes = builder.highLevelScopes;
-    /**
-     * 应用低级权限列表
-     * <p> 示例值：
-     */
-    this.lowLevelScopes = builder.lowLevelScopes;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getHighLevelScopes() {
-    return this.highLevelScopes;
-  }
-
-  public void setHighLevelScopes(String[] highLevelScopes) {
-    this.highLevelScopes = highLevelScopes;
-  }
-
-  public String[] getLowLevelScopes() {
-    return this.lowLevelScopes;
-  }
-
-  public void setLowLevelScopes(String[] lowLevelScopes) {
-    this.lowLevelScopes = lowLevelScopes;
-  }
-
-  public static class Builder {
-
-    /**
-     * 应用高级权限列表
-     * <p> 示例值：
-     */
+    @SerializedName("high_level_scopes")
     private String[] highLevelScopes;
     /**
      * 应用低级权限列表
      * <p> 示例值：
      */
+    @SerializedName("low_level_scopes")
     private String[] lowLevelScopes;
 
-    /**
-     * 应用高级权限列表
-     * <p> 示例值：
-     *
-     * @param highLevelScopes
-     * @return
-     */
-    public Builder highLevelScopes(String[] highLevelScopes) {
-      this.highLevelScopes = highLevelScopes;
-      return this;
+    // builder 开始
+    public AppScopes() {
     }
 
-
-    /**
-     * 应用低级权限列表
-     * <p> 示例值：
-     *
-     * @param lowLevelScopes
-     * @return
-     */
-    public Builder lowLevelScopes(String[] lowLevelScopes) {
-      this.lowLevelScopes = lowLevelScopes;
-      return this;
+    public AppScopes(Builder builder) {
+        /**
+         * 应用高级权限列表
+         * <p> 示例值：
+         */
+        this.highLevelScopes = builder.highLevelScopes;
+        /**
+         * 应用低级权限列表
+         * <p> 示例值：
+         */
+        this.lowLevelScopes = builder.lowLevelScopes;
     }
 
-
-    public AppScopes build() {
-      return new AppScopes(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String[] getHighLevelScopes() {
+        return this.highLevelScopes;
+    }
+
+    public void setHighLevelScopes(String[] highLevelScopes) {
+        this.highLevelScopes = highLevelScopes;
+    }
+
+    public String[] getLowLevelScopes() {
+        return this.lowLevelScopes;
+    }
+
+    public void setLowLevelScopes(String[] lowLevelScopes) {
+        this.lowLevelScopes = lowLevelScopes;
+    }
+
+    public static class Builder {
+        /**
+         * 应用高级权限列表
+         * <p> 示例值：
+         */
+        private String[] highLevelScopes;
+        /**
+         * 应用低级权限列表
+         * <p> 示例值：
+         */
+        private String[] lowLevelScopes;
+
+        /**
+         * 应用高级权限列表
+         * <p> 示例值：
+         *
+         * @param highLevelScopes
+         * @return
+         */
+        public Builder highLevelScopes(String[] highLevelScopes) {
+            this.highLevelScopes = highLevelScopes;
+            return this;
+        }
+
+
+        /**
+         * 应用低级权限列表
+         * <p> 示例值：
+         *
+         * @param lowLevelScopes
+         * @return
+         */
+        public Builder lowLevelScopes(String[] lowLevelScopes) {
+            this.lowLevelScopes = lowLevelScopes;
+            return this;
+        }
+
+
+        public AppScopes build() {
+            return new AppScopes(this);
+        }
+    }
 }

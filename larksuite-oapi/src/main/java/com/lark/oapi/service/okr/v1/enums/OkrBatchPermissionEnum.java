@@ -17,16 +17,16 @@ package com.lark.oapi.service.okr.v1.enums;
  * OKR的访问权限
  */
 public enum OkrBatchPermissionEnum {
-  无权限访问(0), // 此时OKR只返回id
-  有权限访问(1), // 返回OKR的其他具体字段
-  ;
-  private Integer value;
+    NO_PERMISSION(0), // 此时OKR只返回id
+    HAS_PERMISSION(1), // 返回OKR的其他具体字段
+    ;
+    private Integer value;
 
-  OkrBatchPermissionEnum(Integer value) {
-    this.value = value;
-  }
+    OkrBatchPermissionEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

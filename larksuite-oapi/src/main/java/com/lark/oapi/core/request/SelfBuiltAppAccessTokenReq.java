@@ -16,59 +16,59 @@ import com.google.gson.annotations.SerializedName;
 
 public class SelfBuiltAppAccessTokenReq {
 
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("app_secret")
-  private String appSecret;
-
-  public SelfBuiltAppAccessTokenReq(Builder builder) {
-    setAppId(builder.appId);
-    setAppSecret(builder.appSecret);
-  }
-
-  public SelfBuiltAppAccessTokenReq() {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getAppSecret() {
-    return appSecret;
-  }
-
-  public void setAppSecret(String appSecret) {
-    this.appSecret = appSecret;
-  }
-
-  public static final class Builder {
-
+    @SerializedName("app_id")
     private String appId;
+    @SerializedName("app_secret")
     private String appSecret;
 
-    private Builder() {
+    public SelfBuiltAppAccessTokenReq(Builder builder) {
+        setAppId(builder.appId);
+        setAppSecret(builder.appSecret);
     }
 
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public SelfBuiltAppAccessTokenReq() {
     }
 
-    public Builder appSecret(String appSecret) {
-      this.appSecret = appSecret;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public SelfBuiltAppAccessTokenReq build() {
-      return new SelfBuiltAppAccessTokenReq(this);
+    public String getAppId() {
+        return appId;
     }
-  }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public void setAppSecret(String appSecret) {
+        this.appSecret = appSecret;
+    }
+
+    public static final class Builder {
+
+        private String appId;
+        private String appSecret;
+
+        private Builder() {
+        }
+
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+        public Builder appSecret(String appSecret) {
+            this.appSecret = appSecret;
+            return this;
+        }
+
+        public SelfBuiltAppAccessTokenReq build() {
+            return new SelfBuiltAppAccessTokenReq(this);
+        }
+    }
 }

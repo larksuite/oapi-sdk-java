@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SiteJobRecruitmentType {
-
-  /**
-   * 雇佣类型id
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 雇佣类型名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private SiteName name;
-
-  // builder 开始
-  public SiteJobRecruitmentType() {
-  }
-
-  public SiteJobRecruitmentType(Builder builder) {
     /**
      * 雇佣类型id
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 雇佣类型名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public SiteName getName() {
-    return this.name;
-  }
-
-  public void setName(SiteName name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 雇佣类型id
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 雇佣类型名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private SiteName name;
 
-    /**
-     * 雇佣类型id
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public SiteJobRecruitmentType() {
     }
 
-
-    /**
-     * 雇佣类型名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(SiteName name) {
-      this.name = name;
-      return this;
+    public SiteJobRecruitmentType(Builder builder) {
+        /**
+         * 雇佣类型id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 雇佣类型名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    public SiteJobRecruitmentType build() {
-      return new SiteJobRecruitmentType(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public SiteName getName() {
+        return this.name;
+    }
+
+    public void setName(SiteName name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 雇佣类型id
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 雇佣类型名称
+         * <p> 示例值：
+         */
+        private SiteName name;
+
+        /**
+         * 雇佣类型id
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 雇佣类型名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(SiteName name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public SiteJobRecruitmentType build() {
+            return new SiteJobRecruitmentType(this);
+        }
+    }
 }

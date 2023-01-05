@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2DepartmentCreatedV3Data {
+    /**
+     * 部门信息
+     * <p> 示例值：
+     */
+    @SerializedName("object")
+    private DepartmentEvent object;
 
-  /**
-   * 部门信息
-   * <p> 示例值：
-   */
-  @SerializedName("object")
-  private DepartmentEvent object;
+    public DepartmentEvent getObject() {
+        return this.object;
+    }
 
-  public DepartmentEvent getObject() {
-    return this.object;
-  }
-
-  public void setObject(DepartmentEvent object) {
-    this.object = object;
-  }
+    public void setObject(DepartmentEvent object) {
+        this.object = object;
+    }
 
 }

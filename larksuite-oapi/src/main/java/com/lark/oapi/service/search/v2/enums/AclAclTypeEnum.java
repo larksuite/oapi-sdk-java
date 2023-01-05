@@ -17,17 +17,17 @@ package com.lark.oapi.service.search.v2.enums;
  * 权限值类型
  */
 public enum AclAclTypeEnum {
-  USER("user"), // 用户的user_id
-  GROUP("group"), // 用户组
-  OPENUSER("open_id"), // 用户的open_id
-  ;
-  private String value;
+    USER("user"), // 用户的user_id
+    GROUP("group"), // 用户组
+    OPENUSER("open_id"), // 用户的open_id
+    ;
+    private String value;
 
-  AclAclTypeEnum(String value) {
-    this.value = value;
-  }
+    AclAclTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

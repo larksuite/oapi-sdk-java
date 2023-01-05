@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateSpaceSetting {
 
-  /**
-   * 知识空间设置
-   * <p> 示例值：
-   */
-  @SerializedName("setting")
-  private Setting setting;
+    /**
+     * 知识空间设置
+     * <p> 示例值：
+     */
+    @SerializedName("setting")
+    private Setting setting;
 
-  public Setting getSetting() {
-    return this.setting;
-  }
+    public Setting getSetting() {
+        return this.setting;
+    }
 
-  public void setSetting(Setting setting) {
-    this.setting = setting;
-  }
+    public void setSetting(Setting setting) {
+        this.setting = setting;
+    }
 
 }

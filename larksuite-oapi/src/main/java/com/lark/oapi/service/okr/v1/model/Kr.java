@@ -16,283 +16,281 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Kr {
-
-  /**
-   * KeyResult ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * KeyResult 在所属 Objective 中的排序
-   * <p> 示例值：
-   */
-  @SerializedName("pos")
-  private String pos;
-  /**
-   * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
-   * <p> 示例值：
-   */
-  @SerializedName("score")
-  private String score;
-  /**
-   * KeyResult 的权重
-   * <p> 示例值：
-   */
-  @SerializedName("weight")
-  private String weight;
-  /**
-   * KeyResult 对应的 Content 详细内容
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private KrContent content;
-  /**
-   * KeyResult 的创建时间 毫秒
-   * <p> 示例值：
-   */
-  @SerializedName("create_time")
-  private Integer createTime;
-  /**
-   * KeyResult 的最后修改时间 毫秒
-   * <p> 示例值：
-   */
-  @SerializedName("modify_time")
-  private Integer modifyTime;
-
-  // builder 开始
-  public Kr() {
-  }
-
-  public Kr(Builder builder) {
     /**
      * KeyResult ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * KeyResult 在所属 Objective 中的排序
-     * <p> 示例值：
-     */
-    this.pos = builder.pos;
-    /**
-     * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
-     * <p> 示例值：
-     */
-    this.score = builder.score;
-    /**
-     * KeyResult 的权重
-     * <p> 示例值：
-     */
-    this.weight = builder.weight;
-    /**
-     * KeyResult 对应的 Content 详细内容
-     * <p> 示例值：
-     */
-    this.content = builder.content;
-    /**
-     * KeyResult 的创建时间 毫秒
-     * <p> 示例值：
-     */
-    this.createTime = builder.createTime;
-    /**
-     * KeyResult 的最后修改时间 毫秒
-     * <p> 示例值：
-     */
-    this.modifyTime = builder.modifyTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getPos() {
-    return this.pos;
-  }
-
-  public void setPos(String pos) {
-    this.pos = pos;
-  }
-
-  public String getScore() {
-    return this.score;
-  }
-
-  public void setScore(String score) {
-    this.score = score;
-  }
-
-  public String getWeight() {
-    return this.weight;
-  }
-
-  public void setWeight(String weight) {
-    this.weight = weight;
-  }
-
-  public KrContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(KrContent content) {
-    this.content = content;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getModifyTime() {
-    return this.modifyTime;
-  }
-
-  public void setModifyTime(Integer modifyTime) {
-    this.modifyTime = modifyTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * KeyResult ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * KeyResult 在所属 Objective 中的排序
      * <p> 示例值：
      */
+    @SerializedName("pos")
     private String pos;
     /**
      * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
      * <p> 示例值：
      */
+    @SerializedName("score")
     private String score;
     /**
      * KeyResult 的权重
      * <p> 示例值：
      */
+    @SerializedName("weight")
     private String weight;
     /**
      * KeyResult 对应的 Content 详细内容
      * <p> 示例值：
      */
+    @SerializedName("content")
     private KrContent content;
     /**
      * KeyResult 的创建时间 毫秒
      * <p> 示例值：
      */
+    @SerializedName("create_time")
     private Integer createTime;
     /**
      * KeyResult 的最后修改时间 毫秒
      * <p> 示例值：
      */
+    @SerializedName("modify_time")
     private Integer modifyTime;
 
-    /**
-     * KeyResult ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Kr() {
     }
 
-
-    /**
-     * KeyResult 在所属 Objective 中的排序
-     * <p> 示例值：
-     *
-     * @param pos
-     * @return
-     */
-    public Builder pos(String pos) {
-      this.pos = pos;
-      return this;
+    public Kr(Builder builder) {
+        /**
+         * KeyResult ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * KeyResult 在所属 Objective 中的排序
+         * <p> 示例值：
+         */
+        this.pos = builder.pos;
+        /**
+         * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
+         * <p> 示例值：
+         */
+        this.score = builder.score;
+        /**
+         * KeyResult 的权重
+         * <p> 示例值：
+         */
+        this.weight = builder.weight;
+        /**
+         * KeyResult 对应的 Content 详细内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
+        /**
+         * KeyResult 的创建时间 毫秒
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
+        /**
+         * KeyResult 的最后修改时间 毫秒
+         * <p> 示例值：
+         */
+        this.modifyTime = builder.modifyTime;
     }
 
-
-    /**
-     * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
-     * <p> 示例值：
-     *
-     * @param score
-     * @return
-     */
-    public Builder score(String score) {
-      this.score = score;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * KeyResult 的权重
-     * <p> 示例值：
-     *
-     * @param weight
-     * @return
-     */
-    public Builder weight(String weight) {
-      this.weight = weight;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * KeyResult 对应的 Content 详细内容
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(KrContent content) {
-      this.content = content;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * KeyResult 的创建时间 毫秒
-     * <p> 示例值：
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getPos() {
+        return this.pos;
     }
 
-
-    /**
-     * KeyResult 的最后修改时间 毫秒
-     * <p> 示例值：
-     *
-     * @param modifyTime
-     * @return
-     */
-    public Builder modifyTime(Integer modifyTime) {
-      this.modifyTime = modifyTime;
-      return this;
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 
-
-    public Kr build() {
-      return new Kr(this);
+    public String getScore() {
+        return this.score;
     }
-  }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getWeight() {
+        return this.weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public KrContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(KrContent content) {
+        this.content = content;
+    }
+
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(Integer modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public static class Builder {
+        /**
+         * KeyResult ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * KeyResult 在所属 Objective 中的排序
+         * <p> 示例值：
+         */
+        private String pos;
+        /**
+         * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
+         * <p> 示例值：
+         */
+        private String score;
+        /**
+         * KeyResult 的权重
+         * <p> 示例值：
+         */
+        private String weight;
+        /**
+         * KeyResult 对应的 Content 详细内容
+         * <p> 示例值：
+         */
+        private KrContent content;
+        /**
+         * KeyResult 的创建时间 毫秒
+         * <p> 示例值：
+         */
+        private Integer createTime;
+        /**
+         * KeyResult 的最后修改时间 毫秒
+         * <p> 示例值：
+         */
+        private Integer modifyTime;
+
+        /**
+         * KeyResult ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 在所属 Objective 中的排序
+         * <p> 示例值：
+         *
+         * @param pos
+         * @return
+         */
+        public Builder pos(String pos) {
+            this.pos = pos;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
+         * <p> 示例值：
+         *
+         * @param score
+         * @return
+         */
+        public Builder score(String score) {
+            this.score = score;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 的权重
+         * <p> 示例值：
+         *
+         * @param weight
+         * @return
+         */
+        public Builder weight(String weight) {
+            this.weight = weight;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 对应的 Content 详细内容
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(KrContent content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 的创建时间 毫秒
+         * <p> 示例值：
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Integer createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 的最后修改时间 毫秒
+         * <p> 示例值：
+         *
+         * @param modifyTime
+         * @return
+         */
+        public Builder modifyTime(Integer modifyTime) {
+            this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        public Kr build() {
+            return new Kr(this);
+        }
+    }
 }

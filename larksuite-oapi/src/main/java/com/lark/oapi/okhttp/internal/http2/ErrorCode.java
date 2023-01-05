@@ -19,43 +19,43 @@ package com.lark.oapi.okhttp.internal.http2;
 
 // http://tools.ietf.org/html/draft-ietf-httpbis-http2-17#section-7
 public enum ErrorCode {
-  /**
-   * Not an error!
-   */
-  NO_ERROR(0),
+    /**
+     * Not an error!
+     */
+    NO_ERROR(0),
 
-  PROTOCOL_ERROR(1),
+    PROTOCOL_ERROR(1),
 
-  INTERNAL_ERROR(2),
+    INTERNAL_ERROR(2),
 
-  FLOW_CONTROL_ERROR(3),
+    FLOW_CONTROL_ERROR(3),
 
-  REFUSED_STREAM(7),
+    REFUSED_STREAM(7),
 
-  CANCEL(8),
+    CANCEL(8),
 
-  COMPRESSION_ERROR(9),
+    COMPRESSION_ERROR(9),
 
-  CONNECT_ERROR(0xa),
+    CONNECT_ERROR(0xa),
 
-  ENHANCE_YOUR_CALM(0xb),
+    ENHANCE_YOUR_CALM(0xb),
 
-  INADEQUATE_SECURITY(0xc),
+    INADEQUATE_SECURITY(0xc),
 
-  HTTP_1_1_REQUIRED(0xd);
+    HTTP_1_1_REQUIRED(0xd);
 
-  public final int httpCode;
+    public final int httpCode;
 
-  ErrorCode(int httpCode) {
-    this.httpCode = httpCode;
-  }
-
-  public static ErrorCode fromHttp2(int code) {
-    for (ErrorCode errorCode : ErrorCode.values()) {
-      if (errorCode.httpCode == code) {
-        return errorCode;
-      }
+    ErrorCode(int httpCode) {
+        this.httpCode = httpCode;
     }
-    return null;
-  }
+
+    public static ErrorCode fromHttp2(int code) {
+        for (ErrorCode errorCode : ErrorCode.values()) {
+            if (errorCode.httpCode == code) {
+                return errorCode;
+            }
+        }
+        return null;
+    }
 }

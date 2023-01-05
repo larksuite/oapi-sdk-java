@@ -15,19 +15,19 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum AppVersionStatusEnum {
-  UNKNOWN(0),
-  AUDITED(1),
-  REJECT(2),
-  UNDER_AUDIT(3),
-  UNAUDIT(4),
-  ;
-  private Integer value;
+    UNKNOWN(0),
+    AUDITED(1),
+    REJECT(2),
+    UNDER_AUDIT(3),
+    UNAUDIT(4),
+    ;
+    private Integer value;
 
-  AppVersionStatusEnum(Integer value) {
-    this.value = value;
-  }
+    AppVersionStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

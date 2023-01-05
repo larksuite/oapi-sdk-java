@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSpreadsheet {
 
-  /**
-   * 表格
-   * <p> 示例值：
-   */
-  @SerializedName("spreadsheet")
-  private Spreadsheet spreadsheet;
+    /**
+     * 表格
+     * <p> 示例值：
+     */
+    @SerializedName("spreadsheet")
+    private Spreadsheet spreadsheet;
 
-  public Spreadsheet getSpreadsheet() {
-    return this.spreadsheet;
-  }
+    public Spreadsheet getSpreadsheet() {
+        return this.spreadsheet;
+    }
 
-  public void setSpreadsheet(Spreadsheet spreadsheet) {
-    this.spreadsheet = spreadsheet;
-  }
+    public void setSpreadsheet(Spreadsheet spreadsheet) {
+        this.spreadsheet = spreadsheet;
+    }
 
 }

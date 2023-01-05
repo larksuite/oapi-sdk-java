@@ -17,19 +17,19 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 审批类型
  */
 public enum ApprovalInfoApprovalTypeEnum {
-  LEAVE("leave"), // 请假
-  OVERTIME("overtime"), // 加班
-  TRIP("trip"), // 出差
-  OUT("out"), // 外出
-  REMEDY("remedy"), // 补卡
-  ;
-  private String value;
+    LEAVE("leave"), // 请假
+    OVERTIME("overtime"), // 加班
+    TRIP("trip"), // 出差
+    OUT("out"), // 外出
+    REMEDY("remedy"), // 补卡
+    ;
+    private String value;
 
-  ApprovalInfoApprovalTypeEnum(String value) {
-    this.value = value;
-  }
+    ApprovalInfoApprovalTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

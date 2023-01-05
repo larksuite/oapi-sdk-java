@@ -19,117 +19,148 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class PatchEmployeeReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 员工ID
-   * <p> 示例值：123
-   */
-  @Path
-  @SerializedName("employee_id")
-  private String employeeId;
-  @Body
-  private ChangeEmployeeStage body;
-
-  // builder 开始
-  public PatchEmployeeReq() {
-  }
-
-  public PatchEmployeeReq(Builder builder) {
     /**
-     * 此次调用中使用的用户ID的类型
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
+     * 此次调用中使用的部门 ID 的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 员工ID
      * <p> 示例值：123
      */
-    this.employeeId = builder.employeeId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getEmployeeId() {
-    return this.employeeId;
-  }
-
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
-
-  public ChangeEmployeeStage getChangeEmployeeStage() {
-    return this.body;
-  }
-
-  public void setChangeEmployeeStage(ChangeEmployeeStage body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String employeeId; // 员工ID
+    @Path
+    @SerializedName("employee_id")
+    private String employeeId;
+    @Body
     private ChangeEmployeeStage body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public PatchEmployeeReq() {
     }
 
-    /**
-     * 员工ID
-     * <p> 示例值：123
-     *
-     * @param employeeId
-     * @return
-     */
-    public Builder employeeId(String employeeId) {
-      this.employeeId = employeeId;
-      return this;
+    public PatchEmployeeReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 员工ID
+         * <p> 示例值：123
+         */
+        this.employeeId = builder.employeeId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getEmployeeId() {
+        return this.employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public ChangeEmployeeStage getChangeEmployeeStage() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder changeEmployeeStage(ChangeEmployeeStage body) {
-      this.body = body;
-      return this;
+    public void setChangeEmployeeStage(ChangeEmployeeStage body) {
+        this.body = body;
     }
 
-    public PatchEmployeeReq build() {
-      return new PatchEmployeeReq(this);
+    public static class Builder {
+        private String userIdType; // 用户 ID 类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private String employeeId; // 员工ID
+        private ChangeEmployeeStage body;
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 员工ID
+         * <p> 示例值：123
+         *
+         * @param employeeId
+         * @return
+         */
+        public Builder employeeId(String employeeId) {
+            this.employeeId = employeeId;
+            return this;
+        }
+
+        public ChangeEmployeeStage getChangeEmployeeStage() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder changeEmployeeStage(ChangeEmployeeStage body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchEmployeeReq build() {
+            return new PatchEmployeeReq(this);
+        }
     }
-  }
 }

@@ -17,61 +17,61 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCalendar {
 
-  /**
-   * 是否还有更多数据
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下次请求需要带上的分页标记，90 天有效期
-   * <p> 示例值：ListCalendarsPageToken_xxx
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 下次请求需要带上的增量同步标记，90 天有效期
-   * <p> 示例值：ListCalendarsSyncToken_xxx
-   */
-  @SerializedName("sync_token")
-  private String syncToken;
-  /**
-   * 分页加载的日历数据列表
-   * <p> 示例值：
-   */
-  @SerializedName("calendar_list")
-  private Calendar[] calendarList;
+    /**
+     * 是否还有更多数据
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下次请求需要带上的分页标记，90 天有效期
+     * <p> 示例值：ListCalendarsPageToken_xxx
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 下次请求需要带上的增量同步标记，90 天有效期
+     * <p> 示例值：ListCalendarsSyncToken_xxx
+     */
+    @SerializedName("sync_token")
+    private String syncToken;
+    /**
+     * 分页加载的日历数据列表
+     * <p> 示例值：
+     */
+    @SerializedName("calendar_list")
+    private Calendar[] calendarList;
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public String getSyncToken() {
-    return this.syncToken;
-  }
+    public String getSyncToken() {
+        return this.syncToken;
+    }
 
-  public void setSyncToken(String syncToken) {
-    this.syncToken = syncToken;
-  }
+    public void setSyncToken(String syncToken) {
+        this.syncToken = syncToken;
+    }
 
-  public Calendar[] getCalendarList() {
-    return this.calendarList;
-  }
+    public Calendar[] getCalendarList() {
+        return this.calendarList;
+    }
 
-  public void setCalendarList(Calendar[] calendarList) {
-    this.calendarList = calendarList;
-  }
+    public void setCalendarList(Calendar[] calendarList) {
+        this.calendarList = calendarList;
+    }
 
 }

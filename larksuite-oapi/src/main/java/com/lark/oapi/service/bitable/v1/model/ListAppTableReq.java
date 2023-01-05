@@ -18,119 +18,117 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListAppTableReq {
-
-  /**
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-
-  // builder 开始
-  public ListAppTableReq() {
-  }
-
-  public ListAppTableReq(Builder builder) {
     /**
-     *
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
-  }
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public static class Builder {
-
-    private String pageToken; //
-    private Integer pageSize; //
-    private String appToken; // bitable app token
-
-    /**
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    // builder 开始
+    public ListAppTableReq() {
     }
 
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public ListAppTableReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
     }
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public ListAppTableReq build() {
-      return new ListAppTableReq(this);
+    public String getPageToken() {
+        return this.pageToken;
     }
-  }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public static class Builder {
+        private String pageToken; //
+        private Integer pageSize; //
+        private String appToken; // bitable app token
+
+        /**
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        public ListAppTableReq build() {
+            return new ListAppTableReq(this);
+        }
+    }
 }

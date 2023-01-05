@@ -16,98 +16,96 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Richtext {
-
-  /**
-   * 内容
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 类型
-   * <p> 示例值：
-   */
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public Richtext() {
-  }
-
-  public Richtext(Builder builder) {
     /**
      * 内容
-     * <p> 示例值：
+     * <p> 示例值：我的答案
      */
-    this.content = builder.content;
-    /**
-     * 类型
-     * <p> 示例值：
-     */
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
-    /**
-     * 内容
-     * <p> 示例值：
-     */
+    @SerializedName("content")
     private String content;
     /**
      * 类型
-     * <p> 示例值：
+     * <p> 示例值：text
      */
+    @SerializedName("type")
     private String type;
 
-    /**
-     * 内容
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public Richtext() {
     }
 
-
-    /**
-     * 类型
-     * <p> 示例值：
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public Richtext(Builder builder) {
+        /**
+         * 内容
+         * <p> 示例值：我的答案
+         */
+        this.content = builder.content;
+        /**
+         * 类型
+         * <p> 示例值：text
+         */
+        this.type = builder.type;
     }
 
-
-    public Richtext build() {
-      return new Richtext(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public static class Builder {
+        /**
+         * 内容
+         * <p> 示例值：我的答案
+         */
+        private String content;
+        /**
+         * 类型
+         * <p> 示例值：text
+         */
+        private String type;
+
+        /**
+         * 内容
+         * <p> 示例值：我的答案
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 类型
+         * <p> 示例值：text
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        public Richtext build() {
+            return new Richtext(this);
+        }
+    }
 }

@@ -17,92 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListPeriodReq {
-
-  /**
-   * 分页标志page_token
-   * <p> 示例值：xaasdasdax
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 分页大小，默认10
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListPeriodReq() {
-  }
-
-  public ListPeriodReq(Builder builder) {
     /**
      * 分页标志page_token
      * <p> 示例值：xaasdasdax
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 分页大小，默认10
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
-  }
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String pageToken; // 分页标志page_token
-    private Integer pageSize; // 分页大小，默认10
-
-
-    /**
-     * 分页标志page_token
-     * <p> 示例值：xaasdasdax
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    // builder 开始
+    public ListPeriodReq() {
     }
 
-
-    /**
-     * 分页大小，默认10
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public ListPeriodReq(Builder builder) {
+        /**
+         * 分页标志page_token
+         * <p> 示例值：xaasdasdax
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页大小，默认10
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
     }
 
-    public ListPeriodReq build() {
-      return new ListPeriodReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String pageToken; // 分页标志page_token
+        private Integer pageSize; // 分页大小，默认10
+
+
+        /**
+         * 分页标志page_token
+         * <p> 示例值：xaasdasdax
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 分页大小，默认10
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListPeriodReq build() {
+            return new ListPeriodReq(this);
+        }
+    }
 }

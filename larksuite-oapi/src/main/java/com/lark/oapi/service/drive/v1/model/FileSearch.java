@@ -16,184 +16,182 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FileSearch {
-
-  /**
-   * 文档token
-   * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
-   */
-  @SerializedName("docs_token")
-  private String docsToken;
-  /**
-   * 文档类型
-   * <p> 示例值：sheet
-   */
-  @SerializedName("docs_type")
-  private String docsType;
-  /**
-   * 标题
-   * <p> 示例值：标题
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 文件所有者
-   * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
-   */
-  @SerializedName("owner_id")
-  private String ownerId;
-
-  // builder 开始
-  public FileSearch() {
-  }
-
-  public FileSearch(Builder builder) {
     /**
      * 文档token
      * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
      */
-    this.docsToken = builder.docsToken;
-    /**
-     * 文档类型
-     * <p> 示例值：sheet
-     */
-    this.docsType = builder.docsType;
-    /**
-     * 标题
-     * <p> 示例值：标题
-     */
-    this.title = builder.title;
-    /**
-     * 文件所有者
-     * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
-     */
-    this.ownerId = builder.ownerId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocsToken() {
-    return this.docsToken;
-  }
-
-  public void setDocsToken(String docsToken) {
-    this.docsToken = docsToken;
-  }
-
-  public String getDocsType() {
-    return this.docsType;
-  }
-
-  public void setDocsType(String docsType) {
-    this.docsType = docsType;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getOwnerId() {
-    return this.ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档token
-     * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
-     */
+    @SerializedName("docs_token")
     private String docsToken;
     /**
      * 文档类型
      * <p> 示例值：sheet
      */
+    @SerializedName("docs_type")
     private String docsType;
     /**
      * 标题
      * <p> 示例值：标题
      */
+    @SerializedName("title")
     private String title;
     /**
      * 文件所有者
      * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
      */
+    @SerializedName("owner_id")
     private String ownerId;
 
-    /**
-     * 文档token
-     * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
-     *
-     * @param docsToken
-     * @return
-     */
-    public Builder docsToken(String docsToken) {
-      this.docsToken = docsToken;
-      return this;
+    // builder 开始
+    public FileSearch() {
     }
 
-
-    /**
-     * 文档类型
-     * <p> 示例值：sheet
-     *
-     * @param docsType
-     * @return
-     */
-    public Builder docsType(String docsType) {
-      this.docsType = docsType;
-      return this;
+    public FileSearch(Builder builder) {
+        /**
+         * 文档token
+         * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
+         */
+        this.docsToken = builder.docsToken;
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         */
+        this.docsType = builder.docsType;
+        /**
+         * 标题
+         * <p> 示例值：标题
+         */
+        this.title = builder.title;
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
+         */
+        this.ownerId = builder.ownerId;
     }
 
-    /**
-     * 文档类型
-     * <p> 示例值：sheet
-     *
-     * @param docsType {@link com.lark.oapi.service.drive.v1.enums.FileSearchDocsTypeEnum}
-     * @return
-     */
-    public Builder docsType(com.lark.oapi.service.drive.v1.enums.FileSearchDocsTypeEnum docsType) {
-      this.docsType = docsType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 标题
-     * <p> 示例值：标题
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getDocsToken() {
+        return this.docsToken;
     }
 
-
-    /**
-     * 文件所有者
-     * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
-     *
-     * @param ownerId
-     * @return
-     */
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
-      return this;
+    public void setDocsToken(String docsToken) {
+        this.docsToken = docsToken;
     }
 
-
-    public FileSearch build() {
-      return new FileSearch(this);
+    public String getDocsType() {
+        return this.docsType;
     }
-  }
+
+    public void setDocsType(String docsType) {
+        this.docsType = docsType;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getOwnerId() {
+        return this.ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public static class Builder {
+        /**
+         * 文档token
+         * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
+         */
+        private String docsToken;
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         */
+        private String docsType;
+        /**
+         * 标题
+         * <p> 示例值：标题
+         */
+        private String title;
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
+         */
+        private String ownerId;
+
+        /**
+         * 文档token
+         * <p> 示例值：doxbcxcAgzUTcPI5xR7c6nGJDGc
+         *
+         * @param docsToken
+         * @return
+         */
+        public Builder docsToken(String docsToken) {
+            this.docsToken = docsToken;
+            return this;
+        }
+
+
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         *
+         * @param docsType
+         * @return
+         */
+        public Builder docsType(String docsType) {
+            this.docsType = docsType;
+            return this;
+        }
+
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         *
+         * @param docsType {@link com.lark.oapi.service.drive.v1.enums.FileSearchDocsTypeEnum}
+         * @return
+         */
+        public Builder docsType(com.lark.oapi.service.drive.v1.enums.FileSearchDocsTypeEnum docsType) {
+            this.docsType = docsType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 标题
+         * <p> 示例值：标题
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_6e92f20bb8842c89c0f7e4090b13d57a
+         *
+         * @param ownerId
+         * @return
+         */
+        public Builder ownerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
+
+        public FileSearch build() {
+            return new FileSearch(this);
+        }
+    }
 }

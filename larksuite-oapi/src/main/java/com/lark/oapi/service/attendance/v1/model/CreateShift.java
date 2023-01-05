@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateShift {
 
-  /**
-   * 班次
-   * <p> 示例值：
-   */
-  @SerializedName("shift")
-  private Shift shift;
+    /**
+     * 班次
+     * <p> 示例值：
+     */
+    @SerializedName("shift")
+    private Shift shift;
 
-  public Shift getShift() {
-    return this.shift;
-  }
+    public Shift getShift() {
+        return this.shift;
+    }
 
-  public void setShift(Shift shift) {
-    this.shift = shift;
-  }
+    public void setShift(Shift shift) {
+        this.shift = shift;
+    }
 
 }

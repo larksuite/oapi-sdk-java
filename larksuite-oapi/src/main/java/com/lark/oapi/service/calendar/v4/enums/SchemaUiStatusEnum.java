@@ -15,18 +15,18 @@ package com.lark.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum SchemaUiStatusEnum {
-  HIDE("hide"),
-  READONLY("readonly"),
-  EDITABLE("editable"),
-  UNKNOWN("unknown"),
-  ;
-  private String value;
+    HIDE("hide"),
+    READONLY("readonly"),
+    EDITABLE("editable"),
+    UNKNOWN("unknown"),
+    ;
+    private String value;
 
-  SchemaUiStatusEnum(String value) {
-    this.value = value;
-  }
+    SchemaUiStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,15 +17,15 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 部门 ID 的类型
  */
 public enum CreateGroupDeptTypeEnum {
-  OPEN_ID("open_id"), // 开放openID
-  ;
-  private String value;
+    OPEN_ID("open_id"), // 开放openID
+    ;
+    private String value;
 
-  CreateGroupDeptTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateGroupDeptTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

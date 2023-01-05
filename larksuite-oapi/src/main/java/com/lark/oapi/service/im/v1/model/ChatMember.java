@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ChatMember {
-
-  /**
-   * user_id
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public ChatMember() {
-  }
-
-  public ChatMember(Builder builder) {
     /**
      * user_id
      * <p> 示例值：
      */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * user_id
-     * <p> 示例值：
-     */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * user_id
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public ChatMember() {
     }
 
-
-    public ChatMember build() {
-      return new ChatMember(this);
+    public ChatMember(Builder builder) {
+        /**
+         * user_id
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * user_id
+         * <p> 示例值：
+         */
+        private String userId;
+
+        /**
+         * user_id
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public ChatMember build() {
+            return new ChatMember(this);
+        }
+    }
 }

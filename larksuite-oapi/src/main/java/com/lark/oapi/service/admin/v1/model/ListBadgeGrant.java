@@ -17,49 +17,49 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListBadgeGrant {
 
-  /**
-   * 授予名单列表
-   * <p> 示例值：[{     "grant_id": "g_uS4yux",     "badge_id": "m_DjMzaK",     "name":
-   * "授权给全员用户的周年授予名单",     "grant_type": 1,     "timezone": "Asia/Shanghai",     "is_grant_all":
-   * true,     "rule_detail": {         "anniversary": 6,         "effective_period": 0     } }]
-   */
-  @SerializedName("grants")
-  private Grant[] grants;
-  /**
-   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：om5fn1
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否已经遍历完，表示本次页面请求已经拿到所有列表数据
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    /**
+     * 授予名单列表
+     * <p> 示例值：[{     "grant_id": "g_uS4yux",     "badge_id": "m_DjMzaK",     "name":
+     * "授权给全员用户的周年授予名单",     "grant_type": 1,     "timezone": "Asia/Shanghai",     "is_grant_all":
+     * true,     "rule_detail": {         "anniversary": 6,         "effective_period": 0     } }]
+     */
+    @SerializedName("grants")
+    private Grant[] grants;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：om5fn1
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否已经遍历完，表示本次页面请求已经拿到所有列表数据
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  public Grant[] getGrants() {
-    return this.grants;
-  }
+    public Grant[] getGrants() {
+        return this.grants;
+    }
 
-  public void setGrants(Grant[] grants) {
-    this.grants = grants;
-  }
+    public void setGrants(Grant[] grants) {
+        this.grants = grants;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

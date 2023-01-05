@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class AgentEmailAgent {
 
-  /**
-   * agent emails
-   * <p> 示例值：{;            "ou_xxx": "xxx",;            "ou_yyy": "yyy";        }
-   */
-  @SerializedName("agents")
-  private String agents;
+    /**
+     * agent emails
+     * <p> 示例值：{;            "ou_xxx": "xxx",;            "ou_yyy": "yyy";        }
+     */
+    @SerializedName("agents")
+    private String agents;
 
-  public String getAgents() {
-    return this.agents;
-  }
+    public String getAgents() {
+        return this.agents;
+    }
 
-  public void setAgents(String agents) {
-    this.agents = agents;
-  }
+    public void setAgents(String agents) {
+        this.agents = agents;
+    }
 
 }

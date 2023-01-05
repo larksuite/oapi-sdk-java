@@ -16,62 +16,61 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2TaskCommentUpdatedV1Data {
+    /**
+     * 任务ID
+     * <p> 示例值：626cf808-4c26-4f27-9da8-01f2eb73d717
+     */
+    @SerializedName("task_id")
+    private String taskId;
+    /**
+     * 任务评论ID
+     * <p> 示例值：6994706512731963411
+     */
+    @SerializedName("comment_id")
+    private String commentId;
+    /**
+     * 任务评论父ID
+     * <p> 示例值：6994706512731965890
+     */
+    @SerializedName("parent_id")
+    private String parentId;
+    /**
+     * 通知类型（1：创建评论，2：回复评论，3：更新评论，4：删除评论）
+     * <p> 示例值：1
+     */
+    @SerializedName("obj_type")
+    private Integer objType;
 
-  /**
-   * 任务ID
-   * <p> 示例值：626cf808-4c26-4f27-9da8-01f2eb73d717
-   */
-  @SerializedName("task_id")
-  private String taskId;
-  /**
-   * 任务评论ID
-   * <p> 示例值：6994706512731963411
-   */
-  @SerializedName("comment_id")
-  private String commentId;
-  /**
-   * 任务评论父ID
-   * <p> 示例值：6994706512731965890
-   */
-  @SerializedName("parent_id")
-  private String parentId;
-  /**
-   * 通知类型（1：创建评论，2：回复评论，3：更新评论，4：删除评论）
-   * <p> 示例值：1
-   */
-  @SerializedName("obj_type")
-  private Integer objType;
+    public String getTaskId() {
+        return this.taskId;
+    }
 
-  public String getTaskId() {
-    return this.taskId;
-  }
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
+    public String getCommentId() {
+        return this.commentId;
+    }
 
-  public String getCommentId() {
-    return this.commentId;
-  }
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
 
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
+    public String getParentId() {
+        return this.parentId;
+    }
 
-  public String getParentId() {
-    return this.parentId;
-  }
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
+    public Integer getObjType() {
+        return this.objType;
+    }
 
-  public Integer getObjType() {
-    return this.objType;
-  }
-
-  public void setObjType(Integer objType) {
-    this.objType = objType;
-  }
+    public void setObjType(Integer objType) {
+        this.objType = objType;
+    }
 
 }

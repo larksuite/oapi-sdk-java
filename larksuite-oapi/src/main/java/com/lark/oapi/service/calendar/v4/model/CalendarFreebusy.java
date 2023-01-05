@@ -16,135 +16,133 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CalendarFreebusy {
-
-  /**
-   * 忙闲信息开始时间，RFC3339 date_time格式
-   * <p> 示例值：
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 忙闲信息结束时间，RFC3339 date_time格式
-   * <p> 示例值：
-   */
-  @SerializedName("end_time")
-  private String endTime;
-  /**
-   * 日历id
-   * <p> 示例值：
-   */
-  @SerializedName("calendar_id")
-  private String calendarId;
-
-  // builder 开始
-  public CalendarFreebusy() {
-  }
-
-  public CalendarFreebusy(Builder builder) {
     /**
      * 忙闲信息开始时间，RFC3339 date_time格式
      * <p> 示例值：
      */
-    this.startTime = builder.startTime;
-    /**
-     * 忙闲信息结束时间，RFC3339 date_time格式
-     * <p> 示例值：
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 日历id
-     * <p> 示例值：
-     */
-    this.calendarId = builder.calendarId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 忙闲信息开始时间，RFC3339 date_time格式
-     * <p> 示例值：
-     */
+    @SerializedName("start_time")
     private String startTime;
     /**
      * 忙闲信息结束时间，RFC3339 date_time格式
      * <p> 示例值：
      */
+    @SerializedName("end_time")
     private String endTime;
     /**
      * 日历id
      * <p> 示例值：
      */
+    @SerializedName("calendar_id")
     private String calendarId;
 
-    /**
-     * 忙闲信息开始时间，RFC3339 date_time格式
-     * <p> 示例值：
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    // builder 开始
+    public CalendarFreebusy() {
     }
 
-
-    /**
-     * 忙闲信息结束时间，RFC3339 date_time格式
-     * <p> 示例值：
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public CalendarFreebusy(Builder builder) {
+        /**
+         * 忙闲信息开始时间，RFC3339 date_time格式
+         * <p> 示例值：
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 忙闲信息结束时间，RFC3339 date_time格式
+         * <p> 示例值：
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 日历id
+         * <p> 示例值：
+         */
+        this.calendarId = builder.calendarId;
     }
 
-
-    /**
-     * 日历id
-     * <p> 示例值：
-     *
-     * @param calendarId
-     * @return
-     */
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public CalendarFreebusy build() {
-      return new CalendarFreebusy(this);
+    public String getStartTime() {
+        return this.startTime;
     }
-  }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    public static class Builder {
+        /**
+         * 忙闲信息开始时间，RFC3339 date_time格式
+         * <p> 示例值：
+         */
+        private String startTime;
+        /**
+         * 忙闲信息结束时间，RFC3339 date_time格式
+         * <p> 示例值：
+         */
+        private String endTime;
+        /**
+         * 日历id
+         * <p> 示例值：
+         */
+        private String calendarId;
+
+        /**
+         * 忙闲信息开始时间，RFC3339 date_time格式
+         * <p> 示例值：
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 忙闲信息结束时间，RFC3339 date_time格式
+         * <p> 示例值：
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 日历id
+         * <p> 示例值：
+         *
+         * @param calendarId
+         * @return
+         */
+        public Builder calendarId(String calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
+
+
+        public CalendarFreebusy build() {
+            return new CalendarFreebusy(this);
+        }
+    }
 }

@@ -16,136 +16,136 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1WorkApprovalV4Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("employee_id")
-  private String employeeId;
-  @SerializedName("start_time")
-  private long startTime;
-  @SerializedName("end_time")
-  private long endTime;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("instance_code")
+    private String instanceCode;
+    @SerializedName("open_id")
+    private String openId;
+    @SerializedName("employee_id")
+    private String employeeId;
+    @SerializedName("start_time")
+    private long startTime;
+    @SerializedName("end_time")
+    private long endTime;
 
-  @SerializedName("work_type")
-  private String workType;
-  @SerializedName("work_start_time")
-  private String workStartTime;
-  @SerializedName("work_end_time")
-  private String workEndTime;
+    @SerializedName("work_type")
+    private String workType;
+    @SerializedName("work_start_time")
+    private String workStartTime;
+    @SerializedName("work_end_time")
+    private String workEndTime;
 
-  @SerializedName("work_interval")
-  private long workInterval;
-  @SerializedName("work_reason")
-  private String workReason;
+    @SerializedName("work_interval")
+    private long workInterval;
+    @SerializedName("work_reason")
+    private String workReason;
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public String getInstanceCode() {
-    return instanceCode;
-  }
+    public String getInstanceCode() {
+        return instanceCode;
+    }
 
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
+    }
 
-  public String getOpenId() {
-    return openId;
-  }
+    public String getOpenId() {
+        return openId;
+    }
 
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
-  public String getEmployeeId() {
-    return employeeId;
-  }
+    public String getEmployeeId() {
+        return employeeId;
+    }
 
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
-  public long getStartTime() {
-    return startTime;
-  }
+    public long getStartTime() {
+        return startTime;
+    }
 
-  public void setStartTime(long startTime) {
-    this.startTime = startTime;
-  }
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 
-  public long getEndTime() {
-    return endTime;
-  }
+    public long getEndTime() {
+        return endTime;
+    }
 
-  public void setEndTime(long endTime) {
-    this.endTime = endTime;
-  }
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
 
-  public String getWorkType() {
-    return workType;
-  }
+    public String getWorkType() {
+        return workType;
+    }
 
-  public void setWorkType(String workType) {
-    this.workType = workType;
-  }
+    public void setWorkType(String workType) {
+        this.workType = workType;
+    }
 
-  public String getWorkStartTime() {
-    return workStartTime;
-  }
+    public String getWorkStartTime() {
+        return workStartTime;
+    }
 
-  public void setWorkStartTime(String workStartTime) {
-    this.workStartTime = workStartTime;
-  }
+    public void setWorkStartTime(String workStartTime) {
+        this.workStartTime = workStartTime;
+    }
 
-  public String getWorkEndTime() {
-    return workEndTime;
-  }
+    public String getWorkEndTime() {
+        return workEndTime;
+    }
 
-  public void setWorkEndTime(String workEndTime) {
-    this.workEndTime = workEndTime;
-  }
+    public void setWorkEndTime(String workEndTime) {
+        this.workEndTime = workEndTime;
+    }
 
-  public long getWorkInterval() {
-    return workInterval;
-  }
+    public long getWorkInterval() {
+        return workInterval;
+    }
 
-  public void setWorkInterval(long workInterval) {
-    this.workInterval = workInterval;
-  }
+    public void setWorkInterval(long workInterval) {
+        this.workInterval = workInterval;
+    }
 
-  public String getWorkReason() {
-    return workReason;
-  }
+    public String getWorkReason() {
+        return workReason;
+    }
 
-  public void setWorkReason(String workReason) {
-    this.workReason = workReason;
-  }
+    public void setWorkReason(String workReason) {
+        this.workReason = workReason;
+    }
 }

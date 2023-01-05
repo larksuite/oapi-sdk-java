@@ -17,16 +17,16 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 表示知识空间类型（团队空间 或 个人空间）
  */
 public enum SpaceSpaceTypeEnum {
-  TEAM("team"), // 团队空间
-  PERSON("person"), // 个人空间
-  ;
-  private String value;
+    TEAM("team"), // 团队空间
+    PERSON("person"), // 个人空间
+    ;
+    private String value;
 
-  SpaceSpaceTypeEnum(String value) {
-    this.value = value;
-  }
+    SpaceSpaceTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

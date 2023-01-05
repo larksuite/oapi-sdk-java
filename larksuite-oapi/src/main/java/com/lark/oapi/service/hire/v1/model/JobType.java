@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobType {
-
-  /**
-   * 职位类别 ID
-   * <p> 示例值：6890840777044265230
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 职位类别中文名称
-   * <p> 示例值：金融
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 职位类别英文名称
-   * <p> 示例值：Finance
-   */
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public JobType() {
-  }
-
-  public JobType(Builder builder) {
     /**
      * 职位类别 ID
      * <p> 示例值：6890840777044265230
      */
-    this.id = builder.id;
-    /**
-     * 职位类别中文名称
-     * <p> 示例值：金融
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 职位类别英文名称
-     * <p> 示例值：Finance
-     */
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 职位类别 ID
-     * <p> 示例值：6890840777044265230
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 职位类别中文名称
      * <p> 示例值：金融
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 职位类别英文名称
      * <p> 示例值：Finance
      */
+    @SerializedName("en_name")
     private String enName;
 
-    /**
-     * 职位类别 ID
-     * <p> 示例值：6890840777044265230
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public JobType() {
     }
 
-
-    /**
-     * 职位类别中文名称
-     * <p> 示例值：金融
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public JobType(Builder builder) {
+        /**
+         * 职位类别 ID
+         * <p> 示例值：6890840777044265230
+         */
+        this.id = builder.id;
+        /**
+         * 职位类别中文名称
+         * <p> 示例值：金融
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 职位类别英文名称
+         * <p> 示例值：Finance
+         */
+        this.enName = builder.enName;
     }
 
-
-    /**
-     * 职位类别英文名称
-     * <p> 示例值：Finance
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public JobType build() {
-      return new JobType(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getZhName() {
+        return this.zhName;
+    }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public static class Builder {
+        /**
+         * 职位类别 ID
+         * <p> 示例值：6890840777044265230
+         */
+        private String id;
+        /**
+         * 职位类别中文名称
+         * <p> 示例值：金融
+         */
+        private String zhName;
+        /**
+         * 职位类别英文名称
+         * <p> 示例值：Finance
+         */
+        private String enName;
+
+        /**
+         * 职位类别 ID
+         * <p> 示例值：6890840777044265230
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 职位类别中文名称
+         * <p> 示例值：金融
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 职位类别英文名称
+         * <p> 示例值：Finance
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        public JobType build() {
+            return new JobType(this);
+        }
+    }
 }

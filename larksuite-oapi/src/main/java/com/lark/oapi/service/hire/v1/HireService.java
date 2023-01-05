@@ -18,1544 +18,2114 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.hire.v1.model.CreateApplicationReq;
-import com.lark.oapi.service.hire.v1.model.CreateApplicationResp;
-import com.lark.oapi.service.hire.v1.model.CreateNoteReq;
-import com.lark.oapi.service.hire.v1.model.CreateNoteResp;
-import com.lark.oapi.service.hire.v1.model.GetApplicationReq;
-import com.lark.oapi.service.hire.v1.model.GetApplicationResp;
-import com.lark.oapi.service.hire.v1.model.GetAttachmentReq;
-import com.lark.oapi.service.hire.v1.model.GetAttachmentResp;
-import com.lark.oapi.service.hire.v1.model.GetByApplicationEmployeeReq;
-import com.lark.oapi.service.hire.v1.model.GetByApplicationEmployeeResp;
-import com.lark.oapi.service.hire.v1.model.GetByApplicationReferralReq;
-import com.lark.oapi.service.hire.v1.model.GetByApplicationReferralResp;
-import com.lark.oapi.service.hire.v1.model.GetEmployeeReq;
-import com.lark.oapi.service.hire.v1.model.GetEmployeeResp;
-import com.lark.oapi.service.hire.v1.model.GetJobManagerReq;
-import com.lark.oapi.service.hire.v1.model.GetJobManagerResp;
-import com.lark.oapi.service.hire.v1.model.GetJobReq;
-import com.lark.oapi.service.hire.v1.model.GetJobResp;
-import com.lark.oapi.service.hire.v1.model.GetNoteReq;
-import com.lark.oapi.service.hire.v1.model.GetNoteResp;
-import com.lark.oapi.service.hire.v1.model.GetOfferSchemaReq;
-import com.lark.oapi.service.hire.v1.model.GetOfferSchemaResp;
-import com.lark.oapi.service.hire.v1.model.GetTalentReq;
-import com.lark.oapi.service.hire.v1.model.GetTalentResp;
-import com.lark.oapi.service.hire.v1.model.ListApplicationInterviewReq;
-import com.lark.oapi.service.hire.v1.model.ListApplicationInterviewResp;
-import com.lark.oapi.service.hire.v1.model.ListApplicationReq;
-import com.lark.oapi.service.hire.v1.model.ListApplicationResp;
-import com.lark.oapi.service.hire.v1.model.ListJobProcessReq;
-import com.lark.oapi.service.hire.v1.model.ListJobProcessResp;
-import com.lark.oapi.service.hire.v1.model.ListNoteReq;
-import com.lark.oapi.service.hire.v1.model.ListNoteResp;
-import com.lark.oapi.service.hire.v1.model.ListResumeSourceReq;
-import com.lark.oapi.service.hire.v1.model.ListResumeSourceResp;
-import com.lark.oapi.service.hire.v1.model.OfferApplicationReq;
-import com.lark.oapi.service.hire.v1.model.OfferApplicationResp;
-import com.lark.oapi.service.hire.v1.model.PatchEmployeeReq;
-import com.lark.oapi.service.hire.v1.model.PatchEmployeeResp;
-import com.lark.oapi.service.hire.v1.model.PatchNoteReq;
-import com.lark.oapi.service.hire.v1.model.PatchNoteResp;
-import com.lark.oapi.service.hire.v1.model.PreviewAttachmentReq;
-import com.lark.oapi.service.hire.v1.model.PreviewAttachmentResp;
-import com.lark.oapi.service.hire.v1.model.TerminateApplicationReq;
-import com.lark.oapi.service.hire.v1.model.TerminateApplicationResp;
-import com.lark.oapi.service.hire.v1.model.TransferOnboardApplicationReq;
-import com.lark.oapi.service.hire.v1.model.TransferOnboardApplicationResp;
+import com.lark.oapi.service.hire.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class HireService {
+    private static final Logger log = LoggerFactory.getLogger(HireService.class);
+    private final Application application; // 投递
+    private final ApplicationInterview applicationInterview; // application.interview
+    private final Attachment attachment; // 附件
+    private final EhrImportTask ehrImportTask; // 导入 e-HR
+    private final Employee employee; // 入职
+    private final Job job; // 职位
+    private final JobManager jobManager; // job.manager
+    private final JobProcess jobProcess; // 流程
+    private final Note note; // 备注
+    private final OfferSchema offerSchema; // offer_schema
+    private final Referral referral; // 内推
+    private final ResumeSource resumeSource; // 简历来源
+    private final Talent talent; // 人才
 
-  private final Application application; // 投递
-  private final ApplicationInterview applicationInterview; // 面试
-  private final Attachment attachment; // 附件
-  private final Employee employee; // 入职
-  private final Job job; // 职位
-  private final JobManager jobManager; // 职位
-  private final JobProcess jobProcess; // 流程
-  private final Note note; // 备注
-  private final OfferSchema offerSchema; // offer
-  private final Referral referral; // 内推
-  private final ResumeSource resumeSource; // 简历来源
-  private final Talent talent; // 人才
-
-  public HireService(Config config) {
-    this.application = new Application(config);
-    this.applicationInterview = new ApplicationInterview(config);
-    this.attachment = new Attachment(config);
-    this.employee = new Employee(config);
-    this.job = new Job(config);
-    this.jobManager = new JobManager(config);
-    this.jobProcess = new JobProcess(config);
-    this.note = new Note(config);
-    this.offerSchema = new OfferSchema(config);
-    this.referral = new Referral(config);
-    this.resumeSource = new ResumeSource(config);
-    this.talent = new Talent(config);
-  }
-
-  /**
-   * 投递
-   *
-   * @return
-   */
-  public Application application() {
-    return application;
-  }
-
-  /**
-   * 面试
-   *
-   * @return
-   */
-  public ApplicationInterview applicationInterview() {
-    return applicationInterview;
-  }
-
-  /**
-   * 附件
-   *
-   * @return
-   */
-  public Attachment attachment() {
-    return attachment;
-  }
-
-  /**
-   * 入职
-   *
-   * @return
-   */
-  public Employee employee() {
-    return employee;
-  }
-
-  /**
-   * 职位
-   *
-   * @return
-   */
-  public Job job() {
-    return job;
-  }
-
-  /**
-   * 职位
-   *
-   * @return
-   */
-  public JobManager jobManager() {
-    return jobManager;
-  }
-
-  /**
-   * 流程
-   *
-   * @return
-   */
-  public JobProcess jobProcess() {
-    return jobProcess;
-  }
-
-  /**
-   * 备注
-   *
-   * @return
-   */
-  public Note note() {
-    return note;
-  }
-
-  /**
-   * offer
-   *
-   * @return
-   */
-  public OfferSchema offerSchema() {
-    return offerSchema;
-  }
-
-  /**
-   * 内推
-   *
-   * @return
-   */
-  public Referral referral() {
-    return referral;
-  }
-
-  /**
-   * 简历来源
-   *
-   * @return
-   */
-  public ResumeSource resumeSource() {
-    return resumeSource;
-  }
-
-  /**
-   * 人才
-   *
-   * @return
-   */
-  public Talent talent() {
-    return talent;
-  }
-
-  public static class Application {
-
-    private final Config config;
-
-    public Application(Config config) {
-      this.config = config;
+    public HireService(Config config) {
+        this.application = new Application(config);
+        this.applicationInterview = new ApplicationInterview(config);
+        this.attachment = new Attachment(config);
+        this.ehrImportTask = new EhrImportTask(config);
+        this.employee = new Employee(config);
+        this.job = new Job(config);
+        this.jobManager = new JobManager(config);
+        this.jobProcess = new JobProcess(config);
+        this.note = new Note(config);
+        this.offerSchema = new OfferSchema(config);
+        this.referral = new Referral(config);
+        this.resumeSource = new ResumeSource(config);
+        this.talent = new Talent(config);
     }
 
     /**
-     * 创建投递，根据人才 ID 和职位 ID 创建投递
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java</a>
-     * ;
+     * 投递
+     *
+     * @return
      */
-    public CreateApplicationResp create(CreateApplicationReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/applications"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Application application() {
+        return application;
     }
 
     /**
-     * 创建投递，根据人才 ID 和职位 ID 创建投递
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java</a>
-     * ;
+     * application.interview
+     *
+     * @return
      */
-    public CreateApplicationResp create(CreateApplicationReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/applications"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public ApplicationInterview applicationInterview() {
+        return applicationInterview;
     }
 
     /**
-     * 获取投递信息，根据投递 ID 获取单个投递信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java</a>
-     * ;
+     * 附件
+     *
+     * @return
      */
-    public GetApplicationResp get(GetApplicationReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications/:application_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Attachment attachment() {
+        return attachment;
     }
 
     /**
-     * 获取投递信息，根据投递 ID 获取单个投递信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java</a>
-     * ;
+     * 导入 e-HR
+     *
+     * @return
      */
-    public GetApplicationResp get(GetApplicationReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications/:application_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public EhrImportTask ehrImportTask() {
+        return ehrImportTask;
     }
 
     /**
-     * 获取投递列表，根据限定条件获取投递列表信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java</a>
-     * ;
+     * 入职
+     *
+     * @return
      */
-    public ListApplicationResp list(ListApplicationReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Employee employee() {
+        return employee;
     }
 
     /**
-     * 获取投递列表，根据限定条件获取投递列表信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java</a>
-     * ;
+     * 职位
+     *
+     * @return
      */
-    public ListApplicationResp list(ListApplicationReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Job job() {
+        return job;
     }
 
     /**
-     * 获取 Offer 信息，根据投递 ID 获取 Offer 信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java</a>
-     * ;
+     * job.manager
+     *
+     * @return
      */
-    public OfferApplicationResp offer(OfferApplicationReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications/:application_id/offer"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      OfferApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          OfferApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public JobManager jobManager() {
+        return jobManager;
     }
 
     /**
-     * 获取 Offer 信息，根据投递 ID 获取 Offer 信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java</a>
-     * ;
+     * 流程
+     *
+     * @return
      */
-    public OfferApplicationResp offer(OfferApplicationReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications/:application_id/offer"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      OfferApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          OfferApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public JobProcess jobProcess() {
+        return jobProcess;
     }
 
     /**
-     * 终止投递，根据投递 ID 修改投递状态为「已终止」
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java</a>
-     * ;
+     * 备注
+     *
+     * @return
      */
-    public TerminateApplicationResp terminate(TerminateApplicationReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/applications/:application_id/terminate"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      TerminateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TerminateApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Note note() {
+        return note;
     }
 
     /**
-     * 终止投递，根据投递 ID 修改投递状态为「已终止」
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java</a>
-     * ;
+     * offer_schema
+     *
+     * @return
      */
-    public TerminateApplicationResp terminate(TerminateApplicationReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/applications/:application_id/terminate"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      TerminateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TerminateApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public OfferSchema offerSchema() {
+        return offerSchema;
     }
 
     /**
-     * 操作候选人入职，根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java</a>
-     * ;
+     * 内推
+     *
+     * @return
      */
-    public TransferOnboardApplicationResp transferOnboard(TransferOnboardApplicationReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      TransferOnboardApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TransferOnboardApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Referral referral() {
+        return referral;
     }
 
     /**
-     * 操作候选人入职，根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java</a>
-     * ;
+     * 简历来源
+     *
+     * @return
      */
-    public TransferOnboardApplicationResp transferOnboard(TransferOnboardApplicationReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      TransferOnboardApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TransferOnboardApplicationResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class ApplicationInterview {
-
-    private final Config config;
-
-    public ApplicationInterview(Config config) {
-      this.config = config;
+    public ResumeSource resumeSource() {
+        return resumeSource;
     }
 
     /**
-     * 获取面试记录列表，根据投递 ID 获取面试记录列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application-interview/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application-interview/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java</a>
-     * ;
+     * 人才
+     *
+     * @return
      */
-    public ListApplicationInterviewResp list(ListApplicationInterviewReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications/:application_id/interviews"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListApplicationInterviewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListApplicationInterviewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Talent talent() {
+        return talent;
     }
 
-    /**
-     * 获取面试记录列表，根据投递 ID 获取面试记录列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application-interview/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application-interview/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java</a>
-     * ;
-     */
-    public ListApplicationInterviewResp list(ListApplicationInterviewReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/applications/:application_id/interviews"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListApplicationInterviewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListApplicationInterviewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Attachment {
-
-    private final Config config;
-
-    public Attachment(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取附件信息，获取招聘系统中附件的元信息，比如文件名、创建时间、文件url等
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java</a>
-     * ;
-     */
-    public GetAttachmentResp get(GetAttachmentReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/attachments/:attachment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetAttachmentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取附件信息，获取招聘系统中附件的元信息，比如文件名、创建时间、文件url等
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java</a>
-     * ;
-     */
-    public GetAttachmentResp get(GetAttachmentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/attachments/:attachment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetAttachmentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取附件预览信息，根据附件 ID 获取附件预览信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java</a>
-     * ;
-     */
-    public PreviewAttachmentResp preview(PreviewAttachmentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/attachments/:attachment_id/preview"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      PreviewAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PreviewAttachmentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取附件预览信息，根据附件 ID 获取附件预览信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java</a>
-     * ;
-     */
-    public PreviewAttachmentResp preview(PreviewAttachmentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/attachments/:attachment_id/preview"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      PreviewAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PreviewAttachmentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Employee {
-
-    private final Config config;
-
-    public Employee(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 通过员工 ID 获取入职信息，通过员工 ID 获取入职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java</a>
-     * ;
-     */
-    public GetEmployeeResp get(GetEmployeeReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/employees/:employee_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 通过员工 ID 获取入职信息，通过员工 ID 获取入职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java</a>
-     * ;
-     */
-    public GetEmployeeResp get(GetEmployeeReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/employees/:employee_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 通过投递 ID 获取入职信息，通过投递 ID 获取入职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java</a>
-     * ;
-     */
-    public GetByApplicationEmployeeResp getByApplication(GetByApplicationEmployeeReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/employees/get_by_application"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetByApplicationEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetByApplicationEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 通过投递 ID 获取入职信息，通过投递 ID 获取入职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java</a>
-     * ;
-     */
-    public GetByApplicationEmployeeResp getByApplication(GetByApplicationEmployeeReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/employees/get_by_application"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetByApplicationEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetByApplicationEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新入职状态，根据员工 ID 更新员工转正、离职状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java</a>
-     * ;
-     */
-    public PatchEmployeeResp patch(PatchEmployeeReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/hire/v1/employees/:employee_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      PatchEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新入职状态，根据员工 ID 更新员工转正、离职状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java</a>
-     * ;
-     */
-    public PatchEmployeeResp patch(PatchEmployeeReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/hire/v1/employees/:employee_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      PatchEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchEmployeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Job {
-
-    private final Config config;
-
-    public Job(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取职位信息，根据职位 ID 获取职位信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java</a>
-     * ;
-     */
-    public GetJobResp get(GetJobReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/jobs/:job_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取职位信息，根据职位 ID 获取职位信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java</a>
-     * ;
-     */
-    public GetJobResp get(GetJobReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/jobs/:job_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class JobManager {
-
-    private final Config config;
-
-    public JobManager(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取职位上的招聘人员信息，根据职位 ID 获取职位上的招聘人员信息，如招聘负责人、用人经理
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java</a>
-     * ;
-     */
-    public GetJobManagerResp get(GetJobManagerReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetJobManagerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetJobManagerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public static class Application {
+        private final Config config;
+
+        public Application(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建投递，根据人才 ID 和职位 ID 创建投递
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java</a> ;
+         */
+        public CreateApplicationResp create(CreateApplicationReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/applications"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建投递，根据人才 ID 和职位 ID 创建投递
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java</a> ;
+         */
+        public CreateApplicationResp create(CreateApplicationReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/applications"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取投递信息，根据投递 ID 获取单个投递信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java</a> ;
+         */
+        public GetApplicationResp get(GetApplicationReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications/:application_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取投递信息，根据投递 ID 获取单个投递信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java</a> ;
+         */
+        public GetApplicationResp get(GetApplicationReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications/:application_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取投递列表，根据限定条件获取投递列表信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java</a> ;
+         */
+        public ListApplicationResp list(ListApplicationReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取投递列表，根据限定条件获取投递列表信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java</a> ;
+         */
+        public ListApplicationResp list(ListApplicationReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取 Offer 信息，根据投递 ID 获取 Offer 信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java</a> ;
+         */
+        public OfferApplicationResp offer(OfferApplicationReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications/:application_id/offer"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            OfferApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OfferApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/offer"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取 Offer 信息，根据投递 ID 获取 Offer 信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java</a> ;
+         */
+        public OfferApplicationResp offer(OfferApplicationReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications/:application_id/offer"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            OfferApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OfferApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/offer"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 终止投递，根据投递 ID 修改投递状态为「已终止」
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java</a> ;
+         */
+        public TerminateApplicationResp terminate(TerminateApplicationReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/applications/:application_id/terminate"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            TerminateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TerminateApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/terminate"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 终止投递，根据投递 ID 修改投递状态为「已终止」
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java</a> ;
+         */
+        public TerminateApplicationResp terminate(TerminateApplicationReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/applications/:application_id/terminate"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            TerminateApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TerminateApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/terminate"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 操作候选人入职，根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java</a> ;
+         */
+        public TransferOnboardApplicationResp transferOnboard(TransferOnboardApplicationReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            TransferOnboardApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TransferOnboardApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 操作候选人入职，根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java</a> ;
+         */
+        public TransferOnboardApplicationResp transferOnboard(TransferOnboardApplicationReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            TransferOnboardApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TransferOnboardApplicationResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取职位上的招聘人员信息，根据职位 ID 获取职位上的招聘人员信息，如招聘负责人、用人经理
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java</a>
-     * ;
-     */
-    public GetJobManagerResp get(GetJobManagerReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class ApplicationInterview {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public ApplicationInterview(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetJobManagerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetJobManagerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=application.interview&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=application.interview&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java</a> ;
+         */
+        public ListApplicationInterviewResp list(ListApplicationInterviewReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
-    }
-  }
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications/:application_id/interviews"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-  public static class JobProcess {
+            // 反序列化
+            ListApplicationInterviewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListApplicationInterviewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/interviews"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-    private final Config config;
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    public JobProcess(Config config) {
-      this.config = config;
-    }
+            return resp;
+        }
 
-    /**
-     * 获取招聘流程信息，获取全部招聘流程信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java</a>
-     * ;
-     */
-    public ListJobProcessResp list(ListJobProcessReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=application.interview&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=application.interview&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationInterviewSample.java</a> ;
+         */
+        public ListApplicationInterviewResp list(ListApplicationInterviewReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/job_processes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/applications/:application_id/interviews"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-      // 反序列化
-      ListJobProcessResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListJobProcessResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 反序列化
+            ListApplicationInterviewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListApplicationInterviewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/applications/:application_id/interviews"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-      return resp;
-    }
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    /**
-     * 获取招聘流程信息，获取全部招聘流程信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java</a>
-     * ;
-     */
-    public ListJobProcessResp list(ListJobProcessReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/job_processes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListJobProcessResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListJobProcessResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Note {
-
-    private final Config config;
-
-    public Note(Config config) {
-      this.config = config;
+            return resp;
+        }
     }
 
-    /**
-     * 创建备注，创建备注信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java</a>
-     * ;
-     */
-    public CreateNoteResp create(CreateNoteReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Attachment {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/notes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Attachment(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      CreateNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取附件信息，获取招聘系统中附件的元信息，比如文件名、创建时间、文件url等
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java</a> ;
+         */
+        public GetAttachmentResp get(GetAttachmentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/attachments/:attachment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAttachmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments/:attachment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取附件信息，获取招聘系统中附件的元信息，比如文件名、创建时间、文件url等
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java</a> ;
+         */
+        public GetAttachmentResp get(GetAttachmentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/attachments/:attachment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAttachmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments/:attachment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取附件预览信息，根据附件 ID 获取附件预览信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java</a> ;
+         */
+        public PreviewAttachmentResp preview(PreviewAttachmentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/attachments/:attachment_id/preview"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PreviewAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PreviewAttachmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments/:attachment_id/preview"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取附件预览信息，根据附件 ID 获取附件预览信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PreviewAttachmentSample.java</a> ;
+         */
+        public PreviewAttachmentResp preview(PreviewAttachmentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/attachments/:attachment_id/preview"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PreviewAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PreviewAttachmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments/:attachment_id/preview"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 创建备注，创建备注信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java</a>
-     * ;
-     */
-    public CreateNoteResp create(CreateNoteReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class EhrImportTask {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/hire/v1/notes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public EhrImportTask(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      CreateNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 更新 e-HR 导入任务结果，在处理完导入 e-HR 事件后，可调用该接口，更新  e-HR 导入任务结果
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/ehr_import_task/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/ehr_import_task/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEhrImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEhrImportTaskSample.java</a> ;
+         */
+        public PatchEhrImportTaskResp patch(PatchEhrImportTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/ehr_import_tasks/:ehr_import_task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchEhrImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchEhrImportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/ehr_import_tasks/:ehr_import_task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新 e-HR 导入任务结果，在处理完导入 e-HR 事件后，可调用该接口，更新  e-HR 导入任务结果
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/ehr_import_task/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/ehr_import_task/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEhrImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEhrImportTaskSample.java</a> ;
+         */
+        public PatchEhrImportTaskResp patch(PatchEhrImportTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/ehr_import_tasks/:ehr_import_task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchEhrImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchEhrImportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/ehr_import_tasks/:ehr_import_task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取备注，根据备注 ID 获取备注信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java</a>
-     * ;
-     */
-    public GetNoteResp get(GetNoteReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Employee {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/notes/:note_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Employee(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 通过员工 ID 获取入职信息，通过员工 ID 获取入职信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java</a> ;
+         */
+        public GetEmployeeResp get(GetEmployeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/employees/:employee_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/employees/:employee_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 通过员工 ID 获取入职信息，通过员工 ID 获取入职信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetEmployeeSample.java</a> ;
+         */
+        public GetEmployeeResp get(GetEmployeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/employees/:employee_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/employees/:employee_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 通过投递 ID 获取入职信息，通过投递 ID 获取入职信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java</a> ;
+         */
+        public GetByApplicationEmployeeResp getByApplication(GetByApplicationEmployeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/employees/get_by_application"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetByApplicationEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetByApplicationEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/employees/get_by_application"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 通过投递 ID 获取入职信息，通过投递 ID 获取入职信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationEmployeeSample.java</a> ;
+         */
+        public GetByApplicationEmployeeResp getByApplication(GetByApplicationEmployeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/employees/get_by_application"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetByApplicationEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetByApplicationEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/employees/get_by_application"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新入职状态，根据员工 ID 更新员工转正、离职状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java</a> ;
+         */
+        public PatchEmployeeResp patch(PatchEmployeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/employees/:employee_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/employees/:employee_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新入职状态，根据员工 ID 更新员工转正、离职状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchEmployeeSample.java</a> ;
+         */
+        public PatchEmployeeResp patch(PatchEmployeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/employees/:employee_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchEmployeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/employees/:employee_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取备注，根据备注 ID 获取备注信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java</a>
-     * ;
-     */
-    public GetNoteResp get(GetNoteReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Job {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/notes/:note_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Job(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 新建职位，新建职位，字段的是否必填，以系统中的「职位字段管理」中的设置为准。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CombinedCreateJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CombinedCreateJobSample.java</a> ;
+         */
+        public CombinedCreateJobResp combinedCreate(CombinedCreateJobReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/jobs/combined_create"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CombinedCreateJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CombinedCreateJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/combined_create"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 新建职位，新建职位，字段的是否必填，以系统中的「职位字段管理」中的设置为准。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CombinedCreateJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CombinedCreateJobSample.java</a> ;
+         */
+        public CombinedCreateJobResp combinedCreate(CombinedCreateJobReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/jobs/combined_create"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CombinedCreateJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CombinedCreateJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/combined_create"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取职位设置，获取职位设置
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ConfigJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ConfigJobSample.java</a> ;
+         */
+        public ConfigJobResp config(ConfigJobReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/jobs/:job_id/config"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ConfigJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ConfigJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id/config"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取职位设置，获取职位设置
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ConfigJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ConfigJobSample.java</a> ;
+         */
+        public ConfigJobResp config(ConfigJobReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/jobs/:job_id/config"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ConfigJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ConfigJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id/config"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取职位信息，根据职位 ID 获取职位信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java</a> ;
+         */
+        public GetJobResp get(GetJobReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/jobs/:job_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取职位信息，根据职位 ID 获取职位信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java</a> ;
+         */
+        public GetJobResp get(GetJobReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/jobs/:job_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新职位设置，更新职位设置，包括面试评价表、Offer 申请表等。接口将按照所选择的「更新选项」进行设置参数校验和更新。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/update_config">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/update_config</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateConfigJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateConfigJobSample.java</a> ;
+         */
+        public UpdateConfigJobResp updateConfig(UpdateConfigJobReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/jobs/:job_id/update_config"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateConfigJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateConfigJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id/update_config"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新职位设置，更新职位设置，包括面试评价表、Offer 申请表等。接口将按照所选择的「更新选项」进行设置参数校验和更新。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/update_config">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/update_config</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateConfigJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateConfigJobSample.java</a> ;
+         */
+        public UpdateConfigJobResp updateConfig(UpdateConfigJobReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/jobs/:job_id/update_config"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateConfigJobResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateConfigJobResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id/update_config"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取备注列表，获取备注列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java</a>
-     * ;
-     */
-    public ListNoteResp list(ListNoteReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class JobManager {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/notes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public JobManager(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取职位上的招聘人员信息，根据职位 ID 获取职位上的招聘人员信息，如招聘负责人、用人经理
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java</a> ;
+         */
+        public GetJobManagerResp get(GetJobManagerReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobManagerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobManagerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取职位上的招聘人员信息，根据职位 ID 获取职位上的招聘人员信息，如招聘负责人、用人经理
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job-manager/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobManagerSample.java</a> ;
+         */
+        public GetJobManagerResp get(GetJobManagerReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobManagerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobManagerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/jobs/:job_id/managers/:manager_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取备注列表，获取备注列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java</a>
-     * ;
-     */
-    public ListNoteResp list(ListNoteReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class JobProcess {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/notes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public JobProcess(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取招聘流程信息，获取全部招聘流程信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java</a> ;
+         */
+        public ListJobProcessResp list(ListJobProcessReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/job_processes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobProcessResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobProcessResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/job_processes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取招聘流程信息，获取全部招聘流程信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java</a> ;
+         */
+        public ListJobProcessResp list(ListJobProcessReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/job_processes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobProcessResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobProcessResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/job_processes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 更新备注，根据备注 ID 更新备注信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java</a>
-     * ;
-     */
-    public PatchNoteResp patch(PatchNoteReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Note {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/hire/v1/notes/:note_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Note(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      PatchNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建备注，创建备注信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java</a> ;
+         */
+        public CreateNoteResp create(CreateNoteReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/notes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建备注，创建备注信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateNoteSample.java</a> ;
+         */
+        public CreateNoteResp create(CreateNoteReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/notes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取备注，根据备注 ID 获取备注信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java</a> ;
+         */
+        public GetNoteResp get(GetNoteReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/notes/:note_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes/:note_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取备注，根据备注 ID 获取备注信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetNoteSample.java</a> ;
+         */
+        public GetNoteResp get(GetNoteReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/notes/:note_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes/:note_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取备注列表，获取备注列表
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java</a> ;
+         */
+        public ListNoteResp list(ListNoteReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/notes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取备注列表，获取备注列表
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListNoteSample.java</a> ;
+         */
+        public ListNoteResp list(ListNoteReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/notes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新备注，根据备注 ID 更新备注信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java</a> ;
+         */
+        public PatchNoteResp patch(PatchNoteReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/notes/:note_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes/:note_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新备注，根据备注 ID 更新备注信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java</a> ;
+         */
+        public PatchNoteResp patch(PatchNoteReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/notes/:note_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchNoteResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/notes/:note_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 更新备注，根据备注 ID 更新备注信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchNoteSample.java</a>
-     * ;
-     */
-    public PatchNoteResp patch(PatchNoteReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class OfferSchema {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/hire/v1/notes/:note_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public OfferSchema(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      PatchNoteResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchNoteResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=offer_schema&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=offer_schema&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java</a> ;
+         */
+        public GetOfferSchemaResp get(GetOfferSchemaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
-    }
-  }
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-  public static class OfferSchema {
+            // 反序列化
+            GetOfferSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetOfferSchemaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-    private final Config config;
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    public OfferSchema(Config config) {
-      this.config = config;
-    }
+            return resp;
+        }
 
-    /**
-     * 获取 Offer 申请表详细信息，根据 Offer 申请表 ID，获取 Offer 申请表的详细信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_schema/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_schema/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java</a>
-     * ;
-     */
-    public GetOfferSchemaResp get(GetOfferSchemaReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=offer_schema&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=offer_schema&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java</a> ;
+         */
+        public GetOfferSchemaResp get(GetOfferSchemaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-      // 反序列化
-      GetOfferSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetOfferSchemaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 反序列化
+            GetOfferSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetOfferSchemaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-      return resp;
-    }
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    /**
-     * 获取 Offer 申请表详细信息，根据 Offer 申请表 ID，获取 Offer 申请表的详细信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_schema/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_schema/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetOfferSchemaSample.java</a>
-     * ;
-     */
-    public GetOfferSchemaResp get(GetOfferSchemaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetOfferSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetOfferSchemaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Referral {
-
-    private final Config config;
-
-    public Referral(Config config) {
-      this.config = config;
+            return resp;
+        }
     }
 
-    /**
-     * 获取内推信息，根据投递 ID 获取内推信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java</a>
-     * ;
-     */
-    public GetByApplicationReferralResp getByApplication(GetByApplicationReferralReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Referral {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/referrals/get_by_application"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Referral(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetByApplicationReferralResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetByApplicationReferralResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取内推信息，根据投递 ID 获取内推信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java</a> ;
+         */
+        public GetByApplicationReferralResp getByApplication(GetByApplicationReferralReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/referrals/get_by_application"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetByApplicationReferralResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetByApplicationReferralResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referrals/get_by_application"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取内推信息，根据投递 ID 获取内推信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java</a> ;
+         */
+        public GetByApplicationReferralResp getByApplication(GetByApplicationReferralReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/referrals/get_by_application"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetByApplicationReferralResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetByApplicationReferralResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referrals/get_by_application"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取内推信息，根据投递 ID 获取内推信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/get_by_application</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetByApplicationReferralSample.java</a>
-     * ;
-     */
-    public GetByApplicationReferralResp getByApplication(GetByApplicationReferralReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class ResumeSource {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/referrals/get_by_application"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public ResumeSource(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetByApplicationReferralResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetByApplicationReferralResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取简历来源列表，获取简历来源列表
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java</a> ;
+         */
+        public ListResumeSourceResp list(ListResumeSourceReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
-    }
-  }
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/resume_sources"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-  public static class ResumeSource {
+            // 反序列化
+            ListResumeSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListResumeSourceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/resume_sources"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-    private final Config config;
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    public ResumeSource(Config config) {
-      this.config = config;
-    }
+            return resp;
+        }
 
-    /**
-     * 获取简历来源列表，获取简历来源列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java</a>
-     * ;
-     */
-    public ListResumeSourceResp list(ListResumeSourceReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+        /**
+         * 获取简历来源列表，获取简历来源列表
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java</a> ;
+         */
+        public ListResumeSourceResp list(ListResumeSourceReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/resume_sources"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/resume_sources"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-      // 反序列化
-      ListResumeSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListResumeSourceResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 反序列化
+            ListResumeSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListResumeSourceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/resume_sources"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-      return resp;
-    }
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    /**
-     * 获取简历来源列表，获取简历来源列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListResumeSourceSample.java</a>
-     * ;
-     */
-    public ListResumeSourceResp list(ListResumeSourceReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/resume_sources"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListResumeSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListResumeSourceResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Talent {
-
-    private final Config config;
-
-    public Talent(Config config) {
-      this.config = config;
+            return resp;
+        }
     }
 
-    /**
-     * 获取人才信息，根据人才 ID 获取人才信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java</a>
-     * ;
-     */
-    public GetTalentResp get(GetTalentReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Talent {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/talents/:talent_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Talent(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetTalentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTalentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 通过人才信息获取人才 ID，通过人才信息获取人才 ID
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchGetIdTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchGetIdTalentSample.java</a> ;
+         */
+        public BatchGetIdTalentResp batchGetId(BatchGetIdTalentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/talents/batch_get_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchGetIdTalentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetIdTalentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talents/batch_get_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 通过人才信息获取人才 ID，通过人才信息获取人才 ID
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchGetIdTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchGetIdTalentSample.java</a> ;
+         */
+        public BatchGetIdTalentResp batchGetId(BatchGetIdTalentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/talents/batch_get_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchGetIdTalentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetIdTalentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talents/batch_get_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取人才信息，根据人才 ID 获取人才信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java</a> ;
+         */
+        public GetTalentResp get(GetTalentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/talents/:talent_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetTalentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTalentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talents/:talent_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取人才信息，根据人才 ID 获取人才信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java</a> ;
+         */
+        public GetTalentResp get(GetTalentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/talents/:talent_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetTalentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTalentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talents/:talent_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-
-    /**
-     * 获取人才信息，根据人才 ID 获取人才信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java</a>
-     * ;
-     */
-    public GetTalentResp get(GetTalentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/hire/v1/talents/:talent_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetTalentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTalentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

@@ -16,34 +16,33 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateFolderFileRespBody {
+    /**
+     * 创建文件夹的token
+     * <p> 示例值：fldbcddUuPz8VwnpPx5oc2abcef
+     */
+    @SerializedName("token")
+    private String token;
+    /**
+     * 创建文件夹的访问url
+     * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldbcddUuPz8VwnpPx5oc2abcef
+     */
+    @SerializedName("url")
+    private String url;
 
-  /**
-   * 创建文件夹的token
-   * <p> 示例值：fldbcddUuPz8VwnpPx5oc2abcef
-   */
-  @SerializedName("token")
-  private String token;
-  /**
-   * 创建文件夹的访问url
-   * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldbcddUuPz8VwnpPx5oc2abcef
-   */
-  @SerializedName("url")
-  private String url;
+    public String getToken() {
+        return this.token;
+    }
 
-  public String getToken() {
-    return this.token;
-  }
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-  public void setToken(String token) {
-    this.token = token;
-  }
+    public String getUrl() {
+        return this.url;
+    }
 
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }

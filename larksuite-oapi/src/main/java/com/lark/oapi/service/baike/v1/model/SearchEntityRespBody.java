@@ -16,34 +16,33 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchEntityRespBody {
+    /**
+     * 搜索结果
+     * <p> 示例值：
+     */
+    @SerializedName("entities")
+    private Entity[] entities;
+    /**
+     * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * 搜索结果
-   * <p> 示例值：
-   */
-  @SerializedName("entities")
-  private Entity[] entities;
-  /**
-   * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
-   * <p> 示例值：
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public Entity[] getEntities() {
+        return this.entities;
+    }
 
-  public Entity[] getEntities() {
-    return this.entities;
-  }
+    public void setEntities(Entity[] entities) {
+        this.entities = entities;
+    }
 
-  public void setEntities(Entity[] entities) {
-    this.entities = entities;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

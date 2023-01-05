@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 文档状态
  */
 public enum FileStatusEnum {
-  TRASH("2"), // 回收站状态
-  DELETE("3"), // 删除状态
-  ;
-  private String value;
+    TRASH("2"), // 回收站状态
+    DELETE("3"), // 删除状态
+    ;
+    private String value;
 
-  FileStatusEnum(String value) {
-    this.value = value;
-  }
+    FileStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

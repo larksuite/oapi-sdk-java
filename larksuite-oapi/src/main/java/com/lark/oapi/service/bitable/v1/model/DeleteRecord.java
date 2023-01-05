@@ -16,98 +16,96 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DeleteRecord {
-
-  /**
-   * 是否成功删除
-   * <p> 示例值：true
-   */
-  @SerializedName("deleted")
-  private Boolean deleted;
-  /**
-   * 删除的记录 ID
-   * <p> 示例值：recpCsf4ME
-   */
-  @SerializedName("record_id")
-  private String recordId;
-
-  // builder 开始
-  public DeleteRecord() {
-  }
-
-  public DeleteRecord(Builder builder) {
     /**
      * 是否成功删除
      * <p> 示例值：true
      */
-    this.deleted = builder.deleted;
-    /**
-     * 删除的记录 ID
-     * <p> 示例值：recpCsf4ME
-     */
-    this.recordId = builder.recordId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getDeleted() {
-    return this.deleted;
-  }
-
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否成功删除
-     * <p> 示例值：true
-     */
+    @SerializedName("deleted")
     private Boolean deleted;
     /**
      * 删除的记录 ID
      * <p> 示例值：recpCsf4ME
      */
+    @SerializedName("record_id")
     private String recordId;
 
-    /**
-     * 是否成功删除
-     * <p> 示例值：true
-     *
-     * @param deleted
-     * @return
-     */
-    public Builder deleted(Boolean deleted) {
-      this.deleted = deleted;
-      return this;
+    // builder 开始
+    public DeleteRecord() {
     }
 
-
-    /**
-     * 删除的记录 ID
-     * <p> 示例值：recpCsf4ME
-     *
-     * @param recordId
-     * @return
-     */
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
+    public DeleteRecord(Builder builder) {
+        /**
+         * 是否成功删除
+         * <p> 示例值：true
+         */
+        this.deleted = builder.deleted;
+        /**
+         * 删除的记录 ID
+         * <p> 示例值：recpCsf4ME
+         */
+        this.recordId = builder.recordId;
     }
 
-
-    public DeleteRecord build() {
-      return new DeleteRecord(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
+
+    public static class Builder {
+        /**
+         * 是否成功删除
+         * <p> 示例值：true
+         */
+        private Boolean deleted;
+        /**
+         * 删除的记录 ID
+         * <p> 示例值：recpCsf4ME
+         */
+        private String recordId;
+
+        /**
+         * 是否成功删除
+         * <p> 示例值：true
+         *
+         * @param deleted
+         * @return
+         */
+        public Builder deleted(Boolean deleted) {
+            this.deleted = deleted;
+            return this;
+        }
+
+
+        /**
+         * 删除的记录 ID
+         * <p> 示例值：recpCsf4ME
+         *
+         * @param recordId
+         * @return
+         */
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
+            return this;
+        }
+
+
+        public DeleteRecord build() {
+            return new DeleteRecord(this);
+        }
+    }
 }

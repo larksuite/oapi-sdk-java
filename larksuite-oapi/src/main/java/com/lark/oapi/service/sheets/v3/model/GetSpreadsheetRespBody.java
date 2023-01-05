@@ -16,20 +16,19 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetSpreadsheetRespBody {
+    /**
+     * 电子表格属性
+     * <p> 示例值：
+     */
+    @SerializedName("spreadsheet")
+    private GetSpreadsheet spreadsheet;
 
-  /**
-   * 电子表格属性
-   * <p> 示例值：
-   */
-  @SerializedName("spreadsheet")
-  private GetSpreadsheet spreadsheet;
+    public GetSpreadsheet getSpreadsheet() {
+        return this.spreadsheet;
+    }
 
-  public GetSpreadsheet getSpreadsheet() {
-    return this.spreadsheet;
-  }
-
-  public void setSpreadsheet(GetSpreadsheet spreadsheet) {
-    this.spreadsheet = spreadsheet;
-  }
+    public void setSpreadsheet(GetSpreadsheet spreadsheet) {
+        this.spreadsheet = spreadsheet;
+    }
 
 }

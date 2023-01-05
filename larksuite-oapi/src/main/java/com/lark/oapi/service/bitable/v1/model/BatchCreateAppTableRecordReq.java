@@ -19,162 +19,193 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class BatchCreateAppTableRecordReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Body
-  private BatchCreateAppTableRecordReqBody body;
-  // builder 开始
-  public BatchCreateAppTableRecordReq() {
-  }
-
-  public BatchCreateAppTableRecordReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
-     * bitable app token
+     * 格式为标准的 uuid，操作的唯一标识，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     */
+    @Query
+    @SerializedName("client_token")
+    private String clientToken;
+    /**
+     * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
-     * table id
+     * 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public BatchCreateAppTableRecordReqBody getBatchCreateAppTableRecordReqBody() {
-    return this.body;
-  }
-
-  public void setBatchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String appToken; // bitable app token
-    private String tableId; // table id
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
+    @Body
     private BatchCreateAppTableRecordReqBody body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public BatchCreateAppTableRecordReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableRecordUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableRecordUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public BatchCreateAppTableRecordReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 格式为标准的 uuid，操作的唯一标识，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+         * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+         */
+        this.clientToken = builder.clientToken;
+        /**
+         * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        this.body = builder.body;
     }
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getClientToken() {
+        return this.clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
     }
 
     public BatchCreateAppTableRecordReqBody getBatchCreateAppTableRecordReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder batchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
+        this.body = body;
     }
 
-    public BatchCreateAppTableRecordReq build() {
-      return new BatchCreateAppTableRecordReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String clientToken; // 格式为标准的 uuid，操作的唯一标识，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+        private String appToken; // 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+        private String tableId; // 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
+        private BatchCreateAppTableRecordReqBody body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableRecordUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableRecordUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 格式为标准的 uuid，操作的唯一标识，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+         * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+         *
+         * @param clientToken
+         * @return
+         */
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
+
+        /**
+         * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        /**
+         * 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+        public BatchCreateAppTableRecordReqBody getBatchCreateAppTableRecordReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder batchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchCreateAppTableRecordReq build() {
+            return new BatchCreateAppTableRecordReq(this);
+        }
     }
-  }
 }

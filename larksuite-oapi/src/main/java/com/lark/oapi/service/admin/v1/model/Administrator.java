@@ -16,132 +16,130 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Administrator {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 用户是否是超级管理员
-   * <p> 示例值：
-   */
-  @SerializedName("is_super_administrator")
-  private Boolean isSuperAdministrator;
-  /**
-   * 用户是否是管理员
-   * <p> 示例值：
-   */
-  @SerializedName("is_administrator")
-  private Boolean isAdministrator;
-
-  // builder 开始
-  public Administrator() {
-  }
-
-  public Administrator(Builder builder) {
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-    /**
-     * 用户是否是超级管理员
-     * <p> 示例值：
-     */
-    this.isSuperAdministrator = builder.isSuperAdministrator;
-    /**
-     * 用户是否是管理员
-     * <p> 示例值：
-     */
-    this.isAdministrator = builder.isAdministrator;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Boolean getIsSuperAdministrator() {
-    return this.isSuperAdministrator;
-  }
-
-  public void setIsSuperAdministrator(Boolean isSuperAdministrator) {
-    this.isSuperAdministrator = isSuperAdministrator;
-  }
-
-  public Boolean getIsAdministrator() {
-    return this.isAdministrator;
-  }
-
-  public void setIsAdministrator(Boolean isAdministrator) {
-    this.isAdministrator = isAdministrator;
-  }
-
-  public static class Builder {
-
     /**
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 用户是否是超级管理员
      * <p> 示例值：
      */
+    @SerializedName("is_super_administrator")
     private Boolean isSuperAdministrator;
     /**
      * 用户是否是管理员
      * <p> 示例值：
      */
+    @SerializedName("is_administrator")
     private Boolean isAdministrator;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public Administrator() {
     }
 
-
-    /**
-     * 用户是否是超级管理员
-     * <p> 示例值：
-     *
-     * @param isSuperAdministrator
-     * @return
-     */
-    public Builder isSuperAdministrator(Boolean isSuperAdministrator) {
-      this.isSuperAdministrator = isSuperAdministrator;
-      return this;
+    public Administrator(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 用户是否是超级管理员
+         * <p> 示例值：
+         */
+        this.isSuperAdministrator = builder.isSuperAdministrator;
+        /**
+         * 用户是否是管理员
+         * <p> 示例值：
+         */
+        this.isAdministrator = builder.isAdministrator;
     }
 
-
-    /**
-     * 用户是否是管理员
-     * <p> 示例值：
-     *
-     * @param isAdministrator
-     * @return
-     */
-    public Builder isAdministrator(Boolean isAdministrator) {
-      this.isAdministrator = isAdministrator;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Administrator build() {
-      return new Administrator(this);
+    public String getUserId() {
+        return this.userId;
     }
-  }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Boolean getIsSuperAdministrator() {
+        return this.isSuperAdministrator;
+    }
+
+    public void setIsSuperAdministrator(Boolean isSuperAdministrator) {
+        this.isSuperAdministrator = isSuperAdministrator;
+    }
+
+    public Boolean getIsAdministrator() {
+        return this.isAdministrator;
+    }
+
+    public void setIsAdministrator(Boolean isAdministrator) {
+        this.isAdministrator = isAdministrator;
+    }
+
+    public static class Builder {
+        /**
+         * <p> 示例值：
+         */
+        private String userId;
+        /**
+         * 用户是否是超级管理员
+         * <p> 示例值：
+         */
+        private Boolean isSuperAdministrator;
+        /**
+         * 用户是否是管理员
+         * <p> 示例值：
+         */
+        private Boolean isAdministrator;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 用户是否是超级管理员
+         * <p> 示例值：
+         *
+         * @param isSuperAdministrator
+         * @return
+         */
+        public Builder isSuperAdministrator(Boolean isSuperAdministrator) {
+            this.isSuperAdministrator = isSuperAdministrator;
+            return this;
+        }
+
+
+        /**
+         * 用户是否是管理员
+         * <p> 示例值：
+         *
+         * @param isAdministrator
+         * @return
+         */
+        public Builder isAdministrator(Boolean isAdministrator) {
+            this.isAdministrator = isAdministrator;
+            return this;
+        }
+
+
+        public Administrator build() {
+            return new Administrator(this);
+        }
+    }
 }

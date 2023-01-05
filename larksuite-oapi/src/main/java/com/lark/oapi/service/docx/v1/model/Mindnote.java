@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Mindnote {
-
-  /**
-   * 思维导图 token
-   * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
-   */
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public Mindnote() {
-  }
-
-  public Mindnote(Builder builder) {
     /**
      * 思维导图 token
      * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
      */
-    this.token = builder.token;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
-    /**
-     * 思维导图 token
-     * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
-     */
+    @SerializedName("token")
     private String token;
 
-    /**
-     * 思维导图 token
-     * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public Mindnote() {
     }
 
-
-    public Mindnote build() {
-      return new Mindnote(this);
+    public Mindnote(Builder builder) {
+        /**
+         * 思维导图 token
+         * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+         */
+        this.token = builder.token;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public static class Builder {
+        /**
+         * 思维导图 token
+         * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+         */
+        private String token;
+
+        /**
+         * 思维导图 token
+         * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        public Mindnote build() {
+            return new Mindnote(this);
+        }
+    }
 }

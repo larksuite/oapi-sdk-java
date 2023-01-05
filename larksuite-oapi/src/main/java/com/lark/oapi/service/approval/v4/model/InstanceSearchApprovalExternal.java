@@ -16,61 +16,59 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchApprovalExternal {
-
-  /**
-   * 是否支持批量读
-   * <p> 示例值：false
-   */
-  @SerializedName("batch_cc_read")
-  private Boolean batchCcRead;
-
-  // builder 开始
-  public InstanceSearchApprovalExternal() {
-  }
-
-  public InstanceSearchApprovalExternal(Builder builder) {
     /**
      * 是否支持批量读
      * <p> 示例值：false
      */
-    this.batchCcRead = builder.batchCcRead;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getBatchCcRead() {
-    return this.batchCcRead;
-  }
-
-  public void setBatchCcRead(Boolean batchCcRead) {
-    this.batchCcRead = batchCcRead;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否支持批量读
-     * <p> 示例值：false
-     */
+    @SerializedName("batch_cc_read")
     private Boolean batchCcRead;
 
-    /**
-     * 是否支持批量读
-     * <p> 示例值：false
-     *
-     * @param batchCcRead
-     * @return
-     */
-    public Builder batchCcRead(Boolean batchCcRead) {
-      this.batchCcRead = batchCcRead;
-      return this;
+    // builder 开始
+    public InstanceSearchApprovalExternal() {
     }
 
-
-    public InstanceSearchApprovalExternal build() {
-      return new InstanceSearchApprovalExternal(this);
+    public InstanceSearchApprovalExternal(Builder builder) {
+        /**
+         * 是否支持批量读
+         * <p> 示例值：false
+         */
+        this.batchCcRead = builder.batchCcRead;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Boolean getBatchCcRead() {
+        return this.batchCcRead;
+    }
+
+    public void setBatchCcRead(Boolean batchCcRead) {
+        this.batchCcRead = batchCcRead;
+    }
+
+    public static class Builder {
+        /**
+         * 是否支持批量读
+         * <p> 示例值：false
+         */
+        private Boolean batchCcRead;
+
+        /**
+         * 是否支持批量读
+         * <p> 示例值：false
+         *
+         * @param batchCcRead
+         * @return
+         */
+        public Builder batchCcRead(Boolean batchCcRead) {
+            this.batchCcRead = batchCcRead;
+            return this;
+        }
+
+
+        public InstanceSearchApprovalExternal build() {
+            return new InstanceSearchApprovalExternal(this);
+        }
+    }
 }

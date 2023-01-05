@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BackgroundCheckProcessInfo {
-
-  /**
-   * 背调状态
-   * <p> 示例值：待安排
-   */
-  @SerializedName("process")
-  private String process;
-  /**
-   * 状态更新时间
-   * <p> 示例值：1638359554952
-   */
-  @SerializedName("update_time")
-  private String updateTime;
-
-  // builder 开始
-  public BackgroundCheckProcessInfo() {
-  }
-
-  public BackgroundCheckProcessInfo(Builder builder) {
     /**
-     * 背调状态
+     * 背调进度
      * <p> 示例值：待安排
      */
-    this.process = builder.process;
-    /**
-     * 状态更新时间
-     * <p> 示例值：1638359554952
-     */
-    this.updateTime = builder.updateTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getProcess() {
-    return this.process;
-  }
-
-  public void setProcess(String process) {
-    this.process = process;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 背调状态
-     * <p> 示例值：待安排
-     */
+    @SerializedName("process")
     private String process;
     /**
-     * 状态更新时间
+     * 进度更新时间
      * <p> 示例值：1638359554952
      */
+    @SerializedName("update_time")
     private String updateTime;
 
-    /**
-     * 背调状态
-     * <p> 示例值：待安排
-     *
-     * @param process
-     * @return
-     */
-    public Builder process(String process) {
-      this.process = process;
-      return this;
+    // builder 开始
+    public BackgroundCheckProcessInfo() {
     }
 
-
-    /**
-     * 状态更新时间
-     * <p> 示例值：1638359554952
-     *
-     * @param updateTime
-     * @return
-     */
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public BackgroundCheckProcessInfo(Builder builder) {
+        /**
+         * 背调进度
+         * <p> 示例值：待安排
+         */
+        this.process = builder.process;
+        /**
+         * 进度更新时间
+         * <p> 示例值：1638359554952
+         */
+        this.updateTime = builder.updateTime;
     }
 
-
-    public BackgroundCheckProcessInfo build() {
-      return new BackgroundCheckProcessInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getProcess() {
+        return this.process;
+    }
+
+    public void setProcess(String process) {
+        this.process = process;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public static class Builder {
+        /**
+         * 背调进度
+         * <p> 示例值：待安排
+         */
+        private String process;
+        /**
+         * 进度更新时间
+         * <p> 示例值：1638359554952
+         */
+        private String updateTime;
+
+        /**
+         * 背调进度
+         * <p> 示例值：待安排
+         *
+         * @param process
+         * @return
+         */
+        public Builder process(String process) {
+            this.process = process;
+            return this;
+        }
+
+
+        /**
+         * 进度更新时间
+         * <p> 示例值：1638359554952
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        public BackgroundCheckProcessInfo build() {
+            return new BackgroundCheckProcessInfo(this);
+        }
+    }
 }

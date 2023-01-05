@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentCertificateInfo {
-
-  /**
-   * ID
-   * <p> 示例值：6891560630172518670
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 证件名称
-   * <p> 示例值：身份证
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 证件描述
-   * <p> 示例值：
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data_list")
-  private TalentCustomizedDataChild[] customizedDataList;
-
-  // builder 开始
-  public TalentCertificateInfo() {
-  }
-
-  public TalentCertificateInfo(Builder builder) {
     /**
      * ID
      * <p> 示例值：6891560630172518670
      */
-    this.id = builder.id;
-    /**
-     * 证件名称
-     * <p> 示例值：身份证
-     */
-    this.name = builder.name;
-    /**
-     * 证件描述
-     * <p> 示例值：
-     */
-    this.desc = builder.desc;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedDataList = builder.customizedDataList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public TalentCustomizedDataChild[] getCustomizedDataList() {
-    return this.customizedDataList;
-  }
-
-  public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-    this.customizedDataList = customizedDataList;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 证件名称
      * <p> 示例值：身份证
      */
+    @SerializedName("name")
     private String name;
     /**
      * 证件描述
      * <p> 示例值：
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data_list")
     private TalentCustomizedDataChild[] customizedDataList;
 
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public TalentCertificateInfo() {
     }
 
-
-    /**
-     * 证件名称
-     * <p> 示例值：身份证
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public TalentCertificateInfo(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         */
+        this.id = builder.id;
+        /**
+         * 证件名称
+         * <p> 示例值：身份证
+         */
+        this.name = builder.name;
+        /**
+         * 证件描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedDataList = builder.customizedDataList;
     }
 
-
-    /**
-     * 证件描述
-     * <p> 示例值：
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedDataList
-     * @return
-     */
-    public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-      this.customizedDataList = customizedDataList;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public TalentCertificateInfo build() {
-      return new TalentCertificateInfo(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public TalentCustomizedDataChild[] getCustomizedDataList() {
+        return this.customizedDataList;
+    }
+
+    public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+        this.customizedDataList = customizedDataList;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         */
+        private String id;
+        /**
+         * 证件名称
+         * <p> 示例值：身份证
+         */
+        private String name;
+        /**
+         * 证件描述
+         * <p> 示例值：
+         */
+        private String desc;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private TalentCustomizedDataChild[] customizedDataList;
+
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 证件名称
+         * <p> 示例值：身份证
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 证件描述
+         * <p> 示例值：
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedDataList
+         * @return
+         */
+        public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+            this.customizedDataList = customizedDataList;
+            return this;
+        }
+
+
+        public TalentCertificateInfo build() {
+            return new TalentCertificateInfo(this);
+        }
+    }
 }

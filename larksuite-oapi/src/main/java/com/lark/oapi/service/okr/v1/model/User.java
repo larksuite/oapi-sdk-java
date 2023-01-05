@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
-
-  /**
-   * id
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public User() {
-  }
-
-  public User(Builder builder) {
     /**
      * id
      * <p> 示例值：
      */
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    /**
-     * id
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
 
-    /**
-     * id
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public User() {
     }
 
-
-    public User build() {
-      return new User(this);
+    public User(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        private String id;
+
+        /**
+         * id
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public User build() {
+            return new User(this);
+        }
+    }
 }

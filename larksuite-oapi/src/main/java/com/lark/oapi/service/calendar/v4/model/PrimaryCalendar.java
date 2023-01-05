@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class PrimaryCalendar {
 
-  /**
-   * 主日历列表
-   * <p> 示例值：
-   */
-  @SerializedName("calendars")
-  private UserCalendar[] calendars;
+    /**
+     * 主日历列表
+     * <p> 示例值：
+     */
+    @SerializedName("calendars")
+    private UserCalendar[] calendars;
 
-  public UserCalendar[] getCalendars() {
-    return this.calendars;
-  }
+    public UserCalendar[] getCalendars() {
+        return this.calendars;
+    }
 
-  public void setCalendars(UserCalendar[] calendars) {
-    this.calendars = calendars;
-  }
+    public void setCalendars(UserCalendar[] calendars) {
+        this.calendars = calendars;
+    }
 
 }

@@ -16,320 +16,318 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CommentReply {
-
-  /**
-   * 评论ID
-   * <p> 示例值：7081516611634741268
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 评论内容
-   * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 评论创建时间
-   * <p> 示例值：1648803677000
-   */
-  @SerializedName("create_time")
-  private String createTime;
-  /**
-   * 评论更新时间
-   * <p> 示例值：1648803677000
-   */
-  @SerializedName("update_time")
-  private String updateTime;
-  /**
-   * 是否删除，0:未删除，1:已删除
-   * <p> 示例值：0
-   */
-  @SerializedName("is_delete")
-  private Integer isDelete;
-  /**
-   * 评论中艾特人信息
-   * <p> 示例值：
-   */
-  @SerializedName("at_info_list")
-  private CommentAtInfo[] atInfoList;
-  /**
-   * 评论创建人
-   * <p> 示例值：893g4c45
-   */
-  @SerializedName("commentator")
-  private String commentator;
-  /**
-   * 附加字段
-   * <p> 示例值：{\"a\":\"a\"}
-   */
-  @SerializedName("extra")
-  private String extra;
-
-  // builder 开始
-  public CommentReply() {
-  }
-
-  public CommentReply(Builder builder) {
     /**
      * 评论ID
      * <p> 示例值：7081516611634741268
      */
-    this.id = builder.id;
-    /**
-     * 评论内容
-     * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-     */
-    this.content = builder.content;
-    /**
-     * 评论创建时间
-     * <p> 示例值：1648803677000
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 评论更新时间
-     * <p> 示例值：1648803677000
-     */
-    this.updateTime = builder.updateTime;
-    /**
-     * 是否删除，0:未删除，1:已删除
-     * <p> 示例值：0
-     */
-    this.isDelete = builder.isDelete;
-    /**
-     * 评论中艾特人信息
-     * <p> 示例值：
-     */
-    this.atInfoList = builder.atInfoList;
-    /**
-     * 评论创建人
-     * <p> 示例值：893g4c45
-     */
-    this.commentator = builder.commentator;
-    /**
-     * 附加字段
-     * <p> 示例值：{\"a\":\"a\"}
-     */
-    this.extra = builder.extra;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public Integer getIsDelete() {
-    return this.isDelete;
-  }
-
-  public void setIsDelete(Integer isDelete) {
-    this.isDelete = isDelete;
-  }
-
-  public CommentAtInfo[] getAtInfoList() {
-    return this.atInfoList;
-  }
-
-  public void setAtInfoList(CommentAtInfo[] atInfoList) {
-    this.atInfoList = atInfoList;
-  }
-
-  public String getCommentator() {
-    return this.commentator;
-  }
-
-  public void setCommentator(String commentator) {
-    this.commentator = commentator;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public static class Builder {
-
-    /**
-     * 评论ID
-     * <p> 示例值：7081516611634741268
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 评论内容
      * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
      */
+    @SerializedName("content")
     private String content;
     /**
      * 评论创建时间
      * <p> 示例值：1648803677000
      */
+    @SerializedName("create_time")
     private String createTime;
     /**
      * 评论更新时间
      * <p> 示例值：1648803677000
      */
+    @SerializedName("update_time")
     private String updateTime;
     /**
      * 是否删除，0:未删除，1:已删除
      * <p> 示例值：0
      */
+    @SerializedName("is_delete")
     private Integer isDelete;
     /**
      * 评论中艾特人信息
      * <p> 示例值：
      */
+    @SerializedName("at_info_list")
     private CommentAtInfo[] atInfoList;
     /**
      * 评论创建人
      * <p> 示例值：893g4c45
      */
+    @SerializedName("commentator")
     private String commentator;
     /**
      * 附加字段
      * <p> 示例值：{\"a\":\"a\"}
      */
+    @SerializedName("extra")
     private String extra;
 
-    /**
-     * 评论ID
-     * <p> 示例值：7081516611634741268
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public CommentReply() {
     }
 
-
-    /**
-     * 评论内容
-     * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public CommentReply(Builder builder) {
+        /**
+         * 评论ID
+         * <p> 示例值：7081516611634741268
+         */
+        this.id = builder.id;
+        /**
+         * 评论内容
+         * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
+         */
+        this.content = builder.content;
+        /**
+         * 评论创建时间
+         * <p> 示例值：1648803677000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 评论更新时间
+         * <p> 示例值：1648803677000
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 是否删除，0:未删除，1:已删除
+         * <p> 示例值：0
+         */
+        this.isDelete = builder.isDelete;
+        /**
+         * 评论中艾特人信息
+         * <p> 示例值：
+         */
+        this.atInfoList = builder.atInfoList;
+        /**
+         * 评论创建人
+         * <p> 示例值：893g4c45
+         */
+        this.commentator = builder.commentator;
+        /**
+         * 附加字段
+         * <p> 示例值：{\"a\":\"a\"}
+         */
+        this.extra = builder.extra;
     }
 
-
-    /**
-     * 评论创建时间
-     * <p> 示例值：1648803677000
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 评论更新时间
-     * <p> 示例值：1648803677000
-     *
-     * @param updateTime
-     * @return
-     */
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 是否删除，0:未删除，1:已删除
-     * <p> 示例值：0
-     *
-     * @param isDelete
-     * @return
-     */
-    public Builder isDelete(Integer isDelete) {
-      this.isDelete = isDelete;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 评论中艾特人信息
-     * <p> 示例值：
-     *
-     * @param atInfoList
-     * @return
-     */
-    public Builder atInfoList(CommentAtInfo[] atInfoList) {
-      this.atInfoList = atInfoList;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-
-    /**
-     * 评论创建人
-     * <p> 示例值：893g4c45
-     *
-     * @param commentator
-     * @return
-     */
-    public Builder commentator(String commentator) {
-      this.commentator = commentator;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-
-    /**
-     * 附加字段
-     * <p> 示例值：{\"a\":\"a\"}
-     *
-     * @param extra
-     * @return
-     */
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public String getCreateTime() {
+        return this.createTime;
     }
 
-
-    public CommentReply build() {
-      return new CommentReply(this);
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
-  }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getIsDelete() {
+        return this.isDelete;
+    }
+
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public CommentAtInfo[] getAtInfoList() {
+        return this.atInfoList;
+    }
+
+    public void setAtInfoList(CommentAtInfo[] atInfoList) {
+        this.atInfoList = atInfoList;
+    }
+
+    public String getCommentator() {
+        return this.commentator;
+    }
+
+    public void setCommentator(String commentator) {
+        this.commentator = commentator;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public static class Builder {
+        /**
+         * 评论ID
+         * <p> 示例值：7081516611634741268
+         */
+        private String id;
+        /**
+         * 评论内容
+         * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
+         */
+        private String content;
+        /**
+         * 评论创建时间
+         * <p> 示例值：1648803677000
+         */
+        private String createTime;
+        /**
+         * 评论更新时间
+         * <p> 示例值：1648803677000
+         */
+        private String updateTime;
+        /**
+         * 是否删除，0:未删除，1:已删除
+         * <p> 示例值：0
+         */
+        private Integer isDelete;
+        /**
+         * 评论中艾特人信息
+         * <p> 示例值：
+         */
+        private CommentAtInfo[] atInfoList;
+        /**
+         * 评论创建人
+         * <p> 示例值：893g4c45
+         */
+        private String commentator;
+        /**
+         * 附加字段
+         * <p> 示例值：{\"a\":\"a\"}
+         */
+        private String extra;
+
+        /**
+         * 评论ID
+         * <p> 示例值：7081516611634741268
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 评论内容
+         * <p> 示例值：{\"text\":\"x@张某来自小程序的评论111,这是一条回复\",\"files\":[{\"url\":\"https://xx-xxx-xxx.bytedance.net/lark-approval-attachment/image/20220401/1/d43216ca-93b5-43a8-8a34-23c66820463a.png~tplv-k7bg0smxju-image.image?x-orig-authkey=boeorigin\&x-orig-expires=1650963890\&x-orig-sign=668QhQbRSt6638x2Ws8wFI%2FxqVg%3D#.png\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\"}]}
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 评论创建时间
+         * <p> 示例值：1648803677000
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 评论更新时间
+         * <p> 示例值：1648803677000
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 是否删除，0:未删除，1:已删除
+         * <p> 示例值：0
+         *
+         * @param isDelete
+         * @return
+         */
+        public Builder isDelete(Integer isDelete) {
+            this.isDelete = isDelete;
+            return this;
+        }
+
+
+        /**
+         * 评论中艾特人信息
+         * <p> 示例值：
+         *
+         * @param atInfoList
+         * @return
+         */
+        public Builder atInfoList(CommentAtInfo[] atInfoList) {
+            this.atInfoList = atInfoList;
+            return this;
+        }
+
+
+        /**
+         * 评论创建人
+         * <p> 示例值：893g4c45
+         *
+         * @param commentator
+         * @return
+         */
+        public Builder commentator(String commentator) {
+            this.commentator = commentator;
+            return this;
+        }
+
+
+        /**
+         * 附加字段
+         * <p> 示例值：{\"a\":\"a\"}
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
+            return this;
+        }
+
+
+        public CommentReply build() {
+            return new CommentReply(this);
+        }
+    }
 }

@@ -16,47 +16,46 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchDepartmentRespBody {
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Department[] items;
+    /**
+     * 翻页 token，传入返回下一页，首页不需要传入
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还有下一页
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Department[] items;
-  /**
-   * 翻页 token，传入返回下一页，首页不需要传入
-   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否还有下一页
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public Department[] getItems() {
+        return this.items;
+    }
 
-  public Department[] getItems() {
-    return this.items;
-  }
+    public void setItems(Department[] items) {
+        this.items = items;
+    }
 
-  public void setItems(Department[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

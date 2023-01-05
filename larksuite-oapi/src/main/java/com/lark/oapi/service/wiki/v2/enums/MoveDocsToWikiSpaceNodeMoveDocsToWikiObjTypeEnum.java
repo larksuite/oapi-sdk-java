@@ -17,20 +17,20 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 文档类型
  */
 public enum MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum {
-  OBJTYPEDOC("doc"), // doc（文档）
-  OBJTYPESHEET("sheet"), // sheet（表格）
-  OBJTYPEBITABLE("bitable"), // bitable（多维表格）
-  OBJTYPEMINDNOTE("mindnote"), // mindnote（思维导图）
-  OBJTYPEDOCX("docx"), // docx
-  OBJTYPEFILE("file"), // file (文件)
-  ;
-  private String value;
+    OBJTYPEDOC("doc"), // doc（文档）
+    OBJTYPESHEET("sheet"), // sheet（表格）
+    OBJTYPEBITABLE("bitable"), // bitable（多维表格）
+    OBJTYPEMINDNOTE("mindnote"), // mindnote（思维导图）
+    OBJTYPEDOCX("docx"), // docx
+    OBJTYPEFILE("file"), // file (文件)
+    ;
+    private String value;
 
-  MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum(String value) {
-    this.value = value;
-  }
+    MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,59 +17,59 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetChatMembers {
 
-  /**
-   * 成员列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private ListMember[] items;
-  /**
-   * <p> 示例值：0
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 成员总数
-   * <p> 示例值：1
-   */
-  @SerializedName("member_total")
-  private Integer memberTotal;
+    /**
+     * 成员列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private ListMember[] items;
+    /**
+     * <p> 示例值：0
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 成员总数
+     * <p> 示例值：1
+     */
+    @SerializedName("member_total")
+    private Integer memberTotal;
 
-  public ListMember[] getItems() {
-    return this.items;
-  }
+    public ListMember[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(ListMember[] items) {
-    this.items = items;
-  }
+    public void setItems(ListMember[] items) {
+        this.items = items;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public Integer getMemberTotal() {
-    return this.memberTotal;
-  }
+    public Integer getMemberTotal() {
+        return this.memberTotal;
+    }
 
-  public void setMemberTotal(Integer memberTotal) {
-    this.memberTotal = memberTotal;
-  }
+    public void setMemberTotal(Integer memberTotal) {
+        this.memberTotal = memberTotal;
+    }
 
 }

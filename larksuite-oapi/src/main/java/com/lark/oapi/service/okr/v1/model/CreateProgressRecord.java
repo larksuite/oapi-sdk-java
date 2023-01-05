@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateProgressRecord {
 
-  /**
-   * 成功创建的进展详情
-   * <p> 示例值：
-   */
-  @SerializedName("data")
-  private ProgressRecord data;
+    /**
+     * 成功创建的进展详情
+     * <p> 示例值：
+     */
+    @SerializedName("data")
+    private ProgressRecord data;
 
-  public ProgressRecord getData() {
-    return this.data;
-  }
+    public ProgressRecord getData() {
+        return this.data;
+    }
 
-  public void setData(ProgressRecord data) {
-    this.data = data;
-  }
+    public void setData(ProgressRecord data) {
+        this.data = data;
+    }
 
 }

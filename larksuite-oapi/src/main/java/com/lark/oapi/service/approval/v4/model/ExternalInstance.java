@@ -16,924 +16,909 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ExternalInstance {
-
-  /**
-   * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
-   * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-   */
-  @SerializedName("approval_code")
-  private String approvalCode;
-  /**
-   * 审批实例状态
-   * <p> 示例值：PENDING
-   */
-  @SerializedName("status")
-  private String status;
-  /**
-   * 审批实例扩展 JSON
-   * <p> 示例值：{\"xxx\":\"xxx\"}
-   */
-  @SerializedName("extra")
-  private String extra;
-  /**
-   * 审批实例唯一标识，用户自定义，需确保证租户、应用下唯一
-   * <p> 示例值：24492654
-   */
-  @SerializedName("instance_id")
-  private String instanceId;
-  /**
-   * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
-   * <p> 示例值：
-   */
-  @SerializedName("links")
-  private ExternalInstanceLink links;
-  /**
-   * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-   * <p> 示例值：@i18n@1
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
-   * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
-   */
-  @SerializedName("form")
-  private ExternalInstanceForm[] form;
-  /**
-   * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user
-   * id 二选一。
-   * <p> 示例值：a987sf9s
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
-   * <p> 示例值：@i18n@9
-   */
-  @SerializedName("user_name")
-  private String userName;
-  /**
-   * 审批发起人 open id，和 user id 二选一
-   * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
-   * <p> 示例值：od-8ec33278bc2
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
-   * <p> 示例值：@i18n@10
-   */
-  @SerializedName("department_name")
-  private String departmentName;
-  /**
-   * 审批发起时间，Unix毫秒时间戳
-   * <p> 示例值：1556468012678
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
-   * <p> 示例值：1556468012678
-   */
-  @SerializedName("end_time")
-  private String endTime;
-  /**
-   * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time
-   * 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
-   * <p> 示例值：1556468012678
-   */
-  @SerializedName("update_time")
-  private String updateTime;
-  /**
-   * 列表页打开审批实例的方式
-   * <p> 示例值：BROWSER
-   */
-  @SerializedName("display_method")
-  private String displayMethod;
-  /**
-   * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当
-   * update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
-   * <p> 示例值：UPDATE
-   */
-  @SerializedName("update_mode")
-  private String updateMode;
-  /**
-   * 任务列表
-   * <p> 示例值：
-   */
-  @SerializedName("task_list")
-  private ExternalInstanceTaskNode[] taskList;
-  /**
-   * 抄送列表
-   * <p> 示例值：
-   */
-  @SerializedName("cc_list")
-  private CcNode[] ccList;
-  /**
-   * 国际化文案
-   * <p> 示例值：
-   */
-  @SerializedName("i18n_resources")
-  private I18nResource[] i18nResources;
-  /**
-   * 单据托管认证token，托管回调会附带此token，帮助业务方认证
-   * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
-   */
-  @SerializedName("trusteeship_url_token")
-  private String trusteeshipUrlToken;
-  /**
-   * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
-   * <p> 示例值：user_id
-   */
-  @SerializedName("trusteeship_user_id_type")
-  private String trusteeshipUserIdType;
-  /**
-   * 单据托管回调接入方的接口的URL地址
-   * <p> 示例值：
-   */
-  @SerializedName("trusteeship_urls")
-  private TrusteeshipUrls trusteeshipUrls;
-
-  // builder 开始
-  public ExternalInstance() {
-  }
-
-  public ExternalInstance(Builder builder) {
     /**
      * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
      * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
      */
-    this.approvalCode = builder.approvalCode;
-    /**
-     * 审批实例状态
-     * <p> 示例值：PENDING
-     */
-    this.status = builder.status;
-    /**
-     * 审批实例扩展 JSON
-     * <p> 示例值：{\"xxx\":\"xxx\"}
-     */
-    this.extra = builder.extra;
-    /**
-     * 审批实例唯一标识，用户自定义，需确保证租户、应用下唯一
-     * <p> 示例值：24492654
-     */
-    this.instanceId = builder.instanceId;
-    /**
-     * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
-     * <p> 示例值：
-     */
-    this.links = builder.links;
-    /**
-     * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-     * <p> 示例值：@i18n@1
-     */
-    this.title = builder.title;
-    /**
-     * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
-     * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
-     */
-    this.form = builder.form;
-    /**
-     * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user id 二选一。
-     * <p> 示例值：a987sf9s
-     */
-    this.userId = builder.userId;
-    /**
-     * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
-     * <p> 示例值：@i18n@9
-     */
-    this.userName = builder.userName;
-    /**
-     * 审批发起人 open id，和 user id 二选一
-     * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
-     */
-    this.openId = builder.openId;
-    /**
-     * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
-     * <p> 示例值：od-8ec33278bc2
-     */
-    this.departmentId = builder.departmentId;
-    /**
-     * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
-     * <p> 示例值：@i18n@10
-     */
-    this.departmentName = builder.departmentName;
-    /**
-     * 审批发起时间，Unix毫秒时间戳
-     * <p> 示例值：1556468012678
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
-     * <p> 示例值：1556468012678
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
-     * <p> 示例值：1556468012678
-     */
-    this.updateTime = builder.updateTime;
-    /**
-     * 列表页打开审批实例的方式
-     * <p> 示例值：BROWSER
-     */
-    this.displayMethod = builder.displayMethod;
-    /**
-     * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
-     * <p> 示例值：UPDATE
-     */
-    this.updateMode = builder.updateMode;
-    /**
-     * 任务列表
-     * <p> 示例值：
-     */
-    this.taskList = builder.taskList;
-    /**
-     * 抄送列表
-     * <p> 示例值：
-     */
-    this.ccList = builder.ccList;
-    /**
-     * 国际化文案
-     * <p> 示例值：
-     */
-    this.i18nResources = builder.i18nResources;
-    /**
-     * 单据托管认证token，托管回调会附带此token，帮助业务方认证
-     * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
-     */
-    this.trusteeshipUrlToken = builder.trusteeshipUrlToken;
-    /**
-     * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
-     * <p> 示例值：user_id
-     */
-    this.trusteeshipUserIdType = builder.trusteeshipUserIdType;
-    /**
-     * 单据托管回调接入方的接口的URL地址
-     * <p> 示例值：
-     */
-    this.trusteeshipUrls = builder.trusteeshipUrls;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public ExternalInstanceLink getLinks() {
-    return this.links;
-  }
-
-  public void setLinks(ExternalInstanceLink links) {
-    this.links = links;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public ExternalInstanceForm[] getForm() {
-    return this.form;
-  }
-
-  public void setForm(ExternalInstanceForm[] form) {
-    this.form = form;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getUserName() {
-    return this.userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getDepartmentName() {
-    return this.departmentName;
-  }
-
-  public void setDepartmentName(String departmentName) {
-    this.departmentName = departmentName;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public String getDisplayMethod() {
-    return this.displayMethod;
-  }
-
-  public void setDisplayMethod(String displayMethod) {
-    this.displayMethod = displayMethod;
-  }
-
-  public String getUpdateMode() {
-    return this.updateMode;
-  }
-
-  public void setUpdateMode(String updateMode) {
-    this.updateMode = updateMode;
-  }
-
-  public ExternalInstanceTaskNode[] getTaskList() {
-    return this.taskList;
-  }
-
-  public void setTaskList(ExternalInstanceTaskNode[] taskList) {
-    this.taskList = taskList;
-  }
-
-  public CcNode[] getCcList() {
-    return this.ccList;
-  }
-
-  public void setCcList(CcNode[] ccList) {
-    this.ccList = ccList;
-  }
-
-  public I18nResource[] getI18nResources() {
-    return this.i18nResources;
-  }
-
-  public void setI18nResources(I18nResource[] i18nResources) {
-    this.i18nResources = i18nResources;
-  }
-
-  public String getTrusteeshipUrlToken() {
-    return this.trusteeshipUrlToken;
-  }
-
-  public void setTrusteeshipUrlToken(String trusteeshipUrlToken) {
-    this.trusteeshipUrlToken = trusteeshipUrlToken;
-  }
-
-  public String getTrusteeshipUserIdType() {
-    return this.trusteeshipUserIdType;
-  }
-
-  public void setTrusteeshipUserIdType(String trusteeshipUserIdType) {
-    this.trusteeshipUserIdType = trusteeshipUserIdType;
-  }
-
-  public TrusteeshipUrls getTrusteeshipUrls() {
-    return this.trusteeshipUrls;
-  }
-
-  public void setTrusteeshipUrls(TrusteeshipUrls trusteeshipUrls) {
-    this.trusteeshipUrls = trusteeshipUrls;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
+    @SerializedName("approval_code")
     private String approvalCode;
     /**
      * 审批实例状态
      * <p> 示例值：PENDING
      */
+    @SerializedName("status")
     private String status;
     /**
      * 审批实例扩展 JSON
      * <p> 示例值：{\"xxx\":\"xxx\"}
      */
+    @SerializedName("extra")
     private String extra;
     /**
-     * 审批实例唯一标识，用户自定义，需确保证租户、应用下唯一
+     * 审批实例唯一标识，用户自定义，需确保证租户下唯一
      * <p> 示例值：24492654
      */
+    @SerializedName("instance_id")
     private String instanceId;
     /**
      * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
      * <p> 示例值：
      */
+    @SerializedName("links")
     private ExternalInstanceLink links;
     /**
      * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
      * <p> 示例值：@i18n@1
      */
+    @SerializedName("title")
     private String title;
     /**
      * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
      * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
      */
+    @SerializedName("form")
     private ExternalInstanceForm[] form;
     /**
-     * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user
-     * id 二选一。
+     * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user id 二者至少填一个。
      * <p> 示例值：a987sf9s
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
      * <p> 示例值：@i18n@9
      */
+    @SerializedName("user_name")
     private String userName;
     /**
-     * 审批发起人 open id，和 user id 二选一
+     * 审批发起人 open id，和 user id 二者至少填一个
      * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
      */
+    @SerializedName("open_id")
     private String openId;
     /**
      * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
      * <p> 示例值：od-8ec33278bc2
      */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
      * <p> 示例值：@i18n@10
      */
+    @SerializedName("department_name")
     private String departmentName;
     /**
      * 审批发起时间，Unix毫秒时间戳
      * <p> 示例值：1556468012678
      */
+    @SerializedName("start_time")
     private String startTime;
     /**
      * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
      * <p> 示例值：1556468012678
      */
+    @SerializedName("end_time")
     private String endTime;
     /**
-     * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time
-     * 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
+     * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
      * <p> 示例值：1556468012678
      */
+    @SerializedName("update_time")
     private String updateTime;
     /**
      * 列表页打开审批实例的方式
      * <p> 示例值：BROWSER
      */
+    @SerializedName("display_method")
     private String displayMethod;
     /**
-     * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当
-     * update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
+     * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
      * <p> 示例值：UPDATE
      */
+    @SerializedName("update_mode")
     private String updateMode;
     /**
      * 任务列表
      * <p> 示例值：
      */
+    @SerializedName("task_list")
     private ExternalInstanceTaskNode[] taskList;
     /**
      * 抄送列表
      * <p> 示例值：
      */
+    @SerializedName("cc_list")
     private CcNode[] ccList;
     /**
      * 国际化文案
      * <p> 示例值：
      */
+    @SerializedName("i18n_resources")
     private I18nResource[] i18nResources;
     /**
      * 单据托管认证token，托管回调会附带此token，帮助业务方认证
      * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
      */
+    @SerializedName("trusteeship_url_token")
     private String trusteeshipUrlToken;
     /**
      * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
      * <p> 示例值：user_id
      */
+    @SerializedName("trusteeship_user_id_type")
     private String trusteeshipUserIdType;
     /**
      * 单据托管回调接入方的接口的URL地址
      * <p> 示例值：
      */
+    @SerializedName("trusteeship_urls")
     private TrusteeshipUrls trusteeshipUrls;
 
-    /**
-     * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     *
-     * @param approvalCode
-     * @return
-     */
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    // builder 开始
+    public ExternalInstance() {
     }
 
-
-    /**
-     * 审批实例状态
-     * <p> 示例值：PENDING
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public ExternalInstance(Builder builder) {
+        /**
+         * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
+         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批实例状态
+         * <p> 示例值：PENDING
+         */
+        this.status = builder.status;
+        /**
+         * 审批实例扩展 JSON
+         * <p> 示例值：{\"xxx\":\"xxx\"}
+         */
+        this.extra = builder.extra;
+        /**
+         * 审批实例唯一标识，用户自定义，需确保证租户下唯一
+         * <p> 示例值：24492654
+         */
+        this.instanceId = builder.instanceId;
+        /**
+         * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
+         * <p> 示例值：
+         */
+        this.links = builder.links;
+        /**
+         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+         * <p> 示例值：@i18n@1
+         */
+        this.title = builder.title;
+        /**
+         * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
+         * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
+         */
+        this.form = builder.form;
+        /**
+         * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user id 二者至少填一个。
+         * <p> 示例值：a987sf9s
+         */
+        this.userId = builder.userId;
+        /**
+         * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
+         * <p> 示例值：@i18n@9
+         */
+        this.userName = builder.userName;
+        /**
+         * 审批发起人 open id，和 user id 二者至少填一个
+         * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+         */
+        this.openId = builder.openId;
+        /**
+         * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
+         * <p> 示例值：od-8ec33278bc2
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
+         * <p> 示例值：@i18n@10
+         */
+        this.departmentName = builder.departmentName;
+        /**
+         * 审批发起时间，Unix毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
+         * <p> 示例值：1556468012678
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 列表页打开审批实例的方式
+         * <p> 示例值：BROWSER
+         */
+        this.displayMethod = builder.displayMethod;
+        /**
+         * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
+         * <p> 示例值：UPDATE
+         */
+        this.updateMode = builder.updateMode;
+        /**
+         * 任务列表
+         * <p> 示例值：
+         */
+        this.taskList = builder.taskList;
+        /**
+         * 抄送列表
+         * <p> 示例值：
+         */
+        this.ccList = builder.ccList;
+        /**
+         * 国际化文案
+         * <p> 示例值：
+         */
+        this.i18nResources = builder.i18nResources;
+        /**
+         * 单据托管认证token，托管回调会附带此token，帮助业务方认证
+         * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
+         */
+        this.trusteeshipUrlToken = builder.trusteeshipUrlToken;
+        /**
+         * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
+         * <p> 示例值：user_id
+         */
+        this.trusteeshipUserIdType = builder.trusteeshipUserIdType;
+        /**
+         * 单据托管回调接入方的接口的URL地址
+         * <p> 示例值：
+         */
+        this.trusteeshipUrls = builder.trusteeshipUrls;
     }
 
-    /**
-     * 审批实例状态
-     * <p> 示例值：PENDING
-     *
-     * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceStatusEnum}
-     * @return
-     */
-    public Builder status(
-        com.lark.oapi.service.approval.v4.enums.ExternalInstanceStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 审批实例扩展 JSON
-     * <p> 示例值：{\"xxx\":\"xxx\"}
-     *
-     * @param extra
-     * @return
-     */
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-
-    /**
-     * 审批实例唯一标识，用户自定义，需确保证租户、应用下唯一
-     * <p> 示例值：24492654
-     *
-     * @param instanceId
-     * @return
-     */
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
-
-    /**
-     * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
-     * <p> 示例值：
-     *
-     * @param links
-     * @return
-     */
-    public Builder links(ExternalInstanceLink links) {
-      this.links = links;
-      return this;
+    public String getStatus() {
+        return this.status;
     }
 
-
-    /**
-     * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-     * <p> 示例值：@i18n@1
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-
-    /**
-     * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
-     * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
-     *
-     * @param form
-     * @return
-     */
-    public Builder form(ExternalInstanceForm[] form) {
-      this.form = form;
-      return this;
+    public String getExtra() {
+        return this.extra;
     }
 
-
-    /**
-     * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user
-     * id 二选一。
-     * <p> 示例值：a987sf9s
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setExtra(String extra) {
+        this.extra = extra;
     }
 
-
-    /**
-     * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
-     * <p> 示例值：@i18n@9
-     *
-     * @param userName
-     * @return
-     */
-    public Builder userName(String userName) {
-      this.userName = userName;
-      return this;
+    public String getInstanceId() {
+        return this.instanceId;
     }
 
-
-    /**
-     * 审批发起人 open id，和 user id 二选一
-     * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-
-    /**
-     * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
-     * <p> 示例值：od-8ec33278bc2
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public ExternalInstanceLink getLinks() {
+        return this.links;
     }
 
-
-    /**
-     * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
-     * <p> 示例值：@i18n@10
-     *
-     * @param departmentName
-     * @return
-     */
-    public Builder departmentName(String departmentName) {
-      this.departmentName = departmentName;
-      return this;
+    public void setLinks(ExternalInstanceLink links) {
+        this.links = links;
     }
 
-
-    /**
-     * 审批发起时间，Unix毫秒时间戳
-     * <p> 示例值：1556468012678
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-
-    /**
-     * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
-     * <p> 示例值：1556468012678
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-
-    /**
-     * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time
-     * 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
-     * <p> 示例值：1556468012678
-     *
-     * @param updateTime
-     * @return
-     */
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public ExternalInstanceForm[] getForm() {
+        return this.form;
     }
 
-
-    /**
-     * 列表页打开审批实例的方式
-     * <p> 示例值：BROWSER
-     *
-     * @param displayMethod
-     * @return
-     */
-    public Builder displayMethod(String displayMethod) {
-      this.displayMethod = displayMethod;
-      return this;
+    public void setForm(ExternalInstanceForm[] form) {
+        this.form = form;
     }
 
-    /**
-     * 列表页打开审批实例的方式
-     * <p> 示例值：BROWSER
-     *
-     * @param displayMethod {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceDisplayMethodEnum}
-     * @return
-     */
-    public Builder displayMethod(
-        com.lark.oapi.service.approval.v4.enums.ExternalInstanceDisplayMethodEnum displayMethod) {
-      this.displayMethod = displayMethod.getValue();
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当
-     * update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
-     * <p> 示例值：UPDATE
-     *
-     * @param updateMode
-     * @return
-     */
-    public Builder updateMode(String updateMode) {
-      this.updateMode = updateMode;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    /**
-     * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当
-     * update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
-     * <p> 示例值：UPDATE
-     *
-     * @param updateMode {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceUpdateModeEnum}
-     * @return
-     */
-    public Builder updateMode(
-        com.lark.oapi.service.approval.v4.enums.ExternalInstanceUpdateModeEnum updateMode) {
-      this.updateMode = updateMode.getValue();
-      return this;
+    public String getUserName() {
+        return this.userName;
     }
 
-
-    /**
-     * 任务列表
-     * <p> 示例值：
-     *
-     * @param taskList
-     * @return
-     */
-    public Builder taskList(ExternalInstanceTaskNode[] taskList) {
-      this.taskList = taskList;
-      return this;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-
-    /**
-     * 抄送列表
-     * <p> 示例值：
-     *
-     * @param ccList
-     * @return
-     */
-    public Builder ccList(CcNode[] ccList) {
-      this.ccList = ccList;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-
-    /**
-     * 国际化文案
-     * <p> 示例值：
-     *
-     * @param i18nResources
-     * @return
-     */
-    public Builder i18nResources(I18nResource[] i18nResources) {
-      this.i18nResources = i18nResources;
-      return this;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
-
-    /**
-     * 单据托管认证token，托管回调会附带此token，帮助业务方认证
-     * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
-     *
-     * @param trusteeshipUrlToken
-     * @return
-     */
-    public Builder trusteeshipUrlToken(String trusteeshipUrlToken) {
-      this.trusteeshipUrlToken = trusteeshipUrlToken;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-
-    /**
-     * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
-     * <p> 示例值：user_id
-     *
-     * @param trusteeshipUserIdType
-     * @return
-     */
-    public Builder trusteeshipUserIdType(String trusteeshipUserIdType) {
-      this.trusteeshipUserIdType = trusteeshipUserIdType;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-
-    /**
-     * 单据托管回调接入方的接口的URL地址
-     * <p> 示例值：
-     *
-     * @param trusteeshipUrls
-     * @return
-     */
-    public Builder trusteeshipUrls(TrusteeshipUrls trusteeshipUrls) {
-      this.trusteeshipUrls = trusteeshipUrls;
-      return this;
+    public String getDepartmentName() {
+        return this.departmentName;
     }
 
-
-    public ExternalInstance build() {
-      return new ExternalInstance(this);
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
-  }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getDisplayMethod() {
+        return this.displayMethod;
+    }
+
+    public void setDisplayMethod(String displayMethod) {
+        this.displayMethod = displayMethod;
+    }
+
+    public String getUpdateMode() {
+        return this.updateMode;
+    }
+
+    public void setUpdateMode(String updateMode) {
+        this.updateMode = updateMode;
+    }
+
+    public ExternalInstanceTaskNode[] getTaskList() {
+        return this.taskList;
+    }
+
+    public void setTaskList(ExternalInstanceTaskNode[] taskList) {
+        this.taskList = taskList;
+    }
+
+    public CcNode[] getCcList() {
+        return this.ccList;
+    }
+
+    public void setCcList(CcNode[] ccList) {
+        this.ccList = ccList;
+    }
+
+    public I18nResource[] getI18nResources() {
+        return this.i18nResources;
+    }
+
+    public void setI18nResources(I18nResource[] i18nResources) {
+        this.i18nResources = i18nResources;
+    }
+
+    public String getTrusteeshipUrlToken() {
+        return this.trusteeshipUrlToken;
+    }
+
+    public void setTrusteeshipUrlToken(String trusteeshipUrlToken) {
+        this.trusteeshipUrlToken = trusteeshipUrlToken;
+    }
+
+    public String getTrusteeshipUserIdType() {
+        return this.trusteeshipUserIdType;
+    }
+
+    public void setTrusteeshipUserIdType(String trusteeshipUserIdType) {
+        this.trusteeshipUserIdType = trusteeshipUserIdType;
+    }
+
+    public TrusteeshipUrls getTrusteeshipUrls() {
+        return this.trusteeshipUrls;
+    }
+
+    public void setTrusteeshipUrls(TrusteeshipUrls trusteeshipUrls) {
+        this.trusteeshipUrls = trusteeshipUrls;
+    }
+
+    public static class Builder {
+        /**
+         * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
+         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+         */
+        private String approvalCode;
+        /**
+         * 审批实例状态
+         * <p> 示例值：PENDING
+         */
+        private String status;
+        /**
+         * 审批实例扩展 JSON
+         * <p> 示例值：{\"xxx\":\"xxx\"}
+         */
+        private String extra;
+        /**
+         * 审批实例唯一标识，用户自定义，需确保证租户下唯一
+         * <p> 示例值：24492654
+         */
+        private String instanceId;
+        /**
+         * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
+         * <p> 示例值：
+         */
+        private ExternalInstanceLink links;
+        /**
+         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+         * <p> 示例值：@i18n@1
+         */
+        private String title;
+        /**
+         * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
+         * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
+         */
+        private ExternalInstanceForm[] form;
+        /**
+         * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user id 二者至少填一个。
+         * <p> 示例值：a987sf9s
+         */
+        private String userId;
+        /**
+         * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
+         * <p> 示例值：@i18n@9
+         */
+        private String userName;
+        /**
+         * 审批发起人 open id，和 user id 二者至少填一个
+         * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+         */
+        private String openId;
+        /**
+         * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
+         * <p> 示例值：od-8ec33278bc2
+         */
+        private String departmentId;
+        /**
+         * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
+         * <p> 示例值：@i18n@10
+         */
+        private String departmentName;
+        /**
+         * 审批发起时间，Unix毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
+        private String startTime;
+        /**
+         * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
+         * <p> 示例值：1556468012678
+         */
+        private String endTime;
+        /**
+         * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
+         * <p> 示例值：1556468012678
+         */
+        private String updateTime;
+        /**
+         * 列表页打开审批实例的方式
+         * <p> 示例值：BROWSER
+         */
+        private String displayMethod;
+        /**
+         * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
+         * <p> 示例值：UPDATE
+         */
+        private String updateMode;
+        /**
+         * 任务列表
+         * <p> 示例值：
+         */
+        private ExternalInstanceTaskNode[] taskList;
+        /**
+         * 抄送列表
+         * <p> 示例值：
+         */
+        private CcNode[] ccList;
+        /**
+         * 国际化文案
+         * <p> 示例值：
+         */
+        private I18nResource[] i18nResources;
+        /**
+         * 单据托管认证token，托管回调会附带此token，帮助业务方认证
+         * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
+         */
+        private String trusteeshipUrlToken;
+        /**
+         * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
+         * <p> 示例值：user_id
+         */
+        private String trusteeshipUserIdType;
+        /**
+         * 单据托管回调接入方的接口的URL地址
+         * <p> 示例值：
+         */
+        private TrusteeshipUrls trusteeshipUrls;
+
+        /**
+         * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
+         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
+
+
+        /**
+         * 审批实例状态
+         * <p> 示例值：PENDING
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 审批实例状态
+         * <p> 示例值：PENDING
+         *
+         * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.approval.v4.enums.ExternalInstanceStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 审批实例扩展 JSON
+         * <p> 示例值：{\"xxx\":\"xxx\"}
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
+            return this;
+        }
+
+
+        /**
+         * 审批实例唯一标识，用户自定义，需确保证租户下唯一
+         * <p> 示例值：24492654
+         *
+         * @param instanceId
+         * @return
+         */
+        public Builder instanceId(String instanceId) {
+            this.instanceId = instanceId;
+            return this;
+        }
+
+
+        /**
+         * 审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响
+         * <p> 示例值：
+         *
+         * @param links
+         * @return
+         */
+        public Builder links(ExternalInstanceLink links) {
+            this.links = links;
+            return this;
+        }
+
+
+        /**
+         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+         * <p> 示例值：@i18n@1
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符
+         * <p> 示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]
+         *
+         * @param form
+         * @return
+         */
+        public Builder form(ExternalInstanceForm[] form) {
+            this.form = form;
+            return this;
+        }
+
+
+        /**
+         * 审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id，和 user id 二者至少填一个。
+         * <p> 示例值：a987sf9s
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称
+         * <p> 示例值：@i18n@9
+         *
+         * @param userName
+         * @return
+         */
+        public Builder userName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+
+
+        /**
+         * 审批发起人 open id，和 user id 二者至少填一个
+         * <p> 示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * 发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称
+         * <p> 示例值：od-8ec33278bc2
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称
+         * <p> 示例值：@i18n@10
+         *
+         * @param departmentName
+         * @return
+         */
+        public Builder departmentName(String departmentName) {
+            this.departmentName = departmentName;
+            return this;
+        }
+
+
+        /**
+         * 审批发起时间，Unix毫秒时间戳
+         * <p> 示例值：1556468012678
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳
+         * <p> 示例值：1556468012678
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据
+         * <p> 示例值：1556468012678
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 列表页打开审批实例的方式
+         * <p> 示例值：BROWSER
+         *
+         * @param displayMethod
+         * @return
+         */
+        public Builder displayMethod(String displayMethod) {
+            this.displayMethod = displayMethod;
+            return this;
+        }
+
+        /**
+         * 列表页打开审批实例的方式
+         * <p> 示例值：BROWSER
+         *
+         * @param displayMethod {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceDisplayMethodEnum}
+         * @return
+         */
+        public Builder displayMethod(com.lark.oapi.service.approval.v4.enums.ExternalInstanceDisplayMethodEnum displayMethod) {
+            this.displayMethod = displayMethod.getValue();
+            return this;
+        }
+
+
+        /**
+         * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
+         * <p> 示例值：UPDATE
+         *
+         * @param updateMode
+         * @return
+         */
+        public Builder updateMode(String updateMode) {
+            this.updateMode = updateMode;
+            return this;
+        }
+
+        /**
+         * 更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据
+         * <p> 示例值：UPDATE
+         *
+         * @param updateMode {@link com.lark.oapi.service.approval.v4.enums.ExternalInstanceUpdateModeEnum}
+         * @return
+         */
+        public Builder updateMode(com.lark.oapi.service.approval.v4.enums.ExternalInstanceUpdateModeEnum updateMode) {
+            this.updateMode = updateMode.getValue();
+            return this;
+        }
+
+
+        /**
+         * 任务列表
+         * <p> 示例值：
+         *
+         * @param taskList
+         * @return
+         */
+        public Builder taskList(ExternalInstanceTaskNode[] taskList) {
+            this.taskList = taskList;
+            return this;
+        }
+
+
+        /**
+         * 抄送列表
+         * <p> 示例值：
+         *
+         * @param ccList
+         * @return
+         */
+        public Builder ccList(CcNode[] ccList) {
+            this.ccList = ccList;
+            return this;
+        }
+
+
+        /**
+         * 国际化文案
+         * <p> 示例值：
+         *
+         * @param i18nResources
+         * @return
+         */
+        public Builder i18nResources(I18nResource[] i18nResources) {
+            this.i18nResources = i18nResources;
+            return this;
+        }
+
+
+        /**
+         * 单据托管认证token，托管回调会附带此token，帮助业务方认证
+         * <p> 示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306
+         *
+         * @param trusteeshipUrlToken
+         * @return
+         */
+        public Builder trusteeshipUrlToken(String trusteeshipUrlToken) {
+            this.trusteeshipUrlToken = trusteeshipUrlToken;
+            return this;
+        }
+
+
+        /**
+         * 用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"
+         * <p> 示例值：user_id
+         *
+         * @param trusteeshipUserIdType
+         * @return
+         */
+        public Builder trusteeshipUserIdType(String trusteeshipUserIdType) {
+            this.trusteeshipUserIdType = trusteeshipUserIdType;
+            return this;
+        }
+
+
+        /**
+         * 单据托管回调接入方的接口的URL地址
+         * <p> 示例值：
+         *
+         * @param trusteeshipUrls
+         * @return
+         */
+        public Builder trusteeshipUrls(TrusteeshipUrls trusteeshipUrls) {
+            this.trusteeshipUrls = trusteeshipUrls;
+            return this;
+        }
+
+
+        public ExternalInstance build() {
+            return new ExternalInstance(this);
+        }
+    }
 }

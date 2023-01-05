@@ -16,98 +16,96 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateGroupReqBody {
-
-  /**
-   * 6921319402260496386
-   * <p> 示例值：
-   */
-  @SerializedName("group")
-  private Group group;
-  /**
-   * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-   * <p> 示例值：dd31248a
-   */
-  @SerializedName("operator_id")
-  private String operatorId;
-
-  // builder 开始
-  public CreateGroupReqBody() {
-  }
-
-  public CreateGroupReqBody(Builder builder) {
     /**
      * 6921319402260496386
      * <p> 示例值：
      */
-    this.group = builder.group;
-    /**
-     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-     * <p> 示例值：dd31248a
-     */
-    this.operatorId = builder.operatorId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Group getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(Group group) {
-    this.group = group;
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 6921319402260496386
-     * <p> 示例值：
-     */
+    @SerializedName("group")
     private Group group;
     /**
      * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
      * <p> 示例值：dd31248a
      */
+    @SerializedName("operator_id")
     private String operatorId;
 
-    /**
-     * 6921319402260496386
-     * <p> 示例值：
-     *
-     * @param group
-     * @return
-     */
-    public Builder group(Group group) {
-      this.group = group;
-      return this;
+    // builder 开始
+    public CreateGroupReqBody() {
     }
 
-
-    /**
-     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-     * <p> 示例值：dd31248a
-     *
-     * @param operatorId
-     * @return
-     */
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
+    public CreateGroupReqBody(Builder builder) {
+        /**
+         * 6921319402260496386
+         * <p> 示例值：
+         */
+        this.group = builder.group;
+        /**
+         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+         * <p> 示例值：dd31248a
+         */
+        this.operatorId = builder.operatorId;
     }
 
-
-    public CreateGroupReqBody build() {
-      return new CreateGroupReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Group getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    public static class Builder {
+        /**
+         * 6921319402260496386
+         * <p> 示例值：
+         */
+        private Group group;
+        /**
+         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+         * <p> 示例值：dd31248a
+         */
+        private String operatorId;
+
+        /**
+         * 6921319402260496386
+         * <p> 示例值：
+         *
+         * @param group
+         * @return
+         */
+        public Builder group(Group group) {
+            this.group = group;
+            return this;
+        }
+
+
+        /**
+         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+         * <p> 示例值：dd31248a
+         *
+         * @param operatorId
+         * @return
+         */
+        public Builder operatorId(String operatorId) {
+            this.operatorId = operatorId;
+            return this;
+        }
+
+
+        public CreateGroupReqBody build() {
+            return new CreateGroupReqBody(this);
+        }
+    }
 }

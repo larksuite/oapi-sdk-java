@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DeleteManagersChatManagersReqBody {
-
-  /**
-   * 要删除的 manager_id
-   * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-   */
-  @SerializedName("manager_ids")
-  private String[] managerIds;
-
-  // builder 开始
-  public DeleteManagersChatManagersReqBody() {
-  }
-
-  public DeleteManagersChatManagersReqBody(Builder builder) {
     /**
-     * 要删除的 manager_id
+     * 要删除的 manager_id;;**注意**：每次请求最多指定 50 个用户或者 5 个机器人
      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
      */
-    this.managerIds = builder.managerIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getManagerIds() {
-    return this.managerIds;
-  }
-
-  public void setManagerIds(String[] managerIds) {
-    this.managerIds = managerIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 要删除的 manager_id
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-     */
+    @SerializedName("manager_ids")
     private String[] managerIds;
 
-    /**
-     * 要删除的 manager_id
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-     *
-     * @param managerIds
-     * @return
-     */
-    public Builder managerIds(String[] managerIds) {
-      this.managerIds = managerIds;
-      return this;
+    // builder 开始
+    public DeleteManagersChatManagersReqBody() {
     }
 
-
-    public DeleteManagersChatManagersReqBody build() {
-      return new DeleteManagersChatManagersReqBody(this);
+    public DeleteManagersChatManagersReqBody(Builder builder) {
+        /**
+         * 要删除的 manager_id;;**注意**：每次请求最多指定 50 个用户或者 5 个机器人
+         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+         */
+        this.managerIds = builder.managerIds;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getManagerIds() {
+        return this.managerIds;
+    }
+
+    public void setManagerIds(String[] managerIds) {
+        this.managerIds = managerIds;
+    }
+
+    public static class Builder {
+        /**
+         * 要删除的 manager_id;;**注意**：每次请求最多指定 50 个用户或者 5 个机器人
+         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+         */
+        private String[] managerIds;
+
+        /**
+         * 要删除的 manager_id;;**注意**：每次请求最多指定 50 个用户或者 5 个机器人
+         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+         *
+         * @param managerIds
+         * @return
+         */
+        public Builder managerIds(String[] managerIds) {
+            this.managerIds = managerIds;
+            return this;
+        }
+
+
+        public DeleteManagersChatManagersReqBody build() {
+            return new DeleteManagersChatManagersReqBody(this);
+        }
+    }
 }

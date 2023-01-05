@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 权限项
  */
 public enum ReserveActionPermissionMeetingPermEnum {
-  CAN_BE_HOST(1), // 是否能成为主持人
-  CAN_INVITE(2), // 是否能邀请参会人
-  CAN_JOIN(3), // 是否能加入会议
-  ;
-  private Integer value;
+    CAN_BE_HOST(1), // 是否能成为主持人
+    CAN_INVITE(2), // 是否能邀请参会人
+    CAN_JOIN(3), // 是否能加入会议
+    ;
+    private Integer value;
 
-  ReserveActionPermissionMeetingPermEnum(Integer value) {
-    this.value = value;
-  }
+    ReserveActionPermissionMeetingPermEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

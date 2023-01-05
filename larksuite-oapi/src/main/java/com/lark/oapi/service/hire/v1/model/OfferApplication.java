@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class OfferApplication {
 
-  /**
-   * Offer数据
-   * <p> 示例值：
-   */
-  @SerializedName("offer")
-  private ApplicationOffer offer;
+    /**
+     * Offer数据
+     * <p> 示例值：
+     */
+    @SerializedName("offer")
+    private ApplicationOffer offer;
 
-  public ApplicationOffer getOffer() {
-    return this.offer;
-  }
+    public ApplicationOffer getOffer() {
+        return this.offer;
+    }
 
-  public void setOffer(ApplicationOffer offer) {
-    this.offer = offer;
-  }
+    public void setOffer(ApplicationOffer offer) {
+        this.offer = offer;
+    }
 
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ClientBadgeNum {
-
-  /**
-   * h5能力的badge数量
-   * <p> 示例值：
-   */
-  @SerializedName("web_app")
-  private Integer webApp;
-  /**
-   * 小程序能力的badge数量
-   * <p> 示例值：
-   */
-  @SerializedName("gadget")
-  private Integer gadget;
-
-  // builder 开始
-  public ClientBadgeNum() {
-  }
-
-  public ClientBadgeNum(Builder builder) {
     /**
      * h5能力的badge数量
-     * <p> 示例值：
+     * <p> 示例值：1
      */
-    this.webApp = builder.webApp;
-    /**
-     * 小程序能力的badge数量
-     * <p> 示例值：
-     */
-    this.gadget = builder.gadget;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getWebApp() {
-    return this.webApp;
-  }
-
-  public void setWebApp(Integer webApp) {
-    this.webApp = webApp;
-  }
-
-  public Integer getGadget() {
-    return this.gadget;
-  }
-
-  public void setGadget(Integer gadget) {
-    this.gadget = gadget;
-  }
-
-  public static class Builder {
-
-    /**
-     * h5能力的badge数量
-     * <p> 示例值：
-     */
+    @SerializedName("web_app")
     private Integer webApp;
     /**
      * 小程序能力的badge数量
-     * <p> 示例值：
+     * <p> 示例值：2
      */
+    @SerializedName("gadget")
     private Integer gadget;
 
-    /**
-     * h5能力的badge数量
-     * <p> 示例值：
-     *
-     * @param webApp
-     * @return
-     */
-    public Builder webApp(Integer webApp) {
-      this.webApp = webApp;
-      return this;
+    // builder 开始
+    public ClientBadgeNum() {
     }
 
-
-    /**
-     * 小程序能力的badge数量
-     * <p> 示例值：
-     *
-     * @param gadget
-     * @return
-     */
-    public Builder gadget(Integer gadget) {
-      this.gadget = gadget;
-      return this;
+    public ClientBadgeNum(Builder builder) {
+        /**
+         * h5能力的badge数量
+         * <p> 示例值：1
+         */
+        this.webApp = builder.webApp;
+        /**
+         * 小程序能力的badge数量
+         * <p> 示例值：2
+         */
+        this.gadget = builder.gadget;
     }
 
-
-    public ClientBadgeNum build() {
-      return new ClientBadgeNum(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getWebApp() {
+        return this.webApp;
+    }
+
+    public void setWebApp(Integer webApp) {
+        this.webApp = webApp;
+    }
+
+    public Integer getGadget() {
+        return this.gadget;
+    }
+
+    public void setGadget(Integer gadget) {
+        this.gadget = gadget;
+    }
+
+    public static class Builder {
+        /**
+         * h5能力的badge数量
+         * <p> 示例值：1
+         */
+        private Integer webApp;
+        /**
+         * 小程序能力的badge数量
+         * <p> 示例值：2
+         */
+        private Integer gadget;
+
+        /**
+         * h5能力的badge数量
+         * <p> 示例值：1
+         *
+         * @param webApp
+         * @return
+         */
+        public Builder webApp(Integer webApp) {
+            this.webApp = webApp;
+            return this;
+        }
+
+
+        /**
+         * 小程序能力的badge数量
+         * <p> 示例值：2
+         *
+         * @param gadget
+         * @return
+         */
+        public Builder gadget(Integer gadget) {
+            this.gadget = gadget;
+            return this;
+        }
+
+
+        public ClientBadgeNum build() {
+            return new ClientBadgeNum(this);
+        }
+    }
 }

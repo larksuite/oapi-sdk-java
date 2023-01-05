@@ -16,160 +16,159 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2TicketMessageCreatedV1Data {
+    /**
+     * ticket message id
+     * <p> 示例值：
+     */
+    @SerializedName("ticket_message_id")
+    private String ticketMessageId;
+    /**
+     * open message id
+     * <p> 示例值：
+     */
+    @SerializedName("message_id")
+    private String messageId;
+    /**
+     * message type, text is the only supported type
+     * <p> 示例值：
+     */
+    @SerializedName("msg_type")
+    private String msgType;
+    /**
+     * position of the message
+     * <p> 示例值：
+     */
+    @SerializedName("position")
+    private String position;
+    /**
+     * sender's open id, omitted if the sender is the bot
+     * <p> 示例值：
+     */
+    @SerializedName("sender_id")
+    private UserId senderId;
+    /**
+     * sender type, 1 for bot, 2 for guest, 3 for agent
+     * <p> 示例值：
+     */
+    @SerializedName("sender_type")
+    private Integer senderType;
+    /**
+     * message content
+     * <p> 示例值：
+     */
+    @SerializedName("text")
+    private String text;
+    /**
+     * ticket related information
+     * <p> 示例值：
+     */
+    @SerializedName("ticket")
+    private Ticket ticket;
+    /**
+     * event id
+     * <p> 示例值：
+     */
+    @SerializedName("event_id")
+    private String eventId;
+    /**
+     * chat id
+     * <p> 示例值：
+     */
+    @SerializedName("chat_id")
+    private String chatId;
+    /**
+     * message content
+     * <p> 示例值：
+     */
+    @SerializedName("content")
+    private TicketMessageContent content;
 
-  /**
-   * ticket message id
-   * <p> 示例值：
-   */
-  @SerializedName("ticket_message_id")
-  private String ticketMessageId;
-  /**
-   * open message id
-   * <p> 示例值：
-   */
-  @SerializedName("message_id")
-  private String messageId;
-  /**
-   * message type, text is the only supported type
-   * <p> 示例值：
-   */
-  @SerializedName("msg_type")
-  private String msgType;
-  /**
-   * position of the message
-   * <p> 示例值：
-   */
-  @SerializedName("position")
-  private String position;
-  /**
-   * sender's open id, omitted if the sender is the bot
-   * <p> 示例值：
-   */
-  @SerializedName("sender_id")
-  private UserId senderId;
-  /**
-   * sender type, 1 for bot, 2 for guest, 3 for agent
-   * <p> 示例值：
-   */
-  @SerializedName("sender_type")
-  private Integer senderType;
-  /**
-   * message content
-   * <p> 示例值：
-   */
-  @SerializedName("text")
-  private String text;
-  /**
-   * ticket related information
-   * <p> 示例值：
-   */
-  @SerializedName("ticket")
-  private Ticket ticket;
-  /**
-   * event id
-   * <p> 示例值：
-   */
-  @SerializedName("event_id")
-  private String eventId;
-  /**
-   * chat id
-   * <p> 示例值：
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-  /**
-   * message content
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private TicketMessageContent content;
+    public String getTicketMessageId() {
+        return this.ticketMessageId;
+    }
 
-  public String getTicketMessageId() {
-    return this.ticketMessageId;
-  }
+    public void setTicketMessageId(String ticketMessageId) {
+        this.ticketMessageId = ticketMessageId;
+    }
 
-  public void setTicketMessageId(String ticketMessageId) {
-    this.ticketMessageId = ticketMessageId;
-  }
+    public String getMessageId() {
+        return this.messageId;
+    }
 
-  public String getMessageId() {
-    return this.messageId;
-  }
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
+    public String getMsgType() {
+        return this.msgType;
+    }
 
-  public String getMsgType() {
-    return this.msgType;
-  }
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
+    }
 
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
+    public String getPosition() {
+        return this.position;
+    }
 
-  public String getPosition() {
-    return this.position;
-  }
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
-  public void setPosition(String position) {
-    this.position = position;
-  }
+    public UserId getSenderId() {
+        return this.senderId;
+    }
 
-  public UserId getSenderId() {
-    return this.senderId;
-  }
+    public void setSenderId(UserId senderId) {
+        this.senderId = senderId;
+    }
 
-  public void setSenderId(UserId senderId) {
-    this.senderId = senderId;
-  }
+    public Integer getSenderType() {
+        return this.senderType;
+    }
 
-  public Integer getSenderType() {
-    return this.senderType;
-  }
+    public void setSenderType(Integer senderType) {
+        this.senderType = senderType;
+    }
 
-  public void setSenderType(Integer senderType) {
-    this.senderType = senderType;
-  }
+    public String getText() {
+        return this.text;
+    }
 
-  public String getText() {
-    return this.text;
-  }
+    public void setText(String text) {
+        this.text = text;
+    }
 
-  public void setText(String text) {
-    this.text = text;
-  }
+    public Ticket getTicket() {
+        return this.ticket;
+    }
 
-  public Ticket getTicket() {
-    return this.ticket;
-  }
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
 
-  public void setTicket(Ticket ticket) {
-    this.ticket = ticket;
-  }
+    public String getEventId() {
+        return this.eventId;
+    }
 
-  public String getEventId() {
-    return this.eventId;
-  }
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
 
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public TicketMessageContent getContent() {
+        return this.content;
+    }
 
-  public TicketMessageContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(TicketMessageContent content) {
-    this.content = content;
-  }
+    public void setContent(TicketMessageContent content) {
+        this.content = content;
+    }
 
 }

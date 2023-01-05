@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentSchemaOption {
-
-  /**
-   * 活跃状态
-   * <p> 示例值：
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-  /**
-   * 值
-   * <p> 示例值：
-   */
-  @SerializedName("value")
-  private String value;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-
-  // builder 开始
-  public TalentSchemaOption() {
-  }
-
-  public TalentSchemaOption(Builder builder) {
     /**
      * 活跃状态
      * <p> 示例值：
      */
-    this.activeStatus = builder.activeStatus;
-    /**
-     * 值
-     * <p> 示例值：
-     */
-    this.value = builder.value;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 活跃状态
-     * <p> 示例值：
-     */
+    @SerializedName("active_status")
     private Integer activeStatus;
     /**
      * 值
      * <p> 示例值：
      */
+    @SerializedName("value")
     private String value;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
 
-    /**
-     * 活跃状态
-     * <p> 示例值：
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    // builder 开始
+    public TalentSchemaOption() {
     }
 
-
-    /**
-     * 值
-     * <p> 示例值：
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public TalentSchemaOption(Builder builder) {
+        /**
+         * 活跃状态
+         * <p> 示例值：
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public TalentSchemaOption build() {
-      return new TalentSchemaOption(this);
+    public Integer getActiveStatus() {
+        return this.activeStatus;
     }
-  }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 活跃状态
+         * <p> 示例值：
+         */
+        private Integer activeStatus;
+        /**
+         * 值
+         * <p> 示例值：
+         */
+        private String value;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private I18n name;
+
+        /**
+         * 活跃状态
+         * <p> 示例值：
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 值
+         * <p> 示例值：
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public TalentSchemaOption build() {
+            return new TalentSchemaOption(this);
+        }
+    }
 }

@@ -16,172 +16,170 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReportMeetingDaily {
-
-  /**
-   * 日期（unix时间，单位sec）
-   * <p> 示例值：1609113600
-   */
-  @SerializedName("date")
-  private String date;
-  /**
-   * 会议数量
-   * <p> 示例值：100
-   */
-  @SerializedName("meeting_count")
-  private String meetingCount;
-  /**
-   * 会议时长（单位sec）
-   * <p> 示例值：147680
-   */
-  @SerializedName("meeting_duration")
-  private String meetingDuration;
-  /**
-   * 参会人数
-   * <p> 示例值：2000
-   */
-  @SerializedName("participant_count")
-  private String participantCount;
-
-  // builder 开始
-  public ReportMeetingDaily() {
-  }
-
-  public ReportMeetingDaily(Builder builder) {
     /**
      * 日期（unix时间，单位sec）
      * <p> 示例值：1609113600
      */
-    this.date = builder.date;
-    /**
-     * 会议数量
-     * <p> 示例值：100
-     */
-    this.meetingCount = builder.meetingCount;
-    /**
-     * 会议时长（单位sec）
-     * <p> 示例值：147680
-     */
-    this.meetingDuration = builder.meetingDuration;
-    /**
-     * 参会人数
-     * <p> 示例值：2000
-     */
-    this.participantCount = builder.participantCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDate() {
-    return this.date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public String getMeetingCount() {
-    return this.meetingCount;
-  }
-
-  public void setMeetingCount(String meetingCount) {
-    this.meetingCount = meetingCount;
-  }
-
-  public String getMeetingDuration() {
-    return this.meetingDuration;
-  }
-
-  public void setMeetingDuration(String meetingDuration) {
-    this.meetingDuration = meetingDuration;
-  }
-
-  public String getParticipantCount() {
-    return this.participantCount;
-  }
-
-  public void setParticipantCount(String participantCount) {
-    this.participantCount = participantCount;
-  }
-
-  public static class Builder {
-
-    /**
-     * 日期（unix时间，单位sec）
-     * <p> 示例值：1609113600
-     */
+    @SerializedName("date")
     private String date;
     /**
      * 会议数量
      * <p> 示例值：100
      */
+    @SerializedName("meeting_count")
     private String meetingCount;
     /**
      * 会议时长（单位sec）
      * <p> 示例值：147680
      */
+    @SerializedName("meeting_duration")
     private String meetingDuration;
     /**
      * 参会人数
      * <p> 示例值：2000
      */
+    @SerializedName("participant_count")
     private String participantCount;
 
-    /**
-     * 日期（unix时间，单位sec）
-     * <p> 示例值：1609113600
-     *
-     * @param date
-     * @return
-     */
-    public Builder date(String date) {
-      this.date = date;
-      return this;
+    // builder 开始
+    public ReportMeetingDaily() {
     }
 
-
-    /**
-     * 会议数量
-     * <p> 示例值：100
-     *
-     * @param meetingCount
-     * @return
-     */
-    public Builder meetingCount(String meetingCount) {
-      this.meetingCount = meetingCount;
-      return this;
+    public ReportMeetingDaily(Builder builder) {
+        /**
+         * 日期（unix时间，单位sec）
+         * <p> 示例值：1609113600
+         */
+        this.date = builder.date;
+        /**
+         * 会议数量
+         * <p> 示例值：100
+         */
+        this.meetingCount = builder.meetingCount;
+        /**
+         * 会议时长（单位sec）
+         * <p> 示例值：147680
+         */
+        this.meetingDuration = builder.meetingDuration;
+        /**
+         * 参会人数
+         * <p> 示例值：2000
+         */
+        this.participantCount = builder.participantCount;
     }
 
-
-    /**
-     * 会议时长（单位sec）
-     * <p> 示例值：147680
-     *
-     * @param meetingDuration
-     * @return
-     */
-    public Builder meetingDuration(String meetingDuration) {
-      this.meetingDuration = meetingDuration;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 参会人数
-     * <p> 示例值：2000
-     *
-     * @param participantCount
-     * @return
-     */
-    public Builder participantCount(String participantCount) {
-      this.participantCount = participantCount;
-      return this;
+    public String getDate() {
+        return this.date;
     }
 
-
-    public ReportMeetingDaily build() {
-      return new ReportMeetingDaily(this);
+    public void setDate(String date) {
+        this.date = date;
     }
-  }
+
+    public String getMeetingCount() {
+        return this.meetingCount;
+    }
+
+    public void setMeetingCount(String meetingCount) {
+        this.meetingCount = meetingCount;
+    }
+
+    public String getMeetingDuration() {
+        return this.meetingDuration;
+    }
+
+    public void setMeetingDuration(String meetingDuration) {
+        this.meetingDuration = meetingDuration;
+    }
+
+    public String getParticipantCount() {
+        return this.participantCount;
+    }
+
+    public void setParticipantCount(String participantCount) {
+        this.participantCount = participantCount;
+    }
+
+    public static class Builder {
+        /**
+         * 日期（unix时间，单位sec）
+         * <p> 示例值：1609113600
+         */
+        private String date;
+        /**
+         * 会议数量
+         * <p> 示例值：100
+         */
+        private String meetingCount;
+        /**
+         * 会议时长（单位sec）
+         * <p> 示例值：147680
+         */
+        private String meetingDuration;
+        /**
+         * 参会人数
+         * <p> 示例值：2000
+         */
+        private String participantCount;
+
+        /**
+         * 日期（unix时间，单位sec）
+         * <p> 示例值：1609113600
+         *
+         * @param date
+         * @return
+         */
+        public Builder date(String date) {
+            this.date = date;
+            return this;
+        }
+
+
+        /**
+         * 会议数量
+         * <p> 示例值：100
+         *
+         * @param meetingCount
+         * @return
+         */
+        public Builder meetingCount(String meetingCount) {
+            this.meetingCount = meetingCount;
+            return this;
+        }
+
+
+        /**
+         * 会议时长（单位sec）
+         * <p> 示例值：147680
+         *
+         * @param meetingDuration
+         * @return
+         */
+        public Builder meetingDuration(String meetingDuration) {
+            this.meetingDuration = meetingDuration;
+            return this;
+        }
+
+
+        /**
+         * 参会人数
+         * <p> 示例值：2000
+         *
+         * @param participantCount
+         * @return
+         */
+        public Builder participantCount(String participantCount) {
+            this.participantCount = participantCount;
+            return this;
+        }
+
+
+        public ReportMeetingDaily build() {
+            return new ReportMeetingDaily(this);
+        }
+    }
 }

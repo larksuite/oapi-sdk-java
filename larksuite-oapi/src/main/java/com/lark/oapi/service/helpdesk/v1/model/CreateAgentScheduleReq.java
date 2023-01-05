@@ -16,51 +16,50 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateAgentScheduleReq {
-
-  @Body
-  private CreateAgentScheduleReqBody body;
-
-  // builder 开始
-  public CreateAgentScheduleReq() {
-  }
-
-  public CreateAgentScheduleReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateAgentScheduleReqBody getCreateAgentScheduleReqBody() {
-    return this.body;
-  }
-
-  public void setCreateAgentScheduleReqBody(CreateAgentScheduleReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateAgentScheduleReqBody body;
 
+    // builder 开始
+    public CreateAgentScheduleReq() {
+    }
+
+    public CreateAgentScheduleReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateAgentScheduleReqBody getCreateAgentScheduleReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createAgentScheduleReqBody(CreateAgentScheduleReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateAgentScheduleReqBody(CreateAgentScheduleReqBody body) {
+        this.body = body;
     }
 
-    public CreateAgentScheduleReq build() {
-      return new CreateAgentScheduleReq(this);
+    public static class Builder {
+
+        private CreateAgentScheduleReqBody body;
+
+        public CreateAgentScheduleReqBody getCreateAgentScheduleReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createAgentScheduleReqBody(CreateAgentScheduleReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateAgentScheduleReq build() {
+            return new CreateAgentScheduleReq(this);
+        }
     }
-  }
 }

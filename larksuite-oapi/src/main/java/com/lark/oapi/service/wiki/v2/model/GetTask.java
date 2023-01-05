@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetTask {
 
-  /**
-   * 任务结果
-   * <p> 示例值：
-   */
-  @SerializedName("task")
-  private TaskResult task;
+    /**
+     * 任务结果
+     * <p> 示例值：
+     */
+    @SerializedName("task")
+    private TaskResult task;
 
-  public TaskResult getTask() {
-    return this.task;
-  }
+    public TaskResult getTask() {
+        return this.task;
+    }
 
-  public void setTask(TaskResult task) {
-    this.task = task;
-  }
+    public void setTask(TaskResult task) {
+        this.task = task;
+    }
 
 }

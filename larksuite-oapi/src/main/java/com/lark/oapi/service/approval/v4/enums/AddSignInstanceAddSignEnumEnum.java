@@ -14,20 +14,20 @@
 package com.lark.oapi.service.approval.v4.enums;
 
 /**
- *
+ * 1/2/3分别代表前加签/后加签/并加签
  */
 public enum AddSignInstanceAddSignEnumEnum {
-  ADD_SIGN_PRE(1), // 前加签
-  ADD_SIGN_POST(2), // 后加签
-  ADD_SIGN_PARALLEL(3), // 并加签
-  ;
-  private Integer value;
+    ADD_SIGN_PRE(1), // 前加签
+    ADD_SIGN_POST(2), // 后加签
+    ADD_SIGN_PARALLEL(3), // 并加签
+    ;
+    private Integer value;
 
-  AddSignInstanceAddSignEnumEnum(Integer value) {
-    this.value = value;
-  }
+    AddSignInstanceAddSignEnumEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -17,21 +17,21 @@ package com.lark.oapi.service.im.v1.enums;
  * 文件类型
  */
 public enum CreateFileFileTypeEnum {
-  OPUS("opus"), // 上传opus音频文件
-  MP4("mp4"), // 上传mp4视频文件
-  PDF("pdf"), // 上传pdf格式文件
-  DOC("doc"), // 上传doc格式文件
-  XLS("xls"), // 上传xls格式文件
-  PPT("ppt"), // 上传ppt格式文件
-  STREAM("stream"), // 上传stream格式文件
-  ;
-  private String value;
+    OPUS("opus"), // 上传opus音频文件
+    MP4("mp4"), // 上传mp4视频文件
+    PDF("pdf"), // 上传pdf格式文件
+    DOC("doc"), // 上传doc格式文件
+    XLS("xls"), // 上传xls格式文件
+    PPT("ppt"), // 上传ppt格式文件
+    STREAM("stream"), // 上传stream格式文件
+    ;
+    private String value;
 
-  CreateFileFileTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateFileFileTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

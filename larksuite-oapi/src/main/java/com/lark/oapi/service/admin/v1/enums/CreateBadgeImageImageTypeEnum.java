@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 图片的类型
  */
 public enum CreateBadgeImageImageTypeEnum {
-  DETAIL(1), // 勋章详情图
-  SHOW(2), // 勋章挂饰图
-  ;
-  private Integer value;
+    DETAIL(1), // 勋章详情图
+    SHOW(2), // 勋章挂饰图
+    ;
+    private Integer value;
 
-  CreateBadgeImageImageTypeEnum(Integer value) {
-    this.value = value;
-  }
+    CreateBadgeImageImageTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.im.v1.enums;
  * 群分享链接有效时长，可选值week、year、permanently，分别表示7天、1年以及永久有效
  */
 public enum LinkChatValidityPeriodEnum {
-  ONE_WEEK("week"), // 有效期7天
-  ONE_YEAR("year"), // 有效期1年
-  PERMANENTLY("permanently"), // 永久有效
-  ;
-  private String value;
+    ONE_WEEK("week"), // 有效期7天
+    ONE_YEAR("year"), // 有效期1年
+    PERMANENTLY("permanently"), // 永久有效
+    ;
+    private String value;
 
-  LinkChatValidityPeriodEnum(String value) {
-    this.value = value;
-  }
+    LinkChatValidityPeriodEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

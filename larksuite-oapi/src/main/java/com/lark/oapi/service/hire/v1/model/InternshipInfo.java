@@ -16,246 +16,244 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InternshipInfo {
-
-  /**
-   * 类型
-   * <p> 示例值：
-   */
-  @SerializedName("career_type")
-  private Integer careerType;
-  /**
-   * 公司
-   * <p> 示例值：
-   */
-  @SerializedName("company")
-  private String company;
-  /**
-   * 描述
-   * <p> 示例值：
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 结束时间
-   * <p> 示例值：
-   */
-  @SerializedName("end_time")
-  private Integer endTime;
-  /**
-   * 开始时间
-   * <p> 示例值：
-   */
-  @SerializedName("start_time")
-  private Integer startTime;
-  /**
-   * 职称
-   * <p> 示例值：
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public InternshipInfo() {
-  }
-
-  public InternshipInfo(Builder builder) {
     /**
      * 类型
      * <p> 示例值：
      */
-    this.careerType = builder.careerType;
-    /**
-     * 公司
-     * <p> 示例值：
-     */
-    this.company = builder.company;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
-    this.desc = builder.desc;
-    /**
-     * 结束时间
-     * <p> 示例值：
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 开始时间
-     * <p> 示例值：
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 职称
-     * <p> 示例值：
-     */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getCareerType() {
-    return this.careerType;
-  }
-
-  public void setCareerType(Integer careerType) {
-    this.careerType = careerType;
-  }
-
-  public String getCompany() {
-    return this.company;
-  }
-
-  public void setCompany(String company) {
-    this.company = company;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public Integer getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(Integer endTime) {
-    this.endTime = endTime;
-  }
-
-  public Integer getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(Integer startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 类型
-     * <p> 示例值：
-     */
+    @SerializedName("career_type")
     private Integer careerType;
     /**
      * 公司
      * <p> 示例值：
      */
+    @SerializedName("company")
     private String company;
     /**
      * 描述
      * <p> 示例值：
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 结束时间
      * <p> 示例值：
      */
+    @SerializedName("end_time")
     private Integer endTime;
     /**
      * 开始时间
      * <p> 示例值：
      */
+    @SerializedName("start_time")
     private Integer startTime;
     /**
      * 职称
      * <p> 示例值：
      */
+    @SerializedName("title")
     private String title;
 
-    /**
-     * 类型
-     * <p> 示例值：
-     *
-     * @param careerType
-     * @return
-     */
-    public Builder careerType(Integer careerType) {
-      this.careerType = careerType;
-      return this;
+    // builder 开始
+    public InternshipInfo() {
     }
 
-
-    /**
-     * 公司
-     * <p> 示例值：
-     *
-     * @param company
-     * @return
-     */
-    public Builder company(String company) {
-      this.company = company;
-      return this;
+    public InternshipInfo(Builder builder) {
+        /**
+         * 类型
+         * <p> 示例值：
+         */
+        this.careerType = builder.careerType;
+        /**
+         * 公司
+         * <p> 示例值：
+         */
+        this.company = builder.company;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 职称
+         * <p> 示例值：
+         */
+        this.title = builder.title;
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 结束时间
-     * <p> 示例值：
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(Integer endTime) {
-      this.endTime = endTime;
-      return this;
+    public Integer getCareerType() {
+        return this.careerType;
     }
 
-
-    /**
-     * 开始时间
-     * <p> 示例值：
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(Integer startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setCareerType(Integer careerType) {
+        this.careerType = careerType;
     }
 
-
-    /**
-     * 职称
-     * <p> 示例值：
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getCompany() {
+        return this.company;
     }
 
-
-    public InternshipInfo build() {
-      return new InternshipInfo(this);
+    public void setCompany(String company) {
+        this.company = company;
     }
-  }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Integer getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(Integer endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(Integer startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static class Builder {
+        /**
+         * 类型
+         * <p> 示例值：
+         */
+        private Integer careerType;
+        /**
+         * 公司
+         * <p> 示例值：
+         */
+        private String company;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private String desc;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        private Integer endTime;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        private Integer startTime;
+        /**
+         * 职称
+         * <p> 示例值：
+         */
+        private String title;
+
+        /**
+         * 类型
+         * <p> 示例值：
+         *
+         * @param careerType
+         * @return
+         */
+        public Builder careerType(Integer careerType) {
+            this.careerType = careerType;
+            return this;
+        }
+
+
+        /**
+         * 公司
+         * <p> 示例值：
+         *
+         * @param company
+         * @return
+         */
+        public Builder company(String company) {
+            this.company = company;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 结束时间
+         * <p> 示例值：
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(Integer endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 开始时间
+         * <p> 示例值：
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(Integer startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 职称
+         * <p> 示例值：
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        public InternshipInfo build() {
+            return new InternshipInfo(this);
+        }
+    }
 }

@@ -18,123 +18,121 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetMessageResourceReq {
-
-  /**
-   * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-   * <p> 示例值：image
-   */
-  @Query
-  @SerializedName("type")
-  private String type;
-  /**
-   * 待查询资源对应的消息ID
-   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-   */
-  @Path
-  @SerializedName("message_id")
-  private String messageId;
-  /**
-   * 待查询资源的key
-   * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-   */
-  @Path
-  @SerializedName("file_key")
-  private String fileKey;
-
-  // builder 开始
-  public GetMessageResourceReq() {
-  }
-  public GetMessageResourceReq(Builder builder) {
     /**
      * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
      * <p> 示例值：image
      */
-    this.type = builder.type;
+    @Query
+    @SerializedName("type")
+    private String type;
     /**
      * 待查询资源对应的消息ID
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      */
-    this.messageId = builder.messageId;
+    @Path
+    @SerializedName("message_id")
+    private String messageId;
     /**
-     * 待查询资源的key
+     * 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
      * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
      */
-    this.fileKey = builder.fileKey;
-  }
+    @Path
+    @SerializedName("file_key")
+    private String fileKey;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public String getFileKey() {
-    return this.fileKey;
-  }
-
-  public void setFileKey(String fileKey) {
-    this.fileKey = fileKey;
-  }
-
-  public static class Builder {
-
-    private String type; // 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-    private String messageId; // 待查询资源对应的消息ID
-    private String fileKey; // 待查询资源的key
-
-    /**
-     * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-     * <p> 示例值：image
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public GetMessageResourceReq() {
+    }
+    public GetMessageResourceReq(Builder builder) {
+        /**
+         * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
+         * <p> 示例值：image
+         */
+        this.type = builder.type;
+        /**
+         * 待查询资源对应的消息ID
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        this.messageId = builder.messageId;
+        /**
+         * 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
+         * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+         */
+        this.fileKey = builder.fileKey;
     }
 
-    /**
-     * 待查询资源对应的消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     *
-     * @param messageId
-     * @return
-     */
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 待查询资源的key
-     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-     *
-     * @param fileKey
-     * @return
-     */
-    public Builder fileKey(String fileKey) {
-      this.fileKey = fileKey;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public GetMessageResourceReq build() {
-      return new GetMessageResourceReq(this);
+    public void setType(String type) {
+        this.type = type;
     }
-  }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    public String getFileKey() {
+        return this.fileKey;
+    }
+
+    public void setFileKey(String fileKey) {
+        this.fileKey = fileKey;
+    }
+
+    public static class Builder {
+        private String type; // 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
+        private String messageId; // 待查询资源对应的消息ID
+        private String fileKey; // 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
+
+        /**
+         * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
+         * <p> 示例值：image
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 待查询资源对应的消息ID
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+
+        /**
+         * 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
+         * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+         *
+         * @param fileKey
+         * @return
+         */
+        public Builder fileKey(String fileKey) {
+            this.fileKey = fileKey;
+            return this;
+        }
+
+        public GetMessageResourceReq build() {
+            return new GetMessageResourceReq(this);
+        }
+    }
 }

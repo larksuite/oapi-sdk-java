@@ -16,110 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobRequirementCustomizedData {
-
-  /**
-   * 自定义字段 ID
-   * <p> 示例值：1213213123123
-   */
-  @SerializedName("object_id")
-  private String objectId;
-  /**
-   * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的
-   * ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\",
-   * \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\"
-   * ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7.
-   * 若字段类型为数字，传值格式为"1";
-   * <p> 示例值：测试
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public JobRequirementCustomizedData() {
-  }
-
-  public JobRequirementCustomizedData(Builder builder) {
     /**
      * 自定义字段 ID
      * <p> 示例值：1213213123123
      */
-    this.objectId = builder.objectId;
+    @SerializedName("object_id")
+    private String objectId;
     /**
      * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
      * <p> 示例值：测试
      */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getObjectId() {
-    return this.objectId;
-  }
-
-  public void setObjectId(String objectId) {
-    this.objectId = objectId;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：1213213123123
-     */
-    private String objectId;
-    /**
-     * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的
-     * ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\",
-     * \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\"
-     * ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7.
-     * 若字段类型为数字，传值格式为"1";
-     * <p> 示例值：测试
-     */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：1213213123123
-     *
-     * @param objectId
-     * @return
-     */
-    public Builder objectId(String objectId) {
-      this.objectId = objectId;
-      return this;
+    // builder 开始
+    public JobRequirementCustomizedData() {
     }
 
-
-    /**
-     * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的
-     * ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\",
-     * \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\"
-     * ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7.
-     * 若字段类型为数字，传值格式为"1";
-     * <p> 示例值：测试
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public JobRequirementCustomizedData(Builder builder) {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：1213213123123
+         */
+        this.objectId = builder.objectId;
+        /**
+         * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
+         * <p> 示例值：测试
+         */
+        this.value = builder.value;
     }
 
-
-    public JobRequirementCustomizedData build() {
-      return new JobRequirementCustomizedData(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getObjectId() {
+        return this.objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：1213213123123
+         */
+        private String objectId;
+        /**
+         * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
+         * <p> 示例值：测试
+         */
+        private String value;
+
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：1213213123123
+         *
+         * @param objectId
+         * @return
+         */
+        public Builder objectId(String objectId) {
+            this.objectId = objectId;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
+         * <p> 示例值：测试
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public JobRequirementCustomizedData build() {
+            return new JobRequirementCustomizedData(this);
+        }
+    }
 }

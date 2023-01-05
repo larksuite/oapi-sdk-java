@@ -17,92 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class BatchGetTmpDownloadUrlMediaReq {
-
-  /**
-   * 文件标识符列表
-   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-   */
-  @Query
-  @SerializedName("file_tokens")
-  private String[] fileTokens;
-  /**
-   * 拓展信息(可选)
-   * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-   */
-  @Query
-  @SerializedName("extra")
-  private String extra;
-
-  // builder 开始
-  public BatchGetTmpDownloadUrlMediaReq() {
-  }
-
-  public BatchGetTmpDownloadUrlMediaReq(Builder builder) {
     /**
      * 文件标识符列表
      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    this.fileTokens = builder.fileTokens;
+    @Query
+    @SerializedName("file_tokens")
+    private String[] fileTokens;
     /**
      * 拓展信息(可选)
      * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
      */
-    this.extra = builder.extra;
-  }
+    @Query
+    @SerializedName("extra")
+    private String extra;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getFileTokens() {
-    return this.fileTokens;
-  }
-
-  public void setFileTokens(String[] fileTokens) {
-    this.fileTokens = fileTokens;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public static class Builder {
-
-    private String[] fileTokens; // 文件标识符列表
-    private String extra; // 拓展信息(可选)
-
-
-    /**
-     * 文件标识符列表
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     *
-     * @param fileTokens
-     * @return
-     */
-    public Builder fileTokens(String[] fileTokens) {
-      this.fileTokens = fileTokens;
-      return this;
+    // builder 开始
+    public BatchGetTmpDownloadUrlMediaReq() {
     }
 
-
-    /**
-     * 拓展信息(可选)
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-     *
-     * @param extra
-     * @return
-     */
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public BatchGetTmpDownloadUrlMediaReq(Builder builder) {
+        /**
+         * 文件标识符列表
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        this.fileTokens = builder.fileTokens;
+        /**
+         * 拓展信息(可选)
+         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+         */
+        this.extra = builder.extra;
     }
 
-    public BatchGetTmpDownloadUrlMediaReq build() {
-      return new BatchGetTmpDownloadUrlMediaReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String[] getFileTokens() {
+        return this.fileTokens;
+    }
+
+    public void setFileTokens(String[] fileTokens) {
+        this.fileTokens = fileTokens;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public static class Builder {
+        private String[] fileTokens; // 文件标识符列表
+        private String extra; // 拓展信息(可选)
+
+
+        /**
+         * 文件标识符列表
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         *
+         * @param fileTokens
+         * @return
+         */
+        public Builder fileTokens(String[] fileTokens) {
+            this.fileTokens = fileTokens;
+            return this;
+        }
+
+
+        /**
+         * 拓展信息(可选)
+         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
+            return this;
+        }
+
+        public BatchGetTmpDownloadUrlMediaReq build() {
+            return new BatchGetTmpDownloadUrlMediaReq(this);
+        }
+    }
 }

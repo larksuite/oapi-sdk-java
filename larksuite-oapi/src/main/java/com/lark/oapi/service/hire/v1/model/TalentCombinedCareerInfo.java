@@ -16,320 +16,318 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentCombinedCareerInfo {
-
-  /**
-   * ID
-   * <p> 示例值：6891560630172518670
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 公司名称
-   * <p> 示例值：测试公司
-   */
-  @SerializedName("company")
-  private String company;
-  /**
-   * 职位名称
-   * <p> 示例值：高级工程师
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 描述
-   * <p> 示例值：测试
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 开始时间
-   * <p> 示例值：293016767159
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 结束时间
-   * <p> 示例值：293016767159
-   */
-  @SerializedName("end_time")
-  private String endTime;
-  /**
-   * 经历类型
-   * <p> 示例值：1
-   */
-  @SerializedName("career_type")
-  private Integer careerType;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private TalentCustomizedDataObjectValue[] customizedData;
-
-  // builder 开始
-  public TalentCombinedCareerInfo() {
-  }
-
-  public TalentCombinedCareerInfo(Builder builder) {
     /**
      * ID
      * <p> 示例值：6891560630172518670
      */
-    this.id = builder.id;
-    /**
-     * 公司名称
-     * <p> 示例值：测试公司
-     */
-    this.company = builder.company;
-    /**
-     * 职位名称
-     * <p> 示例值：高级工程师
-     */
-    this.title = builder.title;
-    /**
-     * 描述
-     * <p> 示例值：测试
-     */
-    this.desc = builder.desc;
-    /**
-     * 开始时间
-     * <p> 示例值：293016767159
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：293016767159
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 经历类型
-     * <p> 示例值：1
-     */
-    this.careerType = builder.careerType;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedData = builder.customizedData;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getCompany() {
-    return this.company;
-  }
-
-  public void setCompany(String company) {
-    this.company = company;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public Integer getCareerType() {
-    return this.careerType;
-  }
-
-  public void setCareerType(Integer careerType) {
-    this.careerType = careerType;
-  }
-
-  public TalentCustomizedDataObjectValue[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 公司名称
      * <p> 示例值：测试公司
      */
+    @SerializedName("company")
     private String company;
     /**
      * 职位名称
      * <p> 示例值：高级工程师
      */
+    @SerializedName("title")
     private String title;
     /**
      * 描述
      * <p> 示例值：测试
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 开始时间
      * <p> 示例值：293016767159
      */
+    @SerializedName("start_time")
     private String startTime;
     /**
      * 结束时间
      * <p> 示例值：293016767159
      */
+    @SerializedName("end_time")
     private String endTime;
     /**
      * 经历类型
      * <p> 示例值：1
      */
+    @SerializedName("career_type")
     private Integer careerType;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
 
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public TalentCombinedCareerInfo() {
     }
 
-
-    /**
-     * 公司名称
-     * <p> 示例值：测试公司
-     *
-     * @param company
-     * @return
-     */
-    public Builder company(String company) {
-      this.company = company;
-      return this;
+    public TalentCombinedCareerInfo(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         */
+        this.id = builder.id;
+        /**
+         * 公司名称
+         * <p> 示例值：测试公司
+         */
+        this.company = builder.company;
+        /**
+         * 职位名称
+         * <p> 示例值：高级工程师
+         */
+        this.title = builder.title;
+        /**
+         * 描述
+         * <p> 示例值：测试
+         */
+        this.desc = builder.desc;
+        /**
+         * 开始时间
+         * <p> 示例值：293016767159
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：293016767159
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 经历类型
+         * <p> 示例值：1
+         */
+        this.careerType = builder.careerType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
     }
 
-
-    /**
-     * 职位名称
-     * <p> 示例值：高级工程师
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：测试
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 开始时间
-     * <p> 示例值：293016767159
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 结束时间
-     * <p> 示例值：293016767159
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public String getCompany() {
+        return this.company;
     }
 
-
-    /**
-     * 经历类型
-     * <p> 示例值：1
-     *
-     * @param careerType
-     * @return
-     */
-    public Builder careerType(Integer careerType) {
-      this.careerType = careerType;
-      return this;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-
-    public TalentCombinedCareerInfo build() {
-      return new TalentCombinedCareerInfo(this);
+    public void setTitle(String title) {
+        this.title = title;
     }
-  }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getCareerType() {
+        return this.careerType;
+    }
+
+    public void setCareerType(Integer careerType) {
+        this.careerType = careerType;
+    }
+
+    public TalentCustomizedDataObjectValue[] getCustomizedData() {
+        return this.customizedData;
+    }
+
+    public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         */
+        private String id;
+        /**
+         * 公司名称
+         * <p> 示例值：测试公司
+         */
+        private String company;
+        /**
+         * 职位名称
+         * <p> 示例值：高级工程师
+         */
+        private String title;
+        /**
+         * 描述
+         * <p> 示例值：测试
+         */
+        private String desc;
+        /**
+         * 开始时间
+         * <p> 示例值：293016767159
+         */
+        private String startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：293016767159
+         */
+        private String endTime;
+        /**
+         * 经历类型
+         * <p> 示例值：1
+         */
+        private Integer careerType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private TalentCustomizedDataObjectValue[] customizedData;
+
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 公司名称
+         * <p> 示例值：测试公司
+         *
+         * @param company
+         * @return
+         */
+        public Builder company(String company) {
+            this.company = company;
+            return this;
+        }
+
+
+        /**
+         * 职位名称
+         * <p> 示例值：高级工程师
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：测试
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 开始时间
+         * <p> 示例值：293016767159
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间
+         * <p> 示例值：293016767159
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 经历类型
+         * <p> 示例值：1
+         *
+         * @param careerType
+         * @return
+         */
+        public Builder careerType(Integer careerType) {
+            this.careerType = careerType;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        public TalentCombinedCareerInfo build() {
+            return new TalentCombinedCareerInfo(this);
+        }
+    }
 }

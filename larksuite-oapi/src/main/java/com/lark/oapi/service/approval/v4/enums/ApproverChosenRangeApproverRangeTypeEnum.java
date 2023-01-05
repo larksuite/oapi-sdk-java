@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 指定范围：0-all，1-指定角色，2-指定人员
  */
 public enum ApproverChosenRangeApproverRangeTypeEnum {
-  ALL(0), // 全公司范围
-  ROLE(1), // 指定角色范围
-  USER(2), // 指定用户范围
-  ;
-  private Integer value;
+    ALL(0), // 全公司范围
+    ROLE(1), // 指定角色范围
+    USER(2), // 指定用户范围
+    ;
+    private Integer value;
 
-  ApproverChosenRangeApproverRangeTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ApproverChosenRangeApproverRangeTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

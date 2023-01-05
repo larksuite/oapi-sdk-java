@@ -14,26 +14,21 @@
 package com.lark.oapi.service.mail.v1.enums;
 
 /**
- * Who can send mail to this mail group. Possible values are:;- ANYONE: Any Internet user can send
- * mail to this mail group;- ALL_INTERNAL_USERS: Anyone in the team can send mail to this mail
- * group;- ALL_GROUP_MEMBERS: Any group member can send mail to this mail group;- CUSTOM_MEMBERS:
- * Only custom members can send mail to this mail group, define in mailgroup.permission_members
- * resoure
+ * Who can send mail to this mail group. Possible values are:;- ANYONE: Any Internet user can send mail to this mail group;- ALL_INTERNAL_USERS: Anyone in the team can send mail to this mail group;- ALL_GROUP_MEMBERS: Any group member can send mail to this mail group;- CUSTOM_MEMBERS: Only custom members can send mail to this mail group, define in mailgroup.permission_members resoure
  */
 public enum UpdateMailgroupWhoCanSendMailEnum {
-  ANYONE("ANYONE"), // Any Internet user can send mail to this mail group
-  ALL_INTERNAL_USERS("ALL_INTERNAL_USERS"), // Anyone in the team can send mail to this mail group
-  ALL_GROUP_MEMBERS("ALL_GROUP_MEMBERS"), // Any group member can send mail to this mail group
-  CUSTOM_MEMBERS(
-      "CUSTOM_MEMBERS"), // Only custom members can send mail to this mail group, define in mailgroup.permission_members resoure
-  ;
-  private String value;
+    ANYONE("ANYONE"), // Any Internet user can send mail to this mail group
+    ALL_INTERNAL_USERS("ALL_INTERNAL_USERS"), // Anyone in the team can send mail to this mail group
+    ALL_GROUP_MEMBERS("ALL_GROUP_MEMBERS"), // Any group member can send mail to this mail group
+    CUSTOM_MEMBERS("CUSTOM_MEMBERS"), // Only custom members can send mail to this mail group, define in mailgroup.permission_members resoure
+    ;
+    private String value;
 
-  UpdateMailgroupWhoCanSendMailEnum(String value) {
-    this.value = value;
-  }
+    UpdateMailgroupWhoCanSendMailEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

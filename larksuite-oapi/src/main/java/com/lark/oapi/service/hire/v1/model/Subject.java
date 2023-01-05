@@ -16,246 +16,244 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Subject {
-
-  /**
-   * ID
-   * <p> 示例值：1213213123123
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 创建时间
-   * <p> 示例值：1628512038000
-   */
-  @SerializedName("create_time")
-  private String createTime;
-  /**
-   * 状态
-   * <p> 示例值：1
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-  /**
-   * 投递职位数上限
-   * <p> 示例值：1
-   */
-  @SerializedName("application_limit")
-  private Integer applicationLimit;
-  /**
-   * 创建人
-   * <p> 示例值：
-   */
-  @SerializedName("creator")
-  private IdNameObject creator;
-
-  // builder 开始
-  public Subject() {
-  }
-
-  public Subject(Builder builder) {
     /**
      * ID
      * <p> 示例值：1213213123123
      */
-    this.id = builder.id;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 创建时间
-     * <p> 示例值：1628512038000
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 状态
-     * <p> 示例值：1
-     */
-    this.activeStatus = builder.activeStatus;
-    /**
-     * 投递职位数上限
-     * <p> 示例值：1
-     */
-    this.applicationLimit = builder.applicationLimit;
-    /**
-     * 创建人
-     * <p> 示例值：
-     */
-    this.creator = builder.creator;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public Integer getApplicationLimit() {
-    return this.applicationLimit;
-  }
-
-  public void setApplicationLimit(Integer applicationLimit) {
-    this.applicationLimit = applicationLimit;
-  }
-
-  public IdNameObject getCreator() {
-    return this.creator;
-  }
-
-  public void setCreator(IdNameObject creator) {
-    this.creator = creator;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：1213213123123
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 创建时间
      * <p> 示例值：1628512038000
      */
+    @SerializedName("create_time")
     private String createTime;
     /**
      * 状态
      * <p> 示例值：1
      */
+    @SerializedName("active_status")
     private Integer activeStatus;
     /**
      * 投递职位数上限
      * <p> 示例值：1
      */
+    @SerializedName("application_limit")
     private Integer applicationLimit;
     /**
      * 创建人
      * <p> 示例值：
      */
+    @SerializedName("creator")
     private IdNameObject creator;
 
-    /**
-     * ID
-     * <p> 示例值：1213213123123
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Subject() {
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public Subject(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 投递职位数上限
+         * <p> 示例值：1
+         */
+        this.applicationLimit = builder.applicationLimit;
+        /**
+         * 创建人
+         * <p> 示例值：
+         */
+        this.creator = builder.creator;
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：1628512038000
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 状态
-     * <p> 示例值：1
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 投递职位数上限
-     * <p> 示例值：1
-     *
-     * @param applicationLimit
-     * @return
-     */
-    public Builder applicationLimit(Integer applicationLimit) {
-      this.applicationLimit = applicationLimit;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 创建人
-     * <p> 示例值：
-     *
-     * @param creator
-     * @return
-     */
-    public Builder creator(IdNameObject creator) {
-      this.creator = creator;
-      return this;
+    public I18n getName() {
+        return this.name;
     }
 
-
-    public Subject build() {
-      return new Subject(this);
+    public void setName(I18n name) {
+        this.name = name;
     }
-  }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getActiveStatus() {
+        return this.activeStatus;
+    }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public Integer getApplicationLimit() {
+        return this.applicationLimit;
+    }
+
+    public void setApplicationLimit(Integer applicationLimit) {
+        this.applicationLimit = applicationLimit;
+    }
+
+    public IdNameObject getCreator() {
+        return this.creator;
+    }
+
+    public void setCreator(IdNameObject creator) {
+        this.creator = creator;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         */
+        private String id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         */
+        private String createTime;
+        /**
+         * 状态
+         * <p> 示例值：1
+         */
+        private Integer activeStatus;
+        /**
+         * 投递职位数上限
+         * <p> 示例值：1
+         */
+        private Integer applicationLimit;
+        /**
+         * 创建人
+         * <p> 示例值：
+         */
+        private IdNameObject creator;
+
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 状态
+         * <p> 示例值：1
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 投递职位数上限
+         * <p> 示例值：1
+         *
+         * @param applicationLimit
+         * @return
+         */
+        public Builder applicationLimit(Integer applicationLimit) {
+            this.applicationLimit = applicationLimit;
+            return this;
+        }
+
+
+        /**
+         * 创建人
+         * <p> 示例值：
+         *
+         * @param creator
+         * @return
+         */
+        public Builder creator(IdNameObject creator) {
+            this.creator = creator;
+            return this;
+        }
+
+
+        public Subject build() {
+            return new Subject(this);
+        }
+    }
 }

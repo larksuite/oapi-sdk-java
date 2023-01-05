@@ -18,94 +18,91 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class QuerySessionReq {
-
-  /**
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private QuerySessionReqBody body;
-
-  // builder 开始
-  public QuerySessionReq() {
-  }
-
-  public QuerySessionReq(Builder builder) {
     /**
-     *
      * <p> 示例值：open_id
      */
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public QuerySessionReqBody getQuerySessionReqBody() {
-    return this.body;
-  }
-
-  public void setQuerySessionReqBody(QuerySessionReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; //
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    @Body
     private QuerySessionReqBody body;
 
-    /**
-     * <p> 示例值：open_id
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public QuerySessionReq() {
     }
 
-    /**
-     * <p> 示例值：open_id
-     *
-     * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.QuerySessionUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.passport.v1.enums.QuerySessionUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public QuerySessionReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public QuerySessionReqBody getQuerySessionReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder querySessionReqBody(QuerySessionReqBody body) {
-      this.body = body;
-      return this;
+    public void setQuerySessionReqBody(QuerySessionReqBody body) {
+        this.body = body;
     }
 
-    public QuerySessionReq build() {
-      return new QuerySessionReq(this);
+    public static class Builder {
+        private String userIdType; //
+        private QuerySessionReqBody body;
+
+        /**
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：open_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.QuerySessionUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.passport.v1.enums.QuerySessionUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        public QuerySessionReqBody getQuerySessionReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder querySessionReqBody(QuerySessionReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public QuerySessionReq build() {
+            return new QuerySessionReq(this);
+        }
     }
-  }
 }

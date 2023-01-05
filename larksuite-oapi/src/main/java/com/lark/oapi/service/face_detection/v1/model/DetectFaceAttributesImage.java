@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetectFaceAttributesImage {
 
-  /**
-   * 图片信息
-   * <p> 示例值：
-   */
-  @SerializedName("image_info")
-  private Image imageInfo;
-  /**
-   * 人脸信息列表
-   * <p> 示例值：
-   */
-  @SerializedName("face_infos")
-  private FaceInfo[] faceInfos;
+    /**
+     * 图片信息
+     * <p> 示例值：
+     */
+    @SerializedName("image_info")
+    private Image imageInfo;
+    /**
+     * 人脸信息列表
+     * <p> 示例值：
+     */
+    @SerializedName("face_infos")
+    private FaceInfo[] faceInfos;
 
-  public Image getImageInfo() {
-    return this.imageInfo;
-  }
+    public Image getImageInfo() {
+        return this.imageInfo;
+    }
 
-  public void setImageInfo(Image imageInfo) {
-    this.imageInfo = imageInfo;
-  }
+    public void setImageInfo(Image imageInfo) {
+        this.imageInfo = imageInfo;
+    }
 
-  public FaceInfo[] getFaceInfos() {
-    return this.faceInfos;
-  }
+    public FaceInfo[] getFaceInfos() {
+        return this.faceInfos;
+    }
 
-  public void setFaceInfos(FaceInfo[] faceInfos) {
-    this.faceInfos = faceInfos;
-  }
+    public void setFaceInfos(FaceInfo[] faceInfos) {
+        this.faceInfos = faceInfos;
+    }
 
 }

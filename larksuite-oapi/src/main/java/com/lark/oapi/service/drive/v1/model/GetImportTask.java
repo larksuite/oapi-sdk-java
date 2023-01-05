@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetImportTask {
 
-  /**
-   * 导入结果
-   * <p> 示例值：
-   */
-  @SerializedName("result")
-  private ImportTask result;
+    /**
+     * 导入结果
+     * <p> 示例值：
+     */
+    @SerializedName("result")
+    private ImportTask result;
 
-  public ImportTask getResult() {
-    return this.result;
-  }
+    public ImportTask getResult() {
+        return this.result;
+    }
 
-  public void setResult(ImportTask result) {
-    this.result = result;
-  }
+    public void setResult(ImportTask result) {
+        this.result = result;
+    }
 
 }

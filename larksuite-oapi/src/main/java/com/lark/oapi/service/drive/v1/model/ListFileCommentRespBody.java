@@ -16,48 +16,47 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListFileCommentRespBody {
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 评论列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private FileComment[] items;
 
-  /**
-   * 是否有下一页数据
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下一页分页的token
-   * <p> 示例值：6916106822734578184
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 评论列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private FileComment[] items;
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public FileComment[] getItems() {
+        return this.items;
+    }
 
-  public FileComment[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(FileComment[] items) {
-    this.items = items;
-  }
+    public void setItems(FileComment[] items) {
+        this.items = items;
+    }
 
 }

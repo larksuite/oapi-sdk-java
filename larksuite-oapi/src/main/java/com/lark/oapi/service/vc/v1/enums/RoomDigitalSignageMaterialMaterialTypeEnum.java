@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 素材类型
  */
 public enum RoomDigitalSignageMaterialMaterialTypeEnum {
-  PIC(1), // 图片
-  VIDEO(2), // 视频
-  GIF(3), // GIF
-  ;
-  private Integer value;
+    PIC(1), // 图片
+    VIDEO(2), // 视频
+    GIF(3), // GIF
+    ;
+    private Integer value;
 
-  RoomDigitalSignageMaterialMaterialTypeEnum(Integer value) {
-    this.value = value;
-  }
+    RoomDigitalSignageMaterialMaterialTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class BatchDeleteAppTableReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Body
-  private BatchDeleteAppTableReqBody body;
-
-  // builder 开始
-  public BatchDeleteAppTableReq() {
-  }
-
-  public BatchDeleteAppTableReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public BatchDeleteAppTableReqBody getBatchDeleteAppTableReqBody() {
-    return this.body;
-  }
-
-  public void setBatchDeleteAppTableReqBody(BatchDeleteAppTableReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
+    @Body
     private BatchDeleteAppTableReqBody body;
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public BatchDeleteAppTableReq() {
+    }
+
+    public BatchDeleteAppTableReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
     public BatchDeleteAppTableReqBody getBatchDeleteAppTableReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder batchDeleteAppTableReqBody(BatchDeleteAppTableReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchDeleteAppTableReqBody(BatchDeleteAppTableReqBody body) {
+        this.body = body;
     }
 
-    public BatchDeleteAppTableReq build() {
-      return new BatchDeleteAppTableReq(this);
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private BatchDeleteAppTableReqBody body;
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        public BatchDeleteAppTableReqBody getBatchDeleteAppTableReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder batchDeleteAppTableReqBody(BatchDeleteAppTableReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchDeleteAppTableReq build() {
+            return new BatchDeleteAppTableReq(this);
+        }
     }
-  }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 表示知识空间可见性（公开空间 或 私有空间）
  */
 public enum SpaceSpaceVisibilityEnum {
-  PUBLIC("public"), // 公开空间
-  PRIVATE("private"), // 私有空间
-  ;
-  private String value;
+    PUBLIC("public"), // 公开空间
+    PRIVATE("private"), // 私有空间
+    ;
+    private String value;
 
-  SpaceSpaceVisibilityEnum(String value) {
-    this.value = value;
-  }
+    SpaceSpaceVisibilityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

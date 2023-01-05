@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class CreateFileSubscriptionReq {
-
-  /**
-   * 文档token
-   * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  @Body
-  private FileSubscription body;
-
-  // builder 开始
-  public CreateFileSubscriptionReq() {
-  }
-
-  public CreateFileSubscriptionReq(Builder builder) {
     /**
      * 文档token
      * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
      */
-    this.fileToken = builder.fileToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public FileSubscription getFileSubscription() {
-    return this.body;
-  }
-
-  public void setFileSubscription(FileSubscription body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 文档token
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+    @Body
     private FileSubscription body;
 
-    /**
-     * 文档token
-     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public CreateFileSubscriptionReq() {
+    }
+
+    public CreateFileSubscriptionReq(Builder builder) {
+        /**
+         * 文档token
+         * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+         */
+        this.fileToken = builder.fileToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
     public FileSubscription getFileSubscription() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder fileSubscription(FileSubscription body) {
-      this.body = body;
-      return this;
+    public void setFileSubscription(FileSubscription body) {
+        this.body = body;
     }
 
-    public CreateFileSubscriptionReq build() {
-      return new CreateFileSubscriptionReq(this);
+    public static class Builder {
+
+        private String fileToken; // 文档token
+        private FileSubscription body;
+
+        /**
+         * 文档token
+         * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public FileSubscription getFileSubscription() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder fileSubscription(FileSubscription body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateFileSubscriptionReq build() {
+            return new CreateFileSubscriptionReq(this);
+        }
     }
-  }
 }

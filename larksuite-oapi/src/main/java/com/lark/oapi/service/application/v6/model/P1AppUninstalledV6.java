@@ -17,14 +17,14 @@ import com.lark.oapi.event.model.BaseEvent;
 
 public class P1AppUninstalledV6 extends BaseEvent {
 
-  @SerializedName("event")
-  private P1AppUninstalledV6Data event;
+    @SerializedName("event")
+    private P1AppUninstalledV6Data event;
 
-  public P1AppUninstalledV6Data getEvent() {
-    return event;
-  }
+    public P1AppUninstalledV6Data getEvent() {
+        return event;
+    }
 
-  public void setEvent(P1AppUninstalledV6Data event) {
-    this.event = event;
-  }
+    public void setEvent(P1AppUninstalledV6Data event) {
+        this.event = event;
+    }
 }

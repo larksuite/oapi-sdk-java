@@ -16,135 +16,133 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FilterView {
-
-  /**
-   * 筛选视图 id
-   * <p> 示例值：pH9hbVcCXA
-   */
-  @SerializedName("filter_view_id")
-  private String filterViewId;
-  /**
-   * 筛选视图名字
-   * <p> 示例值：筛选视图 1
-   */
-  @SerializedName("filter_view_name")
-  private String filterViewName;
-  /**
-   * 筛选视图的筛选范围
-   * <p> 示例值：0b**12!C1:H14
-   */
-  @SerializedName("range")
-  private String range;
-
-  // builder 开始
-  public FilterView() {
-  }
-
-  public FilterView(Builder builder) {
     /**
      * 筛选视图 id
      * <p> 示例值：pH9hbVcCXA
      */
-    this.filterViewId = builder.filterViewId;
-    /**
-     * 筛选视图名字
-     * <p> 示例值：筛选视图 1
-     */
-    this.filterViewName = builder.filterViewName;
-    /**
-     * 筛选视图的筛选范围
-     * <p> 示例值：0b**12!C1:H14
-     */
-    this.range = builder.range;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFilterViewId() {
-    return this.filterViewId;
-  }
-
-  public void setFilterViewId(String filterViewId) {
-    this.filterViewId = filterViewId;
-  }
-
-  public String getFilterViewName() {
-    return this.filterViewName;
-  }
-
-  public void setFilterViewName(String filterViewName) {
-    this.filterViewName = filterViewName;
-  }
-
-  public String getRange() {
-    return this.range;
-  }
-
-  public void setRange(String range) {
-    this.range = range;
-  }
-
-  public static class Builder {
-
-    /**
-     * 筛选视图 id
-     * <p> 示例值：pH9hbVcCXA
-     */
+    @SerializedName("filter_view_id")
     private String filterViewId;
     /**
      * 筛选视图名字
      * <p> 示例值：筛选视图 1
      */
+    @SerializedName("filter_view_name")
     private String filterViewName;
     /**
      * 筛选视图的筛选范围
      * <p> 示例值：0b**12!C1:H14
      */
+    @SerializedName("range")
     private String range;
 
-    /**
-     * 筛选视图 id
-     * <p> 示例值：pH9hbVcCXA
-     *
-     * @param filterViewId
-     * @return
-     */
-    public Builder filterViewId(String filterViewId) {
-      this.filterViewId = filterViewId;
-      return this;
+    // builder 开始
+    public FilterView() {
     }
 
-
-    /**
-     * 筛选视图名字
-     * <p> 示例值：筛选视图 1
-     *
-     * @param filterViewName
-     * @return
-     */
-    public Builder filterViewName(String filterViewName) {
-      this.filterViewName = filterViewName;
-      return this;
+    public FilterView(Builder builder) {
+        /**
+         * 筛选视图 id
+         * <p> 示例值：pH9hbVcCXA
+         */
+        this.filterViewId = builder.filterViewId;
+        /**
+         * 筛选视图名字
+         * <p> 示例值：筛选视图 1
+         */
+        this.filterViewName = builder.filterViewName;
+        /**
+         * 筛选视图的筛选范围
+         * <p> 示例值：0b**12!C1:H14
+         */
+        this.range = builder.range;
     }
 
-
-    /**
-     * 筛选视图的筛选范围
-     * <p> 示例值：0b**12!C1:H14
-     *
-     * @param range
-     * @return
-     */
-    public Builder range(String range) {
-      this.range = range;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public FilterView build() {
-      return new FilterView(this);
+    public String getFilterViewId() {
+        return this.filterViewId;
     }
-  }
+
+    public void setFilterViewId(String filterViewId) {
+        this.filterViewId = filterViewId;
+    }
+
+    public String getFilterViewName() {
+        return this.filterViewName;
+    }
+
+    public void setFilterViewName(String filterViewName) {
+        this.filterViewName = filterViewName;
+    }
+
+    public String getRange() {
+        return this.range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
+    }
+
+    public static class Builder {
+        /**
+         * 筛选视图 id
+         * <p> 示例值：pH9hbVcCXA
+         */
+        private String filterViewId;
+        /**
+         * 筛选视图名字
+         * <p> 示例值：筛选视图 1
+         */
+        private String filterViewName;
+        /**
+         * 筛选视图的筛选范围
+         * <p> 示例值：0b**12!C1:H14
+         */
+        private String range;
+
+        /**
+         * 筛选视图 id
+         * <p> 示例值：pH9hbVcCXA
+         *
+         * @param filterViewId
+         * @return
+         */
+        public Builder filterViewId(String filterViewId) {
+            this.filterViewId = filterViewId;
+            return this;
+        }
+
+
+        /**
+         * 筛选视图名字
+         * <p> 示例值：筛选视图 1
+         *
+         * @param filterViewName
+         * @return
+         */
+        public Builder filterViewName(String filterViewName) {
+            this.filterViewName = filterViewName;
+            return this;
+        }
+
+
+        /**
+         * 筛选视图的筛选范围
+         * <p> 示例值：0b**12!C1:H14
+         *
+         * @param range
+         * @return
+         */
+        public Builder range(String range) {
+            this.range = range;
+            return this;
+        }
+
+
+        public FilterView build() {
+            return new FilterView(this);
+        }
+    }
 }

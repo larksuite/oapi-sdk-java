@@ -16,172 +16,170 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MeetingRecording {
-
-  /**
-   * 录制ID
-   * <p> 示例值：6911188411932033028
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 会议ID
-   * <p> 示例值：6911188411932033028
-   */
-  @SerializedName("meeting_id")
-  private String meetingId;
-  /**
-   * 录制文件URL
-   * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 录制总时长（单位msec）
-   * <p> 示例值：30000
-   */
-  @SerializedName("duration")
-  private String duration;
-
-  // builder 开始
-  public MeetingRecording() {
-  }
-
-  public MeetingRecording(Builder builder) {
     /**
      * 录制ID
      * <p> 示例值：6911188411932033028
      */
-    this.id = builder.id;
-    /**
-     * 会议ID
-     * <p> 示例值：6911188411932033028
-     */
-    this.meetingId = builder.meetingId;
-    /**
-     * 录制文件URL
-     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
-     */
-    this.url = builder.url;
-    /**
-     * 录制总时长（单位msec）
-     * <p> 示例值：30000
-     */
-    this.duration = builder.duration;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getDuration() {
-    return this.duration;
-  }
-
-  public void setDuration(String duration) {
-    this.duration = duration;
-  }
-
-  public static class Builder {
-
-    /**
-     * 录制ID
-     * <p> 示例值：6911188411932033028
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 会议ID
      * <p> 示例值：6911188411932033028
      */
+    @SerializedName("meeting_id")
     private String meetingId;
     /**
      * 录制文件URL
      * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
      */
+    @SerializedName("url")
     private String url;
     /**
      * 录制总时长（单位msec）
      * <p> 示例值：30000
      */
+    @SerializedName("duration")
     private String duration;
 
-    /**
-     * 录制ID
-     * <p> 示例值：6911188411932033028
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public MeetingRecording() {
     }
 
-
-    /**
-     * 会议ID
-     * <p> 示例值：6911188411932033028
-     *
-     * @param meetingId
-     * @return
-     */
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
+    public MeetingRecording(Builder builder) {
+        /**
+         * 录制ID
+         * <p> 示例值：6911188411932033028
+         */
+        this.id = builder.id;
+        /**
+         * 会议ID
+         * <p> 示例值：6911188411932033028
+         */
+        this.meetingId = builder.meetingId;
+        /**
+         * 录制文件URL
+         * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+         */
+        this.url = builder.url;
+        /**
+         * 录制总时长（单位msec）
+         * <p> 示例值：30000
+         */
+        this.duration = builder.duration;
     }
 
-
-    /**
-     * 录制文件URL
-     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 录制总时长（单位msec）
-     * <p> 示例值：30000
-     *
-     * @param duration
-     * @return
-     */
-    public Builder duration(String duration) {
-      this.duration = duration;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public MeetingRecording build() {
-      return new MeetingRecording(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getMeetingId() {
+        return this.meetingId;
+    }
+
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDuration() {
+        return this.duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public static class Builder {
+        /**
+         * 录制ID
+         * <p> 示例值：6911188411932033028
+         */
+        private String id;
+        /**
+         * 会议ID
+         * <p> 示例值：6911188411932033028
+         */
+        private String meetingId;
+        /**
+         * 录制文件URL
+         * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+         */
+        private String url;
+        /**
+         * 录制总时长（单位msec）
+         * <p> 示例值：30000
+         */
+        private String duration;
+
+        /**
+         * 录制ID
+         * <p> 示例值：6911188411932033028
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 会议ID
+         * <p> 示例值：6911188411932033028
+         *
+         * @param meetingId
+         * @return
+         */
+        public Builder meetingId(String meetingId) {
+            this.meetingId = meetingId;
+            return this;
+        }
+
+
+        /**
+         * 录制文件URL
+         * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 录制总时长（单位msec）
+         * <p> 示例值：30000
+         *
+         * @param duration
+         * @return
+         */
+        public Builder duration(String duration) {
+            this.duration = duration;
+            return this;
+        }
+
+
+        public MeetingRecording build() {
+            return new MeetingRecording(this);
+        }
+    }
 }

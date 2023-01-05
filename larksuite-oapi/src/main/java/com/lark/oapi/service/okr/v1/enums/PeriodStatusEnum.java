@@ -17,18 +17,18 @@ package com.lark.oapi.service.okr.v1.enums;
  * 启用状态
  */
 public enum PeriodStatusEnum {
-  正常状态(0), // 正常状态
-  暂不处理(1), // 暂不处理
-  标记失效(2), // 标记失效
-  隐藏周期(3), // 隐藏周期
-  ;
-  private Integer value;
+    正常状态(0), // 正常状态
+    暂不处理(1), // 暂不处理
+    标记失效(2), // 标记失效
+    隐藏周期(3), // 隐藏周期
+    ;
+    private Integer value;
 
-  PeriodStatusEnum(Integer value) {
-    this.value = value;
-  }
+    PeriodStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

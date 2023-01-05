@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class BatchRemoveGroupMemberReq {
-
-  /**
-   * 用户组ID
-   * <p> 示例值：test_group
-   */
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-  @Body
-  private BatchRemoveGroupMemberReqBody body;
-
-  // builder 开始
-  public BatchRemoveGroupMemberReq() {
-  }
-
-  public BatchRemoveGroupMemberReq(Builder builder) {
     /**
      * 用户组ID
      * <p> 示例值：test_group
      */
-    this.groupId = builder.groupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public BatchRemoveGroupMemberReqBody getBatchRemoveGroupMemberReqBody() {
-    return this.body;
-  }
-
-  public void setBatchRemoveGroupMemberReqBody(BatchRemoveGroupMemberReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String groupId; // 用户组ID
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
+    @Body
     private BatchRemoveGroupMemberReqBody body;
 
-    /**
-     * 用户组ID
-     * <p> 示例值：test_group
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public BatchRemoveGroupMemberReq() {
+    }
+
+    public BatchRemoveGroupMemberReq(Builder builder) {
+        /**
+         * 用户组ID
+         * <p> 示例值：test_group
+         */
+        this.groupId = builder.groupId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public BatchRemoveGroupMemberReqBody getBatchRemoveGroupMemberReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder batchRemoveGroupMemberReqBody(BatchRemoveGroupMemberReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchRemoveGroupMemberReqBody(BatchRemoveGroupMemberReqBody body) {
+        this.body = body;
     }
 
-    public BatchRemoveGroupMemberReq build() {
-      return new BatchRemoveGroupMemberReq(this);
+    public static class Builder {
+
+        private String groupId; // 用户组ID
+        private BatchRemoveGroupMemberReqBody body;
+
+        /**
+         * 用户组ID
+         * <p> 示例值：test_group
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+        public BatchRemoveGroupMemberReqBody getBatchRemoveGroupMemberReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder batchRemoveGroupMemberReqBody(BatchRemoveGroupMemberReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchRemoveGroupMemberReq build() {
+            return new BatchRemoveGroupMemberReq(this);
+        }
     }
-  }
 }

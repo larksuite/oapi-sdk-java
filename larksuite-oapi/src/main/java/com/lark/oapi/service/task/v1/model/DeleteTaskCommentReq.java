@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTaskCommentReq {
-
-  /**
-   * 任务ID
-   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  /**
-   * 评论ID
-   * <p> 示例值：6937231762296684564
-   */
-  @Path
-  @SerializedName("comment_id")
-  private String commentId;
-
-  // builder 开始
-  public DeleteTaskCommentReq() {
-  }
-
-  public DeleteTaskCommentReq(Builder builder) {
     /**
      * 任务ID
      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    this.taskId = builder.taskId;
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
     /**
      * 评论ID
      * <p> 示例值：6937231762296684564
      */
-    this.commentId = builder.commentId;
-  }
+    @Path
+    @SerializedName("comment_id")
+    private String commentId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getCommentId() {
-    return this.commentId;
-  }
-
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
-
-  public static class Builder {
-
-    private String taskId; // 任务ID
-    private String commentId; // 评论ID
-
-    /**
-     * 任务ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    // builder 开始
+    public DeleteTaskCommentReq() {
     }
 
-
-    /**
-     * 评论ID
-     * <p> 示例值：6937231762296684564
-     *
-     * @param commentId
-     * @return
-     */
-    public Builder commentId(String commentId) {
-      this.commentId = commentId;
-      return this;
+    public DeleteTaskCommentReq(Builder builder) {
+        /**
+         * 任务ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         */
+        this.taskId = builder.taskId;
+        /**
+         * 评论ID
+         * <p> 示例值：6937231762296684564
+         */
+        this.commentId = builder.commentId;
     }
 
-    public DeleteTaskCommentReq build() {
-      return new DeleteTaskCommentReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public String getCommentId() {
+        return this.commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
+    public static class Builder {
+
+        private String taskId; // 任务ID
+        private String commentId; // 评论ID
+
+        /**
+         * 任务ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+
+        /**
+         * 评论ID
+         * <p> 示例值：6937231762296684564
+         *
+         * @param commentId
+         * @return
+         */
+        public Builder commentId(String commentId) {
+            this.commentId = commentId;
+            return this;
+        }
+
+        public DeleteTaskCommentReq build() {
+            return new DeleteTaskCommentReq(this);
+        }
+    }
 }

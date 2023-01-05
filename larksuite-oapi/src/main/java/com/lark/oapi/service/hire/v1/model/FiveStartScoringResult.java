@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FiveStartScoringResult {
-
-  /**
-   * 最高分中文描述
-   * <p> 示例值：非常好
-   */
-  @SerializedName("highest_score_desc")
-  private String highestScoreDesc;
-  /**
-   * 最高分英文描述
-   * <p> 示例值：Very Good
-   */
-  @SerializedName("highest_score_en_desc")
-  private String highestScoreEnDesc;
-  /**
-   * 最低分中文描述
-   * <p> 示例值：非常差
-   */
-  @SerializedName("lowest_score_desc")
-  private String lowestScoreDesc;
-  /**
-   * 最低分英文描述
-   * <p> 示例值：Very Bad
-   */
-  @SerializedName("lowest_score_en_desc")
-  private String lowestScoreEnDesc;
-  /**
-   * 评分分数
-   * <p> 示例值：4
-   */
-  @SerializedName("score_result")
-  private Double scoreResult;
-
-  // builder 开始
-  public FiveStartScoringResult() {
-  }
-
-  public FiveStartScoringResult(Builder builder) {
     /**
      * 最高分中文描述
      * <p> 示例值：非常好
      */
-    this.highestScoreDesc = builder.highestScoreDesc;
-    /**
-     * 最高分英文描述
-     * <p> 示例值：Very Good
-     */
-    this.highestScoreEnDesc = builder.highestScoreEnDesc;
-    /**
-     * 最低分中文描述
-     * <p> 示例值：非常差
-     */
-    this.lowestScoreDesc = builder.lowestScoreDesc;
-    /**
-     * 最低分英文描述
-     * <p> 示例值：Very Bad
-     */
-    this.lowestScoreEnDesc = builder.lowestScoreEnDesc;
-    /**
-     * 评分分数
-     * <p> 示例值：4
-     */
-    this.scoreResult = builder.scoreResult;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getHighestScoreDesc() {
-    return this.highestScoreDesc;
-  }
-
-  public void setHighestScoreDesc(String highestScoreDesc) {
-    this.highestScoreDesc = highestScoreDesc;
-  }
-
-  public String getHighestScoreEnDesc() {
-    return this.highestScoreEnDesc;
-  }
-
-  public void setHighestScoreEnDesc(String highestScoreEnDesc) {
-    this.highestScoreEnDesc = highestScoreEnDesc;
-  }
-
-  public String getLowestScoreDesc() {
-    return this.lowestScoreDesc;
-  }
-
-  public void setLowestScoreDesc(String lowestScoreDesc) {
-    this.lowestScoreDesc = lowestScoreDesc;
-  }
-
-  public String getLowestScoreEnDesc() {
-    return this.lowestScoreEnDesc;
-  }
-
-  public void setLowestScoreEnDesc(String lowestScoreEnDesc) {
-    this.lowestScoreEnDesc = lowestScoreEnDesc;
-  }
-
-  public Double getScoreResult() {
-    return this.scoreResult;
-  }
-
-  public void setScoreResult(Double scoreResult) {
-    this.scoreResult = scoreResult;
-  }
-
-  public static class Builder {
-
-    /**
-     * 最高分中文描述
-     * <p> 示例值：非常好
-     */
+    @SerializedName("highest_score_desc")
     private String highestScoreDesc;
     /**
      * 最高分英文描述
      * <p> 示例值：Very Good
      */
+    @SerializedName("highest_score_en_desc")
     private String highestScoreEnDesc;
     /**
      * 最低分中文描述
      * <p> 示例值：非常差
      */
+    @SerializedName("lowest_score_desc")
     private String lowestScoreDesc;
     /**
      * 最低分英文描述
      * <p> 示例值：Very Bad
      */
+    @SerializedName("lowest_score_en_desc")
     private String lowestScoreEnDesc;
     /**
      * 评分分数
      * <p> 示例值：4
      */
+    @SerializedName("score_result")
     private Double scoreResult;
 
-    /**
-     * 最高分中文描述
-     * <p> 示例值：非常好
-     *
-     * @param highestScoreDesc
-     * @return
-     */
-    public Builder highestScoreDesc(String highestScoreDesc) {
-      this.highestScoreDesc = highestScoreDesc;
-      return this;
+    // builder 开始
+    public FiveStartScoringResult() {
     }
 
-
-    /**
-     * 最高分英文描述
-     * <p> 示例值：Very Good
-     *
-     * @param highestScoreEnDesc
-     * @return
-     */
-    public Builder highestScoreEnDesc(String highestScoreEnDesc) {
-      this.highestScoreEnDesc = highestScoreEnDesc;
-      return this;
+    public FiveStartScoringResult(Builder builder) {
+        /**
+         * 最高分中文描述
+         * <p> 示例值：非常好
+         */
+        this.highestScoreDesc = builder.highestScoreDesc;
+        /**
+         * 最高分英文描述
+         * <p> 示例值：Very Good
+         */
+        this.highestScoreEnDesc = builder.highestScoreEnDesc;
+        /**
+         * 最低分中文描述
+         * <p> 示例值：非常差
+         */
+        this.lowestScoreDesc = builder.lowestScoreDesc;
+        /**
+         * 最低分英文描述
+         * <p> 示例值：Very Bad
+         */
+        this.lowestScoreEnDesc = builder.lowestScoreEnDesc;
+        /**
+         * 评分分数
+         * <p> 示例值：4
+         */
+        this.scoreResult = builder.scoreResult;
     }
 
-
-    /**
-     * 最低分中文描述
-     * <p> 示例值：非常差
-     *
-     * @param lowestScoreDesc
-     * @return
-     */
-    public Builder lowestScoreDesc(String lowestScoreDesc) {
-      this.lowestScoreDesc = lowestScoreDesc;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 最低分英文描述
-     * <p> 示例值：Very Bad
-     *
-     * @param lowestScoreEnDesc
-     * @return
-     */
-    public Builder lowestScoreEnDesc(String lowestScoreEnDesc) {
-      this.lowestScoreEnDesc = lowestScoreEnDesc;
-      return this;
+    public String getHighestScoreDesc() {
+        return this.highestScoreDesc;
     }
 
-
-    /**
-     * 评分分数
-     * <p> 示例值：4
-     *
-     * @param scoreResult
-     * @return
-     */
-    public Builder scoreResult(Double scoreResult) {
-      this.scoreResult = scoreResult;
-      return this;
+    public void setHighestScoreDesc(String highestScoreDesc) {
+        this.highestScoreDesc = highestScoreDesc;
     }
 
-
-    public FiveStartScoringResult build() {
-      return new FiveStartScoringResult(this);
+    public String getHighestScoreEnDesc() {
+        return this.highestScoreEnDesc;
     }
-  }
+
+    public void setHighestScoreEnDesc(String highestScoreEnDesc) {
+        this.highestScoreEnDesc = highestScoreEnDesc;
+    }
+
+    public String getLowestScoreDesc() {
+        return this.lowestScoreDesc;
+    }
+
+    public void setLowestScoreDesc(String lowestScoreDesc) {
+        this.lowestScoreDesc = lowestScoreDesc;
+    }
+
+    public String getLowestScoreEnDesc() {
+        return this.lowestScoreEnDesc;
+    }
+
+    public void setLowestScoreEnDesc(String lowestScoreEnDesc) {
+        this.lowestScoreEnDesc = lowestScoreEnDesc;
+    }
+
+    public Double getScoreResult() {
+        return this.scoreResult;
+    }
+
+    public void setScoreResult(Double scoreResult) {
+        this.scoreResult = scoreResult;
+    }
+
+    public static class Builder {
+        /**
+         * 最高分中文描述
+         * <p> 示例值：非常好
+         */
+        private String highestScoreDesc;
+        /**
+         * 最高分英文描述
+         * <p> 示例值：Very Good
+         */
+        private String highestScoreEnDesc;
+        /**
+         * 最低分中文描述
+         * <p> 示例值：非常差
+         */
+        private String lowestScoreDesc;
+        /**
+         * 最低分英文描述
+         * <p> 示例值：Very Bad
+         */
+        private String lowestScoreEnDesc;
+        /**
+         * 评分分数
+         * <p> 示例值：4
+         */
+        private Double scoreResult;
+
+        /**
+         * 最高分中文描述
+         * <p> 示例值：非常好
+         *
+         * @param highestScoreDesc
+         * @return
+         */
+        public Builder highestScoreDesc(String highestScoreDesc) {
+            this.highestScoreDesc = highestScoreDesc;
+            return this;
+        }
+
+
+        /**
+         * 最高分英文描述
+         * <p> 示例值：Very Good
+         *
+         * @param highestScoreEnDesc
+         * @return
+         */
+        public Builder highestScoreEnDesc(String highestScoreEnDesc) {
+            this.highestScoreEnDesc = highestScoreEnDesc;
+            return this;
+        }
+
+
+        /**
+         * 最低分中文描述
+         * <p> 示例值：非常差
+         *
+         * @param lowestScoreDesc
+         * @return
+         */
+        public Builder lowestScoreDesc(String lowestScoreDesc) {
+            this.lowestScoreDesc = lowestScoreDesc;
+            return this;
+        }
+
+
+        /**
+         * 最低分英文描述
+         * <p> 示例值：Very Bad
+         *
+         * @param lowestScoreEnDesc
+         * @return
+         */
+        public Builder lowestScoreEnDesc(String lowestScoreEnDesc) {
+            this.lowestScoreEnDesc = lowestScoreEnDesc;
+            return this;
+        }
+
+
+        /**
+         * 评分分数
+         * <p> 示例值：4
+         *
+         * @param scoreResult
+         * @return
+         */
+        public Builder scoreResult(Double scoreResult) {
+            this.scoreResult = scoreResult;
+            return this;
+        }
+
+
+        public FiveStartScoringResult build() {
+            return new FiveStartScoringResult(this);
+        }
+    }
 }

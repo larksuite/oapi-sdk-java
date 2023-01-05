@@ -16,111 +16,108 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MsgActionI18nInfo {
-
-  /**
-   * 国际化语言的 key
-   * <p> 示例值：zh_cn
-   */
-  @SerializedName("i18n_key")
-  private String i18nKey;
-  /**
-   * 国际化名称
-   * <p> 示例值：名称
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public MsgActionI18nInfo() {
-  }
-
-  public MsgActionI18nInfo(Builder builder) {
     /**
      * 国际化语言的 key
      * <p> 示例值：zh_cn
      */
-    this.i18nKey = builder.i18nKey;
-    /**
-     * 国际化名称
-     * <p> 示例值：名称
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getI18nKey() {
-    return this.i18nKey;
-  }
-
-  public void setI18nKey(String i18nKey) {
-    this.i18nKey = i18nKey;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     */
+    @SerializedName("i18n_key")
     private String i18nKey;
     /**
      * 国际化名称
      * <p> 示例值：名称
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     *
-     * @param i18nKey
-     * @return
-     */
-    public Builder i18nKey(String i18nKey) {
-      this.i18nKey = i18nKey;
-      return this;
+    // builder 开始
+    public MsgActionI18nInfo() {
     }
 
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     *
-     * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.MsgActionI18nInfoI18nKeyEnum}
-     * @return
-     */
-    public Builder i18nKey(
-        com.lark.oapi.service.application.v6.enums.MsgActionI18nInfoI18nKeyEnum i18nKey) {
-      this.i18nKey = i18nKey.getValue();
-      return this;
+    public MsgActionI18nInfo(Builder builder) {
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         */
+        this.i18nKey = builder.i18nKey;
+        /**
+         * 国际化名称
+         * <p> 示例值：名称
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 国际化名称
-     * <p> 示例值：名称
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public MsgActionI18nInfo build() {
-      return new MsgActionI18nInfo(this);
+    public String getI18nKey() {
+        return this.i18nKey;
     }
-  }
+
+    public void setI18nKey(String i18nKey) {
+        this.i18nKey = i18nKey;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         */
+        private String i18nKey;
+        /**
+         * 国际化名称
+         * <p> 示例值：名称
+         */
+        private String name;
+
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         *
+         * @param i18nKey
+         * @return
+         */
+        public Builder i18nKey(String i18nKey) {
+            this.i18nKey = i18nKey;
+            return this;
+        }
+
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         *
+         * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.MsgActionI18nInfoI18nKeyEnum}
+         * @return
+         */
+        public Builder i18nKey(com.lark.oapi.service.application.v6.enums.MsgActionI18nInfoI18nKeyEnum i18nKey) {
+            this.i18nKey = i18nKey.getValue();
+            return this;
+        }
+
+
+        /**
+         * 国际化名称
+         * <p> 示例值：名称
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public MsgActionI18nInfo build() {
+            return new MsgActionI18nInfo(this);
+        }
+    }
 }

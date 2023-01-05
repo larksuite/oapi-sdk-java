@@ -17,58 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListAgentScheduleReq {
-
-  /**
-   * 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
-   * <p> 示例值：status=1&status=2
-   */
-  @Query
-  @SerializedName("status")
-  private Integer[] status;
-
-  // builder 开始
-  public ListAgentScheduleReq() {
-  }
-
-  public ListAgentScheduleReq(Builder builder) {
     /**
      * 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
      * <p> 示例值：status=1&status=2
      */
-    this.status = builder.status;
-  }
+    @Query
+    @SerializedName("status")
+    private Integer[] status;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer[] getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer[] status) {
-    this.status = status;
-  }
-
-  public static class Builder {
-
-    private Integer[] status; // 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
-
-
-    /**
-     * 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
-     * <p> 示例值：status=1&status=2
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer[] status) {
-      this.status = status;
-      return this;
+    // builder 开始
+    public ListAgentScheduleReq() {
     }
 
-    public ListAgentScheduleReq build() {
-      return new ListAgentScheduleReq(this);
+    public ListAgentScheduleReq(Builder builder) {
+        /**
+         * 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
+         * <p> 示例值：status=1&status=2
+         */
+        this.status = builder.status;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer[] getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer[] status) {
+        this.status = status;
+    }
+
+    public static class Builder {
+        private Integer[] status; // 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
+
+
+        /**
+         * 筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服
+         * <p> 示例值：status=1&status=2
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer[] status) {
+            this.status = status;
+            return this;
+        }
+
+        public ListAgentScheduleReq build() {
+            return new ListAgentScheduleReq(this);
+        }
+    }
 }

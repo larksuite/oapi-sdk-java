@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentSchemaChildObject {
-
-  /**
-   * ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 活跃状态
-   * <p> 示例值：
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-  /**
-   * 是否自定义
-   * <p> 示例值：
-   */
-  @SerializedName("is_customized")
-  private Boolean isCustomized;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 选项
-   * <p> 示例值：
-   */
-  @SerializedName("option_list")
-  private TalentSchemaOption[] optionList;
-
-  // builder 开始
-  public TalentSchemaChildObject() {
-  }
-
-  public TalentSchemaChildObject(Builder builder) {
     /**
      * ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 活跃状态
-     * <p> 示例值：
-     */
-    this.activeStatus = builder.activeStatus;
-    /**
-     * 是否自定义
-     * <p> 示例值：
-     */
-    this.isCustomized = builder.isCustomized;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 选项
-     * <p> 示例值：
-     */
-    this.optionList = builder.optionList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public Boolean getIsCustomized() {
-    return this.isCustomized;
-  }
-
-  public void setIsCustomized(Boolean isCustomized) {
-    this.isCustomized = isCustomized;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public TalentSchemaOption[] getOptionList() {
-    return this.optionList;
-  }
-
-  public void setOptionList(TalentSchemaOption[] optionList) {
-    this.optionList = optionList;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 活跃状态
      * <p> 示例值：
      */
+    @SerializedName("active_status")
     private Integer activeStatus;
     /**
      * 是否自定义
      * <p> 示例值：
      */
+    @SerializedName("is_customized")
     private Boolean isCustomized;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 选项
      * <p> 示例值：
      */
+    @SerializedName("option_list")
     private TalentSchemaOption[] optionList;
 
-    /**
-     * ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public TalentSchemaChildObject() {
     }
 
-
-    /**
-     * 活跃状态
-     * <p> 示例值：
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public TalentSchemaChildObject(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 活跃状态
+         * <p> 示例值：
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 是否自定义
+         * <p> 示例值：
+         */
+        this.isCustomized = builder.isCustomized;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 选项
+         * <p> 示例值：
+         */
+        this.optionList = builder.optionList;
     }
 
-
-    /**
-     * 是否自定义
-     * <p> 示例值：
-     *
-     * @param isCustomized
-     * @return
-     */
-    public Builder isCustomized(Boolean isCustomized) {
-      this.isCustomized = isCustomized;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 选项
-     * <p> 示例值：
-     *
-     * @param optionList
-     * @return
-     */
-    public Builder optionList(TalentSchemaOption[] optionList) {
-      this.optionList = optionList;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public TalentSchemaChildObject build() {
-      return new TalentSchemaChildObject(this);
+    public Integer getActiveStatus() {
+        return this.activeStatus;
     }
-  }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public Boolean getIsCustomized() {
+        return this.isCustomized;
+    }
+
+    public void setIsCustomized(Boolean isCustomized) {
+        this.isCustomized = isCustomized;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public TalentSchemaOption[] getOptionList() {
+        return this.optionList;
+    }
+
+    public void setOptionList(TalentSchemaOption[] optionList) {
+        this.optionList = optionList;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 活跃状态
+         * <p> 示例值：
+         */
+        private Integer activeStatus;
+        /**
+         * 是否自定义
+         * <p> 示例值：
+         */
+        private Boolean isCustomized;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 选项
+         * <p> 示例值：
+         */
+        private TalentSchemaOption[] optionList;
+
+        /**
+         * ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 活跃状态
+         * <p> 示例值：
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 是否自定义
+         * <p> 示例值：
+         *
+         * @param isCustomized
+         * @return
+         */
+        public Builder isCustomized(Boolean isCustomized) {
+            this.isCustomized = isCustomized;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 选项
+         * <p> 示例值：
+         *
+         * @param optionList
+         * @return
+         */
+        public Builder optionList(TalentSchemaOption[] optionList) {
+            this.optionList = optionList;
+            return this;
+        }
+
+
+        public TalentSchemaChildObject build() {
+            return new TalentSchemaChildObject(this);
+        }
+    }
 }

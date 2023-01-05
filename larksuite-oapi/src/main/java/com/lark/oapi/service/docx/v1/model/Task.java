@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Task {
-
-  /**
-   * 任务 ID，查询具体任务详情见 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create
-   * <p> 示例值：
-   */
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public Task() {
-  }
-
-  public Task(Builder builder) {
     /**
-     * 任务 ID，查询具体任务详情见 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create
+     * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
      * <p> 示例值：
      */
-    this.taskId = builder.taskId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 任务 ID，查询具体任务详情见 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create
-     * <p> 示例值：
-     */
+    @SerializedName("task_id")
     private String taskId;
 
-    /**
-     * 任务 ID，查询具体任务详情见 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create
-     * <p> 示例值：
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    // builder 开始
+    public Task() {
     }
 
-
-    public Task build() {
-      return new Task(this);
+    public Task(Builder builder) {
+        /**
+         * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
+         * <p> 示例值：
+         */
+        this.taskId = builder.taskId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public static class Builder {
+        /**
+         * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
+         * <p> 示例值：
+         */
+        private String taskId;
+
+        /**
+         * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
+         * <p> 示例值：
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+
+        public Task build() {
+            return new Task(this);
+        }
+    }
 }

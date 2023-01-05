@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetAgentSkillReq {
-
-  /**
-   * agent skill id
-   * <p> 示例值：6941215891786825756
-   */
-  @Path
-  @SerializedName("agent_skill_id")
-  private String agentSkillId;
-
-  // builder 开始
-  public GetAgentSkillReq() {
-  }
-
-  public GetAgentSkillReq(Builder builder) {
     /**
      * agent skill id
      * <p> 示例值：6941215891786825756
      */
-    this.agentSkillId = builder.agentSkillId;
-  }
+    @Path
+    @SerializedName("agent_skill_id")
+    private String agentSkillId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentSkillId() {
-    return this.agentSkillId;
-  }
-
-  public void setAgentSkillId(String agentSkillId) {
-    this.agentSkillId = agentSkillId;
-  }
-
-  public static class Builder {
-
-    private String agentSkillId; // agent skill id
-
-    /**
-     * agent skill id
-     * <p> 示例值：6941215891786825756
-     *
-     * @param agentSkillId
-     * @return
-     */
-    public Builder agentSkillId(String agentSkillId) {
-      this.agentSkillId = agentSkillId;
-      return this;
+    // builder 开始
+    public GetAgentSkillReq() {
     }
 
-    public GetAgentSkillReq build() {
-      return new GetAgentSkillReq(this);
+    public GetAgentSkillReq(Builder builder) {
+        /**
+         * agent skill id
+         * <p> 示例值：6941215891786825756
+         */
+        this.agentSkillId = builder.agentSkillId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAgentSkillId() {
+        return this.agentSkillId;
+    }
+
+    public void setAgentSkillId(String agentSkillId) {
+        this.agentSkillId = agentSkillId;
+    }
+
+    public static class Builder {
+
+        private String agentSkillId; // agent skill id
+
+        /**
+         * agent skill id
+         * <p> 示例值：6941215891786825756
+         *
+         * @param agentSkillId
+         * @return
+         */
+        public Builder agentSkillId(String agentSkillId) {
+            this.agentSkillId = agentSkillId;
+            return this;
+        }
+
+        public GetAgentSkillReq build() {
+            return new GetAgentSkillReq(this);
+        }
+    }
 }

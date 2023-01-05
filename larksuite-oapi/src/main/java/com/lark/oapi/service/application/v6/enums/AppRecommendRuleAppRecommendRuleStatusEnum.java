@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 推荐规则启用状态
  */
 public enum AppRecommendRuleAppRecommendRuleStatusEnum {
-  OPEN("open"), // 启用
-  CLOSED("closed"), // 停用
-  ;
-  private String value;
+    OPEN("open"), // 启用
+    CLOSED("closed"), // 停用
+    ;
+    private String value;
 
-  AppRecommendRuleAppRecommendRuleStatusEnum(String value) {
-    this.value = value;
-  }
+    AppRecommendRuleAppRecommendRuleStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

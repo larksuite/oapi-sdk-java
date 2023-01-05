@@ -16,48 +16,47 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListApplicationAppVersionRespBody {
+    /**
+     * 应用版本列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private ApplicationAppVersion[] items;
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还有更多项
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 应用版本列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private ApplicationAppVersion[] items;
-  /**
-   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-   * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否还有更多项
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public ApplicationAppVersion[] getItems() {
+        return this.items;
+    }
 
-  public ApplicationAppVersion[] getItems() {
-    return this.items;
-  }
+    public void setItems(ApplicationAppVersion[] items) {
+        this.items = items;
+    }
 
-  public void setItems(ApplicationAppVersion[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

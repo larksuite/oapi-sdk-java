@@ -16,40 +16,41 @@ import com.lark.oapi.service.bitable.v1.model.AppTableRecord;
 import com.lark.oapi.service.bitable.v1.model.Attachment;
 import com.lark.oapi.service.bitable.v1.model.Person;
 import com.lark.oapi.service.bitable.v1.model.Url;
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
 
 public class TestAppTableRecordUtil {
 
-  @Test
-  public void testUtil() {
-    Map<String, Object> map = new HashMap<>();
-    map.put("bool", true);
-    map.put("str", "zhailuxu");
-    map.put("strList", new String[]{"zlx1", "gh2"});
-    map.put("urlList", new Url[]{Url.newBuilder().text("t1").link("l1").build(),
-        Url.newBuilder().text("t2").link("l2").build()});
-    map.put("personList", new Person[]{Person.newBuilder().email("e1").id("id1").name("n1").build(),
-        Person.newBuilder().email("e2").id("id2").name("n2").build()});
-    map.put("attatchList", new Attachment[]{Attachment.newBuilder().fileToken("f1").size(1).build(),
-        Attachment.newBuilder().fileToken("f2").size(2).build()});
+    @Test
+    public void testUtil() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("bool", true);
+        map.put("str", "zhailuxu");
+        map.put("strList", new String[]{"zlx1", "gh2"});
+        map.put("urlList", new Url[]{Url.newBuilder().text("t1").link("l1").build(),
+                Url.newBuilder().text("t2").link("l2").build()});
+        map.put("personList", new Person[]{Person.newBuilder().email("e1").id("id1").name("n1").build(),
+                Person.newBuilder().email("e2").id("id2").name("n2").build()});
+        map.put("attatchList", new Attachment[]{Attachment.newBuilder().fileToken("f1").size(1).build(),
+                Attachment.newBuilder().fileToken("f2").size(2).build()});
 
-    AppTableRecord appTableRecord = new AppTableRecord();
-    appTableRecord.setFields(map);
+        AppTableRecord appTableRecord = new AppTableRecord();
+        appTableRecord.setFields(map);
 
-    System.out.println(
-        Jsons.DEFAULT.toJson(AppTableRecordUtil.getBooleanField(appTableRecord, "bool")));
-    System.out.println(
-        Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringField(appTableRecord, "str")));
-    System.out.println(
-        Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringListField(appTableRecord, "strList")));
-    System.out.println(
-        Jsons.DEFAULT.toJson(AppTableRecordUtil.getUrlListField(appTableRecord, "urlList")));
-    System.out.println(
-        Jsons.DEFAULT.toJson(AppTableRecordUtil.getPersonListField(appTableRecord, "personList")));
-    System.out.println(Jsons.DEFAULT.toJson(
-        AppTableRecordUtil.getAttachmentListField(appTableRecord, "attatchList")));
+        System.out.println(
+                Jsons.DEFAULT.toJson(AppTableRecordUtil.getBooleanField(appTableRecord, "bool")));
+        System.out.println(
+                Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringField(appTableRecord, "str")));
+        System.out.println(
+                Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringListField(appTableRecord, "strList")));
+        System.out.println(
+                Jsons.DEFAULT.toJson(AppTableRecordUtil.getUrlListField(appTableRecord, "urlList")));
+        System.out.println(
+                Jsons.DEFAULT.toJson(AppTableRecordUtil.getPersonListField(appTableRecord, "personList")));
+        System.out.println(Jsons.DEFAULT.toJson(
+                AppTableRecordUtil.getAttachmentListField(appTableRecord, "attatchList")));
 
-  }
+    }
 }

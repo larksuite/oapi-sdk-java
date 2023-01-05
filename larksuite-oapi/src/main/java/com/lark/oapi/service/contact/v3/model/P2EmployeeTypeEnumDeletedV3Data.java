@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2EmployeeTypeEnumDeletedV3Data {
+    /**
+     * 旧枚举类型
+     * <p> 示例值：
+     */
+    @SerializedName("old_enum")
+    private EmployeeTypeEnum oldEnum;
 
-  /**
-   * 旧枚举类型
-   * <p> 示例值：
-   */
-  @SerializedName("old_enum")
-  private EmployeeTypeEnum oldEnum;
+    public EmployeeTypeEnum getOldEnum() {
+        return this.oldEnum;
+    }
 
-  public EmployeeTypeEnum getOldEnum() {
-    return this.oldEnum;
-  }
-
-  public void setOldEnum(EmployeeTypeEnum oldEnum) {
-    this.oldEnum = oldEnum;
-  }
+    public void setOldEnum(EmployeeTypeEnum oldEnum) {
+        this.oldEnum = oldEnum;
+    }
 
 }

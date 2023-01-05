@@ -16,20 +16,19 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppTableRespBody {
+    /**
+     * table ids
+     * <p> 示例值：
+     */
+    @SerializedName("table_ids")
+    private String[] tableIds;
 
-  /**
-   * table ids
-   * <p> 示例值：
-   */
-  @SerializedName("table_ids")
-  private String[] tableIds;
+    public String[] getTableIds() {
+        return this.tableIds;
+    }
 
-  public String[] getTableIds() {
-    return this.tableIds;
-  }
-
-  public void setTableIds(String[] tableIds) {
-    this.tableIds = tableIds;
-  }
+    public void setTableIds(String[] tableIds) {
+        this.tableIds = tableIds;
+    }
 
 }

@@ -15,17 +15,17 @@ package com.lark.oapi.service.passport.v1.enums;
 
 // 生成枚举值
 public enum UserIdTypeEnum {
-  OPEN_ID("open_id"),
-  UNION_ID("union_id"),
-  USER_ID("user_id"),
-  ;
-  private String value;
+    OPEN_ID("open_id"),
+    UNION_ID("union_id"),
+    USER_ID("user_id"),
+    ;
+    private String value;
 
-  UserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    UserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

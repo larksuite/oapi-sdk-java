@@ -16,98 +16,96 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TmpDownloadUrl {
-
-  /**
-   * 文件标识符
-   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 文件临时下载链接
-   * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
-   */
-  @SerializedName("tmp_download_url")
-  private String tmpDownloadUrl;
-
-  // builder 开始
-  public TmpDownloadUrl() {
-  }
-
-  public TmpDownloadUrl(Builder builder) {
     /**
      * 文件标识符
      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * 文件临时下载链接
-     * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
-     */
-    this.tmpDownloadUrl = builder.tmpDownloadUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getTmpDownloadUrl() {
-    return this.tmpDownloadUrl;
-  }
-
-  public void setTmpDownloadUrl(String tmpDownloadUrl) {
-    this.tmpDownloadUrl = tmpDownloadUrl;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件标识符
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     */
+    @SerializedName("file_token")
     private String fileToken;
     /**
      * 文件临时下载链接
      * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
      */
+    @SerializedName("tmp_download_url")
     private String tmpDownloadUrl;
 
-    /**
-     * 文件标识符
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public TmpDownloadUrl() {
     }
 
-
-    /**
-     * 文件临时下载链接
-     * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
-     *
-     * @param tmpDownloadUrl
-     * @return
-     */
-    public Builder tmpDownloadUrl(String tmpDownloadUrl) {
-      this.tmpDownloadUrl = tmpDownloadUrl;
-      return this;
+    public TmpDownloadUrl(Builder builder) {
+        /**
+         * 文件标识符
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 文件临时下载链接
+         * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
+         */
+        this.tmpDownloadUrl = builder.tmpDownloadUrl;
     }
 
-
-    public TmpDownloadUrl build() {
-      return new TmpDownloadUrl(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public String getTmpDownloadUrl() {
+        return this.tmpDownloadUrl;
+    }
+
+    public void setTmpDownloadUrl(String tmpDownloadUrl) {
+        this.tmpDownloadUrl = tmpDownloadUrl;
+    }
+
+    public static class Builder {
+        /**
+         * 文件标识符
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        private String fileToken;
+        /**
+         * 文件临时下载链接
+         * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
+         */
+        private String tmpDownloadUrl;
+
+        /**
+         * 文件标识符
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 文件临时下载链接
+         * <p> 示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM
+         *
+         * @param tmpDownloadUrl
+         * @return
+         */
+        public Builder tmpDownloadUrl(String tmpDownloadUrl) {
+            this.tmpDownloadUrl = tmpDownloadUrl;
+            return this;
+        }
+
+
+        public TmpDownloadUrl build() {
+            return new TmpDownloadUrl(this);
+        }
+    }
 }

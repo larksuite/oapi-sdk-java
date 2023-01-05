@@ -17,17 +17,17 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 合并单元格类型
  */
 public enum MergeCellMergeTypeEnum {
-  MERGEALL("MergeAll"), // 全部合并
-  MERGEROWS("MergeRows"), // 每一行进行合并
-  MERGECOLUMNS("MergeColumns"), // 每一列进行合并
-  ;
-  private String value;
+    MERGEALL("MergeAll"), // 全部合并
+    MERGEROWS("MergeRows"), // 每一行进行合并
+    MERGECOLUMNS("MergeColumns"), // 每一列进行合并
+    ;
+    private String value;
 
-  MergeCellMergeTypeEnum(String value) {
-    this.value = value;
-  }
+    MergeCellMergeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

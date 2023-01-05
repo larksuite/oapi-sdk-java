@@ -17,23 +17,23 @@ import com.lark.oapi.core.utils.Jsons;
 
 public class MessageAudio {
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
-    @SerializedName("file_key")
-    private String fileKey;
-
-    public Builder fileKey(String fileKey) {
-      this.fileKey = fileKey;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
+    public static final class Builder {
 
-    public String build() {
-      return Jsons.DEFAULT.toJson(this);
+        @SerializedName("file_key")
+        private String fileKey;
+
+        public Builder fileKey(String fileKey) {
+            this.fileKey = fileKey;
+            return this;
+        }
+
+
+        public String build() {
+            return Jsons.DEFAULT.toJson(this);
+        }
     }
-  }
 }

@@ -16,51 +16,50 @@ package com.lark.oapi.service.baike.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class UploadFileReq {
-
-  @Body
-  private File body;
-
-  // builder 开始
-  public UploadFileReq() {
-  }
-
-  public UploadFileReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public File getFile() {
-    return this.body;
-  }
-
-  public void setFile(File body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private File body;
 
+    // builder 开始
+    public UploadFileReq() {
+    }
+
+    public UploadFileReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public File getFile() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder file(File body) {
-      this.body = body;
-      return this;
+    public void setFile(File body) {
+        this.body = body;
     }
 
-    public UploadFileReq build() {
-      return new UploadFileReq(this);
+    public static class Builder {
+
+        private File body;
+
+        public File getFile() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder file(File body) {
+            this.body = body;
+            return this;
+        }
+
+        public UploadFileReq build() {
+            return new UploadFileReq(this);
+        }
     }
-  }
 }

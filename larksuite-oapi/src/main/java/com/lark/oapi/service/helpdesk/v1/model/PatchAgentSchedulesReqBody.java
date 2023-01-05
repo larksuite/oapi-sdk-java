@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchAgentSchedulesReqBody {
-
-  /**
-   * 工作日程列表
-   * <p> 示例值：
-   */
-  @SerializedName("agent_schedule")
-  private AgentScheduleUpdateInfo agentSchedule;
-
-  // builder 开始
-  public PatchAgentSchedulesReqBody() {
-  }
-
-  public PatchAgentSchedulesReqBody(Builder builder) {
     /**
      * 工作日程列表
      * <p> 示例值：
      */
-    this.agentSchedule = builder.agentSchedule;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public AgentScheduleUpdateInfo getAgentSchedule() {
-    return this.agentSchedule;
-  }
-
-  public void setAgentSchedule(AgentScheduleUpdateInfo agentSchedule) {
-    this.agentSchedule = agentSchedule;
-  }
-
-  public static class Builder {
-
-    /**
-     * 工作日程列表
-     * <p> 示例值：
-     */
+    @SerializedName("agent_schedule")
     private AgentScheduleUpdateInfo agentSchedule;
 
-    /**
-     * 工作日程列表
-     * <p> 示例值：
-     *
-     * @param agentSchedule
-     * @return
-     */
-    public Builder agentSchedule(AgentScheduleUpdateInfo agentSchedule) {
-      this.agentSchedule = agentSchedule;
-      return this;
+    // builder 开始
+    public PatchAgentSchedulesReqBody() {
     }
 
-
-    public PatchAgentSchedulesReqBody build() {
-      return new PatchAgentSchedulesReqBody(this);
+    public PatchAgentSchedulesReqBody(Builder builder) {
+        /**
+         * 工作日程列表
+         * <p> 示例值：
+         */
+        this.agentSchedule = builder.agentSchedule;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public AgentScheduleUpdateInfo getAgentSchedule() {
+        return this.agentSchedule;
+    }
+
+    public void setAgentSchedule(AgentScheduleUpdateInfo agentSchedule) {
+        this.agentSchedule = agentSchedule;
+    }
+
+    public static class Builder {
+        /**
+         * 工作日程列表
+         * <p> 示例值：
+         */
+        private AgentScheduleUpdateInfo agentSchedule;
+
+        /**
+         * 工作日程列表
+         * <p> 示例值：
+         *
+         * @param agentSchedule
+         * @return
+         */
+        public Builder agentSchedule(AgentScheduleUpdateInfo agentSchedule) {
+            this.agentSchedule = agentSchedule;
+            return this;
+        }
+
+
+        public PatchAgentSchedulesReqBody build() {
+            return new PatchAgentSchedulesReqBody(this);
+        }
+    }
 }

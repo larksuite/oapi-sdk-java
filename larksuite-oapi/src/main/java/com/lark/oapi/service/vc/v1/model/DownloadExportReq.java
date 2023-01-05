@@ -17,58 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class DownloadExportReq {
-
-  /**
-   * 文档token
-   * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
-   */
-  @Query
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public DownloadExportReq() {
-  }
-
-  public DownloadExportReq(Builder builder) {
     /**
      * 文档token
      * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
      */
-    this.fileToken = builder.fileToken;
-  }
+    @Query
+    @SerializedName("file_token")
+    private String fileToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 文档token
-
-
-    /**
-     * 文档token
-     * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public DownloadExportReq() {
     }
 
-    public DownloadExportReq build() {
-      return new DownloadExportReq(this);
+    public DownloadExportReq(Builder builder) {
+        /**
+         * 文档token
+         * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
+         */
+        this.fileToken = builder.fileToken;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public static class Builder {
+        private String fileToken; // 文档token
+
+
+        /**
+         * 文档token
+         * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public DownloadExportReq build() {
+            return new DownloadExportReq(this);
+        }
+    }
 }

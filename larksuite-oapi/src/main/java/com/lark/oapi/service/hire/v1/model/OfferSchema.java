@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferSchema {
-
-  /**
-   * offer申请表ID
-   * <p> 示例值：1213213123123
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * offer申请表使用场景
-   * <p> 示例值：1
-   */
-  @SerializedName("scenario")
-  private Integer scenario;
-  /**
-   * 申请表版本
-   * <p> 示例值：121
-   */
-  @SerializedName("version")
-  private Integer version;
-  /**
-   * 字段对象信息
-   * <p> 示例值：
-   */
-  @SerializedName("object_list")
-  private OfferSchemaDetail[] objectList;
-
-  // builder 开始
-  public OfferSchema() {
-  }
-
-  public OfferSchema(Builder builder) {
     /**
      * offer申请表ID
      * <p> 示例值：1213213123123
      */
-    this.id = builder.id;
-    /**
-     * offer申请表使用场景
-     * <p> 示例值：1
-     */
-    this.scenario = builder.scenario;
-    /**
-     * 申请表版本
-     * <p> 示例值：121
-     */
-    this.version = builder.version;
-    /**
-     * 字段对象信息
-     * <p> 示例值：
-     */
-    this.objectList = builder.objectList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getScenario() {
-    return this.scenario;
-  }
-
-  public void setScenario(Integer scenario) {
-    this.scenario = scenario;
-  }
-
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-  public OfferSchemaDetail[] getObjectList() {
-    return this.objectList;
-  }
-
-  public void setObjectList(OfferSchemaDetail[] objectList) {
-    this.objectList = objectList;
-  }
-
-  public static class Builder {
-
-    /**
-     * offer申请表ID
-     * <p> 示例值：1213213123123
-     */
+    @SerializedName("id")
     private String id;
     /**
      * offer申请表使用场景
      * <p> 示例值：1
      */
+    @SerializedName("scenario")
     private Integer scenario;
     /**
      * 申请表版本
      * <p> 示例值：121
      */
+    @SerializedName("version")
     private Integer version;
     /**
      * 字段对象信息
      * <p> 示例值：
      */
+    @SerializedName("object_list")
     private OfferSchemaDetail[] objectList;
 
-    /**
-     * offer申请表ID
-     * <p> 示例值：1213213123123
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OfferSchema() {
     }
 
-
-    /**
-     * offer申请表使用场景
-     * <p> 示例值：1
-     *
-     * @param scenario
-     * @return
-     */
-    public Builder scenario(Integer scenario) {
-      this.scenario = scenario;
-      return this;
+    public OfferSchema(Builder builder) {
+        /**
+         * offer申请表ID
+         * <p> 示例值：1213213123123
+         */
+        this.id = builder.id;
+        /**
+         * offer申请表使用场景
+         * <p> 示例值：1
+         */
+        this.scenario = builder.scenario;
+        /**
+         * 申请表版本
+         * <p> 示例值：121
+         */
+        this.version = builder.version;
+        /**
+         * 字段对象信息
+         * <p> 示例值：
+         */
+        this.objectList = builder.objectList;
     }
 
-
-    /**
-     * 申请表版本
-     * <p> 示例值：121
-     *
-     * @param version
-     * @return
-     */
-    public Builder version(Integer version) {
-      this.version = version;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 字段对象信息
-     * <p> 示例值：
-     *
-     * @param objectList
-     * @return
-     */
-    public Builder objectList(OfferSchemaDetail[] objectList) {
-      this.objectList = objectList;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public OfferSchema build() {
-      return new OfferSchema(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public Integer getScenario() {
+        return this.scenario;
+    }
+
+    public void setScenario(Integer scenario) {
+        this.scenario = scenario;
+    }
+
+    public Integer getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public OfferSchemaDetail[] getObjectList() {
+        return this.objectList;
+    }
+
+    public void setObjectList(OfferSchemaDetail[] objectList) {
+        this.objectList = objectList;
+    }
+
+    public static class Builder {
+        /**
+         * offer申请表ID
+         * <p> 示例值：1213213123123
+         */
+        private String id;
+        /**
+         * offer申请表使用场景
+         * <p> 示例值：1
+         */
+        private Integer scenario;
+        /**
+         * 申请表版本
+         * <p> 示例值：121
+         */
+        private Integer version;
+        /**
+         * 字段对象信息
+         * <p> 示例值：
+         */
+        private OfferSchemaDetail[] objectList;
+
+        /**
+         * offer申请表ID
+         * <p> 示例值：1213213123123
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * offer申请表使用场景
+         * <p> 示例值：1
+         *
+         * @param scenario
+         * @return
+         */
+        public Builder scenario(Integer scenario) {
+            this.scenario = scenario;
+            return this;
+        }
+
+
+        /**
+         * 申请表版本
+         * <p> 示例值：121
+         *
+         * @param version
+         * @return
+         */
+        public Builder version(Integer version) {
+            this.version = version;
+            return this;
+        }
+
+
+        /**
+         * 字段对象信息
+         * <p> 示例值：
+         *
+         * @param objectList
+         * @return
+         */
+        public Builder objectList(OfferSchemaDetail[] objectList) {
+            this.objectList = objectList;
+            return this;
+        }
+
+
+        public OfferSchema build() {
+            return new OfferSchema(this);
+        }
+    }
 }

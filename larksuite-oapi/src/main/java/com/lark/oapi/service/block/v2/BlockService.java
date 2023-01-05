@@ -18,220 +18,255 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.block.v2.model.CreateEntityReq;
-import com.lark.oapi.service.block.v2.model.CreateEntityResp;
-import com.lark.oapi.service.block.v2.model.CreateMessageReq;
-import com.lark.oapi.service.block.v2.model.CreateMessageResp;
-import com.lark.oapi.service.block.v2.model.UpdateEntityReq;
-import com.lark.oapi.service.block.v2.model.UpdateEntityResp;
+import com.lark.oapi.service.block.v2.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class BlockService {
+    private static final Logger log = LoggerFactory.getLogger(BlockService.class);
+    private final Entity entity; // 服务端 API
+    private final Message message; // 服务端 API
 
-  private final Entity entity; // entity
-  private final Message message; // message
-
-  public BlockService(Config config) {
-    this.entity = new Entity(config);
-    this.message = new Message(config);
-  }
-
-  /**
-   * entity
-   *
-   * @return
-   */
-  public Entity entity() {
-    return entity;
-  }
-
-  /**
-   * message
-   *
-   * @return
-   */
-  public Message message() {
-    return message;
-  }
-
-  public static class Entity {
-
-    private final Config config;
-
-    public Entity(Config config) {
-      this.config = config;
+    public BlockService(Config config) {
+        this.entity = new Entity(config);
+        this.message = new Message(config);
     }
 
     /**
-     * 创建 BlockEntity，开发者可以通过该接口将部分或全部数据存放于 BlockEntity。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java</a>
-     * ;
+     * 服务端 API
+     *
+     * @return
      */
-    public CreateEntityResp create(CreateEntityReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/block/v2/entities"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Entity entity() {
+        return entity;
     }
 
     /**
-     * 创建 BlockEntity，开发者可以通过该接口将部分或全部数据存放于 BlockEntity。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java</a>
-     * ;
+     * 服务端 API
+     *
+     * @return
      */
-    public CreateEntityResp create(CreateEntityReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/block/v2/entities"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Message message() {
+        return message;
     }
 
-    /**
-     * 更新BlockEntity，开发者通过该接口可以更新存储在BlockEntity中的数据，并实时推送到端侧。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java</a>
-     * ;
-     */
-    public UpdateEntityResp update(UpdateEntityReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Entity {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/block/v2/entities/:block_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Entity(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建 BlockEntity，开发者可以通过该接口将部分或全部数据存放于 BlockEntity。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java</a> ;
+         */
+        public CreateEntityResp create(CreateEntityReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/block/v2/entities"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/block/v2/entities"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建 BlockEntity，开发者可以通过该接口将部分或全部数据存放于 BlockEntity。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateEntitySample.java</a> ;
+         */
+        public CreateEntityResp create(CreateEntityReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/block/v2/entities"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/block/v2/entities"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新BlockEntity，开发者通过该接口可以更新存储在BlockEntity中的数据，并实时推送到端侧。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java</a> ;
+         */
+        public UpdateEntityResp update(UpdateEntityReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/block/v2/entities/:block_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/block/v2/entities/:block_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新BlockEntity，开发者通过该接口可以更新存储在BlockEntity中的数据，并实时推送到端侧。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java</a> ;
+         */
+        public UpdateEntityResp update(UpdateEntityReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/block/v2/entities/:block_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/block/v2/entities/:block_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 更新BlockEntity，开发者通过该接口可以更新存储在BlockEntity中的数据，并实时推送到端侧。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/UpdateEntitySample.java</a>
-     * ;
-     */
-    public UpdateEntityResp update(UpdateEntityReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Message {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/block/v2/entities/:block_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Message(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * Block协同数据推送，根据BlockID向指定用户列表推送协同数据。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java</a> ;
+         */
+        public CreateMessageResp create(CreateMessageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/block/v2/message"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMessageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/block/v2/message"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * Block协同数据推送，根据BlockID向指定用户列表推送协同数据。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java</a> ;
+         */
+        public CreateMessageResp create(CreateMessageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/block/v2/message"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMessageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/block/v2/message"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-  }
-
-  public static class Message {
-
-    private final Config config;
-
-    public Message(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * Block消息推送，根据BlockID向指定用户列表推送消息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java</a>
-     * ;
-     */
-    public CreateMessageResp create(CreateMessageReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/block/v2/message"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateMessageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * Block消息推送，根据BlockID向指定用户列表推送消息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2/CreateMessageSample.java</a>
-     * ;
-     */
-    public CreateMessageResp create(CreateMessageReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/block/v2/message"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateMessageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

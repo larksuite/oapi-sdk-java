@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class CompleteTaskReq {
-
-  /**
-   * 任务 ID
-   * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public CompleteTaskReq() {
-  }
-
-  public CompleteTaskReq(Builder builder) {
     /**
-     * 任务 ID
+     * 任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取
      * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
      */
-    this.taskId = builder.taskId;
-  }
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
-    private String taskId; // 任务 ID
-
-    /**
-     * 任务 ID
-     * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    // builder 开始
+    public CompleteTaskReq() {
     }
 
-    public CompleteTaskReq build() {
-      return new CompleteTaskReq(this);
+    public CompleteTaskReq(Builder builder) {
+        /**
+         * 任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取
+         * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
+         */
+        this.taskId = builder.taskId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public static class Builder {
+
+        private String taskId; // 任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取
+
+        /**
+         * 任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取
+         * <p> 示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public CompleteTaskReq build() {
+            return new CompleteTaskReq(this);
+        }
+    }
 }

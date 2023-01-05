@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryCustomizedData {
-
-  /**
-   * 自定义字段 ID
-   * <p> 示例值：6960663240925956649
-   */
-  @SerializedName("object_id")
-  private String objectId;
-  /**
-   * 自定义字段 value，格式见接口说明
-   * <p> 示例值：AA
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public WebsiteDeliveryCustomizedData() {
-  }
-
-  public WebsiteDeliveryCustomizedData(Builder builder) {
     /**
      * 自定义字段 ID
      * <p> 示例值：6960663240925956649
      */
-    this.objectId = builder.objectId;
-    /**
-     * 自定义字段 value，格式见接口说明
-     * <p> 示例值：AA
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getObjectId() {
-    return this.objectId;
-  }
-
-  public void setObjectId(String objectId) {
-    this.objectId = objectId;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6960663240925956649
-     */
+    @SerializedName("object_id")
     private String objectId;
     /**
      * 自定义字段 value，格式见接口说明
      * <p> 示例值：AA
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6960663240925956649
-     *
-     * @param objectId
-     * @return
-     */
-    public Builder objectId(String objectId) {
-      this.objectId = objectId;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryCustomizedData() {
     }
 
-
-    /**
-     * 自定义字段 value，格式见接口说明
-     * <p> 示例值：AA
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public WebsiteDeliveryCustomizedData(Builder builder) {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6960663240925956649
+         */
+        this.objectId = builder.objectId;
+        /**
+         * 自定义字段 value，格式见接口说明
+         * <p> 示例值：AA
+         */
+        this.value = builder.value;
     }
 
-
-    public WebsiteDeliveryCustomizedData build() {
-      return new WebsiteDeliveryCustomizedData(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getObjectId() {
+        return this.objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6960663240925956649
+         */
+        private String objectId;
+        /**
+         * 自定义字段 value，格式见接口说明
+         * <p> 示例值：AA
+         */
+        private String value;
+
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6960663240925956649
+         *
+         * @param objectId
+         * @return
+         */
+        public Builder objectId(String objectId) {
+            this.objectId = objectId;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段 value，格式见接口说明
+         * <p> 示例值：AA
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public WebsiteDeliveryCustomizedData build() {
+            return new WebsiteDeliveryCustomizedData(this);
+        }
+    }
 }

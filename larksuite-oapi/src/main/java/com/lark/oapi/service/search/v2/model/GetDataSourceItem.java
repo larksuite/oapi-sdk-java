@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetDataSourceItem {
 
-  /**
-   * 数据项实例
-   * <p> 示例值：
-   */
-  @SerializedName("item")
-  private Item item;
+    /**
+     * 数据项实例
+     * <p> 示例值：
+     */
+    @SerializedName("item")
+    private Item item;
 
-  public Item getItem() {
-    return this.item;
-  }
+    public Item getItem() {
+        return this.item;
+    }
 
-  public void setItem(Item item) {
-    this.item = item;
-  }
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
 }

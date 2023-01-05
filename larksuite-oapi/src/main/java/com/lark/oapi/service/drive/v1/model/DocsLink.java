@@ -16,61 +16,59 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DocsLink {
-
-  /**
-   * 回复 at云文档
-   * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
-   */
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public DocsLink() {
-  }
-
-  public DocsLink(Builder builder) {
     /**
      * 回复 at云文档
      * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
      */
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
-    /**
-     * 回复 at云文档
-     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
-     */
+    @SerializedName("url")
     private String url;
 
-    /**
-     * 回复 at云文档
-     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    // builder 开始
+    public DocsLink() {
     }
 
-
-    public DocsLink build() {
-      return new DocsLink(this);
+    public DocsLink(Builder builder) {
+        /**
+         * 回复 at云文档
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+         */
+        this.url = builder.url;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public static class Builder {
+        /**
+         * 回复 at云文档
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+         */
+        private String url;
+
+        /**
+         * 回复 at云文档
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        public DocsLink build() {
+            return new DocsLink(this);
+        }
+    }
 }

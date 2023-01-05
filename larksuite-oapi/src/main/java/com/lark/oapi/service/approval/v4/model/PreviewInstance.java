@@ -17,18 +17,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class PreviewInstance {
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("preview_nodes")
-  private PreviewNode[] previewNodes;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("preview_nodes")
+    private PreviewNode[] previewNodes;
 
-  public PreviewNode[] getPreviewNodes() {
-    return this.previewNodes;
-  }
+    public PreviewNode[] getPreviewNodes() {
+        return this.previewNodes;
+    }
 
-  public void setPreviewNodes(PreviewNode[] previewNodes) {
-    this.previewNodes = previewNodes;
-  }
+    public void setPreviewNodes(PreviewNode[] previewNodes) {
+        this.previewNodes = previewNodes;
+    }
 
 }

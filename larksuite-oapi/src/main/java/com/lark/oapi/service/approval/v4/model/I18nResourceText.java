@@ -16,98 +16,96 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class I18nResourceText {
-
-  /**
-   * 文案key
-   * <p> 示例值：@i18n@1
-   */
-  @SerializedName("key")
-  private String key;
-  /**
-   * 文案
-   * <p> 示例值：people
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public I18nResourceText() {
-  }
-
-  public I18nResourceText(Builder builder) {
     /**
      * 文案key
      * <p> 示例值：@i18n@1
      */
-    this.key = builder.key;
-    /**
-     * 文案
-     * <p> 示例值：people
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getKey() {
-    return this.key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文案key
-     * <p> 示例值：@i18n@1
-     */
+    @SerializedName("key")
     private String key;
     /**
      * 文案
      * <p> 示例值：people
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 文案key
-     * <p> 示例值：@i18n@1
-     *
-     * @param key
-     * @return
-     */
-    public Builder key(String key) {
-      this.key = key;
-      return this;
+    // builder 开始
+    public I18nResourceText() {
     }
 
-
-    /**
-     * 文案
-     * <p> 示例值：people
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public I18nResourceText(Builder builder) {
+        /**
+         * 文案key
+         * <p> 示例值：@i18n@1
+         */
+        this.key = builder.key;
+        /**
+         * 文案
+         * <p> 示例值：people
+         */
+        this.value = builder.value;
     }
 
-
-    public I18nResourceText build() {
-      return new I18nResourceText(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 文案key
+         * <p> 示例值：@i18n@1
+         */
+        private String key;
+        /**
+         * 文案
+         * <p> 示例值：people
+         */
+        private String value;
+
+        /**
+         * 文案key
+         * <p> 示例值：@i18n@1
+         *
+         * @param key
+         * @return
+         */
+        public Builder key(String key) {
+            this.key = key;
+            return this;
+        }
+
+
+        /**
+         * 文案
+         * <p> 示例值：people
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public I18nResourceText build() {
+            return new I18nResourceText(this);
+        }
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SchemaTypeDefinitions {
-
-  /**
-   * 标签类型的定义
-   * <p> 示例值：
-   */
-  @SerializedName("tag")
-  private SchemaTagOptions[] tag;
-
-  // builder 开始
-  public SchemaTypeDefinitions() {
-  }
-
-  public SchemaTypeDefinitions(Builder builder) {
     /**
      * 标签类型的定义
      * <p> 示例值：
      */
-    this.tag = builder.tag;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public SchemaTagOptions[] getTag() {
-    return this.tag;
-  }
-
-  public void setTag(SchemaTagOptions[] tag) {
-    this.tag = tag;
-  }
-
-  public static class Builder {
-
-    /**
-     * 标签类型的定义
-     * <p> 示例值：
-     */
+    @SerializedName("tag")
     private SchemaTagOptions[] tag;
 
-    /**
-     * 标签类型的定义
-     * <p> 示例值：
-     *
-     * @param tag
-     * @return
-     */
-    public Builder tag(SchemaTagOptions[] tag) {
-      this.tag = tag;
-      return this;
+    // builder 开始
+    public SchemaTypeDefinitions() {
     }
 
-
-    public SchemaTypeDefinitions build() {
-      return new SchemaTypeDefinitions(this);
+    public SchemaTypeDefinitions(Builder builder) {
+        /**
+         * 标签类型的定义
+         * <p> 示例值：
+         */
+        this.tag = builder.tag;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public SchemaTagOptions[] getTag() {
+        return this.tag;
+    }
+
+    public void setTag(SchemaTagOptions[] tag) {
+        this.tag = tag;
+    }
+
+    public static class Builder {
+        /**
+         * 标签类型的定义
+         * <p> 示例值：
+         */
+        private SchemaTagOptions[] tag;
+
+        /**
+         * 标签类型的定义
+         * <p> 示例值：
+         *
+         * @param tag
+         * @return
+         */
+        public Builder tag(SchemaTagOptions[] tag) {
+            this.tag = tag;
+            return this;
+        }
+
+
+        public SchemaTypeDefinitions build() {
+            return new SchemaTypeDefinitions(this);
+        }
+    }
 }

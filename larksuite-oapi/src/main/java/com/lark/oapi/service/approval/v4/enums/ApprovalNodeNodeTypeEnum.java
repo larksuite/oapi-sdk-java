@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
  */
 public enum ApprovalNodeNodeTypeEnum {
-  AND("AND"), // 会签
-  OR("OR"), // 或签
-  SEQUENTAL("SEQUENTIAL"), // 依次审批
-  ;
-  private String value;
+    AND("AND"), // 会签
+    OR("OR"), // 或签
+    SEQUENTAL("SEQUENTIAL"), // 依次审批
+    ;
+    private String value;
 
-  ApprovalNodeNodeTypeEnum(String value) {
-    this.value = value;
-  }
+    ApprovalNodeNodeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -15,21 +15,21 @@ package com.lark.oapi.service.docx.v1.model;
 
 public class UndefinedElement {
 
-  // builder 开始
-  public UndefinedElement() {
-  }
-
-  public UndefinedElement(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public UndefinedElement build() {
-      return new UndefinedElement(this);
+    // builder 开始
+    public UndefinedElement() {
     }
-  }
+
+    public UndefinedElement(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public UndefinedElement build() {
+            return new UndefinedElement(this);
+        }
+    }
 }

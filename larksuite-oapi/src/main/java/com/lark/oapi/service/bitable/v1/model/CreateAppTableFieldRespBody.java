@@ -16,20 +16,19 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTableFieldRespBody {
+    /**
+     * 字段
+     * <p> 示例值：
+     */
+    @SerializedName("field")
+    private AppTableField field;
 
-  /**
-   * 字段
-   * <p> 示例值：
-   */
-  @SerializedName("field")
-  private AppTableField field;
+    public AppTableField getField() {
+        return this.field;
+    }
 
-  public AppTableField getField() {
-    return this.field;
-  }
-
-  public void setField(AppTableField field) {
-    this.field = field;
-  }
+    public void setField(AppTableField field) {
+        this.field = field;
+    }
 
 }

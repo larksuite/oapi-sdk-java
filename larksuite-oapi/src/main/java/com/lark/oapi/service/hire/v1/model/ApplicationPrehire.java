@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationPrehire {
-
-  /**
-   * 投递id
-   * <p> 示例值：6949805467799537964
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 投递基础信息
-   * <p> 示例值：
-   */
-  @SerializedName("basic_info")
-  private ApplicationBasicInfo basicInfo;
-  /**
-   * 人才数据
-   * <p> 示例值：
-   */
-  @SerializedName("talent")
-  private ApplicationTalent talent;
-  /**
-   * 职位数据
-   * <p> 示例值：
-   */
-  @SerializedName("job")
-  private ApplicationJob job;
-  /**
-   * Offer数据
-   * <p> 示例值：
-   */
-  @SerializedName("offer")
-  private ApplicationPrehireOffer offer;
-
-  // builder 开始
-  public ApplicationPrehire() {
-  }
-
-  public ApplicationPrehire(Builder builder) {
     /**
      * 投递id
      * <p> 示例值：6949805467799537964
      */
-    this.id = builder.id;
-    /**
-     * 投递基础信息
-     * <p> 示例值：
-     */
-    this.basicInfo = builder.basicInfo;
-    /**
-     * 人才数据
-     * <p> 示例值：
-     */
-    this.talent = builder.talent;
-    /**
-     * 职位数据
-     * <p> 示例值：
-     */
-    this.job = builder.job;
-    /**
-     * Offer数据
-     * <p> 示例值：
-     */
-    this.offer = builder.offer;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ApplicationBasicInfo getBasicInfo() {
-    return this.basicInfo;
-  }
-
-  public void setBasicInfo(ApplicationBasicInfo basicInfo) {
-    this.basicInfo = basicInfo;
-  }
-
-  public ApplicationTalent getTalent() {
-    return this.talent;
-  }
-
-  public void setTalent(ApplicationTalent talent) {
-    this.talent = talent;
-  }
-
-  public ApplicationJob getJob() {
-    return this.job;
-  }
-
-  public void setJob(ApplicationJob job) {
-    this.job = job;
-  }
-
-  public ApplicationPrehireOffer getOffer() {
-    return this.offer;
-  }
-
-  public void setOffer(ApplicationPrehireOffer offer) {
-    this.offer = offer;
-  }
-
-  public static class Builder {
-
-    /**
-     * 投递id
-     * <p> 示例值：6949805467799537964
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 投递基础信息
      * <p> 示例值：
      */
+    @SerializedName("basic_info")
     private ApplicationBasicInfo basicInfo;
     /**
      * 人才数据
      * <p> 示例值：
      */
+    @SerializedName("talent")
     private ApplicationTalent talent;
     /**
      * 职位数据
      * <p> 示例值：
      */
+    @SerializedName("job")
     private ApplicationJob job;
     /**
      * Offer数据
      * <p> 示例值：
      */
+    @SerializedName("offer")
     private ApplicationPrehireOffer offer;
 
-    /**
-     * 投递id
-     * <p> 示例值：6949805467799537964
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ApplicationPrehire() {
     }
 
-
-    /**
-     * 投递基础信息
-     * <p> 示例值：
-     *
-     * @param basicInfo
-     * @return
-     */
-    public Builder basicInfo(ApplicationBasicInfo basicInfo) {
-      this.basicInfo = basicInfo;
-      return this;
+    public ApplicationPrehire(Builder builder) {
+        /**
+         * 投递id
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 投递基础信息
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * 人才数据
+         * <p> 示例值：
+         */
+        this.talent = builder.talent;
+        /**
+         * 职位数据
+         * <p> 示例值：
+         */
+        this.job = builder.job;
+        /**
+         * Offer数据
+         * <p> 示例值：
+         */
+        this.offer = builder.offer;
     }
 
-
-    /**
-     * 人才数据
-     * <p> 示例值：
-     *
-     * @param talent
-     * @return
-     */
-    public Builder talent(ApplicationTalent talent) {
-      this.talent = talent;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 职位数据
-     * <p> 示例值：
-     *
-     * @param job
-     * @return
-     */
-    public Builder job(ApplicationJob job) {
-      this.job = job;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * Offer数据
-     * <p> 示例值：
-     *
-     * @param offer
-     * @return
-     */
-    public Builder offer(ApplicationPrehireOffer offer) {
-      this.offer = offer;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public ApplicationPrehire build() {
-      return new ApplicationPrehire(this);
+    public ApplicationBasicInfo getBasicInfo() {
+        return this.basicInfo;
     }
-  }
+
+    public void setBasicInfo(ApplicationBasicInfo basicInfo) {
+        this.basicInfo = basicInfo;
+    }
+
+    public ApplicationTalent getTalent() {
+        return this.talent;
+    }
+
+    public void setTalent(ApplicationTalent talent) {
+        this.talent = talent;
+    }
+
+    public ApplicationJob getJob() {
+        return this.job;
+    }
+
+    public void setJob(ApplicationJob job) {
+        this.job = job;
+    }
+
+    public ApplicationPrehireOffer getOffer() {
+        return this.offer;
+    }
+
+    public void setOffer(ApplicationPrehireOffer offer) {
+        this.offer = offer;
+    }
+
+    public static class Builder {
+        /**
+         * 投递id
+         * <p> 示例值：6949805467799537964
+         */
+        private String id;
+        /**
+         * 投递基础信息
+         * <p> 示例值：
+         */
+        private ApplicationBasicInfo basicInfo;
+        /**
+         * 人才数据
+         * <p> 示例值：
+         */
+        private ApplicationTalent talent;
+        /**
+         * 职位数据
+         * <p> 示例值：
+         */
+        private ApplicationJob job;
+        /**
+         * Offer数据
+         * <p> 示例值：
+         */
+        private ApplicationPrehireOffer offer;
+
+        /**
+         * 投递id
+         * <p> 示例值：6949805467799537964
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 投递基础信息
+         * <p> 示例值：
+         *
+         * @param basicInfo
+         * @return
+         */
+        public Builder basicInfo(ApplicationBasicInfo basicInfo) {
+            this.basicInfo = basicInfo;
+            return this;
+        }
+
+
+        /**
+         * 人才数据
+         * <p> 示例值：
+         *
+         * @param talent
+         * @return
+         */
+        public Builder talent(ApplicationTalent talent) {
+            this.talent = talent;
+            return this;
+        }
+
+
+        /**
+         * 职位数据
+         * <p> 示例值：
+         *
+         * @param job
+         * @return
+         */
+        public Builder job(ApplicationJob job) {
+            this.job = job;
+            return this;
+        }
+
+
+        /**
+         * Offer数据
+         * <p> 示例值：
+         *
+         * @param offer
+         * @return
+         */
+        public Builder offer(ApplicationPrehireOffer offer) {
+            this.offer = offer;
+            return this;
+        }
+
+
+        public ApplicationPrehire build() {
+            return new ApplicationPrehire(this);
+        }
+    }
 }

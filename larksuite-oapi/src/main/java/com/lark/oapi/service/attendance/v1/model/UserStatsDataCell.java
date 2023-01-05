@@ -16,172 +16,170 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserStatsDataCell {
-
-  /**
-   * 字段编号
-   * <p> 示例值：50102
-   */
-  @SerializedName("code")
-  private String code;
-  /**
-   * 数据值
-   * <p> 示例值：无需打卡(-), 无需打卡(-)
-   */
-  @SerializedName("value")
-  private String value;
-  /**
-   * 数据属性
-   * <p> 示例值：
-   */
-  @SerializedName("features")
-  private UserStatsDataFeature[] features;
-  /**
-   * 字段标题
-   * <p> 示例值：姓名
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public UserStatsDataCell() {
-  }
-
-  public UserStatsDataCell(Builder builder) {
     /**
      * 字段编号
      * <p> 示例值：50102
      */
-    this.code = builder.code;
-    /**
-     * 数据值
-     * <p> 示例值：无需打卡(-), 无需打卡(-)
-     */
-    this.value = builder.value;
-    /**
-     * 数据属性
-     * <p> 示例值：
-     */
-    this.features = builder.features;
-    /**
-     * 字段标题
-     * <p> 示例值：姓名
-     */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public UserStatsDataFeature[] getFeatures() {
-    return this.features;
-  }
-
-  public void setFeatures(UserStatsDataFeature[] features) {
-    this.features = features;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 字段编号
-     * <p> 示例值：50102
-     */
+    @SerializedName("code")
     private String code;
     /**
      * 数据值
      * <p> 示例值：无需打卡(-), 无需打卡(-)
      */
+    @SerializedName("value")
     private String value;
     /**
      * 数据属性
      * <p> 示例值：
      */
+    @SerializedName("features")
     private UserStatsDataFeature[] features;
     /**
      * 字段标题
      * <p> 示例值：姓名
      */
+    @SerializedName("title")
     private String title;
 
-    /**
-     * 字段编号
-     * <p> 示例值：50102
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    // builder 开始
+    public UserStatsDataCell() {
     }
 
-
-    /**
-     * 数据值
-     * <p> 示例值：无需打卡(-), 无需打卡(-)
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public UserStatsDataCell(Builder builder) {
+        /**
+         * 字段编号
+         * <p> 示例值：50102
+         */
+        this.code = builder.code;
+        /**
+         * 数据值
+         * <p> 示例值：无需打卡(-), 无需打卡(-)
+         */
+        this.value = builder.value;
+        /**
+         * 数据属性
+         * <p> 示例值：
+         */
+        this.features = builder.features;
+        /**
+         * 字段标题
+         * <p> 示例值：姓名
+         */
+        this.title = builder.title;
     }
 
-
-    /**
-     * 数据属性
-     * <p> 示例值：
-     *
-     * @param features
-     * @return
-     */
-    public Builder features(UserStatsDataFeature[] features) {
-      this.features = features;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 字段标题
-     * <p> 示例值：姓名
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-
-    public UserStatsDataCell build() {
-      return new UserStatsDataCell(this);
+    public void setCode(String code) {
+        this.code = code;
     }
-  }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public UserStatsDataFeature[] getFeatures() {
+        return this.features;
+    }
+
+    public void setFeatures(UserStatsDataFeature[] features) {
+        this.features = features;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static class Builder {
+        /**
+         * 字段编号
+         * <p> 示例值：50102
+         */
+        private String code;
+        /**
+         * 数据值
+         * <p> 示例值：无需打卡(-), 无需打卡(-)
+         */
+        private String value;
+        /**
+         * 数据属性
+         * <p> 示例值：
+         */
+        private UserStatsDataFeature[] features;
+        /**
+         * 字段标题
+         * <p> 示例值：姓名
+         */
+        private String title;
+
+        /**
+         * 字段编号
+         * <p> 示例值：50102
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 数据值
+         * <p> 示例值：无需打卡(-), 无需打卡(-)
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        /**
+         * 数据属性
+         * <p> 示例值：
+         *
+         * @param features
+         * @return
+         */
+        public Builder features(UserStatsDataFeature[] features) {
+            this.features = features;
+            return this;
+        }
+
+
+        /**
+         * 字段标题
+         * <p> 示例值：姓名
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        public UserStatsDataCell build() {
+            return new UserStatsDataCell(this);
+        }
+    }
 }

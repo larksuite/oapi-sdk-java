@@ -18,165 +18,162 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetChatMembersReq {
-
-  /**
-   * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  /**
-   * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-
-  // builder 开始
-  public GetChatMembersReq() {
-  }
-
-  public GetChatMembersReq(Builder builder) {
     /**
      * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：open_id
      */
-    this.memberIdType = builder.memberIdType;
+    @Query
+    @SerializedName("member_id_type")
+    private String memberIdType;
     /**
-     *
      * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-  }
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public static class Builder {
-
-    private String memberIdType; // 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-    private String pageToken; //
-    private Integer pageSize; //
-    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-
-    /**
-     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType
-     * @return
-     */
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    // builder 开始
+    public GetChatMembersReq() {
     }
 
-    /**
-     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum}
-     * @return
-     */
-    public Builder memberIdType(
-        com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
+    public GetChatMembersReq(Builder builder) {
+        /**
+         * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：open_id
+         */
+        this.memberIdType = builder.memberIdType;
+        /**
+         *
+         * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
     }
 
-    /**
-     * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getMemberIdType() {
+        return this.memberIdType;
     }
 
-    /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
     }
 
-    public GetChatMembersReq build() {
-      return new GetChatMembersReq(this);
+    public String getPageToken() {
+        return this.pageToken;
     }
-  }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public static class Builder {
+        private String memberIdType; // 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+        private String pageToken; //
+        private Integer pageSize; //
+        private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+
+        /**
+         * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType
+         * @return
+         */
+        public Builder memberIdType(String memberIdType) {
+            this.memberIdType = memberIdType;
+            return this;
+        }
+
+        /**
+         * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum}
+         * @return
+         */
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum memberIdType) {
+            this.memberIdType = memberIdType.getValue();
+            return this;
+        }
+
+        /**
+         * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public GetChatMembersReq build() {
+            return new GetChatMembersReq(this);
+        }
+    }
 }

@@ -15,20 +15,20 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum NodeScopeEnum {
-  TENANT(1),
-  COUNTRY_DISTRICT(2),
-  CITY(3),
-  BUILDING(4),
-  FLOOR(5),
-  ROOM(6),
-  ;
-  private Integer value;
+    TENANT(1),
+    COUNTRY_DISTRICT(2),
+    CITY(3),
+    BUILDING(4),
+    FLOOR(5),
+    ROOM(6),
+    ;
+    private Integer value;
 
-  NodeScopeEnum(Integer value) {
-    this.value = value;
-  }
+    NodeScopeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

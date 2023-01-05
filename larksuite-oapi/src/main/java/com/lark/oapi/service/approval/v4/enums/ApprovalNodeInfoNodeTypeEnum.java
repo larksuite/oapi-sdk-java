@@ -17,18 +17,18 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批方式
  */
 public enum ApprovalNodeInfoNodeTypeEnum {
-  AND("AND"), // 会签
-  OR("OR"), // 或签
-  SEQUENTIAL("SEQUENTIAL"), // 依次审批
-  CCNODE("CC_NODE"), // 抄送节点
-  ;
-  private String value;
+    AND("AND"), // 会签
+    OR("OR"), // 或签
+    SEQUENTIAL("SEQUENTIAL"), // 依次审批
+    CCNODE("CC_NODE"), // 抄送节点
+    ;
+    private String value;
 
-  ApprovalNodeInfoNodeTypeEnum(String value) {
-    this.value = value;
-  }
+    ApprovalNodeInfoNodeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

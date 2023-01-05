@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListDevice {
 
-  /**
-   * -
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Device[] items;
+    /**
+     * -
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Device[] items;
 
-  public Device[] getItems() {
-    return this.items;
-  }
+    public Device[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(Device[] items) {
-    this.items = items;
-  }
+    public void setItems(Device[] items) {
+        this.items = items;
+    }
 
 }

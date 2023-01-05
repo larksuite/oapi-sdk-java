@@ -16,246 +16,244 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SegmentStyleStyle {
-
-  /**
-   * 加粗
-   * <p> 示例值：true
-   */
-  @SerializedName("bold")
-  private Boolean bold;
-  /**
-   * 斜体
-   * <p> 示例值：true
-   */
-  @SerializedName("italic")
-  private Boolean italic;
-  /**
-   * 删除线
-   * <p> 示例值：true
-   */
-  @SerializedName("strike_through")
-  private Boolean strikeThrough;
-  /**
-   * 下划线
-   * <p> 示例值：true
-   */
-  @SerializedName("underline")
-  private Boolean underline;
-  /**
-   * 字体颜色
-   * <p> 示例值：#ff00ff
-   */
-  @SerializedName("fore_color")
-  private String foreColor;
-  /**
-   * 字体大小
-   * <p> 示例值：
-   */
-  @SerializedName("font_size")
-  private Integer fontSize;
-
-  // builder 开始
-  public SegmentStyleStyle() {
-  }
-
-  public SegmentStyleStyle(Builder builder) {
     /**
      * 加粗
      * <p> 示例值：true
      */
-    this.bold = builder.bold;
-    /**
-     * 斜体
-     * <p> 示例值：true
-     */
-    this.italic = builder.italic;
-    /**
-     * 删除线
-     * <p> 示例值：true
-     */
-    this.strikeThrough = builder.strikeThrough;
-    /**
-     * 下划线
-     * <p> 示例值：true
-     */
-    this.underline = builder.underline;
-    /**
-     * 字体颜色
-     * <p> 示例值：#ff00ff
-     */
-    this.foreColor = builder.foreColor;
-    /**
-     * 字体大小
-     * <p> 示例值：
-     */
-    this.fontSize = builder.fontSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getBold() {
-    return this.bold;
-  }
-
-  public void setBold(Boolean bold) {
-    this.bold = bold;
-  }
-
-  public Boolean getItalic() {
-    return this.italic;
-  }
-
-  public void setItalic(Boolean italic) {
-    this.italic = italic;
-  }
-
-  public Boolean getStrikeThrough() {
-    return this.strikeThrough;
-  }
-
-  public void setStrikeThrough(Boolean strikeThrough) {
-    this.strikeThrough = strikeThrough;
-  }
-
-  public Boolean getUnderline() {
-    return this.underline;
-  }
-
-  public void setUnderline(Boolean underline) {
-    this.underline = underline;
-  }
-
-  public String getForeColor() {
-    return this.foreColor;
-  }
-
-  public void setForeColor(String foreColor) {
-    this.foreColor = foreColor;
-  }
-
-  public Integer getFontSize() {
-    return this.fontSize;
-  }
-
-  public void setFontSize(Integer fontSize) {
-    this.fontSize = fontSize;
-  }
-
-  public static class Builder {
-
-    /**
-     * 加粗
-     * <p> 示例值：true
-     */
+    @SerializedName("bold")
     private Boolean bold;
     /**
      * 斜体
      * <p> 示例值：true
      */
+    @SerializedName("italic")
     private Boolean italic;
     /**
      * 删除线
      * <p> 示例值：true
      */
+    @SerializedName("strike_through")
     private Boolean strikeThrough;
     /**
      * 下划线
      * <p> 示例值：true
      */
+    @SerializedName("underline")
     private Boolean underline;
     /**
      * 字体颜色
      * <p> 示例值：#ff00ff
      */
+    @SerializedName("fore_color")
     private String foreColor;
     /**
      * 字体大小
      * <p> 示例值：
      */
+    @SerializedName("font_size")
     private Integer fontSize;
 
-    /**
-     * 加粗
-     * <p> 示例值：true
-     *
-     * @param bold
-     * @return
-     */
-    public Builder bold(Boolean bold) {
-      this.bold = bold;
-      return this;
+    // builder 开始
+    public SegmentStyleStyle() {
     }
 
-
-    /**
-     * 斜体
-     * <p> 示例值：true
-     *
-     * @param italic
-     * @return
-     */
-    public Builder italic(Boolean italic) {
-      this.italic = italic;
-      return this;
+    public SegmentStyleStyle(Builder builder) {
+        /**
+         * 加粗
+         * <p> 示例值：true
+         */
+        this.bold = builder.bold;
+        /**
+         * 斜体
+         * <p> 示例值：true
+         */
+        this.italic = builder.italic;
+        /**
+         * 删除线
+         * <p> 示例值：true
+         */
+        this.strikeThrough = builder.strikeThrough;
+        /**
+         * 下划线
+         * <p> 示例值：true
+         */
+        this.underline = builder.underline;
+        /**
+         * 字体颜色
+         * <p> 示例值：#ff00ff
+         */
+        this.foreColor = builder.foreColor;
+        /**
+         * 字体大小
+         * <p> 示例值：
+         */
+        this.fontSize = builder.fontSize;
     }
 
-
-    /**
-     * 删除线
-     * <p> 示例值：true
-     *
-     * @param strikeThrough
-     * @return
-     */
-    public Builder strikeThrough(Boolean strikeThrough) {
-      this.strikeThrough = strikeThrough;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 下划线
-     * <p> 示例值：true
-     *
-     * @param underline
-     * @return
-     */
-    public Builder underline(Boolean underline) {
-      this.underline = underline;
-      return this;
+    public Boolean getBold() {
+        return this.bold;
     }
 
-
-    /**
-     * 字体颜色
-     * <p> 示例值：#ff00ff
-     *
-     * @param foreColor
-     * @return
-     */
-    public Builder foreColor(String foreColor) {
-      this.foreColor = foreColor;
-      return this;
+    public void setBold(Boolean bold) {
+        this.bold = bold;
     }
 
-
-    /**
-     * 字体大小
-     * <p> 示例值：
-     *
-     * @param fontSize
-     * @return
-     */
-    public Builder fontSize(Integer fontSize) {
-      this.fontSize = fontSize;
-      return this;
+    public Boolean getItalic() {
+        return this.italic;
     }
 
-
-    public SegmentStyleStyle build() {
-      return new SegmentStyleStyle(this);
+    public void setItalic(Boolean italic) {
+        this.italic = italic;
     }
-  }
+
+    public Boolean getStrikeThrough() {
+        return this.strikeThrough;
+    }
+
+    public void setStrikeThrough(Boolean strikeThrough) {
+        this.strikeThrough = strikeThrough;
+    }
+
+    public Boolean getUnderline() {
+        return this.underline;
+    }
+
+    public void setUnderline(Boolean underline) {
+        this.underline = underline;
+    }
+
+    public String getForeColor() {
+        return this.foreColor;
+    }
+
+    public void setForeColor(String foreColor) {
+        this.foreColor = foreColor;
+    }
+
+    public Integer getFontSize() {
+        return this.fontSize;
+    }
+
+    public void setFontSize(Integer fontSize) {
+        this.fontSize = fontSize;
+    }
+
+    public static class Builder {
+        /**
+         * 加粗
+         * <p> 示例值：true
+         */
+        private Boolean bold;
+        /**
+         * 斜体
+         * <p> 示例值：true
+         */
+        private Boolean italic;
+        /**
+         * 删除线
+         * <p> 示例值：true
+         */
+        private Boolean strikeThrough;
+        /**
+         * 下划线
+         * <p> 示例值：true
+         */
+        private Boolean underline;
+        /**
+         * 字体颜色
+         * <p> 示例值：#ff00ff
+         */
+        private String foreColor;
+        /**
+         * 字体大小
+         * <p> 示例值：
+         */
+        private Integer fontSize;
+
+        /**
+         * 加粗
+         * <p> 示例值：true
+         *
+         * @param bold
+         * @return
+         */
+        public Builder bold(Boolean bold) {
+            this.bold = bold;
+            return this;
+        }
+
+
+        /**
+         * 斜体
+         * <p> 示例值：true
+         *
+         * @param italic
+         * @return
+         */
+        public Builder italic(Boolean italic) {
+            this.italic = italic;
+            return this;
+        }
+
+
+        /**
+         * 删除线
+         * <p> 示例值：true
+         *
+         * @param strikeThrough
+         * @return
+         */
+        public Builder strikeThrough(Boolean strikeThrough) {
+            this.strikeThrough = strikeThrough;
+            return this;
+        }
+
+
+        /**
+         * 下划线
+         * <p> 示例值：true
+         *
+         * @param underline
+         * @return
+         */
+        public Builder underline(Boolean underline) {
+            this.underline = underline;
+            return this;
+        }
+
+
+        /**
+         * 字体颜色
+         * <p> 示例值：#ff00ff
+         *
+         * @param foreColor
+         * @return
+         */
+        public Builder foreColor(String foreColor) {
+            this.foreColor = foreColor;
+            return this;
+        }
+
+
+        /**
+         * 字体大小
+         * <p> 示例值：
+         *
+         * @param fontSize
+         * @return
+         */
+        public Builder fontSize(Integer fontSize) {
+            this.fontSize = fontSize;
+            return this;
+        }
+
+
+        public SegmentStyleStyle build() {
+            return new SegmentStyleStyle(this);
+        }
+    }
 }

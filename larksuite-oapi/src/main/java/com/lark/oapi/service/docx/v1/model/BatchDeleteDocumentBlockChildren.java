@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteDocumentBlockChildren {
 
-  /**
-   * 当前删除操作成功后文档的版本号
-   * <p> 示例值：1
-   */
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  /**
-   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-   * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-   */
-  @SerializedName("client_token")
-  private String clientToken;
+    /**
+     * 当前删除操作成功后文档的版本号
+     * <p> 示例值：1
+     */
+    @SerializedName("document_revision_id")
+    private Integer documentRevisionId;
+    /**
+     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     */
+    @SerializedName("client_token")
+    private String clientToken;
 
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
+    }
 
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
+    }
 
-  public String getClientToken() {
-    return this.clientToken;
-  }
+    public String getClientToken() {
+        return this.clientToken;
+    }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
 
 }

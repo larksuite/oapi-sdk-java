@@ -17,16 +17,16 @@ package com.lark.oapi.service.task.v1.enums;
  * 评论排序标记，可按照评论时间从小到大查询，或者评论时间从大到小查询，不填默认按照从小到大
  */
 public enum ListTaskCommentListDirectionEnum {
-  DOWN(0), // 按照回复时间从小到大查询
-  UP(1), // 按照回复时间从大到小查询
-  ;
-  private Integer value;
+    DOWN(0), // 按照回复时间从小到大查询
+    UP(1), // 按照回复时间从大到小查询
+    ;
+    private Integer value;
 
-  ListTaskCommentListDirectionEnum(Integer value) {
-    this.value = value;
-  }
+    ListTaskCommentListDirectionEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

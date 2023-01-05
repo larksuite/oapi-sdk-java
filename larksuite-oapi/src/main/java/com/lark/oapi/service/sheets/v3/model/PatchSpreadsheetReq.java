@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchSpreadsheetReq {
-
-  /**
-   * 表格的token
-   * <p> 示例值：shtxxxxxxxxxxxxxxx
-   */
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-  @Body
-  private UpdateSpreadsheetProperties body;
-
-  // builder 开始
-  public PatchSpreadsheetReq() {
-  }
-
-  public PatchSpreadsheetReq(Builder builder) {
     /**
      * 表格的token
      * <p> 示例值：shtxxxxxxxxxxxxxxx
      */
-    this.spreadsheetToken = builder.spreadsheetToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public UpdateSpreadsheetProperties getUpdateSpreadsheetProperties() {
-    return this.body;
-  }
-
-  public void setUpdateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String spreadsheetToken; // 表格的token
+    @Path
+    @SerializedName("spreadsheet_token")
+    private String spreadsheetToken;
+    @Body
     private UpdateSpreadsheetProperties body;
 
-    /**
-     * 表格的token
-     * <p> 示例值：shtxxxxxxxxxxxxxxx
-     *
-     * @param spreadsheetToken
-     * @return
-     */
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
+    // builder 开始
+    public PatchSpreadsheetReq() {
+    }
+
+    public PatchSpreadsheetReq(Builder builder) {
+        /**
+         * 表格的token
+         * <p> 示例值：shtxxxxxxxxxxxxxxx
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
     }
 
     public UpdateSpreadsheetProperties getUpdateSpreadsheetProperties() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder updateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
-      this.body = body;
-      return this;
+    public void setUpdateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
+        this.body = body;
     }
 
-    public PatchSpreadsheetReq build() {
-      return new PatchSpreadsheetReq(this);
+    public static class Builder {
+
+        private String spreadsheetToken; // 表格的token
+        private UpdateSpreadsheetProperties body;
+
+        /**
+         * 表格的token
+         * <p> 示例值：shtxxxxxxxxxxxxxxx
+         *
+         * @param spreadsheetToken
+         * @return
+         */
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+        public UpdateSpreadsheetProperties getUpdateSpreadsheetProperties() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder updateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchSpreadsheetReq build() {
+            return new PatchSpreadsheetReq(this);
+        }
     }
-  }
 }

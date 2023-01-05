@@ -17,106 +17,106 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTimeoffEvent {
 
-  /**
-   * 休假申请的唯一标识id
-   * <p> 示例值：
-   */
-  @SerializedName("timeoff_event_id")
-  private String timeoffEventId;
-  /**
-   * 用户的user id
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 休假人的时区
-   * <p> 示例值：
-   */
-  @SerializedName("timezone")
-  private String timezone;
-  /**
-   * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
-   * <p> 示例值：
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
-   * <p> 示例值：
-   */
-  @SerializedName("end_time")
-  private String endTime;
-  /**
-   * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
-   * Absence"，"请假中"
-   * <p> 示例值：
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
-   * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in the
-   * time off system will not be revoked."
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private String description;
+    /**
+     * 休假申请的唯一标识id
+     * <p> 示例值：
+     */
+    @SerializedName("timeoff_event_id")
+    private String timeoffEventId;
+    /**
+     * 用户的user id
+     * <p> 示例值：
+     */
+    @SerializedName("user_id")
+    private String userId;
+    /**
+     * 休假人的时区
+     * <p> 示例值：
+     */
+    @SerializedName("timezone")
+    private String timezone;
+    /**
+     * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+     * <p> 示例值：
+     */
+    @SerializedName("start_time")
+    private String startTime;
+    /**
+     * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+     * <p> 示例值：
+     */
+    @SerializedName("end_time")
+    private String endTime;
+    /**
+     * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+     * Absence"，"请假中"
+     * <p> 示例值：
+     */
+    @SerializedName("title")
+    private String title;
+    /**
+     * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+     * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in the
+     * time off system will not be revoked."
+     * <p> 示例值：
+     */
+    @SerializedName("description")
+    private String description;
 
-  public String getTimeoffEventId() {
-    return this.timeoffEventId;
-  }
+    public String getTimeoffEventId() {
+        return this.timeoffEventId;
+    }
 
-  public void setTimeoffEventId(String timeoffEventId) {
-    this.timeoffEventId = timeoffEventId;
-  }
+    public void setTimeoffEventId(String timeoffEventId) {
+        this.timeoffEventId = timeoffEventId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getTimezone() {
-    return this.timezone;
-  }
+    public String getTimezone() {
+        return this.timezone;
+    }
 
-  public void setTimezone(String timezone) {
-    this.timezone = timezone;
-  }
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
 
-  public String getStartTime() {
-    return this.startTime;
-  }
+    public String getStartTime() {
+        return this.startTime;
+    }
 
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
 
-  public String getEndTime() {
-    return this.endTime;
-  }
+    public String getEndTime() {
+        return this.endTime;
+    }
 
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
-  public String getTitle() {
-    return this.title;
-  }
+    public String getTitle() {
+        return this.title;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public String getDescription() {
-    return this.description;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 }

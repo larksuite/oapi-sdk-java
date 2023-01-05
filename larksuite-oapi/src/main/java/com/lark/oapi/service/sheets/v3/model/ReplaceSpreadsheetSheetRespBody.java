@@ -16,20 +16,19 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReplaceSpreadsheetSheetRespBody {
+    /**
+     * 符合查找条件并替换的单元格信息
+     * <p> 示例值：
+     */
+    @SerializedName("replace_result")
+    private FindReplaceResult replaceResult;
 
-  /**
-   * 符合查找条件并替换的单元格信息
-   * <p> 示例值：
-   */
-  @SerializedName("replace_result")
-  private FindReplaceResult replaceResult;
+    public FindReplaceResult getReplaceResult() {
+        return this.replaceResult;
+    }
 
-  public FindReplaceResult getReplaceResult() {
-    return this.replaceResult;
-  }
-
-  public void setReplaceResult(FindReplaceResult replaceResult) {
-    this.replaceResult = replaceResult;
-  }
+    public void setReplaceResult(FindReplaceResult replaceResult) {
+        this.replaceResult = replaceResult;
+    }
 
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.docx.v1.enums;
  * 周期的状态
  */
 public enum OkrOkrPeriodDisplayStatusEnum {
-  DEFAULT("default"), // 默认
-  NORMAL("normal"), // 正常
-  INVALID("invalid"), // 失效
-  HIDDEN("hidden"), // 隐藏
-  ;
-  private String value;
+    DEFAULT("default"), // 默认
+    NORMAL("normal"), // 正常
+    INVALID("invalid"), // 失效
+    HIDDEN("hidden"), // 隐藏
+    ;
+    private String value;
 
-  OkrOkrPeriodDisplayStatusEnum(String value) {
-    this.value = value;
-  }
+    OkrOkrPeriodDisplayStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

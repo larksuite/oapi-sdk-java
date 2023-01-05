@@ -16,62 +16,61 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryTaskRespBody {
+    /**
+     * 任务列表
+     * <p> 示例值：
+     */
+    @SerializedName("tasks")
+    private Task[] tasks;
+    /**
+     * 翻页 Token
+     * <p> 示例值：example_page_token
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有更多任务可供拉取
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 列表计数，只在分页第一页返回
+     * <p> 示例值：
+     */
+    @SerializedName("count")
+    private Count count;
 
-  /**
-   * 任务列表
-   * <p> 示例值：
-   */
-  @SerializedName("tasks")
-  private Task[] tasks;
-  /**
-   * 翻页 Token
-   * <p> 示例值：example_page_token
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有更多任务可供拉取
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 列表计数，只在分页第一页返回
-   * <p> 示例值：
-   */
-  @SerializedName("count")
-  private Count count;
+    public Task[] getTasks() {
+        return this.tasks;
+    }
 
-  public Task[] getTasks() {
-    return this.tasks;
-  }
+    public void setTasks(Task[] tasks) {
+        this.tasks = tasks;
+    }
 
-  public void setTasks(Task[] tasks) {
-    this.tasks = tasks;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public Count getCount() {
+        return this.count;
+    }
 
-  public Count getCount() {
-    return this.count;
-  }
-
-  public void setCount(Count count) {
-    this.count = count;
-  }
+    public void setCount(Count count) {
+        this.count = count;
+    }
 
 }

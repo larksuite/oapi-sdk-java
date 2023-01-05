@@ -16,135 +16,133 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FaceInfo {
-
-  /**
-   * 人脸位置信息
-   * <p> 示例值：
-   */
-  @SerializedName("position")
-  private FacePosition position;
-  /**
-   * 人脸属性信息
-   * <p> 示例值：
-   */
-  @SerializedName("attribute")
-  private FaceAttribute attribute;
-  /**
-   * 人脸质量信息
-   * <p> 示例值：
-   */
-  @SerializedName("quality")
-  private FaceQuality quality;
-
-  // builder 开始
-  public FaceInfo() {
-  }
-
-  public FaceInfo(Builder builder) {
     /**
      * 人脸位置信息
      * <p> 示例值：
      */
-    this.position = builder.position;
-    /**
-     * 人脸属性信息
-     * <p> 示例值：
-     */
-    this.attribute = builder.attribute;
-    /**
-     * 人脸质量信息
-     * <p> 示例值：
-     */
-    this.quality = builder.quality;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FacePosition getPosition() {
-    return this.position;
-  }
-
-  public void setPosition(FacePosition position) {
-    this.position = position;
-  }
-
-  public FaceAttribute getAttribute() {
-    return this.attribute;
-  }
-
-  public void setAttribute(FaceAttribute attribute) {
-    this.attribute = attribute;
-  }
-
-  public FaceQuality getQuality() {
-    return this.quality;
-  }
-
-  public void setQuality(FaceQuality quality) {
-    this.quality = quality;
-  }
-
-  public static class Builder {
-
-    /**
-     * 人脸位置信息
-     * <p> 示例值：
-     */
+    @SerializedName("position")
     private FacePosition position;
     /**
      * 人脸属性信息
      * <p> 示例值：
      */
+    @SerializedName("attribute")
     private FaceAttribute attribute;
     /**
      * 人脸质量信息
      * <p> 示例值：
      */
+    @SerializedName("quality")
     private FaceQuality quality;
 
-    /**
-     * 人脸位置信息
-     * <p> 示例值：
-     *
-     * @param position
-     * @return
-     */
-    public Builder position(FacePosition position) {
-      this.position = position;
-      return this;
+    // builder 开始
+    public FaceInfo() {
     }
 
-
-    /**
-     * 人脸属性信息
-     * <p> 示例值：
-     *
-     * @param attribute
-     * @return
-     */
-    public Builder attribute(FaceAttribute attribute) {
-      this.attribute = attribute;
-      return this;
+    public FaceInfo(Builder builder) {
+        /**
+         * 人脸位置信息
+         * <p> 示例值：
+         */
+        this.position = builder.position;
+        /**
+         * 人脸属性信息
+         * <p> 示例值：
+         */
+        this.attribute = builder.attribute;
+        /**
+         * 人脸质量信息
+         * <p> 示例值：
+         */
+        this.quality = builder.quality;
     }
 
-
-    /**
-     * 人脸质量信息
-     * <p> 示例值：
-     *
-     * @param quality
-     * @return
-     */
-    public Builder quality(FaceQuality quality) {
-      this.quality = quality;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public FaceInfo build() {
-      return new FaceInfo(this);
+    public FacePosition getPosition() {
+        return this.position;
     }
-  }
+
+    public void setPosition(FacePosition position) {
+        this.position = position;
+    }
+
+    public FaceAttribute getAttribute() {
+        return this.attribute;
+    }
+
+    public void setAttribute(FaceAttribute attribute) {
+        this.attribute = attribute;
+    }
+
+    public FaceQuality getQuality() {
+        return this.quality;
+    }
+
+    public void setQuality(FaceQuality quality) {
+        this.quality = quality;
+    }
+
+    public static class Builder {
+        /**
+         * 人脸位置信息
+         * <p> 示例值：
+         */
+        private FacePosition position;
+        /**
+         * 人脸属性信息
+         * <p> 示例值：
+         */
+        private FaceAttribute attribute;
+        /**
+         * 人脸质量信息
+         * <p> 示例值：
+         */
+        private FaceQuality quality;
+
+        /**
+         * 人脸位置信息
+         * <p> 示例值：
+         *
+         * @param position
+         * @return
+         */
+        public Builder position(FacePosition position) {
+            this.position = position;
+            return this;
+        }
+
+
+        /**
+         * 人脸属性信息
+         * <p> 示例值：
+         *
+         * @param attribute
+         * @return
+         */
+        public Builder attribute(FaceAttribute attribute) {
+            this.attribute = attribute;
+            return this;
+        }
+
+
+        /**
+         * 人脸质量信息
+         * <p> 示例值：
+         *
+         * @param quality
+         * @return
+         */
+        public Builder quality(FaceQuality quality) {
+            this.quality = quality;
+            return this;
+        }
+
+
+        public FaceInfo build() {
+            return new FaceInfo(this);
+        }
+    }
 }

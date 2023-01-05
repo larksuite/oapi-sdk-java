@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 删除结果
  */
 public enum MaterialDeleteResultDeleteResultEnum {
-  OK(1), // 删除成功
-  FAILED(2), // 删除失败
-  NO_PERMISSION(3), // 无权限
-  ;
-  private Integer value;
+    OK(1), // 删除成功
+    FAILED(2), // 删除失败
+    NO_PERMISSION(3), // 无权限
+    ;
+    private Integer value;
 
-  MaterialDeleteResultDeleteResultEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialDeleteResultDeleteResultEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EmployeeConversionInfo {
-
-  /**
-   * 实际转正日期
-   * <p> 示例值：1637596800000
-   */
-  @SerializedName("actual_conversion_time")
-  private Integer actualConversionTime;
-
-  // builder 开始
-  public EmployeeConversionInfo() {
-  }
-
-  public EmployeeConversionInfo(Builder builder) {
     /**
      * 实际转正日期
      * <p> 示例值：1637596800000
      */
-    this.actualConversionTime = builder.actualConversionTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getActualConversionTime() {
-    return this.actualConversionTime;
-  }
-
-  public void setActualConversionTime(Integer actualConversionTime) {
-    this.actualConversionTime = actualConversionTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 实际转正日期
-     * <p> 示例值：1637596800000
-     */
+    @SerializedName("actual_conversion_time")
     private Integer actualConversionTime;
 
-    /**
-     * 实际转正日期
-     * <p> 示例值：1637596800000
-     *
-     * @param actualConversionTime
-     * @return
-     */
-    public Builder actualConversionTime(Integer actualConversionTime) {
-      this.actualConversionTime = actualConversionTime;
-      return this;
+    // builder 开始
+    public EmployeeConversionInfo() {
     }
 
-
-    public EmployeeConversionInfo build() {
-      return new EmployeeConversionInfo(this);
+    public EmployeeConversionInfo(Builder builder) {
+        /**
+         * 实际转正日期
+         * <p> 示例值：1637596800000
+         */
+        this.actualConversionTime = builder.actualConversionTime;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getActualConversionTime() {
+        return this.actualConversionTime;
+    }
+
+    public void setActualConversionTime(Integer actualConversionTime) {
+        this.actualConversionTime = actualConversionTime;
+    }
+
+    public static class Builder {
+        /**
+         * 实际转正日期
+         * <p> 示例值：1637596800000
+         */
+        private Integer actualConversionTime;
+
+        /**
+         * 实际转正日期
+         * <p> 示例值：1637596800000
+         *
+         * @param actualConversionTime
+         * @return
+         */
+        public Builder actualConversionTime(Integer actualConversionTime) {
+            this.actualConversionTime = actualConversionTime;
+            return this;
+        }
+
+
+        public EmployeeConversionInfo build() {
+            return new EmployeeConversionInfo(this);
+        }
+    }
 }

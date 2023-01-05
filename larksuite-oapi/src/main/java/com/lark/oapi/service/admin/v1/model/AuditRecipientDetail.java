@@ -16,61 +16,59 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AuditRecipientDetail {
-
-  /**
-   * 修改权限协作者
-   * <p> 示例值：
-   */
-  @SerializedName("permission_action_type")
-  private String permissionActionType;
-
-  // builder 开始
-  public AuditRecipientDetail() {
-  }
-
-  public AuditRecipientDetail(Builder builder) {
     /**
      * 修改权限协作者
      * <p> 示例值：
      */
-    this.permissionActionType = builder.permissionActionType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPermissionActionType() {
-    return this.permissionActionType;
-  }
-
-  public void setPermissionActionType(String permissionActionType) {
-    this.permissionActionType = permissionActionType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 修改权限协作者
-     * <p> 示例值：
-     */
+    @SerializedName("permission_action_type")
     private String permissionActionType;
 
-    /**
-     * 修改权限协作者
-     * <p> 示例值：
-     *
-     * @param permissionActionType
-     * @return
-     */
-    public Builder permissionActionType(String permissionActionType) {
-      this.permissionActionType = permissionActionType;
-      return this;
+    // builder 开始
+    public AuditRecipientDetail() {
     }
 
-
-    public AuditRecipientDetail build() {
-      return new AuditRecipientDetail(this);
+    public AuditRecipientDetail(Builder builder) {
+        /**
+         * 修改权限协作者
+         * <p> 示例值：
+         */
+        this.permissionActionType = builder.permissionActionType;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getPermissionActionType() {
+        return this.permissionActionType;
+    }
+
+    public void setPermissionActionType(String permissionActionType) {
+        this.permissionActionType = permissionActionType;
+    }
+
+    public static class Builder {
+        /**
+         * 修改权限协作者
+         * <p> 示例值：
+         */
+        private String permissionActionType;
+
+        /**
+         * 修改权限协作者
+         * <p> 示例值：
+         *
+         * @param permissionActionType
+         * @return
+         */
+        public Builder permissionActionType(String permissionActionType) {
+            this.permissionActionType = permissionActionType;
+            return this;
+        }
+
+
+        public AuditRecipientDetail build() {
+            return new AuditRecipientDetail(this);
+        }
+    }
 }

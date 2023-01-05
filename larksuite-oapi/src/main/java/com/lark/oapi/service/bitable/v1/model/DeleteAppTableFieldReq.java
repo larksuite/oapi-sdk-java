@@ -17,125 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAppTableFieldReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * field id
-   * <p> 示例值：fldPTb0U2y
-   */
-  @Path
-  @SerializedName("field_id")
-  private String fieldId;
-
-  // builder 开始
-  public DeleteAppTableFieldReq() {
-  }
-
-  public DeleteAppTableFieldReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * table id
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     /**
      * field id
      * <p> 示例值：fldPTb0U2y
      */
-    this.fieldId = builder.fieldId;
-  }
+    @Path
+    @SerializedName("field_id")
+    private String fieldId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
-    private String tableId; // table id
-    private String fieldId; // field id
-
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public DeleteAppTableFieldReq() {
     }
 
-
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public DeleteAppTableFieldReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * field id
+         * <p> 示例值：fldPTb0U2y
+         */
+        this.fieldId = builder.fieldId;
     }
 
-
-    /**
-     * field id
-     * <p> 示例值：fldPTb0U2y
-     *
-     * @param fieldId
-     * @return
-     */
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public DeleteAppTableFieldReq build() {
-      return new DeleteAppTableFieldReq(this);
+    public String getAppToken() {
+        return this.appToken;
     }
-  }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getFieldId() {
+        return this.fieldId;
+    }
+
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
+    }
+
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private String tableId; // table id
+        private String fieldId; // field id
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+
+        /**
+         * field id
+         * <p> 示例值：fldPTb0U2y
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
+            return this;
+        }
+
+        public DeleteAppTableFieldReq build() {
+            return new DeleteAppTableFieldReq(this);
+        }
+    }
 }

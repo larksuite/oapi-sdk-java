@@ -15,20 +15,20 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum TypeEnum {
-  SUPERVISOR("Supervisor"),
-  SUPERVISORTOPDOWN("SupervisorTopDown"),
-  DEPARTMENTMANAGER("DepartmentManager"),
-  DEPARTMENTMANAGERTOPDOWN("DepartmentManagerTopDown"),
-  PERSONAL("Personal"),
-  FREE("Free"),
-  ;
-  private String value;
+    SUPERVISOR("Supervisor"),
+    SUPERVISORTOPDOWN("SupervisorTopDown"),
+    DEPARTMENTMANAGER("DepartmentManager"),
+    DEPARTMENTMANAGERTOPDOWN("DepartmentManagerTopDown"),
+    PERSONAL("Personal"),
+    FREE("Free"),
+    ;
+    private String value;
 
-  TypeEnum(String value) {
-    this.value = value;
-  }
+    TypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

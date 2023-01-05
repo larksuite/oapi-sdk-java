@@ -14,24 +14,25 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 文件类型，放于query参数中，如：`?type=doc`
+ * 文件类型，需要与文件的 token 相匹配
  */
 public enum UpdatePermissionMemberTokenTypeEnum {
-  DOC("doc"), // 文档
-  SHEET("sheet"), // 电子表格
-  FILE("file"), // 云空间文件
-  WIKI("wiki"), // 知识库节点
-  BITABLE("bitable"), // 多维表格
-  DOCX("docx"), // 文档
-  MINDNOTE("mindnote"), // 思维笔记
-  ;
-  private String value;
+    DOC("doc"), // 文档
+    SHEET("sheet"), // 电子表格
+    FILE("file"), // 云空间文件
+    WIKI("wiki"), // 知识库节点
+    BITABLE("bitable"), // 多维表格
+    DOCX("docx"), // 文档
+    MINDNOTE("mindnote"), // 思维笔记
+    MINUTES("minutes"), // 妙记
+    ;
+    private String value;
 
-  UpdatePermissionMemberTokenTypeEnum(String value) {
-    this.value = value;
-  }
+    UpdatePermissionMemberTokenTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

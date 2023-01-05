@@ -13,101 +13,101 @@
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>sample</artifactId>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>spring-boot-maven-plugin</artifactId>
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <artifactId>sample</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <artifactId>spring-boot-loader</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <artifactId>oapi-sdk-apache-httpclient</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>oapi-sdk</artifactId>
+                    <groupId>com.larksuite.oapi</groupId>
+                </exclusion>
+            </exclusions>
+            <groupId>com.larksuite.oapi</groupId>
+            <version>1.0.1-snapshot</version>
+        </dependency>
+        <dependency>
+            <artifactId>oapi-sdk-servlet-ext</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>oapi-sdk</artifactId>
+                    <groupId>com.larksuite.oapi</groupId>
+                </exclusion>
+            </exclusions>
+            <groupId>com.larksuite.oapi</groupId>
+            <version>1.0.0-rc2</version>
+        </dependency>
+        <dependency>
+            <artifactId>oapi-sdk</artifactId>
+            <groupId>com.larksuite.oapi</groupId>
+            <version>2.0.10</version>
+        </dependency>
+        <dependency>
+            <artifactId>httpclient</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <artifactId>httpmime</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <artifactId>logback-classic</artifactId>
+            <groupId>ch.qos.logback</groupId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>junit</artifactId>
+            <groupId>junit</groupId>
+            <scope>test</scope>
+            <version>4.13.2</version>
+        </dependency>
+        <!--    <dependency>-->
+        <!--      <artifactId>gson</artifactId>-->
+        <!--      <groupId>com.google.code.gson</groupId>-->
+        <!--      <version>2.8.6</version>-->
+        <!--    </dependency>-->
+        <dependency>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+    </dependencies>
+    <groupId>com.lark.oapi</groupId>
+    <licenses>
+        <license>
+            <distribution>repo</distribution>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <modelVersion>4.0.0</modelVersion>
+    <name>sample</name>
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-    <dependency>
-      <artifactId>spring-boot-loader</artifactId>
-      <groupId>org.springframework.boot</groupId>
-      <version>2.2.0.RELEASE</version>
-    </dependency>
-    <dependency>
-      <artifactId>oapi-sdk-apache-httpclient</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>oapi-sdk</artifactId>
-          <groupId>com.larksuite.oapi</groupId>
-        </exclusion>
-      </exclusions>
-      <groupId>com.larksuite.oapi</groupId>
-      <version>1.0.1-snapshot</version>
-    </dependency>
-    <dependency>
-      <artifactId>oapi-sdk-servlet-ext</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>oapi-sdk</artifactId>
-          <groupId>com.larksuite.oapi</groupId>
-        </exclusion>
-      </exclusions>
-      <groupId>com.larksuite.oapi</groupId>
-      <version>1.0.0-rc2</version>
-    </dependency>
-    <dependency>
-      <artifactId>oapi-sdk</artifactId>
-      <groupId>com.larksuite.oapi</groupId>
-      <version>2.0.2-rc7</version>
-    </dependency>
-    <dependency>
-      <artifactId>httpclient</artifactId>
-      <groupId>org.apache.httpcomponents</groupId>
-      <version>4.5.13</version>
-    </dependency>
-    <dependency>
-      <artifactId>httpmime</artifactId>
-      <groupId>org.apache.httpcomponents</groupId>
-      <version>4.5.13</version>
-    </dependency>
-    <dependency>
-      <artifactId>logback-classic</artifactId>
-      <groupId>ch.qos.logback</groupId>
-      <version>${logback.version}</version>
-    </dependency>
-    <dependency>
-      <artifactId>junit</artifactId>
-      <groupId>junit</groupId>
-      <scope>test</scope>
-      <version>4.13.2</version>
-    </dependency>
-    <!--    <dependency>-->
-    <!--      <artifactId>gson</artifactId>-->
-    <!--      <groupId>com.google.code.gson</groupId>-->
-    <!--      <version>2.8.6</version>-->
-    <!--    </dependency>-->
-    <dependency>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-  </dependencies>
-  <groupId>com.lark.oapi</groupId>
-  <licenses>
-    <license>
-      <distribution>repo</distribution>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    </license>
-  </licenses>
-  <modelVersion>4.0.0</modelVersion>
-  <name>sample</name>
-  <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <groupId>org.springframework.boot</groupId>
-    <relativePath/>
-    <version>2.6.7</version> <!-- lookup parent from repository -->
-  </parent>
-  <properties>
-    <java.version>8</java.version>
-  </properties>
-  <url>https://github.com/larksuite/oapi-sdk-java</url>
+        <relativePath/>
+        <version>2.6.7</version> <!-- lookup parent from repository -->
+    </parent>
+    <properties>
+        <java.version>8</java.version>
+    </properties>
+    <url>https://github.com/larksuite/oapi-sdk-java</url>
 
-  <version>1.0.0</version>
+    <version>1.0.0</version>
 </project>

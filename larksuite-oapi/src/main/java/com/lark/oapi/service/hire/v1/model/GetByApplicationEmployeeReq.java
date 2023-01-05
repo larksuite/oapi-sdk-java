@@ -17,92 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetByApplicationEmployeeReq {
-
-  /**
-   * 投递ID
-   * <p> 示例值：123
-   */
-  @Query
-  @SerializedName("application_id")
-  private String applicationId;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public GetByApplicationEmployeeReq() {
-  }
-
-  public GetByApplicationEmployeeReq(Builder builder) {
     /**
      * 投递ID
      * <p> 示例值：123
      */
-    this.applicationId = builder.applicationId;
+    @Query
+    @SerializedName("application_id")
+    private String applicationId;
     /**
-     * 此次调用中使用的用户ID的类型
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
+     * 此次调用中使用的部门 ID 的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
-  }
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
-    private String applicationId; // 投递ID
-    private String userIdType; // 此次调用中使用的用户ID的类型
-
-
-    /**
-     * 投递ID
-     * <p> 示例值：123
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    // builder 开始
+    public GetByApplicationEmployeeReq() {
     }
 
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public GetByApplicationEmployeeReq(Builder builder) {
+        /**
+         * 投递ID
+         * <p> 示例值：123
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
     }
 
-    public GetByApplicationEmployeeReq build() {
-      return new GetByApplicationEmployeeReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public static class Builder {
+        private String applicationId; // 投递ID
+        private String userIdType; // 用户 ID 类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+
+
+        /**
+         * 投递ID
+         * <p> 示例值：123
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        public GetByApplicationEmployeeReq build() {
+            return new GetByApplicationEmployeeReq(this);
+        }
+    }
 }

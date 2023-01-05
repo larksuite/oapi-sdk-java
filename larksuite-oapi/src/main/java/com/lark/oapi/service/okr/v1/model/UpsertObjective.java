@@ -16,246 +16,244 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpsertObjective {
-
-  /**
-   * OKR内容
-   * <p> 示例值：okr
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 负责人列表
-   * <p> 示例值：
-   */
-  @SerializedName("mention_list")
-  private String[] mentionList;
-  /**
-   * KR列表
-   * <p> 示例值：
-   */
-  @SerializedName("kr_list")
-  private UpsertObjectiveKr[] krList;
-  /**
-   * Objective进度状态
-   * <p> 示例值：
-   */
-  @SerializedName("progress_rate")
-  private ProgressRate progressRate;
-  /**
-   * Objective进度列表
-   * <p> 示例值：
-   */
-  @SerializedName("progress_list")
-  private ProgressItem[] progressList;
-  /**
-   * OKR权重
-   * <p> 示例值：100
-   */
-  @SerializedName("weight")
-  private Double weight;
-
-  // builder 开始
-  public UpsertObjective() {
-  }
-
-  public UpsertObjective(Builder builder) {
     /**
      * OKR内容
      * <p> 示例值：okr
      */
-    this.content = builder.content;
-    /**
-     * 负责人列表
-     * <p> 示例值：
-     */
-    this.mentionList = builder.mentionList;
-    /**
-     * KR列表
-     * <p> 示例值：
-     */
-    this.krList = builder.krList;
-    /**
-     * Objective进度状态
-     * <p> 示例值：
-     */
-    this.progressRate = builder.progressRate;
-    /**
-     * Objective进度列表
-     * <p> 示例值：
-     */
-    this.progressList = builder.progressList;
-    /**
-     * OKR权重
-     * <p> 示例值：100
-     */
-    this.weight = builder.weight;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String[] getMentionList() {
-    return this.mentionList;
-  }
-
-  public void setMentionList(String[] mentionList) {
-    this.mentionList = mentionList;
-  }
-
-  public UpsertObjectiveKr[] getKrList() {
-    return this.krList;
-  }
-
-  public void setKrList(UpsertObjectiveKr[] krList) {
-    this.krList = krList;
-  }
-
-  public ProgressRate getProgressRate() {
-    return this.progressRate;
-  }
-
-  public void setProgressRate(ProgressRate progressRate) {
-    this.progressRate = progressRate;
-  }
-
-  public ProgressItem[] getProgressList() {
-    return this.progressList;
-  }
-
-  public void setProgressList(ProgressItem[] progressList) {
-    this.progressList = progressList;
-  }
-
-  public Double getWeight() {
-    return this.weight;
-  }
-
-  public void setWeight(Double weight) {
-    this.weight = weight;
-  }
-
-  public static class Builder {
-
-    /**
-     * OKR内容
-     * <p> 示例值：okr
-     */
+    @SerializedName("content")
     private String content;
     /**
      * 负责人列表
      * <p> 示例值：
      */
+    @SerializedName("mention_list")
     private String[] mentionList;
     /**
      * KR列表
      * <p> 示例值：
      */
+    @SerializedName("kr_list")
     private UpsertObjectiveKr[] krList;
     /**
      * Objective进度状态
      * <p> 示例值：
      */
+    @SerializedName("progress_rate")
     private ProgressRate progressRate;
     /**
      * Objective进度列表
      * <p> 示例值：
      */
+    @SerializedName("progress_list")
     private ProgressItem[] progressList;
     /**
      * OKR权重
      * <p> 示例值：100
      */
+    @SerializedName("weight")
     private Double weight;
 
-    /**
-     * OKR内容
-     * <p> 示例值：okr
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public UpsertObjective() {
     }
 
-
-    /**
-     * 负责人列表
-     * <p> 示例值：
-     *
-     * @param mentionList
-     * @return
-     */
-    public Builder mentionList(String[] mentionList) {
-      this.mentionList = mentionList;
-      return this;
+    public UpsertObjective(Builder builder) {
+        /**
+         * OKR内容
+         * <p> 示例值：okr
+         */
+        this.content = builder.content;
+        /**
+         * 负责人列表
+         * <p> 示例值：
+         */
+        this.mentionList = builder.mentionList;
+        /**
+         * KR列表
+         * <p> 示例值：
+         */
+        this.krList = builder.krList;
+        /**
+         * Objective进度状态
+         * <p> 示例值：
+         */
+        this.progressRate = builder.progressRate;
+        /**
+         * Objective进度列表
+         * <p> 示例值：
+         */
+        this.progressList = builder.progressList;
+        /**
+         * OKR权重
+         * <p> 示例值：100
+         */
+        this.weight = builder.weight;
     }
 
-
-    /**
-     * KR列表
-     * <p> 示例值：
-     *
-     * @param krList
-     * @return
-     */
-    public Builder krList(UpsertObjectiveKr[] krList) {
-      this.krList = krList;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * Objective进度状态
-     * <p> 示例值：
-     *
-     * @param progressRate
-     * @return
-     */
-    public Builder progressRate(ProgressRate progressRate) {
-      this.progressRate = progressRate;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-
-    /**
-     * Objective进度列表
-     * <p> 示例值：
-     *
-     * @param progressList
-     * @return
-     */
-    public Builder progressList(ProgressItem[] progressList) {
-      this.progressList = progressList;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-
-    /**
-     * OKR权重
-     * <p> 示例值：100
-     *
-     * @param weight
-     * @return
-     */
-    public Builder weight(Double weight) {
-      this.weight = weight;
-      return this;
+    public String[] getMentionList() {
+        return this.mentionList;
     }
 
-
-    public UpsertObjective build() {
-      return new UpsertObjective(this);
+    public void setMentionList(String[] mentionList) {
+        this.mentionList = mentionList;
     }
-  }
+
+    public UpsertObjectiveKr[] getKrList() {
+        return this.krList;
+    }
+
+    public void setKrList(UpsertObjectiveKr[] krList) {
+        this.krList = krList;
+    }
+
+    public ProgressRate getProgressRate() {
+        return this.progressRate;
+    }
+
+    public void setProgressRate(ProgressRate progressRate) {
+        this.progressRate = progressRate;
+    }
+
+    public ProgressItem[] getProgressList() {
+        return this.progressList;
+    }
+
+    public void setProgressList(ProgressItem[] progressList) {
+        this.progressList = progressList;
+    }
+
+    public Double getWeight() {
+        return this.weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public static class Builder {
+        /**
+         * OKR内容
+         * <p> 示例值：okr
+         */
+        private String content;
+        /**
+         * 负责人列表
+         * <p> 示例值：
+         */
+        private String[] mentionList;
+        /**
+         * KR列表
+         * <p> 示例值：
+         */
+        private UpsertObjectiveKr[] krList;
+        /**
+         * Objective进度状态
+         * <p> 示例值：
+         */
+        private ProgressRate progressRate;
+        /**
+         * Objective进度列表
+         * <p> 示例值：
+         */
+        private ProgressItem[] progressList;
+        /**
+         * OKR权重
+         * <p> 示例值：100
+         */
+        private Double weight;
+
+        /**
+         * OKR内容
+         * <p> 示例值：okr
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 负责人列表
+         * <p> 示例值：
+         *
+         * @param mentionList
+         * @return
+         */
+        public Builder mentionList(String[] mentionList) {
+            this.mentionList = mentionList;
+            return this;
+        }
+
+
+        /**
+         * KR列表
+         * <p> 示例值：
+         *
+         * @param krList
+         * @return
+         */
+        public Builder krList(UpsertObjectiveKr[] krList) {
+            this.krList = krList;
+            return this;
+        }
+
+
+        /**
+         * Objective进度状态
+         * <p> 示例值：
+         *
+         * @param progressRate
+         * @return
+         */
+        public Builder progressRate(ProgressRate progressRate) {
+            this.progressRate = progressRate;
+            return this;
+        }
+
+
+        /**
+         * Objective进度列表
+         * <p> 示例值：
+         *
+         * @param progressList
+         * @return
+         */
+        public Builder progressList(ProgressItem[] progressList) {
+            this.progressList = progressList;
+            return this;
+        }
+
+
+        /**
+         * OKR权重
+         * <p> 示例值：100
+         *
+         * @param weight
+         * @return
+         */
+        public Builder weight(Double weight) {
+            this.weight = weight;
+            return this;
+        }
+
+
+        public UpsertObjective build() {
+            return new UpsertObjective(this);
+        }
+    }
 }

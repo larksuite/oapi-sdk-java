@@ -15,18 +15,18 @@ package com.lark.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum ApplicationEnum {
-  NOT_APPLIED(1),
-  PENDING(2),
-  REJECTED(3),
-  APPROVED(4),
-  ;
-  private Integer value;
+    NOT_APPLIED(1),
+    PENDING(2),
+    REJECTED(3),
+    APPROVED(4),
+    ;
+    private Integer value;
 
-  ApplicationEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

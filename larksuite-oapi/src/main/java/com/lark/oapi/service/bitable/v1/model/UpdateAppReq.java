@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateAppReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Body
-  private UpdateAppReqBody body;
-
-  // builder 开始
-  public UpdateAppReq() {
-  }
-
-  public UpdateAppReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public UpdateAppReqBody getUpdateAppReqBody() {
-    return this.body;
-  }
-
-  public void setUpdateAppReqBody(UpdateAppReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
+    @Body
     private UpdateAppReqBody body;
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public UpdateAppReq() {
+    }
+
+    public UpdateAppReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
     public UpdateAppReqBody getUpdateAppReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder updateAppReqBody(UpdateAppReqBody body) {
-      this.body = body;
-      return this;
+    public void setUpdateAppReqBody(UpdateAppReqBody body) {
+        this.body = body;
     }
 
-    public UpdateAppReq build() {
-      return new UpdateAppReq(this);
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private UpdateAppReqBody body;
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        public UpdateAppReqBody getUpdateAppReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder updateAppReqBody(UpdateAppReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateAppReq build() {
+            return new UpdateAppReq(this);
+        }
     }
-  }
 }

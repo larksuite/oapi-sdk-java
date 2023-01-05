@@ -16,135 +16,133 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Scope {
-
-  /**
-   * 部门对象
-   * <p> 示例值：
-   */
-  @SerializedName("departments")
-  private Department[] departments;
-  /**
-   * 用户对象
-   * <p> 示例值：
-   */
-  @SerializedName("users")
-  private User[] users;
-  /**
-   * 用户组对象
-   * <p> 示例值：
-   */
-  @SerializedName("user_groups")
-  private UserGroup[] userGroups;
-
-  // builder 开始
-  public Scope() {
-  }
-
-  public Scope(Builder builder) {
     /**
      * 部门对象
      * <p> 示例值：
      */
-    this.departments = builder.departments;
-    /**
-     * 用户对象
-     * <p> 示例值：
-     */
-    this.users = builder.users;
-    /**
-     * 用户组对象
-     * <p> 示例值：
-     */
-    this.userGroups = builder.userGroups;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Department[] getDepartments() {
-    return this.departments;
-  }
-
-  public void setDepartments(Department[] departments) {
-    this.departments = departments;
-  }
-
-  public User[] getUsers() {
-    return this.users;
-  }
-
-  public void setUsers(User[] users) {
-    this.users = users;
-  }
-
-  public UserGroup[] getUserGroups() {
-    return this.userGroups;
-  }
-
-  public void setUserGroups(UserGroup[] userGroups) {
-    this.userGroups = userGroups;
-  }
-
-  public static class Builder {
-
-    /**
-     * 部门对象
-     * <p> 示例值：
-     */
+    @SerializedName("departments")
     private Department[] departments;
     /**
      * 用户对象
      * <p> 示例值：
      */
+    @SerializedName("users")
     private User[] users;
     /**
      * 用户组对象
      * <p> 示例值：
      */
+    @SerializedName("user_groups")
     private UserGroup[] userGroups;
 
-    /**
-     * 部门对象
-     * <p> 示例值：
-     *
-     * @param departments
-     * @return
-     */
-    public Builder departments(Department[] departments) {
-      this.departments = departments;
-      return this;
+    // builder 开始
+    public Scope() {
     }
 
-
-    /**
-     * 用户对象
-     * <p> 示例值：
-     *
-     * @param users
-     * @return
-     */
-    public Builder users(User[] users) {
-      this.users = users;
-      return this;
+    public Scope(Builder builder) {
+        /**
+         * 部门对象
+         * <p> 示例值：
+         */
+        this.departments = builder.departments;
+        /**
+         * 用户对象
+         * <p> 示例值：
+         */
+        this.users = builder.users;
+        /**
+         * 用户组对象
+         * <p> 示例值：
+         */
+        this.userGroups = builder.userGroups;
     }
 
-
-    /**
-     * 用户组对象
-     * <p> 示例值：
-     *
-     * @param userGroups
-     * @return
-     */
-    public Builder userGroups(UserGroup[] userGroups) {
-      this.userGroups = userGroups;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Scope build() {
-      return new Scope(this);
+    public Department[] getDepartments() {
+        return this.departments;
     }
-  }
+
+    public void setDepartments(Department[] departments) {
+        this.departments = departments;
+    }
+
+    public User[] getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(User[] users) {
+        this.users = users;
+    }
+
+    public UserGroup[] getUserGroups() {
+        return this.userGroups;
+    }
+
+    public void setUserGroups(UserGroup[] userGroups) {
+        this.userGroups = userGroups;
+    }
+
+    public static class Builder {
+        /**
+         * 部门对象
+         * <p> 示例值：
+         */
+        private Department[] departments;
+        /**
+         * 用户对象
+         * <p> 示例值：
+         */
+        private User[] users;
+        /**
+         * 用户组对象
+         * <p> 示例值：
+         */
+        private UserGroup[] userGroups;
+
+        /**
+         * 部门对象
+         * <p> 示例值：
+         *
+         * @param departments
+         * @return
+         */
+        public Builder departments(Department[] departments) {
+            this.departments = departments;
+            return this;
+        }
+
+
+        /**
+         * 用户对象
+         * <p> 示例值：
+         *
+         * @param users
+         * @return
+         */
+        public Builder users(User[] users) {
+            this.users = users;
+            return this;
+        }
+
+
+        /**
+         * 用户组对象
+         * <p> 示例值：
+         *
+         * @param userGroups
+         * @return
+         */
+        public Builder userGroups(UserGroup[] userGroups) {
+            this.userGroups = userGroups;
+            return this;
+        }
+
+
+        public Scope build() {
+            return new Scope(this);
+        }
+    }
 }

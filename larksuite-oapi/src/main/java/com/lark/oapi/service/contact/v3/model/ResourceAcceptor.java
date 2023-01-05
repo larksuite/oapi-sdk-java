@@ -16,111 +16,108 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ResourceAcceptor {
-
-  /**
-   * 资源处理类型
-   * <p> 示例值：1
-   */
-  @SerializedName("processing_type")
-  private String processingType;
-  /**
-   * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-   */
-  @SerializedName("acceptor_user_id")
-  private String acceptorUserId;
-
-  // builder 开始
-  public ResourceAcceptor() {
-  }
-
-  public ResourceAcceptor(Builder builder) {
     /**
-     * 资源处理类型
+     * 邮件处理方式
      * <p> 示例值：1
      */
-    this.processingType = builder.processingType;
-    /**
-     * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     */
-    this.acceptorUserId = builder.acceptorUserId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getProcessingType() {
-    return this.processingType;
-  }
-
-  public void setProcessingType(String processingType) {
-    this.processingType = processingType;
-  }
-
-  public String getAcceptorUserId() {
-    return this.acceptorUserId;
-  }
-
-  public void setAcceptorUserId(String acceptorUserId) {
-    this.acceptorUserId = acceptorUserId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 资源处理类型
-     * <p> 示例值：1
-     */
+    @SerializedName("processing_type")
     private String processingType;
     /**
      * 在 processing_type 为 1 （转移资源时），邮件资源接收者
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
+    @SerializedName("acceptor_user_id")
     private String acceptorUserId;
 
-    /**
-     * 资源处理类型
-     * <p> 示例值：1
-     *
-     * @param processingType
-     * @return
-     */
-    public Builder processingType(String processingType) {
-      this.processingType = processingType;
-      return this;
+    // builder 开始
+    public ResourceAcceptor() {
     }
 
-    /**
-     * 资源处理类型
-     * <p> 示例值：1
-     *
-     * @param processingType {@link com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum}
-     * @return
-     */
-    public Builder processingType(
-        com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum processingType) {
-      this.processingType = processingType.getValue();
-      return this;
+    public ResourceAcceptor(Builder builder) {
+        /**
+         * 邮件处理方式
+         * <p> 示例值：1
+         */
+        this.processingType = builder.processingType;
+        /**
+         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        this.acceptorUserId = builder.acceptorUserId;
     }
 
-
-    /**
-     * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     *
-     * @param acceptorUserId
-     * @return
-     */
-    public Builder acceptorUserId(String acceptorUserId) {
-      this.acceptorUserId = acceptorUserId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ResourceAcceptor build() {
-      return new ResourceAcceptor(this);
+    public String getProcessingType() {
+        return this.processingType;
     }
-  }
+
+    public void setProcessingType(String processingType) {
+        this.processingType = processingType;
+    }
+
+    public String getAcceptorUserId() {
+        return this.acceptorUserId;
+    }
+
+    public void setAcceptorUserId(String acceptorUserId) {
+        this.acceptorUserId = acceptorUserId;
+    }
+
+    public static class Builder {
+        /**
+         * 邮件处理方式
+         * <p> 示例值：1
+         */
+        private String processingType;
+        /**
+         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        private String acceptorUserId;
+
+        /**
+         * 邮件处理方式
+         * <p> 示例值：1
+         *
+         * @param processingType
+         * @return
+         */
+        public Builder processingType(String processingType) {
+            this.processingType = processingType;
+            return this;
+        }
+
+        /**
+         * 邮件处理方式
+         * <p> 示例值：1
+         *
+         * @param processingType {@link com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum}
+         * @return
+         */
+        public Builder processingType(com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum processingType) {
+            this.processingType = processingType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         *
+         * @param acceptorUserId
+         * @return
+         */
+        public Builder acceptorUserId(String acceptorUserId) {
+            this.acceptorUserId = acceptorUserId;
+            return this;
+        }
+
+
+        public ResourceAcceptor build() {
+            return new ResourceAcceptor(this);
+        }
+    }
 }

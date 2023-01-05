@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InterviewRoundTypeAssessmentTemplate {
-
-  /**
-   * 面试评价表 ID
-   * <p> 示例值：7012129842917869868
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 面试评价表业务 ID
-   * <p> 示例值：7012129842917869868
-   */
-  @SerializedName("biz_id")
-  private String bizId;
-  /**
-   * 面试评价表名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-
-  // builder 开始
-  public InterviewRoundTypeAssessmentTemplate() {
-  }
-
-  public InterviewRoundTypeAssessmentTemplate(Builder builder) {
     /**
      * 面试评价表 ID
      * <p> 示例值：7012129842917869868
      */
-    this.id = builder.id;
-    /**
-     * 面试评价表业务 ID
-     * <p> 示例值：7012129842917869868
-     */
-    this.bizId = builder.bizId;
-    /**
-     * 面试评价表名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getBizId() {
-    return this.bizId;
-  }
-
-  public void setBizId(String bizId) {
-    this.bizId = bizId;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试评价表 ID
-     * <p> 示例值：7012129842917869868
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 面试评价表业务 ID
      * <p> 示例值：7012129842917869868
      */
+    @SerializedName("biz_id")
     private String bizId;
     /**
      * 面试评价表名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
 
-    /**
-     * 面试评价表 ID
-     * <p> 示例值：7012129842917869868
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public InterviewRoundTypeAssessmentTemplate() {
     }
 
-
-    /**
-     * 面试评价表业务 ID
-     * <p> 示例值：7012129842917869868
-     *
-     * @param bizId
-     * @return
-     */
-    public Builder bizId(String bizId) {
-      this.bizId = bizId;
-      return this;
+    public InterviewRoundTypeAssessmentTemplate(Builder builder) {
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：7012129842917869868
+         */
+        this.id = builder.id;
+        /**
+         * 面试评价表业务 ID
+         * <p> 示例值：7012129842917869868
+         */
+        this.bizId = builder.bizId;
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 面试评价表名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public InterviewRoundTypeAssessmentTemplate build() {
-      return new InterviewRoundTypeAssessmentTemplate(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getBizId() {
+        return this.bizId;
+    }
+
+    public void setBizId(String bizId) {
+        this.bizId = bizId;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：7012129842917869868
+         */
+        private String id;
+        /**
+         * 面试评价表业务 ID
+         * <p> 示例值：7012129842917869868
+         */
+        private String bizId;
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         */
+        private I18n name;
+
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：7012129842917869868
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 面试评价表业务 ID
+         * <p> 示例值：7012129842917869868
+         *
+         * @param bizId
+         * @return
+         */
+        public Builder bizId(String bizId) {
+            this.bizId = bizId;
+            return this;
+        }
+
+
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public InterviewRoundTypeAssessmentTemplate build() {
+            return new InterviewRoundTypeAssessmentTemplate(this);
+        }
+    }
 }

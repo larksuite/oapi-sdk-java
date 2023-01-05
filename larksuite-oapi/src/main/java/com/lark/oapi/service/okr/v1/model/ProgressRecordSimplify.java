@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ProgressRecordSimplify {
-
-  /**
-   * OKR 进展记录ID
-   * <p> 示例值：7041469619902693396
-   */
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public ProgressRecordSimplify() {
-  }
-
-  public ProgressRecordSimplify(Builder builder) {
     /**
      * OKR 进展记录ID
      * <p> 示例值：7041469619902693396
      */
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    /**
-     * OKR 进展记录ID
-     * <p> 示例值：7041469619902693396
-     */
+    @SerializedName("id")
     private String id;
 
-    /**
-     * OKR 进展记录ID
-     * <p> 示例值：7041469619902693396
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ProgressRecordSimplify() {
     }
 
-
-    public ProgressRecordSimplify build() {
-      return new ProgressRecordSimplify(this);
+    public ProgressRecordSimplify(Builder builder) {
+        /**
+         * OKR 进展记录ID
+         * <p> 示例值：7041469619902693396
+         */
+        this.id = builder.id;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+        /**
+         * OKR 进展记录ID
+         * <p> 示例值：7041469619902693396
+         */
+        private String id;
+
+        /**
+         * OKR 进展记录ID
+         * <p> 示例值：7041469619902693396
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public ProgressRecordSimplify build() {
+            return new ProgressRecordSimplify(this);
+        }
+    }
 }

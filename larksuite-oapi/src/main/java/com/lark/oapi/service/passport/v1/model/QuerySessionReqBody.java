@@ -16,61 +16,59 @@ package com.lark.oapi.service.passport.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QuerySessionReqBody {
-
-  /**
-   * 用户 ID
-   * <p> 示例值：["47f621ff"]
-   */
-  @SerializedName("user_ids")
-  private String[] userIds;
-
-  // builder 开始
-  public QuerySessionReqBody() {
-  }
-
-  public QuerySessionReqBody(Builder builder) {
     /**
      * 用户 ID
      * <p> 示例值：["47f621ff"]
      */
-    this.userIds = builder.userIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getUserIds() {
-    return this.userIds;
-  }
-
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户 ID
-     * <p> 示例值：["47f621ff"]
-     */
+    @SerializedName("user_ids")
     private String[] userIds;
 
-    /**
-     * 用户 ID
-     * <p> 示例值：["47f621ff"]
-     *
-     * @param userIds
-     * @return
-     */
-    public Builder userIds(String[] userIds) {
-      this.userIds = userIds;
-      return this;
+    // builder 开始
+    public QuerySessionReqBody() {
     }
 
-
-    public QuerySessionReqBody build() {
-      return new QuerySessionReqBody(this);
+    public QuerySessionReqBody(Builder builder) {
+        /**
+         * 用户 ID
+         * <p> 示例值：["47f621ff"]
+         */
+        this.userIds = builder.userIds;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getUserIds() {
+        return this.userIds;
+    }
+
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
+
+    public static class Builder {
+        /**
+         * 用户 ID
+         * <p> 示例值：["47f621ff"]
+         */
+        private String[] userIds;
+
+        /**
+         * 用户 ID
+         * <p> 示例值：["47f621ff"]
+         *
+         * @param userIds
+         * @return
+         */
+        public Builder userIds(String[] userIds) {
+            this.userIds = userIds;
+            return this;
+        }
+
+
+        public QuerySessionReqBody build() {
+            return new QuerySessionReqBody(this);
+        }
+    }
 }

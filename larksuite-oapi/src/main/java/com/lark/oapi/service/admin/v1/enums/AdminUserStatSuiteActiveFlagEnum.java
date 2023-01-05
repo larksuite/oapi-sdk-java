@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户活跃状态，用户在飞书套件任意应用登陆，即为活跃。包括飞书即时消息，文档，日历，会议，开放平台等
  */
 public enum AdminUserStatSuiteActiveFlagEnum {
-  INACTIVE(0), // 无活跃
-  ACTIVE(1), // 活跃
-  ;
-  private Integer value;
+    INACTIVE(0), // 无活跃
+    ACTIVE(1), // 活跃
+    ;
+    private Integer value;
 
-  AdminUserStatSuiteActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    AdminUserStatSuiteActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

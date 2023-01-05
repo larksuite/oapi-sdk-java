@@ -16,20 +16,19 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskRespBody {
+    /**
+     * 返回创建好的任务
+     * <p> 示例值：
+     */
+    @SerializedName("task")
+    private Task task;
 
-  /**
-   * 返回创建好的任务
-   * <p> 示例值：
-   */
-  @SerializedName("task")
-  private Task task;
+    public Task getTask() {
+        return this.task;
+    }
 
-  public Task getTask() {
-    return this.task;
-  }
-
-  public void setTask(Task task) {
-    this.task = task;
-  }
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
 }

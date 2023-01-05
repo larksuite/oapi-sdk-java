@@ -17,126 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListMotoReq {
-
-  /**
-   * 分页大小
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * level
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("level")
-  private Integer level;
-
-  // builder 开始
-  public ListMotoReq() {
-  }
-
-  public ListMotoReq(Builder builder) {
     /**
      * 分页大小
      * <p> 示例值：
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
      * <p> 示例值：
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * level
      * <p> 示例值：
      */
-    this.level = builder.level;
-  }
+    @Query
+    @SerializedName("level")
+    private Integer level;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getLevel() {
-    return this.level;
-  }
-
-  public void setLevel(Integer level) {
-    this.level = level;
-  }
-
-  public static class Builder {
-
-    private Integer pageSize; // 分页大小
-    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-    private Integer level; // level
-
-
-    /**
-     * 分页大小
-     * <p> 示例值：
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    // builder 开始
+    public ListMotoReq() {
     }
 
-
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public ListMotoReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * level
+         * <p> 示例值：
+         */
+        this.level = builder.level;
     }
 
-
-    /**
-     * level
-     * <p> 示例值：
-     *
-     * @param level
-     * @return
-     */
-    public Builder level(Integer level) {
-      this.level = level;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public ListMotoReq build() {
-      return new ListMotoReq(this);
+    public Integer getPageSize() {
+        return this.pageSize;
     }
-  }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getLevel() {
+        return this.level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public static class Builder {
+        private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private Integer level; // level
+
+
+        /**
+         * 分页大小
+         * <p> 示例值：
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * level
+         * <p> 示例值：
+         *
+         * @param level
+         * @return
+         */
+        public Builder level(Integer level) {
+            this.level = level;
+            return this;
+        }
+
+        public ListMotoReq build() {
+            return new ListMotoReq(this);
+        }
+    }
 }

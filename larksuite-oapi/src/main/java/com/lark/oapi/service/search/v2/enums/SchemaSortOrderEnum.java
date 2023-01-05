@@ -15,16 +15,16 @@ package com.lark.oapi.service.search.v2.enums;
 
 // 生成枚举值
 public enum SchemaSortOrderEnum {
-  ASC("asc"),
-  DESC("desc"),
-  ;
-  private String value;
+    ASC("asc"),
+    DESC("desc"),
+    ;
+    private String value;
 
-  SchemaSortOrderEnum(String value) {
-    this.value = value;
-  }
+    SchemaSortOrderEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

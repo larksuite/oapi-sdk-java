@@ -17,17 +17,17 @@ package com.lark.oapi.service.docx.v1.enums;
  * 语言（用于 MentionUser 语言的选取）
  */
 public enum RawContentDocumentLangEnum {
-  ZH(0), // 中文
-  EN(1), // 英文
-  JP(2), // 日文
-  ;
-  private Integer value;
+    ZH(0), // 中文
+    EN(1), // 英文
+    JP(2), // 日文
+    ;
+    private Integer value;
 
-  RawContentDocumentLangEnum(Integer value) {
-    this.value = value;
-  }
+    RawContentDocumentLangEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

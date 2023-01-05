@@ -16,135 +16,133 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AgentScheduleUpdateInfo {
-
-  /**
-   * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
-   * <p> 示例值：agent-id
-   */
-  @SerializedName("agent_id")
-  private String agentId;
-  /**
-   * 工作日程列表
-   * <p> 示例值：
-   */
-  @SerializedName("schedule")
-  private WeekdaySchedule[] schedule;
-  /**
-   * 客服技能 ids
-   * <p> 示例值：[]
-   */
-  @SerializedName("agent_skill_ids")
-  private String[] agentSkillIds;
-
-  // builder 开始
-  public AgentScheduleUpdateInfo() {
-  }
-
-  public AgentScheduleUpdateInfo(Builder builder) {
     /**
      * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
      * <p> 示例值：agent-id
      */
-    this.agentId = builder.agentId;
-    /**
-     * 工作日程列表
-     * <p> 示例值：
-     */
-    this.schedule = builder.schedule;
-    /**
-     * 客服技能 ids
-     * <p> 示例值：[]
-     */
-    this.agentSkillIds = builder.agentSkillIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public WeekdaySchedule[] getSchedule() {
-    return this.schedule;
-  }
-
-  public void setSchedule(WeekdaySchedule[] schedule) {
-    this.schedule = schedule;
-  }
-
-  public String[] getAgentSkillIds() {
-    return this.agentSkillIds;
-  }
-
-  public void setAgentSkillIds(String[] agentSkillIds) {
-    this.agentSkillIds = agentSkillIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
-     * <p> 示例值：agent-id
-     */
+    @SerializedName("agent_id")
     private String agentId;
     /**
      * 工作日程列表
      * <p> 示例值：
      */
+    @SerializedName("schedule")
     private WeekdaySchedule[] schedule;
     /**
      * 客服技能 ids
-     * <p> 示例值：[]
+     * <p> 示例值：[“test-skill-id”]
      */
+    @SerializedName("agent_skill_ids")
     private String[] agentSkillIds;
 
-    /**
-     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
-     * <p> 示例值：agent-id
-     *
-     * @param agentId
-     * @return
-     */
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
+    // builder 开始
+    public AgentScheduleUpdateInfo() {
     }
 
-
-    /**
-     * 工作日程列表
-     * <p> 示例值：
-     *
-     * @param schedule
-     * @return
-     */
-    public Builder schedule(WeekdaySchedule[] schedule) {
-      this.schedule = schedule;
-      return this;
+    public AgentScheduleUpdateInfo(Builder builder) {
+        /**
+         * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+         * <p> 示例值：agent-id
+         */
+        this.agentId = builder.agentId;
+        /**
+         * 工作日程列表
+         * <p> 示例值：
+         */
+        this.schedule = builder.schedule;
+        /**
+         * 客服技能 ids
+         * <p> 示例值：[“test-skill-id”]
+         */
+        this.agentSkillIds = builder.agentSkillIds;
     }
 
-
-    /**
-     * 客服技能 ids
-     * <p> 示例值：[]
-     *
-     * @param agentSkillIds
-     * @return
-     */
-    public Builder agentSkillIds(String[] agentSkillIds) {
-      this.agentSkillIds = agentSkillIds;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AgentScheduleUpdateInfo build() {
-      return new AgentScheduleUpdateInfo(this);
+    public String getAgentId() {
+        return this.agentId;
     }
-  }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    public WeekdaySchedule[] getSchedule() {
+        return this.schedule;
+    }
+
+    public void setSchedule(WeekdaySchedule[] schedule) {
+        this.schedule = schedule;
+    }
+
+    public String[] getAgentSkillIds() {
+        return this.agentSkillIds;
+    }
+
+    public void setAgentSkillIds(String[] agentSkillIds) {
+        this.agentSkillIds = agentSkillIds;
+    }
+
+    public static class Builder {
+        /**
+         * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+         * <p> 示例值：agent-id
+         */
+        private String agentId;
+        /**
+         * 工作日程列表
+         * <p> 示例值：
+         */
+        private WeekdaySchedule[] schedule;
+        /**
+         * 客服技能 ids
+         * <p> 示例值：[“test-skill-id”]
+         */
+        private String[] agentSkillIds;
+
+        /**
+         * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+         * <p> 示例值：agent-id
+         *
+         * @param agentId
+         * @return
+         */
+        public Builder agentId(String agentId) {
+            this.agentId = agentId;
+            return this;
+        }
+
+
+        /**
+         * 工作日程列表
+         * <p> 示例值：
+         *
+         * @param schedule
+         * @return
+         */
+        public Builder schedule(WeekdaySchedule[] schedule) {
+            this.schedule = schedule;
+            return this;
+        }
+
+
+        /**
+         * 客服技能 ids
+         * <p> 示例值：[“test-skill-id”]
+         *
+         * @param agentSkillIds
+         * @return
+         */
+        public Builder agentSkillIds(String[] agentSkillIds) {
+            this.agentSkillIds = agentSkillIds;
+            return this;
+        }
+
+
+        public AgentScheduleUpdateInfo build() {
+            return new AgentScheduleUpdateInfo(this);
+        }
+    }
 }

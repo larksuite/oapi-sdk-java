@@ -17,121 +17,121 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetChatAnnouncement {
 
-  /**
-   * 云文档序列化信息
-   * <p> 示例值：xxx
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 文档当前版本号 纯数字
-   * <p> 示例值：12
-   */
-  @SerializedName("revision")
-  private String revision;
-  /**
-   * 文档生成的时间戳（秒）
-   * <p> 示例值：1609296809
-   */
-  @SerializedName("create_time")
-  private String createTime;
-  /**
-   * 文档更新的时间戳（秒）
-   * <p> 示例值：1609296809
-   */
-  @SerializedName("update_time")
-  private String updateTime;
-  /**
-   * 文档所有者的 ID 类型;;- 如果所有者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID
-   * 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);-
-   * 如果所有者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
-   * <p> 示例值：open_id
-   */
-  @SerializedName("owner_id_type")
-  private String ownerIdType;
-  /**
-   * 文档所有者 ID，ID 值与owner_id_type 中的ID类型对应
-   * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-   */
-  @SerializedName("owner_id")
-  private String ownerId;
-  /**
-   * 文档最新修改者 id 类型;; - 如果修改者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID
-   * 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);-
-   * 如果修改者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
-   * <p> 示例值：open_id
-   */
-  @SerializedName("modifier_id_type")
-  private String modifierIdType;
-  /**
-   * 文档最新修改者 ID，ID 值与modifier_id_type 中的ID类型对应
-   * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-   */
-  @SerializedName("modifier_id")
-  private String modifierId;
+    /**
+     * 云文档序列化信息
+     * <p> 示例值：xxx
+     */
+    @SerializedName("content")
+    private String content;
+    /**
+     * 文档当前版本号 纯数字
+     * <p> 示例值：12
+     */
+    @SerializedName("revision")
+    private String revision;
+    /**
+     * 文档生成的时间戳（秒）
+     * <p> 示例值：1609296809
+     */
+    @SerializedName("create_time")
+    private String createTime;
+    /**
+     * 文档更新的时间戳（秒）
+     * <p> 示例值：1609296809
+     */
+    @SerializedName("update_time")
+    private String updateTime;
+    /**
+     * 文档所有者的 ID 类型;;- 如果所有者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID
+     * 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);-
+     * 如果所有者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
+     * <p> 示例值：open_id
+     */
+    @SerializedName("owner_id_type")
+    private String ownerIdType;
+    /**
+     * 文档所有者 ID，ID 值与owner_id_type 中的ID类型对应
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    @SerializedName("owner_id")
+    private String ownerId;
+    /**
+     * 文档最新修改者 id 类型;; - 如果修改者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID
+     * 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);-
+     * 如果修改者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
+     * <p> 示例值：open_id
+     */
+    @SerializedName("modifier_id_type")
+    private String modifierIdType;
+    /**
+     * 文档最新修改者 ID，ID 值与modifier_id_type 中的ID类型对应
+     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    @SerializedName("modifier_id")
+    private String modifierId;
 
-  public String getContent() {
-    return this.content;
-  }
+    public String getContent() {
+        return this.content;
+    }
 
-  public void setContent(String content) {
-    this.content = content;
-  }
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-  public String getRevision() {
-    return this.revision;
-  }
+    public String getRevision() {
+        return this.revision;
+    }
 
-  public void setRevision(String revision) {
-    this.revision = revision;
-  }
+    public void setRevision(String revision) {
+        this.revision = revision;
+    }
 
-  public String getCreateTime() {
-    return this.createTime;
-  }
+    public String getCreateTime() {
+        return this.createTime;
+    }
 
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
 
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
 
-  public String getOwnerIdType() {
-    return this.ownerIdType;
-  }
+    public String getOwnerIdType() {
+        return this.ownerIdType;
+    }
 
-  public void setOwnerIdType(String ownerIdType) {
-    this.ownerIdType = ownerIdType;
-  }
+    public void setOwnerIdType(String ownerIdType) {
+        this.ownerIdType = ownerIdType;
+    }
 
-  public String getOwnerId() {
-    return this.ownerId;
-  }
+    public String getOwnerId() {
+        return this.ownerId;
+    }
 
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
 
-  public String getModifierIdType() {
-    return this.modifierIdType;
-  }
+    public String getModifierIdType() {
+        return this.modifierIdType;
+    }
 
-  public void setModifierIdType(String modifierIdType) {
-    this.modifierIdType = modifierIdType;
-  }
+    public void setModifierIdType(String modifierIdType) {
+        this.modifierIdType = modifierIdType;
+    }
 
-  public String getModifierId() {
-    return this.modifierId;
-  }
+    public String getModifierId() {
+        return this.modifierId;
+    }
 
-  public void setModifierId(String modifierId) {
-    this.modifierId = modifierId;
-  }
+    public void setModifierId(String modifierId) {
+        this.modifierId = modifierId;
+    }
 
 }

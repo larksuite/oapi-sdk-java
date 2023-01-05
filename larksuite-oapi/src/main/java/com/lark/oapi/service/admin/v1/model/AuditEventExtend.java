@@ -16,394 +16,392 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AuditEventExtend {
-
-  /**
-   * 评论类型
-   * <p> 示例值：
-   */
-  @SerializedName("comment_type")
-  private String commentType;
-  /**
-   * app信息
-   * <p> 示例值：
-   */
-  @SerializedName("app_detail")
-  private String appDetail;
-  /**
-   * 是否两步验证
-   * <p> 示例值：
-   */
-  @SerializedName("two_step_validation")
-  private Boolean twoStepValidation;
-  /**
-   * 登录方式
-   * <p> 示例值：
-   */
-  @SerializedName("login_method")
-  private String loginMethod;
-  /**
-   * 创建新的{x}人会议/通话
-   * <p> 示例值：
-   */
-  @SerializedName("new_people_num_in_video")
-  private Integer newPeopleNumInVideo;
-  /**
-   * 将{x}名外部用户加入/退出通话
-   * <p> 示例值：
-   */
-  @SerializedName("external_people_num_in_video")
-  private Integer externalPeopleNumInVideo;
-  /**
-   * 将{x}名外部用户加入/退出群组
-   * <p> 示例值：
-   */
-  @SerializedName("external_people_num_in_chat")
-  private Integer externalPeopleNumInChat;
-  /**
-   * 创建{x}人数的群组
-   * <p> 示例值：
-   */
-  @SerializedName("join_group")
-  private Integer joinGroup;
-  /**
-   * 解散{x}人数的群组
-   * <p> 示例值：
-   */
-  @SerializedName("quit_group")
-  private Integer quitGroup;
-  /**
-   * 分享文档给{x}名外部用户
-   * <p> 示例值：
-   */
-  @SerializedName("external_people_num_in_doc_share")
-  private Integer externalPeopleNumInDocShare;
-
-  // builder 开始
-  public AuditEventExtend() {
-  }
-
-  public AuditEventExtend(Builder builder) {
     /**
      * 评论类型
      * <p> 示例值：
      */
-    this.commentType = builder.commentType;
-    /**
-     * app信息
-     * <p> 示例值：
-     */
-    this.appDetail = builder.appDetail;
-    /**
-     * 是否两步验证
-     * <p> 示例值：
-     */
-    this.twoStepValidation = builder.twoStepValidation;
-    /**
-     * 登录方式
-     * <p> 示例值：
-     */
-    this.loginMethod = builder.loginMethod;
-    /**
-     * 创建新的{x}人会议/通话
-     * <p> 示例值：
-     */
-    this.newPeopleNumInVideo = builder.newPeopleNumInVideo;
-    /**
-     * 将{x}名外部用户加入/退出通话
-     * <p> 示例值：
-     */
-    this.externalPeopleNumInVideo = builder.externalPeopleNumInVideo;
-    /**
-     * 将{x}名外部用户加入/退出群组
-     * <p> 示例值：
-     */
-    this.externalPeopleNumInChat = builder.externalPeopleNumInChat;
-    /**
-     * 创建{x}人数的群组
-     * <p> 示例值：
-     */
-    this.joinGroup = builder.joinGroup;
-    /**
-     * 解散{x}人数的群组
-     * <p> 示例值：
-     */
-    this.quitGroup = builder.quitGroup;
-    /**
-     * 分享文档给{x}名外部用户
-     * <p> 示例值：
-     */
-    this.externalPeopleNumInDocShare = builder.externalPeopleNumInDocShare;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCommentType() {
-    return this.commentType;
-  }
-
-  public void setCommentType(String commentType) {
-    this.commentType = commentType;
-  }
-
-  public String getAppDetail() {
-    return this.appDetail;
-  }
-
-  public void setAppDetail(String appDetail) {
-    this.appDetail = appDetail;
-  }
-
-  public Boolean getTwoStepValidation() {
-    return this.twoStepValidation;
-  }
-
-  public void setTwoStepValidation(Boolean twoStepValidation) {
-    this.twoStepValidation = twoStepValidation;
-  }
-
-  public String getLoginMethod() {
-    return this.loginMethod;
-  }
-
-  public void setLoginMethod(String loginMethod) {
-    this.loginMethod = loginMethod;
-  }
-
-  public Integer getNewPeopleNumInVideo() {
-    return this.newPeopleNumInVideo;
-  }
-
-  public void setNewPeopleNumInVideo(Integer newPeopleNumInVideo) {
-    this.newPeopleNumInVideo = newPeopleNumInVideo;
-  }
-
-  public Integer getExternalPeopleNumInVideo() {
-    return this.externalPeopleNumInVideo;
-  }
-
-  public void setExternalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
-    this.externalPeopleNumInVideo = externalPeopleNumInVideo;
-  }
-
-  public Integer getExternalPeopleNumInChat() {
-    return this.externalPeopleNumInChat;
-  }
-
-  public void setExternalPeopleNumInChat(Integer externalPeopleNumInChat) {
-    this.externalPeopleNumInChat = externalPeopleNumInChat;
-  }
-
-  public Integer getJoinGroup() {
-    return this.joinGroup;
-  }
-
-  public void setJoinGroup(Integer joinGroup) {
-    this.joinGroup = joinGroup;
-  }
-
-  public Integer getQuitGroup() {
-    return this.quitGroup;
-  }
-
-  public void setQuitGroup(Integer quitGroup) {
-    this.quitGroup = quitGroup;
-  }
-
-  public Integer getExternalPeopleNumInDocShare() {
-    return this.externalPeopleNumInDocShare;
-  }
-
-  public void setExternalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
-    this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
-  }
-
-  public static class Builder {
-
-    /**
-     * 评论类型
-     * <p> 示例值：
-     */
+    @SerializedName("comment_type")
     private String commentType;
     /**
      * app信息
      * <p> 示例值：
      */
+    @SerializedName("app_detail")
     private String appDetail;
     /**
      * 是否两步验证
      * <p> 示例值：
      */
+    @SerializedName("two_step_validation")
     private Boolean twoStepValidation;
     /**
      * 登录方式
      * <p> 示例值：
      */
+    @SerializedName("login_method")
     private String loginMethod;
     /**
      * 创建新的{x}人会议/通话
      * <p> 示例值：
      */
+    @SerializedName("new_people_num_in_video")
     private Integer newPeopleNumInVideo;
     /**
      * 将{x}名外部用户加入/退出通话
      * <p> 示例值：
      */
+    @SerializedName("external_people_num_in_video")
     private Integer externalPeopleNumInVideo;
     /**
      * 将{x}名外部用户加入/退出群组
      * <p> 示例值：
      */
+    @SerializedName("external_people_num_in_chat")
     private Integer externalPeopleNumInChat;
     /**
      * 创建{x}人数的群组
      * <p> 示例值：
      */
+    @SerializedName("join_group")
     private Integer joinGroup;
     /**
      * 解散{x}人数的群组
      * <p> 示例值：
      */
+    @SerializedName("quit_group")
     private Integer quitGroup;
     /**
      * 分享文档给{x}名外部用户
      * <p> 示例值：
      */
+    @SerializedName("external_people_num_in_doc_share")
     private Integer externalPeopleNumInDocShare;
 
-    /**
-     * 评论类型
-     * <p> 示例值：
-     *
-     * @param commentType
-     * @return
-     */
-    public Builder commentType(String commentType) {
-      this.commentType = commentType;
-      return this;
+    // builder 开始
+    public AuditEventExtend() {
     }
 
-
-    /**
-     * app信息
-     * <p> 示例值：
-     *
-     * @param appDetail
-     * @return
-     */
-    public Builder appDetail(String appDetail) {
-      this.appDetail = appDetail;
-      return this;
+    public AuditEventExtend(Builder builder) {
+        /**
+         * 评论类型
+         * <p> 示例值：
+         */
+        this.commentType = builder.commentType;
+        /**
+         * app信息
+         * <p> 示例值：
+         */
+        this.appDetail = builder.appDetail;
+        /**
+         * 是否两步验证
+         * <p> 示例值：
+         */
+        this.twoStepValidation = builder.twoStepValidation;
+        /**
+         * 登录方式
+         * <p> 示例值：
+         */
+        this.loginMethod = builder.loginMethod;
+        /**
+         * 创建新的{x}人会议/通话
+         * <p> 示例值：
+         */
+        this.newPeopleNumInVideo = builder.newPeopleNumInVideo;
+        /**
+         * 将{x}名外部用户加入/退出通话
+         * <p> 示例值：
+         */
+        this.externalPeopleNumInVideo = builder.externalPeopleNumInVideo;
+        /**
+         * 将{x}名外部用户加入/退出群组
+         * <p> 示例值：
+         */
+        this.externalPeopleNumInChat = builder.externalPeopleNumInChat;
+        /**
+         * 创建{x}人数的群组
+         * <p> 示例值：
+         */
+        this.joinGroup = builder.joinGroup;
+        /**
+         * 解散{x}人数的群组
+         * <p> 示例值：
+         */
+        this.quitGroup = builder.quitGroup;
+        /**
+         * 分享文档给{x}名外部用户
+         * <p> 示例值：
+         */
+        this.externalPeopleNumInDocShare = builder.externalPeopleNumInDocShare;
     }
 
-
-    /**
-     * 是否两步验证
-     * <p> 示例值：
-     *
-     * @param twoStepValidation
-     * @return
-     */
-    public Builder twoStepValidation(Boolean twoStepValidation) {
-      this.twoStepValidation = twoStepValidation;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 登录方式
-     * <p> 示例值：
-     *
-     * @param loginMethod
-     * @return
-     */
-    public Builder loginMethod(String loginMethod) {
-      this.loginMethod = loginMethod;
-      return this;
+    public String getCommentType() {
+        return this.commentType;
     }
 
-
-    /**
-     * 创建新的{x}人会议/通话
-     * <p> 示例值：
-     *
-     * @param newPeopleNumInVideo
-     * @return
-     */
-    public Builder newPeopleNumInVideo(Integer newPeopleNumInVideo) {
-      this.newPeopleNumInVideo = newPeopleNumInVideo;
-      return this;
+    public void setCommentType(String commentType) {
+        this.commentType = commentType;
     }
 
-
-    /**
-     * 将{x}名外部用户加入/退出通话
-     * <p> 示例值：
-     *
-     * @param externalPeopleNumInVideo
-     * @return
-     */
-    public Builder externalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
-      this.externalPeopleNumInVideo = externalPeopleNumInVideo;
-      return this;
+    public String getAppDetail() {
+        return this.appDetail;
     }
 
-
-    /**
-     * 将{x}名外部用户加入/退出群组
-     * <p> 示例值：
-     *
-     * @param externalPeopleNumInChat
-     * @return
-     */
-    public Builder externalPeopleNumInChat(Integer externalPeopleNumInChat) {
-      this.externalPeopleNumInChat = externalPeopleNumInChat;
-      return this;
+    public void setAppDetail(String appDetail) {
+        this.appDetail = appDetail;
     }
 
-
-    /**
-     * 创建{x}人数的群组
-     * <p> 示例值：
-     *
-     * @param joinGroup
-     * @return
-     */
-    public Builder joinGroup(Integer joinGroup) {
-      this.joinGroup = joinGroup;
-      return this;
+    public Boolean getTwoStepValidation() {
+        return this.twoStepValidation;
     }
 
-
-    /**
-     * 解散{x}人数的群组
-     * <p> 示例值：
-     *
-     * @param quitGroup
-     * @return
-     */
-    public Builder quitGroup(Integer quitGroup) {
-      this.quitGroup = quitGroup;
-      return this;
+    public void setTwoStepValidation(Boolean twoStepValidation) {
+        this.twoStepValidation = twoStepValidation;
     }
 
-
-    /**
-     * 分享文档给{x}名外部用户
-     * <p> 示例值：
-     *
-     * @param externalPeopleNumInDocShare
-     * @return
-     */
-    public Builder externalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
-      this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
-      return this;
+    public String getLoginMethod() {
+        return this.loginMethod;
     }
 
-
-    public AuditEventExtend build() {
-      return new AuditEventExtend(this);
+    public void setLoginMethod(String loginMethod) {
+        this.loginMethod = loginMethod;
     }
-  }
+
+    public Integer getNewPeopleNumInVideo() {
+        return this.newPeopleNumInVideo;
+    }
+
+    public void setNewPeopleNumInVideo(Integer newPeopleNumInVideo) {
+        this.newPeopleNumInVideo = newPeopleNumInVideo;
+    }
+
+    public Integer getExternalPeopleNumInVideo() {
+        return this.externalPeopleNumInVideo;
+    }
+
+    public void setExternalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
+        this.externalPeopleNumInVideo = externalPeopleNumInVideo;
+    }
+
+    public Integer getExternalPeopleNumInChat() {
+        return this.externalPeopleNumInChat;
+    }
+
+    public void setExternalPeopleNumInChat(Integer externalPeopleNumInChat) {
+        this.externalPeopleNumInChat = externalPeopleNumInChat;
+    }
+
+    public Integer getJoinGroup() {
+        return this.joinGroup;
+    }
+
+    public void setJoinGroup(Integer joinGroup) {
+        this.joinGroup = joinGroup;
+    }
+
+    public Integer getQuitGroup() {
+        return this.quitGroup;
+    }
+
+    public void setQuitGroup(Integer quitGroup) {
+        this.quitGroup = quitGroup;
+    }
+
+    public Integer getExternalPeopleNumInDocShare() {
+        return this.externalPeopleNumInDocShare;
+    }
+
+    public void setExternalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
+        this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
+    }
+
+    public static class Builder {
+        /**
+         * 评论类型
+         * <p> 示例值：
+         */
+        private String commentType;
+        /**
+         * app信息
+         * <p> 示例值：
+         */
+        private String appDetail;
+        /**
+         * 是否两步验证
+         * <p> 示例值：
+         */
+        private Boolean twoStepValidation;
+        /**
+         * 登录方式
+         * <p> 示例值：
+         */
+        private String loginMethod;
+        /**
+         * 创建新的{x}人会议/通话
+         * <p> 示例值：
+         */
+        private Integer newPeopleNumInVideo;
+        /**
+         * 将{x}名外部用户加入/退出通话
+         * <p> 示例值：
+         */
+        private Integer externalPeopleNumInVideo;
+        /**
+         * 将{x}名外部用户加入/退出群组
+         * <p> 示例值：
+         */
+        private Integer externalPeopleNumInChat;
+        /**
+         * 创建{x}人数的群组
+         * <p> 示例值：
+         */
+        private Integer joinGroup;
+        /**
+         * 解散{x}人数的群组
+         * <p> 示例值：
+         */
+        private Integer quitGroup;
+        /**
+         * 分享文档给{x}名外部用户
+         * <p> 示例值：
+         */
+        private Integer externalPeopleNumInDocShare;
+
+        /**
+         * 评论类型
+         * <p> 示例值：
+         *
+         * @param commentType
+         * @return
+         */
+        public Builder commentType(String commentType) {
+            this.commentType = commentType;
+            return this;
+        }
+
+
+        /**
+         * app信息
+         * <p> 示例值：
+         *
+         * @param appDetail
+         * @return
+         */
+        public Builder appDetail(String appDetail) {
+            this.appDetail = appDetail;
+            return this;
+        }
+
+
+        /**
+         * 是否两步验证
+         * <p> 示例值：
+         *
+         * @param twoStepValidation
+         * @return
+         */
+        public Builder twoStepValidation(Boolean twoStepValidation) {
+            this.twoStepValidation = twoStepValidation;
+            return this;
+        }
+
+
+        /**
+         * 登录方式
+         * <p> 示例值：
+         *
+         * @param loginMethod
+         * @return
+         */
+        public Builder loginMethod(String loginMethod) {
+            this.loginMethod = loginMethod;
+            return this;
+        }
+
+
+        /**
+         * 创建新的{x}人会议/通话
+         * <p> 示例值：
+         *
+         * @param newPeopleNumInVideo
+         * @return
+         */
+        public Builder newPeopleNumInVideo(Integer newPeopleNumInVideo) {
+            this.newPeopleNumInVideo = newPeopleNumInVideo;
+            return this;
+        }
+
+
+        /**
+         * 将{x}名外部用户加入/退出通话
+         * <p> 示例值：
+         *
+         * @param externalPeopleNumInVideo
+         * @return
+         */
+        public Builder externalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
+            this.externalPeopleNumInVideo = externalPeopleNumInVideo;
+            return this;
+        }
+
+
+        /**
+         * 将{x}名外部用户加入/退出群组
+         * <p> 示例值：
+         *
+         * @param externalPeopleNumInChat
+         * @return
+         */
+        public Builder externalPeopleNumInChat(Integer externalPeopleNumInChat) {
+            this.externalPeopleNumInChat = externalPeopleNumInChat;
+            return this;
+        }
+
+
+        /**
+         * 创建{x}人数的群组
+         * <p> 示例值：
+         *
+         * @param joinGroup
+         * @return
+         */
+        public Builder joinGroup(Integer joinGroup) {
+            this.joinGroup = joinGroup;
+            return this;
+        }
+
+
+        /**
+         * 解散{x}人数的群组
+         * <p> 示例值：
+         *
+         * @param quitGroup
+         * @return
+         */
+        public Builder quitGroup(Integer quitGroup) {
+            this.quitGroup = quitGroup;
+            return this;
+        }
+
+
+        /**
+         * 分享文档给{x}名外部用户
+         * <p> 示例值：
+         *
+         * @param externalPeopleNumInDocShare
+         * @return
+         */
+        public Builder externalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
+            this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
+            return this;
+        }
+
+
+        public AuditEventExtend build() {
+            return new AuditEventExtend(this);
+        }
+    }
 }

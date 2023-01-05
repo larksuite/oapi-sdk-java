@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetHostMeeting {
 
-  /**
-   * 会中当前主持人
-   * <p> 示例值：
-   */
-  @SerializedName("host_user")
-  private MeetingUser hostUser;
+    /**
+     * 会中当前主持人
+     * <p> 示例值：
+     */
+    @SerializedName("host_user")
+    private MeetingUser hostUser;
 
-  public MeetingUser getHostUser() {
-    return this.hostUser;
-  }
+    public MeetingUser getHostUser() {
+        return this.hostUser;
+    }
 
-  public void setHostUser(MeetingUser hostUser) {
-    this.hostUser = hostUser;
-  }
+    public void setHostUser(MeetingUser hostUser) {
+        this.hostUser = hostUser;
+    }
 
 }

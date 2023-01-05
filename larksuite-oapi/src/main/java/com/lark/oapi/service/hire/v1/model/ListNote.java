@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListNote {
 
-  /**
-   * 备注数据列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Note[] items;
-  /**
-   * 是否还有下一页数据
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 游标, 翻下一页数据时使用
-   * <p> 示例值：10
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    /**
+     * 备注数据列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Note[] items;
+    /**
+     * 是否还有下一页数据
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 游标, 翻下一页数据时使用
+     * <p> 示例值：10
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  public Note[] getItems() {
-    return this.items;
-  }
+    public Note[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(Note[] items) {
-    this.items = items;
-  }
+    public void setItems(Note[] items) {
+        this.items = items;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

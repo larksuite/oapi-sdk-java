@@ -16,111 +16,108 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SchemaDisplayOption {
-
-  /**
-   * 对外展示的标签名
-   * <p> 示例值：
-   */
-  @SerializedName("display_label")
-  private String displayLabel;
-  /**
-   * 对外展示类型
-   * <p> 示例值：
-   */
-  @SerializedName("display_type")
-  private String displayType;
-
-  // builder 开始
-  public SchemaDisplayOption() {
-  }
-
-  public SchemaDisplayOption(Builder builder) {
     /**
      * 对外展示的标签名
      * <p> 示例值：
      */
-    this.displayLabel = builder.displayLabel;
-    /**
-     * 对外展示类型
-     * <p> 示例值：
-     */
-    this.displayType = builder.displayType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDisplayLabel() {
-    return this.displayLabel;
-  }
-
-  public void setDisplayLabel(String displayLabel) {
-    this.displayLabel = displayLabel;
-  }
-
-  public String getDisplayType() {
-    return this.displayType;
-  }
-
-  public void setDisplayType(String displayType) {
-    this.displayType = displayType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 对外展示的标签名
-     * <p> 示例值：
-     */
+    @SerializedName("display_label")
     private String displayLabel;
     /**
      * 对外展示类型
      * <p> 示例值：
      */
+    @SerializedName("display_type")
     private String displayType;
 
-    /**
-     * 对外展示的标签名
-     * <p> 示例值：
-     *
-     * @param displayLabel
-     * @return
-     */
-    public Builder displayLabel(String displayLabel) {
-      this.displayLabel = displayLabel;
-      return this;
+    // builder 开始
+    public SchemaDisplayOption() {
     }
 
-
-    /**
-     * 对外展示类型
-     * <p> 示例值：
-     *
-     * @param displayType
-     * @return
-     */
-    public Builder displayType(String displayType) {
-      this.displayType = displayType;
-      return this;
+    public SchemaDisplayOption(Builder builder) {
+        /**
+         * 对外展示的标签名
+         * <p> 示例值：
+         */
+        this.displayLabel = builder.displayLabel;
+        /**
+         * 对外展示类型
+         * <p> 示例值：
+         */
+        this.displayType = builder.displayType;
     }
 
-    /**
-     * 对外展示类型
-     * <p> 示例值：
-     *
-     * @param displayType {@link com.lark.oapi.service.search.v2.enums.SchemaDisplayOptionDisplayTypeEnum}
-     * @return
-     */
-    public Builder displayType(
-        com.lark.oapi.service.search.v2.enums.SchemaDisplayOptionDisplayTypeEnum displayType) {
-      this.displayType = displayType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public SchemaDisplayOption build() {
-      return new SchemaDisplayOption(this);
+    public String getDisplayLabel() {
+        return this.displayLabel;
     }
-  }
+
+    public void setDisplayLabel(String displayLabel) {
+        this.displayLabel = displayLabel;
+    }
+
+    public String getDisplayType() {
+        return this.displayType;
+    }
+
+    public void setDisplayType(String displayType) {
+        this.displayType = displayType;
+    }
+
+    public static class Builder {
+        /**
+         * 对外展示的标签名
+         * <p> 示例值：
+         */
+        private String displayLabel;
+        /**
+         * 对外展示类型
+         * <p> 示例值：
+         */
+        private String displayType;
+
+        /**
+         * 对外展示的标签名
+         * <p> 示例值：
+         *
+         * @param displayLabel
+         * @return
+         */
+        public Builder displayLabel(String displayLabel) {
+            this.displayLabel = displayLabel;
+            return this;
+        }
+
+
+        /**
+         * 对外展示类型
+         * <p> 示例值：
+         *
+         * @param displayType
+         * @return
+         */
+        public Builder displayType(String displayType) {
+            this.displayType = displayType;
+            return this;
+        }
+
+        /**
+         * 对外展示类型
+         * <p> 示例值：
+         *
+         * @param displayType {@link com.lark.oapi.service.search.v2.enums.SchemaDisplayOptionDisplayTypeEnum}
+         * @return
+         */
+        public Builder displayType(com.lark.oapi.service.search.v2.enums.SchemaDisplayOptionDisplayTypeEnum displayType) {
+            this.displayType = displayType.getValue();
+            return this;
+        }
+
+
+        public SchemaDisplayOption build() {
+            return new SchemaDisplayOption(this);
+        }
+    }
 }

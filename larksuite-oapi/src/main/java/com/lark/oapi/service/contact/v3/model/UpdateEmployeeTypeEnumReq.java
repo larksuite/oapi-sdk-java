@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateEmployeeTypeEnumReq {
-
-  /**
-   * 枚举值id
-   * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-   */
-  @Path
-  @SerializedName("enum_id")
-  private String enumId;
-  @Body
-  private EmployeeTypeEnum body;
-
-  // builder 开始
-  public UpdateEmployeeTypeEnumReq() {
-  }
-
-  public UpdateEmployeeTypeEnumReq(Builder builder) {
     /**
      * 枚举值id
      * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
      */
-    this.enumId = builder.enumId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEnumId() {
-    return this.enumId;
-  }
-
-  public void setEnumId(String enumId) {
-    this.enumId = enumId;
-  }
-
-  public EmployeeTypeEnum getEmployeeTypeEnum() {
-    return this.body;
-  }
-
-  public void setEmployeeTypeEnum(EmployeeTypeEnum body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String enumId; // 枚举值id
+    @Path
+    @SerializedName("enum_id")
+    private String enumId;
+    @Body
     private EmployeeTypeEnum body;
 
-    /**
-     * 枚举值id
-     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-     *
-     * @param enumId
-     * @return
-     */
-    public Builder enumId(String enumId) {
-      this.enumId = enumId;
-      return this;
+    // builder 开始
+    public UpdateEmployeeTypeEnumReq() {
+    }
+
+    public UpdateEmployeeTypeEnumReq(Builder builder) {
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         */
+        this.enumId = builder.enumId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getEnumId() {
+        return this.enumId;
+    }
+
+    public void setEnumId(String enumId) {
+        this.enumId = enumId;
     }
 
     public EmployeeTypeEnum getEmployeeTypeEnum() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder employeeTypeEnum(EmployeeTypeEnum body) {
-      this.body = body;
-      return this;
+    public void setEmployeeTypeEnum(EmployeeTypeEnum body) {
+        this.body = body;
     }
 
-    public UpdateEmployeeTypeEnumReq build() {
-      return new UpdateEmployeeTypeEnumReq(this);
+    public static class Builder {
+
+        private String enumId; // 枚举值id
+        private EmployeeTypeEnum body;
+
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         *
+         * @param enumId
+         * @return
+         */
+        public Builder enumId(String enumId) {
+            this.enumId = enumId;
+            return this;
+        }
+
+        public EmployeeTypeEnum getEmployeeTypeEnum() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder employeeTypeEnum(EmployeeTypeEnum body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateEmployeeTypeEnumReq build() {
+            return new UpdateEmployeeTypeEnumReq(this);
+        }
     }
-  }
 }

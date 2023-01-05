@@ -15,19 +15,19 @@ package com.lark.oapi.service.search.v2.enums;
 
 // 生成枚举值
 public enum TagColorEnum {
-  RED("red"),
-  GREEN("green"),
-  BLUE("blue"),
-  GREY("grey"),
-  YELLOW("yellow"),
-  ;
-  private String value;
+    RED("red"),
+    GREEN("green"),
+    BLUE("blue"),
+    GREY("grey"),
+    YELLOW("yellow"),
+    ;
+    private String value;
 
-  TagColorEnum(String value) {
-    this.value = value;
-  }
+    TagColorEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

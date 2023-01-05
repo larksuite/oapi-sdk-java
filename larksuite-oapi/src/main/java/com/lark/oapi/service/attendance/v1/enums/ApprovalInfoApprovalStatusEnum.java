@@ -17,19 +17,19 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 审批状态
  */
 public enum ApprovalInfoApprovalStatusEnum {
-  TODO(0), // 待审批
-  REJECTED(1), // 审批未通过
-  APPROVED(2), // 审批通过
-  CANCELED(3), // 审批已取消
-  REVERTED(4), // 已撤回
-  ;
-  private Integer value;
+    TODO(0), // 待审批
+    REJECTED(1), // 审批未通过
+    APPROVED(2), // 审批通过
+    CANCELED(3), // 审批已取消
+    REVERTED(4), // 已撤回
+    ;
+    private Integer value;
 
-  ApprovalInfoApprovalStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ApprovalInfoApprovalStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

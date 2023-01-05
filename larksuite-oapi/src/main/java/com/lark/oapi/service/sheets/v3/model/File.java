@@ -16,132 +16,130 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class File {
-
-  /**
-   * 附件token
-   * <p> 示例值：boxxxxxxx
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 附件名称
-   * <p> 示例值：a.png
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("segment_style")
-  private SegmentStyle segmentStyle;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
     /**
      * 附件token
      * <p> 示例值：boxxxxxxx
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * 附件名称
-     * <p> 示例值：a.png
-     */
-    this.name = builder.name;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.segmentStyle = builder.segmentStyle;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SegmentStyle getSegmentStyle() {
-    return this.segmentStyle;
-  }
-
-  public void setSegmentStyle(SegmentStyle segmentStyle) {
-    this.segmentStyle = segmentStyle;
-  }
-
-  public static class Builder {
-
-    /**
-     * 附件token
-     * <p> 示例值：boxxxxxxx
-     */
+    @SerializedName("file_token")
     private String fileToken;
     /**
      * 附件名称
      * <p> 示例值：a.png
      */
+    @SerializedName("name")
     private String name;
     /**
      * <p> 示例值：
      */
+    @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
 
-    /**
-     * 附件token
-     * <p> 示例值：boxxxxxxx
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public File() {
     }
 
-
-    /**
-     * 附件名称
-     * <p> 示例值：a.png
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public File(Builder builder) {
+        /**
+         * 附件token
+         * <p> 示例值：boxxxxxxx
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 附件名称
+         * <p> 示例值：a.png
+         */
+        this.name = builder.name;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.segmentStyle = builder.segmentStyle;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param segmentStyle
-     * @return
-     */
-    public Builder segmentStyle(SegmentStyle segmentStyle) {
-      this.segmentStyle = segmentStyle;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public File build() {
-      return new File(this);
+    public String getFileToken() {
+        return this.fileToken;
     }
-  }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public SegmentStyle getSegmentStyle() {
+        return this.segmentStyle;
+    }
+
+    public void setSegmentStyle(SegmentStyle segmentStyle) {
+        this.segmentStyle = segmentStyle;
+    }
+
+    public static class Builder {
+        /**
+         * 附件token
+         * <p> 示例值：boxxxxxxx
+         */
+        private String fileToken;
+        /**
+         * 附件名称
+         * <p> 示例值：a.png
+         */
+        private String name;
+        /**
+         * <p> 示例值：
+         */
+        private SegmentStyle segmentStyle;
+
+        /**
+         * 附件token
+         * <p> 示例值：boxxxxxxx
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 附件名称
+         * <p> 示例值：a.png
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param segmentStyle
+         * @return
+         */
+        public Builder segmentStyle(SegmentStyle segmentStyle) {
+            this.segmentStyle = segmentStyle;
+            return this;
+        }
+
+
+        public File build() {
+            return new File(this);
+        }
+    }
 }

@@ -19,196 +19,193 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class BatchUpdateDocumentBlockReq {
-
-  /**
-   * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
-   * <p> 示例值：-1
-   */
-  @Query
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  /**
-   * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-   * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
-   */
-  @Query
-  @SerializedName("client_token")
-  private String clientToken;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 文档的唯一标识
-   * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-   */
-  @Path
-  @SerializedName("document_id")
-  private String documentId;
-  @Body
-  private BatchUpdateDocumentBlockReqBody body;
-
-  // builder 开始
-  public BatchUpdateDocumentBlockReq() {
-  }
-
-  public BatchUpdateDocumentBlockReq(Builder builder) {
     /**
      * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
      * <p> 示例值：-1
      */
-    this.documentRevisionId = builder.documentRevisionId;
+    @Query
+    @SerializedName("document_revision_id")
+    private Integer documentRevisionId;
     /**
      * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
      * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
      */
-    this.clientToken = builder.clientToken;
+    @Query
+    @SerializedName("client_token")
+    private String clientToken;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 文档的唯一标识
      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
      */
-    this.documentId = builder.documentId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
-
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
-
-  public String getClientToken() {
-    return this.clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public BatchUpdateDocumentBlockReqBody getBatchUpdateDocumentBlockReqBody() {
-    return this.body;
-  }
-
-  public void setBatchUpdateDocumentBlockReqBody(BatchUpdateDocumentBlockReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private Integer documentRevisionId; // 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
-    private String clientToken; // 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String documentId; // 文档的唯一标识
+    @Path
+    @SerializedName("document_id")
+    private String documentId;
+    @Body
     private BatchUpdateDocumentBlockReqBody body;
 
-    /**
-     * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
-     * <p> 示例值：-1
-     *
-     * @param documentRevisionId
-     * @return
-     */
-    public Builder documentRevisionId(Integer documentRevisionId) {
-      this.documentRevisionId = documentRevisionId;
-      return this;
+    // builder 开始
+    public BatchUpdateDocumentBlockReq() {
     }
 
-    /**
-     * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
-     * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
-     *
-     * @param clientToken
-     * @return
-     */
-    public Builder clientToken(String clientToken) {
-      this.clientToken = clientToken;
-      return this;
+    public BatchUpdateDocumentBlockReq(Builder builder) {
+        /**
+         * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
+         * <p> 示例值：-1
+         */
+        this.documentRevisionId = builder.documentRevisionId;
+        /**
+         * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+         * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+         */
+        this.clientToken = builder.clientToken;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         */
+        this.documentId = builder.documentId;
+        this.body = builder.body;
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.BatchUpdateDocumentBlockUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.docx.v1.enums.BatchUpdateDocumentBlockUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
     }
 
-    /**
-     * 文档的唯一标识
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-     *
-     * @param documentId
-     * @return
-     */
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
+    }
+
+    public String getClientToken() {
+        return this.clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDocumentId() {
+        return this.documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
     public BatchUpdateDocumentBlockReqBody getBatchUpdateDocumentBlockReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder batchUpdateDocumentBlockReqBody(BatchUpdateDocumentBlockReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchUpdateDocumentBlockReqBody(BatchUpdateDocumentBlockReqBody body) {
+        this.body = body;
     }
 
-    public BatchUpdateDocumentBlockReq build() {
-      return new BatchUpdateDocumentBlockReq(this);
+    public static class Builder {
+        private Integer documentRevisionId; // 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
+        private String clientToken; // 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String documentId; // 文档的唯一标识
+        private BatchUpdateDocumentBlockReqBody body;
+
+        /**
+         * 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
+         * <p> 示例值：-1
+         *
+         * @param documentRevisionId
+         * @return
+         */
+        public Builder documentRevisionId(Integer documentRevisionId) {
+            this.documentRevisionId = documentRevisionId;
+            return this;
+        }
+
+        /**
+         * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+         * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+         *
+         * @param clientToken
+         * @return
+         */
+        public Builder clientToken(String clientToken) {
+            this.clientToken = clientToken;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.BatchUpdateDocumentBlockUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.docx.v1.enums.BatchUpdateDocumentBlockUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         *
+         * @param documentId
+         * @return
+         */
+        public Builder documentId(String documentId) {
+            this.documentId = documentId;
+            return this;
+        }
+
+        public BatchUpdateDocumentBlockReqBody getBatchUpdateDocumentBlockReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder batchUpdateDocumentBlockReqBody(BatchUpdateDocumentBlockReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchUpdateDocumentBlockReq build() {
+            return new BatchUpdateDocumentBlockReq(this);
+        }
     }
-  }
 }

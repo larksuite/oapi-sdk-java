@@ -15,16 +15,16 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum PaymentTypeEnum {
-  FREE(0),
-  PAID(1),
-  ;
-  private Integer value;
+    FREE(0),
+    PAID(1),
+    ;
+    private Integer value;
 
-  PaymentTypeEnum(Integer value) {
-    this.value = value;
-  }
+    PaymentTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

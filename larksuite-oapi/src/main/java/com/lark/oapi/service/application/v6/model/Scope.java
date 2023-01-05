@@ -16,111 +16,108 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Scope {
-
-  /**
-   * 权限名称，形如 user.phone:readonly
-   * <p> 示例值：
-   */
-  @SerializedName("scope_name")
-  private String scopeName;
-  /**
-   * 租户应用权限授予状态
-   * <p> 示例值：
-   */
-  @SerializedName("grant_status")
-  private Integer grantStatus;
-
-  // builder 开始
-  public Scope() {
-  }
-
-  public Scope(Builder builder) {
     /**
      * 权限名称，形如 user.phone:readonly
      * <p> 示例值：
      */
-    this.scopeName = builder.scopeName;
-    /**
-     * 租户应用权限授予状态
-     * <p> 示例值：
-     */
-    this.grantStatus = builder.grantStatus;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getScopeName() {
-    return this.scopeName;
-  }
-
-  public void setScopeName(String scopeName) {
-    this.scopeName = scopeName;
-  }
-
-  public Integer getGrantStatus() {
-    return this.grantStatus;
-  }
-
-  public void setGrantStatus(Integer grantStatus) {
-    this.grantStatus = grantStatus;
-  }
-
-  public static class Builder {
-
-    /**
-     * 权限名称，形如 user.phone:readonly
-     * <p> 示例值：
-     */
+    @SerializedName("scope_name")
     private String scopeName;
     /**
      * 租户应用权限授予状态
      * <p> 示例值：
      */
+    @SerializedName("grant_status")
     private Integer grantStatus;
 
-    /**
-     * 权限名称，形如 user.phone:readonly
-     * <p> 示例值：
-     *
-     * @param scopeName
-     * @return
-     */
-    public Builder scopeName(String scopeName) {
-      this.scopeName = scopeName;
-      return this;
+    // builder 开始
+    public Scope() {
     }
 
-
-    /**
-     * 租户应用权限授予状态
-     * <p> 示例值：
-     *
-     * @param grantStatus
-     * @return
-     */
-    public Builder grantStatus(Integer grantStatus) {
-      this.grantStatus = grantStatus;
-      return this;
+    public Scope(Builder builder) {
+        /**
+         * 权限名称，形如 user.phone:readonly
+         * <p> 示例值：
+         */
+        this.scopeName = builder.scopeName;
+        /**
+         * 租户应用权限授予状态
+         * <p> 示例值：
+         */
+        this.grantStatus = builder.grantStatus;
     }
 
-    /**
-     * 租户应用权限授予状态
-     * <p> 示例值：
-     *
-     * @param grantStatus {@link com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum}
-     * @return
-     */
-    public Builder grantStatus(
-        com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum grantStatus) {
-      this.grantStatus = grantStatus.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Scope build() {
-      return new Scope(this);
+    public String getScopeName() {
+        return this.scopeName;
     }
-  }
+
+    public void setScopeName(String scopeName) {
+        this.scopeName = scopeName;
+    }
+
+    public Integer getGrantStatus() {
+        return this.grantStatus;
+    }
+
+    public void setGrantStatus(Integer grantStatus) {
+        this.grantStatus = grantStatus;
+    }
+
+    public static class Builder {
+        /**
+         * 权限名称，形如 user.phone:readonly
+         * <p> 示例值：
+         */
+        private String scopeName;
+        /**
+         * 租户应用权限授予状态
+         * <p> 示例值：
+         */
+        private Integer grantStatus;
+
+        /**
+         * 权限名称，形如 user.phone:readonly
+         * <p> 示例值：
+         *
+         * @param scopeName
+         * @return
+         */
+        public Builder scopeName(String scopeName) {
+            this.scopeName = scopeName;
+            return this;
+        }
+
+
+        /**
+         * 租户应用权限授予状态
+         * <p> 示例值：
+         *
+         * @param grantStatus
+         * @return
+         */
+        public Builder grantStatus(Integer grantStatus) {
+            this.grantStatus = grantStatus;
+            return this;
+        }
+
+        /**
+         * 租户应用权限授予状态
+         * <p> 示例值：
+         *
+         * @param grantStatus {@link com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum}
+         * @return
+         */
+        public Builder grantStatus(com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum grantStatus) {
+            this.grantStatus = grantStatus.getValue();
+            return this;
+        }
+
+
+        public Scope build() {
+            return new Scope(this);
+        }
+    }
 }

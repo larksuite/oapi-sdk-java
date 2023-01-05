@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CodeNameObject {
-
-  /**
-   * 编码
-   * <p> 示例值：1111
-   */
-  @SerializedName("code")
-  private String code;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-
-  // builder 开始
-  public CodeNameObject() {
-  }
-
-  public CodeNameObject(Builder builder) {
     /**
      * 编码
      * <p> 示例值：1111
      */
-    this.code = builder.code;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 编码
-     * <p> 示例值：1111
-     */
+    @SerializedName("code")
     private String code;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
 
-    /**
-     * 编码
-     * <p> 示例值：1111
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    // builder 开始
+    public CodeNameObject() {
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public CodeNameObject(Builder builder) {
+        /**
+         * 编码
+         * <p> 示例值：1111
+         */
+        this.code = builder.code;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    public CodeNameObject build() {
-      return new CodeNameObject(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 编码
+         * <p> 示例值：1111
+         */
+        private String code;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private I18n name;
+
+        /**
+         * 编码
+         * <p> 示例值：1111
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public CodeNameObject build() {
+            return new CodeNameObject(this);
+        }
+    }
 }

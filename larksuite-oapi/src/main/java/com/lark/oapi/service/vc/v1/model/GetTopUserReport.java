@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetTopUserReport {
 
-  /**
-   * top用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("top_user_report")
-  private ReportTopUser[] topUserReport;
+    /**
+     * top用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("top_user_report")
+    private ReportTopUser[] topUserReport;
 
-  public ReportTopUser[] getTopUserReport() {
-    return this.topUserReport;
-  }
+    public ReportTopUser[] getTopUserReport() {
+        return this.topUserReport;
+    }
 
-  public void setTopUserReport(ReportTopUser[] topUserReport) {
-    this.topUserReport = topUserReport;
-  }
+    public void setTopUserReport(ReportTopUser[] topUserReport) {
+        this.topUserReport = topUserReport;
+    }
 
 }

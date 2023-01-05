@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MoveDimension {
-
-  /**
-   * 移动源位置参数
-   * <p> 示例值：
-   */
-  @SerializedName("source")
-  private Dimension source;
-  /**
-   * 移动的目标位置行或者列号
-   * <p> 示例值：4
-   */
-  @SerializedName("destination_index")
-  private Integer destinationIndex;
-
-  // builder 开始
-  public MoveDimension() {
-  }
-
-  public MoveDimension(Builder builder) {
     /**
      * 移动源位置参数
      * <p> 示例值：
      */
-    this.source = builder.source;
-    /**
-     * 移动的目标位置行或者列号
-     * <p> 示例值：4
-     */
-    this.destinationIndex = builder.destinationIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Dimension getSource() {
-    return this.source;
-  }
-
-  public void setSource(Dimension source) {
-    this.source = source;
-  }
-
-  public Integer getDestinationIndex() {
-    return this.destinationIndex;
-  }
-
-  public void setDestinationIndex(Integer destinationIndex) {
-    this.destinationIndex = destinationIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 移动源位置参数
-     * <p> 示例值：
-     */
+    @SerializedName("source")
     private Dimension source;
     /**
      * 移动的目标位置行或者列号
      * <p> 示例值：4
      */
+    @SerializedName("destination_index")
     private Integer destinationIndex;
 
-    /**
-     * 移动源位置参数
-     * <p> 示例值：
-     *
-     * @param source
-     * @return
-     */
-    public Builder source(Dimension source) {
-      this.source = source;
-      return this;
+    // builder 开始
+    public MoveDimension() {
     }
 
-
-    /**
-     * 移动的目标位置行或者列号
-     * <p> 示例值：4
-     *
-     * @param destinationIndex
-     * @return
-     */
-    public Builder destinationIndex(Integer destinationIndex) {
-      this.destinationIndex = destinationIndex;
-      return this;
+    public MoveDimension(Builder builder) {
+        /**
+         * 移动源位置参数
+         * <p> 示例值：
+         */
+        this.source = builder.source;
+        /**
+         * 移动的目标位置行或者列号
+         * <p> 示例值：4
+         */
+        this.destinationIndex = builder.destinationIndex;
     }
 
-
-    public MoveDimension build() {
-      return new MoveDimension(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Dimension getSource() {
+        return this.source;
+    }
+
+    public void setSource(Dimension source) {
+        this.source = source;
+    }
+
+    public Integer getDestinationIndex() {
+        return this.destinationIndex;
+    }
+
+    public void setDestinationIndex(Integer destinationIndex) {
+        this.destinationIndex = destinationIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 移动源位置参数
+         * <p> 示例值：
+         */
+        private Dimension source;
+        /**
+         * 移动的目标位置行或者列号
+         * <p> 示例值：4
+         */
+        private Integer destinationIndex;
+
+        /**
+         * 移动源位置参数
+         * <p> 示例值：
+         *
+         * @param source
+         * @return
+         */
+        public Builder source(Dimension source) {
+            this.source = source;
+            return this;
+        }
+
+
+        /**
+         * 移动的目标位置行或者列号
+         * <p> 示例值：4
+         *
+         * @param destinationIndex
+         * @return
+         */
+        public Builder destinationIndex(Integer destinationIndex) {
+            this.destinationIndex = destinationIndex;
+            return this;
+        }
+
+
+        public MoveDimension build() {
+            return new MoveDimension(this);
+        }
+    }
 }

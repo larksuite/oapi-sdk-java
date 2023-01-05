@@ -17,15 +17,15 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 任务类型
  */
 public enum GetTaskTaskTypeEnum {
-  MOVE("move"), // MoveDocsToWiki任务
-  ;
-  private String value;
+    MOVE("move"), // MoveDocsToWiki任务
+    ;
+    private String value;
 
-  GetTaskTaskTypeEnum(String value) {
-    this.value = value;
-  }
+    GetTaskTaskTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 假期时长单位
  */
 public enum UserLeaveUnitEnum {
-  DAY(1), // 天
-  HOUR(2), // 小时
-  HALFDAY(3), // 半天
-  HALFHOUR(4), // 半小时
-  ;
-  private Integer value;
+    DAY(1), // 天
+    HOUR(2), // 小时
+    HALFDAY(3), // 半天
+    HALFHOUR(4), // 半小时
+    ;
+    private Integer value;
 
-  UserLeaveUnitEnum(Integer value) {
-    this.value = value;
-  }
+    UserLeaveUnitEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

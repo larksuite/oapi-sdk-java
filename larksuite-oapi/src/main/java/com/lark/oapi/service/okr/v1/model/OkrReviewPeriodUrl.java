@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OkrReviewPeriodUrl {
-
-  /**
-   * 文档链接
-   * <p> 示例值：https://okr-boe1.feishu-boe.cn/docs/docbc0cvt2wT0Yq34Tn7YemH5Qb
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 创建时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("create_time")
-  private String createTime;
-
-  // builder 开始
-  public OkrReviewPeriodUrl() {
-  }
-
-  public OkrReviewPeriodUrl(Builder builder) {
     /**
      * 文档链接
-     * <p> 示例值：https://okr-boe1.feishu-boe.cn/docs/docbc0cvt2wT0Yq34Tn7YemH5Qb
+     * <p> 示例值：https://bytedance.feishu.cn/drive/home/
      */
-    this.url = builder.url;
-    /**
-     * 创建时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.createTime = builder.createTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档链接
-     * <p> 示例值：https://okr-boe1.feishu-boe.cn/docs/docbc0cvt2wT0Yq34Tn7YemH5Qb
-     */
+    @SerializedName("url")
     private String url;
     /**
      * 创建时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("create_time")
     private String createTime;
 
-    /**
-     * 文档链接
-     * <p> 示例值：https://okr-boe1.feishu-boe.cn/docs/docbc0cvt2wT0Yq34Tn7YemH5Qb
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    // builder 开始
+    public OkrReviewPeriodUrl() {
     }
 
-
-    /**
-     * 创建时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public OkrReviewPeriodUrl(Builder builder) {
+        /**
+         * 文档链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
+        this.url = builder.url;
+        /**
+         * 创建时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.createTime = builder.createTime;
     }
 
-
-    public OkrReviewPeriodUrl build() {
-      return new OkrReviewPeriodUrl(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public static class Builder {
+        /**
+         * 文档链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
+        private String url;
+        /**
+         * 创建时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String createTime;
+
+        /**
+         * 文档链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 创建时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        public OkrReviewPeriodUrl build() {
+            return new OkrReviewPeriodUrl(this);
+        }
+    }
 }

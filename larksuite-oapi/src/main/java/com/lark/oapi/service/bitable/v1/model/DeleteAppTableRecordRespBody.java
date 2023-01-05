@@ -16,34 +16,33 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DeleteAppTableRecordRespBody {
+    /**
+     * 是否成功删除
+     * <p> 示例值：
+     */
+    @SerializedName("deleted")
+    private Boolean deleted;
+    /**
+     * 删除的记录id
+     * <p> 示例值：
+     */
+    @SerializedName("record_id")
+    private String recordId;
 
-  /**
-   * 是否成功删除
-   * <p> 示例值：
-   */
-  @SerializedName("deleted")
-  private Boolean deleted;
-  /**
-   * 删除的记录id
-   * <p> 示例值：
-   */
-  @SerializedName("record_id")
-  private String recordId;
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
 
-  public Boolean getDeleted() {
-    return this.deleted;
-  }
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
+    public String getRecordId() {
+        return this.recordId;
+    }
 
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
 
 }

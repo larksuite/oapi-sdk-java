@@ -17,71 +17,71 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 民族
  */
 public enum SystemFieldsEthnicityEnum {
-  HAN(1), // 汉族
-  MONGOL(2), // 蒙古族
-  HUI(3), // 回族
-  ZANG(4), // 藏族
-  UYGUR(5), // 维吾尔族
-  MIAO(6), // 苗族
-  YI(7), // 彝族
-  ZHUANG(8), // 壮族
-  BUYEI(9), // 布依族
-  CHOSEN(10), // 朝鲜族
-  MAN(11), // 满族
-  DONG(12), // 侗族
-  YAO(13), // 瑶族
-  BAI(14), // 白族
-  TUJIA(15), // 土家族
-  HANI(16), // 哈尼族
-  KAZAK(17), // 哈萨克族
-  DAI(18), // 傣族
-  LI(19), // 黎族
-  LISU(20), // 傈僳族
-  VA(21), // 佤族
-  SHE(22), // 畲族
-  GAOSHAN(23), // 高山族
-  LAHU(24), // 拉祜族
-  SUI(25), // 水族
-  DONGXIANG(26), // 东乡族
-  NAXI(27), // 纳西族
-  JINGPO(28), // 景颇族
-  ACHANG(29), // 阿昌族
-  KIRGIZ(30), // 柯尔克孜族
-  TU(31), // 土族
-  DAUR(32), // 达斡尔族
-  MULAO(33), // 仫佬族
-  QIANG(34), // 羌族
-  BLANG(35), // 布朗族
-  SALAR(36), // 撒拉族
-  MAONAN(37), // 毛南族
-  GELAO(38), // 仡佬族
-  XIB3(39), // 锡伯族
-  PUMI(40), // 普米族
-  TAJIK(41), // 塔吉克族
-  NU(42), // 怒族
-  UZBEK(43), // 乌孜别克族
-  RUSS(44), // 俄罗斯族
-  EWENKI(45), // 鄂温克族
-  DEANG(46), // 德昂族
-  BONAN(47), // 保安族
-  YUGUR(48), // 裕固族
-  GIN(49), // 京族
-  TATAR(50), // 塔塔尔族
-  DERUNG(51), // 独龙族
-  OROQEN(52), // 鄂伦春族
-  HEZHEN(53), // 赫哲族
-  MONBA(54), // 门巴族
-  LHOBA(55), // 珞巴族
-  JINO(56), // 基诺族
-  OTHER(57), // 其他
-  ;
-  private Integer value;
+    HAN(1), // 汉族
+    MONGOL(2), // 蒙古族
+    HUI(3), // 回族
+    ZANG(4), // 藏族
+    UYGUR(5), // 维吾尔族
+    MIAO(6), // 苗族
+    YI(7), // 彝族
+    ZHUANG(8), // 壮族
+    BUYEI(9), // 布依族
+    CHOSEN(10), // 朝鲜族
+    MAN(11), // 满族
+    DONG(12), // 侗族
+    YAO(13), // 瑶族
+    BAI(14), // 白族
+    TUJIA(15), // 土家族
+    HANI(16), // 哈尼族
+    KAZAK(17), // 哈萨克族
+    DAI(18), // 傣族
+    LI(19), // 黎族
+    LISU(20), // 傈僳族
+    VA(21), // 佤族
+    SHE(22), // 畲族
+    GAOSHAN(23), // 高山族
+    LAHU(24), // 拉祜族
+    SUI(25), // 水族
+    DONGXIANG(26), // 东乡族
+    NAXI(27), // 纳西族
+    JINGPO(28), // 景颇族
+    ACHANG(29), // 阿昌族
+    KIRGIZ(30), // 柯尔克孜族
+    TU(31), // 土族
+    DAUR(32), // 达斡尔族
+    MULAO(33), // 仫佬族
+    QIANG(34), // 羌族
+    BLANG(35), // 布朗族
+    SALAR(36), // 撒拉族
+    MAONAN(37), // 毛南族
+    GELAO(38), // 仡佬族
+    XIB3(39), // 锡伯族
+    PUMI(40), // 普米族
+    TAJIK(41), // 塔吉克族
+    NU(42), // 怒族
+    UZBEK(43), // 乌孜别克族
+    RUSS(44), // 俄罗斯族
+    EWENKI(45), // 鄂温克族
+    DEANG(46), // 德昂族
+    BONAN(47), // 保安族
+    YUGUR(48), // 裕固族
+    GIN(49), // 京族
+    TATAR(50), // 塔塔尔族
+    DERUNG(51), // 独龙族
+    OROQEN(52), // 鄂伦春族
+    HEZHEN(53), // 赫哲族
+    MONBA(54), // 门巴族
+    LHOBA(55), // 珞巴族
+    JINO(56), // 基诺族
+    OTHER(57), // 其他
+    ;
+    private Integer value;
 
-  SystemFieldsEthnicityEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsEthnicityEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

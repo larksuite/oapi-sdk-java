@@ -16,259 +16,256 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UploadAllFileReqBody {
-
-  /**
-   * 文件名。
-   * <p> 示例值：demo.pdf
-   */
-  @SerializedName("file_name")
-  private String fileName;
-  /**
-   * 上传点类型。
-   * <p> 示例值：explorer
-   */
-  @SerializedName("parent_type")
-  private String parentType;
-  /**
-   * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-   * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-   */
-  @SerializedName("parent_node")
-  private String parentNode;
-  /**
-   * 文件大小（以字节为单位）。
-   * <p> 示例值：1024
-   */
-  @SerializedName("size")
-  private Integer size;
-  /**
-   * 文件adler32校验和(可选)。
-   * <p> 示例值：123423882374238912356
-   */
-  @SerializedName("checksum")
-  private String checksum;
-  /**
-   * 文件二进制内容。
-   * <p> 示例值：file binary
-   */
-  @SerializedName("file")
-  private java.io.File file;
-
-  // builder 开始
-  public UploadAllFileReqBody() {
-  }
-
-  public UploadAllFileReqBody(Builder builder) {
     /**
      * 文件名。
      * <p> 示例值：demo.pdf
      */
-    this.fileName = builder.fileName;
-    /**
-     * 上传点类型。
-     * <p> 示例值：explorer
-     */
-    this.parentType = builder.parentType;
-    /**
-     * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-     */
-    this.parentNode = builder.parentNode;
-    /**
-     * 文件大小（以字节为单位）。
-     * <p> 示例值：1024
-     */
-    this.size = builder.size;
-    /**
-     * 文件adler32校验和(可选)。
-     * <p> 示例值：123423882374238912356
-     */
-    this.checksum = builder.checksum;
-    /**
-     * 文件二进制内容。
-     * <p> 示例值：file binary
-     */
-    this.file = builder.file;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public String getParentType() {
-    return this.parentType;
-  }
-
-  public void setParentType(String parentType) {
-    this.parentType = parentType;
-  }
-
-  public String getParentNode() {
-    return this.parentNode;
-  }
-
-  public void setParentNode(String parentNode) {
-    this.parentNode = parentNode;
-  }
-
-  public Integer getSize() {
-    return this.size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public String getChecksum() {
-    return this.checksum;
-  }
-
-  public void setChecksum(String checksum) {
-    this.checksum = checksum;
-  }
-
-  public java.io.File getFile() {
-    return this.file;
-  }
-
-  public void setFile(java.io.File file) {
-    this.file = file;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件名。
-     * <p> 示例值：demo.pdf
-     */
+    @SerializedName("file_name")
     private String fileName;
     /**
      * 上传点类型。
      * <p> 示例值：explorer
      */
+    @SerializedName("parent_type")
     private String parentType;
     /**
      * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
+    @SerializedName("parent_node")
     private String parentNode;
     /**
      * 文件大小（以字节为单位）。
      * <p> 示例值：1024
      */
+    @SerializedName("size")
     private Integer size;
     /**
      * 文件adler32校验和(可选)。
      * <p> 示例值：123423882374238912356
      */
+    @SerializedName("checksum")
     private String checksum;
     /**
      * 文件二进制内容。
      * <p> 示例值：file binary
      */
+    @SerializedName("file")
     private java.io.File file;
 
-    /**
-     * 文件名。
-     * <p> 示例值：demo.pdf
-     *
-     * @param fileName
-     * @return
-     */
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
+    // builder 开始
+    public UploadAllFileReqBody() {
     }
 
-
-    /**
-     * 上传点类型。
-     * <p> 示例值：explorer
-     *
-     * @param parentType
-     * @return
-     */
-    public Builder parentType(String parentType) {
-      this.parentType = parentType;
-      return this;
+    public UploadAllFileReqBody(Builder builder) {
+        /**
+         * 文件名。
+         * <p> 示例值：demo.pdf
+         */
+        this.fileName = builder.fileName;
+        /**
+         * 上传点类型。
+         * <p> 示例值：explorer
+         */
+        this.parentType = builder.parentType;
+        /**
+         * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+         */
+        this.parentNode = builder.parentNode;
+        /**
+         * 文件大小（以字节为单位）。
+         * <p> 示例值：1024
+         */
+        this.size = builder.size;
+        /**
+         * 文件adler32校验和(可选)。
+         * <p> 示例值：123423882374238912356
+         */
+        this.checksum = builder.checksum;
+        /**
+         * 文件二进制内容。
+         * <p> 示例值：file binary
+         */
+        this.file = builder.file;
     }
 
-    /**
-     * 上传点类型。
-     * <p> 示例值：explorer
-     *
-     * @param parentType {@link com.lark.oapi.service.drive.v1.enums.UploadAllFileParentTypeEnum}
-     * @return
-     */
-    public Builder parentType(
-        com.lark.oapi.service.drive.v1.enums.UploadAllFileParentTypeEnum parentType) {
-      this.parentType = parentType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-     *
-     * @param parentNode
-     * @return
-     */
-    public Builder parentNode(String parentNode) {
-      this.parentNode = parentNode;
-      return this;
+    public String getFileName() {
+        return this.fileName;
     }
 
-
-    /**
-     * 文件大小（以字节为单位）。
-     * <p> 示例值：1024
-     *
-     * @param size
-     * @return
-     */
-    public Builder size(Integer size) {
-      this.size = size;
-      return this;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-
-    /**
-     * 文件adler32校验和(可选)。
-     * <p> 示例值：123423882374238912356
-     *
-     * @param checksum
-     * @return
-     */
-    public Builder checksum(String checksum) {
-      this.checksum = checksum;
-      return this;
+    public String getParentType() {
+        return this.parentType;
     }
 
-
-    /**
-     * 文件二进制内容。
-     * <p> 示例值：file binary
-     *
-     * @param file
-     * @return
-     */
-    public Builder file(java.io.File file) {
-      this.file = file;
-      return this;
+    public void setParentType(String parentType) {
+        this.parentType = parentType;
     }
 
-
-    public UploadAllFileReqBody build() {
-      return new UploadAllFileReqBody(this);
+    public String getParentNode() {
+        return this.parentNode;
     }
-  }
+
+    public void setParentNode(String parentNode) {
+        this.parentNode = parentNode;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public String getChecksum() {
+        return this.checksum;
+    }
+
+    public void setChecksum(String checksum) {
+        this.checksum = checksum;
+    }
+
+    public java.io.File getFile() {
+        return this.file;
+    }
+
+    public void setFile(java.io.File file) {
+        this.file = file;
+    }
+
+    public static class Builder {
+        /**
+         * 文件名。
+         * <p> 示例值：demo.pdf
+         */
+        private String fileName;
+        /**
+         * 上传点类型。
+         * <p> 示例值：explorer
+         */
+        private String parentType;
+        /**
+         * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+         */
+        private String parentNode;
+        /**
+         * 文件大小（以字节为单位）。
+         * <p> 示例值：1024
+         */
+        private Integer size;
+        /**
+         * 文件adler32校验和(可选)。
+         * <p> 示例值：123423882374238912356
+         */
+        private String checksum;
+        /**
+         * 文件二进制内容。
+         * <p> 示例值：file binary
+         */
+        private java.io.File file;
+
+        /**
+         * 文件名。
+         * <p> 示例值：demo.pdf
+         *
+         * @param fileName
+         * @return
+         */
+        public Builder fileName(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+
+        /**
+         * 上传点类型。
+         * <p> 示例值：explorer
+         *
+         * @param parentType
+         * @return
+         */
+        public Builder parentType(String parentType) {
+            this.parentType = parentType;
+            return this;
+        }
+
+        /**
+         * 上传点类型。
+         * <p> 示例值：explorer
+         *
+         * @param parentType {@link com.lark.oapi.service.drive.v1.enums.UploadAllFileParentTypeEnum}
+         * @return
+         */
+        public Builder parentType(com.lark.oapi.service.drive.v1.enums.UploadAllFileParentTypeEnum parentType) {
+            this.parentType = parentType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+         *
+         * @param parentNode
+         * @return
+         */
+        public Builder parentNode(String parentNode) {
+            this.parentNode = parentNode;
+            return this;
+        }
+
+
+        /**
+         * 文件大小（以字节为单位）。
+         * <p> 示例值：1024
+         *
+         * @param size
+         * @return
+         */
+        public Builder size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+
+        /**
+         * 文件adler32校验和(可选)。
+         * <p> 示例值：123423882374238912356
+         *
+         * @param checksum
+         * @return
+         */
+        public Builder checksum(String checksum) {
+            this.checksum = checksum;
+            return this;
+        }
+
+
+        /**
+         * 文件二进制内容。
+         * <p> 示例值：file binary
+         *
+         * @param file
+         * @return
+         */
+        public Builder file(java.io.File file) {
+            this.file = file;
+            return this;
+        }
+
+
+        public UploadAllFileReqBody build() {
+            return new UploadAllFileReqBody(this);
+        }
+    }
 }

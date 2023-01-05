@@ -16,138 +16,133 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserCustomAttr {
-
-  /**
-   * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;-
-   * `GENERIC_USER`：用户;;[自定义字段相关常见问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
-   * <p> 示例值：TEXT
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 自定义字段ID
-   * <p> 示例值：DemoId
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 自定义字段取值
-   * <p> 示例值：
-   */
-  @SerializedName("value")
-  private UserCustomAttrValue value;
-
-  // builder 开始
-  public UserCustomAttr() {
-  }
-
-  public UserCustomAttr(Builder builder) {
     /**
-     * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;[自定义字段相关常见问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+     * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
      * <p> 示例值：TEXT
      */
-    this.type = builder.type;
-    /**
-     * 自定义字段ID
-     * <p> 示例值：DemoId
-     */
-    this.id = builder.id;
-    /**
-     * 自定义字段取值
-     * <p> 示例值：
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public UserCustomAttrValue getValue() {
-    return this.value;
-  }
-
-  public void setValue(UserCustomAttrValue value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;-
-     * `GENERIC_USER`：用户;;[自定义字段相关常见问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
-     * <p> 示例值：TEXT
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 自定义字段ID
      * <p> 示例值：DemoId
      */
+    @SerializedName("id")
     private String id;
     /**
      * 自定义字段取值
      * <p> 示例值：
      */
+    @SerializedName("value")
     private UserCustomAttrValue value;
 
-    /**
-     * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;-
-     * `GENERIC_USER`：用户;;[自定义字段相关常见问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
-     * <p> 示例值：TEXT
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public UserCustomAttr() {
     }
 
-
-    /**
-     * 自定义字段ID
-     * <p> 示例值：DemoId
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public UserCustomAttr(Builder builder) {
+        /**
+         * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+         * <p> 示例值：TEXT
+         */
+        this.type = builder.type;
+        /**
+         * 自定义字段ID
+         * <p> 示例值：DemoId
+         */
+        this.id = builder.id;
+        /**
+         * 自定义字段取值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
     }
 
-
-    /**
-     * 自定义字段取值
-     * <p> 示例值：
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(UserCustomAttrValue value) {
-      this.value = value;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UserCustomAttr build() {
-      return new UserCustomAttr(this);
+    public String getType() {
+        return this.type;
     }
-  }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UserCustomAttrValue getValue() {
+        return this.value;
+    }
+
+    public void setValue(UserCustomAttrValue value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+         * <p> 示例值：TEXT
+         */
+        private String type;
+        /**
+         * 自定义字段ID
+         * <p> 示例值：DemoId
+         */
+        private String id;
+        /**
+         * 自定义字段取值
+         * <p> 示例值：
+         */
+        private UserCustomAttrValue value;
+
+        /**
+         * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+         * <p> 示例值：TEXT
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段ID
+         * <p> 示例值：DemoId
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段取值
+         * <p> 示例值：
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(UserCustomAttrValue value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public UserCustomAttr build() {
+            return new UserCustomAttr(this);
+        }
+    }
 }

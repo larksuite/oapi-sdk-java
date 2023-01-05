@@ -17,21 +17,21 @@ package com.lark.oapi.service.admin.v1.enums;
  * 文档类型
  */
 public enum FileTypeEnum {
-  DOC("1"), // doc文档
-  SHEET("2"), // sheet文档
-  SLIDE("3"), // slide文档
-  MINDNODE("4"), // mindnode文档
-  BITABLE("5"), // bitable文档
-  FILE("6"), // 文件
-  DOCX("7"), // docx文档
-  ;
-  private String value;
+    DOC("1"), // doc文档
+    SHEET("2"), // sheet文档
+    SLIDE("3"), // slide文档
+    MINDNODE("4"), // mindnode文档
+    BITABLE("5"), // bitable文档
+    FILE("6"), // 文件
+    DOCX("7"), // docx文档
+    ;
+    private String value;
 
-  FileTypeEnum(String value) {
-    this.value = value;
-  }
+    FileTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

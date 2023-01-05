@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAgentSchedulesReq {
-
-  /**
-   * agent user id
-   * <p> 示例值：12345
-   */
-  @Path
-  @SerializedName("agent_id")
-  private String agentId;
-
-  // builder 开始
-  public DeleteAgentSchedulesReq() {
-  }
-
-  public DeleteAgentSchedulesReq(Builder builder) {
     /**
      * agent user id
      * <p> 示例值：12345
      */
-    this.agentId = builder.agentId;
-  }
+    @Path
+    @SerializedName("agent_id")
+    private String agentId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public static class Builder {
-
-    private String agentId; // agent user id
-
-    /**
-     * agent user id
-     * <p> 示例值：12345
-     *
-     * @param agentId
-     * @return
-     */
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
+    // builder 开始
+    public DeleteAgentSchedulesReq() {
     }
 
-    public DeleteAgentSchedulesReq build() {
-      return new DeleteAgentSchedulesReq(this);
+    public DeleteAgentSchedulesReq(Builder builder) {
+        /**
+         * agent user id
+         * <p> 示例值：12345
+         */
+        this.agentId = builder.agentId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAgentId() {
+        return this.agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    public static class Builder {
+
+        private String agentId; // agent user id
+
+        /**
+         * agent user id
+         * <p> 示例值：12345
+         *
+         * @param agentId
+         * @return
+         */
+        public Builder agentId(String agentId) {
+            this.agentId = agentId;
+            return this;
+        }
+
+        public DeleteAgentSchedulesReq build() {
+            return new DeleteAgentSchedulesReq(this);
+        }
+    }
 }

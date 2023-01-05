@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateCalendarAcl {
 
-  /**
-   * acl资源ID
-   * <p> 示例值：
-   */
-  @SerializedName("acl_id")
-  private String aclId;
-  /**
-   * 对日历的访问权限
-   * <p> 示例值：
-   */
-  @SerializedName("role")
-  private String role;
-  /**
-   * 权限范围
-   * <p> 示例值：
-   */
-  @SerializedName("scope")
-  private AclScope scope;
+    /**
+     * acl资源ID
+     * <p> 示例值：
+     */
+    @SerializedName("acl_id")
+    private String aclId;
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：
+     */
+    @SerializedName("role")
+    private String role;
+    /**
+     * 权限范围
+     * <p> 示例值：
+     */
+    @SerializedName("scope")
+    private AclScope scope;
 
-  public String getAclId() {
-    return this.aclId;
-  }
+    public String getAclId() {
+        return this.aclId;
+    }
 
-  public void setAclId(String aclId) {
-    this.aclId = aclId;
-  }
+    public void setAclId(String aclId) {
+        this.aclId = aclId;
+    }
 
-  public String getRole() {
-    return this.role;
-  }
+    public String getRole() {
+        return this.role;
+    }
 
-  public void setRole(String role) {
-    this.role = role;
-  }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-  public AclScope getScope() {
-    return this.scope;
-  }
+    public AclScope getScope() {
+        return this.scope;
+    }
 
-  public void setScope(AclScope scope) {
-    this.scope = scope;
-  }
+    public void setScope(AclScope scope) {
+        this.scope = scope;
+    }
 
 }

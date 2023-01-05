@@ -16,135 +16,133 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class I18nNames {
-
-  /**
-   * 中文描述
-   * <p> 示例值：中文描述
-   */
-  @SerializedName("ch")
-  private String ch;
-  /**
-   * 英语描述
-   * <p> 示例值：English description
-   */
-  @SerializedName("en")
-  private String en;
-  /**
-   * 日语描述
-   * <p> 示例值：日本語の説明
-   */
-  @SerializedName("ja")
-  private String ja;
-
-  // builder 开始
-  public I18nNames() {
-  }
-
-  public I18nNames(Builder builder) {
     /**
      * 中文描述
      * <p> 示例值：中文描述
      */
-    this.ch = builder.ch;
-    /**
-     * 英语描述
-     * <p> 示例值：English description
-     */
-    this.en = builder.en;
-    /**
-     * 日语描述
-     * <p> 示例值：日本語の説明
-     */
-    this.ja = builder.ja;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCh() {
-    return this.ch;
-  }
-
-  public void setCh(String ch) {
-    this.ch = ch;
-  }
-
-  public String getEn() {
-    return this.en;
-  }
-
-  public void setEn(String en) {
-    this.en = en;
-  }
-
-  public String getJa() {
-    return this.ja;
-  }
-
-  public void setJa(String ja) {
-    this.ja = ja;
-  }
-
-  public static class Builder {
-
-    /**
-     * 中文描述
-     * <p> 示例值：中文描述
-     */
+    @SerializedName("ch")
     private String ch;
     /**
      * 英语描述
      * <p> 示例值：English description
      */
+    @SerializedName("en")
     private String en;
     /**
      * 日语描述
      * <p> 示例值：日本語の説明
      */
+    @SerializedName("ja")
     private String ja;
 
-    /**
-     * 中文描述
-     * <p> 示例值：中文描述
-     *
-     * @param ch
-     * @return
-     */
-    public Builder ch(String ch) {
-      this.ch = ch;
-      return this;
+    // builder 开始
+    public I18nNames() {
     }
 
-
-    /**
-     * 英语描述
-     * <p> 示例值：English description
-     *
-     * @param en
-     * @return
-     */
-    public Builder en(String en) {
-      this.en = en;
-      return this;
+    public I18nNames(Builder builder) {
+        /**
+         * 中文描述
+         * <p> 示例值：中文描述
+         */
+        this.ch = builder.ch;
+        /**
+         * 英语描述
+         * <p> 示例值：English description
+         */
+        this.en = builder.en;
+        /**
+         * 日语描述
+         * <p> 示例值：日本語の説明
+         */
+        this.ja = builder.ja;
     }
 
-
-    /**
-     * 日语描述
-     * <p> 示例值：日本語の説明
-     *
-     * @param ja
-     * @return
-     */
-    public Builder ja(String ja) {
-      this.ja = ja;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public I18nNames build() {
-      return new I18nNames(this);
+    public String getCh() {
+        return this.ch;
     }
-  }
+
+    public void setCh(String ch) {
+        this.ch = ch;
+    }
+
+    public String getEn() {
+        return this.en;
+    }
+
+    public void setEn(String en) {
+        this.en = en;
+    }
+
+    public String getJa() {
+        return this.ja;
+    }
+
+    public void setJa(String ja) {
+        this.ja = ja;
+    }
+
+    public static class Builder {
+        /**
+         * 中文描述
+         * <p> 示例值：中文描述
+         */
+        private String ch;
+        /**
+         * 英语描述
+         * <p> 示例值：English description
+         */
+        private String en;
+        /**
+         * 日语描述
+         * <p> 示例值：日本語の説明
+         */
+        private String ja;
+
+        /**
+         * 中文描述
+         * <p> 示例值：中文描述
+         *
+         * @param ch
+         * @return
+         */
+        public Builder ch(String ch) {
+            this.ch = ch;
+            return this;
+        }
+
+
+        /**
+         * 英语描述
+         * <p> 示例值：English description
+         *
+         * @param en
+         * @return
+         */
+        public Builder en(String en) {
+            this.en = en;
+            return this;
+        }
+
+
+        /**
+         * 日语描述
+         * <p> 示例值：日本語の説明
+         *
+         * @param ja
+         * @return
+         */
+        public Builder ja(String ja) {
+            this.ja = ja;
+            return this;
+        }
+
+
+        public I18nNames build() {
+            return new I18nNames(this);
+        }
+    }
 }

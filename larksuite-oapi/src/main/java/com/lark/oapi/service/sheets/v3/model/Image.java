@@ -16,61 +16,59 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Image {
-
-  /**
-   * 图片token
-   * <p> 示例值：boxxxxxxxxxx
-   */
-  @SerializedName("image_token")
-  private String imageToken;
-
-  // builder 开始
-  public Image() {
-  }
-
-  public Image(Builder builder) {
     /**
      * 图片token
      * <p> 示例值：boxxxxxxxxxx
      */
-    this.imageToken = builder.imageToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImageToken() {
-    return this.imageToken;
-  }
-
-  public void setImageToken(String imageToken) {
-    this.imageToken = imageToken;
-  }
-
-  public static class Builder {
-
-    /**
-     * 图片token
-     * <p> 示例值：boxxxxxxxxxx
-     */
+    @SerializedName("image_token")
     private String imageToken;
 
-    /**
-     * 图片token
-     * <p> 示例值：boxxxxxxxxxx
-     *
-     * @param imageToken
-     * @return
-     */
-    public Builder imageToken(String imageToken) {
-      this.imageToken = imageToken;
-      return this;
+    // builder 开始
+    public Image() {
     }
 
-
-    public Image build() {
-      return new Image(this);
+    public Image(Builder builder) {
+        /**
+         * 图片token
+         * <p> 示例值：boxxxxxxxxxx
+         */
+        this.imageToken = builder.imageToken;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getImageToken() {
+        return this.imageToken;
+    }
+
+    public void setImageToken(String imageToken) {
+        this.imageToken = imageToken;
+    }
+
+    public static class Builder {
+        /**
+         * 图片token
+         * <p> 示例值：boxxxxxxxxxx
+         */
+        private String imageToken;
+
+        /**
+         * 图片token
+         * <p> 示例值：boxxxxxxxxxx
+         *
+         * @param imageToken
+         * @return
+         */
+        public Builder imageToken(String imageToken) {
+            this.imageToken = imageToken;
+            return this;
+        }
+
+
+        public Image build() {
+            return new Image(this);
+        }
+    }
 }

@@ -17,46 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchChat {
 
-  /**
-   * chat 列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private ListChat[] items;
-  /**
-   * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否还有更多群组
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    /**
+     * chat 列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private ListChat[] items;
+    /**
+     * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还有更多群组
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  public ListChat[] getItems() {
-    return this.items;
-  }
+    public ListChat[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(ListChat[] items) {
-    this.items = items;
-  }
+    public void setItems(ListChat[] items) {
+        this.items = items;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

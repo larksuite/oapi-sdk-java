@@ -17,14 +17,14 @@ import com.lark.oapi.event.model.BaseEvent;
 
 public class P1P2PChatCreatedV1 extends BaseEvent {
 
-  @SerializedName("event")
-  private P1P2PChatCreatedV1Data event;
+    @SerializedName("event")
+    private P1P2PChatCreatedV1Data event;
 
-  public P1P2PChatCreatedV1Data getEvent() {
-    return event;
-  }
+    public P1P2PChatCreatedV1Data getEvent() {
+        return event;
+    }
 
-  public void setEvent(P1P2PChatCreatedV1Data event) {
-    this.event = event;
-  }
+    public void setEvent(P1P2PChatCreatedV1Data event) {
+        this.event = event;
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MoveSpaceNodeReqBody {
-
-  /**
-   * 移动到的父节点token
-   * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
-   */
-  @SerializedName("target_parent_token")
-  private String targetParentToken;
-  /**
-   * 移动到的知识空间ID
-   * <p> 示例值：
-   */
-  @SerializedName("target_space_id")
-  private String targetSpaceId;
-
-  // builder 开始
-  public MoveSpaceNodeReqBody() {
-  }
-
-  public MoveSpaceNodeReqBody(Builder builder) {
     /**
      * 移动到的父节点token
      * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
      */
-    this.targetParentToken = builder.targetParentToken;
-    /**
-     * 移动到的知识空间ID
-     * <p> 示例值：
-     */
-    this.targetSpaceId = builder.targetSpaceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTargetParentToken() {
-    return this.targetParentToken;
-  }
-
-  public void setTargetParentToken(String targetParentToken) {
-    this.targetParentToken = targetParentToken;
-  }
-
-  public String getTargetSpaceId() {
-    return this.targetSpaceId;
-  }
-
-  public void setTargetSpaceId(String targetSpaceId) {
-    this.targetSpaceId = targetSpaceId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 移动到的父节点token
-     * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
-     */
+    @SerializedName("target_parent_token")
     private String targetParentToken;
     /**
      * 移动到的知识空间ID
-     * <p> 示例值：
+     * <p> 示例值：7008061636015512345
      */
+    @SerializedName("target_space_id")
     private String targetSpaceId;
 
-    /**
-     * 移动到的父节点token
-     * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
-     *
-     * @param targetParentToken
-     * @return
-     */
-    public Builder targetParentToken(String targetParentToken) {
-      this.targetParentToken = targetParentToken;
-      return this;
+    // builder 开始
+    public MoveSpaceNodeReqBody() {
     }
 
-
-    /**
-     * 移动到的知识空间ID
-     * <p> 示例值：
-     *
-     * @param targetSpaceId
-     * @return
-     */
-    public Builder targetSpaceId(String targetSpaceId) {
-      this.targetSpaceId = targetSpaceId;
-      return this;
+    public MoveSpaceNodeReqBody(Builder builder) {
+        /**
+         * 移动到的父节点token
+         * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+         */
+        this.targetParentToken = builder.targetParentToken;
+        /**
+         * 移动到的知识空间ID
+         * <p> 示例值：7008061636015512345
+         */
+        this.targetSpaceId = builder.targetSpaceId;
     }
 
-
-    public MoveSpaceNodeReqBody build() {
-      return new MoveSpaceNodeReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getTargetParentToken() {
+        return this.targetParentToken;
+    }
+
+    public void setTargetParentToken(String targetParentToken) {
+        this.targetParentToken = targetParentToken;
+    }
+
+    public String getTargetSpaceId() {
+        return this.targetSpaceId;
+    }
+
+    public void setTargetSpaceId(String targetSpaceId) {
+        this.targetSpaceId = targetSpaceId;
+    }
+
+    public static class Builder {
+        /**
+         * 移动到的父节点token
+         * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+         */
+        private String targetParentToken;
+        /**
+         * 移动到的知识空间ID
+         * <p> 示例值：7008061636015512345
+         */
+        private String targetSpaceId;
+
+        /**
+         * 移动到的父节点token
+         * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+         *
+         * @param targetParentToken
+         * @return
+         */
+        public Builder targetParentToken(String targetParentToken) {
+            this.targetParentToken = targetParentToken;
+            return this;
+        }
+
+
+        /**
+         * 移动到的知识空间ID
+         * <p> 示例值：7008061636015512345
+         *
+         * @param targetSpaceId
+         * @return
+         */
+        public Builder targetSpaceId(String targetSpaceId) {
+            this.targetSpaceId = targetSpaceId;
+            return this;
+        }
+
+
+        public MoveSpaceNodeReqBody build() {
+            return new MoveSpaceNodeReqBody(this);
+        }
+    }
 }

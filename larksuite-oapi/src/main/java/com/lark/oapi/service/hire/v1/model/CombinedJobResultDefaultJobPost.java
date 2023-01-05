@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CombinedJobResultDefaultJobPost {
-
-  /**
-   * 默认职位广告的 ID，用以发布至招聘渠道的内容
-   * <p> 示例值：6960663240925956568
-   */
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public CombinedJobResultDefaultJobPost() {
-  }
-
-  public CombinedJobResultDefaultJobPost(Builder builder) {
     /**
      * 默认职位广告的 ID，用以发布至招聘渠道的内容
      * <p> 示例值：6960663240925956568
      */
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    /**
-     * 默认职位广告的 ID，用以发布至招聘渠道的内容
-     * <p> 示例值：6960663240925956568
-     */
+    @SerializedName("id")
     private String id;
 
-    /**
-     * 默认职位广告的 ID，用以发布至招聘渠道的内容
-     * <p> 示例值：6960663240925956568
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public CombinedJobResultDefaultJobPost() {
     }
 
-
-    public CombinedJobResultDefaultJobPost build() {
-      return new CombinedJobResultDefaultJobPost(this);
+    public CombinedJobResultDefaultJobPost(Builder builder) {
+        /**
+         * 默认职位广告的 ID，用以发布至招聘渠道的内容
+         * <p> 示例值：6960663240925956568
+         */
+        this.id = builder.id;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+        /**
+         * 默认职位广告的 ID，用以发布至招聘渠道的内容
+         * <p> 示例值：6960663240925956568
+         */
+        private String id;
+
+        /**
+         * 默认职位广告的 ID，用以发布至招聘渠道的内容
+         * <p> 示例值：6960663240925956568
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public CombinedJobResultDefaultJobPost build() {
+            return new CombinedJobResultDefaultJobPost(this);
+        }
+    }
 }

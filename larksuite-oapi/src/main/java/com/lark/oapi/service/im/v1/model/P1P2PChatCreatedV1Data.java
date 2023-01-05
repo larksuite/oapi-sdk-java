@@ -16,122 +16,122 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1P2PChatCreatedV1Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("operator")
-  private P1OperatorV1 operator;
-  @SerializedName("user")
-  private P1UserV1 user;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("chat_id")
+    private String chatId;
+    @SerializedName("operator")
+    private P1OperatorV1 operator;
+    @SerializedName("user")
+    private P1UserV1 user;
 
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getTenantKey() {
-    return tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public String getChatId() {
-    return chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public P1OperatorV1 getOperator() {
-    return operator;
-  }
-
-  public void setOperator(P1OperatorV1 operator) {
-    this.operator = operator;
-  }
-
-  public P1UserV1 getUser() {
-    return user;
-  }
-
-  public void setUser(P1UserV1 user) {
-    this.user = user;
-  }
-
-  public static class P1OperatorV1 {
-
-    @SerializedName("open_id")
-    private String openId;
-    @SerializedName("user_id")
-    private String userId;
-
-    public String getOpenId() {
-      return openId;
+    public String getType() {
+        return type;
     }
 
-    public void setOpenId(String openId) {
-      this.openId = openId;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getUserId() {
-      return userId;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setUserId(String userId) {
-      this.userId = userId;
-    }
-  }
-
-  public static class P1UserV1 {
-
-    @SerializedName("user_id")
-    private String userId;
-    @SerializedName("open_id")
-    private String openId;
-    @SerializedName("name")
-    private String name;
-
-    public String getOpenId() {
-      return openId;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public void setOpenId(String openId) {
-      this.openId = openId;
+    public String getTenantKey() {
+        return tenantKey;
     }
 
-    public String getUserId() {
-      return userId;
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
-    public void setUserId(String userId) {
-      this.userId = userId;
+    public String getChatId() {
+        return chatId;
     }
 
-    public String getName() {
-      return name;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
-    public void setName(String name) {
-      this.name = name;
+    public P1OperatorV1 getOperator() {
+        return operator;
     }
-  }
+
+    public void setOperator(P1OperatorV1 operator) {
+        this.operator = operator;
+    }
+
+    public P1UserV1 getUser() {
+        return user;
+    }
+
+    public void setUser(P1UserV1 user) {
+        this.user = user;
+    }
+
+    public static class P1OperatorV1 {
+
+        @SerializedName("open_id")
+        private String openId;
+        @SerializedName("user_id")
+        private String userId;
+
+        public String getOpenId() {
+            return openId;
+        }
+
+        public void setOpenId(String openId) {
+            this.openId = openId;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+    }
+
+    public static class P1UserV1 {
+
+        @SerializedName("user_id")
+        private String userId;
+        @SerializedName("open_id")
+        private String openId;
+        @SerializedName("name")
+        private String name;
+
+        public String getOpenId() {
+            return openId;
+        }
+
+        public void setOpenId(String openId) {
+            this.openId = openId;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }

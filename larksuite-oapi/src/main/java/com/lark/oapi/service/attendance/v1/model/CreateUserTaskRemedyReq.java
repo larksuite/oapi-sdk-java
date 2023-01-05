@@ -18,97 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateUserTaskRemedyReq {
-
-  /**
-   * 请求体和响应体中的 user_id 的员工工号类型
-   * <p> 示例值：employee_id
-   */
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Body
-  private UserTaskRemedy body;
-
-  // builder 开始
-  public CreateUserTaskRemedyReq() {
-  }
-
-  public CreateUserTaskRemedyReq(Builder builder) {
     /**
      * 请求体和响应体中的 user_id 的员工工号类型
      * <p> 示例值：employee_id
      */
-    this.employeeType = builder.employeeType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public UserTaskRemedy getUserTaskRemedy() {
-    return this.body;
-  }
-
-  public void setUserTaskRemedy(UserTaskRemedy body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
+    @Query
+    @SerializedName("employee_type")
+    private String employeeType;
+    @Body
     private UserTaskRemedy body;
 
-    /**
-     * 请求体和响应体中的 user_id 的员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType
-     * @return
-     */
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
+    // builder 开始
+    public CreateUserTaskRemedyReq() {
     }
 
-    /**
-     * 请求体和响应体中的 user_id 的员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyEmployeeTypeEnum}
-     * @return
-     */
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyEmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
+    public CreateUserTaskRemedyReq(Builder builder) {
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         */
+        this.employeeType = builder.employeeType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
     }
 
     public UserTaskRemedy getUserTaskRemedy() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder userTaskRemedy(UserTaskRemedy body) {
-      this.body = body;
-      return this;
+    public void setUserTaskRemedy(UserTaskRemedy body) {
+        this.body = body;
     }
 
-    public CreateUserTaskRemedyReq build() {
-      return new CreateUserTaskRemedyReq(this);
+    public static class Builder {
+        private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
+        private UserTaskRemedy body;
+
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateUserTaskRemedyEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
+
+        public UserTaskRemedy getUserTaskRemedy() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder userTaskRemedy(UserTaskRemedy body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateUserTaskRemedyReq build() {
+            return new CreateUserTaskRemedyReq(this);
+        }
     }
-  }
 }

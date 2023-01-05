@@ -17,16 +17,16 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 请求体和响应体中的 user_id 的员工工号类型
  */
 public enum CreateUserApprovalEmployeeTypeEnum {
-  EMPLOYEE_ID("employee_id"), // 员工employeeId
-  EMPLOYEE_NO("employee_no"), // 员工工号
-  ;
-  private String value;
+    EMPLOYEE_ID("employee_id"), // 员工employeeId
+    EMPLOYEE_NO("employee_no"), // 员工工号
+    ;
+    private String value;
 
-  CreateUserApprovalEmployeeTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateUserApprovalEmployeeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

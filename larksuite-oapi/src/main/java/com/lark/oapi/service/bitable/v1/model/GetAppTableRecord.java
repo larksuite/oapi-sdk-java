@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetAppTableRecord {
 
-  /**
-   * 记录
-   * <p> 示例值：
-   */
-  @SerializedName("record")
-  private AppTableRecord record;
+    /**
+     * 记录
+     * <p> 示例值：
+     */
+    @SerializedName("record")
+    private AppTableRecord record;
 
-  public AppTableRecord getRecord() {
-    return this.record;
-  }
+    public AppTableRecord getRecord() {
+        return this.record;
+    }
 
-  public void setRecord(AppTableRecord record) {
-    this.record = record;
-  }
+    public void setRecord(AppTableRecord record) {
+        this.record = record;
+    }
 
 }

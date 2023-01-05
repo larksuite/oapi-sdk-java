@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PlainTextValueRange {
-
-  /**
-   * 范围
-   * <p> 示例值：Sheet1!A1:B2
-   */
-  @SerializedName("range")
-  private String range;
-  /**
-   * 数据
-   * <p> 示例值：
-   */
-  @SerializedName("values")
-  private String[][] values;
-
-  // builder 开始
-  public PlainTextValueRange() {
-  }
-
-  public PlainTextValueRange(Builder builder) {
     /**
      * 范围
      * <p> 示例值：Sheet1!A1:B2
      */
-    this.range = builder.range;
-    /**
-     * 数据
-     * <p> 示例值：
-     */
-    this.values = builder.values;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRange() {
-    return this.range;
-  }
-
-  public void setRange(String range) {
-    this.range = range;
-  }
-
-  public String[][] getValues() {
-    return this.values;
-  }
-
-  public void setValues(String[][] values) {
-    this.values = values;
-  }
-
-  public static class Builder {
-
-    /**
-     * 范围
-     * <p> 示例值：Sheet1!A1:B2
-     */
+    @SerializedName("range")
     private String range;
     /**
      * 数据
      * <p> 示例值：
      */
+    @SerializedName("values")
     private String[][] values;
 
-    /**
-     * 范围
-     * <p> 示例值：Sheet1!A1:B2
-     *
-     * @param range
-     * @return
-     */
-    public Builder range(String range) {
-      this.range = range;
-      return this;
+    // builder 开始
+    public PlainTextValueRange() {
     }
 
-
-    /**
-     * 数据
-     * <p> 示例值：
-     *
-     * @param values
-     * @return
-     */
-    public Builder values(String[][] values) {
-      this.values = values;
-      return this;
+    public PlainTextValueRange(Builder builder) {
+        /**
+         * 范围
+         * <p> 示例值：Sheet1!A1:B2
+         */
+        this.range = builder.range;
+        /**
+         * 数据
+         * <p> 示例值：
+         */
+        this.values = builder.values;
     }
 
-
-    public PlainTextValueRange build() {
-      return new PlainTextValueRange(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getRange() {
+        return this.range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
+    }
+
+    public String[][] getValues() {
+        return this.values;
+    }
+
+    public void setValues(String[][] values) {
+        this.values = values;
+    }
+
+    public static class Builder {
+        /**
+         * 范围
+         * <p> 示例值：Sheet1!A1:B2
+         */
+        private String range;
+        /**
+         * 数据
+         * <p> 示例值：
+         */
+        private String[][] values;
+
+        /**
+         * 范围
+         * <p> 示例值：Sheet1!A1:B2
+         *
+         * @param range
+         * @return
+         */
+        public Builder range(String range) {
+            this.range = range;
+            return this;
+        }
+
+
+        /**
+         * 数据
+         * <p> 示例值：
+         *
+         * @param values
+         * @return
+         */
+        public Builder values(String[][] values) {
+            this.values = values;
+            return this;
+        }
+
+
+        public PlainTextValueRange build() {
+            return new PlainTextValueRange(this);
+        }
+    }
 }

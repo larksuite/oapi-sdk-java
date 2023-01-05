@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobRequirementSchema {
-
-  /**
-   * 模板 ID
-   * <p> 示例值：6949805467799537964
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 国际化模板名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 模板字段
-   * <p> 示例值：
-   */
-  @SerializedName("object_list")
-  private CommonSchema[] objectList;
-
-  // builder 开始
-  public JobRequirementSchema() {
-  }
-
-  public JobRequirementSchema(Builder builder) {
     /**
      * 模板 ID
      * <p> 示例值：6949805467799537964
      */
-    this.id = builder.id;
-    /**
-     * 国际化模板名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 模板字段
-     * <p> 示例值：
-     */
-    this.objectList = builder.objectList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public CommonSchema[] getObjectList() {
-    return this.objectList;
-  }
-
-  public void setObjectList(CommonSchema[] objectList) {
-    this.objectList = objectList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 模板 ID
-     * <p> 示例值：6949805467799537964
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 国际化模板名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 模板字段
      * <p> 示例值：
      */
+    @SerializedName("object_list")
     private CommonSchema[] objectList;
 
-    /**
-     * 模板 ID
-     * <p> 示例值：6949805467799537964
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public JobRequirementSchema() {
     }
 
-
-    /**
-     * 国际化模板名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public JobRequirementSchema(Builder builder) {
+        /**
+         * 模板 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 国际化模板名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 模板字段
+         * <p> 示例值：
+         */
+        this.objectList = builder.objectList;
     }
 
-
-    /**
-     * 模板字段
-     * <p> 示例值：
-     *
-     * @param objectList
-     * @return
-     */
-    public Builder objectList(CommonSchema[] objectList) {
-      this.objectList = objectList;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public JobRequirementSchema build() {
-      return new JobRequirementSchema(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public CommonSchema[] getObjectList() {
+        return this.objectList;
+    }
+
+    public void setObjectList(CommonSchema[] objectList) {
+        this.objectList = objectList;
+    }
+
+    public static class Builder {
+        /**
+         * 模板 ID
+         * <p> 示例值：6949805467799537964
+         */
+        private String id;
+        /**
+         * 国际化模板名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 模板字段
+         * <p> 示例值：
+         */
+        private CommonSchema[] objectList;
+
+        /**
+         * 模板 ID
+         * <p> 示例值：6949805467799537964
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 国际化模板名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 模板字段
+         * <p> 示例值：
+         *
+         * @param objectList
+         * @return
+         */
+        public Builder objectList(CommonSchema[] objectList) {
+            this.objectList = objectList;
+            return this;
+        }
+
+
+        public JobRequirementSchema build() {
+            return new JobRequirementSchema(this);
+        }
+    }
 }

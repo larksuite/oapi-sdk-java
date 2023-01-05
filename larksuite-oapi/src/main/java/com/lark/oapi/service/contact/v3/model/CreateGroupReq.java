@@ -16,51 +16,50 @@ package com.lark.oapi.service.contact.v3.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateGroupReq {
-
-  @Body
-  private CreateGroupReqBody body;
-
-  // builder 开始
-  public CreateGroupReq() {
-  }
-
-  public CreateGroupReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateGroupReqBody getCreateGroupReqBody() {
-    return this.body;
-  }
-
-  public void setCreateGroupReqBody(CreateGroupReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateGroupReqBody body;
 
+    // builder 开始
+    public CreateGroupReq() {
+    }
+
+    public CreateGroupReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateGroupReqBody getCreateGroupReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createGroupReqBody(CreateGroupReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateGroupReqBody(CreateGroupReqBody body) {
+        this.body = body;
     }
 
-    public CreateGroupReq build() {
-      return new CreateGroupReq(this);
+    public static class Builder {
+
+        private CreateGroupReqBody body;
+
+        public CreateGroupReqBody getCreateGroupReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createGroupReqBody(CreateGroupReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateGroupReq build() {
+            return new CreateGroupReq(this);
+        }
     }
-  }
 }

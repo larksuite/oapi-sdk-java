@@ -16,161 +16,157 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsViewReqBody {
-
-  /**
-   * 语言类型
-   * <p> 示例值：zh
-   */
-  @SerializedName("locale")
-  private String locale;
-  /**
-   * 统计类型
-   * <p> 示例值：daily
-   */
-  @SerializedName("stats_type")
-  private String statsType;
-  /**
-   * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-   * <p> 示例值：dd31248a
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public QueryUserStatsViewReqBody() {
-  }
-
-  public QueryUserStatsViewReqBody(Builder builder) {
     /**
      * 语言类型
      * <p> 示例值：zh
      */
-    this.locale = builder.locale;
-    /**
-     * 统计类型
-     * <p> 示例值：daily
-     */
-    this.statsType = builder.statsType;
-    /**
-     * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-     * <p> 示例值：dd31248a
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public String getStatsType() {
-    return this.statsType;
-  }
-
-  public void setStatsType(String statsType) {
-    this.statsType = statsType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 语言类型
-     * <p> 示例值：zh
-     */
+    @SerializedName("locale")
     private String locale;
     /**
      * 统计类型
      * <p> 示例值：daily
      */
+    @SerializedName("stats_type")
     private String statsType;
     /**
      * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
      * <p> 示例值：dd31248a
      */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * 语言类型
-     * <p> 示例值：zh
-     *
-     * @param locale
-     * @return
-     */
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    // builder 开始
+    public QueryUserStatsViewReqBody() {
     }
 
-    /**
-     * 语言类型
-     * <p> 示例值：zh
-     *
-     * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewLocaleEnum}
-     * @return
-     */
-    public Builder locale(
-        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewLocaleEnum locale) {
-      this.locale = locale.getValue();
-      return this;
+    public QueryUserStatsViewReqBody(Builder builder) {
+        /**
+         * 语言类型
+         * <p> 示例值：zh
+         */
+        this.locale = builder.locale;
+        /**
+         * 统计类型
+         * <p> 示例值：daily
+         */
+        this.statsType = builder.statsType;
+        /**
+         * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
+         * <p> 示例值：dd31248a
+         */
+        this.userId = builder.userId;
     }
 
-
-    /**
-     * 统计类型
-     * <p> 示例值：daily
-     *
-     * @param statsType
-     * @return
-     */
-    public Builder statsType(String statsType) {
-      this.statsType = statsType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 统计类型
-     * <p> 示例值：daily
-     *
-     * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewStatsTypeEnum}
-     * @return
-     */
-    public Builder statsType(
-        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewStatsTypeEnum statsType) {
-      this.statsType = statsType.getValue();
-      return this;
+    public String getLocale() {
+        return this.locale;
     }
 
-
-    /**
-     * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-     * <p> 示例值：dd31248a
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 
-
-    public QueryUserStatsViewReqBody build() {
-      return new QueryUserStatsViewReqBody(this);
+    public String getStatsType() {
+        return this.statsType;
     }
-  }
+
+    public void setStatsType(String statsType) {
+        this.statsType = statsType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 语言类型
+         * <p> 示例值：zh
+         */
+        private String locale;
+        /**
+         * 统计类型
+         * <p> 示例值：daily
+         */
+        private String statsType;
+        /**
+         * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
+         * <p> 示例值：dd31248a
+         */
+        private String userId;
+
+        /**
+         * 语言类型
+         * <p> 示例值：zh
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+        /**
+         * 语言类型
+         * <p> 示例值：zh
+         *
+         * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewLocaleEnum}
+         * @return
+         */
+        public Builder locale(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewLocaleEnum locale) {
+            this.locale = locale.getValue();
+            return this;
+        }
+
+
+        /**
+         * 统计类型
+         * <p> 示例值：daily
+         *
+         * @param statsType
+         * @return
+         */
+        public Builder statsType(String statsType) {
+            this.statsType = statsType;
+            return this;
+        }
+
+        /**
+         * 统计类型
+         * <p> 示例值：daily
+         *
+         * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewStatsTypeEnum}
+         * @return
+         */
+        public Builder statsType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewStatsTypeEnum statsType) {
+            this.statsType = statsType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
+         * <p> 示例值：dd31248a
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public QueryUserStatsViewReqBody build() {
+            return new QueryUserStatsViewReqBody(this);
+        }
+    }
 }

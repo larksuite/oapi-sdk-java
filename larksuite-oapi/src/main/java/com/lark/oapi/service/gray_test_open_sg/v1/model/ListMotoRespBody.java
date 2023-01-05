@@ -16,46 +16,45 @@ package com.lark.oapi.service.gray_test_open_sg.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListMotoRespBody {
+    /**
+     * desc
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private String[] items;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * desc
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private String[] items;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public String[] getItems() {
+        return this.items;
+    }
 
-  public String[] getItems() {
-    return this.items;
-  }
+    public void setItems(String[] items) {
+        this.items = items;
+    }
 
-  public void setItems(String[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

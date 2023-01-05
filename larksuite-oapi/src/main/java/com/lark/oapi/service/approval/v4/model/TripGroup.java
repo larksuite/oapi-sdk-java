@@ -16,357 +16,355 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TripGroup {
-
-  /**
-   * 出差类型
-   * <p> 示例值：
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 实例code
-   * <p> 示例值：
-   */
-  @SerializedName("instance_code")
-  private String instanceCode;
-  /**
-   * 发起人
-   * <p> 示例值：
-   */
-  @SerializedName("start_user")
-  private User startUser;
-  /**
-   * 开始时间
-   * <p> 示例值：
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 结束时间
-   * <p> 示例值：
-   */
-  @SerializedName("end_time")
-  private String endTime;
-  /**
-   * 出差时间
-   * <p> 示例值：
-   */
-  @SerializedName("trip_interval")
-  private String tripInterval;
-  /**
-   * 出差理由
-   * <p> 示例值：
-   */
-  @SerializedName("trip_reason")
-  private String tripReason;
-  /**
-   * 出差计划
-   * <p> 示例值：
-   */
-  @SerializedName("schedules")
-  private TripGroupSchedule[] schedules;
-  /**
-   * 同行人
-   * <p> 示例值：
-   */
-  @SerializedName("trip_peers")
-  private User[] tripPeers;
-
-  // builder 开始
-  public TripGroup() {
-  }
-
-  public TripGroup(Builder builder) {
     /**
      * 出差类型
      * <p> 示例值：
      */
-    this.type = builder.type;
-    /**
-     * 实例code
-     * <p> 示例值：
-     */
-    this.instanceCode = builder.instanceCode;
-    /**
-     * 发起人
-     * <p> 示例值：
-     */
-    this.startUser = builder.startUser;
-    /**
-     * 开始时间
-     * <p> 示例值：
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 出差时间
-     * <p> 示例值：
-     */
-    this.tripInterval = builder.tripInterval;
-    /**
-     * 出差理由
-     * <p> 示例值：
-     */
-    this.tripReason = builder.tripReason;
-    /**
-     * 出差计划
-     * <p> 示例值：
-     */
-    this.schedules = builder.schedules;
-    /**
-     * 同行人
-     * <p> 示例值：
-     */
-    this.tripPeers = builder.tripPeers;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
-
-  public User getStartUser() {
-    return this.startUser;
-  }
-
-  public void setStartUser(User startUser) {
-    this.startUser = startUser;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getTripInterval() {
-    return this.tripInterval;
-  }
-
-  public void setTripInterval(String tripInterval) {
-    this.tripInterval = tripInterval;
-  }
-
-  public String getTripReason() {
-    return this.tripReason;
-  }
-
-  public void setTripReason(String tripReason) {
-    this.tripReason = tripReason;
-  }
-
-  public TripGroupSchedule[] getSchedules() {
-    return this.schedules;
-  }
-
-  public void setSchedules(TripGroupSchedule[] schedules) {
-    this.schedules = schedules;
-  }
-
-  public User[] getTripPeers() {
-    return this.tripPeers;
-  }
-
-  public void setTripPeers(User[] tripPeers) {
-    this.tripPeers = tripPeers;
-  }
-
-  public static class Builder {
-
-    /**
-     * 出差类型
-     * <p> 示例值：
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 实例code
      * <p> 示例值：
      */
+    @SerializedName("instance_code")
     private String instanceCode;
     /**
      * 发起人
      * <p> 示例值：
      */
+    @SerializedName("start_user")
     private User startUser;
     /**
      * 开始时间
      * <p> 示例值：
      */
+    @SerializedName("start_time")
     private String startTime;
     /**
      * 结束时间
      * <p> 示例值：
      */
+    @SerializedName("end_time")
     private String endTime;
     /**
      * 出差时间
      * <p> 示例值：
      */
+    @SerializedName("trip_interval")
     private String tripInterval;
     /**
      * 出差理由
      * <p> 示例值：
      */
+    @SerializedName("trip_reason")
     private String tripReason;
     /**
      * 出差计划
      * <p> 示例值：
      */
+    @SerializedName("schedules")
     private TripGroupSchedule[] schedules;
     /**
      * 同行人
      * <p> 示例值：
      */
+    @SerializedName("trip_peers")
     private User[] tripPeers;
 
-    /**
-     * 出差类型
-     * <p> 示例值：
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public TripGroup() {
     }
 
-
-    /**
-     * 实例code
-     * <p> 示例值：
-     *
-     * @param instanceCode
-     * @return
-     */
-    public Builder instanceCode(String instanceCode) {
-      this.instanceCode = instanceCode;
-      return this;
+    public TripGroup(Builder builder) {
+        /**
+         * 出差类型
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * 实例code
+         * <p> 示例值：
+         */
+        this.instanceCode = builder.instanceCode;
+        /**
+         * 发起人
+         * <p> 示例值：
+         */
+        this.startUser = builder.startUser;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 出差时间
+         * <p> 示例值：
+         */
+        this.tripInterval = builder.tripInterval;
+        /**
+         * 出差理由
+         * <p> 示例值：
+         */
+        this.tripReason = builder.tripReason;
+        /**
+         * 出差计划
+         * <p> 示例值：
+         */
+        this.schedules = builder.schedules;
+        /**
+         * 同行人
+         * <p> 示例值：
+         */
+        this.tripPeers = builder.tripPeers;
     }
 
-
-    /**
-     * 发起人
-     * <p> 示例值：
-     *
-     * @param startUser
-     * @return
-     */
-    public Builder startUser(User startUser) {
-      this.startUser = startUser;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 开始时间
-     * <p> 示例值：
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-
-    /**
-     * 结束时间
-     * <p> 示例值：
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-
-    /**
-     * 出差时间
-     * <p> 示例值：
-     *
-     * @param tripInterval
-     * @return
-     */
-    public Builder tripInterval(String tripInterval) {
-      this.tripInterval = tripInterval;
-      return this;
+    public String getInstanceCode() {
+        return this.instanceCode;
     }
 
-
-    /**
-     * 出差理由
-     * <p> 示例值：
-     *
-     * @param tripReason
-     * @return
-     */
-    public Builder tripReason(String tripReason) {
-      this.tripReason = tripReason;
-      return this;
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
     }
 
-
-    /**
-     * 出差计划
-     * <p> 示例值：
-     *
-     * @param schedules
-     * @return
-     */
-    public Builder schedules(TripGroupSchedule[] schedules) {
-      this.schedules = schedules;
-      return this;
+    public User getStartUser() {
+        return this.startUser;
     }
 
-
-    /**
-     * 同行人
-     * <p> 示例值：
-     *
-     * @param tripPeers
-     * @return
-     */
-    public Builder tripPeers(User[] tripPeers) {
-      this.tripPeers = tripPeers;
-      return this;
+    public void setStartUser(User startUser) {
+        this.startUser = startUser;
     }
 
-
-    public TripGroup build() {
-      return new TripGroup(this);
+    public String getStartTime() {
+        return this.startTime;
     }
-  }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getTripInterval() {
+        return this.tripInterval;
+    }
+
+    public void setTripInterval(String tripInterval) {
+        this.tripInterval = tripInterval;
+    }
+
+    public String getTripReason() {
+        return this.tripReason;
+    }
+
+    public void setTripReason(String tripReason) {
+        this.tripReason = tripReason;
+    }
+
+    public TripGroupSchedule[] getSchedules() {
+        return this.schedules;
+    }
+
+    public void setSchedules(TripGroupSchedule[] schedules) {
+        this.schedules = schedules;
+    }
+
+    public User[] getTripPeers() {
+        return this.tripPeers;
+    }
+
+    public void setTripPeers(User[] tripPeers) {
+        this.tripPeers = tripPeers;
+    }
+
+    public static class Builder {
+        /**
+         * 出差类型
+         * <p> 示例值：
+         */
+        private String type;
+        /**
+         * 实例code
+         * <p> 示例值：
+         */
+        private String instanceCode;
+        /**
+         * 发起人
+         * <p> 示例值：
+         */
+        private User startUser;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        private String startTime;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        private String endTime;
+        /**
+         * 出差时间
+         * <p> 示例值：
+         */
+        private String tripInterval;
+        /**
+         * 出差理由
+         * <p> 示例值：
+         */
+        private String tripReason;
+        /**
+         * 出差计划
+         * <p> 示例值：
+         */
+        private TripGroupSchedule[] schedules;
+        /**
+         * 同行人
+         * <p> 示例值：
+         */
+        private User[] tripPeers;
+
+        /**
+         * 出差类型
+         * <p> 示例值：
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 实例code
+         * <p> 示例值：
+         *
+         * @param instanceCode
+         * @return
+         */
+        public Builder instanceCode(String instanceCode) {
+            this.instanceCode = instanceCode;
+            return this;
+        }
+
+
+        /**
+         * 发起人
+         * <p> 示例值：
+         *
+         * @param startUser
+         * @return
+         */
+        public Builder startUser(User startUser) {
+            this.startUser = startUser;
+            return this;
+        }
+
+
+        /**
+         * 开始时间
+         * <p> 示例值：
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间
+         * <p> 示例值：
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 出差时间
+         * <p> 示例值：
+         *
+         * @param tripInterval
+         * @return
+         */
+        public Builder tripInterval(String tripInterval) {
+            this.tripInterval = tripInterval;
+            return this;
+        }
+
+
+        /**
+         * 出差理由
+         * <p> 示例值：
+         *
+         * @param tripReason
+         * @return
+         */
+        public Builder tripReason(String tripReason) {
+            this.tripReason = tripReason;
+            return this;
+        }
+
+
+        /**
+         * 出差计划
+         * <p> 示例值：
+         *
+         * @param schedules
+         * @return
+         */
+        public Builder schedules(TripGroupSchedule[] schedules) {
+            this.schedules = schedules;
+            return this;
+        }
+
+
+        /**
+         * 同行人
+         * <p> 示例值：
+         *
+         * @param tripPeers
+         * @return
+         */
+        public Builder tripPeers(User[] tripPeers) {
+            this.tripPeers = tripPeers;
+            return this;
+        }
+
+
+        public TripGroup build() {
+            return new TripGroup(this);
+        }
+    }
 }

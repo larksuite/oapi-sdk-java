@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentExternalInfo {
-
-  /**
-   * 人才 ID
-   * <p> 示例值：7043758982146345223
-   */
-  @SerializedName("talent_id")
-  private String talentId;
-  /**
-   * 人才在外部系统的创建时间
-   * <p> 示例值：1608467675393
-   */
-  @SerializedName("external_create_time")
-  private String externalCreateTime;
-
-  // builder 开始
-  public TalentExternalInfo() {
-  }
-
-  public TalentExternalInfo(Builder builder) {
     /**
      * 人才 ID
      * <p> 示例值：7043758982146345223
      */
-    this.talentId = builder.talentId;
-    /**
-     * 人才在外部系统的创建时间
-     * <p> 示例值：1608467675393
-     */
-    this.externalCreateTime = builder.externalCreateTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public String getExternalCreateTime() {
-    return this.externalCreateTime;
-  }
-
-  public void setExternalCreateTime(String externalCreateTime) {
-    this.externalCreateTime = externalCreateTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 人才 ID
-     * <p> 示例值：7043758982146345223
-     */
+    @SerializedName("talent_id")
     private String talentId;
     /**
      * 人才在外部系统的创建时间
      * <p> 示例值：1608467675393
      */
+    @SerializedName("external_create_time")
     private String externalCreateTime;
 
-    /**
-     * 人才 ID
-     * <p> 示例值：7043758982146345223
-     *
-     * @param talentId
-     * @return
-     */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
+    // builder 开始
+    public TalentExternalInfo() {
     }
 
-
-    /**
-     * 人才在外部系统的创建时间
-     * <p> 示例值：1608467675393
-     *
-     * @param externalCreateTime
-     * @return
-     */
-    public Builder externalCreateTime(String externalCreateTime) {
-      this.externalCreateTime = externalCreateTime;
-      return this;
+    public TalentExternalInfo(Builder builder) {
+        /**
+         * 人才 ID
+         * <p> 示例值：7043758982146345223
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 人才在外部系统的创建时间
+         * <p> 示例值：1608467675393
+         */
+        this.externalCreateTime = builder.externalCreateTime;
     }
 
-
-    public TalentExternalInfo build() {
-      return new TalentExternalInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public String getExternalCreateTime() {
+        return this.externalCreateTime;
+    }
+
+    public void setExternalCreateTime(String externalCreateTime) {
+        this.externalCreateTime = externalCreateTime;
+    }
+
+    public static class Builder {
+        /**
+         * 人才 ID
+         * <p> 示例值：7043758982146345223
+         */
+        private String talentId;
+        /**
+         * 人才在外部系统的创建时间
+         * <p> 示例值：1608467675393
+         */
+        private String externalCreateTime;
+
+        /**
+         * 人才 ID
+         * <p> 示例值：7043758982146345223
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 人才在外部系统的创建时间
+         * <p> 示例值：1608467675393
+         *
+         * @param externalCreateTime
+         * @return
+         */
+        public Builder externalCreateTime(String externalCreateTime) {
+            this.externalCreateTime = externalCreateTime;
+            return this;
+        }
+
+
+        public TalentExternalInfo build() {
+            return new TalentExternalInfo(this);
+        }
+    }
 }

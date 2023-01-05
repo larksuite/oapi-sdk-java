@@ -15,17 +15,17 @@ package com.lark.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum ShareEntityEnum {
-  ANYONE("anyone"),
-  SAMETENANT("same_tenant"),
-  ONLYFULLACCESS("only_full_access"),
-  ;
-  private String value;
+    ANYONE("anyone"),
+    SAMETENANT("same_tenant"),
+    ONLYFULLACCESS("only_full_access"),
+    ;
+    private String value;
 
-  ShareEntityEnum(String value) {
-    this.value = value;
-  }
+    ShareEntityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

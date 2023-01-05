@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 告警等级：严重/警告/提醒
  */
 public enum AlertAlertLevelEnum {
-  NOTIFY(0), // 提醒
-  WARNING(1), // 警告
-  SERIOUS(2), // 严重
-  ;
-  private Integer value;
+    NOTIFY(0), // 提醒
+    WARNING(1), // 警告
+    SERIOUS(2), // 严重
+    ;
+    private Integer value;
 
-  AlertAlertLevelEnum(Integer value) {
-    this.value = value;
-  }
+    AlertAlertLevelEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

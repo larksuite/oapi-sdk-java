@@ -16,48 +16,47 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListApplicationFeedbackRespBody {
+    /**
+     * 应用的反馈列表
+     * <p> 示例值：
+     */
+    @SerializedName("feedback_list")
+    private ApplicationFeedback[] feedbackList;
+    /**
+     * 是否还有更多用户反馈列表，true：是，false：否
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 拉取下一页应用反馈列表时使用的 page_token
+     * <p> 示例值：7064688334618378259
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * 应用的反馈列表
-   * <p> 示例值：
-   */
-  @SerializedName("feedback_list")
-  private ApplicationFeedback[] feedbackList;
-  /**
-   * 是否还有更多用户反馈列表，true：是，false：否
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 拉取下一页应用反馈列表时使用的 page_token
-   * <p> 示例值：7064688334618378259
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public ApplicationFeedback[] getFeedbackList() {
+        return this.feedbackList;
+    }
 
-  public ApplicationFeedback[] getFeedbackList() {
-    return this.feedbackList;
-  }
+    public void setFeedbackList(ApplicationFeedback[] feedbackList) {
+        this.feedbackList = feedbackList;
+    }
 
-  public void setFeedbackList(ApplicationFeedback[] feedbackList) {
-    this.feedbackList = feedbackList;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

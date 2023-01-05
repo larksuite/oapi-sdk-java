@@ -16,95 +16,93 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Text {
-
-  /**
-   * 文本值
-   * <p> 示例值：abc
-   */
-  @SerializedName("text")
-  private String text;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("segment_style")
-  private SegmentStyle segmentStyle;
-
-  // builder 开始
-  public Text() {
-  }
-
-  public Text(Builder builder) {
     /**
      * 文本值
      * <p> 示例值：abc
      */
-    this.text = builder.text;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.segmentStyle = builder.segmentStyle;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public SegmentStyle getSegmentStyle() {
-    return this.segmentStyle;
-  }
-
-  public void setSegmentStyle(SegmentStyle segmentStyle) {
-    this.segmentStyle = segmentStyle;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文本值
-     * <p> 示例值：abc
-     */
+    @SerializedName("text")
     private String text;
     /**
      * <p> 示例值：
      */
+    @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
 
-    /**
-     * 文本值
-     * <p> 示例值：abc
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    // builder 开始
+    public Text() {
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param segmentStyle
-     * @return
-     */
-    public Builder segmentStyle(SegmentStyle segmentStyle) {
-      this.segmentStyle = segmentStyle;
-      return this;
+    public Text(Builder builder) {
+        /**
+         * 文本值
+         * <p> 示例值：abc
+         */
+        this.text = builder.text;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.segmentStyle = builder.segmentStyle;
     }
 
-
-    public Text build() {
-      return new Text(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public SegmentStyle getSegmentStyle() {
+        return this.segmentStyle;
+    }
+
+    public void setSegmentStyle(SegmentStyle segmentStyle) {
+        this.segmentStyle = segmentStyle;
+    }
+
+    public static class Builder {
+        /**
+         * 文本值
+         * <p> 示例值：abc
+         */
+        private String text;
+        /**
+         * <p> 示例值：
+         */
+        private SegmentStyle segmentStyle;
+
+        /**
+         * 文本值
+         * <p> 示例值：abc
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param segmentStyle
+         * @return
+         */
+        public Builder segmentStyle(SegmentStyle segmentStyle) {
+            this.segmentStyle = segmentStyle;
+            return this;
+        }
+
+
+        public Text build() {
+            return new Text(this);
+        }
+    }
 }

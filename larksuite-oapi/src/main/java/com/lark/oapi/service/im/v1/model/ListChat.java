@@ -16,320 +16,318 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListChat {
-
-  /**
-   * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-  /**
-   * 群头像 URL
-   * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-   */
-  @SerializedName("avatar")
-  private String avatar;
-  /**
-   * 群名称
-   * <p> 示例值：测试群名称
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 群描述
-   * <p> 示例值：测试群描述
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 群主 ID
-   * <p> 示例值：4d7a3c6g
-   */
-  @SerializedName("owner_id")
-  private String ownerId;
-  /**
-   * 群主 ID 类型
-   * <p> 示例值：user_id
-   */
-  @SerializedName("owner_id_type")
-  private String ownerIdType;
-  /**
-   * 是否是外部群
-   * <p> 示例值：false
-   */
-  @SerializedName("external")
-  private Boolean external;
-  /**
-   * tenant key
-   * <p> 示例值：736588c9260f175e
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  // builder 开始
-  public ListChat() {
-  }
-
-  public ListChat(Builder builder) {
     /**
      * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-    /**
-     * 群头像 URL
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-     */
-    this.avatar = builder.avatar;
-    /**
-     * 群名称
-     * <p> 示例值：测试群名称
-     */
-    this.name = builder.name;
-    /**
-     * 群描述
-     * <p> 示例值：测试群描述
-     */
-    this.description = builder.description;
-    /**
-     * 群主 ID
-     * <p> 示例值：4d7a3c6g
-     */
-    this.ownerId = builder.ownerId;
-    /**
-     * 群主 ID 类型
-     * <p> 示例值：user_id
-     */
-    this.ownerIdType = builder.ownerIdType;
-    /**
-     * 是否是外部群
-     * <p> 示例值：false
-     */
-    this.external = builder.external;
-    /**
-     * tenant key
-     * <p> 示例值：736588c9260f175e
-     */
-    this.tenantKey = builder.tenantKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public String getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(String avatar) {
-    this.avatar = avatar;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getOwnerId() {
-    return this.ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
-  public String getOwnerIdType() {
-    return this.ownerIdType;
-  }
-
-  public void setOwnerIdType(String ownerIdType) {
-    this.ownerIdType = ownerIdType;
-  }
-
-  public Boolean getExternal() {
-    return this.external;
-  }
-
-  public void setExternal(Boolean external) {
-    this.external = external;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static class Builder {
-
-    /**
-     * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     */
+    @SerializedName("chat_id")
     private String chatId;
     /**
      * 群头像 URL
      * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
      */
+    @SerializedName("avatar")
     private String avatar;
     /**
      * 群名称
      * <p> 示例值：测试群名称
      */
+    @SerializedName("name")
     private String name;
     /**
      * 群描述
      * <p> 示例值：测试群描述
      */
+    @SerializedName("description")
     private String description;
     /**
      * 群主 ID
      * <p> 示例值：4d7a3c6g
      */
+    @SerializedName("owner_id")
     private String ownerId;
     /**
      * 群主 ID 类型
      * <p> 示例值：user_id
      */
+    @SerializedName("owner_id_type")
     private String ownerIdType;
     /**
      * 是否是外部群
      * <p> 示例值：false
      */
+    @SerializedName("external")
     private Boolean external;
     /**
-     * tenant key
+     * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
      * <p> 示例值：736588c9260f175e
      */
+    @SerializedName("tenant_key")
     private String tenantKey;
 
-    /**
-     * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public ListChat() {
     }
 
-
-    /**
-     * 群头像 URL
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-     *
-     * @param avatar
-     * @return
-     */
-    public Builder avatar(String avatar) {
-      this.avatar = avatar;
-      return this;
+    public ListChat(Builder builder) {
+        /**
+         * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        /**
+         * 群头像 URL
+         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+         */
+        this.avatar = builder.avatar;
+        /**
+         * 群名称
+         * <p> 示例值：测试群名称
+         */
+        this.name = builder.name;
+        /**
+         * 群描述
+         * <p> 示例值：测试群描述
+         */
+        this.description = builder.description;
+        /**
+         * 群主 ID
+         * <p> 示例值：4d7a3c6g
+         */
+        this.ownerId = builder.ownerId;
+        /**
+         * 群主 ID 类型
+         * <p> 示例值：user_id
+         */
+        this.ownerIdType = builder.ownerIdType;
+        /**
+         * 是否是外部群
+         * <p> 示例值：false
+         */
+        this.external = builder.external;
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：736588c9260f175e
+         */
+        this.tenantKey = builder.tenantKey;
     }
 
-
-    /**
-     * 群名称
-     * <p> 示例值：测试群名称
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 群描述
-     * <p> 示例值：测试群描述
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public String getChatId() {
+        return this.chatId;
     }
 
-
-    /**
-     * 群主 ID
-     * <p> 示例值：4d7a3c6g
-     *
-     * @param ownerId
-     * @return
-     */
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
-      return this;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
-
-    /**
-     * 群主 ID 类型
-     * <p> 示例值：user_id
-     *
-     * @param ownerIdType
-     * @return
-     */
-    public Builder ownerIdType(String ownerIdType) {
-      this.ownerIdType = ownerIdType;
-      return this;
+    public String getAvatar() {
+        return this.avatar;
     }
 
-
-    /**
-     * 是否是外部群
-     * <p> 示例值：false
-     *
-     * @param external
-     * @return
-     */
-    public Builder external(Boolean external) {
-      this.external = external;
-      return this;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
-
-    /**
-     * tenant key
-     * <p> 示例值：736588c9260f175e
-     *
-     * @param tenantKey
-     * @return
-     */
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    public ListChat build() {
-      return new ListChat(this);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getOwnerId() {
+        return this.ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public String getOwnerIdType() {
+        return this.ownerIdType;
+    }
+
+    public void setOwnerIdType(String ownerIdType) {
+        this.ownerIdType = ownerIdType;
+    }
+
+    public Boolean getExternal() {
+        return this.external;
+    }
+
+    public void setExternal(Boolean external) {
+        this.external = external;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public static class Builder {
+        /**
+         * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        private String chatId;
+        /**
+         * 群头像 URL
+         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+         */
+        private String avatar;
+        /**
+         * 群名称
+         * <p> 示例值：测试群名称
+         */
+        private String name;
+        /**
+         * 群描述
+         * <p> 示例值：测试群描述
+         */
+        private String description;
+        /**
+         * 群主 ID
+         * <p> 示例值：4d7a3c6g
+         */
+        private String ownerId;
+        /**
+         * 群主 ID 类型
+         * <p> 示例值：user_id
+         */
+        private String ownerIdType;
+        /**
+         * 是否是外部群
+         * <p> 示例值：false
+         */
+        private Boolean external;
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：736588c9260f175e
+         */
+        private String tenantKey;
+
+        /**
+         * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+
+        /**
+         * 群头像 URL
+         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+         *
+         * @param avatar
+         * @return
+         */
+        public Builder avatar(String avatar) {
+            this.avatar = avatar;
+            return this;
+        }
+
+
+        /**
+         * 群名称
+         * <p> 示例值：测试群名称
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 群描述
+         * <p> 示例值：测试群描述
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 群主 ID
+         * <p> 示例值：4d7a3c6g
+         *
+         * @param ownerId
+         * @return
+         */
+        public Builder ownerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
+
+        /**
+         * 群主 ID 类型
+         * <p> 示例值：user_id
+         *
+         * @param ownerIdType
+         * @return
+         */
+        public Builder ownerIdType(String ownerIdType) {
+            this.ownerIdType = ownerIdType;
+            return this;
+        }
+
+
+        /**
+         * 是否是外部群
+         * <p> 示例值：false
+         *
+         * @param external
+         * @return
+         */
+        public Builder external(Boolean external) {
+            this.external = external;
+            return this;
+        }
+
+
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：736588c9260f175e
+         *
+         * @param tenantKey
+         * @return
+         */
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        public ListChat build() {
+            return new ListChat(this);
+        }
+    }
 }

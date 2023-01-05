@@ -17,16 +17,16 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 用户 ID 的类型
  */
 public enum CreateGroupEmployeeTypeEnum {
-  EMPLOYEE_ID("employee_id"), // 员工employeeId
-  EMPLOYEE_NO("employee_no"), // 员工工号
-  ;
-  private String value;
+    EMPLOYEE_ID("employee_id"), // 员工employeeId
+    EMPLOYEE_NO("employee_no"), // 员工工号
+    ;
+    private String value;
 
-  CreateGroupEmployeeTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateGroupEmployeeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

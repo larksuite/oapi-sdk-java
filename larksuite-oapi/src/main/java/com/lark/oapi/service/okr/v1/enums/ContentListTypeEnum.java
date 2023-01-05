@@ -17,19 +17,19 @@ package com.lark.oapi.service.okr.v1.enums;
  * 列表类型
  */
 public enum ContentListTypeEnum {
-  NUMBER("number"), // 有序列表
-  BULLET("bullet"), // 无序列表
-  CHECKBOX("checkBox"), // 任务列表
-  CHECKEDBOX("checkedBox"), // 已完成的任务列表
-  INDENT("indent"), // tab缩进
-  ;
-  private String value;
+    NUMBER("number"), // 有序列表
+    BULLET("bullet"), // 无序列表
+    CHECKBOX("checkBox"), // 任务列表
+    CHECKEDBOX("checkedBox"), // 已完成的任务列表
+    INDENT("indent"), // tab缩进
+    ;
+    private String value;
 
-  ContentListTypeEnum(String value) {
-    this.value = value;
-  }
+    ContentListTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

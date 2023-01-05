@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobLevel {
-
-  /**
-   * 职级 ID
-   * <p> 示例值：6301
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 职级中文名称
-   * <p> 示例值：级别-2
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 职级英文名称
-   * <p> 示例值：level-2
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 职级启用状态
-   * <p> 示例值：1
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-
-  // builder 开始
-  public JobLevel() {
-  }
-
-  public JobLevel(Builder builder) {
     /**
      * 职级 ID
      * <p> 示例值：6301
      */
-    this.id = builder.id;
-    /**
-     * 职级中文名称
-     * <p> 示例值：级别-2
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 职级英文名称
-     * <p> 示例值：level-2
-     */
-    this.enName = builder.enName;
-    /**
-     * 职级启用状态
-     * <p> 示例值：1
-     */
-    this.activeStatus = builder.activeStatus;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public static class Builder {
-
-    /**
-     * 职级 ID
-     * <p> 示例值：6301
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 职级中文名称
      * <p> 示例值：级别-2
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 职级英文名称
      * <p> 示例值：level-2
      */
+    @SerializedName("en_name")
     private String enName;
     /**
      * 职级启用状态
      * <p> 示例值：1
      */
+    @SerializedName("active_status")
     private Integer activeStatus;
 
-    /**
-     * 职级 ID
-     * <p> 示例值：6301
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public JobLevel() {
     }
 
-
-    /**
-     * 职级中文名称
-     * <p> 示例值：级别-2
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public JobLevel(Builder builder) {
+        /**
+         * 职级 ID
+         * <p> 示例值：6301
+         */
+        this.id = builder.id;
+        /**
+         * 职级中文名称
+         * <p> 示例值：级别-2
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 职级英文名称
+         * <p> 示例值：level-2
+         */
+        this.enName = builder.enName;
+        /**
+         * 职级启用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
     }
 
-
-    /**
-     * 职级英文名称
-     * <p> 示例值：level-2
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 职级启用状态
-     * <p> 示例值：1
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public JobLevel build() {
-      return new JobLevel(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getZhName() {
+        return this.zhName;
+    }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public Integer getActiveStatus() {
+        return this.activeStatus;
+    }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public static class Builder {
+        /**
+         * 职级 ID
+         * <p> 示例值：6301
+         */
+        private String id;
+        /**
+         * 职级中文名称
+         * <p> 示例值：级别-2
+         */
+        private String zhName;
+        /**
+         * 职级英文名称
+         * <p> 示例值：level-2
+         */
+        private String enName;
+        /**
+         * 职级启用状态
+         * <p> 示例值：1
+         */
+        private Integer activeStatus;
+
+        /**
+         * 职级 ID
+         * <p> 示例值：6301
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 职级中文名称
+         * <p> 示例值：级别-2
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 职级英文名称
+         * <p> 示例值：level-2
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 职级启用状态
+         * <p> 示例值：1
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        public JobLevel build() {
+            return new JobLevel(this);
+        }
+    }
 }

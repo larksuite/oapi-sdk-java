@@ -15,192 +15,182 @@ package com.lark.oapi.service.ext;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
-import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
-import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
+import com.lark.oapi.core.request.*;
 import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.ext.model.AuthenAccessTokenReq;
-import com.lark.oapi.service.ext.model.AuthenAccessTokenResp;
-import com.lark.oapi.service.ext.model.CreateFileReq;
-import com.lark.oapi.service.ext.model.CreateFileResp;
-import com.lark.oapi.service.ext.model.GetAuthenUserInfoResp;
-import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenReq;
-import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenResp;
+import com.lark.oapi.service.ext.model.*;
 
 public class ExtService {
 
-  private Config config;
+    private Config config;
 
-  public ExtService(Config config) {
-    this.config = config;
-  }
+    public ExtService(Config config) {
+        this.config = config;
+    }
 
-  /*
-  在用户云空间指定文件夹中创建文档、电子表格或者多维表格。
-  如果目标文件夹是我的空间，则新建的文档会在「我的空间」的「归我所有」列表里。
-  link: https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN
- */
-  public CreateFileResp createFile(CreateFileReq req, RequestOptions requestOptions)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , requestOptions, "POST"
-        , "/open-apis/drive/explorer/v2/file/:folderToken"
-        , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User), req);
-
-    CreateFileResp createFileResp = UnmarshalRespUtil.unmarshalResp(resp,
-        CreateFileResp.class);
-    createFileResp.setRawResponse(resp);
-    return createFileResp;
-  }
-
-  /*
-  在用户云空间指定文件夹中创建文档、电子表格或者多维表格。
-  如果目标文件夹是我的空间，则新建的文档会在「我的空间」的「归我所有」列表里。
-  link: https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN
+    /*
+    在用户云空间指定文件夹中创建文档、电子表格或者多维表格。
+    如果目标文件夹是我的空间，则新建的文档会在「我的空间」的「归我所有」列表里。
+    link: https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN
    */
-  public CreateFileResp createFile(CreateFileReq req) throws Exception {
-    return createFile(req, null);
-  }
+    public CreateFileResp createFile(CreateFileReq req, RequestOptions requestOptions)
+            throws Exception {
+        RawResponse resp = Transport.send(config
+                , requestOptions, "POST"
+                , "/open-apis/drive/explorer/v2/file/:folderToken"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User), req);
 
-  public AppAccessTokenResp getAppAccessTokenBySelfBuiltApp(SelfBuiltAppAccessTokenReq req)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.APP_ACCESS_TOKEN_INTERNAL_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
+        CreateFileResp createFileResp = UnmarshalRespUtil.unmarshalResp(resp,
+                CreateFileResp.class);
+        createFileResp.setRawResponse(resp);
+        return createFileResp;
+    }
 
-    AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AppAccessTokenResp.class);
-    appAccessTokenResp.setRawResponse(resp);
-    return appAccessTokenResp;
-  }
+    /*
+    在用户云空间指定文件夹中创建文档、电子表格或者多维表格。
+    如果目标文件夹是我的空间，则新建的文档会在「我的空间」的「归我所有」列表里。
+    link: https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN
+     */
+    public CreateFileResp createFile(CreateFileReq req) throws Exception {
+        return createFile(req, null);
+    }
 
-  public AppAccessTokenResp getAppAccessTokenByMarketplaceApp(MarketplaceAppAccessTokenReq req)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.APP_ACCESS_TOKEN_ISV_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
+    public AppAccessTokenResp getAppAccessTokenBySelfBuiltApp(SelfBuiltAppAccessTokenReq req)
+            throws Exception {
+        RawResponse resp = Transport.send(config
+                , new RequestOptions(), "POST"
+                , Constants.APP_ACCESS_TOKEN_INTERNAL_URL_PATH
+                , Sets.newHashSet(AccessTokenType.None), req);
 
-    // 结果处理
-    AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AppAccessTokenResp.class);
-    appAccessTokenResp.setRawResponse(resp);
-    return appAccessTokenResp;
-  }
+        AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                AppAccessTokenResp.class);
+        appAccessTokenResp.setRawResponse(resp);
+        return appAccessTokenResp;
+    }
 
-  public TenantAccessTokenResp getTenantAccessTokenBySelfBuiltApp(SelfBuiltTenantAccessTokenReq req)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
+    public AppAccessTokenResp getAppAccessTokenByMarketplaceApp(MarketplaceAppAccessTokenReq req)
+            throws Exception {
+        RawResponse resp = Transport.send(config
+                , new RequestOptions(), "POST"
+                , Constants.APP_ACCESS_TOKEN_ISV_URL_PATH
+                , Sets.newHashSet(AccessTokenType.None), req);
 
-    TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        TenantAccessTokenResp.class);
-    tenantAccessTokenResp.setRawResponse(resp);
-    return tenantAccessTokenResp;
-  }
+        // 结果处理
+        AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                AppAccessTokenResp.class);
+        appAccessTokenResp.setRawResponse(resp);
+        return appAccessTokenResp;
+    }
 
-  public TenantAccessTokenResp getTenantAccessTokenByMarketplaceApp(
-      MarketplaceTenantAccessTokenReq req)
-      throws Exception {
+    public TenantAccessTokenResp getTenantAccessTokenBySelfBuiltApp(SelfBuiltTenantAccessTokenReq req)
+            throws Exception {
+        RawResponse resp = Transport.send(config
+                , new RequestOptions(), "POST"
+                , Constants.TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH
+                , Sets.newHashSet(AccessTokenType.None), req);
 
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.TENANT_ACCESS_TOKEN_ISV_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
+        TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                TenantAccessTokenResp.class);
+        tenantAccessTokenResp.setRawResponse(resp);
+        return tenantAccessTokenResp;
+    }
 
-    TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        TenantAccessTokenResp.class);
-    tenantAccessTokenResp.setRawResponse(resp);
-    return tenantAccessTokenResp;
-  }
+    public TenantAccessTokenResp getTenantAccessTokenByMarketplaceApp(
+            MarketplaceTenantAccessTokenReq req)
+            throws Exception {
 
-  public AuthenAccessTokenResp getAuthenAccessToken(
-      AuthenAccessTokenReq req)
-      throws Exception {
+        RawResponse resp = Transport.send(config
+                , new RequestOptions(), "POST"
+                , Constants.TENANT_ACCESS_TOKEN_ISV_URL_PATH
+                , Sets.newHashSet(AccessTokenType.None), req);
 
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.GET_AUTHEN_ACCESS_TOKEN
-        , Sets.newHashSet(AccessTokenType.App), req);
+        TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                TenantAccessTokenResp.class);
+        tenantAccessTokenResp.setRawResponse(resp);
+        return tenantAccessTokenResp;
+    }
 
-    AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AuthenAccessTokenResp.class);
-    authenAccessTokenResp.setRawResponse(resp);
-    return authenAccessTokenResp;
-  }
+    public AuthenAccessTokenResp getAuthenAccessToken(
+            AuthenAccessTokenReq req)
+            throws Exception {
 
-  public AuthenAccessTokenResp getAuthenAccessToken(
-      AuthenAccessTokenReq req, RequestOptions requestOptions)
-      throws Exception {
+        RawResponse resp = Transport.send(config
+                , new RequestOptions(), "POST"
+                , Constants.GET_AUTHEN_ACCESS_TOKEN
+                , Sets.newHashSet(AccessTokenType.App), req);
 
-    RawResponse resp = Transport.send(config
-        , requestOptions
-        , "POST"
-        , Constants.GET_AUTHEN_ACCESS_TOKEN
-        , Sets.newHashSet(AccessTokenType.App), req);
+        AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                AuthenAccessTokenResp.class);
+        authenAccessTokenResp.setRawResponse(resp);
+        return authenAccessTokenResp;
+    }
 
-    AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AuthenAccessTokenResp.class);
-    authenAccessTokenResp.setRawResponse(resp);
-    return authenAccessTokenResp;
-  }
+    public AuthenAccessTokenResp getAuthenAccessToken(
+            AuthenAccessTokenReq req, RequestOptions requestOptions)
+            throws Exception {
 
-  public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
-      RefreshAuthenAccessTokenReq req, RequestOptions requestOptions)
-      throws Exception {
+        RawResponse resp = Transport.send(config
+                , requestOptions
+                , "POST"
+                , Constants.GET_AUTHEN_ACCESS_TOKEN
+                , Sets.newHashSet(AccessTokenType.App), req);
 
-    RawResponse resp = Transport.send(config
-        , requestOptions
-        , "POST"
-        , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
-        , Sets.newHashSet(AccessTokenType.App), req);
+        AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                AuthenAccessTokenResp.class);
+        authenAccessTokenResp.setRawResponse(resp);
+        return authenAccessTokenResp;
+    }
 
-    RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        RefreshAuthenAccessTokenResp.class);
-    authenAccessTokenResp.setRawResponse(resp);
-    return authenAccessTokenResp;
-  }
+    public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
+            RefreshAuthenAccessTokenReq req, RequestOptions requestOptions)
+            throws Exception {
 
-  public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
-      RefreshAuthenAccessTokenReq req)
-      throws Exception {
+        RawResponse resp = Transport.send(config
+                , requestOptions
+                , "POST"
+                , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
+                , Sets.newHashSet(AccessTokenType.App), req);
 
-    RawResponse resp = Transport.send(config
-        , new RequestOptions()
-        , "POST"
-        , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
-        , Sets.newHashSet(AccessTokenType.App), req);
+        RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                RefreshAuthenAccessTokenResp.class);
+        authenAccessTokenResp.setRawResponse(resp);
+        return authenAccessTokenResp;
+    }
 
-    RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        RefreshAuthenAccessTokenResp.class);
-    authenAccessTokenResp.setRawResponse(resp);
-    return authenAccessTokenResp;
-  }
+    public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
+            RefreshAuthenAccessTokenReq req)
+            throws Exception {
 
-  public GetAuthenUserInfoResp getAuthenUserInfo(RequestOptions requestOptions)
-      throws Exception {
+        RawResponse resp = Transport.send(config
+                , new RequestOptions()
+                , "POST"
+                , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
+                , Sets.newHashSet(AccessTokenType.App), req);
 
-    RawResponse resp = Transport.send(config
-        , requestOptions
-        , "GET"
-        , Constants.GET_AUTHEN_USER_INFO
-        , Sets.newHashSet(AccessTokenType.User), null);
+        RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                RefreshAuthenAccessTokenResp.class);
+        authenAccessTokenResp.setRawResponse(resp);
+        return authenAccessTokenResp;
+    }
 
-    GetAuthenUserInfoResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        GetAuthenUserInfoResp.class);
-    authenAccessTokenResp.setRawResponse(resp);
-    return authenAccessTokenResp;
-  }
+    public GetAuthenUserInfoResp getAuthenUserInfo(RequestOptions requestOptions)
+            throws Exception {
+
+        RawResponse resp = Transport.send(config
+                , requestOptions
+                , "GET"
+                , Constants.GET_AUTHEN_USER_INFO
+                , Sets.newHashSet(AccessTokenType.User), null);
+
+        GetAuthenUserInfoResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+                GetAuthenUserInfoResp.class);
+        authenAccessTokenResp.setRawResponse(resp);
+        return authenAccessTokenResp;
+    }
 
 
 }

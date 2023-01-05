@@ -17,58 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetNodeSpaceReq {
-
-  /**
-   * 文档的wiki token
-   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
-   */
-  @Query
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public GetNodeSpaceReq() {
-  }
-
-  public GetNodeSpaceReq(Builder builder) {
     /**
-     * 文档的wiki token
-     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+     * 文档的节点token
+     * <p> 示例值：wikcnKQ1k3p******8Vabcef
      */
-    this.token = builder.token;
-  }
+    @Query
+    @SerializedName("token")
+    private String token;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
-    private String token; // 文档的wiki token
-
-
-    /**
-     * 文档的wiki token
-     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public GetNodeSpaceReq() {
     }
 
-    public GetNodeSpaceReq build() {
-      return new GetNodeSpaceReq(this);
+    public GetNodeSpaceReq(Builder builder) {
+        /**
+         * 文档的节点token
+         * <p> 示例值：wikcnKQ1k3p******8Vabcef
+         */
+        this.token = builder.token;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public static class Builder {
+        private String token; // 文档的节点token
+
+
+        /**
+         * 文档的节点token
+         * <p> 示例值：wikcnKQ1k3p******8Vabcef
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        public GetNodeSpaceReq build() {
+            return new GetNodeSpaceReq(this);
+        }
+    }
 }

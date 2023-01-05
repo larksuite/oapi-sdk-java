@@ -18,90 +18,121 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetEmployeeReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 员工ID
-   * <p> 示例值：123
-   */
-  @Path
-  @SerializedName("employee_id")
-  private String employeeId;
-
-  // builder 开始
-  public GetEmployeeReq() {
-  }
-
-  public GetEmployeeReq(Builder builder) {
     /**
-     * 此次调用中使用的用户ID的类型
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
+     * 此次调用中使用的部门 ID 的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 员工ID
      * <p> 示例值：123
      */
-    this.employeeId = builder.employeeId;
-  }
+    @Path
+    @SerializedName("employee_id")
+    private String employeeId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getEmployeeId() {
-    return this.employeeId;
-  }
-
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String employeeId; // 员工ID
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public GetEmployeeReq() {
     }
 
-    /**
-     * 员工ID
-     * <p> 示例值：123
-     *
-     * @param employeeId
-     * @return
-     */
-    public Builder employeeId(String employeeId) {
-      this.employeeId = employeeId;
-      return this;
+    public GetEmployeeReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 员工ID
+         * <p> 示例值：123
+         */
+        this.employeeId = builder.employeeId;
     }
 
-    public GetEmployeeReq build() {
-      return new GetEmployeeReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getEmployeeId() {
+        return this.employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 用户 ID 类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private String employeeId; // 员工ID
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 员工ID
+         * <p> 示例值：123
+         *
+         * @param employeeId
+         * @return
+         */
+        public Builder employeeId(String employeeId) {
+            this.employeeId = employeeId;
+            return this;
+        }
+
+        public GetEmployeeReq build() {
+            return new GetEmployeeReq(this);
+        }
+    }
 }

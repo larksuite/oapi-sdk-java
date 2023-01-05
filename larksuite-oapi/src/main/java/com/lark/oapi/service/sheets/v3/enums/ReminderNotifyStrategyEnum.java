@@ -17,23 +17,23 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 提醒策略
  */
 public enum ReminderNotifyStrategyEnum {
-  ATTIME("0"), // 时间到达时
-  FIVEMINUTESBEFORE("1"), // 5分钟前
-  FIFTEENMINUTESBEFORE("2"), // 15分钟前
-  THIRTYMINUTESBEFORE("3"), // 30分钟前
-  ONEHOURBEFORE("4"), // 1小时前
-  TWOHOURSBEFORE("5"), // 2小时前
-  ONEDAYBEFORE("6"), // 1天前
-  TWODAYBEFORE("7"), // 2天前
-  ONEWEEKBEFORE("8"), // 1周前
-  ;
-  private String value;
+    ATTIME("0"), // 时间到达时
+    FIVEMINUTESBEFORE("1"), // 5分钟前
+    FIFTEENMINUTESBEFORE("2"), // 15分钟前
+    THIRTYMINUTESBEFORE("3"), // 30分钟前
+    ONEHOURBEFORE("4"), // 1小时前
+    TWOHOURSBEFORE("5"), // 2小时前
+    ONEDAYBEFORE("6"), // 1天前
+    TWODAYBEFORE("7"), // 2天前
+    ONEWEEKBEFORE("8"), // 1周前
+    ;
+    private String value;
 
-  ReminderNotifyStrategyEnum(String value) {
-    this.value = value;
-  }
+    ReminderNotifyStrategyEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,15 +17,15 @@ package com.lark.oapi.service.vc.v1.enums;
  * 用户类型，仅支持设置同租户下的 Lark 用户
  */
 public enum ReserveAssignHostUserTypeEnum {
-  LARK_USER(1), // lark用户
-  ;
-  private Integer value;
+    LARK_USER(1), // lark用户
+    ;
+    private Integer value;
 
-  ReserveAssignHostUserTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ReserveAssignHostUserTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

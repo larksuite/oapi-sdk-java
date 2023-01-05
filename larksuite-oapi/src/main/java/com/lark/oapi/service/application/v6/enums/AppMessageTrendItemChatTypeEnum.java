@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 聊天类型，private：私聊；group：群聊
  */
 public enum AppMessageTrendItemChatTypeEnum {
-  PRIVATE("private"), // 私聊
-  GROUP("group"), // 群聊
-  ;
-  private String value;
+    PRIVATE("private"), // 私聊
+    GROUP("group"), // 群聊
+    ;
+    private String value;
 
-  AppMessageTrendItemChatTypeEnum(String value) {
-    this.value = value;
-  }
+    AppMessageTrendItemChatTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

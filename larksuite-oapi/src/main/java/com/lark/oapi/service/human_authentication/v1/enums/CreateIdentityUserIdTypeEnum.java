@@ -17,17 +17,17 @@ package com.lark.oapi.service.human_authentication.v1.enums;
  * 用户ID类型 open_id/user_id/union_id
  */
 public enum CreateIdentityUserIdTypeEnum {
-  OPEN_ID("open_id"), // 以open_id来识别用户
-  USER_ID("user_id"), // 以user_id来识别用户
-  UNION_ID("union_id"), // 以union_id来识别用户
-  ;
-  private String value;
+    OPEN_ID("open_id"), // 以open_id来识别用户
+    USER_ID("user_id"), // 以user_id来识别用户
+    UNION_ID("union_id"), // 以union_id来识别用户
+    ;
+    private String value;
 
-  CreateIdentityUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateIdentityUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

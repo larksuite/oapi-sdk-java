@@ -17,15 +17,15 @@ package com.lark.oapi.service.drive.v1.enums;
  * 订阅类型
  */
 public enum FileSubscriptionSubscriptionTypeEnum {
-  COMMENT_UPDATE("comment_update"), // 评论更新
-  ;
-  private String value;
+    COMMENT_UPDATE("comment_update"), // 评论更新
+    ;
+    private String value;
 
-  FileSubscriptionSubscriptionTypeEnum(String value) {
-    this.value = value;
-  }
+    FileSubscriptionSubscriptionTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferSelectionObject {
-
-  /**
-   * 自定义字段所在的审批表版本
-   * <p> 示例值：
-   */
-  @SerializedName("schema_version")
-  private Integer schemaVersion;
-  /**
-   * 选项
-   * <p> 示例值：
-   */
-  @SerializedName("option_list")
-  private OfferSchemaDetailOption[] optionList;
-
-  // builder 开始
-  public OfferSelectionObject() {
-  }
-
-  public OfferSelectionObject(Builder builder) {
     /**
      * 自定义字段所在的审批表版本
      * <p> 示例值：
      */
-    this.schemaVersion = builder.schemaVersion;
-    /**
-     * 选项
-     * <p> 示例值：
-     */
-    this.optionList = builder.optionList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getSchemaVersion() {
-    return this.schemaVersion;
-  }
-
-  public void setSchemaVersion(Integer schemaVersion) {
-    this.schemaVersion = schemaVersion;
-  }
-
-  public OfferSchemaDetailOption[] getOptionList() {
-    return this.optionList;
-  }
-
-  public void setOptionList(OfferSchemaDetailOption[] optionList) {
-    this.optionList = optionList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段所在的审批表版本
-     * <p> 示例值：
-     */
+    @SerializedName("schema_version")
     private Integer schemaVersion;
     /**
      * 选项
      * <p> 示例值：
      */
+    @SerializedName("option_list")
     private OfferSchemaDetailOption[] optionList;
 
-    /**
-     * 自定义字段所在的审批表版本
-     * <p> 示例值：
-     *
-     * @param schemaVersion
-     * @return
-     */
-    public Builder schemaVersion(Integer schemaVersion) {
-      this.schemaVersion = schemaVersion;
-      return this;
+    // builder 开始
+    public OfferSelectionObject() {
     }
 
-
-    /**
-     * 选项
-     * <p> 示例值：
-     *
-     * @param optionList
-     * @return
-     */
-    public Builder optionList(OfferSchemaDetailOption[] optionList) {
-      this.optionList = optionList;
-      return this;
+    public OfferSelectionObject(Builder builder) {
+        /**
+         * 自定义字段所在的审批表版本
+         * <p> 示例值：
+         */
+        this.schemaVersion = builder.schemaVersion;
+        /**
+         * 选项
+         * <p> 示例值：
+         */
+        this.optionList = builder.optionList;
     }
 
-
-    public OfferSelectionObject build() {
-      return new OfferSelectionObject(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getSchemaVersion() {
+        return this.schemaVersion;
+    }
+
+    public void setSchemaVersion(Integer schemaVersion) {
+        this.schemaVersion = schemaVersion;
+    }
+
+    public OfferSchemaDetailOption[] getOptionList() {
+        return this.optionList;
+    }
+
+    public void setOptionList(OfferSchemaDetailOption[] optionList) {
+        this.optionList = optionList;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段所在的审批表版本
+         * <p> 示例值：
+         */
+        private Integer schemaVersion;
+        /**
+         * 选项
+         * <p> 示例值：
+         */
+        private OfferSchemaDetailOption[] optionList;
+
+        /**
+         * 自定义字段所在的审批表版本
+         * <p> 示例值：
+         *
+         * @param schemaVersion
+         * @return
+         */
+        public Builder schemaVersion(Integer schemaVersion) {
+            this.schemaVersion = schemaVersion;
+            return this;
+        }
+
+
+        /**
+         * 选项
+         * <p> 示例值：
+         *
+         * @param optionList
+         * @return
+         */
+        public Builder optionList(OfferSchemaDetailOption[] optionList) {
+            this.optionList = optionList;
+            return this;
+        }
+
+
+        public OfferSelectionObject build() {
+            return new OfferSelectionObject(this);
+        }
+    }
 }

@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class ListMailgroupAliasReq {
-
-  /**
-   * 邮件组id或邮件组邮箱地址
-   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-   */
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-
-  // builder 开始
-  public ListMailgroupAliasReq() {
-  }
-
-  public ListMailgroupAliasReq(Builder builder) {
     /**
      * 邮件组id或邮件组邮箱地址
      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
      */
-    this.mailgroupId = builder.mailgroupId;
-  }
+    @Path
+    @SerializedName("mailgroup_id")
+    private String mailgroupId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public static class Builder {
-
-    private String mailgroupId; // 邮件组id或邮件组邮箱地址
-
-    /**
-     * 邮件组id或邮件组邮箱地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-     *
-     * @param mailgroupId
-     * @return
-     */
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    // builder 开始
+    public ListMailgroupAliasReq() {
     }
 
-    public ListMailgroupAliasReq build() {
-      return new ListMailgroupAliasReq(this);
+    public ListMailgroupAliasReq(Builder builder) {
+        /**
+         * 邮件组id或邮件组邮箱地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    public static class Builder {
+
+        private String mailgroupId; // 邮件组id或邮件组邮箱地址
+
+        /**
+         * 邮件组id或邮件组邮箱地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         *
+         * @param mailgroupId
+         * @return
+         */
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
+
+        public ListMailgroupAliasReq build() {
+            return new ListMailgroupAliasReq(this);
+        }
+    }
 }

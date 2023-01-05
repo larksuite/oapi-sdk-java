@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetDocumentReq {
-
-  /**
-   * 文档的唯一标识
-   * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-   */
-  @Path
-  @SerializedName("document_id")
-  private String documentId;
-
-  // builder 开始
-  public GetDocumentReq() {
-  }
-
-  public GetDocumentReq(Builder builder) {
     /**
      * 文档的唯一标识
      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
      */
-    this.documentId = builder.documentId;
-  }
+    @Path
+    @SerializedName("document_id")
+    private String documentId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public static class Builder {
-
-    private String documentId; // 文档的唯一标识
-
-    /**
-     * 文档的唯一标识
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-     *
-     * @param documentId
-     * @return
-     */
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
+    // builder 开始
+    public GetDocumentReq() {
     }
 
-    public GetDocumentReq build() {
-      return new GetDocumentReq(this);
+    public GetDocumentReq(Builder builder) {
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         */
+        this.documentId = builder.documentId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDocumentId() {
+        return this.documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    public static class Builder {
+
+        private String documentId; // 文档的唯一标识
+
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         *
+         * @param documentId
+         * @return
+         */
+        public Builder documentId(String documentId) {
+            this.documentId = documentId;
+            return this;
+        }
+
+        public GetDocumentReq build() {
+            return new GetDocumentReq(this);
+        }
+    }
 }

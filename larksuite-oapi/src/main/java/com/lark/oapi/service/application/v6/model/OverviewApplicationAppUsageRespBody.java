@@ -16,20 +16,19 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OverviewApplicationAppUsageRespBody {
+    /**
+     * 员工使用应用概览数据
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private ApplicationAppUsage[] items;
 
-  /**
-   * 员工使用应用概览数据
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private ApplicationAppUsage[] items;
+    public ApplicationAppUsage[] getItems() {
+        return this.items;
+    }
 
-  public ApplicationAppUsage[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(ApplicationAppUsage[] items) {
-    this.items = items;
-  }
+    public void setItems(ApplicationAppUsage[] items) {
+        this.items = items;
+    }
 
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class ModifyUserSetting {
 
-  /**
-   * 用户设置
-   * <p> 示例值：
-   */
-  @SerializedName("user_setting")
-  private UserSetting userSetting;
+    /**
+     * 用户设置
+     * <p> 示例值：
+     */
+    @SerializedName("user_setting")
+    private UserSetting userSetting;
 
-  public UserSetting getUserSetting() {
-    return this.userSetting;
-  }
+    public UserSetting getUserSetting() {
+        return this.userSetting;
+    }
 
-  public void setUserSetting(UserSetting userSetting) {
-    this.userSetting = userSetting;
-  }
+    public void setUserSetting(UserSetting userSetting) {
+        this.userSetting = userSetting;
+    }
 
 }

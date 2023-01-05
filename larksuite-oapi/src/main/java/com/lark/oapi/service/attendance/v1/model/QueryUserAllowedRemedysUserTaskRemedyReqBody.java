@@ -16,98 +16,96 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserAllowedRemedysUserTaskRemedyReqBody {
-
-  /**
-   * 用户 ID
-   * <p> 示例值：abd754f7
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 补卡日期
-   * <p> 示例值：20210104
-   */
-  @SerializedName("remedy_date")
-  private Integer remedyDate;
-
-  // builder 开始
-  public QueryUserAllowedRemedysUserTaskRemedyReqBody() {
-  }
-
-  public QueryUserAllowedRemedysUserTaskRemedyReqBody(Builder builder) {
     /**
      * 用户 ID
      * <p> 示例值：abd754f7
      */
-    this.userId = builder.userId;
-    /**
-     * 补卡日期
-     * <p> 示例值：20210104
-     */
-    this.remedyDate = builder.remedyDate;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getRemedyDate() {
-    return this.remedyDate;
-  }
-
-  public void setRemedyDate(Integer remedyDate) {
-    this.remedyDate = remedyDate;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 补卡日期
      * <p> 示例值：20210104
      */
+    @SerializedName("remedy_date")
     private Integer remedyDate;
 
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public QueryUserAllowedRemedysUserTaskRemedyReqBody() {
     }
 
-
-    /**
-     * 补卡日期
-     * <p> 示例值：20210104
-     *
-     * @param remedyDate
-     * @return
-     */
-    public Builder remedyDate(Integer remedyDate) {
-      this.remedyDate = remedyDate;
-      return this;
+    public QueryUserAllowedRemedysUserTaskRemedyReqBody(Builder builder) {
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         */
+        this.userId = builder.userId;
+        /**
+         * 补卡日期
+         * <p> 示例值：20210104
+         */
+        this.remedyDate = builder.remedyDate;
     }
 
-
-    public QueryUserAllowedRemedysUserTaskRemedyReqBody build() {
-      return new QueryUserAllowedRemedysUserTaskRemedyReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getRemedyDate() {
+        return this.remedyDate;
+    }
+
+    public void setRemedyDate(Integer remedyDate) {
+        this.remedyDate = remedyDate;
+    }
+
+    public static class Builder {
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         */
+        private String userId;
+        /**
+         * 补卡日期
+         * <p> 示例值：20210104
+         */
+        private Integer remedyDate;
+
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 补卡日期
+         * <p> 示例值：20210104
+         *
+         * @param remedyDate
+         * @return
+         */
+        public Builder remedyDate(Integer remedyDate) {
+            this.remedyDate = remedyDate;
+            return this;
+        }
+
+
+        public QueryUserAllowedRemedysUserTaskRemedyReqBody build() {
+            return new QueryUserAllowedRemedysUserTaskRemedyReqBody(this);
+        }
+    }
 }

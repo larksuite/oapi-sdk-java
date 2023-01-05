@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SiteResumeWork {
-
-  /**
-   * 作品链接
-   * <p> 示例值：
-   */
-  @SerializedName("link")
-  private String link;
-  /**
-   * 描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 作品附件id
-   * <p> 示例值：
-   */
-  @SerializedName("site_attachment_id")
-  private String siteAttachmentId;
-
-  // builder 开始
-  public SiteResumeWork() {
-  }
-
-  public SiteResumeWork(Builder builder) {
     /**
      * 作品链接
      * <p> 示例值：
      */
-    this.link = builder.link;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-    /**
-     * 作品附件id
-     * <p> 示例值：
-     */
-    this.siteAttachmentId = builder.siteAttachmentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getSiteAttachmentId() {
-    return this.siteAttachmentId;
-  }
-
-  public void setSiteAttachmentId(String siteAttachmentId) {
-    this.siteAttachmentId = siteAttachmentId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 作品链接
-     * <p> 示例值：
-     */
+    @SerializedName("link")
     private String link;
     /**
      * 描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private String description;
     /**
      * 作品附件id
      * <p> 示例值：
      */
+    @SerializedName("site_attachment_id")
     private String siteAttachmentId;
 
-    /**
-     * 作品链接
-     * <p> 示例值：
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    // builder 开始
+    public SiteResumeWork() {
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public SiteResumeWork(Builder builder) {
+        /**
+         * 作品链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 作品附件id
+         * <p> 示例值：
+         */
+        this.siteAttachmentId = builder.siteAttachmentId;
     }
 
-
-    /**
-     * 作品附件id
-     * <p> 示例值：
-     *
-     * @param siteAttachmentId
-     * @return
-     */
-    public Builder siteAttachmentId(String siteAttachmentId) {
-      this.siteAttachmentId = siteAttachmentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public SiteResumeWork build() {
-      return new SiteResumeWork(this);
+    public String getLink() {
+        return this.link;
     }
-  }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSiteAttachmentId() {
+        return this.siteAttachmentId;
+    }
+
+    public void setSiteAttachmentId(String siteAttachmentId) {
+        this.siteAttachmentId = siteAttachmentId;
+    }
+
+    public static class Builder {
+        /**
+         * 作品链接
+         * <p> 示例值：
+         */
+        private String link;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private String description;
+        /**
+         * 作品附件id
+         * <p> 示例值：
+         */
+        private String siteAttachmentId;
+
+        /**
+         * 作品链接
+         * <p> 示例值：
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 作品附件id
+         * <p> 示例值：
+         *
+         * @param siteAttachmentId
+         * @return
+         */
+        public Builder siteAttachmentId(String siteAttachmentId) {
+            this.siteAttachmentId = siteAttachmentId;
+            return this;
+        }
+
+
+        public SiteResumeWork build() {
+            return new SiteResumeWork(this);
+        }
+    }
 }

@@ -18,90 +18,121 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetJobReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 职位 ID，请求Path中
-   * <p> 示例值：6001
-   */
-  @Path
-  @SerializedName("job_id")
-  private Integer jobId;
-
-  // builder 开始
-  public GetJobReq() {
-  }
-
-  public GetJobReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
-     * 职位 ID，请求Path中
-     * <p> 示例值：6001
-     */
-    this.jobId = builder.jobId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public Integer getJobId() {
-    return this.jobId;
-  }
-
-  public void setJobId(Integer jobId) {
-    this.jobId = jobId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private Integer jobId; // 职位 ID，请求Path中
-
-    /**
-     * 此次调用中使用的用户ID的类型
+     * 此次调用中使用的部门 ID 的类型
      * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
      */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 职位 ID，请求Path中
      * <p> 示例值：6001
-     *
-     * @param jobId
-     * @return
      */
-    public Builder jobId(Integer jobId) {
-      this.jobId = jobId;
-      return this;
+    @Path
+    @SerializedName("job_id")
+    private Integer jobId;
+
+    // builder 开始
+    public GetJobReq() {
     }
 
-    public GetJobReq build() {
-      return new GetJobReq(this);
+    public GetJobReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 职位 ID，请求Path中
+         * <p> 示例值：6001
+         */
+        this.jobId = builder.jobId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public Integer getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private Integer jobId; // 职位 ID，请求Path中
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 职位 ID，请求Path中
+         * <p> 示例值：6001
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(Integer jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+        public GetJobReq build() {
+            return new GetJobReq(this);
+        }
+    }
 }

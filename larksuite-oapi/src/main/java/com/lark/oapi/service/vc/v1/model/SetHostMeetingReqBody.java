@@ -16,98 +16,96 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SetHostMeetingReqBody {
-
-  /**
-   * 将要设置的主持人
-   * <p> 示例值：
-   */
-  @SerializedName("host_user")
-  private MeetingUser hostUser;
-  /**
-   * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
-   * <p> 示例值：
-   */
-  @SerializedName("old_host_user")
-  private MeetingUser oldHostUser;
-
-  // builder 开始
-  public SetHostMeetingReqBody() {
-  }
-
-  public SetHostMeetingReqBody(Builder builder) {
     /**
      * 将要设置的主持人
      * <p> 示例值：
      */
-    this.hostUser = builder.hostUser;
-    /**
-     * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
-     * <p> 示例值：
-     */
-    this.oldHostUser = builder.oldHostUser;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public MeetingUser getHostUser() {
-    return this.hostUser;
-  }
-
-  public void setHostUser(MeetingUser hostUser) {
-    this.hostUser = hostUser;
-  }
-
-  public MeetingUser getOldHostUser() {
-    return this.oldHostUser;
-  }
-
-  public void setOldHostUser(MeetingUser oldHostUser) {
-    this.oldHostUser = oldHostUser;
-  }
-
-  public static class Builder {
-
-    /**
-     * 将要设置的主持人
-     * <p> 示例值：
-     */
+    @SerializedName("host_user")
     private MeetingUser hostUser;
     /**
      * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
      * <p> 示例值：
      */
+    @SerializedName("old_host_user")
     private MeetingUser oldHostUser;
 
-    /**
-     * 将要设置的主持人
-     * <p> 示例值：
-     *
-     * @param hostUser
-     * @return
-     */
-    public Builder hostUser(MeetingUser hostUser) {
-      this.hostUser = hostUser;
-      return this;
+    // builder 开始
+    public SetHostMeetingReqBody() {
     }
 
-
-    /**
-     * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
-     * <p> 示例值：
-     *
-     * @param oldHostUser
-     * @return
-     */
-    public Builder oldHostUser(MeetingUser oldHostUser) {
-      this.oldHostUser = oldHostUser;
-      return this;
+    public SetHostMeetingReqBody(Builder builder) {
+        /**
+         * 将要设置的主持人
+         * <p> 示例值：
+         */
+        this.hostUser = builder.hostUser;
+        /**
+         * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
+         * <p> 示例值：
+         */
+        this.oldHostUser = builder.oldHostUser;
     }
 
-
-    public SetHostMeetingReqBody build() {
-      return new SetHostMeetingReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public MeetingUser getHostUser() {
+        return this.hostUser;
+    }
+
+    public void setHostUser(MeetingUser hostUser) {
+        this.hostUser = hostUser;
+    }
+
+    public MeetingUser getOldHostUser() {
+        return this.oldHostUser;
+    }
+
+    public void setOldHostUser(MeetingUser oldHostUser) {
+        this.oldHostUser = oldHostUser;
+    }
+
+    public static class Builder {
+        /**
+         * 将要设置的主持人
+         * <p> 示例值：
+         */
+        private MeetingUser hostUser;
+        /**
+         * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
+         * <p> 示例值：
+         */
+        private MeetingUser oldHostUser;
+
+        /**
+         * 将要设置的主持人
+         * <p> 示例值：
+         *
+         * @param hostUser
+         * @return
+         */
+        public Builder hostUser(MeetingUser hostUser) {
+            this.hostUser = hostUser;
+            return this;
+        }
+
+
+        /**
+         * 当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）
+         * <p> 示例值：
+         *
+         * @param oldHostUser
+         * @return
+         */
+        public Builder oldHostUser(MeetingUser oldHostUser) {
+            this.oldHostUser = oldHostUser;
+            return this;
+        }
+
+
+        public SetHostMeetingReqBody build() {
+            return new SetHostMeetingReqBody(this);
+        }
+    }
 }

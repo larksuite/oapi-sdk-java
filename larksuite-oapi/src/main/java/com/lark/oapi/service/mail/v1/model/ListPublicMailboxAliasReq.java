@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class ListPublicMailboxAliasReq {
-
-  /**
-   * 公共邮箱id或公共邮箱邮件地址
-   * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-   */
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-
-  // builder 开始
-  public ListPublicMailboxAliasReq() {
-  }
-
-  public ListPublicMailboxAliasReq(Builder builder) {
     /**
      * 公共邮箱id或公共邮箱邮件地址
      * <p> 示例值：xxxxxx 或 xxx@xx.xxx
      */
-    this.publicMailboxId = builder.publicMailboxId;
-  }
+    @Path
+    @SerializedName("public_mailbox_id")
+    private String publicMailboxId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public static class Builder {
-
-    private String publicMailboxId; // 公共邮箱id或公共邮箱邮件地址
-
-    /**
-     * 公共邮箱id或公共邮箱邮件地址
-     * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-     *
-     * @param publicMailboxId
-     * @return
-     */
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    // builder 开始
+    public ListPublicMailboxAliasReq() {
     }
 
-    public ListPublicMailboxAliasReq build() {
-      return new ListPublicMailboxAliasReq(this);
+    public ListPublicMailboxAliasReq(Builder builder) {
+        /**
+         * 公共邮箱id或公共邮箱邮件地址
+         * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+         */
+        this.publicMailboxId = builder.publicMailboxId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
+    }
+
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
+    }
+
+    public static class Builder {
+
+        private String publicMailboxId; // 公共邮箱id或公共邮箱邮件地址
+
+        /**
+         * 公共邮箱id或公共邮箱邮件地址
+         * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+         *
+         * @param publicMailboxId
+         * @return
+         */
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
+
+        public ListPublicMailboxAliasReq build() {
+            return new ListPublicMailboxAliasReq(this);
+        }
+    }
 }

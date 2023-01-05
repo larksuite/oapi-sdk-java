@@ -16,147 +16,145 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ScopeConfig {
-
-  /**
-   * 查询节点范围
-   * <p> 示例值：1
-   */
-  @SerializedName("scope_type")
-  private Integer scopeType;
-  /**
-   * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
-   * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-   */
-  @SerializedName("scope_id")
-  private String scopeId;
-  /**
-   * 节点配置
-   * <p> 示例值：
-   */
-  @SerializedName("scope_config")
-  private RoomConfig scopeConfig;
-
-  // builder 开始
-  public ScopeConfig() {
-  }
-
-  public ScopeConfig(Builder builder) {
     /**
      * 查询节点范围
      * <p> 示例值：1
      */
-    this.scopeType = builder.scopeType;
-    /**
-     * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
-     * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-     */
-    this.scopeId = builder.scopeId;
-    /**
-     * 节点配置
-     * <p> 示例值：
-     */
-    this.scopeConfig = builder.scopeConfig;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getScopeType() {
-    return this.scopeType;
-  }
-
-  public void setScopeType(Integer scopeType) {
-    this.scopeType = scopeType;
-  }
-
-  public String getScopeId() {
-    return this.scopeId;
-  }
-
-  public void setScopeId(String scopeId) {
-    this.scopeId = scopeId;
-  }
-
-  public RoomConfig getScopeConfig() {
-    return this.scopeConfig;
-  }
-
-  public void setScopeConfig(RoomConfig scopeConfig) {
-    this.scopeConfig = scopeConfig;
-  }
-
-  public static class Builder {
-
-    /**
-     * 查询节点范围
-     * <p> 示例值：1
-     */
+    @SerializedName("scope_type")
     private Integer scopeType;
     /**
      * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
      * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
      */
+    @SerializedName("scope_id")
     private String scopeId;
     /**
      * 节点配置
      * <p> 示例值：
      */
+    @SerializedName("scope_config")
     private RoomConfig scopeConfig;
 
-    /**
-     * 查询节点范围
-     * <p> 示例值：1
-     *
-     * @param scopeType
-     * @return
-     */
-    public Builder scopeType(Integer scopeType) {
-      this.scopeType = scopeType;
-      return this;
+    // builder 开始
+    public ScopeConfig() {
     }
 
-    /**
-     * 查询节点范围
-     * <p> 示例值：1
-     *
-     * @param scopeType {@link com.lark.oapi.service.vc.v1.enums.ScopeConfigScopeTypeEnum}
-     * @return
-     */
-    public Builder scopeType(com.lark.oapi.service.vc.v1.enums.ScopeConfigScopeTypeEnum scopeType) {
-      this.scopeType = scopeType.getValue();
-      return this;
+    public ScopeConfig(Builder builder) {
+        /**
+         * 查询节点范围
+         * <p> 示例值：1
+         */
+        this.scopeType = builder.scopeType;
+        /**
+         * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
+         * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+         */
+        this.scopeId = builder.scopeId;
+        /**
+         * 节点配置
+         * <p> 示例值：
+         */
+        this.scopeConfig = builder.scopeConfig;
     }
 
-
-    /**
-     * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
-     * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
-     *
-     * @param scopeId
-     * @return
-     */
-    public Builder scopeId(String scopeId) {
-      this.scopeId = scopeId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 节点配置
-     * <p> 示例值：
-     *
-     * @param scopeConfig
-     * @return
-     */
-    public Builder scopeConfig(RoomConfig scopeConfig) {
-      this.scopeConfig = scopeConfig;
-      return this;
+    public Integer getScopeType() {
+        return this.scopeType;
     }
 
-
-    public ScopeConfig build() {
-      return new ScopeConfig(this);
+    public void setScopeType(Integer scopeType) {
+        this.scopeType = scopeType;
     }
-  }
+
+    public String getScopeId() {
+        return this.scopeId;
+    }
+
+    public void setScopeId(String scopeId) {
+        this.scopeId = scopeId;
+    }
+
+    public RoomConfig getScopeConfig() {
+        return this.scopeConfig;
+    }
+
+    public void setScopeConfig(RoomConfig scopeConfig) {
+        this.scopeConfig = scopeConfig;
+    }
+
+    public static class Builder {
+        /**
+         * 查询节点范围
+         * <p> 示例值：1
+         */
+        private Integer scopeType;
+        /**
+         * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
+         * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+         */
+        private String scopeId;
+        /**
+         * 节点配置
+         * <p> 示例值：
+         */
+        private RoomConfig scopeConfig;
+
+        /**
+         * 查询节点范围
+         * <p> 示例值：1
+         *
+         * @param scopeType
+         * @return
+         */
+        public Builder scopeType(Integer scopeType) {
+            this.scopeType = scopeType;
+            return this;
+        }
+
+        /**
+         * 查询节点范围
+         * <p> 示例值：1
+         *
+         * @param scopeType {@link com.lark.oapi.service.vc.v1.enums.ScopeConfigScopeTypeEnum}
+         * @return
+         */
+        public Builder scopeType(com.lark.oapi.service.vc.v1.enums.ScopeConfigScopeTypeEnum scopeType) {
+            this.scopeType = scopeType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 查询节点ID：如果scope_type为1，则为层级ID，如果scope_type为2，则为会议室ID
+         * <p> 示例值：omm_608d34d82d531b27fa993902d350a307
+         *
+         * @param scopeId
+         * @return
+         */
+        public Builder scopeId(String scopeId) {
+            this.scopeId = scopeId;
+            return this;
+        }
+
+
+        /**
+         * 节点配置
+         * <p> 示例值：
+         *
+         * @param scopeConfig
+         * @return
+         */
+        public Builder scopeConfig(RoomConfig scopeConfig) {
+            this.scopeConfig = scopeConfig;
+            return this;
+        }
+
+
+        public ScopeConfig build() {
+            return new ScopeConfig(this);
+        }
+    }
 }

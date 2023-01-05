@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateEntity {
 
-  /**
-   * 返回对象实体
-   * <p> 示例值：
-   */
-  @SerializedName("entity")
-  private Entity entity;
+    /**
+     * 返回对象实体
+     * <p> 示例值：
+     */
+    @SerializedName("entity")
+    private Entity entity;
 
-  public Entity getEntity() {
-    return this.entity;
-  }
+    public Entity getEntity() {
+        return this.entity;
+    }
 
-  public void setEntity(Entity entity) {
-    this.entity = entity;
-  }
+    public void setEntity(Entity entity) {
+        this.entity = entity;
+    }
 
 }

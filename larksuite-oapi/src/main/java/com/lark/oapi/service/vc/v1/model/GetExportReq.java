@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetExportReq {
-
-  /**
-   * 任务id
-   * <p> 示例值：7108646852144136212
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public GetExportReq() {
-  }
-
-  public GetExportReq(Builder builder) {
     /**
      * 任务id
      * <p> 示例值：7108646852144136212
      */
-    this.taskId = builder.taskId;
-  }
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
-    private String taskId; // 任务id
-
-    /**
-     * 任务id
-     * <p> 示例值：7108646852144136212
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    // builder 开始
+    public GetExportReq() {
     }
 
-    public GetExportReq build() {
-      return new GetExportReq(this);
+    public GetExportReq(Builder builder) {
+        /**
+         * 任务id
+         * <p> 示例值：7108646852144136212
+         */
+        this.taskId = builder.taskId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public static class Builder {
+
+        private String taskId; // 任务id
+
+        /**
+         * 任务id
+         * <p> 示例值：7108646852144136212
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public GetExportReq build() {
+            return new GetExportReq(this);
+        }
+    }
 }

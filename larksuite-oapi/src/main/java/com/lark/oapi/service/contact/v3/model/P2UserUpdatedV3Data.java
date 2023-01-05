@@ -16,34 +16,33 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2UserUpdatedV3Data {
+    /**
+     * 变更后信息
+     * <p> 示例值：
+     */
+    @SerializedName("object")
+    private UserEvent object;
+    /**
+     * 变更前信息，body中只包含有变更的字段
+     * <p> 示例值：
+     */
+    @SerializedName("old_object")
+    private UserEvent oldObject;
 
-  /**
-   * 变更后信息
-   * <p> 示例值：
-   */
-  @SerializedName("object")
-  private UserEvent object;
-  /**
-   * 变更前信息，body中只包含有变更的字段
-   * <p> 示例值：
-   */
-  @SerializedName("old_object")
-  private UserEvent oldObject;
+    public UserEvent getObject() {
+        return this.object;
+    }
 
-  public UserEvent getObject() {
-    return this.object;
-  }
+    public void setObject(UserEvent object) {
+        this.object = object;
+    }
 
-  public void setObject(UserEvent object) {
-    this.object = object;
-  }
+    public UserEvent getOldObject() {
+        return this.oldObject;
+    }
 
-  public UserEvent getOldObject() {
-    return this.oldObject;
-  }
-
-  public void setOldObject(UserEvent oldObject) {
-    this.oldObject = oldObject;
-  }
+    public void setOldObject(UserEvent oldObject) {
+        this.oldObject = oldObject;
+    }
 
 }

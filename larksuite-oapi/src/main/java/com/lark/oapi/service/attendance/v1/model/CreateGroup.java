@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateGroup {
 
-  /**
-   * 6921319402260496386
-   * <p> 示例值：
-   */
-  @SerializedName("group")
-  private Group group;
+    /**
+     * 6921319402260496386
+     * <p> 示例值：
+     */
+    @SerializedName("group")
+    private Group group;
 
-  public Group getGroup() {
-    return this.group;
-  }
+    public Group getGroup() {
+        return this.group;
+    }
 
-  public void setGroup(Group group) {
-    this.group = group;
-  }
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
 }

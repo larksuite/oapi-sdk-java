@@ -16,111 +16,108 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApproverChosenRange {
-
-  /**
-   * 指定范围：0-all，1-指定角色，2-指定人员
-   * <p> 示例值：2
-   */
-  @SerializedName("approver_range_type")
-  private Integer approverRangeType;
-  /**
-   * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
-   * <p> 示例值：
-   */
-  @SerializedName("approver_range_ids")
-  private String[] approverRangeIds;
-
-  // builder 开始
-  public ApproverChosenRange() {
-  }
-
-  public ApproverChosenRange(Builder builder) {
     /**
      * 指定范围：0-all，1-指定角色，2-指定人员
      * <p> 示例值：2
      */
-    this.approverRangeType = builder.approverRangeType;
-    /**
-     * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
-     * <p> 示例值：
-     */
-    this.approverRangeIds = builder.approverRangeIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getApproverRangeType() {
-    return this.approverRangeType;
-  }
-
-  public void setApproverRangeType(Integer approverRangeType) {
-    this.approverRangeType = approverRangeType;
-  }
-
-  public String[] getApproverRangeIds() {
-    return this.approverRangeIds;
-  }
-
-  public void setApproverRangeIds(String[] approverRangeIds) {
-    this.approverRangeIds = approverRangeIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 指定范围：0-all，1-指定角色，2-指定人员
-     * <p> 示例值：2
-     */
+    @SerializedName("approver_range_type")
     private Integer approverRangeType;
     /**
      * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
      * <p> 示例值：
      */
+    @SerializedName("approver_range_ids")
     private String[] approverRangeIds;
 
-    /**
-     * 指定范围：0-all，1-指定角色，2-指定人员
-     * <p> 示例值：2
-     *
-     * @param approverRangeType
-     * @return
-     */
-    public Builder approverRangeType(Integer approverRangeType) {
-      this.approverRangeType = approverRangeType;
-      return this;
+    // builder 开始
+    public ApproverChosenRange() {
     }
 
-    /**
-     * 指定范围：0-all，1-指定角色，2-指定人员
-     * <p> 示例值：2
-     *
-     * @param approverRangeType {@link com.lark.oapi.service.approval.v4.enums.ApproverChosenRangeApproverRangeTypeEnum}
-     * @return
-     */
-    public Builder approverRangeType(
-        com.lark.oapi.service.approval.v4.enums.ApproverChosenRangeApproverRangeTypeEnum approverRangeType) {
-      this.approverRangeType = approverRangeType.getValue();
-      return this;
+    public ApproverChosenRange(Builder builder) {
+        /**
+         * 指定范围：0-all，1-指定角色，2-指定人员
+         * <p> 示例值：2
+         */
+        this.approverRangeType = builder.approverRangeType;
+        /**
+         * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
+         * <p> 示例值：
+         */
+        this.approverRangeIds = builder.approverRangeIds;
     }
 
-
-    /**
-     * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
-     * <p> 示例值：
-     *
-     * @param approverRangeIds
-     * @return
-     */
-    public Builder approverRangeIds(String[] approverRangeIds) {
-      this.approverRangeIds = approverRangeIds;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ApproverChosenRange build() {
-      return new ApproverChosenRange(this);
+    public Integer getApproverRangeType() {
+        return this.approverRangeType;
     }
-  }
+
+    public void setApproverRangeType(Integer approverRangeType) {
+        this.approverRangeType = approverRangeType;
+    }
+
+    public String[] getApproverRangeIds() {
+        return this.approverRangeIds;
+    }
+
+    public void setApproverRangeIds(String[] approverRangeIds) {
+        this.approverRangeIds = approverRangeIds;
+    }
+
+    public static class Builder {
+        /**
+         * 指定范围：0-all，1-指定角色，2-指定人员
+         * <p> 示例值：2
+         */
+        private Integer approverRangeType;
+        /**
+         * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
+         * <p> 示例值：
+         */
+        private String[] approverRangeIds;
+
+        /**
+         * 指定范围：0-all，1-指定角色，2-指定人员
+         * <p> 示例值：2
+         *
+         * @param approverRangeType
+         * @return
+         */
+        public Builder approverRangeType(Integer approverRangeType) {
+            this.approverRangeType = approverRangeType;
+            return this;
+        }
+
+        /**
+         * 指定范围：0-all，1-指定角色，2-指定人员
+         * <p> 示例值：2
+         *
+         * @param approverRangeType {@link com.lark.oapi.service.approval.v4.enums.ApproverChosenRangeApproverRangeTypeEnum}
+         * @return
+         */
+        public Builder approverRangeType(com.lark.oapi.service.approval.v4.enums.ApproverChosenRangeApproverRangeTypeEnum approverRangeType) {
+            this.approverRangeType = approverRangeType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 根据上面的type，分别存放角色id与userid，type为0时本字段为空列表
+         * <p> 示例值：
+         *
+         * @param approverRangeIds
+         * @return
+         */
+        public Builder approverRangeIds(String[] approverRangeIds) {
+            this.approverRangeIds = approverRangeIds;
+            return this;
+        }
+
+
+        public ApproverChosenRange build() {
+            return new ApproverChosenRange(this);
+        }
+    }
 }

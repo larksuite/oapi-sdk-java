@@ -17,125 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAppTableViewReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * 视图Id
-   * <p> 示例值：vewTpR1urY
-   */
-  @Path
-  @SerializedName("view_id")
-  private String viewId;
-
-  // builder 开始
-  public DeleteAppTableViewReq() {
-  }
-
-  public DeleteAppTableViewReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * table id
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     /**
      * 视图Id
      * <p> 示例值：vewTpR1urY
      */
-    this.viewId = builder.viewId;
-  }
+    @Path
+    @SerializedName("view_id")
+    private String viewId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getViewId() {
-    return this.viewId;
-  }
-
-  public void setViewId(String viewId) {
-    this.viewId = viewId;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
-    private String tableId; // table id
-    private String viewId; // 视图Id
-
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public DeleteAppTableViewReq() {
     }
 
-
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public DeleteAppTableViewReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * 视图Id
+         * <p> 示例值：vewTpR1urY
+         */
+        this.viewId = builder.viewId;
     }
 
-
-    /**
-     * 视图Id
-     * <p> 示例值：vewTpR1urY
-     *
-     * @param viewId
-     * @return
-     */
-    public Builder viewId(String viewId) {
-      this.viewId = viewId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public DeleteAppTableViewReq build() {
-      return new DeleteAppTableViewReq(this);
+    public String getAppToken() {
+        return this.appToken;
     }
-  }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getViewId() {
+        return this.viewId;
+    }
+
+    public void setViewId(String viewId) {
+        this.viewId = viewId;
+    }
+
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private String tableId; // table id
+        private String viewId; // 视图Id
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+
+        /**
+         * 视图Id
+         * <p> 示例值：vewTpR1urY
+         *
+         * @param viewId
+         * @return
+         */
+        public Builder viewId(String viewId) {
+            this.viewId = viewId;
+            return this;
+        }
+
+        public DeleteAppTableViewReq build() {
+            return new DeleteAppTableViewReq(this);
+        }
+    }
 }

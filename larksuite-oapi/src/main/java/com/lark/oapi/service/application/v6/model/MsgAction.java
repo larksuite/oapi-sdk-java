@@ -16,135 +16,133 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MsgAction {
-
-  /**
-   * pc 端链接
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("pc_app_link")
-  private String pcAppLink;
-  /**
-   * 移动端链接
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("mobile_app_link")
-  private String mobileAppLink;
-  /**
-   * 国际化信息
-   * <p> 示例值：
-   */
-  @SerializedName("i18n")
-  private MsgActionI18nInfo[] i18n;
-
-  // builder 开始
-  public MsgAction() {
-  }
-
-  public MsgAction(Builder builder) {
     /**
      * pc 端链接
      * <p> 示例值：https://www.example.com
      */
-    this.pcAppLink = builder.pcAppLink;
-    /**
-     * 移动端链接
-     * <p> 示例值：https://www.example.com
-     */
-    this.mobileAppLink = builder.mobileAppLink;
-    /**
-     * 国际化信息
-     * <p> 示例值：
-     */
-    this.i18n = builder.i18n;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcAppLink() {
-    return this.pcAppLink;
-  }
-
-  public void setPcAppLink(String pcAppLink) {
-    this.pcAppLink = pcAppLink;
-  }
-
-  public String getMobileAppLink() {
-    return this.mobileAppLink;
-  }
-
-  public void setMobileAppLink(String mobileAppLink) {
-    this.mobileAppLink = mobileAppLink;
-  }
-
-  public MsgActionI18nInfo[] getI18n() {
-    return this.i18n;
-  }
-
-  public void setI18n(MsgActionI18nInfo[] i18n) {
-    this.i18n = i18n;
-  }
-
-  public static class Builder {
-
-    /**
-     * pc 端链接
-     * <p> 示例值：https://www.example.com
-     */
+    @SerializedName("pc_app_link")
     private String pcAppLink;
     /**
      * 移动端链接
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("mobile_app_link")
     private String mobileAppLink;
     /**
      * 国际化信息
      * <p> 示例值：
      */
+    @SerializedName("i18n")
     private MsgActionI18nInfo[] i18n;
 
-    /**
-     * pc 端链接
-     * <p> 示例值：https://www.example.com
-     *
-     * @param pcAppLink
-     * @return
-     */
-    public Builder pcAppLink(String pcAppLink) {
-      this.pcAppLink = pcAppLink;
-      return this;
+    // builder 开始
+    public MsgAction() {
     }
 
-
-    /**
-     * 移动端链接
-     * <p> 示例值：https://www.example.com
-     *
-     * @param mobileAppLink
-     * @return
-     */
-    public Builder mobileAppLink(String mobileAppLink) {
-      this.mobileAppLink = mobileAppLink;
-      return this;
+    public MsgAction(Builder builder) {
+        /**
+         * pc 端链接
+         * <p> 示例值：https://www.example.com
+         */
+        this.pcAppLink = builder.pcAppLink;
+        /**
+         * 移动端链接
+         * <p> 示例值：https://www.example.com
+         */
+        this.mobileAppLink = builder.mobileAppLink;
+        /**
+         * 国际化信息
+         * <p> 示例值：
+         */
+        this.i18n = builder.i18n;
     }
 
-
-    /**
-     * 国际化信息
-     * <p> 示例值：
-     *
-     * @param i18n
-     * @return
-     */
-    public Builder i18n(MsgActionI18nInfo[] i18n) {
-      this.i18n = i18n;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public MsgAction build() {
-      return new MsgAction(this);
+    public String getPcAppLink() {
+        return this.pcAppLink;
     }
-  }
+
+    public void setPcAppLink(String pcAppLink) {
+        this.pcAppLink = pcAppLink;
+    }
+
+    public String getMobileAppLink() {
+        return this.mobileAppLink;
+    }
+
+    public void setMobileAppLink(String mobileAppLink) {
+        this.mobileAppLink = mobileAppLink;
+    }
+
+    public MsgActionI18nInfo[] getI18n() {
+        return this.i18n;
+    }
+
+    public void setI18n(MsgActionI18nInfo[] i18n) {
+        this.i18n = i18n;
+    }
+
+    public static class Builder {
+        /**
+         * pc 端链接
+         * <p> 示例值：https://www.example.com
+         */
+        private String pcAppLink;
+        /**
+         * 移动端链接
+         * <p> 示例值：https://www.example.com
+         */
+        private String mobileAppLink;
+        /**
+         * 国际化信息
+         * <p> 示例值：
+         */
+        private MsgActionI18nInfo[] i18n;
+
+        /**
+         * pc 端链接
+         * <p> 示例值：https://www.example.com
+         *
+         * @param pcAppLink
+         * @return
+         */
+        public Builder pcAppLink(String pcAppLink) {
+            this.pcAppLink = pcAppLink;
+            return this;
+        }
+
+
+        /**
+         * 移动端链接
+         * <p> 示例值：https://www.example.com
+         *
+         * @param mobileAppLink
+         * @return
+         */
+        public Builder mobileAppLink(String mobileAppLink) {
+            this.mobileAppLink = mobileAppLink;
+            return this;
+        }
+
+
+        /**
+         * 国际化信息
+         * <p> 示例值：
+         *
+         * @param i18n
+         * @return
+         */
+        public Builder i18n(MsgActionI18nInfo[] i18n) {
+            this.i18n = i18n;
+            return this;
+        }
+
+
+        public MsgAction build() {
+            return new MsgAction(this);
+        }
+    }
 }

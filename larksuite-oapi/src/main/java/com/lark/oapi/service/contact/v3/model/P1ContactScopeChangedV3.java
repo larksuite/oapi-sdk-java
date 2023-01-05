@@ -17,6 +17,6 @@ import com.lark.oapi.event.model.BaseEvent;
 
 public class P1ContactScopeChangedV3 extends BaseEvent {
 
-  @SerializedName("event")
-  private P1ContactScopeChangedV3Data event;
+    @SerializedName("event")
+    private P1ContactScopeChangedV3Data event;
 }

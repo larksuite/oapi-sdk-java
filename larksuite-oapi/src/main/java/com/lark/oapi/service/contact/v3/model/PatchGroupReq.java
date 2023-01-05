@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchGroupReq {
-
-  /**
-   * 用户组ID
-   * <p> 示例值：g187131
-   */
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-  @Body
-  private PatchGroupReqBody body;
-
-  // builder 开始
-  public PatchGroupReq() {
-  }
-
-  public PatchGroupReq(Builder builder) {
     /**
      * 用户组ID
      * <p> 示例值：g187131
      */
-    this.groupId = builder.groupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public PatchGroupReqBody getPatchGroupReqBody() {
-    return this.body;
-  }
-
-  public void setPatchGroupReqBody(PatchGroupReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String groupId; // 用户组ID
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
+    @Body
     private PatchGroupReqBody body;
 
-    /**
-     * 用户组ID
-     * <p> 示例值：g187131
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public PatchGroupReq() {
+    }
+
+    public PatchGroupReq(Builder builder) {
+        /**
+         * 用户组ID
+         * <p> 示例值：g187131
+         */
+        this.groupId = builder.groupId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public PatchGroupReqBody getPatchGroupReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder patchGroupReqBody(PatchGroupReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchGroupReqBody(PatchGroupReqBody body) {
+        this.body = body;
     }
 
-    public PatchGroupReq build() {
-      return new PatchGroupReq(this);
+    public static class Builder {
+
+        private String groupId; // 用户组ID
+        private PatchGroupReqBody body;
+
+        /**
+         * 用户组ID
+         * <p> 示例值：g187131
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+        public PatchGroupReqBody getPatchGroupReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder patchGroupReqBody(PatchGroupReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchGroupReq build() {
+            return new PatchGroupReq(this);
+        }
     }
-  }
 }

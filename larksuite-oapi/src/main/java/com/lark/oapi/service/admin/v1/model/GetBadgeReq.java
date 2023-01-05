@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetBadgeReq {
-
-  /**
-   * 勋章id
-   * <p> 示例值：m_DjMzaK
-   */
-  @Path
-  @SerializedName("badge_id")
-  private String badgeId;
-
-  // builder 开始
-  public GetBadgeReq() {
-  }
-
-  public GetBadgeReq(Builder builder) {
     /**
      * 勋章id
      * <p> 示例值：m_DjMzaK
      */
-    this.badgeId = builder.badgeId;
-  }
+    @Path
+    @SerializedName("badge_id")
+    private String badgeId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBadgeId() {
-    return this.badgeId;
-  }
-
-  public void setBadgeId(String badgeId) {
-    this.badgeId = badgeId;
-  }
-
-  public static class Builder {
-
-    private String badgeId; // 勋章id
-
-    /**
-     * 勋章id
-     * <p> 示例值：m_DjMzaK
-     *
-     * @param badgeId
-     * @return
-     */
-    public Builder badgeId(String badgeId) {
-      this.badgeId = badgeId;
-      return this;
+    // builder 开始
+    public GetBadgeReq() {
     }
 
-    public GetBadgeReq build() {
-      return new GetBadgeReq(this);
+    public GetBadgeReq(Builder builder) {
+        /**
+         * 勋章id
+         * <p> 示例值：m_DjMzaK
+         */
+        this.badgeId = builder.badgeId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getBadgeId() {
+        return this.badgeId;
+    }
+
+    public void setBadgeId(String badgeId) {
+        this.badgeId = badgeId;
+    }
+
+    public static class Builder {
+
+        private String badgeId; // 勋章id
+
+        /**
+         * 勋章id
+         * <p> 示例值：m_DjMzaK
+         *
+         * @param badgeId
+         * @return
+         */
+        public Builder badgeId(String badgeId) {
+            this.badgeId = badgeId;
+            return this;
+        }
+
+        public GetBadgeReq build() {
+            return new GetBadgeReq(this);
+        }
+    }
 }

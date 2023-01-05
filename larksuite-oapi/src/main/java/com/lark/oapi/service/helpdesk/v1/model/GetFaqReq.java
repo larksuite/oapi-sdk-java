@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetFaqReq {
-
-  /**
-   * 知识库ID
-   * <p> 示例值：6856395634652479491
-   */
-  @Path
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public GetFaqReq() {
-  }
-
-  public GetFaqReq(Builder builder) {
     /**
      * 知识库ID
      * <p> 示例值：6856395634652479491
      */
-    this.id = builder.id;
-  }
+    @Path
+    @SerializedName("id")
+    private String id;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    private String id; // 知识库ID
-
-    /**
-     * 知识库ID
-     * <p> 示例值：6856395634652479491
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public GetFaqReq() {
     }
 
-    public GetFaqReq build() {
-      return new GetFaqReq(this);
+    public GetFaqReq(Builder builder) {
+        /**
+         * 知识库ID
+         * <p> 示例值：6856395634652479491
+         */
+        this.id = builder.id;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+
+        private String id; // 知识库ID
+
+        /**
+         * 知识库ID
+         * <p> 示例值：6856395634652479491
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public GetFaqReq build() {
+            return new GetFaqReq(this);
+        }
+    }
 }

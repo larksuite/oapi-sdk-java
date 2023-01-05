@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteSpaceMemberReq {
-
-  /**
-   * 知识空间id
-   * <p> 示例值：7008061636015554580
-   */
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  /**
-   * 成员id
-   * <p> 示例值：g64fb7g7
-   */
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-  @Body
-  private Member body;
-
-  // builder 开始
-  public DeleteSpaceMemberReq() {
-  }
-
-  public DeleteSpaceMemberReq(Builder builder) {
     /**
      * 知识空间id
      * <p> 示例值：7008061636015554580
      */
-    this.spaceId = builder.spaceId;
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
     /**
-     * 成员id
+     * 成员id，值的类型由请求体的 member_type 参数决定
      * <p> 示例值：g64fb7g7
      */
-    this.memberId = builder.memberId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public Member getMember() {
-    return this.body;
-  }
-
-  public void setMember(Member body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String spaceId; // 知识空间id
-    private String memberId; // 成员id
+    @Path
+    @SerializedName("member_id")
+    private String memberId;
+    @Body
     private Member body;
 
-    /**
-     * 知识空间id
-     * <p> 示例值：7008061636015554580
-     *
-     * @param spaceId
-     * @return
-     */
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    // builder 开始
+    public DeleteSpaceMemberReq() {
     }
 
-    /**
-     * 成员id
-     * <p> 示例值：g64fb7g7
-     *
-     * @param memberId
-     * @return
-     */
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public DeleteSpaceMemberReq(Builder builder) {
+        /**
+         * 知识空间id
+         * <p> 示例值：7008061636015554580
+         */
+        this.spaceId = builder.spaceId;
+        /**
+         * 成员id，值的类型由请求体的 member_type 参数决定
+         * <p> 示例值：g64fb7g7
+         */
+        this.memberId = builder.memberId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public Member getMember() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder member(Member body) {
-      this.body = body;
-      return this;
+    public void setMember(Member body) {
+        this.body = body;
     }
 
-    public DeleteSpaceMemberReq build() {
-      return new DeleteSpaceMemberReq(this);
+    public static class Builder {
+
+        private String spaceId; // 知识空间id
+        private String memberId; // 成员id，值的类型由请求体的 member_type 参数决定
+        private Member body;
+
+        /**
+         * 知识空间id
+         * <p> 示例值：7008061636015554580
+         *
+         * @param spaceId
+         * @return
+         */
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
+
+        /**
+         * 成员id，值的类型由请求体的 member_type 参数决定
+         * <p> 示例值：g64fb7g7
+         *
+         * @param memberId
+         * @return
+         */
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+        public Member getMember() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder member(Member body) {
+            this.body = body;
+            return this;
+        }
+
+        public DeleteSpaceMemberReq build() {
+            return new DeleteSpaceMemberReq(this);
+        }
     }
-  }
 }

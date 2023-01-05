@@ -16,147 +16,145 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SpecialFocusUnread {
-
-  /**
-   * 用户id
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 进群成员id类型 open_id/user_id/union_id/app_id
-   * <p> 示例值：
-   */
-  @SerializedName("id_type")
-  private String idType;
-  /**
-   * 未读数
-   * <p> 示例值：
-   */
-  @SerializedName("unread_count")
-  private String unreadCount;
-
-  // builder 开始
-  public SpecialFocusUnread() {
-  }
-
-  public SpecialFocusUnread(Builder builder) {
     /**
-     * 用户id
+     * 成员ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 进群成员id类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：
-     */
-    this.idType = builder.idType;
-    /**
-     * 未读数
-     * <p> 示例值：
-     */
-    this.unreadCount = builder.unreadCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getIdType() {
-    return this.idType;
-  }
-
-  public void setIdType(String idType) {
-    this.idType = idType;
-  }
-
-  public String getUnreadCount() {
-    return this.unreadCount;
-  }
-
-  public void setUnreadCount(String unreadCount) {
-    this.unreadCount = unreadCount;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
-     * 进群成员id类型 open_id/user_id/union_id/app_id
+     * 成员ID类型。根据 ==member_id_type== 参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
      * <p> 示例值：
      */
+    @SerializedName("id_type")
     private String idType;
     /**
      * 未读数
      * <p> 示例值：
      */
+    @SerializedName("unread_count")
     private String unreadCount;
 
-    /**
-     * 用户id
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public SpecialFocusUnread() {
     }
 
-
-    /**
-     * 进群成员id类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：
-     *
-     * @param idType
-     * @return
-     */
-    public Builder idType(String idType) {
-      this.idType = idType;
-      return this;
+    public SpecialFocusUnread(Builder builder) {
+        /**
+         * 成员ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 成员ID类型。根据 ==member_id_type== 参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         */
+        this.idType = builder.idType;
+        /**
+         * 未读数
+         * <p> 示例值：
+         */
+        this.unreadCount = builder.unreadCount;
     }
 
-    /**
-     * 进群成员id类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：
-     *
-     * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusUnreadIdTypeEnum}
-     * @return
-     */
-    public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusUnreadIdTypeEnum idType) {
-      this.idType = idType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 未读数
-     * <p> 示例值：
-     *
-     * @param unreadCount
-     * @return
-     */
-    public Builder unreadCount(String unreadCount) {
-      this.unreadCount = unreadCount;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public SpecialFocusUnread build() {
-      return new SpecialFocusUnread(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getIdType() {
+        return this.idType;
+    }
+
+    public void setIdType(String idType) {
+        this.idType = idType;
+    }
+
+    public String getUnreadCount() {
+        return this.unreadCount;
+    }
+
+    public void setUnreadCount(String unreadCount) {
+        this.unreadCount = unreadCount;
+    }
+
+    public static class Builder {
+        /**
+         * 成员ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 成员ID类型。根据 ==member_id_type== 参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         */
+        private String idType;
+        /**
+         * 未读数
+         * <p> 示例值：
+         */
+        private String unreadCount;
+
+        /**
+         * 成员ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 成员ID类型。根据 ==member_id_type== 参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         *
+         * @param idType
+         * @return
+         */
+        public Builder idType(String idType) {
+            this.idType = idType;
+            return this;
+        }
+
+        /**
+         * 成员ID类型。根据 ==member_id_type== 参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         *
+         * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusUnreadIdTypeEnum}
+         * @return
+         */
+        public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusUnreadIdTypeEnum idType) {
+            this.idType = idType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 未读数
+         * <p> 示例值：
+         *
+         * @param unreadCount
+         * @return
+         */
+        public Builder unreadCount(String unreadCount) {
+            this.unreadCount = unreadCount;
+            return this;
+        }
+
+
+        public SpecialFocusUnread build() {
+            return new SpecialFocusUnread(this);
+        }
+    }
 }

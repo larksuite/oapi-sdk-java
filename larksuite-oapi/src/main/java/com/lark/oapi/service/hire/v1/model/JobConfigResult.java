@@ -16,320 +16,392 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobConfigResult {
-
-  /**
-   * Offer 申请表
-   * <p> 示例值：
-   */
-  @SerializedName("offer_apply_schema")
-  private IdNameObject offerApplySchema;
-  /**
-   * Offer 审批流
-   * <p> 示例值：
-   */
-  @SerializedName("offer_process_conf")
-  private IdNameObject offerProcessConf;
-  /**
-   * 建议评估人列表
-   * <p> 示例值：
-   */
-  @SerializedName("recommended_evaluator_list")
-  private IdNameObject[] recommendedEvaluatorList;
-  /**
-   * 面试评价表
-   * <p> 示例值：
-   */
-  @SerializedName("assessment_template")
-  private IdNameObject assessmentTemplate;
-  /**
-   * 职位 ID
-   * <p> 示例值：6960663240925956574
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 建议面试官列表
-   * <p> 示例值：
-   */
-  @SerializedName("interview_round_list")
-  private JobConfigInterviewRound[] interviewRoundList;
-  /**
-   * 招聘需求
-   * <p> 示例值：
-   */
-  @SerializedName("job_requirement_list")
-  private IdNameObject[] jobRequirementList;
-  /**
-   * 面试轮次类型列表
-   * <p> 示例值：
-   */
-  @SerializedName("interview_round_type_list")
-  private JobConfigRoundTypeResult[] interviewRoundTypeList;
-
-  // builder 开始
-  public JobConfigResult() {
-  }
-
-  public JobConfigResult(Builder builder) {
     /**
      * Offer 申请表
      * <p> 示例值：
      */
-    this.offerApplySchema = builder.offerApplySchema;
-    /**
-     * Offer 审批流
-     * <p> 示例值：
-     */
-    this.offerProcessConf = builder.offerProcessConf;
-    /**
-     * 建议评估人列表
-     * <p> 示例值：
-     */
-    this.recommendedEvaluatorList = builder.recommendedEvaluatorList;
-    /**
-     * 面试评价表
-     * <p> 示例值：
-     */
-    this.assessmentTemplate = builder.assessmentTemplate;
-    /**
-     * 职位 ID
-     * <p> 示例值：6960663240925956574
-     */
-    this.id = builder.id;
-    /**
-     * 建议面试官列表
-     * <p> 示例值：
-     */
-    this.interviewRoundList = builder.interviewRoundList;
-    /**
-     * 招聘需求
-     * <p> 示例值：
-     */
-    this.jobRequirementList = builder.jobRequirementList;
-    /**
-     * 面试轮次类型列表
-     * <p> 示例值：
-     */
-    this.interviewRoundTypeList = builder.interviewRoundTypeList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public IdNameObject getOfferApplySchema() {
-    return this.offerApplySchema;
-  }
-
-  public void setOfferApplySchema(IdNameObject offerApplySchema) {
-    this.offerApplySchema = offerApplySchema;
-  }
-
-  public IdNameObject getOfferProcessConf() {
-    return this.offerProcessConf;
-  }
-
-  public void setOfferProcessConf(IdNameObject offerProcessConf) {
-    this.offerProcessConf = offerProcessConf;
-  }
-
-  public IdNameObject[] getRecommendedEvaluatorList() {
-    return this.recommendedEvaluatorList;
-  }
-
-  public void setRecommendedEvaluatorList(IdNameObject[] recommendedEvaluatorList) {
-    this.recommendedEvaluatorList = recommendedEvaluatorList;
-  }
-
-  public IdNameObject getAssessmentTemplate() {
-    return this.assessmentTemplate;
-  }
-
-  public void setAssessmentTemplate(IdNameObject assessmentTemplate) {
-    this.assessmentTemplate = assessmentTemplate;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public JobConfigInterviewRound[] getInterviewRoundList() {
-    return this.interviewRoundList;
-  }
-
-  public void setInterviewRoundList(JobConfigInterviewRound[] interviewRoundList) {
-    this.interviewRoundList = interviewRoundList;
-  }
-
-  public IdNameObject[] getJobRequirementList() {
-    return this.jobRequirementList;
-  }
-
-  public void setJobRequirementList(IdNameObject[] jobRequirementList) {
-    this.jobRequirementList = jobRequirementList;
-  }
-
-  public JobConfigRoundTypeResult[] getInterviewRoundTypeList() {
-    return this.interviewRoundTypeList;
-  }
-
-  public void setInterviewRoundTypeList(JobConfigRoundTypeResult[] interviewRoundTypeList) {
-    this.interviewRoundTypeList = interviewRoundTypeList;
-  }
-
-  public static class Builder {
-
-    /**
-     * Offer 申请表
-     * <p> 示例值：
-     */
+    @SerializedName("offer_apply_schema")
     private IdNameObject offerApplySchema;
     /**
      * Offer 审批流
      * <p> 示例值：
      */
+    @SerializedName("offer_process_conf")
     private IdNameObject offerProcessConf;
     /**
      * 建议评估人列表
      * <p> 示例值：
      */
+    @SerializedName("recommended_evaluator_list")
     private IdNameObject[] recommendedEvaluatorList;
     /**
      * 面试评价表
      * <p> 示例值：
      */
+    @SerializedName("assessment_template")
     private IdNameObject assessmentTemplate;
     /**
      * 职位 ID
      * <p> 示例值：6960663240925956574
      */
+    @SerializedName("id")
     private String id;
     /**
      * 建议面试官列表
      * <p> 示例值：
      */
+    @SerializedName("interview_round_list")
     private JobConfigInterviewRound[] interviewRoundList;
     /**
      * 招聘需求
      * <p> 示例值：
      */
+    @SerializedName("job_requirement_list")
     private IdNameObject[] jobRequirementList;
     /**
      * 面试轮次类型列表
      * <p> 示例值：
      */
+    @SerializedName("interview_round_type_list")
     private JobConfigRoundTypeResult[] interviewRoundTypeList;
-
     /**
-     * Offer 申请表
+     * 关联职位列表
      * <p> 示例值：
-     *
-     * @param offerApplySchema
-     * @return
      */
-    public Builder offerApplySchema(IdNameObject offerApplySchema) {
-      this.offerApplySchema = offerApplySchema;
-      return this;
-    }
-
-
+    @SerializedName("related_job_list")
+    private IdNameObject[] relatedJobList;
     /**
-     * Offer 审批流
-     * <p> 示例值：
-     *
-     * @param offerProcessConf
-     * @return
+     * 职位属性，1是实体职位，2是虚拟职位
+     * <p> 示例值：1
      */
-    public Builder offerProcessConf(IdNameObject offerProcessConf) {
-      this.offerProcessConf = offerProcessConf;
-      return this;
+    @SerializedName("job_attribute")
+    private Integer jobAttribute;
+
+    // builder 开始
+    public JobConfigResult() {
     }
 
-
-    /**
-     * 建议评估人列表
-     * <p> 示例值：
-     *
-     * @param recommendedEvaluatorList
-     * @return
-     */
-    public Builder recommendedEvaluatorList(IdNameObject[] recommendedEvaluatorList) {
-      this.recommendedEvaluatorList = recommendedEvaluatorList;
-      return this;
+    public JobConfigResult(Builder builder) {
+        /**
+         * Offer 申请表
+         * <p> 示例值：
+         */
+        this.offerApplySchema = builder.offerApplySchema;
+        /**
+         * Offer 审批流
+         * <p> 示例值：
+         */
+        this.offerProcessConf = builder.offerProcessConf;
+        /**
+         * 建议评估人列表
+         * <p> 示例值：
+         */
+        this.recommendedEvaluatorList = builder.recommendedEvaluatorList;
+        /**
+         * 面试评价表
+         * <p> 示例值：
+         */
+        this.assessmentTemplate = builder.assessmentTemplate;
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956574
+         */
+        this.id = builder.id;
+        /**
+         * 建议面试官列表
+         * <p> 示例值：
+         */
+        this.interviewRoundList = builder.interviewRoundList;
+        /**
+         * 招聘需求
+         * <p> 示例值：
+         */
+        this.jobRequirementList = builder.jobRequirementList;
+        /**
+         * 面试轮次类型列表
+         * <p> 示例值：
+         */
+        this.interviewRoundTypeList = builder.interviewRoundTypeList;
+        /**
+         * 关联职位列表
+         * <p> 示例值：
+         */
+        this.relatedJobList = builder.relatedJobList;
+        /**
+         * 职位属性，1是实体职位，2是虚拟职位
+         * <p> 示例值：1
+         */
+        this.jobAttribute = builder.jobAttribute;
     }
 
-
-    /**
-     * 面试评价表
-     * <p> 示例值：
-     *
-     * @param assessmentTemplate
-     * @return
-     */
-    public Builder assessmentTemplate(IdNameObject assessmentTemplate) {
-      this.assessmentTemplate = assessmentTemplate;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 职位 ID
-     * <p> 示例值：6960663240925956574
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public IdNameObject getOfferApplySchema() {
+        return this.offerApplySchema;
     }
 
-
-    /**
-     * 建议面试官列表
-     * <p> 示例值：
-     *
-     * @param interviewRoundList
-     * @return
-     */
-    public Builder interviewRoundList(JobConfigInterviewRound[] interviewRoundList) {
-      this.interviewRoundList = interviewRoundList;
-      return this;
+    public void setOfferApplySchema(IdNameObject offerApplySchema) {
+        this.offerApplySchema = offerApplySchema;
     }
 
-
-    /**
-     * 招聘需求
-     * <p> 示例值：
-     *
-     * @param jobRequirementList
-     * @return
-     */
-    public Builder jobRequirementList(IdNameObject[] jobRequirementList) {
-      this.jobRequirementList = jobRequirementList;
-      return this;
+    public IdNameObject getOfferProcessConf() {
+        return this.offerProcessConf;
     }
 
-
-    /**
-     * 面试轮次类型列表
-     * <p> 示例值：
-     *
-     * @param interviewRoundTypeList
-     * @return
-     */
-    public Builder interviewRoundTypeList(JobConfigRoundTypeResult[] interviewRoundTypeList) {
-      this.interviewRoundTypeList = interviewRoundTypeList;
-      return this;
+    public void setOfferProcessConf(IdNameObject offerProcessConf) {
+        this.offerProcessConf = offerProcessConf;
     }
 
-
-    public JobConfigResult build() {
-      return new JobConfigResult(this);
+    public IdNameObject[] getRecommendedEvaluatorList() {
+        return this.recommendedEvaluatorList;
     }
-  }
+
+    public void setRecommendedEvaluatorList(IdNameObject[] recommendedEvaluatorList) {
+        this.recommendedEvaluatorList = recommendedEvaluatorList;
+    }
+
+    public IdNameObject getAssessmentTemplate() {
+        return this.assessmentTemplate;
+    }
+
+    public void setAssessmentTemplate(IdNameObject assessmentTemplate) {
+        this.assessmentTemplate = assessmentTemplate;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public JobConfigInterviewRound[] getInterviewRoundList() {
+        return this.interviewRoundList;
+    }
+
+    public void setInterviewRoundList(JobConfigInterviewRound[] interviewRoundList) {
+        this.interviewRoundList = interviewRoundList;
+    }
+
+    public IdNameObject[] getJobRequirementList() {
+        return this.jobRequirementList;
+    }
+
+    public void setJobRequirementList(IdNameObject[] jobRequirementList) {
+        this.jobRequirementList = jobRequirementList;
+    }
+
+    public JobConfigRoundTypeResult[] getInterviewRoundTypeList() {
+        return this.interviewRoundTypeList;
+    }
+
+    public void setInterviewRoundTypeList(JobConfigRoundTypeResult[] interviewRoundTypeList) {
+        this.interviewRoundTypeList = interviewRoundTypeList;
+    }
+
+    public IdNameObject[] getRelatedJobList() {
+        return this.relatedJobList;
+    }
+
+    public void setRelatedJobList(IdNameObject[] relatedJobList) {
+        this.relatedJobList = relatedJobList;
+    }
+
+    public Integer getJobAttribute() {
+        return this.jobAttribute;
+    }
+
+    public void setJobAttribute(Integer jobAttribute) {
+        this.jobAttribute = jobAttribute;
+    }
+
+    public static class Builder {
+        /**
+         * Offer 申请表
+         * <p> 示例值：
+         */
+        private IdNameObject offerApplySchema;
+        /**
+         * Offer 审批流
+         * <p> 示例值：
+         */
+        private IdNameObject offerProcessConf;
+        /**
+         * 建议评估人列表
+         * <p> 示例值：
+         */
+        private IdNameObject[] recommendedEvaluatorList;
+        /**
+         * 面试评价表
+         * <p> 示例值：
+         */
+        private IdNameObject assessmentTemplate;
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956574
+         */
+        private String id;
+        /**
+         * 建议面试官列表
+         * <p> 示例值：
+         */
+        private JobConfigInterviewRound[] interviewRoundList;
+        /**
+         * 招聘需求
+         * <p> 示例值：
+         */
+        private IdNameObject[] jobRequirementList;
+        /**
+         * 面试轮次类型列表
+         * <p> 示例值：
+         */
+        private JobConfigRoundTypeResult[] interviewRoundTypeList;
+        /**
+         * 关联职位列表
+         * <p> 示例值：
+         */
+        private IdNameObject[] relatedJobList;
+        /**
+         * 职位属性，1是实体职位，2是虚拟职位
+         * <p> 示例值：1
+         */
+        private Integer jobAttribute;
+
+        /**
+         * Offer 申请表
+         * <p> 示例值：
+         *
+         * @param offerApplySchema
+         * @return
+         */
+        public Builder offerApplySchema(IdNameObject offerApplySchema) {
+            this.offerApplySchema = offerApplySchema;
+            return this;
+        }
+
+
+        /**
+         * Offer 审批流
+         * <p> 示例值：
+         *
+         * @param offerProcessConf
+         * @return
+         */
+        public Builder offerProcessConf(IdNameObject offerProcessConf) {
+            this.offerProcessConf = offerProcessConf;
+            return this;
+        }
+
+
+        /**
+         * 建议评估人列表
+         * <p> 示例值：
+         *
+         * @param recommendedEvaluatorList
+         * @return
+         */
+        public Builder recommendedEvaluatorList(IdNameObject[] recommendedEvaluatorList) {
+            this.recommendedEvaluatorList = recommendedEvaluatorList;
+            return this;
+        }
+
+
+        /**
+         * 面试评价表
+         * <p> 示例值：
+         *
+         * @param assessmentTemplate
+         * @return
+         */
+        public Builder assessmentTemplate(IdNameObject assessmentTemplate) {
+            this.assessmentTemplate = assessmentTemplate;
+            return this;
+        }
+
+
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956574
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 建议面试官列表
+         * <p> 示例值：
+         *
+         * @param interviewRoundList
+         * @return
+         */
+        public Builder interviewRoundList(JobConfigInterviewRound[] interviewRoundList) {
+            this.interviewRoundList = interviewRoundList;
+            return this;
+        }
+
+
+        /**
+         * 招聘需求
+         * <p> 示例值：
+         *
+         * @param jobRequirementList
+         * @return
+         */
+        public Builder jobRequirementList(IdNameObject[] jobRequirementList) {
+            this.jobRequirementList = jobRequirementList;
+            return this;
+        }
+
+
+        /**
+         * 面试轮次类型列表
+         * <p> 示例值：
+         *
+         * @param interviewRoundTypeList
+         * @return
+         */
+        public Builder interviewRoundTypeList(JobConfigRoundTypeResult[] interviewRoundTypeList) {
+            this.interviewRoundTypeList = interviewRoundTypeList;
+            return this;
+        }
+
+
+        /**
+         * 关联职位列表
+         * <p> 示例值：
+         *
+         * @param relatedJobList
+         * @return
+         */
+        public Builder relatedJobList(IdNameObject[] relatedJobList) {
+            this.relatedJobList = relatedJobList;
+            return this;
+        }
+
+
+        /**
+         * 职位属性，1是实体职位，2是虚拟职位
+         * <p> 示例值：1
+         *
+         * @param jobAttribute
+         * @return
+         */
+        public Builder jobAttribute(Integer jobAttribute) {
+            this.jobAttribute = jobAttribute;
+            return this;
+        }
+
+
+        public JobConfigResult build() {
+            return new JobConfigResult(this);
+        }
+    }
 }

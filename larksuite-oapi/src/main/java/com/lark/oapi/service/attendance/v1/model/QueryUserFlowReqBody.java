@@ -16,135 +16,133 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserFlowReqBody {
-
-  /**
-   * employee_no 或 employee_id 列表，长度不超过 50
-   * <p> 示例值：[ "abd754f7"]
-   */
-  @SerializedName("user_ids")
-  private String[] userIds;
-  /**
-   * 查询的起始时间，时间戳
-   * <p> 示例值：1566641088
-   */
-  @SerializedName("check_time_from")
-  private String checkTimeFrom;
-  /**
-   * 查询的结束时间，时间戳
-   * <p> 示例值：1566641088
-   */
-  @SerializedName("check_time_to")
-  private String checkTimeTo;
-
-  // builder 开始
-  public QueryUserFlowReqBody() {
-  }
-
-  public QueryUserFlowReqBody(Builder builder) {
     /**
      * employee_no 或 employee_id 列表，长度不超过 50
      * <p> 示例值：[ "abd754f7"]
      */
-    this.userIds = builder.userIds;
-    /**
-     * 查询的起始时间，时间戳
-     * <p> 示例值：1566641088
-     */
-    this.checkTimeFrom = builder.checkTimeFrom;
-    /**
-     * 查询的结束时间，时间戳
-     * <p> 示例值：1566641088
-     */
-    this.checkTimeTo = builder.checkTimeTo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getUserIds() {
-    return this.userIds;
-  }
-
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
-
-  public String getCheckTimeFrom() {
-    return this.checkTimeFrom;
-  }
-
-  public void setCheckTimeFrom(String checkTimeFrom) {
-    this.checkTimeFrom = checkTimeFrom;
-  }
-
-  public String getCheckTimeTo() {
-    return this.checkTimeTo;
-  }
-
-  public void setCheckTimeTo(String checkTimeTo) {
-    this.checkTimeTo = checkTimeTo;
-  }
-
-  public static class Builder {
-
-    /**
-     * employee_no 或 employee_id 列表，长度不超过 50
-     * <p> 示例值：[ "abd754f7"]
-     */
+    @SerializedName("user_ids")
     private String[] userIds;
     /**
      * 查询的起始时间，时间戳
      * <p> 示例值：1566641088
      */
+    @SerializedName("check_time_from")
     private String checkTimeFrom;
     /**
      * 查询的结束时间，时间戳
      * <p> 示例值：1566641088
      */
+    @SerializedName("check_time_to")
     private String checkTimeTo;
 
-    /**
-     * employee_no 或 employee_id 列表，长度不超过 50
-     * <p> 示例值：[ "abd754f7"]
-     *
-     * @param userIds
-     * @return
-     */
-    public Builder userIds(String[] userIds) {
-      this.userIds = userIds;
-      return this;
+    // builder 开始
+    public QueryUserFlowReqBody() {
     }
 
-
-    /**
-     * 查询的起始时间，时间戳
-     * <p> 示例值：1566641088
-     *
-     * @param checkTimeFrom
-     * @return
-     */
-    public Builder checkTimeFrom(String checkTimeFrom) {
-      this.checkTimeFrom = checkTimeFrom;
-      return this;
+    public QueryUserFlowReqBody(Builder builder) {
+        /**
+         * employee_no 或 employee_id 列表，长度不超过 50
+         * <p> 示例值：[ "abd754f7"]
+         */
+        this.userIds = builder.userIds;
+        /**
+         * 查询的起始时间，时间戳
+         * <p> 示例值：1566641088
+         */
+        this.checkTimeFrom = builder.checkTimeFrom;
+        /**
+         * 查询的结束时间，时间戳
+         * <p> 示例值：1566641088
+         */
+        this.checkTimeTo = builder.checkTimeTo;
     }
 
-
-    /**
-     * 查询的结束时间，时间戳
-     * <p> 示例值：1566641088
-     *
-     * @param checkTimeTo
-     * @return
-     */
-    public Builder checkTimeTo(String checkTimeTo) {
-      this.checkTimeTo = checkTimeTo;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public QueryUserFlowReqBody build() {
-      return new QueryUserFlowReqBody(this);
+    public String[] getUserIds() {
+        return this.userIds;
     }
-  }
+
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
+
+    public String getCheckTimeFrom() {
+        return this.checkTimeFrom;
+    }
+
+    public void setCheckTimeFrom(String checkTimeFrom) {
+        this.checkTimeFrom = checkTimeFrom;
+    }
+
+    public String getCheckTimeTo() {
+        return this.checkTimeTo;
+    }
+
+    public void setCheckTimeTo(String checkTimeTo) {
+        this.checkTimeTo = checkTimeTo;
+    }
+
+    public static class Builder {
+        /**
+         * employee_no 或 employee_id 列表，长度不超过 50
+         * <p> 示例值：[ "abd754f7"]
+         */
+        private String[] userIds;
+        /**
+         * 查询的起始时间，时间戳
+         * <p> 示例值：1566641088
+         */
+        private String checkTimeFrom;
+        /**
+         * 查询的结束时间，时间戳
+         * <p> 示例值：1566641088
+         */
+        private String checkTimeTo;
+
+        /**
+         * employee_no 或 employee_id 列表，长度不超过 50
+         * <p> 示例值：[ "abd754f7"]
+         *
+         * @param userIds
+         * @return
+         */
+        public Builder userIds(String[] userIds) {
+            this.userIds = userIds;
+            return this;
+        }
+
+
+        /**
+         * 查询的起始时间，时间戳
+         * <p> 示例值：1566641088
+         *
+         * @param checkTimeFrom
+         * @return
+         */
+        public Builder checkTimeFrom(String checkTimeFrom) {
+            this.checkTimeFrom = checkTimeFrom;
+            return this;
+        }
+
+
+        /**
+         * 查询的结束时间，时间戳
+         * <p> 示例值：1566641088
+         *
+         * @param checkTimeTo
+         * @return
+         */
+        public Builder checkTimeTo(String checkTimeTo) {
+            this.checkTimeTo = checkTimeTo;
+            return this;
+        }
+
+
+        public QueryUserFlowReqBody build() {
+            return new QueryUserFlowReqBody(this);
+        }
+    }
 }

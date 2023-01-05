@@ -16,73 +16,71 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class View {
-
-  /**
-   * 视图类型
-   * <p> 示例值：1
-   */
-  @SerializedName("view_type")
-  private Integer viewType;
-
-  // builder 开始
-  public View() {
-  }
-
-  public View(Builder builder) {
     /**
      * 视图类型
      * <p> 示例值：1
      */
-    this.viewType = builder.viewType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getViewType() {
-    return this.viewType;
-  }
-
-  public void setViewType(Integer viewType) {
-    this.viewType = viewType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 视图类型
-     * <p> 示例值：1
-     */
+    @SerializedName("view_type")
     private Integer viewType;
 
-    /**
-     * 视图类型
-     * <p> 示例值：1
-     *
-     * @param viewType
-     * @return
-     */
-    public Builder viewType(Integer viewType) {
-      this.viewType = viewType;
-      return this;
+    // builder 开始
+    public View() {
     }
 
-    /**
-     * 视图类型
-     * <p> 示例值：1
-     *
-     * @param viewType {@link com.lark.oapi.service.docx.v1.enums.ViewViewTypeEnum}
-     * @return
-     */
-    public Builder viewType(com.lark.oapi.service.docx.v1.enums.ViewViewTypeEnum viewType) {
-      this.viewType = viewType.getValue();
-      return this;
+    public View(Builder builder) {
+        /**
+         * 视图类型
+         * <p> 示例值：1
+         */
+        this.viewType = builder.viewType;
     }
 
-
-    public View build() {
-      return new View(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getViewType() {
+        return this.viewType;
+    }
+
+    public void setViewType(Integer viewType) {
+        this.viewType = viewType;
+    }
+
+    public static class Builder {
+        /**
+         * 视图类型
+         * <p> 示例值：1
+         */
+        private Integer viewType;
+
+        /**
+         * 视图类型
+         * <p> 示例值：1
+         *
+         * @param viewType
+         * @return
+         */
+        public Builder viewType(Integer viewType) {
+            this.viewType = viewType;
+            return this;
+        }
+
+        /**
+         * 视图类型
+         * <p> 示例值：1
+         *
+         * @param viewType {@link com.lark.oapi.service.docx.v1.enums.ViewViewTypeEnum}
+         * @return
+         */
+        public Builder viewType(com.lark.oapi.service.docx.v1.enums.ViewViewTypeEnum viewType) {
+            this.viewType = viewType.getValue();
+            return this;
+        }
+
+
+        public View build() {
+            return new View(this);
+        }
+    }
 }

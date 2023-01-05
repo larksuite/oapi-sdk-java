@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMessageReactionReq {
-
-  /**
-   * 待删除reaction的消息ID
-   * <p> 示例值：om_8964d1b4*********2b31383276113
-   */
-  @Path
-  @SerializedName("message_id")
-  private String messageId;
-  /**
-   * 待删除reaction的资源id
-   * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
-   */
-  @Path
-  @SerializedName("reaction_id")
-  private String reactionId;
-
-  // builder 开始
-  public DeleteMessageReactionReq() {
-  }
-
-  public DeleteMessageReactionReq(Builder builder) {
     /**
-     * 待删除reaction的消息ID
+     * 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_8964d1b4*********2b31383276113
      */
-    this.messageId = builder.messageId;
+    @Path
+    @SerializedName("message_id")
+    private String messageId;
     /**
-     * 待删除reaction的资源id
+     * 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
      * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
      */
-    this.reactionId = builder.reactionId;
-  }
+    @Path
+    @SerializedName("reaction_id")
+    private String reactionId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public String getReactionId() {
-    return this.reactionId;
-  }
-
-  public void setReactionId(String reactionId) {
-    this.reactionId = reactionId;
-  }
-
-  public static class Builder {
-
-    private String messageId; // 待删除reaction的消息ID
-    private String reactionId; // 待删除reaction的资源id
-
-    /**
-     * 待删除reaction的消息ID
-     * <p> 示例值：om_8964d1b4*********2b31383276113
-     *
-     * @param messageId
-     * @return
-     */
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    // builder 开始
+    public DeleteMessageReactionReq() {
     }
 
-
-    /**
-     * 待删除reaction的资源id
-     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
-     *
-     * @param reactionId
-     * @return
-     */
-    public Builder reactionId(String reactionId) {
-      this.reactionId = reactionId;
-      return this;
+    public DeleteMessageReactionReq(Builder builder) {
+        /**
+         * 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_8964d1b4*********2b31383276113
+         */
+        this.messageId = builder.messageId;
+        /**
+         * 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
+         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+         */
+        this.reactionId = builder.reactionId;
     }
 
-    public DeleteMessageReactionReq build() {
-      return new DeleteMessageReactionReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    public String getReactionId() {
+        return this.reactionId;
+    }
+
+    public void setReactionId(String reactionId) {
+        this.reactionId = reactionId;
+    }
+
+    public static class Builder {
+
+        private String messageId; // 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+        private String reactionId; // 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
+
+        /**
+         * 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_8964d1b4*********2b31383276113
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+
+        /**
+         * 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
+         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+         *
+         * @param reactionId
+         * @return
+         */
+        public Builder reactionId(String reactionId) {
+            this.reactionId = reactionId;
+            return this;
+        }
+
+        public DeleteMessageReactionReq build() {
+            return new DeleteMessageReactionReq(this);
+        }
+    }
 }

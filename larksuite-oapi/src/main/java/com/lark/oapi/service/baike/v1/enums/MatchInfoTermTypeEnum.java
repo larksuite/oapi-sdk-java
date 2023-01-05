@@ -17,17 +17,17 @@ package com.lark.oapi.service.baike.v1.enums;
  * 命中的字段
  */
 public enum MatchInfoTermTypeEnum {
-  MAINKEY(0), // 词条名
-  FULLNAME(1), // 全称
-  ALIAS(2), // 别名
-  ;
-  private Integer value;
+    MAINKEY(0), // 词条名
+    FULLNAME(1), // 全称
+    ALIAS(2), // 别名
+    ;
+    private Integer value;
 
-  MatchInfoTermTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MatchInfoTermTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

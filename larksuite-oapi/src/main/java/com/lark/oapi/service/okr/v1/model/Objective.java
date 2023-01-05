@@ -16,468 +16,466 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Objective {
-
-  /**
-   * 目标的ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 所属的OKR ID
-   * <p> 示例值：
-   */
-  @SerializedName("okr_id")
-  private String okrId;
-  /**
-   * 拥有者的用户 UUID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * Objective 在所属 OKR 中的排序
-   * <p> 示例值：
-   */
-  @SerializedName("pos")
-  private String pos;
-  /**
-   * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
-   * <p> 示例值：
-   */
-  @SerializedName("score")
-  private String score;
-  /**
-   * Objective 的详细内容
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private ObjectiveName name;
-  /**
-   * Objective 对应的 Progress 详细内容
-   * <p> 示例值：
-   */
-  @SerializedName("progress")
-  private ObjectiveProgress progress;
-  /**
-   * Objective 的创建时间
-   * <p> 示例值：
-   */
-  @SerializedName("create_time")
-  private Integer createTime;
-  /**
-   * Objective 的最后修改时间
-   * <p> 示例值：
-   */
-  @SerializedName("modify_time")
-  private Integer modifyTime;
-  /**
-   * Objective 下的 KeyResult 列表
-   * <p> 示例值：
-   */
-  @SerializedName("kr_list")
-  private Kr[] krList;
-  /**
-   * Objective 对齐别人的 Objective 列表
-   * <p> 示例值：
-   */
-  @SerializedName("aligning_objective_list")
-  private AlignObjective[] aligningObjectiveList;
-  /**
-   * 被别人对齐的 Objective 列表
-   * <p> 示例值：
-   */
-  @SerializedName("aligned_objective_list")
-  private AlignObjective[] alignedObjectiveList;
-
-  // builder 开始
-  public Objective() {
-  }
-
-  public Objective(Builder builder) {
     /**
      * 目标的ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 所属的OKR ID
-     * <p> 示例值：
-     */
-    this.okrId = builder.okrId;
-    /**
-     * 拥有者的用户 UUID
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-    /**
-     * Objective 在所属 OKR 中的排序
-     * <p> 示例值：
-     */
-    this.pos = builder.pos;
-    /**
-     * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
-     * <p> 示例值：
-     */
-    this.score = builder.score;
-    /**
-     * Objective 的详细内容
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * Objective 对应的 Progress 详细内容
-     * <p> 示例值：
-     */
-    this.progress = builder.progress;
-    /**
-     * Objective 的创建时间
-     * <p> 示例值：
-     */
-    this.createTime = builder.createTime;
-    /**
-     * Objective 的最后修改时间
-     * <p> 示例值：
-     */
-    this.modifyTime = builder.modifyTime;
-    /**
-     * Objective 下的 KeyResult 列表
-     * <p> 示例值：
-     */
-    this.krList = builder.krList;
-    /**
-     * Objective 对齐别人的 Objective 列表
-     * <p> 示例值：
-     */
-    this.aligningObjectiveList = builder.aligningObjectiveList;
-    /**
-     * 被别人对齐的 Objective 列表
-     * <p> 示例值：
-     */
-    this.alignedObjectiveList = builder.alignedObjectiveList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getOkrId() {
-    return this.okrId;
-  }
-
-  public void setOkrId(String okrId) {
-    this.okrId = okrId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getPos() {
-    return this.pos;
-  }
-
-  public void setPos(String pos) {
-    this.pos = pos;
-  }
-
-  public String getScore() {
-    return this.score;
-  }
-
-  public void setScore(String score) {
-    this.score = score;
-  }
-
-  public ObjectiveName getName() {
-    return this.name;
-  }
-
-  public void setName(ObjectiveName name) {
-    this.name = name;
-  }
-
-  public ObjectiveProgress getProgress() {
-    return this.progress;
-  }
-
-  public void setProgress(ObjectiveProgress progress) {
-    this.progress = progress;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getModifyTime() {
-    return this.modifyTime;
-  }
-
-  public void setModifyTime(Integer modifyTime) {
-    this.modifyTime = modifyTime;
-  }
-
-  public Kr[] getKrList() {
-    return this.krList;
-  }
-
-  public void setKrList(Kr[] krList) {
-    this.krList = krList;
-  }
-
-  public AlignObjective[] getAligningObjectiveList() {
-    return this.aligningObjectiveList;
-  }
-
-  public void setAligningObjectiveList(AlignObjective[] aligningObjectiveList) {
-    this.aligningObjectiveList = aligningObjectiveList;
-  }
-
-  public AlignObjective[] getAlignedObjectiveList() {
-    return this.alignedObjectiveList;
-  }
-
-  public void setAlignedObjectiveList(AlignObjective[] alignedObjectiveList) {
-    this.alignedObjectiveList = alignedObjectiveList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 目标的ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 所属的OKR ID
      * <p> 示例值：
      */
+    @SerializedName("okr_id")
     private String okrId;
     /**
      * 拥有者的用户 UUID
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * Objective 在所属 OKR 中的排序
      * <p> 示例值：
      */
+    @SerializedName("pos")
     private String pos;
     /**
      * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
      * <p> 示例值：
      */
+    @SerializedName("score")
     private String score;
     /**
      * Objective 的详细内容
      * <p> 示例值：
      */
+    @SerializedName("name")
     private ObjectiveName name;
     /**
      * Objective 对应的 Progress 详细内容
      * <p> 示例值：
      */
+    @SerializedName("progress")
     private ObjectiveProgress progress;
     /**
      * Objective 的创建时间
      * <p> 示例值：
      */
+    @SerializedName("create_time")
     private Integer createTime;
     /**
      * Objective 的最后修改时间
      * <p> 示例值：
      */
+    @SerializedName("modify_time")
     private Integer modifyTime;
     /**
      * Objective 下的 KeyResult 列表
      * <p> 示例值：
      */
+    @SerializedName("kr_list")
     private Kr[] krList;
     /**
      * Objective 对齐别人的 Objective 列表
      * <p> 示例值：
      */
+    @SerializedName("aligning_objective_list")
     private AlignObjective[] aligningObjectiveList;
     /**
      * 被别人对齐的 Objective 列表
      * <p> 示例值：
      */
+    @SerializedName("aligned_objective_list")
     private AlignObjective[] alignedObjectiveList;
 
-    /**
-     * 目标的ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Objective() {
     }
 
-
-    /**
-     * 所属的OKR ID
-     * <p> 示例值：
-     *
-     * @param okrId
-     * @return
-     */
-    public Builder okrId(String okrId) {
-      this.okrId = okrId;
-      return this;
+    public Objective(Builder builder) {
+        /**
+         * 目标的ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 所属的OKR ID
+         * <p> 示例值：
+         */
+        this.okrId = builder.okrId;
+        /**
+         * 拥有者的用户 UUID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * Objective 在所属 OKR 中的排序
+         * <p> 示例值：
+         */
+        this.pos = builder.pos;
+        /**
+         * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
+         * <p> 示例值：
+         */
+        this.score = builder.score;
+        /**
+         * Objective 的详细内容
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * Objective 对应的 Progress 详细内容
+         * <p> 示例值：
+         */
+        this.progress = builder.progress;
+        /**
+         * Objective 的创建时间
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
+        /**
+         * Objective 的最后修改时间
+         * <p> 示例值：
+         */
+        this.modifyTime = builder.modifyTime;
+        /**
+         * Objective 下的 KeyResult 列表
+         * <p> 示例值：
+         */
+        this.krList = builder.krList;
+        /**
+         * Objective 对齐别人的 Objective 列表
+         * <p> 示例值：
+         */
+        this.aligningObjectiveList = builder.aligningObjectiveList;
+        /**
+         * 被别人对齐的 Objective 列表
+         * <p> 示例值：
+         */
+        this.alignedObjectiveList = builder.alignedObjectiveList;
     }
 
-
-    /**
-     * 拥有者的用户 UUID
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * Objective 在所属 OKR 中的排序
-     * <p> 示例值：
-     *
-     * @param pos
-     * @return
-     */
-    public Builder pos(String pos) {
-      this.pos = pos;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
-     * <p> 示例值：
-     *
-     * @param score
-     * @return
-     */
-    public Builder score(String score) {
-      this.score = score;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * Objective 的详细内容
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(ObjectiveName name) {
-      this.name = name;
-      return this;
+    public String getOkrId() {
+        return this.okrId;
     }
 
-
-    /**
-     * Objective 对应的 Progress 详细内容
-     * <p> 示例值：
-     *
-     * @param progress
-     * @return
-     */
-    public Builder progress(ObjectiveProgress progress) {
-      this.progress = progress;
-      return this;
+    public void setOkrId(String okrId) {
+        this.okrId = okrId;
     }
 
-
-    /**
-     * Objective 的创建时间
-     * <p> 示例值：
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * Objective 的最后修改时间
-     * <p> 示例值：
-     *
-     * @param modifyTime
-     * @return
-     */
-    public Builder modifyTime(Integer modifyTime) {
-      this.modifyTime = modifyTime;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-
-    /**
-     * Objective 下的 KeyResult 列表
-     * <p> 示例值：
-     *
-     * @param krList
-     * @return
-     */
-    public Builder krList(Kr[] krList) {
-      this.krList = krList;
-      return this;
+    public String getPos() {
+        return this.pos;
     }
 
-
-    /**
-     * Objective 对齐别人的 Objective 列表
-     * <p> 示例值：
-     *
-     * @param aligningObjectiveList
-     * @return
-     */
-    public Builder aligningObjectiveList(AlignObjective[] aligningObjectiveList) {
-      this.aligningObjectiveList = aligningObjectiveList;
-      return this;
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 
-
-    /**
-     * 被别人对齐的 Objective 列表
-     * <p> 示例值：
-     *
-     * @param alignedObjectiveList
-     * @return
-     */
-    public Builder alignedObjectiveList(AlignObjective[] alignedObjectiveList) {
-      this.alignedObjectiveList = alignedObjectiveList;
-      return this;
+    public String getScore() {
+        return this.score;
     }
 
-
-    public Objective build() {
-      return new Objective(this);
+    public void setScore(String score) {
+        this.score = score;
     }
-  }
+
+    public ObjectiveName getName() {
+        return this.name;
+    }
+
+    public void setName(ObjectiveName name) {
+        this.name = name;
+    }
+
+    public ObjectiveProgress getProgress() {
+        return this.progress;
+    }
+
+    public void setProgress(ObjectiveProgress progress) {
+        this.progress = progress;
+    }
+
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(Integer modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Kr[] getKrList() {
+        return this.krList;
+    }
+
+    public void setKrList(Kr[] krList) {
+        this.krList = krList;
+    }
+
+    public AlignObjective[] getAligningObjectiveList() {
+        return this.aligningObjectiveList;
+    }
+
+    public void setAligningObjectiveList(AlignObjective[] aligningObjectiveList) {
+        this.aligningObjectiveList = aligningObjectiveList;
+    }
+
+    public AlignObjective[] getAlignedObjectiveList() {
+        return this.alignedObjectiveList;
+    }
+
+    public void setAlignedObjectiveList(AlignObjective[] alignedObjectiveList) {
+        this.alignedObjectiveList = alignedObjectiveList;
+    }
+
+    public static class Builder {
+        /**
+         * 目标的ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 所属的OKR ID
+         * <p> 示例值：
+         */
+        private String okrId;
+        /**
+         * 拥有者的用户 UUID
+         * <p> 示例值：
+         */
+        private String userId;
+        /**
+         * Objective 在所属 OKR 中的排序
+         * <p> 示例值：
+         */
+        private String pos;
+        /**
+         * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
+         * <p> 示例值：
+         */
+        private String score;
+        /**
+         * Objective 的详细内容
+         * <p> 示例值：
+         */
+        private ObjectiveName name;
+        /**
+         * Objective 对应的 Progress 详细内容
+         * <p> 示例值：
+         */
+        private ObjectiveProgress progress;
+        /**
+         * Objective 的创建时间
+         * <p> 示例值：
+         */
+        private Integer createTime;
+        /**
+         * Objective 的最后修改时间
+         * <p> 示例值：
+         */
+        private Integer modifyTime;
+        /**
+         * Objective 下的 KeyResult 列表
+         * <p> 示例值：
+         */
+        private Kr[] krList;
+        /**
+         * Objective 对齐别人的 Objective 列表
+         * <p> 示例值：
+         */
+        private AlignObjective[] aligningObjectiveList;
+        /**
+         * 被别人对齐的 Objective 列表
+         * <p> 示例值：
+         */
+        private AlignObjective[] alignedObjectiveList;
+
+        /**
+         * 目标的ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 所属的OKR ID
+         * <p> 示例值：
+         *
+         * @param okrId
+         * @return
+         */
+        public Builder okrId(String okrId) {
+            this.okrId = okrId;
+            return this;
+        }
+
+
+        /**
+         * 拥有者的用户 UUID
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * Objective 在所属 OKR 中的排序
+         * <p> 示例值：
+         *
+         * @param pos
+         * @return
+         */
+        public Builder pos(String pos) {
+            this.pos = pos;
+            return this;
+        }
+
+
+        /**
+         * Objective 评分，返回值为百分制分数，需要除以 100 以获得 OKR 页面上显示的 1 分制分数
+         * <p> 示例值：
+         *
+         * @param score
+         * @return
+         */
+        public Builder score(String score) {
+            this.score = score;
+            return this;
+        }
+
+
+        /**
+         * Objective 的详细内容
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(ObjectiveName name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * Objective 对应的 Progress 详细内容
+         * <p> 示例值：
+         *
+         * @param progress
+         * @return
+         */
+        public Builder progress(ObjectiveProgress progress) {
+            this.progress = progress;
+            return this;
+        }
+
+
+        /**
+         * Objective 的创建时间
+         * <p> 示例值：
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Integer createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * Objective 的最后修改时间
+         * <p> 示例值：
+         *
+         * @param modifyTime
+         * @return
+         */
+        public Builder modifyTime(Integer modifyTime) {
+            this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * Objective 下的 KeyResult 列表
+         * <p> 示例值：
+         *
+         * @param krList
+         * @return
+         */
+        public Builder krList(Kr[] krList) {
+            this.krList = krList;
+            return this;
+        }
+
+
+        /**
+         * Objective 对齐别人的 Objective 列表
+         * <p> 示例值：
+         *
+         * @param aligningObjectiveList
+         * @return
+         */
+        public Builder aligningObjectiveList(AlignObjective[] aligningObjectiveList) {
+            this.aligningObjectiveList = aligningObjectiveList;
+            return this;
+        }
+
+
+        /**
+         * 被别人对齐的 Objective 列表
+         * <p> 示例值：
+         *
+         * @param alignedObjectiveList
+         * @return
+         */
+        public Builder alignedObjectiveList(AlignObjective[] alignedObjectiveList) {
+            this.alignedObjectiveList = alignedObjectiveList;
+            return this;
+        }
+
+
+        public Objective build() {
+            return new Objective(this);
+        }
+    }
 }

@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMailgroupReq {
-
-  /**
-   * 邮件组ID或者邮件组地址
-   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-   */
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-
-  // builder 开始
-  public DeleteMailgroupReq() {
-  }
-
-  public DeleteMailgroupReq(Builder builder) {
     /**
      * 邮件组ID或者邮件组地址
      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
      */
-    this.mailgroupId = builder.mailgroupId;
-  }
+    @Path
+    @SerializedName("mailgroup_id")
+    private String mailgroupId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public static class Builder {
-
-    private String mailgroupId; // 邮件组ID或者邮件组地址
-
-    /**
-     * 邮件组ID或者邮件组地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-     *
-     * @param mailgroupId
-     * @return
-     */
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    // builder 开始
+    public DeleteMailgroupReq() {
     }
 
-    public DeleteMailgroupReq build() {
-      return new DeleteMailgroupReq(this);
+    public DeleteMailgroupReq(Builder builder) {
+        /**
+         * 邮件组ID或者邮件组地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    public static class Builder {
+
+        private String mailgroupId; // 邮件组ID或者邮件组地址
+
+        /**
+         * 邮件组ID或者邮件组地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         *
+         * @param mailgroupId
+         * @return
+         */
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
+
+        public DeleteMailgroupReq build() {
+            return new DeleteMailgroupReq(this);
+        }
+    }
 }

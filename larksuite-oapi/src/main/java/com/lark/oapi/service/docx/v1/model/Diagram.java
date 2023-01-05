@@ -16,74 +16,71 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Diagram {
-
-  /**
-   * 绘图类型
-   * <p> 示例值：1
-   */
-  @SerializedName("diagram_type")
-  private Integer diagramType;
-
-  // builder 开始
-  public Diagram() {
-  }
-
-  public Diagram(Builder builder) {
     /**
      * 绘图类型
      * <p> 示例值：1
      */
-    this.diagramType = builder.diagramType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getDiagramType() {
-    return this.diagramType;
-  }
-
-  public void setDiagramType(Integer diagramType) {
-    this.diagramType = diagramType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 绘图类型
-     * <p> 示例值：1
-     */
+    @SerializedName("diagram_type")
     private Integer diagramType;
 
-    /**
-     * 绘图类型
-     * <p> 示例值：1
-     *
-     * @param diagramType
-     * @return
-     */
-    public Builder diagramType(Integer diagramType) {
-      this.diagramType = diagramType;
-      return this;
+    // builder 开始
+    public Diagram() {
     }
 
-    /**
-     * 绘图类型
-     * <p> 示例值：1
-     *
-     * @param diagramType {@link com.lark.oapi.service.docx.v1.enums.DiagramDiagramTypeEnum}
-     * @return
-     */
-    public Builder diagramType(
-        com.lark.oapi.service.docx.v1.enums.DiagramDiagramTypeEnum diagramType) {
-      this.diagramType = diagramType.getValue();
-      return this;
+    public Diagram(Builder builder) {
+        /**
+         * 绘图类型
+         * <p> 示例值：1
+         */
+        this.diagramType = builder.diagramType;
     }
 
-
-    public Diagram build() {
-      return new Diagram(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getDiagramType() {
+        return this.diagramType;
+    }
+
+    public void setDiagramType(Integer diagramType) {
+        this.diagramType = diagramType;
+    }
+
+    public static class Builder {
+        /**
+         * 绘图类型
+         * <p> 示例值：1
+         */
+        private Integer diagramType;
+
+        /**
+         * 绘图类型
+         * <p> 示例值：1
+         *
+         * @param diagramType
+         * @return
+         */
+        public Builder diagramType(Integer diagramType) {
+            this.diagramType = diagramType;
+            return this;
+        }
+
+        /**
+         * 绘图类型
+         * <p> 示例值：1
+         *
+         * @param diagramType {@link com.lark.oapi.service.docx.v1.enums.DiagramDiagramTypeEnum}
+         * @return
+         */
+        public Builder diagramType(com.lark.oapi.service.docx.v1.enums.DiagramDiagramTypeEnum diagramType) {
+            this.diagramType = diagramType.getValue();
+            return this;
+        }
+
+
+        public Diagram build() {
+            return new Diagram(this);
+        }
+    }
 }

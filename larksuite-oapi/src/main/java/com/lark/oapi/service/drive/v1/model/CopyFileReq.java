@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class CopyFileReq {
-
-  /**
-   * 被复制的文件token
-   * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  @Body
-  private CopyFileReqBody body;
-
-  // builder 开始
-  public CopyFileReq() {
-  }
-
-  public CopyFileReq(Builder builder) {
     /**
      * 被复制的文件token
-     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+     * <p> 示例值：doccngpahSdXrFPIBD4XdIabcef
      */
-    this.fileToken = builder.fileToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public CopyFileReqBody getCopyFileReqBody() {
-    return this.body;
-  }
-
-  public void setCopyFileReqBody(CopyFileReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 被复制的文件token
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+    @Body
     private CopyFileReqBody body;
 
-    /**
-     * 被复制的文件token
-     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public CopyFileReq() {
+    }
+
+    public CopyFileReq(Builder builder) {
+        /**
+         * 被复制的文件token
+         * <p> 示例值：doccngpahSdXrFPIBD4XdIabcef
+         */
+        this.fileToken = builder.fileToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
     public CopyFileReqBody getCopyFileReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder copyFileReqBody(CopyFileReqBody body) {
-      this.body = body;
-      return this;
+    public void setCopyFileReqBody(CopyFileReqBody body) {
+        this.body = body;
     }
 
-    public CopyFileReq build() {
-      return new CopyFileReq(this);
+    public static class Builder {
+
+        private String fileToken; // 被复制的文件token
+        private CopyFileReqBody body;
+
+        /**
+         * 被复制的文件token
+         * <p> 示例值：doccngpahSdXrFPIBD4XdIabcef
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public CopyFileReqBody getCopyFileReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder copyFileReqBody(CopyFileReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CopyFileReq build() {
+            return new CopyFileReq(this);
+        }
     }
-  }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ObjectiveProgress {
-
-  /**
-   * 中文内容
-   * <p> 示例值：
-   */
-  @SerializedName("zh")
-  private String zh;
-  /**
-   * 英文内容
-   * <p> 示例值：
-   */
-  @SerializedName("en")
-  private String en;
-
-  // builder 开始
-  public ObjectiveProgress() {
-  }
-
-  public ObjectiveProgress(Builder builder) {
     /**
      * 中文内容
      * <p> 示例值：
      */
-    this.zh = builder.zh;
-    /**
-     * 英文内容
-     * <p> 示例值：
-     */
-    this.en = builder.en;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getZh() {
-    return this.zh;
-  }
-
-  public void setZh(String zh) {
-    this.zh = zh;
-  }
-
-  public String getEn() {
-    return this.en;
-  }
-
-  public void setEn(String en) {
-    this.en = en;
-  }
-
-  public static class Builder {
-
-    /**
-     * 中文内容
-     * <p> 示例值：
-     */
+    @SerializedName("zh")
     private String zh;
     /**
      * 英文内容
      * <p> 示例值：
      */
+    @SerializedName("en")
     private String en;
 
-    /**
-     * 中文内容
-     * <p> 示例值：
-     *
-     * @param zh
-     * @return
-     */
-    public Builder zh(String zh) {
-      this.zh = zh;
-      return this;
+    // builder 开始
+    public ObjectiveProgress() {
     }
 
-
-    /**
-     * 英文内容
-     * <p> 示例值：
-     *
-     * @param en
-     * @return
-     */
-    public Builder en(String en) {
-      this.en = en;
-      return this;
+    public ObjectiveProgress(Builder builder) {
+        /**
+         * 中文内容
+         * <p> 示例值：
+         */
+        this.zh = builder.zh;
+        /**
+         * 英文内容
+         * <p> 示例值：
+         */
+        this.en = builder.en;
     }
 
-
-    public ObjectiveProgress build() {
-      return new ObjectiveProgress(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getZh() {
+        return this.zh;
+    }
+
+    public void setZh(String zh) {
+        this.zh = zh;
+    }
+
+    public String getEn() {
+        return this.en;
+    }
+
+    public void setEn(String en) {
+        this.en = en;
+    }
+
+    public static class Builder {
+        /**
+         * 中文内容
+         * <p> 示例值：
+         */
+        private String zh;
+        /**
+         * 英文内容
+         * <p> 示例值：
+         */
+        private String en;
+
+        /**
+         * 中文内容
+         * <p> 示例值：
+         *
+         * @param zh
+         * @return
+         */
+        public Builder zh(String zh) {
+            this.zh = zh;
+            return this;
+        }
+
+
+        /**
+         * 英文内容
+         * <p> 示例值：
+         *
+         * @param en
+         * @return
+         */
+        public Builder en(String en) {
+            this.en = en;
+            return this;
+        }
+
+
+        public ObjectiveProgress build() {
+            return new ObjectiveProgress(this);
+        }
+    }
 }

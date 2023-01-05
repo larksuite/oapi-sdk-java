@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateTablePropertyRequest {
-
-  /**
-   * 表格列宽
-   * <p> 示例值：100
-   */
-  @SerializedName("column_width")
-  private Integer columnWidth;
-  /**
-   * 需要修改列宽的表格列的索引
-   * <p> 示例值：0
-   */
-  @SerializedName("column_index")
-  private Integer columnIndex;
-
-  // builder 开始
-  public UpdateTablePropertyRequest() {
-  }
-
-  public UpdateTablePropertyRequest(Builder builder) {
     /**
      * 表格列宽
      * <p> 示例值：100
      */
-    this.columnWidth = builder.columnWidth;
-    /**
-     * 需要修改列宽的表格列的索引
-     * <p> 示例值：0
-     */
-    this.columnIndex = builder.columnIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnWidth() {
-    return this.columnWidth;
-  }
-
-  public void setColumnWidth(Integer columnWidth) {
-    this.columnWidth = columnWidth;
-  }
-
-  public Integer getColumnIndex() {
-    return this.columnIndex;
-  }
-
-  public void setColumnIndex(Integer columnIndex) {
-    this.columnIndex = columnIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 表格列宽
-     * <p> 示例值：100
-     */
+    @SerializedName("column_width")
     private Integer columnWidth;
     /**
      * 需要修改列宽的表格列的索引
      * <p> 示例值：0
      */
+    @SerializedName("column_index")
     private Integer columnIndex;
 
-    /**
-     * 表格列宽
-     * <p> 示例值：100
-     *
-     * @param columnWidth
-     * @return
-     */
-    public Builder columnWidth(Integer columnWidth) {
-      this.columnWidth = columnWidth;
-      return this;
+    // builder 开始
+    public UpdateTablePropertyRequest() {
     }
 
-
-    /**
-     * 需要修改列宽的表格列的索引
-     * <p> 示例值：0
-     *
-     * @param columnIndex
-     * @return
-     */
-    public Builder columnIndex(Integer columnIndex) {
-      this.columnIndex = columnIndex;
-      return this;
+    public UpdateTablePropertyRequest(Builder builder) {
+        /**
+         * 表格列宽
+         * <p> 示例值：100
+         */
+        this.columnWidth = builder.columnWidth;
+        /**
+         * 需要修改列宽的表格列的索引
+         * <p> 示例值：0
+         */
+        this.columnIndex = builder.columnIndex;
     }
 
-
-    public UpdateTablePropertyRequest build() {
-      return new UpdateTablePropertyRequest(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getColumnWidth() {
+        return this.columnWidth;
+    }
+
+    public void setColumnWidth(Integer columnWidth) {
+        this.columnWidth = columnWidth;
+    }
+
+    public Integer getColumnIndex() {
+        return this.columnIndex;
+    }
+
+    public void setColumnIndex(Integer columnIndex) {
+        this.columnIndex = columnIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 表格列宽
+         * <p> 示例值：100
+         */
+        private Integer columnWidth;
+        /**
+         * 需要修改列宽的表格列的索引
+         * <p> 示例值：0
+         */
+        private Integer columnIndex;
+
+        /**
+         * 表格列宽
+         * <p> 示例值：100
+         *
+         * @param columnWidth
+         * @return
+         */
+        public Builder columnWidth(Integer columnWidth) {
+            this.columnWidth = columnWidth;
+            return this;
+        }
+
+
+        /**
+         * 需要修改列宽的表格列的索引
+         * <p> 示例值：0
+         *
+         * @param columnIndex
+         * @return
+         */
+        public Builder columnIndex(Integer columnIndex) {
+            this.columnIndex = columnIndex;
+            return this;
+        }
+
+
+        public UpdateTablePropertyRequest build() {
+            return new UpdateTablePropertyRequest(this);
+        }
+    }
 }

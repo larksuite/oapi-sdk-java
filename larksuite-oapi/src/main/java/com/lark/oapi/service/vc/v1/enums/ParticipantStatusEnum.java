@@ -15,18 +15,18 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum ParticipantStatusEnum {
-  CALLING(1),
-  ON_THE_CALL(2),
-  RINGING(3),
-  IDLE(4),
-  ;
-  private Integer value;
+    CALLING(1),
+    ON_THE_CALL(2),
+    RINGING(3),
+    IDLE(4),
+    ;
+    private Integer value;
 
-  ParticipantStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ParticipantStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

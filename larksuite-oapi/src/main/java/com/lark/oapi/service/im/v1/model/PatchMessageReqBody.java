@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchMessageReqBody {
-
-  /**
-   * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-   * <p> 示例值：参考链接
-   */
-  @SerializedName("content")
-  private String content;
-
-  // builder 开始
-  public PatchMessageReqBody() {
-  }
-
-  public PatchMessageReqBody(Builder builder) {
     /**
      * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
      * <p> 示例值：参考链接
      */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-     * <p> 示例值：参考链接
-     */
+    @SerializedName("content")
     private String content;
 
-    /**
-     * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-     * <p> 示例值：参考链接
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public PatchMessageReqBody() {
     }
 
-
-    public PatchMessageReqBody build() {
-      return new PatchMessageReqBody(this);
+    public PatchMessageReqBody(Builder builder) {
+        /**
+         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+         * <p> 示例值：参考链接
+         */
+        this.content = builder.content;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+         * <p> 示例值：参考链接
+         */
+        private String content;
+
+        /**
+         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+         * <p> 示例值：参考链接
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public PatchMessageReqBody build() {
+            return new PatchMessageReqBody(this);
+        }
+    }
 }

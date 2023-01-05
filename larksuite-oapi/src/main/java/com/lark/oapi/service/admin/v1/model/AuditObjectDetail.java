@@ -16,505 +16,503 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AuditObjectDetail {
-
-  /**
-   * 克隆来源
-   * <p> 示例值：
-   */
-  @SerializedName("clone_source")
-  private String cloneSource;
-  /**
-   * 其他文本
-   * <p> 示例值：
-   */
-  @SerializedName("text_detail")
-  private String textDetail;
-  /**
-   * 文件名称
-   * <p> 示例值：
-   */
-  @SerializedName("file_name")
-  private String fileName;
-  /**
-   * 第三方APPID
-   * <p> 示例值：
-   */
-  @SerializedName("third_party_appID")
-  private String thirdPartyAppID;
-  /**
-   * 文件或文件夹数量
-   * <p> 示例值：
-   */
-  @SerializedName("contain_file_num")
-  private Integer containFileNum;
-  /**
-   * 链接分享设置
-   * <p> 示例值：
-   */
-  @SerializedName("permission_setting_type")
-  private String permissionSettingType;
-  /**
-   * 是否开启外部访问设置
-   * <p> 示例值：
-   */
-  @SerializedName("permission_external_access_Type")
-  private Boolean permissionExternalAccessType;
-  /**
-   * 分享设置
-   * <p> 示例值：
-   */
-  @SerializedName("permission_share_type")
-  private String permissionShareType;
-  /**
-   * file上传业务来源
-   * <p> 示例值：
-   */
-  @SerializedName("file_service_source")
-  private String fileServiceSource;
-  /**
-   * 下载OKR时的内容范围
-   * <p> 示例值：
-   */
-  @SerializedName("okr_download_content")
-  private String okrDownloadContent;
-  /**
-   * 容器类型，标识是否wiki
-   * <p> 示例值：
-   */
-  @SerializedName("container_type")
-  private String containerType;
-  /**
-   * 容器id，wiki标识字段
-   * <p> 示例值：
-   */
-  @SerializedName("container_id")
-  private String containerId;
-  /**
-   * 截屏、录制的开始页面
-   * <p> 示例值：
-   */
-  @SerializedName("current_page")
-  private String currentPage;
-
-  // builder 开始
-  public AuditObjectDetail() {
-  }
-
-  public AuditObjectDetail(Builder builder) {
     /**
      * 克隆来源
      * <p> 示例值：
      */
-    this.cloneSource = builder.cloneSource;
-    /**
-     * 其他文本
-     * <p> 示例值：
-     */
-    this.textDetail = builder.textDetail;
-    /**
-     * 文件名称
-     * <p> 示例值：
-     */
-    this.fileName = builder.fileName;
-    /**
-     * 第三方APPID
-     * <p> 示例值：
-     */
-    this.thirdPartyAppID = builder.thirdPartyAppID;
-    /**
-     * 文件或文件夹数量
-     * <p> 示例值：
-     */
-    this.containFileNum = builder.containFileNum;
-    /**
-     * 链接分享设置
-     * <p> 示例值：
-     */
-    this.permissionSettingType = builder.permissionSettingType;
-    /**
-     * 是否开启外部访问设置
-     * <p> 示例值：
-     */
-    this.permissionExternalAccessType = builder.permissionExternalAccessType;
-    /**
-     * 分享设置
-     * <p> 示例值：
-     */
-    this.permissionShareType = builder.permissionShareType;
-    /**
-     * file上传业务来源
-     * <p> 示例值：
-     */
-    this.fileServiceSource = builder.fileServiceSource;
-    /**
-     * 下载OKR时的内容范围
-     * <p> 示例值：
-     */
-    this.okrDownloadContent = builder.okrDownloadContent;
-    /**
-     * 容器类型，标识是否wiki
-     * <p> 示例值：
-     */
-    this.containerType = builder.containerType;
-    /**
-     * 容器id，wiki标识字段
-     * <p> 示例值：
-     */
-    this.containerId = builder.containerId;
-    /**
-     * 截屏、录制的开始页面
-     * <p> 示例值：
-     */
-    this.currentPage = builder.currentPage;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCloneSource() {
-    return this.cloneSource;
-  }
-
-  public void setCloneSource(String cloneSource) {
-    this.cloneSource = cloneSource;
-  }
-
-  public String getTextDetail() {
-    return this.textDetail;
-  }
-
-  public void setTextDetail(String textDetail) {
-    this.textDetail = textDetail;
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public String getThirdPartyAppID() {
-    return this.thirdPartyAppID;
-  }
-
-  public void setThirdPartyAppID(String thirdPartyAppID) {
-    this.thirdPartyAppID = thirdPartyAppID;
-  }
-
-  public Integer getContainFileNum() {
-    return this.containFileNum;
-  }
-
-  public void setContainFileNum(Integer containFileNum) {
-    this.containFileNum = containFileNum;
-  }
-
-  public String getPermissionSettingType() {
-    return this.permissionSettingType;
-  }
-
-  public void setPermissionSettingType(String permissionSettingType) {
-    this.permissionSettingType = permissionSettingType;
-  }
-
-  public Boolean getPermissionExternalAccessType() {
-    return this.permissionExternalAccessType;
-  }
-
-  public void setPermissionExternalAccessType(Boolean permissionExternalAccessType) {
-    this.permissionExternalAccessType = permissionExternalAccessType;
-  }
-
-  public String getPermissionShareType() {
-    return this.permissionShareType;
-  }
-
-  public void setPermissionShareType(String permissionShareType) {
-    this.permissionShareType = permissionShareType;
-  }
-
-  public String getFileServiceSource() {
-    return this.fileServiceSource;
-  }
-
-  public void setFileServiceSource(String fileServiceSource) {
-    this.fileServiceSource = fileServiceSource;
-  }
-
-  public String getOkrDownloadContent() {
-    return this.okrDownloadContent;
-  }
-
-  public void setOkrDownloadContent(String okrDownloadContent) {
-    this.okrDownloadContent = okrDownloadContent;
-  }
-
-  public String getContainerType() {
-    return this.containerType;
-  }
-
-  public void setContainerType(String containerType) {
-    this.containerType = containerType;
-  }
-
-  public String getContainerId() {
-    return this.containerId;
-  }
-
-  public void setContainerId(String containerId) {
-    this.containerId = containerId;
-  }
-
-  public String getCurrentPage() {
-    return this.currentPage;
-  }
-
-  public void setCurrentPage(String currentPage) {
-    this.currentPage = currentPage;
-  }
-
-  public static class Builder {
-
-    /**
-     * 克隆来源
-     * <p> 示例值：
-     */
+    @SerializedName("clone_source")
     private String cloneSource;
     /**
      * 其他文本
      * <p> 示例值：
      */
+    @SerializedName("text_detail")
     private String textDetail;
     /**
      * 文件名称
      * <p> 示例值：
      */
+    @SerializedName("file_name")
     private String fileName;
     /**
      * 第三方APPID
      * <p> 示例值：
      */
+    @SerializedName("third_party_appID")
     private String thirdPartyAppID;
     /**
      * 文件或文件夹数量
      * <p> 示例值：
      */
+    @SerializedName("contain_file_num")
     private Integer containFileNum;
     /**
      * 链接分享设置
      * <p> 示例值：
      */
+    @SerializedName("permission_setting_type")
     private String permissionSettingType;
     /**
      * 是否开启外部访问设置
      * <p> 示例值：
      */
+    @SerializedName("permission_external_access_Type")
     private Boolean permissionExternalAccessType;
     /**
      * 分享设置
      * <p> 示例值：
      */
+    @SerializedName("permission_share_type")
     private String permissionShareType;
     /**
      * file上传业务来源
      * <p> 示例值：
      */
+    @SerializedName("file_service_source")
     private String fileServiceSource;
     /**
      * 下载OKR时的内容范围
      * <p> 示例值：
      */
+    @SerializedName("okr_download_content")
     private String okrDownloadContent;
     /**
      * 容器类型，标识是否wiki
      * <p> 示例值：
      */
+    @SerializedName("container_type")
     private String containerType;
     /**
      * 容器id，wiki标识字段
      * <p> 示例值：
      */
+    @SerializedName("container_id")
     private String containerId;
     /**
      * 截屏、录制的开始页面
      * <p> 示例值：
      */
+    @SerializedName("current_page")
     private String currentPage;
 
-    /**
-     * 克隆来源
-     * <p> 示例值：
-     *
-     * @param cloneSource
-     * @return
-     */
-    public Builder cloneSource(String cloneSource) {
-      this.cloneSource = cloneSource;
-      return this;
+    // builder 开始
+    public AuditObjectDetail() {
     }
 
-
-    /**
-     * 其他文本
-     * <p> 示例值：
-     *
-     * @param textDetail
-     * @return
-     */
-    public Builder textDetail(String textDetail) {
-      this.textDetail = textDetail;
-      return this;
+    public AuditObjectDetail(Builder builder) {
+        /**
+         * 克隆来源
+         * <p> 示例值：
+         */
+        this.cloneSource = builder.cloneSource;
+        /**
+         * 其他文本
+         * <p> 示例值：
+         */
+        this.textDetail = builder.textDetail;
+        /**
+         * 文件名称
+         * <p> 示例值：
+         */
+        this.fileName = builder.fileName;
+        /**
+         * 第三方APPID
+         * <p> 示例值：
+         */
+        this.thirdPartyAppID = builder.thirdPartyAppID;
+        /**
+         * 文件或文件夹数量
+         * <p> 示例值：
+         */
+        this.containFileNum = builder.containFileNum;
+        /**
+         * 链接分享设置
+         * <p> 示例值：
+         */
+        this.permissionSettingType = builder.permissionSettingType;
+        /**
+         * 是否开启外部访问设置
+         * <p> 示例值：
+         */
+        this.permissionExternalAccessType = builder.permissionExternalAccessType;
+        /**
+         * 分享设置
+         * <p> 示例值：
+         */
+        this.permissionShareType = builder.permissionShareType;
+        /**
+         * file上传业务来源
+         * <p> 示例值：
+         */
+        this.fileServiceSource = builder.fileServiceSource;
+        /**
+         * 下载OKR时的内容范围
+         * <p> 示例值：
+         */
+        this.okrDownloadContent = builder.okrDownloadContent;
+        /**
+         * 容器类型，标识是否wiki
+         * <p> 示例值：
+         */
+        this.containerType = builder.containerType;
+        /**
+         * 容器id，wiki标识字段
+         * <p> 示例值：
+         */
+        this.containerId = builder.containerId;
+        /**
+         * 截屏、录制的开始页面
+         * <p> 示例值：
+         */
+        this.currentPage = builder.currentPage;
     }
 
-
-    /**
-     * 文件名称
-     * <p> 示例值：
-     *
-     * @param fileName
-     * @return
-     */
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 第三方APPID
-     * <p> 示例值：
-     *
-     * @param thirdPartyAppID
-     * @return
-     */
-    public Builder thirdPartyAppID(String thirdPartyAppID) {
-      this.thirdPartyAppID = thirdPartyAppID;
-      return this;
+    public String getCloneSource() {
+        return this.cloneSource;
     }
 
-
-    /**
-     * 文件或文件夹数量
-     * <p> 示例值：
-     *
-     * @param containFileNum
-     * @return
-     */
-    public Builder containFileNum(Integer containFileNum) {
-      this.containFileNum = containFileNum;
-      return this;
+    public void setCloneSource(String cloneSource) {
+        this.cloneSource = cloneSource;
     }
 
-
-    /**
-     * 链接分享设置
-     * <p> 示例值：
-     *
-     * @param permissionSettingType
-     * @return
-     */
-    public Builder permissionSettingType(String permissionSettingType) {
-      this.permissionSettingType = permissionSettingType;
-      return this;
+    public String getTextDetail() {
+        return this.textDetail;
     }
 
-
-    /**
-     * 是否开启外部访问设置
-     * <p> 示例值：
-     *
-     * @param permissionExternalAccessType
-     * @return
-     */
-    public Builder permissionExternalAccessType(Boolean permissionExternalAccessType) {
-      this.permissionExternalAccessType = permissionExternalAccessType;
-      return this;
+    public void setTextDetail(String textDetail) {
+        this.textDetail = textDetail;
     }
 
-
-    /**
-     * 分享设置
-     * <p> 示例值：
-     *
-     * @param permissionShareType
-     * @return
-     */
-    public Builder permissionShareType(String permissionShareType) {
-      this.permissionShareType = permissionShareType;
-      return this;
+    public String getFileName() {
+        return this.fileName;
     }
 
-
-    /**
-     * file上传业务来源
-     * <p> 示例值：
-     *
-     * @param fileServiceSource
-     * @return
-     */
-    public Builder fileServiceSource(String fileServiceSource) {
-      this.fileServiceSource = fileServiceSource;
-      return this;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-
-    /**
-     * 下载OKR时的内容范围
-     * <p> 示例值：
-     *
-     * @param okrDownloadContent
-     * @return
-     */
-    public Builder okrDownloadContent(String okrDownloadContent) {
-      this.okrDownloadContent = okrDownloadContent;
-      return this;
+    public String getThirdPartyAppID() {
+        return this.thirdPartyAppID;
     }
 
-
-    /**
-     * 容器类型，标识是否wiki
-     * <p> 示例值：
-     *
-     * @param containerType
-     * @return
-     */
-    public Builder containerType(String containerType) {
-      this.containerType = containerType;
-      return this;
+    public void setThirdPartyAppID(String thirdPartyAppID) {
+        this.thirdPartyAppID = thirdPartyAppID;
     }
 
-
-    /**
-     * 容器id，wiki标识字段
-     * <p> 示例值：
-     *
-     * @param containerId
-     * @return
-     */
-    public Builder containerId(String containerId) {
-      this.containerId = containerId;
-      return this;
+    public Integer getContainFileNum() {
+        return this.containFileNum;
     }
 
-
-    /**
-     * 截屏、录制的开始页面
-     * <p> 示例值：
-     *
-     * @param currentPage
-     * @return
-     */
-    public Builder currentPage(String currentPage) {
-      this.currentPage = currentPage;
-      return this;
+    public void setContainFileNum(Integer containFileNum) {
+        this.containFileNum = containFileNum;
     }
 
-
-    public AuditObjectDetail build() {
-      return new AuditObjectDetail(this);
+    public String getPermissionSettingType() {
+        return this.permissionSettingType;
     }
-  }
+
+    public void setPermissionSettingType(String permissionSettingType) {
+        this.permissionSettingType = permissionSettingType;
+    }
+
+    public Boolean getPermissionExternalAccessType() {
+        return this.permissionExternalAccessType;
+    }
+
+    public void setPermissionExternalAccessType(Boolean permissionExternalAccessType) {
+        this.permissionExternalAccessType = permissionExternalAccessType;
+    }
+
+    public String getPermissionShareType() {
+        return this.permissionShareType;
+    }
+
+    public void setPermissionShareType(String permissionShareType) {
+        this.permissionShareType = permissionShareType;
+    }
+
+    public String getFileServiceSource() {
+        return this.fileServiceSource;
+    }
+
+    public void setFileServiceSource(String fileServiceSource) {
+        this.fileServiceSource = fileServiceSource;
+    }
+
+    public String getOkrDownloadContent() {
+        return this.okrDownloadContent;
+    }
+
+    public void setOkrDownloadContent(String okrDownloadContent) {
+        this.okrDownloadContent = okrDownloadContent;
+    }
+
+    public String getContainerType() {
+        return this.containerType;
+    }
+
+    public void setContainerType(String containerType) {
+        this.containerType = containerType;
+    }
+
+    public String getContainerId() {
+        return this.containerId;
+    }
+
+    public void setContainerId(String containerId) {
+        this.containerId = containerId;
+    }
+
+    public String getCurrentPage() {
+        return this.currentPage;
+    }
+
+    public void setCurrentPage(String currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public static class Builder {
+        /**
+         * 克隆来源
+         * <p> 示例值：
+         */
+        private String cloneSource;
+        /**
+         * 其他文本
+         * <p> 示例值：
+         */
+        private String textDetail;
+        /**
+         * 文件名称
+         * <p> 示例值：
+         */
+        private String fileName;
+        /**
+         * 第三方APPID
+         * <p> 示例值：
+         */
+        private String thirdPartyAppID;
+        /**
+         * 文件或文件夹数量
+         * <p> 示例值：
+         */
+        private Integer containFileNum;
+        /**
+         * 链接分享设置
+         * <p> 示例值：
+         */
+        private String permissionSettingType;
+        /**
+         * 是否开启外部访问设置
+         * <p> 示例值：
+         */
+        private Boolean permissionExternalAccessType;
+        /**
+         * 分享设置
+         * <p> 示例值：
+         */
+        private String permissionShareType;
+        /**
+         * file上传业务来源
+         * <p> 示例值：
+         */
+        private String fileServiceSource;
+        /**
+         * 下载OKR时的内容范围
+         * <p> 示例值：
+         */
+        private String okrDownloadContent;
+        /**
+         * 容器类型，标识是否wiki
+         * <p> 示例值：
+         */
+        private String containerType;
+        /**
+         * 容器id，wiki标识字段
+         * <p> 示例值：
+         */
+        private String containerId;
+        /**
+         * 截屏、录制的开始页面
+         * <p> 示例值：
+         */
+        private String currentPage;
+
+        /**
+         * 克隆来源
+         * <p> 示例值：
+         *
+         * @param cloneSource
+         * @return
+         */
+        public Builder cloneSource(String cloneSource) {
+            this.cloneSource = cloneSource;
+            return this;
+        }
+
+
+        /**
+         * 其他文本
+         * <p> 示例值：
+         *
+         * @param textDetail
+         * @return
+         */
+        public Builder textDetail(String textDetail) {
+            this.textDetail = textDetail;
+            return this;
+        }
+
+
+        /**
+         * 文件名称
+         * <p> 示例值：
+         *
+         * @param fileName
+         * @return
+         */
+        public Builder fileName(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+
+        /**
+         * 第三方APPID
+         * <p> 示例值：
+         *
+         * @param thirdPartyAppID
+         * @return
+         */
+        public Builder thirdPartyAppID(String thirdPartyAppID) {
+            this.thirdPartyAppID = thirdPartyAppID;
+            return this;
+        }
+
+
+        /**
+         * 文件或文件夹数量
+         * <p> 示例值：
+         *
+         * @param containFileNum
+         * @return
+         */
+        public Builder containFileNum(Integer containFileNum) {
+            this.containFileNum = containFileNum;
+            return this;
+        }
+
+
+        /**
+         * 链接分享设置
+         * <p> 示例值：
+         *
+         * @param permissionSettingType
+         * @return
+         */
+        public Builder permissionSettingType(String permissionSettingType) {
+            this.permissionSettingType = permissionSettingType;
+            return this;
+        }
+
+
+        /**
+         * 是否开启外部访问设置
+         * <p> 示例值：
+         *
+         * @param permissionExternalAccessType
+         * @return
+         */
+        public Builder permissionExternalAccessType(Boolean permissionExternalAccessType) {
+            this.permissionExternalAccessType = permissionExternalAccessType;
+            return this;
+        }
+
+
+        /**
+         * 分享设置
+         * <p> 示例值：
+         *
+         * @param permissionShareType
+         * @return
+         */
+        public Builder permissionShareType(String permissionShareType) {
+            this.permissionShareType = permissionShareType;
+            return this;
+        }
+
+
+        /**
+         * file上传业务来源
+         * <p> 示例值：
+         *
+         * @param fileServiceSource
+         * @return
+         */
+        public Builder fileServiceSource(String fileServiceSource) {
+            this.fileServiceSource = fileServiceSource;
+            return this;
+        }
+
+
+        /**
+         * 下载OKR时的内容范围
+         * <p> 示例值：
+         *
+         * @param okrDownloadContent
+         * @return
+         */
+        public Builder okrDownloadContent(String okrDownloadContent) {
+            this.okrDownloadContent = okrDownloadContent;
+            return this;
+        }
+
+
+        /**
+         * 容器类型，标识是否wiki
+         * <p> 示例值：
+         *
+         * @param containerType
+         * @return
+         */
+        public Builder containerType(String containerType) {
+            this.containerType = containerType;
+            return this;
+        }
+
+
+        /**
+         * 容器id，wiki标识字段
+         * <p> 示例值：
+         *
+         * @param containerId
+         * @return
+         */
+        public Builder containerId(String containerId) {
+            this.containerId = containerId;
+            return this;
+        }
+
+
+        /**
+         * 截屏、录制的开始页面
+         * <p> 示例值：
+         *
+         * @param currentPage
+         * @return
+         */
+        public Builder currentPage(String currentPage) {
+            this.currentPage = currentPage;
+            return this;
+        }
+
+
+        public AuditObjectDetail build() {
+            return new AuditObjectDetail(this);
+        }
+    }
 }

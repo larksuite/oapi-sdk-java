@@ -17,88 +17,86 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListEmployeeTypeEnumReq {
-
-  /**
-   * <p> 示例值：3
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListEmployeeTypeEnumReq() {
-  }
-
-  public ListEmployeeTypeEnumReq(Builder builder) {
-    /**
-     *
-     * <p> 示例值：3
-     */
-    this.pageToken = builder.pageToken;
-    /**
-     *
-     * <p> 示例值：10
-     */
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String pageToken; //
-    private Integer pageSize; //
-
-
     /**
      * <p> 示例值：3
-     *
-     * @param pageToken
-     * @return
      */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
      */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
+
+    // builder 开始
+    public ListEmployeeTypeEnumReq() {
     }
 
-    public ListEmployeeTypeEnumReq build() {
-      return new ListEmployeeTypeEnumReq(this);
+    public ListEmployeeTypeEnumReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：3
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String pageToken; //
+        private Integer pageSize; //
+
+
+        /**
+         * <p> 示例值：3
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListEmployeeTypeEnumReq build() {
+            return new ListEmployeeTypeEnumReq(this);
+        }
+    }
 }

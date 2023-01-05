@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetUnit {
 
-  /**
-   * 单位信息
-   * <p> 示例值：
-   */
-  @SerializedName("unit")
-  private Unit unit;
+    /**
+     * 单位信息
+     * <p> 示例值：
+     */
+    @SerializedName("unit")
+    private Unit unit;
 
-  public Unit getUnit() {
-    return this.unit;
-  }
+    public Unit getUnit() {
+        return this.unit;
+    }
 
-  public void setUnit(Unit unit) {
-    this.unit = unit;
-  }
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
 
 }

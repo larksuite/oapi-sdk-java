@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchAddGroupMemberRespBody {
+    /**
+     * 成员添加操作结果
+     * <p> 示例值：
+     */
+    @SerializedName("results")
+    private MemberResult[] results;
 
-  /**
-   * 成员添加操作结果
-   * <p> 示例值：
-   */
-  @SerializedName("results")
-  private MemberResult[] results;
+    public MemberResult[] getResults() {
+        return this.results;
+    }
 
-  public MemberResult[] getResults() {
-    return this.results;
-  }
-
-  public void setResults(MemberResult[] results) {
-    this.results = results;
-  }
+    public void setResults(MemberResult[] results) {
+        this.results = results;
+    }
 
 }

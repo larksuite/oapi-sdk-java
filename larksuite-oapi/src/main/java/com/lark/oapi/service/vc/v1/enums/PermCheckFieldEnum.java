@@ -15,17 +15,17 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum PermCheckFieldEnum {
-  USER_ID(1),
-  USER_TYPE(2),
-  TENANT_ID(3),
-  ;
-  private Integer value;
+    USER_ID(1),
+    USER_TYPE(2),
+    TENANT_ID(3),
+    ;
+    private Integer value;
 
-  PermCheckFieldEnum(Integer value) {
-    this.value = value;
-  }
+    PermCheckFieldEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

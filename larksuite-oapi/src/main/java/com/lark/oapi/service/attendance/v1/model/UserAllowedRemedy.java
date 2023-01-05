@@ -16,357 +16,355 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserAllowedRemedy {
-
-  /**
-   * 用户 ID
-   * <p> 示例值：abd754f7
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 补卡日期
-   * <p> 示例值：20210104
-   */
-  @SerializedName("remedy_date")
-  private Integer remedyDate;
-  /**
-   * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
-   * <p> 示例值：false
-   */
-  @SerializedName("is_free_punch")
-  private Boolean isFreePunch;
-  /**
-   * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
-   * <p> 示例值：0
-   */
-  @SerializedName("punch_no")
-  private Integer punchNo;
-  /**
-   * 上班 / 下班，1：上班，2：下班
-   * <p> 示例值：1
-   */
-  @SerializedName("work_type")
-  private Integer workType;
-  /**
-   * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
-   * <p> 示例值：Lack
-   */
-  @SerializedName("punch_status")
-  private String punchStatus;
-  /**
-   * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
-   * <p> 示例值：2021-07-01 09:00
-   */
-  @SerializedName("normal_punch_time")
-  private String normalPunchTime;
-  /**
-   * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
-   * <p> 示例值：2021-07-01 08:00
-   */
-  @SerializedName("remedy_start_time")
-  private String remedyStartTime;
-  /**
-   * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
-   * <p> 示例值：2021-07-01 10:00
-   */
-  @SerializedName("remedy_end_time")
-  private String remedyEndTime;
-
-  // builder 开始
-  public UserAllowedRemedy() {
-  }
-
-  public UserAllowedRemedy(Builder builder) {
     /**
      * 用户 ID
      * <p> 示例值：abd754f7
      */
-    this.userId = builder.userId;
-    /**
-     * 补卡日期
-     * <p> 示例值：20210104
-     */
-    this.remedyDate = builder.remedyDate;
-    /**
-     * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
-     * <p> 示例值：false
-     */
-    this.isFreePunch = builder.isFreePunch;
-    /**
-     * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
-     * <p> 示例值：0
-     */
-    this.punchNo = builder.punchNo;
-    /**
-     * 上班 / 下班，1：上班，2：下班
-     * <p> 示例值：1
-     */
-    this.workType = builder.workType;
-    /**
-     * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
-     * <p> 示例值：Lack
-     */
-    this.punchStatus = builder.punchStatus;
-    /**
-     * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
-     * <p> 示例值：2021-07-01 09:00
-     */
-    this.normalPunchTime = builder.normalPunchTime;
-    /**
-     * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
-     * <p> 示例值：2021-07-01 08:00
-     */
-    this.remedyStartTime = builder.remedyStartTime;
-    /**
-     * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
-     * <p> 示例值：2021-07-01 10:00
-     */
-    this.remedyEndTime = builder.remedyEndTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getRemedyDate() {
-    return this.remedyDate;
-  }
-
-  public void setRemedyDate(Integer remedyDate) {
-    this.remedyDate = remedyDate;
-  }
-
-  public Boolean getIsFreePunch() {
-    return this.isFreePunch;
-  }
-
-  public void setIsFreePunch(Boolean isFreePunch) {
-    this.isFreePunch = isFreePunch;
-  }
-
-  public Integer getPunchNo() {
-    return this.punchNo;
-  }
-
-  public void setPunchNo(Integer punchNo) {
-    this.punchNo = punchNo;
-  }
-
-  public Integer getWorkType() {
-    return this.workType;
-  }
-
-  public void setWorkType(Integer workType) {
-    this.workType = workType;
-  }
-
-  public String getPunchStatus() {
-    return this.punchStatus;
-  }
-
-  public void setPunchStatus(String punchStatus) {
-    this.punchStatus = punchStatus;
-  }
-
-  public String getNormalPunchTime() {
-    return this.normalPunchTime;
-  }
-
-  public void setNormalPunchTime(String normalPunchTime) {
-    this.normalPunchTime = normalPunchTime;
-  }
-
-  public String getRemedyStartTime() {
-    return this.remedyStartTime;
-  }
-
-  public void setRemedyStartTime(String remedyStartTime) {
-    this.remedyStartTime = remedyStartTime;
-  }
-
-  public String getRemedyEndTime() {
-    return this.remedyEndTime;
-  }
-
-  public void setRemedyEndTime(String remedyEndTime) {
-    this.remedyEndTime = remedyEndTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 补卡日期
      * <p> 示例值：20210104
      */
+    @SerializedName("remedy_date")
     private Integer remedyDate;
     /**
      * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
      * <p> 示例值：false
      */
+    @SerializedName("is_free_punch")
     private Boolean isFreePunch;
     /**
      * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
      * <p> 示例值：0
      */
+    @SerializedName("punch_no")
     private Integer punchNo;
     /**
      * 上班 / 下班，1：上班，2：下班
      * <p> 示例值：1
      */
+    @SerializedName("work_type")
     private Integer workType;
     /**
      * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
      * <p> 示例值：Lack
      */
+    @SerializedName("punch_status")
     private String punchStatus;
     /**
      * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
      * <p> 示例值：2021-07-01 09:00
      */
+    @SerializedName("normal_punch_time")
     private String normalPunchTime;
     /**
      * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
      * <p> 示例值：2021-07-01 08:00
      */
+    @SerializedName("remedy_start_time")
     private String remedyStartTime;
     /**
      * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
      * <p> 示例值：2021-07-01 10:00
      */
+    @SerializedName("remedy_end_time")
     private String remedyEndTime;
 
-    /**
-     * 用户 ID
-     * <p> 示例值：abd754f7
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public UserAllowedRemedy() {
     }
 
-
-    /**
-     * 补卡日期
-     * <p> 示例值：20210104
-     *
-     * @param remedyDate
-     * @return
-     */
-    public Builder remedyDate(Integer remedyDate) {
-      this.remedyDate = remedyDate;
-      return this;
+    public UserAllowedRemedy(Builder builder) {
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         */
+        this.userId = builder.userId;
+        /**
+         * 补卡日期
+         * <p> 示例值：20210104
+         */
+        this.remedyDate = builder.remedyDate;
+        /**
+         * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
+         * <p> 示例值：false
+         */
+        this.isFreePunch = builder.isFreePunch;
+        /**
+         * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
+         * <p> 示例值：0
+         */
+        this.punchNo = builder.punchNo;
+        /**
+         * 上班 / 下班，1：上班，2：下班
+         * <p> 示例值：1
+         */
+        this.workType = builder.workType;
+        /**
+         * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
+         * <p> 示例值：Lack
+         */
+        this.punchStatus = builder.punchStatus;
+        /**
+         * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 09:00
+         */
+        this.normalPunchTime = builder.normalPunchTime;
+        /**
+         * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 08:00
+         */
+        this.remedyStartTime = builder.remedyStartTime;
+        /**
+         * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 10:00
+         */
+        this.remedyEndTime = builder.remedyEndTime;
     }
 
-
-    /**
-     * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
-     * <p> 示例值：false
-     *
-     * @param isFreePunch
-     * @return
-     */
-    public Builder isFreePunch(Boolean isFreePunch) {
-      this.isFreePunch = isFreePunch;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
-     * <p> 示例值：0
-     *
-     * @param punchNo
-     * @return
-     */
-    public Builder punchNo(Integer punchNo) {
-      this.punchNo = punchNo;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * 上班 / 下班，1：上班，2：下班
-     * <p> 示例值：1
-     *
-     * @param workType
-     * @return
-     */
-    public Builder workType(Integer workType) {
-      this.workType = workType;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-
-    /**
-     * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
-     * <p> 示例值：Lack
-     *
-     * @param punchStatus
-     * @return
-     */
-    public Builder punchStatus(String punchStatus) {
-      this.punchStatus = punchStatus;
-      return this;
+    public Integer getRemedyDate() {
+        return this.remedyDate;
     }
 
-
-    /**
-     * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
-     * <p> 示例值：2021-07-01 09:00
-     *
-     * @param normalPunchTime
-     * @return
-     */
-    public Builder normalPunchTime(String normalPunchTime) {
-      this.normalPunchTime = normalPunchTime;
-      return this;
+    public void setRemedyDate(Integer remedyDate) {
+        this.remedyDate = remedyDate;
     }
 
-
-    /**
-     * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
-     * <p> 示例值：2021-07-01 08:00
-     *
-     * @param remedyStartTime
-     * @return
-     */
-    public Builder remedyStartTime(String remedyStartTime) {
-      this.remedyStartTime = remedyStartTime;
-      return this;
+    public Boolean getIsFreePunch() {
+        return this.isFreePunch;
     }
 
-
-    /**
-     * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
-     * <p> 示例值：2021-07-01 10:00
-     *
-     * @param remedyEndTime
-     * @return
-     */
-    public Builder remedyEndTime(String remedyEndTime) {
-      this.remedyEndTime = remedyEndTime;
-      return this;
+    public void setIsFreePunch(Boolean isFreePunch) {
+        this.isFreePunch = isFreePunch;
     }
 
-
-    public UserAllowedRemedy build() {
-      return new UserAllowedRemedy(this);
+    public Integer getPunchNo() {
+        return this.punchNo;
     }
-  }
+
+    public void setPunchNo(Integer punchNo) {
+        this.punchNo = punchNo;
+    }
+
+    public Integer getWorkType() {
+        return this.workType;
+    }
+
+    public void setWorkType(Integer workType) {
+        this.workType = workType;
+    }
+
+    public String getPunchStatus() {
+        return this.punchStatus;
+    }
+
+    public void setPunchStatus(String punchStatus) {
+        this.punchStatus = punchStatus;
+    }
+
+    public String getNormalPunchTime() {
+        return this.normalPunchTime;
+    }
+
+    public void setNormalPunchTime(String normalPunchTime) {
+        this.normalPunchTime = normalPunchTime;
+    }
+
+    public String getRemedyStartTime() {
+        return this.remedyStartTime;
+    }
+
+    public void setRemedyStartTime(String remedyStartTime) {
+        this.remedyStartTime = remedyStartTime;
+    }
+
+    public String getRemedyEndTime() {
+        return this.remedyEndTime;
+    }
+
+    public void setRemedyEndTime(String remedyEndTime) {
+        this.remedyEndTime = remedyEndTime;
+    }
+
+    public static class Builder {
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         */
+        private String userId;
+        /**
+         * 补卡日期
+         * <p> 示例值：20210104
+         */
+        private Integer remedyDate;
+        /**
+         * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
+         * <p> 示例值：false
+         */
+        private Boolean isFreePunch;
+        /**
+         * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
+         * <p> 示例值：0
+         */
+        private Integer punchNo;
+        /**
+         * 上班 / 下班，1：上班，2：下班
+         * <p> 示例值：1
+         */
+        private Integer workType;
+        /**
+         * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
+         * <p> 示例值：Lack
+         */
+        private String punchStatus;
+        /**
+         * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 09:00
+         */
+        private String normalPunchTime;
+        /**
+         * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 08:00
+         */
+        private String remedyStartTime;
+        /**
+         * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 10:00
+         */
+        private String remedyEndTime;
+
+        /**
+         * 用户 ID
+         * <p> 示例值：abd754f7
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 补卡日期
+         * <p> 示例值：20210104
+         *
+         * @param remedyDate
+         * @return
+         */
+        public Builder remedyDate(Integer remedyDate) {
+            this.remedyDate = remedyDate;
+            return this;
+        }
+
+
+        /**
+         * 是否为自由班次，若为自由班次，则不用选择考虑第几次上下班，直接选择补卡时间即可
+         * <p> 示例值：false
+         *
+         * @param isFreePunch
+         * @return
+         */
+        public Builder isFreePunch(Boolean isFreePunch) {
+            this.isFreePunch = isFreePunch;
+            return this;
+        }
+
+
+        /**
+         * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班
+         * <p> 示例值：0
+         *
+         * @param punchNo
+         * @return
+         */
+        public Builder punchNo(Integer punchNo) {
+            this.punchNo = punchNo;
+            return this;
+        }
+
+
+        /**
+         * 上班 / 下班，1：上班，2：下班
+         * <p> 示例值：1
+         *
+         * @param workType
+         * @return
+         */
+        public Builder workType(Integer workType) {
+            this.workType = workType;
+            return this;
+        }
+
+
+        /**
+         * 打卡状态，Early：早退，Late：迟到，Lack：缺卡
+         * <p> 示例值：Lack
+         *
+         * @param punchStatus
+         * @return
+         */
+        public Builder punchStatus(String punchStatus) {
+            this.punchStatus = punchStatus;
+            return this;
+        }
+
+
+        /**
+         * 正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 09:00
+         *
+         * @param normalPunchTime
+         * @return
+         */
+        public Builder normalPunchTime(String normalPunchTime) {
+            this.normalPunchTime = normalPunchTime;
+            return this;
+        }
+
+
+        /**
+         * 可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 08:00
+         *
+         * @param remedyStartTime
+         * @return
+         */
+        public Builder remedyStartTime(String remedyStartTime) {
+            this.remedyStartTime = remedyStartTime;
+            return this;
+        }
+
+
+        /**
+         * 可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm
+         * <p> 示例值：2021-07-01 10:00
+         *
+         * @param remedyEndTime
+         * @return
+         */
+        public Builder remedyEndTime(String remedyEndTime) {
+            this.remedyEndTime = remedyEndTime;
+            return this;
+        }
+
+
+        public UserAllowedRemedy build() {
+            return new UserAllowedRemedy(this);
+        }
+    }
 }

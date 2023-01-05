@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetAttachmentReq {
-
-  /**
-   * 文件 token
-   * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
-   */
-  @Path
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public GetAttachmentReq() {
-  }
-
-  public GetAttachmentReq(Builder builder) {
     /**
      * 文件 token
      * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
      */
-    this.token = builder.token;
-  }
+    @Path
+    @SerializedName("token")
+    private String token;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
-    private String token; // 文件 token
-
-    /**
-     * 文件 token
-     * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public GetAttachmentReq() {
     }
 
-    public GetAttachmentReq build() {
-      return new GetAttachmentReq(this);
+    public GetAttachmentReq(Builder builder) {
+        /**
+         * 文件 token
+         * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
+         */
+        this.token = builder.token;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public static class Builder {
+
+        private String token; // 文件 token
+
+        /**
+         * 文件 token
+         * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        public GetAttachmentReq build() {
+            return new GetAttachmentReq(this);
+        }
+    }
 }

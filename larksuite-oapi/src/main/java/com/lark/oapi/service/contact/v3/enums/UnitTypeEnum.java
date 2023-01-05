@@ -15,16 +15,16 @@ package com.lark.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum UnitTypeEnum {
-  BU("BU"),
-  SBU("SBU"),
-  ;
-  private String value;
+    BU("BU"),
+    SBU("SBU"),
+    ;
+    private String value;
 
-  UnitTypeEnum(String value) {
-    this.value = value;
-  }
+    UnitTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentCityInfo {
-
-  /**
-   * 城市码
-   * <p> 示例值：CN_183
-   */
-  @SerializedName("city_code")
-  private String cityCode;
-  /**
-   * 中文名
-   * <p> 示例值：测试
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 英文名
-   * <p> 示例值：test
-   */
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public TalentCityInfo() {
-  }
-
-  public TalentCityInfo(Builder builder) {
     /**
      * 城市码
      * <p> 示例值：CN_183
      */
-    this.cityCode = builder.cityCode;
-    /**
-     * 中文名
-     * <p> 示例值：测试
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 英文名
-     * <p> 示例值：test
-     */
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCityCode() {
-    return this.cityCode;
-  }
-
-  public void setCityCode(String cityCode) {
-    this.cityCode = cityCode;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 城市码
-     * <p> 示例值：CN_183
-     */
+    @SerializedName("city_code")
     private String cityCode;
     /**
      * 中文名
      * <p> 示例值：测试
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 英文名
      * <p> 示例值：test
      */
+    @SerializedName("en_name")
     private String enName;
 
-    /**
-     * 城市码
-     * <p> 示例值：CN_183
-     *
-     * @param cityCode
-     * @return
-     */
-    public Builder cityCode(String cityCode) {
-      this.cityCode = cityCode;
-      return this;
+    // builder 开始
+    public TalentCityInfo() {
     }
 
-
-    /**
-     * 中文名
-     * <p> 示例值：测试
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public TalentCityInfo(Builder builder) {
+        /**
+         * 城市码
+         * <p> 示例值：CN_183
+         */
+        this.cityCode = builder.cityCode;
+        /**
+         * 中文名
+         * <p> 示例值：测试
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 英文名
+         * <p> 示例值：test
+         */
+        this.enName = builder.enName;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：test
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public TalentCityInfo build() {
-      return new TalentCityInfo(this);
+    public String getCityCode() {
+        return this.cityCode;
     }
-  }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
+    }
+
+    public String getZhName() {
+        return this.zhName;
+    }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public static class Builder {
+        /**
+         * 城市码
+         * <p> 示例值：CN_183
+         */
+        private String cityCode;
+        /**
+         * 中文名
+         * <p> 示例值：测试
+         */
+        private String zhName;
+        /**
+         * 英文名
+         * <p> 示例值：test
+         */
+        private String enName;
+
+        /**
+         * 城市码
+         * <p> 示例值：CN_183
+         *
+         * @param cityCode
+         * @return
+         */
+        public Builder cityCode(String cityCode) {
+            this.cityCode = cityCode;
+            return this;
+        }
+
+
+        /**
+         * 中文名
+         * <p> 示例值：测试
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：test
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        public TalentCityInfo build() {
+            return new TalentCityInfo(this);
+        }
+    }
 }

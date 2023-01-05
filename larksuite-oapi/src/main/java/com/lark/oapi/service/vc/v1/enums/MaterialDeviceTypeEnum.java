@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 素材适用设备类型
  */
 public enum MaterialDeviceTypeEnum {
-  ALL(1), // 所有类型
-  PC(2), // pc端
-  MOBILE(3), // 移动端（包含pad）
-  ;
-  private Integer value;
+    ALL(1), // 所有类型
+    PC(2), // pc端
+    MOBILE(3), // 移动端（包含pad）
+    ;
+    private Integer value;
 
-  MaterialDeviceTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialDeviceTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

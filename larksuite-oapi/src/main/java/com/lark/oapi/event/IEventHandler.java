@@ -14,7 +14,7 @@ package com.lark.oapi.event;
 
 public interface IEventHandler<E> {
 
-  E getEvent();
+    E getEvent();
 
-  void handle(E event) throws Exception;
+    void handle(E event) throws Exception;
 }

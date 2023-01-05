@@ -16,51 +16,50 @@ package com.lark.oapi.service.optical_char_recognition.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class BasicRecognizeImageReq {
-
-  @Body
-  private BasicRecognizeImageReqBody body;
-
-  // builder 开始
-  public BasicRecognizeImageReq() {
-  }
-
-  public BasicRecognizeImageReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public BasicRecognizeImageReqBody getBasicRecognizeImageReqBody() {
-    return this.body;
-  }
-
-  public void setBasicRecognizeImageReqBody(BasicRecognizeImageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private BasicRecognizeImageReqBody body;
 
+    // builder 开始
+    public BasicRecognizeImageReq() {
+    }
+
+    public BasicRecognizeImageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public BasicRecognizeImageReqBody getBasicRecognizeImageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder basicRecognizeImageReqBody(BasicRecognizeImageReqBody body) {
-      this.body = body;
-      return this;
+    public void setBasicRecognizeImageReqBody(BasicRecognizeImageReqBody body) {
+        this.body = body;
     }
 
-    public BasicRecognizeImageReq build() {
-      return new BasicRecognizeImageReq(this);
+    public static class Builder {
+
+        private BasicRecognizeImageReqBody body;
+
+        public BasicRecognizeImageReqBody getBasicRecognizeImageReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder basicRecognizeImageReqBody(BasicRecognizeImageReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BasicRecognizeImageReq build() {
+            return new BasicRecognizeImageReq(this);
+        }
     }
-  }
 }

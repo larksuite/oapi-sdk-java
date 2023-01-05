@@ -16,10 +16,10 @@ import com.lark.oapi.event.model.AppTicketEvent;
 
 public abstract class CustomAppTicketEventHandler implements IEventHandler<AppTicketEvent> {
 
-  @Override
-  public AppTicketEvent getEvent() {
-    return new AppTicketEvent();
-  }
+    @Override
+    public AppTicketEvent getEvent() {
+        return new AppTicketEvent();
+    }
 }
 
 

@@ -17,361 +17,352 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListEmployeeReq {
-
-  /**
-   * 返回数据类型
-   * <p> 示例值：basic
-   */
-  @Query
-  @SerializedName("view")
-  private String view;
-  /**
-   * 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
-   * <p> 示例值：2
-   */
-  @Query
-  @SerializedName("status")
-  private Integer[] status;
-  /**
-   * 雇员类型，不传代表查询所有雇员类型
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("type")
-  private Integer[] type;
-  /**
-   * 查询开始时间（创建时间 &gt;= 此时间）
-   * <p> 示例值：1608690517811
-   */
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 查询结束时间（创建时间 &lt;= 此时间）
-   * <p> 示例值：1608690517811
-   */
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id
-   * 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的
-   * ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-   * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
-   */
-  @Query
-  @SerializedName("user_ids")
-  private String[] userIds;
-  /**
-   * 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token
-   * 获取更多信息。
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 分页大小，取值范围 1~100，默认 10
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListEmployeeReq() {
-  }
-
-  public ListEmployeeReq(Builder builder) {
     /**
      * 返回数据类型
      * <p> 示例值：basic
      */
-    this.view = builder.view;
+    @Query
+    @SerializedName("view")
+    private String view;
     /**
      * 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
      * <p> 示例值：2
      */
-    this.status = builder.status;
+    @Query
+    @SerializedName("status")
+    private Integer[] status;
     /**
      * 雇员类型，不传代表查询所有雇员类型
      * <p> 示例值：1
      */
-    this.type = builder.type;
+    @Query
+    @SerializedName("type")
+    private Integer[] type;
     /**
      * 查询开始时间（创建时间 &gt;= 此时间）
      * <p> 示例值：1608690517811
      */
-    this.startTime = builder.startTime;
+    @Query
+    @SerializedName("start_time")
+    private String startTime;
     /**
      * 查询结束时间（创建时间 &lt;= 此时间）
      * <p> 示例值：1608690517811
      */
-    this.endTime = builder.endTime;
+    @Query
+    @SerializedName("end_time")
+    private String endTime;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
      */
-    this.userIds = builder.userIds;
+    @Query
+    @SerializedName("user_ids")
+    private String[] userIds;
     /**
      * 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token 获取更多信息。
      * <p> 示例值：10
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 分页大小，取值范围 1~100，默认 10
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
-  }
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getView() {
-    return this.view;
-  }
-
-  public void setView(String view) {
-    this.view = view;
-  }
-
-  public Integer[] getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer[] status) {
-    this.status = status;
-  }
-
-  public Integer[] getType() {
-    return this.type;
-  }
-
-  public void setType(Integer[] type) {
-    this.type = type;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String[] getUserIds() {
-    return this.userIds;
-  }
-
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String view; // 返回数据类型
-    private Integer[] status; // 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
-    private Integer[] type; // 雇员类型，不传代表查询所有雇员类型
-    private String startTime; // 查询开始时间（创建时间 &gt;= 此时间）
-    private String endTime; // 查询结束时间（创建时间 &lt;= 此时间）
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String[] userIds; // user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-    private String pageToken; // 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token 获取更多信息。
-    private Integer pageSize; // 分页大小，取值范围 1~100，默认 10
-
-
-    /**
-     * 返回数据类型
-     * <p> 示例值：basic
-     *
-     * @param view
-     * @return
-     */
-    public Builder view(String view) {
-      this.view = view;
-      return this;
+    // builder 开始
+    public ListEmployeeReq() {
     }
 
-    /**
-     * 返回数据类型
-     * <p> 示例值：basic
-     *
-     * @param view {@link com.lark.oapi.service.ehr.v1.enums.ListEmployeeViewEnum}
-     * @return
-     */
-    public Builder view(com.lark.oapi.service.ehr.v1.enums.ListEmployeeViewEnum view) {
-      this.view = view.getValue();
-      return this;
+    public ListEmployeeReq(Builder builder) {
+        /**
+         * 返回数据类型
+         * <p> 示例值：basic
+         */
+        this.view = builder.view;
+        /**
+         * 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
+         * <p> 示例值：2
+         */
+        this.status = builder.status;
+        /**
+         * 雇员类型，不传代表查询所有雇员类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 查询开始时间（创建时间 &gt;= 此时间）
+         * <p> 示例值：1608690517811
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 查询结束时间（创建时间 &lt;= 此时间）
+         * <p> 示例值：1608690517811
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
+         */
+        this.userIds = builder.userIds;
+        /**
+         * 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token 获取更多信息。
+         * <p> 示例值：10
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页大小，取值范围 1~100，默认 10
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
     }
 
-
-    /**
-     * 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
-     * <p> 示例值：2
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer[] status) {
-      this.status = status;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 雇员类型，不传代表查询所有雇员类型
-     * <p> 示例值：1
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer[] type) {
-      this.type = type;
-      return this;
+    public String getView() {
+        return this.view;
     }
 
-
-    /**
-     * 查询开始时间（创建时间 &gt;= 此时间）
-     * <p> 示例值：1608690517811
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setView(String view) {
+        this.view = view;
     }
 
-
-    /**
-     * 查询结束时间（创建时间 &lt;= 此时间）
-     * <p> 示例值：1608690517811
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public Integer[] getStatus() {
+        return this.status;
     }
 
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setStatus(Integer[] status) {
+        this.status = status;
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.ehr.v1.enums.ListEmployeeUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.ehr.v1.enums.ListEmployeeUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public Integer[] getType() {
+        return this.type;
     }
 
-
-    /**
-     * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id
-     * 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的
-     * ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
-     *
-     * @param userIds
-     * @return
-     */
-    public Builder userIds(String[] userIds) {
-      this.userIds = userIds;
-      return this;
+    public void setType(Integer[] type) {
+        this.type = type;
     }
 
-
-    /**
-     * 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token
-     * 获取更多信息。
-     * <p> 示例值：10
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-
-    /**
-     * 分页大小，取值范围 1~100，默认 10
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public ListEmployeeReq build() {
-      return new ListEmployeeReq(this);
+    public String getEndTime() {
+        return this.endTime;
     }
-  }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String[] getUserIds() {
+        return this.userIds;
+    }
+
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String view; // 返回数据类型
+        private Integer[] status; // 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
+        private Integer[] type; // 雇员类型，不传代表查询所有雇员类型
+        private String startTime; // 查询开始时间（创建时间 &gt;= 此时间）
+        private String endTime; // 查询结束时间（创建时间 &lt;= 此时间）
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String[] userIds; // user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+        private String pageToken; // 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token 获取更多信息。
+        private Integer pageSize; // 分页大小，取值范围 1~100，默认 10
+
+
+        /**
+         * 返回数据类型
+         * <p> 示例值：basic
+         *
+         * @param view
+         * @return
+         */
+        public Builder view(String view) {
+            this.view = view;
+            return this;
+        }
+
+        /**
+         * 返回数据类型
+         * <p> 示例值：basic
+         *
+         * @param view {@link com.lark.oapi.service.ehr.v1.enums.ListEmployeeViewEnum}
+         * @return
+         */
+        public Builder view(com.lark.oapi.service.ehr.v1.enums.ListEmployeeViewEnum view) {
+            this.view = view.getValue();
+            return this;
+        }
+
+
+        /**
+         * 员工状态，不传代表查询所有员工状态;;实际在职 = 2&4;;可同时查询多个状态的记录，如 status=2&status=4
+         * <p> 示例值：2
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer[] status) {
+            this.status = status;
+            return this;
+        }
+
+
+        /**
+         * 雇员类型，不传代表查询所有雇员类型
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer[] type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 查询开始时间（创建时间 &gt;= 此时间）
+         * <p> 示例值：1608690517811
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 查询结束时间（创建时间 &lt;= 此时间）
+         * <p> 示例值：1608690517811
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.ehr.v1.enums.ListEmployeeUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.ehr.v1.enums.ListEmployeeUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+
+        /**
+         * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
+         *
+         * @param userIds
+         * @return
+         */
+        public Builder userIds(String[] userIds) {
+            this.userIds = userIds;
+            return this;
+        }
+
+
+        /**
+         * 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token 获取更多信息。
+         * <p> 示例值：10
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 分页大小，取值范围 1~100，默认 10
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListEmployeeReq build() {
+            return new ListEmployeeReq(this);
+        }
+    }
 }

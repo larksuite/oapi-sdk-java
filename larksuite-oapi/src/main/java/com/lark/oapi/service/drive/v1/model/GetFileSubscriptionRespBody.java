@@ -16,21 +16,19 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetFileSubscriptionRespBody {
+    /**
+     * 文档订阅信息
+     * <p> 示例值：{       "subscription_id": "1234567890987654321",       "subscription_type": "comment_update",       "is_subcribe": true,       "file_type": "doc" }
+     */
+    @SerializedName("subscription")
+    private FileSubscription subscription;
 
-  /**
-   * 文档订阅信息
-   * <p> 示例值：{       "subscription_id": "1234567890987654321",       "subscription_type":
-   * "comment_update",       "is_subcribe": true,       "file_type": "doc" }
-   */
-  @SerializedName("subscription")
-  private FileSubscription subscription;
+    public FileSubscription getSubscription() {
+        return this.subscription;
+    }
 
-  public FileSubscription getSubscription() {
-    return this.subscription;
-  }
-
-  public void setSubscription(FileSubscription subscription) {
-    this.subscription = subscription;
-  }
+    public void setSubscription(FileSubscription subscription) {
+        this.subscription = subscription;
+    }
 
 }

@@ -17,20 +17,20 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum FileSearchDocsTypeEnum {
-  DOC("doc"), // doc
-  SHEET("sheet"), // sheet
-  SLIDE("slide"), // slide
-  BITABLE("bitable"), // bitable
-  MINDNOTE("mindnote"), // mindnote
-  FILE("file"), // file
-  ;
-  private String value;
+    DOC("doc"), // doc
+    SHEET("sheet"), // sheet
+    SLIDE("slide"), // slide
+    BITABLE("bitable"), // bitable
+    MINDNOTE("mindnote"), // mindnote
+    FILE("file"), // file
+    ;
+    private String value;
 
-  FileSearchDocsTypeEnum(String value) {
-    this.value = value;
-  }
+    FileSearchDocsTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -15,22 +15,22 @@ package com.lark.oapi.service.attendance.v1.enums;
 
 // 生成枚举值
 public enum TypeEnum {
-  SELF(0),
-  MANAGERMODIFICATION(1),
-  REMEDY(2),
-  SYSTEM(3),
-  FREE(4),
-  MACHINE(5),
-  QUICK(6),
-  IMPORT(7),
-  ;
-  private Integer value;
+    SELF(0),
+    MANAGERMODIFICATION(1),
+    REMEDY(2),
+    SYSTEM(3),
+    FREE(4),
+    MACHINE(5),
+    QUICK(6),
+    IMPORT(7),
+    ;
+    private Integer value;
 
-  TypeEnum(Integer value) {
-    this.value = value;
-  }
+    TypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class CreateMessageReactionReq {
-
-  /**
-   * 待添加reaction的消息ID
-   * <p> 示例值：om_a8f2294b************a1a38afaac9d
-   */
-  @Path
-  @SerializedName("message_id")
-  private String messageId;
-  @Body
-  private CreateMessageReactionReqBody body;
-
-  // builder 开始
-  public CreateMessageReactionReq() {
-  }
-
-  public CreateMessageReactionReq(Builder builder) {
     /**
-     * 待添加reaction的消息ID
+     * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_a8f2294b************a1a38afaac9d
      */
-    this.messageId = builder.messageId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public CreateMessageReactionReqBody getCreateMessageReactionReqBody() {
-    return this.body;
-  }
-
-  public void setCreateMessageReactionReqBody(CreateMessageReactionReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String messageId; // 待添加reaction的消息ID
+    @Path
+    @SerializedName("message_id")
+    private String messageId;
+    @Body
     private CreateMessageReactionReqBody body;
 
-    /**
-     * 待添加reaction的消息ID
-     * <p> 示例值：om_a8f2294b************a1a38afaac9d
-     *
-     * @param messageId
-     * @return
-     */
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    // builder 开始
+    public CreateMessageReactionReq() {
+    }
+
+    public CreateMessageReactionReq(Builder builder) {
+        /**
+         * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_a8f2294b************a1a38afaac9d
+         */
+        this.messageId = builder.messageId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
     public CreateMessageReactionReqBody getCreateMessageReactionReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createMessageReactionReqBody(CreateMessageReactionReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateMessageReactionReqBody(CreateMessageReactionReqBody body) {
+        this.body = body;
     }
 
-    public CreateMessageReactionReq build() {
-      return new CreateMessageReactionReq(this);
+    public static class Builder {
+
+        private String messageId; // 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+        private CreateMessageReactionReqBody body;
+
+        /**
+         * 待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_a8f2294b************a1a38afaac9d
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+        public CreateMessageReactionReqBody getCreateMessageReactionReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createMessageReactionReqBody(CreateMessageReactionReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateMessageReactionReq build() {
+            return new CreateMessageReactionReq(this);
+        }
     }
-  }
 }

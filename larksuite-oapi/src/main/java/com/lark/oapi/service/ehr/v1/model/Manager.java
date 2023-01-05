@@ -16,135 +16,133 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Manager {
-
-  /**
-   * 上级的用户 ID（user_id）
-   * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 中文名
-   * <p> 示例值：李四
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 英文名
-   * <p> 示例值：Tom Li
-   */
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public Manager() {
-  }
-
-  public Manager(Builder builder) {
     /**
      * 上级的用户 ID（user_id）
      * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
      */
-    this.userId = builder.userId;
-    /**
-     * 中文名
-     * <p> 示例值：李四
-     */
-    this.name = builder.name;
-    /**
-     * 英文名
-     * <p> 示例值：Tom Li
-     */
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 上级的用户 ID（user_id）
-     * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 中文名
      * <p> 示例值：李四
      */
+    @SerializedName("name")
     private String name;
     /**
      * 英文名
      * <p> 示例值：Tom Li
      */
+    @SerializedName("en_name")
     private String enName;
 
-    /**
-     * 上级的用户 ID（user_id）
-     * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public Manager() {
     }
 
-
-    /**
-     * 中文名
-     * <p> 示例值：李四
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Manager(Builder builder) {
+        /**
+         * 上级的用户 ID（user_id）
+         * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
+         */
+        this.userId = builder.userId;
+        /**
+         * 中文名
+         * <p> 示例值：李四
+         */
+        this.name = builder.name;
+        /**
+         * 英文名
+         * <p> 示例值：Tom Li
+         */
+        this.enName = builder.enName;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：Tom Li
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Manager build() {
-      return new Manager(this);
+    public String getUserId() {
+        return this.userId;
     }
-  }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public static class Builder {
+        /**
+         * 上级的用户 ID（user_id）
+         * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
+         */
+        private String userId;
+        /**
+         * 中文名
+         * <p> 示例值：李四
+         */
+        private String name;
+        /**
+         * 英文名
+         * <p> 示例值：Tom Li
+         */
+        private String enName;
+
+        /**
+         * 上级的用户 ID（user_id）
+         * <p> 示例值：ou_db362c0e79f5a26db1ca8e94698ee417
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 中文名
+         * <p> 示例值：李四
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：Tom Li
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        public Manager build() {
+            return new Manager(this);
+        }
+    }
 }

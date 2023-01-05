@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuerySession {
 
-  /**
-   * 用户登录信息
-   * <p> 示例值：[{"create_time":"1644983127","terminal_type":2,"user_id":"47f621ff"},{"create_time":"1644980493","terminal_type":2,"user_id":"47f621ff"}]
-   */
-  @SerializedName("mask_sessions")
-  private MaskSession[] maskSessions;
+    /**
+     * 用户登录信息
+     * <p> 示例值：[{"create_time":"1644983127","terminal_type":2,"user_id":"47f621ff"},{"create_time":"1644980493","terminal_type":2,"user_id":"47f621ff"}]
+     */
+    @SerializedName("mask_sessions")
+    private MaskSession[] maskSessions;
 
-  public MaskSession[] getMaskSessions() {
-    return this.maskSessions;
-  }
+    public MaskSession[] getMaskSessions() {
+        return this.maskSessions;
+    }
 
-  public void setMaskSessions(MaskSession[] maskSessions) {
-    this.maskSessions = maskSessions;
-  }
+    public void setMaskSessions(MaskSession[] maskSessions) {
+        this.maskSessions = maskSessions;
+    }
 
 }

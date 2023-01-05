@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ExternalBackgroundCheckAttachment {
-
-  /**
-   * 附件 ID
-   * <p> 示例值：6987954043925432620
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 附件名字
-   * <p> 示例值：test_resume.pdf
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 附件大小
-   * <p> 示例值：126371
-   */
-  @SerializedName("size")
-  private Integer size;
-
-  // builder 开始
-  public ExternalBackgroundCheckAttachment() {
-  }
-
-  public ExternalBackgroundCheckAttachment(Builder builder) {
     /**
      * 附件 ID
      * <p> 示例值：6987954043925432620
      */
-    this.id = builder.id;
-    /**
-     * 附件名字
-     * <p> 示例值：test_resume.pdf
-     */
-    this.name = builder.name;
-    /**
-     * 附件大小
-     * <p> 示例值：126371
-     */
-    this.size = builder.size;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getSize() {
-    return this.size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public static class Builder {
-
-    /**
-     * 附件 ID
-     * <p> 示例值：6987954043925432620
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 附件名字
      * <p> 示例值：test_resume.pdf
      */
+    @SerializedName("name")
     private String name;
     /**
      * 附件大小
      * <p> 示例值：126371
      */
+    @SerializedName("size")
     private Integer size;
 
-    /**
-     * 附件 ID
-     * <p> 示例值：6987954043925432620
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ExternalBackgroundCheckAttachment() {
     }
 
-
-    /**
-     * 附件名字
-     * <p> 示例值：test_resume.pdf
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public ExternalBackgroundCheckAttachment(Builder builder) {
+        /**
+         * 附件 ID
+         * <p> 示例值：6987954043925432620
+         */
+        this.id = builder.id;
+        /**
+         * 附件名字
+         * <p> 示例值：test_resume.pdf
+         */
+        this.name = builder.name;
+        /**
+         * 附件大小
+         * <p> 示例值：126371
+         */
+        this.size = builder.size;
     }
 
-
-    /**
-     * 附件大小
-     * <p> 示例值：126371
-     *
-     * @param size
-     * @return
-     */
-    public Builder size(Integer size) {
-      this.size = size;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ExternalBackgroundCheckAttachment build() {
-      return new ExternalBackgroundCheckAttachment(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public static class Builder {
+        /**
+         * 附件 ID
+         * <p> 示例值：6987954043925432620
+         */
+        private String id;
+        /**
+         * 附件名字
+         * <p> 示例值：test_resume.pdf
+         */
+        private String name;
+        /**
+         * 附件大小
+         * <p> 示例值：126371
+         */
+        private Integer size;
+
+        /**
+         * 附件 ID
+         * <p> 示例值：6987954043925432620
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 附件名字
+         * <p> 示例值：test_resume.pdf
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 附件大小
+         * <p> 示例值：126371
+         *
+         * @param size
+         * @return
+         */
+        public Builder size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+
+        public ExternalBackgroundCheckAttachment build() {
+            return new ExternalBackgroundCheckAttachment(this);
+        }
+    }
 }

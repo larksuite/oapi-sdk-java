@@ -16,20 +16,19 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MatchEntityRespBody {
+    /**
+     * 搜索结果
+     * <p> 示例值：
+     */
+    @SerializedName("results")
+    private MatchInfo[] results;
 
-  /**
-   * 搜索结果
-   * <p> 示例值：
-   */
-  @SerializedName("results")
-  private MatchInfo[] results;
+    public MatchInfo[] getResults() {
+        return this.results;
+    }
 
-  public MatchInfo[] getResults() {
-    return this.results;
-  }
-
-  public void setResults(MatchInfo[] results) {
-    this.results = results;
-  }
+    public void setResults(MatchInfo[] results) {
+        this.results = results;
+    }
 
 }

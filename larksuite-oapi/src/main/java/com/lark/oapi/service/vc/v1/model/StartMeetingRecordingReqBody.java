@@ -16,61 +16,59 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class StartMeetingRecordingReqBody {
-
-  /**
-   * 录制文件时间显示使用的时区[-12,12]
-   * <p> 示例值：8
-   */
-  @SerializedName("timezone")
-  private Integer timezone;
-
-  // builder 开始
-  public StartMeetingRecordingReqBody() {
-  }
-
-  public StartMeetingRecordingReqBody(Builder builder) {
     /**
      * 录制文件时间显示使用的时区[-12,12]
      * <p> 示例值：8
      */
-    this.timezone = builder.timezone;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getTimezone() {
-    return this.timezone;
-  }
-
-  public void setTimezone(Integer timezone) {
-    this.timezone = timezone;
-  }
-
-  public static class Builder {
-
-    /**
-     * 录制文件时间显示使用的时区[-12,12]
-     * <p> 示例值：8
-     */
+    @SerializedName("timezone")
     private Integer timezone;
 
-    /**
-     * 录制文件时间显示使用的时区[-12,12]
-     * <p> 示例值：8
-     *
-     * @param timezone
-     * @return
-     */
-    public Builder timezone(Integer timezone) {
-      this.timezone = timezone;
-      return this;
+    // builder 开始
+    public StartMeetingRecordingReqBody() {
     }
 
-
-    public StartMeetingRecordingReqBody build() {
-      return new StartMeetingRecordingReqBody(this);
+    public StartMeetingRecordingReqBody(Builder builder) {
+        /**
+         * 录制文件时间显示使用的时区[-12,12]
+         * <p> 示例值：8
+         */
+        this.timezone = builder.timezone;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getTimezone() {
+        return this.timezone;
+    }
+
+    public void setTimezone(Integer timezone) {
+        this.timezone = timezone;
+    }
+
+    public static class Builder {
+        /**
+         * 录制文件时间显示使用的时区[-12,12]
+         * <p> 示例值：8
+         */
+        private Integer timezone;
+
+        /**
+         * 录制文件时间显示使用的时区[-12,12]
+         * <p> 示例值：8
+         *
+         * @param timezone
+         * @return
+         */
+        public Builder timezone(Integer timezone) {
+            this.timezone = timezone;
+            return this;
+        }
+
+
+        public StartMeetingRecordingReqBody build() {
+            return new StartMeetingRecordingReqBody(this);
+        }
+    }
 }

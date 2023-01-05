@@ -16,185 +16,219 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MentionDoc {
-
-  /**
-   * 云文档 token
-   * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
-   */
-  @SerializedName("token")
-  private String token;
-  /**
-   * 云文档类型
-   * <p> 示例值：22
-   */
-  @SerializedName("obj_type")
-  private Integer objType;
-  /**
-   * 云文档链接（需要 url_encode)
-   * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 文档标题，只读属性
-   * <p> 示例值：undefined
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public MentionDoc() {
-  }
-
-  public MentionDoc(Builder builder) {
     /**
      * 云文档 token
      * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
      */
-    this.token = builder.token;
-    /**
-     * 云文档类型
-     * <p> 示例值：22
-     */
-    this.objType = builder.objType;
-    /**
-     * 云文档链接（需要 url_encode)
-     * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
-     */
-    this.url = builder.url;
-    /**
-     * 文档标题，只读属性
-     * <p> 示例值：undefined
-     */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public Integer getObjType() {
-    return this.objType;
-  }
-
-  public void setObjType(Integer objType) {
-    this.objType = objType;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 云文档 token
-     * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
-     */
+    @SerializedName("token")
     private String token;
     /**
      * 云文档类型
      * <p> 示例值：22
      */
+    @SerializedName("obj_type")
     private Integer objType;
     /**
      * 云文档链接（需要 url_encode)
      * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
      */
+    @SerializedName("url")
     private String url;
     /**
      * 文档标题，只读属性
      * <p> 示例值：undefined
      */
+    @SerializedName("title")
     private String title;
-
     /**
-     * 云文档 token
-     * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
-     *
-     * @param token
-     * @return
+     * 文本局部样式
+     * <p> 示例值：
      */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    @SerializedName("text_element_style")
+    private TextElementStyle textElementStyle;
+
+    // builder 开始
+    public MentionDoc() {
     }
 
-
-    /**
-     * 云文档类型
-     * <p> 示例值：22
-     *
-     * @param objType
-     * @return
-     */
-    public Builder objType(Integer objType) {
-      this.objType = objType;
-      return this;
+    public MentionDoc(Builder builder) {
+        /**
+         * 云文档 token
+         * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+         */
+        this.token = builder.token;
+        /**
+         * 云文档类型
+         * <p> 示例值：22
+         */
+        this.objType = builder.objType;
+        /**
+         * 云文档链接（需要 url_encode)
+         * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+         */
+        this.url = builder.url;
+        /**
+         * 文档标题，只读属性
+         * <p> 示例值：undefined
+         */
+        this.title = builder.title;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        this.textElementStyle = builder.textElementStyle;
     }
 
-    /**
-     * 云文档类型
-     * <p> 示例值：22
-     *
-     * @param objType {@link com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum}
-     * @return
-     */
-    public Builder objType(
-        com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum objType) {
-      this.objType = objType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 云文档链接（需要 url_encode)
-     * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-
-    /**
-     * 文档标题，只读属性
-     * <p> 示例值：undefined
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-
-    public MentionDoc build() {
-      return new MentionDoc(this);
+    public Integer getObjType() {
+        return this.objType;
     }
-  }
+
+    public void setObjType(Integer objType) {
+        this.objType = objType;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public TextElementStyle getTextElementStyle() {
+        return this.textElementStyle;
+    }
+
+    public void setTextElementStyle(TextElementStyle textElementStyle) {
+        this.textElementStyle = textElementStyle;
+    }
+
+    public static class Builder {
+        /**
+         * 云文档 token
+         * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+         */
+        private String token;
+        /**
+         * 云文档类型
+         * <p> 示例值：22
+         */
+        private Integer objType;
+        /**
+         * 云文档链接（需要 url_encode)
+         * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+         */
+        private String url;
+        /**
+         * 文档标题，只读属性
+         * <p> 示例值：undefined
+         */
+        private String title;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        private TextElementStyle textElementStyle;
+
+        /**
+         * 云文档 token
+         * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 云文档类型
+         * <p> 示例值：22
+         *
+         * @param objType
+         * @return
+         */
+        public Builder objType(Integer objType) {
+            this.objType = objType;
+            return this;
+        }
+
+        /**
+         * 云文档类型
+         * <p> 示例值：22
+         *
+         * @param objType {@link com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum}
+         * @return
+         */
+        public Builder objType(com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum objType) {
+            this.objType = objType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 云文档链接（需要 url_encode)
+         * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 文档标题，只读属性
+         * <p> 示例值：undefined
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         *
+         * @param textElementStyle
+         * @return
+         */
+        public Builder textElementStyle(TextElementStyle textElementStyle) {
+            this.textElementStyle = textElementStyle;
+            return this;
+        }
+
+
+        public MentionDoc build() {
+            return new MentionDoc(this);
+        }
+    }
 }

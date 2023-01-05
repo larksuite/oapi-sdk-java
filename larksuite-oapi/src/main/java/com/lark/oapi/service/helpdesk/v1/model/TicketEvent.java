@@ -16,616 +16,614 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TicketEvent {
-
-  /**
-   * 6626871355780366331
-   * <p> 示例值：6626871355780366331
-   */
-  @SerializedName("ticket_id")
-  private String ticketId;
-  /**
-   * 6626871355780366330
-   * <p> 示例值：6626871355780366330
-   */
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  /**
-   * abc
-   * <p> 示例值：
-   */
-  @SerializedName("guest")
-  private TicketUserEvent guest;
-  /**
-   * 1
-   * <p> 示例值：1
-   */
-  @SerializedName("stage")
-  private Integer stage;
-  /**
-   * 50
-   * <p> 示例值：1
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * 1
-   * <p> 示例值：1
-   */
-  @SerializedName("score")
-  private Integer score;
-  /**
-   * 1616920429000
-   * <p> 示例值：1616920429000
-   */
-  @SerializedName("created_at")
-  private Integer createdAt;
-  /**
-   * 1616920429000
-   * <p> 示例值：1616920429000
-   */
-  @SerializedName("updated_at")
-  private Integer updatedAt;
-  /**
-   * 1616920429000
-   * <p> 示例值：1616920429000
-   */
-  @SerializedName("closed_at")
-  private Integer closedAt;
-  /**
-   * agents of this ticket
-   * <p> 示例值：
-   */
-  @SerializedName("agents")
-  private TicketUserEvent[] agents;
-  /**
-   * 0
-   * <p> 示例值：0
-   */
-  @SerializedName("channel")
-  private Integer channel;
-  /**
-   * 1
-   * <p> 示例值：1
-   */
-  @SerializedName("solve")
-  private Integer solve;
-  /**
-   * closed user of this ticket
-   * <p> 示例值：
-   */
-  @SerializedName("closed_by")
-  private TicketUserEvent closedBy;
-  /**
-   * collaborators of this ticket
-   * <p> 示例值：
-   */
-  @SerializedName("collaborators")
-  private TicketUserEvent[] collaborators;
-  /**
-   * []
-   * <p> 示例值：
-   */
-  @SerializedName("customized_fields")
-  private CustomizedFieldDisplayItem[] customizedFields;
-  /**
-   * oc_xxxxxxx
-   * <p> 示例值：oc_xxxxxxx
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-
-  // builder 开始
-  public TicketEvent() {
-  }
-
-  public TicketEvent(Builder builder) {
     /**
-     * 6626871355780366331
+     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
      * <p> 示例值：6626871355780366331
      */
-    this.ticketId = builder.ticketId;
-    /**
-     * 6626871355780366330
-     * <p> 示例值：6626871355780366330
-     */
-    this.helpdeskId = builder.helpdeskId;
-    /**
-     * abc
-     * <p> 示例值：
-     */
-    this.guest = builder.guest;
-    /**
-     * 1
-     * <p> 示例值：1
-     */
-    this.stage = builder.stage;
-    /**
-     * 50
-     * <p> 示例值：1
-     */
-    this.status = builder.status;
-    /**
-     * 1
-     * <p> 示例值：1
-     */
-    this.score = builder.score;
-    /**
-     * 1616920429000
-     * <p> 示例值：1616920429000
-     */
-    this.createdAt = builder.createdAt;
-    /**
-     * 1616920429000
-     * <p> 示例值：1616920429000
-     */
-    this.updatedAt = builder.updatedAt;
-    /**
-     * 1616920429000
-     * <p> 示例值：1616920429000
-     */
-    this.closedAt = builder.closedAt;
-    /**
-     * agents of this ticket
-     * <p> 示例值：
-     */
-    this.agents = builder.agents;
-    /**
-     * 0
-     * <p> 示例值：0
-     */
-    this.channel = builder.channel;
-    /**
-     * 1
-     * <p> 示例值：1
-     */
-    this.solve = builder.solve;
-    /**
-     * closed user of this ticket
-     * <p> 示例值：
-     */
-    this.closedBy = builder.closedBy;
-    /**
-     * collaborators of this ticket
-     * <p> 示例值：
-     */
-    this.collaborators = builder.collaborators;
-    /**
-     * []
-     * <p> 示例值：
-     */
-    this.customizedFields = builder.customizedFields;
-    /**
-     * oc_xxxxxxx
-     * <p> 示例值：oc_xxxxxxx
-     */
-    this.chatId = builder.chatId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
-
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
-
-  public TicketUserEvent getGuest() {
-    return this.guest;
-  }
-
-  public void setGuest(TicketUserEvent guest) {
-    this.guest = guest;
-  }
-
-  public Integer getStage() {
-    return this.stage;
-  }
-
-  public void setStage(Integer stage) {
-    this.stage = stage;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public Integer getScore() {
-    return this.score;
-  }
-
-  public void setScore(Integer score) {
-    this.score = score;
-  }
-
-  public Integer getCreatedAt() {
-    return this.createdAt;
-  }
-
-  public void setCreatedAt(Integer createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public Integer getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  public void setUpdatedAt(Integer updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-  public Integer getClosedAt() {
-    return this.closedAt;
-  }
-
-  public void setClosedAt(Integer closedAt) {
-    this.closedAt = closedAt;
-  }
-
-  public TicketUserEvent[] getAgents() {
-    return this.agents;
-  }
-
-  public void setAgents(TicketUserEvent[] agents) {
-    this.agents = agents;
-  }
-
-  public Integer getChannel() {
-    return this.channel;
-  }
-
-  public void setChannel(Integer channel) {
-    this.channel = channel;
-  }
-
-  public Integer getSolve() {
-    return this.solve;
-  }
-
-  public void setSolve(Integer solve) {
-    this.solve = solve;
-  }
-
-  public TicketUserEvent getClosedBy() {
-    return this.closedBy;
-  }
-
-  public void setClosedBy(TicketUserEvent closedBy) {
-    this.closedBy = closedBy;
-  }
-
-  public TicketUserEvent[] getCollaborators() {
-    return this.collaborators;
-  }
-
-  public void setCollaborators(TicketUserEvent[] collaborators) {
-    this.collaborators = collaborators;
-  }
-
-  public CustomizedFieldDisplayItem[] getCustomizedFields() {
-    return this.customizedFields;
-  }
-
-  public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-    this.customizedFields = customizedFields;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 6626871355780366331
-     * <p> 示例值：6626871355780366331
-     */
+    @SerializedName("ticket_id")
     private String ticketId;
     /**
-     * 6626871355780366330
+     * 服务台id
      * <p> 示例值：6626871355780366330
      */
+    @SerializedName("helpdesk_id")
     private String helpdeskId;
     /**
-     * abc
+     * 用户id
      * <p> 示例值：
      */
+    @SerializedName("guest")
     private TicketUserEvent guest;
     /**
-     * 1
+     * 工单阶段：1. 机器人 2. 人工
      * <p> 示例值：1
      */
+    @SerializedName("stage")
     private Integer stage;
     /**
-     * 50
+     * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
      * <p> 示例值：1
      */
+    @SerializedName("status")
     private Integer status;
     /**
-     * 1
+     * 工单评分，1：不满意，2:一般，3:满意
      * <p> 示例值：1
      */
+    @SerializedName("score")
     private Integer score;
     /**
-     * 1616920429000
+     * 创建时间
      * <p> 示例值：1616920429000
      */
+    @SerializedName("created_at")
     private Integer createdAt;
     /**
-     * 1616920429000
+     * 工单更新时间，没有值时为-1
      * <p> 示例值：1616920429000
      */
+    @SerializedName("updated_at")
     private Integer updatedAt;
     /**
-     * 1616920429000
+     * 关单时间
      * <p> 示例值：1616920429000
      */
+    @SerializedName("closed_at")
     private Integer closedAt;
     /**
      * agents of this ticket
      * <p> 示例值：
      */
+    @SerializedName("agents")
     private TicketUserEvent[] agents;
     /**
-     * 0
+     * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
      * <p> 示例值：0
      */
+    @SerializedName("channel")
     private Integer channel;
     /**
-     * 1
+     * 工单是否解决 1:没解决 2:已解决
      * <p> 示例值：1
      */
+    @SerializedName("solve")
     private Integer solve;
     /**
      * closed user of this ticket
      * <p> 示例值：
      */
+    @SerializedName("closed_by")
     private TicketUserEvent closedBy;
     /**
      * collaborators of this ticket
      * <p> 示例值：
      */
+    @SerializedName("collaborators")
     private TicketUserEvent[] collaborators;
     /**
-     * []
+     * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_fields")
     private CustomizedFieldDisplayItem[] customizedFields;
     /**
      * oc_xxxxxxx
      * <p> 示例值：oc_xxxxxxx
      */
+    @SerializedName("chat_id")
     private String chatId;
 
-    /**
-     * 6626871355780366331
-     * <p> 示例值：6626871355780366331
-     *
-     * @param ticketId
-     * @return
-     */
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
+    // builder 开始
+    public TicketEvent() {
     }
 
-
-    /**
-     * 6626871355780366330
-     * <p> 示例值：6626871355780366330
-     *
-     * @param helpdeskId
-     * @return
-     */
-    public Builder helpdeskId(String helpdeskId) {
-      this.helpdeskId = helpdeskId;
-      return this;
+    public TicketEvent(Builder builder) {
+        /**
+         * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+         * <p> 示例值：6626871355780366331
+         */
+        this.ticketId = builder.ticketId;
+        /**
+         * 服务台id
+         * <p> 示例值：6626871355780366330
+         */
+        this.helpdeskId = builder.helpdeskId;
+        /**
+         * 用户id
+         * <p> 示例值：
+         */
+        this.guest = builder.guest;
+        /**
+         * 工单阶段：1. 机器人 2. 人工
+         * <p> 示例值：1
+         */
+        this.stage = builder.stage;
+        /**
+         * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
+        /**
+         * 工单评分，1：不满意，2:一般，3:满意
+         * <p> 示例值：1
+         */
+        this.score = builder.score;
+        /**
+         * 创建时间
+         * <p> 示例值：1616920429000
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 工单更新时间，没有值时为-1
+         * <p> 示例值：1616920429000
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 关单时间
+         * <p> 示例值：1616920429000
+         */
+        this.closedAt = builder.closedAt;
+        /**
+         * agents of this ticket
+         * <p> 示例值：
+         */
+        this.agents = builder.agents;
+        /**
+         * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+         * <p> 示例值：0
+         */
+        this.channel = builder.channel;
+        /**
+         * 工单是否解决 1:没解决 2:已解决
+         * <p> 示例值：1
+         */
+        this.solve = builder.solve;
+        /**
+         * closed user of this ticket
+         * <p> 示例值：
+         */
+        this.closedBy = builder.closedBy;
+        /**
+         * collaborators of this ticket
+         * <p> 示例值：
+         */
+        this.collaborators = builder.collaborators;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedFields = builder.customizedFields;
+        /**
+         * oc_xxxxxxx
+         * <p> 示例值：oc_xxxxxxx
+         */
+        this.chatId = builder.chatId;
     }
 
-
-    /**
-     * abc
-     * <p> 示例值：
-     *
-     * @param guest
-     * @return
-     */
-    public Builder guest(TicketUserEvent guest) {
-      this.guest = guest;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 1
-     * <p> 示例值：1
-     *
-     * @param stage
-     * @return
-     */
-    public Builder stage(Integer stage) {
-      this.stage = stage;
-      return this;
+    public String getTicketId() {
+        return this.ticketId;
     }
 
-
-    /**
-     * 50
-     * <p> 示例值：1
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
-
-    /**
-     * 1
-     * <p> 示例值：1
-     *
-     * @param score
-     * @return
-     */
-    public Builder score(Integer score) {
-      this.score = score;
-      return this;
+    public String getHelpdeskId() {
+        return this.helpdeskId;
     }
 
-
-    /**
-     * 1616920429000
-     * <p> 示例值：1616920429000
-     *
-     * @param createdAt
-     * @return
-     */
-    public Builder createdAt(Integer createdAt) {
-      this.createdAt = createdAt;
-      return this;
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
     }
 
-
-    /**
-     * 1616920429000
-     * <p> 示例值：1616920429000
-     *
-     * @param updatedAt
-     * @return
-     */
-    public Builder updatedAt(Integer updatedAt) {
-      this.updatedAt = updatedAt;
-      return this;
+    public TicketUserEvent getGuest() {
+        return this.guest;
     }
 
-
-    /**
-     * 1616920429000
-     * <p> 示例值：1616920429000
-     *
-     * @param closedAt
-     * @return
-     */
-    public Builder closedAt(Integer closedAt) {
-      this.closedAt = closedAt;
-      return this;
+    public void setGuest(TicketUserEvent guest) {
+        this.guest = guest;
     }
 
-
-    /**
-     * agents of this ticket
-     * <p> 示例值：
-     *
-     * @param agents
-     * @return
-     */
-    public Builder agents(TicketUserEvent[] agents) {
-      this.agents = agents;
-      return this;
+    public Integer getStage() {
+        return this.stage;
     }
 
-
-    /**
-     * 0
-     * <p> 示例值：0
-     *
-     * @param channel
-     * @return
-     */
-    public Builder channel(Integer channel) {
-      this.channel = channel;
-      return this;
+    public void setStage(Integer stage) {
+        this.stage = stage;
     }
 
-
-    /**
-     * 1
-     * <p> 示例值：1
-     *
-     * @param solve
-     * @return
-     */
-    public Builder solve(Integer solve) {
-      this.solve = solve;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-
-    /**
-     * closed user of this ticket
-     * <p> 示例值：
-     *
-     * @param closedBy
-     * @return
-     */
-    public Builder closedBy(TicketUserEvent closedBy) {
-      this.closedBy = closedBy;
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-
-    /**
-     * collaborators of this ticket
-     * <p> 示例值：
-     *
-     * @param collaborators
-     * @return
-     */
-    public Builder collaborators(TicketUserEvent[] collaborators) {
-      this.collaborators = collaborators;
-      return this;
+    public Integer getScore() {
+        return this.score;
     }
 
-
-    /**
-     * []
-     * <p> 示例值：
-     *
-     * @param customizedFields
-     * @return
-     */
-    public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-      this.customizedFields = customizedFields;
-      return this;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
-
-    /**
-     * oc_xxxxxxx
-     * <p> 示例值：oc_xxxxxxx
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public Integer getCreatedAt() {
+        return this.createdAt;
     }
 
-
-    public TicketEvent build() {
-      return new TicketEvent(this);
+    public void setCreatedAt(Integer createdAt) {
+        this.createdAt = createdAt;
     }
-  }
+
+    public Integer getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setUpdatedAt(Integer updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Integer getClosedAt() {
+        return this.closedAt;
+    }
+
+    public void setClosedAt(Integer closedAt) {
+        this.closedAt = closedAt;
+    }
+
+    public TicketUserEvent[] getAgents() {
+        return this.agents;
+    }
+
+    public void setAgents(TicketUserEvent[] agents) {
+        this.agents = agents;
+    }
+
+    public Integer getChannel() {
+        return this.channel;
+    }
+
+    public void setChannel(Integer channel) {
+        this.channel = channel;
+    }
+
+    public Integer getSolve() {
+        return this.solve;
+    }
+
+    public void setSolve(Integer solve) {
+        this.solve = solve;
+    }
+
+    public TicketUserEvent getClosedBy() {
+        return this.closedBy;
+    }
+
+    public void setClosedBy(TicketUserEvent closedBy) {
+        this.closedBy = closedBy;
+    }
+
+    public TicketUserEvent[] getCollaborators() {
+        return this.collaborators;
+    }
+
+    public void setCollaborators(TicketUserEvent[] collaborators) {
+        this.collaborators = collaborators;
+    }
+
+    public CustomizedFieldDisplayItem[] getCustomizedFields() {
+        return this.customizedFields;
+    }
+
+    public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+        this.customizedFields = customizedFields;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public static class Builder {
+        /**
+         * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+         * <p> 示例值：6626871355780366331
+         */
+        private String ticketId;
+        /**
+         * 服务台id
+         * <p> 示例值：6626871355780366330
+         */
+        private String helpdeskId;
+        /**
+         * 用户id
+         * <p> 示例值：
+         */
+        private TicketUserEvent guest;
+        /**
+         * 工单阶段：1. 机器人 2. 人工
+         * <p> 示例值：1
+         */
+        private Integer stage;
+        /**
+         * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+         * <p> 示例值：1
+         */
+        private Integer status;
+        /**
+         * 工单评分，1：不满意，2:一般，3:满意
+         * <p> 示例值：1
+         */
+        private Integer score;
+        /**
+         * 创建时间
+         * <p> 示例值：1616920429000
+         */
+        private Integer createdAt;
+        /**
+         * 工单更新时间，没有值时为-1
+         * <p> 示例值：1616920429000
+         */
+        private Integer updatedAt;
+        /**
+         * 关单时间
+         * <p> 示例值：1616920429000
+         */
+        private Integer closedAt;
+        /**
+         * agents of this ticket
+         * <p> 示例值：
+         */
+        private TicketUserEvent[] agents;
+        /**
+         * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+         * <p> 示例值：0
+         */
+        private Integer channel;
+        /**
+         * 工单是否解决 1:没解决 2:已解决
+         * <p> 示例值：1
+         */
+        private Integer solve;
+        /**
+         * closed user of this ticket
+         * <p> 示例值：
+         */
+        private TicketUserEvent closedBy;
+        /**
+         * collaborators of this ticket
+         * <p> 示例值：
+         */
+        private TicketUserEvent[] collaborators;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private CustomizedFieldDisplayItem[] customizedFields;
+        /**
+         * oc_xxxxxxx
+         * <p> 示例值：oc_xxxxxxx
+         */
+        private String chatId;
+
+        /**
+         * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+         * <p> 示例值：6626871355780366331
+         *
+         * @param ticketId
+         * @return
+         */
+        public Builder ticketId(String ticketId) {
+            this.ticketId = ticketId;
+            return this;
+        }
+
+
+        /**
+         * 服务台id
+         * <p> 示例值：6626871355780366330
+         *
+         * @param helpdeskId
+         * @return
+         */
+        public Builder helpdeskId(String helpdeskId) {
+            this.helpdeskId = helpdeskId;
+            return this;
+        }
+
+
+        /**
+         * 用户id
+         * <p> 示例值：
+         *
+         * @param guest
+         * @return
+         */
+        public Builder guest(TicketUserEvent guest) {
+            this.guest = guest;
+            return this;
+        }
+
+
+        /**
+         * 工单阶段：1. 机器人 2. 人工
+         * <p> 示例值：1
+         *
+         * @param stage
+         * @return
+         */
+        public Builder stage(Integer stage) {
+            this.stage = stage;
+            return this;
+        }
+
+
+        /**
+         * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+         * <p> 示例值：1
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+
+        /**
+         * 工单评分，1：不满意，2:一般，3:满意
+         * <p> 示例值：1
+         *
+         * @param score
+         * @return
+         */
+        public Builder score(Integer score) {
+            this.score = score;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1616920429000
+         *
+         * @param createdAt
+         * @return
+         */
+        public Builder createdAt(Integer createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 工单更新时间，没有值时为-1
+         * <p> 示例值：1616920429000
+         *
+         * @param updatedAt
+         * @return
+         */
+        public Builder updatedAt(Integer updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+
+        /**
+         * 关单时间
+         * <p> 示例值：1616920429000
+         *
+         * @param closedAt
+         * @return
+         */
+        public Builder closedAt(Integer closedAt) {
+            this.closedAt = closedAt;
+            return this;
+        }
+
+
+        /**
+         * agents of this ticket
+         * <p> 示例值：
+         *
+         * @param agents
+         * @return
+         */
+        public Builder agents(TicketUserEvent[] agents) {
+            this.agents = agents;
+            return this;
+        }
+
+
+        /**
+         * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+         * <p> 示例值：0
+         *
+         * @param channel
+         * @return
+         */
+        public Builder channel(Integer channel) {
+            this.channel = channel;
+            return this;
+        }
+
+
+        /**
+         * 工单是否解决 1:没解决 2:已解决
+         * <p> 示例值：1
+         *
+         * @param solve
+         * @return
+         */
+        public Builder solve(Integer solve) {
+            this.solve = solve;
+            return this;
+        }
+
+
+        /**
+         * closed user of this ticket
+         * <p> 示例值：
+         *
+         * @param closedBy
+         * @return
+         */
+        public Builder closedBy(TicketUserEvent closedBy) {
+            this.closedBy = closedBy;
+            return this;
+        }
+
+
+        /**
+         * collaborators of this ticket
+         * <p> 示例值：
+         *
+         * @param collaborators
+         * @return
+         */
+        public Builder collaborators(TicketUserEvent[] collaborators) {
+            this.collaborators = collaborators;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedFields
+         * @return
+         */
+        public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+            this.customizedFields = customizedFields;
+            return this;
+        }
+
+
+        /**
+         * oc_xxxxxxx
+         * <p> 示例值：oc_xxxxxxx
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+
+        public TicketEvent build() {
+            return new TicketEvent(this);
+        }
+    }
 }

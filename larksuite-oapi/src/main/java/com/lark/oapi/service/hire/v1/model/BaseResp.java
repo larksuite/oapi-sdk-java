@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BaseResp {
-
-  /**
-   * 响应信息
-   * <p> 示例值：
-   */
-  @SerializedName("StatusMessage")
-  private String statusMessage;
-  /**
-   * 响应码
-   * <p> 示例值：
-   */
-  @SerializedName("StatusCode")
-  private Integer statusCode;
-
-  // builder 开始
-  public BaseResp() {
-  }
-
-  public BaseResp(Builder builder) {
     /**
      * 响应信息
      * <p> 示例值：
      */
-    this.statusMessage = builder.statusMessage;
-    /**
-     * 响应码
-     * <p> 示例值：
-     */
-    this.statusCode = builder.statusCode;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStatusMessage() {
-    return this.statusMessage;
-  }
-
-  public void setStatusMessage(String statusMessage) {
-    this.statusMessage = statusMessage;
-  }
-
-  public Integer getStatusCode() {
-    return this.statusCode;
-  }
-
-  public void setStatusCode(Integer statusCode) {
-    this.statusCode = statusCode;
-  }
-
-  public static class Builder {
-
-    /**
-     * 响应信息
-     * <p> 示例值：
-     */
+    @SerializedName("StatusMessage")
     private String statusMessage;
     /**
      * 响应码
      * <p> 示例值：
      */
+    @SerializedName("StatusCode")
     private Integer statusCode;
 
-    /**
-     * 响应信息
-     * <p> 示例值：
-     *
-     * @param statusMessage
-     * @return
-     */
-    public Builder statusMessage(String statusMessage) {
-      this.statusMessage = statusMessage;
-      return this;
+    // builder 开始
+    public BaseResp() {
     }
 
-
-    /**
-     * 响应码
-     * <p> 示例值：
-     *
-     * @param statusCode
-     * @return
-     */
-    public Builder statusCode(Integer statusCode) {
-      this.statusCode = statusCode;
-      return this;
+    public BaseResp(Builder builder) {
+        /**
+         * 响应信息
+         * <p> 示例值：
+         */
+        this.statusMessage = builder.statusMessage;
+        /**
+         * 响应码
+         * <p> 示例值：
+         */
+        this.statusCode = builder.statusCode;
     }
 
-
-    public BaseResp build() {
-      return new BaseResp(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getStatusMessage() {
+        return this.statusMessage;
+    }
+
+    public void setStatusMessage(String statusMessage) {
+        this.statusMessage = statusMessage;
+    }
+
+    public Integer getStatusCode() {
+        return this.statusCode;
+    }
+
+    public void setStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public static class Builder {
+        /**
+         * 响应信息
+         * <p> 示例值：
+         */
+        private String statusMessage;
+        /**
+         * 响应码
+         * <p> 示例值：
+         */
+        private Integer statusCode;
+
+        /**
+         * 响应信息
+         * <p> 示例值：
+         *
+         * @param statusMessage
+         * @return
+         */
+        public Builder statusMessage(String statusMessage) {
+            this.statusMessage = statusMessage;
+            return this;
+        }
+
+
+        /**
+         * 响应码
+         * <p> 示例值：
+         *
+         * @param statusCode
+         * @return
+         */
+        public Builder statusCode(Integer statusCode) {
+            this.statusCode = statusCode;
+            return this;
+        }
+
+
+        public BaseResp build() {
+            return new BaseResp(this);
+        }
+    }
 }

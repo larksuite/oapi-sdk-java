@@ -16,51 +16,50 @@ package com.lark.oapi.service.approval.v4.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CheckExternalInstanceReq {
-
-  @Body
-  private CheckExternalInstanceReqBody body;
-
-  // builder 开始
-  public CheckExternalInstanceReq() {
-  }
-
-  public CheckExternalInstanceReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CheckExternalInstanceReqBody getCheckExternalInstanceReqBody() {
-    return this.body;
-  }
-
-  public void setCheckExternalInstanceReqBody(CheckExternalInstanceReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CheckExternalInstanceReqBody body;
 
+    // builder 开始
+    public CheckExternalInstanceReq() {
+    }
+
+    public CheckExternalInstanceReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CheckExternalInstanceReqBody getCheckExternalInstanceReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder checkExternalInstanceReqBody(CheckExternalInstanceReqBody body) {
-      this.body = body;
-      return this;
+    public void setCheckExternalInstanceReqBody(CheckExternalInstanceReqBody body) {
+        this.body = body;
     }
 
-    public CheckExternalInstanceReq build() {
-      return new CheckExternalInstanceReq(this);
+    public static class Builder {
+
+        private CheckExternalInstanceReqBody body;
+
+        public CheckExternalInstanceReqBody getCheckExternalInstanceReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder checkExternalInstanceReqBody(CheckExternalInstanceReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CheckExternalInstanceReq build() {
+            return new CheckExternalInstanceReq(this);
+        }
     }
-  }
 }

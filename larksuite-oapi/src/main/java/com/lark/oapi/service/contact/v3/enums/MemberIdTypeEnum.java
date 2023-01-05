@@ -15,17 +15,17 @@ package com.lark.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum MemberIdTypeEnum {
-  OPENID("open_id"),
-  UNIONID("union_id"),
-  USERID("user_id"),
-  ;
-  private String value;
+    OPENID("open_id"),
+    UNIONID("union_id"),
+    USERID("user_id"),
+    ;
+    private String value;
 
-  MemberIdTypeEnum(String value) {
-    this.value = value;
-  }
+    MemberIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

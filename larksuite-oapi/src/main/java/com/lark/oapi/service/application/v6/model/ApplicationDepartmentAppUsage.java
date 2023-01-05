@@ -16,209 +16,207 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationDepartmentAppUsage {
-
-  /**
-   * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
-   * <p> 示例值：
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
-   * <p> 示例值：
-   */
-  @SerializedName("app")
-  private ApplicationAppUsage[] app;
-  /**
-   * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
-   * <p> 示例值：
-   */
-  @SerializedName("gadget")
-  private ApplicationAppUsage[] gadget;
-  /**
-   * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
-   * <p> 示例值：
-   */
-  @SerializedName("webapp")
-  private ApplicationAppUsage[] webapp;
-  /**
-   * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
-   * <p> 示例值：
-   */
-  @SerializedName("bot")
-  private ApplicationAppUsage[] bot;
-
-  // builder 开始
-  public ApplicationDepartmentAppUsage() {
-  }
-
-  public ApplicationDepartmentAppUsage(Builder builder) {
     /**
      * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
      * <p> 示例值：
      */
-    this.departmentId = builder.departmentId;
-    /**
-     * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
-     * <p> 示例值：
-     */
-    this.app = builder.app;
-    /**
-     * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
-     * <p> 示例值：
-     */
-    this.gadget = builder.gadget;
-    /**
-     * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
-     * <p> 示例值：
-     */
-    this.webapp = builder.webapp;
-    /**
-     * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
-     * <p> 示例值：
-     */
-    this.bot = builder.bot;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public ApplicationAppUsage[] getApp() {
-    return this.app;
-  }
-
-  public void setApp(ApplicationAppUsage[] app) {
-    this.app = app;
-  }
-
-  public ApplicationAppUsage[] getGadget() {
-    return this.gadget;
-  }
-
-  public void setGadget(ApplicationAppUsage[] gadget) {
-    this.gadget = gadget;
-  }
-
-  public ApplicationAppUsage[] getWebapp() {
-    return this.webapp;
-  }
-
-  public void setWebapp(ApplicationAppUsage[] webapp) {
-    this.webapp = webapp;
-  }
-
-  public ApplicationAppUsage[] getBot() {
-    return this.bot;
-  }
-
-  public void setBot(ApplicationAppUsage[] bot) {
-    this.bot = bot;
-  }
-
-  public static class Builder {
-
-    /**
-     * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
-     * <p> 示例值：
-     */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
      * <p> 示例值：
      */
+    @SerializedName("app")
     private ApplicationAppUsage[] app;
     /**
      * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
      * <p> 示例值：
      */
+    @SerializedName("gadget")
     private ApplicationAppUsage[] gadget;
     /**
      * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
      * <p> 示例值：
      */
+    @SerializedName("webapp")
     private ApplicationAppUsage[] webapp;
     /**
      * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
      * <p> 示例值：
      */
+    @SerializedName("bot")
     private ApplicationAppUsage[] bot;
 
-    /**
-     * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
-     * <p> 示例值：
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    // builder 开始
+    public ApplicationDepartmentAppUsage() {
     }
 
-
-    /**
-     * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
-     * <p> 示例值：
-     *
-     * @param app
-     * @return
-     */
-    public Builder app(ApplicationAppUsage[] app) {
-      this.app = app;
-      return this;
+    public ApplicationDepartmentAppUsage(Builder builder) {
+        /**
+         * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
+         * <p> 示例值：
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
+         * <p> 示例值：
+         */
+        this.app = builder.app;
+        /**
+         * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
+         * <p> 示例值：
+         */
+        this.gadget = builder.gadget;
+        /**
+         * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
+         * <p> 示例值：
+         */
+        this.webapp = builder.webapp;
+        /**
+         * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
+         * <p> 示例值：
+         */
+        this.bot = builder.bot;
     }
 
-
-    /**
-     * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
-     * <p> 示例值：
-     *
-     * @param gadget
-     * @return
-     */
-    public Builder gadget(ApplicationAppUsage[] gadget) {
-      this.gadget = gadget;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
-     * <p> 示例值：
-     *
-     * @param webapp
-     * @return
-     */
-    public Builder webapp(ApplicationAppUsage[] webapp) {
-      this.webapp = webapp;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-
-    /**
-     * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
-     * <p> 示例值：
-     *
-     * @param bot
-     * @return
-     */
-    public Builder bot(ApplicationAppUsage[] bot) {
-      this.bot = bot;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-
-    public ApplicationDepartmentAppUsage build() {
-      return new ApplicationDepartmentAppUsage(this);
+    public ApplicationAppUsage[] getApp() {
+        return this.app;
     }
-  }
+
+    public void setApp(ApplicationAppUsage[] app) {
+        this.app = app;
+    }
+
+    public ApplicationAppUsage[] getGadget() {
+        return this.gadget;
+    }
+
+    public void setGadget(ApplicationAppUsage[] gadget) {
+        this.gadget = gadget;
+    }
+
+    public ApplicationAppUsage[] getWebapp() {
+        return this.webapp;
+    }
+
+    public void setWebapp(ApplicationAppUsage[] webapp) {
+        this.webapp = webapp;
+    }
+
+    public ApplicationAppUsage[] getBot() {
+        return this.bot;
+    }
+
+    public void setBot(ApplicationAppUsage[] bot) {
+        this.bot = bot;
+    }
+
+    public static class Builder {
+        /**
+         * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
+         * <p> 示例值：
+         */
+        private String departmentId;
+        /**
+         * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
+         * <p> 示例值：
+         */
+        private ApplicationAppUsage[] app;
+        /**
+         * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
+         * <p> 示例值：
+         */
+        private ApplicationAppUsage[] gadget;
+        /**
+         * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
+         * <p> 示例值：
+         */
+        private ApplicationAppUsage[] webapp;
+        /**
+         * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
+         * <p> 示例值：
+         */
+        private ApplicationAppUsage[] bot;
+
+        /**
+         * 租户内部门的唯一标识，ID值与查询参数中的department_id_type 对应。
+         * <p> 示例值：
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 应用整体使用情况，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
+         * <p> 示例值：
+         *
+         * @param app
+         * @return
+         */
+        public Builder app(ApplicationAppUsage[] app) {
+            this.app = app;
+            return this;
+        }
+
+
+        /**
+         * 小程序使用情况，没有小程序形态时为null，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
+         * <p> 示例值：
+         *
+         * @param gadget
+         * @return
+         */
+        public Builder gadget(ApplicationAppUsage[] gadget) {
+            this.gadget = gadget;
+            return this;
+        }
+
+
+        /**
+         * 网页应用使用情况，没有网页应用形态时为null，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
+         * <p> 示例值：
+         *
+         * @param webapp
+         * @return
+         */
+        public Builder webapp(ApplicationAppUsage[] webapp) {
+            this.webapp = webapp;
+            return this;
+        }
+
+
+        /**
+         * 机器人使用情况，没有机器人形态时为null，;指标值包括：uv（机器人的活跃用户数）
+         * <p> 示例值：
+         *
+         * @param bot
+         * @return
+         */
+        public Builder bot(ApplicationAppUsage[] bot) {
+            this.bot = bot;
+            return this;
+        }
+
+
+        public ApplicationDepartmentAppUsage build() {
+            return new ApplicationDepartmentAppUsage(this);
+        }
+    }
 }

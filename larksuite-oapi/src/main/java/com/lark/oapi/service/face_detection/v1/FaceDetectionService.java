@@ -18,93 +18,107 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageReq;
 import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageResp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class FaceDetectionService {
+    private static final Logger log = LoggerFactory.getLogger(FaceDetectionService.class);
+    private final Image image; // 图片
 
-  private final Image image; // 图片
-
-  public FaceDetectionService(Config config) {
-    this.image = new Image(config);
-  }
-
-  /**
-   * 图片
-   *
-   * @return
-   */
-  public Image image() {
-    return image;
-  }
-
-  public static class Image {
-
-    private final Config config;
-
-    public Image(Config config) {
-      this.config = config;
+    public FaceDetectionService(Config config) {
+        this.image = new Image(config);
     }
 
     /**
-     * 人脸检测和属性分析，检测图片中的人脸属性和质量等信息
-     * <p> 注意：返回值为 -1 表示该功能还暂未实现 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java</a>
-     * ;
+     * 图片
+     *
+     * @return
      */
-    public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/face_detection/v1/image/detect_face_attributes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DetectFaceAttributesImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Image image() {
+        return image;
     }
 
-    /**
-     * 人脸检测和属性分析，检测图片中的人脸属性和质量等信息
-     * <p> 注意：返回值为 -1 表示该功能还暂未实现 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java</a>
-     * ;
-     */
-    public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Image {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/face_detection/v1/image/detect_face_attributes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Image(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DetectFaceAttributesImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 人脸检测和属性分析，检测图片中的人脸属性和质量等信息
+         * <p> 注意：返回值为 -1 表示该功能还暂未实现 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java</a> ;
+         */
+        public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/face_detection/v1/image/detect_face_attributes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectFaceAttributesImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/face_detection/v1/image/detect_face_attributes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 人脸检测和属性分析，检测图片中的人脸属性和质量等信息
+         * <p> 注意：返回值为 -1 表示该功能还暂未实现 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java</a> ;
+         */
+        public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/face_detection/v1/image/detect_face_attributes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectFaceAttributesImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/face_detection/v1/image/detect_face_attributes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-  }
 
 }

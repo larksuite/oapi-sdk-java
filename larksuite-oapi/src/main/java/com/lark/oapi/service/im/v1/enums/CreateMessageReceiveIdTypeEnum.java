@@ -17,19 +17,19 @@ package com.lark.oapi.service.im.v1.enums;
  * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
  */
 public enum CreateMessageReceiveIdTypeEnum {
-  OPEN_ID("open_id"), // 以open_id来识别用户
-  USER_ID("user_id"), // 以user_id来识别用户
-  UNION_ID("union_id"), // 以union_id来识别用户
-  EMAIL("email"), // 以email来识别用户
-  CHAT_ID("chat_id"), // 以chat_id来识别群聊
-  ;
-  private String value;
+    OPEN_ID("open_id"), // 以open_id来识别用户
+    USER_ID("user_id"), // 以user_id来识别用户
+    UNION_ID("union_id"), // 以union_id来识别用户
+    EMAIL("email"), // 以email来识别用户
+    CHAT_ID("chat_id"), // 以chat_id来识别群聊
+    ;
+    private String value;
 
-  CreateMessageReceiveIdTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateMessageReceiveIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

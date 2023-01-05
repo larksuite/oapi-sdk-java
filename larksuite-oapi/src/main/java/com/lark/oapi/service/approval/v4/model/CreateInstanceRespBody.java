@@ -16,20 +16,19 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateInstanceRespBody {
+    /**
+     * 审批实例 Code
+     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
+    @SerializedName("instance_code")
+    private String instanceCode;
 
-  /**
-   * 审批实例 Code
-   * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-   */
-  @SerializedName("instance_code")
-  private String instanceCode;
+    public String getInstanceCode() {
+        return this.instanceCode;
+    }
 
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
+    }
 
 }

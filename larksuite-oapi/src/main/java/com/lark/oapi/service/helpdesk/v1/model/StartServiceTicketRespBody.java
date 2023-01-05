@@ -16,20 +16,19 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class StartServiceTicketRespBody {
+    /**
+     * 客服群open ID
+     * <p> 示例值：创建的 chat-id
+     */
+    @SerializedName("chat_id")
+    private String chatId;
 
-  /**
-   * 客服群open ID
-   * <p> 示例值：创建的 chat-id
-   */
-  @SerializedName("chat_id")
-  private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Level {
-
-  /**
-   * ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 名字
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 英文名
-   * <p> 示例值：
-   */
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public Level() {
-  }
-
-  public Level(Builder builder) {
     /**
      * ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 名字
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 英文名
-     * <p> 示例值：
-     */
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 名字
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
      * 英文名
      * <p> 示例值：
      */
+    @SerializedName("en_name")
     private String enName;
 
-    /**
-     * ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Level() {
     }
 
-
-    /**
-     * 名字
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Level(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        this.enName = builder.enName;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Level build() {
-      return new Level(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        private String enName;
+
+        /**
+         * ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 名字
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        public Level build() {
+            return new Level(this);
+        }
+    }
 }

@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobManager {
-
-  /**
-   * 职位 ID
-   * <p> 示例值：1618209327096
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
-   * <p> 示例值：ou_efk39117c300506837def50545420c6a
-   */
-  @SerializedName("recruiter_id")
-  private String recruiterId;
-  /**
-   * 用人经理 ID 列表
-   * <p> 示例值：6960663240925956554
-   */
-  @SerializedName("hiring_manager_id_list")
-  private String[] hiringManagerIdList;
-  /**
-   * 协助人 ID 列表
-   * <p> 示例值：6960663240925956554
-   */
-  @SerializedName("assistant_id_list")
-  private String[] assistantIdList;
-
-  // builder 开始
-  public JobManager() {
-  }
-
-  public JobManager(Builder builder) {
     /**
      * 职位 ID
      * <p> 示例值：1618209327096
      */
-    this.id = builder.id;
-    /**
-     * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
-     * <p> 示例值：ou_efk39117c300506837def50545420c6a
-     */
-    this.recruiterId = builder.recruiterId;
-    /**
-     * 用人经理 ID 列表
-     * <p> 示例值：6960663240925956554
-     */
-    this.hiringManagerIdList = builder.hiringManagerIdList;
-    /**
-     * 协助人 ID 列表
-     * <p> 示例值：6960663240925956554
-     */
-    this.assistantIdList = builder.assistantIdList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getRecruiterId() {
-    return this.recruiterId;
-  }
-
-  public void setRecruiterId(String recruiterId) {
-    this.recruiterId = recruiterId;
-  }
-
-  public String[] getHiringManagerIdList() {
-    return this.hiringManagerIdList;
-  }
-
-  public void setHiringManagerIdList(String[] hiringManagerIdList) {
-    this.hiringManagerIdList = hiringManagerIdList;
-  }
-
-  public String[] getAssistantIdList() {
-    return this.assistantIdList;
-  }
-
-  public void setAssistantIdList(String[] assistantIdList) {
-    this.assistantIdList = assistantIdList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 职位 ID
-     * <p> 示例值：1618209327096
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
      * <p> 示例值：ou_efk39117c300506837def50545420c6a
      */
+    @SerializedName("recruiter_id")
     private String recruiterId;
     /**
      * 用人经理 ID 列表
      * <p> 示例值：6960663240925956554
      */
+    @SerializedName("hiring_manager_id_list")
     private String[] hiringManagerIdList;
     /**
      * 协助人 ID 列表
      * <p> 示例值：6960663240925956554
      */
+    @SerializedName("assistant_id_list")
     private String[] assistantIdList;
 
-    /**
-     * 职位 ID
-     * <p> 示例值：1618209327096
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public JobManager() {
     }
 
-
-    /**
-     * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
-     * <p> 示例值：ou_efk39117c300506837def50545420c6a
-     *
-     * @param recruiterId
-     * @return
-     */
-    public Builder recruiterId(String recruiterId) {
-      this.recruiterId = recruiterId;
-      return this;
+    public JobManager(Builder builder) {
+        /**
+         * 职位 ID
+         * <p> 示例值：1618209327096
+         */
+        this.id = builder.id;
+        /**
+         * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         */
+        this.recruiterId = builder.recruiterId;
+        /**
+         * 用人经理 ID 列表
+         * <p> 示例值：6960663240925956554
+         */
+        this.hiringManagerIdList = builder.hiringManagerIdList;
+        /**
+         * 协助人 ID 列表
+         * <p> 示例值：6960663240925956554
+         */
+        this.assistantIdList = builder.assistantIdList;
     }
 
-
-    /**
-     * 用人经理 ID 列表
-     * <p> 示例值：6960663240925956554
-     *
-     * @param hiringManagerIdList
-     * @return
-     */
-    public Builder hiringManagerIdList(String[] hiringManagerIdList) {
-      this.hiringManagerIdList = hiringManagerIdList;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 协助人 ID 列表
-     * <p> 示例值：6960663240925956554
-     *
-     * @param assistantIdList
-     * @return
-     */
-    public Builder assistantIdList(String[] assistantIdList) {
-      this.assistantIdList = assistantIdList;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public JobManager build() {
-      return new JobManager(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getRecruiterId() {
+        return this.recruiterId;
+    }
+
+    public void setRecruiterId(String recruiterId) {
+        this.recruiterId = recruiterId;
+    }
+
+    public String[] getHiringManagerIdList() {
+        return this.hiringManagerIdList;
+    }
+
+    public void setHiringManagerIdList(String[] hiringManagerIdList) {
+        this.hiringManagerIdList = hiringManagerIdList;
+    }
+
+    public String[] getAssistantIdList() {
+        return this.assistantIdList;
+    }
+
+    public void setAssistantIdList(String[] assistantIdList) {
+        this.assistantIdList = assistantIdList;
+    }
+
+    public static class Builder {
+        /**
+         * 职位 ID
+         * <p> 示例值：1618209327096
+         */
+        private String id;
+        /**
+         * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         */
+        private String recruiterId;
+        /**
+         * 用人经理 ID 列表
+         * <p> 示例值：6960663240925956554
+         */
+        private String[] hiringManagerIdList;
+        /**
+         * 协助人 ID 列表
+         * <p> 示例值：6960663240925956554
+         */
+        private String[] assistantIdList;
+
+        /**
+         * 职位 ID
+         * <p> 示例值：1618209327096
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID
+         * <p> 示例值：ou_efk39117c300506837def50545420c6a
+         *
+         * @param recruiterId
+         * @return
+         */
+        public Builder recruiterId(String recruiterId) {
+            this.recruiterId = recruiterId;
+            return this;
+        }
+
+
+        /**
+         * 用人经理 ID 列表
+         * <p> 示例值：6960663240925956554
+         *
+         * @param hiringManagerIdList
+         * @return
+         */
+        public Builder hiringManagerIdList(String[] hiringManagerIdList) {
+            this.hiringManagerIdList = hiringManagerIdList;
+            return this;
+        }
+
+
+        /**
+         * 协助人 ID 列表
+         * <p> 示例值：6960663240925956554
+         *
+         * @param assistantIdList
+         * @return
+         */
+        public Builder assistantIdList(String[] assistantIdList) {
+            this.assistantIdList = assistantIdList;
+            return this;
+        }
+
+
+        public JobManager build() {
+            return new JobManager(this);
+        }
+    }
 }

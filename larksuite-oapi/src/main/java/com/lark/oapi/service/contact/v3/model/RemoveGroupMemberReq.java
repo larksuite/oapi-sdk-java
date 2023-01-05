@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class RemoveGroupMemberReq {
-
-  /**
-   * 用户组ID
-   * <p> 示例值：g198123
-   */
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-  @Body
-  private RemoveGroupMemberReqBody body;
-
-  // builder 开始
-  public RemoveGroupMemberReq() {
-  }
-
-  public RemoveGroupMemberReq(Builder builder) {
     /**
      * 用户组ID
      * <p> 示例值：g198123
      */
-    this.groupId = builder.groupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public RemoveGroupMemberReqBody getRemoveGroupMemberReqBody() {
-    return this.body;
-  }
-
-  public void setRemoveGroupMemberReqBody(RemoveGroupMemberReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String groupId; // 用户组ID
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
+    @Body
     private RemoveGroupMemberReqBody body;
 
-    /**
-     * 用户组ID
-     * <p> 示例值：g198123
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public RemoveGroupMemberReq() {
+    }
+
+    public RemoveGroupMemberReq(Builder builder) {
+        /**
+         * 用户组ID
+         * <p> 示例值：g198123
+         */
+        this.groupId = builder.groupId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public RemoveGroupMemberReqBody getRemoveGroupMemberReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder removeGroupMemberReqBody(RemoveGroupMemberReqBody body) {
-      this.body = body;
-      return this;
+    public void setRemoveGroupMemberReqBody(RemoveGroupMemberReqBody body) {
+        this.body = body;
     }
 
-    public RemoveGroupMemberReq build() {
-      return new RemoveGroupMemberReq(this);
+    public static class Builder {
+
+        private String groupId; // 用户组ID
+        private RemoveGroupMemberReqBody body;
+
+        /**
+         * 用户组ID
+         * <p> 示例值：g198123
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+        public RemoveGroupMemberReqBody getRemoveGroupMemberReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder removeGroupMemberReqBody(RemoveGroupMemberReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public RemoveGroupMemberReq build() {
+            return new RemoveGroupMemberReq(this);
+        }
     }
-  }
 }

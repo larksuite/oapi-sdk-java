@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ExecuteSendNotificationReqBody {
-
-  /**
-   * 发送时间戳(毫秒)
-   * <p> 示例值：1624326025000
-   */
-  @SerializedName("send_at")
-  private String sendAt;
-
-  // builder 开始
-  public ExecuteSendNotificationReqBody() {
-  }
-
-  public ExecuteSendNotificationReqBody(Builder builder) {
     /**
      * 发送时间戳(毫秒)
      * <p> 示例值：1624326025000
      */
-    this.sendAt = builder.sendAt;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSendAt() {
-    return this.sendAt;
-  }
-
-  public void setSendAt(String sendAt) {
-    this.sendAt = sendAt;
-  }
-
-  public static class Builder {
-
-    /**
-     * 发送时间戳(毫秒)
-     * <p> 示例值：1624326025000
-     */
+    @SerializedName("send_at")
     private String sendAt;
 
-    /**
-     * 发送时间戳(毫秒)
-     * <p> 示例值：1624326025000
-     *
-     * @param sendAt
-     * @return
-     */
-    public Builder sendAt(String sendAt) {
-      this.sendAt = sendAt;
-      return this;
+    // builder 开始
+    public ExecuteSendNotificationReqBody() {
     }
 
-
-    public ExecuteSendNotificationReqBody build() {
-      return new ExecuteSendNotificationReqBody(this);
+    public ExecuteSendNotificationReqBody(Builder builder) {
+        /**
+         * 发送时间戳(毫秒)
+         * <p> 示例值：1624326025000
+         */
+        this.sendAt = builder.sendAt;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSendAt() {
+        return this.sendAt;
+    }
+
+    public void setSendAt(String sendAt) {
+        this.sendAt = sendAt;
+    }
+
+    public static class Builder {
+        /**
+         * 发送时间戳(毫秒)
+         * <p> 示例值：1624326025000
+         */
+        private String sendAt;
+
+        /**
+         * 发送时间戳(毫秒)
+         * <p> 示例值：1624326025000
+         *
+         * @param sendAt
+         * @return
+         */
+        public Builder sendAt(String sendAt) {
+            this.sendAt = sendAt;
+            return this;
+        }
+
+
+        public ExecuteSendNotificationReqBody build() {
+            return new ExecuteSendNotificationReqBody(this);
+        }
+    }
 }

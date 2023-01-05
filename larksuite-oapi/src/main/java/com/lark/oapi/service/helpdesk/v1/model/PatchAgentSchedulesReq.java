@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchAgentSchedulesReq {
-
-  /**
-   * 客服 id
-   * <p> 示例值：123456
-   */
-  @Path
-  @SerializedName("agent_id")
-  private String agentId;
-  @Body
-  private PatchAgentSchedulesReqBody body;
-
-  // builder 开始
-  public PatchAgentSchedulesReq() {
-  }
-
-  public PatchAgentSchedulesReq(Builder builder) {
     /**
      * 客服 id
      * <p> 示例值：123456
      */
-    this.agentId = builder.agentId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public PatchAgentSchedulesReqBody getPatchAgentSchedulesReqBody() {
-    return this.body;
-  }
-
-  public void setPatchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String agentId; // 客服 id
+    @Path
+    @SerializedName("agent_id")
+    private String agentId;
+    @Body
     private PatchAgentSchedulesReqBody body;
 
-    /**
-     * 客服 id
-     * <p> 示例值：123456
-     *
-     * @param agentId
-     * @return
-     */
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
+    // builder 开始
+    public PatchAgentSchedulesReq() {
+    }
+
+    public PatchAgentSchedulesReq(Builder builder) {
+        /**
+         * 客服 id
+         * <p> 示例值：123456
+         */
+        this.agentId = builder.agentId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAgentId() {
+        return this.agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
     }
 
     public PatchAgentSchedulesReqBody getPatchAgentSchedulesReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder patchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
+        this.body = body;
     }
 
-    public PatchAgentSchedulesReq build() {
-      return new PatchAgentSchedulesReq(this);
+    public static class Builder {
+
+        private String agentId; // 客服 id
+        private PatchAgentSchedulesReqBody body;
+
+        /**
+         * 客服 id
+         * <p> 示例值：123456
+         *
+         * @param agentId
+         * @return
+         */
+        public Builder agentId(String agentId) {
+            this.agentId = agentId;
+            return this;
+        }
+
+        public PatchAgentSchedulesReqBody getPatchAgentSchedulesReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder patchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchAgentSchedulesReq build() {
+            return new PatchAgentSchedulesReq(this);
+        }
     }
-  }
 }

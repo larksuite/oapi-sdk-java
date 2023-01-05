@@ -17,19 +17,19 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 雇员类型
  */
 public enum SystemFieldsEmployeeTypeEnum {
-  REGULAR(1), // 全职
-  INTERN(2), // 实习
-  CONSULTANT(3), // 顾问
-  OUTSOURCING(4), // 外包
-  CONTRACTOR(5), // 劳务
-  ;
-  private Integer value;
+    REGULAR(1), // 全职
+    INTERN(2), // 实习
+    CONSULTANT(3), // 顾问
+    OUTSOURCING(4), // 外包
+    CONTRACTOR(5), // 劳务
+    ;
+    private Integer value;
 
-  SystemFieldsEmployeeTypeEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsEmployeeTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

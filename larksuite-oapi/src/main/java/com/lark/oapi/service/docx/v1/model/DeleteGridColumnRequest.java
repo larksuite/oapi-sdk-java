@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DeleteGridColumnRequest {
-
-  /**
-   * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
-   * <p> 示例值：0
-   */
-  @SerializedName("column_index")
-  private Integer columnIndex;
-
-  // builder 开始
-  public DeleteGridColumnRequest() {
-  }
-
-  public DeleteGridColumnRequest(Builder builder) {
     /**
      * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
      * <p> 示例值：0
      */
-    this.columnIndex = builder.columnIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnIndex() {
-    return this.columnIndex;
-  }
-
-  public void setColumnIndex(Integer columnIndex) {
-    this.columnIndex = columnIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
-     * <p> 示例值：0
-     */
+    @SerializedName("column_index")
     private Integer columnIndex;
 
-    /**
-     * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
-     * <p> 示例值：0
-     *
-     * @param columnIndex
-     * @return
-     */
-    public Builder columnIndex(Integer columnIndex) {
-      this.columnIndex = columnIndex;
-      return this;
+    // builder 开始
+    public DeleteGridColumnRequest() {
     }
 
-
-    public DeleteGridColumnRequest build() {
-      return new DeleteGridColumnRequest(this);
+    public DeleteGridColumnRequest(Builder builder) {
+        /**
+         * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+         * <p> 示例值：0
+         */
+        this.columnIndex = builder.columnIndex;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getColumnIndex() {
+        return this.columnIndex;
+    }
+
+    public void setColumnIndex(Integer columnIndex) {
+        this.columnIndex = columnIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+         * <p> 示例值：0
+         */
+        private Integer columnIndex;
+
+        /**
+         * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+         * <p> 示例值：0
+         *
+         * @param columnIndex
+         * @return
+         */
+        public Builder columnIndex(Integer columnIndex) {
+            this.columnIndex = columnIndex;
+            return this;
+        }
+
+
+        public DeleteGridColumnRequest build() {
+            return new DeleteGridColumnRequest(this);
+        }
+    }
 }

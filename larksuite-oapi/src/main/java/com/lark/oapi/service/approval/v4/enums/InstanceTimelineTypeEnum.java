@@ -17,30 +17,30 @@ package com.lark.oapi.service.approval.v4.enums;
  * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
  */
 public enum InstanceTimelineTypeEnum {
-  START("START"), // 审批开始
-  PASS("PASS"), // 通过
-  REJECT("REJECT"), // 拒绝
-  AUTOPASS("AUTO_PASS"), // 自动通过
-  AUTOREJECT("AUTO_REJECT"), // 自动拒绝
-  REMOVEREPEAT("REMOVE_REPEAT"), // 去重
-  TRANSFER("TRANSFER"), // 转交
-  ADDAPPROVERBEFORE("ADD_APPROVER_BEFORE"), // 前加签
-  ADDAPPROVER("ADD_APPROVER"), // 并加签
-  ADDAPPROVERAFTER("ADD_APPROVER_AFTER"), // 后加签
-  DELETEAPPROVER("DELETE_APPROVER"), // 减签
-  ROLLBACKSELECTED("ROLLBACK_SELECTED"), // 指定回退
-  ROLLBACK("ROLLBACK"), // 全部回退
-  CANCEL("CANCEL"), // 撤回
-  DELETE("DELETE"), // 删除
-  CC("CC"), // 抄送
-  ;
-  private String value;
+    START("START"), // 审批开始
+    PASS("PASS"), // 通过
+    REJECT("REJECT"), // 拒绝
+    AUTOPASS("AUTO_PASS"), // 自动通过
+    AUTOREJECT("AUTO_REJECT"), // 自动拒绝
+    REMOVEREPEAT("REMOVE_REPEAT"), // 去重
+    TRANSFER("TRANSFER"), // 转交
+    ADDAPPROVERBEFORE("ADD_APPROVER_BEFORE"), // 前加签
+    ADDAPPROVER("ADD_APPROVER"), // 并加签
+    ADDAPPROVERAFTER("ADD_APPROVER_AFTER"), // 后加签
+    DELETEAPPROVER("DELETE_APPROVER"), // 减签
+    ROLLBACKSELECTED("ROLLBACK_SELECTED"), // 指定回退
+    ROLLBACK("ROLLBACK"), // 全部回退
+    CANCEL("CANCEL"), // 撤回
+    DELETE("DELETE"), // 删除
+    CC("CC"), // 抄送
+    ;
+    private String value;
 
-  InstanceTimelineTypeEnum(String value) {
-    this.value = value;
-  }
+    InstanceTimelineTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

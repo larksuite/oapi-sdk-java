@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListJobProcess {
 
-  /**
-   * 是否还有更多项
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-   * <p> 示例值：1
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private JobProcesses[] items;
+    /**
+     * 是否还有更多项
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：1
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private JobProcesses[] items;
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public JobProcesses[] getItems() {
-    return this.items;
-  }
+    public JobProcesses[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(JobProcesses[] items) {
-    this.items = items;
-  }
+    public void setItems(JobProcesses[] items) {
+        this.items = items;
+    }
 
 }

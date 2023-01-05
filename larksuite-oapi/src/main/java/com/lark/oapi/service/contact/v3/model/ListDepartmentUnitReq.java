@@ -17,173 +17,170 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListDepartmentUnitReq {
-
-  /**
-   * 单位ID
-   * <p> 示例值：BU121
-   */
-  @Query
-  @SerializedName("unit_id")
-  private String unitId;
-  /**
-   * 此次调用中预获取的部门ID的类型
-   * <p> 示例值：open_department_id
-   */
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  /**
-   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 分页大小
-   * <p> 示例值：50
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListDepartmentUnitReq() {
-  }
-
-  public ListDepartmentUnitReq(Builder builder) {
     /**
      * 单位ID
      * <p> 示例值：BU121
      */
-    this.unitId = builder.unitId;
+    @Query
+    @SerializedName("unit_id")
+    private String unitId;
     /**
      * 此次调用中预获取的部门ID的类型
      * <p> 示例值：open_department_id
      */
-    this.departmentIdType = builder.departmentIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
      * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 分页大小
      * <p> 示例值：50
      */
-    this.pageSize = builder.pageSize;
-  }
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String unitId; // 单位ID
-    private String departmentIdType; // 此次调用中预获取的部门ID的类型
-    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-    private Integer pageSize; // 分页大小
-
-
-    /**
-     * 单位ID
-     * <p> 示例值：BU121
-     *
-     * @param unitId
-     * @return
-     */
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    // builder 开始
+    public ListDepartmentUnitReq() {
     }
 
-
-    /**
-     * 此次调用中预获取的部门ID的类型
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType
-     * @return
-     */
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    public ListDepartmentUnitReq(Builder builder) {
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         */
+        this.unitId = builder.unitId;
+        /**
+         * 此次调用中预获取的部门ID的类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 分页大小
+         * <p> 示例值：50
+         */
+        this.pageSize = builder.pageSize;
     }
 
-    /**
-     * 此次调用中预获取的部门ID的类型
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ListDepartmentUnitDepartmentIdTypeEnum}
-     * @return
-     */
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.ListDepartmentUnitDepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public String getUnitId() {
+        return this.unitId;
     }
 
-
-    /**
-     * 分页大小
-     * <p> 示例值：50
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
     }
 
-    public ListDepartmentUnitReq build() {
-      return new ListDepartmentUnitReq(this);
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
     }
-  }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String unitId; // 单位ID
+        private String departmentIdType; // 此次调用中预获取的部门ID的类型
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private Integer pageSize; // 分页大小
+
+
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         *
+         * @param unitId
+         * @return
+         */
+        public Builder unitId(String unitId) {
+            this.unitId = unitId;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中预获取的部门ID的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中预获取的部门ID的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ListDepartmentUnitDepartmentIdTypeEnum}
+         * @return
+         */
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ListDepartmentUnitDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 分页大小
+         * <p> 示例值：50
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListDepartmentUnitReq build() {
+            return new ListDepartmentUnitReq(this);
+        }
+    }
 }

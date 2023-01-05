@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppVersionId {
-
-  /**
-   * 开发者填入的应用版本 ID
-   * <p> 示例值：1.0.0
-   */
-  @SerializedName("version")
-  private String version;
-  /**
-   * 唯一标识应用版本的 ID
-   * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-   */
-  @SerializedName("version_id")
-  private String versionId;
-
-  // builder 开始
-  public AppVersionId() {
-  }
-
-  public AppVersionId(Builder builder) {
     /**
      * 开发者填入的应用版本 ID
      * <p> 示例值：1.0.0
      */
-    this.version = builder.version;
-    /**
-     * 唯一标识应用版本的 ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     */
-    this.versionId = builder.versionId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 开发者填入的应用版本 ID
-     * <p> 示例值：1.0.0
-     */
+    @SerializedName("version")
     private String version;
     /**
      * 唯一标识应用版本的 ID
      * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
      */
+    @SerializedName("version_id")
     private String versionId;
 
-    /**
-     * 开发者填入的应用版本 ID
-     * <p> 示例值：1.0.0
-     *
-     * @param version
-     * @return
-     */
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    // builder 开始
+    public AppVersionId() {
     }
 
-
-    /**
-     * 唯一标识应用版本的 ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     *
-     * @param versionId
-     * @return
-     */
-    public Builder versionId(String versionId) {
-      this.versionId = versionId;
-      return this;
+    public AppVersionId(Builder builder) {
+        /**
+         * 开发者填入的应用版本 ID
+         * <p> 示例值：1.0.0
+         */
+        this.version = builder.version;
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         */
+        this.versionId = builder.versionId;
     }
 
-
-    public AppVersionId build() {
-      return new AppVersionId(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
+
+    public static class Builder {
+        /**
+         * 开发者填入的应用版本 ID
+         * <p> 示例值：1.0.0
+         */
+        private String version;
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         */
+        private String versionId;
+
+        /**
+         * 开发者填入的应用版本 ID
+         * <p> 示例值：1.0.0
+         *
+         * @param version
+         * @return
+         */
+        public Builder version(String version) {
+            this.version = version;
+            return this;
+        }
+
+
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         *
+         * @param versionId
+         * @return
+         */
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
+
+
+        public AppVersionId build() {
+            return new AppVersionId(this);
+        }
+    }
 }

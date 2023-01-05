@@ -16,76 +16,75 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryRoomConfigRespBody {
+    /**
+     * 飞书会议室背景图
+     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+     */
+    @SerializedName("room_background")
+    private String roomBackground;
+    /**
+     * 飞书签到板背景图
+     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+     */
+    @SerializedName("display_background")
+    private String displayBackground;
+    /**
+     * 飞书会议室数字标牌
+     * <p> 示例值：
+     */
+    @SerializedName("digital_signage")
+    private RoomDigitalSignage digitalSignage;
+    /**
+     * 飞书投屏盒子数字标牌
+     * <p> 示例值：
+     */
+    @SerializedName("room_box_digital_signage")
+    private RoomDigitalSignage roomBoxDigitalSignage;
+    /**
+     * 会议室状态
+     * <p> 示例值：
+     */
+    @SerializedName("room_status")
+    private RoomStatus roomStatus;
 
-  /**
-   * 飞书会议室背景图
-   * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-   */
-  @SerializedName("room_background")
-  private String roomBackground;
-  /**
-   * 飞书签到板背景图
-   * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-   */
-  @SerializedName("display_background")
-  private String displayBackground;
-  /**
-   * 飞书会议室数字标牌
-   * <p> 示例值：
-   */
-  @SerializedName("digital_signage")
-  private RoomDigitalSignage digitalSignage;
-  /**
-   * 飞书投屏盒子数字标牌
-   * <p> 示例值：
-   */
-  @SerializedName("room_box_digital_signage")
-  private RoomDigitalSignage roomBoxDigitalSignage;
-  /**
-   * 会议室状态
-   * <p> 示例值：
-   */
-  @SerializedName("room_status")
-  private RoomStatus roomStatus;
+    public String getRoomBackground() {
+        return this.roomBackground;
+    }
 
-  public String getRoomBackground() {
-    return this.roomBackground;
-  }
+    public void setRoomBackground(String roomBackground) {
+        this.roomBackground = roomBackground;
+    }
 
-  public void setRoomBackground(String roomBackground) {
-    this.roomBackground = roomBackground;
-  }
+    public String getDisplayBackground() {
+        return this.displayBackground;
+    }
 
-  public String getDisplayBackground() {
-    return this.displayBackground;
-  }
+    public void setDisplayBackground(String displayBackground) {
+        this.displayBackground = displayBackground;
+    }
 
-  public void setDisplayBackground(String displayBackground) {
-    this.displayBackground = displayBackground;
-  }
+    public RoomDigitalSignage getDigitalSignage() {
+        return this.digitalSignage;
+    }
 
-  public RoomDigitalSignage getDigitalSignage() {
-    return this.digitalSignage;
-  }
+    public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
+        this.digitalSignage = digitalSignage;
+    }
 
-  public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
-    this.digitalSignage = digitalSignage;
-  }
+    public RoomDigitalSignage getRoomBoxDigitalSignage() {
+        return this.roomBoxDigitalSignage;
+    }
 
-  public RoomDigitalSignage getRoomBoxDigitalSignage() {
-    return this.roomBoxDigitalSignage;
-  }
+    public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
+        this.roomBoxDigitalSignage = roomBoxDigitalSignage;
+    }
 
-  public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
-    this.roomBoxDigitalSignage = roomBoxDigitalSignage;
-  }
+    public RoomStatus getRoomStatus() {
+        return this.roomStatus;
+    }
 
-  public RoomStatus getRoomStatus() {
-    return this.roomStatus;
-  }
-
-  public void setRoomStatus(RoomStatus roomStatus) {
-    this.roomStatus = roomStatus;
-  }
+    public void setRoomStatus(RoomStatus roomStatus) {
+        this.roomStatus = roomStatus;
+    }
 
 }

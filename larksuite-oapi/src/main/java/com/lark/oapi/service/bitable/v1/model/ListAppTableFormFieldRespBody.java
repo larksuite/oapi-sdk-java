@@ -16,62 +16,61 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListAppTableFormFieldRespBody {
+    /**
+     * 表单问题信息
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private AppTableFormField[] items;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：fld1lAbHh7
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有下一页
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 总数
+     * <p> 示例值：1
+     */
+    @SerializedName("total")
+    private Integer total;
 
-  /**
-   * 表单问题信息
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private AppTableFormField[] items;
-  /**
-   * 下一页分页的token
-   * <p> 示例值：fld1lAbHh7
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有下一页
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 总数
-   * <p> 示例值：1
-   */
-  @SerializedName("total")
-  private Integer total;
+    public AppTableFormField[] getItems() {
+        return this.items;
+    }
 
-  public AppTableFormField[] getItems() {
-    return this.items;
-  }
+    public void setItems(AppTableFormField[] items) {
+        this.items = items;
+    }
 
-  public void setItems(AppTableFormField[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public Integer getTotal() {
-    return this.total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
 }

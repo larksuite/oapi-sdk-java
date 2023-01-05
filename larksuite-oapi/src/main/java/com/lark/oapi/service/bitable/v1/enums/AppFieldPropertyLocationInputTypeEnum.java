@@ -17,16 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 地理位置输入限制
  */
 public enum AppFieldPropertyLocationInputTypeEnum {
-  ONLYMOBILE("only_mobile"), // 只允许移动端上传
-  NOTLIMIT("not_limit"), // 无限制
-  ;
-  private String value;
+    ONLYMOBILE("only_mobile"), // 只允许移动端上传
+    NOTLIMIT("not_limit"), // 无限制
+    ;
+    private String value;
 
-  AppFieldPropertyLocationInputTypeEnum(String value) {
-    this.value = value;
-  }
+    AppFieldPropertyLocationInputTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

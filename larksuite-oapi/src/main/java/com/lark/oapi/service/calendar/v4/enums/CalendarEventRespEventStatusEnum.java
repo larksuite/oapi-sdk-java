@@ -17,17 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 日程状态
  */
 public enum CalendarEventRespEventStatusEnum {
-  TENTATIVE("tentative"), // 未回应
-  CONFIRMED("confirmed"), // 已确认
-  CANCELLED("cancelled"), // 日程已取消
-  ;
-  private String value;
+    TENTATIVE("tentative"), // 未回应
+    CONFIRMED("confirmed"), // 已确认
+    CANCELLED("cancelled"), // 日程已取消
+    ;
+    private String value;
 
-  CalendarEventRespEventStatusEnum(String value) {
-    this.value = value;
-  }
+    CalendarEventRespEventStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.application.v6.enums;
  * 反馈来源：1： 小程序 2：网页应用 3：机器人 4：webSDK
  */
 public enum ApplicationFeedbackOpenFeedbackSourceEnum {
-  MP(1), // 小程序
-  WEBPAGE(2), // 网页应用
-  BOT(3), // 机器人
-  WEBSDK(4), // WebSDK
-  ;
-  private Integer value;
+    MP(1), // 小程序
+    WEBPAGE(2), // 网页应用
+    BOT(3), // 机器人
+    WEBSDK(4), // WebSDK
+    ;
+    private Integer value;
 
-  ApplicationFeedbackOpenFeedbackSourceEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationFeedbackOpenFeedbackSourceEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

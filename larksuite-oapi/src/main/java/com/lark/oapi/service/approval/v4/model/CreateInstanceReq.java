@@ -16,51 +16,50 @@ package com.lark.oapi.service.approval.v4.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateInstanceReq {
-
-  @Body
-  private InstanceCreate body;
-
-  // builder 开始
-  public CreateInstanceReq() {
-  }
-
-  public CreateInstanceReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public InstanceCreate getInstanceCreate() {
-    return this.body;
-  }
-
-  public void setInstanceCreate(InstanceCreate body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private InstanceCreate body;
 
+    // builder 开始
+    public CreateInstanceReq() {
+    }
+
+    public CreateInstanceReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public InstanceCreate getInstanceCreate() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder instanceCreate(InstanceCreate body) {
-      this.body = body;
-      return this;
+    public void setInstanceCreate(InstanceCreate body) {
+        this.body = body;
     }
 
-    public CreateInstanceReq build() {
-      return new CreateInstanceReq(this);
+    public static class Builder {
+
+        private InstanceCreate body;
+
+        public InstanceCreate getInstanceCreate() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder instanceCreate(InstanceCreate body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateInstanceReq build() {
+            return new CreateInstanceReq(this);
+        }
     }
-  }
 }

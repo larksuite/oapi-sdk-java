@@ -15,16 +15,16 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum PermCheckModeEnum {
-  WITHIN(1),
-  WITHOUT(2),
-  ;
-  private Integer value;
+    WITHIN(1),
+    WITHOUT(2),
+    ;
+    private Integer value;
 
-  PermCheckModeEnum(Integer value) {
-    this.value = value;
-  }
+    PermCheckModeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

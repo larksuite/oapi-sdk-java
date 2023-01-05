@@ -16,172 +16,170 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Person {
-
-  /**
-   * 人员Id
-   * <p> 示例值：testesttest
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 中文姓名
-   * <p> 示例值：黄泡泡
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 英文姓名
-   * <p> 示例值：Paopao Huang
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 邮箱
-   * <p> 示例值：huangpaopao@feishu.cn
-   */
-  @SerializedName("email")
-  private String email;
-
-  // builder 开始
-  public Person() {
-  }
-
-  public Person(Builder builder) {
     /**
-     * 人员Id
+     * 用户id，id类型等于user_id_type所指定的类型。
      * <p> 示例值：testesttest
      */
-    this.id = builder.id;
-    /**
-     * 中文姓名
-     * <p> 示例值：黄泡泡
-     */
-    this.name = builder.name;
-    /**
-     * 英文姓名
-     * <p> 示例值：Paopao Huang
-     */
-    this.enName = builder.enName;
-    /**
-     * 邮箱
-     * <p> 示例值：huangpaopao@feishu.cn
-     */
-    this.email = builder.email;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public static class Builder {
-
-    /**
-     * 人员Id
-     * <p> 示例值：testesttest
-     */
+    @SerializedName("id")
     private String id;
     /**
-     * 中文姓名
+     * 用户的中文名称
      * <p> 示例值：黄泡泡
      */
+    @SerializedName("name")
     private String name;
     /**
-     * 英文姓名
+     * 用户的英文名称
      * <p> 示例值：Paopao Huang
      */
+    @SerializedName("en_name")
     private String enName;
     /**
-     * 邮箱
+     * 用户的邮箱
      * <p> 示例值：huangpaopao@feishu.cn
      */
+    @SerializedName("email")
     private String email;
 
-    /**
-     * 人员Id
-     * <p> 示例值：testesttest
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Person() {
     }
 
-
-    /**
-     * 中文姓名
-     * <p> 示例值：黄泡泡
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Person(Builder builder) {
+        /**
+         * 用户id，id类型等于user_id_type所指定的类型。
+         * <p> 示例值：testesttest
+         */
+        this.id = builder.id;
+        /**
+         * 用户的中文名称
+         * <p> 示例值：黄泡泡
+         */
+        this.name = builder.name;
+        /**
+         * 用户的英文名称
+         * <p> 示例值：Paopao Huang
+         */
+        this.enName = builder.enName;
+        /**
+         * 用户的邮箱
+         * <p> 示例值：huangpaopao@feishu.cn
+         */
+        this.email = builder.email;
     }
 
-
-    /**
-     * 英文姓名
-     * <p> 示例值：Paopao Huang
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 邮箱
-     * <p> 示例值：huangpaopao@feishu.cn
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public Person build() {
-      return new Person(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public static class Builder {
+        /**
+         * 用户id，id类型等于user_id_type所指定的类型。
+         * <p> 示例值：testesttest
+         */
+        private String id;
+        /**
+         * 用户的中文名称
+         * <p> 示例值：黄泡泡
+         */
+        private String name;
+        /**
+         * 用户的英文名称
+         * <p> 示例值：Paopao Huang
+         */
+        private String enName;
+        /**
+         * 用户的邮箱
+         * <p> 示例值：huangpaopao@feishu.cn
+         */
+        private String email;
+
+        /**
+         * 用户id，id类型等于user_id_type所指定的类型。
+         * <p> 示例值：testesttest
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 用户的中文名称
+         * <p> 示例值：黄泡泡
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 用户的英文名称
+         * <p> 示例值：Paopao Huang
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 用户的邮箱
+         * <p> 示例值：huangpaopao@feishu.cn
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        public Person build() {
+            return new Person(this);
+        }
+    }
 }

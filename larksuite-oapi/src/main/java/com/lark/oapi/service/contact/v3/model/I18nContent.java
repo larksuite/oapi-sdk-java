@@ -16,98 +16,96 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class I18nContent {
-
-  /**
-   * 语言版本
-   * <p> 示例值：zh_cn
-   */
-  @SerializedName("locale")
-  private String locale;
-  /**
-   * 字段名
-   * <p> 示例值：专家
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public I18nContent() {
-  }
-
-  public I18nContent(Builder builder) {
     /**
      * 语言版本
      * <p> 示例值：zh_cn
      */
-    this.locale = builder.locale;
-    /**
-     * 字段名
-     * <p> 示例值：专家
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 语言版本
-     * <p> 示例值：zh_cn
-     */
+    @SerializedName("locale")
     private String locale;
     /**
      * 字段名
      * <p> 示例值：专家
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 语言版本
-     * <p> 示例值：zh_cn
-     *
-     * @param locale
-     * @return
-     */
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    // builder 开始
+    public I18nContent() {
     }
 
-
-    /**
-     * 字段名
-     * <p> 示例值：专家
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public I18nContent(Builder builder) {
+        /**
+         * 语言版本
+         * <p> 示例值：zh_cn
+         */
+        this.locale = builder.locale;
+        /**
+         * 字段名
+         * <p> 示例值：专家
+         */
+        this.value = builder.value;
     }
 
-
-    public I18nContent build() {
-      return new I18nContent(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 语言版本
+         * <p> 示例值：zh_cn
+         */
+        private String locale;
+        /**
+         * 字段名
+         * <p> 示例值：专家
+         */
+        private String value;
+
+        /**
+         * 语言版本
+         * <p> 示例值：zh_cn
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+
+        /**
+         * 字段名
+         * <p> 示例值：专家
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public I18nContent build() {
+            return new I18nContent(this);
+        }
+    }
 }

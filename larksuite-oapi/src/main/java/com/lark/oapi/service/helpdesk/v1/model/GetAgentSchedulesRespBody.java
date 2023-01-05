@@ -16,20 +16,19 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetAgentSchedulesRespBody {
+    /**
+     * 客服日程
+     * <p> 示例值：
+     */
+    @SerializedName("agent_schedule")
+    private AgentSchedule agentSchedule;
 
-  /**
-   * 客服日程
-   * <p> 示例值：
-   */
-  @SerializedName("agent_schedule")
-  private AgentSchedule agentSchedule;
+    public AgentSchedule getAgentSchedule() {
+        return this.agentSchedule;
+    }
 
-  public AgentSchedule getAgentSchedule() {
-    return this.agentSchedule;
-  }
-
-  public void setAgentSchedule(AgentSchedule agentSchedule) {
-    this.agentSchedule = agentSchedule;
-  }
+    public void setAgentSchedule(AgentSchedule agentSchedule) {
+        this.agentSchedule = agentSchedule;
+    }
 
 }

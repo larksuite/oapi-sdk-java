@@ -16,51 +16,50 @@ package com.lark.oapi.service.im.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateFileReq {
-
-  @Body
-  private CreateFileReqBody body;
-
-  // builder 开始
-  public CreateFileReq() {
-  }
-
-  public CreateFileReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateFileReqBody getCreateFileReqBody() {
-    return this.body;
-  }
-
-  public void setCreateFileReqBody(CreateFileReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateFileReqBody body;
 
+    // builder 开始
+    public CreateFileReq() {
+    }
+
+    public CreateFileReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateFileReqBody getCreateFileReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createFileReqBody(CreateFileReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateFileReqBody(CreateFileReqBody body) {
+        this.body = body;
     }
 
-    public CreateFileReq build() {
-      return new CreateFileReq(this);
+    public static class Builder {
+
+        private CreateFileReqBody body;
+
+        public CreateFileReqBody getCreateFileReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createFileReqBody(CreateFileReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateFileReq build() {
+            return new CreateFileReq(this);
+        }
     }
-  }
 }

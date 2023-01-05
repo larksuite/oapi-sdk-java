@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DimensionProperties {
-
-  /**
-   * 是否隐藏
-   * <p> 示例值：false
-   */
-  @SerializedName("hidden")
-  private Boolean hidden;
-  /**
-   * 行/列像素大小
-   * <p> 示例值：100
-   */
-  @SerializedName("pixel_size")
-  private Integer pixelSize;
-
-  // builder 开始
-  public DimensionProperties() {
-  }
-
-  public DimensionProperties(Builder builder) {
     /**
      * 是否隐藏
      * <p> 示例值：false
      */
-    this.hidden = builder.hidden;
-    /**
-     * 行/列像素大小
-     * <p> 示例值：100
-     */
-    this.pixelSize = builder.pixelSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getHidden() {
-    return this.hidden;
-  }
-
-  public void setHidden(Boolean hidden) {
-    this.hidden = hidden;
-  }
-
-  public Integer getPixelSize() {
-    return this.pixelSize;
-  }
-
-  public void setPixelSize(Integer pixelSize) {
-    this.pixelSize = pixelSize;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否隐藏
-     * <p> 示例值：false
-     */
+    @SerializedName("hidden")
     private Boolean hidden;
     /**
      * 行/列像素大小
      * <p> 示例值：100
      */
+    @SerializedName("pixel_size")
     private Integer pixelSize;
 
-    /**
-     * 是否隐藏
-     * <p> 示例值：false
-     *
-     * @param hidden
-     * @return
-     */
-    public Builder hidden(Boolean hidden) {
-      this.hidden = hidden;
-      return this;
+    // builder 开始
+    public DimensionProperties() {
     }
 
-
-    /**
-     * 行/列像素大小
-     * <p> 示例值：100
-     *
-     * @param pixelSize
-     * @return
-     */
-    public Builder pixelSize(Integer pixelSize) {
-      this.pixelSize = pixelSize;
-      return this;
+    public DimensionProperties(Builder builder) {
+        /**
+         * 是否隐藏
+         * <p> 示例值：false
+         */
+        this.hidden = builder.hidden;
+        /**
+         * 行/列像素大小
+         * <p> 示例值：100
+         */
+        this.pixelSize = builder.pixelSize;
     }
 
-
-    public DimensionProperties build() {
-      return new DimensionProperties(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Boolean getHidden() {
+        return this.hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public Integer getPixelSize() {
+        return this.pixelSize;
+    }
+
+    public void setPixelSize(Integer pixelSize) {
+        this.pixelSize = pixelSize;
+    }
+
+    public static class Builder {
+        /**
+         * 是否隐藏
+         * <p> 示例值：false
+         */
+        private Boolean hidden;
+        /**
+         * 行/列像素大小
+         * <p> 示例值：100
+         */
+        private Integer pixelSize;
+
+        /**
+         * 是否隐藏
+         * <p> 示例值：false
+         *
+         * @param hidden
+         * @return
+         */
+        public Builder hidden(Boolean hidden) {
+            this.hidden = hidden;
+            return this;
+        }
+
+
+        /**
+         * 行/列像素大小
+         * <p> 示例值：100
+         *
+         * @param pixelSize
+         * @return
+         */
+        public Builder pixelSize(Integer pixelSize) {
+            this.pixelSize = pixelSize;
+            return this;
+        }
+
+
+        public DimensionProperties build() {
+            return new DimensionProperties(this);
+        }
+    }
 }

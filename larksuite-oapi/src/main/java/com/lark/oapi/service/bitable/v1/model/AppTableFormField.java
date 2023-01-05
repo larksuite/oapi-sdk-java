@@ -16,209 +16,207 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppTableFormField {
-
-  /**
-   * 表单问题 ID
-   * <p> 示例值：fldjX7dUj5
-   */
-  @SerializedName("field_id")
-  private String fieldId;
-  /**
-   * 表单问题
-   * <p> 示例值：多行文本
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 问题描述
-   * <p> 示例值：多行文本描述
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 是否必填
-   * <p> 示例值：true
-   */
-  @SerializedName("required")
-  private Boolean required;
-  /**
-   * 是否可见
-   * <p> 示例值：true
-   */
-  @SerializedName("visible")
-  private Boolean visible;
-
-  // builder 开始
-  public AppTableFormField() {
-  }
-
-  public AppTableFormField(Builder builder) {
     /**
      * 表单问题 ID
      * <p> 示例值：fldjX7dUj5
      */
-    this.fieldId = builder.fieldId;
-    /**
-     * 表单问题
-     * <p> 示例值：多行文本
-     */
-    this.title = builder.title;
-    /**
-     * 问题描述
-     * <p> 示例值：多行文本描述
-     */
-    this.description = builder.description;
-    /**
-     * 是否必填
-     * <p> 示例值：true
-     */
-    this.required = builder.required;
-    /**
-     * 是否可见
-     * <p> 示例值：true
-     */
-    this.visible = builder.visible;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Boolean getRequired() {
-    return this.required;
-  }
-
-  public void setRequired(Boolean required) {
-    this.required = required;
-  }
-
-  public Boolean getVisible() {
-    return this.visible;
-  }
-
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
-  }
-
-  public static class Builder {
-
-    /**
-     * 表单问题 ID
-     * <p> 示例值：fldjX7dUj5
-     */
+    @SerializedName("field_id")
     private String fieldId;
     /**
      * 表单问题
      * <p> 示例值：多行文本
      */
+    @SerializedName("title")
     private String title;
     /**
      * 问题描述
      * <p> 示例值：多行文本描述
      */
+    @SerializedName("description")
     private String description;
     /**
      * 是否必填
      * <p> 示例值：true
      */
+    @SerializedName("required")
     private Boolean required;
     /**
      * 是否可见
      * <p> 示例值：true
      */
+    @SerializedName("visible")
     private Boolean visible;
 
-    /**
-     * 表单问题 ID
-     * <p> 示例值：fldjX7dUj5
-     *
-     * @param fieldId
-     * @return
-     */
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
+    // builder 开始
+    public AppTableFormField() {
     }
 
-
-    /**
-     * 表单问题
-     * <p> 示例值：多行文本
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public AppTableFormField(Builder builder) {
+        /**
+         * 表单问题 ID
+         * <p> 示例值：fldjX7dUj5
+         */
+        this.fieldId = builder.fieldId;
+        /**
+         * 表单问题
+         * <p> 示例值：多行文本
+         */
+        this.title = builder.title;
+        /**
+         * 问题描述
+         * <p> 示例值：多行文本描述
+         */
+        this.description = builder.description;
+        /**
+         * 是否必填
+         * <p> 示例值：true
+         */
+        this.required = builder.required;
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        this.visible = builder.visible;
     }
 
-
-    /**
-     * 问题描述
-     * <p> 示例值：多行文本描述
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 是否必填
-     * <p> 示例值：true
-     *
-     * @param required
-     * @return
-     */
-    public Builder required(Boolean required) {
-      this.required = required;
-      return this;
+    public String getFieldId() {
+        return this.fieldId;
     }
 
-
-    /**
-     * 是否可见
-     * <p> 示例值：true
-     *
-     * @param visible
-     * @return
-     */
-    public Builder visible(Boolean visible) {
-      this.visible = visible;
-      return this;
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
     }
 
-
-    public AppTableFormField build() {
-      return new AppTableFormField(this);
+    public String getTitle() {
+        return this.title;
     }
-  }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getRequired() {
+        return this.required;
+    }
+
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    public Boolean getVisible() {
+        return this.visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
+    public static class Builder {
+        /**
+         * 表单问题 ID
+         * <p> 示例值：fldjX7dUj5
+         */
+        private String fieldId;
+        /**
+         * 表单问题
+         * <p> 示例值：多行文本
+         */
+        private String title;
+        /**
+         * 问题描述
+         * <p> 示例值：多行文本描述
+         */
+        private String description;
+        /**
+         * 是否必填
+         * <p> 示例值：true
+         */
+        private Boolean required;
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        private Boolean visible;
+
+        /**
+         * 表单问题 ID
+         * <p> 示例值：fldjX7dUj5
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
+            return this;
+        }
+
+
+        /**
+         * 表单问题
+         * <p> 示例值：多行文本
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 问题描述
+         * <p> 示例值：多行文本描述
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 是否必填
+         * <p> 示例值：true
+         *
+         * @param required
+         * @return
+         */
+        public Builder required(Boolean required) {
+            this.required = required;
+            return this;
+        }
+
+
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         *
+         * @param visible
+         * @return
+         */
+        public Builder visible(Boolean visible) {
+            this.visible = visible;
+            return this;
+        }
+
+
+        public AppTableFormField build() {
+            return new AppTableFormField(this);
+        }
+    }
 }

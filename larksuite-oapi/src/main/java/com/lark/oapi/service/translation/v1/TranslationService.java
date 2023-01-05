@@ -18,152 +18,177 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.translation.v1.model.DetectTextReq;
 import com.lark.oapi.service.translation.v1.model.DetectTextResp;
 import com.lark.oapi.service.translation.v1.model.TranslateTextReq;
 import com.lark.oapi.service.translation.v1.model.TranslateTextResp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class TranslationService {
+    private static final Logger log = LoggerFactory.getLogger(TranslationService.class);
+    private final Text text; // 文本
 
-  private final Text text; // 文本
-
-  public TranslationService(Config config) {
-    this.text = new Text(config);
-  }
-
-  /**
-   * 文本
-   *
-   * @return
-   */
-  public Text text() {
-    return text;
-  }
-
-  public static class Text {
-
-    private final Config config;
-
-    public Text(Config config) {
-      this.config = config;
+    public TranslationService(Config config) {
+        this.text = new Text(config);
     }
 
     /**
-     * 文本语种识别，机器翻译 (MT)，支持 100 多种语言识别，返回符合 ISO 639-1 标准
-     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java</a>
-     * ;
+     * 文本
+     *
+     * @return
      */
-    public DetectTextResp detect(DetectTextReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/translation/v1/text/detect"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DetectTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectTextResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Text text() {
+        return text;
     }
 
-    /**
-     * 文本语种识别，机器翻译 (MT)，支持 100 多种语言识别，返回符合 ISO 639-1 标准
-     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java</a>
-     * ;
-     */
-    public DetectTextResp detect(DetectTextReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Text {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/translation/v1/text/detect"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Text(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      DetectTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectTextResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 文本语种识别，机器翻译 (MT)，支持 100 多种语言识别，返回符合 ISO 639-1 标准
+         * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java</a> ;
+         */
+        public DetectTextResp detect(DetectTextReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/translation/v1/text/detect"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DetectTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectTextResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/translation/v1/text/detect"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 文本语种识别，机器翻译 (MT)，支持 100 多种语言识别，返回符合 ISO 639-1 标准
+         * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/DetectTextSample.java</a> ;
+         */
+        public DetectTextResp detect(DetectTextReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/translation/v1/text/detect"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DetectTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectTextResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/translation/v1/text/detect"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 文本翻译，机器翻译 (MT)，支持以下语种互译：;"zh": 汉语；;"zh-Hant": 繁体汉语；;"en": 英语；;"ja": 日语；;"ru": 俄语；;"de": 德语；;"fr": 法语；;"it": 意大利语；;"pl": 波兰语；;"th": 泰语；;"hi": 印地语；;"id": 印尼语；;"es": 西班牙语；;"pt": 葡萄牙语；;"ko": 朝鲜语；;"vi": 越南语；
+         * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java</a> ;
+         */
+        public TranslateTextResp translate(TranslateTextReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/translation/v1/text/translate"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            TranslateTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TranslateTextResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/translation/v1/text/translate"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 文本翻译，机器翻译 (MT)，支持以下语种互译：;"zh": 汉语；;"zh-Hant": 繁体汉语；;"en": 英语；;"ja": 日语；;"ru": 俄语；;"de": 德语；;"fr": 法语；;"it": 意大利语；;"pl": 波兰语；;"th": 泰语；;"hi": 印地语；;"id": 印尼语；;"es": 西班牙语；;"pt": 葡萄牙语；;"ko": 朝鲜语；;"vi": 越南语；
+         * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java</a> ;
+         */
+        public TranslateTextResp translate(TranslateTextReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/translation/v1/text/translate"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            TranslateTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TranslateTextResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/translation/v1/text/translate"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-
-    /**
-     * 文本翻译，机器翻译 (MT)，支持以下语种互译：;"zh": 汉语；;"zh-Hant": 繁体汉语；;"en": 英语；;"ja": 日语；;"ru": 俄语；;"de":
-     * 德语；;"fr": 法语；;"it": 意大利语；;"pl": 波兰语；;"th": 泰语；;"hi": 印地语；;"id": 印尼语；;"es": 西班牙语；;"pt":
-     * 葡萄牙语；;"ko": 朝鲜语；;"vi": 越南语；
-     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java</a>
-     * ;
-     */
-    public TranslateTextResp translate(TranslateTextReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/translation/v1/text/translate"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      TranslateTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TranslateTextResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 文本翻译，机器翻译 (MT)，支持以下语种互译：;"zh": 汉语；;"zh-Hant": 繁体汉语；;"en": 英语；;"ja": 日语；;"ru": 俄语；;"de":
-     * 德语；;"fr": 法语；;"it": 意大利语；;"pl": 波兰语；;"th": 泰语；;"hi": 印地语；;"id": 印尼语；;"es": 西班牙语；;"pt":
-     * 葡萄牙语；;"ko": 朝鲜语；;"vi": 越南语；
-     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1/TranslateTextSample.java</a>
-     * ;
-     */
-    public TranslateTextResp translate(TranslateTextReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/translation/v1/text/translate"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      TranslateTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TranslateTextResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

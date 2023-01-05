@@ -16,34 +16,33 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListClassificationRespBody {
+    /**
+     * 分类
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Classification[] items;
+    /**
+     * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
+     * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * 分类
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Classification[] items;
-  /**
-   * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
-   * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public Classification[] getItems() {
+        return this.items;
+    }
 
-  public Classification[] getItems() {
-    return this.items;
-  }
+    public void setItems(Classification[] items) {
+        this.items = items;
+    }
 
-  public void setItems(Classification[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

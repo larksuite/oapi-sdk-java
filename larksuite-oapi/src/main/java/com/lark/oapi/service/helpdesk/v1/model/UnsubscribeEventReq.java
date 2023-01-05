@@ -16,51 +16,50 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class UnsubscribeEventReq {
-
-  @Body
-  private UnsubscribeEventReqBody body;
-
-  // builder 开始
-  public UnsubscribeEventReq() {
-  }
-
-  public UnsubscribeEventReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UnsubscribeEventReqBody getUnsubscribeEventReqBody() {
-    return this.body;
-  }
-
-  public void setUnsubscribeEventReqBody(UnsubscribeEventReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private UnsubscribeEventReqBody body;
 
+    // builder 开始
+    public UnsubscribeEventReq() {
+    }
+
+    public UnsubscribeEventReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UnsubscribeEventReqBody getUnsubscribeEventReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder unsubscribeEventReqBody(UnsubscribeEventReqBody body) {
-      this.body = body;
-      return this;
+    public void setUnsubscribeEventReqBody(UnsubscribeEventReqBody body) {
+        this.body = body;
     }
 
-    public UnsubscribeEventReq build() {
-      return new UnsubscribeEventReq(this);
+    public static class Builder {
+
+        private UnsubscribeEventReqBody body;
+
+        public UnsubscribeEventReqBody getUnsubscribeEventReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder unsubscribeEventReqBody(UnsubscribeEventReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UnsubscribeEventReq build() {
+            return new UnsubscribeEventReq(this);
+        }
     }
-  }
 }

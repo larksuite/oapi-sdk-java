@@ -16,51 +16,50 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateTicketCustomizedFieldReq {
-
-  @Body
-  private TicketCustomizedField body;
-
-  // builder 开始
-  public CreateTicketCustomizedFieldReq() {
-  }
-
-  public CreateTicketCustomizedFieldReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TicketCustomizedField getTicketCustomizedField() {
-    return this.body;
-  }
-
-  public void setTicketCustomizedField(TicketCustomizedField body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private TicketCustomizedField body;
 
+    // builder 开始
+    public CreateTicketCustomizedFieldReq() {
+    }
+
+    public CreateTicketCustomizedFieldReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TicketCustomizedField getTicketCustomizedField() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder ticketCustomizedField(TicketCustomizedField body) {
-      this.body = body;
-      return this;
+    public void setTicketCustomizedField(TicketCustomizedField body) {
+        this.body = body;
     }
 
-    public CreateTicketCustomizedFieldReq build() {
-      return new CreateTicketCustomizedFieldReq(this);
+    public static class Builder {
+
+        private TicketCustomizedField body;
+
+        public TicketCustomizedField getTicketCustomizedField() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder ticketCustomizedField(TicketCustomizedField body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateTicketCustomizedFieldReq build() {
+            return new CreateTicketCustomizedFieldReq(this);
+        }
     }
-  }
 }

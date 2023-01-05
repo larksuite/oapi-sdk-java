@@ -17,21 +17,21 @@ package com.lark.oapi.service.docx.v1.enums;
  * 文字颜色
  */
 public enum CalloutFontColorEnum {
-  PINK(1), // 粉红色
-  ORANGE(2), // 橙色
-  YELLOW(3), // 黄色
-  GREEN(4), // 绿色
-  BLUE(5), // 蓝色
-  PURPLE(6), // 紫色
-  GRAY(7), // 灰色
-  ;
-  private Integer value;
+    PINK(1), // 粉红色
+    ORANGE(2), // 橙色
+    YELLOW(3), // 黄色
+    GREEN(4), // 绿色
+    BLUE(5), // 蓝色
+    PURPLE(6), // 紫色
+    GRAY(7), // 灰色
+    ;
+    private Integer value;
 
-  CalloutFontColorEnum(Integer value) {
-    this.value = value;
-  }
+    CalloutFontColorEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

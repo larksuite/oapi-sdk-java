@@ -17,19 +17,19 @@ package com.lark.oapi.service.search.v2.enums;
  * 属性数据类型
  */
 public enum SchemaPropertyDefinitionPropertyTypeEnum {
-  INTEGER("1"), // 整型
-  DOUBLE("2"), // 浮点数
-  TIMESTAMP("3"), // 时间戳
-  STRING("4"), // 字符串
-  BOOLEAN("5"), // 布尔值
-  ;
-  private String value;
+    INTEGER("1"), // 整型
+    DOUBLE("2"), // 浮点数
+    TIMESTAMP("3"), // 时间戳
+    STRING("4"), // 字符串
+    BOOLEAN("5"), // 布尔值
+    ;
+    private String value;
 
-  SchemaPropertyDefinitionPropertyTypeEnum(String value) {
-    this.value = value;
-  }
+    SchemaPropertyDefinitionPropertyTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

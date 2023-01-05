@@ -17,16 +17,16 @@ package com.lark.oapi.service.mail.v1.enums;
  * 此次调用中使用的部门ID的类型
  */
 public enum ListMailgroupMemberDepartmentIdTypeEnum {
-  DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
-  OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
-  ;
-  private String value;
+    DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
+    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
+    ;
+    private String value;
 
-  ListMailgroupMemberDepartmentIdTypeEnum(String value) {
-    this.value = value;
-  }
+    ListMailgroupMemberDepartmentIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

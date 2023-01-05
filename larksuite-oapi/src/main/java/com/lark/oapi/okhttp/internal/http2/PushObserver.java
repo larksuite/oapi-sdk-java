@@ -19,6 +19,7 @@ package com.lark.oapi.okhttp.internal.http2;
 
 import com.lark.oapi.okhttp.Protocol;
 import com.lark.oapi.okio.BufferedSource;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -42,63 +43,63 @@ import java.util.List;
  */
 public interface PushObserver {
 
-  PushObserver CANCEL = new PushObserver() {
+    PushObserver CANCEL = new PushObserver() {
 
-    @Override
-    public boolean onRequest(int streamId, List<Header> requestHeaders) {
-      return true;
-    }
+        @Override
+        public boolean onRequest(int streamId, List<Header> requestHeaders) {
+            return true;
+        }
 
-    @Override
-    public boolean onHeaders(int streamId, List<Header> responseHeaders, boolean last) {
-      return true;
-    }
+        @Override
+        public boolean onHeaders(int streamId, List<Header> responseHeaders, boolean last) {
+            return true;
+        }
 
-    @Override
-    public boolean onData(int streamId, BufferedSource source, int byteCount,
-        boolean last) throws IOException {
-      source.skip(byteCount);
-      return true;
-    }
+        @Override
+        public boolean onData(int streamId, BufferedSource source, int byteCount,
+                              boolean last) throws IOException {
+            source.skip(byteCount);
+            return true;
+        }
 
-    @Override
-    public void onReset(int streamId, ErrorCode errorCode) {
-    }
-  };
+        @Override
+        public void onReset(int streamId, ErrorCode errorCode) {
+        }
+    };
 
-  /**
-   * Describes the request that the server intends to push a response for.
-   *
-   * @param streamId       server-initiated stream ID: an even number.
-   * @param requestHeaders minimally includes {@code :method}, {@code :scheme}, {@code :authority},
-   *                       and {@code :path}.
-   */
-  boolean onRequest(int streamId, List<Header> requestHeaders);
+    /**
+     * Describes the request that the server intends to push a response for.
+     *
+     * @param streamId       server-initiated stream ID: an even number.
+     * @param requestHeaders minimally includes {@code :method}, {@code :scheme}, {@code :authority},
+     *                       and {@code :path}.
+     */
+    boolean onRequest(int streamId, List<Header> requestHeaders);
 
-  /**
-   * The response headers corresponding to a pushed request.  When {@code last} is true, there are
-   * no data frames to follow.
-   *
-   * @param streamId        server-initiated stream ID: an even number.
-   * @param responseHeaders minimally includes {@code :status}.
-   * @param last            when true, there is no response data.
-   */
-  boolean onHeaders(int streamId, List<Header> responseHeaders, boolean last);
+    /**
+     * The response headers corresponding to a pushed request.  When {@code last} is true, there are
+     * no data frames to follow.
+     *
+     * @param streamId        server-initiated stream ID: an even number.
+     * @param responseHeaders minimally includes {@code :status}.
+     * @param last            when true, there is no response data.
+     */
+    boolean onHeaders(int streamId, List<Header> responseHeaders, boolean last);
 
-  /**
-   * A chunk of response data corresponding to a pushed request.  This data must either be read or
-   * skipped.
-   *
-   * @param streamId  server-initiated stream ID: an even number.
-   * @param source    location of data corresponding with this stream ID.
-   * @param byteCount number of bytes to read or skip from the source.
-   * @param last      when true, there are no data frames to follow.
-   */
-  boolean onData(int streamId, BufferedSource source, int byteCount, boolean last)
-      throws IOException;
+    /**
+     * A chunk of response data corresponding to a pushed request.  This data must either be read or
+     * skipped.
+     *
+     * @param streamId  server-initiated stream ID: an even number.
+     * @param source    location of data corresponding with this stream ID.
+     * @param byteCount number of bytes to read or skip from the source.
+     * @param last      when true, there are no data frames to follow.
+     */
+    boolean onData(int streamId, BufferedSource source, int byteCount, boolean last)
+            throws IOException;
 
-  /**
-   * Indicates the reason why this stream was canceled.
-   */
-  void onReset(int streamId, ErrorCode errorCode);
+    /**
+     * Indicates the reason why this stream was canceled.
+     */
+    void onReset(int streamId, ErrorCode errorCode);
 }

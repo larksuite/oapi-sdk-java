@@ -16,61 +16,59 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Person {
-
-  /**
-   * 回复 at联系人
-   * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public Person() {
-  }
-
-  public Person(Builder builder) {
     /**
      * 回复 at联系人
      * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
      */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 回复 at联系人
-     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-     */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * 回复 at联系人
-     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public Person() {
     }
 
-
-    public Person build() {
-      return new Person(this);
+    public Person(Builder builder) {
+        /**
+         * 回复 at联系人
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         */
+        this.userId = builder.userId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 回复 at联系人
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         */
+        private String userId;
+
+        /**
+         * 回复 at联系人
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public Person build() {
+            return new Person(this);
+        }
+    }
 }

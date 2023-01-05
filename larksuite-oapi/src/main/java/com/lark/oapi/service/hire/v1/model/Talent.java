@@ -16,618 +16,614 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Talent {
-
-  /**
-   * 人才ID
-   * <p> 示例值：6891560630172518670
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 是否在猎头保护期
-   * <p> 示例值：true
-   */
-  @SerializedName("is_in_agency_period")
-  private Boolean isInAgencyPeriod;
-  /**
-   * 是否已入职
-   * <p> 示例值：true
-   */
-  @SerializedName("is_onboarded")
-  private Boolean isOnboarded;
-  /**
-   * 基础信息
-   * <p> 示例值：
-   */
-  @SerializedName("basic_info")
-  private TalentBasicInfo basicInfo;
-  /**
-   * 教育经历
-   * <p> 示例值：
-   */
-  @SerializedName("education_list")
-  private TalentEducationInfo[] educationList;
-  /**
-   * 工作经历
-   * <p> 示例值：
-   */
-  @SerializedName("career_list")
-  private TalentCareerInfo[] careerList;
-  /**
-   * 项目经历
-   * <p> 示例值：
-   */
-  @SerializedName("project_list")
-  private TalentProjectInfo[] projectList;
-  /**
-   * 作品
-   * <p> 示例值：
-   */
-  @SerializedName("works_list")
-  private TalentWorksInfo[] worksList;
-  /**
-   * 获奖
-   * <p> 示例值：
-   */
-  @SerializedName("award_list")
-  private TalentAwardInfo[] awardList;
-  /**
-   * 语言能力
-   * <p> 示例值：
-   */
-  @SerializedName("language_list")
-  private TalentLanguageInfo[] languageList;
-  /**
-   * 社交账号
-   * <p> 示例值：
-   */
-  @SerializedName("sns_list")
-  private TalentSnsInfo[] snsList;
-  /**
-   * 简历来源
-   * <p> 示例值：
-   */
-  @SerializedName("resume_source_list")
-  private TalentResumeSource[] resumeSourceList;
-  /**
-   * 面试登记表
-   * <p> 示例值：
-   */
-  @SerializedName("interview_registration_list")
-  private TalentInterviewRegistrationSimple[] interviewRegistrationList;
-  /**
-   * 简历附件id列表（按照简历创建时间降序）
-   * <p> 示例值：
-   */
-  @SerializedName("resume_attachment_id_list")
-  private String[] resumeAttachmentIdList;
-  /**
-   * 自定义模块
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data_list")
-  private TalentCustomizedData[] customizedDataList;
-  /**
-   * 最高学历
-   * <p> 示例值：1
-   */
-  @SerializedName("top_degree")
-  private Integer topDegree;
-
-  // builder 开始
-  public Talent() {
-  }
-
-  public Talent(Builder builder) {
     /**
      * 人才ID
      * <p> 示例值：6891560630172518670
      */
-    this.id = builder.id;
-    /**
-     * 是否在猎头保护期
-     * <p> 示例值：true
-     */
-    this.isInAgencyPeriod = builder.isInAgencyPeriod;
-    /**
-     * 是否已入职
-     * <p> 示例值：true
-     */
-    this.isOnboarded = builder.isOnboarded;
-    /**
-     * 基础信息
-     * <p> 示例值：
-     */
-    this.basicInfo = builder.basicInfo;
-    /**
-     * 教育经历
-     * <p> 示例值：
-     */
-    this.educationList = builder.educationList;
-    /**
-     * 工作经历
-     * <p> 示例值：
-     */
-    this.careerList = builder.careerList;
-    /**
-     * 项目经历
-     * <p> 示例值：
-     */
-    this.projectList = builder.projectList;
-    /**
-     * 作品
-     * <p> 示例值：
-     */
-    this.worksList = builder.worksList;
-    /**
-     * 获奖
-     * <p> 示例值：
-     */
-    this.awardList = builder.awardList;
-    /**
-     * 语言能力
-     * <p> 示例值：
-     */
-    this.languageList = builder.languageList;
-    /**
-     * 社交账号
-     * <p> 示例值：
-     */
-    this.snsList = builder.snsList;
-    /**
-     * 简历来源
-     * <p> 示例值：
-     */
-    this.resumeSourceList = builder.resumeSourceList;
-    /**
-     * 面试登记表
-     * <p> 示例值：
-     */
-    this.interviewRegistrationList = builder.interviewRegistrationList;
-    /**
-     * 简历附件id列表（按照简历创建时间降序）
-     * <p> 示例值：
-     */
-    this.resumeAttachmentIdList = builder.resumeAttachmentIdList;
-    /**
-     * 自定义模块
-     * <p> 示例值：
-     */
-    this.customizedDataList = builder.customizedDataList;
-    /**
-     * 最高学历
-     * <p> 示例值：1
-     */
-    this.topDegree = builder.topDegree;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Boolean getIsInAgencyPeriod() {
-    return this.isInAgencyPeriod;
-  }
-
-  public void setIsInAgencyPeriod(Boolean isInAgencyPeriod) {
-    this.isInAgencyPeriod = isInAgencyPeriod;
-  }
-
-  public Boolean getIsOnboarded() {
-    return this.isOnboarded;
-  }
-
-  public void setIsOnboarded(Boolean isOnboarded) {
-    this.isOnboarded = isOnboarded;
-  }
-
-  public TalentBasicInfo getBasicInfo() {
-    return this.basicInfo;
-  }
-
-  public void setBasicInfo(TalentBasicInfo basicInfo) {
-    this.basicInfo = basicInfo;
-  }
-
-  public TalentEducationInfo[] getEducationList() {
-    return this.educationList;
-  }
-
-  public void setEducationList(TalentEducationInfo[] educationList) {
-    this.educationList = educationList;
-  }
-
-  public TalentCareerInfo[] getCareerList() {
-    return this.careerList;
-  }
-
-  public void setCareerList(TalentCareerInfo[] careerList) {
-    this.careerList = careerList;
-  }
-
-  public TalentProjectInfo[] getProjectList() {
-    return this.projectList;
-  }
-
-  public void setProjectList(TalentProjectInfo[] projectList) {
-    this.projectList = projectList;
-  }
-
-  public TalentWorksInfo[] getWorksList() {
-    return this.worksList;
-  }
-
-  public void setWorksList(TalentWorksInfo[] worksList) {
-    this.worksList = worksList;
-  }
-
-  public TalentAwardInfo[] getAwardList() {
-    return this.awardList;
-  }
-
-  public void setAwardList(TalentAwardInfo[] awardList) {
-    this.awardList = awardList;
-  }
-
-  public TalentLanguageInfo[] getLanguageList() {
-    return this.languageList;
-  }
-
-  public void setLanguageList(TalentLanguageInfo[] languageList) {
-    this.languageList = languageList;
-  }
-
-  public TalentSnsInfo[] getSnsList() {
-    return this.snsList;
-  }
-
-  public void setSnsList(TalentSnsInfo[] snsList) {
-    this.snsList = snsList;
-  }
-
-  public TalentResumeSource[] getResumeSourceList() {
-    return this.resumeSourceList;
-  }
-
-  public void setResumeSourceList(TalentResumeSource[] resumeSourceList) {
-    this.resumeSourceList = resumeSourceList;
-  }
-
-  public TalentInterviewRegistrationSimple[] getInterviewRegistrationList() {
-    return this.interviewRegistrationList;
-  }
-
-  public void setInterviewRegistrationList(
-      TalentInterviewRegistrationSimple[] interviewRegistrationList) {
-    this.interviewRegistrationList = interviewRegistrationList;
-  }
-
-  public String[] getResumeAttachmentIdList() {
-    return this.resumeAttachmentIdList;
-  }
-
-  public void setResumeAttachmentIdList(String[] resumeAttachmentIdList) {
-    this.resumeAttachmentIdList = resumeAttachmentIdList;
-  }
-
-  public TalentCustomizedData[] getCustomizedDataList() {
-    return this.customizedDataList;
-  }
-
-  public void setCustomizedDataList(TalentCustomizedData[] customizedDataList) {
-    this.customizedDataList = customizedDataList;
-  }
-
-  public Integer getTopDegree() {
-    return this.topDegree;
-  }
-
-  public void setTopDegree(Integer topDegree) {
-    this.topDegree = topDegree;
-  }
-
-  public static class Builder {
-
-    /**
-     * 人才ID
-     * <p> 示例值：6891560630172518670
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 是否在猎头保护期
      * <p> 示例值：true
      */
+    @SerializedName("is_in_agency_period")
     private Boolean isInAgencyPeriod;
     /**
      * 是否已入职
      * <p> 示例值：true
      */
+    @SerializedName("is_onboarded")
     private Boolean isOnboarded;
     /**
      * 基础信息
      * <p> 示例值：
      */
+    @SerializedName("basic_info")
     private TalentBasicInfo basicInfo;
     /**
      * 教育经历
      * <p> 示例值：
      */
+    @SerializedName("education_list")
     private TalentEducationInfo[] educationList;
     /**
      * 工作经历
      * <p> 示例值：
      */
+    @SerializedName("career_list")
     private TalentCareerInfo[] careerList;
     /**
      * 项目经历
      * <p> 示例值：
      */
+    @SerializedName("project_list")
     private TalentProjectInfo[] projectList;
     /**
      * 作品
      * <p> 示例值：
      */
+    @SerializedName("works_list")
     private TalentWorksInfo[] worksList;
     /**
      * 获奖
      * <p> 示例值：
      */
+    @SerializedName("award_list")
     private TalentAwardInfo[] awardList;
     /**
      * 语言能力
      * <p> 示例值：
      */
+    @SerializedName("language_list")
     private TalentLanguageInfo[] languageList;
     /**
      * 社交账号
      * <p> 示例值：
      */
+    @SerializedName("sns_list")
     private TalentSnsInfo[] snsList;
     /**
      * 简历来源
      * <p> 示例值：
      */
+    @SerializedName("resume_source_list")
     private TalentResumeSource[] resumeSourceList;
     /**
      * 面试登记表
      * <p> 示例值：
      */
+    @SerializedName("interview_registration_list")
     private TalentInterviewRegistrationSimple[] interviewRegistrationList;
     /**
      * 简历附件id列表（按照简历创建时间降序）
      * <p> 示例值：
      */
+    @SerializedName("resume_attachment_id_list")
     private String[] resumeAttachmentIdList;
     /**
      * 自定义模块
      * <p> 示例值：
      */
+    @SerializedName("customized_data_list")
     private TalentCustomizedData[] customizedDataList;
     /**
      * 最高学历
      * <p> 示例值：1
      */
+    @SerializedName("top_degree")
     private Integer topDegree;
 
-    /**
-     * 人才ID
-     * <p> 示例值：6891560630172518670
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Talent() {
     }
 
-
-    /**
-     * 是否在猎头保护期
-     * <p> 示例值：true
-     *
-     * @param isInAgencyPeriod
-     * @return
-     */
-    public Builder isInAgencyPeriod(Boolean isInAgencyPeriod) {
-      this.isInAgencyPeriod = isInAgencyPeriod;
-      return this;
+    public Talent(Builder builder) {
+        /**
+         * 人才ID
+         * <p> 示例值：6891560630172518670
+         */
+        this.id = builder.id;
+        /**
+         * 是否在猎头保护期
+         * <p> 示例值：true
+         */
+        this.isInAgencyPeriod = builder.isInAgencyPeriod;
+        /**
+         * 是否已入职
+         * <p> 示例值：true
+         */
+        this.isOnboarded = builder.isOnboarded;
+        /**
+         * 基础信息
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        this.educationList = builder.educationList;
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
+        this.careerList = builder.careerList;
+        /**
+         * 项目经历
+         * <p> 示例值：
+         */
+        this.projectList = builder.projectList;
+        /**
+         * 作品
+         * <p> 示例值：
+         */
+        this.worksList = builder.worksList;
+        /**
+         * 获奖
+         * <p> 示例值：
+         */
+        this.awardList = builder.awardList;
+        /**
+         * 语言能力
+         * <p> 示例值：
+         */
+        this.languageList = builder.languageList;
+        /**
+         * 社交账号
+         * <p> 示例值：
+         */
+        this.snsList = builder.snsList;
+        /**
+         * 简历来源
+         * <p> 示例值：
+         */
+        this.resumeSourceList = builder.resumeSourceList;
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         */
+        this.interviewRegistrationList = builder.interviewRegistrationList;
+        /**
+         * 简历附件id列表（按照简历创建时间降序）
+         * <p> 示例值：
+         */
+        this.resumeAttachmentIdList = builder.resumeAttachmentIdList;
+        /**
+         * 自定义模块
+         * <p> 示例值：
+         */
+        this.customizedDataList = builder.customizedDataList;
+        /**
+         * 最高学历
+         * <p> 示例值：1
+         */
+        this.topDegree = builder.topDegree;
     }
 
-
-    /**
-     * 是否已入职
-     * <p> 示例值：true
-     *
-     * @param isOnboarded
-     * @return
-     */
-    public Builder isOnboarded(Boolean isOnboarded) {
-      this.isOnboarded = isOnboarded;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 基础信息
-     * <p> 示例值：
-     *
-     * @param basicInfo
-     * @return
-     */
-    public Builder basicInfo(TalentBasicInfo basicInfo) {
-      this.basicInfo = basicInfo;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 教育经历
-     * <p> 示例值：
-     *
-     * @param educationList
-     * @return
-     */
-    public Builder educationList(TalentEducationInfo[] educationList) {
-      this.educationList = educationList;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 工作经历
-     * <p> 示例值：
-     *
-     * @param careerList
-     * @return
-     */
-    public Builder careerList(TalentCareerInfo[] careerList) {
-      this.careerList = careerList;
-      return this;
+    public Boolean getIsInAgencyPeriod() {
+        return this.isInAgencyPeriod;
     }
 
-
-    /**
-     * 项目经历
-     * <p> 示例值：
-     *
-     * @param projectList
-     * @return
-     */
-    public Builder projectList(TalentProjectInfo[] projectList) {
-      this.projectList = projectList;
-      return this;
+    public void setIsInAgencyPeriod(Boolean isInAgencyPeriod) {
+        this.isInAgencyPeriod = isInAgencyPeriod;
     }
 
-
-    /**
-     * 作品
-     * <p> 示例值：
-     *
-     * @param worksList
-     * @return
-     */
-    public Builder worksList(TalentWorksInfo[] worksList) {
-      this.worksList = worksList;
-      return this;
+    public Boolean getIsOnboarded() {
+        return this.isOnboarded;
     }
 
-
-    /**
-     * 获奖
-     * <p> 示例值：
-     *
-     * @param awardList
-     * @return
-     */
-    public Builder awardList(TalentAwardInfo[] awardList) {
-      this.awardList = awardList;
-      return this;
+    public void setIsOnboarded(Boolean isOnboarded) {
+        this.isOnboarded = isOnboarded;
     }
 
-
-    /**
-     * 语言能力
-     * <p> 示例值：
-     *
-     * @param languageList
-     * @return
-     */
-    public Builder languageList(TalentLanguageInfo[] languageList) {
-      this.languageList = languageList;
-      return this;
+    public TalentBasicInfo getBasicInfo() {
+        return this.basicInfo;
     }
 
-
-    /**
-     * 社交账号
-     * <p> 示例值：
-     *
-     * @param snsList
-     * @return
-     */
-    public Builder snsList(TalentSnsInfo[] snsList) {
-      this.snsList = snsList;
-      return this;
+    public void setBasicInfo(TalentBasicInfo basicInfo) {
+        this.basicInfo = basicInfo;
     }
 
-
-    /**
-     * 简历来源
-     * <p> 示例值：
-     *
-     * @param resumeSourceList
-     * @return
-     */
-    public Builder resumeSourceList(TalentResumeSource[] resumeSourceList) {
-      this.resumeSourceList = resumeSourceList;
-      return this;
+    public TalentEducationInfo[] getEducationList() {
+        return this.educationList;
     }
 
-
-    /**
-     * 面试登记表
-     * <p> 示例值：
-     *
-     * @param interviewRegistrationList
-     * @return
-     */
-    public Builder interviewRegistrationList(
-        TalentInterviewRegistrationSimple[] interviewRegistrationList) {
-      this.interviewRegistrationList = interviewRegistrationList;
-      return this;
+    public void setEducationList(TalentEducationInfo[] educationList) {
+        this.educationList = educationList;
     }
 
-
-    /**
-     * 简历附件id列表（按照简历创建时间降序）
-     * <p> 示例值：
-     *
-     * @param resumeAttachmentIdList
-     * @return
-     */
-    public Builder resumeAttachmentIdList(String[] resumeAttachmentIdList) {
-      this.resumeAttachmentIdList = resumeAttachmentIdList;
-      return this;
+    public TalentCareerInfo[] getCareerList() {
+        return this.careerList;
     }
 
-
-    /**
-     * 自定义模块
-     * <p> 示例值：
-     *
-     * @param customizedDataList
-     * @return
-     */
-    public Builder customizedDataList(TalentCustomizedData[] customizedDataList) {
-      this.customizedDataList = customizedDataList;
-      return this;
+    public void setCareerList(TalentCareerInfo[] careerList) {
+        this.careerList = careerList;
     }
 
-
-    /**
-     * 最高学历
-     * <p> 示例值：1
-     *
-     * @param topDegree
-     * @return
-     */
-    public Builder topDegree(Integer topDegree) {
-      this.topDegree = topDegree;
-      return this;
+    public TalentProjectInfo[] getProjectList() {
+        return this.projectList;
     }
 
-
-    public Talent build() {
-      return new Talent(this);
+    public void setProjectList(TalentProjectInfo[] projectList) {
+        this.projectList = projectList;
     }
-  }
+
+    public TalentWorksInfo[] getWorksList() {
+        return this.worksList;
+    }
+
+    public void setWorksList(TalentWorksInfo[] worksList) {
+        this.worksList = worksList;
+    }
+
+    public TalentAwardInfo[] getAwardList() {
+        return this.awardList;
+    }
+
+    public void setAwardList(TalentAwardInfo[] awardList) {
+        this.awardList = awardList;
+    }
+
+    public TalentLanguageInfo[] getLanguageList() {
+        return this.languageList;
+    }
+
+    public void setLanguageList(TalentLanguageInfo[] languageList) {
+        this.languageList = languageList;
+    }
+
+    public TalentSnsInfo[] getSnsList() {
+        return this.snsList;
+    }
+
+    public void setSnsList(TalentSnsInfo[] snsList) {
+        this.snsList = snsList;
+    }
+
+    public TalentResumeSource[] getResumeSourceList() {
+        return this.resumeSourceList;
+    }
+
+    public void setResumeSourceList(TalentResumeSource[] resumeSourceList) {
+        this.resumeSourceList = resumeSourceList;
+    }
+
+    public TalentInterviewRegistrationSimple[] getInterviewRegistrationList() {
+        return this.interviewRegistrationList;
+    }
+
+    public void setInterviewRegistrationList(TalentInterviewRegistrationSimple[] interviewRegistrationList) {
+        this.interviewRegistrationList = interviewRegistrationList;
+    }
+
+    public String[] getResumeAttachmentIdList() {
+        return this.resumeAttachmentIdList;
+    }
+
+    public void setResumeAttachmentIdList(String[] resumeAttachmentIdList) {
+        this.resumeAttachmentIdList = resumeAttachmentIdList;
+    }
+
+    public TalentCustomizedData[] getCustomizedDataList() {
+        return this.customizedDataList;
+    }
+
+    public void setCustomizedDataList(TalentCustomizedData[] customizedDataList) {
+        this.customizedDataList = customizedDataList;
+    }
+
+    public Integer getTopDegree() {
+        return this.topDegree;
+    }
+
+    public void setTopDegree(Integer topDegree) {
+        this.topDegree = topDegree;
+    }
+
+    public static class Builder {
+        /**
+         * 人才ID
+         * <p> 示例值：6891560630172518670
+         */
+        private String id;
+        /**
+         * 是否在猎头保护期
+         * <p> 示例值：true
+         */
+        private Boolean isInAgencyPeriod;
+        /**
+         * 是否已入职
+         * <p> 示例值：true
+         */
+        private Boolean isOnboarded;
+        /**
+         * 基础信息
+         * <p> 示例值：
+         */
+        private TalentBasicInfo basicInfo;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        private TalentEducationInfo[] educationList;
+        /**
+         * 工作经历
+         * <p> 示例值：
+         */
+        private TalentCareerInfo[] careerList;
+        /**
+         * 项目经历
+         * <p> 示例值：
+         */
+        private TalentProjectInfo[] projectList;
+        /**
+         * 作品
+         * <p> 示例值：
+         */
+        private TalentWorksInfo[] worksList;
+        /**
+         * 获奖
+         * <p> 示例值：
+         */
+        private TalentAwardInfo[] awardList;
+        /**
+         * 语言能力
+         * <p> 示例值：
+         */
+        private TalentLanguageInfo[] languageList;
+        /**
+         * 社交账号
+         * <p> 示例值：
+         */
+        private TalentSnsInfo[] snsList;
+        /**
+         * 简历来源
+         * <p> 示例值：
+         */
+        private TalentResumeSource[] resumeSourceList;
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         */
+        private TalentInterviewRegistrationSimple[] interviewRegistrationList;
+        /**
+         * 简历附件id列表（按照简历创建时间降序）
+         * <p> 示例值：
+         */
+        private String[] resumeAttachmentIdList;
+        /**
+         * 自定义模块
+         * <p> 示例值：
+         */
+        private TalentCustomizedData[] customizedDataList;
+        /**
+         * 最高学历
+         * <p> 示例值：1
+         */
+        private Integer topDegree;
+
+        /**
+         * 人才ID
+         * <p> 示例值：6891560630172518670
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 是否在猎头保护期
+         * <p> 示例值：true
+         *
+         * @param isInAgencyPeriod
+         * @return
+         */
+        public Builder isInAgencyPeriod(Boolean isInAgencyPeriod) {
+            this.isInAgencyPeriod = isInAgencyPeriod;
+            return this;
+        }
+
+
+        /**
+         * 是否已入职
+         * <p> 示例值：true
+         *
+         * @param isOnboarded
+         * @return
+         */
+        public Builder isOnboarded(Boolean isOnboarded) {
+            this.isOnboarded = isOnboarded;
+            return this;
+        }
+
+
+        /**
+         * 基础信息
+         * <p> 示例值：
+         *
+         * @param basicInfo
+         * @return
+         */
+        public Builder basicInfo(TalentBasicInfo basicInfo) {
+            this.basicInfo = basicInfo;
+            return this;
+        }
+
+
+        /**
+         * 教育经历
+         * <p> 示例值：
+         *
+         * @param educationList
+         * @return
+         */
+        public Builder educationList(TalentEducationInfo[] educationList) {
+            this.educationList = educationList;
+            return this;
+        }
+
+
+        /**
+         * 工作经历
+         * <p> 示例值：
+         *
+         * @param careerList
+         * @return
+         */
+        public Builder careerList(TalentCareerInfo[] careerList) {
+            this.careerList = careerList;
+            return this;
+        }
+
+
+        /**
+         * 项目经历
+         * <p> 示例值：
+         *
+         * @param projectList
+         * @return
+         */
+        public Builder projectList(TalentProjectInfo[] projectList) {
+            this.projectList = projectList;
+            return this;
+        }
+
+
+        /**
+         * 作品
+         * <p> 示例值：
+         *
+         * @param worksList
+         * @return
+         */
+        public Builder worksList(TalentWorksInfo[] worksList) {
+            this.worksList = worksList;
+            return this;
+        }
+
+
+        /**
+         * 获奖
+         * <p> 示例值：
+         *
+         * @param awardList
+         * @return
+         */
+        public Builder awardList(TalentAwardInfo[] awardList) {
+            this.awardList = awardList;
+            return this;
+        }
+
+
+        /**
+         * 语言能力
+         * <p> 示例值：
+         *
+         * @param languageList
+         * @return
+         */
+        public Builder languageList(TalentLanguageInfo[] languageList) {
+            this.languageList = languageList;
+            return this;
+        }
+
+
+        /**
+         * 社交账号
+         * <p> 示例值：
+         *
+         * @param snsList
+         * @return
+         */
+        public Builder snsList(TalentSnsInfo[] snsList) {
+            this.snsList = snsList;
+            return this;
+        }
+
+
+        /**
+         * 简历来源
+         * <p> 示例值：
+         *
+         * @param resumeSourceList
+         * @return
+         */
+        public Builder resumeSourceList(TalentResumeSource[] resumeSourceList) {
+            this.resumeSourceList = resumeSourceList;
+            return this;
+        }
+
+
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         *
+         * @param interviewRegistrationList
+         * @return
+         */
+        public Builder interviewRegistrationList(TalentInterviewRegistrationSimple[] interviewRegistrationList) {
+            this.interviewRegistrationList = interviewRegistrationList;
+            return this;
+        }
+
+
+        /**
+         * 简历附件id列表（按照简历创建时间降序）
+         * <p> 示例值：
+         *
+         * @param resumeAttachmentIdList
+         * @return
+         */
+        public Builder resumeAttachmentIdList(String[] resumeAttachmentIdList) {
+            this.resumeAttachmentIdList = resumeAttachmentIdList;
+            return this;
+        }
+
+
+        /**
+         * 自定义模块
+         * <p> 示例值：
+         *
+         * @param customizedDataList
+         * @return
+         */
+        public Builder customizedDataList(TalentCustomizedData[] customizedDataList) {
+            this.customizedDataList = customizedDataList;
+            return this;
+        }
+
+
+        /**
+         * 最高学历
+         * <p> 示例值：1
+         *
+         * @param topDegree
+         * @return
+         */
+        public Builder topDegree(Integer topDegree) {
+            this.topDegree = topDegree;
+            return this;
+        }
+
+
+        public Talent build() {
+            return new Talent(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class NotificationChat {
-
-  /**
-   * 非必填，会话ID
-   * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-  /**
-   * 非必填，会话名称
-   * <p> 示例值：测试群聊
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public NotificationChat() {
-  }
-
-  public NotificationChat(Builder builder) {
     /**
      * 非必填，会话ID
      * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
      */
-    this.chatId = builder.chatId;
-    /**
-     * 非必填，会话名称
-     * <p> 示例值：测试群聊
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 非必填，会话ID
-     * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
-     */
+    @SerializedName("chat_id")
     private String chatId;
     /**
      * 非必填，会话名称
      * <p> 示例值：测试群聊
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 非必填，会话ID
-     * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public NotificationChat() {
     }
 
-
-    /**
-     * 非必填，会话名称
-     * <p> 示例值：测试群聊
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public NotificationChat(Builder builder) {
+        /**
+         * 非必填，会话ID
+         * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+         */
+        this.chatId = builder.chatId;
+        /**
+         * 非必填，会话名称
+         * <p> 示例值：测试群聊
+         */
+        this.name = builder.name;
     }
 
-
-    public NotificationChat build() {
-      return new NotificationChat(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 非必填，会话ID
+         * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+         */
+        private String chatId;
+        /**
+         * 非必填，会话名称
+         * <p> 示例值：测试群聊
+         */
+        private String name;
+
+        /**
+         * 非必填，会话ID
+         * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+
+        /**
+         * 非必填，会话名称
+         * <p> 示例值：测试群聊
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public NotificationChat build() {
+            return new NotificationChat(this);
+        }
+    }
 }

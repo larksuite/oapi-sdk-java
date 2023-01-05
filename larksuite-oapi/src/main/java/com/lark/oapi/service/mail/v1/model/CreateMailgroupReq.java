@@ -16,51 +16,50 @@ package com.lark.oapi.service.mail.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateMailgroupReq {
-
-  @Body
-  private Mailgroup body;
-
-  // builder 开始
-  public CreateMailgroupReq() {
-  }
-
-  public CreateMailgroupReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Mailgroup getMailgroup() {
-    return this.body;
-  }
-
-  public void setMailgroup(Mailgroup body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Mailgroup body;
 
+    // builder 开始
+    public CreateMailgroupReq() {
+    }
+
+    public CreateMailgroupReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Mailgroup getMailgroup() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder mailgroup(Mailgroup body) {
-      this.body = body;
-      return this;
+    public void setMailgroup(Mailgroup body) {
+        this.body = body;
     }
 
-    public CreateMailgroupReq build() {
-      return new CreateMailgroupReq(this);
+    public static class Builder {
+
+        private Mailgroup body;
+
+        public Mailgroup getMailgroup() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder mailgroup(Mailgroup body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateMailgroupReq build() {
+            return new CreateMailgroupReq(this);
+        }
     }
-  }
 }

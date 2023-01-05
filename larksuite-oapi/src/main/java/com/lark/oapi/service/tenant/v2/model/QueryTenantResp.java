@@ -16,5 +16,4 @@ package com.lark.oapi.service.tenant.v2.model;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryTenantResp extends BaseResponse<QueryTenantRespBody> {
-
 }

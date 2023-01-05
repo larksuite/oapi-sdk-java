@@ -18,103 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetPermissionPublicReq {
-
-  /**
-   * 文件类型，放于query参数中，如：`?type=doc`
-   * <p> 示例值：doc
-   */
-  @Query
-  @SerializedName("type")
-  private String type;
-  /**
-   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-   * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-   */
-  @Path
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public GetPermissionPublicReq() {
-  }
-
-  public GetPermissionPublicReq(Builder builder) {
     /**
-     * 文件类型，放于query参数中，如：`?type=doc`
+     * 文件类型，需要与文件的 token 相匹配
      * <p> 示例值：doc
      */
-    this.type = builder.type;
+    @Query
+    @SerializedName("type")
+    private String type;
     /**
      * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
-    this.token = builder.token;
-  }
+    @Path
+    @SerializedName("token")
+    private String token;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
-    private String type; // 文件类型，放于query参数中，如：`?type=doc`
-    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-
-    /**
-     * 文件类型，放于query参数中，如：`?type=doc`
-     * <p> 示例值：doc
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public GetPermissionPublicReq() {
     }
 
-    /**
-     * 文件类型，放于query参数中，如：`?type=doc`
-     * <p> 示例值：doc
-     *
-     * @param type {@link com.lark.oapi.service.drive.v1.enums.GetPermissionPublicTokenTypeEnum}
-     * @return
-     */
-    public Builder type(
-        com.lark.oapi.service.drive.v1.enums.GetPermissionPublicTokenTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public GetPermissionPublicReq(Builder builder) {
+        /**
+         * 文件类型，需要与文件的 token 相匹配
+         * <p> 示例值：doc
+         */
+        this.type = builder.type;
+        /**
+         * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+         */
+        this.token = builder.token;
     }
 
-    /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public GetPermissionPublicReq build() {
-      return new GetPermissionPublicReq(this);
+    public String getType() {
+        return this.type;
     }
-  }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public static class Builder {
+        private String type; // 文件类型，需要与文件的 token 相匹配
+        private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+
+        /**
+         * 文件类型，需要与文件的 token 相匹配
+         * <p> 示例值：doc
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 文件类型，需要与文件的 token 相匹配
+         * <p> 示例值：doc
+         *
+         * @param type {@link com.lark.oapi.service.drive.v1.enums.GetPermissionPublicTokenTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.drive.v1.enums.GetPermissionPublicTokenTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+        /**
+         * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        public GetPermissionPublicReq build() {
+            return new GetPermissionPublicReq(this);
+        }
+    }
 }

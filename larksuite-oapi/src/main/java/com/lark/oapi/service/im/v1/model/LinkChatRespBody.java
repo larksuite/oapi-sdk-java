@@ -16,48 +16,47 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class LinkChatRespBody {
+    /**
+     * 群分享链接
+     * <p> 示例值：https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3nf8789-4rfx-427d-a6bf-ed1d2df348aabd
+     */
+    @SerializedName("share_link")
+    private String shareLink;
+    /**
+     * 分享链接过期时间戳（秒级）
+     * <p> 示例值：1609296809
+     */
+    @SerializedName("expire_time")
+    private String expireTime;
+    /**
+     * 分享链接是否永久有效
+     * <p> 示例值：false
+     */
+    @SerializedName("is_permanent")
+    private Boolean isPermanent;
 
-  /**
-   * 群分享链接
-   * <p> 示例值：https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3nf8789-4rfx-427d-a6bf-ed1d2df348aabd
-   */
-  @SerializedName("share_link")
-  private String shareLink;
-  /**
-   * 分享链接过期时间戳（秒级）
-   * <p> 示例值：1609296809
-   */
-  @SerializedName("expire_time")
-  private String expireTime;
-  /**
-   * 分享链接是否永久有效
-   * <p> 示例值：false
-   */
-  @SerializedName("is_permanent")
-  private Boolean isPermanent;
+    public String getShareLink() {
+        return this.shareLink;
+    }
 
-  public String getShareLink() {
-    return this.shareLink;
-  }
+    public void setShareLink(String shareLink) {
+        this.shareLink = shareLink;
+    }
 
-  public void setShareLink(String shareLink) {
-    this.shareLink = shareLink;
-  }
+    public String getExpireTime() {
+        return this.expireTime;
+    }
 
-  public String getExpireTime() {
-    return this.expireTime;
-  }
+    public void setExpireTime(String expireTime) {
+        this.expireTime = expireTime;
+    }
 
-  public void setExpireTime(String expireTime) {
-    this.expireTime = expireTime;
-  }
+    public Boolean getIsPermanent() {
+        return this.isPermanent;
+    }
 
-  public Boolean getIsPermanent() {
-    return this.isPermanent;
-  }
-
-  public void setIsPermanent(Boolean isPermanent) {
-    this.isPermanent = isPermanent;
-  }
+    public void setIsPermanent(Boolean isPermanent) {
+        this.isPermanent = isPermanent;
+    }
 
 }

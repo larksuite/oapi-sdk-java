@@ -16,431 +16,429 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TicketMessageEvent {
-
-  /**
-   * ticket message id
-   * <p> 示例值：6949088240624222236
-   */
-  @SerializedName("ticket_message_id")
-  private String ticketMessageId;
-  /**
-   * open message id
-   * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
-   */
-  @SerializedName("message_id")
-  private String messageId;
-  /**
-   * message type, text is the only supported type
-   * <p> 示例值：text
-   */
-  @SerializedName("msg_type")
-  private String msgType;
-  /**
-   * position of the message
-   * <p> 示例值：10
-   */
-  @SerializedName("position")
-  private String position;
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("sender_id")
-  private UserId senderId;
-  /**
-   * sender type, 1 for bot, 2 for guest, 3 for agent
-   * <p> 示例值：1
-   */
-  @SerializedName("sender_type")
-  private Integer senderType;
-  /**
-   * message content
-   * <p> 示例值：请问vpn怎么下载
-   */
-  @SerializedName("text")
-  private String text;
-  /**
-   * ticket related information
-   * <p> 示例值：
-   */
-  @SerializedName("ticket")
-  private Ticket ticket;
-  /**
-   * event id
-   * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
-   */
-  @SerializedName("event_id")
-  private String eventId;
-  /**
-   * chat id
-   * <p> 示例值：6949088236610273307
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-  /**
-   * message content
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private TicketMessageContent content;
-
-  // builder 开始
-  public TicketMessageEvent() {
-  }
-
-  public TicketMessageEvent(Builder builder) {
     /**
      * ticket message id
      * <p> 示例值：6949088240624222236
      */
-    this.ticketMessageId = builder.ticketMessageId;
-    /**
-     * open message id
-     * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
-     */
-    this.messageId = builder.messageId;
-    /**
-     * message type, text is the only supported type
-     * <p> 示例值：text
-     */
-    this.msgType = builder.msgType;
-    /**
-     * position of the message
-     * <p> 示例值：10
-     */
-    this.position = builder.position;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    this.senderId = builder.senderId;
-    /**
-     * sender type, 1 for bot, 2 for guest, 3 for agent
-     * <p> 示例值：1
-     */
-    this.senderType = builder.senderType;
-    /**
-     * message content
-     * <p> 示例值：请问vpn怎么下载
-     */
-    this.text = builder.text;
-    /**
-     * ticket related information
-     * <p> 示例值：
-     */
-    this.ticket = builder.ticket;
-    /**
-     * event id
-     * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
-     */
-    this.eventId = builder.eventId;
-    /**
-     * chat id
-     * <p> 示例值：6949088236610273307
-     */
-    this.chatId = builder.chatId;
-    /**
-     * message content
-     * <p> 示例值：
-     */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketMessageId() {
-    return this.ticketMessageId;
-  }
-
-  public void setTicketMessageId(String ticketMessageId) {
-    this.ticketMessageId = ticketMessageId;
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public String getPosition() {
-    return this.position;
-  }
-
-  public void setPosition(String position) {
-    this.position = position;
-  }
-
-  public UserId getSenderId() {
-    return this.senderId;
-  }
-
-  public void setSenderId(UserId senderId) {
-    this.senderId = senderId;
-  }
-
-  public Integer getSenderType() {
-    return this.senderType;
-  }
-
-  public void setSenderType(Integer senderType) {
-    this.senderType = senderType;
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public Ticket getTicket() {
-    return this.ticket;
-  }
-
-  public void setTicket(Ticket ticket) {
-    this.ticket = ticket;
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public TicketMessageContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(TicketMessageContent content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * ticket message id
-     * <p> 示例值：6949088240624222236
-     */
+    @SerializedName("ticket_message_id")
     private String ticketMessageId;
     /**
      * open message id
      * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
      */
+    @SerializedName("message_id")
     private String messageId;
     /**
      * message type, text is the only supported type
      * <p> 示例值：text
      */
+    @SerializedName("msg_type")
     private String msgType;
     /**
      * position of the message
      * <p> 示例值：10
      */
+    @SerializedName("position")
     private String position;
     /**
      * 用户 ID
      * <p> 示例值：
      */
+    @SerializedName("sender_id")
     private UserId senderId;
     /**
      * sender type, 1 for bot, 2 for guest, 3 for agent
      * <p> 示例值：1
      */
+    @SerializedName("sender_type")
     private Integer senderType;
     /**
      * message content
      * <p> 示例值：请问vpn怎么下载
      */
+    @SerializedName("text")
     private String text;
     /**
      * ticket related information
      * <p> 示例值：
      */
+    @SerializedName("ticket")
     private Ticket ticket;
     /**
      * event id
      * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
      */
+    @SerializedName("event_id")
     private String eventId;
     /**
      * chat id
      * <p> 示例值：6949088236610273307
      */
+    @SerializedName("chat_id")
     private String chatId;
     /**
      * message content
      * <p> 示例值：
      */
+    @SerializedName("content")
     private TicketMessageContent content;
 
-    /**
-     * ticket message id
-     * <p> 示例值：6949088240624222236
-     *
-     * @param ticketMessageId
-     * @return
-     */
-    public Builder ticketMessageId(String ticketMessageId) {
-      this.ticketMessageId = ticketMessageId;
-      return this;
+    // builder 开始
+    public TicketMessageEvent() {
     }
 
-
-    /**
-     * open message id
-     * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
-     *
-     * @param messageId
-     * @return
-     */
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    public TicketMessageEvent(Builder builder) {
+        /**
+         * ticket message id
+         * <p> 示例值：6949088240624222236
+         */
+        this.ticketMessageId = builder.ticketMessageId;
+        /**
+         * open message id
+         * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
+         */
+        this.messageId = builder.messageId;
+        /**
+         * message type, text is the only supported type
+         * <p> 示例值：text
+         */
+        this.msgType = builder.msgType;
+        /**
+         * position of the message
+         * <p> 示例值：10
+         */
+        this.position = builder.position;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        this.senderId = builder.senderId;
+        /**
+         * sender type, 1 for bot, 2 for guest, 3 for agent
+         * <p> 示例值：1
+         */
+        this.senderType = builder.senderType;
+        /**
+         * message content
+         * <p> 示例值：请问vpn怎么下载
+         */
+        this.text = builder.text;
+        /**
+         * ticket related information
+         * <p> 示例值：
+         */
+        this.ticket = builder.ticket;
+        /**
+         * event id
+         * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
+         */
+        this.eventId = builder.eventId;
+        /**
+         * chat id
+         * <p> 示例值：6949088236610273307
+         */
+        this.chatId = builder.chatId;
+        /**
+         * message content
+         * <p> 示例值：
+         */
+        this.content = builder.content;
     }
 
-
-    /**
-     * message type, text is the only supported type
-     * <p> 示例值：text
-     *
-     * @param msgType
-     * @return
-     */
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * position of the message
-     * <p> 示例值：10
-     *
-     * @param position
-     * @return
-     */
-    public Builder position(String position) {
-      this.position = position;
-      return this;
+    public String getTicketMessageId() {
+        return this.ticketMessageId;
     }
 
-
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     *
-     * @param senderId
-     * @return
-     */
-    public Builder senderId(UserId senderId) {
-      this.senderId = senderId;
-      return this;
+    public void setTicketMessageId(String ticketMessageId) {
+        this.ticketMessageId = ticketMessageId;
     }
 
-
-    /**
-     * sender type, 1 for bot, 2 for guest, 3 for agent
-     * <p> 示例值：1
-     *
-     * @param senderType
-     * @return
-     */
-    public Builder senderType(Integer senderType) {
-      this.senderType = senderType;
-      return this;
+    public String getMessageId() {
+        return this.messageId;
     }
 
-
-    /**
-     * message content
-     * <p> 示例值：请问vpn怎么下载
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
-
-    /**
-     * ticket related information
-     * <p> 示例值：
-     *
-     * @param ticket
-     * @return
-     */
-    public Builder ticket(Ticket ticket) {
-      this.ticket = ticket;
-      return this;
+    public String getMsgType() {
+        return this.msgType;
     }
 
-
-    /**
-     * event id
-     * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
-     *
-     * @param eventId
-     * @return
-     */
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
     }
 
-
-    /**
-     * chat id
-     * <p> 示例值：6949088236610273307
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public String getPosition() {
+        return this.position;
     }
 
-
-    /**
-     * message content
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(TicketMessageContent content) {
-      this.content = content;
-      return this;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-
-    public TicketMessageEvent build() {
-      return new TicketMessageEvent(this);
+    public UserId getSenderId() {
+        return this.senderId;
     }
-  }
+
+    public void setSenderId(UserId senderId) {
+        this.senderId = senderId;
+    }
+
+    public Integer getSenderType() {
+        return this.senderType;
+    }
+
+    public void setSenderType(Integer senderType) {
+        this.senderType = senderType;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Ticket getTicket() {
+        return this.ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public String getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public TicketMessageContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(TicketMessageContent content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * ticket message id
+         * <p> 示例值：6949088240624222236
+         */
+        private String ticketMessageId;
+        /**
+         * open message id
+         * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
+         */
+        private String messageId;
+        /**
+         * message type, text is the only supported type
+         * <p> 示例值：text
+         */
+        private String msgType;
+        /**
+         * position of the message
+         * <p> 示例值：10
+         */
+        private String position;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        private UserId senderId;
+        /**
+         * sender type, 1 for bot, 2 for guest, 3 for agent
+         * <p> 示例值：1
+         */
+        private Integer senderType;
+        /**
+         * message content
+         * <p> 示例值：请问vpn怎么下载
+         */
+        private String text;
+        /**
+         * ticket related information
+         * <p> 示例值：
+         */
+        private Ticket ticket;
+        /**
+         * event id
+         * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
+         */
+        private String eventId;
+        /**
+         * chat id
+         * <p> 示例值：6949088236610273307
+         */
+        private String chatId;
+        /**
+         * message content
+         * <p> 示例值：
+         */
+        private TicketMessageContent content;
+
+        /**
+         * ticket message id
+         * <p> 示例值：6949088240624222236
+         *
+         * @param ticketMessageId
+         * @return
+         */
+        public Builder ticketMessageId(String ticketMessageId) {
+            this.ticketMessageId = ticketMessageId;
+            return this;
+        }
+
+
+        /**
+         * open message id
+         * <p> 示例值：om_8baa3656c7b41900d29bf9104bf5310b
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+
+        /**
+         * message type, text is the only supported type
+         * <p> 示例值：text
+         *
+         * @param msgType
+         * @return
+         */
+        public Builder msgType(String msgType) {
+            this.msgType = msgType;
+            return this;
+        }
+
+
+        /**
+         * position of the message
+         * <p> 示例值：10
+         *
+         * @param position
+         * @return
+         */
+        public Builder position(String position) {
+            this.position = position;
+            return this;
+        }
+
+
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         *
+         * @param senderId
+         * @return
+         */
+        public Builder senderId(UserId senderId) {
+            this.senderId = senderId;
+            return this;
+        }
+
+
+        /**
+         * sender type, 1 for bot, 2 for guest, 3 for agent
+         * <p> 示例值：1
+         *
+         * @param senderType
+         * @return
+         */
+        public Builder senderType(Integer senderType) {
+            this.senderType = senderType;
+            return this;
+        }
+
+
+        /**
+         * message content
+         * <p> 示例值：请问vpn怎么下载
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        /**
+         * ticket related information
+         * <p> 示例值：
+         *
+         * @param ticket
+         * @return
+         */
+        public Builder ticket(Ticket ticket) {
+            this.ticket = ticket;
+            return this;
+        }
+
+
+        /**
+         * event id
+         * <p> 示例值：118a6492-122d-04ad-4370-010a3bb384d3
+         *
+         * @param eventId
+         * @return
+         */
+        public Builder eventId(String eventId) {
+            this.eventId = eventId;
+            return this;
+        }
+
+
+        /**
+         * chat id
+         * <p> 示例值：6949088236610273307
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+
+        /**
+         * message content
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(TicketMessageContent content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public TicketMessageEvent build() {
+            return new TicketMessageEvent(this);
+        }
+    }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.application.v6.enums;
  * 应用类型
  */
 public enum ApplicationV2AppSceneTypeEnum {
-  SELF_BUILD(0), // 自建应用
-  ISV(1), // 应用商店应用
-  ISP(2), // 个人应用商店应用
-  UNKNOWN(3), // 未知应用类型
-  ;
-  private Integer value;
+    SELF_BUILD(0), // 自建应用
+    ISV(1), // 应用商店应用
+    ISP(2), // 个人应用商店应用
+    UNKNOWN(3), // 未知应用类型
+    ;
+    private Integer value;
 
-  ApplicationV2AppSceneTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationV2AppSceneTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

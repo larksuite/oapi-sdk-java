@@ -16,20 +16,19 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetTicketRespBody {
+    /**
+     * 工单详情
+     * <p> 示例值：
+     */
+    @SerializedName("ticket")
+    private Ticket ticket;
 
-  /**
-   * 工单详情
-   * <p> 示例值：
-   */
-  @SerializedName("ticket")
-  private Ticket ticket;
+    public Ticket getTicket() {
+        return this.ticket;
+    }
 
-  public Ticket getTicket() {
-    return this.ticket;
-  }
-
-  public void setTicket(Ticket ticket) {
-    this.ticket = ticket;
-  }
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
 
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferApplyFormObjectConfigInfo {
-
-  /**
-   * 选项信息
-   * <p> 示例值：
-   */
-  @SerializedName("options")
-  private OfferApplyFormConfigOptionInfo[] options;
-  /**
-   * 公式信息
-   * <p> 示例值：
-   */
-  @SerializedName("formula")
-  private OfferApplyFormConfigFormulaInfo formula;
-  /**
-   * 级联配置信息
-   * <p> 示例值：
-   */
-  @SerializedName("object_display_config")
-  private OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig;
-
-  // builder 开始
-  public OfferApplyFormObjectConfigInfo() {
-  }
-
-  public OfferApplyFormObjectConfigInfo(Builder builder) {
     /**
      * 选项信息
      * <p> 示例值：
      */
-    this.options = builder.options;
-    /**
-     * 公式信息
-     * <p> 示例值：
-     */
-    this.formula = builder.formula;
-    /**
-     * 级联配置信息
-     * <p> 示例值：
-     */
-    this.objectDisplayConfig = builder.objectDisplayConfig;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public OfferApplyFormConfigOptionInfo[] getOptions() {
-    return this.options;
-  }
-
-  public void setOptions(OfferApplyFormConfigOptionInfo[] options) {
-    this.options = options;
-  }
-
-  public OfferApplyFormConfigFormulaInfo getFormula() {
-    return this.formula;
-  }
-
-  public void setFormula(OfferApplyFormConfigFormulaInfo formula) {
-    this.formula = formula;
-  }
-
-  public OfferApplyFormObjectDisplayConfigInfo getObjectDisplayConfig() {
-    return this.objectDisplayConfig;
-  }
-
-  public void setObjectDisplayConfig(OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig) {
-    this.objectDisplayConfig = objectDisplayConfig;
-  }
-
-  public static class Builder {
-
-    /**
-     * 选项信息
-     * <p> 示例值：
-     */
+    @SerializedName("options")
     private OfferApplyFormConfigOptionInfo[] options;
     /**
      * 公式信息
      * <p> 示例值：
      */
+    @SerializedName("formula")
     private OfferApplyFormConfigFormulaInfo formula;
     /**
      * 级联配置信息
      * <p> 示例值：
      */
+    @SerializedName("object_display_config")
     private OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig;
 
-    /**
-     * 选项信息
-     * <p> 示例值：
-     *
-     * @param options
-     * @return
-     */
-    public Builder options(OfferApplyFormConfigOptionInfo[] options) {
-      this.options = options;
-      return this;
+    // builder 开始
+    public OfferApplyFormObjectConfigInfo() {
     }
 
-
-    /**
-     * 公式信息
-     * <p> 示例值：
-     *
-     * @param formula
-     * @return
-     */
-    public Builder formula(OfferApplyFormConfigFormulaInfo formula) {
-      this.formula = formula;
-      return this;
+    public OfferApplyFormObjectConfigInfo(Builder builder) {
+        /**
+         * 选项信息
+         * <p> 示例值：
+         */
+        this.options = builder.options;
+        /**
+         * 公式信息
+         * <p> 示例值：
+         */
+        this.formula = builder.formula;
+        /**
+         * 级联配置信息
+         * <p> 示例值：
+         */
+        this.objectDisplayConfig = builder.objectDisplayConfig;
     }
 
-
-    /**
-     * 级联配置信息
-     * <p> 示例值：
-     *
-     * @param objectDisplayConfig
-     * @return
-     */
-    public Builder objectDisplayConfig(OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig) {
-      this.objectDisplayConfig = objectDisplayConfig;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public OfferApplyFormObjectConfigInfo build() {
-      return new OfferApplyFormObjectConfigInfo(this);
+    public OfferApplyFormConfigOptionInfo[] getOptions() {
+        return this.options;
     }
-  }
+
+    public void setOptions(OfferApplyFormConfigOptionInfo[] options) {
+        this.options = options;
+    }
+
+    public OfferApplyFormConfigFormulaInfo getFormula() {
+        return this.formula;
+    }
+
+    public void setFormula(OfferApplyFormConfigFormulaInfo formula) {
+        this.formula = formula;
+    }
+
+    public OfferApplyFormObjectDisplayConfigInfo getObjectDisplayConfig() {
+        return this.objectDisplayConfig;
+    }
+
+    public void setObjectDisplayConfig(OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig) {
+        this.objectDisplayConfig = objectDisplayConfig;
+    }
+
+    public static class Builder {
+        /**
+         * 选项信息
+         * <p> 示例值：
+         */
+        private OfferApplyFormConfigOptionInfo[] options;
+        /**
+         * 公式信息
+         * <p> 示例值：
+         */
+        private OfferApplyFormConfigFormulaInfo formula;
+        /**
+         * 级联配置信息
+         * <p> 示例值：
+         */
+        private OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig;
+
+        /**
+         * 选项信息
+         * <p> 示例值：
+         *
+         * @param options
+         * @return
+         */
+        public Builder options(OfferApplyFormConfigOptionInfo[] options) {
+            this.options = options;
+            return this;
+        }
+
+
+        /**
+         * 公式信息
+         * <p> 示例值：
+         *
+         * @param formula
+         * @return
+         */
+        public Builder formula(OfferApplyFormConfigFormulaInfo formula) {
+            this.formula = formula;
+            return this;
+        }
+
+
+        /**
+         * 级联配置信息
+         * <p> 示例值：
+         *
+         * @param objectDisplayConfig
+         * @return
+         */
+        public Builder objectDisplayConfig(OfferApplyFormObjectDisplayConfigInfo objectDisplayConfig) {
+            this.objectDisplayConfig = objectDisplayConfig;
+            return this;
+        }
+
+
+        public OfferApplyFormObjectConfigInfo build() {
+            return new OfferApplyFormObjectConfigInfo(this);
+        }
+    }
 }

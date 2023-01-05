@@ -16,61 +16,59 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApiAuditCommonDrawers {
-
-  /**
-   * 扩展字段信息
-   * <p> 示例值：
-   */
-  @SerializedName("common_draw_info_list")
-  private ApiAuditDrawerInfo[] commonDrawInfoList;
-
-  // builder 开始
-  public ApiAuditCommonDrawers() {
-  }
-
-  public ApiAuditCommonDrawers(Builder builder) {
     /**
      * 扩展字段信息
      * <p> 示例值：
      */
-    this.commonDrawInfoList = builder.commonDrawInfoList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ApiAuditDrawerInfo[] getCommonDrawInfoList() {
-    return this.commonDrawInfoList;
-  }
-
-  public void setCommonDrawInfoList(ApiAuditDrawerInfo[] commonDrawInfoList) {
-    this.commonDrawInfoList = commonDrawInfoList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 扩展字段信息
-     * <p> 示例值：
-     */
+    @SerializedName("common_draw_info_list")
     private ApiAuditDrawerInfo[] commonDrawInfoList;
 
-    /**
-     * 扩展字段信息
-     * <p> 示例值：
-     *
-     * @param commonDrawInfoList
-     * @return
-     */
-    public Builder commonDrawInfoList(ApiAuditDrawerInfo[] commonDrawInfoList) {
-      this.commonDrawInfoList = commonDrawInfoList;
-      return this;
+    // builder 开始
+    public ApiAuditCommonDrawers() {
     }
 
-
-    public ApiAuditCommonDrawers build() {
-      return new ApiAuditCommonDrawers(this);
+    public ApiAuditCommonDrawers(Builder builder) {
+        /**
+         * 扩展字段信息
+         * <p> 示例值：
+         */
+        this.commonDrawInfoList = builder.commonDrawInfoList;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ApiAuditDrawerInfo[] getCommonDrawInfoList() {
+        return this.commonDrawInfoList;
+    }
+
+    public void setCommonDrawInfoList(ApiAuditDrawerInfo[] commonDrawInfoList) {
+        this.commonDrawInfoList = commonDrawInfoList;
+    }
+
+    public static class Builder {
+        /**
+         * 扩展字段信息
+         * <p> 示例值：
+         */
+        private ApiAuditDrawerInfo[] commonDrawInfoList;
+
+        /**
+         * 扩展字段信息
+         * <p> 示例值：
+         *
+         * @param commonDrawInfoList
+         * @return
+         */
+        public Builder commonDrawInfoList(ApiAuditDrawerInfo[] commonDrawInfoList) {
+            this.commonDrawInfoList = commonDrawInfoList;
+            return this;
+        }
+
+
+        public ApiAuditCommonDrawers build() {
+            return new ApiAuditCommonDrawers(this);
+        }
+    }
 }

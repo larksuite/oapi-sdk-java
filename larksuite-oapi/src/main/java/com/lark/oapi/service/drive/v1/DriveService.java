@@ -18,2631 +18,3038 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.event.IEventHandler;
-import com.lark.oapi.service.drive.v1.model.BatchGetTmpDownloadUrlMediaReq;
-import com.lark.oapi.service.drive.v1.model.BatchGetTmpDownloadUrlMediaResp;
-import com.lark.oapi.service.drive.v1.model.BatchQueryMetaReq;
-import com.lark.oapi.service.drive.v1.model.BatchQueryMetaResp;
-import com.lark.oapi.service.drive.v1.model.CopyFileReq;
-import com.lark.oapi.service.drive.v1.model.CopyFileResp;
-import com.lark.oapi.service.drive.v1.model.CreateExportTaskReq;
-import com.lark.oapi.service.drive.v1.model.CreateExportTaskResp;
-import com.lark.oapi.service.drive.v1.model.CreateFileCommentReq;
-import com.lark.oapi.service.drive.v1.model.CreateFileCommentResp;
-import com.lark.oapi.service.drive.v1.model.CreateFileSubscriptionReq;
-import com.lark.oapi.service.drive.v1.model.CreateFileSubscriptionResp;
-import com.lark.oapi.service.drive.v1.model.CreateFolderFileReq;
-import com.lark.oapi.service.drive.v1.model.CreateFolderFileResp;
-import com.lark.oapi.service.drive.v1.model.CreateImportTaskReq;
-import com.lark.oapi.service.drive.v1.model.CreateImportTaskResp;
-import com.lark.oapi.service.drive.v1.model.CreatePermissionMemberReq;
-import com.lark.oapi.service.drive.v1.model.CreatePermissionMemberResp;
-import com.lark.oapi.service.drive.v1.model.DeleteFileCommentReplyReq;
-import com.lark.oapi.service.drive.v1.model.DeleteFileCommentReplyResp;
-import com.lark.oapi.service.drive.v1.model.DeleteFileReq;
-import com.lark.oapi.service.drive.v1.model.DeleteFileResp;
-import com.lark.oapi.service.drive.v1.model.DeletePermissionMemberReq;
-import com.lark.oapi.service.drive.v1.model.DeletePermissionMemberResp;
-import com.lark.oapi.service.drive.v1.model.DownloadExportTaskReq;
-import com.lark.oapi.service.drive.v1.model.DownloadExportTaskResp;
-import com.lark.oapi.service.drive.v1.model.DownloadFileReq;
-import com.lark.oapi.service.drive.v1.model.DownloadFileResp;
-import com.lark.oapi.service.drive.v1.model.DownloadMediaReq;
-import com.lark.oapi.service.drive.v1.model.DownloadMediaResp;
-import com.lark.oapi.service.drive.v1.model.GetExportTaskReq;
-import com.lark.oapi.service.drive.v1.model.GetExportTaskResp;
-import com.lark.oapi.service.drive.v1.model.GetFileCommentReq;
-import com.lark.oapi.service.drive.v1.model.GetFileCommentResp;
-import com.lark.oapi.service.drive.v1.model.GetFileStatisticsReq;
-import com.lark.oapi.service.drive.v1.model.GetFileStatisticsResp;
-import com.lark.oapi.service.drive.v1.model.GetFileSubscriptionReq;
-import com.lark.oapi.service.drive.v1.model.GetFileSubscriptionResp;
-import com.lark.oapi.service.drive.v1.model.GetImportTaskReq;
-import com.lark.oapi.service.drive.v1.model.GetImportTaskResp;
-import com.lark.oapi.service.drive.v1.model.GetPermissionPublicReq;
-import com.lark.oapi.service.drive.v1.model.GetPermissionPublicResp;
-import com.lark.oapi.service.drive.v1.model.ListFileCommentReq;
-import com.lark.oapi.service.drive.v1.model.ListFileCommentResp;
-import com.lark.oapi.service.drive.v1.model.ListFileReq;
-import com.lark.oapi.service.drive.v1.model.ListFileResp;
-import com.lark.oapi.service.drive.v1.model.MoveFileReq;
-import com.lark.oapi.service.drive.v1.model.MoveFileResp;
-import com.lark.oapi.service.drive.v1.model.P2FileDeletedV1;
-import com.lark.oapi.service.drive.v1.model.P2FileEditV1;
-import com.lark.oapi.service.drive.v1.model.P2FilePermissionMemberAddedV1;
-import com.lark.oapi.service.drive.v1.model.P2FilePermissionMemberRemovedV1;
-import com.lark.oapi.service.drive.v1.model.P2FileReadV1;
-import com.lark.oapi.service.drive.v1.model.P2FileTitleUpdatedV1;
-import com.lark.oapi.service.drive.v1.model.P2FileTrashedV1;
-import com.lark.oapi.service.drive.v1.model.PatchFileCommentReq;
-import com.lark.oapi.service.drive.v1.model.PatchFileCommentResp;
-import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionReq;
-import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionResp;
-import com.lark.oapi.service.drive.v1.model.PatchPermissionPublicReq;
-import com.lark.oapi.service.drive.v1.model.PatchPermissionPublicResp;
-import com.lark.oapi.service.drive.v1.model.SubscribeFileReq;
-import com.lark.oapi.service.drive.v1.model.SubscribeFileResp;
-import com.lark.oapi.service.drive.v1.model.TaskCheckFileReq;
-import com.lark.oapi.service.drive.v1.model.TaskCheckFileResp;
-import com.lark.oapi.service.drive.v1.model.UpdateFileCommentReplyReq;
-import com.lark.oapi.service.drive.v1.model.UpdateFileCommentReplyResp;
-import com.lark.oapi.service.drive.v1.model.UpdatePermissionMemberReq;
-import com.lark.oapi.service.drive.v1.model.UpdatePermissionMemberResp;
-import com.lark.oapi.service.drive.v1.model.UploadAllFileReq;
-import com.lark.oapi.service.drive.v1.model.UploadAllFileResp;
-import com.lark.oapi.service.drive.v1.model.UploadAllMediaReq;
-import com.lark.oapi.service.drive.v1.model.UploadAllMediaResp;
-import com.lark.oapi.service.drive.v1.model.UploadFinishFileReq;
-import com.lark.oapi.service.drive.v1.model.UploadFinishFileResp;
-import com.lark.oapi.service.drive.v1.model.UploadFinishMediaReq;
-import com.lark.oapi.service.drive.v1.model.UploadFinishMediaResp;
-import com.lark.oapi.service.drive.v1.model.UploadPartFileReq;
-import com.lark.oapi.service.drive.v1.model.UploadPartFileResp;
-import com.lark.oapi.service.drive.v1.model.UploadPartMediaReq;
-import com.lark.oapi.service.drive.v1.model.UploadPartMediaResp;
-import com.lark.oapi.service.drive.v1.model.UploadPrepareFileReq;
-import com.lark.oapi.service.drive.v1.model.UploadPrepareFileResp;
-import com.lark.oapi.service.drive.v1.model.UploadPrepareMediaReq;
-import com.lark.oapi.service.drive.v1.model.UploadPrepareMediaResp;
+import com.lark.oapi.service.drive.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 
 public class DriveService {
+    private static final Logger log = LoggerFactory.getLogger(DriveService.class);
+    private final ExportTask exportTask; // 导出
+    private final File file; // 分片上传
+    private final FileComment fileComment; // 评论
+    private final FileCommentReply fileCommentReply; // 评论
+    private final FileStatistics fileStatistics; // file.statistics
+    private final FileSubscription fileSubscription; // 订阅
+    private final ImportTask importTask; // 导入
+    private final Media media; // 素材
+    private final Meta meta; // meta
+    private final PermissionMember permissionMember; // 成员
+    private final PermissionPublic permissionPublic; // 设置
 
-  private final ExportTask exportTask; // 导出
-  private final File file; // 分片上传
-  private final FileComment fileComment; // 评论
-  private final FileCommentReply fileCommentReply; // 评论
-  private final FileStatistics fileStatistics; // 文件
-  private final FileSubscription fileSubscription; // 订阅
-  private final ImportTask importTask; // 导入
-  private final Media media; // 分片上传
-  private final Meta meta; // 文件
-  private final PermissionMember permissionMember; // 成员
-  private final PermissionPublic permissionPublic; // 设置
-
-  public DriveService(Config config) {
-    this.exportTask = new ExportTask(config);
-    this.file = new File(config);
-    this.fileComment = new FileComment(config);
-    this.fileCommentReply = new FileCommentReply(config);
-    this.fileStatistics = new FileStatistics(config);
-    this.fileSubscription = new FileSubscription(config);
-    this.importTask = new ImportTask(config);
-    this.media = new Media(config);
-    this.meta = new Meta(config);
-    this.permissionMember = new PermissionMember(config);
-    this.permissionPublic = new PermissionPublic(config);
-  }
-
-  /**
-   * 导出
-   *
-   * @return
-   */
-  public ExportTask exportTask() {
-    return exportTask;
-  }
-
-  /**
-   * 分片上传
-   *
-   * @return
-   */
-  public File file() {
-    return file;
-  }
-
-  /**
-   * 评论
-   *
-   * @return
-   */
-  public FileComment fileComment() {
-    return fileComment;
-  }
-
-  /**
-   * 评论
-   *
-   * @return
-   */
-  public FileCommentReply fileCommentReply() {
-    return fileCommentReply;
-  }
-
-  /**
-   * 文件
-   *
-   * @return
-   */
-  public FileStatistics fileStatistics() {
-    return fileStatistics;
-  }
-
-  /**
-   * 订阅
-   *
-   * @return
-   */
-  public FileSubscription fileSubscription() {
-    return fileSubscription;
-  }
-
-  /**
-   * 导入
-   *
-   * @return
-   */
-  public ImportTask importTask() {
-    return importTask;
-  }
-
-  /**
-   * 分片上传
-   *
-   * @return
-   */
-  public Media media() {
-    return media;
-  }
-
-  /**
-   * 文件
-   *
-   * @return
-   */
-  public Meta meta() {
-    return meta;
-  }
-
-  /**
-   * 成员
-   *
-   * @return
-   */
-  public PermissionMember permissionMember() {
-    return permissionMember;
-  }
-
-  /**
-   * 设置
-   *
-   * @return
-   */
-  public PermissionPublic permissionPublic() {
-    return permissionPublic;
-  }
-
-  public static class ExportTask {
-
-    private final Config config;
-
-    public ExportTask(Config config) {
-      this.config = config;
+    public DriveService(Config config) {
+        this.exportTask = new ExportTask(config);
+        this.file = new File(config);
+        this.fileComment = new FileComment(config);
+        this.fileCommentReply = new FileCommentReply(config);
+        this.fileStatistics = new FileStatistics(config);
+        this.fileSubscription = new FileSubscription(config);
+        this.importTask = new ImportTask(config);
+        this.media = new Media(config);
+        this.meta = new Meta(config);
+        this.permissionMember = new PermissionMember(config);
+        this.permissionPublic = new PermissionPublic(config);
     }
 
     /**
-     * 创建导出任务，创建导出任务，将云文档导出为文件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java</a>
-     * ;
+     * 导出
+     *
+     * @return
      */
-    public CreateExportTaskResp create(CreateExportTaskReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/export_tasks"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateExportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public ExportTask exportTask() {
+        return exportTask;
     }
 
     /**
-     * 创建导出任务，创建导出任务，将云文档导出为文件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java</a>
-     * ;
+     * 分片上传
+     *
+     * @return
      */
-    public CreateExportTaskResp create(CreateExportTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/export_tasks"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateExportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public File file() {
+        return file;
     }
 
     /**
-     * 下载导出文件，根据任务导出结果的token，下载导出文件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java</a>
-     * ;
+     * 评论
+     *
+     * @return
      */
-    public DownloadExportTaskResp download(DownloadExportTaskReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/export_tasks/file/:file_token/download"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      if (httpResponse.getStatusCode() == 200) {
-        DownloadExportTaskResp resp = new DownloadExportTaskResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      DownloadExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DownloadExportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public FileComment fileComment() {
+        return fileComment;
     }
 
     /**
-     * 下载导出文件，根据任务导出结果的token，下载导出文件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java</a>
-     * ;
+     * 评论
+     *
+     * @return
      */
-    public DownloadExportTaskResp download(DownloadExportTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/export_tasks/file/:file_token/download"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 下载请求，返回流
-      if (httpResponse.getStatusCode() == 200) {
-        DownloadExportTaskResp resp = new DownloadExportTaskResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      DownloadExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DownloadExportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public FileCommentReply fileCommentReply() {
+        return fileCommentReply;
     }
 
     /**
-     * 查询导出任务结果，根据创建导出任务的ticket查询导出任务的结果
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java</a>
-     * ;
+     * file.statistics
+     *
+     * @return
      */
-    public GetExportTaskResp get(GetExportTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/export_tasks/:ticket"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetExportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public FileStatistics fileStatistics() {
+        return fileStatistics;
     }
 
     /**
-     * 查询导出任务结果，根据创建导出任务的ticket查询导出任务的结果
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java</a>
-     * ;
+     * 订阅
+     *
+     * @return
      */
-    public GetExportTaskResp get(GetExportTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/export_tasks/:ticket"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetExportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public FileSubscription fileSubscription() {
+        return fileSubscription;
     }
-  }
 
-  public static class File {
-
-    private final Config config;
-
-    public File(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 复制文件，将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。;;如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。
-     * <p> 该接口不支持并发拷贝多个文件，且调用频率上限为 5QPS 且 10000次/天 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java</a>
-     * ;
-     */
-    public CopyFileResp copy(CopyFileReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/copy"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CopyFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopyFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 复制文件，将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。;;如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。
-     * <p> 该接口不支持并发拷贝多个文件，且调用频率上限为 5QPS 且 10000次/天 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java</a>
-     * ;
-     */
-    public CopyFileResp copy(CopyFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/copy"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CopyFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopyFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 新建文件夹，在用户云空间的指定文件夹中创建一个新的空文件夹。
-     * <p> 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java</a>
-     * ;
-     */
-    public CreateFolderFileResp createFolder(CreateFolderFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/create_folder"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateFolderFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateFolderFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 新建文件夹，在用户云空间的指定文件夹中创建一个新的空文件夹。
-     * <p> 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java</a>
-     * ;
-     */
-    public CreateFolderFileResp createFolder(CreateFolderFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/create_folder"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateFolderFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateFolderFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
-     * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full
-     * access）。 ;
-     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java</a>
-     * ;
-     */
-    public DeleteFileResp delete(DeleteFileReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/drive/v1/files/:file_token"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
-     * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full
-     * access）。 ;
-     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java</a>
-     * ;
-     */
-    public DeleteFileResp delete(DeleteFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/drive/v1/files/:file_token"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 下载文件，使用该接口可以下载在云空间目录下的文件（不含飞书文档/表格/思维导图等在线文档）。支持range下载。
-     * <p> 该接口支持调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java</a>
-     * ;
-     */
-    public DownloadFileResp download(DownloadFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/download"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      if (httpResponse.getStatusCode() == 200) {
-        DownloadFileResp resp = new DownloadFileResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 下载文件，使用该接口可以下载在云空间目录下的文件（不含飞书文档/表格/思维导图等在线文档）。支持range下载。
-     * <p> 该接口支持调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java</a>
-     * ;
-     */
-    public DownloadFileResp download(DownloadFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/download"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 下载请求，返回流
-      if (httpResponse.getStatusCode() == 200) {
-        DownloadFileResp resp = new DownloadFileResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取文件夹下的清单，获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归的获取子文件夹的清单。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java</a>
-     * ;
-     */
-    public ListFileResp list(ListFileReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取文件夹下的清单，获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归的获取子文件夹的清单。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java</a>
-     * ;
-     */
-    public ListFileResp list(ListFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 移动文件，将文件或者文件夹移动到用户云空间的其他位置。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java</a>
-     * ;
-     */
-    public MoveFileResp move(MoveFileReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/move"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      MoveFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 移动文件，将文件或者文件夹移动到用户云空间的其他位置。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java</a>
-     * ;
-     */
-    public MoveFileResp move(MoveFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/move"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      MoveFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅云文档事件，该接口**仅支持文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a>
-     * ;
-     */
-    public SubscribeFileResp subscribe(SubscribeFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/subscribe"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      SubscribeFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscribeFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅云文档事件，该接口**仅支持文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a>
-     * ;
-     */
-    public SubscribeFileResp subscribe(SubscribeFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/subscribe"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      SubscribeFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscribeFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询异步任务状态，查询删除文件夹等异步任务的状态信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java</a>
-     * ;
-     */
-    public TaskCheckFileResp taskCheck(TaskCheckFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/task_check"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      TaskCheckFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TaskCheckFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询异步任务状态，查询删除文件夹等异步任务的状态信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java</a>
-     * ;
-     */
-    public TaskCheckFileResp taskCheck(TaskCheckFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/task_check"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      TaskCheckFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          TaskCheckFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 上传文件，向云空间指定目录下上传一个小文件。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
-     * ;
-     * <p> 该接口支持调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java</a>
-     * ;
-     */
-    public UploadAllFileResp uploadAll(UploadAllFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_all"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadAllFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadAllFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 上传文件，向云空间指定目录下上传一个小文件。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
-     * ;
-     * <p> 该接口支持调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java</a>
-     * ;
-     */
-    public UploadAllFileResp uploadAll(UploadAllFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_all"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadAllFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadAllFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传文件（完成上传），触发完成上传。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java</a>
-     * ;
-     */
-    public UploadFinishFileResp uploadFinish(UploadFinishFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_finish"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadFinishFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadFinishFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传文件（完成上传），触发完成上传。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java</a>
-     * ;
-     */
-    public UploadFinishFileResp uploadFinish(UploadFinishFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_finish"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadFinishFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadFinishFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传文件（上传分片），上传对应的文件块。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java</a>
-     * ;
-     */
-    public UploadPartFileResp uploadPart(UploadPartFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_part"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPartFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPartFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传文件（上传分片），上传对应的文件块。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java</a>
-     * ;
-     */
-    public UploadPartFileResp uploadPart(UploadPartFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_part"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPartFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPartFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传文件（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
-     * <p> 你在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java</a>
-     * ;
-     */
-    public UploadPrepareFileResp uploadPrepare(UploadPrepareFileReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_prepare"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPrepareFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPrepareFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传文件（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
-     * <p> 你在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java</a>
-     * ;
-     */
-    public UploadPrepareFileResp uploadPrepare(UploadPrepareFileReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/upload_prepare"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPrepareFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPrepareFileResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class FileComment {
-
-    private final Config config;
-
-    public FileComment(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 添加评论，往云文档添加一条全局评论。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java</a>
-     * ;
-     */
-    public CreateFileCommentResp create(CreateFileCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/comments"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 添加评论，往云文档添加一条全局评论。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java</a>
-     * ;
-     */
-    public CreateFileCommentResp create(CreateFileCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/comments"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论，获取云文档中的某条评论。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java</a>
-     * ;
-     */
-    public GetFileCommentResp get(GetFileCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论，获取云文档中的某条评论。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java</a>
-     * ;
-     */
-    public GetFileCommentResp get(GetFileCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论列表，通过分页方式获取云文档中的全文评论列表。
-     * <p> 注意：该接口仅可获取在线文档的全文评论，不支持获取局部评论或者在线表格中的评论。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java</a>
-     * ;
-     */
-    public ListFileCommentResp list(ListFileCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/comments"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论列表，通过分页方式获取云文档中的全文评论列表。
-     * <p> 注意：该接口仅可获取在线文档的全文评论，不支持获取局部评论或者在线表格中的评论。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java</a>
-     * ;
-     */
-    public ListFileCommentResp list(ListFileCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/comments"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 解决/恢复 评论，解决或恢复云文档中的评论。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java</a>
-     * ;
-     */
-    public PatchFileCommentResp patch(PatchFileCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      PatchFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 解决/恢复 评论，解决或恢复云文档中的评论。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java</a>
-     * ;
-     */
-    public PatchFileCommentResp patch(PatchFileCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      PatchFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchFileCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class FileCommentReply {
-
-    private final Config config;
-
-    public FileCommentReply(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 删除回复，删除云文档中的某条回复。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java</a>
-     * ;
-     */
-    public DeleteFileCommentReplyResp delete(DeleteFileCommentReplyReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DeleteFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteFileCommentReplyResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除回复，删除云文档中的某条回复。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java</a>
-     * ;
-     */
-    public DeleteFileCommentReplyResp delete(DeleteFileCommentReplyReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DeleteFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteFileCommentReplyResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新回复，更新云文档中的某条回复。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java</a>
-     * ;
-     */
-    public UpdateFileCommentReplyResp update(UpdateFileCommentReplyReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UpdateFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateFileCommentReplyResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新回复，更新云文档中的某条回复。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java</a>
-     * ;
-     */
-    public UpdateFileCommentReplyResp update(UpdateFileCommentReplyReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UpdateFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateFileCommentReplyResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class FileStatistics {
-
-    private final Config config;
-
-    public FileStatistics(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取文件统计信息，此接口用于获取文件统计信息，包括文档阅读人数、次数和点赞数。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java</a>
-     * ;
-     */
-    public GetFileStatisticsResp get(GetFileStatisticsReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/statistics"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetFileStatisticsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetFileStatisticsResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取文件统计信息，此接口用于获取文件统计信息，包括文档阅读人数、次数和点赞数。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java</a>
-     * ;
-     */
-    public GetFileStatisticsResp get(GetFileStatisticsReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/statistics"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetFileStatisticsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetFileStatisticsResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class FileSubscription {
-
-    private final Config config;
-
-    public FileSubscription(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java</a>
-     * ;
-     */
-    public CreateFileSubscriptionResp create(CreateFileSubscriptionReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/subscriptions"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateFileSubscriptionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java</a>
-     * ;
-     */
-    public CreateFileSubscriptionResp create(CreateFileSubscriptionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/files/:file_token/subscriptions"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateFileSubscriptionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取订阅状态，根据订阅ID获取该订阅的状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java</a>
-     * ;
-     */
-    public GetFileSubscriptionResp get(GetFileSubscriptionReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetFileSubscriptionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取订阅状态，根据订阅ID获取该订阅的状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java</a>
-     * ;
-     */
-    public GetFileSubscriptionResp get(GetFileSubscriptionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetFileSubscriptionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新订阅状态，根据订阅ID更新订阅状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java</a>
-     * ;
-     */
-    public PatchFileSubscriptionResp patch(PatchFileSubscriptionReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchFileSubscriptionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新订阅状态，根据订阅ID更新订阅状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java</a>
-     * ;
-     */
-    public PatchFileSubscriptionResp patch(PatchFileSubscriptionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchFileSubscriptionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class ImportTask {
-
-    private final Config config;
-
-    public ImportTask(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java</a>
-     * ;
-     */
-    public CreateImportTaskResp create(CreateImportTaskReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/import_tasks"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateImportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java</a>
-     * ;
-     */
-    public CreateImportTaskResp create(CreateImportTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/import_tasks"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateImportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询导入结果，根据创建导入任务返回的 ticket 查询导入结果。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java</a>
-     * ;
-     */
-    public GetImportTaskResp get(GetImportTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/import_tasks/:ticket"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetImportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询导入结果，根据创建导入任务返回的 ticket 查询导入结果。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java</a>
-     * ;
-     */
-    public GetImportTaskResp get(GetImportTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/import_tasks/:ticket"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetImportTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Media {
-
-    private final Config config;
-
-    public Media(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java</a>
-     * ;
-     */
-    public BatchGetTmpDownloadUrlMediaResp batchGetTmpDownloadUrl(
-        BatchGetTmpDownloadUrlMediaReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchGetTmpDownloadUrlMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java</a>
-     * ;
-     */
-    public BatchGetTmpDownloadUrlMediaResp batchGetTmpDownloadUrl(
-        BatchGetTmpDownloadUrlMediaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchGetTmpDownloadUrlMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java</a>
-     * ;
-     */
-    public DownloadMediaResp download(DownloadMediaReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/medias/:file_token/download"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      if (httpResponse.getStatusCode() == 200) {
-        DownloadMediaResp resp = new DownloadMediaResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DownloadMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java</a>
-     * ;
-     */
-    public DownloadMediaResp download(DownloadMediaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/medias/:file_token/download"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 下载请求，返回流
-      if (httpResponse.getStatusCode() == 200) {
-        DownloadMediaResp resp = new DownloadMediaResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DownloadMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
-     * ;
-     * <p> 该接口支持调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java</a>
-     * ;
-     */
-    public UploadAllMediaResp uploadAll(UploadAllMediaReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_all"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadAllMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
-     * ;
-     * <p> 该接口支持调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java</a>
-     * ;
-     */
-    public UploadAllMediaResp uploadAll(UploadAllMediaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_all"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadAllMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传素材（完成上传），触发完成上传。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java</a>
-     * ;
-     */
-    public UploadFinishMediaResp uploadFinish(UploadFinishMediaReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_finish"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadFinishMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传素材（完成上传），触发完成上传。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java</a>
-     * ;
-     */
-    public UploadFinishMediaResp uploadFinish(UploadFinishMediaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_finish"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadFinishMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传素材（上传分片），上传对应的文件块。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java</a>
-     * ;
-     */
-    public UploadPartMediaResp uploadPart(UploadPartMediaReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_part"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPartMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传素材（上传分片），上传对应的文件块。
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java</a>
-     * ;
-     */
-    public UploadPartMediaResp uploadPart(UploadPartMediaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_part"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPartMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
-     * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java</a>
-     * ;
-     */
-    public UploadPrepareMediaResp uploadPrepare(UploadPrepareMediaReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_prepare"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPrepareMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
-     * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
-     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java</a>
-     * ;
-     */
-    public UploadPrepareMediaResp uploadPrepare(UploadPrepareMediaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/medias/upload_prepare"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UploadPrepareMediaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Meta {
-
-    private final Config config;
-
-    public Meta(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取文档元数据，该接口用于根据 token 获取各类文件的元数据
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java</a>
-     * ;
-     */
-    public BatchQueryMetaResp batchQuery(BatchQueryMetaReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/metas/batch_query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchQueryMetaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchQueryMetaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取文档元数据，该接口用于根据 token 获取各类文件的元数据
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java</a>
-     * ;
-     */
-    public BatchQueryMetaResp batchQuery(BatchQueryMetaReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/metas/batch_query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchQueryMetaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchQueryMetaResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class PermissionMember {
-
-    private final Config config;
-
-    public PermissionMember(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 增加协作者权限，该接口用于根据 filetoken 给用户增加文档的权限。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java</a>
-     * ;
-     */
-    public CreatePermissionMemberResp create(CreatePermissionMemberReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/permissions/:token/members"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreatePermissionMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 增加协作者权限，该接口用于根据 filetoken 给用户增加文档的权限。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java</a>
-     * ;
-     */
-    public CreatePermissionMemberResp create(CreatePermissionMemberReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/drive/v1/permissions/:token/members"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreatePermissionMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 移除协作者权限，该接口用于根据 filetoken 移除文档协作者的权限。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java</a>
-     * ;
-     */
-    public DeletePermissionMemberResp delete(DeletePermissionMemberReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/drive/v1/permissions/:token/members/:member_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeletePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeletePermissionMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 移除协作者权限，该接口用于根据 filetoken 移除文档协作者的权限。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java</a>
-     * ;
-     */
-    public DeletePermissionMemberResp delete(DeletePermissionMemberReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/drive/v1/permissions/:token/members/:member_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeletePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeletePermissionMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
-     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java</a>
-     * ;
-     */
-    public UpdatePermissionMemberResp update(UpdatePermissionMemberReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/drive/v1/permissions/:token/members/:member_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdatePermissionMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
-     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java</a>
-     * ;
-     */
-    public UpdatePermissionMemberResp update(UpdatePermissionMemberReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/drive/v1/permissions/:token/members/:member_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdatePermissionMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class PermissionPublic {
-
-    private final Config config;
-
-    public PermissionPublic(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取云文档权限设置，该接口用于根据 filetoken 获取云文档的权限设置。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java</a>
-     * ;
-     */
-    public GetPermissionPublicResp get(GetPermissionPublicReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/permissions/:token/public"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetPermissionPublicResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
     /**
-     * 获取云文档权限设置，该接口用于根据 filetoken 获取云文档的权限设置。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java</a>
-     * ;
+     * 导入
+     *
+     * @return
      */
-    public GetPermissionPublicResp get(GetPermissionPublicReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/drive/v1/permissions/:token/public"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetPermissionPublicResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public ImportTask importTask() {
+        return importTask;
     }
 
     /**
-     * 更新云文档权限设置，该接口用于根据 filetoken 更新云文档的权限设置。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java</a>
-     * ;
+     * 素材
+     *
+     * @return
      */
-    public PatchPermissionPublicResp patch(PatchPermissionPublicReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/drive/v1/permissions/:token/public"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchPermissionPublicResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Media media() {
+        return media;
     }
 
     /**
-     * 更新云文档权限设置，该接口用于根据 filetoken 更新云文档的权限设置。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java</a>
-     * ;
-     */
-    public PatchPermissionPublicResp patch(PatchPermissionPublicReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/drive/v1/permissions/:token/public"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchPermissionPublicResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public abstract static class P2FileDeletedV1Handler implements IEventHandler<P2FileDeletedV1> {
-
-    @Override
-    public P2FileDeletedV1 getEvent() {
-      return new P2FileDeletedV1();
-    }
-  }
-
-  public abstract static class P2FileEditV1Handler implements IEventHandler<P2FileEditV1> {
-
-    @Override
-    public P2FileEditV1 getEvent() {
-      return new P2FileEditV1();
-    }
-  }
-
-  public abstract static class P2FilePermissionMemberAddedV1Handler implements
-      IEventHandler<P2FilePermissionMemberAddedV1> {
-
-    @Override
-    public P2FilePermissionMemberAddedV1 getEvent() {
-      return new P2FilePermissionMemberAddedV1();
-    }
-  }
-
-  public abstract static class P2FilePermissionMemberRemovedV1Handler implements
-      IEventHandler<P2FilePermissionMemberRemovedV1> {
-
-    @Override
-    public P2FilePermissionMemberRemovedV1 getEvent() {
-      return new P2FilePermissionMemberRemovedV1();
-    }
-  }
-
-  public abstract static class P2FileReadV1Handler implements IEventHandler<P2FileReadV1> {
-
-    @Override
-    public P2FileReadV1 getEvent() {
-      return new P2FileReadV1();
-    }
-  }
-
-  public abstract static class P2FileTitleUpdatedV1Handler implements
-      IEventHandler<P2FileTitleUpdatedV1> {
-
-    @Override
-    public P2FileTitleUpdatedV1 getEvent() {
-      return new P2FileTitleUpdatedV1();
-    }
-  }
-
-  public abstract static class P2FileTrashedV1Handler implements IEventHandler<P2FileTrashedV1> {
-
-    @Override
-    public P2FileTrashedV1 getEvent() {
-      return new P2FileTrashedV1();
+     * meta
+     *
+     * @return
+     */
+    public Meta meta() {
+        return meta;
+    }
+
+    /**
+     * 成员
+     *
+     * @return
+     */
+    public PermissionMember permissionMember() {
+        return permissionMember;
+    }
+
+    /**
+     * 设置
+     *
+     * @return
+     */
+    public PermissionPublic permissionPublic() {
+        return permissionPublic;
+    }
+
+    public static class ExportTask {
+        private final Config config;
+
+        public ExportTask(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建导出任务，创建导出任务，将云文件导出为指定格式的本地文件。该接口为异步接口，需要通过轮询 [查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get) 接口获取任务结果。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java</a> ;
+         */
+        public CreateExportTaskResp create(CreateExportTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/export_tasks"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/export_tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建导出任务，创建导出任务，将云文件导出为指定格式的本地文件。该接口为异步接口，需要通过轮询 [查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get) 接口获取任务结果。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateExportTaskSample.java</a> ;
+         */
+        public CreateExportTaskResp create(CreateExportTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/export_tasks"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/export_tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载导出文件，根据任务导出结果的token，下载导出文件
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java</a> ;
+         */
+        public DownloadExportTaskResp download(DownloadExportTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/export_tasks/file/:file_token/download"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            if (httpResponse.getStatusCode() == 200) {
+                DownloadExportTaskResp resp = new DownloadExportTaskResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            DownloadExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadExportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/export_tasks/file/:file_token/download"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载导出文件，根据任务导出结果的token，下载导出文件
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadExportTaskSample.java</a> ;
+         */
+        public DownloadExportTaskResp download(DownloadExportTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/export_tasks/file/:file_token/download"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 下载请求，返回流
+            if (httpResponse.getStatusCode() == 200) {
+                DownloadExportTaskResp resp = new DownloadExportTaskResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            DownloadExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadExportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/export_tasks/file/:file_token/download"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询导出任务结果，根据[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)的ticket查询导出任务的结果，前提条件需要先调用创建导出任务接口。;;通过该接口获取到下载文件的 token 后调用[下载导出文件接口](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)将文件进行下载
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java</a> ;
+         */
+        public GetExportTaskResp get(GetExportTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/export_tasks/:ticket"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/export_tasks/:ticket"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询导出任务结果，根据[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)的ticket查询导出任务的结果，前提条件需要先调用创建导出任务接口。;;通过该接口获取到下载文件的 token 后调用[下载导出文件接口](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)将文件进行下载
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetExportTaskSample.java</a> ;
+         */
+        public GetExportTaskResp get(GetExportTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/export_tasks/:ticket"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/export_tasks/:ticket"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class File {
+        private final Config config;
+
+        public File(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 复制文件，将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。;;如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。
+         * <p> 该接口不支持并发拷贝多个文件，且调用频率上限为 5QPS 且 10000次/天 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java</a> ;
+         */
+        public CopyFileResp copy(CopyFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/copy"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CopyFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopyFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/copy"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 复制文件，将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。;;如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。
+         * <p> 该接口不支持并发拷贝多个文件，且调用频率上限为 5QPS 且 10000次/天 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CopyFileSample.java</a> ;
+         */
+        public CopyFileResp copy(CopyFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/copy"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CopyFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopyFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/copy"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 新建文件夹，在用户云空间的指定文件夹中创建一个新的空文件夹。
+         * <p> 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java</a> ;
+         */
+        public CreateFolderFileResp createFolder(CreateFolderFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/create_folder"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateFolderFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFolderFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/create_folder"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 新建文件夹，在用户云空间的指定文件夹中创建一个新的空文件夹。
+         * <p> 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFolderFileSample.java</a> ;
+         */
+        public CreateFolderFileResp createFolder(CreateFolderFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/create_folder"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateFolderFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFolderFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/create_folder"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
+         * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full access）。 ;
+         * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java</a> ;
+         */
+        public DeleteFileResp delete(DeleteFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/drive/v1/files/:file_token"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
+         * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full access）。 ;
+         * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileSample.java</a> ;
+         */
+        public DeleteFileResp delete(DeleteFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/drive/v1/files/:file_token"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载文件，使用该接口可以下载在云空间目录下的文件（不含飞书文档/表格/思维导图等在线文档）。支持range下载。
+         * <p> 该接口支持调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java</a> ;
+         */
+        public DownloadFileResp download(DownloadFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/download"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            if (httpResponse.getStatusCode() == 200) {
+                DownloadFileResp resp = new DownloadFileResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/download"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载文件，使用该接口可以下载在云空间目录下的文件（不含飞书文档/表格/思维导图等在线文档）。支持range下载。
+         * <p> 该接口支持调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadFileSample.java</a> ;
+         */
+        public DownloadFileResp download(DownloadFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/download"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 下载请求，返回流
+            if (httpResponse.getStatusCode() == 200) {
+                DownloadFileResp resp = new DownloadFileResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/download"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取文件夹下的清单，获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归的获取子文件夹的清单。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java</a> ;
+         */
+        public ListFileResp list(ListFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取文件夹下的清单，获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归的获取子文件夹的清单。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileSample.java</a> ;
+         */
+        public ListFileResp list(ListFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 移动文件，将文件或者文件夹移动到用户云空间的其他位置。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java</a> ;
+         */
+        public MoveFileResp move(MoveFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/move"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            MoveFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/move"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 移动文件，将文件或者文件夹移动到用户云空间的其他位置。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/MoveFileSample.java</a> ;
+         */
+        public MoveFileResp move(MoveFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/move"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            MoveFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/move"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)(暂不支持单独订阅文档维度的某类事件)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a> ;
+         */
+        public SubscribeFileResp subscribe(SubscribeFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/subscribe"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SubscribeFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscribe"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)(暂不支持单独订阅文档维度的某类事件)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a> ;
+         */
+        public SubscribeFileResp subscribe(SubscribeFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/subscribe"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SubscribeFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscribe"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询异步任务状态，查询删除文件夹等异步任务的状态信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java</a> ;
+         */
+        public TaskCheckFileResp taskCheck(TaskCheckFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/task_check"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            TaskCheckFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TaskCheckFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/task_check"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询异步任务状态，查询删除文件夹等异步任务的状态信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/TaskCheckFileSample.java</a> ;
+         */
+        public TaskCheckFileResp taskCheck(TaskCheckFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/task_check"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            TaskCheckFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TaskCheckFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/task_check"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 上传文件，向云空间指定目录下上传一个小文件。
+         * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。 ;
+         * <p> 该接口支持调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java</a> ;
+         */
+        public UploadAllFileResp uploadAll(UploadAllFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_all"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadAllFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadAllFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_all"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 上传文件，向云空间指定目录下上传一个小文件。
+         * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。 ;
+         * <p> 该接口支持调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllFileSample.java</a> ;
+         */
+        public UploadAllFileResp uploadAll(UploadAllFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_all"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadAllFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadAllFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_all"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传文件（完成上传），触发完成上传。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java</a> ;
+         */
+        public UploadFinishFileResp uploadFinish(UploadFinishFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_finish"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadFinishFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFinishFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_finish"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传文件（完成上传），触发完成上传。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishFileSample.java</a> ;
+         */
+        public UploadFinishFileResp uploadFinish(UploadFinishFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_finish"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadFinishFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFinishFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_finish"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传文件（上传分片），上传对应的文件块。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java</a> ;
+         */
+        public UploadPartFileResp uploadPart(UploadPartFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_part"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPartFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPartFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_part"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传文件（上传分片），上传对应的文件块。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartFileSample.java</a> ;
+         */
+        public UploadPartFileResp uploadPart(UploadPartFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_part"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPartFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPartFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_part"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传文件（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+         * <p> 你在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java</a> ;
+         */
+        public UploadPrepareFileResp uploadPrepare(UploadPrepareFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_prepare"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPrepareFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPrepareFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_prepare"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传文件（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+         * <p> 你在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareFileSample.java</a> ;
+         */
+        public UploadPrepareFileResp uploadPrepare(UploadPrepareFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/upload_prepare"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPrepareFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPrepareFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/upload_prepare"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class FileComment {
+        private final Config config;
+
+        public FileComment(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 添加评论，往云文档添加一条全局评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java</a> ;
+         */
+        public CreateFileCommentResp create(CreateFileCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/comments"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 添加评论，往云文档添加一条全局评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java</a> ;
+         */
+        public CreateFileCommentResp create(CreateFileCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/comments"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取评论，获取云文档中的某条评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java</a> ;
+         */
+        public GetFileCommentResp get(GetFileCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取评论，获取云文档中的某条评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileCommentSample.java</a> ;
+         */
+        public GetFileCommentResp get(GetFileCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分页获取文档评论，该接口用于根据文档 token 分页获取文档评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java</a> ;
+         */
+        public ListFileCommentResp list(ListFileCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/comments"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分页获取文档评论，该接口用于根据文档 token 分页获取文档评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentSample.java</a> ;
+         */
+        public ListFileCommentResp list(ListFileCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/comments"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 解决/恢复 评论，解决或恢复云文档中的评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java</a> ;
+         */
+        public PatchFileCommentResp patch(PatchFileCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 解决/恢复 评论，解决或恢复云文档中的评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileCommentSample.java</a> ;
+         */
+        public PatchFileCommentResp patch(PatchFileCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class FileCommentReply {
+        private final Config config;
+
+        public FileCommentReply(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 删除回复，删除云文档中的某条回复。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java</a> ;
+         */
+        public DeleteFileCommentReplyResp delete(DeleteFileCommentReplyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileCommentReplyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除回复，删除云文档中的某条回复。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeleteFileCommentReplySample.java</a> ;
+         */
+        public DeleteFileCommentReplyResp delete(DeleteFileCommentReplyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileCommentReplyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新回复，更新云文档中的某条回复。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java</a> ;
+         */
+        public UpdateFileCommentReplyResp update(UpdateFileCommentReplyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateFileCommentReplyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新回复，更新云文档中的某条回复。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdateFileCommentReplySample.java</a> ;
+         */
+        public UpdateFileCommentReplyResp update(UpdateFileCommentReplyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateFileCommentReplyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class FileStatistics {
+        private final Config config;
+
+        public FileStatistics(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取文件统计信息，此接口用于获取文件统计信息，包括文档阅读人数、次数和点赞数。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java</a> ;
+         */
+        public GetFileStatisticsResp get(GetFileStatisticsReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/statistics"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetFileStatisticsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileStatisticsResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/statistics"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取文件统计信息，此接口用于获取文件统计信息，包括文档阅读人数、次数和点赞数。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileStatisticsSample.java</a> ;
+         */
+        public GetFileStatisticsResp get(GetFileStatisticsReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/statistics"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetFileStatisticsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileStatisticsResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/statistics"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class FileSubscription {
+        private final Config config;
+
+        public FileSubscription(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java</a> ;
+         */
+        public CreateFileSubscriptionResp create(CreateFileSubscriptionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/subscriptions"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileSubscriptionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileSubscriptionSample.java</a> ;
+         */
+        public CreateFileSubscriptionResp create(CreateFileSubscriptionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/subscriptions"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileSubscriptionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取订阅状态，根据订阅ID获取该订阅的状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java</a> ;
+         */
+        public GetFileSubscriptionResp get(GetFileSubscriptionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileSubscriptionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取订阅状态，根据订阅ID获取该订阅的状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetFileSubscriptionSample.java</a> ;
+         */
+        public GetFileSubscriptionResp get(GetFileSubscriptionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileSubscriptionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新订阅状态，根据订阅ID更新订阅状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java</a> ;
+         */
+        public PatchFileSubscriptionResp patch(PatchFileSubscriptionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFileSubscriptionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新订阅状态，根据订阅ID更新订阅状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchFileSubscriptionSample.java</a> ;
+         */
+        public PatchFileSubscriptionResp patch(PatchFileSubscriptionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFileSubscriptionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class ImportTask {
+        private final Config config;
+
+        public ImportTask(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java</a> ;
+         */
+        public CreateImportTaskResp create(CreateImportTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/import_tasks"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/import_tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java</a> ;
+         */
+        public CreateImportTaskResp create(CreateImportTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/import_tasks"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/import_tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询导入结果，根据创建导入任务返回的 ticket 查询导入结果。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java</a> ;
+         */
+        public GetImportTaskResp get(GetImportTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/import_tasks/:ticket"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/import_tasks/:ticket"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询导入结果，根据创建导入任务返回的 ticket 查询导入结果。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetImportTaskSample.java</a> ;
+         */
+        public GetImportTaskResp get(GetImportTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/import_tasks/:ticket"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImportTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/import_tasks/:ticket"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class Media {
+        private final Config config;
+
+        public Media(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java</a> ;
+         */
+        public BatchGetTmpDownloadUrlMediaResp batchGetTmpDownloadUrl(BatchGetTmpDownloadUrlMediaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetTmpDownloadUrlMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchGetTmpDownloadUrlMediaSample.java</a> ;
+         */
+        public BatchGetTmpDownloadUrlMediaResp batchGetTmpDownloadUrl(BatchGetTmpDownloadUrlMediaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchGetTmpDownloadUrlMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java</a> ;
+         */
+        public DownloadMediaResp download(DownloadMediaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/medias/:file_token/download"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            if (httpResponse.getStatusCode() == 200) {
+                DownloadMediaResp resp = new DownloadMediaResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/:file_token/download"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DownloadMediaSample.java</a> ;
+         */
+        public DownloadMediaResp download(DownloadMediaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/medias/:file_token/download"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 下载请求，返回流
+            if (httpResponse.getStatusCode() == 200) {
+                DownloadMediaResp resp = new DownloadMediaResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/:file_token/download"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
+         * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。 ;
+         * <p> 该接口支持调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java</a> ;
+         */
+        public UploadAllMediaResp uploadAll(UploadAllMediaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_all"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadAllMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_all"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
+         * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。 ;
+         * <p> 该接口支持调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadAllMediaSample.java</a> ;
+         */
+        public UploadAllMediaResp uploadAll(UploadAllMediaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_all"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadAllMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_all"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传素材（完成上传），触发完成上传。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java</a> ;
+         */
+        public UploadFinishMediaResp uploadFinish(UploadFinishMediaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_finish"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFinishMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_finish"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传素材（完成上传），触发完成上传。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadFinishMediaSample.java</a> ;
+         */
+        public UploadFinishMediaResp uploadFinish(UploadFinishMediaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_finish"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFinishMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_finish"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传素材（上传分片），上传对应的文件块。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java</a> ;
+         */
+        public UploadPartMediaResp uploadPart(UploadPartMediaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_part"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPartMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_part"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传素材（上传分片），上传对应的文件块。
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPartMediaSample.java</a> ;
+         */
+        public UploadPartMediaResp uploadPart(UploadPartMediaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_part"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPartMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_part"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+         * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java</a> ;
+         */
+        public UploadPrepareMediaResp uploadPrepare(UploadPrepareMediaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_prepare"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPrepareMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_prepare"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+         * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+         * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UploadPrepareMediaSample.java</a> ;
+         */
+        public UploadPrepareMediaResp uploadPrepare(UploadPrepareMediaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/medias/upload_prepare"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadPrepareMediaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/medias/upload_prepare"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class Meta {
+        private final Config config;
+
+        public Meta(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取文档元数据，该接口用于根据 token 获取各类文件的元数据
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java</a> ;
+         */
+        public BatchQueryMetaResp batchQuery(BatchQueryMetaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/metas/batch_query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchQueryMetaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryMetaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/metas/batch_query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取文档元数据，该接口用于根据 token 获取各类文件的元数据
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryMetaSample.java</a> ;
+         */
+        public BatchQueryMetaResp batchQuery(BatchQueryMetaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/metas/batch_query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchQueryMetaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryMetaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/metas/batch_query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class PermissionMember {
+        private final Config config;
+
+        public PermissionMember(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 增加协作者权限，该接口用于根据 filetoken 给用户增加文档的权限。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java</a> ;
+         */
+        public CreatePermissionMemberResp create(CreatePermissionMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/permissions/:token/members"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreatePermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 增加协作者权限，该接口用于根据 filetoken 给用户增加文档的权限。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreatePermissionMemberSample.java</a> ;
+         */
+        public CreatePermissionMemberResp create(CreatePermissionMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/permissions/:token/members"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreatePermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 移除协作者权限，该接口用于根据 filetoken 移除文档协作者的权限。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java</a> ;
+         */
+        public DeletePermissionMemberResp delete(DeletePermissionMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeletePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeletePermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 移除协作者权限，该接口用于根据 filetoken 移除文档协作者的权限。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/DeletePermissionMemberSample.java</a> ;
+         */
+        public DeletePermissionMemberResp delete(DeletePermissionMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeletePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeletePermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取协作者列表，该接口用于根据 filetoken 查询协作者
+         * <p> - 你能获取到协作者列表的前提是你对该文档有分享权限;- 目前仅支持人、群、组织架构三种类型的协作者 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListPermissionMemberSample.java</a> ;
+         */
+        public ListPermissionMemberResp list(ListPermissionMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/permissions/:token/members"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListPermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取协作者列表，该接口用于根据 filetoken 查询协作者
+         * <p> - 你能获取到协作者列表的前提是你对该文档有分享权限;- 目前仅支持人、群、组织架构三种类型的协作者 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListPermissionMemberSample.java</a> ;
+         */
+        public ListPermissionMemberResp list(ListPermissionMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/permissions/:token/members"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListPermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
+         * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java</a> ;
+         */
+        public UpdatePermissionMemberResp update(UpdatePermissionMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdatePermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
+         * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/UpdatePermissionMemberSample.java</a> ;
+         */
+        public UpdatePermissionMemberResp update(UpdatePermissionMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdatePermissionMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/members/:member_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class PermissionPublic {
+        private final Config config;
+
+        public PermissionPublic(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取云文档权限设置，该接口用于根据 filetoken 获取云文档的权限设置。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java</a> ;
+         */
+        public GetPermissionPublicResp get(GetPermissionPublicReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/permissions/:token/public"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetPermissionPublicResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/public"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取云文档权限设置，该接口用于根据 filetoken 获取云文档的权限设置。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/GetPermissionPublicSample.java</a> ;
+         */
+        public GetPermissionPublicResp get(GetPermissionPublicReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/permissions/:token/public"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetPermissionPublicResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/public"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新云文档权限设置，该接口用于根据 filetoken 更新云文档的权限设置。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java</a> ;
+         */
+        public PatchPermissionPublicResp patch(PatchPermissionPublicReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/drive/v1/permissions/:token/public"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchPermissionPublicResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/public"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新云文档权限设置，该接口用于根据 filetoken 更新云文档的权限设置。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/PatchPermissionPublicSample.java</a> ;
+         */
+        public PatchPermissionPublicResp patch(PatchPermissionPublicReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/drive/v1/permissions/:token/public"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchPermissionPublicResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/permissions/:token/public"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public abstract static class P2FileBitableFieldChangedV1Handler implements IEventHandler<P2FileBitableFieldChangedV1> {
+        @Override
+        public P2FileBitableFieldChangedV1 getEvent() {
+            return new P2FileBitableFieldChangedV1();
+        }
+    }
+
+    public abstract static class P2FileDeletedV1Handler implements IEventHandler<P2FileDeletedV1> {
+        @Override
+        public P2FileDeletedV1 getEvent() {
+            return new P2FileDeletedV1();
+        }
+    }
+
+    public abstract static class P2FileEditV1Handler implements IEventHandler<P2FileEditV1> {
+        @Override
+        public P2FileEditV1 getEvent() {
+            return new P2FileEditV1();
+        }
+    }
+
+    public abstract static class P2FilePermissionMemberAddedV1Handler implements IEventHandler<P2FilePermissionMemberAddedV1> {
+        @Override
+        public P2FilePermissionMemberAddedV1 getEvent() {
+            return new P2FilePermissionMemberAddedV1();
+        }
+    }
+
+    public abstract static class P2FilePermissionMemberRemovedV1Handler implements IEventHandler<P2FilePermissionMemberRemovedV1> {
+        @Override
+        public P2FilePermissionMemberRemovedV1 getEvent() {
+            return new P2FilePermissionMemberRemovedV1();
+        }
+    }
+
+    public abstract static class P2FileReadV1Handler implements IEventHandler<P2FileReadV1> {
+        @Override
+        public P2FileReadV1 getEvent() {
+            return new P2FileReadV1();
+        }
+    }
+
+    public abstract static class P2FileTitleUpdatedV1Handler implements IEventHandler<P2FileTitleUpdatedV1> {
+        @Override
+        public P2FileTitleUpdatedV1 getEvent() {
+            return new P2FileTitleUpdatedV1();
+        }
+    }
+
+    public abstract static class P2FileTrashedV1Handler implements IEventHandler<P2FileTrashedV1> {
+        @Override
+        public P2FileTrashedV1 getEvent() {
+            return new P2FileTrashedV1();
+        }
     }
-  }
 }

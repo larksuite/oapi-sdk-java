@@ -18,102 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetTaskReq {
-
-  /**
-   * 任务类型
-   * <p> 示例值：move
-   */
-  @Query
-  @SerializedName("task_type")
-  private String taskType;
-  /**
-   * 任务id
-   * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public GetTaskReq() {
-  }
-
-  public GetTaskReq(Builder builder) {
     /**
      * 任务类型
      * <p> 示例值：move
      */
-    this.taskType = builder.taskType;
+    @Query
+    @SerializedName("task_type")
+    private String taskType;
     /**
      * 任务id
      * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
      */
-    this.taskId = builder.taskId;
-  }
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskType() {
-    return this.taskType;
-  }
-
-  public void setTaskType(String taskType) {
-    this.taskType = taskType;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
-    private String taskType; // 任务类型
-    private String taskId; // 任务id
-
-    /**
-     * 任务类型
-     * <p> 示例值：move
-     *
-     * @param taskType
-     * @return
-     */
-    public Builder taskType(String taskType) {
-      this.taskType = taskType;
-      return this;
+    // builder 开始
+    public GetTaskReq() {
     }
 
-    /**
-     * 任务类型
-     * <p> 示例值：move
-     *
-     * @param taskType {@link com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum}
-     * @return
-     */
-    public Builder taskType(com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum taskType) {
-      this.taskType = taskType.getValue();
-      return this;
+    public GetTaskReq(Builder builder) {
+        /**
+         * 任务类型
+         * <p> 示例值：move
+         */
+        this.taskType = builder.taskType;
+        /**
+         * 任务id
+         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+         */
+        this.taskId = builder.taskId;
     }
 
-    /**
-     * 任务id
-     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public GetTaskReq build() {
-      return new GetTaskReq(this);
+    public String getTaskType() {
+        return this.taskType;
     }
-  }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public static class Builder {
+        private String taskType; // 任务类型
+        private String taskId; // 任务id
+
+        /**
+         * 任务类型
+         * <p> 示例值：move
+         *
+         * @param taskType
+         * @return
+         */
+        public Builder taskType(String taskType) {
+            this.taskType = taskType;
+            return this;
+        }
+
+        /**
+         * 任务类型
+         * <p> 示例值：move
+         *
+         * @param taskType {@link com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum}
+         * @return
+         */
+        public Builder taskType(com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum taskType) {
+            this.taskType = taskType.getValue();
+            return this;
+        }
+
+        /**
+         * 任务id
+         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public GetTaskReq build() {
+            return new GetTaskReq(this);
+        }
+    }
 }

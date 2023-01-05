@@ -17,61 +17,61 @@ import com.google.gson.annotations.SerializedName;
 
 public class GenerateCaldavConfSetting {
 
-  /**
-   * caldav密码
-   * <p> 示例值：A67h23sd8
-   */
-  @SerializedName("password")
-  private String password;
-  /**
-   * caldav用户名
-   * <p> 示例值：ZhangSan
-   */
-  @SerializedName("user_name")
-  private String userName;
-  /**
-   * 服务器地址
-   * <p> 示例值：caldav.domain.com
-   */
-  @SerializedName("server_address")
-  private String serverAddress;
-  /**
-   * 设备名
-   * <p> 示例值：iPhone
-   */
-  @SerializedName("device_name")
-  private String deviceName;
+    /**
+     * caldav密码
+     * <p> 示例值：A67h23sd8
+     */
+    @SerializedName("password")
+    private String password;
+    /**
+     * caldav用户名
+     * <p> 示例值：ZhangSan
+     */
+    @SerializedName("user_name")
+    private String userName;
+    /**
+     * 服务器地址
+     * <p> 示例值：caldav.domain.com
+     */
+    @SerializedName("server_address")
+    private String serverAddress;
+    /**
+     * 设备名
+     * <p> 示例值：iPhone
+     */
+    @SerializedName("device_name")
+    private String deviceName;
 
-  public String getPassword() {
-    return this.password;
-  }
+    public String getPassword() {
+        return this.password;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public String getUserName() {
-    return this.userName;
-  }
+    public String getUserName() {
+        return this.userName;
+    }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-  public String getServerAddress() {
-    return this.serverAddress;
-  }
+    public String getServerAddress() {
+        return this.serverAddress;
+    }
 
-  public void setServerAddress(String serverAddress) {
-    this.serverAddress = serverAddress;
-  }
+    public void setServerAddress(String serverAddress) {
+        this.serverAddress = serverAddress;
+    }
 
-  public String getDeviceName() {
-    return this.deviceName;
-  }
+    public String getDeviceName() {
+        return this.deviceName;
+    }
 
-  public void setDeviceName(String deviceName) {
-    this.deviceName = deviceName;
-  }
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
 
 }

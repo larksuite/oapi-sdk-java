@@ -16,98 +16,96 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchTaskReqBody {
-
-  /**
-   * 被更新的任务实体基础信息
-   * <p> 示例值：
-   */
-  @SerializedName("task")
-  private Task task;
-  /**
-   * 指定需要更新的字段（目前可选更新的字段为：summary, description, due, extra），否则服务端将不知道更新哪些字段
-   * <p> 示例值：["summary"]
-   */
-  @SerializedName("update_fields")
-  private String[] updateFields;
-
-  // builder 开始
-  public PatchTaskReqBody() {
-  }
-
-  public PatchTaskReqBody(Builder builder) {
     /**
      * 被更新的任务实体基础信息
      * <p> 示例值：
      */
-    this.task = builder.task;
-    /**
-     * 指定需要更新的字段（目前可选更新的字段为：summary, description, due, extra），否则服务端将不知道更新哪些字段
-     * <p> 示例值：["summary"]
-     */
-    this.updateFields = builder.updateFields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Task getTask() {
-    return this.task;
-  }
-
-  public void setTask(Task task) {
-    this.task = task;
-  }
-
-  public String[] getUpdateFields() {
-    return this.updateFields;
-  }
-
-  public void setUpdateFields(String[] updateFields) {
-    this.updateFields = updateFields;
-  }
-
-  public static class Builder {
-
-    /**
-     * 被更新的任务实体基础信息
-     * <p> 示例值：
-     */
+    @SerializedName("task")
     private Task task;
     /**
-     * 指定需要更新的字段（目前可选更新的字段为：summary, description, due, extra），否则服务端将不知道更新哪些字段
+     * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
      * <p> 示例值：["summary"]
      */
+    @SerializedName("update_fields")
     private String[] updateFields;
 
-    /**
-     * 被更新的任务实体基础信息
-     * <p> 示例值：
-     *
-     * @param task
-     * @return
-     */
-    public Builder task(Task task) {
-      this.task = task;
-      return this;
+    // builder 开始
+    public PatchTaskReqBody() {
     }
 
-
-    /**
-     * 指定需要更新的字段（目前可选更新的字段为：summary, description, due, extra），否则服务端将不知道更新哪些字段
-     * <p> 示例值：["summary"]
-     *
-     * @param updateFields
-     * @return
-     */
-    public Builder updateFields(String[] updateFields) {
-      this.updateFields = updateFields;
-      return this;
+    public PatchTaskReqBody(Builder builder) {
+        /**
+         * 被更新的任务实体基础信息
+         * <p> 示例值：
+         */
+        this.task = builder.task;
+        /**
+         * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
+         * <p> 示例值：["summary"]
+         */
+        this.updateFields = builder.updateFields;
     }
 
-
-    public PatchTaskReqBody build() {
-      return new PatchTaskReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Task getTask() {
+        return this.task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public String[] getUpdateFields() {
+        return this.updateFields;
+    }
+
+    public void setUpdateFields(String[] updateFields) {
+        this.updateFields = updateFields;
+    }
+
+    public static class Builder {
+        /**
+         * 被更新的任务实体基础信息
+         * <p> 示例值：
+         */
+        private Task task;
+        /**
+         * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
+         * <p> 示例值：["summary"]
+         */
+        private String[] updateFields;
+
+        /**
+         * 被更新的任务实体基础信息
+         * <p> 示例值：
+         *
+         * @param task
+         * @return
+         */
+        public Builder task(Task task) {
+            this.task = task;
+            return this;
+        }
+
+
+        /**
+         * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
+         * <p> 示例值：["summary"]
+         *
+         * @param updateFields
+         * @return
+         */
+        public Builder updateFields(String[] updateFields) {
+            this.updateFields = updateFields;
+            return this;
+        }
+
+
+        public PatchTaskReqBody build() {
+            return new PatchTaskReqBody(this);
+        }
+    }
 }

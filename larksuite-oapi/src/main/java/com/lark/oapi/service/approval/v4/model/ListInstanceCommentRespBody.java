@@ -16,20 +16,19 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListInstanceCommentRespBody {
+    /**
+     * 评论数据列表
+     * <p> 示例值：
+     */
+    @SerializedName("comments")
+    private Comment[] comments;
 
-  /**
-   * 评论数据列表
-   * <p> 示例值：
-   */
-  @SerializedName("comments")
-  private Comment[] comments;
+    public Comment[] getComments() {
+        return this.comments;
+    }
 
-  public Comment[] getComments() {
-    return this.comments;
-  }
-
-  public void setComments(Comment[] comments) {
-    this.comments = comments;
-  }
+    public void setComments(Comment[] comments) {
+        this.comments = comments;
+    }
 
 }

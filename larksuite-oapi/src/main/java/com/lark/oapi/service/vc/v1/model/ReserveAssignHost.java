@@ -16,111 +16,108 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReserveAssignHost {
-
-  /**
-   * 用户类型，仅支持设置同租户下的 Lark 用户
-   * <p> 示例值：1
-   */
-  @SerializedName("user_type")
-  private Integer userType;
-  /**
-   * 设置企业内的用户
-   * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-   */
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public ReserveAssignHost() {
-  }
-
-  public ReserveAssignHost(Builder builder) {
     /**
      * 用户类型，仅支持设置同租户下的 Lark 用户
      * <p> 示例值：1
      */
-    this.userType = builder.userType;
-    /**
-     * 设置企业内的用户
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-     */
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getUserType() {
-    return this.userType;
-  }
-
-  public void setUserType(Integer userType) {
-    this.userType = userType;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户类型，仅支持设置同租户下的 Lark 用户
-     * <p> 示例值：1
-     */
+    @SerializedName("user_type")
     private Integer userType;
     /**
-     * 设置企业内的用户
+     * 用户ID
      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
+    @SerializedName("id")
     private String id;
 
-    /**
-     * 用户类型，仅支持设置同租户下的 Lark 用户
-     * <p> 示例值：1
-     *
-     * @param userType
-     * @return
-     */
-    public Builder userType(Integer userType) {
-      this.userType = userType;
-      return this;
+    // builder 开始
+    public ReserveAssignHost() {
     }
 
-    /**
-     * 用户类型，仅支持设置同租户下的 Lark 用户
-     * <p> 示例值：1
-     *
-     * @param userType {@link com.lark.oapi.service.vc.v1.enums.ReserveAssignHostUserTypeEnum}
-     * @return
-     */
-    public Builder userType(
-        com.lark.oapi.service.vc.v1.enums.ReserveAssignHostUserTypeEnum userType) {
-      this.userType = userType.getValue();
-      return this;
+    public ReserveAssignHost(Builder builder) {
+        /**
+         * 用户类型，仅支持设置同租户下的 Lark 用户
+         * <p> 示例值：1
+         */
+        this.userType = builder.userType;
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         */
+        this.id = builder.id;
     }
 
-
-    /**
-     * 设置企业内的用户
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ReserveAssignHost build() {
-      return new ReserveAssignHost(this);
+    public Integer getUserType() {
+        return this.userType;
     }
-  }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+        /**
+         * 用户类型，仅支持设置同租户下的 Lark 用户
+         * <p> 示例值：1
+         */
+        private Integer userType;
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         */
+        private String id;
+
+        /**
+         * 用户类型，仅支持设置同租户下的 Lark 用户
+         * <p> 示例值：1
+         *
+         * @param userType
+         * @return
+         */
+        public Builder userType(Integer userType) {
+            this.userType = userType;
+            return this;
+        }
+
+        /**
+         * 用户类型，仅支持设置同租户下的 Lark 用户
+         * <p> 示例值：1
+         *
+         * @param userType {@link com.lark.oapi.service.vc.v1.enums.ReserveAssignHostUserTypeEnum}
+         * @return
+         */
+        public Builder userType(com.lark.oapi.service.vc.v1.enums.ReserveAssignHostUserTypeEnum userType) {
+            this.userType = userType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public ReserveAssignHost build() {
+            return new ReserveAssignHost(this);
+        }
+    }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 婚姻状况
  */
 public enum SystemFieldsMaritalStatusEnum {
-  SINGLE(1), // 未婚
-  MARRIED(2), // 已婚
-  DIVORCED(3), // 离异
-  OTHER(4), // 其他
-  ;
-  private Integer value;
+    SINGLE(1), // 未婚
+    MARRIED(2), // 已婚
+    DIVORCED(3), // 离异
+    OTHER(4), // 其他
+    ;
+    private Integer value;
 
-  SystemFieldsMaritalStatusEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsMaritalStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

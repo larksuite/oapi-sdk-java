@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 授予名单类型
  */
 public enum GrantGrantTypeEnum {
-  MANUAL(0), // 手动选择有效期
-  JOIN_TIME(1), // 匹配系统入职时间
-  ;
-  private Integer value;
+    MANUAL(0), // 手动选择有效期
+    JOIN_TIME(1), // 匹配系统入职时间
+    ;
+    private Integer value;
 
-  GrantGrantTypeEnum(Integer value) {
-    this.value = value;
-  }
+    GrantGrantTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,246 +16,244 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WorkExperience {
-
-  /**
-   * 公司
-   * <p> 示例值：XXXX公司
-   */
-  @SerializedName("company")
-  private String company;
-  /**
-   * 部门
-   * <p> 示例值：部门1
-   */
-  @SerializedName("department")
-  private String department;
-  /**
-   * 职位
-   * <p> 示例值：职位
-   */
-  @SerializedName("job")
-  private String job;
-  /**
-   * 开始日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("start")
-  private String start;
-  /**
-   * 截止日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("end")
-  private String end;
-  /**
-   * 工作描述
-   * <p> 示例值：工作描述
-   */
-  @SerializedName("description")
-  private String description;
-
-  // builder 开始
-  public WorkExperience() {
-  }
-
-  public WorkExperience(Builder builder) {
     /**
      * 公司
      * <p> 示例值：XXXX公司
      */
-    this.company = builder.company;
-    /**
-     * 部门
-     * <p> 示例值：部门1
-     */
-    this.department = builder.department;
-    /**
-     * 职位
-     * <p> 示例值：职位
-     */
-    this.job = builder.job;
-    /**
-     * 开始日期
-     * <p> 示例值：2020-01-01
-     */
-    this.start = builder.start;
-    /**
-     * 截止日期
-     * <p> 示例值：2020-01-01
-     */
-    this.end = builder.end;
-    /**
-     * 工作描述
-     * <p> 示例值：工作描述
-     */
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCompany() {
-    return this.company;
-  }
-
-  public void setCompany(String company) {
-    this.company = company;
-  }
-
-  public String getDepartment() {
-    return this.department;
-  }
-
-  public void setDepartment(String department) {
-    this.department = department;
-  }
-
-  public String getJob() {
-    return this.job;
-  }
-
-  public void setJob(String job) {
-    this.job = job;
-  }
-
-  public String getStart() {
-    return this.start;
-  }
-
-  public void setStart(String start) {
-    this.start = start;
-  }
-
-  public String getEnd() {
-    return this.end;
-  }
-
-  public void setEnd(String end) {
-    this.end = end;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
-    /**
-     * 公司
-     * <p> 示例值：XXXX公司
-     */
+    @SerializedName("company")
     private String company;
     /**
      * 部门
      * <p> 示例值：部门1
      */
+    @SerializedName("department")
     private String department;
     /**
      * 职位
      * <p> 示例值：职位
      */
+    @SerializedName("job")
     private String job;
     /**
      * 开始日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("start")
     private String start;
     /**
      * 截止日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("end")
     private String end;
     /**
      * 工作描述
      * <p> 示例值：工作描述
      */
+    @SerializedName("description")
     private String description;
 
-    /**
-     * 公司
-     * <p> 示例值：XXXX公司
-     *
-     * @param company
-     * @return
-     */
-    public Builder company(String company) {
-      this.company = company;
-      return this;
+    // builder 开始
+    public WorkExperience() {
     }
 
-
-    /**
-     * 部门
-     * <p> 示例值：部门1
-     *
-     * @param department
-     * @return
-     */
-    public Builder department(String department) {
-      this.department = department;
-      return this;
+    public WorkExperience(Builder builder) {
+        /**
+         * 公司
+         * <p> 示例值：XXXX公司
+         */
+        this.company = builder.company;
+        /**
+         * 部门
+         * <p> 示例值：部门1
+         */
+        this.department = builder.department;
+        /**
+         * 职位
+         * <p> 示例值：职位
+         */
+        this.job = builder.job;
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         */
+        this.start = builder.start;
+        /**
+         * 截止日期
+         * <p> 示例值：2020-01-01
+         */
+        this.end = builder.end;
+        /**
+         * 工作描述
+         * <p> 示例值：工作描述
+         */
+        this.description = builder.description;
     }
 
-
-    /**
-     * 职位
-     * <p> 示例值：职位
-     *
-     * @param job
-     * @return
-     */
-    public Builder job(String job) {
-      this.job = job;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 开始日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param start
-     * @return
-     */
-    public Builder start(String start) {
-      this.start = start;
-      return this;
+    public String getCompany() {
+        return this.company;
     }
 
-
-    /**
-     * 截止日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param end
-     * @return
-     */
-    public Builder end(String end) {
-      this.end = end;
-      return this;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-
-    /**
-     * 工作描述
-     * <p> 示例值：工作描述
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public String getDepartment() {
+        return this.department;
     }
 
-
-    public WorkExperience build() {
-      return new WorkExperience(this);
+    public void setDepartment(String department) {
+        this.department = department;
     }
-  }
+
+    public String getJob() {
+        return this.job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getStart() {
+        return this.start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return this.end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public static class Builder {
+        /**
+         * 公司
+         * <p> 示例值：XXXX公司
+         */
+        private String company;
+        /**
+         * 部门
+         * <p> 示例值：部门1
+         */
+        private String department;
+        /**
+         * 职位
+         * <p> 示例值：职位
+         */
+        private String job;
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         */
+        private String start;
+        /**
+         * 截止日期
+         * <p> 示例值：2020-01-01
+         */
+        private String end;
+        /**
+         * 工作描述
+         * <p> 示例值：工作描述
+         */
+        private String description;
+
+        /**
+         * 公司
+         * <p> 示例值：XXXX公司
+         *
+         * @param company
+         * @return
+         */
+        public Builder company(String company) {
+            this.company = company;
+            return this;
+        }
+
+
+        /**
+         * 部门
+         * <p> 示例值：部门1
+         *
+         * @param department
+         * @return
+         */
+        public Builder department(String department) {
+            this.department = department;
+            return this;
+        }
+
+
+        /**
+         * 职位
+         * <p> 示例值：职位
+         *
+         * @param job
+         * @return
+         */
+        public Builder job(String job) {
+            this.job = job;
+            return this;
+        }
+
+
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param start
+         * @return
+         */
+        public Builder start(String start) {
+            this.start = start;
+            return this;
+        }
+
+
+        /**
+         * 截止日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param end
+         * @return
+         */
+        public Builder end(String end) {
+            this.end = end;
+            return this;
+        }
+
+
+        /**
+         * 工作描述
+         * <p> 示例值：工作描述
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        public WorkExperience build() {
+            return new WorkExperience(this);
+        }
+    }
 }

@@ -18,11 +18,12 @@
 package com.lark.oapi.okhttp.internal.cache;
 
 import com.lark.oapi.okio.Sink;
+
 import java.io.IOException;
 
 public interface CacheRequest {
 
-  Sink body() throws IOException;
+    Sink body() throws IOException;
 
-  void abort();
+    void abort();
 }

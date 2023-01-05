@@ -17,145 +17,145 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetShift {
 
-  /**
-   * 班次Id
-   * <p> 示例值：6919358778597097404
-   */
-  @SerializedName("shift_id")
-  private String shiftId;
-  /**
-   * 班次名称
-   * <p> 示例值：早班
-   */
-  @SerializedName("shift_name")
-  private String shiftName;
-  /**
-   * 打卡次数
-   * <p> 示例值：1
-   */
-  @SerializedName("punch_times")
-  private Integer punchTimes;
-  /**
-   * 是否弹性打卡
-   * <p> 示例值：false
-   */
-  @SerializedName("is_flexible")
-  private Boolean isFlexible;
-  /**
-   * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
-   * <p> 示例值：60
-   */
-  @SerializedName("flexible_minutes")
-  private Integer flexibleMinutes;
-  /**
-   * 弹性打卡时间设置
-   * <p> 示例值：
-   */
-  @SerializedName("flexible_rule")
-  private FlexibleRule[] flexibleRule;
-  /**
-   * 不需要打下班卡
-   * <p> 示例值：true
-   */
-  @SerializedName("no_need_off")
-  private Boolean noNeedOff;
-  /**
-   * 打卡规则
-   * <p> 示例值：
-   */
-  @SerializedName("punch_time_rule")
-  private PunchTimeRule[] punchTimeRule;
-  /**
-   * 晚走晚到规则
-   * <p> 示例值：
-   */
-  @SerializedName("late_off_late_on_rule")
-  private LateOffLateOnRule[] lateOffLateOnRule;
-  /**
-   * 休息规则
-   * <p> 示例值：
-   */
-  @SerializedName("rest_time_rule")
-  private RestRule[] restTimeRule;
+    /**
+     * 班次Id
+     * <p> 示例值：6919358778597097404
+     */
+    @SerializedName("shift_id")
+    private String shiftId;
+    /**
+     * 班次名称
+     * <p> 示例值：早班
+     */
+    @SerializedName("shift_name")
+    private String shiftName;
+    /**
+     * 打卡次数
+     * <p> 示例值：1
+     */
+    @SerializedName("punch_times")
+    private Integer punchTimes;
+    /**
+     * 是否弹性打卡
+     * <p> 示例值：false
+     */
+    @SerializedName("is_flexible")
+    private Boolean isFlexible;
+    /**
+     * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+     * <p> 示例值：60
+     */
+    @SerializedName("flexible_minutes")
+    private Integer flexibleMinutes;
+    /**
+     * 弹性打卡时间设置
+     * <p> 示例值：
+     */
+    @SerializedName("flexible_rule")
+    private FlexibleRule[] flexibleRule;
+    /**
+     * 不需要打下班卡
+     * <p> 示例值：true
+     */
+    @SerializedName("no_need_off")
+    private Boolean noNeedOff;
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("punch_time_rule")
+    private PunchTimeRule[] punchTimeRule;
+    /**
+     * 晚走晚到规则
+     * <p> 示例值：
+     */
+    @SerializedName("late_off_late_on_rule")
+    private LateOffLateOnRule[] lateOffLateOnRule;
+    /**
+     * 休息规则
+     * <p> 示例值：
+     */
+    @SerializedName("rest_time_rule")
+    private RestRule[] restTimeRule;
 
-  public String getShiftId() {
-    return this.shiftId;
-  }
+    public String getShiftId() {
+        return this.shiftId;
+    }
 
-  public void setShiftId(String shiftId) {
-    this.shiftId = shiftId;
-  }
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
+    }
 
-  public String getShiftName() {
-    return this.shiftName;
-  }
+    public String getShiftName() {
+        return this.shiftName;
+    }
 
-  public void setShiftName(String shiftName) {
-    this.shiftName = shiftName;
-  }
+    public void setShiftName(String shiftName) {
+        this.shiftName = shiftName;
+    }
 
-  public Integer getPunchTimes() {
-    return this.punchTimes;
-  }
+    public Integer getPunchTimes() {
+        return this.punchTimes;
+    }
 
-  public void setPunchTimes(Integer punchTimes) {
-    this.punchTimes = punchTimes;
-  }
+    public void setPunchTimes(Integer punchTimes) {
+        this.punchTimes = punchTimes;
+    }
 
-  public Boolean getIsFlexible() {
-    return this.isFlexible;
-  }
+    public Boolean getIsFlexible() {
+        return this.isFlexible;
+    }
 
-  public void setIsFlexible(Boolean isFlexible) {
-    this.isFlexible = isFlexible;
-  }
+    public void setIsFlexible(Boolean isFlexible) {
+        this.isFlexible = isFlexible;
+    }
 
-  public Integer getFlexibleMinutes() {
-    return this.flexibleMinutes;
-  }
+    public Integer getFlexibleMinutes() {
+        return this.flexibleMinutes;
+    }
 
-  public void setFlexibleMinutes(Integer flexibleMinutes) {
-    this.flexibleMinutes = flexibleMinutes;
-  }
+    public void setFlexibleMinutes(Integer flexibleMinutes) {
+        this.flexibleMinutes = flexibleMinutes;
+    }
 
-  public FlexibleRule[] getFlexibleRule() {
-    return this.flexibleRule;
-  }
+    public FlexibleRule[] getFlexibleRule() {
+        return this.flexibleRule;
+    }
 
-  public void setFlexibleRule(FlexibleRule[] flexibleRule) {
-    this.flexibleRule = flexibleRule;
-  }
+    public void setFlexibleRule(FlexibleRule[] flexibleRule) {
+        this.flexibleRule = flexibleRule;
+    }
 
-  public Boolean getNoNeedOff() {
-    return this.noNeedOff;
-  }
+    public Boolean getNoNeedOff() {
+        return this.noNeedOff;
+    }
 
-  public void setNoNeedOff(Boolean noNeedOff) {
-    this.noNeedOff = noNeedOff;
-  }
+    public void setNoNeedOff(Boolean noNeedOff) {
+        this.noNeedOff = noNeedOff;
+    }
 
-  public PunchTimeRule[] getPunchTimeRule() {
-    return this.punchTimeRule;
-  }
+    public PunchTimeRule[] getPunchTimeRule() {
+        return this.punchTimeRule;
+    }
 
-  public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
-    this.punchTimeRule = punchTimeRule;
-  }
+    public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
+        this.punchTimeRule = punchTimeRule;
+    }
 
-  public LateOffLateOnRule[] getLateOffLateOnRule() {
-    return this.lateOffLateOnRule;
-  }
+    public LateOffLateOnRule[] getLateOffLateOnRule() {
+        return this.lateOffLateOnRule;
+    }
 
-  public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
-    this.lateOffLateOnRule = lateOffLateOnRule;
-  }
+    public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
+        this.lateOffLateOnRule = lateOffLateOnRule;
+    }
 
-  public RestRule[] getRestTimeRule() {
-    return this.restTimeRule;
-  }
+    public RestRule[] getRestTimeRule() {
+        return this.restTimeRule;
+    }
 
-  public void setRestTimeRule(RestRule[] restTimeRule) {
-    this.restTimeRule = restTimeRule;
-  }
+    public void setRestTimeRule(RestRule[] restTimeRule) {
+        this.restTimeRule = restTimeRule;
+    }
 
 }

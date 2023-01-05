@@ -16,20 +16,19 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchPermissionPublicRespBody {
+    /**
+     * 本次更新后的文档权限设置
+     * <p> 示例值：
+     */
+    @SerializedName("permission_public")
+    private PermissionPublic permissionPublic;
 
-  /**
-   * 本次更新后的文档权限设置
-   * <p> 示例值：
-   */
-  @SerializedName("permission_public")
-  private PermissionPublic permissionPublic;
+    public PermissionPublic getPermissionPublic() {
+        return this.permissionPublic;
+    }
 
-  public PermissionPublic getPermissionPublic() {
-    return this.permissionPublic;
-  }
-
-  public void setPermissionPublic(PermissionPublic permissionPublic) {
-    this.permissionPublic = permissionPublic;
-  }
+    public void setPermissionPublic(PermissionPublic permissionPublic) {
+        this.permissionPublic = permissionPublic;
+    }
 
 }

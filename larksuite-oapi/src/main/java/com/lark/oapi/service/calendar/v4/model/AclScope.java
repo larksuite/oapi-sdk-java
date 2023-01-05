@@ -16,110 +16,108 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AclScope {
-
-  /**
-   * 权限类型，当type为User时，值为open_id/user_id/union_id
-   * <p> 示例值：user
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-   * <p> 示例值：ou_xxxxxx
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public AclScope() {
-  }
-
-  public AclScope(Builder builder) {
     /**
      * 权限类型，当type为User时，值为open_id/user_id/union_id
      * <p> 示例值：user
      */
-    this.type = builder.type;
-    /**
-     * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxx
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 权限类型，当type为User时，值为open_id/user_id/union_id
-     * <p> 示例值：user
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * 权限类型，当type为User时，值为open_id/user_id/union_id
-     * <p> 示例值：user
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public AclScope() {
     }
 
-    /**
-     * 权限类型，当type为User时，值为open_id/user_id/union_id
-     * <p> 示例值：user
-     *
-     * @param type {@link com.lark.oapi.service.calendar.v4.enums.AclScopeAclScopeTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.calendar.v4.enums.AclScopeAclScopeTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public AclScope(Builder builder) {
+        /**
+         * 权限类型，当type为User时，值为open_id/user_id/union_id
+         * <p> 示例值：user
+         */
+        this.type = builder.type;
+        /**
+         * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxx
+         */
+        this.userId = builder.userId;
     }
 
-
-    /**
-     * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxx
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AclScope build() {
-      return new AclScope(this);
+    public String getType() {
+        return this.type;
     }
-  }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 权限类型，当type为User时，值为open_id/user_id/union_id
+         * <p> 示例值：user
+         */
+        private String type;
+        /**
+         * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxx
+         */
+        private String userId;
+
+        /**
+         * 权限类型，当type为User时，值为open_id/user_id/union_id
+         * <p> 示例值：user
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 权限类型，当type为User时，值为open_id/user_id/union_id
+         * <p> 示例值：user
+         *
+         * @param type {@link com.lark.oapi.service.calendar.v4.enums.AclScopeAclScopeTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.calendar.v4.enums.AclScopeAclScopeTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxx
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public AclScope build() {
+            return new AclScope(this);
+        }
+    }
 }

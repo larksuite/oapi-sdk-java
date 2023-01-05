@@ -16,98 +16,96 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CalendarFreebusyError {
-
-  /**
-   * 日历id
-   * <p> 示例值：
-   */
-  @SerializedName("calendar_id")
-  private String calendarId;
-  /**
-   * 错误信息
-   * <p> 示例值：
-   */
-  @SerializedName("error_msg")
-  private String errorMsg;
-
-  // builder 开始
-  public CalendarFreebusyError() {
-  }
-
-  public CalendarFreebusyError(Builder builder) {
     /**
      * 日历id
      * <p> 示例值：
      */
-    this.calendarId = builder.calendarId;
-    /**
-     * 错误信息
-     * <p> 示例值：
-     */
-    this.errorMsg = builder.errorMsg;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public String getErrorMsg() {
-    return this.errorMsg;
-  }
-
-  public void setErrorMsg(String errorMsg) {
-    this.errorMsg = errorMsg;
-  }
-
-  public static class Builder {
-
-    /**
-     * 日历id
-     * <p> 示例值：
-     */
+    @SerializedName("calendar_id")
     private String calendarId;
     /**
      * 错误信息
      * <p> 示例值：
      */
+    @SerializedName("error_msg")
     private String errorMsg;
 
-    /**
-     * 日历id
-     * <p> 示例值：
-     *
-     * @param calendarId
-     * @return
-     */
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    // builder 开始
+    public CalendarFreebusyError() {
     }
 
-
-    /**
-     * 错误信息
-     * <p> 示例值：
-     *
-     * @param errorMsg
-     * @return
-     */
-    public Builder errorMsg(String errorMsg) {
-      this.errorMsg = errorMsg;
-      return this;
+    public CalendarFreebusyError(Builder builder) {
+        /**
+         * 日历id
+         * <p> 示例值：
+         */
+        this.calendarId = builder.calendarId;
+        /**
+         * 错误信息
+         * <p> 示例值：
+         */
+        this.errorMsg = builder.errorMsg;
     }
 
-
-    public CalendarFreebusyError build() {
-      return new CalendarFreebusyError(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    public String getErrorMsg() {
+        return this.errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    public static class Builder {
+        /**
+         * 日历id
+         * <p> 示例值：
+         */
+        private String calendarId;
+        /**
+         * 错误信息
+         * <p> 示例值：
+         */
+        private String errorMsg;
+
+        /**
+         * 日历id
+         * <p> 示例值：
+         *
+         * @param calendarId
+         * @return
+         */
+        public Builder calendarId(String calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
+
+
+        /**
+         * 错误信息
+         * <p> 示例值：
+         *
+         * @param errorMsg
+         * @return
+         */
+        public Builder errorMsg(String errorMsg) {
+            this.errorMsg = errorMsg;
+            return this;
+        }
+
+
+        public CalendarFreebusyError build() {
+            return new CalendarFreebusyError(this);
+        }
+    }
 }

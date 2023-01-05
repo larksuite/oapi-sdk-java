@@ -16,20 +16,19 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateUserApprovalRespBody {
+    /**
+     * 审批信息
+     * <p> 示例值：
+     */
+    @SerializedName("user_approval")
+    private UserApproval userApproval;
 
-  /**
-   * 审批信息
-   * <p> 示例值：
-   */
-  @SerializedName("user_approval")
-  private UserApproval userApproval;
+    public UserApproval getUserApproval() {
+        return this.userApproval;
+    }
 
-  public UserApproval getUserApproval() {
-    return this.userApproval;
-  }
-
-  public void setUserApproval(UserApproval userApproval) {
-    this.userApproval = userApproval;
-  }
+    public void setUserApproval(UserApproval userApproval) {
+        this.userApproval = userApproval;
+    }
 
 }

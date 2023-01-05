@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoveSpaceNode {
 
-  /**
-   * 移动后的节点信息
-   * <p> 示例值：
-   */
-  @SerializedName("node")
-  private Node node;
+    /**
+     * 移动后的节点信息
+     * <p> 示例值：
+     */
+    @SerializedName("node")
+    private Node node;
 
-  public Node getNode() {
-    return this.node;
-  }
+    public Node getNode() {
+        return this.node;
+    }
 
-  public void setNode(Node node) {
-    this.node = node;
-  }
+    public void setNode(Node node) {
+        this.node = node;
+    }
 
 }

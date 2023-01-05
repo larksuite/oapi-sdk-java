@@ -16,172 +16,170 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListMember {
-
-  /**
-   * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
-   * <p> 示例值：open_id
-   */
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  /**
-   * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-   * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
-   */
-  @SerializedName("member_id")
-  private String memberId;
-  /**
-   * 名字
-   * <p> 示例值：张三
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * tenant key
-   * <p> 示例值：736588c9260f175d
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  // builder 开始
-  public ListMember() {
-  }
-
-  public ListMember(Builder builder) {
     /**
      * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
-     * <p> 示例值：open_id
+     * <p> 示例值：user_id
      */
-    this.memberIdType = builder.memberIdType;
-    /**
-     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
-     */
-    this.memberId = builder.memberId;
-    /**
-     * 名字
-     * <p> 示例值：张三
-     */
-    this.name = builder.name;
-    /**
-     * tenant key
-     * <p> 示例值：736588c9260f175d
-     */
-    this.tenantKey = builder.tenantKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static class Builder {
-
-    /**
-     * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
-     * <p> 示例值：open_id
-     */
+    @SerializedName("member_id_type")
     private String memberIdType;
     /**
      * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
+     * <p> 示例值：4d7a3c6g
      */
+    @SerializedName("member_id")
     private String memberId;
     /**
      * 名字
      * <p> 示例值：张三
      */
+    @SerializedName("name")
     private String name;
     /**
-     * tenant key
-     * <p> 示例值：736588c9260f175d
+     * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+     * <p> 示例值：
      */
+    @SerializedName("tenant_key")
     private String tenantKey;
 
-    /**
-     * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType
-     * @return
-     */
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    // builder 开始
+    public ListMember() {
     }
 
-
-    /**
-     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
-     *
-     * @param memberId
-     * @return
-     */
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public ListMember(Builder builder) {
+        /**
+         * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+         * <p> 示例值：user_id
+         */
+        this.memberIdType = builder.memberIdType;
+        /**
+         * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：4d7a3c6g
+         */
+        this.memberId = builder.memberId;
+        /**
+         * 名字
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：
+         */
+        this.tenantKey = builder.tenantKey;
     }
 
-
-    /**
-     * 名字
-     * <p> 示例值：张三
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * tenant key
-     * <p> 示例值：736588c9260f175d
-     *
-     * @param tenantKey
-     * @return
-     */
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public String getMemberIdType() {
+        return this.memberIdType;
     }
 
-
-    public ListMember build() {
-      return new ListMember(this);
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
     }
-  }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public static class Builder {
+        /**
+         * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+         * <p> 示例值：user_id
+         */
+        private String memberIdType;
+        /**
+         * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：4d7a3c6g
+         */
+        private String memberId;
+        /**
+         * 名字
+         * <p> 示例值：张三
+         */
+        private String name;
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：
+         */
+        private String tenantKey;
+
+        /**
+         * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+         * <p> 示例值：user_id
+         *
+         * @param memberIdType
+         * @return
+         */
+        public Builder memberIdType(String memberIdType) {
+            this.memberIdType = memberIdType;
+            return this;
+        }
+
+
+        /**
+         * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：4d7a3c6g
+         *
+         * @param memberId
+         * @return
+         */
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+
+        /**
+         * 名字
+         * <p> 示例值：张三
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：
+         *
+         * @param tenantKey
+         * @return
+         */
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        public ListMember build() {
+            return new ListMember(this);
+        }
+    }
 }

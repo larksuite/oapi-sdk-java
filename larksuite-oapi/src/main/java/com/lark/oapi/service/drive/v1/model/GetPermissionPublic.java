@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetPermissionPublic {
 
-  /**
-   * 返回的文档权限设置
-   * <p> 示例值：
-   */
-  @SerializedName("permission_public")
-  private PermissionPublic permissionPublic;
+    /**
+     * 返回的文档权限设置
+     * <p> 示例值：
+     */
+    @SerializedName("permission_public")
+    private PermissionPublic permissionPublic;
 
-  public PermissionPublic getPermissionPublic() {
-    return this.permissionPublic;
-  }
+    public PermissionPublic getPermissionPublic() {
+        return this.permissionPublic;
+    }
 
-  public void setPermissionPublic(PermissionPublic permissionPublic) {
-    this.permissionPublic = permissionPublic;
-  }
+    public void setPermissionPublic(PermissionPublic permissionPublic) {
+        this.permissionPublic = permissionPublic;
+    }
 
 }

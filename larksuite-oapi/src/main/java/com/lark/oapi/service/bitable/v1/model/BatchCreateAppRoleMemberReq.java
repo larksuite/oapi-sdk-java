@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class BatchCreateAppRoleMemberReq {
-
-  /**
-   * Bitable 文档 Token
-   * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * 自定义角色 ID
-   * <p> 示例值：rolNGhPqks
-   */
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-  @Body
-  private BatchCreateAppRoleMemberReqBody body;
-
-  // builder 开始
-  public BatchCreateAppRoleMemberReq() {
-  }
-
-  public BatchCreateAppRoleMemberReq(Builder builder) {
     /**
      * Bitable 文档 Token
      * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * 自定义角色 ID
      * <p> 示例值：rolNGhPqks
      */
-    this.roleId = builder.roleId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public BatchCreateAppRoleMemberReqBody getBatchCreateAppRoleMemberReqBody() {
-    return this.body;
-  }
-
-  public void setBatchCreateAppRoleMemberReqBody(BatchCreateAppRoleMemberReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String appToken; // Bitable 文档 Token
-    private String roleId; // 自定义角色 ID
+    @Path
+    @SerializedName("role_id")
+    private String roleId;
+    @Body
     private BatchCreateAppRoleMemberReqBody body;
 
-    /**
-     * Bitable 文档 Token
-     * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public BatchCreateAppRoleMemberReq() {
     }
 
-    /**
-     * 自定义角色 ID
-     * <p> 示例值：rolNGhPqks
-     *
-     * @param roleId
-     * @return
-     */
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public BatchCreateAppRoleMemberReq(Builder builder) {
+        /**
+         * Bitable 文档 Token
+         * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 自定义角色 ID
+         * <p> 示例值：rolNGhPqks
+         */
+        this.roleId = builder.roleId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     public BatchCreateAppRoleMemberReqBody getBatchCreateAppRoleMemberReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder batchCreateAppRoleMemberReqBody(BatchCreateAppRoleMemberReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchCreateAppRoleMemberReqBody(BatchCreateAppRoleMemberReqBody body) {
+        this.body = body;
     }
 
-    public BatchCreateAppRoleMemberReq build() {
-      return new BatchCreateAppRoleMemberReq(this);
+    public static class Builder {
+
+        private String appToken; // Bitable 文档 Token
+        private String roleId; // 自定义角色 ID
+        private BatchCreateAppRoleMemberReqBody body;
+
+        /**
+         * Bitable 文档 Token
+         * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        /**
+         * 自定义角色 ID
+         * <p> 示例值：rolNGhPqks
+         *
+         * @param roleId
+         * @return
+         */
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
+
+        public BatchCreateAppRoleMemberReqBody getBatchCreateAppRoleMemberReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder batchCreateAppRoleMemberReqBody(BatchCreateAppRoleMemberReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchCreateAppRoleMemberReq build() {
+            return new BatchCreateAppRoleMemberReq(this);
+        }
     }
-  }
 }

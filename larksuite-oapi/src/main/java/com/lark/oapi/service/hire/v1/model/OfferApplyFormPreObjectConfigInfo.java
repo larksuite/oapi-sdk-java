@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferApplyFormPreObjectConfigInfo {
-
-  /**
-   * 字段 ID
-   * <p> 示例值：687529575
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 运算符枚举
-   * <p> 示例值：1
-   */
-  @SerializedName("operator")
-  private Integer operator;
-  /**
-   * 字段值
-   * <p> 示例值：
-   */
-  @SerializedName("value")
-  private String[] value;
-
-  // builder 开始
-  public OfferApplyFormPreObjectConfigInfo() {
-  }
-
-  public OfferApplyFormPreObjectConfigInfo(Builder builder) {
     /**
      * 字段 ID
      * <p> 示例值：687529575
      */
-    this.id = builder.id;
-    /**
-     * 运算符枚举
-     * <p> 示例值：1
-     */
-    this.operator = builder.operator;
-    /**
-     * 字段值
-     * <p> 示例值：
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getOperator() {
-    return this.operator;
-  }
-
-  public void setOperator(Integer operator) {
-    this.operator = operator;
-  }
-
-  public String[] getValue() {
-    return this.value;
-  }
-
-  public void setValue(String[] value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 字段 ID
-     * <p> 示例值：687529575
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 运算符枚举
      * <p> 示例值：1
      */
+    @SerializedName("operator")
     private Integer operator;
     /**
      * 字段值
      * <p> 示例值：
      */
+    @SerializedName("value")
     private String[] value;
 
-    /**
-     * 字段 ID
-     * <p> 示例值：687529575
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OfferApplyFormPreObjectConfigInfo() {
     }
 
-
-    /**
-     * 运算符枚举
-     * <p> 示例值：1
-     *
-     * @param operator
-     * @return
-     */
-    public Builder operator(Integer operator) {
-      this.operator = operator;
-      return this;
+    public OfferApplyFormPreObjectConfigInfo(Builder builder) {
+        /**
+         * 字段 ID
+         * <p> 示例值：687529575
+         */
+        this.id = builder.id;
+        /**
+         * 运算符枚举
+         * <p> 示例值：1
+         */
+        this.operator = builder.operator;
+        /**
+         * 字段值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
     }
 
-
-    /**
-     * 字段值
-     * <p> 示例值：
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String[] value) {
-      this.value = value;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public OfferApplyFormPreObjectConfigInfo build() {
-      return new OfferApplyFormPreObjectConfigInfo(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getOperator() {
+        return this.operator;
+    }
+
+    public void setOperator(Integer operator) {
+        this.operator = operator;
+    }
+
+    public String[] getValue() {
+        return this.value;
+    }
+
+    public void setValue(String[] value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 字段 ID
+         * <p> 示例值：687529575
+         */
+        private String id;
+        /**
+         * 运算符枚举
+         * <p> 示例值：1
+         */
+        private Integer operator;
+        /**
+         * 字段值
+         * <p> 示例值：
+         */
+        private String[] value;
+
+        /**
+         * 字段 ID
+         * <p> 示例值：687529575
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 运算符枚举
+         * <p> 示例值：1
+         *
+         * @param operator
+         * @return
+         */
+        public Builder operator(Integer operator) {
+            this.operator = operator;
+            return this;
+        }
+
+
+        /**
+         * 字段值
+         * <p> 示例值：
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String[] value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public OfferApplyFormPreObjectConfigInfo build() {
+            return new OfferApplyFormPreObjectConfigInfo(this);
+        }
+    }
 }

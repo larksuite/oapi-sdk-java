@@ -14,22 +14,22 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 权限成员类型，放于query参数中，如：`?member_type=openid`
+ * 协作者 ID 类型，与协作者 ID 需要对应
  */
 public enum DeletePermissionMemberMemberTypeEnum {
-  EMAIL("email"), // 邮箱地址
-  OPENID("openid"), // 开放平台ID
-  OPENCHATID("openchat"), // 开放平台群ID
-  OPENDEPARTMENTID("opendepartmentid"), // 开放平台部门ID
-  USERID("userid"), // 自定义用户ID
-  ;
-  private String value;
+    EMAIL("email"), // 邮箱地址
+    OPENID("openid"), // 开放平台ID
+    OPENCHATID("openchat"), // 开放平台群ID
+    OPENDEPARTMENTID("opendepartmentid"), // 开放平台部门ID
+    USERID("userid"), // 自定义用户ID
+    ;
+    private String value;
 
-  DeletePermissionMemberMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    DeletePermissionMemberMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateGridProperties {
-
-  /**
-   * 冻结行数
-   * <p> 示例值：1
-   */
-  @SerializedName("frozen_row_count")
-  private Integer frozenRowCount;
-  /**
-   * 冻结列数
-   * <p> 示例值：1
-   */
-  @SerializedName("frozen_column_count")
-  private Integer frozenColumnCount;
-
-  // builder 开始
-  public UpdateGridProperties() {
-  }
-
-  public UpdateGridProperties(Builder builder) {
     /**
      * 冻结行数
      * <p> 示例值：1
      */
-    this.frozenRowCount = builder.frozenRowCount;
-    /**
-     * 冻结列数
-     * <p> 示例值：1
-     */
-    this.frozenColumnCount = builder.frozenColumnCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getFrozenRowCount() {
-    return this.frozenRowCount;
-  }
-
-  public void setFrozenRowCount(Integer frozenRowCount) {
-    this.frozenRowCount = frozenRowCount;
-  }
-
-  public Integer getFrozenColumnCount() {
-    return this.frozenColumnCount;
-  }
-
-  public void setFrozenColumnCount(Integer frozenColumnCount) {
-    this.frozenColumnCount = frozenColumnCount;
-  }
-
-  public static class Builder {
-
-    /**
-     * 冻结行数
-     * <p> 示例值：1
-     */
+    @SerializedName("frozen_row_count")
     private Integer frozenRowCount;
     /**
      * 冻结列数
      * <p> 示例值：1
      */
+    @SerializedName("frozen_column_count")
     private Integer frozenColumnCount;
 
-    /**
-     * 冻结行数
-     * <p> 示例值：1
-     *
-     * @param frozenRowCount
-     * @return
-     */
-    public Builder frozenRowCount(Integer frozenRowCount) {
-      this.frozenRowCount = frozenRowCount;
-      return this;
+    // builder 开始
+    public UpdateGridProperties() {
     }
 
-
-    /**
-     * 冻结列数
-     * <p> 示例值：1
-     *
-     * @param frozenColumnCount
-     * @return
-     */
-    public Builder frozenColumnCount(Integer frozenColumnCount) {
-      this.frozenColumnCount = frozenColumnCount;
-      return this;
+    public UpdateGridProperties(Builder builder) {
+        /**
+         * 冻结行数
+         * <p> 示例值：1
+         */
+        this.frozenRowCount = builder.frozenRowCount;
+        /**
+         * 冻结列数
+         * <p> 示例值：1
+         */
+        this.frozenColumnCount = builder.frozenColumnCount;
     }
 
-
-    public UpdateGridProperties build() {
-      return new UpdateGridProperties(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getFrozenRowCount() {
+        return this.frozenRowCount;
+    }
+
+    public void setFrozenRowCount(Integer frozenRowCount) {
+        this.frozenRowCount = frozenRowCount;
+    }
+
+    public Integer getFrozenColumnCount() {
+        return this.frozenColumnCount;
+    }
+
+    public void setFrozenColumnCount(Integer frozenColumnCount) {
+        this.frozenColumnCount = frozenColumnCount;
+    }
+
+    public static class Builder {
+        /**
+         * 冻结行数
+         * <p> 示例值：1
+         */
+        private Integer frozenRowCount;
+        /**
+         * 冻结列数
+         * <p> 示例值：1
+         */
+        private Integer frozenColumnCount;
+
+        /**
+         * 冻结行数
+         * <p> 示例值：1
+         *
+         * @param frozenRowCount
+         * @return
+         */
+        public Builder frozenRowCount(Integer frozenRowCount) {
+            this.frozenRowCount = frozenRowCount;
+            return this;
+        }
+
+
+        /**
+         * 冻结列数
+         * <p> 示例值：1
+         *
+         * @param frozenColumnCount
+         * @return
+         */
+        public Builder frozenColumnCount(Integer frozenColumnCount) {
+            this.frozenColumnCount = frozenColumnCount;
+            return this;
+        }
+
+
+        public UpdateGridProperties build() {
+            return new UpdateGridProperties(this);
+        }
+    }
 }

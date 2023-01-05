@@ -16,272 +16,268 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EmployeeTypeEnum {
-
-  /**
-   * 枚举值id
-   * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-   */
-  @SerializedName("enum_id")
-  private String enumId;
-  /**
-   * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
-   * <p> 示例值：2
-   */
-  @SerializedName("enum_value")
-  private String enumValue;
-  /**
-   * 枚举内容
-   * <p> 示例值：专家
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 类型
-   * <p> 示例值：2
-   */
-  @SerializedName("enum_type")
-  private Integer enumType;
-  /**
-   * 使用状态
-   * <p> 示例值：1
-   */
-  @SerializedName("enum_status")
-  private Integer enumStatus;
-  /**
-   * i18n定义
-   * <p> 示例值：
-   */
-  @SerializedName("i18n_content")
-  private I18nContent[] i18nContent;
-
-  // builder 开始
-  public EmployeeTypeEnum() {
-  }
-
-  public EmployeeTypeEnum(Builder builder) {
     /**
      * 枚举值id
      * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
      */
-    this.enumId = builder.enumId;
-    /**
-     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
-     * <p> 示例值：2
-     */
-    this.enumValue = builder.enumValue;
-    /**
-     * 枚举内容
-     * <p> 示例值：专家
-     */
-    this.content = builder.content;
-    /**
-     * 类型
-     * <p> 示例值：2
-     */
-    this.enumType = builder.enumType;
-    /**
-     * 使用状态
-     * <p> 示例值：1
-     */
-    this.enumStatus = builder.enumStatus;
-    /**
-     * i18n定义
-     * <p> 示例值：
-     */
-    this.i18nContent = builder.i18nContent;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEnumId() {
-    return this.enumId;
-  }
-
-  public void setEnumId(String enumId) {
-    this.enumId = enumId;
-  }
-
-  public String getEnumValue() {
-    return this.enumValue;
-  }
-
-  public void setEnumValue(String enumValue) {
-    this.enumValue = enumValue;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Integer getEnumType() {
-    return this.enumType;
-  }
-
-  public void setEnumType(Integer enumType) {
-    this.enumType = enumType;
-  }
-
-  public Integer getEnumStatus() {
-    return this.enumStatus;
-  }
-
-  public void setEnumStatus(Integer enumStatus) {
-    this.enumStatus = enumStatus;
-  }
-
-  public I18nContent[] getI18nContent() {
-    return this.i18nContent;
-  }
-
-  public void setI18nContent(I18nContent[] i18nContent) {
-    this.i18nContent = i18nContent;
-  }
-
-  public static class Builder {
-
-    /**
-     * 枚举值id
-     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-     */
+    @SerializedName("enum_id")
     private String enumId;
     /**
      * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
      * <p> 示例值：2
      */
+    @SerializedName("enum_value")
     private String enumValue;
     /**
      * 枚举内容
      * <p> 示例值：专家
      */
+    @SerializedName("content")
     private String content;
     /**
      * 类型
      * <p> 示例值：2
      */
+    @SerializedName("enum_type")
     private Integer enumType;
     /**
      * 使用状态
      * <p> 示例值：1
      */
+    @SerializedName("enum_status")
     private Integer enumStatus;
     /**
      * i18n定义
      * <p> 示例值：
      */
+    @SerializedName("i18n_content")
     private I18nContent[] i18nContent;
 
-    /**
-     * 枚举值id
-     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-     *
-     * @param enumId
-     * @return
-     */
-    public Builder enumId(String enumId) {
-      this.enumId = enumId;
-      return this;
+    // builder 开始
+    public EmployeeTypeEnum() {
     }
 
-
-    /**
-     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
-     * <p> 示例值：2
-     *
-     * @param enumValue
-     * @return
-     */
-    public Builder enumValue(String enumValue) {
-      this.enumValue = enumValue;
-      return this;
+    public EmployeeTypeEnum(Builder builder) {
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         */
+        this.enumId = builder.enumId;
+        /**
+         * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+         * <p> 示例值：2
+         */
+        this.enumValue = builder.enumValue;
+        /**
+         * 枚举内容
+         * <p> 示例值：专家
+         */
+        this.content = builder.content;
+        /**
+         * 类型
+         * <p> 示例值：2
+         */
+        this.enumType = builder.enumType;
+        /**
+         * 使用状态
+         * <p> 示例值：1
+         */
+        this.enumStatus = builder.enumStatus;
+        /**
+         * i18n定义
+         * <p> 示例值：
+         */
+        this.i18nContent = builder.i18nContent;
     }
 
-
-    /**
-     * 枚举内容
-     * <p> 示例值：专家
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 类型
-     * <p> 示例值：2
-     *
-     * @param enumType
-     * @return
-     */
-    public Builder enumType(Integer enumType) {
-      this.enumType = enumType;
-      return this;
+    public String getEnumId() {
+        return this.enumId;
     }
 
-    /**
-     * 类型
-     * <p> 示例值：2
-     *
-     * @param enumType {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumTypeEnum}
-     * @return
-     */
-    public Builder enumType(
-        com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumTypeEnum enumType) {
-      this.enumType = enumType.getValue();
-      return this;
+    public void setEnumId(String enumId) {
+        this.enumId = enumId;
     }
 
-
-    /**
-     * 使用状态
-     * <p> 示例值：1
-     *
-     * @param enumStatus
-     * @return
-     */
-    public Builder enumStatus(Integer enumStatus) {
-      this.enumStatus = enumStatus;
-      return this;
+    public String getEnumValue() {
+        return this.enumValue;
     }
 
-    /**
-     * 使用状态
-     * <p> 示例值：1
-     *
-     * @param enumStatus {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumStatusEnum}
-     * @return
-     */
-    public Builder enumStatus(
-        com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumStatusEnum enumStatus) {
-      this.enumStatus = enumStatus.getValue();
-      return this;
+    public void setEnumValue(String enumValue) {
+        this.enumValue = enumValue;
     }
 
-
-    /**
-     * i18n定义
-     * <p> 示例值：
-     *
-     * @param i18nContent
-     * @return
-     */
-    public Builder i18nContent(I18nContent[] i18nContent) {
-      this.i18nContent = i18nContent;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-
-    public EmployeeTypeEnum build() {
-      return new EmployeeTypeEnum(this);
+    public void setContent(String content) {
+        this.content = content;
     }
-  }
+
+    public Integer getEnumType() {
+        return this.enumType;
+    }
+
+    public void setEnumType(Integer enumType) {
+        this.enumType = enumType;
+    }
+
+    public Integer getEnumStatus() {
+        return this.enumStatus;
+    }
+
+    public void setEnumStatus(Integer enumStatus) {
+        this.enumStatus = enumStatus;
+    }
+
+    public I18nContent[] getI18nContent() {
+        return this.i18nContent;
+    }
+
+    public void setI18nContent(I18nContent[] i18nContent) {
+        this.i18nContent = i18nContent;
+    }
+
+    public static class Builder {
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         */
+        private String enumId;
+        /**
+         * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+         * <p> 示例值：2
+         */
+        private String enumValue;
+        /**
+         * 枚举内容
+         * <p> 示例值：专家
+         */
+        private String content;
+        /**
+         * 类型
+         * <p> 示例值：2
+         */
+        private Integer enumType;
+        /**
+         * 使用状态
+         * <p> 示例值：1
+         */
+        private Integer enumStatus;
+        /**
+         * i18n定义
+         * <p> 示例值：
+         */
+        private I18nContent[] i18nContent;
+
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         *
+         * @param enumId
+         * @return
+         */
+        public Builder enumId(String enumId) {
+            this.enumId = enumId;
+            return this;
+        }
+
+
+        /**
+         * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+         * <p> 示例值：2
+         *
+         * @param enumValue
+         * @return
+         */
+        public Builder enumValue(String enumValue) {
+            this.enumValue = enumValue;
+            return this;
+        }
+
+
+        /**
+         * 枚举内容
+         * <p> 示例值：专家
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 类型
+         * <p> 示例值：2
+         *
+         * @param enumType
+         * @return
+         */
+        public Builder enumType(Integer enumType) {
+            this.enumType = enumType;
+            return this;
+        }
+
+        /**
+         * 类型
+         * <p> 示例值：2
+         *
+         * @param enumType {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumTypeEnum}
+         * @return
+         */
+        public Builder enumType(com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumTypeEnum enumType) {
+            this.enumType = enumType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 使用状态
+         * <p> 示例值：1
+         *
+         * @param enumStatus
+         * @return
+         */
+        public Builder enumStatus(Integer enumStatus) {
+            this.enumStatus = enumStatus;
+            return this;
+        }
+
+        /**
+         * 使用状态
+         * <p> 示例值：1
+         *
+         * @param enumStatus {@link com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumStatusEnum}
+         * @return
+         */
+        public Builder enumStatus(com.lark.oapi.service.contact.v3.enums.EmployeeTypeEnumEnumStatusEnum enumStatus) {
+            this.enumStatus = enumStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * i18n定义
+         * <p> 示例值：
+         *
+         * @param i18nContent
+         * @return
+         */
+        public Builder i18nContent(I18nContent[] i18nContent) {
+            this.i18nContent = i18nContent;
+            return this;
+        }
+
+
+        public EmployeeTypeEnum build() {
+            return new EmployeeTypeEnum(this);
+        }
+    }
 }

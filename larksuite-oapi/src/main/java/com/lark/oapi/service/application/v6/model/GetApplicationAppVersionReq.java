@@ -18,185 +18,179 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetApplicationAppVersionReq {
-
-  /**
-   * 应用信息的语言版本
-   * <p> 示例值：zh_cn
-   */
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入
-   * "me" 或者应用自身 app_id
-   * <p> 示例值：cli_9f3ca975326b501b
-   */
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  /**
-   * 唯一标识应用版本的 ID
-   * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-   */
-  @Path
-  @SerializedName("version_id")
-  private String versionId;
-
-  // builder 开始
-  public GetApplicationAppVersionReq() {
-  }
-
-  public GetApplicationAppVersionReq(Builder builder) {
     /**
      * 应用信息的语言版本
      * <p> 示例值：zh_cn
      */
-    this.lang = builder.lang;
+    @Query
+    @SerializedName("lang")
+    private String lang;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
      * <p> 示例值：cli_9f3ca975326b501b
      */
-    this.appId = builder.appId;
+    @Path
+    @SerializedName("app_id")
+    private String appId;
     /**
      * 唯一标识应用版本的 ID
      * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
      */
-    this.versionId = builder.versionId;
-  }
+    @Path
+    @SerializedName("version_id")
+    private String versionId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public static class Builder {
-
-    private String lang; // 应用信息的语言版本
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String appId; // 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
-    private String versionId; // 唯一标识应用版本的 ID
-
-    /**
-     * 应用信息的语言版本
-     * <p> 示例值：zh_cn
-     *
-     * @param lang
-     * @return
-     */
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
+    // builder 开始
+    public GetApplicationAppVersionReq() {
     }
 
-    /**
-     * 应用信息的语言版本
-     * <p> 示例值：zh_cn
-     *
-     * @param lang {@link com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionI18nKeyEnum}
-     * @return
-     */
-    public Builder lang(
-        com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionI18nKeyEnum lang) {
-      this.lang = lang.getValue();
-      return this;
+    public GetApplicationAppVersionReq(Builder builder) {
+        /**
+         * 应用信息的语言版本
+         * <p> 示例值：zh_cn
+         */
+        this.lang = builder.lang;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
+         * <p> 示例值：cli_9f3ca975326b501b
+         */
+        this.appId = builder.appId;
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         */
+        this.versionId = builder.versionId;
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public String getLang() {
+        return this.lang;
     }
 
-    /**
-     * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入
-     * "me" 或者应用自身 app_id
-     * <p> 示例值：cli_9f3ca975326b501b
-     *
-     * @param appId
-     * @return
-     */
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 
-
-    /**
-     * 唯一标识应用版本的 ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     *
-     * @param versionId
-     * @return
-     */
-    public Builder versionId(String versionId) {
-      this.versionId = versionId;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    public GetApplicationAppVersionReq build() {
-      return new GetApplicationAppVersionReq(this);
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
-  }
+
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
+
+    public static class Builder {
+        private String lang; // 应用信息的语言版本
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String appId; // 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
+        private String versionId; // 唯一标识应用版本的 ID
+
+        /**
+         * 应用信息的语言版本
+         * <p> 示例值：zh_cn
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
+
+        /**
+         * 应用信息的语言版本
+         * <p> 示例值：zh_cn
+         *
+         * @param lang {@link com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionI18nKeyEnum}
+         * @return
+         */
+        public Builder lang(com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionI18nKeyEnum lang) {
+            this.lang = lang.getValue();
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.application.v6.enums.GetApplicationAppVersionUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
+         * <p> 示例值：cli_9f3ca975326b501b
+         *
+         * @param appId
+         * @return
+         */
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+
+        /**
+         * 唯一标识应用版本的 ID
+         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+         *
+         * @param versionId
+         * @return
+         */
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
+
+        public GetApplicationAppVersionReq build() {
+            return new GetApplicationAppVersionReq(this);
+        }
+    }
 }

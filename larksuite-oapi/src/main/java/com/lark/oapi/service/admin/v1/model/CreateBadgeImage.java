@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateBadgeImage {
 
-  /**
-   * 图片的key
-   * <p> 示例值：f02a98aa-1413-4af6-93ab-431ba9e5f2cg
-   */
-  @SerializedName("image_key")
-  private String imageKey;
+    /**
+     * 图片的key
+     * <p> 示例值：f02a98aa-1413-4af6-93ab-431ba9e5f2cg
+     */
+    @SerializedName("image_key")
+    private String imageKey;
 
-  public String getImageKey() {
-    return this.imageKey;
-  }
+    public String getImageKey() {
+        return this.imageKey;
+    }
 
-  public void setImageKey(String imageKey) {
-    this.imageKey = imageKey;
-  }
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
+    }
 
 }

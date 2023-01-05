@@ -16,172 +16,170 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AgentSchedules {
-
-  /**
-   * status of agent
-   * <p> 示例值：
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * agent info
-   * <p> 示例值：
-   */
-  @SerializedName("agent")
-  private AgentUser agent;
-  /**
-   * day schedule
-   * <p> 示例值：
-   */
-  @SerializedName("schedule")
-  private WeekdaySchedule[] schedule;
-  /**
-   * agent skills
-   * <p> 示例值：
-   */
-  @SerializedName("agent_skills")
-  private AgentSkillLessInfo[] agentSkills;
-
-  // builder 开始
-  public AgentSchedules() {
-  }
-
-  public AgentSchedules(Builder builder) {
     /**
      * status of agent
      * <p> 示例值：
      */
-    this.status = builder.status;
-    /**
-     * agent info
-     * <p> 示例值：
-     */
-    this.agent = builder.agent;
-    /**
-     * day schedule
-     * <p> 示例值：
-     */
-    this.schedule = builder.schedule;
-    /**
-     * agent skills
-     * <p> 示例值：
-     */
-    this.agentSkills = builder.agentSkills;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public AgentUser getAgent() {
-    return this.agent;
-  }
-
-  public void setAgent(AgentUser agent) {
-    this.agent = agent;
-  }
-
-  public WeekdaySchedule[] getSchedule() {
-    return this.schedule;
-  }
-
-  public void setSchedule(WeekdaySchedule[] schedule) {
-    this.schedule = schedule;
-  }
-
-  public AgentSkillLessInfo[] getAgentSkills() {
-    return this.agentSkills;
-  }
-
-  public void setAgentSkills(AgentSkillLessInfo[] agentSkills) {
-    this.agentSkills = agentSkills;
-  }
-
-  public static class Builder {
-
-    /**
-     * status of agent
-     * <p> 示例值：
-     */
+    @SerializedName("status")
     private Integer status;
     /**
      * agent info
      * <p> 示例值：
      */
+    @SerializedName("agent")
     private AgentUser agent;
     /**
      * day schedule
      * <p> 示例值：
      */
+    @SerializedName("schedule")
     private WeekdaySchedule[] schedule;
     /**
      * agent skills
      * <p> 示例值：
      */
+    @SerializedName("agent_skills")
     private AgentSkillLessInfo[] agentSkills;
 
-    /**
-     * status of agent
-     * <p> 示例值：
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    // builder 开始
+    public AgentSchedules() {
     }
 
-
-    /**
-     * agent info
-     * <p> 示例值：
-     *
-     * @param agent
-     * @return
-     */
-    public Builder agent(AgentUser agent) {
-      this.agent = agent;
-      return this;
+    public AgentSchedules(Builder builder) {
+        /**
+         * status of agent
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         * agent info
+         * <p> 示例值：
+         */
+        this.agent = builder.agent;
+        /**
+         * day schedule
+         * <p> 示例值：
+         */
+        this.schedule = builder.schedule;
+        /**
+         * agent skills
+         * <p> 示例值：
+         */
+        this.agentSkills = builder.agentSkills;
     }
 
-
-    /**
-     * day schedule
-     * <p> 示例值：
-     *
-     * @param schedule
-     * @return
-     */
-    public Builder schedule(WeekdaySchedule[] schedule) {
-      this.schedule = schedule;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * agent skills
-     * <p> 示例值：
-     *
-     * @param agentSkills
-     * @return
-     */
-    public Builder agentSkills(AgentSkillLessInfo[] agentSkills) {
-      this.agentSkills = agentSkills;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-
-    public AgentSchedules build() {
-      return new AgentSchedules(this);
+    public void setStatus(Integer status) {
+        this.status = status;
     }
-  }
+
+    public AgentUser getAgent() {
+        return this.agent;
+    }
+
+    public void setAgent(AgentUser agent) {
+        this.agent = agent;
+    }
+
+    public WeekdaySchedule[] getSchedule() {
+        return this.schedule;
+    }
+
+    public void setSchedule(WeekdaySchedule[] schedule) {
+        this.schedule = schedule;
+    }
+
+    public AgentSkillLessInfo[] getAgentSkills() {
+        return this.agentSkills;
+    }
+
+    public void setAgentSkills(AgentSkillLessInfo[] agentSkills) {
+        this.agentSkills = agentSkills;
+    }
+
+    public static class Builder {
+        /**
+         * status of agent
+         * <p> 示例值：
+         */
+        private Integer status;
+        /**
+         * agent info
+         * <p> 示例值：
+         */
+        private AgentUser agent;
+        /**
+         * day schedule
+         * <p> 示例值：
+         */
+        private WeekdaySchedule[] schedule;
+        /**
+         * agent skills
+         * <p> 示例值：
+         */
+        private AgentSkillLessInfo[] agentSkills;
+
+        /**
+         * status of agent
+         * <p> 示例值：
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+
+        /**
+         * agent info
+         * <p> 示例值：
+         *
+         * @param agent
+         * @return
+         */
+        public Builder agent(AgentUser agent) {
+            this.agent = agent;
+            return this;
+        }
+
+
+        /**
+         * day schedule
+         * <p> 示例值：
+         *
+         * @param schedule
+         * @return
+         */
+        public Builder schedule(WeekdaySchedule[] schedule) {
+            this.schedule = schedule;
+            return this;
+        }
+
+
+        /**
+         * agent skills
+         * <p> 示例值：
+         *
+         * @param agentSkills
+         * @return
+         */
+        public Builder agentSkills(AgentSkillLessInfo[] agentSkills) {
+            this.agentSkills = agentSkills;
+            return this;
+        }
+
+
+        public AgentSchedules build() {
+            return new AgentSchedules(this);
+        }
+    }
 }

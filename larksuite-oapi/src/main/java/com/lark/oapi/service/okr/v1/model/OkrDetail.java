@@ -16,320 +16,318 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OkrDetail {
-
-  /**
-   * OKR ID
-   * <p> 示例值：6976173067307927084
-   */
-  @SerializedName("okr_id")
-  private String okrId;
-  /**
-   * 周期 ID
-   * <p> 示例值：6974586812973581868
-   */
-  @SerializedName("period_id")
-  private String periodId;
-  /**
-   * 周期类型：1、月周期；2、年周期
-   * <p> 示例值：1
-   */
-  @SerializedName("period_type")
-  private String periodType;
-  /**
-   * 周期展示名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private OkrName name;
-  /**
-   * 创建时间
-   * <p> 示例值：1624267575928
-   */
-  @SerializedName("create_time")
-  private Integer createTime;
-  /**
-   * 修改时间
-   * <p> 示例值：1624329170463
-   */
-  @SerializedName("modify_time")
-  private Integer modifyTime;
-  /**
-   * objective 列表
-   * <p> 示例值：
-   */
-  @SerializedName("objective_list")
-  private OkrDetailObjective[] objectiveList;
-  /**
-   * 打分
-   * <p> 示例值：0.5
-   */
-  @SerializedName("okr_score")
-  private Integer okrScore;
-
-  // builder 开始
-  public OkrDetail() {
-  }
-
-  public OkrDetail(Builder builder) {
     /**
      * OKR ID
      * <p> 示例值：6976173067307927084
      */
-    this.okrId = builder.okrId;
-    /**
-     * 周期 ID
-     * <p> 示例值：6974586812973581868
-     */
-    this.periodId = builder.periodId;
-    /**
-     * 周期类型：1、月周期；2、年周期
-     * <p> 示例值：1
-     */
-    this.periodType = builder.periodType;
-    /**
-     * 周期展示名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 创建时间
-     * <p> 示例值：1624267575928
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 修改时间
-     * <p> 示例值：1624329170463
-     */
-    this.modifyTime = builder.modifyTime;
-    /**
-     * objective 列表
-     * <p> 示例值：
-     */
-    this.objectiveList = builder.objectiveList;
-    /**
-     * 打分
-     * <p> 示例值：0.5
-     */
-    this.okrScore = builder.okrScore;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOkrId() {
-    return this.okrId;
-  }
-
-  public void setOkrId(String okrId) {
-    this.okrId = okrId;
-  }
-
-  public String getPeriodId() {
-    return this.periodId;
-  }
-
-  public void setPeriodId(String periodId) {
-    this.periodId = periodId;
-  }
-
-  public String getPeriodType() {
-    return this.periodType;
-  }
-
-  public void setPeriodType(String periodType) {
-    this.periodType = periodType;
-  }
-
-  public OkrName getName() {
-    return this.name;
-  }
-
-  public void setName(OkrName name) {
-    this.name = name;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getModifyTime() {
-    return this.modifyTime;
-  }
-
-  public void setModifyTime(Integer modifyTime) {
-    this.modifyTime = modifyTime;
-  }
-
-  public OkrDetailObjective[] getObjectiveList() {
-    return this.objectiveList;
-  }
-
-  public void setObjectiveList(OkrDetailObjective[] objectiveList) {
-    this.objectiveList = objectiveList;
-  }
-
-  public Integer getOkrScore() {
-    return this.okrScore;
-  }
-
-  public void setOkrScore(Integer okrScore) {
-    this.okrScore = okrScore;
-  }
-
-  public static class Builder {
-
-    /**
-     * OKR ID
-     * <p> 示例值：6976173067307927084
-     */
+    @SerializedName("okr_id")
     private String okrId;
     /**
      * 周期 ID
      * <p> 示例值：6974586812973581868
      */
+    @SerializedName("period_id")
     private String periodId;
     /**
      * 周期类型：1、月周期；2、年周期
      * <p> 示例值：1
      */
+    @SerializedName("period_type")
     private String periodType;
     /**
      * 周期展示名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private OkrName name;
     /**
      * 创建时间
      * <p> 示例值：1624267575928
      */
+    @SerializedName("create_time")
     private Integer createTime;
     /**
      * 修改时间
      * <p> 示例值：1624329170463
      */
+    @SerializedName("modify_time")
     private Integer modifyTime;
     /**
      * objective 列表
      * <p> 示例值：
      */
+    @SerializedName("objective_list")
     private OkrDetailObjective[] objectiveList;
     /**
      * 打分
      * <p> 示例值：0.5
      */
+    @SerializedName("okr_score")
     private Integer okrScore;
 
-    /**
-     * OKR ID
-     * <p> 示例值：6976173067307927084
-     *
-     * @param okrId
-     * @return
-     */
-    public Builder okrId(String okrId) {
-      this.okrId = okrId;
-      return this;
+    // builder 开始
+    public OkrDetail() {
     }
 
-
-    /**
-     * 周期 ID
-     * <p> 示例值：6974586812973581868
-     *
-     * @param periodId
-     * @return
-     */
-    public Builder periodId(String periodId) {
-      this.periodId = periodId;
-      return this;
+    public OkrDetail(Builder builder) {
+        /**
+         * OKR ID
+         * <p> 示例值：6976173067307927084
+         */
+        this.okrId = builder.okrId;
+        /**
+         * 周期 ID
+         * <p> 示例值：6974586812973581868
+         */
+        this.periodId = builder.periodId;
+        /**
+         * 周期类型：1、月周期；2、年周期
+         * <p> 示例值：1
+         */
+        this.periodType = builder.periodType;
+        /**
+         * 周期展示名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 创建时间
+         * <p> 示例值：1624267575928
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 修改时间
+         * <p> 示例值：1624329170463
+         */
+        this.modifyTime = builder.modifyTime;
+        /**
+         * objective 列表
+         * <p> 示例值：
+         */
+        this.objectiveList = builder.objectiveList;
+        /**
+         * 打分
+         * <p> 示例值：0.5
+         */
+        this.okrScore = builder.okrScore;
     }
 
-
-    /**
-     * 周期类型：1、月周期；2、年周期
-     * <p> 示例值：1
-     *
-     * @param periodType
-     * @return
-     */
-    public Builder periodType(String periodType) {
-      this.periodType = periodType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 周期展示名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(OkrName name) {
-      this.name = name;
-      return this;
+    public String getOkrId() {
+        return this.okrId;
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：1624267575928
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public void setOkrId(String okrId) {
+        this.okrId = okrId;
     }
 
-
-    /**
-     * 修改时间
-     * <p> 示例值：1624329170463
-     *
-     * @param modifyTime
-     * @return
-     */
-    public Builder modifyTime(Integer modifyTime) {
-      this.modifyTime = modifyTime;
-      return this;
+    public String getPeriodId() {
+        return this.periodId;
     }
 
-
-    /**
-     * objective 列表
-     * <p> 示例值：
-     *
-     * @param objectiveList
-     * @return
-     */
-    public Builder objectiveList(OkrDetailObjective[] objectiveList) {
-      this.objectiveList = objectiveList;
-      return this;
+    public void setPeriodId(String periodId) {
+        this.periodId = periodId;
     }
 
-
-    /**
-     * 打分
-     * <p> 示例值：0.5
-     *
-     * @param okrScore
-     * @return
-     */
-    public Builder okrScore(Integer okrScore) {
-      this.okrScore = okrScore;
-      return this;
+    public String getPeriodType() {
+        return this.periodType;
     }
 
-
-    public OkrDetail build() {
-      return new OkrDetail(this);
+    public void setPeriodType(String periodType) {
+        this.periodType = periodType;
     }
-  }
+
+    public OkrName getName() {
+        return this.name;
+    }
+
+    public void setName(OkrName name) {
+        this.name = name;
+    }
+
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(Integer modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public OkrDetailObjective[] getObjectiveList() {
+        return this.objectiveList;
+    }
+
+    public void setObjectiveList(OkrDetailObjective[] objectiveList) {
+        this.objectiveList = objectiveList;
+    }
+
+    public Integer getOkrScore() {
+        return this.okrScore;
+    }
+
+    public void setOkrScore(Integer okrScore) {
+        this.okrScore = okrScore;
+    }
+
+    public static class Builder {
+        /**
+         * OKR ID
+         * <p> 示例值：6976173067307927084
+         */
+        private String okrId;
+        /**
+         * 周期 ID
+         * <p> 示例值：6974586812973581868
+         */
+        private String periodId;
+        /**
+         * 周期类型：1、月周期；2、年周期
+         * <p> 示例值：1
+         */
+        private String periodType;
+        /**
+         * 周期展示名称
+         * <p> 示例值：
+         */
+        private OkrName name;
+        /**
+         * 创建时间
+         * <p> 示例值：1624267575928
+         */
+        private Integer createTime;
+        /**
+         * 修改时间
+         * <p> 示例值：1624329170463
+         */
+        private Integer modifyTime;
+        /**
+         * objective 列表
+         * <p> 示例值：
+         */
+        private OkrDetailObjective[] objectiveList;
+        /**
+         * 打分
+         * <p> 示例值：0.5
+         */
+        private Integer okrScore;
+
+        /**
+         * OKR ID
+         * <p> 示例值：6976173067307927084
+         *
+         * @param okrId
+         * @return
+         */
+        public Builder okrId(String okrId) {
+            this.okrId = okrId;
+            return this;
+        }
+
+
+        /**
+         * 周期 ID
+         * <p> 示例值：6974586812973581868
+         *
+         * @param periodId
+         * @return
+         */
+        public Builder periodId(String periodId) {
+            this.periodId = periodId;
+            return this;
+        }
+
+
+        /**
+         * 周期类型：1、月周期；2、年周期
+         * <p> 示例值：1
+         *
+         * @param periodType
+         * @return
+         */
+        public Builder periodType(String periodType) {
+            this.periodType = periodType;
+            return this;
+        }
+
+
+        /**
+         * 周期展示名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(OkrName name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1624267575928
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Integer createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 修改时间
+         * <p> 示例值：1624329170463
+         *
+         * @param modifyTime
+         * @return
+         */
+        public Builder modifyTime(Integer modifyTime) {
+            this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * objective 列表
+         * <p> 示例值：
+         *
+         * @param objectiveList
+         * @return
+         */
+        public Builder objectiveList(OkrDetailObjective[] objectiveList) {
+            this.objectiveList = objectiveList;
+            return this;
+        }
+
+
+        /**
+         * 打分
+         * <p> 示例值：0.5
+         *
+         * @param okrScore
+         * @return
+         */
+        public Builder okrScore(Integer okrScore) {
+            this.okrScore = okrScore;
+            return this;
+        }
+
+
+        public OkrDetail build() {
+            return new OkrDetail(this);
+        }
+    }
 }

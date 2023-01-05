@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文
  */
 public enum I18nResourceLocaleEnum {
-  ZHCN("zh-CN"), // 中文
-  ENUS("en-US"), // 英文
-  JAJP("ja-JP"), // 日文
-  ;
-  private String value;
+    ZHCN("zh-CN"), // 中文
+    ENUS("en-US"), // 英文
+    JAJP("ja-JP"), // 日文
+    ;
+    private String value;
 
-  I18nResourceLocaleEnum(String value) {
-    this.value = value;
-  }
+    I18nResourceLocaleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

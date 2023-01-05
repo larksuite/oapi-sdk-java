@@ -16,178 +16,170 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CustomAttr {
-
-  /**
-   * 自定义字段id
-   * <p> 示例值：C-6965457429001748507
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;-
-   * `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;-
-   * `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
-   * <p> 示例值：TEXT
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
-   * <p> 示例值：{}
-   */
-  @SerializedName("options")
-  private CustomAttrOptions options;
-  /**
-   * 自定义字段的字段名称
-   * <p> 示例值：{}
-   */
-  @SerializedName("i18n_name")
-  private I18nContent[] i18nName;
-
-  // builder 开始
-  public CustomAttr() {
-  }
-
-  public CustomAttr(Builder builder) {
     /**
      * 自定义字段id
      * <p> 示例值：C-6965457429001748507
      */
-    this.id = builder.id;
+    @SerializedName("id")
+    private String id;
     /**
      * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;- `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;- `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
      * <p> 示例值：TEXT
      */
-    this.type = builder.type;
-    /**
-     * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
-     * <p> 示例值：{}
-     */
-    this.options = builder.options;
-    /**
-     * 自定义字段的字段名称
-     * <p> 示例值：{}
-     */
-    this.i18nName = builder.i18nName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public CustomAttrOptions getOptions() {
-    return this.options;
-  }
-
-  public void setOptions(CustomAttrOptions options) {
-    this.options = options;
-  }
-
-  public I18nContent[] getI18nName() {
-    return this.i18nName;
-  }
-
-  public void setI18nName(I18nContent[] i18nName) {
-    this.i18nName = i18nName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段id
-     * <p> 示例值：C-6965457429001748507
-     */
-    private String id;
-    /**
-     * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;-
-     * `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;-
-     * `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
-     * <p> 示例值：TEXT
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
      * <p> 示例值：{}
      */
+    @SerializedName("options")
     private CustomAttrOptions options;
     /**
      * 自定义字段的字段名称
      * <p> 示例值：{}
      */
+    @SerializedName("i18n_name")
     private I18nContent[] i18nName;
 
-    /**
-     * 自定义字段id
-     * <p> 示例值：C-6965457429001748507
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public CustomAttr() {
     }
 
-
-    /**
-     * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;-
-     * `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;-
-     * `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
-     * <p> 示例值：TEXT
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public CustomAttr(Builder builder) {
+        /**
+         * 自定义字段id
+         * <p> 示例值：C-6965457429001748507
+         */
+        this.id = builder.id;
+        /**
+         * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;- `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;- `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
+         * <p> 示例值：TEXT
+         */
+        this.type = builder.type;
+        /**
+         * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
+         * <p> 示例值：{}
+         */
+        this.options = builder.options;
+        /**
+         * 自定义字段的字段名称
+         * <p> 示例值：{}
+         */
+        this.i18nName = builder.i18nName;
     }
 
-
-    /**
-     * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
-     * <p> 示例值：{}
-     *
-     * @param options
-     * @return
-     */
-    public Builder options(CustomAttrOptions options) {
-      this.options = options;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 自定义字段的字段名称
-     * <p> 示例值：{}
-     *
-     * @param i18nName
-     * @return
-     */
-    public Builder i18nName(I18nContent[] i18nName) {
-      this.i18nName = i18nName;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public CustomAttr build() {
-      return new CustomAttr(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public CustomAttrOptions getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(CustomAttrOptions options) {
+        this.options = options;
+    }
+
+    public I18nContent[] getI18nName() {
+        return this.i18nName;
+    }
+
+    public void setI18nName(I18nContent[] i18nName) {
+        this.i18nName = i18nName;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段id
+         * <p> 示例值：C-6965457429001748507
+         */
+        private String id;
+        /**
+         * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;- `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;- `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
+         * <p> 示例值：TEXT
+         */
+        private String type;
+        /**
+         * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
+         * <p> 示例值：{}
+         */
+        private CustomAttrOptions options;
+        /**
+         * 自定义字段的字段名称
+         * <p> 示例值：{}
+         */
+        private I18nContent[] i18nName;
+
+        /**
+         * 自定义字段id
+         * <p> 示例值：C-6965457429001748507
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段类型，可选值有:;- `TEXT`：纯文本，用于纯文本描述人员，如备注;- `HREF`：静态 URL，用于人员 Profile 跳转链接;- `ENUMERATION`：枚举，用于结构化描述人员，如民族;- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP;- `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章
+         * <p> 示例值：TEXT
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项
+         * <p> 示例值：{}
+         *
+         * @param options
+         * @return
+         */
+        public Builder options(CustomAttrOptions options) {
+            this.options = options;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段的字段名称
+         * <p> 示例值：{}
+         *
+         * @param i18nName
+         * @return
+         */
+        public Builder i18nName(I18nContent[] i18nName) {
+            this.i18nName = i18nName;
+            return this;
+        }
+
+
+        public CustomAttr build() {
+            return new CustomAttr(this);
+        }
+    }
 }

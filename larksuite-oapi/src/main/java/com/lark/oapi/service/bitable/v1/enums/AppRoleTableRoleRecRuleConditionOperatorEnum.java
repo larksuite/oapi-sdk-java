@@ -17,20 +17,20 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 运算符
  */
 public enum AppRoleTableRoleRecRuleConditionOperatorEnum {
-  IS("is"), // 等于
-  ISNOT("isNot"), // 不等于
-  CONTAINS("contains"), // 包含
-  DOESNOTCONTAIN("doesNotContain"), // 不包含
-  ISEMPTY("isEmpty"), // 为空
-  ISNOTEMPTY("isNotEmpty"), // 不为空
-  ;
-  private String value;
+    IS("is"), // 等于
+    ISNOT("isNot"), // 不等于
+    CONTAINS("contains"), // 包含
+    DOESNOTCONTAIN("doesNotContain"), // 不包含
+    ISEMPTY("isEmpty"), // 为空
+    ISNOTEMPTY("isNotEmpty"), // 不为空
+    ;
+    private String value;
 
-  AppRoleTableRoleRecRuleConditionOperatorEnum(String value) {
-    this.value = value;
-  }
+    AppRoleTableRoleRecRuleConditionOperatorEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

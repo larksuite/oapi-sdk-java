@@ -16,51 +16,50 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateSpaceReq {
-
-  @Body
-  private Space body;
-
-  // builder 开始
-  public CreateSpaceReq() {
-  }
-
-  public CreateSpaceReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Space getSpace() {
-    return this.body;
-  }
-
-  public void setSpace(Space body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Space body;
 
+    // builder 开始
+    public CreateSpaceReq() {
+    }
+
+    public CreateSpaceReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Space getSpace() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder space(Space body) {
-      this.body = body;
-      return this;
+    public void setSpace(Space body) {
+        this.body = body;
     }
 
-    public CreateSpaceReq build() {
-      return new CreateSpaceReq(this);
+    public static class Builder {
+
+        private Space body;
+
+        public Space getSpace() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder space(Space body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateSpaceReq build() {
+            return new CreateSpaceReq(this);
+        }
     }
-  }
 }

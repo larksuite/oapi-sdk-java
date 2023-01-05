@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateSpreadsheetSheetFilterViewCondition {
 
-  /**
-   * 更新后的筛选条件
-   * <p> 示例值：
-   */
-  @SerializedName("condition")
-  private FilterViewCondition condition;
+    /**
+     * 更新后的筛选条件
+     * <p> 示例值：
+     */
+    @SerializedName("condition")
+    private FilterViewCondition condition;
 
-  public FilterViewCondition getCondition() {
-    return this.condition;
-  }
+    public FilterViewCondition getCondition() {
+        return this.condition;
+    }
 
-  public void setCondition(FilterViewCondition condition) {
-    this.condition = condition;
-  }
+    public void setCondition(FilterViewCondition condition) {
+        this.condition = condition;
+    }
 
 }

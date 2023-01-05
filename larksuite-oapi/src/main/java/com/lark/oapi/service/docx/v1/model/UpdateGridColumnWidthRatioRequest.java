@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateGridColumnWidthRatioRequest {
-
-  /**
-   * 更新列宽比例时，需要传入所有列宽占比
-   * <p> 示例值：50
-   */
-  @SerializedName("width_ratios")
-  private Integer[] widthRatios;
-
-  // builder 开始
-  public UpdateGridColumnWidthRatioRequest() {
-  }
-
-  public UpdateGridColumnWidthRatioRequest(Builder builder) {
     /**
      * 更新列宽比例时，需要传入所有列宽占比
      * <p> 示例值：50
      */
-    this.widthRatios = builder.widthRatios;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer[] getWidthRatios() {
-    return this.widthRatios;
-  }
-
-  public void setWidthRatios(Integer[] widthRatios) {
-    this.widthRatios = widthRatios;
-  }
-
-  public static class Builder {
-
-    /**
-     * 更新列宽比例时，需要传入所有列宽占比
-     * <p> 示例值：50
-     */
+    @SerializedName("width_ratios")
     private Integer[] widthRatios;
 
-    /**
-     * 更新列宽比例时，需要传入所有列宽占比
-     * <p> 示例值：50
-     *
-     * @param widthRatios
-     * @return
-     */
-    public Builder widthRatios(Integer[] widthRatios) {
-      this.widthRatios = widthRatios;
-      return this;
+    // builder 开始
+    public UpdateGridColumnWidthRatioRequest() {
     }
 
-
-    public UpdateGridColumnWidthRatioRequest build() {
-      return new UpdateGridColumnWidthRatioRequest(this);
+    public UpdateGridColumnWidthRatioRequest(Builder builder) {
+        /**
+         * 更新列宽比例时，需要传入所有列宽占比
+         * <p> 示例值：50
+         */
+        this.widthRatios = builder.widthRatios;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer[] getWidthRatios() {
+        return this.widthRatios;
+    }
+
+    public void setWidthRatios(Integer[] widthRatios) {
+        this.widthRatios = widthRatios;
+    }
+
+    public static class Builder {
+        /**
+         * 更新列宽比例时，需要传入所有列宽占比
+         * <p> 示例值：50
+         */
+        private Integer[] widthRatios;
+
+        /**
+         * 更新列宽比例时，需要传入所有列宽占比
+         * <p> 示例值：50
+         *
+         * @param widthRatios
+         * @return
+         */
+        public Builder widthRatios(Integer[] widthRatios) {
+            this.widthRatios = widthRatios;
+            return this;
+        }
+
+
+        public UpdateGridColumnWidthRatioRequest build() {
+            return new UpdateGridColumnWidthRatioRequest(this);
+        }
+    }
 }

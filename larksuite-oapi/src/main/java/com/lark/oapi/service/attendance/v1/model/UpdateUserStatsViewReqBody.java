@@ -16,61 +16,59 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateUserStatsViewReqBody {
-
-  /**
-   * 统计设置
-   * <p> 示例值：
-   */
-  @SerializedName("view")
-  private UserStatsView view;
-
-  // builder 开始
-  public UpdateUserStatsViewReqBody() {
-  }
-
-  public UpdateUserStatsViewReqBody(Builder builder) {
     /**
      * 统计设置
      * <p> 示例值：
      */
-    this.view = builder.view;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserStatsView getView() {
-    return this.view;
-  }
-
-  public void setView(UserStatsView view) {
-    this.view = view;
-  }
-
-  public static class Builder {
-
-    /**
-     * 统计设置
-     * <p> 示例值：
-     */
+    @SerializedName("view")
     private UserStatsView view;
 
-    /**
-     * 统计设置
-     * <p> 示例值：
-     *
-     * @param view
-     * @return
-     */
-    public Builder view(UserStatsView view) {
-      this.view = view;
-      return this;
+    // builder 开始
+    public UpdateUserStatsViewReqBody() {
     }
 
-
-    public UpdateUserStatsViewReqBody build() {
-      return new UpdateUserStatsViewReqBody(this);
+    public UpdateUserStatsViewReqBody(Builder builder) {
+        /**
+         * 统计设置
+         * <p> 示例值：
+         */
+        this.view = builder.view;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public UserStatsView getView() {
+        return this.view;
+    }
+
+    public void setView(UserStatsView view) {
+        this.view = view;
+    }
+
+    public static class Builder {
+        /**
+         * 统计设置
+         * <p> 示例值：
+         */
+        private UserStatsView view;
+
+        /**
+         * 统计设置
+         * <p> 示例值：
+         *
+         * @param view
+         * @return
+         */
+        public Builder view(UserStatsView view) {
+            this.view = view;
+            return this;
+        }
+
+
+        public UpdateUserStatsViewReqBody build() {
+            return new UpdateUserStatsViewReqBody(this);
+        }
+    }
 }

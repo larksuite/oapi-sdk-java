@@ -16,62 +16,61 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListAppRoleMemberRespBody {
+    /**
+     * 协作者列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private AppRoleMember[] items;
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 总数
+     * <p> 示例值：
+     */
+    @SerializedName("total")
+    private Integer total;
 
-  /**
-   * 协作者列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private AppRoleMember[] items;
-  /**
-   * 是否有下一页数据
-   * <p> 示例值：
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下一页分页的token
-   * <p> 示例值：
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 总数
-   * <p> 示例值：
-   */
-  @SerializedName("total")
-  private Integer total;
+    public AppRoleMember[] getItems() {
+        return this.items;
+    }
 
-  public AppRoleMember[] getItems() {
-    return this.items;
-  }
+    public void setItems(AppRoleMember[] items) {
+        this.items = items;
+    }
 
-  public void setItems(AppRoleMember[] items) {
-    this.items = items;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public Integer getTotal() {
-    return this.total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CancelSendNotificationReqBody {
-
-  /**
-   * 是否召回已发送的消息,新人入职消息同样适用
-   * <p> 示例值：true
-   */
-  @SerializedName("is_recall")
-  private Boolean isRecall;
-
-  // builder 开始
-  public CancelSendNotificationReqBody() {
-  }
-
-  public CancelSendNotificationReqBody(Builder builder) {
     /**
      * 是否召回已发送的消息,新人入职消息同样适用
      * <p> 示例值：true
      */
-    this.isRecall = builder.isRecall;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsRecall() {
-    return this.isRecall;
-  }
-
-  public void setIsRecall(Boolean isRecall) {
-    this.isRecall = isRecall;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否召回已发送的消息,新人入职消息同样适用
-     * <p> 示例值：true
-     */
+    @SerializedName("is_recall")
     private Boolean isRecall;
 
-    /**
-     * 是否召回已发送的消息,新人入职消息同样适用
-     * <p> 示例值：true
-     *
-     * @param isRecall
-     * @return
-     */
-    public Builder isRecall(Boolean isRecall) {
-      this.isRecall = isRecall;
-      return this;
+    // builder 开始
+    public CancelSendNotificationReqBody() {
     }
 
-
-    public CancelSendNotificationReqBody build() {
-      return new CancelSendNotificationReqBody(this);
+    public CancelSendNotificationReqBody(Builder builder) {
+        /**
+         * 是否召回已发送的消息,新人入职消息同样适用
+         * <p> 示例值：true
+         */
+        this.isRecall = builder.isRecall;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Boolean getIsRecall() {
+        return this.isRecall;
+    }
+
+    public void setIsRecall(Boolean isRecall) {
+        this.isRecall = isRecall;
+    }
+
+    public static class Builder {
+        /**
+         * 是否召回已发送的消息,新人入职消息同样适用
+         * <p> 示例值：true
+         */
+        private Boolean isRecall;
+
+        /**
+         * 是否召回已发送的消息,新人入职消息同样适用
+         * <p> 示例值：true
+         *
+         * @param isRecall
+         * @return
+         */
+        public Builder isRecall(Boolean isRecall) {
+            this.isRecall = isRecall;
+            return this;
+        }
+
+
+        public CancelSendNotificationReqBody build() {
+            return new CancelSendNotificationReqBody(this);
+        }
+    }
 }

@@ -17,21 +17,21 @@ package com.lark.oapi.service.vc.v1.enums;
  * 触发告警规则的监控对象
  */
 public enum AlertMonitorTargetEnum {
-  ROOMS(1), // 飞书会议室
-  CHECKBOARD(2), // 飞书会议室签到板
-  ROOMBOX(3), // 飞书投屏盒子
-  ROOM_TV_SHARE(4), // 飞书投屏
-  SIP(5), // sip会议室系统
-  ERC(6), // erc节点
-  ROOM_SENSOR(7), // 飞书传感器
-  ;
-  private Integer value;
+    ROOMS(1), // 飞书会议室
+    CHECKBOARD(2), // 飞书会议室签到板
+    ROOMBOX(3), // 飞书投屏盒子
+    ROOM_TV_SHARE(4), // 飞书投屏
+    SIP(5), // sip会议室系统
+    ERC(6), // erc节点
+    ROOM_SENSOR(7), // 飞书传感器
+    ;
+    private Integer value;
 
-  AlertMonitorTargetEnum(Integer value) {
-    this.value = value;
-  }
+    AlertMonitorTargetEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

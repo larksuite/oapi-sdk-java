@@ -16,61 +16,59 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchSchemaReqBody {
-
-  /**
-   * 数据展示相关配置
-   * <p> 示例值：
-   */
-  @SerializedName("display")
-  private SchemaDisplay display;
-
-  // builder 开始
-  public PatchSchemaReqBody() {
-  }
-
-  public PatchSchemaReqBody(Builder builder) {
     /**
      * 数据展示相关配置
      * <p> 示例值：
      */
-    this.display = builder.display;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public SchemaDisplay getDisplay() {
-    return this.display;
-  }
-
-  public void setDisplay(SchemaDisplay display) {
-    this.display = display;
-  }
-
-  public static class Builder {
-
-    /**
-     * 数据展示相关配置
-     * <p> 示例值：
-     */
+    @SerializedName("display")
     private SchemaDisplay display;
 
-    /**
-     * 数据展示相关配置
-     * <p> 示例值：
-     *
-     * @param display
-     * @return
-     */
-    public Builder display(SchemaDisplay display) {
-      this.display = display;
-      return this;
+    // builder 开始
+    public PatchSchemaReqBody() {
     }
 
-
-    public PatchSchemaReqBody build() {
-      return new PatchSchemaReqBody(this);
+    public PatchSchemaReqBody(Builder builder) {
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         */
+        this.display = builder.display;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public SchemaDisplay getDisplay() {
+        return this.display;
+    }
+
+    public void setDisplay(SchemaDisplay display) {
+        this.display = display;
+    }
+
+    public static class Builder {
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         */
+        private SchemaDisplay display;
+
+        /**
+         * 数据展示相关配置
+         * <p> 示例值：
+         *
+         * @param display
+         * @return
+         */
+        public Builder display(SchemaDisplay display) {
+            this.display = display;
+            return this;
+        }
+
+
+        public PatchSchemaReqBody build() {
+            return new PatchSchemaReqBody(this);
+        }
+    }
 }

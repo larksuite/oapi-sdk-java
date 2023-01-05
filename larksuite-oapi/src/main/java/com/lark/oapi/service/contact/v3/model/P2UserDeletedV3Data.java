@@ -16,34 +16,33 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2UserDeletedV3Data {
+    /**
+     * 员工信息
+     * <p> 示例值：
+     */
+    @SerializedName("object")
+    private UserEvent object;
+    /**
+     * 删除前信息
+     * <p> 示例值：
+     */
+    @SerializedName("old_object")
+    private OldUserObject oldObject;
 
-  /**
-   * 员工信息
-   * <p> 示例值：
-   */
-  @SerializedName("object")
-  private UserEvent object;
-  /**
-   * 删除前信息
-   * <p> 示例值：
-   */
-  @SerializedName("old_object")
-  private OldUserObject oldObject;
+    public UserEvent getObject() {
+        return this.object;
+    }
 
-  public UserEvent getObject() {
-    return this.object;
-  }
+    public void setObject(UserEvent object) {
+        this.object = object;
+    }
 
-  public void setObject(UserEvent object) {
-    this.object = object;
-  }
+    public OldUserObject getOldObject() {
+        return this.oldObject;
+    }
 
-  public OldUserObject getOldObject() {
-    return this.oldObject;
-  }
-
-  public void setOldObject(OldUserObject oldObject) {
-    this.oldObject = oldObject;
-  }
+    public void setOldObject(OldUserObject oldObject) {
+        this.oldObject = oldObject;
+    }
 
 }

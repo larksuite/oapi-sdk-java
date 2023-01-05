@@ -19,195 +19,192 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class UpdateAppTableRecordReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * 单条记录的 id
-   * <p> 示例值：recqwIwhc6
-   */
-  @Path
-  @SerializedName("record_id")
-  private String recordId;
-  @Body
-  private AppTableRecord body;
-  // builder 开始
-  public UpdateAppTableRecordReq() {
-  }
-
-  public UpdateAppTableRecordReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
-     * bitable app token
+     * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
-     * table id
+     * 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     /**
-     * 单条记录的 id
+     * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
      * <p> 示例值：recqwIwhc6
      */
-    this.recordId = builder.recordId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public AppTableRecord getAppTableRecord() {
-    return this.body;
-  }
-
-  public void setAppTableRecord(AppTableRecord body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String appToken; // bitable app token
-    private String tableId; // table id
-    private String recordId; // 单条记录的 id
+    @Path
+    @SerializedName("record_id")
+    private String recordId;
+    @Body
     private AppTableRecord body;
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public UpdateAppTableRecordReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.UpdateAppTableRecordUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.bitable.v1.enums.UpdateAppTableRecordUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public UpdateAppTableRecordReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
+         * <p> 示例值：recqwIwhc6
+         */
+        this.recordId = builder.recordId;
+        this.body = builder.body;
     }
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    /**
-     * 单条记录的 id
-     * <p> 示例值：recqwIwhc6
-     *
-     * @param recordId
-     * @return
-     */
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
     }
 
     public AppTableRecord getAppTableRecord() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder appTableRecord(AppTableRecord body) {
-      this.body = body;
-      return this;
+    public void setAppTableRecord(AppTableRecord body) {
+        this.body = body;
     }
 
-    public UpdateAppTableRecordReq build() {
-      return new UpdateAppTableRecordReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String appToken; // 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+        private String tableId; // 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
+        private String recordId; // 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
+        private AppTableRecord body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.UpdateAppTableRecordUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UpdateAppTableRecordUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        /**
+         * 多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+        /**
+         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
+         * <p> 示例值：recqwIwhc6
+         *
+         * @param recordId
+         * @return
+         */
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
+            return this;
+        }
+
+        public AppTableRecord getAppTableRecord() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder appTableRecord(AppTableRecord body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateAppTableRecordReq build() {
+            return new UpdateAppTableRecordReq(this);
+        }
     }
-  }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 户口类型
  */
 public enum SystemFieldsHukouTypeEnum {
-  LOCAL_URBAN_RESIDENCE(1), // 本市城镇
-  NON_LOCAL_URBAN_RESIDENCE(2), // 外埠城镇
-  LOCAL_RURAL_RESIDENCE(3), // 本市农村
-  NON_LOCAL_RURAL_RESIDENCE(4), // 外埠农村
-  ;
-  private Integer value;
+    LOCAL_URBAN_RESIDENCE(1), // 本市城镇
+    NON_LOCAL_URBAN_RESIDENCE(2), // 外埠城镇
+    LOCAL_RURAL_RESIDENCE(3), // 本市农村
+    NON_LOCAL_RURAL_RESIDENCE(4), // 外埠农村
+    ;
+    private Integer value;
 
-  SystemFieldsHukouTypeEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsHukouTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

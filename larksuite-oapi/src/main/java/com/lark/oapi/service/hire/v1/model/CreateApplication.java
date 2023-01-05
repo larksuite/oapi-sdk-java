@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateApplication {
 
-  /**
-   * 投递ID
-   * <p> 示例值：6920175883425581324
-   */
-  @SerializedName("id")
-  private String id;
+    /**
+     * 投递ID
+     * <p> 示例值：6920175883425581324
+     */
+    @SerializedName("id")
+    private String id;
 
-  public String getId() {
-    return this.id;
-  }
+    public String getId() {
+        return this.id;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
 }

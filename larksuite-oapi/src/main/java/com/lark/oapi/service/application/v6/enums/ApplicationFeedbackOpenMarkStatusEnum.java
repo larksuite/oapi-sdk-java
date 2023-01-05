@@ -17,18 +17,18 @@ package com.lark.oapi.service.application.v6.enums;
  * 反馈处理状态
  */
 public enum ApplicationFeedbackOpenMarkStatusEnum {
-  UNMARKED(0), // 反馈未处理
-  MARKED(1), // 反馈已处理
-  PROCESSING(2), // 反馈处理中
-  CLOSED(3), // 反馈已关闭
-  ;
-  private Integer value;
+    UNMARKED(0), // 反馈未处理
+    MARKED(1), // 反馈已处理
+    PROCESSING(2), // 反馈处理中
+    CLOSED(3), // 反馈已关闭
+    ;
+    private Integer value;
 
-  ApplicationFeedbackOpenMarkStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationFeedbackOpenMarkStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

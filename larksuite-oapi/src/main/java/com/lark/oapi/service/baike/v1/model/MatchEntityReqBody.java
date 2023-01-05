@@ -16,61 +16,59 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MatchEntityReqBody {
-
-  /**
-   * 搜索关键词，将与词条名、别名进行精准匹配
-   * <p> 示例值：企业百科
-   */
-  @SerializedName("word")
-  private String word;
-
-  // builder 开始
-  public MatchEntityReqBody() {
-  }
-
-  public MatchEntityReqBody(Builder builder) {
     /**
      * 搜索关键词，将与词条名、别名进行精准匹配
      * <p> 示例值：企业百科
      */
-    this.word = builder.word;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getWord() {
-    return this.word;
-  }
-
-  public void setWord(String word) {
-    this.word = word;
-  }
-
-  public static class Builder {
-
-    /**
-     * 搜索关键词，将与词条名、别名进行精准匹配
-     * <p> 示例值：企业百科
-     */
+    @SerializedName("word")
     private String word;
 
-    /**
-     * 搜索关键词，将与词条名、别名进行精准匹配
-     * <p> 示例值：企业百科
-     *
-     * @param word
-     * @return
-     */
-    public Builder word(String word) {
-      this.word = word;
-      return this;
+    // builder 开始
+    public MatchEntityReqBody() {
     }
 
-
-    public MatchEntityReqBody build() {
-      return new MatchEntityReqBody(this);
+    public MatchEntityReqBody(Builder builder) {
+        /**
+         * 搜索关键词，将与词条名、别名进行精准匹配
+         * <p> 示例值：企业百科
+         */
+        this.word = builder.word;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getWord() {
+        return this.word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public static class Builder {
+        /**
+         * 搜索关键词，将与词条名、别名进行精准匹配
+         * <p> 示例值：企业百科
+         */
+        private String word;
+
+        /**
+         * 搜索关键词，将与词条名、别名进行精准匹配
+         * <p> 示例值：企业百科
+         *
+         * @param word
+         * @return
+         */
+        public Builder word(String word) {
+            this.word = word;
+            return this;
+        }
+
+
+        public MatchEntityReqBody build() {
+            return new MatchEntityReqBody(this);
+        }
+    }
 }

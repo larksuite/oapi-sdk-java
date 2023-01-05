@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeletePublicMailboxReq {
-
-  /**
-   * 要释放的公共邮箱地址
-   * <p> 示例值：xxxxxx@abc.com
-   */
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-
-  // builder 开始
-  public DeletePublicMailboxReq() {
-  }
-
-  public DeletePublicMailboxReq(Builder builder) {
     /**
      * 要释放的公共邮箱地址
      * <p> 示例值：xxxxxx@abc.com
      */
-    this.publicMailboxId = builder.publicMailboxId;
-  }
+    @Path
+    @SerializedName("public_mailbox_id")
+    private String publicMailboxId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public static class Builder {
-
-    private String publicMailboxId; // 要释放的公共邮箱地址
-
-    /**
-     * 要释放的公共邮箱地址
-     * <p> 示例值：xxxxxx@abc.com
-     *
-     * @param publicMailboxId
-     * @return
-     */
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    // builder 开始
+    public DeletePublicMailboxReq() {
     }
 
-    public DeletePublicMailboxReq build() {
-      return new DeletePublicMailboxReq(this);
+    public DeletePublicMailboxReq(Builder builder) {
+        /**
+         * 要释放的公共邮箱地址
+         * <p> 示例值：xxxxxx@abc.com
+         */
+        this.publicMailboxId = builder.publicMailboxId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
+    }
+
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
+    }
+
+    public static class Builder {
+
+        private String publicMailboxId; // 要释放的公共邮箱地址
+
+        /**
+         * 要释放的公共邮箱地址
+         * <p> 示例值：xxxxxx@abc.com
+         *
+         * @param publicMailboxId
+         * @return
+         */
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
+
+        public DeletePublicMailboxReq build() {
+            return new DeletePublicMailboxReq(this);
+        }
+    }
 }

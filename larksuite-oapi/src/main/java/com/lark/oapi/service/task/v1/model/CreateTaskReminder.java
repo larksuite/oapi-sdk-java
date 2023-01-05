@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskReminder {
 
-  /**
-   * 返回创建成功的提醒时间
-   * <p> 示例值：
-   */
-  @SerializedName("reminder")
-  private Reminder reminder;
+    /**
+     * 返回创建成功的提醒时间
+     * <p> 示例值：
+     */
+    @SerializedName("reminder")
+    private Reminder reminder;
 
-  public Reminder getReminder() {
-    return this.reminder;
-  }
+    public Reminder getReminder() {
+        return this.reminder;
+    }
 
-  public void setReminder(Reminder reminder) {
-    this.reminder = reminder;
-  }
+    public void setReminder(Reminder reminder) {
+        this.reminder = reminder;
+    }
 
 }

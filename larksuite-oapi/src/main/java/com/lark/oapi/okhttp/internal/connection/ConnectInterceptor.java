@@ -22,6 +22,7 @@ import com.lark.oapi.okhttp.OkHttpClient;
 import com.lark.oapi.okhttp.Request;
 import com.lark.oapi.okhttp.Response;
 import com.lark.oapi.okhttp.internal.http.RealInterceptorChain;
+
 import java.io.IOException;
 
 /**
@@ -29,22 +30,22 @@ import java.io.IOException;
  */
 public final class ConnectInterceptor implements Interceptor {
 
-  public final OkHttpClient client;
+    public final OkHttpClient client;
 
-  public ConnectInterceptor(OkHttpClient client) {
-    this.client = client;
-  }
+    public ConnectInterceptor(OkHttpClient client) {
+        this.client = client;
+    }
 
-  @Override
-  public Response intercept(Chain chain) throws IOException {
-    RealInterceptorChain realChain = (RealInterceptorChain) chain;
-    Request request = realChain.request();
-    Transmitter transmitter = realChain.transmitter();
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+        RealInterceptorChain realChain = (RealInterceptorChain) chain;
+        Request request = realChain.request();
+        Transmitter transmitter = realChain.transmitter();
 
-    // We need the network to satisfy this request. Possibly for validating a conditional GET.
-    boolean doExtensiveHealthChecks = !request.method().equals("GET");
-    Exchange exchange = transmitter.newExchange(chain, doExtensiveHealthChecks);
+        // We need the network to satisfy this request. Possibly for validating a conditional GET.
+        boolean doExtensiveHealthChecks = !request.method().equals("GET");
+        Exchange exchange = transmitter.newExchange(chain, doExtensiveHealthChecks);
 
-    return realChain.proceed(request, transmitter, exchange);
-  }
+        return realChain.proceed(request, transmitter, exchange);
+    }
 }

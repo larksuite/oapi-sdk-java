@@ -17,19 +17,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.event.model.BaseEventV2;
 
 public class P2EmployeeTypeEnumUpdatedV3 extends BaseEventV2 {
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("event")
+    private P2EmployeeTypeEnumUpdatedV3Data event;
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("event")
-  private P2EmployeeTypeEnumUpdatedV3Data event;
+    public P2EmployeeTypeEnumUpdatedV3Data getEvent() {
+        return this.event;
+    }
 
-  public P2EmployeeTypeEnumUpdatedV3Data getEvent() {
-    return this.event;
-  }
-
-  public void setEvent(P2EmployeeTypeEnumUpdatedV3Data event) {
-    this.event = event;
-  }
+    public void setEvent(P2EmployeeTypeEnumUpdatedV3Data event) {
+        this.event = event;
+    }
 
 }

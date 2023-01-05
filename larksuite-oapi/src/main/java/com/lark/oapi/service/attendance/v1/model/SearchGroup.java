@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchGroup {
 
-  /**
-   * 考勤组列表
-   * <p> 示例值：
-   */
-  @SerializedName("group_list")
-  private GroupMeta[] groupList;
+    /**
+     * 考勤组列表
+     * <p> 示例值：
+     */
+    @SerializedName("group_list")
+    private GroupMeta[] groupList;
 
-  public GroupMeta[] getGroupList() {
-    return this.groupList;
-  }
+    public GroupMeta[] getGroupList() {
+        return this.groupList;
+    }
 
-  public void setGroupList(GroupMeta[] groupList) {
-    this.groupList = groupList;
-  }
+    public void setGroupList(GroupMeta[] groupList) {
+        this.groupList = groupList;
+    }
 
 }

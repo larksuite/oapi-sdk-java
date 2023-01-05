@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class UpdateDraftReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 草稿 ID
-   * <p> 示例值：5347
-   */
-  @Path
-  @SerializedName("draft_id")
-  private String draftId;
-  @Body
-  private Entity body;
-
-  // builder 开始
-  public UpdateDraftReq() {
-  }
-
-  public UpdateDraftReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 草稿 ID
      * <p> 示例值：5347
      */
-    this.draftId = builder.draftId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDraftId() {
-    return this.draftId;
-  }
-
-  public void setDraftId(String draftId) {
-    this.draftId = draftId;
-  }
-
-  public Entity getEntity() {
-    return this.body;
-  }
-
-  public void setEntity(Entity body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String draftId; // 草稿 ID
+    @Path
+    @SerializedName("draft_id")
+    private String draftId;
+    @Body
     private Entity body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public UpdateDraftReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.baike.v1.enums.UpdateDraftUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.baike.v1.enums.UpdateDraftUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public UpdateDraftReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 草稿 ID
+         * <p> 示例值：5347
+         */
+        this.draftId = builder.draftId;
+        this.body = builder.body;
     }
 
-    /**
-     * 草稿 ID
-     * <p> 示例值：5347
-     *
-     * @param draftId
-     * @return
-     */
-    public Builder draftId(String draftId) {
-      this.draftId = draftId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDraftId() {
+        return this.draftId;
+    }
+
+    public void setDraftId(String draftId) {
+        this.draftId = draftId;
     }
 
     public Entity getEntity() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder entity(Entity body) {
-      this.body = body;
-      return this;
+    public void setEntity(Entity body) {
+        this.body = body;
     }
 
-    public UpdateDraftReq build() {
-      return new UpdateDraftReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String draftId; // 草稿 ID
+        private Entity body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.baike.v1.enums.UpdateDraftUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UpdateDraftUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 草稿 ID
+         * <p> 示例值：5347
+         *
+         * @param draftId
+         * @return
+         */
+        public Builder draftId(String draftId) {
+            this.draftId = draftId;
+            return this;
+        }
+
+        public Entity getEntity() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder entity(Entity body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateDraftReq build() {
+            return new UpdateDraftReq(this);
+        }
     }
-  }
 }

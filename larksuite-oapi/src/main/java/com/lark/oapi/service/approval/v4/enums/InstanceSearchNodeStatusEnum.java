@@ -17,19 +17,19 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批实例状态
  */
 public enum InstanceSearchNodeStatusEnum {
-  REJECT("reject"), // 拒绝
-  PENDING("pending"), // 审批中
-  RECALL("recall"), // 撤回
-  DELETED("deleted"), // 已删除
-  APPROVED("approved"), // 通过
-  ;
-  private String value;
+    REJECT("reject"), // 拒绝
+    PENDING("pending"), // 审批中
+    RECALL("recall"), // 撤回
+    DELETED("deleted"), // 已删除
+    APPROVED("approved"), // 通过
+    ;
+    private String value;
 
-  InstanceSearchNodeStatusEnum(String value) {
-    this.value = value;
-  }
+    InstanceSearchNodeStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

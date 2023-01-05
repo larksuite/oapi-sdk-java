@@ -16,20 +16,19 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetSpreadsheetSheetFilterRespBody {
+    /**
+     * 筛选信息
+     * <p> 示例值：
+     */
+    @SerializedName("sheet_filter_info")
+    private SheetFilterInfo sheetFilterInfo;
 
-  /**
-   * 筛选信息
-   * <p> 示例值：
-   */
-  @SerializedName("sheet_filter_info")
-  private SheetFilterInfo sheetFilterInfo;
+    public SheetFilterInfo getSheetFilterInfo() {
+        return this.sheetFilterInfo;
+    }
 
-  public SheetFilterInfo getSheetFilterInfo() {
-    return this.sheetFilterInfo;
-  }
-
-  public void setSheetFilterInfo(SheetFilterInfo sheetFilterInfo) {
-    this.sheetFilterInfo = sheetFilterInfo;
-  }
+    public void setSheetFilterInfo(SheetFilterInfo sheetFilterInfo) {
+        this.sheetFilterInfo = sheetFilterInfo;
+    }
 
 }

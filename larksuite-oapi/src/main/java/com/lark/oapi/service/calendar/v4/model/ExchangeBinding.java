@@ -16,222 +16,219 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ExchangeBinding {
-
-  /**
-   * admin账户
-   * <p> 示例值：email_admin_example@outlook.com
-   */
-  @SerializedName("admin_account")
-  private String adminAccount;
-  /**
-   * 用户绑定的exchange账户
-   * <p> 示例值：email_account_example@outlook.com
-   */
-  @SerializedName("exchange_account")
-  private String exchangeAccount;
-  /**
-   * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-   * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * exchange账户同步状态
-   * <p> 示例值：doing
-   */
-  @SerializedName("status")
-  private String status;
-  /**
-   * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
-   * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-   */
-  @SerializedName("exchange_binding_id")
-  private String exchangeBindingId;
-
-  // builder 开始
-  public ExchangeBinding() {
-  }
-
-  public ExchangeBinding(Builder builder) {
     /**
      * admin账户
      * <p> 示例值：email_admin_example@outlook.com
      */
-    this.adminAccount = builder.adminAccount;
-    /**
-     * 用户绑定的exchange账户
-     * <p> 示例值：email_account_example@outlook.com
-     */
-    this.exchangeAccount = builder.exchangeAccount;
-    /**
-     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
-     */
-    this.userId = builder.userId;
-    /**
-     * exchange账户同步状态
-     * <p> 示例值：doing
-     */
-    this.status = builder.status;
-    /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
-     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-     */
-    this.exchangeBindingId = builder.exchangeBindingId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAdminAccount() {
-    return this.adminAccount;
-  }
-
-  public void setAdminAccount(String adminAccount) {
-    this.adminAccount = adminAccount;
-  }
-
-  public String getExchangeAccount() {
-    return this.exchangeAccount;
-  }
-
-  public void setExchangeAccount(String exchangeAccount) {
-    this.exchangeAccount = exchangeAccount;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getExchangeBindingId() {
-    return this.exchangeBindingId;
-  }
-
-  public void setExchangeBindingId(String exchangeBindingId) {
-    this.exchangeBindingId = exchangeBindingId;
-  }
-
-  public static class Builder {
-
-    /**
-     * admin账户
-     * <p> 示例值：email_admin_example@outlook.com
-     */
+    @SerializedName("admin_account")
     private String adminAccount;
     /**
      * 用户绑定的exchange账户
      * <p> 示例值：email_account_example@outlook.com
      */
+    @SerializedName("exchange_account")
     private String exchangeAccount;
     /**
      * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * exchange账户同步状态
      * <p> 示例值：doing
      */
+    @SerializedName("status")
     private String status;
     /**
      * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      */
+    @SerializedName("exchange_binding_id")
     private String exchangeBindingId;
 
-    /**
-     * admin账户
-     * <p> 示例值：email_admin_example@outlook.com
-     *
-     * @param adminAccount
-     * @return
-     */
-    public Builder adminAccount(String adminAccount) {
-      this.adminAccount = adminAccount;
-      return this;
+    // builder 开始
+    public ExchangeBinding() {
     }
 
-
-    /**
-     * 用户绑定的exchange账户
-     * <p> 示例值：email_account_example@outlook.com
-     *
-     * @param exchangeAccount
-     * @return
-     */
-    public Builder exchangeAccount(String exchangeAccount) {
-      this.exchangeAccount = exchangeAccount;
-      return this;
+    public ExchangeBinding(Builder builder) {
+        /**
+         * admin账户
+         * <p> 示例值：email_admin_example@outlook.com
+         */
+        this.adminAccount = builder.adminAccount;
+        /**
+         * 用户绑定的exchange账户
+         * <p> 示例值：email_account_example@outlook.com
+         */
+        this.exchangeAccount = builder.exchangeAccount;
+        /**
+         * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
+         */
+        this.userId = builder.userId;
+        /**
+         * exchange账户同步状态
+         * <p> 示例值：doing
+         */
+        this.status = builder.status;
+        /**
+         * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+         * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+         */
+        this.exchangeBindingId = builder.exchangeBindingId;
     }
 
-
-    /**
-     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * exchange账户同步状态
-     * <p> 示例值：doing
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public String getAdminAccount() {
+        return this.adminAccount;
     }
 
-    /**
-     * exchange账户同步状态
-     * <p> 示例值：doing
-     *
-     * @param status {@link com.lark.oapi.service.calendar.v4.enums.ExchangeBindingStatusEnum}
-     * @return
-     */
-    public Builder status(
-        com.lark.oapi.service.calendar.v4.enums.ExchangeBindingStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setAdminAccount(String adminAccount) {
+        this.adminAccount = adminAccount;
     }
 
-
-    /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
-     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-     *
-     * @param exchangeBindingId
-     * @return
-     */
-    public Builder exchangeBindingId(String exchangeBindingId) {
-      this.exchangeBindingId = exchangeBindingId;
-      return this;
+    public String getExchangeAccount() {
+        return this.exchangeAccount;
     }
 
-
-    public ExchangeBinding build() {
-      return new ExchangeBinding(this);
+    public void setExchangeAccount(String exchangeAccount) {
+        this.exchangeAccount = exchangeAccount;
     }
-  }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getExchangeBindingId() {
+        return this.exchangeBindingId;
+    }
+
+    public void setExchangeBindingId(String exchangeBindingId) {
+        this.exchangeBindingId = exchangeBindingId;
+    }
+
+    public static class Builder {
+        /**
+         * admin账户
+         * <p> 示例值：email_admin_example@outlook.com
+         */
+        private String adminAccount;
+        /**
+         * 用户绑定的exchange账户
+         * <p> 示例值：email_account_example@outlook.com
+         */
+        private String exchangeAccount;
+        /**
+         * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
+         */
+        private String userId;
+        /**
+         * exchange账户同步状态
+         * <p> 示例值：doing
+         */
+        private String status;
+        /**
+         * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+         * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+         */
+        private String exchangeBindingId;
+
+        /**
+         * admin账户
+         * <p> 示例值：email_admin_example@outlook.com
+         *
+         * @param adminAccount
+         * @return
+         */
+        public Builder adminAccount(String adminAccount) {
+            this.adminAccount = adminAccount;
+            return this;
+        }
+
+
+        /**
+         * 用户绑定的exchange账户
+         * <p> 示例值：email_account_example@outlook.com
+         *
+         * @param exchangeAccount
+         * @return
+         */
+        public Builder exchangeAccount(String exchangeAccount) {
+            this.exchangeAccount = exchangeAccount;
+            return this;
+        }
+
+
+        /**
+         * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * exchange账户同步状态
+         * <p> 示例值：doing
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * exchange账户同步状态
+         * <p> 示例值：doing
+         *
+         * @param status {@link com.lark.oapi.service.calendar.v4.enums.ExchangeBindingStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.calendar.v4.enums.ExchangeBindingStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+         * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+         *
+         * @param exchangeBindingId
+         * @return
+         */
+        public Builder exchangeBindingId(String exchangeBindingId) {
+            this.exchangeBindingId = exchangeBindingId;
+            return this;
+        }
+
+
+        public ExchangeBinding build() {
+            return new ExchangeBinding(this);
+        }
+    }
 }

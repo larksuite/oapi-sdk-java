@@ -17,19 +17,19 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批方式
  */
 public enum InstanceTaskTypeEnum {
-  AND("AND"), // 会签
-  OR("OR"), // 或签
-  AUTOPASS("AUTO_PASS"), // 自动通过
-  AUTOREJECT("AUTO_REJECT"), // 自动拒绝
-  SEQUENTIAL("SEQUENTIAL"), // 按顺序
-  ;
-  private String value;
+    AND("AND"), // 会签
+    OR("OR"), // 或签
+    AUTOPASS("AUTO_PASS"), // 自动通过
+    AUTOREJECT("AUTO_REJECT"), // 自动拒绝
+    SEQUENTIAL("SEQUENTIAL"), // 按顺序
+    ;
+    private String value;
 
-  InstanceTaskTypeEnum(String value) {
-    this.value = value;
-  }
+    InstanceTaskTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

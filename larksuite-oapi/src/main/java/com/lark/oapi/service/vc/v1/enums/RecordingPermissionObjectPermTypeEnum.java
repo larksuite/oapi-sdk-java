@@ -17,15 +17,15 @@ package com.lark.oapi.service.vc.v1.enums;
  * 权限
  */
 public enum RecordingPermissionObjectPermTypeEnum {
-  VIEW(1), // 查看
-  ;
-  private Integer value;
+    VIEW(1), // 查看
+    ;
+    private Integer value;
 
-  RecordingPermissionObjectPermTypeEnum(Integer value) {
-    this.value = value;
-  }
+    RecordingPermissionObjectPermTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,48 +16,47 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListCalendarAclRespBody {
+    /**
+     * 入参日历对应的acl列表
+     * <p> 示例值：
+     */
+    @SerializedName("acls")
+    private CalendarAcl[] acls;
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下次请求需要带上的分页标记，90 天有效期
+     * <p> 示例值：xxx
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * 入参日历对应的acl列表
-   * <p> 示例值：
-   */
-  @SerializedName("acls")
-  private CalendarAcl[] acls;
-  /**
-   * 是否有下一页数据
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下次请求需要带上的分页标记，90 天有效期
-   * <p> 示例值：xxx
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public CalendarAcl[] getAcls() {
+        return this.acls;
+    }
 
-  public CalendarAcl[] getAcls() {
-    return this.acls;
-  }
+    public void setAcls(CalendarAcl[] acls) {
+        this.acls = acls;
+    }
 
-  public void setAcls(CalendarAcl[] acls) {
-    this.acls = acls;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

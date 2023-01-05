@@ -16,51 +16,50 @@ package com.lark.oapi.service.admin.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateBadgeImageReq {
-
-  @Body
-  private CreateBadgeImageReqBody body;
-
-  // builder 开始
-  public CreateBadgeImageReq() {
-  }
-
-  public CreateBadgeImageReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateBadgeImageReqBody getCreateBadgeImageReqBody() {
-    return this.body;
-  }
-
-  public void setCreateBadgeImageReqBody(CreateBadgeImageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateBadgeImageReqBody body;
 
+    // builder 开始
+    public CreateBadgeImageReq() {
+    }
+
+    public CreateBadgeImageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateBadgeImageReqBody getCreateBadgeImageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createBadgeImageReqBody(CreateBadgeImageReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateBadgeImageReqBody(CreateBadgeImageReqBody body) {
+        this.body = body;
     }
 
-    public CreateBadgeImageReq build() {
-      return new CreateBadgeImageReq(this);
+    public static class Builder {
+
+        private CreateBadgeImageReqBody body;
+
+        public CreateBadgeImageReqBody getCreateBadgeImageReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createBadgeImageReqBody(CreateBadgeImageReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateBadgeImageReq build() {
+            return new CreateBadgeImageReq(this);
+        }
     }
-  }
 }

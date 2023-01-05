@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationStageTime {
-
-  /**
-   * 阶段 ID
-   * <p> 示例值：614218419274131
-   */
-  @SerializedName("stage_id")
-  private String stageId;
-  /**
-   * 最近一次进入该阶段的时间
-   * <p> 示例值：1632991542615
-   */
-  @SerializedName("enter_time")
-  private String enterTime;
-  /**
-   * 最后一次离开时间，如当前在该阶段，则为空
-   * <p> 示例值：1631509574398
-   */
-  @SerializedName("exit_time")
-  private String exitTime;
-
-  // builder 开始
-  public ApplicationStageTime() {
-  }
-
-  public ApplicationStageTime(Builder builder) {
     /**
      * 阶段 ID
      * <p> 示例值：614218419274131
      */
-    this.stageId = builder.stageId;
-    /**
-     * 最近一次进入该阶段的时间
-     * <p> 示例值：1632991542615
-     */
-    this.enterTime = builder.enterTime;
-    /**
-     * 最后一次离开时间，如当前在该阶段，则为空
-     * <p> 示例值：1631509574398
-     */
-    this.exitTime = builder.exitTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStageId() {
-    return this.stageId;
-  }
-
-  public void setStageId(String stageId) {
-    this.stageId = stageId;
-  }
-
-  public String getEnterTime() {
-    return this.enterTime;
-  }
-
-  public void setEnterTime(String enterTime) {
-    this.enterTime = enterTime;
-  }
-
-  public String getExitTime() {
-    return this.exitTime;
-  }
-
-  public void setExitTime(String exitTime) {
-    this.exitTime = exitTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 阶段 ID
-     * <p> 示例值：614218419274131
-     */
+    @SerializedName("stage_id")
     private String stageId;
     /**
      * 最近一次进入该阶段的时间
      * <p> 示例值：1632991542615
      */
+    @SerializedName("enter_time")
     private String enterTime;
     /**
      * 最后一次离开时间，如当前在该阶段，则为空
      * <p> 示例值：1631509574398
      */
+    @SerializedName("exit_time")
     private String exitTime;
 
-    /**
-     * 阶段 ID
-     * <p> 示例值：614218419274131
-     *
-     * @param stageId
-     * @return
-     */
-    public Builder stageId(String stageId) {
-      this.stageId = stageId;
-      return this;
+    // builder 开始
+    public ApplicationStageTime() {
     }
 
-
-    /**
-     * 最近一次进入该阶段的时间
-     * <p> 示例值：1632991542615
-     *
-     * @param enterTime
-     * @return
-     */
-    public Builder enterTime(String enterTime) {
-      this.enterTime = enterTime;
-      return this;
+    public ApplicationStageTime(Builder builder) {
+        /**
+         * 阶段 ID
+         * <p> 示例值：614218419274131
+         */
+        this.stageId = builder.stageId;
+        /**
+         * 最近一次进入该阶段的时间
+         * <p> 示例值：1632991542615
+         */
+        this.enterTime = builder.enterTime;
+        /**
+         * 最后一次离开时间，如当前在该阶段，则为空
+         * <p> 示例值：1631509574398
+         */
+        this.exitTime = builder.exitTime;
     }
 
-
-    /**
-     * 最后一次离开时间，如当前在该阶段，则为空
-     * <p> 示例值：1631509574398
-     *
-     * @param exitTime
-     * @return
-     */
-    public Builder exitTime(String exitTime) {
-      this.exitTime = exitTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ApplicationStageTime build() {
-      return new ApplicationStageTime(this);
+    public String getStageId() {
+        return this.stageId;
     }
-  }
+
+    public void setStageId(String stageId) {
+        this.stageId = stageId;
+    }
+
+    public String getEnterTime() {
+        return this.enterTime;
+    }
+
+    public void setEnterTime(String enterTime) {
+        this.enterTime = enterTime;
+    }
+
+    public String getExitTime() {
+        return this.exitTime;
+    }
+
+    public void setExitTime(String exitTime) {
+        this.exitTime = exitTime;
+    }
+
+    public static class Builder {
+        /**
+         * 阶段 ID
+         * <p> 示例值：614218419274131
+         */
+        private String stageId;
+        /**
+         * 最近一次进入该阶段的时间
+         * <p> 示例值：1632991542615
+         */
+        private String enterTime;
+        /**
+         * 最后一次离开时间，如当前在该阶段，则为空
+         * <p> 示例值：1631509574398
+         */
+        private String exitTime;
+
+        /**
+         * 阶段 ID
+         * <p> 示例值：614218419274131
+         *
+         * @param stageId
+         * @return
+         */
+        public Builder stageId(String stageId) {
+            this.stageId = stageId;
+            return this;
+        }
+
+
+        /**
+         * 最近一次进入该阶段的时间
+         * <p> 示例值：1632991542615
+         *
+         * @param enterTime
+         * @return
+         */
+        public Builder enterTime(String enterTime) {
+            this.enterTime = enterTime;
+            return this;
+        }
+
+
+        /**
+         * 最后一次离开时间，如当前在该阶段，则为空
+         * <p> 示例值：1631509574398
+         *
+         * @param exitTime
+         * @return
+         */
+        public Builder exitTime(String exitTime) {
+            this.exitTime = exitTime;
+            return this;
+        }
+
+
+        public ApplicationStageTime build() {
+            return new ApplicationStageTime(this);
+        }
+    }
 }

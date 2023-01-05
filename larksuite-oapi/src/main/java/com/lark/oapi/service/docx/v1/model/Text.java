@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Text {
-
-  /**
-   * 文本样式
-   * <p> 示例值：
-   */
-  @SerializedName("style")
-  private TextStyle style;
-  /**
-   * 文本元素
-   * <p> 示例值：
-   */
-  @SerializedName("elements")
-  private TextElement[] elements;
-
-  // builder 开始
-  public Text() {
-  }
-
-  public Text(Builder builder) {
     /**
      * 文本样式
      * <p> 示例值：
      */
-    this.style = builder.style;
-    /**
-     * 文本元素
-     * <p> 示例值：
-     */
-    this.elements = builder.elements;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TextStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(TextStyle style) {
-    this.style = style;
-  }
-
-  public TextElement[] getElements() {
-    return this.elements;
-  }
-
-  public void setElements(TextElement[] elements) {
-    this.elements = elements;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文本样式
-     * <p> 示例值：
-     */
+    @SerializedName("style")
     private TextStyle style;
     /**
      * 文本元素
      * <p> 示例值：
      */
+    @SerializedName("elements")
     private TextElement[] elements;
 
-    /**
-     * 文本样式
-     * <p> 示例值：
-     *
-     * @param style
-     * @return
-     */
-    public Builder style(TextStyle style) {
-      this.style = style;
-      return this;
+    // builder 开始
+    public Text() {
     }
 
-
-    /**
-     * 文本元素
-     * <p> 示例值：
-     *
-     * @param elements
-     * @return
-     */
-    public Builder elements(TextElement[] elements) {
-      this.elements = elements;
-      return this;
+    public Text(Builder builder) {
+        /**
+         * 文本样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
+        /**
+         * 文本元素
+         * <p> 示例值：
+         */
+        this.elements = builder.elements;
     }
 
-
-    public Text build() {
-      return new Text(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public TextStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(TextStyle style) {
+        this.style = style;
+    }
+
+    public TextElement[] getElements() {
+        return this.elements;
+    }
+
+    public void setElements(TextElement[] elements) {
+        this.elements = elements;
+    }
+
+    public static class Builder {
+        /**
+         * 文本样式
+         * <p> 示例值：
+         */
+        private TextStyle style;
+        /**
+         * 文本元素
+         * <p> 示例值：
+         */
+        private TextElement[] elements;
+
+        /**
+         * 文本样式
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(TextStyle style) {
+            this.style = style;
+            return this;
+        }
+
+
+        /**
+         * 文本元素
+         * <p> 示例值：
+         *
+         * @param elements
+         * @return
+         */
+        public Builder elements(TextElement[] elements) {
+            this.elements = elements;
+            return this;
+        }
+
+
+        public Text build() {
+            return new Text(this);
+        }
+    }
 }

@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class MeJoinChatMembersReq {
-
-  /**
-   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-
-  // builder 开始
-  public MeJoinChatMembersReq() {
-  }
-
-  public MeJoinChatMembersReq(Builder builder) {
     /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：;- 仅支持公开（Public）群类型;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-  }
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public static class Builder {
-
-    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-
-    /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public MeJoinChatMembersReq() {
     }
 
-    public MeJoinChatMembersReq build() {
-      return new MeJoinChatMembersReq(this);
+    public MeJoinChatMembersReq(Builder builder) {
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：;- 仅支持公开（Public）群类型;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public static class Builder {
+
+        private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：;- 仅支持公开（Public）群类型;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人
+
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：;- 仅支持公开（Public）群类型;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public MeJoinChatMembersReq build() {
+            return new MeJoinChatMembersReq(this);
+        }
+    }
 }

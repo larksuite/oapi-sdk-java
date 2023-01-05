@@ -16,172 +16,170 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppRecommendRuleVisibilityInfo {
-
-  /**
-   * 是否全员可见
-   * <p> 示例值：true
-   */
-  @SerializedName("is_all")
-  private Boolean isAll;
-  /**
-   * 可见部门 ID 列表
-   * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
-   */
-  @SerializedName("department_ids")
-  private String[] departmentIds;
-  /**
-   * 可见用户 ID 列表
-   * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
-   */
-  @SerializedName("user_ids")
-  private String[] userIds;
-  /**
-   * 可见用户组 ID 列表
-   * <p> 示例值：7137608198773686291
-   */
-  @SerializedName("group_ids")
-  private String[] groupIds;
-
-  // builder 开始
-  public AppRecommendRuleVisibilityInfo() {
-  }
-
-  public AppRecommendRuleVisibilityInfo(Builder builder) {
     /**
      * 是否全员可见
      * <p> 示例值：true
      */
-    this.isAll = builder.isAll;
-    /**
-     * 可见部门 ID 列表
-     * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
-     */
-    this.departmentIds = builder.departmentIds;
-    /**
-     * 可见用户 ID 列表
-     * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
-     */
-    this.userIds = builder.userIds;
-    /**
-     * 可见用户组 ID 列表
-     * <p> 示例值：7137608198773686291
-     */
-    this.groupIds = builder.groupIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsAll() {
-    return this.isAll;
-  }
-
-  public void setIsAll(Boolean isAll) {
-    this.isAll = isAll;
-  }
-
-  public String[] getDepartmentIds() {
-    return this.departmentIds;
-  }
-
-  public void setDepartmentIds(String[] departmentIds) {
-    this.departmentIds = departmentIds;
-  }
-
-  public String[] getUserIds() {
-    return this.userIds;
-  }
-
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
-
-  public String[] getGroupIds() {
-    return this.groupIds;
-  }
-
-  public void setGroupIds(String[] groupIds) {
-    this.groupIds = groupIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否全员可见
-     * <p> 示例值：true
-     */
+    @SerializedName("is_all")
     private Boolean isAll;
     /**
      * 可见部门 ID 列表
      * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
      */
+    @SerializedName("department_ids")
     private String[] departmentIds;
     /**
      * 可见用户 ID 列表
      * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
      */
+    @SerializedName("user_ids")
     private String[] userIds;
     /**
      * 可见用户组 ID 列表
      * <p> 示例值：7137608198773686291
      */
+    @SerializedName("group_ids")
     private String[] groupIds;
 
-    /**
-     * 是否全员可见
-     * <p> 示例值：true
-     *
-     * @param isAll
-     * @return
-     */
-    public Builder isAll(Boolean isAll) {
-      this.isAll = isAll;
-      return this;
+    // builder 开始
+    public AppRecommendRuleVisibilityInfo() {
     }
 
-
-    /**
-     * 可见部门 ID 列表
-     * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
-     *
-     * @param departmentIds
-     * @return
-     */
-    public Builder departmentIds(String[] departmentIds) {
-      this.departmentIds = departmentIds;
-      return this;
+    public AppRecommendRuleVisibilityInfo(Builder builder) {
+        /**
+         * 是否全员可见
+         * <p> 示例值：true
+         */
+        this.isAll = builder.isAll;
+        /**
+         * 可见部门 ID 列表
+         * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 可见用户 ID 列表
+         * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
+         */
+        this.userIds = builder.userIds;
+        /**
+         * 可见用户组 ID 列表
+         * <p> 示例值：7137608198773686291
+         */
+        this.groupIds = builder.groupIds;
     }
 
-
-    /**
-     * 可见用户 ID 列表
-     * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
-     *
-     * @param userIds
-     * @return
-     */
-    public Builder userIds(String[] userIds) {
-      this.userIds = userIds;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 可见用户组 ID 列表
-     * <p> 示例值：7137608198773686291
-     *
-     * @param groupIds
-     * @return
-     */
-    public Builder groupIds(String[] groupIds) {
-      this.groupIds = groupIds;
-      return this;
+    public Boolean getIsAll() {
+        return this.isAll;
     }
 
-
-    public AppRecommendRuleVisibilityInfo build() {
-      return new AppRecommendRuleVisibilityInfo(this);
+    public void setIsAll(Boolean isAll) {
+        this.isAll = isAll;
     }
-  }
+
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
+    }
+
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
+    }
+
+    public String[] getUserIds() {
+        return this.userIds;
+    }
+
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
+
+    public String[] getGroupIds() {
+        return this.groupIds;
+    }
+
+    public void setGroupIds(String[] groupIds) {
+        this.groupIds = groupIds;
+    }
+
+    public static class Builder {
+        /**
+         * 是否全员可见
+         * <p> 示例值：true
+         */
+        private Boolean isAll;
+        /**
+         * 可见部门 ID 列表
+         * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
+         */
+        private String[] departmentIds;
+        /**
+         * 可见用户 ID 列表
+         * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
+         */
+        private String[] userIds;
+        /**
+         * 可见用户组 ID 列表
+         * <p> 示例值：7137608198773686291
+         */
+        private String[] groupIds;
+
+        /**
+         * 是否全员可见
+         * <p> 示例值：true
+         *
+         * @param isAll
+         * @return
+         */
+        public Builder isAll(Boolean isAll) {
+            this.isAll = isAll;
+            return this;
+        }
+
+
+        /**
+         * 可见部门 ID 列表
+         * <p> 示例值：od-fef5204d44fa03fad66278cb8e8036e4
+         *
+         * @param departmentIds
+         * @return
+         */
+        public Builder departmentIds(String[] departmentIds) {
+            this.departmentIds = departmentIds;
+            return this;
+        }
+
+
+        /**
+         * 可见用户 ID 列表
+         * <p> 示例值：ou_35101d538d5b3ad10a5f3480f4c27972
+         *
+         * @param userIds
+         * @return
+         */
+        public Builder userIds(String[] userIds) {
+            this.userIds = userIds;
+            return this;
+        }
+
+
+        /**
+         * 可见用户组 ID 列表
+         * <p> 示例值：7137608198773686291
+         *
+         * @param groupIds
+         * @return
+         */
+        public Builder groupIds(String[] groupIds) {
+            this.groupIds = groupIds;
+            return this;
+        }
+
+
+        public AppRecommendRuleVisibilityInfo build() {
+            return new AppRecommendRuleVisibilityInfo(this);
+        }
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdatePermissionMember {
 
-  /**
-   * 本次更新权限的用户信息
-   * <p> 示例值：
-   */
-  @SerializedName("member")
-  private BaseMember member;
+    /**
+     * 本次更新权限的用户信息
+     * <p> 示例值：
+     */
+    @SerializedName("member")
+    private BaseMember member;
 
-  public BaseMember getMember() {
-    return this.member;
-  }
+    public BaseMember getMember() {
+        return this.member;
+    }
 
-  public void setMember(BaseMember member) {
-    this.member = member;
-  }
+    public void setMember(BaseMember member) {
+        this.member = member;
+    }
 
 }

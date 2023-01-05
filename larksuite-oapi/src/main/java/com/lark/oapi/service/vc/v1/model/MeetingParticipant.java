@@ -16,383 +16,379 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MeetingParticipant {
-
-  /**
-   * 用户ID
-   * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 首次入会时间，秒级Unix时间戳
-   * <p> 示例值：1624438144
-   */
-  @SerializedName("first_join_time")
-  private String firstJoinTime;
-  /**
-   * 最终离会时间，秒级Unix时间戳
-   * <p> 示例值：1624438144
-   */
-  @SerializedName("final_leave_time")
-  private String finalLeaveTime;
-  /**
-   * 累计在会中时间，时间单位：秒
-   * <p> 示例值：123
-   */
-  @SerializedName("in_meeting_duration")
-  private String inMeetingDuration;
-  /**
-   * 用户类型
-   * <p> 示例值：1
-   */
-  @SerializedName("user_type")
-  private Integer userType;
-  /**
-   * 是否为主持人
-   * <p> 示例值：true
-   */
-  @SerializedName("is_host")
-  private Boolean isHost;
-  /**
-   * 是否为联席主持人
-   * <p> 示例值：false
-   */
-  @SerializedName("is_cohost")
-  private Boolean isCohost;
-  /**
-   * 是否为外部参会人
-   * <p> 示例值：false
-   */
-  @SerializedName("is_external")
-  private Boolean isExternal;
-  /**
-   * 参会人状态
-   * <p> 示例值：2
-   */
-  @SerializedName("status")
-  private Integer status;
-
-  // builder 开始
-  public MeetingParticipant() {
-  }
-
-  public MeetingParticipant(Builder builder) {
     /**
      * 用户ID
      * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    this.id = builder.id;
-    /**
-     * 首次入会时间，秒级Unix时间戳
-     * <p> 示例值：1624438144
-     */
-    this.firstJoinTime = builder.firstJoinTime;
-    /**
-     * 最终离会时间，秒级Unix时间戳
-     * <p> 示例值：1624438144
-     */
-    this.finalLeaveTime = builder.finalLeaveTime;
-    /**
-     * 累计在会中时间，时间单位：秒
-     * <p> 示例值：123
-     */
-    this.inMeetingDuration = builder.inMeetingDuration;
-    /**
-     * 用户类型
-     * <p> 示例值：1
-     */
-    this.userType = builder.userType;
-    /**
-     * 是否为主持人
-     * <p> 示例值：true
-     */
-    this.isHost = builder.isHost;
-    /**
-     * 是否为联席主持人
-     * <p> 示例值：false
-     */
-    this.isCohost = builder.isCohost;
-    /**
-     * 是否为外部参会人
-     * <p> 示例值：false
-     */
-    this.isExternal = builder.isExternal;
-    /**
-     * 参会人状态
-     * <p> 示例值：2
-     */
-    this.status = builder.status;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getFirstJoinTime() {
-    return this.firstJoinTime;
-  }
-
-  public void setFirstJoinTime(String firstJoinTime) {
-    this.firstJoinTime = firstJoinTime;
-  }
-
-  public String getFinalLeaveTime() {
-    return this.finalLeaveTime;
-  }
-
-  public void setFinalLeaveTime(String finalLeaveTime) {
-    this.finalLeaveTime = finalLeaveTime;
-  }
-
-  public String getInMeetingDuration() {
-    return this.inMeetingDuration;
-  }
-
-  public void setInMeetingDuration(String inMeetingDuration) {
-    this.inMeetingDuration = inMeetingDuration;
-  }
-
-  public Integer getUserType() {
-    return this.userType;
-  }
-
-  public void setUserType(Integer userType) {
-    this.userType = userType;
-  }
-
-  public Boolean getIsHost() {
-    return this.isHost;
-  }
-
-  public void setIsHost(Boolean isHost) {
-    this.isHost = isHost;
-  }
-
-  public Boolean getIsCohost() {
-    return this.isCohost;
-  }
-
-  public void setIsCohost(Boolean isCohost) {
-    this.isCohost = isCohost;
-  }
-
-  public Boolean getIsExternal() {
-    return this.isExternal;
-  }
-
-  public void setIsExternal(Boolean isExternal) {
-    this.isExternal = isExternal;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 首次入会时间，秒级Unix时间戳
      * <p> 示例值：1624438144
      */
+    @SerializedName("first_join_time")
     private String firstJoinTime;
     /**
      * 最终离会时间，秒级Unix时间戳
      * <p> 示例值：1624438144
      */
+    @SerializedName("final_leave_time")
     private String finalLeaveTime;
     /**
      * 累计在会中时间，时间单位：秒
      * <p> 示例值：123
      */
+    @SerializedName("in_meeting_duration")
     private String inMeetingDuration;
     /**
      * 用户类型
      * <p> 示例值：1
      */
+    @SerializedName("user_type")
     private Integer userType;
     /**
      * 是否为主持人
      * <p> 示例值：true
      */
+    @SerializedName("is_host")
     private Boolean isHost;
     /**
      * 是否为联席主持人
      * <p> 示例值：false
      */
+    @SerializedName("is_cohost")
     private Boolean isCohost;
     /**
      * 是否为外部参会人
      * <p> 示例值：false
      */
+    @SerializedName("is_external")
     private Boolean isExternal;
     /**
      * 参会人状态
      * <p> 示例值：2
      */
+    @SerializedName("status")
     private Integer status;
 
-    /**
-     * 用户ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public MeetingParticipant() {
     }
 
-
-    /**
-     * 首次入会时间，秒级Unix时间戳
-     * <p> 示例值：1624438144
-     *
-     * @param firstJoinTime
-     * @return
-     */
-    public Builder firstJoinTime(String firstJoinTime) {
-      this.firstJoinTime = firstJoinTime;
-      return this;
+    public MeetingParticipant(Builder builder) {
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         */
+        this.id = builder.id;
+        /**
+         * 首次入会时间，秒级Unix时间戳
+         * <p> 示例值：1624438144
+         */
+        this.firstJoinTime = builder.firstJoinTime;
+        /**
+         * 最终离会时间，秒级Unix时间戳
+         * <p> 示例值：1624438144
+         */
+        this.finalLeaveTime = builder.finalLeaveTime;
+        /**
+         * 累计在会中时间，时间单位：秒
+         * <p> 示例值：123
+         */
+        this.inMeetingDuration = builder.inMeetingDuration;
+        /**
+         * 用户类型
+         * <p> 示例值：1
+         */
+        this.userType = builder.userType;
+        /**
+         * 是否为主持人
+         * <p> 示例值：true
+         */
+        this.isHost = builder.isHost;
+        /**
+         * 是否为联席主持人
+         * <p> 示例值：false
+         */
+        this.isCohost = builder.isCohost;
+        /**
+         * 是否为外部参会人
+         * <p> 示例值：false
+         */
+        this.isExternal = builder.isExternal;
+        /**
+         * 参会人状态
+         * <p> 示例值：2
+         */
+        this.status = builder.status;
     }
 
-
-    /**
-     * 最终离会时间，秒级Unix时间戳
-     * <p> 示例值：1624438144
-     *
-     * @param finalLeaveTime
-     * @return
-     */
-    public Builder finalLeaveTime(String finalLeaveTime) {
-      this.finalLeaveTime = finalLeaveTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 累计在会中时间，时间单位：秒
-     * <p> 示例值：123
-     *
-     * @param inMeetingDuration
-     * @return
-     */
-    public Builder inMeetingDuration(String inMeetingDuration) {
-      this.inMeetingDuration = inMeetingDuration;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 用户类型
-     * <p> 示例值：1
-     *
-     * @param userType
-     * @return
-     */
-    public Builder userType(Integer userType) {
-      this.userType = userType;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    /**
-     * 用户类型
-     * <p> 示例值：1
-     *
-     * @param userType {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantUserTypeEnum}
-     * @return
-     */
-    public Builder userType(
-        com.lark.oapi.service.vc.v1.enums.MeetingParticipantUserTypeEnum userType) {
-      this.userType = userType.getValue();
-      return this;
+    public String getFirstJoinTime() {
+        return this.firstJoinTime;
     }
 
-
-    /**
-     * 是否为主持人
-     * <p> 示例值：true
-     *
-     * @param isHost
-     * @return
-     */
-    public Builder isHost(Boolean isHost) {
-      this.isHost = isHost;
-      return this;
+    public void setFirstJoinTime(String firstJoinTime) {
+        this.firstJoinTime = firstJoinTime;
     }
 
-
-    /**
-     * 是否为联席主持人
-     * <p> 示例值：false
-     *
-     * @param isCohost
-     * @return
-     */
-    public Builder isCohost(Boolean isCohost) {
-      this.isCohost = isCohost;
-      return this;
+    public String getFinalLeaveTime() {
+        return this.finalLeaveTime;
     }
 
-
-    /**
-     * 是否为外部参会人
-     * <p> 示例值：false
-     *
-     * @param isExternal
-     * @return
-     */
-    public Builder isExternal(Boolean isExternal) {
-      this.isExternal = isExternal;
-      return this;
+    public void setFinalLeaveTime(String finalLeaveTime) {
+        this.finalLeaveTime = finalLeaveTime;
     }
 
-
-    /**
-     * 参会人状态
-     * <p> 示例值：2
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public String getInMeetingDuration() {
+        return this.inMeetingDuration;
     }
 
-    /**
-     * 参会人状态
-     * <p> 示例值：2
-     *
-     * @param status {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantParticipantStatusEnum}
-     * @return
-     */
-    public Builder status(
-        com.lark.oapi.service.vc.v1.enums.MeetingParticipantParticipantStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setInMeetingDuration(String inMeetingDuration) {
+        this.inMeetingDuration = inMeetingDuration;
     }
 
-
-    public MeetingParticipant build() {
-      return new MeetingParticipant(this);
+    public Integer getUserType() {
+        return this.userType;
     }
-  }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public Boolean getIsHost() {
+        return this.isHost;
+    }
+
+    public void setIsHost(Boolean isHost) {
+        this.isHost = isHost;
+    }
+
+    public Boolean getIsCohost() {
+        return this.isCohost;
+    }
+
+    public void setIsCohost(Boolean isCohost) {
+        this.isCohost = isCohost;
+    }
+
+    public Boolean getIsExternal() {
+        return this.isExternal;
+    }
+
+    public void setIsExternal(Boolean isExternal) {
+        this.isExternal = isExternal;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public static class Builder {
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         */
+        private String id;
+        /**
+         * 首次入会时间，秒级Unix时间戳
+         * <p> 示例值：1624438144
+         */
+        private String firstJoinTime;
+        /**
+         * 最终离会时间，秒级Unix时间戳
+         * <p> 示例值：1624438144
+         */
+        private String finalLeaveTime;
+        /**
+         * 累计在会中时间，时间单位：秒
+         * <p> 示例值：123
+         */
+        private String inMeetingDuration;
+        /**
+         * 用户类型
+         * <p> 示例值：1
+         */
+        private Integer userType;
+        /**
+         * 是否为主持人
+         * <p> 示例值：true
+         */
+        private Boolean isHost;
+        /**
+         * 是否为联席主持人
+         * <p> 示例值：false
+         */
+        private Boolean isCohost;
+        /**
+         * 是否为外部参会人
+         * <p> 示例值：false
+         */
+        private Boolean isExternal;
+        /**
+         * 参会人状态
+         * <p> 示例值：2
+         */
+        private Integer status;
+
+        /**
+         * 用户ID
+         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 首次入会时间，秒级Unix时间戳
+         * <p> 示例值：1624438144
+         *
+         * @param firstJoinTime
+         * @return
+         */
+        public Builder firstJoinTime(String firstJoinTime) {
+            this.firstJoinTime = firstJoinTime;
+            return this;
+        }
+
+
+        /**
+         * 最终离会时间，秒级Unix时间戳
+         * <p> 示例值：1624438144
+         *
+         * @param finalLeaveTime
+         * @return
+         */
+        public Builder finalLeaveTime(String finalLeaveTime) {
+            this.finalLeaveTime = finalLeaveTime;
+            return this;
+        }
+
+
+        /**
+         * 累计在会中时间，时间单位：秒
+         * <p> 示例值：123
+         *
+         * @param inMeetingDuration
+         * @return
+         */
+        public Builder inMeetingDuration(String inMeetingDuration) {
+            this.inMeetingDuration = inMeetingDuration;
+            return this;
+        }
+
+
+        /**
+         * 用户类型
+         * <p> 示例值：1
+         *
+         * @param userType
+         * @return
+         */
+        public Builder userType(Integer userType) {
+            this.userType = userType;
+            return this;
+        }
+
+        /**
+         * 用户类型
+         * <p> 示例值：1
+         *
+         * @param userType {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantUserTypeEnum}
+         * @return
+         */
+        public Builder userType(com.lark.oapi.service.vc.v1.enums.MeetingParticipantUserTypeEnum userType) {
+            this.userType = userType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否为主持人
+         * <p> 示例值：true
+         *
+         * @param isHost
+         * @return
+         */
+        public Builder isHost(Boolean isHost) {
+            this.isHost = isHost;
+            return this;
+        }
+
+
+        /**
+         * 是否为联席主持人
+         * <p> 示例值：false
+         *
+         * @param isCohost
+         * @return
+         */
+        public Builder isCohost(Boolean isCohost) {
+            this.isCohost = isCohost;
+            return this;
+        }
+
+
+        /**
+         * 是否为外部参会人
+         * <p> 示例值：false
+         *
+         * @param isExternal
+         * @return
+         */
+        public Builder isExternal(Boolean isExternal) {
+            this.isExternal = isExternal;
+            return this;
+        }
+
+
+        /**
+         * 参会人状态
+         * <p> 示例值：2
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 参会人状态
+         * <p> 示例值：2
+         *
+         * @param status {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantParticipantStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.vc.v1.enums.MeetingParticipantParticipantStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        public MeetingParticipant build() {
+            return new MeetingParticipant(this);
+        }
+    }
 }

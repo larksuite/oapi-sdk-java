@@ -14,19 +14,19 @@
 package com.lark.oapi.service.contact.v3.enums;
 
 /**
- * 此次调用中使用的部门ID的类型。;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+ * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
  */
 public enum CreateUserDepartmentIdTypeEnum {
-  DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
-  OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
-  ;
-  private String value;
+    DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
+    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
+    ;
+    private String value;
 
-  CreateUserDepartmentIdTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateUserDepartmentIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

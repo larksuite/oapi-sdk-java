@@ -16,147 +16,145 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentBlockElement {
-
-  /**
-   * 文档元素类型
-   * <p> 示例值：paragraph
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 文本段落
-   * <p> 示例值：
-   */
-  @SerializedName("paragraph")
-  private ContentParagraph paragraph;
-  /**
-   * 图片
-   * <p> 示例值：
-   */
-  @SerializedName("gallery")
-  private ContentGallery gallery;
-
-  // builder 开始
-  public ContentBlockElement() {
-  }
-
-  public ContentBlockElement(Builder builder) {
     /**
      * 文档元素类型
      * <p> 示例值：paragraph
      */
-    this.type = builder.type;
-    /**
-     * 文本段落
-     * <p> 示例值：
-     */
-    this.paragraph = builder.paragraph;
-    /**
-     * 图片
-     * <p> 示例值：
-     */
-    this.gallery = builder.gallery;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public ContentParagraph getParagraph() {
-    return this.paragraph;
-  }
-
-  public void setParagraph(ContentParagraph paragraph) {
-    this.paragraph = paragraph;
-  }
-
-  public ContentGallery getGallery() {
-    return this.gallery;
-  }
-
-  public void setGallery(ContentGallery gallery) {
-    this.gallery = gallery;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档元素类型
-     * <p> 示例值：paragraph
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 文本段落
      * <p> 示例值：
      */
+    @SerializedName("paragraph")
     private ContentParagraph paragraph;
     /**
      * 图片
      * <p> 示例值：
      */
+    @SerializedName("gallery")
     private ContentGallery gallery;
 
-    /**
-     * 文档元素类型
-     * <p> 示例值：paragraph
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public ContentBlockElement() {
     }
 
-    /**
-     * 文档元素类型
-     * <p> 示例值：paragraph
-     *
-     * @param type {@link com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public ContentBlockElement(Builder builder) {
+        /**
+         * 文档元素类型
+         * <p> 示例值：paragraph
+         */
+        this.type = builder.type;
+        /**
+         * 文本段落
+         * <p> 示例值：
+         */
+        this.paragraph = builder.paragraph;
+        /**
+         * 图片
+         * <p> 示例值：
+         */
+        this.gallery = builder.gallery;
     }
 
-
-    /**
-     * 文本段落
-     * <p> 示例值：
-     *
-     * @param paragraph
-     * @return
-     */
-    public Builder paragraph(ContentParagraph paragraph) {
-      this.paragraph = paragraph;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 图片
-     * <p> 示例值：
-     *
-     * @param gallery
-     * @return
-     */
-    public Builder gallery(ContentGallery gallery) {
-      this.gallery = gallery;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-
-    public ContentBlockElement build() {
-      return new ContentBlockElement(this);
+    public void setType(String type) {
+        this.type = type;
     }
-  }
+
+    public ContentParagraph getParagraph() {
+        return this.paragraph;
+    }
+
+    public void setParagraph(ContentParagraph paragraph) {
+        this.paragraph = paragraph;
+    }
+
+    public ContentGallery getGallery() {
+        return this.gallery;
+    }
+
+    public void setGallery(ContentGallery gallery) {
+        this.gallery = gallery;
+    }
+
+    public static class Builder {
+        /**
+         * 文档元素类型
+         * <p> 示例值：paragraph
+         */
+        private String type;
+        /**
+         * 文本段落
+         * <p> 示例值：
+         */
+        private ContentParagraph paragraph;
+        /**
+         * 图片
+         * <p> 示例值：
+         */
+        private ContentGallery gallery;
+
+        /**
+         * 文档元素类型
+         * <p> 示例值：paragraph
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 文档元素类型
+         * <p> 示例值：paragraph
+         *
+         * @param type {@link com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文本段落
+         * <p> 示例值：
+         *
+         * @param paragraph
+         * @return
+         */
+        public Builder paragraph(ContentParagraph paragraph) {
+            this.paragraph = paragraph;
+            return this;
+        }
+
+
+        /**
+         * 图片
+         * <p> 示例值：
+         *
+         * @param gallery
+         * @return
+         */
+        public Builder gallery(ContentGallery gallery) {
+            this.gallery = gallery;
+            return this;
+        }
+
+
+        public ContentBlockElement build() {
+            return new ContentBlockElement(this);
+        }
+    }
 }

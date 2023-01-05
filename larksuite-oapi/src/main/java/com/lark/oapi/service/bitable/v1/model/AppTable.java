@@ -16,135 +16,133 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppTable {
-
-  /**
-   * 数据表 id
-   * <p> 示例值：tblKz5D60T4JlfcT
-   */
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * 数据表的版本号
-   * <p> 示例值：1
-   */
-  @SerializedName("revision")
-  private Integer revision;
-  /**
-   * 数据表名字
-   * <p> 示例值：数据表1
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public AppTable() {
-  }
-
-  public AppTable(Builder builder) {
     /**
      * 数据表 id
-     * <p> 示例值：tblKz5D60T4JlfcT
+     * <p> 示例值：
      */
-    this.tableId = builder.tableId;
-    /**
-     * 数据表的版本号
-     * <p> 示例值：1
-     */
-    this.revision = builder.revision;
-    /**
-     * 数据表名字
-     * <p> 示例值：数据表1
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public Integer getRevision() {
-    return this.revision;
-  }
-
-  public void setRevision(Integer revision) {
-    this.revision = revision;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 数据表 id
-     * <p> 示例值：tblKz5D60T4JlfcT
-     */
+    @SerializedName("table_id")
     private String tableId;
     /**
      * 数据表的版本号
-     * <p> 示例值：1
+     * <p> 示例值：
      */
+    @SerializedName("revision")
     private Integer revision;
     /**
      * 数据表名字
-     * <p> 示例值：数据表1
+     * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 数据表 id
-     * <p> 示例值：tblKz5D60T4JlfcT
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    // builder 开始
+    public AppTable() {
     }
 
-
-    /**
-     * 数据表的版本号
-     * <p> 示例值：1
-     *
-     * @param revision
-     * @return
-     */
-    public Builder revision(Integer revision) {
-      this.revision = revision;
-      return this;
+    public AppTable(Builder builder) {
+        /**
+         * 数据表 id
+         * <p> 示例值：
+         */
+        this.tableId = builder.tableId;
+        /**
+         * 数据表的版本号
+         * <p> 示例值：
+         */
+        this.revision = builder.revision;
+        /**
+         * 数据表名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 数据表名字
-     * <p> 示例值：数据表1
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AppTable build() {
-      return new AppTable(this);
+    public String getTableId() {
+        return this.tableId;
     }
-  }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public Integer getRevision() {
+        return this.revision;
+    }
+
+    public void setRevision(Integer revision) {
+        this.revision = revision;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 数据表 id
+         * <p> 示例值：
+         */
+        private String tableId;
+        /**
+         * 数据表的版本号
+         * <p> 示例值：
+         */
+        private Integer revision;
+        /**
+         * 数据表名字
+         * <p> 示例值：
+         */
+        private String name;
+
+        /**
+         * 数据表 id
+         * <p> 示例值：
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+
+        /**
+         * 数据表的版本号
+         * <p> 示例值：
+         *
+         * @param revision
+         * @return
+         */
+        public Builder revision(Integer revision) {
+            this.revision = revision;
+            return this;
+        }
+
+
+        /**
+         * 数据表名字
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public AppTable build() {
+            return new AppTable(this);
+        }
+    }
 }

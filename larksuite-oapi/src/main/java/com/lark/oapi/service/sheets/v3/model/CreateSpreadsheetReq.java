@@ -16,51 +16,50 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateSpreadsheetReq {
-
-  @Body
-  private Spreadsheet body;
-
-  // builder 开始
-  public CreateSpreadsheetReq() {
-  }
-
-  public CreateSpreadsheetReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Spreadsheet getSpreadsheet() {
-    return this.body;
-  }
-
-  public void setSpreadsheet(Spreadsheet body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Spreadsheet body;
 
+    // builder 开始
+    public CreateSpreadsheetReq() {
+    }
+
+    public CreateSpreadsheetReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Spreadsheet getSpreadsheet() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder spreadsheet(Spreadsheet body) {
-      this.body = body;
-      return this;
+    public void setSpreadsheet(Spreadsheet body) {
+        this.body = body;
     }
 
-    public CreateSpreadsheetReq build() {
-      return new CreateSpreadsheetReq(this);
+    public static class Builder {
+
+        private Spreadsheet body;
+
+        public Spreadsheet getSpreadsheet() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder spreadsheet(Spreadsheet body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateSpreadsheetReq build() {
+            return new CreateSpreadsheetReq(this);
+        }
     }
-  }
 }

@@ -16,34 +16,33 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateChatMembersRespBody {
+    /**
+     * 无效成员列表;;**注意**：;- 当`success_type=0`时，`invalid_id_list`只包含已离职的用户ID;- 当`success_type=1`时，`invalid_id_list`中包含已离职的、不可见的、应用未激活的ID
+     * <p> 示例值：
+     */
+    @SerializedName("invalid_id_list")
+    private String[] invalidIdList;
+    /**
+     * ID不存在的成员列表
+     * <p> 示例值：
+     */
+    @SerializedName("not_existed_id_list")
+    private String[] notExistedIdList;
 
-  /**
-   * 无效成员列表
-   * <p> 示例值：
-   */
-  @SerializedName("invalid_id_list")
-  private String[] invalidIdList;
-  /**
-   * ID不存在的成员列表
-   * <p> 示例值：
-   */
-  @SerializedName("not_existed_id_list")
-  private String[] notExistedIdList;
+    public String[] getInvalidIdList() {
+        return this.invalidIdList;
+    }
 
-  public String[] getInvalidIdList() {
-    return this.invalidIdList;
-  }
+    public void setInvalidIdList(String[] invalidIdList) {
+        this.invalidIdList = invalidIdList;
+    }
 
-  public void setInvalidIdList(String[] invalidIdList) {
-    this.invalidIdList = invalidIdList;
-  }
+    public String[] getNotExistedIdList() {
+        return this.notExistedIdList;
+    }
 
-  public String[] getNotExistedIdList() {
-    return this.notExistedIdList;
-  }
-
-  public void setNotExistedIdList(String[] notExistedIdList) {
-    this.notExistedIdList = notExistedIdList;
-  }
+    public void setNotExistedIdList(String[] notExistedIdList) {
+        this.notExistedIdList = notExistedIdList;
+    }
 
 }

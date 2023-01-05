@@ -16,246 +16,355 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BackgroundCheckOrder {
-
-  /**
-   * 背调 ID
-   * <p> 示例值：7037986982531778860
-   */
-  @SerializedName("order_id")
-  private String orderId;
-  /**
-   * 投递 ID
-   * <p> 示例值：6985833807195212076
-   */
-  @SerializedName("application_id")
-  private String applicationId;
-  /**
-   * 供应商名称
-   * <p> 示例值：1
-   */
-  @SerializedName("account_third_type")
-  private Integer accountThirdType;
-  /**
-   * 背调套餐
-   * <p> 示例值：基础版
-   */
-  @SerializedName("package")
-  private String package_;
-  /**
-   * 背调报告信息
-   * <p> 示例值：
-   */
-  @SerializedName("feedback_info_list")
-  private BackgroundCheckFeedbackInfo[] feedbackInfoList;
-  /**
-   * 背调进度
-   * <p> 示例值：
-   */
-  @SerializedName("process_info_list")
-  private BackgroundCheckProcessInfo[] processInfoList;
-
-  // builder 开始
-  public BackgroundCheckOrder() {
-  }
-
-  public BackgroundCheckOrder(Builder builder) {
     /**
      * 背调 ID
      * <p> 示例值：7037986982531778860
      */
-    this.orderId = builder.orderId;
-    /**
-     * 投递 ID
-     * <p> 示例值：6985833807195212076
-     */
-    this.applicationId = builder.applicationId;
-    /**
-     * 供应商名称
-     * <p> 示例值：1
-     */
-    this.accountThirdType = builder.accountThirdType;
-    /**
-     * 背调套餐
-     * <p> 示例值：基础版
-     */
-    this.package_ = builder.package_;
-    /**
-     * 背调报告信息
-     * <p> 示例值：
-     */
-    this.feedbackInfoList = builder.feedbackInfoList;
-    /**
-     * 背调进度
-     * <p> 示例值：
-     */
-    this.processInfoList = builder.processInfoList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOrderId() {
-    return this.orderId;
-  }
-
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public Integer getAccountThirdType() {
-    return this.accountThirdType;
-  }
-
-  public void setAccountThirdType(Integer accountThirdType) {
-    this.accountThirdType = accountThirdType;
-  }
-
-  public String getPackage() {
-    return this.package_;
-  }
-
-  public void setPackage(String package_) {
-    this.package_ = package_;
-  }
-
-  public BackgroundCheckFeedbackInfo[] getFeedbackInfoList() {
-    return this.feedbackInfoList;
-  }
-
-  public void setFeedbackInfoList(BackgroundCheckFeedbackInfo[] feedbackInfoList) {
-    this.feedbackInfoList = feedbackInfoList;
-  }
-
-  public BackgroundCheckProcessInfo[] getProcessInfoList() {
-    return this.processInfoList;
-  }
-
-  public void setProcessInfoList(BackgroundCheckProcessInfo[] processInfoList) {
-    this.processInfoList = processInfoList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 背调 ID
-     * <p> 示例值：7037986982531778860
-     */
+    @SerializedName("order_id")
     private String orderId;
     /**
      * 投递 ID
      * <p> 示例值：6985833807195212076
      */
+    @SerializedName("application_id")
     private String applicationId;
+    /**
+     * 背调状态
+     * <p> 示例值：2
+     */
+    @SerializedName("order_status")
+    private Integer orderStatus;
     /**
      * 供应商名称
      * <p> 示例值：1
      */
+    @SerializedName("account_third_type")
     private Integer accountThirdType;
     /**
      * 背调套餐
      * <p> 示例值：基础版
      */
+    @SerializedName("package")
     private String package_;
     /**
+     * 背调名称（仅手动录入的背调结果具有）
+     * <p> 示例值：录入的背调
+     */
+    @SerializedName("name")
+    private String name;
+    /**
      * 背调报告信息
      * <p> 示例值：
      */
+    @SerializedName("feedback_info_list")
     private BackgroundCheckFeedbackInfo[] feedbackInfoList;
     /**
-     * 背调进度
+     * 进度
      * <p> 示例值：
      */
+    @SerializedName("process_info_list")
     private BackgroundCheckProcessInfo[] processInfoList;
-
     /**
-     * 背调 ID
-     * <p> 示例值：7037986982531778860
-     *
-     * @param orderId
-     * @return
+     * 录入时间（仅手动录入的背调结果具有）
+     * <p> 示例值：1662476247755
      */
-    public Builder orderId(String orderId) {
-      this.orderId = orderId;
-      return this;
+    @SerializedName("upload_time")
+    private String uploadTime;
+
+    // builder 开始
+    public BackgroundCheckOrder() {
     }
 
-
-    /**
-     * 投递 ID
-     * <p> 示例值：6985833807195212076
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    public BackgroundCheckOrder(Builder builder) {
+        /**
+         * 背调 ID
+         * <p> 示例值：7037986982531778860
+         */
+        this.orderId = builder.orderId;
+        /**
+         * 投递 ID
+         * <p> 示例值：6985833807195212076
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 背调状态
+         * <p> 示例值：2
+         */
+        this.orderStatus = builder.orderStatus;
+        /**
+         * 供应商名称
+         * <p> 示例值：1
+         */
+        this.accountThirdType = builder.accountThirdType;
+        /**
+         * 背调套餐
+         * <p> 示例值：基础版
+         */
+        this.package_ = builder.package_;
+        /**
+         * 背调名称（仅手动录入的背调结果具有）
+         * <p> 示例值：录入的背调
+         */
+        this.name = builder.name;
+        /**
+         * 背调报告信息
+         * <p> 示例值：
+         */
+        this.feedbackInfoList = builder.feedbackInfoList;
+        /**
+         * 进度
+         * <p> 示例值：
+         */
+        this.processInfoList = builder.processInfoList;
+        /**
+         * 录入时间（仅手动录入的背调结果具有）
+         * <p> 示例值：1662476247755
+         */
+        this.uploadTime = builder.uploadTime;
     }
 
-
-    /**
-     * 供应商名称
-     * <p> 示例值：1
-     *
-     * @param accountThirdType
-     * @return
-     */
-    public Builder accountThirdType(Integer accountThirdType) {
-      this.accountThirdType = accountThirdType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 背调套餐
-     * <p> 示例值：基础版
-     *
-     * @param package_
-     * @return
-     */
-    public Builder package_(String package_) {
-      this.package_ = package_;
-      return this;
+    public String getOrderId() {
+        return this.orderId;
     }
 
-
-    /**
-     * 背调报告信息
-     * <p> 示例值：
-     *
-     * @param feedbackInfoList
-     * @return
-     */
-    public Builder feedbackInfoList(BackgroundCheckFeedbackInfo[] feedbackInfoList) {
-      this.feedbackInfoList = feedbackInfoList;
-      return this;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
-
-    /**
-     * 背调进度
-     * <p> 示例值：
-     *
-     * @param processInfoList
-     * @return
-     */
-    public Builder processInfoList(BackgroundCheckProcessInfo[] processInfoList) {
-      this.processInfoList = processInfoList;
-      return this;
+    public String getApplicationId() {
+        return this.applicationId;
     }
 
-
-    public BackgroundCheckOrder build() {
-      return new BackgroundCheckOrder(this);
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
     }
-  }
+
+    public Integer getOrderStatus() {
+        return this.orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public Integer getAccountThirdType() {
+        return this.accountThirdType;
+    }
+
+    public void setAccountThirdType(Integer accountThirdType) {
+        this.accountThirdType = accountThirdType;
+    }
+
+    public String getPackage() {
+        return this.package_;
+    }
+
+    public void setPackage(String package_) {
+        this.package_ = package_;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BackgroundCheckFeedbackInfo[] getFeedbackInfoList() {
+        return this.feedbackInfoList;
+    }
+
+    public void setFeedbackInfoList(BackgroundCheckFeedbackInfo[] feedbackInfoList) {
+        this.feedbackInfoList = feedbackInfoList;
+    }
+
+    public BackgroundCheckProcessInfo[] getProcessInfoList() {
+        return this.processInfoList;
+    }
+
+    public void setProcessInfoList(BackgroundCheckProcessInfo[] processInfoList) {
+        this.processInfoList = processInfoList;
+    }
+
+    public String getUploadTime() {
+        return this.uploadTime;
+    }
+
+    public void setUploadTime(String uploadTime) {
+        this.uploadTime = uploadTime;
+    }
+
+    public static class Builder {
+        /**
+         * 背调 ID
+         * <p> 示例值：7037986982531778860
+         */
+        private String orderId;
+        /**
+         * 投递 ID
+         * <p> 示例值：6985833807195212076
+         */
+        private String applicationId;
+        /**
+         * 背调状态
+         * <p> 示例值：2
+         */
+        private Integer orderStatus;
+        /**
+         * 供应商名称
+         * <p> 示例值：1
+         */
+        private Integer accountThirdType;
+        /**
+         * 背调套餐
+         * <p> 示例值：基础版
+         */
+        private String package_;
+        /**
+         * 背调名称（仅手动录入的背调结果具有）
+         * <p> 示例值：录入的背调
+         */
+        private String name;
+        /**
+         * 背调报告信息
+         * <p> 示例值：
+         */
+        private BackgroundCheckFeedbackInfo[] feedbackInfoList;
+        /**
+         * 进度
+         * <p> 示例值：
+         */
+        private BackgroundCheckProcessInfo[] processInfoList;
+        /**
+         * 录入时间（仅手动录入的背调结果具有）
+         * <p> 示例值：1662476247755
+         */
+        private String uploadTime;
+
+        /**
+         * 背调 ID
+         * <p> 示例值：7037986982531778860
+         *
+         * @param orderId
+         * @return
+         */
+        public Builder orderId(String orderId) {
+            this.orderId = orderId;
+            return this;
+        }
+
+
+        /**
+         * 投递 ID
+         * <p> 示例值：6985833807195212076
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * 背调状态
+         * <p> 示例值：2
+         *
+         * @param orderStatus
+         * @return
+         */
+        public Builder orderStatus(Integer orderStatus) {
+            this.orderStatus = orderStatus;
+            return this;
+        }
+
+
+        /**
+         * 供应商名称
+         * <p> 示例值：1
+         *
+         * @param accountThirdType
+         * @return
+         */
+        public Builder accountThirdType(Integer accountThirdType) {
+            this.accountThirdType = accountThirdType;
+            return this;
+        }
+
+
+        /**
+         * 背调套餐
+         * <p> 示例值：基础版
+         *
+         * @param package_
+         * @return
+         */
+        public Builder package_(String package_) {
+            this.package_ = package_;
+            return this;
+        }
+
+
+        /**
+         * 背调名称（仅手动录入的背调结果具有）
+         * <p> 示例值：录入的背调
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 背调报告信息
+         * <p> 示例值：
+         *
+         * @param feedbackInfoList
+         * @return
+         */
+        public Builder feedbackInfoList(BackgroundCheckFeedbackInfo[] feedbackInfoList) {
+            this.feedbackInfoList = feedbackInfoList;
+            return this;
+        }
+
+
+        /**
+         * 进度
+         * <p> 示例值：
+         *
+         * @param processInfoList
+         * @return
+         */
+        public Builder processInfoList(BackgroundCheckProcessInfo[] processInfoList) {
+            this.processInfoList = processInfoList;
+            return this;
+        }
+
+
+        /**
+         * 录入时间（仅手动录入的背调结果具有）
+         * <p> 示例值：1662476247755
+         *
+         * @param uploadTime
+         * @return
+         */
+        public Builder uploadTime(String uploadTime) {
+            this.uploadTime = uploadTime;
+            return this;
+        }
+
+
+        public BackgroundCheckOrder build() {
+            return new BackgroundCheckOrder(this);
+        }
+    }
 }

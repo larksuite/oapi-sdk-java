@@ -16,20 +16,19 @@ package com.lark.oapi.service.mail.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListMailgroupAliasRespBody {
+    /**
+     * 邮件组别名
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private EmailAlias[] items;
 
-  /**
-   * 邮件组别名
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private EmailAlias[] items;
+    public EmailAlias[] getItems() {
+        return this.items;
+    }
 
-  public EmailAlias[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(EmailAlias[] items) {
-    this.items = items;
-  }
+    public void setItems(EmailAlias[] items) {
+        this.items = items;
+    }
 
 }

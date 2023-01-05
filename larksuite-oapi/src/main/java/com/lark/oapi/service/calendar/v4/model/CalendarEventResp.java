@@ -16,816 +16,810 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CalendarEventResp {
-
-  /**
-   * 日程ID
-   * <p> 示例值：
-   */
-  @SerializedName("event_id")
-  private String eventId;
-  /**
-   * 日程组织者日历ID
-   * <p> 示例值：
-   */
-  @SerializedName("organizer_calendar_id")
-  private String organizerCalendarId;
-  /**
-   * 日程标题
-   * <p> 示例值：
-   */
-  @SerializedName("summary")
-  private String summary;
-  /**
-   * 日程描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 是否发送通知消息
-   * <p> 示例值：
-   */
-  @SerializedName("need_notification")
-  private Boolean needNotification;
-  /**
-   * 日程开始时间
-   * <p> 示例值：
-   */
-  @SerializedName("start_time")
-  private TimeInfo startTime;
-  /**
-   * 日程结束时间
-   * <p> 示例值：
-   */
-  @SerializedName("end_time")
-  private TimeInfo endTime;
-  /**
-   * 视频会议信息，仅当日程至少有一位attendee时生效
-   * <p> 示例值：
-   */
-  @SerializedName("vchat")
-  private Vchat vchat;
-  /**
-   * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-   * <p> 示例值：
-   */
-  @SerializedName("visibility")
-  private String visibility;
-  /**
-   * 参与人权限
-   * <p> 示例值：
-   */
-  @SerializedName("attendee_ability")
-  private String attendeeAbility;
-  /**
-   * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-   * <p> 示例值：
-   */
-  @SerializedName("free_busy_status")
-  private String freeBusyStatus;
-  /**
-   * 日程地点
-   * <p> 示例值：
-   */
-  @SerializedName("location")
-  private EventLocation location;
-  /**
-   * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-   * <p> 示例值：
-   */
-  @SerializedName("color")
-  private Integer color;
-  /**
-   * 日程提醒列表
-   * <p> 示例值：
-   */
-  @SerializedName("reminders")
-  private Reminder[] reminders;
-  /**
-   * 重复日程的重复性规则
-   * <p> 示例值：
-   */
-  @SerializedName("recurrence")
-  private String recurrence;
-  /**
-   * 日程状态
-   * <p> 示例值：
-   */
-  @SerializedName("status")
-  private String status;
-  /**
-   * 日程是否是一个重复日程的例外日程
-   * <p> 示例值：
-   */
-  @SerializedName("is_exception")
-  private Boolean isException;
-  /**
-   * 例外日程的原重复日程的event_id
-   * <p> 示例值：
-   */
-  @SerializedName("recurring_event_id")
-  private String recurringEventId;
-  /**
-   * 日程的创建时间戳
-   * <p> 示例值：
-   */
-  @SerializedName("create_time")
-  private String createTime;
-  /**
-   * 日程自定义信息
-   * <p> 示例值：
-   */
-  @SerializedName("schemas")
-  private Schema[] schemas;
-
-  // builder 开始
-  public CalendarEventResp() {
-  }
-
-  public CalendarEventResp(Builder builder) {
     /**
      * 日程ID
      * <p> 示例值：
      */
-    this.eventId = builder.eventId;
-    /**
-     * 日程组织者日历ID
-     * <p> 示例值：
-     */
-    this.organizerCalendarId = builder.organizerCalendarId;
-    /**
-     * 日程标题
-     * <p> 示例值：
-     */
-    this.summary = builder.summary;
-    /**
-     * 日程描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-    /**
-     * 是否发送通知消息
-     * <p> 示例值：
-     */
-    this.needNotification = builder.needNotification;
-    /**
-     * 日程开始时间
-     * <p> 示例值：
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 日程结束时间
-     * <p> 示例值：
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 视频会议信息，仅当日程至少有一位attendee时生效
-     * <p> 示例值：
-     */
-    this.vchat = builder.vchat;
-    /**
-     * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-     * <p> 示例值：
-     */
-    this.visibility = builder.visibility;
-    /**
-     * 参与人权限
-     * <p> 示例值：
-     */
-    this.attendeeAbility = builder.attendeeAbility;
-    /**
-     * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-     * <p> 示例值：
-     */
-    this.freeBusyStatus = builder.freeBusyStatus;
-    /**
-     * 日程地点
-     * <p> 示例值：
-     */
-    this.location = builder.location;
-    /**
-     * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-     * <p> 示例值：
-     */
-    this.color = builder.color;
-    /**
-     * 日程提醒列表
-     * <p> 示例值：
-     */
-    this.reminders = builder.reminders;
-    /**
-     * 重复日程的重复性规则
-     * <p> 示例值：
-     */
-    this.recurrence = builder.recurrence;
-    /**
-     * 日程状态
-     * <p> 示例值：
-     */
-    this.status = builder.status;
-    /**
-     * 日程是否是一个重复日程的例外日程
-     * <p> 示例值：
-     */
-    this.isException = builder.isException;
-    /**
-     * 例外日程的原重复日程的event_id
-     * <p> 示例值：
-     */
-    this.recurringEventId = builder.recurringEventId;
-    /**
-     * 日程的创建时间戳
-     * <p> 示例值：
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 日程自定义信息
-     * <p> 示例值：
-     */
-    this.schemas = builder.schemas;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public String getOrganizerCalendarId() {
-    return this.organizerCalendarId;
-  }
-
-  public void setOrganizerCalendarId(String organizerCalendarId) {
-    this.organizerCalendarId = organizerCalendarId;
-  }
-
-  public String getSummary() {
-    return this.summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Boolean getNeedNotification() {
-    return this.needNotification;
-  }
-
-  public void setNeedNotification(Boolean needNotification) {
-    this.needNotification = needNotification;
-  }
-
-  public TimeInfo getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(TimeInfo startTime) {
-    this.startTime = startTime;
-  }
-
-  public TimeInfo getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(TimeInfo endTime) {
-    this.endTime = endTime;
-  }
-
-  public Vchat getVchat() {
-    return this.vchat;
-  }
-
-  public void setVchat(Vchat vchat) {
-    this.vchat = vchat;
-  }
-
-  public String getVisibility() {
-    return this.visibility;
-  }
-
-  public void setVisibility(String visibility) {
-    this.visibility = visibility;
-  }
-
-  public String getAttendeeAbility() {
-    return this.attendeeAbility;
-  }
-
-  public void setAttendeeAbility(String attendeeAbility) {
-    this.attendeeAbility = attendeeAbility;
-  }
-
-  public String getFreeBusyStatus() {
-    return this.freeBusyStatus;
-  }
-
-  public void setFreeBusyStatus(String freeBusyStatus) {
-    this.freeBusyStatus = freeBusyStatus;
-  }
-
-  public EventLocation getLocation() {
-    return this.location;
-  }
-
-  public void setLocation(EventLocation location) {
-    this.location = location;
-  }
-
-  public Integer getColor() {
-    return this.color;
-  }
-
-  public void setColor(Integer color) {
-    this.color = color;
-  }
-
-  public Reminder[] getReminders() {
-    return this.reminders;
-  }
-
-  public void setReminders(Reminder[] reminders) {
-    this.reminders = reminders;
-  }
-
-  public String getRecurrence() {
-    return this.recurrence;
-  }
-
-  public void setRecurrence(String recurrence) {
-    this.recurrence = recurrence;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public Boolean getIsException() {
-    return this.isException;
-  }
-
-  public void setIsException(Boolean isException) {
-    this.isException = isException;
-  }
-
-  public String getRecurringEventId() {
-    return this.recurringEventId;
-  }
-
-  public void setRecurringEventId(String recurringEventId) {
-    this.recurringEventId = recurringEventId;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public Schema[] getSchemas() {
-    return this.schemas;
-  }
-
-  public void setSchemas(Schema[] schemas) {
-    this.schemas = schemas;
-  }
-
-  public static class Builder {
-
-    /**
-     * 日程ID
-     * <p> 示例值：
-     */
+    @SerializedName("event_id")
     private String eventId;
     /**
      * 日程组织者日历ID
      * <p> 示例值：
      */
+    @SerializedName("organizer_calendar_id")
     private String organizerCalendarId;
     /**
      * 日程标题
      * <p> 示例值：
      */
+    @SerializedName("summary")
     private String summary;
     /**
      * 日程描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private String description;
     /**
      * 是否发送通知消息
      * <p> 示例值：
      */
+    @SerializedName("need_notification")
     private Boolean needNotification;
     /**
      * 日程开始时间
      * <p> 示例值：
      */
+    @SerializedName("start_time")
     private TimeInfo startTime;
     /**
      * 日程结束时间
      * <p> 示例值：
      */
+    @SerializedName("end_time")
     private TimeInfo endTime;
     /**
      * 视频会议信息，仅当日程至少有一位attendee时生效
      * <p> 示例值：
      */
+    @SerializedName("vchat")
     private Vchat vchat;
     /**
      * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
      * <p> 示例值：
      */
+    @SerializedName("visibility")
     private String visibility;
     /**
      * 参与人权限
      * <p> 示例值：
      */
+    @SerializedName("attendee_ability")
     private String attendeeAbility;
     /**
      * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
      * <p> 示例值：
      */
+    @SerializedName("free_busy_status")
     private String freeBusyStatus;
     /**
      * 日程地点
      * <p> 示例值：
      */
+    @SerializedName("location")
     private EventLocation location;
     /**
      * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
      * <p> 示例值：
      */
+    @SerializedName("color")
     private Integer color;
     /**
      * 日程提醒列表
      * <p> 示例值：
      */
+    @SerializedName("reminders")
     private Reminder[] reminders;
     /**
      * 重复日程的重复性规则
      * <p> 示例值：
      */
+    @SerializedName("recurrence")
     private String recurrence;
     /**
      * 日程状态
      * <p> 示例值：
      */
+    @SerializedName("status")
     private String status;
     /**
      * 日程是否是一个重复日程的例外日程
      * <p> 示例值：
      */
+    @SerializedName("is_exception")
     private Boolean isException;
     /**
      * 例外日程的原重复日程的event_id
      * <p> 示例值：
      */
+    @SerializedName("recurring_event_id")
     private String recurringEventId;
     /**
      * 日程的创建时间戳
      * <p> 示例值：
      */
+    @SerializedName("create_time")
     private String createTime;
     /**
      * 日程自定义信息
      * <p> 示例值：
      */
+    @SerializedName("schemas")
     private Schema[] schemas;
 
-    /**
-     * 日程ID
-     * <p> 示例值：
-     *
-     * @param eventId
-     * @return
-     */
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    // builder 开始
+    public CalendarEventResp() {
     }
 
-
-    /**
-     * 日程组织者日历ID
-     * <p> 示例值：
-     *
-     * @param organizerCalendarId
-     * @return
-     */
-    public Builder organizerCalendarId(String organizerCalendarId) {
-      this.organizerCalendarId = organizerCalendarId;
-      return this;
+    public CalendarEventResp(Builder builder) {
+        /**
+         * 日程ID
+         * <p> 示例值：
+         */
+        this.eventId = builder.eventId;
+        /**
+         * 日程组织者日历ID
+         * <p> 示例值：
+         */
+        this.organizerCalendarId = builder.organizerCalendarId;
+        /**
+         * 日程标题
+         * <p> 示例值：
+         */
+        this.summary = builder.summary;
+        /**
+         * 日程描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 是否发送通知消息
+         * <p> 示例值：
+         */
+        this.needNotification = builder.needNotification;
+        /**
+         * 日程开始时间
+         * <p> 示例值：
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 日程结束时间
+         * <p> 示例值：
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 视频会议信息，仅当日程至少有一位attendee时生效
+         * <p> 示例值：
+         */
+        this.vchat = builder.vchat;
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        this.visibility = builder.visibility;
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         */
+        this.attendeeAbility = builder.attendeeAbility;
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        this.freeBusyStatus = builder.freeBusyStatus;
+        /**
+         * 日程地点
+         * <p> 示例值：
+         */
+        this.location = builder.location;
+        /**
+         * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+         * <p> 示例值：
+         */
+        this.color = builder.color;
+        /**
+         * 日程提醒列表
+         * <p> 示例值：
+         */
+        this.reminders = builder.reminders;
+        /**
+         * 重复日程的重复性规则
+         * <p> 示例值：
+         */
+        this.recurrence = builder.recurrence;
+        /**
+         * 日程状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         * 日程是否是一个重复日程的例外日程
+         * <p> 示例值：
+         */
+        this.isException = builder.isException;
+        /**
+         * 例外日程的原重复日程的event_id
+         * <p> 示例值：
+         */
+        this.recurringEventId = builder.recurringEventId;
+        /**
+         * 日程的创建时间戳
+         * <p> 示例值：
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 日程自定义信息
+         * <p> 示例值：
+         */
+        this.schemas = builder.schemas;
     }
 
-
-    /**
-     * 日程标题
-     * <p> 示例值：
-     *
-     * @param summary
-     * @return
-     */
-    public Builder summary(String summary) {
-      this.summary = summary;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 日程描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public String getEventId() {
+        return this.eventId;
     }
 
-
-    /**
-     * 是否发送通知消息
-     * <p> 示例值：
-     *
-     * @param needNotification
-     * @return
-     */
-    public Builder needNotification(Boolean needNotification) {
-      this.needNotification = needNotification;
-      return this;
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
-
-    /**
-     * 日程开始时间
-     * <p> 示例值：
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(TimeInfo startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getOrganizerCalendarId() {
+        return this.organizerCalendarId;
     }
 
-
-    /**
-     * 日程结束时间
-     * <p> 示例值：
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(TimeInfo endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setOrganizerCalendarId(String organizerCalendarId) {
+        this.organizerCalendarId = organizerCalendarId;
     }
 
-
-    /**
-     * 视频会议信息，仅当日程至少有一位attendee时生效
-     * <p> 示例值：
-     *
-     * @param vchat
-     * @return
-     */
-    public Builder vchat(Vchat vchat) {
-      this.vchat = vchat;
-      return this;
+    public String getSummary() {
+        return this.summary;
     }
 
-
-    /**
-     * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-     * <p> 示例值：
-     *
-     * @param visibility
-     * @return
-     */
-    public Builder visibility(String visibility) {
-      this.visibility = visibility;
-      return this;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
-    /**
-     * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-     * <p> 示例值：
-     *
-     * @param visibility {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventVisibilityEnum}
-     * @return
-     */
-    public Builder visibility(
-        com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventVisibilityEnum visibility) {
-      this.visibility = visibility.getValue();
-      return this;
+    public String getDescription() {
+        return this.description;
     }
 
-
-    /**
-     * 参与人权限
-     * <p> 示例值：
-     *
-     * @param attendeeAbility
-     * @return
-     */
-    public Builder attendeeAbility(String attendeeAbility) {
-      this.attendeeAbility = attendeeAbility;
-      return this;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    /**
-     * 参与人权限
-     * <p> 示例值：
-     *
-     * @param attendeeAbility {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventAttendeeAbilityEnum}
-     * @return
-     */
-    public Builder attendeeAbility(
-        com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventAttendeeAbilityEnum attendeeAbility) {
-      this.attendeeAbility = attendeeAbility.getValue();
-      return this;
+    public Boolean getNeedNotification() {
+        return this.needNotification;
     }
 
-
-    /**
-     * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-     * <p> 示例值：
-     *
-     * @param freeBusyStatus
-     * @return
-     */
-    public Builder freeBusyStatus(String freeBusyStatus) {
-      this.freeBusyStatus = freeBusyStatus;
-      return this;
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
     }
 
-    /**
-     * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
-     * <p> 示例值：
-     *
-     * @param freeBusyStatus {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventFreeBusyStatusEnum}
-     * @return
-     */
-    public Builder freeBusyStatus(
-        com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventFreeBusyStatusEnum freeBusyStatus) {
-      this.freeBusyStatus = freeBusyStatus.getValue();
-      return this;
+    public TimeInfo getStartTime() {
+        return this.startTime;
     }
 
-
-    /**
-     * 日程地点
-     * <p> 示例值：
-     *
-     * @param location
-     * @return
-     */
-    public Builder location(EventLocation location) {
-      this.location = location;
-      return this;
+    public void setStartTime(TimeInfo startTime) {
+        this.startTime = startTime;
     }
 
-
-    /**
-     * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-     * <p> 示例值：
-     *
-     * @param color
-     * @return
-     */
-    public Builder color(Integer color) {
-      this.color = color;
-      return this;
+    public TimeInfo getEndTime() {
+        return this.endTime;
     }
 
-
-    /**
-     * 日程提醒列表
-     * <p> 示例值：
-     *
-     * @param reminders
-     * @return
-     */
-    public Builder reminders(Reminder[] reminders) {
-      this.reminders = reminders;
-      return this;
+    public void setEndTime(TimeInfo endTime) {
+        this.endTime = endTime;
     }
 
-
-    /**
-     * 重复日程的重复性规则
-     * <p> 示例值：
-     *
-     * @param recurrence
-     * @return
-     */
-    public Builder recurrence(String recurrence) {
-      this.recurrence = recurrence;
-      return this;
+    public Vchat getVchat() {
+        return this.vchat;
     }
 
-
-    /**
-     * 日程状态
-     * <p> 示例值：
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public void setVchat(Vchat vchat) {
+        this.vchat = vchat;
     }
 
-    /**
-     * 日程状态
-     * <p> 示例值：
-     *
-     * @param status {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventStatusEnum}
-     * @return
-     */
-    public Builder status(
-        com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public String getVisibility() {
+        return this.visibility;
     }
 
-
-    /**
-     * 日程是否是一个重复日程的例外日程
-     * <p> 示例值：
-     *
-     * @param isException
-     * @return
-     */
-    public Builder isException(Boolean isException) {
-      this.isException = isException;
-      return this;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
 
-
-    /**
-     * 例外日程的原重复日程的event_id
-     * <p> 示例值：
-     *
-     * @param recurringEventId
-     * @return
-     */
-    public Builder recurringEventId(String recurringEventId) {
-      this.recurringEventId = recurringEventId;
-      return this;
+    public String getAttendeeAbility() {
+        return this.attendeeAbility;
     }
 
-
-    /**
-     * 日程的创建时间戳
-     * <p> 示例值：
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public void setAttendeeAbility(String attendeeAbility) {
+        this.attendeeAbility = attendeeAbility;
     }
 
-
-    /**
-     * 日程自定义信息
-     * <p> 示例值：
-     *
-     * @param schemas
-     * @return
-     */
-    public Builder schemas(Schema[] schemas) {
-      this.schemas = schemas;
-      return this;
+    public String getFreeBusyStatus() {
+        return this.freeBusyStatus;
     }
 
-
-    public CalendarEventResp build() {
-      return new CalendarEventResp(this);
+    public void setFreeBusyStatus(String freeBusyStatus) {
+        this.freeBusyStatus = freeBusyStatus;
     }
-  }
+
+    public EventLocation getLocation() {
+        return this.location;
+    }
+
+    public void setLocation(EventLocation location) {
+        this.location = location;
+    }
+
+    public Integer getColor() {
+        return this.color;
+    }
+
+    public void setColor(Integer color) {
+        this.color = color;
+    }
+
+    public Reminder[] getReminders() {
+        return this.reminders;
+    }
+
+    public void setReminders(Reminder[] reminders) {
+        this.reminders = reminders;
+    }
+
+    public String getRecurrence() {
+        return this.recurrence;
+    }
+
+    public void setRecurrence(String recurrence) {
+        this.recurrence = recurrence;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Boolean getIsException() {
+        return this.isException;
+    }
+
+    public void setIsException(Boolean isException) {
+        this.isException = isException;
+    }
+
+    public String getRecurringEventId() {
+        return this.recurringEventId;
+    }
+
+    public void setRecurringEventId(String recurringEventId) {
+        this.recurringEventId = recurringEventId;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public Schema[] getSchemas() {
+        return this.schemas;
+    }
+
+    public void setSchemas(Schema[] schemas) {
+        this.schemas = schemas;
+    }
+
+    public static class Builder {
+        /**
+         * 日程ID
+         * <p> 示例值：
+         */
+        private String eventId;
+        /**
+         * 日程组织者日历ID
+         * <p> 示例值：
+         */
+        private String organizerCalendarId;
+        /**
+         * 日程标题
+         * <p> 示例值：
+         */
+        private String summary;
+        /**
+         * 日程描述
+         * <p> 示例值：
+         */
+        private String description;
+        /**
+         * 是否发送通知消息
+         * <p> 示例值：
+         */
+        private Boolean needNotification;
+        /**
+         * 日程开始时间
+         * <p> 示例值：
+         */
+        private TimeInfo startTime;
+        /**
+         * 日程结束时间
+         * <p> 示例值：
+         */
+        private TimeInfo endTime;
+        /**
+         * 视频会议信息，仅当日程至少有一位attendee时生效
+         * <p> 示例值：
+         */
+        private Vchat vchat;
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        private String visibility;
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         */
+        private String attendeeAbility;
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        private String freeBusyStatus;
+        /**
+         * 日程地点
+         * <p> 示例值：
+         */
+        private EventLocation location;
+        /**
+         * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+         * <p> 示例值：
+         */
+        private Integer color;
+        /**
+         * 日程提醒列表
+         * <p> 示例值：
+         */
+        private Reminder[] reminders;
+        /**
+         * 重复日程的重复性规则
+         * <p> 示例值：
+         */
+        private String recurrence;
+        /**
+         * 日程状态
+         * <p> 示例值：
+         */
+        private String status;
+        /**
+         * 日程是否是一个重复日程的例外日程
+         * <p> 示例值：
+         */
+        private Boolean isException;
+        /**
+         * 例外日程的原重复日程的event_id
+         * <p> 示例值：
+         */
+        private String recurringEventId;
+        /**
+         * 日程的创建时间戳
+         * <p> 示例值：
+         */
+        private String createTime;
+        /**
+         * 日程自定义信息
+         * <p> 示例值：
+         */
+        private Schema[] schemas;
+
+        /**
+         * 日程ID
+         * <p> 示例值：
+         *
+         * @param eventId
+         * @return
+         */
+        public Builder eventId(String eventId) {
+            this.eventId = eventId;
+            return this;
+        }
+
+
+        /**
+         * 日程组织者日历ID
+         * <p> 示例值：
+         *
+         * @param organizerCalendarId
+         * @return
+         */
+        public Builder organizerCalendarId(String organizerCalendarId) {
+            this.organizerCalendarId = organizerCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 日程标题
+         * <p> 示例值：
+         *
+         * @param summary
+         * @return
+         */
+        public Builder summary(String summary) {
+            this.summary = summary;
+            return this;
+        }
+
+
+        /**
+         * 日程描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 是否发送通知消息
+         * <p> 示例值：
+         *
+         * @param needNotification
+         * @return
+         */
+        public Builder needNotification(Boolean needNotification) {
+            this.needNotification = needNotification;
+            return this;
+        }
+
+
+        /**
+         * 日程开始时间
+         * <p> 示例值：
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(TimeInfo startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 日程结束时间
+         * <p> 示例值：
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(TimeInfo endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 视频会议信息，仅当日程至少有一位attendee时生效
+         * <p> 示例值：
+         *
+         * @param vchat
+         * @return
+         */
+        public Builder vchat(Vchat vchat) {
+            this.vchat = vchat;
+            return this;
+        }
+
+
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param visibility
+         * @return
+         */
+        public Builder visibility(String visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param visibility {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventVisibilityEnum}
+         * @return
+         */
+        public Builder visibility(com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventVisibilityEnum visibility) {
+            this.visibility = visibility.getValue();
+            return this;
+        }
+
+
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         *
+         * @param attendeeAbility
+         * @return
+         */
+        public Builder attendeeAbility(String attendeeAbility) {
+            this.attendeeAbility = attendeeAbility;
+            return this;
+        }
+
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         *
+         * @param attendeeAbility {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventAttendeeAbilityEnum}
+         * @return
+         */
+        public Builder attendeeAbility(com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventAttendeeAbilityEnum attendeeAbility) {
+            this.attendeeAbility = attendeeAbility.getValue();
+            return this;
+        }
+
+
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param freeBusyStatus
+         * @return
+         */
+        public Builder freeBusyStatus(String freeBusyStatus) {
+            this.freeBusyStatus = freeBusyStatus;
+            return this;
+        }
+
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param freeBusyStatus {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventFreeBusyStatusEnum}
+         * @return
+         */
+        public Builder freeBusyStatus(com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventFreeBusyStatusEnum freeBusyStatus) {
+            this.freeBusyStatus = freeBusyStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 日程地点
+         * <p> 示例值：
+         *
+         * @param location
+         * @return
+         */
+        public Builder location(EventLocation location) {
+            this.location = location;
+            return this;
+        }
+
+
+        /**
+         * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+         * <p> 示例值：
+         *
+         * @param color
+         * @return
+         */
+        public Builder color(Integer color) {
+            this.color = color;
+            return this;
+        }
+
+
+        /**
+         * 日程提醒列表
+         * <p> 示例值：
+         *
+         * @param reminders
+         * @return
+         */
+        public Builder reminders(Reminder[] reminders) {
+            this.reminders = reminders;
+            return this;
+        }
+
+
+        /**
+         * 重复日程的重复性规则
+         * <p> 示例值：
+         *
+         * @param recurrence
+         * @return
+         */
+        public Builder recurrence(String recurrence) {
+            this.recurrence = recurrence;
+            return this;
+        }
+
+
+        /**
+         * 日程状态
+         * <p> 示例值：
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 日程状态
+         * <p> 示例值：
+         *
+         * @param status {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.calendar.v4.enums.CalendarEventRespEventStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 日程是否是一个重复日程的例外日程
+         * <p> 示例值：
+         *
+         * @param isException
+         * @return
+         */
+        public Builder isException(Boolean isException) {
+            this.isException = isException;
+            return this;
+        }
+
+
+        /**
+         * 例外日程的原重复日程的event_id
+         * <p> 示例值：
+         *
+         * @param recurringEventId
+         * @return
+         */
+        public Builder recurringEventId(String recurringEventId) {
+            this.recurringEventId = recurringEventId;
+            return this;
+        }
+
+
+        /**
+         * 日程的创建时间戳
+         * <p> 示例值：
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 日程自定义信息
+         * <p> 示例值：
+         *
+         * @param schemas
+         * @return
+         */
+        public Builder schemas(Schema[] schemas) {
+            this.schemas = schemas;
+            return this;
+        }
+
+
+        public CalendarEventResp build() {
+            return new CalendarEventResp(this);
+        }
+    }
 }

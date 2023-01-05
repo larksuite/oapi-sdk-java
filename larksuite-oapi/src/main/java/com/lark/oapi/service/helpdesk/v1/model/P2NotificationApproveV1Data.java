@@ -16,48 +16,47 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2NotificationApproveV1Data {
+    /**
+     * 推送任务唯一ID
+     * <p> 示例值：6981000586476912660
+     */
+    @SerializedName("notification_id")
+    private String notificationId;
+    /**
+     * 服务台唯一ID
+     * <p> 示例值：6969495102523703316
+     */
+    @SerializedName("helpdesk_id")
+    private String helpdeskId;
+    /**
+     * REJECTED(审核不通过);APPROVED(审核通过);CANCELED(取消审核);DELETED(删除审核)
+     * <p> 示例值：审核状态
+     */
+    @SerializedName("approve_status")
+    private String approveStatus;
 
-  /**
-   * 推送任务唯一ID
-   * <p> 示例值：6981000586476912660
-   */
-  @SerializedName("notification_id")
-  private String notificationId;
-  /**
-   * 服务台唯一ID
-   * <p> 示例值：6969495102523703316
-   */
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  /**
-   * REJECTED(审核不通过);APPROVED(审核通过);CANCELED(取消审核);DELETED(删除审核)
-   * <p> 示例值：审核状态
-   */
-  @SerializedName("approve_status")
-  private String approveStatus;
+    public String getNotificationId() {
+        return this.notificationId;
+    }
 
-  public String getNotificationId() {
-    return this.notificationId;
-  }
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
 
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
+    public String getHelpdeskId() {
+        return this.helpdeskId;
+    }
 
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
+    }
 
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
+    public String getApproveStatus() {
+        return this.approveStatus;
+    }
 
-  public String getApproveStatus() {
-    return this.approveStatus;
-  }
-
-  public void setApproveStatus(String approveStatus) {
-    this.approveStatus = approveStatus;
-  }
+    public void setApproveStatus(String approveStatus) {
+        this.approveStatus = approveStatus;
+    }
 
 }

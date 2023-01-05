@@ -17,18 +17,18 @@ package com.lark.oapi.service.docx.v1.enums;
  * 进展状态
  */
 public enum OkrProgressRateOkrProgressStatusEnum {
-  UNSET("unset"), // 未设置
-  NORMAL("normal"), // 正常
-  RISK("risk"), // 有风险
-  EXTENDED("extended"), // 已延期
-  ;
-  private String value;
+    UNSET("unset"), // 未设置
+    NORMAL("normal"), // 正常
+    RISK("risk"), // 有风险
+    EXTENDED("extended"), // 已延期
+    ;
+    private String value;
 
-  OkrProgressRateOkrProgressStatusEnum(String value) {
-    this.value = value;
-  }
+    OkrProgressRateOkrProgressStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

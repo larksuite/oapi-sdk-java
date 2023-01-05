@@ -17,25 +17,25 @@ package com.lark.oapi.service.drive.v1.enums;
  * 上传点类型。
  */
 public enum UploadAllMediaParentTypeEnum {
-  DOC_IMAGE("doc_image"), // docs图片
-  DOCX_IMAGE("docx_image"), // docx图片
-  SHEET_IMAGE("sheet_image"), // sheet图片
-  DOC_FILE("doc_file"), // doc文件
-  DOCX_FILE("docx_file"), // docx文件
-  SHEET_FILE("sheet_file"), // sheet文件
-  VC_VIRTUAL_BACKGROUND("vc_virtual_background"), // vc虚拟背景
-  BITABLE_IMAGE("bitable_image"), // 多维表格图片
-  BITABLE_FILE("bitable_file"), // 多维表格文件
-  MOMENTS("moments"), // 同事圈
-  CCM_IMPORT_OPEN("ccm_import_open"), // 云文档导入文件
-  ;
-  private String value;
+    DOC_IMAGE("doc_image"), // docs图片
+    DOCX_IMAGE("docx_image"), // docx图片
+    SHEET_IMAGE("sheet_image"), // sheet图片
+    DOC_FILE("doc_file"), // doc文件
+    DOCX_FILE("docx_file"), // docx文件
+    SHEET_FILE("sheet_file"), // sheet文件
+    VC_VIRTUAL_BACKGROUND("vc_virtual_background"), // vc虚拟背景
+    BITABLE_IMAGE("bitable_image"), // 多维表格图片
+    BITABLE_FILE("bitable_file"), // 多维表格文件
+    MOMENTS("moments"), // 同事圈
+    CCM_IMPORT_OPEN("ccm_import_open"), // 云文档导入文件
+    ;
+    private String value;
 
-  UploadAllMediaParentTypeEnum(String value) {
-    this.value = value;
-  }
+    UploadAllMediaParentTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class RawContentDocument {
 
-  /**
-   * 文档纯文本
-   * <p> 示例值：test
-   */
-  @SerializedName("content")
-  private String content;
+    /**
+     * 文档纯文本
+     * <p> 示例值：test
+     */
+    @SerializedName("content")
+    private String content;
 
-  public String getContent() {
-    return this.content;
-  }
+    public String getContent() {
+        return this.content;
+    }
 
-  public void setContent(String content) {
-    this.content = content;
-  }
+    public void setContent(String content) {
+        this.content = content;
+    }
 
 }

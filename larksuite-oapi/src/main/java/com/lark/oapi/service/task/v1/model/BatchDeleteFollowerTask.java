@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteFollowerTask {
 
-  /**
-   * 实际删除的关注人用户ID列表
-   * <p> 示例值：
-   */
-  @SerializedName("followers")
-  private String[] followers;
+    /**
+     * 实际删除的关注人用户ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("followers")
+    private String[] followers;
 
-  public String[] getFollowers() {
-    return this.followers;
-  }
+    public String[] getFollowers() {
+        return this.followers;
+    }
 
-  public void setFollowers(String[] followers) {
-    this.followers = followers;
-  }
+    public void setFollowers(String[] followers) {
+        this.followers = followers;
+    }
 
 }

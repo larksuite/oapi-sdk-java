@@ -16,61 +16,59 @@ package com.lark.oapi.service.translation.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DetectTextReqBody {
-
-  /**
-   * 需要被识别语种的文本
-   * <p> 示例值：你好
-   */
-  @SerializedName("text")
-  private String text;
-
-  // builder 开始
-  public DetectTextReqBody() {
-  }
-
-  public DetectTextReqBody(Builder builder) {
     /**
      * 需要被识别语种的文本
      * <p> 示例值：你好
      */
-    this.text = builder.text;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public static class Builder {
-
-    /**
-     * 需要被识别语种的文本
-     * <p> 示例值：你好
-     */
+    @SerializedName("text")
     private String text;
 
-    /**
-     * 需要被识别语种的文本
-     * <p> 示例值：你好
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    // builder 开始
+    public DetectTextReqBody() {
     }
 
-
-    public DetectTextReqBody build() {
-      return new DetectTextReqBody(this);
+    public DetectTextReqBody(Builder builder) {
+        /**
+         * 需要被识别语种的文本
+         * <p> 示例值：你好
+         */
+        this.text = builder.text;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public static class Builder {
+        /**
+         * 需要被识别语种的文本
+         * <p> 示例值：你好
+         */
+        private String text;
+
+        /**
+         * 需要被识别语种的文本
+         * <p> 示例值：你好
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        public DetectTextReqBody build() {
+            return new DetectTextReqBody(this);
+        }
+    }
 }

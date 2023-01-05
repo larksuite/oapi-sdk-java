@@ -18,169 +18,166 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class DeleteAppRoleMemberReq {
-
-  /**
-   * 协作者id类型，与请求体中的member_id要对应
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * 自定义角色的id
-   * <p> 示例值：roljRpwIUt
-   */
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-  /**
-   * 协作者id
-   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
-   */
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-  // builder 开始
-  public DeleteAppRoleMemberReq() {
-  }
-  public DeleteAppRoleMemberReq(Builder builder) {
     /**
      * 协作者id类型，与请求体中的member_id要对应
      * <p> 示例值：open_id
      */
-    this.memberIdType = builder.memberIdType;
+    @Query
+    @SerializedName("member_id_type")
+    private String memberIdType;
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * 自定义角色的id
      * <p> 示例值：roljRpwIUt
      */
-    this.roleId = builder.roleId;
+    @Path
+    @SerializedName("role_id")
+    private String roleId;
     /**
      * 协作者id
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
      */
-    this.memberId = builder.memberId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
-    private String memberIdType; // 协作者id类型，与请求体中的member_id要对应
-    private String appToken; // bitable app token
-    private String roleId; // 自定义角色的id
-    private String memberId; // 协作者id
-
-    /**
-     * 协作者id类型，与请求体中的member_id要对应
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType
-     * @return
-     */
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    @Path
+    @SerializedName("member_id")
+    private String memberId;
+    // builder 开始
+    public DeleteAppRoleMemberReq() {
+    }
+    public DeleteAppRoleMemberReq(Builder builder) {
+        /**
+         * 协作者id类型，与请求体中的member_id要对应
+         * <p> 示例值：open_id
+         */
+        this.memberIdType = builder.memberIdType;
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         */
+        this.roleId = builder.roleId;
+        /**
+         * 协作者id
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
+         */
+        this.memberId = builder.memberId;
     }
 
-    /**
-     * 协作者id类型，与请求体中的member_id要对应
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType {@link com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum}
-     * @return
-     */
-    public Builder memberIdType(
-        com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public String getMemberIdType() {
+        return this.memberIdType;
     }
 
-
-    /**
-     * 自定义角色的id
-     * <p> 示例值：roljRpwIUt
-     *
-     * @param roleId
-     * @return
-     */
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
     }
 
-
-    /**
-     * 协作者id
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
-     *
-     * @param memberId
-     * @return
-     */
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public DeleteAppRoleMemberReq build() {
-      return new DeleteAppRoleMemberReq(this);
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
-  }
+
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public static class Builder {
+        private String memberIdType; // 协作者id类型，与请求体中的member_id要对应
+        private String appToken; // bitable app token
+        private String roleId; // 自定义角色的id
+        private String memberId; // 协作者id
+
+        /**
+         * 协作者id类型，与请求体中的member_id要对应
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType
+         * @return
+         */
+        public Builder memberIdType(String memberIdType) {
+            this.memberIdType = memberIdType;
+            return this;
+        }
+
+        /**
+         * 协作者id类型，与请求体中的member_id要对应
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType {@link com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum}
+         * @return
+         */
+        public Builder memberIdType(com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum memberIdType) {
+            this.memberIdType = memberIdType.getValue();
+            return this;
+        }
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         *
+         * @param roleId
+         * @return
+         */
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
+
+
+        /**
+         * 协作者id
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
+         *
+         * @param memberId
+         * @return
+         */
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+        public DeleteAppRoleMemberReq build() {
+            return new DeleteAppRoleMemberReq(this);
+        }
+    }
 }

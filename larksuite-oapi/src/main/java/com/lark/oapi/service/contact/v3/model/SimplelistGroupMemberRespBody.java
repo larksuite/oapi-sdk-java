@@ -16,48 +16,47 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SimplelistGroupMemberRespBody {
+    /**
+     * 成员列表
+     * <p> 示例值：
+     */
+    @SerializedName("memberlist")
+    private Memberlist[] memberlist;
+    /**
+     * 下次分页获取的page_token
+     * <p> 示例值：TDRRV9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiJDGexPw=
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还需要分页获取
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 成员列表
-   * <p> 示例值：
-   */
-  @SerializedName("memberlist")
-  private Memberlist[] memberlist;
-  /**
-   * 下次分页获取的page_token
-   * <p> 示例值：TDRRV9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiJDGexPw=
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否还需要分页获取
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public Memberlist[] getMemberlist() {
+        return this.memberlist;
+    }
 
-  public Memberlist[] getMemberlist() {
-    return this.memberlist;
-  }
+    public void setMemberlist(Memberlist[] memberlist) {
+        this.memberlist = memberlist;
+    }
 
-  public void setMemberlist(Memberlist[] memberlist) {
-    this.memberlist = memberlist;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

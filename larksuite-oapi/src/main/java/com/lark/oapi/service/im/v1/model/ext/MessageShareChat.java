@@ -17,23 +17,23 @@ import com.lark.oapi.core.utils.Jsons;
 
 public class MessageShareChat {
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
-    @SerializedName("chat_id")
-    private String chatId;
-
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
+    public static final class Builder {
 
-    public String build() {
-      return Jsons.DEFAULT.toJson(this);
+        @SerializedName("chat_id")
+        private String chatId;
+
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+
+        public String build() {
+            return Jsons.DEFAULT.toJson(this);
+        }
     }
-  }
 }

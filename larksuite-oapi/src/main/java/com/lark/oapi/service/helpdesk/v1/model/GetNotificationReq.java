@@ -18,103 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetNotificationReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 唯一ID
-   * <p> 示例值：1624326025000
-   */
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-
-  // builder 开始
-  public GetNotificationReq() {
-  }
-
-  public GetNotificationReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 唯一ID
      * <p> 示例值：1624326025000
      */
-    this.notificationId = builder.notificationId;
-  }
+    @Path
+    @SerializedName("notification_id")
+    private String notificationId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String notificationId; // 唯一ID
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public GetNotificationReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public GetNotificationReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 唯一ID
+         * <p> 示例值：1624326025000
+         */
+        this.notificationId = builder.notificationId;
     }
 
-    /**
-     * 唯一ID
-     * <p> 示例值：1624326025000
-     *
-     * @param notificationId
-     * @return
-     */
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public GetNotificationReq build() {
-      return new GetNotificationReq(this);
+    public String getUserIdType() {
+        return this.userIdType;
     }
-  }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getNotificationId() {
+        return this.notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String notificationId; // 唯一ID
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 唯一ID
+         * <p> 示例值：1624326025000
+         *
+         * @param notificationId
+         * @return
+         */
+        public Builder notificationId(String notificationId) {
+            this.notificationId = notificationId;
+            return this;
+        }
+
+        public GetNotificationReq build() {
+            return new GetNotificationReq(this);
+        }
+    }
 }

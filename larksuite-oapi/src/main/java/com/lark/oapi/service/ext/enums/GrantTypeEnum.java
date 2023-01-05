@@ -14,16 +14,16 @@
 package com.lark.oapi.service.ext.enums;
 
 public enum GrantTypeEnum {
-  REFRESH_TOKEN("refresh_token"),
-  AUTHORIZATION_CODE("authorization_code"),
-  ;
-  private String value;
+    REFRESH_TOKEN("refresh_token"),
+    AUTHORIZATION_CODE("authorization_code"),
+    ;
+    private String value;
 
-  GrantTypeEnum(String value) {
-    this.value = value;
-  }
+    GrantTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

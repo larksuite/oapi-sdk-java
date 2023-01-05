@@ -16,246 +16,244 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CollaborationTenant {
-
-  /**
-   * 关联租户ID
-   * <p> 示例值：130426ba5b8f174f
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  /**
-   * 关联租户实际名称
-   * <p> 示例值：testName
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 别名
-   * <p> 示例值：testNickName
-   */
-  @SerializedName("nickname")
-  private String nickname;
-  /**
-   * 关联时间
-   * <p> 示例值：1642041636
-   */
-  @SerializedName("connect_time")
-  private Integer connectTime;
-  /**
-   * 租户icon信息
-   * <p> 示例值：
-   */
-  @SerializedName("avatar")
-  private AvatarInfo avatar;
-  /**
-   * 租户品牌
-   * <p> 示例值：
-   */
-  @SerializedName("brand")
-  private String brand;
-
-  // builder 开始
-  public CollaborationTenant() {
-  }
-
-  public CollaborationTenant(Builder builder) {
     /**
      * 关联租户ID
      * <p> 示例值：130426ba5b8f174f
      */
-    this.tenantKey = builder.tenantKey;
-    /**
-     * 关联租户实际名称
-     * <p> 示例值：testName
-     */
-    this.name = builder.name;
-    /**
-     * 别名
-     * <p> 示例值：testNickName
-     */
-    this.nickname = builder.nickname;
-    /**
-     * 关联时间
-     * <p> 示例值：1642041636
-     */
-    this.connectTime = builder.connectTime;
-    /**
-     * 租户icon信息
-     * <p> 示例值：
-     */
-    this.avatar = builder.avatar;
-    /**
-     * 租户品牌
-     * <p> 示例值：
-     */
-    this.brand = builder.brand;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getNickname() {
-    return this.nickname;
-  }
-
-  public void setNickname(String nickname) {
-    this.nickname = nickname;
-  }
-
-  public Integer getConnectTime() {
-    return this.connectTime;
-  }
-
-  public void setConnectTime(Integer connectTime) {
-    this.connectTime = connectTime;
-  }
-
-  public AvatarInfo getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(AvatarInfo avatar) {
-    this.avatar = avatar;
-  }
-
-  public String getBrand() {
-    return this.brand;
-  }
-
-  public void setBrand(String brand) {
-    this.brand = brand;
-  }
-
-  public static class Builder {
-
-    /**
-     * 关联租户ID
-     * <p> 示例值：130426ba5b8f174f
-     */
+    @SerializedName("tenant_key")
     private String tenantKey;
     /**
      * 关联租户实际名称
      * <p> 示例值：testName
      */
+    @SerializedName("name")
     private String name;
     /**
      * 别名
      * <p> 示例值：testNickName
      */
+    @SerializedName("nickname")
     private String nickname;
     /**
      * 关联时间
      * <p> 示例值：1642041636
      */
+    @SerializedName("connect_time")
     private Integer connectTime;
     /**
      * 租户icon信息
      * <p> 示例值：
      */
+    @SerializedName("avatar")
     private AvatarInfo avatar;
     /**
      * 租户品牌
      * <p> 示例值：
      */
+    @SerializedName("brand")
     private String brand;
 
-    /**
-     * 关联租户ID
-     * <p> 示例值：130426ba5b8f174f
-     *
-     * @param tenantKey
-     * @return
-     */
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    // builder 开始
+    public CollaborationTenant() {
     }
 
-
-    /**
-     * 关联租户实际名称
-     * <p> 示例值：testName
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public CollaborationTenant(Builder builder) {
+        /**
+         * 关联租户ID
+         * <p> 示例值：130426ba5b8f174f
+         */
+        this.tenantKey = builder.tenantKey;
+        /**
+         * 关联租户实际名称
+         * <p> 示例值：testName
+         */
+        this.name = builder.name;
+        /**
+         * 别名
+         * <p> 示例值：testNickName
+         */
+        this.nickname = builder.nickname;
+        /**
+         * 关联时间
+         * <p> 示例值：1642041636
+         */
+        this.connectTime = builder.connectTime;
+        /**
+         * 租户icon信息
+         * <p> 示例值：
+         */
+        this.avatar = builder.avatar;
+        /**
+         * 租户品牌
+         * <p> 示例值：
+         */
+        this.brand = builder.brand;
     }
 
-
-    /**
-     * 别名
-     * <p> 示例值：testNickName
-     *
-     * @param nickname
-     * @return
-     */
-    public Builder nickname(String nickname) {
-      this.nickname = nickname;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 关联时间
-     * <p> 示例值：1642041636
-     *
-     * @param connectTime
-     * @return
-     */
-    public Builder connectTime(Integer connectTime) {
-      this.connectTime = connectTime;
-      return this;
+    public String getTenantKey() {
+        return this.tenantKey;
     }
 
-
-    /**
-     * 租户icon信息
-     * <p> 示例值：
-     *
-     * @param avatar
-     * @return
-     */
-    public Builder avatar(AvatarInfo avatar) {
-      this.avatar = avatar;
-      return this;
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
-
-    /**
-     * 租户品牌
-     * <p> 示例值：
-     *
-     * @param brand
-     * @return
-     */
-    public Builder brand(String brand) {
-      this.brand = brand;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    public CollaborationTenant build() {
-      return new CollaborationTenant(this);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
+
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public Integer getConnectTime() {
+        return this.connectTime;
+    }
+
+    public void setConnectTime(Integer connectTime) {
+        this.connectTime = connectTime;
+    }
+
+    public AvatarInfo getAvatar() {
+        return this.avatar;
+    }
+
+    public void setAvatar(AvatarInfo avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getBrand() {
+        return this.brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public static class Builder {
+        /**
+         * 关联租户ID
+         * <p> 示例值：130426ba5b8f174f
+         */
+        private String tenantKey;
+        /**
+         * 关联租户实际名称
+         * <p> 示例值：testName
+         */
+        private String name;
+        /**
+         * 别名
+         * <p> 示例值：testNickName
+         */
+        private String nickname;
+        /**
+         * 关联时间
+         * <p> 示例值：1642041636
+         */
+        private Integer connectTime;
+        /**
+         * 租户icon信息
+         * <p> 示例值：
+         */
+        private AvatarInfo avatar;
+        /**
+         * 租户品牌
+         * <p> 示例值：
+         */
+        private String brand;
+
+        /**
+         * 关联租户ID
+         * <p> 示例值：130426ba5b8f174f
+         *
+         * @param tenantKey
+         * @return
+         */
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        /**
+         * 关联租户实际名称
+         * <p> 示例值：testName
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：testNickName
+         *
+         * @param nickname
+         * @return
+         */
+        public Builder nickname(String nickname) {
+            this.nickname = nickname;
+            return this;
+        }
+
+
+        /**
+         * 关联时间
+         * <p> 示例值：1642041636
+         *
+         * @param connectTime
+         * @return
+         */
+        public Builder connectTime(Integer connectTime) {
+            this.connectTime = connectTime;
+            return this;
+        }
+
+
+        /**
+         * 租户icon信息
+         * <p> 示例值：
+         *
+         * @param avatar
+         * @return
+         */
+        public Builder avatar(AvatarInfo avatar) {
+            this.avatar = avatar;
+            return this;
+        }
+
+
+        /**
+         * 租户品牌
+         * <p> 示例值：
+         *
+         * @param brand
+         * @return
+         */
+        public Builder brand(String brand) {
+            this.brand = brand;
+            return this;
+        }
+
+
+        public CollaborationTenant build() {
+            return new CollaborationTenant(this);
+        }
+    }
 }

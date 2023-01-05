@@ -17,16 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 权限类型，优先级：Deny > Allow。
  */
 public enum AclAclAccessEnum {
-  ALLOW("allow"), // 允许访问
-  DENY("deny"), // 禁止访问
-  ;
-  private String value;
+    ALLOW("allow"), // 允许访问
+    DENY("deny"), // 禁止访问
+    ;
+    private String value;
 
-  AclAclAccessEnum(String value) {
-    this.value = value;
-  }
+    AclAclAccessEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

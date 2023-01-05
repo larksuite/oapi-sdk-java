@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReplaceImageRequest {
-
-  /**
-   * 图片 token
-   * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-   */
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public ReplaceImageRequest() {
-  }
-
-  public ReplaceImageRequest(Builder builder) {
     /**
      * 图片 token
      * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
      */
-    this.token = builder.token;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
-    /**
-     * 图片 token
-     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-     */
+    @SerializedName("token")
     private String token;
 
-    /**
-     * 图片 token
-     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public ReplaceImageRequest() {
     }
 
-
-    public ReplaceImageRequest build() {
-      return new ReplaceImageRequest(this);
+    public ReplaceImageRequest(Builder builder) {
+        /**
+         * 图片 token
+         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+         */
+        this.token = builder.token;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public static class Builder {
+        /**
+         * 图片 token
+         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+         */
+        private String token;
+
+        /**
+         * 图片 token
+         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        public ReplaceImageRequest build() {
+            return new ReplaceImageRequest(this);
+        }
+    }
 }

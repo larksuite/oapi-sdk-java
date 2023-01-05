@@ -16,394 +16,392 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationJob {
-
-  /**
-   * ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 职称
-   * <p> 示例值：
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 城市
-   * <p> 示例值：
-   */
-  @SerializedName("city")
-  private City city;
-  /**
-   * 部门
-   * <p> 示例值：
-   */
-  @SerializedName("department")
-  private Department department;
-  /**
-   * 招聘类型
-   * <p> 示例值：
-   */
-  @SerializedName("recruitment_type")
-  private RecruitmentType recruitmentType;
-  /**
-   * 描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private String description;
-  /**
-   * 岗位流程编号
-   * <p> 示例值：
-   */
-  @SerializedName("job_process_id")
-  private String jobProcessId;
-  /**
-   * 编码
-   * <p> 示例值：
-   */
-  @SerializedName("code")
-  private String code;
-  /**
-   * 地址
-   * <p> 示例值：
-   */
-  @SerializedName("address")
-  private ApplicationJobAddress address;
-  /**
-   * 国家
-   * <p> 示例值：
-   */
-  @SerializedName("country")
-  private Country country;
-
-  // builder 开始
-  public ApplicationJob() {
-  }
-
-  public ApplicationJob(Builder builder) {
     /**
      * ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 职称
-     * <p> 示例值：
-     */
-    this.title = builder.title;
-    /**
-     * 城市
-     * <p> 示例值：
-     */
-    this.city = builder.city;
-    /**
-     * 部门
-     * <p> 示例值：
-     */
-    this.department = builder.department;
-    /**
-     * 招聘类型
-     * <p> 示例值：
-     */
-    this.recruitmentType = builder.recruitmentType;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-    /**
-     * 岗位流程编号
-     * <p> 示例值：
-     */
-    this.jobProcessId = builder.jobProcessId;
-    /**
-     * 编码
-     * <p> 示例值：
-     */
-    this.code = builder.code;
-    /**
-     * 地址
-     * <p> 示例值：
-     */
-    this.address = builder.address;
-    /**
-     * 国家
-     * <p> 示例值：
-     */
-    this.country = builder.country;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public City getCity() {
-    return this.city;
-  }
-
-  public void setCity(City city) {
-    this.city = city;
-  }
-
-  public Department getDepartment() {
-    return this.department;
-  }
-
-  public void setDepartment(Department department) {
-    this.department = department;
-  }
-
-  public RecruitmentType getRecruitmentType() {
-    return this.recruitmentType;
-  }
-
-  public void setRecruitmentType(RecruitmentType recruitmentType) {
-    this.recruitmentType = recruitmentType;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getJobProcessId() {
-    return this.jobProcessId;
-  }
-
-  public void setJobProcessId(String jobProcessId) {
-    this.jobProcessId = jobProcessId;
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ApplicationJobAddress getAddress() {
-    return this.address;
-  }
-
-  public void setAddress(ApplicationJobAddress address) {
-    this.address = address;
-  }
-
-  public Country getCountry() {
-    return this.country;
-  }
-
-  public void setCountry(Country country) {
-    this.country = country;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 职称
      * <p> 示例值：
      */
+    @SerializedName("title")
     private String title;
     /**
      * 城市
      * <p> 示例值：
      */
+    @SerializedName("city")
     private City city;
     /**
      * 部门
      * <p> 示例值：
      */
+    @SerializedName("department")
     private Department department;
     /**
      * 招聘类型
      * <p> 示例值：
      */
+    @SerializedName("recruitment_type")
     private RecruitmentType recruitmentType;
     /**
      * 描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private String description;
     /**
      * 岗位流程编号
      * <p> 示例值：
      */
+    @SerializedName("job_process_id")
     private String jobProcessId;
     /**
      * 编码
      * <p> 示例值：
      */
+    @SerializedName("code")
     private String code;
     /**
      * 地址
      * <p> 示例值：
      */
+    @SerializedName("address")
     private ApplicationJobAddress address;
     /**
      * 国家
      * <p> 示例值：
      */
+    @SerializedName("country")
     private Country country;
 
-    /**
-     * ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ApplicationJob() {
     }
 
-
-    /**
-     * 职称
-     * <p> 示例值：
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public ApplicationJob(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 职称
+         * <p> 示例值：
+         */
+        this.title = builder.title;
+        /**
+         * 城市
+         * <p> 示例值：
+         */
+        this.city = builder.city;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        this.department = builder.department;
+        /**
+         * 招聘类型
+         * <p> 示例值：
+         */
+        this.recruitmentType = builder.recruitmentType;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 岗位流程编号
+         * <p> 示例值：
+         */
+        this.jobProcessId = builder.jobProcessId;
+        /**
+         * 编码
+         * <p> 示例值：
+         */
+        this.code = builder.code;
+        /**
+         * 地址
+         * <p> 示例值：
+         */
+        this.address = builder.address;
+        /**
+         * 国家
+         * <p> 示例值：
+         */
+        this.country = builder.country;
     }
 
-
-    /**
-     * 城市
-     * <p> 示例值：
-     *
-     * @param city
-     * @return
-     */
-    public Builder city(City city) {
-      this.city = city;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 部门
-     * <p> 示例值：
-     *
-     * @param department
-     * @return
-     */
-    public Builder department(Department department) {
-      this.department = department;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 招聘类型
-     * <p> 示例值：
-     *
-     * @param recruitmentType
-     * @return
-     */
-    public Builder recruitmentType(RecruitmentType recruitmentType) {
-      this.recruitmentType = recruitmentType;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-
-    /**
-     * 岗位流程编号
-     * <p> 示例值：
-     *
-     * @param jobProcessId
-     * @return
-     */
-    public Builder jobProcessId(String jobProcessId) {
-      this.jobProcessId = jobProcessId;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-
-    /**
-     * 编码
-     * <p> 示例值：
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public City getCity() {
+        return this.city;
     }
 
-
-    /**
-     * 地址
-     * <p> 示例值：
-     *
-     * @param address
-     * @return
-     */
-    public Builder address(ApplicationJobAddress address) {
-      this.address = address;
-      return this;
+    public void setCity(City city) {
+        this.city = city;
     }
 
-
-    /**
-     * 国家
-     * <p> 示例值：
-     *
-     * @param country
-     * @return
-     */
-    public Builder country(Country country) {
-      this.country = country;
-      return this;
+    public Department getDepartment() {
+        return this.department;
     }
 
-
-    public ApplicationJob build() {
-      return new ApplicationJob(this);
+    public void setDepartment(Department department) {
+        this.department = department;
     }
-  }
+
+    public RecruitmentType getRecruitmentType() {
+        return this.recruitmentType;
+    }
+
+    public void setRecruitmentType(RecruitmentType recruitmentType) {
+        this.recruitmentType = recruitmentType;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getJobProcessId() {
+        return this.jobProcessId;
+    }
+
+    public void setJobProcessId(String jobProcessId) {
+        this.jobProcessId = jobProcessId;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public ApplicationJobAddress getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(ApplicationJobAddress address) {
+        this.address = address;
+    }
+
+    public Country getCountry() {
+        return this.country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 职称
+         * <p> 示例值：
+         */
+        private String title;
+        /**
+         * 城市
+         * <p> 示例值：
+         */
+        private City city;
+        /**
+         * 部门
+         * <p> 示例值：
+         */
+        private Department department;
+        /**
+         * 招聘类型
+         * <p> 示例值：
+         */
+        private RecruitmentType recruitmentType;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private String description;
+        /**
+         * 岗位流程编号
+         * <p> 示例值：
+         */
+        private String jobProcessId;
+        /**
+         * 编码
+         * <p> 示例值：
+         */
+        private String code;
+        /**
+         * 地址
+         * <p> 示例值：
+         */
+        private ApplicationJobAddress address;
+        /**
+         * 国家
+         * <p> 示例值：
+         */
+        private Country country;
+
+        /**
+         * ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 职称
+         * <p> 示例值：
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 城市
+         * <p> 示例值：
+         *
+         * @param city
+         * @return
+         */
+        public Builder city(City city) {
+            this.city = city;
+            return this;
+        }
+
+
+        /**
+         * 部门
+         * <p> 示例值：
+         *
+         * @param department
+         * @return
+         */
+        public Builder department(Department department) {
+            this.department = department;
+            return this;
+        }
+
+
+        /**
+         * 招聘类型
+         * <p> 示例值：
+         *
+         * @param recruitmentType
+         * @return
+         */
+        public Builder recruitmentType(RecruitmentType recruitmentType) {
+            this.recruitmentType = recruitmentType;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 岗位流程编号
+         * <p> 示例值：
+         *
+         * @param jobProcessId
+         * @return
+         */
+        public Builder jobProcessId(String jobProcessId) {
+            this.jobProcessId = jobProcessId;
+            return this;
+        }
+
+
+        /**
+         * 编码
+         * <p> 示例值：
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 地址
+         * <p> 示例值：
+         *
+         * @param address
+         * @return
+         */
+        public Builder address(ApplicationJobAddress address) {
+            this.address = address;
+            return this;
+        }
+
+
+        /**
+         * 国家
+         * <p> 示例值：
+         *
+         * @param country
+         * @return
+         */
+        public Builder country(Country country) {
+            this.country = country;
+            return this;
+        }
+
+
+        public ApplicationJob build() {
+            return new ApplicationJob(this);
+        }
+    }
 }

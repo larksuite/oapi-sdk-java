@@ -18,90 +18,88 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetMotoReq {
-
-  /**
-   * desc
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("body_level")
-  private String bodyLevel;
-  /**
-   * desc33333
-   * <p> 示例值：
-   */
-  @Path
-  @SerializedName("moto_id")
-  private String motoId;
-
-  // builder 开始
-  public GetMotoReq() {
-  }
-
-  public GetMotoReq(Builder builder) {
     /**
      * desc
-     * <p> 示例值：
+     * <p> 示例值：1234
      */
-    this.bodyLevel = builder.bodyLevel;
+    @Query
+    @SerializedName("body_level")
+    private String bodyLevel;
     /**
      * desc33333
-     * <p> 示例值：
+     * <p> 示例值：1234
      */
-    this.motoId = builder.motoId;
-  }
+    @Path
+    @SerializedName("moto_id")
+    private String motoId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBodyLevel() {
-    return this.bodyLevel;
-  }
-
-  public void setBodyLevel(String bodyLevel) {
-    this.bodyLevel = bodyLevel;
-  }
-
-  public String getMotoId() {
-    return this.motoId;
-  }
-
-  public void setMotoId(String motoId) {
-    this.motoId = motoId;
-  }
-
-  public static class Builder {
-
-    private String bodyLevel; // desc
-    private String motoId; // desc33333
-
-    /**
-     * desc
-     * <p> 示例值：
-     *
-     * @param bodyLevel
-     * @return
-     */
-    public Builder bodyLevel(String bodyLevel) {
-      this.bodyLevel = bodyLevel;
-      return this;
+    // builder 开始
+    public GetMotoReq() {
     }
 
-    /**
-     * desc33333
-     * <p> 示例值：
-     *
-     * @param motoId
-     * @return
-     */
-    public Builder motoId(String motoId) {
-      this.motoId = motoId;
-      return this;
+    public GetMotoReq(Builder builder) {
+        /**
+         * desc
+         * <p> 示例值：1234
+         */
+        this.bodyLevel = builder.bodyLevel;
+        /**
+         * desc33333
+         * <p> 示例值：1234
+         */
+        this.motoId = builder.motoId;
     }
 
-    public GetMotoReq build() {
-      return new GetMotoReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getBodyLevel() {
+        return this.bodyLevel;
+    }
+
+    public void setBodyLevel(String bodyLevel) {
+        this.bodyLevel = bodyLevel;
+    }
+
+    public String getMotoId() {
+        return this.motoId;
+    }
+
+    public void setMotoId(String motoId) {
+        this.motoId = motoId;
+    }
+
+    public static class Builder {
+        private String bodyLevel; // desc
+        private String motoId; // desc33333
+
+        /**
+         * desc
+         * <p> 示例值：1234
+         *
+         * @param bodyLevel
+         * @return
+         */
+        public Builder bodyLevel(String bodyLevel) {
+            this.bodyLevel = bodyLevel;
+            return this;
+        }
+
+        /**
+         * desc33333
+         * <p> 示例值：1234
+         *
+         * @param motoId
+         * @return
+         */
+        public Builder motoId(String motoId) {
+            this.motoId = motoId;
+            return this;
+        }
+
+        public GetMotoReq build() {
+            return new GetMotoReq(this);
+        }
+    }
 }

@@ -16,34 +16,33 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2ScopeUpdatedV3Data {
+    /**
+     * 当通讯录范围权限变更时，新增的对象
+     * <p> 示例值：
+     */
+    @SerializedName("added")
+    private Scope added;
+    /**
+     * 当通讯录范围权限发生变更时，移除的对象
+     * <p> 示例值：
+     */
+    @SerializedName("removed")
+    private Scope removed;
 
-  /**
-   * 当通讯录范围权限变更时，新增的对象
-   * <p> 示例值：
-   */
-  @SerializedName("added")
-  private Scope added;
-  /**
-   * 当通讯录范围权限发生变更时，移除的对象
-   * <p> 示例值：
-   */
-  @SerializedName("removed")
-  private Scope removed;
+    public Scope getAdded() {
+        return this.added;
+    }
 
-  public Scope getAdded() {
-    return this.added;
-  }
+    public void setAdded(Scope added) {
+        this.added = added;
+    }
 
-  public void setAdded(Scope added) {
-    this.added = added;
-  }
+    public Scope getRemoved() {
+        return this.removed;
+    }
 
-  public Scope getRemoved() {
-    return this.removed;
-  }
-
-  public void setRemoved(Scope removed) {
-    this.removed = removed;
-  }
+    public void setRemoved(Scope removed) {
+        this.removed = removed;
+    }
 
 }

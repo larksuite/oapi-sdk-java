@@ -15,17 +15,17 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum CycleTypeEnum {
-  DAY(1),
-  WEEK(2),
-  MONTH(3),
-  ;
-  private Integer value;
+    DAY(1),
+    WEEK(2),
+    MONTH(3),
+    ;
+    private Integer value;
 
-  CycleTypeEnum(Integer value) {
-    this.value = value;
-  }
+    CycleTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

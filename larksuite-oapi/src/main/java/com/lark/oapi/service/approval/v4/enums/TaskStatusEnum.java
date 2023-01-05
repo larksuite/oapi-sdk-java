@@ -15,20 +15,20 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum TaskStatusEnum {
-  TODO("1"),
-  DONE("2"),
-  UNREAD("17"),
-  READ("18"),
-  PROCESSING("33"),
-  WITHDRAWN("34"),
-  ;
-  private String value;
+    TODO("1"),
+    DONE("2"),
+    UNREAD("17"),
+    READ("18"),
+    PROCESSING("33"),
+    WITHDRAWN("34"),
+    ;
+    private String value;
 
-  TaskStatusEnum(String value) {
-    this.value = value;
-  }
+    TaskStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

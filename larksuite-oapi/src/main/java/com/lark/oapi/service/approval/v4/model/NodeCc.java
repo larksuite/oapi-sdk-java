@@ -16,101 +16,96 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class NodeCc {
-
-  /**
-   * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
-   * 获取
-   * <p> 示例值：46e6d96cfa756980907209209ec03b75
-   */
-  @SerializedName("key")
-  private String key;
-  /**
-   * value: 审批人列表
-   * <p> 示例值：["f7cb567e"]
-   */
-  @SerializedName("value")
-  private String[] value;
-
-  // builder 开始
-  public NodeCc() {
-  }
-
-  public NodeCc(Builder builder) {
     /**
      * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b75
      */
-    this.key = builder.key;
-    /**
-     * value: 审批人列表
-     * <p> 示例值：["f7cb567e"]
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getKey() {
-    return this.key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public String[] getValue() {
-    return this.value;
-  }
-
-  public void setValue(String[] value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
-     * 获取
-     * <p> 示例值：46e6d96cfa756980907209209ec03b75
-     */
+    @SerializedName("key")
     private String key;
     /**
      * value: 审批人列表
      * <p> 示例值：["f7cb567e"]
      */
+    @SerializedName("value")
     private String[] value;
 
-    /**
-     * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
-     * 获取
-     * <p> 示例值：46e6d96cfa756980907209209ec03b75
-     *
-     * @param key
-     * @return
-     */
-    public Builder key(String key) {
-      this.key = key;
-      return this;
+    // builder 开始
+    public NodeCc() {
     }
 
-
-    /**
-     * value: 审批人列表
-     * <p> 示例值：["f7cb567e"]
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String[] value) {
-      this.value = value;
-      return this;
+    public NodeCc(Builder builder) {
+        /**
+         * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+         * <p> 示例值：46e6d96cfa756980907209209ec03b75
+         */
+        this.key = builder.key;
+        /**
+         * value: 审批人列表
+         * <p> 示例值：["f7cb567e"]
+         */
+        this.value = builder.value;
     }
 
-
-    public NodeCc build() {
-      return new NodeCc(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String[] getValue() {
+        return this.value;
+    }
+
+    public void setValue(String[] value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+         * <p> 示例值：46e6d96cfa756980907209209ec03b75
+         */
+        private String key;
+        /**
+         * value: 审批人列表
+         * <p> 示例值：["f7cb567e"]
+         */
+        private String[] value;
+
+        /**
+         * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+         * <p> 示例值：46e6d96cfa756980907209209ec03b75
+         *
+         * @param key
+         * @return
+         */
+        public Builder key(String key) {
+            this.key = key;
+            return this;
+        }
+
+
+        /**
+         * value: 审批人列表
+         * <p> 示例值：["f7cb567e"]
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String[] value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public NodeCc build() {
+            return new NodeCc(this);
+        }
+    }
 }

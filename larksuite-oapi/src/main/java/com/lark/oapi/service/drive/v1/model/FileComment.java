@@ -16,468 +16,466 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FileComment {
-
-  /**
-   * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
-   * <p> 示例值：6916106822734512356
-   */
-  @SerializedName("comment_id")
-  private String commentId;
-  /**
-   * 用户ID
-   * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 创建时间
-   * <p> 示例值：1610281603
-   */
-  @SerializedName("create_time")
-  private Integer createTime;
-  /**
-   * 更新时间
-   * <p> 示例值：1610281603
-   */
-  @SerializedName("update_time")
-  private Integer updateTime;
-  /**
-   * 是否已解决
-   * <p> 示例值：false
-   */
-  @SerializedName("is_solved")
-  private Boolean isSolved;
-  /**
-   * 解决评论时间
-   * <p> 示例值：1610281603
-   */
-  @SerializedName("solved_time")
-  private Integer solvedTime;
-  /**
-   * 解决评论者的用户ID
-   * <p> 示例值：null
-   */
-  @SerializedName("solver_user_id")
-  private String solverUserId;
-  /**
-   * 是否有更多回复
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 回复分页标记
-   * <p> 示例值：6916106822734512356
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否是全文评论
-   * <p> 示例值：true
-   */
-  @SerializedName("is_whole")
-  private Boolean isWhole;
-  /**
-   * 如果是局部评论，引用字段
-   * <p> 示例值：划词评论引用内容
-   */
-  @SerializedName("quote")
-  private String quote;
-  /**
-   * 评论里的回复列表
-   * <p> 示例值：
-   */
-  @SerializedName("reply_list")
-  private ReplyList replyList;
-
-  // builder 开始
-  public FileComment() {
-  }
-
-  public FileComment(Builder builder) {
     /**
      * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
      * <p> 示例值：6916106822734512356
      */
-    this.commentId = builder.commentId;
-    /**
-     * 用户ID
-     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-     */
-    this.userId = builder.userId;
-    /**
-     * 创建时间
-     * <p> 示例值：1610281603
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：1610281603
-     */
-    this.updateTime = builder.updateTime;
-    /**
-     * 是否已解决
-     * <p> 示例值：false
-     */
-    this.isSolved = builder.isSolved;
-    /**
-     * 解决评论时间
-     * <p> 示例值：1610281603
-     */
-    this.solvedTime = builder.solvedTime;
-    /**
-     * 解决评论者的用户ID
-     * <p> 示例值：null
-     */
-    this.solverUserId = builder.solverUserId;
-    /**
-     * 是否有更多回复
-     * <p> 示例值：false
-     */
-    this.hasMore = builder.hasMore;
-    /**
-     * 回复分页标记
-     * <p> 示例值：6916106822734512356
-     */
-    this.pageToken = builder.pageToken;
-    /**
-     * 是否是全文评论
-     * <p> 示例值：true
-     */
-    this.isWhole = builder.isWhole;
-    /**
-     * 如果是局部评论，引用字段
-     * <p> 示例值：划词评论引用内容
-     */
-    this.quote = builder.quote;
-    /**
-     * 评论里的回复列表
-     * <p> 示例值：
-     */
-    this.replyList = builder.replyList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCommentId() {
-    return this.commentId;
-  }
-
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(Integer updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public Boolean getIsSolved() {
-    return this.isSolved;
-  }
-
-  public void setIsSolved(Boolean isSolved) {
-    this.isSolved = isSolved;
-  }
-
-  public Integer getSolvedTime() {
-    return this.solvedTime;
-  }
-
-  public void setSolvedTime(Integer solvedTime) {
-    this.solvedTime = solvedTime;
-  }
-
-  public String getSolverUserId() {
-    return this.solverUserId;
-  }
-
-  public void setSolverUserId(String solverUserId) {
-    this.solverUserId = solverUserId;
-  }
-
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Boolean getIsWhole() {
-    return this.isWhole;
-  }
-
-  public void setIsWhole(Boolean isWhole) {
-    this.isWhole = isWhole;
-  }
-
-  public String getQuote() {
-    return this.quote;
-  }
-
-  public void setQuote(String quote) {
-    this.quote = quote;
-  }
-
-  public ReplyList getReplyList() {
-    return this.replyList;
-  }
-
-  public void setReplyList(ReplyList replyList) {
-    this.replyList = replyList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
-     * <p> 示例值：6916106822734512356
-     */
+    @SerializedName("comment_id")
     private String commentId;
     /**
      * 用户ID
      * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 创建时间
      * <p> 示例值：1610281603
      */
+    @SerializedName("create_time")
     private Integer createTime;
     /**
      * 更新时间
      * <p> 示例值：1610281603
      */
+    @SerializedName("update_time")
     private Integer updateTime;
     /**
      * 是否已解决
      * <p> 示例值：false
      */
+    @SerializedName("is_solved")
     private Boolean isSolved;
     /**
      * 解决评论时间
      * <p> 示例值：1610281603
      */
+    @SerializedName("solved_time")
     private Integer solvedTime;
     /**
      * 解决评论者的用户ID
      * <p> 示例值：null
      */
+    @SerializedName("solver_user_id")
     private String solverUserId;
     /**
      * 是否有更多回复
      * <p> 示例值：false
      */
+    @SerializedName("has_more")
     private Boolean hasMore;
     /**
      * 回复分页标记
      * <p> 示例值：6916106822734512356
      */
+    @SerializedName("page_token")
     private String pageToken;
     /**
      * 是否是全文评论
      * <p> 示例值：true
      */
+    @SerializedName("is_whole")
     private Boolean isWhole;
     /**
      * 如果是局部评论，引用字段
      * <p> 示例值：划词评论引用内容
      */
+    @SerializedName("quote")
     private String quote;
     /**
      * 评论里的回复列表
      * <p> 示例值：
      */
+    @SerializedName("reply_list")
     private ReplyList replyList;
 
-    /**
-     * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
-     * <p> 示例值：6916106822734512356
-     *
-     * @param commentId
-     * @return
-     */
-    public Builder commentId(String commentId) {
-      this.commentId = commentId;
-      return this;
+    // builder 开始
+    public FileComment() {
     }
 
-
-    /**
-     * 用户ID
-     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public FileComment(Builder builder) {
+        /**
+         * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
+         * <p> 示例值：6916106822734512356
+         */
+        this.commentId = builder.commentId;
+        /**
+         * 用户ID
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         */
+        this.userId = builder.userId;
+        /**
+         * 创建时间
+         * <p> 示例值：1610281603
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：1610281603
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 是否已解决
+         * <p> 示例值：false
+         */
+        this.isSolved = builder.isSolved;
+        /**
+         * 解决评论时间
+         * <p> 示例值：1610281603
+         */
+        this.solvedTime = builder.solvedTime;
+        /**
+         * 解决评论者的用户ID
+         * <p> 示例值：null
+         */
+        this.solverUserId = builder.solverUserId;
+        /**
+         * 是否有更多回复
+         * <p> 示例值：false
+         */
+        this.hasMore = builder.hasMore;
+        /**
+         * 回复分页标记
+         * <p> 示例值：6916106822734512356
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 是否是全文评论
+         * <p> 示例值：true
+         */
+        this.isWhole = builder.isWhole;
+        /**
+         * 如果是局部评论，引用字段
+         * <p> 示例值：划词评论引用内容
+         */
+        this.quote = builder.quote;
+        /**
+         * 评论里的回复列表
+         * <p> 示例值：
+         */
+        this.replyList = builder.replyList;
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：1610281603
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 更新时间
-     * <p> 示例值：1610281603
-     *
-     * @param updateTime
-     * @return
-     */
-    public Builder updateTime(Integer updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public String getCommentId() {
+        return this.commentId;
     }
 
-
-    /**
-     * 是否已解决
-     * <p> 示例值：false
-     *
-     * @param isSolved
-     * @return
-     */
-    public Builder isSolved(Boolean isSolved) {
-      this.isSolved = isSolved;
-      return this;
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
     }
 
-
-    /**
-     * 解决评论时间
-     * <p> 示例值：1610281603
-     *
-     * @param solvedTime
-     * @return
-     */
-    public Builder solvedTime(Integer solvedTime) {
-      this.solvedTime = solvedTime;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * 解决评论者的用户ID
-     * <p> 示例值：null
-     *
-     * @param solverUserId
-     * @return
-     */
-    public Builder solverUserId(String solverUserId) {
-      this.solverUserId = solverUserId;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-
-    /**
-     * 是否有更多回复
-     * <p> 示例值：false
-     *
-     * @param hasMore
-     * @return
-     */
-    public Builder hasMore(Boolean hasMore) {
-      this.hasMore = hasMore;
-      return this;
+    public Integer getCreateTime() {
+        return this.createTime;
     }
 
-
-    /**
-     * 回复分页标记
-     * <p> 示例值：6916106822734512356
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
     }
 
-
-    /**
-     * 是否是全文评论
-     * <p> 示例值：true
-     *
-     * @param isWhole
-     * @return
-     */
-    public Builder isWhole(Boolean isWhole) {
-      this.isWhole = isWhole;
-      return this;
+    public Integer getUpdateTime() {
+        return this.updateTime;
     }
 
-
-    /**
-     * 如果是局部评论，引用字段
-     * <p> 示例值：划词评论引用内容
-     *
-     * @param quote
-     * @return
-     */
-    public Builder quote(String quote) {
-      this.quote = quote;
-      return this;
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
     }
 
-
-    /**
-     * 评论里的回复列表
-     * <p> 示例值：
-     *
-     * @param replyList
-     * @return
-     */
-    public Builder replyList(ReplyList replyList) {
-      this.replyList = replyList;
-      return this;
+    public Boolean getIsSolved() {
+        return this.isSolved;
     }
 
-
-    public FileComment build() {
-      return new FileComment(this);
+    public void setIsSolved(Boolean isSolved) {
+        this.isSolved = isSolved;
     }
-  }
+
+    public Integer getSolvedTime() {
+        return this.solvedTime;
+    }
+
+    public void setSolvedTime(Integer solvedTime) {
+        this.solvedTime = solvedTime;
+    }
+
+    public String getSolverUserId() {
+        return this.solverUserId;
+    }
+
+    public void setSolverUserId(String solverUserId) {
+        this.solverUserId = solverUserId;
+    }
+
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Boolean getIsWhole() {
+        return this.isWhole;
+    }
+
+    public void setIsWhole(Boolean isWhole) {
+        this.isWhole = isWhole;
+    }
+
+    public String getQuote() {
+        return this.quote;
+    }
+
+    public void setQuote(String quote) {
+        this.quote = quote;
+    }
+
+    public ReplyList getReplyList() {
+        return this.replyList;
+    }
+
+    public void setReplyList(ReplyList replyList) {
+        this.replyList = replyList;
+    }
+
+    public static class Builder {
+        /**
+         * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
+         * <p> 示例值：6916106822734512356
+         */
+        private String commentId;
+        /**
+         * 用户ID
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         */
+        private String userId;
+        /**
+         * 创建时间
+         * <p> 示例值：1610281603
+         */
+        private Integer createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：1610281603
+         */
+        private Integer updateTime;
+        /**
+         * 是否已解决
+         * <p> 示例值：false
+         */
+        private Boolean isSolved;
+        /**
+         * 解决评论时间
+         * <p> 示例值：1610281603
+         */
+        private Integer solvedTime;
+        /**
+         * 解决评论者的用户ID
+         * <p> 示例值：null
+         */
+        private String solverUserId;
+        /**
+         * 是否有更多回复
+         * <p> 示例值：false
+         */
+        private Boolean hasMore;
+        /**
+         * 回复分页标记
+         * <p> 示例值：6916106822734512356
+         */
+        private String pageToken;
+        /**
+         * 是否是全文评论
+         * <p> 示例值：true
+         */
+        private Boolean isWhole;
+        /**
+         * 如果是局部评论，引用字段
+         * <p> 示例值：划词评论引用内容
+         */
+        private String quote;
+        /**
+         * 评论里的回复列表
+         * <p> 示例值：
+         */
+        private ReplyList replyList;
+
+        /**
+         * 评论ID（创建新评论可不填；如填写，则视为回复已有评论）
+         * <p> 示例值：6916106822734512356
+         *
+         * @param commentId
+         * @return
+         */
+        public Builder commentId(String commentId) {
+            this.commentId = commentId;
+            return this;
+        }
+
+
+        /**
+         * 用户ID
+         * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1610281603
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Integer createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：1610281603
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(Integer updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 是否已解决
+         * <p> 示例值：false
+         *
+         * @param isSolved
+         * @return
+         */
+        public Builder isSolved(Boolean isSolved) {
+            this.isSolved = isSolved;
+            return this;
+        }
+
+
+        /**
+         * 解决评论时间
+         * <p> 示例值：1610281603
+         *
+         * @param solvedTime
+         * @return
+         */
+        public Builder solvedTime(Integer solvedTime) {
+            this.solvedTime = solvedTime;
+            return this;
+        }
+
+
+        /**
+         * 解决评论者的用户ID
+         * <p> 示例值：null
+         *
+         * @param solverUserId
+         * @return
+         */
+        public Builder solverUserId(String solverUserId) {
+            this.solverUserId = solverUserId;
+            return this;
+        }
+
+
+        /**
+         * 是否有更多回复
+         * <p> 示例值：false
+         *
+         * @param hasMore
+         * @return
+         */
+        public Builder hasMore(Boolean hasMore) {
+            this.hasMore = hasMore;
+            return this;
+        }
+
+
+        /**
+         * 回复分页标记
+         * <p> 示例值：6916106822734512356
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 是否是全文评论
+         * <p> 示例值：true
+         *
+         * @param isWhole
+         * @return
+         */
+        public Builder isWhole(Boolean isWhole) {
+            this.isWhole = isWhole;
+            return this;
+        }
+
+
+        /**
+         * 如果是局部评论，引用字段
+         * <p> 示例值：划词评论引用内容
+         *
+         * @param quote
+         * @return
+         */
+        public Builder quote(String quote) {
+            this.quote = quote;
+            return this;
+        }
+
+
+        /**
+         * 评论里的回复列表
+         * <p> 示例值：
+         *
+         * @param replyList
+         * @return
+         */
+        public Builder replyList(ReplyList replyList) {
+            this.replyList = replyList;
+            return this;
+        }
+
+
+        public FileComment build() {
+            return new FileComment(this);
+        }
+    }
 }

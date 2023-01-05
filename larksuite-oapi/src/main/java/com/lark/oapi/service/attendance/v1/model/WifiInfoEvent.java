@@ -16,160 +16,158 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WifiInfoEvent {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("ssid")
-  private String ssid;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("bssid")
-  private String bssid;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("lastssid")
-  private String lastssid;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("lastbssid")
-  private String lastbssid;
-
-  // builder 开始
-  public WifiInfoEvent() {
-  }
-
-  public WifiInfoEvent(Builder builder) {
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.ssid = builder.ssid;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.bssid = builder.bssid;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.lastssid = builder.lastssid;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.lastbssid = builder.lastbssid;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSsid() {
-    return this.ssid;
-  }
-
-  public void setSsid(String ssid) {
-    this.ssid = ssid;
-  }
-
-  public String getBssid() {
-    return this.bssid;
-  }
-
-  public void setBssid(String bssid) {
-    this.bssid = bssid;
-  }
-
-  public String getLastssid() {
-    return this.lastssid;
-  }
-
-  public void setLastssid(String lastssid) {
-    this.lastssid = lastssid;
-  }
-
-  public String getLastbssid() {
-    return this.lastbssid;
-  }
-
-  public void setLastbssid(String lastbssid) {
-    this.lastbssid = lastbssid;
-  }
-
-  public static class Builder {
-
     /**
      * <p> 示例值：
      */
+    @SerializedName("ssid")
     private String ssid;
     /**
      * <p> 示例值：
      */
+    @SerializedName("bssid")
     private String bssid;
     /**
      * <p> 示例值：
      */
+    @SerializedName("lastssid")
     private String lastssid;
     /**
      * <p> 示例值：
      */
+    @SerializedName("lastbssid")
     private String lastbssid;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param ssid
-     * @return
-     */
-    public Builder ssid(String ssid) {
-      this.ssid = ssid;
-      return this;
+    // builder 开始
+    public WifiInfoEvent() {
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param bssid
-     * @return
-     */
-    public Builder bssid(String bssid) {
-      this.bssid = bssid;
-      return this;
+    public WifiInfoEvent(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.ssid = builder.ssid;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.bssid = builder.bssid;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.lastssid = builder.lastssid;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.lastbssid = builder.lastbssid;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param lastssid
-     * @return
-     */
-    public Builder lastssid(String lastssid) {
-      this.lastssid = lastssid;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param lastbssid
-     * @return
-     */
-    public Builder lastbssid(String lastbssid) {
-      this.lastbssid = lastbssid;
-      return this;
+    public String getSsid() {
+        return this.ssid;
     }
 
-
-    public WifiInfoEvent build() {
-      return new WifiInfoEvent(this);
+    public void setSsid(String ssid) {
+        this.ssid = ssid;
     }
-  }
+
+    public String getBssid() {
+        return this.bssid;
+    }
+
+    public void setBssid(String bssid) {
+        this.bssid = bssid;
+    }
+
+    public String getLastssid() {
+        return this.lastssid;
+    }
+
+    public void setLastssid(String lastssid) {
+        this.lastssid = lastssid;
+    }
+
+    public String getLastbssid() {
+        return this.lastbssid;
+    }
+
+    public void setLastbssid(String lastbssid) {
+        this.lastbssid = lastbssid;
+    }
+
+    public static class Builder {
+        /**
+         * <p> 示例值：
+         */
+        private String ssid;
+        /**
+         * <p> 示例值：
+         */
+        private String bssid;
+        /**
+         * <p> 示例值：
+         */
+        private String lastssid;
+        /**
+         * <p> 示例值：
+         */
+        private String lastbssid;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param ssid
+         * @return
+         */
+        public Builder ssid(String ssid) {
+            this.ssid = ssid;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param bssid
+         * @return
+         */
+        public Builder bssid(String bssid) {
+            this.bssid = bssid;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param lastssid
+         * @return
+         */
+        public Builder lastssid(String lastssid) {
+            this.lastssid = lastssid;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param lastbssid
+         * @return
+         */
+        public Builder lastbssid(String lastbssid) {
+            this.lastbssid = lastbssid;
+            return this;
+        }
+
+
+        public WifiInfoEvent build() {
+            return new WifiInfoEvent(this);
+        }
+    }
 }

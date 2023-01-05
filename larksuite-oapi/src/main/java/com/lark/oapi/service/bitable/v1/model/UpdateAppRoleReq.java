@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateAppRoleReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * 自定义角色的id
-   * <p> 示例值：roljRpwIUt
-   */
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-  @Body
-  private AppRole body;
-
-  // builder 开始
-  public UpdateAppRoleReq() {
-  }
-
-  public UpdateAppRoleReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * 自定义角色的id
      * <p> 示例值：roljRpwIUt
      */
-    this.roleId = builder.roleId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public AppRole getAppRole() {
-    return this.body;
-  }
-
-  public void setAppRole(AppRole body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
-    private String roleId; // 自定义角色的id
+    @Path
+    @SerializedName("role_id")
+    private String roleId;
+    @Body
     private AppRole body;
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public UpdateAppRoleReq() {
     }
 
-    /**
-     * 自定义角色的id
-     * <p> 示例值：roljRpwIUt
-     *
-     * @param roleId
-     * @return
-     */
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public UpdateAppRoleReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         */
+        this.roleId = builder.roleId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     public AppRole getAppRole() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder appRole(AppRole body) {
-      this.body = body;
-      return this;
+    public void setAppRole(AppRole body) {
+        this.body = body;
     }
 
-    public UpdateAppRoleReq build() {
-      return new UpdateAppRoleReq(this);
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private String roleId; // 自定义角色的id
+        private AppRole body;
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         *
+         * @param roleId
+         * @return
+         */
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
+
+        public AppRole getAppRole() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder appRole(AppRole body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateAppRoleReq build() {
+            return new UpdateAppRoleReq(this);
+        }
     }
-  }
 }

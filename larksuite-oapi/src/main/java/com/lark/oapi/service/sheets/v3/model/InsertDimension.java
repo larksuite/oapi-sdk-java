@@ -16,111 +16,108 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InsertDimension {
-
-  /**
-   * 行列操作的维度
-   * <p> 示例值：
-   */
-  @SerializedName("dimension_range")
-  private Dimension dimensionRange;
-  /**
-   * 是否继承上/下一行/列样式
-   * <p> 示例值：Before
-   */
-  @SerializedName("inherit_from")
-  private String inheritFrom;
-
-  // builder 开始
-  public InsertDimension() {
-  }
-
-  public InsertDimension(Builder builder) {
     /**
      * 行列操作的维度
      * <p> 示例值：
      */
-    this.dimensionRange = builder.dimensionRange;
-    /**
-     * 是否继承上/下一行/列样式
-     * <p> 示例值：Before
-     */
-    this.inheritFrom = builder.inheritFrom;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Dimension getDimensionRange() {
-    return this.dimensionRange;
-  }
-
-  public void setDimensionRange(Dimension dimensionRange) {
-    this.dimensionRange = dimensionRange;
-  }
-
-  public String getInheritFrom() {
-    return this.inheritFrom;
-  }
-
-  public void setInheritFrom(String inheritFrom) {
-    this.inheritFrom = inheritFrom;
-  }
-
-  public static class Builder {
-
-    /**
-     * 行列操作的维度
-     * <p> 示例值：
-     */
+    @SerializedName("dimension_range")
     private Dimension dimensionRange;
     /**
      * 是否继承上/下一行/列样式
      * <p> 示例值：Before
      */
+    @SerializedName("inherit_from")
     private String inheritFrom;
 
-    /**
-     * 行列操作的维度
-     * <p> 示例值：
-     *
-     * @param dimensionRange
-     * @return
-     */
-    public Builder dimensionRange(Dimension dimensionRange) {
-      this.dimensionRange = dimensionRange;
-      return this;
+    // builder 开始
+    public InsertDimension() {
     }
 
-
-    /**
-     * 是否继承上/下一行/列样式
-     * <p> 示例值：Before
-     *
-     * @param inheritFrom
-     * @return
-     */
-    public Builder inheritFrom(String inheritFrom) {
-      this.inheritFrom = inheritFrom;
-      return this;
+    public InsertDimension(Builder builder) {
+        /**
+         * 行列操作的维度
+         * <p> 示例值：
+         */
+        this.dimensionRange = builder.dimensionRange;
+        /**
+         * 是否继承上/下一行/列样式
+         * <p> 示例值：Before
+         */
+        this.inheritFrom = builder.inheritFrom;
     }
 
-    /**
-     * 是否继承上/下一行/列样式
-     * <p> 示例值：Before
-     *
-     * @param inheritFrom {@link com.lark.oapi.service.sheets.v3.enums.InsertDimensionInheritFromEnum}
-     * @return
-     */
-    public Builder inheritFrom(
-        com.lark.oapi.service.sheets.v3.enums.InsertDimensionInheritFromEnum inheritFrom) {
-      this.inheritFrom = inheritFrom.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public InsertDimension build() {
-      return new InsertDimension(this);
+    public Dimension getDimensionRange() {
+        return this.dimensionRange;
     }
-  }
+
+    public void setDimensionRange(Dimension dimensionRange) {
+        this.dimensionRange = dimensionRange;
+    }
+
+    public String getInheritFrom() {
+        return this.inheritFrom;
+    }
+
+    public void setInheritFrom(String inheritFrom) {
+        this.inheritFrom = inheritFrom;
+    }
+
+    public static class Builder {
+        /**
+         * 行列操作的维度
+         * <p> 示例值：
+         */
+        private Dimension dimensionRange;
+        /**
+         * 是否继承上/下一行/列样式
+         * <p> 示例值：Before
+         */
+        private String inheritFrom;
+
+        /**
+         * 行列操作的维度
+         * <p> 示例值：
+         *
+         * @param dimensionRange
+         * @return
+         */
+        public Builder dimensionRange(Dimension dimensionRange) {
+            this.dimensionRange = dimensionRange;
+            return this;
+        }
+
+
+        /**
+         * 是否继承上/下一行/列样式
+         * <p> 示例值：Before
+         *
+         * @param inheritFrom
+         * @return
+         */
+        public Builder inheritFrom(String inheritFrom) {
+            this.inheritFrom = inheritFrom;
+            return this;
+        }
+
+        /**
+         * 是否继承上/下一行/列样式
+         * <p> 示例值：Before
+         *
+         * @param inheritFrom {@link com.lark.oapi.service.sheets.v3.enums.InsertDimensionInheritFromEnum}
+         * @return
+         */
+        public Builder inheritFrom(com.lark.oapi.service.sheets.v3.enums.InsertDimensionInheritFromEnum inheritFrom) {
+            this.inheritFrom = inheritFrom.getValue();
+            return this;
+        }
+
+
+        public InsertDimension build() {
+            return new InsertDimension(this);
+        }
+    }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 推荐应用项类型
  */
 public enum AppRecommendRuleItemInfoItemTypeEnum {
-  APPLICATION("application"), // 应用类型
-  LINK("link"), // 链接类型
-  ;
-  private String value;
+    APPLICATION("application"), // 应用类型
+    LINK("link"), // 链接类型
+    ;
+    private String value;
 
-  AppRecommendRuleItemInfoItemTypeEnum(String value) {
-    this.value = value;
-  }
+    AppRecommendRuleItemInfoItemTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

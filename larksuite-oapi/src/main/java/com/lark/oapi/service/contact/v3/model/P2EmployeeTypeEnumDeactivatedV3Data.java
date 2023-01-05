@@ -16,34 +16,33 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2EmployeeTypeEnumDeactivatedV3Data {
+    /**
+     * 旧枚举类型
+     * <p> 示例值：
+     */
+    @SerializedName("old_enum")
+    private EmployeeTypeEnum oldEnum;
+    /**
+     * 新枚举类型
+     * <p> 示例值：
+     */
+    @SerializedName("new_enum")
+    private EmployeeTypeEnum newEnum;
 
-  /**
-   * 旧枚举类型
-   * <p> 示例值：
-   */
-  @SerializedName("old_enum")
-  private EmployeeTypeEnum oldEnum;
-  /**
-   * 新枚举类型
-   * <p> 示例值：
-   */
-  @SerializedName("new_enum")
-  private EmployeeTypeEnum newEnum;
+    public EmployeeTypeEnum getOldEnum() {
+        return this.oldEnum;
+    }
 
-  public EmployeeTypeEnum getOldEnum() {
-    return this.oldEnum;
-  }
+    public void setOldEnum(EmployeeTypeEnum oldEnum) {
+        this.oldEnum = oldEnum;
+    }
 
-  public void setOldEnum(EmployeeTypeEnum oldEnum) {
-    this.oldEnum = oldEnum;
-  }
+    public EmployeeTypeEnum getNewEnum() {
+        return this.newEnum;
+    }
 
-  public EmployeeTypeEnum getNewEnum() {
-    return this.newEnum;
-  }
-
-  public void setNewEnum(EmployeeTypeEnum newEnum) {
-    this.newEnum = newEnum;
-  }
+    public void setNewEnum(EmployeeTypeEnum newEnum) {
+        this.newEnum = newEnum;
+    }
 
 }

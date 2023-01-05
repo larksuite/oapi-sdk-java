@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteDataSourceReq {
-
-  /**
-   * 数据源的唯一标识
-   * <p> 示例值：6953903108179099667
-   */
-  @Path
-  @SerializedName("data_source_id")
-  private String dataSourceId;
-
-  // builder 开始
-  public DeleteDataSourceReq() {
-  }
-
-  public DeleteDataSourceReq(Builder builder) {
     /**
      * 数据源的唯一标识
      * <p> 示例值：6953903108179099667
      */
-    this.dataSourceId = builder.dataSourceId;
-  }
+    @Path
+    @SerializedName("data_source_id")
+    private String dataSourceId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDataSourceId() {
-    return this.dataSourceId;
-  }
-
-  public void setDataSourceId(String dataSourceId) {
-    this.dataSourceId = dataSourceId;
-  }
-
-  public static class Builder {
-
-    private String dataSourceId; // 数据源的唯一标识
-
-    /**
-     * 数据源的唯一标识
-     * <p> 示例值：6953903108179099667
-     *
-     * @param dataSourceId
-     * @return
-     */
-    public Builder dataSourceId(String dataSourceId) {
-      this.dataSourceId = dataSourceId;
-      return this;
+    // builder 开始
+    public DeleteDataSourceReq() {
     }
 
-    public DeleteDataSourceReq build() {
-      return new DeleteDataSourceReq(this);
+    public DeleteDataSourceReq(Builder builder) {
+        /**
+         * 数据源的唯一标识
+         * <p> 示例值：6953903108179099667
+         */
+        this.dataSourceId = builder.dataSourceId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDataSourceId() {
+        return this.dataSourceId;
+    }
+
+    public void setDataSourceId(String dataSourceId) {
+        this.dataSourceId = dataSourceId;
+    }
+
+    public static class Builder {
+
+        private String dataSourceId; // 数据源的唯一标识
+
+        /**
+         * 数据源的唯一标识
+         * <p> 示例值：6953903108179099667
+         *
+         * @param dataSourceId
+         * @return
+         */
+        public Builder dataSourceId(String dataSourceId) {
+            this.dataSourceId = dataSourceId;
+            return this;
+        }
+
+        public DeleteDataSourceReq build() {
+            return new DeleteDataSourceReq(this);
+        }
+    }
 }

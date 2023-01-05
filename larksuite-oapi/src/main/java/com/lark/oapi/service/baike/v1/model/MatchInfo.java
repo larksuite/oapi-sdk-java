@@ -16,110 +16,108 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MatchInfo {
-
-  /**
-   * 词条 ID
-   * <p> 示例值：enterprise_34809584
-   */
-  @SerializedName("entity_id")
-  private String entityId;
-  /**
-   * 命中的字段
-   * <p> 示例值：0
-   */
-  @SerializedName("type")
-  private Integer type;
-
-  // builder 开始
-  public MatchInfo() {
-  }
-
-  public MatchInfo(Builder builder) {
     /**
      * 词条 ID
      * <p> 示例值：enterprise_34809584
      */
-    this.entityId = builder.entityId;
-    /**
-     * 命中的字段
-     * <p> 示例值：0
-     */
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEntityId() {
-    return this.entityId;
-  }
-
-  public void setEntityId(String entityId) {
-    this.entityId = entityId;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
-    /**
-     * 词条 ID
-     * <p> 示例值：enterprise_34809584
-     */
+    @SerializedName("entity_id")
     private String entityId;
     /**
      * 命中的字段
      * <p> 示例值：0
      */
+    @SerializedName("type")
     private Integer type;
 
-    /**
-     * 词条 ID
-     * <p> 示例值：enterprise_34809584
-     *
-     * @param entityId
-     * @return
-     */
-    public Builder entityId(String entityId) {
-      this.entityId = entityId;
-      return this;
+    // builder 开始
+    public MatchInfo() {
     }
 
-
-    /**
-     * 命中的字段
-     * <p> 示例值：0
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public MatchInfo(Builder builder) {
+        /**
+         * 词条 ID
+         * <p> 示例值：enterprise_34809584
+         */
+        this.entityId = builder.entityId;
+        /**
+         * 命中的字段
+         * <p> 示例值：0
+         */
+        this.type = builder.type;
     }
 
-    /**
-     * 命中的字段
-     * <p> 示例值：0
-     *
-     * @param type {@link com.lark.oapi.service.baike.v1.enums.MatchInfoTermTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.baike.v1.enums.MatchInfoTermTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public MatchInfo build() {
-      return new MatchInfo(this);
+    public String getEntityId() {
+        return this.entityId;
     }
-  }
+
+    public void setEntityId(String entityId) {
+        this.entityId = entityId;
+    }
+
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public static class Builder {
+        /**
+         * 词条 ID
+         * <p> 示例值：enterprise_34809584
+         */
+        private String entityId;
+        /**
+         * 命中的字段
+         * <p> 示例值：0
+         */
+        private Integer type;
+
+        /**
+         * 词条 ID
+         * <p> 示例值：enterprise_34809584
+         *
+         * @param entityId
+         * @return
+         */
+        public Builder entityId(String entityId) {
+            this.entityId = entityId;
+            return this;
+        }
+
+
+        /**
+         * 命中的字段
+         * <p> 示例值：0
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 命中的字段
+         * <p> 示例值：0
+         *
+         * @param type {@link com.lark.oapi.service.baike.v1.enums.MatchInfoTermTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.baike.v1.enums.MatchInfoTermTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        public MatchInfo build() {
+            return new MatchInfo(this);
+        }
+    }
 }

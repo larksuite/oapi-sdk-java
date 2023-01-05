@@ -16,138 +16,133 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserOrder {
-
-  /**
-   * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式
-   * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
-   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 用户在其直属部门内的排序，数值越大，排序越靠前
-   * <p> 示例值：100
-   */
-  @SerializedName("user_order")
-  private Integer userOrder;
-  /**
-   * 用户所属的多个部门间的排序，数值越大，排序越靠前
-   * <p> 示例值：100
-   */
-  @SerializedName("department_order")
-  private Integer departmentOrder;
-
-  // builder 开始
-  public UserOrder() {
-  }
-
-  public UserOrder(Builder builder) {
     /**
-     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    this.departmentId = builder.departmentId;
-    /**
-     * 用户在其直属部门内的排序，数值越大，排序越靠前
-     * <p> 示例值：100
-     */
-    this.userOrder = builder.userOrder;
-    /**
-     * 用户所属的多个部门间的排序，数值越大，排序越靠前
-     * <p> 示例值：100
-     */
-    this.departmentOrder = builder.departmentOrder;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public Integer getUserOrder() {
-    return this.userOrder;
-  }
-
-  public void setUserOrder(Integer userOrder) {
-    this.userOrder = userOrder;
-  }
-
-  public Integer getDepartmentOrder() {
-    return this.departmentOrder;
-  }
-
-  public void setDepartmentOrder(Integer departmentOrder) {
-    this.departmentOrder = departmentOrder;
-  }
-
-  public static class Builder {
-
-    /**
-     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式
-     * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 用户在其直属部门内的排序，数值越大，排序越靠前
      * <p> 示例值：100
      */
+    @SerializedName("user_order")
     private Integer userOrder;
     /**
      * 用户所属的多个部门间的排序，数值越大，排序越靠前
      * <p> 示例值：100
      */
+    @SerializedName("department_order")
     private Integer departmentOrder;
 
-    /**
-     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式
-     * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    // builder 开始
+    public UserOrder() {
     }
 
-
-    /**
-     * 用户在其直属部门内的排序，数值越大，排序越靠前
-     * <p> 示例值：100
-     *
-     * @param userOrder
-     * @return
-     */
-    public Builder userOrder(Integer userOrder) {
-      this.userOrder = userOrder;
-      return this;
+    public UserOrder(Builder builder) {
+        /**
+         * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 用户在其直属部门内的排序，数值越大，排序越靠前
+         * <p> 示例值：100
+         */
+        this.userOrder = builder.userOrder;
+        /**
+         * 用户所属的多个部门间的排序，数值越大，排序越靠前
+         * <p> 示例值：100
+         */
+        this.departmentOrder = builder.departmentOrder;
     }
 
-
-    /**
-     * 用户所属的多个部门间的排序，数值越大，排序越靠前
-     * <p> 示例值：100
-     *
-     * @param departmentOrder
-     * @return
-     */
-    public Builder departmentOrder(Integer departmentOrder) {
-      this.departmentOrder = departmentOrder;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UserOrder build() {
-      return new UserOrder(this);
+    public String getDepartmentId() {
+        return this.departmentId;
     }
-  }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public Integer getUserOrder() {
+        return this.userOrder;
+    }
+
+    public void setUserOrder(Integer userOrder) {
+        this.userOrder = userOrder;
+    }
+
+    public Integer getDepartmentOrder() {
+        return this.departmentOrder;
+    }
+
+    public void setDepartmentOrder(Integer departmentOrder) {
+        this.departmentOrder = departmentOrder;
+    }
+
+    public static class Builder {
+        /**
+         * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         */
+        private String departmentId;
+        /**
+         * 用户在其直属部门内的排序，数值越大，排序越靠前
+         * <p> 示例值：100
+         */
+        private Integer userOrder;
+        /**
+         * 用户所属的多个部门间的排序，数值越大，排序越靠前
+         * <p> 示例值：100
+         */
+        private Integer departmentOrder;
+
+        /**
+         * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 用户在其直属部门内的排序，数值越大，排序越靠前
+         * <p> 示例值：100
+         *
+         * @param userOrder
+         * @return
+         */
+        public Builder userOrder(Integer userOrder) {
+            this.userOrder = userOrder;
+            return this;
+        }
+
+
+        /**
+         * 用户所属的多个部门间的排序，数值越大，排序越靠前
+         * <p> 示例值：100
+         *
+         * @param departmentOrder
+         * @return
+         */
+        public Builder departmentOrder(Integer departmentOrder) {
+            this.departmentOrder = departmentOrder;
+            return this;
+        }
+
+
+        public UserOrder build() {
+            return new UserOrder(this);
+        }
+    }
 }

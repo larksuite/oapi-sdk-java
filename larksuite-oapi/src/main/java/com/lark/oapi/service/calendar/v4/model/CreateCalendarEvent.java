@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateCalendarEvent {
 
-  /**
-   * 新创建的日程实体
-   * <p> 示例值：
-   */
-  @SerializedName("event")
-  private CalendarEvent event;
+    /**
+     * 新创建的日程实体
+     * <p> 示例值：
+     */
+    @SerializedName("event")
+    private CalendarEvent event;
 
-  public CalendarEvent getEvent() {
-    return this.event;
-  }
+    public CalendarEvent getEvent() {
+        return this.event;
+    }
 
-  public void setEvent(CalendarEvent event) {
-    this.event = event;
-  }
+    public void setEvent(CalendarEvent event) {
+        this.event = event;
+    }
 
 }

@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserTask {
 
-  /**
-   * 打卡任务列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_task_results")
-  private UserTask[] userTaskResults;
-  /**
-   * 无效用户 ID 列表
-   * <p> 示例值：
-   */
-  @SerializedName("invalid_user_ids")
-  private String[] invalidUserIds;
-  /**
-   * 没有权限用户 ID 列表
-   * <p> 示例值：
-   */
-  @SerializedName("unauthorized_user_ids")
-  private String[] unauthorizedUserIds;
+    /**
+     * 打卡任务列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_task_results")
+    private UserTask[] userTaskResults;
+    /**
+     * 无效用户 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("invalid_user_ids")
+    private String[] invalidUserIds;
+    /**
+     * 没有权限用户 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("unauthorized_user_ids")
+    private String[] unauthorizedUserIds;
 
-  public UserTask[] getUserTaskResults() {
-    return this.userTaskResults;
-  }
+    public UserTask[] getUserTaskResults() {
+        return this.userTaskResults;
+    }
 
-  public void setUserTaskResults(UserTask[] userTaskResults) {
-    this.userTaskResults = userTaskResults;
-  }
+    public void setUserTaskResults(UserTask[] userTaskResults) {
+        this.userTaskResults = userTaskResults;
+    }
 
-  public String[] getInvalidUserIds() {
-    return this.invalidUserIds;
-  }
+    public String[] getInvalidUserIds() {
+        return this.invalidUserIds;
+    }
 
-  public void setInvalidUserIds(String[] invalidUserIds) {
-    this.invalidUserIds = invalidUserIds;
-  }
+    public void setInvalidUserIds(String[] invalidUserIds) {
+        this.invalidUserIds = invalidUserIds;
+    }
 
-  public String[] getUnauthorizedUserIds() {
-    return this.unauthorizedUserIds;
-  }
+    public String[] getUnauthorizedUserIds() {
+        return this.unauthorizedUserIds;
+    }
 
-  public void setUnauthorizedUserIds(String[] unauthorizedUserIds) {
-    this.unauthorizedUserIds = unauthorizedUserIds;
-  }
+    public void setUnauthorizedUserIds(String[] unauthorizedUserIds) {
+        this.unauthorizedUserIds = unauthorizedUserIds;
+    }
 
 }

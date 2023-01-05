@@ -16,135 +16,133 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Dimension {
-
-  /**
-   * 操作行还是列，取值：ROWS、COLUMNS
-   * <p> 示例值：ROWS
-   */
-  @SerializedName("major_dimension")
-  private String majorDimension;
-  /**
-   * 起始行或者列号
-   * <p> 示例值：0
-   */
-  @SerializedName("start_index")
-  private Integer startIndex;
-  /**
-   * 结束行或者列号
-   * <p> 示例值：1
-   */
-  @SerializedName("end_index")
-  private Integer endIndex;
-
-  // builder 开始
-  public Dimension() {
-  }
-
-  public Dimension(Builder builder) {
     /**
      * 操作行还是列，取值：ROWS、COLUMNS
      * <p> 示例值：ROWS
      */
-    this.majorDimension = builder.majorDimension;
-    /**
-     * 起始行或者列号
-     * <p> 示例值：0
-     */
-    this.startIndex = builder.startIndex;
-    /**
-     * 结束行或者列号
-     * <p> 示例值：1
-     */
-    this.endIndex = builder.endIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMajorDimension() {
-    return this.majorDimension;
-  }
-
-  public void setMajorDimension(String majorDimension) {
-    this.majorDimension = majorDimension;
-  }
-
-  public Integer getStartIndex() {
-    return this.startIndex;
-  }
-
-  public void setStartIndex(Integer startIndex) {
-    this.startIndex = startIndex;
-  }
-
-  public Integer getEndIndex() {
-    return this.endIndex;
-  }
-
-  public void setEndIndex(Integer endIndex) {
-    this.endIndex = endIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 操作行还是列，取值：ROWS、COLUMNS
-     * <p> 示例值：ROWS
-     */
+    @SerializedName("major_dimension")
     private String majorDimension;
     /**
      * 起始行或者列号
      * <p> 示例值：0
      */
+    @SerializedName("start_index")
     private Integer startIndex;
     /**
      * 结束行或者列号
      * <p> 示例值：1
      */
+    @SerializedName("end_index")
     private Integer endIndex;
 
-    /**
-     * 操作行还是列，取值：ROWS、COLUMNS
-     * <p> 示例值：ROWS
-     *
-     * @param majorDimension
-     * @return
-     */
-    public Builder majorDimension(String majorDimension) {
-      this.majorDimension = majorDimension;
-      return this;
+    // builder 开始
+    public Dimension() {
     }
 
-
-    /**
-     * 起始行或者列号
-     * <p> 示例值：0
-     *
-     * @param startIndex
-     * @return
-     */
-    public Builder startIndex(Integer startIndex) {
-      this.startIndex = startIndex;
-      return this;
+    public Dimension(Builder builder) {
+        /**
+         * 操作行还是列，取值：ROWS、COLUMNS
+         * <p> 示例值：ROWS
+         */
+        this.majorDimension = builder.majorDimension;
+        /**
+         * 起始行或者列号
+         * <p> 示例值：0
+         */
+        this.startIndex = builder.startIndex;
+        /**
+         * 结束行或者列号
+         * <p> 示例值：1
+         */
+        this.endIndex = builder.endIndex;
     }
 
-
-    /**
-     * 结束行或者列号
-     * <p> 示例值：1
-     *
-     * @param endIndex
-     * @return
-     */
-    public Builder endIndex(Integer endIndex) {
-      this.endIndex = endIndex;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Dimension build() {
-      return new Dimension(this);
+    public String getMajorDimension() {
+        return this.majorDimension;
     }
-  }
+
+    public void setMajorDimension(String majorDimension) {
+        this.majorDimension = majorDimension;
+    }
+
+    public Integer getStartIndex() {
+        return this.startIndex;
+    }
+
+    public void setStartIndex(Integer startIndex) {
+        this.startIndex = startIndex;
+    }
+
+    public Integer getEndIndex() {
+        return this.endIndex;
+    }
+
+    public void setEndIndex(Integer endIndex) {
+        this.endIndex = endIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 操作行还是列，取值：ROWS、COLUMNS
+         * <p> 示例值：ROWS
+         */
+        private String majorDimension;
+        /**
+         * 起始行或者列号
+         * <p> 示例值：0
+         */
+        private Integer startIndex;
+        /**
+         * 结束行或者列号
+         * <p> 示例值：1
+         */
+        private Integer endIndex;
+
+        /**
+         * 操作行还是列，取值：ROWS、COLUMNS
+         * <p> 示例值：ROWS
+         *
+         * @param majorDimension
+         * @return
+         */
+        public Builder majorDimension(String majorDimension) {
+            this.majorDimension = majorDimension;
+            return this;
+        }
+
+
+        /**
+         * 起始行或者列号
+         * <p> 示例值：0
+         *
+         * @param startIndex
+         * @return
+         */
+        public Builder startIndex(Integer startIndex) {
+            this.startIndex = startIndex;
+            return this;
+        }
+
+
+        /**
+         * 结束行或者列号
+         * <p> 示例值：1
+         *
+         * @param endIndex
+         * @return
+         */
+        public Builder endIndex(Integer endIndex) {
+            this.endIndex = endIndex;
+            return this;
+        }
+
+
+        public Dimension build() {
+            return new Dimension(this);
+        }
+    }
 }

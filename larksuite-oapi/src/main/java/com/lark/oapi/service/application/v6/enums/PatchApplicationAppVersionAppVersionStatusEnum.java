@@ -17,19 +17,19 @@ package com.lark.oapi.service.application.v6.enums;
  * 版本状态
  */
 public enum PatchApplicationAppVersionAppVersionStatusEnum {
-  UNKNOWN(0), // 未知状态
-  AUDITED(1), // 审核通过
-  REJECT(2), // 审核拒绝
-  UNDER_AUDIT(3), // 审核中
-  UNAUDIT(4), // 未提交审核
-  ;
-  private Integer value;
+    UNKNOWN(0), // 未知状态
+    AUDITED(1), // 审核通过
+    REJECT(2), // 审核拒绝
+    UNDER_AUDIT(3), // 审核中
+    UNAUDIT(4), // 未提交审核
+    ;
+    private Integer value;
 
-  PatchApplicationAppVersionAppVersionStatusEnum(Integer value) {
-    this.value = value;
-  }
+    PatchApplicationAppVersionAppVersionStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

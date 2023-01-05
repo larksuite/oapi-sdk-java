@@ -16,61 +16,59 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DetectFaceAttributesImageReqBody {
-
-  /**
-   * 图片 base64 数据
-   * <p> 示例值：图片 base64 后的字符串
-   */
-  @SerializedName("image")
-  private String image;
-
-  // builder 开始
-  public DetectFaceAttributesImageReqBody() {
-  }
-
-  public DetectFaceAttributesImageReqBody(Builder builder) {
     /**
      * 图片 base64 数据
      * <p> 示例值：图片 base64 后的字符串
      */
-    this.image = builder.image;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImage() {
-    return this.image;
-  }
-
-  public void setImage(String image) {
-    this.image = image;
-  }
-
-  public static class Builder {
-
-    /**
-     * 图片 base64 数据
-     * <p> 示例值：图片 base64 后的字符串
-     */
+    @SerializedName("image")
     private String image;
 
-    /**
-     * 图片 base64 数据
-     * <p> 示例值：图片 base64 后的字符串
-     *
-     * @param image
-     * @return
-     */
-    public Builder image(String image) {
-      this.image = image;
-      return this;
+    // builder 开始
+    public DetectFaceAttributesImageReqBody() {
     }
 
-
-    public DetectFaceAttributesImageReqBody build() {
-      return new DetectFaceAttributesImageReqBody(this);
+    public DetectFaceAttributesImageReqBody(Builder builder) {
+        /**
+         * 图片 base64 数据
+         * <p> 示例值：图片 base64 后的字符串
+         */
+        this.image = builder.image;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public static class Builder {
+        /**
+         * 图片 base64 数据
+         * <p> 示例值：图片 base64 后的字符串
+         */
+        private String image;
+
+        /**
+         * 图片 base64 数据
+         * <p> 示例值：图片 base64 后的字符串
+         *
+         * @param image
+         * @return
+         */
+        public Builder image(String image) {
+            this.image = image;
+            return this;
+        }
+
+
+        public DetectFaceAttributesImageReqBody build() {
+            return new DetectFaceAttributesImageReqBody(this);
+        }
+    }
 }

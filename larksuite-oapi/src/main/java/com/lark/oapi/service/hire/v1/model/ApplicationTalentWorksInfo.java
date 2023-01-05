@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationTalentWorksInfo {
-
-  /**
-   * ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 作品集链接
-   * <p> 示例值：
-   */
-  @SerializedName("link")
-  private String link;
-  /**
-   * 作品描述
-   * <p> 示例值：
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 作品名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public ApplicationTalentWorksInfo() {
-  }
-
-  public ApplicationTalentWorksInfo(Builder builder) {
     /**
      * ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 作品集链接
-     * <p> 示例值：
-     */
-    this.link = builder.link;
-    /**
-     * 作品描述
-     * <p> 示例值：
-     */
-    this.desc = builder.desc;
-    /**
-     * 作品名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 作品集链接
      * <p> 示例值：
      */
+    @SerializedName("link")
     private String link;
     /**
      * 作品描述
      * <p> 示例值：
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 作品名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ApplicationTalentWorksInfo() {
     }
 
-
-    /**
-     * 作品集链接
-     * <p> 示例值：
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public ApplicationTalentWorksInfo(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 作品集链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         * 作品描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+        /**
+         * 作品名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 作品描述
-     * <p> 示例值：
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 作品名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public ApplicationTalentWorksInfo build() {
-      return new ApplicationTalentWorksInfo(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 作品集链接
+         * <p> 示例值：
+         */
+        private String link;
+        /**
+         * 作品描述
+         * <p> 示例值：
+         */
+        private String desc;
+        /**
+         * 作品名称
+         * <p> 示例值：
+         */
+        private String name;
+
+        /**
+         * ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 作品集链接
+         * <p> 示例值：
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        /**
+         * 作品描述
+         * <p> 示例值：
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 作品名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public ApplicationTalentWorksInfo build() {
+            return new ApplicationTalentWorksInfo(this);
+        }
+    }
 }

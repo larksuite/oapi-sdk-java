@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateEmployeeTypeEnumRespBody {
+    /**
+     * 更新后的人员类型字段
+     * <p> 示例值：
+     */
+    @SerializedName("employee_type_enum")
+    private EmployeeTypeEnum employeeTypeEnum;
 
-  /**
-   * 更新后的人员类型字段
-   * <p> 示例值：
-   */
-  @SerializedName("employee_type_enum")
-  private EmployeeTypeEnum employeeTypeEnum;
+    public EmployeeTypeEnum getEmployeeTypeEnum() {
+        return this.employeeTypeEnum;
+    }
 
-  public EmployeeTypeEnum getEmployeeTypeEnum() {
-    return this.employeeTypeEnum;
-  }
-
-  public void setEmployeeTypeEnum(EmployeeTypeEnum employeeTypeEnum) {
-    this.employeeTypeEnum = employeeTypeEnum;
-  }
+    public void setEmployeeTypeEnum(EmployeeTypeEnum employeeTypeEnum) {
+        this.employeeTypeEnum = employeeTypeEnum;
+    }
 
 }

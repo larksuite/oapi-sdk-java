@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchCalendarEventReq {
-
-  /**
-   * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-   */
-  @Path
-  @SerializedName("calendar_id")
-  private String calendarId;
-  /**
-   * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-   * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-   */
-  @Path
-  @SerializedName("event_id")
-  private String eventId;
-  @Body
-  private CalendarEvent body;
-
-  // builder 开始
-  public PatchCalendarEventReq() {
-  }
-
-  public PatchCalendarEventReq(Builder builder) {
     /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    this.calendarId = builder.calendarId;
+    @Path
+    @SerializedName("calendar_id")
+    private String calendarId;
     /**
      * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      */
-    this.eventId = builder.eventId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public CalendarEvent getCalendarEvent() {
-    return this.body;
-  }
-
-  public void setCalendarEvent(CalendarEvent body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-    private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+    @Path
+    @SerializedName("event_id")
+    private String eventId;
+    @Body
     private CalendarEvent body;
 
-    /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-     *
-     * @param calendarId
-     * @return
-     */
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    // builder 开始
+    public PatchCalendarEventReq() {
     }
 
-    /**
-     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-     *
-     * @param eventId
-     * @return
-     */
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public PatchCalendarEventReq(Builder builder) {
+        /**
+         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         */
+        this.calendarId = builder.calendarId;
+        /**
+         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+         */
+        this.eventId = builder.eventId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    public String getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
     public CalendarEvent getCalendarEvent() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder calendarEvent(CalendarEvent body) {
-      this.body = body;
-      return this;
+    public void setCalendarEvent(CalendarEvent body) {
+        this.body = body;
     }
 
-    public PatchCalendarEventReq build() {
-      return new PatchCalendarEventReq(this);
+    public static class Builder {
+
+        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+        private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+        private CalendarEvent body;
+
+        /**
+         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+         *
+         * @param calendarId
+         * @return
+         */
+        public Builder calendarId(String calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
+
+        /**
+         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+         *
+         * @param eventId
+         * @return
+         */
+        public Builder eventId(String eventId) {
+            this.eventId = eventId;
+            return this;
+        }
+
+        public CalendarEvent getCalendarEvent() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder calendarEvent(CalendarEvent body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchCalendarEventReq build() {
+            return new PatchCalendarEventReq(this);
+        }
     }
-  }
 }

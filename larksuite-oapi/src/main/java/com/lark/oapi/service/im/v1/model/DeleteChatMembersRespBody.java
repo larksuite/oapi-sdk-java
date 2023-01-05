@@ -16,20 +16,19 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DeleteChatMembersRespBody {
+    /**
+     * 无效成员列表
+     * <p> 示例值：
+     */
+    @SerializedName("invalid_id_list")
+    private String[] invalidIdList;
 
-  /**
-   * 无效成员列表
-   * <p> 示例值：
-   */
-  @SerializedName("invalid_id_list")
-  private String[] invalidIdList;
+    public String[] getInvalidIdList() {
+        return this.invalidIdList;
+    }
 
-  public String[] getInvalidIdList() {
-    return this.invalidIdList;
-  }
-
-  public void setInvalidIdList(String[] invalidIdList) {
-    this.invalidIdList = invalidIdList;
-  }
+    public void setInvalidIdList(String[] invalidIdList) {
+        this.invalidIdList = invalidIdList;
+    }
 
 }

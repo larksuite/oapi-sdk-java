@@ -16,172 +16,170 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EventLocation {
-
-  /**
-   * 地点名称
-   * <p> 示例值：地点名称
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 地点地址
-   * <p> 示例值：地点地址
-   */
-  @SerializedName("address")
-  private String address;
-  /**
-   * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
-   * <p> 示例值：1.100000023841858
-   */
-  @SerializedName("latitude")
-  private Double latitude;
-  /**
-   * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
-   * <p> 示例值：2.200000047683716
-   */
-  @SerializedName("longitude")
-  private Double longitude;
-
-  // builder 开始
-  public EventLocation() {
-  }
-
-  public EventLocation(Builder builder) {
     /**
      * 地点名称
      * <p> 示例值：地点名称
      */
-    this.name = builder.name;
-    /**
-     * 地点地址
-     * <p> 示例值：地点地址
-     */
-    this.address = builder.address;
-    /**
-     * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
-     * <p> 示例值：1.100000023841858
-     */
-    this.latitude = builder.latitude;
-    /**
-     * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
-     * <p> 示例值：2.200000047683716
-     */
-    this.longitude = builder.longitude;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getAddress() {
-    return this.address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public Double getLatitude() {
-    return this.latitude;
-  }
-
-  public void setLatitude(Double latitude) {
-    this.latitude = latitude;
-  }
-
-  public Double getLongitude() {
-    return this.longitude;
-  }
-
-  public void setLongitude(Double longitude) {
-    this.longitude = longitude;
-  }
-
-  public static class Builder {
-
-    /**
-     * 地点名称
-     * <p> 示例值：地点名称
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 地点地址
      * <p> 示例值：地点地址
      */
+    @SerializedName("address")
     private String address;
     /**
      * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
      * <p> 示例值：1.100000023841858
      */
+    @SerializedName("latitude")
     private Double latitude;
     /**
      * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
      * <p> 示例值：2.200000047683716
      */
+    @SerializedName("longitude")
     private Double longitude;
 
-    /**
-     * 地点名称
-     * <p> 示例值：地点名称
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public EventLocation() {
     }
 
-
-    /**
-     * 地点地址
-     * <p> 示例值：地点地址
-     *
-     * @param address
-     * @return
-     */
-    public Builder address(String address) {
-      this.address = address;
-      return this;
+    public EventLocation(Builder builder) {
+        /**
+         * 地点名称
+         * <p> 示例值：地点名称
+         */
+        this.name = builder.name;
+        /**
+         * 地点地址
+         * <p> 示例值：地点地址
+         */
+        this.address = builder.address;
+        /**
+         * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
+         * <p> 示例值：1.100000023841858
+         */
+        this.latitude = builder.latitude;
+        /**
+         * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
+         * <p> 示例值：2.200000047683716
+         */
+        this.longitude = builder.longitude;
     }
 
-
-    /**
-     * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
-     * <p> 示例值：1.100000023841858
-     *
-     * @param latitude
-     * @return
-     */
-    public Builder latitude(Double latitude) {
-      this.latitude = latitude;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
-     * <p> 示例值：2.200000047683716
-     *
-     * @param longitude
-     * @return
-     */
-    public Builder longitude(Double longitude) {
-      this.longitude = longitude;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    public EventLocation build() {
-      return new EventLocation(this);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Double getLatitude() {
+        return this.latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return this.longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public static class Builder {
+        /**
+         * 地点名称
+         * <p> 示例值：地点名称
+         */
+        private String name;
+        /**
+         * 地点地址
+         * <p> 示例值：地点地址
+         */
+        private String address;
+        /**
+         * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
+         * <p> 示例值：1.100000023841858
+         */
+        private Double latitude;
+        /**
+         * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
+         * <p> 示例值：2.200000047683716
+         */
+        private Double longitude;
+
+        /**
+         * 地点名称
+         * <p> 示例值：地点名称
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 地点地址
+         * <p> 示例值：地点地址
+         *
+         * @param address
+         * @return
+         */
+        public Builder address(String address) {
+            this.address = address;
+            return this;
+        }
+
+
+        /**
+         * 地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
+         * <p> 示例值：1.100000023841858
+         *
+         * @param latitude
+         * @return
+         */
+        public Builder latitude(Double latitude) {
+            this.latitude = latitude;
+            return this;
+        }
+
+
+        /**
+         * 地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准
+         * <p> 示例值：2.200000047683716
+         *
+         * @param longitude
+         * @return
+         */
+        public Builder longitude(Double longitude) {
+            this.longitude = longitude;
+            return this;
+        }
+
+
+        public EventLocation build() {
+            return new EventLocation(this);
+        }
+    }
 }

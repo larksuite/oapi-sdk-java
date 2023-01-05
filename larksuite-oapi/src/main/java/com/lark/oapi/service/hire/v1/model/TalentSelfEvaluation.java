@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentSelfEvaluation {
-
-  /**
-   * ID
-   * <p> 示例值：6891560630172518670
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 内容
-   * <p> 示例值：自我评价：平常心
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private TalentCustomizedDataObjectValue[] customizedData;
-
-  // builder 开始
-  public TalentSelfEvaluation() {
-  }
-
-  public TalentSelfEvaluation(Builder builder) {
     /**
      * ID
      * <p> 示例值：6891560630172518670
      */
-    this.id = builder.id;
-    /**
-     * 内容
-     * <p> 示例值：自我评价：平常心
-     */
-    this.content = builder.content;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedData = builder.customizedData;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public TalentCustomizedDataObjectValue[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 内容
      * <p> 示例值：自我评价：平常心
      */
+    @SerializedName("content")
     private String content;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
 
-    /**
-     * ID
-     * <p> 示例值：6891560630172518670
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public TalentSelfEvaluation() {
     }
 
-
-    /**
-     * 内容
-     * <p> 示例值：自我评价：平常心
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public TalentSelfEvaluation(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         */
+        this.id = builder.id;
+        /**
+         * 内容
+         * <p> 示例值：自我评价：平常心
+         */
+        this.content = builder.content;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public TalentSelfEvaluation build() {
-      return new TalentSelfEvaluation(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public TalentCustomizedDataObjectValue[] getCustomizedData() {
+        return this.customizedData;
+    }
+
+    public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         */
+        private String id;
+        /**
+         * 内容
+         * <p> 示例值：自我评价：平常心
+         */
+        private String content;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private TalentCustomizedDataObjectValue[] customizedData;
+
+        /**
+         * ID
+         * <p> 示例值：6891560630172518670
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 内容
+         * <p> 示例值：自我评价：平常心
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        public TalentSelfEvaluation build() {
+            return new TalentSelfEvaluation(this);
+        }
+    }
 }

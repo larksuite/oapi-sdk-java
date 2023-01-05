@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetAgentSchedulesReq {
-
-  /**
-   * 客服 id
-   * <p> 示例值：	客服 id
-   */
-  @Path
-  @SerializedName("agent_id")
-  private String agentId;
-
-  // builder 开始
-  public GetAgentSchedulesReq() {
-  }
-
-  public GetAgentSchedulesReq(Builder builder) {
-    /**
-     * 	客服 id
-     * <p> 示例值：	客服 id
-     */
-    this.agentId = builder.agentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public static class Builder {
-
-    private String agentId; // 	客服 id
-
     /**
      * 客服 id
      * <p> 示例值：	客服 id
-     *
-     * @param agentId
-     * @return
      */
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
+    @Path
+    @SerializedName("agent_id")
+    private String agentId;
+
+    // builder 开始
+    public GetAgentSchedulesReq() {
     }
 
-    public GetAgentSchedulesReq build() {
-      return new GetAgentSchedulesReq(this);
+    public GetAgentSchedulesReq(Builder builder) {
+        /**
+         * 	客服 id
+         * <p> 示例值：	客服 id
+         */
+        this.agentId = builder.agentId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAgentId() {
+        return this.agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    public static class Builder {
+
+        private String agentId; // 	客服 id
+
+        /**
+         * 客服 id
+         * <p> 示例值：	客服 id
+         *
+         * @param agentId
+         * @return
+         */
+        public Builder agentId(String agentId) {
+            this.agentId = agentId;
+            return this;
+        }
+
+        public GetAgentSchedulesReq build() {
+            return new GetAgentSchedulesReq(this);
+        }
+    }
 }

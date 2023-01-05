@@ -16,111 +16,108 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReserveActionPermission {
-
-  /**
-   * 权限项
-   * <p> 示例值：1
-   */
-  @SerializedName("permission")
-  private Integer permission;
-  /**
-   * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-   * <p> 示例值：
-   */
-  @SerializedName("permission_checkers")
-  private ReservePermissionChecker[] permissionCheckers;
-
-  // builder 开始
-  public ReserveActionPermission() {
-  }
-
-  public ReserveActionPermission(Builder builder) {
     /**
      * 权限项
      * <p> 示例值：1
      */
-    this.permission = builder.permission;
-    /**
-     * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-     * <p> 示例值：
-     */
-    this.permissionCheckers = builder.permissionCheckers;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPermission() {
-    return this.permission;
-  }
-
-  public void setPermission(Integer permission) {
-    this.permission = permission;
-  }
-
-  public ReservePermissionChecker[] getPermissionCheckers() {
-    return this.permissionCheckers;
-  }
-
-  public void setPermissionCheckers(ReservePermissionChecker[] permissionCheckers) {
-    this.permissionCheckers = permissionCheckers;
-  }
-
-  public static class Builder {
-
-    /**
-     * 权限项
-     * <p> 示例值：1
-     */
+    @SerializedName("permission")
     private Integer permission;
     /**
      * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
      * <p> 示例值：
      */
+    @SerializedName("permission_checkers")
     private ReservePermissionChecker[] permissionCheckers;
 
-    /**
-     * 权限项
-     * <p> 示例值：1
-     *
-     * @param permission
-     * @return
-     */
-    public Builder permission(Integer permission) {
-      this.permission = permission;
-      return this;
+    // builder 开始
+    public ReserveActionPermission() {
     }
 
-    /**
-     * 权限项
-     * <p> 示例值：1
-     *
-     * @param permission {@link com.lark.oapi.service.vc.v1.enums.ReserveActionPermissionMeetingPermEnum}
-     * @return
-     */
-    public Builder permission(
-        com.lark.oapi.service.vc.v1.enums.ReserveActionPermissionMeetingPermEnum permission) {
-      this.permission = permission.getValue();
-      return this;
+    public ReserveActionPermission(Builder builder) {
+        /**
+         * 权限项
+         * <p> 示例值：1
+         */
+        this.permission = builder.permission;
+        /**
+         * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+         * <p> 示例值：
+         */
+        this.permissionCheckers = builder.permissionCheckers;
     }
 
-
-    /**
-     * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-     * <p> 示例值：
-     *
-     * @param permissionCheckers
-     * @return
-     */
-    public Builder permissionCheckers(ReservePermissionChecker[] permissionCheckers) {
-      this.permissionCheckers = permissionCheckers;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ReserveActionPermission build() {
-      return new ReserveActionPermission(this);
+    public Integer getPermission() {
+        return this.permission;
     }
-  }
+
+    public void setPermission(Integer permission) {
+        this.permission = permission;
+    }
+
+    public ReservePermissionChecker[] getPermissionCheckers() {
+        return this.permissionCheckers;
+    }
+
+    public void setPermissionCheckers(ReservePermissionChecker[] permissionCheckers) {
+        this.permissionCheckers = permissionCheckers;
+    }
+
+    public static class Builder {
+        /**
+         * 权限项
+         * <p> 示例值：1
+         */
+        private Integer permission;
+        /**
+         * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+         * <p> 示例值：
+         */
+        private ReservePermissionChecker[] permissionCheckers;
+
+        /**
+         * 权限项
+         * <p> 示例值：1
+         *
+         * @param permission
+         * @return
+         */
+        public Builder permission(Integer permission) {
+            this.permission = permission;
+            return this;
+        }
+
+        /**
+         * 权限项
+         * <p> 示例值：1
+         *
+         * @param permission {@link com.lark.oapi.service.vc.v1.enums.ReserveActionPermissionMeetingPermEnum}
+         * @return
+         */
+        public Builder permission(com.lark.oapi.service.vc.v1.enums.ReserveActionPermissionMeetingPermEnum permission) {
+            this.permission = permission.getValue();
+            return this;
+        }
+
+
+        /**
+         * 权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+         * <p> 示例值：
+         *
+         * @param permissionCheckers
+         * @return
+         */
+        public Builder permissionCheckers(ReservePermissionChecker[] permissionCheckers) {
+            this.permissionCheckers = permissionCheckers;
+            return this;
+        }
+
+
+        public ReserveActionPermission build() {
+            return new ReserveActionPermission(this);
+        }
+    }
 }

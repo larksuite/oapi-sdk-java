@@ -15,19 +15,19 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum TopicEnum {
-  TODOAPPROVAL("1"),
-  DONEAPPROVAL("2"),
-  INITIATEDAPPROVAL("3"),
-  UNREADNOTICE("17"),
-  READNOTICE("18"),
-  ;
-  private String value;
+    TODOAPPROVAL("1"),
+    DONEAPPROVAL("2"),
+    INITIATEDAPPROVAL("3"),
+    UNREADNOTICE("17"),
+    READNOTICE("18"),
+    ;
+    private String value;
 
-  TopicEnum(String value) {
-    this.value = value;
-  }
+    TopicEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

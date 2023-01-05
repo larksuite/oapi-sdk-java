@@ -16,98 +16,96 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DepartmentParent {
-
-  /**
-   * 部门ID
-   * <p> 示例值：
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 父部门ID列表，从直接父部门到根部门
-   * <p> 示例值：
-   */
-  @SerializedName("parent_ids")
-  private String[] parentIds;
-
-  // builder 开始
-  public DepartmentParent() {
-  }
-
-  public DepartmentParent(Builder builder) {
     /**
      * 部门ID
      * <p> 示例值：
      */
-    this.departmentId = builder.departmentId;
-    /**
-     * 父部门ID列表，从直接父部门到根部门
-     * <p> 示例值：
-     */
-    this.parentIds = builder.parentIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String[] getParentIds() {
-    return this.parentIds;
-  }
-
-  public void setParentIds(String[] parentIds) {
-    this.parentIds = parentIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 部门ID
-     * <p> 示例值：
-     */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 父部门ID列表，从直接父部门到根部门
      * <p> 示例值：
      */
+    @SerializedName("parent_ids")
     private String[] parentIds;
 
-    /**
-     * 部门ID
-     * <p> 示例值：
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    // builder 开始
+    public DepartmentParent() {
     }
 
-
-    /**
-     * 父部门ID列表，从直接父部门到根部门
-     * <p> 示例值：
-     *
-     * @param parentIds
-     * @return
-     */
-    public Builder parentIds(String[] parentIds) {
-      this.parentIds = parentIds;
-      return this;
+    public DepartmentParent(Builder builder) {
+        /**
+         * 部门ID
+         * <p> 示例值：
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 父部门ID列表，从直接父部门到根部门
+         * <p> 示例值：
+         */
+        this.parentIds = builder.parentIds;
     }
 
-
-    public DepartmentParent build() {
-      return new DepartmentParent(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String[] getParentIds() {
+        return this.parentIds;
+    }
+
+    public void setParentIds(String[] parentIds) {
+        this.parentIds = parentIds;
+    }
+
+    public static class Builder {
+        /**
+         * 部门ID
+         * <p> 示例值：
+         */
+        private String departmentId;
+        /**
+         * 父部门ID列表，从直接父部门到根部门
+         * <p> 示例值：
+         */
+        private String[] parentIds;
+
+        /**
+         * 部门ID
+         * <p> 示例值：
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 父部门ID列表，从直接父部门到根部门
+         * <p> 示例值：
+         *
+         * @param parentIds
+         * @return
+         */
+        public Builder parentIds(String[] parentIds) {
+            this.parentIds = parentIds;
+            return this;
+        }
+
+
+        public DepartmentParent build() {
+            return new DepartmentParent(this);
+        }
+    }
 }

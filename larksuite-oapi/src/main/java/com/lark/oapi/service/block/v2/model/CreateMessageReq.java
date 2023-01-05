@@ -16,51 +16,50 @@ package com.lark.oapi.service.block.v2.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateMessageReq {
-
-  @Body
-  private Message body;
-
-  // builder 开始
-  public CreateMessageReq() {
-  }
-
-  public CreateMessageReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Message getMessage() {
-    return this.body;
-  }
-
-  public void setMessage(Message body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Message body;
 
+    // builder 开始
+    public CreateMessageReq() {
+    }
+
+    public CreateMessageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Message getMessage() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder message(Message body) {
-      this.body = body;
-      return this;
+    public void setMessage(Message body) {
+        this.body = body;
     }
 
-    public CreateMessageReq build() {
-      return new CreateMessageReq(this);
+    public static class Builder {
+
+        private Message body;
+
+        public Message getMessage() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder message(Message body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateMessageReq build() {
+            return new CreateMessageReq(this);
+        }
     }
-  }
 }

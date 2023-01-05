@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuerySpreadsheetSheetFilterViewCondition {
 
-  /**
-   * 筛选视图设置的所有筛选条件
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private FilterViewCondition[] items;
+    /**
+     * 筛选视图设置的所有筛选条件
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private FilterViewCondition[] items;
 
-  public FilterViewCondition[] getItems() {
-    return this.items;
-  }
+    public FilterViewCondition[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(FilterViewCondition[] items) {
-    this.items = items;
-  }
+    public void setItems(FilterViewCondition[] items) {
+        this.items = items;
+    }
 
 }

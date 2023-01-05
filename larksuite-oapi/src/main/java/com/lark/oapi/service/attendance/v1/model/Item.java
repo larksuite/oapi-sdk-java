@@ -16,135 +16,133 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Item {
-
-  /**
-   * 标题编号
-   * <p> 示例值：522
-   */
-  @SerializedName("code")
-  private String code;
-  /**
-   * 标题名称
-   * <p> 示例值：基本信息
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 子标题
-   * <p> 示例值：
-   */
-  @SerializedName("child_items")
-  private ChildItem[] childItems;
-
-  // builder 开始
-  public Item() {
-  }
-
-  public Item(Builder builder) {
     /**
      * 标题编号
      * <p> 示例值：522
      */
-    this.code = builder.code;
-    /**
-     * 标题名称
-     * <p> 示例值：基本信息
-     */
-    this.title = builder.title;
-    /**
-     * 子标题
-     * <p> 示例值：
-     */
-    this.childItems = builder.childItems;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public ChildItem[] getChildItems() {
-    return this.childItems;
-  }
-
-  public void setChildItems(ChildItem[] childItems) {
-    this.childItems = childItems;
-  }
-
-  public static class Builder {
-
-    /**
-     * 标题编号
-     * <p> 示例值：522
-     */
+    @SerializedName("code")
     private String code;
     /**
      * 标题名称
      * <p> 示例值：基本信息
      */
+    @SerializedName("title")
     private String title;
     /**
      * 子标题
      * <p> 示例值：
      */
+    @SerializedName("child_items")
     private ChildItem[] childItems;
 
-    /**
-     * 标题编号
-     * <p> 示例值：522
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    // builder 开始
+    public Item() {
     }
 
-
-    /**
-     * 标题名称
-     * <p> 示例值：基本信息
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public Item(Builder builder) {
+        /**
+         * 标题编号
+         * <p> 示例值：522
+         */
+        this.code = builder.code;
+        /**
+         * 标题名称
+         * <p> 示例值：基本信息
+         */
+        this.title = builder.title;
+        /**
+         * 子标题
+         * <p> 示例值：
+         */
+        this.childItems = builder.childItems;
     }
 
-
-    /**
-     * 子标题
-     * <p> 示例值：
-     *
-     * @param childItems
-     * @return
-     */
-    public Builder childItems(ChildItem[] childItems) {
-      this.childItems = childItems;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Item build() {
-      return new Item(this);
+    public String getCode() {
+        return this.code;
     }
-  }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public ChildItem[] getChildItems() {
+        return this.childItems;
+    }
+
+    public void setChildItems(ChildItem[] childItems) {
+        this.childItems = childItems;
+    }
+
+    public static class Builder {
+        /**
+         * 标题编号
+         * <p> 示例值：522
+         */
+        private String code;
+        /**
+         * 标题名称
+         * <p> 示例值：基本信息
+         */
+        private String title;
+        /**
+         * 子标题
+         * <p> 示例值：
+         */
+        private ChildItem[] childItems;
+
+        /**
+         * 标题编号
+         * <p> 示例值：522
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 标题名称
+         * <p> 示例值：基本信息
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 子标题
+         * <p> 示例值：
+         *
+         * @param childItems
+         * @return
+         */
+        public Builder childItems(ChildItem[] childItems) {
+            this.childItems = childItems;
+            return this;
+        }
+
+
+        public Item build() {
+            return new Item(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferSchemaName {
-
-  /**
-   * 中文名
-   * <p> 示例值：名字
-   */
-  @SerializedName("zh_cn")
-  private String zhCn;
-  /**
-   * 英文名
-   * <p> 示例值：name
-   */
-  @SerializedName("en_us")
-  private String enUs;
-
-  // builder 开始
-  public OfferSchemaName() {
-  }
-
-  public OfferSchemaName(Builder builder) {
     /**
      * 中文名
      * <p> 示例值：名字
      */
-    this.zhCn = builder.zhCn;
-    /**
-     * 英文名
-     * <p> 示例值：name
-     */
-    this.enUs = builder.enUs;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getZhCn() {
-    return this.zhCn;
-  }
-
-  public void setZhCn(String zhCn) {
-    this.zhCn = zhCn;
-  }
-
-  public String getEnUs() {
-    return this.enUs;
-  }
-
-  public void setEnUs(String enUs) {
-    this.enUs = enUs;
-  }
-
-  public static class Builder {
-
-    /**
-     * 中文名
-     * <p> 示例值：名字
-     */
+    @SerializedName("zh_cn")
     private String zhCn;
     /**
      * 英文名
      * <p> 示例值：name
      */
+    @SerializedName("en_us")
     private String enUs;
 
-    /**
-     * 中文名
-     * <p> 示例值：名字
-     *
-     * @param zhCn
-     * @return
-     */
-    public Builder zhCn(String zhCn) {
-      this.zhCn = zhCn;
-      return this;
+    // builder 开始
+    public OfferSchemaName() {
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：name
-     *
-     * @param enUs
-     * @return
-     */
-    public Builder enUs(String enUs) {
-      this.enUs = enUs;
-      return this;
+    public OfferSchemaName(Builder builder) {
+        /**
+         * 中文名
+         * <p> 示例值：名字
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 英文名
+         * <p> 示例值：name
+         */
+        this.enUs = builder.enUs;
     }
 
-
-    public OfferSchemaName build() {
-      return new OfferSchemaName(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getZhCn() {
+        return this.zhCn;
+    }
+
+    public void setZhCn(String zhCn) {
+        this.zhCn = zhCn;
+    }
+
+    public String getEnUs() {
+        return this.enUs;
+    }
+
+    public void setEnUs(String enUs) {
+        this.enUs = enUs;
+    }
+
+    public static class Builder {
+        /**
+         * 中文名
+         * <p> 示例值：名字
+         */
+        private String zhCn;
+        /**
+         * 英文名
+         * <p> 示例值：name
+         */
+        private String enUs;
+
+        /**
+         * 中文名
+         * <p> 示例值：名字
+         *
+         * @param zhCn
+         * @return
+         */
+        public Builder zhCn(String zhCn) {
+            this.zhCn = zhCn;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：name
+         *
+         * @param enUs
+         * @return
+         */
+        public Builder enUs(String enUs) {
+            this.enUs = enUs;
+            return this;
+        }
+
+
+        public OfferSchemaName build() {
+            return new OfferSchemaName(this);
+        }
+    }
 }

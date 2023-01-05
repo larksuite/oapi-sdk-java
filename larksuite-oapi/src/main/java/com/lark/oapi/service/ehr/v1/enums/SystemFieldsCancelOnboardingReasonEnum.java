@@ -17,18 +17,18 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 取消入职原因
  */
 public enum SystemFieldsCancelOnboardingReasonEnum {
-  PERSONAL_REASON(1), // 个人原因
-  STAY(2), // 原单位留任
-  OTHER_OFFER(3), // 接受其他 Offer
-  OTHER(4), // 其他
-  ;
-  private Integer value;
+    PERSONAL_REASON(1), // 个人原因
+    STAY(2), // 原单位留任
+    OTHER_OFFER(3), // 接受其他 Offer
+    OTHER(4), // 其他
+    ;
+    private Integer value;
 
-  SystemFieldsCancelOnboardingReasonEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsCancelOnboardingReasonEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

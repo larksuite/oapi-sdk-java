@@ -18,244 +18,277 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListFileCommentReq {
-
-  /**
-   * 文档类型
-   * <p> 示例值：doc
-   */
-  @Query
-  @SerializedName("file_type")
-  private String fileType;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 是否已解决（可选）
-   * <p> 示例值：false
-   */
-  @Query
-  @SerializedName("is_solved")
-  private Boolean isSolved;
-  /**
-   * <p> 示例值：6916106822734578184
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 文档token
-   * <p> 示例值：doccnHh7U87HOFpii5u5G*****
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public ListFileCommentReq() {
-  }
-
-  public ListFileCommentReq(Builder builder) {
     /**
      * 文档类型
      * <p> 示例值：doc
      */
-    this.fileType = builder.fileType;
+    @Query
+    @SerializedName("file_type")
+    private String fileType;
     /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     * 是否全文评论
+     * <p> 示例值：false
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("is_whole")
+    private Boolean isWhole;
     /**
      * 是否已解决（可选）
      * <p> 示例值：false
      */
-    this.isSolved = builder.isSolved;
+    @Query
+    @SerializedName("is_solved")
+    private Boolean isSolved;
     /**
-     *
-     * <p> 示例值：6916106822734578184
+     * 评论分页参数
+     * <p> 示例值：7153511712153412356
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
+     * 获取满足 commen_id > page_token 的评论数量
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
-    /**
-     * 文档token
-     * <p> 示例值：doccnHh7U87HOFpii5u5G*****
-     */
-    this.fileToken = builder.fileToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public Boolean getIsSolved() {
-    return this.isSolved;
-  }
-
-  public void setIsSolved(Boolean isSolved) {
-    this.isSolved = isSolved;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
-    private String fileType; // 文档类型
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private Boolean isSolved; // 是否已解决（可选）
-    private String pageToken; //
-    private Integer pageSize; //
-    private String fileToken; // 文档token
-
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     *
-     * @param fileType
-     * @return
-     */
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
-    }
-
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     *
-     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentFileTypeEnum}
-     * @return
-     */
-    public Builder fileType(
-        com.lark.oapi.service.drive.v1.enums.ListFileCommentFileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
-    }
-
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
      */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    /**
-     * 是否已解决（可选）
-     * <p> 示例值：false
-     *
-     * @param isSolved
-     * @return
-     */
-    public Builder isSolved(Boolean isSolved) {
-      this.isSolved = isSolved;
-      return this;
-    }
-
-    /**
-     * <p> 示例值：6916106822734578184
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 文档token
-     * <p> 示例值：doccnHh7U87HOFpii5u5G*****
-     *
-     * @param fileToken
-     * @return
+     * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
      */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+
+    // builder 开始
+    public ListFileCommentReq() {
     }
 
-    public ListFileCommentReq build() {
-      return new ListFileCommentReq(this);
+    public ListFileCommentReq(Builder builder) {
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         */
+        this.fileType = builder.fileType;
+        /**
+         * 是否全文评论
+         * <p> 示例值：false
+         */
+        this.isWhole = builder.isWhole;
+        /**
+         * 是否已解决（可选）
+         * <p> 示例值：false
+         */
+        this.isSolved = builder.isSolved;
+        /**
+         * 评论分页参数
+         * <p> 示例值：7153511712153412356
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 获取满足 commen_id > page_token 的评论数量
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 文档token
+         * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+         */
+        this.fileToken = builder.fileToken;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public Boolean getIsWhole() {
+        return this.isWhole;
+    }
+
+    public void setIsWhole(Boolean isWhole) {
+        this.isWhole = isWhole;
+    }
+
+    public Boolean getIsSolved() {
+        return this.isSolved;
+    }
+
+    public void setIsSolved(Boolean isSolved) {
+        this.isSolved = isSolved;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public static class Builder {
+        private String fileType; // 文档类型
+        private Boolean isWhole; // 是否全文评论
+        private Boolean isSolved; // 是否已解决（可选）
+        private String pageToken; // 评论分页参数
+        private Integer pageSize; // 获取满足 commen_id > page_token 的评论数量
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String fileToken; // 文档token
+
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         *
+         * @param fileType
+         * @return
+         */
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
+
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         *
+         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentFileTypeEnum}
+         * @return
+         */
+        public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileCommentFileTypeEnum fileType) {
+            this.fileType = fileType.getValue();
+            return this;
+        }
+
+        /**
+         * 是否全文评论
+         * <p> 示例值：false
+         *
+         * @param isWhole
+         * @return
+         */
+        public Builder isWhole(Boolean isWhole) {
+            this.isWhole = isWhole;
+            return this;
+        }
+
+        /**
+         * 是否已解决（可选）
+         * <p> 示例值：false
+         *
+         * @param isSolved
+         * @return
+         */
+        public Builder isSolved(Boolean isSolved) {
+            this.isSolved = isSolved;
+            return this;
+        }
+
+        /**
+         * 评论分页参数
+         * <p> 示例值：7153511712153412356
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * 获取满足 commen_id > page_token 的评论数量
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 文档token
+         * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public ListFileCommentReq build() {
+            return new ListFileCommentReq(this);
+        }
+    }
 }

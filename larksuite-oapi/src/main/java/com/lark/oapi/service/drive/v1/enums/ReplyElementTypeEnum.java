@@ -17,17 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 回复的内容元素
  */
 public enum ReplyElementTypeEnum {
-  TEXT_RUN("text_run"), // 普通文本
-  DOCS_LINK("docs_link"), // at 云文档链接
-  PERSON("person"), // at 联系人
-  ;
-  private String value;
+    TEXT_RUN("text_run"), // 普通文本
+    DOCS_LINK("docs_link"), // at 云文档链接
+    PERSON("person"), // at 联系人
+    ;
+    private String value;
 
-  ReplyElementTypeEnum(String value) {
-    this.value = value;
-  }
+    ReplyElementTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

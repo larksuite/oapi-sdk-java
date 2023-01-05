@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CopyFile {
 
-  /**
-   * 复制后的文件资源
-   * <p> 示例值：
-   */
-  @SerializedName("file")
-  private File file;
+    /**
+     * 复制后的文件资源
+     * <p> 示例值：
+     */
+    @SerializedName("file")
+    private File file;
 
-  public File getFile() {
-    return this.file;
-  }
+    public File getFile() {
+        return this.file;
+    }
 
-  public void setFile(File file) {
-    this.file = file;
-  }
+    public void setFile(File file) {
+        this.file = file;
+    }
 
 }

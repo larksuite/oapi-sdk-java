@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SnsInfo {
-
-  /**
-   * SNS链接
-   * <p> 示例值：
-   */
-  @SerializedName("link")
-  private String link;
-  /**
-   * SNS类型
-   * <p> 示例值：
-   */
-  @SerializedName("sns_type")
-  private Integer snsType;
-
-  // builder 开始
-  public SnsInfo() {
-  }
-
-  public SnsInfo(Builder builder) {
     /**
      * SNS链接
      * <p> 示例值：
      */
-    this.link = builder.link;
-    /**
-     * SNS类型
-     * <p> 示例值：
-     */
-    this.snsType = builder.snsType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public Integer getSnsType() {
-    return this.snsType;
-  }
-
-  public void setSnsType(Integer snsType) {
-    this.snsType = snsType;
-  }
-
-  public static class Builder {
-
-    /**
-     * SNS链接
-     * <p> 示例值：
-     */
+    @SerializedName("link")
     private String link;
     /**
      * SNS类型
      * <p> 示例值：
      */
+    @SerializedName("sns_type")
     private Integer snsType;
 
-    /**
-     * SNS链接
-     * <p> 示例值：
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    // builder 开始
+    public SnsInfo() {
     }
 
-
-    /**
-     * SNS类型
-     * <p> 示例值：
-     *
-     * @param snsType
-     * @return
-     */
-    public Builder snsType(Integer snsType) {
-      this.snsType = snsType;
-      return this;
+    public SnsInfo(Builder builder) {
+        /**
+         * SNS链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
+        /**
+         * SNS类型
+         * <p> 示例值：
+         */
+        this.snsType = builder.snsType;
     }
 
-
-    public SnsInfo build() {
-      return new SnsInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public Integer getSnsType() {
+        return this.snsType;
+    }
+
+    public void setSnsType(Integer snsType) {
+        this.snsType = snsType;
+    }
+
+    public static class Builder {
+        /**
+         * SNS链接
+         * <p> 示例值：
+         */
+        private String link;
+        /**
+         * SNS类型
+         * <p> 示例值：
+         */
+        private Integer snsType;
+
+        /**
+         * SNS链接
+         * <p> 示例值：
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        /**
+         * SNS类型
+         * <p> 示例值：
+         *
+         * @param snsType
+         * @return
+         */
+        public Builder snsType(Integer snsType) {
+            this.snsType = snsType;
+            return this;
+        }
+
+
+        public SnsInfo build() {
+            return new SnsInfo(this);
+        }
+    }
 }

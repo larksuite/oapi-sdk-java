@@ -17,22 +17,22 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 记录生成方式
  */
 public enum UserFlowTypeEnum {
-  SELF(0), // 用户自己打卡
-  MANAGERMODIFICATION(1), // 管理员修改
-  REMEDY(2), // 用户补卡
-  SYSTEM(3), // 系统自动生成
-  FREE(4), // 下班免打卡
-  MACHINE(5), // 考勤机
-  QUICK(6), // 极速打卡
-  IMPORT(7), // 考勤开放平台导入
-  ;
-  private Integer value;
+    SELF(0), // 用户自己打卡
+    MANAGERMODIFICATION(1), // 管理员修改
+    REMEDY(2), // 用户补卡
+    SYSTEM(3), // 系统自动生成
+    FREE(4), // 下班免打卡
+    MACHINE(5), // 考勤机
+    QUICK(6), // 极速打卡
+    IMPORT(7), // 考勤开放平台导入
+    ;
+    private Integer value;
 
-  UserFlowTypeEnum(Integer value) {
-    this.value = value;
-  }
+    UserFlowTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

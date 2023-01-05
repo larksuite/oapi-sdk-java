@@ -17,58 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class QueryShiftReq {
-
-  /**
-   * 班次名称
-   * <p> 示例值：早班
-   */
-  @Query
-  @SerializedName("shift_name")
-  private String shiftName;
-
-  // builder 开始
-  public QueryShiftReq() {
-  }
-
-  public QueryShiftReq(Builder builder) {
     /**
      * 班次名称
      * <p> 示例值：早班
      */
-    this.shiftName = builder.shiftName;
-  }
+    @Query
+    @SerializedName("shift_name")
+    private String shiftName;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getShiftName() {
-    return this.shiftName;
-  }
-
-  public void setShiftName(String shiftName) {
-    this.shiftName = shiftName;
-  }
-
-  public static class Builder {
-
-    private String shiftName; // 班次名称
-
-
-    /**
-     * 班次名称
-     * <p> 示例值：早班
-     *
-     * @param shiftName
-     * @return
-     */
-    public Builder shiftName(String shiftName) {
-      this.shiftName = shiftName;
-      return this;
+    // builder 开始
+    public QueryShiftReq() {
     }
 
-    public QueryShiftReq build() {
-      return new QueryShiftReq(this);
+    public QueryShiftReq(Builder builder) {
+        /**
+         * 班次名称
+         * <p> 示例值：早班
+         */
+        this.shiftName = builder.shiftName;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getShiftName() {
+        return this.shiftName;
+    }
+
+    public void setShiftName(String shiftName) {
+        this.shiftName = shiftName;
+    }
+
+    public static class Builder {
+        private String shiftName; // 班次名称
+
+
+        /**
+         * 班次名称
+         * <p> 示例值：早班
+         *
+         * @param shiftName
+         * @return
+         */
+        public Builder shiftName(String shiftName) {
+            this.shiftName = shiftName;
+            return this;
+        }
+
+        public QueryShiftReq build() {
+            return new QueryShiftReq(this);
+        }
+    }
 }

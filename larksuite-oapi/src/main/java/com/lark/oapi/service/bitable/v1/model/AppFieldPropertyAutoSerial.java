@@ -16,111 +16,108 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppFieldPropertyAutoSerial {
-
-  /**
-   * 自动编号类型
-   * <p> 示例值：auto_increment_number
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 自动编号规则列表
-   * <p> 示例值：
-   */
-  @SerializedName("options")
-  private AppFieldPropertyAutoSerialOptions[] options;
-
-  // builder 开始
-  public AppFieldPropertyAutoSerial() {
-  }
-
-  public AppFieldPropertyAutoSerial(Builder builder) {
     /**
      * 自动编号类型
      * <p> 示例值：auto_increment_number
      */
-    this.type = builder.type;
-    /**
-     * 自动编号规则列表
-     * <p> 示例值：
-     */
-    this.options = builder.options;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public AppFieldPropertyAutoSerialOptions[] getOptions() {
-    return this.options;
-  }
-
-  public void setOptions(AppFieldPropertyAutoSerialOptions[] options) {
-    this.options = options;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自动编号类型
-     * <p> 示例值：auto_increment_number
-     */
+    @SerializedName("type")
     private String type;
     /**
      * 自动编号规则列表
      * <p> 示例值：
      */
+    @SerializedName("options")
     private AppFieldPropertyAutoSerialOptions[] options;
 
-    /**
-     * 自动编号类型
-     * <p> 示例值：auto_increment_number
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public AppFieldPropertyAutoSerial() {
     }
 
-    /**
-     * 自动编号类型
-     * <p> 示例值：auto_increment_number
-     *
-     * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialTypeEnum}
-     * @return
-     */
-    public Builder type(
-        com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public AppFieldPropertyAutoSerial(Builder builder) {
+        /**
+         * 自动编号类型
+         * <p> 示例值：auto_increment_number
+         */
+        this.type = builder.type;
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         */
+        this.options = builder.options;
     }
 
-
-    /**
-     * 自动编号规则列表
-     * <p> 示例值：
-     *
-     * @param options
-     * @return
-     */
-    public Builder options(AppFieldPropertyAutoSerialOptions[] options) {
-      this.options = options;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AppFieldPropertyAutoSerial build() {
-      return new AppFieldPropertyAutoSerial(this);
+    public String getType() {
+        return this.type;
     }
-  }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public AppFieldPropertyAutoSerialOptions[] getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(AppFieldPropertyAutoSerialOptions[] options) {
+        this.options = options;
+    }
+
+    public static class Builder {
+        /**
+         * 自动编号类型
+         * <p> 示例值：auto_increment_number
+         */
+        private String type;
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         */
+        private AppFieldPropertyAutoSerialOptions[] options;
+
+        /**
+         * 自动编号类型
+         * <p> 示例值：auto_increment_number
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 自动编号类型
+         * <p> 示例值：auto_increment_number
+         *
+         * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 自动编号规则列表
+         * <p> 示例值：
+         *
+         * @param options
+         * @return
+         */
+        public Builder options(AppFieldPropertyAutoSerialOptions[] options) {
+            this.options = options;
+            return this;
+        }
+
+
+        public AppFieldPropertyAutoSerial build() {
+            return new AppFieldPropertyAutoSerial(this);
+        }
+    }
 }

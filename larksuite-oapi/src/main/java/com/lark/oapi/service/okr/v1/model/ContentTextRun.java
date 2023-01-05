@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentTextRun {
-
-  /**
-   * 具体的文本内容
-   * <p> 示例值：周报内容
-   */
-  @SerializedName("text")
-  private String text;
-  /**
-   * 文本内容的样式，支持 BIUS、颜色等
-   * <p> 示例值：
-   */
-  @SerializedName("style")
-  private ContentTextStyle style;
-
-  // builder 开始
-  public ContentTextRun() {
-  }
-
-  public ContentTextRun(Builder builder) {
     /**
      * 具体的文本内容
      * <p> 示例值：周报内容
      */
-    this.text = builder.text;
-    /**
-     * 文本内容的样式，支持 BIUS、颜色等
-     * <p> 示例值：
-     */
-    this.style = builder.style;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public ContentTextStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(ContentTextStyle style) {
-    this.style = style;
-  }
-
-  public static class Builder {
-
-    /**
-     * 具体的文本内容
-     * <p> 示例值：周报内容
-     */
+    @SerializedName("text")
     private String text;
     /**
      * 文本内容的样式，支持 BIUS、颜色等
      * <p> 示例值：
      */
+    @SerializedName("style")
     private ContentTextStyle style;
 
-    /**
-     * 具体的文本内容
-     * <p> 示例值：周报内容
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    // builder 开始
+    public ContentTextRun() {
     }
 
-
-    /**
-     * 文本内容的样式，支持 BIUS、颜色等
-     * <p> 示例值：
-     *
-     * @param style
-     * @return
-     */
-    public Builder style(ContentTextStyle style) {
-      this.style = style;
-      return this;
+    public ContentTextRun(Builder builder) {
+        /**
+         * 具体的文本内容
+         * <p> 示例值：周报内容
+         */
+        this.text = builder.text;
+        /**
+         * 文本内容的样式，支持 BIUS、颜色等
+         * <p> 示例值：
+         */
+        this.style = builder.style;
     }
 
-
-    public ContentTextRun build() {
-      return new ContentTextRun(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public ContentTextStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(ContentTextStyle style) {
+        this.style = style;
+    }
+
+    public static class Builder {
+        /**
+         * 具体的文本内容
+         * <p> 示例值：周报内容
+         */
+        private String text;
+        /**
+         * 文本内容的样式，支持 BIUS、颜色等
+         * <p> 示例值：
+         */
+        private ContentTextStyle style;
+
+        /**
+         * 具体的文本内容
+         * <p> 示例值：周报内容
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        /**
+         * 文本内容的样式，支持 BIUS、颜色等
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(ContentTextStyle style) {
+            this.style = style;
+            return this;
+        }
+
+
+        public ContentTextRun build() {
+            return new ContentTextRun(this);
+        }
+    }
 }

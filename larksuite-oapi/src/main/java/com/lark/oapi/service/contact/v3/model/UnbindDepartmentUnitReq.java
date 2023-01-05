@@ -16,51 +16,50 @@ package com.lark.oapi.service.contact.v3.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class UnbindDepartmentUnitReq {
-
-  @Body
-  private UnbindDepartmentUnitReqBody body;
-
-  // builder 开始
-  public UnbindDepartmentUnitReq() {
-  }
-
-  public UnbindDepartmentUnitReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UnbindDepartmentUnitReqBody getUnbindDepartmentUnitReqBody() {
-    return this.body;
-  }
-
-  public void setUnbindDepartmentUnitReqBody(UnbindDepartmentUnitReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private UnbindDepartmentUnitReqBody body;
 
+    // builder 开始
+    public UnbindDepartmentUnitReq() {
+    }
+
+    public UnbindDepartmentUnitReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UnbindDepartmentUnitReqBody getUnbindDepartmentUnitReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder unbindDepartmentUnitReqBody(UnbindDepartmentUnitReqBody body) {
-      this.body = body;
-      return this;
+    public void setUnbindDepartmentUnitReqBody(UnbindDepartmentUnitReqBody body) {
+        this.body = body;
     }
 
-    public UnbindDepartmentUnitReq build() {
-      return new UnbindDepartmentUnitReq(this);
+    public static class Builder {
+
+        private UnbindDepartmentUnitReqBody body;
+
+        public UnbindDepartmentUnitReqBody getUnbindDepartmentUnitReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder unbindDepartmentUnitReqBody(UnbindDepartmentUnitReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UnbindDepartmentUnitReq build() {
+            return new UnbindDepartmentUnitReq(this);
+        }
     }
-  }
 }

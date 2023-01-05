@@ -17,19 +17,19 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 员工状态
  */
 public enum SystemFieldsStatusEnum {
-  TO_BE_ONBOARDED(1), // 待入职
-  ACTIVE(2), // 在职
-  ONBOARDING_CANCELLED(3), // 已取消入职
-  OFFBOARDING(4), // 待离职
-  OFFBOARDED(5), // 已离职
-  ;
-  private Integer value;
+    TO_BE_ONBOARDED(1), // 待入职
+    ACTIVE(2), // 在职
+    ONBOARDING_CANCELLED(3), // 已取消入职
+    OFFBOARDING(4), // 待离职
+    OFFBOARDED(5), // 已离职
+    ;
+    private Integer value;
 
-  SystemFieldsStatusEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

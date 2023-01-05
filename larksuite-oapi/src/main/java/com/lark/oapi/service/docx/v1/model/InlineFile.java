@@ -16,98 +16,133 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InlineFile {
-
-  /**
-   * 附件 token
-   * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 当前文档中该附件所处的 block 的 id
-   * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-   */
-  @SerializedName("source_block_id")
-  private String sourceBlockId;
-
-  // builder 开始
-  public InlineFile() {
-  }
-
-  public InlineFile(Builder builder) {
     /**
      * 附件 token
      * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * 当前文档中该附件所处的 block 的 id
-     * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-     */
-    this.sourceBlockId = builder.sourceBlockId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getSourceBlockId() {
-    return this.sourceBlockId;
-  }
-
-  public void setSourceBlockId(String sourceBlockId) {
-    this.sourceBlockId = sourceBlockId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 附件 token
-     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-     */
+    @SerializedName("file_token")
     private String fileToken;
     /**
      * 当前文档中该附件所处的 block 的 id
      * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
      */
+    @SerializedName("source_block_id")
     private String sourceBlockId;
-
     /**
-     * 附件 token
-     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-     *
-     * @param fileToken
-     * @return
+     * 文本局部样式
+     * <p> 示例值：
      */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    @SerializedName("text_element_style")
+    private TextElementStyle textElementStyle;
+
+    // builder 开始
+    public InlineFile() {
     }
 
-
-    /**
-     * 当前文档中该附件所处的 block 的 id
-     * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
-     *
-     * @param sourceBlockId
-     * @return
-     */
-    public Builder sourceBlockId(String sourceBlockId) {
-      this.sourceBlockId = sourceBlockId;
-      return this;
+    public InlineFile(Builder builder) {
+        /**
+         * 附件 token
+         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 当前文档中该附件所处的 block 的 id
+         * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+         */
+        this.sourceBlockId = builder.sourceBlockId;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        this.textElementStyle = builder.textElementStyle;
     }
 
-
-    public InlineFile build() {
-      return new InlineFile(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public String getSourceBlockId() {
+        return this.sourceBlockId;
+    }
+
+    public void setSourceBlockId(String sourceBlockId) {
+        this.sourceBlockId = sourceBlockId;
+    }
+
+    public TextElementStyle getTextElementStyle() {
+        return this.textElementStyle;
+    }
+
+    public void setTextElementStyle(TextElementStyle textElementStyle) {
+        this.textElementStyle = textElementStyle;
+    }
+
+    public static class Builder {
+        /**
+         * 附件 token
+         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+         */
+        private String fileToken;
+        /**
+         * 当前文档中该附件所处的 block 的 id
+         * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+         */
+        private String sourceBlockId;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        private TextElementStyle textElementStyle;
+
+        /**
+         * 附件 token
+         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 当前文档中该附件所处的 block 的 id
+         * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+         *
+         * @param sourceBlockId
+         * @return
+         */
+        public Builder sourceBlockId(String sourceBlockId) {
+            this.sourceBlockId = sourceBlockId;
+            return this;
+        }
+
+
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         *
+         * @param textElementStyle
+         * @return
+         */
+        public Builder textElementStyle(TextElementStyle textElementStyle) {
+            this.textElementStyle = textElementStyle;
+            return this;
+        }
+
+
+        public InlineFile build() {
+            return new InlineFile(this);
+        }
+    }
 }

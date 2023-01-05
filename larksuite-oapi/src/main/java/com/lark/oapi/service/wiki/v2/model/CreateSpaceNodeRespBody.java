@@ -16,20 +16,19 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateSpaceNodeRespBody {
+    /**
+     * 节点
+     * <p> 示例值：
+     */
+    @SerializedName("node")
+    private Node node;
 
-  /**
-   * 节点
-   * <p> 示例值：
-   */
-  @SerializedName("node")
-  private Node node;
+    public Node getNode() {
+        return this.node;
+    }
 
-  public Node getNode() {
-    return this.node;
-  }
-
-  public void setNode(Node node) {
-    this.node = node;
-  }
+    public void setNode(Node node) {
+        this.node = node;
+    }
 
 }

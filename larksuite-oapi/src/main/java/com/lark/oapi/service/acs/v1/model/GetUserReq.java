@@ -18,102 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetUserReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 用户 ID
-   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-   */
-  @Path
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public GetUserReq() {
-  }
-
-  public GetUserReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 用户 ID
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    this.userId = builder.userId;
-  }
+    @Path
+    @SerializedName("user_id")
+    private String userId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String userId; // 用户 ID
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public GetUserReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public GetUserReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        this.userId = builder.userId;
     }
 
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public GetUserReq build() {
-      return new GetUserReq(this);
+    public String getUserIdType() {
+        return this.userIdType;
     }
-  }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String userId; // 用户 ID
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetUserUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public GetUserReq build() {
+            return new GetUserReq(this);
+        }
+    }
 }

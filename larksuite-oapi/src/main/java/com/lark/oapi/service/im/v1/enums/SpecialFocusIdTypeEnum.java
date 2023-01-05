@@ -14,21 +14,21 @@
 package com.lark.oapi.service.im.v1.enums;
 
 /**
- * id open_id/user_id/union_id/app_id
+ * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
  */
 public enum SpecialFocusIdTypeEnum {
-  USER_ID("user_id"), // 以user_id来识别成员
-  UNION_ID("union_id"), // 以union_id来识别成员
-  OPEN_ID("open_id"), // 以open_id来识别成员
-  APP_ID("app_id"), // 以app_id来识别成员
-  ;
-  private String value;
+    USER_ID("user_id"), // 以user_id来识别成员
+    UNION_ID("union_id"), // 以union_id来识别成员
+    OPEN_ID("open_id"), // 以open_id来识别成员
+    APP_ID("app_id"), // 以app_id来识别成员
+    ;
+    private String value;
 
-  SpecialFocusIdTypeEnum(String value) {
-    this.value = value;
-  }
+    SpecialFocusIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

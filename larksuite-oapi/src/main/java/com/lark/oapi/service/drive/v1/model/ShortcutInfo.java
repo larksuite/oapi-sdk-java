@@ -16,98 +16,96 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ShortcutInfo {
-
-  /**
-   * 快捷方式指向的原文件类型
-   * <p> 示例值：
-   */
-  @SerializedName("target_type")
-  private String targetType;
-  /**
-   * 快捷方式指向的原文件token
-   * <p> 示例值：
-   */
-  @SerializedName("target_token")
-  private String targetToken;
-
-  // builder 开始
-  public ShortcutInfo() {
-  }
-
-  public ShortcutInfo(Builder builder) {
     /**
      * 快捷方式指向的原文件类型
      * <p> 示例值：
      */
-    this.targetType = builder.targetType;
-    /**
-     * 快捷方式指向的原文件token
-     * <p> 示例值：
-     */
-    this.targetToken = builder.targetToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTargetType() {
-    return this.targetType;
-  }
-
-  public void setTargetType(String targetType) {
-    this.targetType = targetType;
-  }
-
-  public String getTargetToken() {
-    return this.targetToken;
-  }
-
-  public void setTargetToken(String targetToken) {
-    this.targetToken = targetToken;
-  }
-
-  public static class Builder {
-
-    /**
-     * 快捷方式指向的原文件类型
-     * <p> 示例值：
-     */
+    @SerializedName("target_type")
     private String targetType;
     /**
      * 快捷方式指向的原文件token
      * <p> 示例值：
      */
+    @SerializedName("target_token")
     private String targetToken;
 
-    /**
-     * 快捷方式指向的原文件类型
-     * <p> 示例值：
-     *
-     * @param targetType
-     * @return
-     */
-    public Builder targetType(String targetType) {
-      this.targetType = targetType;
-      return this;
+    // builder 开始
+    public ShortcutInfo() {
     }
 
-
-    /**
-     * 快捷方式指向的原文件token
-     * <p> 示例值：
-     *
-     * @param targetToken
-     * @return
-     */
-    public Builder targetToken(String targetToken) {
-      this.targetToken = targetToken;
-      return this;
+    public ShortcutInfo(Builder builder) {
+        /**
+         * 快捷方式指向的原文件类型
+         * <p> 示例值：
+         */
+        this.targetType = builder.targetType;
+        /**
+         * 快捷方式指向的原文件token
+         * <p> 示例值：
+         */
+        this.targetToken = builder.targetToken;
     }
 
-
-    public ShortcutInfo build() {
-      return new ShortcutInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getTargetType() {
+        return this.targetType;
+    }
+
+    public void setTargetType(String targetType) {
+        this.targetType = targetType;
+    }
+
+    public String getTargetToken() {
+        return this.targetToken;
+    }
+
+    public void setTargetToken(String targetToken) {
+        this.targetToken = targetToken;
+    }
+
+    public static class Builder {
+        /**
+         * 快捷方式指向的原文件类型
+         * <p> 示例值：
+         */
+        private String targetType;
+        /**
+         * 快捷方式指向的原文件token
+         * <p> 示例值：
+         */
+        private String targetToken;
+
+        /**
+         * 快捷方式指向的原文件类型
+         * <p> 示例值：
+         *
+         * @param targetType
+         * @return
+         */
+        public Builder targetType(String targetType) {
+            this.targetType = targetType;
+            return this;
+        }
+
+
+        /**
+         * 快捷方式指向的原文件token
+         * <p> 示例值：
+         *
+         * @param targetToken
+         * @return
+         */
+        public Builder targetToken(String targetToken) {
+            this.targetToken = targetToken;
+            return this;
+        }
+
+
+        public ShortcutInfo build() {
+            return new ShortcutInfo(this);
+        }
+    }
 }

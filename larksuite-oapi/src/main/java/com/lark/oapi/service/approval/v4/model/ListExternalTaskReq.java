@@ -18,117 +18,115 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListExternalTaskReq {
-
-  /**
-   * 分页大小
-   * <p> 示例值：100
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Body
-  private ListExternalTaskReqBody body;
-
-  // builder 开始
-  public ListExternalTaskReq() {
-  }
-
-  public ListExternalTaskReq(Builder builder) {
     /**
      * 分页大小
      * <p> 示例值：100
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
      * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
      */
-    this.pageToken = builder.pageToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public ListExternalTaskReqBody getListExternalTaskReqBody() {
-    return this.body;
-  }
-
-  public void setListExternalTaskReqBody(ListExternalTaskReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private Integer pageSize; // 分页大小
-    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
+    @Body
     private ListExternalTaskReqBody body;
 
-    /**
-     * 分页大小
-     * <p> 示例值：100
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    // builder 开始
+    public ListExternalTaskReq() {
     }
 
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public ListExternalTaskReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+         */
+        this.pageToken = builder.pageToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
     public ListExternalTaskReqBody getListExternalTaskReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder listExternalTaskReqBody(ListExternalTaskReqBody body) {
-      this.body = body;
-      return this;
+    public void setListExternalTaskReqBody(ListExternalTaskReqBody body) {
+        this.body = body;
     }
 
-    public ListExternalTaskReq build() {
-      return new ListExternalTaskReq(this);
+    public static class Builder {
+        private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private ListExternalTaskReqBody body;
+
+        /**
+         * 分页大小
+         * <p> 示例值：100
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        public ListExternalTaskReqBody getListExternalTaskReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder listExternalTaskReqBody(ListExternalTaskReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public ListExternalTaskReq build() {
+            return new ListExternalTaskReq(this);
+        }
     }
-  }
 }

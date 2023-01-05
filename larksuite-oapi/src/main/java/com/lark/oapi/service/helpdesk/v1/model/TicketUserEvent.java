@@ -16,172 +16,170 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TicketUserEvent {
-
-  /**
-   * 6626871355780366332
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private UserId id;
-  /**
-   * user avartal url
-   * <p> 示例值：
-   */
-  @SerializedName("avatar_url")
-  private String avatarUrl;
-  /**
-   * 6626871355780366333
-   * <p> 示例值：abc
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * user email
-   * <p> 示例值：
-   */
-  @SerializedName("email")
-  private String email;
-
-  // builder 开始
-  public TicketUserEvent() {
-  }
-
-  public TicketUserEvent(Builder builder) {
     /**
-     * 6626871355780366332
+     * id
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * user avartal url
-     * <p> 示例值：
-     */
-    this.avatarUrl = builder.avatarUrl;
-    /**
-     * 6626871355780366333
-     * <p> 示例值：abc
-     */
-    this.name = builder.name;
-    /**
-     * user email
-     * <p> 示例值：
-     */
-    this.email = builder.email;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId getId() {
-    return this.id;
-  }
-
-  public void setId(UserId id) {
-    this.id = id;
-  }
-
-  public String getAvatarUrl() {
-    return this.avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public static class Builder {
-
-    /**
-     * 6626871355780366332
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private UserId id;
     /**
      * user avartal url
      * <p> 示例值：
      */
+    @SerializedName("avatar_url")
     private String avatarUrl;
     /**
-     * 6626871355780366333
+     * 名称
      * <p> 示例值：abc
      */
+    @SerializedName("name")
     private String name;
     /**
      * user email
      * <p> 示例值：
      */
+    @SerializedName("email")
     private String email;
 
-    /**
-     * 6626871355780366332
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(UserId id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public TicketUserEvent() {
     }
 
-
-    /**
-     * user avartal url
-     * <p> 示例值：
-     *
-     * @param avatarUrl
-     * @return
-     */
-    public Builder avatarUrl(String avatarUrl) {
-      this.avatarUrl = avatarUrl;
-      return this;
+    public TicketUserEvent(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * user avartal url
+         * <p> 示例值：
+         */
+        this.avatarUrl = builder.avatarUrl;
+        /**
+         * 名称
+         * <p> 示例值：abc
+         */
+        this.name = builder.name;
+        /**
+         * user email
+         * <p> 示例值：
+         */
+        this.email = builder.email;
     }
 
-
-    /**
-     * 6626871355780366333
-     * <p> 示例值：abc
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * user email
-     * <p> 示例值：
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public UserId getId() {
+        return this.id;
     }
 
-
-    public TicketUserEvent build() {
-      return new TicketUserEvent(this);
+    public void setId(UserId id) {
+        this.id = id;
     }
-  }
+
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public static class Builder {
+        /**
+         * id
+         * <p> 示例值：
+         */
+        private UserId id;
+        /**
+         * user avartal url
+         * <p> 示例值：
+         */
+        private String avatarUrl;
+        /**
+         * 名称
+         * <p> 示例值：abc
+         */
+        private String name;
+        /**
+         * user email
+         * <p> 示例值：
+         */
+        private String email;
+
+        /**
+         * id
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(UserId id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * user avartal url
+         * <p> 示例值：
+         *
+         * @param avatarUrl
+         * @return
+         */
+        public Builder avatarUrl(String avatarUrl) {
+            this.avatarUrl = avatarUrl;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：abc
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * user email
+         * <p> 示例值：
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        public TicketUserEvent build() {
+            return new TicketUserEvent(this);
+        }
+    }
 }

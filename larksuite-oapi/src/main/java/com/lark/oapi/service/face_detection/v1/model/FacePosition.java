@@ -16,98 +16,96 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FacePosition {
-
-  /**
-   * 人脸框的左上角坐标
-   * <p> 示例值：
-   */
-  @SerializedName("upper_left")
-  private Point upperLeft;
-  /**
-   * 人脸框的右下角坐标
-   * <p> 示例值：
-   */
-  @SerializedName("lower_right")
-  private Point lowerRight;
-
-  // builder 开始
-  public FacePosition() {
-  }
-
-  public FacePosition(Builder builder) {
     /**
      * 人脸框的左上角坐标
      * <p> 示例值：
      */
-    this.upperLeft = builder.upperLeft;
-    /**
-     * 人脸框的右下角坐标
-     * <p> 示例值：
-     */
-    this.lowerRight = builder.lowerRight;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Point getUpperLeft() {
-    return this.upperLeft;
-  }
-
-  public void setUpperLeft(Point upperLeft) {
-    this.upperLeft = upperLeft;
-  }
-
-  public Point getLowerRight() {
-    return this.lowerRight;
-  }
-
-  public void setLowerRight(Point lowerRight) {
-    this.lowerRight = lowerRight;
-  }
-
-  public static class Builder {
-
-    /**
-     * 人脸框的左上角坐标
-     * <p> 示例值：
-     */
+    @SerializedName("upper_left")
     private Point upperLeft;
     /**
      * 人脸框的右下角坐标
      * <p> 示例值：
      */
+    @SerializedName("lower_right")
     private Point lowerRight;
 
-    /**
-     * 人脸框的左上角坐标
-     * <p> 示例值：
-     *
-     * @param upperLeft
-     * @return
-     */
-    public Builder upperLeft(Point upperLeft) {
-      this.upperLeft = upperLeft;
-      return this;
+    // builder 开始
+    public FacePosition() {
     }
 
-
-    /**
-     * 人脸框的右下角坐标
-     * <p> 示例值：
-     *
-     * @param lowerRight
-     * @return
-     */
-    public Builder lowerRight(Point lowerRight) {
-      this.lowerRight = lowerRight;
-      return this;
+    public FacePosition(Builder builder) {
+        /**
+         * 人脸框的左上角坐标
+         * <p> 示例值：
+         */
+        this.upperLeft = builder.upperLeft;
+        /**
+         * 人脸框的右下角坐标
+         * <p> 示例值：
+         */
+        this.lowerRight = builder.lowerRight;
     }
 
-
-    public FacePosition build() {
-      return new FacePosition(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Point getUpperLeft() {
+        return this.upperLeft;
+    }
+
+    public void setUpperLeft(Point upperLeft) {
+        this.upperLeft = upperLeft;
+    }
+
+    public Point getLowerRight() {
+        return this.lowerRight;
+    }
+
+    public void setLowerRight(Point lowerRight) {
+        this.lowerRight = lowerRight;
+    }
+
+    public static class Builder {
+        /**
+         * 人脸框的左上角坐标
+         * <p> 示例值：
+         */
+        private Point upperLeft;
+        /**
+         * 人脸框的右下角坐标
+         * <p> 示例值：
+         */
+        private Point lowerRight;
+
+        /**
+         * 人脸框的左上角坐标
+         * <p> 示例值：
+         *
+         * @param upperLeft
+         * @return
+         */
+        public Builder upperLeft(Point upperLeft) {
+            this.upperLeft = upperLeft;
+            return this;
+        }
+
+
+        /**
+         * 人脸框的右下角坐标
+         * <p> 示例值：
+         *
+         * @param lowerRight
+         * @return
+         */
+        public Builder lowerRight(Point lowerRight) {
+            this.lowerRight = lowerRight;
+            return this;
+        }
+
+
+        public FacePosition build() {
+            return new FacePosition(this);
+        }
+    }
 }

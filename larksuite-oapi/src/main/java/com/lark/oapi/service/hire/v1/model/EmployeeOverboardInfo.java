@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EmployeeOverboardInfo {
-
-  /**
-   * 实际离职日期
-   * <p> 示例值：1637596800000
-   */
-  @SerializedName("actual_overboard_time")
-  private Integer actualOverboardTime;
-  /**
-   * 离职原因
-   * <p> 示例值：职业发展考虑
-   */
-  @SerializedName("overboard_note")
-  private String overboardNote;
-
-  // builder 开始
-  public EmployeeOverboardInfo() {
-  }
-
-  public EmployeeOverboardInfo(Builder builder) {
     /**
      * 实际离职日期
      * <p> 示例值：1637596800000
      */
-    this.actualOverboardTime = builder.actualOverboardTime;
-    /**
-     * 离职原因
-     * <p> 示例值：职业发展考虑
-     */
-    this.overboardNote = builder.overboardNote;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getActualOverboardTime() {
-    return this.actualOverboardTime;
-  }
-
-  public void setActualOverboardTime(Integer actualOverboardTime) {
-    this.actualOverboardTime = actualOverboardTime;
-  }
-
-  public String getOverboardNote() {
-    return this.overboardNote;
-  }
-
-  public void setOverboardNote(String overboardNote) {
-    this.overboardNote = overboardNote;
-  }
-
-  public static class Builder {
-
-    /**
-     * 实际离职日期
-     * <p> 示例值：1637596800000
-     */
+    @SerializedName("actual_overboard_time")
     private Integer actualOverboardTime;
     /**
      * 离职原因
      * <p> 示例值：职业发展考虑
      */
+    @SerializedName("overboard_note")
     private String overboardNote;
 
-    /**
-     * 实际离职日期
-     * <p> 示例值：1637596800000
-     *
-     * @param actualOverboardTime
-     * @return
-     */
-    public Builder actualOverboardTime(Integer actualOverboardTime) {
-      this.actualOverboardTime = actualOverboardTime;
-      return this;
+    // builder 开始
+    public EmployeeOverboardInfo() {
     }
 
-
-    /**
-     * 离职原因
-     * <p> 示例值：职业发展考虑
-     *
-     * @param overboardNote
-     * @return
-     */
-    public Builder overboardNote(String overboardNote) {
-      this.overboardNote = overboardNote;
-      return this;
+    public EmployeeOverboardInfo(Builder builder) {
+        /**
+         * 实际离职日期
+         * <p> 示例值：1637596800000
+         */
+        this.actualOverboardTime = builder.actualOverboardTime;
+        /**
+         * 离职原因
+         * <p> 示例值：职业发展考虑
+         */
+        this.overboardNote = builder.overboardNote;
     }
 
-
-    public EmployeeOverboardInfo build() {
-      return new EmployeeOverboardInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getActualOverboardTime() {
+        return this.actualOverboardTime;
+    }
+
+    public void setActualOverboardTime(Integer actualOverboardTime) {
+        this.actualOverboardTime = actualOverboardTime;
+    }
+
+    public String getOverboardNote() {
+        return this.overboardNote;
+    }
+
+    public void setOverboardNote(String overboardNote) {
+        this.overboardNote = overboardNote;
+    }
+
+    public static class Builder {
+        /**
+         * 实际离职日期
+         * <p> 示例值：1637596800000
+         */
+        private Integer actualOverboardTime;
+        /**
+         * 离职原因
+         * <p> 示例值：职业发展考虑
+         */
+        private String overboardNote;
+
+        /**
+         * 实际离职日期
+         * <p> 示例值：1637596800000
+         *
+         * @param actualOverboardTime
+         * @return
+         */
+        public Builder actualOverboardTime(Integer actualOverboardTime) {
+            this.actualOverboardTime = actualOverboardTime;
+            return this;
+        }
+
+
+        /**
+         * 离职原因
+         * <p> 示例值：职业发展考虑
+         *
+         * @param overboardNote
+         * @return
+         */
+        public Builder overboardNote(String overboardNote) {
+            this.overboardNote = overboardNote;
+            return this;
+        }
+
+
+        public EmployeeOverboardInfo build() {
+            return new EmployeeOverboardInfo(this);
+        }
+    }
 }

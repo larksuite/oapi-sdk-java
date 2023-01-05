@@ -14,25 +14,25 @@
 package com.lark.oapi.service.approval.v4.enums;
 
 /**
- * 审批任务状态，注：若不在集合中，报错
+ * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
  */
 public enum SearchTaskTaskStatusEnum {
-  PENDING("PENDING"), // 审批中
-  REJECT("REJECTED"), // 拒绝
-  APPROVERD("APPROVED"), // 通过
-  TRANSFERRED("TRANSFERRED"), // 转交
-  DONE("DONE"), // 已完成
-  RM_REPEAT("RM_REPEAT"), // 去重
-  PROCESSED("PROCESSED"), // 已处理
-  ALL("ALL"), // 所有状态
-  ;
-  private String value;
+    PENDING("PENDING"), // 审批中
+    REJECT("REJECTED"), // 拒绝
+    APPROVERD("APPROVED"), // 通过
+    TRANSFERRED("TRANSFERRED"), // 转交
+    DONE("DONE"), // 已完成
+    RM_REPEAT("RM_REPEAT"), // 去重
+    PROCESSED("PROCESSED"), // 已处理
+    ALL("ALL"), // 所有状态
+    ;
+    private String value;
 
-  SearchTaskTaskStatusEnum(String value) {
-    this.value = value;
-  }
+    SearchTaskTaskStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

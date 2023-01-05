@@ -16,48 +16,47 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListPeriodRespBody {
+    /**
+     * 分页标志
+     * <p> 示例值：asdasdasd
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有更多
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 数据项
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Period[] items;
 
-  /**
-   * 分页标志
-   * <p> 示例值：asdasdasd
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有更多
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 数据项
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Period[] items;
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public Period[] getItems() {
+        return this.items;
+    }
 
-  public Period[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(Period[] items) {
-    this.items = items;
-  }
+    public void setItems(Period[] items) {
+        this.items = items;
+    }
 
 }

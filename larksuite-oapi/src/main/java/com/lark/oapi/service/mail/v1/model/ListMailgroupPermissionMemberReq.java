@@ -18,211 +18,207 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListMailgroupPermissionMemberReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 此次调用中使用的部门ID的类型
-   * <p> 示例值：open_department_id
-   */
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  /**
-   * <p> 示例值：xxx
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 邮件组ID或者邮件组地址
-   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-   */
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-
-  // builder 开始
-  public ListMailgroupPermissionMemberReq() {
-  }
-
-  public ListMailgroupPermissionMemberReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 此次调用中使用的部门ID的类型
      * <p> 示例值：open_department_id
      */
-    this.departmentIdType = builder.departmentIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
-     *
      * <p> 示例值：xxx
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 邮件组ID或者邮件组地址
      * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
      */
-    this.mailgroupId = builder.mailgroupId;
-  }
+    @Path
+    @SerializedName("mailgroup_id")
+    private String mailgroupId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String departmentIdType; // 此次调用中使用的部门ID的类型
-    private String pageToken; //
-    private Integer pageSize; //
-    private String mailgroupId; // 邮件组ID或者邮件组地址
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public ListMailgroupPermissionMemberReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public ListMailgroupPermissionMemberReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         *
+         * <p> 示例值：xxx
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 邮件组ID或者邮件组地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
     }
 
-    /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType
-     * @return
-     */
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberDepartmentIdTypeEnum}
-     * @return
-     */
-    public Builder departmentIdType(
-        com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberDepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    /**
-     * <p> 示例值：xxx
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
     }
 
-    /**
-     * 邮件组ID或者邮件组地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-     *
-     * @param mailgroupId
-     * @return
-     */
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
     }
 
-    public ListMailgroupPermissionMemberReq build() {
-      return new ListMailgroupPermissionMemberReq(this);
+    public String getPageToken() {
+        return this.pageToken;
     }
-  }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String departmentIdType; // 此次调用中使用的部门ID的类型
+        private String pageToken; //
+        private Integer pageSize; //
+        private String mailgroupId; // 邮件组ID或者邮件组地址
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberDepartmentIdTypeEnum}
+         * @return
+         */
+        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupPermissionMemberDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
+
+        /**
+         * <p> 示例值：xxx
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 邮件组ID或者邮件组地址
+         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+         *
+         * @param mailgroupId
+         * @return
+         */
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
+
+        public ListMailgroupPermissionMemberReq build() {
+            return new ListMailgroupPermissionMemberReq(this);
+        }
+    }
 }

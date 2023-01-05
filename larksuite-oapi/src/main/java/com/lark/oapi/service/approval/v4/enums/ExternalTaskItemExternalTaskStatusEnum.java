@@ -17,19 +17,19 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批任务状态
  */
 public enum ExternalTaskItemExternalTaskStatusEnum {
-  PENDING("PENDING"), // 审批中
-  APPROVED("APPROVED"), // 审批流程结束，结果为同意
-  REJECTED("REJECTED"), // 审批流程结束，结果为拒绝
-  TRANSFERRED("TRANSFERRED"), // 任务转交
-  DONE("DONE"), // 任务通过但审批人未操作；审批人看不到这个任务, 若想要看到, 可以通过抄送该人.
-  ;
-  private String value;
+    PENDING("PENDING"), // 审批中
+    APPROVED("APPROVED"), // 审批流程结束，结果为同意
+    REJECTED("REJECTED"), // 审批流程结束，结果为拒绝
+    TRANSFERRED("TRANSFERRED"), // 任务转交
+    DONE("DONE"), // 任务通过但审批人未操作；审批人看不到这个任务, 若想要看到, 可以通过抄送该人.
+    ;
+    private String value;
 
-  ExternalTaskItemExternalTaskStatusEnum(String value) {
-    this.value = value;
-  }
+    ExternalTaskItemExternalTaskStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

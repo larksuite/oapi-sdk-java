@@ -16,20 +16,19 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateSpreadsheetSheetFilterViewConditionRespBody {
+    /**
+     * 更新后的筛选条件
+     * <p> 示例值：
+     */
+    @SerializedName("condition")
+    private FilterViewCondition condition;
 
-  /**
-   * 更新后的筛选条件
-   * <p> 示例值：
-   */
-  @SerializedName("condition")
-  private FilterViewCondition condition;
+    public FilterViewCondition getCondition() {
+        return this.condition;
+    }
 
-  public FilterViewCondition getCondition() {
-    return this.condition;
-  }
-
-  public void setCondition(FilterViewCondition condition) {
-    this.condition = condition;
-  }
+    public void setCondition(FilterViewCondition condition) {
+        this.condition = condition;
+    }
 
 }

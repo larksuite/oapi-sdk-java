@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CertificateInfo {
-
-  /**
-   * 证件描述
-   * <p> 示例值：
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 证件名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public CertificateInfo() {
-  }
-
-  public CertificateInfo(Builder builder) {
     /**
      * 证件描述
      * <p> 示例值：
      */
-    this.desc = builder.desc;
-    /**
-     * 证件名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 证件描述
-     * <p> 示例值：
-     */
+    @SerializedName("desc")
     private String desc;
     /**
      * 证件名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 证件描述
-     * <p> 示例值：
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    // builder 开始
+    public CertificateInfo() {
     }
 
-
-    /**
-     * 证件名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public CertificateInfo(Builder builder) {
+        /**
+         * 证件描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+        /**
+         * 证件名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    public CertificateInfo build() {
-      return new CertificateInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 证件描述
+         * <p> 示例值：
+         */
+        private String desc;
+        /**
+         * 证件名称
+         * <p> 示例值：
+         */
+        private String name;
+
+        /**
+         * 证件描述
+         * <p> 示例值：
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 证件名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public CertificateInfo build() {
+            return new CertificateInfo(this);
+        }
+    }
 }

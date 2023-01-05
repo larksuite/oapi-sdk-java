@@ -17,20 +17,20 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 协作者id类型，与请求体中的member_id要对应
  */
 public enum CreateAppRoleMemberMemberIdTypeEnum {
-  OPENID("open_id"), // 以open_id来识别协作者
-  UNIONID("union_id"), // 以union_id来识别协作者
-  USERID("user_id"), // 以user_id来识别协作者
-  CHATID("chat_id"), // 以chat_id来识别协作者
-  DEPARTMENTID("department_id"), // 以department_id来识别协作者
-  OPENDEPARTMENTID("open_department_id"), // 以open_department_id来识别协作者
-  ;
-  private String value;
+    OPENID("open_id"), // 以open_id来识别协作者
+    UNIONID("union_id"), // 以union_id来识别协作者
+    USERID("user_id"), // 以user_id来识别协作者
+    CHATID("chat_id"), // 以chat_id来识别协作者
+    DEPARTMENTID("department_id"), // 以department_id来识别协作者
+    OPENDEPARTMENTID("open_department_id"), // 以open_department_id来识别协作者
+    ;
+    private String value;
 
-  CreateAppRoleMemberMemberIdTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateAppRoleMemberMemberIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetAppTableForm {
 
-  /**
-   * 表单元数据信息
-   * <p> 示例值：
-   */
-  @SerializedName("form")
-  private AppTableForm form;
+    /**
+     * 表单元数据信息
+     * <p> 示例值：
+     */
+    @SerializedName("form")
+    private AppTableForm form;
 
-  public AppTableForm getForm() {
-    return this.form;
-  }
+    public AppTableForm getForm() {
+        return this.form;
+    }
 
-  public void setForm(AppTableForm form) {
-    this.form = form;
-  }
+    public void setForm(AppTableForm form) {
+        this.form = form;
+    }
 
 }

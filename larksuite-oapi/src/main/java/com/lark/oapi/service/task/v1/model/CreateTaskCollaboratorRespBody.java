@@ -16,20 +16,19 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskCollaboratorRespBody {
+    /**
+     * 返回创建成功后的任务执行者列表
+     * <p> 示例值：
+     */
+    @SerializedName("collaborator")
+    private Collaborator collaborator;
 
-  /**
-   * 返回创建成功后的任务执行者列表
-   * <p> 示例值：
-   */
-  @SerializedName("collaborator")
-  private Collaborator collaborator;
+    public Collaborator getCollaborator() {
+        return this.collaborator;
+    }
 
-  public Collaborator getCollaborator() {
-    return this.collaborator;
-  }
-
-  public void setCollaborator(Collaborator collaborator) {
-    this.collaborator = collaborator;
-  }
+    public void setCollaborator(Collaborator collaborator) {
+        this.collaborator = collaborator;
+    }
 
 }

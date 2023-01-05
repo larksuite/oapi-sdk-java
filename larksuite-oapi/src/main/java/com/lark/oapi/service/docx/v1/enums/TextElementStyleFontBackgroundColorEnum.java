@@ -17,29 +17,29 @@ package com.lark.oapi.service.docx.v1.enums;
  * 背景色
  */
 public enum TextElementStyleFontBackgroundColorEnum {
-  LIGHTPINK(1), // 浅粉红色
-  LIGHTORANGE(2), // 浅橙色
-  LIGHTYELLOW(3), // 浅黄色
-  LIGHTGREEN(4), // 浅绿色
-  LIGHTBLUE(5), // 浅蓝色
-  LIGHTPURPLE(6), // 浅紫色
-  LIGHTGRAY(7), // 浅灰色
-  DARKPINK(8), // 暗粉红色
-  DARKORANGE(9), // 暗橙色
-  DARKYELLOW(10), // 暗黄色
-  DARKGREEN(11), // 暗绿色
-  DARKBLUE(12), // 暗蓝色
-  DARKPURPLE(13), // 暗紫色
-  DARKGRAY(14), // 暗灰色
-  DARKSLIGHTGRAY(15), // 暗银灰色
-  ;
-  private Integer value;
+    LIGHTPINK(1), // 浅粉红色
+    LIGHTORANGE(2), // 浅橙色
+    LIGHTYELLOW(3), // 浅黄色
+    LIGHTGREEN(4), // 浅绿色
+    LIGHTBLUE(5), // 浅蓝色
+    LIGHTPURPLE(6), // 浅紫色
+    LIGHTGRAY(7), // 浅灰色
+    DARKPINK(8), // 暗粉红色
+    DARKORANGE(9), // 暗橙色
+    DARKYELLOW(10), // 暗黄色
+    DARKGREEN(11), // 暗绿色
+    DARKBLUE(12), // 暗蓝色
+    DARKPURPLE(13), // 暗紫色
+    DARKGRAY(14), // 暗灰色
+    DARKSLIGHTGRAY(15), // 暗银灰色
+    ;
+    private Integer value;
 
-  TextElementStyleFontBackgroundColorEnum(Integer value) {
-    this.value = value;
-  }
+    TextElementStyleFontBackgroundColorEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

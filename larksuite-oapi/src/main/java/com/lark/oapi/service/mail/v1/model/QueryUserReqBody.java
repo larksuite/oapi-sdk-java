@@ -16,61 +16,59 @@ package com.lark.oapi.service.mail.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserReqBody {
-
-  /**
-   * 需要查询的邮箱地址列表
-   * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
-   */
-  @SerializedName("email_list")
-  private String[] emailList;
-
-  // builder 开始
-  public QueryUserReqBody() {
-  }
-
-  public QueryUserReqBody(Builder builder) {
     /**
      * 需要查询的邮箱地址列表
      * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
      */
-    this.emailList = builder.emailList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getEmailList() {
-    return this.emailList;
-  }
-
-  public void setEmailList(String[] emailList) {
-    this.emailList = emailList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 需要查询的邮箱地址列表
-     * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
-     */
+    @SerializedName("email_list")
     private String[] emailList;
 
-    /**
-     * 需要查询的邮箱地址列表
-     * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
-     *
-     * @param emailList
-     * @return
-     */
-    public Builder emailList(String[] emailList) {
-      this.emailList = emailList;
-      return this;
+    // builder 开始
+    public QueryUserReqBody() {
     }
 
-
-    public QueryUserReqBody build() {
-      return new QueryUserReqBody(this);
+    public QueryUserReqBody(Builder builder) {
+        /**
+         * 需要查询的邮箱地址列表
+         * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+         */
+        this.emailList = builder.emailList;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getEmailList() {
+        return this.emailList;
+    }
+
+    public void setEmailList(String[] emailList) {
+        this.emailList = emailList;
+    }
+
+    public static class Builder {
+        /**
+         * 需要查询的邮箱地址列表
+         * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+         */
+        private String[] emailList;
+
+        /**
+         * 需要查询的邮箱地址列表
+         * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+         *
+         * @param emailList
+         * @return
+         */
+        public Builder emailList(String[] emailList) {
+            this.emailList = emailList;
+            return this;
+        }
+
+
+        public QueryUserReqBody build() {
+            return new QueryUserReqBody(this);
+        }
+    }
 }

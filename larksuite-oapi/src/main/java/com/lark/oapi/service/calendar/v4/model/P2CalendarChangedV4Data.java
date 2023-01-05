@@ -16,20 +16,19 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2CalendarChangedV4Data {
+    /**
+     * 需要推送事件的用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_id_list")
+    private UserId[] userIdList;
 
-  /**
-   * 需要推送事件的用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_id_list")
-  private UserId[] userIdList;
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
 
-  public UserId[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(UserId[] userIdList) {
-    this.userIdList = userIdList;
-  }
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
+    }
 
 }

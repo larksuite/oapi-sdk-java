@@ -15,21 +15,21 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum UserTypeEnum {
-  LARK_USER(1),
-  ROOM_USER(2),
-  DOC_USER(3),
-  NEO_USER(4),
-  NEO_GUEST_USER(5),
-  PSTN_USER(6),
-  SIP_USER(7),
-  ;
-  private Integer value;
+    LARK_USER(1),
+    ROOM_USER(2),
+    DOC_USER(3),
+    NEO_USER(4),
+    NEO_GUEST_USER(5),
+    PSTN_USER(6),
+    SIP_USER(7),
+    ;
+    private Integer value;
 
-  UserTypeEnum(Integer value) {
-    this.value = value;
-  }
+    UserTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
  */
 public enum CreateCalendarEventEventVisibilityEnum {
-  DEFAULT("default"), // 默认权限，仅向他人显示是否“忙碌”
-  PUBLIC("public"), // 公开，显示日程详情
-  PRIVATE("private"), // 私密，仅自己可见
-  ;
-  private String value;
+    DEFAULT("default"), // 默认权限，仅向他人显示是否“忙碌”
+    PUBLIC("public"), // 公开，显示日程详情
+    PRIVATE("private"), // 私密，仅自己可见
+    ;
+    private String value;
 
-  CreateCalendarEventEventVisibilityEnum(String value) {
-    this.value = value;
-  }
+    CreateCalendarEventEventVisibilityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

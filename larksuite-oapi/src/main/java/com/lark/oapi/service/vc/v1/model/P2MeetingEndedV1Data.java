@@ -16,34 +16,33 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2MeetingEndedV1Data {
+    /**
+     * 会议数据
+     * <p> 示例值：
+     */
+    @SerializedName("meeting")
+    private MeetingEventMeeting meeting;
+    /**
+     * 事件操作人
+     * <p> 示例值：
+     */
+    @SerializedName("operator")
+    private MeetingEventUser operator;
 
-  /**
-   * 会议数据
-   * <p> 示例值：
-   */
-  @SerializedName("meeting")
-  private MeetingEventMeeting meeting;
-  /**
-   * 事件操作人
-   * <p> 示例值：
-   */
-  @SerializedName("operator")
-  private MeetingEventUser operator;
+    public MeetingEventMeeting getMeeting() {
+        return this.meeting;
+    }
 
-  public MeetingEventMeeting getMeeting() {
-    return this.meeting;
-  }
+    public void setMeeting(MeetingEventMeeting meeting) {
+        this.meeting = meeting;
+    }
 
-  public void setMeeting(MeetingEventMeeting meeting) {
-    this.meeting = meeting;
-  }
+    public MeetingEventUser getOperator() {
+        return this.operator;
+    }
 
-  public MeetingEventUser getOperator() {
-    return this.operator;
-  }
-
-  public void setOperator(MeetingEventUser operator) {
-    this.operator = operator;
-  }
+    public void setOperator(MeetingEventUser operator) {
+        this.operator = operator;
+    }
 
 }

@@ -16,46 +16,45 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListGroupRespBody {
+    /**
+     * 考勤组列表
+     * <p> 示例值：
+     */
+    @SerializedName("group_list")
+    private GroupMeta[] groupList;
+    /**
+     * <p> 示例值：wgNOR1rmxogRvAsGl6CXlQ==
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 考勤组列表
-   * <p> 示例值：
-   */
-  @SerializedName("group_list")
-  private GroupMeta[] groupList;
-  /**
-   * <p> 示例值：wgNOR1rmxogRvAsGl6CXlQ==
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public GroupMeta[] getGroupList() {
+        return this.groupList;
+    }
 
-  public GroupMeta[] getGroupList() {
-    return this.groupList;
-  }
+    public void setGroupList(GroupMeta[] groupList) {
+        this.groupList = groupList;
+    }
 
-  public void setGroupList(GroupMeta[] groupList) {
-    this.groupList = groupList;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

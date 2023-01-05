@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
  */
 public enum PreviewInstanceUserIdTypeEnum {
-  OPEN_ID("open_id"), // 以open_id来识别用户
-  USER_ID("user_id"), // 以user_id来识别用户
-  UNION_ID("union_id"), // 以union_id来识别用户
-  ;
-  private String value;
+    OPEN_ID("open_id"), // 以open_id来识别用户
+    USER_ID("user_id"), // 以user_id来识别用户
+    UNION_ID("union_id"), // 以union_id来识别用户
+    ;
+    private String value;
 
-  PreviewInstanceUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    PreviewInstanceUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

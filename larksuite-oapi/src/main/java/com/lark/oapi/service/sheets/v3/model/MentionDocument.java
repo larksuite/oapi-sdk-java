@@ -16,169 +16,167 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MentionDocument {
-
-  /**
-   * 文档标题
-   * <p> 示例值：abc
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 文档类型
-   * <p> 示例值：sheet
-   */
-  @SerializedName("object_type")
-  private String objectType;
-  /**
-   * 文档token
-   * <p> 示例值：shtxxxxxxxxx
-   */
-  @SerializedName("token")
-  private String token;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("segment_style")
-  private SegmentStyle segmentStyle;
-
-  // builder 开始
-  public MentionDocument() {
-  }
-
-  public MentionDocument(Builder builder) {
     /**
      * 文档标题
      * <p> 示例值：abc
      */
-    this.title = builder.title;
-    /**
-     * 文档类型
-     * <p> 示例值：sheet
-     */
-    this.objectType = builder.objectType;
-    /**
-     * 文档token
-     * <p> 示例值：shtxxxxxxxxx
-     */
-    this.token = builder.token;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.segmentStyle = builder.segmentStyle;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getObjectType() {
-    return this.objectType;
-  }
-
-  public void setObjectType(String objectType) {
-    this.objectType = objectType;
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public SegmentStyle getSegmentStyle() {
-    return this.segmentStyle;
-  }
-
-  public void setSegmentStyle(SegmentStyle segmentStyle) {
-    this.segmentStyle = segmentStyle;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文档标题
-     * <p> 示例值：abc
-     */
+    @SerializedName("title")
     private String title;
     /**
      * 文档类型
      * <p> 示例值：sheet
      */
+    @SerializedName("object_type")
     private String objectType;
     /**
      * 文档token
      * <p> 示例值：shtxxxxxxxxx
      */
+    @SerializedName("token")
     private String token;
     /**
      * <p> 示例值：
      */
+    @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
 
-    /**
-     * 文档标题
-     * <p> 示例值：abc
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    // builder 开始
+    public MentionDocument() {
     }
 
-
-    /**
-     * 文档类型
-     * <p> 示例值：sheet
-     *
-     * @param objectType
-     * @return
-     */
-    public Builder objectType(String objectType) {
-      this.objectType = objectType;
-      return this;
+    public MentionDocument(Builder builder) {
+        /**
+         * 文档标题
+         * <p> 示例值：abc
+         */
+        this.title = builder.title;
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         */
+        this.objectType = builder.objectType;
+        /**
+         * 文档token
+         * <p> 示例值：shtxxxxxxxxx
+         */
+        this.token = builder.token;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.segmentStyle = builder.segmentStyle;
     }
 
-
-    /**
-     * 文档token
-     * <p> 示例值：shtxxxxxxxxx
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param segmentStyle
-     * @return
-     */
-    public Builder segmentStyle(SegmentStyle segmentStyle) {
-      this.segmentStyle = segmentStyle;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-
-    public MentionDocument build() {
-      return new MentionDocument(this);
+    public void setTitle(String title) {
+        this.title = title;
     }
-  }
+
+    public String getObjectType() {
+        return this.objectType;
+    }
+
+    public void setObjectType(String objectType) {
+        this.objectType = objectType;
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public SegmentStyle getSegmentStyle() {
+        return this.segmentStyle;
+    }
+
+    public void setSegmentStyle(SegmentStyle segmentStyle) {
+        this.segmentStyle = segmentStyle;
+    }
+
+    public static class Builder {
+        /**
+         * 文档标题
+         * <p> 示例值：abc
+         */
+        private String title;
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         */
+        private String objectType;
+        /**
+         * 文档token
+         * <p> 示例值：shtxxxxxxxxx
+         */
+        private String token;
+        /**
+         * <p> 示例值：
+         */
+        private SegmentStyle segmentStyle;
+
+        /**
+         * 文档标题
+         * <p> 示例值：abc
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 文档类型
+         * <p> 示例值：sheet
+         *
+         * @param objectType
+         * @return
+         */
+        public Builder objectType(String objectType) {
+            this.objectType = objectType;
+            return this;
+        }
+
+
+        /**
+         * 文档token
+         * <p> 示例值：shtxxxxxxxxx
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param segmentStyle
+         * @return
+         */
+        public Builder segmentStyle(SegmentStyle segmentStyle) {
+            this.segmentStyle = segmentStyle;
+            return this;
+        }
+
+
+        public MentionDocument build() {
+            return new MentionDocument(this);
+        }
+    }
 }

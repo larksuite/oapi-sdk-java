@@ -16,357 +16,355 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CommonSchema {
-
-  /**
-   * 模块 ID
-   * <p> 示例值：6949805467799537964
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 模块名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 模块描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private I18n description;
-  /**
-   * 模块信息
-   * <p> 示例值：
-   */
-  @SerializedName("setting")
-  private CommonSchemaSetting setting;
-  /**
-   * 是否是自定义模块
-   * <p> 示例值：true
-   */
-  @SerializedName("is_customized")
-  private Boolean isCustomized;
-  /**
-   * 是否必填
-   * <p> 示例值：false
-   */
-  @SerializedName("is_required")
-  private Boolean isRequired;
-  /**
-   * 是否可见
-   * <p> 示例值：true
-   */
-  @SerializedName("is_visible")
-  private Boolean isVisible;
-  /**
-   * 是否启用
-   * <p> 示例值：1
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-  /**
-   * 字段列表
-   * <p> 示例值：
-   */
-  @SerializedName("children_list")
-  private CommonSchemaChild[] childrenList;
-
-  // builder 开始
-  public CommonSchema() {
-  }
-
-  public CommonSchema(Builder builder) {
     /**
      * 模块 ID
      * <p> 示例值：6949805467799537964
      */
-    this.id = builder.id;
-    /**
-     * 模块名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 模块描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-    /**
-     * 模块信息
-     * <p> 示例值：
-     */
-    this.setting = builder.setting;
-    /**
-     * 是否是自定义模块
-     * <p> 示例值：true
-     */
-    this.isCustomized = builder.isCustomized;
-    /**
-     * 是否必填
-     * <p> 示例值：false
-     */
-    this.isRequired = builder.isRequired;
-    /**
-     * 是否可见
-     * <p> 示例值：true
-     */
-    this.isVisible = builder.isVisible;
-    /**
-     * 是否启用
-     * <p> 示例值：1
-     */
-    this.activeStatus = builder.activeStatus;
-    /**
-     * 字段列表
-     * <p> 示例值：
-     */
-    this.childrenList = builder.childrenList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public I18n getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(I18n description) {
-    this.description = description;
-  }
-
-  public CommonSchemaSetting getSetting() {
-    return this.setting;
-  }
-
-  public void setSetting(CommonSchemaSetting setting) {
-    this.setting = setting;
-  }
-
-  public Boolean getIsCustomized() {
-    return this.isCustomized;
-  }
-
-  public void setIsCustomized(Boolean isCustomized) {
-    this.isCustomized = isCustomized;
-  }
-
-  public Boolean getIsRequired() {
-    return this.isRequired;
-  }
-
-  public void setIsRequired(Boolean isRequired) {
-    this.isRequired = isRequired;
-  }
-
-  public Boolean getIsVisible() {
-    return this.isVisible;
-  }
-
-  public void setIsVisible(Boolean isVisible) {
-    this.isVisible = isVisible;
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public CommonSchemaChild[] getChildrenList() {
-    return this.childrenList;
-  }
-
-  public void setChildrenList(CommonSchemaChild[] childrenList) {
-    this.childrenList = childrenList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 模块 ID
-     * <p> 示例值：6949805467799537964
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 模块名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 模块描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private I18n description;
     /**
      * 模块信息
      * <p> 示例值：
      */
+    @SerializedName("setting")
     private CommonSchemaSetting setting;
     /**
      * 是否是自定义模块
      * <p> 示例值：true
      */
+    @SerializedName("is_customized")
     private Boolean isCustomized;
     /**
      * 是否必填
      * <p> 示例值：false
      */
+    @SerializedName("is_required")
     private Boolean isRequired;
     /**
      * 是否可见
      * <p> 示例值：true
      */
+    @SerializedName("is_visible")
     private Boolean isVisible;
     /**
      * 是否启用
      * <p> 示例值：1
      */
+    @SerializedName("active_status")
     private Integer activeStatus;
     /**
      * 字段列表
      * <p> 示例值：
      */
+    @SerializedName("children_list")
     private CommonSchemaChild[] childrenList;
 
-    /**
-     * 模块 ID
-     * <p> 示例值：6949805467799537964
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public CommonSchema() {
     }
 
-
-    /**
-     * 模块名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public CommonSchema(Builder builder) {
+        /**
+         * 模块 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 模块名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 模块描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * 模块信息
+         * <p> 示例值：
+         */
+        this.setting = builder.setting;
+        /**
+         * 是否是自定义模块
+         * <p> 示例值：true
+         */
+        this.isCustomized = builder.isCustomized;
+        /**
+         * 是否必填
+         * <p> 示例值：false
+         */
+        this.isRequired = builder.isRequired;
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        this.isVisible = builder.isVisible;
+        /**
+         * 是否启用
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 字段列表
+         * <p> 示例值：
+         */
+        this.childrenList = builder.childrenList;
     }
 
-
-    /**
-     * 模块描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(I18n description) {
-      this.description = description;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 模块信息
-     * <p> 示例值：
-     *
-     * @param setting
-     * @return
-     */
-    public Builder setting(CommonSchemaSetting setting) {
-      this.setting = setting;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 是否是自定义模块
-     * <p> 示例值：true
-     *
-     * @param isCustomized
-     * @return
-     */
-    public Builder isCustomized(Boolean isCustomized) {
-      this.isCustomized = isCustomized;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 是否必填
-     * <p> 示例值：false
-     *
-     * @param isRequired
-     * @return
-     */
-    public Builder isRequired(Boolean isRequired) {
-      this.isRequired = isRequired;
-      return this;
+    public I18n getName() {
+        return this.name;
     }
 
-
-    /**
-     * 是否可见
-     * <p> 示例值：true
-     *
-     * @param isVisible
-     * @return
-     */
-    public Builder isVisible(Boolean isVisible) {
-      this.isVisible = isVisible;
-      return this;
+    public void setName(I18n name) {
+        this.name = name;
     }
 
-
-    /**
-     * 是否启用
-     * <p> 示例值：1
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public I18n getDescription() {
+        return this.description;
     }
 
-
-    /**
-     * 字段列表
-     * <p> 示例值：
-     *
-     * @param childrenList
-     * @return
-     */
-    public Builder childrenList(CommonSchemaChild[] childrenList) {
-      this.childrenList = childrenList;
-      return this;
+    public void setDescription(I18n description) {
+        this.description = description;
     }
 
-
-    public CommonSchema build() {
-      return new CommonSchema(this);
+    public CommonSchemaSetting getSetting() {
+        return this.setting;
     }
-  }
+
+    public void setSetting(CommonSchemaSetting setting) {
+        this.setting = setting;
+    }
+
+    public Boolean getIsCustomized() {
+        return this.isCustomized;
+    }
+
+    public void setIsCustomized(Boolean isCustomized) {
+        this.isCustomized = isCustomized;
+    }
+
+    public Boolean getIsRequired() {
+        return this.isRequired;
+    }
+
+    public void setIsRequired(Boolean isRequired) {
+        this.isRequired = isRequired;
+    }
+
+    public Boolean getIsVisible() {
+        return this.isVisible;
+    }
+
+    public void setIsVisible(Boolean isVisible) {
+        this.isVisible = isVisible;
+    }
+
+    public Integer getActiveStatus() {
+        return this.activeStatus;
+    }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public CommonSchemaChild[] getChildrenList() {
+        return this.childrenList;
+    }
+
+    public void setChildrenList(CommonSchemaChild[] childrenList) {
+        this.childrenList = childrenList;
+    }
+
+    public static class Builder {
+        /**
+         * 模块 ID
+         * <p> 示例值：6949805467799537964
+         */
+        private String id;
+        /**
+         * 模块名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 模块描述
+         * <p> 示例值：
+         */
+        private I18n description;
+        /**
+         * 模块信息
+         * <p> 示例值：
+         */
+        private CommonSchemaSetting setting;
+        /**
+         * 是否是自定义模块
+         * <p> 示例值：true
+         */
+        private Boolean isCustomized;
+        /**
+         * 是否必填
+         * <p> 示例值：false
+         */
+        private Boolean isRequired;
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         */
+        private Boolean isVisible;
+        /**
+         * 是否启用
+         * <p> 示例值：1
+         */
+        private Integer activeStatus;
+        /**
+         * 字段列表
+         * <p> 示例值：
+         */
+        private CommonSchemaChild[] childrenList;
+
+        /**
+         * 模块 ID
+         * <p> 示例值：6949805467799537964
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 模块名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 模块描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(I18n description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 模块信息
+         * <p> 示例值：
+         *
+         * @param setting
+         * @return
+         */
+        public Builder setting(CommonSchemaSetting setting) {
+            this.setting = setting;
+            return this;
+        }
+
+
+        /**
+         * 是否是自定义模块
+         * <p> 示例值：true
+         *
+         * @param isCustomized
+         * @return
+         */
+        public Builder isCustomized(Boolean isCustomized) {
+            this.isCustomized = isCustomized;
+            return this;
+        }
+
+
+        /**
+         * 是否必填
+         * <p> 示例值：false
+         *
+         * @param isRequired
+         * @return
+         */
+        public Builder isRequired(Boolean isRequired) {
+            this.isRequired = isRequired;
+            return this;
+        }
+
+
+        /**
+         * 是否可见
+         * <p> 示例值：true
+         *
+         * @param isVisible
+         * @return
+         */
+        public Builder isVisible(Boolean isVisible) {
+            this.isVisible = isVisible;
+            return this;
+        }
+
+
+        /**
+         * 是否启用
+         * <p> 示例值：1
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 字段列表
+         * <p> 示例值：
+         *
+         * @param childrenList
+         * @return
+         */
+        public Builder childrenList(CommonSchemaChild[] childrenList) {
+            this.childrenList = childrenList;
+            return this;
+        }
+
+
+        public CommonSchema build() {
+            return new CommonSchema(this);
+        }
+    }
 }

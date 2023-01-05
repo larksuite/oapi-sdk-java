@@ -16,64 +16,59 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApprovalForm {
-
-  /**
-   * 审批定义表单，json 数组，见下方form_content字段说明
-   * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true,
-   * \"name\":\"@i18n@widget1\"}]
-   */
-  @SerializedName("form_content")
-  private String formContent;
-
-  // builder 开始
-  public ApprovalForm() {
-  }
-
-  public ApprovalForm(Builder builder) {
     /**
      * 审批定义表单，json 数组，见下方form_content字段说明
      * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true, \"name\":\"@i18n@widget1\"}]
      */
-    this.formContent = builder.formContent;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFormContent() {
-    return this.formContent;
-  }
-
-  public void setFormContent(String formContent) {
-    this.formContent = formContent;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批定义表单，json 数组，见下方form_content字段说明
-     * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true,
-     * \"name\":\"@i18n@widget1\"}]
-     */
+    @SerializedName("form_content")
     private String formContent;
 
-    /**
-     * 审批定义表单，json 数组，见下方form_content字段说明
-     * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true,
-     * \"name\":\"@i18n@widget1\"}]
-     *
-     * @param formContent
-     * @return
-     */
-    public Builder formContent(String formContent) {
-      this.formContent = formContent;
-      return this;
+    // builder 开始
+    public ApprovalForm() {
     }
 
-
-    public ApprovalForm build() {
-      return new ApprovalForm(this);
+    public ApprovalForm(Builder builder) {
+        /**
+         * 审批定义表单，json 数组，见下方form_content字段说明
+         * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true, \"name\":\"@i18n@widget1\"}]
+         */
+        this.formContent = builder.formContent;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFormContent() {
+        return this.formContent;
+    }
+
+    public void setFormContent(String formContent) {
+        this.formContent = formContent;
+    }
+
+    public static class Builder {
+        /**
+         * 审批定义表单，json 数组，见下方form_content字段说明
+         * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true, \"name\":\"@i18n@widget1\"}]
+         */
+        private String formContent;
+
+        /**
+         * 审批定义表单，json 数组，见下方form_content字段说明
+         * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true, \"name\":\"@i18n@widget1\"}]
+         *
+         * @param formContent
+         * @return
+         */
+        public Builder formContent(String formContent) {
+            this.formContent = formContent;
+            return this;
+        }
+
+
+        public ApprovalForm build() {
+            return new ApprovalForm(this);
+        }
+    }
 }

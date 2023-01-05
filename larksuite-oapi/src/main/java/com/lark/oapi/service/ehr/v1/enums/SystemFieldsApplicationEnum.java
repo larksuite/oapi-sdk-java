@@ -17,18 +17,18 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 转正申请
  */
 public enum SystemFieldsApplicationEnum {
-  NOT_APPLIED(1), // 未申请
-  PENDING(2), // 审批中
-  REJECTED(3), // 被驳回
-  APPROVED(4), // 已通过
-  ;
-  private Integer value;
+    NOT_APPLIED(1), // 未申请
+    PENDING(2), // 审批中
+    REJECTED(3), // 被驳回
+    APPROVED(4), // 已通过
+    ;
+    private Integer value;
 
-  SystemFieldsApplicationEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsApplicationEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

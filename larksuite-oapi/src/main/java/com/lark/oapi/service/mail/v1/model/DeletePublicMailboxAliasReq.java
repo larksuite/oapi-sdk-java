@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeletePublicMailboxAliasReq {
-
-  /**
-   * 公共邮箱id或公共邮箱地址
-   * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-   */
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-  /**
-   * 公共邮箱别名
-   * <p> 示例值：xxx@xx.xxx
-   */
-  @Path
-  @SerializedName("alias_id")
-  private String aliasId;
-
-  // builder 开始
-  public DeletePublicMailboxAliasReq() {
-  }
-
-  public DeletePublicMailboxAliasReq(Builder builder) {
     /**
      * 公共邮箱id或公共邮箱地址
      * <p> 示例值：xxxxxx 或 xxx@xx.xxx
      */
-    this.publicMailboxId = builder.publicMailboxId;
+    @Path
+    @SerializedName("public_mailbox_id")
+    private String publicMailboxId;
     /**
      * 公共邮箱别名
      * <p> 示例值：xxx@xx.xxx
      */
-    this.aliasId = builder.aliasId;
-  }
+    @Path
+    @SerializedName("alias_id")
+    private String aliasId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public String getAliasId() {
-    return this.aliasId;
-  }
-
-  public void setAliasId(String aliasId) {
-    this.aliasId = aliasId;
-  }
-
-  public static class Builder {
-
-    private String publicMailboxId; // 公共邮箱id或公共邮箱地址
-    private String aliasId; // 公共邮箱别名
-
-    /**
-     * 公共邮箱id或公共邮箱地址
-     * <p> 示例值：xxxxxx 或 xxx@xx.xxx
-     *
-     * @param publicMailboxId
-     * @return
-     */
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    // builder 开始
+    public DeletePublicMailboxAliasReq() {
     }
 
-
-    /**
-     * 公共邮箱别名
-     * <p> 示例值：xxx@xx.xxx
-     *
-     * @param aliasId
-     * @return
-     */
-    public Builder aliasId(String aliasId) {
-      this.aliasId = aliasId;
-      return this;
+    public DeletePublicMailboxAliasReq(Builder builder) {
+        /**
+         * 公共邮箱id或公共邮箱地址
+         * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+         */
+        this.publicMailboxId = builder.publicMailboxId;
+        /**
+         * 公共邮箱别名
+         * <p> 示例值：xxx@xx.xxx
+         */
+        this.aliasId = builder.aliasId;
     }
 
-    public DeletePublicMailboxAliasReq build() {
-      return new DeletePublicMailboxAliasReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
+    }
+
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
+    }
+
+    public String getAliasId() {
+        return this.aliasId;
+    }
+
+    public void setAliasId(String aliasId) {
+        this.aliasId = aliasId;
+    }
+
+    public static class Builder {
+
+        private String publicMailboxId; // 公共邮箱id或公共邮箱地址
+        private String aliasId; // 公共邮箱别名
+
+        /**
+         * 公共邮箱id或公共邮箱地址
+         * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+         *
+         * @param publicMailboxId
+         * @return
+         */
+        public Builder publicMailboxId(String publicMailboxId) {
+            this.publicMailboxId = publicMailboxId;
+            return this;
+        }
+
+
+        /**
+         * 公共邮箱别名
+         * <p> 示例值：xxx@xx.xxx
+         *
+         * @param aliasId
+         * @return
+         */
+        public Builder aliasId(String aliasId) {
+            this.aliasId = aliasId;
+            return this;
+        }
+
+        public DeletePublicMailboxAliasReq build() {
+            return new DeletePublicMailboxAliasReq(this);
+        }
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateReserve {
 
-  /**
-   * 预约数据
-   * <p> 示例值：
-   */
-  @SerializedName("reserve")
-  private Reserve reserve;
+    /**
+     * 预约数据
+     * <p> 示例值：
+     */
+    @SerializedName("reserve")
+    private Reserve reserve;
 
-  public Reserve getReserve() {
-    return this.reserve;
-  }
+    public Reserve getReserve() {
+        return this.reserve;
+    }
 
-  public void setReserve(Reserve reserve) {
-    this.reserve = reserve;
-  }
+    public void setReserve(Reserve reserve) {
+        this.reserve = reserve;
+    }
 
 }

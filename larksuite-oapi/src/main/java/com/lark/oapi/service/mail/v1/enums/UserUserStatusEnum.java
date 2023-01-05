@@ -17,20 +17,20 @@ package com.lark.oapi.service.mail.v1.enums;
  * 邮箱地址状态
  */
 public enum UserUserStatusEnum {
-  INVALID(1), // 邮箱地址格式错误
-  DOMAINNOTEXIST(2), // 邮箱地址域名不存在
-  ADDRESSNOTEXIST(3), // 邮箱地址不存在
-  ONBOARD(4), // 启用
-  DELETED(5), // 已删除（邮箱回收站中）
-  FORBIDDEN(6), // 禁用
-  ;
-  private Integer value;
+    INVALID(1), // 邮箱地址格式错误
+    DOMAINNOTEXIST(2), // 邮箱地址域名不存在
+    ADDRESSNOTEXIST(3), // 邮箱地址不存在
+    ONBOARD(4), // 启用
+    DELETED(5), // 已删除（邮箱回收站中）
+    FORBIDDEN(6), // 禁用
+    ;
+    private Integer value;
 
-  UserUserStatusEnum(Integer value) {
-    this.value = value;
-  }
+    UserUserStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

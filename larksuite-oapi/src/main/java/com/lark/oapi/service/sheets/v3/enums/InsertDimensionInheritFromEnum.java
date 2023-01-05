@@ -17,16 +17,16 @@ package com.lark.oapi.service.sheets.v3.enums;
  * 是否继承上/下一行/列样式
  */
 public enum InsertDimensionInheritFromEnum {
-  BEFORE("Before"), // 继承上一行/列的样式
-  AFTER("After"), // 继承下一行/列的样式
-  ;
-  private String value;
+    BEFORE("Before"), // 继承上一行/列的样式
+    AFTER("After"), // 继承下一行/列的样式
+    ;
+    private String value;
 
-  InsertDimensionInheritFromEnum(String value) {
-    this.value = value;
-  }
+    InsertDimensionInheritFromEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchSpreadsheetSheetFloatImage {
 
-  /**
-   * 浮动图片信息
-   * <p> 示例值：
-   */
-  @SerializedName("float_image")
-  private FloatImage floatImage;
+    /**
+     * 浮动图片信息
+     * <p> 示例值：
+     */
+    @SerializedName("float_image")
+    private FloatImage floatImage;
 
-  public FloatImage getFloatImage() {
-    return this.floatImage;
-  }
+    public FloatImage getFloatImage() {
+        return this.floatImage;
+    }
 
-  public void setFloatImage(FloatImage floatImage) {
-    this.floatImage = floatImage;
-  }
+    public void setFloatImage(FloatImage floatImage) {
+        this.floatImage = floatImage;
+    }
 
 }

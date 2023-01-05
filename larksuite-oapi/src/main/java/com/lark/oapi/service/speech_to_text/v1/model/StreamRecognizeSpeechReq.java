@@ -16,51 +16,50 @@ package com.lark.oapi.service.speech_to_text.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class StreamRecognizeSpeechReq {
-
-  @Body
-  private StreamRecognizeSpeechReqBody body;
-
-  // builder 开始
-  public StreamRecognizeSpeechReq() {
-  }
-
-  public StreamRecognizeSpeechReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public StreamRecognizeSpeechReqBody getStreamRecognizeSpeechReqBody() {
-    return this.body;
-  }
-
-  public void setStreamRecognizeSpeechReqBody(StreamRecognizeSpeechReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private StreamRecognizeSpeechReqBody body;
 
+    // builder 开始
+    public StreamRecognizeSpeechReq() {
+    }
+
+    public StreamRecognizeSpeechReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public StreamRecognizeSpeechReqBody getStreamRecognizeSpeechReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder streamRecognizeSpeechReqBody(StreamRecognizeSpeechReqBody body) {
-      this.body = body;
-      return this;
+    public void setStreamRecognizeSpeechReqBody(StreamRecognizeSpeechReqBody body) {
+        this.body = body;
     }
 
-    public StreamRecognizeSpeechReq build() {
-      return new StreamRecognizeSpeechReq(this);
+    public static class Builder {
+
+        private StreamRecognizeSpeechReqBody body;
+
+        public StreamRecognizeSpeechReqBody getStreamRecognizeSpeechReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder streamRecognizeSpeechReqBody(StreamRecognizeSpeechReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public StreamRecognizeSpeechReq build() {
+            return new StreamRecognizeSpeechReq(this);
+        }
     }
-  }
 }

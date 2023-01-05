@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class SetPermissionMeetingRecordingReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-   * <p> 示例值：6911188411932033028
-   */
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-  @Body
-  private SetPermissionMeetingRecordingReqBody body;
-
-  // builder 开始
-  public SetPermissionMeetingRecordingReq() {
-  }
-
-  public SetPermissionMeetingRecordingReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
      * <p> 示例值：6911188411932033028
      */
-    this.meetingId = builder.meetingId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public SetPermissionMeetingRecordingReqBody getSetPermissionMeetingRecordingReqBody() {
-    return this.body;
-  }
-
-  public void setSetPermissionMeetingRecordingReqBody(SetPermissionMeetingRecordingReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-    private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+    @Path
+    @SerializedName("meeting_id")
+    private String meetingId;
+    @Body
     private SetPermissionMeetingRecordingReqBody body;
 
-    /**
-     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public SetPermissionMeetingRecordingReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public SetPermissionMeetingRecordingReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+         * <p> 示例值：6911188411932033028
+         */
+        this.meetingId = builder.meetingId;
+        this.body = builder.body;
     }
 
-    /**
-     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411932033028
-     *
-     * @param meetingId
-     * @return
-     */
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getMeetingId() {
+        return this.meetingId;
+    }
+
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
     }
 
     public SetPermissionMeetingRecordingReqBody getSetPermissionMeetingRecordingReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder setPermissionMeetingRecordingReqBody(SetPermissionMeetingRecordingReqBody body) {
-      this.body = body;
-      return this;
+    public void setSetPermissionMeetingRecordingReqBody(SetPermissionMeetingRecordingReqBody body) {
+        this.body = body;
     }
 
-    public SetPermissionMeetingRecordingReq build() {
-      return new SetPermissionMeetingRecordingReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+        private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+        private SetPermissionMeetingRecordingReqBody body;
+
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+         * <p> 示例值：6911188411932033028
+         *
+         * @param meetingId
+         * @return
+         */
+        public Builder meetingId(String meetingId) {
+            this.meetingId = meetingId;
+            return this;
+        }
+
+        public SetPermissionMeetingRecordingReqBody getSetPermissionMeetingRecordingReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder setPermissionMeetingRecordingReqBody(SetPermissionMeetingRecordingReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public SetPermissionMeetingRecordingReq build() {
+            return new SetPermissionMeetingRecordingReq(this);
+        }
     }
-  }
 }

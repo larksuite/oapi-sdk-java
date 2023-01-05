@@ -16,61 +16,96 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserAnnualReport {
-
-  /**
-   * 2021用户年度报告
-   * <p> 示例值：
-   */
-  @SerializedName("year_2021")
-  private UserReport2021 year2021;
-
-  // builder 开始
-  public UserAnnualReport() {
-  }
-
-  public UserAnnualReport(Builder builder) {
     /**
      * 2021用户年度报告
      * <p> 示例值：
      */
-    this.year2021 = builder.year2021;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserReport2021 getYear2021() {
-    return this.year2021;
-  }
-
-  public void setYear2021(UserReport2021 year2021) {
-    this.year2021 = year2021;
-  }
-
-  public static class Builder {
-
-    /**
-     * 2021用户年度报告
-     * <p> 示例值：
-     */
+    @SerializedName("year_2021")
     private UserReport2021 year2021;
-
     /**
-     * 2021用户年度报告
+     * 2022用户年度报告
      * <p> 示例值：
-     *
-     * @param year2021
-     * @return
      */
-    public Builder year2021(UserReport2021 year2021) {
-      this.year2021 = year2021;
-      return this;
+    @SerializedName("year_2022")
+    private UserReport2022 year2022;
+
+    // builder 开始
+    public UserAnnualReport() {
     }
 
-
-    public UserAnnualReport build() {
-      return new UserAnnualReport(this);
+    public UserAnnualReport(Builder builder) {
+        /**
+         * 2021用户年度报告
+         * <p> 示例值：
+         */
+        this.year2021 = builder.year2021;
+        /**
+         * 2022用户年度报告
+         * <p> 示例值：
+         */
+        this.year2022 = builder.year2022;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public UserReport2021 getYear2021() {
+        return this.year2021;
+    }
+
+    public void setYear2021(UserReport2021 year2021) {
+        this.year2021 = year2021;
+    }
+
+    public UserReport2022 getYear2022() {
+        return this.year2022;
+    }
+
+    public void setYear2022(UserReport2022 year2022) {
+        this.year2022 = year2022;
+    }
+
+    public static class Builder {
+        /**
+         * 2021用户年度报告
+         * <p> 示例值：
+         */
+        private UserReport2021 year2021;
+        /**
+         * 2022用户年度报告
+         * <p> 示例值：
+         */
+        private UserReport2022 year2022;
+
+        /**
+         * 2021用户年度报告
+         * <p> 示例值：
+         *
+         * @param year2021
+         * @return
+         */
+        public Builder year2021(UserReport2021 year2021) {
+            this.year2021 = year2021;
+            return this;
+        }
+
+
+        /**
+         * 2022用户年度报告
+         * <p> 示例值：
+         *
+         * @param year2022
+         * @return
+         */
+        public Builder year2022(UserReport2022 year2022) {
+            this.year2022 = year2022;
+            return this;
+        }
+
+
+        public UserAnnualReport build() {
+            return new UserAnnualReport(this);
+        }
+    }
 }

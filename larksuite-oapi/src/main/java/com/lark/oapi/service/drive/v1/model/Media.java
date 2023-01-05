@@ -16,172 +16,170 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Media {
-
-  /**
-   * 文件标识符
-   * <p> 示例值：
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 文件名
-   * <p> 示例值：
-   */
-  @SerializedName("file_name")
-  private String fileName;
-  /**
-   * 文件大小
-   * <p> 示例值：
-   */
-  @SerializedName("size")
-  private Integer size;
-  /**
-   * 文件MIME类型
-   * <p> 示例值：
-   */
-  @SerializedName("mime_type")
-  private String mimeType;
-
-  // builder 开始
-  public Media() {
-  }
-
-  public Media(Builder builder) {
     /**
      * 文件标识符
      * <p> 示例值：
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * 文件名
-     * <p> 示例值：
-     */
-    this.fileName = builder.fileName;
-    /**
-     * 文件大小
-     * <p> 示例值：
-     */
-    this.size = builder.size;
-    /**
-     * 文件MIME类型
-     * <p> 示例值：
-     */
-    this.mimeType = builder.mimeType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public Integer getSize() {
-    return this.size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public String getMimeType() {
-    return this.mimeType;
-  }
-
-  public void setMimeType(String mimeType) {
-    this.mimeType = mimeType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件标识符
-     * <p> 示例值：
-     */
+    @SerializedName("file_token")
     private String fileToken;
     /**
      * 文件名
      * <p> 示例值：
      */
+    @SerializedName("file_name")
     private String fileName;
     /**
      * 文件大小
      * <p> 示例值：
      */
+    @SerializedName("size")
     private Integer size;
     /**
      * 文件MIME类型
      * <p> 示例值：
      */
+    @SerializedName("mime_type")
     private String mimeType;
 
-    /**
-     * 文件标识符
-     * <p> 示例值：
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public Media() {
     }
 
-
-    /**
-     * 文件名
-     * <p> 示例值：
-     *
-     * @param fileName
-     * @return
-     */
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
+    public Media(Builder builder) {
+        /**
+         * 文件标识符
+         * <p> 示例值：
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 文件名
+         * <p> 示例值：
+         */
+        this.fileName = builder.fileName;
+        /**
+         * 文件大小
+         * <p> 示例值：
+         */
+        this.size = builder.size;
+        /**
+         * 文件MIME类型
+         * <p> 示例值：
+         */
+        this.mimeType = builder.mimeType;
     }
 
-
-    /**
-     * 文件大小
-     * <p> 示例值：
-     *
-     * @param size
-     * @return
-     */
-    public Builder size(Integer size) {
-      this.size = size;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 文件MIME类型
-     * <p> 示例值：
-     *
-     * @param mimeType
-     * @return
-     */
-    public Builder mimeType(String mimeType) {
-      this.mimeType = mimeType;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-
-    public Media build() {
-      return new Media(this);
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
-  }
+
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public String getMimeType() {
+        return this.mimeType;
+    }
+
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
+    }
+
+    public static class Builder {
+        /**
+         * 文件标识符
+         * <p> 示例值：
+         */
+        private String fileToken;
+        /**
+         * 文件名
+         * <p> 示例值：
+         */
+        private String fileName;
+        /**
+         * 文件大小
+         * <p> 示例值：
+         */
+        private Integer size;
+        /**
+         * 文件MIME类型
+         * <p> 示例值：
+         */
+        private String mimeType;
+
+        /**
+         * 文件标识符
+         * <p> 示例值：
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 文件名
+         * <p> 示例值：
+         *
+         * @param fileName
+         * @return
+         */
+        public Builder fileName(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+
+        /**
+         * 文件大小
+         * <p> 示例值：
+         *
+         * @param size
+         * @return
+         */
+        public Builder size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+
+        /**
+         * 文件MIME类型
+         * <p> 示例值：
+         *
+         * @param mimeType
+         * @return
+         */
+        public Builder mimeType(String mimeType) {
+            this.mimeType = mimeType;
+            return this;
+        }
+
+
+        public Media build() {
+            return new Media(this);
+        }
+    }
 }

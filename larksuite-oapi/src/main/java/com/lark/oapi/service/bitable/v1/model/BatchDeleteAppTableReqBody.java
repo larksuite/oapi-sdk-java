@@ -16,61 +16,59 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteAppTableReqBody {
-
-  /**
-   * 删除的多条tableid列表
-   * <p> 示例值：["tblsRc9GRRXKqhvW"]
-   */
-  @SerializedName("table_ids")
-  private String[] tableIds;
-
-  // builder 开始
-  public BatchDeleteAppTableReqBody() {
-  }
-
-  public BatchDeleteAppTableReqBody(Builder builder) {
     /**
      * 删除的多条tableid列表
      * <p> 示例值：["tblsRc9GRRXKqhvW"]
      */
-    this.tableIds = builder.tableIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getTableIds() {
-    return this.tableIds;
-  }
-
-  public void setTableIds(String[] tableIds) {
-    this.tableIds = tableIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 删除的多条tableid列表
-     * <p> 示例值：["tblsRc9GRRXKqhvW"]
-     */
+    @SerializedName("table_ids")
     private String[] tableIds;
 
-    /**
-     * 删除的多条tableid列表
-     * <p> 示例值：["tblsRc9GRRXKqhvW"]
-     *
-     * @param tableIds
-     * @return
-     */
-    public Builder tableIds(String[] tableIds) {
-      this.tableIds = tableIds;
-      return this;
+    // builder 开始
+    public BatchDeleteAppTableReqBody() {
     }
 
-
-    public BatchDeleteAppTableReqBody build() {
-      return new BatchDeleteAppTableReqBody(this);
+    public BatchDeleteAppTableReqBody(Builder builder) {
+        /**
+         * 删除的多条tableid列表
+         * <p> 示例值：["tblsRc9GRRXKqhvW"]
+         */
+        this.tableIds = builder.tableIds;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getTableIds() {
+        return this.tableIds;
+    }
+
+    public void setTableIds(String[] tableIds) {
+        this.tableIds = tableIds;
+    }
+
+    public static class Builder {
+        /**
+         * 删除的多条tableid列表
+         * <p> 示例值：["tblsRc9GRRXKqhvW"]
+         */
+        private String[] tableIds;
+
+        /**
+         * 删除的多条tableid列表
+         * <p> 示例值：["tblsRc9GRRXKqhvW"]
+         *
+         * @param tableIds
+         * @return
+         */
+        public Builder tableIds(String[] tableIds) {
+            this.tableIds = tableIds;
+            return this;
+        }
+
+
+        public BatchDeleteAppTableReqBody build() {
+            return new BatchDeleteAppTableReqBody(this);
+        }
+    }
 }

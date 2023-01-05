@@ -17,19 +17,19 @@ package com.lark.oapi.service.drive.v1.enums;
  * 协作者ID类型
  */
 public enum CreatePermissionMemberMemberTypeEnum {
-  EMAIL("email"), // 飞书邮箱
-  OPEN_ID("openid"), // 开放平台ID
-  OPEN_CHAT("openchat"), // 开放平台群组ID
-  OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门ID
-  USER_ID("userid"), // 用户自定义ID
-  ;
-  private String value;
+    EMAIL("email"), // 飞书邮箱
+    OPEN_ID("openid"), // 开放平台ID
+    OPEN_CHAT("openchat"), // 开放平台群组ID
+    OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门ID
+    USER_ID("userid"), // 用户自定义ID
+    ;
+    private String value;
 
-  CreatePermissionMemberMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    CreatePermissionMemberMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -15,17 +15,17 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum DeleteResultEnum {
-  OK(1),
-  FAILED(2),
-  NO_PERMISSION(3),
-  ;
-  private Integer value;
+    OK(1),
+    FAILED(2),
+    NO_PERMISSION(3),
+    ;
+    private Integer value;
 
-  DeleteResultEnum(Integer value) {
-    this.value = value;
-  }
+    DeleteResultEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

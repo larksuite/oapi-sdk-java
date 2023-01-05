@@ -16,61 +16,59 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class HighlightEntityReqBody {
-
-  /**
-   * 需要识别百科词条的内容（不超过1000字）
-   * <p> 示例值：企业百科是飞书提供的一款知识管理工具
-   */
-  @SerializedName("text")
-  private String text;
-
-  // builder 开始
-  public HighlightEntityReqBody() {
-  }
-
-  public HighlightEntityReqBody(Builder builder) {
     /**
      * 需要识别百科词条的内容（不超过1000字）
      * <p> 示例值：企业百科是飞书提供的一款知识管理工具
      */
-    this.text = builder.text;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public static class Builder {
-
-    /**
-     * 需要识别百科词条的内容（不超过1000字）
-     * <p> 示例值：企业百科是飞书提供的一款知识管理工具
-     */
+    @SerializedName("text")
     private String text;
 
-    /**
-     * 需要识别百科词条的内容（不超过1000字）
-     * <p> 示例值：企业百科是飞书提供的一款知识管理工具
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    // builder 开始
+    public HighlightEntityReqBody() {
     }
 
-
-    public HighlightEntityReqBody build() {
-      return new HighlightEntityReqBody(this);
+    public HighlightEntityReqBody(Builder builder) {
+        /**
+         * 需要识别百科词条的内容（不超过1000字）
+         * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+         */
+        this.text = builder.text;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public static class Builder {
+        /**
+         * 需要识别百科词条的内容（不超过1000字）
+         * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+         */
+        private String text;
+
+        /**
+         * 需要识别百科词条的内容（不超过1000字）
+         * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        public HighlightEntityReqBody build() {
+            return new HighlightEntityReqBody(this);
+        }
+    }
 }

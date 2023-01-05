@@ -17,126 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListApprovalReq {
-
-  /**
-   * 分页大小
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取下一页结果
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 示例值："zh-CN" 可选值有： - zh-CN：中文 - en-US：英文 - ja-JP：日文 默认 "zh-CN"
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("locale")
-  private String locale;
-
-  // builder 开始
-  public ListApprovalReq() {
-  }
-
-  public ListApprovalReq(Builder builder) {
     /**
      * 分页大小
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取下一页结果
-     * <p> 示例值：
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：ASDJHA1323_sda1JSASDFD
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     * 示例值："zh-CN" 可选值有： - zh-CN：中文 - en-US：英文 - ja-JP：日文 默认 "zh-CN"
-     * <p> 示例值：
+     * - zh-CN：中文 ;- en-US：英文 ;- ja-JP：日文
+     * <p> 示例值：zh-CN
      */
-    this.locale = builder.locale;
-  }
+    @Query
+    @SerializedName("locale")
+    private String locale;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public static class Builder {
-
-    private Integer pageSize; // 分页大小
-    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取下一页结果
-    private String locale; // 示例值："zh-CN" 可选值有： - zh-CN：中文 - en-US：英文 - ja-JP：日文 默认 "zh-CN"
-
-
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    // builder 开始
+    public ListApprovalReq() {
     }
 
-
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取下一页结果
-     * <p> 示例值：
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public ListApprovalReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：ASDJHA1323_sda1JSASDFD
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * - zh-CN：中文 ;- en-US：英文 ;- ja-JP：日文
+         * <p> 示例值：zh-CN
+         */
+        this.locale = builder.locale;
     }
 
-
-    /**
-     * 示例值："zh-CN" 可选值有： - zh-CN：中文 - en-US：英文 - ja-JP：日文 默认 "zh-CN"
-     * <p> 示例值：
-     *
-     * @param locale
-     * @return
-     */
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public ListApprovalReq build() {
-      return new ListApprovalReq(this);
+    public Integer getPageSize() {
+        return this.pageSize;
     }
-  }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public static class Builder {
+        private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private String locale; // - zh-CN：中文 ;- en-US：英文 ;- ja-JP：日文
+
+
+        /**
+         * 分页大小
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：ASDJHA1323_sda1JSASDFD
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * - zh-CN：中文 ;- en-US：英文 ;- ja-JP：日文
+         * <p> 示例值：zh-CN
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+        public ListApprovalReq build() {
+            return new ListApprovalReq(this);
+        }
+    }
 }

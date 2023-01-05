@@ -17,17 +17,17 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户 ID 类型
  */
 public enum UpdateBadgeGrantUserIdTypeEnum {
-  OPEN_ID("open_id"), // 用户的open_id
-  UNION_ID("union_id"), // 用户的union_id
-  USER_ID("user_id"), // 用户的user_id
-  ;
-  private String value;
+    OPEN_ID("open_id"), // 用户的open_id
+    UNION_ID("union_id"), // 用户的union_id
+    USER_ID("user_id"), // 用户的user_id
+    ;
+    private String value;
 
-  UpdateBadgeGrantUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    UpdateBadgeGrantUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

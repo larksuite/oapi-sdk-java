@@ -16,172 +16,170 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ShareDepartment {
-
-  /**
-   * 共享部门的open id
-   * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * 部门名称
-   * <p> 示例值：测试部门
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 国际化的部门名称
-   * <p> 示例值：
-   */
-  @SerializedName("i18n_name")
-  private DepartmentI18nName i18nName;
-  /**
-   * 部门的排序
-   * <p> 示例值：6000
-   */
-  @SerializedName("order")
-  private String order;
-
-  // builder 开始
-  public ShareDepartment() {
-  }
-
-  public ShareDepartment(Builder builder) {
     /**
      * 共享部门的open id
      * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
      */
-    this.openId = builder.openId;
-    /**
-     * 部门名称
-     * <p> 示例值：测试部门
-     */
-    this.name = builder.name;
-    /**
-     * 国际化的部门名称
-     * <p> 示例值：
-     */
-    this.i18nName = builder.i18nName;
-    /**
-     * 部门的排序
-     * <p> 示例值：6000
-     */
-    this.order = builder.order;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public DepartmentI18nName getI18nName() {
-    return this.i18nName;
-  }
-
-  public void setI18nName(DepartmentI18nName i18nName) {
-    this.i18nName = i18nName;
-  }
-
-  public String getOrder() {
-    return this.order;
-  }
-
-  public void setOrder(String order) {
-    this.order = order;
-  }
-
-  public static class Builder {
-
-    /**
-     * 共享部门的open id
-     * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
-     */
+    @SerializedName("open_id")
     private String openId;
     /**
      * 部门名称
      * <p> 示例值：测试部门
      */
+    @SerializedName("name")
     private String name;
     /**
      * 国际化的部门名称
      * <p> 示例值：
      */
+    @SerializedName("i18n_name")
     private DepartmentI18nName i18nName;
     /**
      * 部门的排序
      * <p> 示例值：6000
      */
+    @SerializedName("order")
     private String order;
 
-    /**
-     * 共享部门的open id
-     * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    // builder 开始
+    public ShareDepartment() {
     }
 
-
-    /**
-     * 部门名称
-     * <p> 示例值：测试部门
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public ShareDepartment(Builder builder) {
+        /**
+         * 共享部门的open id
+         * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
+         */
+        this.openId = builder.openId;
+        /**
+         * 部门名称
+         * <p> 示例值：测试部门
+         */
+        this.name = builder.name;
+        /**
+         * 国际化的部门名称
+         * <p> 示例值：
+         */
+        this.i18nName = builder.i18nName;
+        /**
+         * 部门的排序
+         * <p> 示例值：6000
+         */
+        this.order = builder.order;
     }
 
-
-    /**
-     * 国际化的部门名称
-     * <p> 示例值：
-     *
-     * @param i18nName
-     * @return
-     */
-    public Builder i18nName(DepartmentI18nName i18nName) {
-      this.i18nName = i18nName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 部门的排序
-     * <p> 示例值：6000
-     *
-     * @param order
-     * @return
-     */
-    public Builder order(String order) {
-      this.order = order;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-
-    public ShareDepartment build() {
-      return new ShareDepartment(this);
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public DepartmentI18nName getI18nName() {
+        return this.i18nName;
+    }
+
+    public void setI18nName(DepartmentI18nName i18nName) {
+        this.i18nName = i18nName;
+    }
+
+    public String getOrder() {
+        return this.order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
+    public static class Builder {
+        /**
+         * 共享部门的open id
+         * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
+         */
+        private String openId;
+        /**
+         * 部门名称
+         * <p> 示例值：测试部门
+         */
+        private String name;
+        /**
+         * 国际化的部门名称
+         * <p> 示例值：
+         */
+        private DepartmentI18nName i18nName;
+        /**
+         * 部门的排序
+         * <p> 示例值：6000
+         */
+        private String order;
+
+        /**
+         * 共享部门的open id
+         * <p> 示例值：od-b025f41e599bf3d3fb5dc56b7f86142b
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * 部门名称
+         * <p> 示例值：测试部门
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 国际化的部门名称
+         * <p> 示例值：
+         *
+         * @param i18nName
+         * @return
+         */
+        public Builder i18nName(DepartmentI18nName i18nName) {
+            this.i18nName = i18nName;
+            return this;
+        }
+
+
+        /**
+         * 部门的排序
+         * <p> 示例值：6000
+         *
+         * @param order
+         * @return
+         */
+        public Builder order(String order) {
+            this.order = order;
+            return this;
+        }
+
+
+        public ShareDepartment build() {
+            return new ShareDepartment(this);
+        }
+    }
 }

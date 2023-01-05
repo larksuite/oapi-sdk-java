@@ -14,19 +14,20 @@
 package com.lark.oapi.service.attendance.v1.enums;
 
 /**
- * 查询依据的时间类型（不填默认依据PeriodTime）
+ * 查询依据的时间类型（默认依据PeriodTime，如果使用非默认的，非特定租户不支持）
  */
 public enum QueryUserTaskRemedyCheckDateTypeEnum {
-  PERIODTIME("PeriodTime"), // 单据作用时间（即remedy_time）
-  CREATETIME("CreateTime"), // 单据创建时间
-  ;
-  private String value;
+    PERIODTIME("PeriodTime"), // 单据作用时间（即remedy_time）
+    CREATETIME("CreateTime"), // 单据创建时间
+    UPDATETIME("UpdateTime"), // 单据状态更新时间
+    ;
+    private String value;
 
-  QueryUserTaskRemedyCheckDateTypeEnum(String value) {
-    this.value = value;
-  }
+    QueryUserTaskRemedyCheckDateTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

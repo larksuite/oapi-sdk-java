@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ResumeSource {
-
-  /**
-   * 来源 ID
-   * <p> 示例值：1111
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 中文名
-   * <p> 示例值：内推
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 英文名
-   * <p> 示例值：referral
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 启用状态
-   * <p> 示例值：1
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-  /**
-   * 来源类型
-   * <p> 示例值：1
-   */
-  @SerializedName("resume_source_type")
-  private Integer resumeSourceType;
-
-  // builder 开始
-  public ResumeSource() {
-  }
-
-  public ResumeSource(Builder builder) {
     /**
      * 来源 ID
      * <p> 示例值：1111
      */
-    this.id = builder.id;
-    /**
-     * 中文名
-     * <p> 示例值：内推
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 英文名
-     * <p> 示例值：referral
-     */
-    this.enName = builder.enName;
-    /**
-     * 启用状态
-     * <p> 示例值：1
-     */
-    this.activeStatus = builder.activeStatus;
-    /**
-     * 来源类型
-     * <p> 示例值：1
-     */
-    this.resumeSourceType = builder.resumeSourceType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public Integer getResumeSourceType() {
-    return this.resumeSourceType;
-  }
-
-  public void setResumeSourceType(Integer resumeSourceType) {
-    this.resumeSourceType = resumeSourceType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 来源 ID
-     * <p> 示例值：1111
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 中文名
      * <p> 示例值：内推
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 英文名
      * <p> 示例值：referral
      */
+    @SerializedName("en_name")
     private String enName;
     /**
      * 启用状态
      * <p> 示例值：1
      */
+    @SerializedName("active_status")
     private Integer activeStatus;
     /**
      * 来源类型
      * <p> 示例值：1
      */
+    @SerializedName("resume_source_type")
     private Integer resumeSourceType;
 
-    /**
-     * 来源 ID
-     * <p> 示例值：1111
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ResumeSource() {
     }
 
-
-    /**
-     * 中文名
-     * <p> 示例值：内推
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public ResumeSource(Builder builder) {
+        /**
+         * 来源 ID
+         * <p> 示例值：1111
+         */
+        this.id = builder.id;
+        /**
+         * 中文名
+         * <p> 示例值：内推
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 英文名
+         * <p> 示例值：referral
+         */
+        this.enName = builder.enName;
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 来源类型
+         * <p> 示例值：1
+         */
+        this.resumeSourceType = builder.resumeSourceType;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：referral
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 启用状态
-     * <p> 示例值：1
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 来源类型
-     * <p> 示例值：1
-     *
-     * @param resumeSourceType
-     * @return
-     */
-    public Builder resumeSourceType(Integer resumeSourceType) {
-      this.resumeSourceType = resumeSourceType;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public ResumeSource build() {
-      return new ResumeSource(this);
+    public String getZhName() {
+        return this.zhName;
     }
-  }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public Integer getActiveStatus() {
+        return this.activeStatus;
+    }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public Integer getResumeSourceType() {
+        return this.resumeSourceType;
+    }
+
+    public void setResumeSourceType(Integer resumeSourceType) {
+        this.resumeSourceType = resumeSourceType;
+    }
+
+    public static class Builder {
+        /**
+         * 来源 ID
+         * <p> 示例值：1111
+         */
+        private String id;
+        /**
+         * 中文名
+         * <p> 示例值：内推
+         */
+        private String zhName;
+        /**
+         * 英文名
+         * <p> 示例值：referral
+         */
+        private String enName;
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         */
+        private Integer activeStatus;
+        /**
+         * 来源类型
+         * <p> 示例值：1
+         */
+        private Integer resumeSourceType;
+
+        /**
+         * 来源 ID
+         * <p> 示例值：1111
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 中文名
+         * <p> 示例值：内推
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：referral
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 启用状态
+         * <p> 示例值：1
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 来源类型
+         * <p> 示例值：1
+         *
+         * @param resumeSourceType
+         * @return
+         */
+        public Builder resumeSourceType(Integer resumeSourceType) {
+            this.resumeSourceType = resumeSourceType;
+            return this;
+        }
+
+
+        public ResumeSource build() {
+            return new ResumeSource(this);
+        }
+    }
 }

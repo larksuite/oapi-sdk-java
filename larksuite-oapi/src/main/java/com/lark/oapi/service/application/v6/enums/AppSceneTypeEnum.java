@@ -15,18 +15,18 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum AppSceneTypeEnum {
-  SELF_BUILD(0),
-  ISV(1),
-  ISP(2),
-  UNKNOWN(3),
-  ;
-  private Integer value;
+    SELF_BUILD(0),
+    ISV(1),
+    ISP(2),
+    UNKNOWN(3),
+    ;
+    private Integer value;
 
-  AppSceneTypeEnum(Integer value) {
-    this.value = value;
-  }
+    AppSceneTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

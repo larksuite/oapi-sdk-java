@@ -17,16 +17,16 @@ package com.lark.oapi.service.okr.v1.enums;
  * 目标类型
  */
 public enum CreateProgressRecordTargetTypeEnum {
-  OKR的O(2), // okr的O
-  OKR的KR(3), // okr的KR
-  ;
-  private Integer value;
+    OBJECTIVE(2), // okr的O
+    KEY_RESULT(3), // okr的KR
+    ;
+    private Integer value;
 
-  CreateProgressRecordTargetTypeEnum(Integer value) {
-    this.value = value;
-  }
+    CreateProgressRecordTargetTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

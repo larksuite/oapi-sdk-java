@@ -16,20 +16,19 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskCommentRespBody {
+    /**
+     * 返回创建好的任务评论
+     * <p> 示例值：
+     */
+    @SerializedName("comment")
+    private Comment comment;
 
-  /**
-   * 返回创建好的任务评论
-   * <p> 示例值：
-   */
-  @SerializedName("comment")
-  private Comment comment;
+    public Comment getComment() {
+        return this.comment;
+    }
 
-  public Comment getComment() {
-    return this.comment;
-  }
-
-  public void setComment(Comment comment) {
-    this.comment = comment;
-  }
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
 
 }

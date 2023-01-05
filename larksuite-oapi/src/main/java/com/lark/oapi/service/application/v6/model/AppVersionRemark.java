@@ -16,135 +16,133 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppVersionRemark {
-
-  /**
-   * 备注说明
-   * <p> 示例值：备注说明
-   */
-  @SerializedName("remark")
-  private String remark;
-  /**
-   * 更新说明
-   * <p> 示例值：更新说明
-   */
-  @SerializedName("update_remark")
-  private String updateRemark;
-  /**
-   * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
-   * <p> 示例值：
-   */
-  @SerializedName("visibility")
-  private AppVisibility visibility;
-
-  // builder 开始
-  public AppVersionRemark() {
-  }
-
-  public AppVersionRemark(Builder builder) {
     /**
      * 备注说明
      * <p> 示例值：备注说明
      */
-    this.remark = builder.remark;
-    /**
-     * 更新说明
-     * <p> 示例值：更新说明
-     */
-    this.updateRemark = builder.updateRemark;
-    /**
-     * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
-     * <p> 示例值：
-     */
-    this.visibility = builder.visibility;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRemark() {
-    return this.remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public String getUpdateRemark() {
-    return this.updateRemark;
-  }
-
-  public void setUpdateRemark(String updateRemark) {
-    this.updateRemark = updateRemark;
-  }
-
-  public AppVisibility getVisibility() {
-    return this.visibility;
-  }
-
-  public void setVisibility(AppVisibility visibility) {
-    this.visibility = visibility;
-  }
-
-  public static class Builder {
-
-    /**
-     * 备注说明
-     * <p> 示例值：备注说明
-     */
+    @SerializedName("remark")
     private String remark;
     /**
      * 更新说明
      * <p> 示例值：更新说明
      */
+    @SerializedName("update_remark")
     private String updateRemark;
     /**
      * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
      * <p> 示例值：
      */
+    @SerializedName("visibility")
     private AppVisibility visibility;
 
-    /**
-     * 备注说明
-     * <p> 示例值：备注说明
-     *
-     * @param remark
-     * @return
-     */
-    public Builder remark(String remark) {
-      this.remark = remark;
-      return this;
+    // builder 开始
+    public AppVersionRemark() {
     }
 
-
-    /**
-     * 更新说明
-     * <p> 示例值：更新说明
-     *
-     * @param updateRemark
-     * @return
-     */
-    public Builder updateRemark(String updateRemark) {
-      this.updateRemark = updateRemark;
-      return this;
+    public AppVersionRemark(Builder builder) {
+        /**
+         * 备注说明
+         * <p> 示例值：备注说明
+         */
+        this.remark = builder.remark;
+        /**
+         * 更新说明
+         * <p> 示例值：更新说明
+         */
+        this.updateRemark = builder.updateRemark;
+        /**
+         * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
+         * <p> 示例值：
+         */
+        this.visibility = builder.visibility;
     }
 
-
-    /**
-     * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
-     * <p> 示例值：
-     *
-     * @param visibility
-     * @return
-     */
-    public Builder visibility(AppVisibility visibility) {
-      this.visibility = visibility;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AppVersionRemark build() {
-      return new AppVersionRemark(this);
+    public String getRemark() {
+        return this.remark;
     }
-  }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getUpdateRemark() {
+        return this.updateRemark;
+    }
+
+    public void setUpdateRemark(String updateRemark) {
+        this.updateRemark = updateRemark;
+    }
+
+    public AppVisibility getVisibility() {
+        return this.visibility;
+    }
+
+    public void setVisibility(AppVisibility visibility) {
+        this.visibility = visibility;
+    }
+
+    public static class Builder {
+        /**
+         * 备注说明
+         * <p> 示例值：备注说明
+         */
+        private String remark;
+        /**
+         * 更新说明
+         * <p> 示例值：更新说明
+         */
+        private String updateRemark;
+        /**
+         * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
+         * <p> 示例值：
+         */
+        private AppVisibility visibility;
+
+        /**
+         * 备注说明
+         * <p> 示例值：备注说明
+         *
+         * @param remark
+         * @return
+         */
+        public Builder remark(String remark) {
+            this.remark = remark;
+            return this;
+        }
+
+
+        /**
+         * 更新说明
+         * <p> 示例值：更新说明
+         *
+         * @param updateRemark
+         * @return
+         */
+        public Builder updateRemark(String updateRemark) {
+            this.updateRemark = updateRemark;
+            return this;
+        }
+
+
+        /**
+         * 应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容
+         * <p> 示例值：
+         *
+         * @param visibility
+         * @return
+         */
+        public Builder visibility(AppVisibility visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+
+        public AppVersionRemark build() {
+            return new AppVersionRemark(this);
+        }
+    }
 }

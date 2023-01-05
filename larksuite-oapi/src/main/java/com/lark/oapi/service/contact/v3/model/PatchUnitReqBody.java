@@ -16,61 +16,59 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchUnitReqBody {
-
-  /**
-   * 单位的名字
-   * <p> 示例值：消费者事业部
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public PatchUnitReqBody() {
-  }
-
-  public PatchUnitReqBody(Builder builder) {
     /**
      * 单位的名字
      * <p> 示例值：消费者事业部
      */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 单位的名字
-     * <p> 示例值：消费者事业部
-     */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 单位的名字
-     * <p> 示例值：消费者事业部
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public PatchUnitReqBody() {
     }
 
-
-    public PatchUnitReqBody build() {
-      return new PatchUnitReqBody(this);
+    public PatchUnitReqBody(Builder builder) {
+        /**
+         * 单位的名字
+         * <p> 示例值：消费者事业部
+         */
+        this.name = builder.name;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 单位的名字
+         * <p> 示例值：消费者事业部
+         */
+        private String name;
+
+        /**
+         * 单位的名字
+         * <p> 示例值：消费者事业部
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public PatchUnitReqBody build() {
+            return new PatchUnitReqBody(this);
+        }
+    }
 }

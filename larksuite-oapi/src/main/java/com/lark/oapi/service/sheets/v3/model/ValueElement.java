@@ -16,61 +16,59 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ValueElement {
-
-  /**
-   * 整型或浮点型数值
-   * <p> 示例值：
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public ValueElement() {
-  }
-
-  public ValueElement(Builder builder) {
     /**
      * 整型或浮点型数值
      * <p> 示例值：
      */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 整型或浮点型数值
-     * <p> 示例值：
-     */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 整型或浮点型数值
-     * <p> 示例值：
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    // builder 开始
+    public ValueElement() {
     }
 
-
-    public ValueElement build() {
-      return new ValueElement(this);
+    public ValueElement(Builder builder) {
+        /**
+         * 整型或浮点型数值
+         * <p> 示例值：
+         */
+        this.value = builder.value;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 整型或浮点型数值
+         * <p> 示例值：
+         */
+        private String value;
+
+        /**
+         * 整型或浮点型数值
+         * <p> 示例值：
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public ValueElement build() {
+            return new ValueElement(this);
+        }
+    }
 }

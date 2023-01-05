@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserApproval {
 
-  /**
-   * 审批结果列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_approvals")
-  private UserApproval[] userApprovals;
+    /**
+     * 审批结果列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_approvals")
+    private UserApproval[] userApprovals;
 
-  public UserApproval[] getUserApprovals() {
-    return this.userApprovals;
-  }
+    public UserApproval[] getUserApprovals() {
+        return this.userApprovals;
+    }
 
-  public void setUserApprovals(UserApproval[] userApprovals) {
-    this.userApprovals = userApprovals;
-  }
+    public void setUserApprovals(UserApproval[] userApprovals) {
+        this.userApprovals = userApprovals;
+    }
 
 }

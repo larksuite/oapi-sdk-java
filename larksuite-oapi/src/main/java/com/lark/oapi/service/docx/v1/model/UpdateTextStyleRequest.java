@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateTextStyleRequest {
-
-  /**
-   * 文本样式
-   * <p> 示例值：
-   */
-  @SerializedName("style")
-  private TextStyle style;
-  /**
-   * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
-   * <p> 示例值：修改的文字样式属性
-   */
-  @SerializedName("fields")
-  private Integer[] fields;
-
-  // builder 开始
-  public UpdateTextStyleRequest() {
-  }
-
-  public UpdateTextStyleRequest(Builder builder) {
     /**
      * 文本样式
      * <p> 示例值：
      */
-    this.style = builder.style;
-    /**
-     * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
-     * <p> 示例值：修改的文字样式属性
-     */
-    this.fields = builder.fields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TextStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(TextStyle style) {
-    this.style = style;
-  }
-
-  public Integer[] getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Integer[] fields) {
-    this.fields = fields;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文本样式
-     * <p> 示例值：
-     */
+    @SerializedName("style")
     private TextStyle style;
     /**
      * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
      * <p> 示例值：修改的文字样式属性
      */
+    @SerializedName("fields")
     private Integer[] fields;
 
-    /**
-     * 文本样式
-     * <p> 示例值：
-     *
-     * @param style
-     * @return
-     */
-    public Builder style(TextStyle style) {
-      this.style = style;
-      return this;
+    // builder 开始
+    public UpdateTextStyleRequest() {
     }
 
-
-    /**
-     * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
-     * <p> 示例值：修改的文字样式属性
-     *
-     * @param fields
-     * @return
-     */
-    public Builder fields(Integer[] fields) {
-      this.fields = fields;
-      return this;
+    public UpdateTextStyleRequest(Builder builder) {
+        /**
+         * 文本样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
+        /**
+         * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
+         * <p> 示例值：修改的文字样式属性
+         */
+        this.fields = builder.fields;
     }
 
-
-    public UpdateTextStyleRequest build() {
-      return new UpdateTextStyleRequest(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public TextStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(TextStyle style) {
+        this.style = style;
+    }
+
+    public Integer[] getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Integer[] fields) {
+        this.fields = fields;
+    }
+
+    public static class Builder {
+        /**
+         * 文本样式
+         * <p> 示例值：
+         */
+        private TextStyle style;
+        /**
+         * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
+         * <p> 示例值：修改的文字样式属性
+         */
+        private Integer[] fields;
+
+        /**
+         * 文本样式
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(TextStyle style) {
+            this.style = style;
+            return this;
+        }
+
+
+        /**
+         * 应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
+         * <p> 示例值：修改的文字样式属性
+         *
+         * @param fields
+         * @return
+         */
+        public Builder fields(Integer[] fields) {
+            this.fields = fields;
+            return this;
+        }
+
+
+        public UpdateTextStyleRequest build() {
+            return new UpdateTextStyleRequest(this);
+        }
+    }
 }

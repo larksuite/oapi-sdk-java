@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAppRole {
 
-  /**
-   * 自定义权限
-   * <p> 示例值：
-   */
-  @SerializedName("role")
-  private AppRole role;
+    /**
+     * 自定义权限
+     * <p> 示例值：
+     */
+    @SerializedName("role")
+    private AppRole role;
 
-  public AppRole getRole() {
-    return this.role;
-  }
+    public AppRole getRole() {
+        return this.role;
+    }
 
-  public void setRole(AppRole role) {
-    this.role = role;
-  }
+    public void setRole(AppRole role) {
+        this.role = role;
+    }
 
 }

@@ -16,110 +16,108 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MetaFailed {
-
-  /**
-   * 获取元数据失败的文档token
-   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-   */
-  @SerializedName("token")
-  private String token;
-  /**
-   * 获取元数据失败的错误码
-   * <p> 示例值：970005
-   */
-  @SerializedName("code")
-  private Integer code;
-
-  // builder 开始
-  public MetaFailed() {
-  }
-
-  public MetaFailed(Builder builder) {
     /**
      * 获取元数据失败的文档token
      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    this.token = builder.token;
-    /**
-     * 获取元数据失败的错误码
-     * <p> 示例值：970005
-     */
-    this.code = builder.code;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public Integer getCode() {
-    return this.code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public static class Builder {
-
-    /**
-     * 获取元数据失败的文档token
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     */
+    @SerializedName("token")
     private String token;
     /**
      * 获取元数据失败的错误码
      * <p> 示例值：970005
      */
+    @SerializedName("code")
     private Integer code;
 
-    /**
-     * 获取元数据失败的文档token
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public MetaFailed() {
     }
 
-
-    /**
-     * 获取元数据失败的错误码
-     * <p> 示例值：970005
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(Integer code) {
-      this.code = code;
-      return this;
+    public MetaFailed(Builder builder) {
+        /**
+         * 获取元数据失败的文档token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        this.token = builder.token;
+        /**
+         * 获取元数据失败的错误码
+         * <p> 示例值：970005
+         */
+        this.code = builder.code;
     }
 
-    /**
-     * 获取元数据失败的错误码
-     * <p> 示例值：970005
-     *
-     * @param code {@link com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum}
-     * @return
-     */
-    public Builder code(com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum code) {
-      this.code = code.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public MetaFailed build() {
-      return new MetaFailed(this);
+    public String getToken() {
+        return this.token;
     }
-  }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public static class Builder {
+        /**
+         * 获取元数据失败的文档token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        private String token;
+        /**
+         * 获取元数据失败的错误码
+         * <p> 示例值：970005
+         */
+        private Integer code;
+
+        /**
+         * 获取元数据失败的文档token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 获取元数据失败的错误码
+         * <p> 示例值：970005
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(Integer code) {
+            this.code = code;
+            return this;
+        }
+
+        /**
+         * 获取元数据失败的错误码
+         * <p> 示例值：970005
+         *
+         * @param code {@link com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum}
+         * @return
+         */
+        public Builder code(com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum code) {
+            this.code = code.getValue();
+            return this;
+        }
+
+
+        public MetaFailed build() {
+            return new MetaFailed(this);
+        }
+    }
 }

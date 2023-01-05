@@ -16,98 +16,96 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchGroup {
-
-  /**
-   * 审批定义分组外部 id
-   * <p> 示例值：0004
-   */
-  @SerializedName("external_id")
-  private String externalId;
-  /**
-   * 审批定义分组名称
-   * <p> 示例值：groupA
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public InstanceSearchGroup() {
-  }
-
-  public InstanceSearchGroup(Builder builder) {
     /**
      * 审批定义分组外部 id
      * <p> 示例值：0004
      */
-    this.externalId = builder.externalId;
-    /**
-     * 审批定义分组名称
-     * <p> 示例值：groupA
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getExternalId() {
-    return this.externalId;
-  }
-
-  public void setExternalId(String externalId) {
-    this.externalId = externalId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批定义分组外部 id
-     * <p> 示例值：0004
-     */
+    @SerializedName("external_id")
     private String externalId;
     /**
      * 审批定义分组名称
      * <p> 示例值：groupA
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 审批定义分组外部 id
-     * <p> 示例值：0004
-     *
-     * @param externalId
-     * @return
-     */
-    public Builder externalId(String externalId) {
-      this.externalId = externalId;
-      return this;
+    // builder 开始
+    public InstanceSearchGroup() {
     }
 
-
-    /**
-     * 审批定义分组名称
-     * <p> 示例值：groupA
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public InstanceSearchGroup(Builder builder) {
+        /**
+         * 审批定义分组外部 id
+         * <p> 示例值：0004
+         */
+        this.externalId = builder.externalId;
+        /**
+         * 审批定义分组名称
+         * <p> 示例值：groupA
+         */
+        this.name = builder.name;
     }
 
-
-    public InstanceSearchGroup build() {
-      return new InstanceSearchGroup(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 审批定义分组外部 id
+         * <p> 示例值：0004
+         */
+        private String externalId;
+        /**
+         * 审批定义分组名称
+         * <p> 示例值：groupA
+         */
+        private String name;
+
+        /**
+         * 审批定义分组外部 id
+         * <p> 示例值：0004
+         *
+         * @param externalId
+         * @return
+         */
+        public Builder externalId(String externalId) {
+            this.externalId = externalId;
+            return this;
+        }
+
+
+        /**
+         * 审批定义分组名称
+         * <p> 示例值：groupA
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public InstanceSearchGroup build() {
+            return new InstanceSearchGroup(this);
+        }
+    }
 }

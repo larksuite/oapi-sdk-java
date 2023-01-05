@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMailgroupAliasReq {
-
-  /**
-   * 邮件组id或邮件组邮箱地址
-   * <p> 示例值：xxxxxx 或 test_group@xx.xxx
-   */
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  /**
-   * 邮件组别名邮箱地址
-   * <p> 示例值：xxx@xx.xxx
-   */
-  @Path
-  @SerializedName("alias_id")
-  private String aliasId;
-
-  // builder 开始
-  public DeleteMailgroupAliasReq() {
-  }
-
-  public DeleteMailgroupAliasReq(Builder builder) {
     /**
      * 邮件组id或邮件组邮箱地址
      * <p> 示例值：xxxxxx 或 test_group@xx.xxx
      */
-    this.mailgroupId = builder.mailgroupId;
+    @Path
+    @SerializedName("mailgroup_id")
+    private String mailgroupId;
     /**
      * 邮件组别名邮箱地址
      * <p> 示例值：xxx@xx.xxx
      */
-    this.aliasId = builder.aliasId;
-  }
+    @Path
+    @SerializedName("alias_id")
+    private String aliasId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public String getAliasId() {
-    return this.aliasId;
-  }
-
-  public void setAliasId(String aliasId) {
-    this.aliasId = aliasId;
-  }
-
-  public static class Builder {
-
-    private String mailgroupId; // 邮件组id或邮件组邮箱地址
-    private String aliasId; // 邮件组别名邮箱地址
-
-    /**
-     * 邮件组id或邮件组邮箱地址
-     * <p> 示例值：xxxxxx 或 test_group@xx.xxx
-     *
-     * @param mailgroupId
-     * @return
-     */
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    // builder 开始
+    public DeleteMailgroupAliasReq() {
     }
 
-
-    /**
-     * 邮件组别名邮箱地址
-     * <p> 示例值：xxx@xx.xxx
-     *
-     * @param aliasId
-     * @return
-     */
-    public Builder aliasId(String aliasId) {
-      this.aliasId = aliasId;
-      return this;
+    public DeleteMailgroupAliasReq(Builder builder) {
+        /**
+         * 邮件组id或邮件组邮箱地址
+         * <p> 示例值：xxxxxx 或 test_group@xx.xxx
+         */
+        this.mailgroupId = builder.mailgroupId;
+        /**
+         * 邮件组别名邮箱地址
+         * <p> 示例值：xxx@xx.xxx
+         */
+        this.aliasId = builder.aliasId;
     }
 
-    public DeleteMailgroupAliasReq build() {
-      return new DeleteMailgroupAliasReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    public String getAliasId() {
+        return this.aliasId;
+    }
+
+    public void setAliasId(String aliasId) {
+        this.aliasId = aliasId;
+    }
+
+    public static class Builder {
+
+        private String mailgroupId; // 邮件组id或邮件组邮箱地址
+        private String aliasId; // 邮件组别名邮箱地址
+
+        /**
+         * 邮件组id或邮件组邮箱地址
+         * <p> 示例值：xxxxxx 或 test_group@xx.xxx
+         *
+         * @param mailgroupId
+         * @return
+         */
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
+
+
+        /**
+         * 邮件组别名邮箱地址
+         * <p> 示例值：xxx@xx.xxx
+         *
+         * @param aliasId
+         * @return
+         */
+        public Builder aliasId(String aliasId) {
+            this.aliasId = aliasId;
+            return this;
+        }
+
+        public DeleteMailgroupAliasReq build() {
+            return new DeleteMailgroupAliasReq(this);
+        }
+    }
 }

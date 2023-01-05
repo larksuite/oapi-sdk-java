@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppliTalentCompetitionInfo {
-
-  /**
-   * ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 竞赛名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 竞赛描述
-   * <p> 示例值：
-   */
-  @SerializedName("desc")
-  private String desc;
-
-  // builder 开始
-  public AppliTalentCompetitionInfo() {
-  }
-
-  public AppliTalentCompetitionInfo(Builder builder) {
     /**
      * ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 竞赛名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 竞赛描述
-     * <p> 示例值：
-     */
-    this.desc = builder.desc;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 竞赛名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
      * 竞赛描述
      * <p> 示例值：
      */
+    @SerializedName("desc")
     private String desc;
 
-    /**
-     * ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public AppliTalentCompetitionInfo() {
     }
 
-
-    /**
-     * 竞赛名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public AppliTalentCompetitionInfo(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 竞赛名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 竞赛描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
     }
 
-
-    /**
-     * 竞赛描述
-     * <p> 示例值：
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AppliTalentCompetitionInfo build() {
-      return new AppliTalentCompetitionInfo(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 竞赛名称
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 竞赛描述
+         * <p> 示例值：
+         */
+        private String desc;
+
+        /**
+         * ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 竞赛名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 竞赛描述
+         * <p> 示例值：
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        public AppliTalentCompetitionInfo build() {
+            return new AppliTalentCompetitionInfo(this);
+        }
+    }
 }

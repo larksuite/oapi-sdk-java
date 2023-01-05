@@ -16,98 +16,96 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReqApp {
-
-  /**
-   * 多维表格App名字
-   * <p> 示例值：一篇新的多维表格
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 多维表格App归属文件夹
-   * <p> 示例值：fldbcoh8O99CIMltVc
-   */
-  @SerializedName("folder_token")
-  private String folderToken;
-
-  // builder 开始
-  public ReqApp() {
-  }
-
-  public ReqApp(Builder builder) {
     /**
      * 多维表格App名字
      * <p> 示例值：一篇新的多维表格
      */
-    this.name = builder.name;
-    /**
-     * 多维表格App归属文件夹
-     * <p> 示例值：fldbcoh8O99CIMltVc
-     */
-    this.folderToken = builder.folderToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getFolderToken() {
-    return this.folderToken;
-  }
-
-  public void setFolderToken(String folderToken) {
-    this.folderToken = folderToken;
-  }
-
-  public static class Builder {
-
-    /**
-     * 多维表格App名字
-     * <p> 示例值：一篇新的多维表格
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 多维表格App归属文件夹
      * <p> 示例值：fldbcoh8O99CIMltVc
      */
+    @SerializedName("folder_token")
     private String folderToken;
 
-    /**
-     * 多维表格App名字
-     * <p> 示例值：一篇新的多维表格
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public ReqApp() {
     }
 
-
-    /**
-     * 多维表格App归属文件夹
-     * <p> 示例值：fldbcoh8O99CIMltVc
-     *
-     * @param folderToken
-     * @return
-     */
-    public Builder folderToken(String folderToken) {
-      this.folderToken = folderToken;
-      return this;
+    public ReqApp(Builder builder) {
+        /**
+         * 多维表格App名字
+         * <p> 示例值：一篇新的多维表格
+         */
+        this.name = builder.name;
+        /**
+         * 多维表格App归属文件夹
+         * <p> 示例值：fldbcoh8O99CIMltVc
+         */
+        this.folderToken = builder.folderToken;
     }
 
-
-    public ReqApp build() {
-      return new ReqApp(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFolderToken() {
+        return this.folderToken;
+    }
+
+    public void setFolderToken(String folderToken) {
+        this.folderToken = folderToken;
+    }
+
+    public static class Builder {
+        /**
+         * 多维表格App名字
+         * <p> 示例值：一篇新的多维表格
+         */
+        private String name;
+        /**
+         * 多维表格App归属文件夹
+         * <p> 示例值：fldbcoh8O99CIMltVc
+         */
+        private String folderToken;
+
+        /**
+         * 多维表格App名字
+         * <p> 示例值：一篇新的多维表格
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 多维表格App归属文件夹
+         * <p> 示例值：fldbcoh8O99CIMltVc
+         *
+         * @param folderToken
+         * @return
+         */
+        public Builder folderToken(String folderToken) {
+            this.folderToken = folderToken;
+            return this;
+        }
+
+
+        public ReqApp build() {
+            return new ReqApp(this);
+        }
+    }
 }

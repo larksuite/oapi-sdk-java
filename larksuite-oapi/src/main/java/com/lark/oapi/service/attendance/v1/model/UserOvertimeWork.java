@@ -16,320 +16,317 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserOvertimeWork {
-
-  /**
-   * 审批实例 ID
-   * <p> 示例值：6737202939523236113
-   */
-  @SerializedName("approval_id")
-  private String approvalId;
-  /**
-   * 加班时长
-   * <p> 示例值：1.5
-   */
-  @SerializedName("duration")
-  private Double duration;
-  /**
-   * 加班时长单位
-   * <p> 示例值：1
-   */
-  @SerializedName("unit")
-  private Integer unit;
-  /**
-   * 加班日期类型
-   * <p> 示例值：2
-   */
-  @SerializedName("category")
-  private Integer category;
-  /**
-   * 加班规则类型
-   * <p> 示例值：1
-   */
-  @SerializedName("type")
-  private Integer type;
-  /**
-   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-   * <p> 示例值：2021-01-09 09:00:00
-   */
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-   * <p> 示例值：2021-01-10 13:00:00
-   */
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public UserOvertimeWork() {
-  }
-
-  public UserOvertimeWork(Builder builder) {
     /**
      * 审批实例 ID
      * <p> 示例值：6737202939523236113
      */
-    this.approvalId = builder.approvalId;
-    /**
-     * 加班时长
-     * <p> 示例值：1.5
-     */
-    this.duration = builder.duration;
-    /**
-     * 加班时长单位
-     * <p> 示例值：1
-     */
-    this.unit = builder.unit;
-    /**
-     * 加班日期类型
-     * <p> 示例值：2
-     */
-    this.category = builder.category;
-    /**
-     * 加班规则类型
-     * <p> 示例值：1
-     */
-    this.type = builder.type;
-    /**
-     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-09 09:00:00
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-10 13:00:00
-     */
-    this.endTime = builder.endTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalId() {
-    return this.approvalId;
-  }
-
-  public void setApprovalId(String approvalId) {
-    this.approvalId = approvalId;
-  }
-
-  public Double getDuration() {
-    return this.duration;
-  }
-
-  public void setDuration(Double duration) {
-    this.duration = duration;
-  }
-
-  public Integer getUnit() {
-    return this.unit;
-  }
-
-  public void setUnit(Integer unit) {
-    this.unit = unit;
-  }
-
-  public Integer getCategory() {
-    return this.category;
-  }
-
-  public void setCategory(Integer category) {
-    this.category = category;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批实例 ID
-     * <p> 示例值：6737202939523236113
-     */
+    @SerializedName("approval_id")
     private String approvalId;
     /**
      * 加班时长
      * <p> 示例值：1.5
      */
+    @SerializedName("duration")
     private Double duration;
     /**
      * 加班时长单位
      * <p> 示例值：1
      */
+    @SerializedName("unit")
     private Integer unit;
     /**
      * 加班日期类型
      * <p> 示例值：2
      */
+    @SerializedName("category")
     private Integer category;
     /**
      * 加班规则类型
      * <p> 示例值：1
      */
+    @SerializedName("type")
     private Integer type;
     /**
      * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
      * <p> 示例值：2021-01-09 09:00:00
      */
+    @SerializedName("start_time")
     private String startTime;
     /**
      * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
      * <p> 示例值：2021-01-10 13:00:00
      */
+    @SerializedName("end_time")
     private String endTime;
 
-    /**
-     * 审批实例 ID
-     * <p> 示例值：6737202939523236113
-     *
-     * @param approvalId
-     * @return
-     */
-    public Builder approvalId(String approvalId) {
-      this.approvalId = approvalId;
-      return this;
+    // builder 开始
+    public UserOvertimeWork() {
     }
 
-
-    /**
-     * 加班时长
-     * <p> 示例值：1.5
-     *
-     * @param duration
-     * @return
-     */
-    public Builder duration(Double duration) {
-      this.duration = duration;
-      return this;
+    public UserOvertimeWork(Builder builder) {
+        /**
+         * 审批实例 ID
+         * <p> 示例值：6737202939523236113
+         */
+        this.approvalId = builder.approvalId;
+        /**
+         * 加班时长
+         * <p> 示例值：1.5
+         */
+        this.duration = builder.duration;
+        /**
+         * 加班时长单位
+         * <p> 示例值：1
+         */
+        this.unit = builder.unit;
+        /**
+         * 加班日期类型
+         * <p> 示例值：2
+         */
+        this.category = builder.category;
+        /**
+         * 加班规则类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+         * <p> 示例值：2021-01-09 09:00:00
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+         * <p> 示例值：2021-01-10 13:00:00
+         */
+        this.endTime = builder.endTime;
     }
 
-
-    /**
-     * 加班时长单位
-     * <p> 示例值：1
-     *
-     * @param unit
-     * @return
-     */
-    public Builder unit(Integer unit) {
-      this.unit = unit;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 加班时长单位
-     * <p> 示例值：1
-     *
-     * @param unit {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum}
-     * @return
-     */
-    public Builder unit(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum unit) {
-      this.unit = unit.getValue();
-      return this;
+    public String getApprovalId() {
+        return this.approvalId;
     }
 
-
-    /**
-     * 加班日期类型
-     * <p> 示例值：2
-     *
-     * @param category
-     * @return
-     */
-    public Builder category(Integer category) {
-      this.category = category;
-      return this;
+    public void setApprovalId(String approvalId) {
+        this.approvalId = approvalId;
     }
 
-    /**
-     * 加班日期类型
-     * <p> 示例值：2
-     *
-     * @param category {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum}
-     * @return
-     */
-    public Builder category(
-        com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum category) {
-      this.category = category.getValue();
-      return this;
+    public Double getDuration() {
+        return this.duration;
     }
 
-
-    /**
-     * 加班规则类型
-     * <p> 示例值：1
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public void setDuration(Double duration) {
+        this.duration = duration;
     }
 
-    /**
-     * 加班规则类型
-     * <p> 示例值：1
-     *
-     * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public Integer getUnit() {
+        return this.unit;
     }
 
-
-    /**
-     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-09 09:00:00
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setUnit(Integer unit) {
+        this.unit = unit;
     }
 
-
-    /**
-     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-10 13:00:00
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public Integer getCategory() {
+        return this.category;
     }
 
-
-    public UserOvertimeWork build() {
-      return new UserOvertimeWork(this);
+    public void setCategory(Integer category) {
+        this.category = category;
     }
-  }
+
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public static class Builder {
+        /**
+         * 审批实例 ID
+         * <p> 示例值：6737202939523236113
+         */
+        private String approvalId;
+        /**
+         * 加班时长
+         * <p> 示例值：1.5
+         */
+        private Double duration;
+        /**
+         * 加班时长单位
+         * <p> 示例值：1
+         */
+        private Integer unit;
+        /**
+         * 加班日期类型
+         * <p> 示例值：2
+         */
+        private Integer category;
+        /**
+         * 加班规则类型
+         * <p> 示例值：1
+         */
+        private Integer type;
+        /**
+         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+         * <p> 示例值：2021-01-09 09:00:00
+         */
+        private String startTime;
+        /**
+         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+         * <p> 示例值：2021-01-10 13:00:00
+         */
+        private String endTime;
+
+        /**
+         * 审批实例 ID
+         * <p> 示例值：6737202939523236113
+         *
+         * @param approvalId
+         * @return
+         */
+        public Builder approvalId(String approvalId) {
+            this.approvalId = approvalId;
+            return this;
+        }
+
+
+        /**
+         * 加班时长
+         * <p> 示例值：1.5
+         *
+         * @param duration
+         * @return
+         */
+        public Builder duration(Double duration) {
+            this.duration = duration;
+            return this;
+        }
+
+
+        /**
+         * 加班时长单位
+         * <p> 示例值：1
+         *
+         * @param unit
+         * @return
+         */
+        public Builder unit(Integer unit) {
+            this.unit = unit;
+            return this;
+        }
+
+        /**
+         * 加班时长单位
+         * <p> 示例值：1
+         *
+         * @param unit {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum}
+         * @return
+         */
+        public Builder unit(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum unit) {
+            this.unit = unit.getValue();
+            return this;
+        }
+
+
+        /**
+         * 加班日期类型
+         * <p> 示例值：2
+         *
+         * @param category
+         * @return
+         */
+        public Builder category(Integer category) {
+            this.category = category;
+            return this;
+        }
+
+        /**
+         * 加班日期类型
+         * <p> 示例值：2
+         *
+         * @param category {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum}
+         * @return
+         */
+        public Builder category(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum category) {
+            this.category = category.getValue();
+            return this;
+        }
+
+
+        /**
+         * 加班规则类型
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 加班规则类型
+         * <p> 示例值：1
+         *
+         * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+         * <p> 示例值：2021-01-09 09:00:00
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+         * <p> 示例值：2021-01-10 13:00:00
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        public UserOvertimeWork build() {
+            return new UserOvertimeWork(this);
+        }
+    }
 }

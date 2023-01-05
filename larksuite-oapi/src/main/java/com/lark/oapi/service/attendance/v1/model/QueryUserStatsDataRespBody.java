@@ -16,20 +16,19 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsDataRespBody {
+    /**
+     * 用户统计数据（限制1000条，超过1000条会截断）
+     * <p> 示例值：
+     */
+    @SerializedName("user_datas")
+    private UserStatsData[] userDatas;
 
-  /**
-   * 用户统计数据
-   * <p> 示例值：
-   */
-  @SerializedName("user_datas")
-  private UserStatsData[] userDatas;
+    public UserStatsData[] getUserDatas() {
+        return this.userDatas;
+    }
 
-  public UserStatsData[] getUserDatas() {
-    return this.userDatas;
-  }
-
-  public void setUserDatas(UserStatsData[] userDatas) {
-    this.userDatas = userDatas;
-  }
+    public void setUserDatas(UserStatsData[] userDatas) {
+        this.userDatas = userDatas;
+    }
 
 }

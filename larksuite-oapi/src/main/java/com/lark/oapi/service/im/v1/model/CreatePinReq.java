@@ -16,51 +16,50 @@ package com.lark.oapi.service.im.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreatePinReq {
-
-  @Body
-  private CreatePinReqBody body;
-
-  // builder 开始
-  public CreatePinReq() {
-  }
-
-  public CreatePinReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreatePinReqBody getCreatePinReqBody() {
-    return this.body;
-  }
-
-  public void setCreatePinReqBody(CreatePinReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreatePinReqBody body;
 
+    // builder 开始
+    public CreatePinReq() {
+    }
+
+    public CreatePinReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreatePinReqBody getCreatePinReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createPinReqBody(CreatePinReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreatePinReqBody(CreatePinReqBody body) {
+        this.body = body;
     }
 
-    public CreatePinReq build() {
-      return new CreatePinReq(this);
+    public static class Builder {
+
+        private CreatePinReqBody body;
+
+        public CreatePinReqBody getCreatePinReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createPinReqBody(CreatePinReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreatePinReq build() {
+            return new CreatePinReq(this);
+        }
     }
-  }
 }

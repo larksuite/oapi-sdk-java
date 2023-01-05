@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchGetIdUser {
 
-  /**
-   * 手机号或者邮箱对应的用户id信息
-   * <p> 示例值：
-   */
-  @SerializedName("user_list")
-  private UserContactInfo[] userList;
+    /**
+     * 手机号或者邮箱对应的用户id信息
+     * <p> 示例值：
+     */
+    @SerializedName("user_list")
+    private UserContactInfo[] userList;
 
-  public UserContactInfo[] getUserList() {
-    return this.userList;
-  }
+    public UserContactInfo[] getUserList() {
+        return this.userList;
+    }
 
-  public void setUserList(UserContactInfo[] userList) {
-    this.userList = userList;
-  }
+    public void setUserList(UserContactInfo[] userList) {
+        this.userList = userList;
+    }
 
 }

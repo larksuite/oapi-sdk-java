@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteFaqReq {
-
-  /**
-   * id
-   * <p> 示例值：12345
-   */
-  @Path
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public DeleteFaqReq() {
-  }
-
-  public DeleteFaqReq(Builder builder) {
     /**
      * id
      * <p> 示例值：12345
      */
-    this.id = builder.id;
-  }
+    @Path
+    @SerializedName("id")
+    private String id;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    private String id; // id
-
-    /**
-     * id
-     * <p> 示例值：12345
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public DeleteFaqReq() {
     }
 
-    public DeleteFaqReq build() {
-      return new DeleteFaqReq(this);
+    public DeleteFaqReq(Builder builder) {
+        /**
+         * id
+         * <p> 示例值：12345
+         */
+        this.id = builder.id;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+
+        private String id; // id
+
+        /**
+         * id
+         * <p> 示例值：12345
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public DeleteFaqReq build() {
+            return new DeleteFaqReq(this);
+        }
+    }
 }

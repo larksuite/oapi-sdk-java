@@ -16,48 +16,47 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2MeetingRecordingReadyV1Data {
+    /**
+     * 会议数据
+     * <p> 示例值：
+     */
+    @SerializedName("meeting")
+    private MeetingEventMeeting meeting;
+    /**
+     * 会议录制链接
+     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+     */
+    @SerializedName("url")
+    private String url;
+    /**
+     * 录制总时长（单位msec）
+     * <p> 示例值：30000
+     */
+    @SerializedName("duration")
+    private String duration;
 
-  /**
-   * 会议数据
-   * <p> 示例值：
-   */
-  @SerializedName("meeting")
-  private MeetingEventMeeting meeting;
-  /**
-   * 会议录制链接
-   * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 录制总时长（单位msec）
-   * <p> 示例值：30000
-   */
-  @SerializedName("duration")
-  private String duration;
+    public MeetingEventMeeting getMeeting() {
+        return this.meeting;
+    }
 
-  public MeetingEventMeeting getMeeting() {
-    return this.meeting;
-  }
+    public void setMeeting(MeetingEventMeeting meeting) {
+        this.meeting = meeting;
+    }
 
-  public void setMeeting(MeetingEventMeeting meeting) {
-    this.meeting = meeting;
-  }
+    public String getUrl() {
+        return this.url;
+    }
 
-  public String getUrl() {
-    return this.url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public String getDuration() {
+        return this.duration;
+    }
 
-  public String getDuration() {
-    return this.duration;
-  }
-
-  public void setDuration(String duration) {
-    this.duration = duration;
-  }
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
 }

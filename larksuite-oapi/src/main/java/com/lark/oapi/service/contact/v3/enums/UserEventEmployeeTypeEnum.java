@@ -17,19 +17,19 @@ package com.lark.oapi.service.contact.v3.enums;
  * 员工类型
  */
 public enum UserEventEmployeeTypeEnum {
-  FULL_TIME(1), // 正式员工
-  INTERNSHIP(2), // 实习生
-  OUTSOURCING(3), // 外包
-  LABOR(4), // 劳务
-  CONSULTANT(5), // 顾问
-  ;
-  private Integer value;
+    FULL_TIME(1), // 正式员工
+    INTERNSHIP(2), // 实习生
+    OUTSOURCING(3), // 外包
+    LABOR(4), // 劳务
+    CONSULTANT(5), // 顾问
+    ;
+    private Integer value;
 
-  UserEventEmployeeTypeEnum(Integer value) {
-    this.value = value;
-  }
+    UserEventEmployeeTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

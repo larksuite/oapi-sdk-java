@@ -15,7 +15,5 @@ package com.lark.oapi.service.application.v6.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class OverviewApplicationAppUsageResp extends
-    BaseResponse<OverviewApplicationAppUsageRespBody> {
-
+public class OverviewApplicationAppUsageResp extends BaseResponse<OverviewApplicationAppUsageRespBody> {
 }

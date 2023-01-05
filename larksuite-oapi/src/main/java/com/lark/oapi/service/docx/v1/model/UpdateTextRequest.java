@@ -16,135 +16,133 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateTextRequest {
-
-  /**
-   * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
-   * <p> 示例值：
-   */
-  @SerializedName("elements")
-  private TextElement[] elements;
-  /**
-   * 更新的文本样式
-   * <p> 示例值：
-   */
-  @SerializedName("style")
-  private TextStyle style;
-  /**
-   * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
-   * <p> 示例值：[1]
-   */
-  @SerializedName("fields")
-  private Integer[] fields;
-
-  // builder 开始
-  public UpdateTextRequest() {
-  }
-
-  public UpdateTextRequest(Builder builder) {
     /**
      * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
      * <p> 示例值：
      */
-    this.elements = builder.elements;
-    /**
-     * 更新的文本样式
-     * <p> 示例值：
-     */
-    this.style = builder.style;
-    /**
-     * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
-     * <p> 示例值：[1]
-     */
-    this.fields = builder.fields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TextElement[] getElements() {
-    return this.elements;
-  }
-
-  public void setElements(TextElement[] elements) {
-    this.elements = elements;
-  }
-
-  public TextStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(TextStyle style) {
-    this.style = style;
-  }
-
-  public Integer[] getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Integer[] fields) {
-    this.fields = fields;
-  }
-
-  public static class Builder {
-
-    /**
-     * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
-     * <p> 示例值：
-     */
+    @SerializedName("elements")
     private TextElement[] elements;
     /**
      * 更新的文本样式
      * <p> 示例值：
      */
+    @SerializedName("style")
     private TextStyle style;
     /**
      * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
      * <p> 示例值：[1]
      */
+    @SerializedName("fields")
     private Integer[] fields;
 
-    /**
-     * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
-     * <p> 示例值：
-     *
-     * @param elements
-     * @return
-     */
-    public Builder elements(TextElement[] elements) {
-      this.elements = elements;
-      return this;
+    // builder 开始
+    public UpdateTextRequest() {
     }
 
-
-    /**
-     * 更新的文本样式
-     * <p> 示例值：
-     *
-     * @param style
-     * @return
-     */
-    public Builder style(TextStyle style) {
-      this.style = style;
-      return this;
+    public UpdateTextRequest(Builder builder) {
+        /**
+         * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+         * <p> 示例值：
+         */
+        this.elements = builder.elements;
+        /**
+         * 更新的文本样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
+        /**
+         * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
+         * <p> 示例值：[1]
+         */
+        this.fields = builder.fields;
     }
 
-
-    /**
-     * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
-     * <p> 示例值：[1]
-     *
-     * @param fields
-     * @return
-     */
-    public Builder fields(Integer[] fields) {
-      this.fields = fields;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UpdateTextRequest build() {
-      return new UpdateTextRequest(this);
+    public TextElement[] getElements() {
+        return this.elements;
     }
-  }
+
+    public void setElements(TextElement[] elements) {
+        this.elements = elements;
+    }
+
+    public TextStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(TextStyle style) {
+        this.style = style;
+    }
+
+    public Integer[] getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Integer[] fields) {
+        this.fields = fields;
+    }
+
+    public static class Builder {
+        /**
+         * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+         * <p> 示例值：
+         */
+        private TextElement[] elements;
+        /**
+         * 更新的文本样式
+         * <p> 示例值：
+         */
+        private TextStyle style;
+        /**
+         * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
+         * <p> 示例值：[1]
+         */
+        private Integer[] fields;
+
+        /**
+         * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+         * <p> 示例值：
+         *
+         * @param elements
+         * @return
+         */
+        public Builder elements(TextElement[] elements) {
+            this.elements = elements;
+            return this;
+        }
+
+
+        /**
+         * 更新的文本样式
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(TextStyle style) {
+            this.style = style;
+            return this;
+        }
+
+
+        /**
+         * 文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。
+         * <p> 示例值：[1]
+         *
+         * @param fields
+         * @return
+         */
+        public Builder fields(Integer[] fields) {
+            this.fields = fields;
+            return this;
+        }
+
+
+        public UpdateTextRequest build() {
+            return new UpdateTextRequest(this);
+        }
+    }
 }

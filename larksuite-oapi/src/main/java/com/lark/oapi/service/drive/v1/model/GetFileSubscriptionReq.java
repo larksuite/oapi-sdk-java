@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetFileSubscriptionReq {
-
-  /**
-   * 文档token
-   * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 订阅关系ID
-   * <p> 示例值：1234567890987654321
-   */
-  @Path
-  @SerializedName("subscription_id")
-  private String subscriptionId;
-  @Body
-  private FileSubscription body;
-
-  // builder 开始
-  public GetFileSubscriptionReq() {
-  }
-
-  public GetFileSubscriptionReq(Builder builder) {
     /**
      * 文档token
      * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
      */
-    this.fileToken = builder.fileToken;
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
     /**
      * 订阅关系ID
      * <p> 示例值：1234567890987654321
      */
-    this.subscriptionId = builder.subscriptionId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getSubscriptionId() {
-    return this.subscriptionId;
-  }
-
-  public void setSubscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
-  }
-
-  public FileSubscription getFileSubscription() {
-    return this.body;
-  }
-
-  public void setFileSubscription(FileSubscription body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 文档token
-    private String subscriptionId; // 订阅关系ID
+    @Path
+    @SerializedName("subscription_id")
+    private String subscriptionId;
+    @Body
     private FileSubscription body;
 
-    /**
-     * 文档token
-     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public GetFileSubscriptionReq() {
     }
 
-    /**
-     * 订阅关系ID
-     * <p> 示例值：1234567890987654321
-     *
-     * @param subscriptionId
-     * @return
-     */
-    public Builder subscriptionId(String subscriptionId) {
-      this.subscriptionId = subscriptionId;
-      return this;
+    public GetFileSubscriptionReq(Builder builder) {
+        /**
+         * 文档token
+         * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 订阅关系ID
+         * <p> 示例值：1234567890987654321
+         */
+        this.subscriptionId = builder.subscriptionId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public String getSubscriptionId() {
+        return this.subscriptionId;
+    }
+
+    public void setSubscriptionId(String subscriptionId) {
+        this.subscriptionId = subscriptionId;
     }
 
     public FileSubscription getFileSubscription() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder fileSubscription(FileSubscription body) {
-      this.body = body;
-      return this;
+    public void setFileSubscription(FileSubscription body) {
+        this.body = body;
     }
 
-    public GetFileSubscriptionReq build() {
-      return new GetFileSubscriptionReq(this);
+    public static class Builder {
+
+        private String fileToken; // 文档token
+        private String subscriptionId; // 订阅关系ID
+        private FileSubscription body;
+
+        /**
+         * 文档token
+         * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        /**
+         * 订阅关系ID
+         * <p> 示例值：1234567890987654321
+         *
+         * @param subscriptionId
+         * @return
+         */
+        public Builder subscriptionId(String subscriptionId) {
+            this.subscriptionId = subscriptionId;
+            return this;
+        }
+
+        public FileSubscription getFileSubscription() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder fileSubscription(FileSubscription body) {
+            this.body = body;
+            return this;
+        }
+
+        public GetFileSubscriptionReq build() {
+            return new GetFileSubscriptionReq(this);
+        }
     }
-  }
 }

@@ -16,95 +16,93 @@ package com.lark.oapi.service.meeting_room.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserInfo {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public UserInfo() {
-  }
-
-  public UserInfo(Builder builder) {
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.openId = builder.openId;
-    /**
-     * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
     /**
      * <p> 示例值：
      */
+    @SerializedName("open_id")
     private String openId;
     /**
      * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    // builder 开始
+    public UserInfo() {
     }
 
-
-    /**
-     * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public UserInfo(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.openId = builder.openId;
+        /**
+         * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
     }
 
-
-    public UserInfo build() {
-      return new UserInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * <p> 示例值：
+         */
+        private String openId;
+        /**
+         * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+         * <p> 示例值：
+         */
+        private String userId;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public UserInfo build() {
+            return new UserInfo(this);
+        }
+    }
 }

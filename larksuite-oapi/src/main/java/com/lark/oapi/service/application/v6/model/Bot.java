@@ -16,61 +16,59 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Bot {
-
-  /**
-   * 消息卡片回调地址
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("card_request_url")
-  private String cardRequestUrl;
-
-  // builder 开始
-  public Bot() {
-  }
-
-  public Bot(Builder builder) {
     /**
      * 消息卡片回调地址
      * <p> 示例值：https://www.example.com
      */
-    this.cardRequestUrl = builder.cardRequestUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCardRequestUrl() {
-    return this.cardRequestUrl;
-  }
-
-  public void setCardRequestUrl(String cardRequestUrl) {
-    this.cardRequestUrl = cardRequestUrl;
-  }
-
-  public static class Builder {
-
-    /**
-     * 消息卡片回调地址
-     * <p> 示例值：https://www.example.com
-     */
+    @SerializedName("card_request_url")
     private String cardRequestUrl;
 
-    /**
-     * 消息卡片回调地址
-     * <p> 示例值：https://www.example.com
-     *
-     * @param cardRequestUrl
-     * @return
-     */
-    public Builder cardRequestUrl(String cardRequestUrl) {
-      this.cardRequestUrl = cardRequestUrl;
-      return this;
+    // builder 开始
+    public Bot() {
     }
 
-
-    public Bot build() {
-      return new Bot(this);
+    public Bot(Builder builder) {
+        /**
+         * 消息卡片回调地址
+         * <p> 示例值：https://www.example.com
+         */
+        this.cardRequestUrl = builder.cardRequestUrl;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getCardRequestUrl() {
+        return this.cardRequestUrl;
+    }
+
+    public void setCardRequestUrl(String cardRequestUrl) {
+        this.cardRequestUrl = cardRequestUrl;
+    }
+
+    public static class Builder {
+        /**
+         * 消息卡片回调地址
+         * <p> 示例值：https://www.example.com
+         */
+        private String cardRequestUrl;
+
+        /**
+         * 消息卡片回调地址
+         * <p> 示例值：https://www.example.com
+         *
+         * @param cardRequestUrl
+         * @return
+         */
+        public Builder cardRequestUrl(String cardRequestUrl) {
+            this.cardRequestUrl = cardRequestUrl;
+            return this;
+        }
+
+
+        public Bot build() {
+            return new Bot(this);
+        }
+    }
 }

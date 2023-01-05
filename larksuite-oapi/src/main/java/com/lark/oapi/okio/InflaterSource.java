@@ -28,129 +28,129 @@ import java.util.zip.Inflater;
  */
 public final class InflaterSource implements Source {
 
-  private final BufferedSource source;
-  private final Inflater inflater;
+    private final BufferedSource source;
+    private final Inflater inflater;
 
-  /**
-   * When we call Inflater.setInput(), the inflater keeps our byte array until it needs input again.
-   * This tracks how many bytes the inflater is currently holding on to.
-   */
-  private int bufferBytesHeldByInflater;
-  private boolean closed;
+    /**
+     * When we call Inflater.setInput(), the inflater keeps our byte array until it needs input again.
+     * This tracks how many bytes the inflater is currently holding on to.
+     */
+    private int bufferBytesHeldByInflater;
+    private boolean closed;
 
-  public InflaterSource(Source source, Inflater inflater) {
-    this(Okio.buffer(source), inflater);
-  }
-
-  /**
-   * This package-private constructor shares a buffer with its trusted caller. In general we can't
-   * share a BufferedSource because the inflater holds input bytes until they are inflated.
-   */
-  InflaterSource(BufferedSource source, Inflater inflater) {
-    if (source == null) {
-      throw new IllegalArgumentException("source == null");
-    }
-    if (inflater == null) {
-      throw new IllegalArgumentException("inflater == null");
-    }
-    this.source = source;
-    this.inflater = inflater;
-  }
-
-  @Override
-  public long read(
-      Buffer sink, long byteCount) throws IOException {
-    if (byteCount < 0) {
-      throw new IllegalArgumentException("byteCount < 0: " + byteCount);
-    }
-    if (closed) {
-      throw new IllegalStateException("closed");
-    }
-    if (byteCount == 0) {
-      return 0;
+    public InflaterSource(Source source, Inflater inflater) {
+        this(Okio.buffer(source), inflater);
     }
 
-    while (true) {
-      boolean sourceExhausted = refill();
-
-      // Decompress the inflater's compressed data into the sink.
-      try {
-        Segment tail = sink.writableSegment(1);
-        int toRead = (int) Math.min(byteCount, Segment.SIZE - tail.limit);
-        int bytesInflated = inflater.inflate(tail.data, tail.limit, toRead);
-        if (bytesInflated > 0) {
-          tail.limit += bytesInflated;
-          sink.size += bytesInflated;
-          return bytesInflated;
+    /**
+     * This package-private constructor shares a buffer with its trusted caller. In general we can't
+     * share a BufferedSource because the inflater holds input bytes until they are inflated.
+     */
+    InflaterSource(BufferedSource source, Inflater inflater) {
+        if (source == null) {
+            throw new IllegalArgumentException("source == null");
         }
-        if (inflater.finished() || inflater.needsDictionary()) {
-          releaseInflatedBytes();
-          if (tail.pos == tail.limit) {
-            // We allocated a tail segment, but didn't end up needing it. Recycle!
-            sink.head = tail.pop();
-            SegmentPool.recycle(tail);
-          }
-          return -1;
+        if (inflater == null) {
+            throw new IllegalArgumentException("inflater == null");
         }
-        if (sourceExhausted) {
-          throw new EOFException("source exhausted prematurely");
+        this.source = source;
+        this.inflater = inflater;
+    }
+
+    @Override
+    public long read(
+            Buffer sink, long byteCount) throws IOException {
+        if (byteCount < 0) {
+            throw new IllegalArgumentException("byteCount < 0: " + byteCount);
         }
-      } catch (DataFormatException e) {
-        throw new IOException(e);
-      }
+        if (closed) {
+            throw new IllegalStateException("closed");
+        }
+        if (byteCount == 0) {
+            return 0;
+        }
+
+        while (true) {
+            boolean sourceExhausted = refill();
+
+            // Decompress the inflater's compressed data into the sink.
+            try {
+                Segment tail = sink.writableSegment(1);
+                int toRead = (int) Math.min(byteCount, Segment.SIZE - tail.limit);
+                int bytesInflated = inflater.inflate(tail.data, tail.limit, toRead);
+                if (bytesInflated > 0) {
+                    tail.limit += bytesInflated;
+                    sink.size += bytesInflated;
+                    return bytesInflated;
+                }
+                if (inflater.finished() || inflater.needsDictionary()) {
+                    releaseInflatedBytes();
+                    if (tail.pos == tail.limit) {
+                        // We allocated a tail segment, but didn't end up needing it. Recycle!
+                        sink.head = tail.pop();
+                        SegmentPool.recycle(tail);
+                    }
+                    return -1;
+                }
+                if (sourceExhausted) {
+                    throw new EOFException("source exhausted prematurely");
+                }
+            } catch (DataFormatException e) {
+                throw new IOException(e);
+            }
+        }
     }
-  }
 
-  /**
-   * Refills the inflater with compressed data if it needs input. (And only if it needs input).
-   * Returns true if the inflater required input but the source was exhausted.
-   */
-  public final boolean refill() throws IOException {
-    if (!inflater.needsInput()) {
-      return false;
+    /**
+     * Refills the inflater with compressed data if it needs input. (And only if it needs input).
+     * Returns true if the inflater required input but the source was exhausted.
+     */
+    public final boolean refill() throws IOException {
+        if (!inflater.needsInput()) {
+            return false;
+        }
+
+        releaseInflatedBytes();
+        if (inflater.getRemaining() != 0) {
+            throw new IllegalStateException("?"); // TODO: possible?
+        }
+
+        // If there are compressed bytes in the source, assign them to the inflater.
+        if (source.exhausted()) {
+            return true;
+        }
+
+        // Assign buffer bytes to the inflater.
+        Segment head = source.buffer().head;
+        bufferBytesHeldByInflater = head.limit - head.pos;
+        inflater.setInput(head.data, head.pos, bufferBytesHeldByInflater);
+        return false;
     }
 
-    releaseInflatedBytes();
-    if (inflater.getRemaining() != 0) {
-      throw new IllegalStateException("?"); // TODO: possible?
+    /**
+     * When the inflater has processed compressed data, remove it from the buffer.
+     */
+    private void releaseInflatedBytes() throws IOException {
+        if (bufferBytesHeldByInflater == 0) {
+            return;
+        }
+        int toRelease = bufferBytesHeldByInflater - inflater.getRemaining();
+        bufferBytesHeldByInflater -= toRelease;
+        source.skip(toRelease);
     }
 
-    // If there are compressed bytes in the source, assign them to the inflater.
-    if (source.exhausted()) {
-      return true;
+    @Override
+    public Timeout timeout() {
+        return source.timeout();
     }
 
-    // Assign buffer bytes to the inflater.
-    Segment head = source.buffer().head;
-    bufferBytesHeldByInflater = head.limit - head.pos;
-    inflater.setInput(head.data, head.pos, bufferBytesHeldByInflater);
-    return false;
-  }
-
-  /**
-   * When the inflater has processed compressed data, remove it from the buffer.
-   */
-  private void releaseInflatedBytes() throws IOException {
-    if (bufferBytesHeldByInflater == 0) {
-      return;
+    @Override
+    public void close() throws IOException {
+        if (closed) {
+            return;
+        }
+        inflater.end();
+        closed = true;
+        source.close();
     }
-    int toRelease = bufferBytesHeldByInflater - inflater.getRemaining();
-    bufferBytesHeldByInflater -= toRelease;
-    source.skip(toRelease);
-  }
-
-  @Override
-  public Timeout timeout() {
-    return source.timeout();
-  }
-
-  @Override
-  public void close() throws IOException {
-    if (closed) {
-      return;
-    }
-    inflater.end();
-    closed = true;
-    source.close();
-  }
 }

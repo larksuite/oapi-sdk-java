@@ -16,20 +16,33 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UploadImageRespBody {
+    /**
+     * 图片token
+     * <p> 示例值：boxbcLxEnhUE3REJSAwAbVFZwPf
+     */
+    @SerializedName("file_token")
+    private String fileToken;
+    /**
+     * 图片下载链接
+     * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+     */
+    @SerializedName("url")
+    private String url;
 
-  /**
-   * 图片url和token信息
-   * <p> 示例值：
-   */
-  @SerializedName("data")
-  private ImageInfo data;
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public ImageInfo getData() {
-    return this.data;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
-  public void setData(ImageInfo data) {
-    this.data = data;
-  }
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }

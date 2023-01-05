@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchFaqReq {
-
-  /**
-   * 知识库ID
-   * <p> 示例值：6856395634652479491
-   */
-  @Path
-  @SerializedName("id")
-  private String id;
-  @Body
-  private PatchFaqReqBody body;
-
-  // builder 开始
-  public PatchFaqReq() {
-  }
-
-  public PatchFaqReq(Builder builder) {
     /**
      * 知识库ID
      * <p> 示例值：6856395634652479491
      */
-    this.id = builder.id;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PatchFaqReqBody getPatchFaqReqBody() {
-    return this.body;
-  }
-
-  public void setPatchFaqReqBody(PatchFaqReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String id; // 知识库ID
+    @Path
+    @SerializedName("id")
+    private String id;
+    @Body
     private PatchFaqReqBody body;
 
-    /**
-     * 知识库ID
-     * <p> 示例值：6856395634652479491
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public PatchFaqReq() {
+    }
+
+    public PatchFaqReq(Builder builder) {
+        /**
+         * 知识库ID
+         * <p> 示例值：6856395634652479491
+         */
+        this.id = builder.id;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public PatchFaqReqBody getPatchFaqReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder patchFaqReqBody(PatchFaqReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchFaqReqBody(PatchFaqReqBody body) {
+        this.body = body;
     }
 
-    public PatchFaqReq build() {
-      return new PatchFaqReq(this);
+    public static class Builder {
+
+        private String id; // 知识库ID
+        private PatchFaqReqBody body;
+
+        /**
+         * 知识库ID
+         * <p> 示例值：6856395634652479491
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public PatchFaqReqBody getPatchFaqReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder patchFaqReqBody(PatchFaqReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchFaqReq build() {
+            return new PatchFaqReq(this);
+        }
     }
-  }
 }

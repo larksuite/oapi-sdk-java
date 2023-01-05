@@ -16,62 +16,61 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetExportRespBody {
+    /**
+     * 任务状态
+     * <p> 示例值：3
+     */
+    @SerializedName("status")
+    private Integer status;
+    /**
+     * 文件下载地址
+     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+     */
+    @SerializedName("url")
+    private String url;
+    /**
+     * 文件token
+     * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
+     */
+    @SerializedName("file_token")
+    private String fileToken;
+    /**
+     * 失败信息
+     * <p> 示例值：no permission
+     */
+    @SerializedName("fail_msg")
+    private String failMsg;
 
-  /**
-   * 任务状态
-   * <p> 示例值：3
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * 文件下载地址
-   * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 文件token
-   * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 失败信息
-   * <p> 示例值：no permission
-   */
-  @SerializedName("fail_msg")
-  private String failMsg;
+    public Integer getStatus() {
+        return this.status;
+    }
 
-  public Integer getStatus() {
-    return this.status;
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public String getUrl() {
+        return this.url;
+    }
 
-  public String getUrl() {
-    return this.url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public String getFileToken() {
-    return this.fileToken;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
+    public String getFailMsg() {
+        return this.failMsg;
+    }
 
-  public String getFailMsg() {
-    return this.failMsg;
-  }
-
-  public void setFailMsg(String failMsg) {
-    this.failMsg = failMsg;
-  }
+    public void setFailMsg(String failMsg) {
+        this.failMsg = failMsg;
+    }
 
 }

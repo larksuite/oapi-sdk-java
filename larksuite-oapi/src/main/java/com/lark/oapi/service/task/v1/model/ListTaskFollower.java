@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTaskFollower {
 
-  /**
-   * 返回的关注人ID列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Follower[] items;
-  /**
-   * 分页标记，分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：「上次返回的page_token」
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否还有更多数据
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    /**
+     * 返回的关注人ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Follower[] items;
+    /**
+     * 分页标记，分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：「上次返回的page_token」
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还有更多数据
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  public Follower[] getItems() {
-    return this.items;
-  }
+    public Follower[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(Follower[] items) {
-    this.items = items;
-  }
+    public void setItems(Follower[] items) {
+        this.items = items;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

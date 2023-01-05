@@ -17,19 +17,19 @@ package com.lark.oapi.service.search.v2.enums;
  * 标签对应的颜色
  */
 public enum SchemaTagOptionsTagColorEnum {
-  RED("red"), // 含警示性、敏感性的提示信息
-  GREEN("green"), // 表示成功、完成、完毕的提示信息
-  BLUE("blue"), // 组件架构、职能等中性信息
-  GREY("grey"), // 中立系统提示信息（慎重使用）
-  YELLOW("yellow"), // 焦点信息、推广性信息
-  ;
-  private String value;
+    RED("red"), // 含警示性、敏感性的提示信息
+    GREEN("green"), // 表示成功、完成、完毕的提示信息
+    BLUE("blue"), // 组件架构、职能等中性信息
+    GREY("grey"), // 中立系统提示信息（慎重使用）
+    YELLOW("yellow"), // 焦点信息、推广性信息
+    ;
+    private String value;
 
-  SchemaTagOptionsTagColorEnum(String value) {
-    this.value = value;
-  }
+    SchemaTagOptionsTagColorEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

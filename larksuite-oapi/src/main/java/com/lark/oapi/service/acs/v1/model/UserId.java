@@ -16,126 +16,124 @@ package com.lark.oapi.service.acs.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserId {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("union_id")
-  private String unionId;
-
-  // builder 开始
-  public UserId() {
-  }
-
-  public UserId(Builder builder) {
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.openId = builder.openId;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.unionId = builder.unionId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getUnionId() {
-    return this.unionId;
-  }
-
-  public void setUnionId(String unionId) {
-    this.unionId = unionId;
-  }
-
-  public static class Builder {
-
     /**
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * <p> 示例值：
      */
+    @SerializedName("open_id")
     private String openId;
     /**
      * <p> 示例值：
      */
+    @SerializedName("union_id")
     private String unionId;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public UserId() {
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public UserId(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.openId = builder.openId;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.unionId = builder.unionId;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param unionId
-     * @return
-     */
-    public Builder unionId(String unionId) {
-      this.unionId = unionId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UserId build() {
-      return new UserId(this);
+    public String getUserId() {
+        return this.userId;
     }
-  }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getUnionId() {
+        return this.unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
+    }
+
+    public static class Builder {
+        /**
+         * <p> 示例值：
+         */
+        private String userId;
+        /**
+         * <p> 示例值：
+         */
+        private String openId;
+        /**
+         * <p> 示例值：
+         */
+        private String unionId;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param unionId
+         * @return
+         */
+        public Builder unionId(String unionId) {
+            this.unionId = unionId;
+            return this;
+        }
+
+
+        public UserId build() {
+            return new UserId(this);
+        }
+    }
 }

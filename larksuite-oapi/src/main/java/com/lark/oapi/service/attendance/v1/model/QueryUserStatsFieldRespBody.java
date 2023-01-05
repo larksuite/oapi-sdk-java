@@ -16,20 +16,19 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsFieldRespBody {
+    /**
+     * 统计数据表头
+     * <p> 示例值：
+     */
+    @SerializedName("user_stats_field")
+    private UserStatsField userStatsField;
 
-  /**
-   * 统计数据表头
-   * <p> 示例值：
-   */
-  @SerializedName("user_stats_field")
-  private UserStatsField userStatsField;
+    public UserStatsField getUserStatsField() {
+        return this.userStatsField;
+    }
 
-  public UserStatsField getUserStatsField() {
-    return this.userStatsField;
-  }
-
-  public void setUserStatsField(UserStatsField userStatsField) {
-    this.userStatsField = userStatsField;
-  }
+    public void setUserStatsField(UserStatsField userStatsField) {
+        this.userStatsField = userStatsField;
+    }
 
 }

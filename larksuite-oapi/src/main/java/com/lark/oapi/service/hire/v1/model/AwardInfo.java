@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AwardInfo {
-
-  /**
-   * 获奖时间
-   * <p> 示例值：
-   */
-  @SerializedName("award_time")
-  private Integer awardTime;
-  /**
-   * 描述
-   * <p> 示例值：
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public AwardInfo() {
-  }
-
-  public AwardInfo(Builder builder) {
     /**
      * 获奖时间
      * <p> 示例值：
      */
-    this.awardTime = builder.awardTime;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
-    this.desc = builder.desc;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getAwardTime() {
-    return this.awardTime;
-  }
-
-  public void setAwardTime(Integer awardTime) {
-    this.awardTime = awardTime;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 获奖时间
-     * <p> 示例值：
-     */
+    @SerializedName("award_time")
     private Integer awardTime;
     /**
      * 描述
      * <p> 示例值：
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("title")
     private String title;
 
-    /**
-     * 获奖时间
-     * <p> 示例值：
-     *
-     * @param awardTime
-     * @return
-     */
-    public Builder awardTime(Integer awardTime) {
-      this.awardTime = awardTime;
-      return this;
+    // builder 开始
+    public AwardInfo() {
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public AwardInfo(Builder builder) {
+        /**
+         * 获奖时间
+         * <p> 示例值：
+         */
+        this.awardTime = builder.awardTime;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.desc = builder.desc;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.title = builder.title;
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AwardInfo build() {
-      return new AwardInfo(this);
+    public Integer getAwardTime() {
+        return this.awardTime;
     }
-  }
+
+    public void setAwardTime(Integer awardTime) {
+        this.awardTime = awardTime;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static class Builder {
+        /**
+         * 获奖时间
+         * <p> 示例值：
+         */
+        private Integer awardTime;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private String desc;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private String title;
+
+        /**
+         * 获奖时间
+         * <p> 示例值：
+         *
+         * @param awardTime
+         * @return
+         */
+        public Builder awardTime(Integer awardTime) {
+            this.awardTime = awardTime;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        public AwardInfo build() {
+            return new AwardInfo(this);
+        }
+    }
 }

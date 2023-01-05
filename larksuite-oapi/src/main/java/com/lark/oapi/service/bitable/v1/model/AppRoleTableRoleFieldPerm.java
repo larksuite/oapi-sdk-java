@@ -15,21 +15,21 @@ package com.lark.oapi.service.bitable.v1.model;
 
 public class AppRoleTableRoleFieldPerm {
 
-  // builder 开始
-  public AppRoleTableRoleFieldPerm() {
-  }
-
-  public AppRoleTableRoleFieldPerm(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public AppRoleTableRoleFieldPerm build() {
-      return new AppRoleTableRoleFieldPerm(this);
+    // builder 开始
+    public AppRoleTableRoleFieldPerm() {
     }
-  }
+
+    public AppRoleTableRoleFieldPerm(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public AppRoleTableRoleFieldPerm build() {
+            return new AppRoleTableRoleFieldPerm(this);
+        }
+    }
 }

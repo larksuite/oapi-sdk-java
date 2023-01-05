@@ -17,30 +17,30 @@ package com.lark.oapi.service.docx.v1.enums;
  * iframe 类型
  */
 public enum IframeComponentIframeComponentTypeEnum {
-  BILIBILI(1), // 哔哩哔哩
-  XIGUA(2), // 西瓜视频
-  YOUKU(3), // 优酷
-  AIRTABLE(4), // Airtable
-  BAIDUMAP(5), // 百度地图
-  AMAP(6), // 高德地图
-  TIKTOK(7), // Undefined
-  FIGMA(8), // Figma
-  MODAO(9), // 墨刀
-  CANVA(10), // Canva
-  CODEPEN(11), // CodePen
-  FEISHUWENJUAN(12), // 飞书问卷
-  JINSHUJU(13), // 金数据
-  GOOGLEMAP(14), // Undefined
-  YOUTUBE(15), // Undefined
-  OTHER(99), // Other
-  ;
-  private Integer value;
+    BILIBILI(1), // 哔哩哔哩
+    XIGUA(2), // 西瓜视频
+    YOUKU(3), // 优酷
+    AIRTABLE(4), // Airtable
+    BAIDUMAP(5), // 百度地图
+    AMAP(6), // 高德地图
+    TIKTOK(7), // Undefined
+    FIGMA(8), // Figma
+    MODAO(9), // 墨刀
+    CANVA(10), // Canva
+    CODEPEN(11), // CodePen
+    FEISHUWENJUAN(12), // 飞书问卷
+    JINSHUJU(13), // 金数据
+    GOOGLEMAP(14), // Undefined
+    YOUTUBE(15), // Undefined
+    OTHER(99), // Other
+    ;
+    private Integer value;
 
-  IframeComponentIframeComponentTypeEnum(Integer value) {
-    this.value = value;
-  }
+    IframeComponentIframeComponentTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

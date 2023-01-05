@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 指定获取应用在该语言下的信息
  */
 public enum GetApplicationI18nKeyEnum {
-  ZH_CN("zh_cn"), // 中文
-  EN_US("en_us"), // 英文
-  JA_JP("ja_jp"), // 日文
-  ;
-  private String value;
+    ZH_CN("zh_cn"), // 中文
+    EN_US("en_us"), // 英文
+    JA_JP("ja_jp"), // 日文
+    ;
+    private String value;
 
-  GetApplicationI18nKeyEnum(String value) {
-    this.value = value;
-  }
+    GetApplicationI18nKeyEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 自动编号的可选规则项类型
  */
 public enum AppFieldPropertyAutoSerialOptionsTypeEnum {
-  SYSTEMNUMBER("system_number"), // 自增数字位
-  FIXEDTEXT("fixed_text"), // 固定字符
-  CREATEDTIME("created_time"), // 创建时间
-  ;
-  private String value;
+    SYSTEMNUMBER("system_number"), // 自增数字位
+    FIXEDTEXT("fixed_text"), // 固定字符
+    CREATEDTIME("created_time"), // 创建时间
+    ;
+    private String value;
 
-  AppFieldPropertyAutoSerialOptionsTypeEnum(String value) {
-    this.value = value;
-  }
+    AppFieldPropertyAutoSerialOptionsTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

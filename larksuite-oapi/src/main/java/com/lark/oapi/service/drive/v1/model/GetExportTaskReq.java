@@ -18,90 +18,88 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetExportTaskReq {
-
-  /**
-   * 导出文档的 token
-   * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
-   */
-  @Query
-  @SerializedName("token")
-  private String token;
-  /**
-   * 导出任务ID
-   * <p> 示例值：6933093124755423251
-   */
-  @Path
-  @SerializedName("ticket")
-  private String ticket;
-
-  // builder 开始
-  public GetExportTaskReq() {
-  }
-
-  public GetExportTaskReq(Builder builder) {
     /**
-     * 导出文档的 token
+     * 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
      */
-    this.token = builder.token;
+    @Query
+    @SerializedName("token")
+    private String token;
     /**
-     * 导出任务ID
+     * 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
      * <p> 示例值：6933093124755423251
      */
-    this.ticket = builder.ticket;
-  }
+    @Path
+    @SerializedName("ticket")
+    private String ticket;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getTicket() {
-    return this.ticket;
-  }
-
-  public void setTicket(String ticket) {
-    this.ticket = ticket;
-  }
-
-  public static class Builder {
-
-    private String token; // 导出文档的 token
-    private String ticket; // 导出任务ID
-
-    /**
-     * 导出文档的 token
-     * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public GetExportTaskReq() {
     }
 
-    /**
-     * 导出任务ID
-     * <p> 示例值：6933093124755423251
-     *
-     * @param ticket
-     * @return
-     */
-    public Builder ticket(String ticket) {
-      this.ticket = ticket;
-      return this;
+    public GetExportTaskReq(Builder builder) {
+        /**
+         * 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
+         */
+        this.token = builder.token;
+        /**
+         * 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
+         * <p> 示例值：6933093124755423251
+         */
+        this.ticket = builder.ticket;
     }
 
-    public GetExportTaskReq build() {
-      return new GetExportTaskReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getTicket() {
+        return this.ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+
+    public static class Builder {
+        private String token; // 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+        private String ticket; // 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
+
+        /**
+         * 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
+         * <p> 示例值：6933093124755423251
+         *
+         * @param ticket
+         * @return
+         */
+        public Builder ticket(String ticket) {
+            this.ticket = ticket;
+            return this;
+        }
+
+        public GetExportTaskReq build() {
+            return new GetExportTaskReq(this);
+        }
+    }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 审核结果
  */
 public enum MaterialReviewResultReviewResultEnum {
-  OK(1), // 审核通过
-  FAILED(2), // 审核未通过
-  ;
-  private Integer value;
+    OK(1), // 审核通过
+    FAILED(2), // 审核未通过
+    ;
+    private Integer value;
 
-  MaterialReviewResultReviewResultEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialReviewResultReviewResultEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -18,92 +18,107 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.event.v1.model.ListOutboundIpReq;
 import com.lark.oapi.service.event.v1.model.ListOutboundIpResp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class EventService {
+    private static final Logger log = LoggerFactory.getLogger(EventService.class);
+    private final OutboundIp outboundIp; // 事件订阅
 
-  private final OutboundIp outboundIp; // 事件出口IP
-
-  public EventService(Config config) {
-    this.outboundIp = new OutboundIp(config);
-  }
-
-  /**
-   * 事件出口IP
-   *
-   * @return
-   */
-  public OutboundIp outboundIp() {
-    return outboundIp;
-  }
-
-  public static class OutboundIp {
-
-    private final Config config;
-
-    public OutboundIp(Config config) {
-      this.config = config;
+    public EventService(Config config) {
+        this.outboundIp = new OutboundIp(config);
     }
 
     /**
-     * 获取事件出口IP，飞书开放平台向应用配置的回调地址推送事件时，是通过特定的IP发送出去的。如果企业需要做防火墙配置，那么可以通过这个接口获取到所有相关的IP段。
-     * <p> IP段有变更可能，建议企业每隔6小时定时拉取IP段更新防火墙设置，这样因IP变更导致推送失败的事件还可以通过重试解决。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java</a>
-     * ;
+     * 事件订阅
+     *
+     * @return
      */
-    public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/event/v1/outbound_ip"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListOutboundIpResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public OutboundIp outboundIp() {
+        return outboundIp;
     }
 
-    /**
-     * 获取事件出口IP，飞书开放平台向应用配置的回调地址推送事件时，是通过特定的IP发送出去的。如果企业需要做防火墙配置，那么可以通过这个接口获取到所有相关的IP段。
-     * <p> IP段有变更可能，建议企业每隔6小时定时拉取IP段更新防火墙设置，这样因IP变更导致推送失败的事件还可以通过重试解决。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java</a>
-     * ;
-     */
-    public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class OutboundIp {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/event/v1/outbound_ip"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public OutboundIp(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListOutboundIpResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取事件出口 IP，飞书开放平台向应用配置的回调地址推送事件时，是通过特定的 IP 发送出去的，应用可以通过本接口获取所有相关的 IP 地址。
+         * <p> IP 地址有变更可能，建议应用每隔 6 小时定时拉取最新的 IP 地址，以免由于企业防火墙设置，导致应用无法及时接收到飞书开放平台推送的事件。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java</a> ;
+         */
+        public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/event/v1/outbound_ip"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListOutboundIpResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/event/v1/outbound_ip"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取事件出口 IP，飞书开放平台向应用配置的回调地址推送事件时，是通过特定的 IP 发送出去的，应用可以通过本接口获取所有相关的 IP 地址。
+         * <p> IP 地址有变更可能，建议应用每隔 6 小时定时拉取最新的 IP 地址，以免由于企业防火墙设置，导致应用无法及时接收到飞书开放平台推送的事件。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java</a> ;
+         */
+        public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/event/v1/outbound_ip"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListOutboundIpResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/event/v1/outbound_ip"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-  }
 
 }

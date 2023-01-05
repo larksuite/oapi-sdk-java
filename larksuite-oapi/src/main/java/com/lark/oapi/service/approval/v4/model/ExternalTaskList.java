@@ -16,259 +16,256 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ExternalTaskList {
-
-  /**
-   * 审批实例 ID
-   * <p> 示例值：29075
-   */
-  @SerializedName("instance_id")
-  private String instanceId;
-  /**
-   * 审批的id
-   * <p> 示例值：fwwweffff33111133xxx
-   */
-  @SerializedName("approval_id")
-  private String approvalId;
-  /**
-   * 审批对应的 approval_code
-   * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-   */
-  @SerializedName("approval_code")
-  private String approvalCode;
-  /**
-   * 审批实例当前的状态
-   * <p> 示例值：PENDING
-   */
-  @SerializedName("status")
-  private String status;
-  /**
-   * 审批实例最后更新时间，单位 毫秒
-   * <p> 示例值：1621863215000
-   */
-  @SerializedName("update_time")
-  private String updateTime;
-  /**
-   * 审批实例下的审批任务
-   * <p> 示例值：
-   */
-  @SerializedName("tasks")
-  private ExternalTaskItem[] tasks;
-
-  // builder 开始
-  public ExternalTaskList() {
-  }
-
-  public ExternalTaskList(Builder builder) {
     /**
      * 审批实例 ID
      * <p> 示例值：29075
      */
-    this.instanceId = builder.instanceId;
-    /**
-     * 审批的id
-     * <p> 示例值：fwwweffff33111133xxx
-     */
-    this.approvalId = builder.approvalId;
-    /**
-     * 审批对应的 approval_code
-     * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-     */
-    this.approvalCode = builder.approvalCode;
-    /**
-     * 审批实例当前的状态
-     * <p> 示例值：PENDING
-     */
-    this.status = builder.status;
-    /**
-     * 审批实例最后更新时间，单位 毫秒
-     * <p> 示例值：1621863215000
-     */
-    this.updateTime = builder.updateTime;
-    /**
-     * 审批实例下的审批任务
-     * <p> 示例值：
-     */
-    this.tasks = builder.tasks;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public String getApprovalId() {
-    return this.approvalId;
-  }
-
-  public void setApprovalId(String approvalId) {
-    this.approvalId = approvalId;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public ExternalTaskItem[] getTasks() {
-    return this.tasks;
-  }
-
-  public void setTasks(ExternalTaskItem[] tasks) {
-    this.tasks = tasks;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批实例 ID
-     * <p> 示例值：29075
-     */
+    @SerializedName("instance_id")
     private String instanceId;
     /**
      * 审批的id
      * <p> 示例值：fwwweffff33111133xxx
      */
+    @SerializedName("approval_id")
     private String approvalId;
     /**
      * 审批对应的 approval_code
      * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
      */
+    @SerializedName("approval_code")
     private String approvalCode;
     /**
      * 审批实例当前的状态
      * <p> 示例值：PENDING
      */
+    @SerializedName("status")
     private String status;
     /**
      * 审批实例最后更新时间，单位 毫秒
      * <p> 示例值：1621863215000
      */
+    @SerializedName("update_time")
     private String updateTime;
     /**
      * 审批实例下的审批任务
      * <p> 示例值：
      */
+    @SerializedName("tasks")
     private ExternalTaskItem[] tasks;
 
-    /**
-     * 审批实例 ID
-     * <p> 示例值：29075
-     *
-     * @param instanceId
-     * @return
-     */
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
+    // builder 开始
+    public ExternalTaskList() {
     }
 
-
-    /**
-     * 审批的id
-     * <p> 示例值：fwwweffff33111133xxx
-     *
-     * @param approvalId
-     * @return
-     */
-    public Builder approvalId(String approvalId) {
-      this.approvalId = approvalId;
-      return this;
+    public ExternalTaskList(Builder builder) {
+        /**
+         * 审批实例 ID
+         * <p> 示例值：29075
+         */
+        this.instanceId = builder.instanceId;
+        /**
+         * 审批的id
+         * <p> 示例值：fwwweffff33111133xxx
+         */
+        this.approvalId = builder.approvalId;
+        /**
+         * 审批对应的 approval_code
+         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批实例当前的状态
+         * <p> 示例值：PENDING
+         */
+        this.status = builder.status;
+        /**
+         * 审批实例最后更新时间，单位 毫秒
+         * <p> 示例值：1621863215000
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 审批实例下的审批任务
+         * <p> 示例值：
+         */
+        this.tasks = builder.tasks;
     }
 
-
-    /**
-     * 审批对应的 approval_code
-     * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-     *
-     * @param approvalCode
-     * @return
-     */
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 审批实例当前的状态
-     * <p> 示例值：PENDING
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public String getInstanceId() {
+        return this.instanceId;
     }
 
-    /**
-     * 审批实例当前的状态
-     * <p> 示例值：PENDING
-     *
-     * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalTaskListExternalInstanceStatusEnum}
-     * @return
-     */
-    public Builder status(
-        com.lark.oapi.service.approval.v4.enums.ExternalTaskListExternalInstanceStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-
-    /**
-     * 审批实例最后更新时间，单位 毫秒
-     * <p> 示例值：1621863215000
-     *
-     * @param updateTime
-     * @return
-     */
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public String getApprovalId() {
+        return this.approvalId;
     }
 
-
-    /**
-     * 审批实例下的审批任务
-     * <p> 示例值：
-     *
-     * @param tasks
-     * @return
-     */
-    public Builder tasks(ExternalTaskItem[] tasks) {
-      this.tasks = tasks;
-      return this;
+    public void setApprovalId(String approvalId) {
+        this.approvalId = approvalId;
     }
 
-
-    public ExternalTaskList build() {
-      return new ExternalTaskList(this);
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
-  }
+
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public ExternalTaskItem[] getTasks() {
+        return this.tasks;
+    }
+
+    public void setTasks(ExternalTaskItem[] tasks) {
+        this.tasks = tasks;
+    }
+
+    public static class Builder {
+        /**
+         * 审批实例 ID
+         * <p> 示例值：29075
+         */
+        private String instanceId;
+        /**
+         * 审批的id
+         * <p> 示例值：fwwweffff33111133xxx
+         */
+        private String approvalId;
+        /**
+         * 审批对应的 approval_code
+         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+         */
+        private String approvalCode;
+        /**
+         * 审批实例当前的状态
+         * <p> 示例值：PENDING
+         */
+        private String status;
+        /**
+         * 审批实例最后更新时间，单位 毫秒
+         * <p> 示例值：1621863215000
+         */
+        private String updateTime;
+        /**
+         * 审批实例下的审批任务
+         * <p> 示例值：
+         */
+        private ExternalTaskItem[] tasks;
+
+        /**
+         * 审批实例 ID
+         * <p> 示例值：29075
+         *
+         * @param instanceId
+         * @return
+         */
+        public Builder instanceId(String instanceId) {
+            this.instanceId = instanceId;
+            return this;
+        }
+
+
+        /**
+         * 审批的id
+         * <p> 示例值：fwwweffff33111133xxx
+         *
+         * @param approvalId
+         * @return
+         */
+        public Builder approvalId(String approvalId) {
+            this.approvalId = approvalId;
+            return this;
+        }
+
+
+        /**
+         * 审批对应的 approval_code
+         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
+
+
+        /**
+         * 审批实例当前的状态
+         * <p> 示例值：PENDING
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 审批实例当前的状态
+         * <p> 示例值：PENDING
+         *
+         * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalTaskListExternalInstanceStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.approval.v4.enums.ExternalTaskListExternalInstanceStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 审批实例最后更新时间，单位 毫秒
+         * <p> 示例值：1621863215000
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 审批实例下的审批任务
+         * <p> 示例值：
+         *
+         * @param tasks
+         * @return
+         */
+        public Builder tasks(ExternalTaskItem[] tasks) {
+            this.tasks = tasks;
+            return this;
+        }
+
+
+        public ExternalTaskList build() {
+            return new ExternalTaskList(this);
+        }
+    }
 }

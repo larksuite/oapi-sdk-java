@@ -16,20 +16,19 @@ package com.lark.oapi.service.human_authentication.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateIdentityRespBody {
+    /**
+     * 用户绑定实名身份的uid
+     * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
+     */
+    @SerializedName("verify_uid")
+    private String verifyUid;
 
-  /**
-   * 用户绑定实名身份的uid
-   * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
-   */
-  @SerializedName("verify_uid")
-  private String verifyUid;
+    public String getVerifyUid() {
+        return this.verifyUid;
+    }
 
-  public String getVerifyUid() {
-    return this.verifyUid;
-  }
-
-  public void setVerifyUid(String verifyUid) {
-    this.verifyUid = verifyUid;
-  }
+    public void setVerifyUid(String verifyUid) {
+        this.verifyUid = verifyUid;
+    }
 
 }

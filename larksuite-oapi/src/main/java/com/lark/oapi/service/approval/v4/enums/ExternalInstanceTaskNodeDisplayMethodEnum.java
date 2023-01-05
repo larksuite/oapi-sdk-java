@@ -17,18 +17,18 @@ package com.lark.oapi.service.approval.v4.enums;
  * 列表页打开审批任务的方式
  */
 public enum ExternalInstanceTaskNodeDisplayMethodEnum {
-  BROWSER("BROWSER"), // 跳转系统默认浏览器打开
-  SIDBAR("SIDEBAR"), // 飞书中侧边抽屉打开
-  NORMAL("NORMAL"), // 飞书内嵌页面打开
-  TRUSTEESHIP("TRUSTEESHIP"), // 以托管模式打开
-  ;
-  private String value;
+    BROWSER("BROWSER"), // 跳转系统默认浏览器打开
+    SIDBAR("SIDEBAR"), // 飞书中侧边抽屉打开
+    NORMAL("NORMAL"), // 飞书内嵌页面打开
+    TRUSTEESHIP("TRUSTEESHIP"), // 以托管模式打开
+    ;
+    private String value;
 
-  ExternalInstanceTaskNodeDisplayMethodEnum(String value) {
-    this.value = value;
-  }
+    ExternalInstanceTaskNodeDisplayMethodEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

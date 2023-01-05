@@ -16,135 +16,170 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppTableView {
-
-  /**
-   * 视图Id
-   * <p> 示例值：vewTpR1urY
-   */
-  @SerializedName("view_id")
-  private String viewId;
-  /**
-   * 视图名字
-   * <p> 示例值：甘特视图1
-   */
-  @SerializedName("view_name")
-  private String viewName;
-  /**
-   * 视图类型
-   * <p> 示例值：gantt
-   */
-  @SerializedName("view_type")
-  private String viewType;
-
-  // builder 开始
-  public AppTableView() {
-  }
-
-  public AppTableView(Builder builder) {
     /**
      * 视图Id
      * <p> 示例值：vewTpR1urY
      */
-    this.viewId = builder.viewId;
-    /**
-     * 视图名字
-     * <p> 示例值：甘特视图1
-     */
-    this.viewName = builder.viewName;
-    /**
-     * 视图类型
-     * <p> 示例值：gantt
-     */
-    this.viewType = builder.viewType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getViewId() {
-    return this.viewId;
-  }
-
-  public void setViewId(String viewId) {
-    this.viewId = viewId;
-  }
-
-  public String getViewName() {
-    return this.viewName;
-  }
-
-  public void setViewName(String viewName) {
-    this.viewName = viewName;
-  }
-
-  public String getViewType() {
-    return this.viewType;
-  }
-
-  public void setViewType(String viewType) {
-    this.viewType = viewType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 视图Id
-     * <p> 示例值：vewTpR1urY
-     */
+    @SerializedName("view_id")
     private String viewId;
     /**
      * 视图名字
      * <p> 示例值：甘特视图1
      */
+    @SerializedName("view_name")
     private String viewName;
     /**
      * 视图类型
      * <p> 示例值：gantt
      */
+    @SerializedName("view_type")
     private String viewType;
-
     /**
-     * 视图Id
-     * <p> 示例值：vewTpR1urY
-     *
-     * @param viewId
-     * @return
+     * 视图属性
+     * <p> 示例值：
      */
-    public Builder viewId(String viewId) {
-      this.viewId = viewId;
-      return this;
+    @SerializedName("property")
+    private AppTableViewProperty property;
+
+    // builder 开始
+    public AppTableView() {
     }
 
-
-    /**
-     * 视图名字
-     * <p> 示例值：甘特视图1
-     *
-     * @param viewName
-     * @return
-     */
-    public Builder viewName(String viewName) {
-      this.viewName = viewName;
-      return this;
+    public AppTableView(Builder builder) {
+        /**
+         * 视图Id
+         * <p> 示例值：vewTpR1urY
+         */
+        this.viewId = builder.viewId;
+        /**
+         * 视图名字
+         * <p> 示例值：甘特视图1
+         */
+        this.viewName = builder.viewName;
+        /**
+         * 视图类型
+         * <p> 示例值：gantt
+         */
+        this.viewType = builder.viewType;
+        /**
+         * 视图属性
+         * <p> 示例值：
+         */
+        this.property = builder.property;
     }
 
-
-    /**
-     * 视图类型
-     * <p> 示例值：gantt
-     *
-     * @param viewType
-     * @return
-     */
-    public Builder viewType(String viewType) {
-      this.viewType = viewType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AppTableView build() {
-      return new AppTableView(this);
+    public String getViewId() {
+        return this.viewId;
     }
-  }
+
+    public void setViewId(String viewId) {
+        this.viewId = viewId;
+    }
+
+    public String getViewName() {
+        return this.viewName;
+    }
+
+    public void setViewName(String viewName) {
+        this.viewName = viewName;
+    }
+
+    public String getViewType() {
+        return this.viewType;
+    }
+
+    public void setViewType(String viewType) {
+        this.viewType = viewType;
+    }
+
+    public AppTableViewProperty getProperty() {
+        return this.property;
+    }
+
+    public void setProperty(AppTableViewProperty property) {
+        this.property = property;
+    }
+
+    public static class Builder {
+        /**
+         * 视图Id
+         * <p> 示例值：vewTpR1urY
+         */
+        private String viewId;
+        /**
+         * 视图名字
+         * <p> 示例值：甘特视图1
+         */
+        private String viewName;
+        /**
+         * 视图类型
+         * <p> 示例值：gantt
+         */
+        private String viewType;
+        /**
+         * 视图属性
+         * <p> 示例值：
+         */
+        private AppTableViewProperty property;
+
+        /**
+         * 视图Id
+         * <p> 示例值：vewTpR1urY
+         *
+         * @param viewId
+         * @return
+         */
+        public Builder viewId(String viewId) {
+            this.viewId = viewId;
+            return this;
+        }
+
+
+        /**
+         * 视图名字
+         * <p> 示例值：甘特视图1
+         *
+         * @param viewName
+         * @return
+         */
+        public Builder viewName(String viewName) {
+            this.viewName = viewName;
+            return this;
+        }
+
+
+        /**
+         * 视图类型
+         * <p> 示例值：gantt
+         *
+         * @param viewType
+         * @return
+         */
+        public Builder viewType(String viewType) {
+            this.viewType = viewType;
+            return this;
+        }
+
+
+        /**
+         * 视图属性
+         * <p> 示例值：
+         *
+         * @param property
+         * @return
+         */
+        public Builder property(AppTableViewProperty property) {
+            this.property = property;
+            return this;
+        }
+
+
+        public AppTableView build() {
+            return new AppTableView(this);
+        }
+    }
 }

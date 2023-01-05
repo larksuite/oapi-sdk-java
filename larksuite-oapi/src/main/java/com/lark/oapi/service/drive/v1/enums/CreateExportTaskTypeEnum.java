@@ -17,18 +17,18 @@ package com.lark.oapi.service.drive.v1.enums;
  * 导出文档类型
  */
 public enum CreateExportTaskTypeEnum {
-  DOC("doc"), // 旧版飞书云文档类型
-  SHEET("sheet"), // 飞书电子表格类型
-  BITABLE("bitable"), // 飞书多维表格类型
-  DOCX("docx"), // 新版飞书云文档类型
-  ;
-  private String value;
+    DOC("doc"), // 旧版飞书云文档类型
+    SHEET("sheet"), // 飞书电子表格类型
+    BITABLE("bitable"), // 飞书多维表格类型
+    DOCX("docx"), // 新版飞书云文档类型
+    ;
+    private String value;
 
-  CreateExportTaskTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateExportTaskTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

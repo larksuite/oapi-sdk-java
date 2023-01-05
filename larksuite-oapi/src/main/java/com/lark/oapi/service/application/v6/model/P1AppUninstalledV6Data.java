@@ -16,34 +16,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1AppUninstalledV6Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 }

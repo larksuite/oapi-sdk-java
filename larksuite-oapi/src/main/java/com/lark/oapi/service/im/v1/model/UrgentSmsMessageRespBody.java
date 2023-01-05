@@ -16,20 +16,19 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UrgentSmsMessageRespBody {
+    /**
+     * 无效的用户ID
+     * <p> 示例值：
+     */
+    @SerializedName("invalid_user_id_list")
+    private String[] invalidUserIdList;
 
-  /**
-   * 无效的用户ID
-   * <p> 示例值：
-   */
-  @SerializedName("invalid_user_id_list")
-  private String[] invalidUserIdList;
+    public String[] getInvalidUserIdList() {
+        return this.invalidUserIdList;
+    }
 
-  public String[] getInvalidUserIdList() {
-    return this.invalidUserIdList;
-  }
-
-  public void setInvalidUserIdList(String[] invalidUserIdList) {
-    this.invalidUserIdList = invalidUserIdList;
-  }
+    public void setInvalidUserIdList(String[] invalidUserIdList) {
+        this.invalidUserIdList = invalidUserIdList;
+    }
 
 }

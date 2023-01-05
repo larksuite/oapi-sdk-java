@@ -16,98 +16,96 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppTableFieldDescription {
-
-  /**
-   * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
-   * <p> 示例值：ture
-   */
-  @SerializedName("disable_sync")
-  private Boolean disableSync;
-  /**
-   * 字段描述内容，支持换行\n
-   * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
-   */
-  @SerializedName("text")
-  private String text;
-
-  // builder 开始
-  public AppTableFieldDescription() {
-  }
-
-  public AppTableFieldDescription(Builder builder) {
     /**
-     * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
+     * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
      * <p> 示例值：ture
      */
-    this.disableSync = builder.disableSync;
-    /**
-     * 字段描述内容，支持换行\n
-     * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
-     */
-    this.text = builder.text;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getDisableSync() {
-    return this.disableSync;
-  }
-
-  public void setDisableSync(Boolean disableSync) {
-    this.disableSync = disableSync;
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
-     * <p> 示例值：ture
-     */
+    @SerializedName("disable_sync")
     private Boolean disableSync;
     /**
-     * 字段描述内容，支持换行\n
-     * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
+     * 字段描述内容
+     * <p> 示例值：这是一个字段描述
      */
+    @SerializedName("text")
     private String text;
 
-    /**
-     * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述
-     * <p> 示例值：ture
-     *
-     * @param disableSync
-     * @return
-     */
-    public Builder disableSync(Boolean disableSync) {
-      this.disableSync = disableSync;
-      return this;
+    // builder 开始
+    public AppTableFieldDescription() {
     }
 
-
-    /**
-     * 字段描述内容，支持换行\n
-     * <p> 示例值：请按 name_id 格式填写\n例如：“Alice_20202020”
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    public AppTableFieldDescription(Builder builder) {
+        /**
+         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
+         * <p> 示例值：ture
+         */
+        this.disableSync = builder.disableSync;
+        /**
+         * 字段描述内容
+         * <p> 示例值：这是一个字段描述
+         */
+        this.text = builder.text;
     }
 
-
-    public AppTableFieldDescription build() {
-      return new AppTableFieldDescription(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Boolean getDisableSync() {
+        return this.disableSync;
+    }
+
+    public void setDisableSync(Boolean disableSync) {
+        this.disableSync = disableSync;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public static class Builder {
+        /**
+         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
+         * <p> 示例值：ture
+         */
+        private Boolean disableSync;
+        /**
+         * 字段描述内容
+         * <p> 示例值：这是一个字段描述
+         */
+        private String text;
+
+        /**
+         * 是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）
+         * <p> 示例值：ture
+         *
+         * @param disableSync
+         * @return
+         */
+        public Builder disableSync(Boolean disableSync) {
+            this.disableSync = disableSync;
+            return this;
+        }
+
+
+        /**
+         * 字段描述内容
+         * <p> 示例值：这是一个字段描述
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        public AppTableFieldDescription build() {
+            return new AppTableFieldDescription(this);
+        }
+    }
 }

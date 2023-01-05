@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentPerson {
-
-  /**
-   * 员工的OpenID
-   * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-   */
-  @SerializedName("openId")
-  private String openId;
-
-  // builder 开始
-  public ContentPerson() {
-  }
-
-  public ContentPerson(Builder builder) {
     /**
      * 员工的OpenID
      * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
      */
-    this.openId = builder.openId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 员工的OpenID
-     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-     */
+    @SerializedName("openId")
     private String openId;
 
-    /**
-     * 员工的OpenID
-     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    // builder 开始
+    public ContentPerson() {
     }
 
-
-    public ContentPerson build() {
-      return new ContentPerson(this);
+    public ContentPerson(Builder builder) {
+        /**
+         * 员工的OpenID
+         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+         */
+        this.openId = builder.openId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public static class Builder {
+        /**
+         * 员工的OpenID
+         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+         */
+        private String openId;
+
+        /**
+         * 员工的OpenID
+         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        public ContentPerson build() {
+            return new ContentPerson(this);
+        }
+    }
 }

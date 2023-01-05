@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteTabsChatTab {
 
-  /**
-   * 会话标签页
-   * <p> 示例值：
-   */
-  @SerializedName("chat_tabs")
-  private ChatTab[] chatTabs;
+    /**
+     * 会话标签页
+     * <p> 示例值：
+     */
+    @SerializedName("chat_tabs")
+    private ChatTab[] chatTabs;
 
-  public ChatTab[] getChatTabs() {
-    return this.chatTabs;
-  }
+    public ChatTab[] getChatTabs() {
+        return this.chatTabs;
+    }
 
-  public void setChatTabs(ChatTab[] chatTabs) {
-    this.chatTabs = chatTabs;
-  }
+    public void setChatTabs(ChatTab[] chatTabs) {
+        this.chatTabs = chatTabs;
+    }
 
 }

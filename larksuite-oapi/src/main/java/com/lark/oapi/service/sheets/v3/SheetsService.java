@@ -18,1779 +18,1939 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetReq;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetResp;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterReq;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterResp;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewConditionReq;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewConditionResp;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewReq;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewResp;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFloatImageReq;
-import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFloatImageResp;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterReq;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterResp;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterViewConditionReq;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterViewConditionResp;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterViewReq;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterViewResp;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFloatImageReq;
-import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFloatImageResp;
-import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetResp;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetResp;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterResp;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewConditionReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewConditionResp;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewResp;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFloatImageReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFloatImageResp;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetResp;
-import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetResp;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetReq;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetResp;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewReq;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewResp;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageReq;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageResp;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewConditionReq;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewConditionResp;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewReq;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewResp;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFloatImageReq;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFloatImageResp;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetResp;
-import com.lark.oapi.service.sheets.v3.model.ReplaceSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.ReplaceSpreadsheetSheetResp;
-import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterReq;
-import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterResp;
-import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewConditionReq;
-import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewConditionResp;
+import com.lark.oapi.service.sheets.v3.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class SheetsService {
+    private static final Logger log = LoggerFactory.getLogger(SheetsService.class);
+    private final Spreadsheet spreadsheet; // 表格
+    private final SpreadsheetSheet spreadsheetSheet; // 行列
+    private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
+    private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
+    private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
+    private final SpreadsheetSheetFloatImage spreadsheetSheetFloatImage; // 浮动图片
 
-  private final Spreadsheet spreadsheet; // 表格
-  private final SpreadsheetSheet spreadsheetSheet; // 行列
-  private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
-  private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
-  private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
-  private final SpreadsheetSheetFloatImage spreadsheetSheetFloatImage; // 浮动图片
-
-  public SheetsService(Config config) {
-    this.spreadsheet = new Spreadsheet(config);
-    this.spreadsheetSheet = new SpreadsheetSheet(config);
-    this.spreadsheetSheetFilter = new SpreadsheetSheetFilter(config);
-    this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
-    this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
-    this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
-  }
-
-  /**
-   * 表格
-   *
-   * @return
-   */
-  public Spreadsheet spreadsheet() {
-    return spreadsheet;
-  }
-
-  /**
-   * 行列
-   *
-   * @return
-   */
-  public SpreadsheetSheet spreadsheetSheet() {
-    return spreadsheetSheet;
-  }
-
-  /**
-   * 筛选
-   *
-   * @return
-   */
-  public SpreadsheetSheetFilter spreadsheetSheetFilter() {
-    return spreadsheetSheetFilter;
-  }
-
-  /**
-   * 筛选视图
-   *
-   * @return
-   */
-  public SpreadsheetSheetFilterView spreadsheetSheetFilterView() {
-    return spreadsheetSheetFilterView;
-  }
-
-  /**
-   * 筛选条件
-   *
-   * @return
-   */
-  public SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition() {
-    return spreadsheetSheetFilterViewCondition;
-  }
-
-  /**
-   * 浮动图片
-   *
-   * @return
-   */
-  public SpreadsheetSheetFloatImage spreadsheetSheetFloatImage() {
-    return spreadsheetSheetFloatImage;
-  }
-
-  public static class Spreadsheet {
-
-    private final Config config;
-
-    public Spreadsheet(Config config) {
-      this.config = config;
+    public SheetsService(Config config) {
+        this.spreadsheet = new Spreadsheet(config);
+        this.spreadsheetSheet = new SpreadsheetSheet(config);
+        this.spreadsheetSheetFilter = new SpreadsheetSheetFilter(config);
+        this.spreadsheetSheetFilterView = new SpreadsheetSheetFilterView(config);
+        this.spreadsheetSheetFilterViewCondition = new SpreadsheetSheetFilterViewCondition(config);
+        this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
     }
 
     /**
-     * 创建表格，使用该接口可以在指定的目录下创建在线表格。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java</a>
-     * ;
+     * 表格
+     *
+     * @return
      */
-    public CreateSpreadsheetResp create(CreateSpreadsheetReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Spreadsheet spreadsheet() {
+        return spreadsheet;
     }
 
     /**
-     * 创建表格，使用该接口可以在指定的目录下创建在线表格。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java</a>
-     * ;
+     * 行列
+     *
+     * @return
      */
-    public CreateSpreadsheetResp create(CreateSpreadsheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public SpreadsheetSheet spreadsheetSheet() {
+        return spreadsheetSheet;
     }
 
     /**
-     * 获取电子表格信息，该接口用于获取电子表格的基础信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java</a>
-     * ;
+     * 筛选
+     *
+     * @return
      */
-    public GetSpreadsheetResp get(GetSpreadsheetReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public SpreadsheetSheetFilter spreadsheetSheetFilter() {
+        return spreadsheetSheetFilter;
     }
 
     /**
-     * 获取电子表格信息，该接口用于获取电子表格的基础信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java</a>
-     * ;
+     * 筛选视图
+     *
+     * @return
      */
-    public GetSpreadsheetResp get(GetSpreadsheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public SpreadsheetSheetFilterView spreadsheetSheetFilterView() {
+        return spreadsheetSheetFilterView;
     }
 
     /**
-     * 修改电子表格属性，该接口用于修改电子表格的属性
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java</a>
-     * ;
+     * 筛选条件
+     *
+     * @return
      */
-    public PatchSpreadsheetResp patch(PatchSpreadsheetReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchSpreadsheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition() {
+        return spreadsheetSheetFilterViewCondition;
     }
 
     /**
-     * 修改电子表格属性，该接口用于修改电子表格的属性
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java</a>
-     * ;
+     * 浮动图片
+     *
+     * @return
      */
-    public PatchSpreadsheetResp patch(PatchSpreadsheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchSpreadsheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class SpreadsheetSheet {
-
-    private final Config config;
-
-    public SpreadsheetSheet(Config config) {
-      this.config = config;
+    public SpreadsheetSheetFloatImage spreadsheetSheetFloatImage() {
+        return spreadsheetSheetFloatImage;
     }
 
-    /**
-     * 查找单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格位置。请求体中的 range 和 find 字段为必填。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public FindSpreadsheetSheetResp find(FindSpreadsheetSheetReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Spreadsheet {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
+        public Spreadsheet(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      FindSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          FindSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建表格，在指定目录下创建表格
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java</a> ;
+         */
+        public CreateSpreadsheetResp create(CreateSpreadsheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建表格，在指定目录下创建表格
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSample.java</a> ;
+         */
+        public CreateSpreadsheetResp create(CreateSpreadsheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取电子表格信息，该接口用于获取电子表格的基础信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java</a> ;
+         */
+        public GetSpreadsheetResp get(GetSpreadsheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取电子表格信息，该接口用于获取电子表格的基础信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java</a> ;
+         */
+        public GetSpreadsheetResp get(GetSpreadsheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 修改电子表格属性，该接口用于修改电子表格的属性
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java</a> ;
+         */
+        public PatchSpreadsheetResp patch(PatchSpreadsheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSpreadsheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 修改电子表格属性，该接口用于修改电子表格的属性
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java</a> ;
+         */
+        public PatchSpreadsheetResp patch(PatchSpreadsheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSpreadsheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 查找单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格位置。请求体中的 range 和 find 字段为必填。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public FindSpreadsheetSheetResp find(FindSpreadsheetSheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class SpreadsheetSheet {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
+        public SpreadsheetSheet(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      FindSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          FindSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 查找单元格，在指定范围内查找符合查找条件的单元格。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java</a> ;
+         */
+        public FindSpreadsheetSheetResp find(FindSpreadsheetSheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            FindSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FindSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查找单元格，在指定范围内查找符合查找条件的单元格。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/FindSpreadsheetSheetSample.java</a> ;
+         */
+        public FindSpreadsheetSheetResp find(FindSpreadsheetSheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            FindSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FindSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询工作表，该接口用于通过工作表ID查询工作表属性信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java</a> ;
+         */
+        public GetSpreadsheetSheetResp get(GetSpreadsheetSheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询工作表，该接口用于通过工作表ID查询工作表属性信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java</a> ;
+         */
+        public GetSpreadsheetSheetResp get(GetSpreadsheetSheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java</a> ;
+         */
+        public MoveDimensionSpreadsheetSheetResp moveDimension(MoveDimensionSpreadsheetSheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveDimensionSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java</a> ;
+         */
+        public MoveDimensionSpreadsheetSheetResp moveDimension(MoveDimensionSpreadsheetSheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveDimensionSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取工作表，该接口用于获取电子表格下所有工作表及其属性。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetResp query(QuerySpreadsheetSheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取工作表，该接口用于获取电子表格下所有工作表及其属性。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetResp query(QuerySpreadsheetSheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 替换单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的 range、find、replaccement 字段必填。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java</a> ;
+         */
+        public ReplaceSpreadsheetSheetResp replace(ReplaceSpreadsheetSheetReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ReplaceSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ReplaceSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 替换单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的 range、find、replaccement 字段必填。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java</a> ;
+         */
+        public ReplaceSpreadsheetSheetResp replace(ReplaceSpreadsheetSheetReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ReplaceSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ReplaceSpreadsheetSheetResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 查询工作表，该接口用于通过工作表ID查询工作表属性信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetResp get(GetSpreadsheetSheetReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class SpreadsheetSheetFilter {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public SpreadsheetSheetFilter(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建筛选，在子表内创建筛选。
+         * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFilterResp create(CreateSpreadsheetSheetFilterReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建筛选，在子表内创建筛选。
+         * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFilterResp create(CreateSpreadsheetSheetFilterReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除筛选，删除子表的筛选
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFilterResp delete(DeleteSpreadsheetSheetFilterReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除筛选，删除子表的筛选
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFilterResp delete(DeleteSpreadsheetSheetFilterReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取筛选，获取子表的详细筛选信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFilterResp get(GetSpreadsheetSheetFilterReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取筛选，获取子表的详细筛选信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFilterResp get(GetSpreadsheetSheetFilterReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新筛选，更新子表筛选范围中的列筛选条件。
+         * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public UpdateSpreadsheetSheetFilterResp update(UpdateSpreadsheetSheetFilterReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新筛选，更新子表筛选范围中的列筛选条件。
+         * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java</a> ;
+         */
+        public UpdateSpreadsheetSheetFilterResp update(UpdateSpreadsheetSheetFilterReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateSpreadsheetSheetFilterResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 查询工作表，该接口用于通过工作表ID查询工作表属性信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetResp get(GetSpreadsheetSheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class SpreadsheetSheetFilterView {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public SpreadsheetSheetFilterView(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      GetSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
+         * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFilterViewResp create(CreateSpreadsheetSheetFilterViewReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
+         * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFilterViewResp create(CreateSpreadsheetSheetFilterViewReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除筛选视图，删除指定 id 对应的筛选视图。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFilterViewResp delete(DeleteSpreadsheetSheetFilterViewReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除筛选视图，删除指定 id 对应的筛选视图。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFilterViewResp delete(DeleteSpreadsheetSheetFilterViewReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取筛选视图，获取指定筛选视图 id 的名字和筛选范围。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFilterViewResp get(GetSpreadsheetSheetFilterViewReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取筛选视图，获取指定筛选视图 id 的名字和筛选范围。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFilterViewResp get(GetSpreadsheetSheetFilterViewReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
+         * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public PatchSpreadsheetSheetFilterViewResp patch(PatchSpreadsheetSheetFilterViewReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
+         * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public PatchSpreadsheetSheetFilterViewResp patch(PatchSpreadsheetSheetFilterViewReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询筛选视图，查询子表内所有的筛选视图基本信息，包括 id、name 和 range
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetFilterViewResp query(QuerySpreadsheetSheetFilterViewReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询筛选视图，查询子表内所有的筛选视图基本信息，包括 id、name 和 range
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetFilterViewResp query(QuerySpreadsheetSheetFilterViewReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFilterViewResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public MoveDimensionSpreadsheetSheetResp moveDimension(MoveDimensionSpreadsheetSheetReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class SpreadsheetSheetFilterViewCondition {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public SpreadsheetSheetFilterViewCondition(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          MoveDimensionSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
+         * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFilterViewConditionResp create(CreateSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
+         * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFilterViewConditionResp create(CreateSpreadsheetSheetFilterViewConditionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFilterViewConditionResp delete(DeleteSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFilterViewConditionResp delete(DeleteSpreadsheetSheetFilterViewConditionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取筛选条件，获取筛选视图某列的筛选条件信息。
+         * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFilterViewConditionResp get(GetSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取筛选条件，获取筛选视图某列的筛选条件信息。
+         * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFilterViewConditionResp get(GetSpreadsheetSheetFilterViewConditionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
+         * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetFilterViewConditionResp query(QuerySpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
+         * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetFilterViewConditionResp query(QuerySpreadsheetSheetFilterViewConditionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
+         * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public UpdateSpreadsheetSheetFilterViewConditionResp update(UpdateSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
+         * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java</a> ;
+         */
+        public UpdateSpreadsheetSheetFilterViewConditionResp update(UpdateSpreadsheetSheetFilterViewConditionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/MoveDimensionSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public MoveDimensionSpreadsheetSheetResp moveDimension(MoveDimensionSpreadsheetSheetReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class SpreadsheetSheetFloatImage {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public SpreadsheetSheetFloatImage(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          MoveDimensionSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格） 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
+         * <p> 浮动图片的设置参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFloatImageResp create(CreateSpreadsheetSheetFloatImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格） 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
+         * <p> 浮动图片的设置参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public CreateSpreadsheetSheetFloatImageResp create(CreateSpreadsheetSheetFloatImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除浮动图片，删除 float_image_id 对应的浮动图片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFloatImageResp delete(DeleteSpreadsheetSheetFloatImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除浮动图片，删除 float_image_id 对应的浮动图片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public DeleteSpreadsheetSheetFloatImageResp delete(DeleteSpreadsheetSheetFloatImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
+         * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFloatImageResp get(GetSpreadsheetSheetFloatImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
+         * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public GetSpreadsheetSheetFloatImageResp get(GetSpreadsheetSheetFloatImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和 float_image_token。
+         * <p> 浮动图片更新参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public PatchSpreadsheetSheetFloatImageResp patch(PatchSpreadsheetSheetFloatImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和 float_image_token。
+         * <p> 浮动图片更新参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public PatchSpreadsheetSheetFloatImageResp patch(PatchSpreadsheetSheetFloatImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询浮动图片，返回子表内所有的浮动图片信息。
+         * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetFloatImageResp query(QuerySpreadsheetSheetFloatImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询浮动图片，返回子表内所有的浮动图片信息。
+         * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide) ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java</a> ;
+         */
+        public QuerySpreadsheetSheetFloatImageResp query(QuerySpreadsheetSheetFloatImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            QuerySpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySpreadsheetSheetFloatImageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-
-    /**
-     * 获取工作表，该接口用于获取电子表格下所有工作表及其属性。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetResp query(QuerySpreadsheetSheetReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          QuerySpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取工作表，该接口用于获取电子表格下所有工作表及其属性。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetResp query(QuerySpreadsheetSheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          QuerySpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 替换单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的
-     * range、find、replaccement 字段必填。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public ReplaceSpreadsheetSheetResp replace(ReplaceSpreadsheetSheetReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ReplaceSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ReplaceSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 替换单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的
-     * range、find、replaccement 字段必填。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/ReplaceSpreadsheetSheetSample.java</a>
-     * ;
-     */
-    public ReplaceSpreadsheetSheetResp replace(ReplaceSpreadsheetSheetReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ReplaceSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ReplaceSpreadsheetSheetResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class SpreadsheetSheetFilter {
-
-    private final Config config;
-
-    public SpreadsheetSheetFilter(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建筛选，在子表内创建筛选。
-     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFilterResp create(CreateSpreadsheetSheetFilterReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建筛选，在子表内创建筛选。
-     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFilterResp create(CreateSpreadsheetSheetFilterReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除筛选，删除子表的筛选
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFilterResp delete(DeleteSpreadsheetSheetFilterReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除筛选，删除子表的筛选
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFilterResp delete(DeleteSpreadsheetSheetFilterReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取筛选，获取子表的详细筛选信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFilterResp get(GetSpreadsheetSheetFilterReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取筛选，获取子表的详细筛选信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFilterResp get(GetSpreadsheetSheetFilterReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新筛选，更新子表筛选范围中的列筛选条件。
-     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public UpdateSpreadsheetSheetFilterResp update(UpdateSpreadsheetSheetFilterReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新筛选，更新子表筛选范围中的列筛选条件。
-     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterSample.java</a>
-     * ;
-     */
-    public UpdateSpreadsheetSheetFilterResp update(UpdateSpreadsheetSheetFilterReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateSpreadsheetSheetFilterResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class SpreadsheetSheetFilterView {
-
-    private final Config config;
-
-    public SpreadsheetSheetFilterView(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z
-     * 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFilterViewResp create(CreateSpreadsheetSheetFilterViewReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z
-     * 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFilterViewResp create(CreateSpreadsheetSheetFilterViewReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除筛选视图，删除指定 id 对应的筛选视图。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFilterViewResp delete(DeleteSpreadsheetSheetFilterViewReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除筛选视图，删除指定 id 对应的筛选视图。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFilterViewResp delete(DeleteSpreadsheetSheetFilterViewReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取筛选视图，获取指定筛选视图 id 的名字和筛选范围。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFilterViewResp get(GetSpreadsheetSheetFilterViewReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取筛选视图，获取指定筛选视图 id 的名字和筛选范围。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFilterViewResp get(GetSpreadsheetSheetFilterViewReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public PatchSpreadsheetSheetFilterViewResp patch(PatchSpreadsheetSheetFilterViewReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public PatchSpreadsheetSheetFilterViewResp patch(PatchSpreadsheetSheetFilterViewReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchSpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询筛选视图，查询子表内所有的筛选视图基本信息，包括 id、name 和 range
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetFilterViewResp query(QuerySpreadsheetSheetFilterViewReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          QuerySpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询筛选视图，查询子表内所有的筛选视图基本信息，包括 id、name 和 range
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetFilterViewResp query(QuerySpreadsheetSheetFilterViewReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          QuerySpreadsheetSheetFilterViewResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class SpreadsheetSheetFilterViewCondition {
-
-    private final Config config;
-
-    public SpreadsheetSheetFilterViewCondition(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
-     * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFilterViewConditionResp create(
-        CreateSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
-     * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFilterViewConditionResp create(
-        CreateSpreadsheetSheetFilterViewConditionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFilterViewConditionResp delete(
-        DeleteSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFilterViewConditionResp delete(
-        DeleteSpreadsheetSheetFilterViewConditionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取筛选条件，获取筛选视图某列的筛选条件信息。
-     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFilterViewConditionResp get(
-        GetSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取筛选条件，获取筛选视图某列的筛选条件信息。
-     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFilterViewConditionResp get(
-        GetSpreadsheetSheetFilterViewConditionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
-     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetFilterViewConditionResp query(
-        QuerySpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
-     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetFilterViewConditionResp query(
-        QuerySpreadsheetSheetFilterViewConditionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
-     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public UpdateSpreadsheetSheetFilterViewConditionResp update(
-        UpdateSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
-     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/UpdateSpreadsheetSheetFilterViewConditionSample.java</a>
-     * ;
-     */
-    public UpdateSpreadsheetSheetFilterViewConditionResp update(
-        UpdateSpreadsheetSheetFilterViewConditionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
-          httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class SpreadsheetSheetFloatImage {
-
-    private final Config config;
-
-    public SpreadsheetSheetFloatImage(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
-     * 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width
-     * 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
-     * <p> 浮动图片的设置参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFloatImageResp create(CreateSpreadsheetSheetFloatImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
-     * 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width
-     * 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
-     * <p> 浮动图片的设置参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/CreateSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public CreateSpreadsheetSheetFloatImageResp create(CreateSpreadsheetSheetFloatImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除浮动图片，删除 float_image_id 对应的浮动图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFloatImageResp delete(DeleteSpreadsheetSheetFloatImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除浮动图片，删除 float_image_id 对应的浮动图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/DeleteSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public DeleteSpreadsheetSheetFloatImageResp delete(DeleteSpreadsheetSheetFloatImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
-     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFloatImageResp get(GetSpreadsheetSheetFloatImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
-     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public GetSpreadsheetSheetFloatImageResp get(GetSpreadsheetSheetFloatImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和
-     * float_image_token。
-     * <p> 浮动图片更新参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public PatchSpreadsheetSheetFloatImageResp patch(PatchSpreadsheetSheetFloatImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和
-     * float_image_token。
-     * <p> 浮动图片更新参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public PatchSpreadsheetSheetFloatImageResp patch(PatchSpreadsheetSheetFloatImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchSpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询浮动图片，返回子表内所有的浮动图片信息。
-     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetFloatImageResp query(QuerySpreadsheetSheetFloatImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          QuerySpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询浮动图片，返回子表内所有的浮动图片信息。
-     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetFloatImageSample.java</a>
-     * ;
-     */
-    public QuerySpreadsheetSheetFloatImageResp query(QuerySpreadsheetSheetFloatImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      QuerySpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          QuerySpreadsheetSheetFloatImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

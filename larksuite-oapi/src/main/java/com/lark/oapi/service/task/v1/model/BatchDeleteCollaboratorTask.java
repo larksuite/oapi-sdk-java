@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteCollaboratorTask {
 
-  /**
-   * 实际删除的执行人用户ID列表
-   * <p> 示例值：
-   */
-  @SerializedName("collaborators")
-  private String[] collaborators;
+    /**
+     * 实际删除的执行人用户ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("collaborators")
+    private String[] collaborators;
 
-  public String[] getCollaborators() {
-    return this.collaborators;
-  }
+    public String[] getCollaborators() {
+        return this.collaborators;
+    }
 
-  public void setCollaborators(String[] collaborators) {
-    this.collaborators = collaborators;
-  }
+    public void setCollaborators(String[] collaborators) {
+        this.collaborators = collaborators;
+    }
 
 }

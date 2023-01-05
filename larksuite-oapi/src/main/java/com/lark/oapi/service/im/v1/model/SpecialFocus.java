@@ -16,110 +16,108 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SpecialFocus {
-
-  /**
-   * 用户id
-   * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * id open_id/user_id/union_id/app_id
-   * <p> 示例值：
-   */
-  @SerializedName("id_type")
-  private String idType;
-
-  // builder 开始
-  public SpecialFocus() {
-  }
-
-  public SpecialFocus(Builder builder) {
     /**
-     * 用户id
+     * 成员ID
      * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
      */
-    this.id = builder.id;
-    /**
-     * id open_id/user_id/union_id/app_id
-     * <p> 示例值：
-     */
-    this.idType = builder.idType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getIdType() {
-    return this.idType;
-  }
-
-  public void setIdType(String idType) {
-    this.idType = idType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户id
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-     */
+    @SerializedName("id")
     private String id;
     /**
-     * id open_id/user_id/union_id/app_id
+     * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
      * <p> 示例值：
      */
+    @SerializedName("id_type")
     private String idType;
 
-    /**
-     * 用户id
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public SpecialFocus() {
     }
 
-
-    /**
-     * id open_id/user_id/union_id/app_id
-     * <p> 示例值：
-     *
-     * @param idType
-     * @return
-     */
-    public Builder idType(String idType) {
-      this.idType = idType;
-      return this;
+    public SpecialFocus(Builder builder) {
+        /**
+         * 成员ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         */
+        this.id = builder.id;
+        /**
+         * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         */
+        this.idType = builder.idType;
     }
 
-    /**
-     * id open_id/user_id/union_id/app_id
-     * <p> 示例值：
-     *
-     * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum}
-     * @return
-     */
-    public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum idType) {
-      this.idType = idType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public SpecialFocus build() {
-      return new SpecialFocus(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIdType() {
+        return this.idType;
+    }
+
+    public void setIdType(String idType) {
+        this.idType = idType;
+    }
+
+    public static class Builder {
+        /**
+         * 成员ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         */
+        private String id;
+        /**
+         * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         */
+        private String idType;
+
+        /**
+         * 成员ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         *
+         * @param idType
+         * @return
+         */
+        public Builder idType(String idType) {
+            this.idType = idType;
+            return this;
+        }
+
+        /**
+         * 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
+         * <p> 示例值：
+         *
+         * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum}
+         * @return
+         */
+        public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum idType) {
+            this.idType = idType.getValue();
+            return this;
+        }
+
+
+        public SpecialFocus build() {
+            return new SpecialFocus(this);
+        }
+    }
 }

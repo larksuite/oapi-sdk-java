@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliverySelfEvaluation {
-
-  /**
-   * 内容
-   * <p> 示例值：自我评价：平常心
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-
-  // builder 开始
-  public WebsiteDeliverySelfEvaluation() {
-  }
-
-  public WebsiteDeliverySelfEvaluation(Builder builder) {
     /**
      * 内容
      * <p> 示例值：自我评价：平常心
      */
-    this.content = builder.content;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedData = builder.customizedData;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public static class Builder {
-
-    /**
-     * 内容
-     * <p> 示例值：自我评价：平常心
-     */
+    @SerializedName("content")
     private String content;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
 
-    /**
-     * 内容
-     * <p> 示例值：自我评价：平常心
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public WebsiteDeliverySelfEvaluation() {
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    public WebsiteDeliverySelfEvaluation(Builder builder) {
+        /**
+         * 内容
+         * <p> 示例值：自我评价：平常心
+         */
+        this.content = builder.content;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
     }
 
-
-    public WebsiteDeliverySelfEvaluation build() {
-      return new WebsiteDeliverySelfEvaluation(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
+    }
+
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public static class Builder {
+        /**
+         * 内容
+         * <p> 示例值：自我评价：平常心
+         */
+        private String content;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+
+        /**
+         * 内容
+         * <p> 示例值：自我评价：平常心
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        public WebsiteDeliverySelfEvaluation build() {
+            return new WebsiteDeliverySelfEvaluation(this);
+        }
+    }
 }

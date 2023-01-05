@@ -16,690 +16,688 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryBasicInfo {
-
-  /**
-   * 国籍，可从「获取地址码」查询
-   * <p> 示例值：CN_112
-   */
-  @SerializedName("nationality_id")
-  private String nationalityId;
-  /**
-   * 起始工作时间
-   * <p> 示例值：1625648596
-   */
-  @SerializedName("start_work_time")
-  private Integer startWorkTime;
-  /**
-   * 家庭住址
-   * <p> 示例值：成都
-   */
-  @SerializedName("current_home_address")
-  private String currentHomeAddress;
-  /**
-   * 家乡，可从「获取地址码」查询
-   * <p> 示例值：CT_159
-   */
-  @SerializedName("hometown_city_code")
-  private String hometownCityCode;
-  /**
-   * 电话国际区号，可从「获取地址码」查询
-   * <p> 示例值：CN_1
-   */
-  @SerializedName("mobile_country_code")
-  private String mobileCountryCode;
-  /**
-   * 身份证件
-   * <p> 示例值：
-   */
-  @SerializedName("identification")
-  private WebsiteDeliveryIdentification identification;
-  /**
-   * 婚姻状况
-   * <p> 示例值：1
-   */
-  @SerializedName("marital_status")
-  private Integer maritalStatus;
-  /**
-   * 电话
-   * <p> 示例值：182900291190
-   */
-  @SerializedName("mobile")
-  private String mobile;
-  /**
-   * 所在城市，可从「获取地址码」查询
-   * <p> 示例值：CT_11
-   */
-  @SerializedName("current_city_code")
-  private String currentCityCode;
-  /**
-   * 工作年限
-   * <p> 示例值：3
-   */
-  @SerializedName("experience_years")
-  private Integer experienceYears;
-  /**
-   * 性别
-   * <p> 示例值：1
-   */
-  @SerializedName("gender")
-  private Integer gender;
-  /**
-   * 出生日期
-   * <p> 示例值：1609430400
-   */
-  @SerializedName("birthday")
-  private Integer birthday;
-  /**
-   * 姓名
-   * <p> 示例值：张三
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 意向城市，可从「获取地址码」查询
-   * <p> 示例值：意向城市
-   */
-  @SerializedName("preferred_city_code_list")
-  private String[] preferredCityCodeList;
-  /**
-   * 简历来源，可从「获取简历来源列表」查询
-   * <p> 示例值：6982104077248219436
-   */
-  @SerializedName("resume_source_id")
-  private String resumeSourceId;
-  /**
-   * 年龄
-   * <p> 示例值：25
-   */
-  @SerializedName("age")
-  private Integer age;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-  /**
-   * 邮箱
-   * <p> 示例值：foo@bytedance.com
-   */
-  @SerializedName("email")
-  private String email;
-
-  // builder 开始
-  public WebsiteDeliveryBasicInfo() {
-  }
-
-  public WebsiteDeliveryBasicInfo(Builder builder) {
     /**
      * 国籍，可从「获取地址码」查询
      * <p> 示例值：CN_112
      */
-    this.nationalityId = builder.nationalityId;
-    /**
-     * 起始工作时间
-     * <p> 示例值：1625648596
-     */
-    this.startWorkTime = builder.startWorkTime;
-    /**
-     * 家庭住址
-     * <p> 示例值：成都
-     */
-    this.currentHomeAddress = builder.currentHomeAddress;
-    /**
-     * 家乡，可从「获取地址码」查询
-     * <p> 示例值：CT_159
-     */
-    this.hometownCityCode = builder.hometownCityCode;
-    /**
-     * 电话国际区号，可从「获取地址码」查询
-     * <p> 示例值：CN_1
-     */
-    this.mobileCountryCode = builder.mobileCountryCode;
-    /**
-     * 身份证件
-     * <p> 示例值：
-     */
-    this.identification = builder.identification;
-    /**
-     * 婚姻状况
-     * <p> 示例值：1
-     */
-    this.maritalStatus = builder.maritalStatus;
-    /**
-     * 电话
-     * <p> 示例值：182900291190
-     */
-    this.mobile = builder.mobile;
-    /**
-     * 所在城市，可从「获取地址码」查询
-     * <p> 示例值：CT_11
-     */
-    this.currentCityCode = builder.currentCityCode;
-    /**
-     * 工作年限
-     * <p> 示例值：3
-     */
-    this.experienceYears = builder.experienceYears;
-    /**
-     * 性别
-     * <p> 示例值：1
-     */
-    this.gender = builder.gender;
-    /**
-     * 出生日期
-     * <p> 示例值：1609430400
-     */
-    this.birthday = builder.birthday;
-    /**
-     * 姓名
-     * <p> 示例值：张三
-     */
-    this.name = builder.name;
-    /**
-     * 意向城市，可从「获取地址码」查询
-     * <p> 示例值：意向城市
-     */
-    this.preferredCityCodeList = builder.preferredCityCodeList;
-    /**
-     * 简历来源，可从「获取简历来源列表」查询
-     * <p> 示例值：6982104077248219436
-     */
-    this.resumeSourceId = builder.resumeSourceId;
-    /**
-     * 年龄
-     * <p> 示例值：25
-     */
-    this.age = builder.age;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedData = builder.customizedData;
-    /**
-     * 邮箱
-     * <p> 示例值：foo@bytedance.com
-     */
-    this.email = builder.email;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNationalityId() {
-    return this.nationalityId;
-  }
-
-  public void setNationalityId(String nationalityId) {
-    this.nationalityId = nationalityId;
-  }
-
-  public Integer getStartWorkTime() {
-    return this.startWorkTime;
-  }
-
-  public void setStartWorkTime(Integer startWorkTime) {
-    this.startWorkTime = startWorkTime;
-  }
-
-  public String getCurrentHomeAddress() {
-    return this.currentHomeAddress;
-  }
-
-  public void setCurrentHomeAddress(String currentHomeAddress) {
-    this.currentHomeAddress = currentHomeAddress;
-  }
-
-  public String getHometownCityCode() {
-    return this.hometownCityCode;
-  }
-
-  public void setHometownCityCode(String hometownCityCode) {
-    this.hometownCityCode = hometownCityCode;
-  }
-
-  public String getMobileCountryCode() {
-    return this.mobileCountryCode;
-  }
-
-  public void setMobileCountryCode(String mobileCountryCode) {
-    this.mobileCountryCode = mobileCountryCode;
-  }
-
-  public WebsiteDeliveryIdentification getIdentification() {
-    return this.identification;
-  }
-
-  public void setIdentification(WebsiteDeliveryIdentification identification) {
-    this.identification = identification;
-  }
-
-  public Integer getMaritalStatus() {
-    return this.maritalStatus;
-  }
-
-  public void setMaritalStatus(Integer maritalStatus) {
-    this.maritalStatus = maritalStatus;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public String getCurrentCityCode() {
-    return this.currentCityCode;
-  }
-
-  public void setCurrentCityCode(String currentCityCode) {
-    this.currentCityCode = currentCityCode;
-  }
-
-  public Integer getExperienceYears() {
-    return this.experienceYears;
-  }
-
-  public void setExperienceYears(Integer experienceYears) {
-    this.experienceYears = experienceYears;
-  }
-
-  public Integer getGender() {
-    return this.gender;
-  }
-
-  public void setGender(Integer gender) {
-    this.gender = gender;
-  }
-
-  public Integer getBirthday() {
-    return this.birthday;
-  }
-
-  public void setBirthday(Integer birthday) {
-    this.birthday = birthday;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String[] getPreferredCityCodeList() {
-    return this.preferredCityCodeList;
-  }
-
-  public void setPreferredCityCodeList(String[] preferredCityCodeList) {
-    this.preferredCityCodeList = preferredCityCodeList;
-  }
-
-  public String getResumeSourceId() {
-    return this.resumeSourceId;
-  }
-
-  public void setResumeSourceId(String resumeSourceId) {
-    this.resumeSourceId = resumeSourceId;
-  }
-
-  public Integer getAge() {
-    return this.age;
-  }
-
-  public void setAge(Integer age) {
-    this.age = age;
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public static class Builder {
-
-    /**
-     * 国籍，可从「获取地址码」查询
-     * <p> 示例值：CN_112
-     */
+    @SerializedName("nationality_id")
     private String nationalityId;
     /**
      * 起始工作时间
      * <p> 示例值：1625648596
      */
+    @SerializedName("start_work_time")
     private Integer startWorkTime;
     /**
      * 家庭住址
      * <p> 示例值：成都
      */
+    @SerializedName("current_home_address")
     private String currentHomeAddress;
     /**
      * 家乡，可从「获取地址码」查询
      * <p> 示例值：CT_159
      */
+    @SerializedName("hometown_city_code")
     private String hometownCityCode;
     /**
      * 电话国际区号，可从「获取地址码」查询
      * <p> 示例值：CN_1
      */
+    @SerializedName("mobile_country_code")
     private String mobileCountryCode;
     /**
      * 身份证件
      * <p> 示例值：
      */
+    @SerializedName("identification")
     private WebsiteDeliveryIdentification identification;
     /**
      * 婚姻状况
      * <p> 示例值：1
      */
+    @SerializedName("marital_status")
     private Integer maritalStatus;
     /**
      * 电话
      * <p> 示例值：182900291190
      */
+    @SerializedName("mobile")
     private String mobile;
     /**
      * 所在城市，可从「获取地址码」查询
      * <p> 示例值：CT_11
      */
+    @SerializedName("current_city_code")
     private String currentCityCode;
     /**
      * 工作年限
      * <p> 示例值：3
      */
+    @SerializedName("experience_years")
     private Integer experienceYears;
     /**
      * 性别
      * <p> 示例值：1
      */
+    @SerializedName("gender")
     private Integer gender;
     /**
      * 出生日期
      * <p> 示例值：1609430400
      */
+    @SerializedName("birthday")
     private Integer birthday;
     /**
      * 姓名
      * <p> 示例值：张三
      */
+    @SerializedName("name")
     private String name;
     /**
      * 意向城市，可从「获取地址码」查询
      * <p> 示例值：意向城市
      */
+    @SerializedName("preferred_city_code_list")
     private String[] preferredCityCodeList;
     /**
      * 简历来源，可从「获取简历来源列表」查询
      * <p> 示例值：6982104077248219436
      */
+    @SerializedName("resume_source_id")
     private String resumeSourceId;
     /**
      * 年龄
      * <p> 示例值：25
      */
+    @SerializedName("age")
     private Integer age;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
     /**
      * 邮箱
      * <p> 示例值：foo@bytedance.com
      */
+    @SerializedName("email")
     private String email;
 
-    /**
-     * 国籍，可从「获取地址码」查询
-     * <p> 示例值：CN_112
-     *
-     * @param nationalityId
-     * @return
-     */
-    public Builder nationalityId(String nationalityId) {
-      this.nationalityId = nationalityId;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryBasicInfo() {
     }
 
-
-    /**
-     * 起始工作时间
-     * <p> 示例值：1625648596
-     *
-     * @param startWorkTime
-     * @return
-     */
-    public Builder startWorkTime(Integer startWorkTime) {
-      this.startWorkTime = startWorkTime;
-      return this;
+    public WebsiteDeliveryBasicInfo(Builder builder) {
+        /**
+         * 国籍，可从「获取地址码」查询
+         * <p> 示例值：CN_112
+         */
+        this.nationalityId = builder.nationalityId;
+        /**
+         * 起始工作时间
+         * <p> 示例值：1625648596
+         */
+        this.startWorkTime = builder.startWorkTime;
+        /**
+         * 家庭住址
+         * <p> 示例值：成都
+         */
+        this.currentHomeAddress = builder.currentHomeAddress;
+        /**
+         * 家乡，可从「获取地址码」查询
+         * <p> 示例值：CT_159
+         */
+        this.hometownCityCode = builder.hometownCityCode;
+        /**
+         * 电话国际区号，可从「获取地址码」查询
+         * <p> 示例值：CN_1
+         */
+        this.mobileCountryCode = builder.mobileCountryCode;
+        /**
+         * 身份证件
+         * <p> 示例值：
+         */
+        this.identification = builder.identification;
+        /**
+         * 婚姻状况
+         * <p> 示例值：1
+         */
+        this.maritalStatus = builder.maritalStatus;
+        /**
+         * 电话
+         * <p> 示例值：182900291190
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 所在城市，可从「获取地址码」查询
+         * <p> 示例值：CT_11
+         */
+        this.currentCityCode = builder.currentCityCode;
+        /**
+         * 工作年限
+         * <p> 示例值：3
+         */
+        this.experienceYears = builder.experienceYears;
+        /**
+         * 性别
+         * <p> 示例值：1
+         */
+        this.gender = builder.gender;
+        /**
+         * 出生日期
+         * <p> 示例值：1609430400
+         */
+        this.birthday = builder.birthday;
+        /**
+         * 姓名
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 意向城市，可从「获取地址码」查询
+         * <p> 示例值：意向城市
+         */
+        this.preferredCityCodeList = builder.preferredCityCodeList;
+        /**
+         * 简历来源，可从「获取简历来源列表」查询
+         * <p> 示例值：6982104077248219436
+         */
+        this.resumeSourceId = builder.resumeSourceId;
+        /**
+         * 年龄
+         * <p> 示例值：25
+         */
+        this.age = builder.age;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 邮箱
+         * <p> 示例值：foo@bytedance.com
+         */
+        this.email = builder.email;
     }
 
-
-    /**
-     * 家庭住址
-     * <p> 示例值：成都
-     *
-     * @param currentHomeAddress
-     * @return
-     */
-    public Builder currentHomeAddress(String currentHomeAddress) {
-      this.currentHomeAddress = currentHomeAddress;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 家乡，可从「获取地址码」查询
-     * <p> 示例值：CT_159
-     *
-     * @param hometownCityCode
-     * @return
-     */
-    public Builder hometownCityCode(String hometownCityCode) {
-      this.hometownCityCode = hometownCityCode;
-      return this;
+    public String getNationalityId() {
+        return this.nationalityId;
     }
 
-
-    /**
-     * 电话国际区号，可从「获取地址码」查询
-     * <p> 示例值：CN_1
-     *
-     * @param mobileCountryCode
-     * @return
-     */
-    public Builder mobileCountryCode(String mobileCountryCode) {
-      this.mobileCountryCode = mobileCountryCode;
-      return this;
+    public void setNationalityId(String nationalityId) {
+        this.nationalityId = nationalityId;
     }
 
-
-    /**
-     * 身份证件
-     * <p> 示例值：
-     *
-     * @param identification
-     * @return
-     */
-    public Builder identification(WebsiteDeliveryIdentification identification) {
-      this.identification = identification;
-      return this;
+    public Integer getStartWorkTime() {
+        return this.startWorkTime;
     }
 
-
-    /**
-     * 婚姻状况
-     * <p> 示例值：1
-     *
-     * @param maritalStatus
-     * @return
-     */
-    public Builder maritalStatus(Integer maritalStatus) {
-      this.maritalStatus = maritalStatus;
-      return this;
+    public void setStartWorkTime(Integer startWorkTime) {
+        this.startWorkTime = startWorkTime;
     }
 
-
-    /**
-     * 电话
-     * <p> 示例值：182900291190
-     *
-     * @param mobile
-     * @return
-     */
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public String getCurrentHomeAddress() {
+        return this.currentHomeAddress;
     }
 
-
-    /**
-     * 所在城市，可从「获取地址码」查询
-     * <p> 示例值：CT_11
-     *
-     * @param currentCityCode
-     * @return
-     */
-    public Builder currentCityCode(String currentCityCode) {
-      this.currentCityCode = currentCityCode;
-      return this;
+    public void setCurrentHomeAddress(String currentHomeAddress) {
+        this.currentHomeAddress = currentHomeAddress;
     }
 
-
-    /**
-     * 工作年限
-     * <p> 示例值：3
-     *
-     * @param experienceYears
-     * @return
-     */
-    public Builder experienceYears(Integer experienceYears) {
-      this.experienceYears = experienceYears;
-      return this;
+    public String getHometownCityCode() {
+        return this.hometownCityCode;
     }
 
-
-    /**
-     * 性别
-     * <p> 示例值：1
-     *
-     * @param gender
-     * @return
-     */
-    public Builder gender(Integer gender) {
-      this.gender = gender;
-      return this;
+    public void setHometownCityCode(String hometownCityCode) {
+        this.hometownCityCode = hometownCityCode;
     }
 
-
-    /**
-     * 出生日期
-     * <p> 示例值：1609430400
-     *
-     * @param birthday
-     * @return
-     */
-    public Builder birthday(Integer birthday) {
-      this.birthday = birthday;
-      return this;
+    public String getMobileCountryCode() {
+        return this.mobileCountryCode;
     }
 
-
-    /**
-     * 姓名
-     * <p> 示例值：张三
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setMobileCountryCode(String mobileCountryCode) {
+        this.mobileCountryCode = mobileCountryCode;
     }
 
-
-    /**
-     * 意向城市，可从「获取地址码」查询
-     * <p> 示例值：意向城市
-     *
-     * @param preferredCityCodeList
-     * @return
-     */
-    public Builder preferredCityCodeList(String[] preferredCityCodeList) {
-      this.preferredCityCodeList = preferredCityCodeList;
-      return this;
+    public WebsiteDeliveryIdentification getIdentification() {
+        return this.identification;
     }
 
-
-    /**
-     * 简历来源，可从「获取简历来源列表」查询
-     * <p> 示例值：6982104077248219436
-     *
-     * @param resumeSourceId
-     * @return
-     */
-    public Builder resumeSourceId(String resumeSourceId) {
-      this.resumeSourceId = resumeSourceId;
-      return this;
+    public void setIdentification(WebsiteDeliveryIdentification identification) {
+        this.identification = identification;
     }
 
-
-    /**
-     * 年龄
-     * <p> 示例值：25
-     *
-     * @param age
-     * @return
-     */
-    public Builder age(Integer age) {
-      this.age = age;
-      return this;
+    public Integer getMaritalStatus() {
+        return this.maritalStatus;
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    public void setMaritalStatus(Integer maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
-
-    /**
-     * 邮箱
-     * <p> 示例值：foo@bytedance.com
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public String getMobile() {
+        return this.mobile;
     }
 
-
-    public WebsiteDeliveryBasicInfo build() {
-      return new WebsiteDeliveryBasicInfo(this);
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
-  }
+
+    public String getCurrentCityCode() {
+        return this.currentCityCode;
+    }
+
+    public void setCurrentCityCode(String currentCityCode) {
+        this.currentCityCode = currentCityCode;
+    }
+
+    public Integer getExperienceYears() {
+        return this.experienceYears;
+    }
+
+    public void setExperienceYears(Integer experienceYears) {
+        this.experienceYears = experienceYears;
+    }
+
+    public Integer getGender() {
+        return this.gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public Integer getBirthday() {
+        return this.birthday;
+    }
+
+    public void setBirthday(Integer birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String[] getPreferredCityCodeList() {
+        return this.preferredCityCodeList;
+    }
+
+    public void setPreferredCityCodeList(String[] preferredCityCodeList) {
+        this.preferredCityCodeList = preferredCityCodeList;
+    }
+
+    public String getResumeSourceId() {
+        return this.resumeSourceId;
+    }
+
+    public void setResumeSourceId(String resumeSourceId) {
+        this.resumeSourceId = resumeSourceId;
+    }
+
+    public Integer getAge() {
+        return this.age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
+    }
+
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public static class Builder {
+        /**
+         * 国籍，可从「获取地址码」查询
+         * <p> 示例值：CN_112
+         */
+        private String nationalityId;
+        /**
+         * 起始工作时间
+         * <p> 示例值：1625648596
+         */
+        private Integer startWorkTime;
+        /**
+         * 家庭住址
+         * <p> 示例值：成都
+         */
+        private String currentHomeAddress;
+        /**
+         * 家乡，可从「获取地址码」查询
+         * <p> 示例值：CT_159
+         */
+        private String hometownCityCode;
+        /**
+         * 电话国际区号，可从「获取地址码」查询
+         * <p> 示例值：CN_1
+         */
+        private String mobileCountryCode;
+        /**
+         * 身份证件
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryIdentification identification;
+        /**
+         * 婚姻状况
+         * <p> 示例值：1
+         */
+        private Integer maritalStatus;
+        /**
+         * 电话
+         * <p> 示例值：182900291190
+         */
+        private String mobile;
+        /**
+         * 所在城市，可从「获取地址码」查询
+         * <p> 示例值：CT_11
+         */
+        private String currentCityCode;
+        /**
+         * 工作年限
+         * <p> 示例值：3
+         */
+        private Integer experienceYears;
+        /**
+         * 性别
+         * <p> 示例值：1
+         */
+        private Integer gender;
+        /**
+         * 出生日期
+         * <p> 示例值：1609430400
+         */
+        private Integer birthday;
+        /**
+         * 姓名
+         * <p> 示例值：张三
+         */
+        private String name;
+        /**
+         * 意向城市，可从「获取地址码」查询
+         * <p> 示例值：意向城市
+         */
+        private String[] preferredCityCodeList;
+        /**
+         * 简历来源，可从「获取简历来源列表」查询
+         * <p> 示例值：6982104077248219436
+         */
+        private String resumeSourceId;
+        /**
+         * 年龄
+         * <p> 示例值：25
+         */
+        private Integer age;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+        /**
+         * 邮箱
+         * <p> 示例值：foo@bytedance.com
+         */
+        private String email;
+
+        /**
+         * 国籍，可从「获取地址码」查询
+         * <p> 示例值：CN_112
+         *
+         * @param nationalityId
+         * @return
+         */
+        public Builder nationalityId(String nationalityId) {
+            this.nationalityId = nationalityId;
+            return this;
+        }
+
+
+        /**
+         * 起始工作时间
+         * <p> 示例值：1625648596
+         *
+         * @param startWorkTime
+         * @return
+         */
+        public Builder startWorkTime(Integer startWorkTime) {
+            this.startWorkTime = startWorkTime;
+            return this;
+        }
+
+
+        /**
+         * 家庭住址
+         * <p> 示例值：成都
+         *
+         * @param currentHomeAddress
+         * @return
+         */
+        public Builder currentHomeAddress(String currentHomeAddress) {
+            this.currentHomeAddress = currentHomeAddress;
+            return this;
+        }
+
+
+        /**
+         * 家乡，可从「获取地址码」查询
+         * <p> 示例值：CT_159
+         *
+         * @param hometownCityCode
+         * @return
+         */
+        public Builder hometownCityCode(String hometownCityCode) {
+            this.hometownCityCode = hometownCityCode;
+            return this;
+        }
+
+
+        /**
+         * 电话国际区号，可从「获取地址码」查询
+         * <p> 示例值：CN_1
+         *
+         * @param mobileCountryCode
+         * @return
+         */
+        public Builder mobileCountryCode(String mobileCountryCode) {
+            this.mobileCountryCode = mobileCountryCode;
+            return this;
+        }
+
+
+        /**
+         * 身份证件
+         * <p> 示例值：
+         *
+         * @param identification
+         * @return
+         */
+        public Builder identification(WebsiteDeliveryIdentification identification) {
+            this.identification = identification;
+            return this;
+        }
+
+
+        /**
+         * 婚姻状况
+         * <p> 示例值：1
+         *
+         * @param maritalStatus
+         * @return
+         */
+        public Builder maritalStatus(Integer maritalStatus) {
+            this.maritalStatus = maritalStatus;
+            return this;
+        }
+
+
+        /**
+         * 电话
+         * <p> 示例值：182900291190
+         *
+         * @param mobile
+         * @return
+         */
+        public Builder mobile(String mobile) {
+            this.mobile = mobile;
+            return this;
+        }
+
+
+        /**
+         * 所在城市，可从「获取地址码」查询
+         * <p> 示例值：CT_11
+         *
+         * @param currentCityCode
+         * @return
+         */
+        public Builder currentCityCode(String currentCityCode) {
+            this.currentCityCode = currentCityCode;
+            return this;
+        }
+
+
+        /**
+         * 工作年限
+         * <p> 示例值：3
+         *
+         * @param experienceYears
+         * @return
+         */
+        public Builder experienceYears(Integer experienceYears) {
+            this.experienceYears = experienceYears;
+            return this;
+        }
+
+
+        /**
+         * 性别
+         * <p> 示例值：1
+         *
+         * @param gender
+         * @return
+         */
+        public Builder gender(Integer gender) {
+            this.gender = gender;
+            return this;
+        }
+
+
+        /**
+         * 出生日期
+         * <p> 示例值：1609430400
+         *
+         * @param birthday
+         * @return
+         */
+        public Builder birthday(Integer birthday) {
+            this.birthday = birthday;
+            return this;
+        }
+
+
+        /**
+         * 姓名
+         * <p> 示例值：张三
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 意向城市，可从「获取地址码」查询
+         * <p> 示例值：意向城市
+         *
+         * @param preferredCityCodeList
+         * @return
+         */
+        public Builder preferredCityCodeList(String[] preferredCityCodeList) {
+            this.preferredCityCodeList = preferredCityCodeList;
+            return this;
+        }
+
+
+        /**
+         * 简历来源，可从「获取简历来源列表」查询
+         * <p> 示例值：6982104077248219436
+         *
+         * @param resumeSourceId
+         * @return
+         */
+        public Builder resumeSourceId(String resumeSourceId) {
+            this.resumeSourceId = resumeSourceId;
+            return this;
+        }
+
+
+        /**
+         * 年龄
+         * <p> 示例值：25
+         *
+         * @param age
+         * @return
+         */
+        public Builder age(Integer age) {
+            this.age = age;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        /**
+         * 邮箱
+         * <p> 示例值：foo@bytedance.com
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        public WebsiteDeliveryBasicInfo build() {
+            return new WebsiteDeliveryBasicInfo(this);
+        }
+    }
 }

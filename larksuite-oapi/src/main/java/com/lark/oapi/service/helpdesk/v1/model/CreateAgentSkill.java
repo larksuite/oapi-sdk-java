@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAgentSkill {
 
-  /**
-   * 客服技能id
-   * <p> 示例值：test-skill-id
-   */
-  @SerializedName("agent_skill_id")
-  private String agentSkillId;
+    /**
+     * 客服技能id
+     * <p> 示例值：test-skill-id
+     */
+    @SerializedName("agent_skill_id")
+    private String agentSkillId;
 
-  public String getAgentSkillId() {
-    return this.agentSkillId;
-  }
+    public String getAgentSkillId() {
+        return this.agentSkillId;
+    }
 
-  public void setAgentSkillId(String agentSkillId) {
-    this.agentSkillId = agentSkillId;
-  }
+    public void setAgentSkillId(String agentSkillId) {
+        this.agentSkillId = agentSkillId;
+    }
 
 }

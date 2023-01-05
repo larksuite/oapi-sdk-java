@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Agency {
-
-  /**
-   * 猎头供应商ID
-   * <p> 示例值：6898173495386147079
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 猎头供应商名称
-   * <p> 示例值：超越猎头公司
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 供应商联系人ID
-   * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-   */
-  @SerializedName("contactor_id")
-  private String contactorId;
-
-  // builder 开始
-  public Agency() {
-  }
-
-  public Agency(Builder builder) {
     /**
      * 猎头供应商ID
      * <p> 示例值：6898173495386147079
      */
-    this.id = builder.id;
-    /**
-     * 猎头供应商名称
-     * <p> 示例值：超越猎头公司
-     */
-    this.name = builder.name;
-    /**
-     * 供应商联系人ID
-     * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-     */
-    this.contactorId = builder.contactorId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getContactorId() {
-    return this.contactorId;
-  }
-
-  public void setContactorId(String contactorId) {
-    this.contactorId = contactorId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 猎头供应商ID
-     * <p> 示例值：6898173495386147079
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 猎头供应商名称
      * <p> 示例值：超越猎头公司
      */
+    @SerializedName("name")
     private String name;
     /**
      * 供应商联系人ID
      * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
      */
+    @SerializedName("contactor_id")
     private String contactorId;
 
-    /**
-     * 猎头供应商ID
-     * <p> 示例值：6898173495386147079
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Agency() {
     }
 
-
-    /**
-     * 猎头供应商名称
-     * <p> 示例值：超越猎头公司
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Agency(Builder builder) {
+        /**
+         * 猎头供应商ID
+         * <p> 示例值：6898173495386147079
+         */
+        this.id = builder.id;
+        /**
+         * 猎头供应商名称
+         * <p> 示例值：超越猎头公司
+         */
+        this.name = builder.name;
+        /**
+         * 供应商联系人ID
+         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+         */
+        this.contactorId = builder.contactorId;
     }
 
-
-    /**
-     * 供应商联系人ID
-     * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-     *
-     * @param contactorId
-     * @return
-     */
-    public Builder contactorId(String contactorId) {
-      this.contactorId = contactorId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Agency build() {
-      return new Agency(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContactorId() {
+        return this.contactorId;
+    }
+
+    public void setContactorId(String contactorId) {
+        this.contactorId = contactorId;
+    }
+
+    public static class Builder {
+        /**
+         * 猎头供应商ID
+         * <p> 示例值：6898173495386147079
+         */
+        private String id;
+        /**
+         * 猎头供应商名称
+         * <p> 示例值：超越猎头公司
+         */
+        private String name;
+        /**
+         * 供应商联系人ID
+         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+         */
+        private String contactorId;
+
+        /**
+         * 猎头供应商ID
+         * <p> 示例值：6898173495386147079
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 猎头供应商名称
+         * <p> 示例值：超越猎头公司
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 供应商联系人ID
+         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+         *
+         * @param contactorId
+         * @return
+         */
+        public Builder contactorId(String contactorId) {
+            this.contactorId = contactorId;
+            return this;
+        }
+
+
+        public Agency build() {
+            return new Agency(this);
+        }
+    }
 }

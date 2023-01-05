@@ -16,61 +16,59 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Password {
-
-  /**
-   * 企业邮箱密码
-   * <p> 示例值：abcd*efg
-   */
-  @SerializedName("ent_email_password")
-  private String entEmailPassword;
-
-  // builder 开始
-  public Password() {
-  }
-
-  public Password(Builder builder) {
     /**
      * 企业邮箱密码
      * <p> 示例值：abcd*efg
      */
-    this.entEmailPassword = builder.entEmailPassword;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEntEmailPassword() {
-    return this.entEmailPassword;
-  }
-
-  public void setEntEmailPassword(String entEmailPassword) {
-    this.entEmailPassword = entEmailPassword;
-  }
-
-  public static class Builder {
-
-    /**
-     * 企业邮箱密码
-     * <p> 示例值：abcd*efg
-     */
+    @SerializedName("ent_email_password")
     private String entEmailPassword;
 
-    /**
-     * 企业邮箱密码
-     * <p> 示例值：abcd*efg
-     *
-     * @param entEmailPassword
-     * @return
-     */
-    public Builder entEmailPassword(String entEmailPassword) {
-      this.entEmailPassword = entEmailPassword;
-      return this;
+    // builder 开始
+    public Password() {
     }
 
-
-    public Password build() {
-      return new Password(this);
+    public Password(Builder builder) {
+        /**
+         * 企业邮箱密码
+         * <p> 示例值：abcd*efg
+         */
+        this.entEmailPassword = builder.entEmailPassword;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getEntEmailPassword() {
+        return this.entEmailPassword;
+    }
+
+    public void setEntEmailPassword(String entEmailPassword) {
+        this.entEmailPassword = entEmailPassword;
+    }
+
+    public static class Builder {
+        /**
+         * 企业邮箱密码
+         * <p> 示例值：abcd*efg
+         */
+        private String entEmailPassword;
+
+        /**
+         * 企业邮箱密码
+         * <p> 示例值：abcd*efg
+         *
+         * @param entEmailPassword
+         * @return
+         */
+        public Builder entEmailPassword(String entEmailPassword) {
+            this.entEmailPassword = entEmailPassword;
+            return this;
+        }
+
+
+        public Password build() {
+            return new Password(this);
+        }
+    }
 }

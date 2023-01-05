@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Role {
-
-  /**
-   * 角色 ID
-   * <p> 示例值：101
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 角色名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 角色描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private I18n description;
-
-  // builder 开始
-  public Role() {
-  }
-
-  public Role(Builder builder) {
     /**
      * 角色 ID
      * <p> 示例值：101
      */
-    this.id = builder.id;
-    /**
-     * 角色名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 角色描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public I18n getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(I18n description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
-    /**
-     * 角色 ID
-     * <p> 示例值：101
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 角色名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 角色描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private I18n description;
 
-    /**
-     * 角色 ID
-     * <p> 示例值：101
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Role() {
     }
 
-
-    /**
-     * 角色名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public Role(Builder builder) {
+        /**
+         * 角色 ID
+         * <p> 示例值：101
+         */
+        this.id = builder.id;
+        /**
+         * 角色名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 角色描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
     }
 
-
-    /**
-     * 角色描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(I18n description) {
-      this.description = description;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Role build() {
-      return new Role(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public I18n getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(I18n description) {
+        this.description = description;
+    }
+
+    public static class Builder {
+        /**
+         * 角色 ID
+         * <p> 示例值：101
+         */
+        private String id;
+        /**
+         * 角色名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 角色描述
+         * <p> 示例值：
+         */
+        private I18n description;
+
+        /**
+         * 角色 ID
+         * <p> 示例值：101
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 角色名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 角色描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(I18n description) {
+            this.description = description;
+            return this;
+        }
+
+
+        public Role build() {
+            return new Role(this);
+        }
+    }
 }

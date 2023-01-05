@@ -17,20 +17,20 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 与紧急联系人的关系
  */
 public enum EmergencyContactRelationshipEnum {
-  PARENT(1), // 父母
-  SPOUSE(2), // 配偶
-  CHILD(3), // 子女
-  SIBLING(4), // 兄弟姐妹
-  FRIEND(5), // 朋友
-  OTHER(6), // 其他
-  ;
-  private Integer value;
+    PARENT(1), // 父母
+    SPOUSE(2), // 配偶
+    CHILD(3), // 子女
+    SIBLING(4), // 兄弟姐妹
+    FRIEND(5), // 朋友
+    OTHER(6), // 其他
+    ;
+    private Integer value;
 
-  EmergencyContactRelationshipEnum(Integer value) {
-    this.value = value;
-  }
+    EmergencyContactRelationshipEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

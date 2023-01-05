@@ -15,25 +15,25 @@ package com.lark.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum JobStatusEnum {
-  SUCCESS(0),
-  NEW(1),
-  PROCESSING(2),
-  EXPORTSIZELIMIT(107),
-  TIMEOUT(108),
-  EXPORTBLOCKNOTPERMITED(109),
-  NOPERMISSION(110),
-  DOCSDELETED(111),
-  EXPORTDENIEDONCOPYING(122),
-  DOCSNOTEXIST(123),
-  EXPORTIMAGESEXCEEDLIMIT(6000),
-  ;
-  private Integer value;
+    SUCCESS(0),
+    NEW(1),
+    PROCESSING(2),
+    EXPORTSIZELIMIT(107),
+    TIMEOUT(108),
+    EXPORTBLOCKNOTPERMITED(109),
+    NOPERMISSION(110),
+    DOCSDELETED(111),
+    EXPORTDENIEDONCOPYING(122),
+    DOCSNOTEXIST(123),
+    EXPORTIMAGESEXCEEDLIMIT(6000),
+    ;
+    private Integer value;
 
-  JobStatusEnum(Integer value) {
-    this.value = value;
-  }
+    JobStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

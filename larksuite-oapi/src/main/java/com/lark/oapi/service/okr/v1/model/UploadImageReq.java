@@ -16,51 +16,50 @@ package com.lark.oapi.service.okr.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class UploadImageReq {
-
-  @Body
-  private UploadImageReqBody body;
-
-  // builder 开始
-  public UploadImageReq() {
-  }
-
-  public UploadImageReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UploadImageReqBody getUploadImageReqBody() {
-    return this.body;
-  }
-
-  public void setUploadImageReqBody(UploadImageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private UploadImageReqBody body;
 
+    // builder 开始
+    public UploadImageReq() {
+    }
+
+    public UploadImageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UploadImageReqBody getUploadImageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder uploadImageReqBody(UploadImageReqBody body) {
-      this.body = body;
-      return this;
+    public void setUploadImageReqBody(UploadImageReqBody body) {
+        this.body = body;
     }
 
-    public UploadImageReq build() {
-      return new UploadImageReq(this);
+    public static class Builder {
+
+        private UploadImageReqBody body;
+
+        public UploadImageReqBody getUploadImageReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder uploadImageReqBody(UploadImageReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UploadImageReq build() {
+            return new UploadImageReq(this);
+        }
     }
-  }
 }

@@ -17,20 +17,20 @@ package com.lark.oapi.service.mail.v1.enums;
  * 邮箱地址类型
  */
 public enum UserUserTypeEnum {
-  USERMAILBOX(1), // 成员邮箱
-  USERMAILBOXALIAS(2), // 成员邮箱别名
-  PUBLICMAILBOX(3), // 公共邮箱
-  PUBLICMAILBOXALIAS(4), // 公共邮箱别名
-  MAILGROUP(5), // 邮件组
-  MAILGROUPALIAS(6), // 邮件组别名
-  ;
-  private Integer value;
+    USERMAILBOX(1), // 成员邮箱
+    USERMAILBOXALIAS(2), // 成员邮箱别名
+    PUBLICMAILBOX(3), // 公共邮箱
+    PUBLICMAILBOXALIAS(4), // 公共邮箱别名
+    MAILGROUP(5), // 邮件组
+    MAILGROUPALIAS(6), // 邮件组别名
+    ;
+    private Integer value;
 
-  UserUserTypeEnum(Integer value) {
-    this.value = value;
-  }
+    UserUserTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

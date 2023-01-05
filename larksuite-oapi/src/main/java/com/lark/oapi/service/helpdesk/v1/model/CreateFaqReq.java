@@ -16,51 +16,50 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateFaqReq {
-
-  @Body
-  private CreateFaqReqBody body;
-
-  // builder 开始
-  public CreateFaqReq() {
-  }
-
-  public CreateFaqReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateFaqReqBody getCreateFaqReqBody() {
-    return this.body;
-  }
-
-  public void setCreateFaqReqBody(CreateFaqReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateFaqReqBody body;
 
+    // builder 开始
+    public CreateFaqReq() {
+    }
+
+    public CreateFaqReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateFaqReqBody getCreateFaqReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createFaqReqBody(CreateFaqReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateFaqReqBody(CreateFaqReqBody body) {
+        this.body = body;
     }
 
-    public CreateFaqReq build() {
-      return new CreateFaqReq(this);
+    public static class Builder {
+
+        private CreateFaqReqBody body;
+
+        public CreateFaqReqBody getCreateFaqReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createFaqReqBody(CreateFaqReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateFaqReq build() {
+            return new CreateFaqReq(this);
+        }
     }
-  }
 }

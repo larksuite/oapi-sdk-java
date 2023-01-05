@@ -17,19 +17,18 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.event.model.BaseEventV2;
 
 public class P2ApplicationFeedbackCreatedV6 extends BaseEventV2 {
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("event")
+    private P2ApplicationFeedbackCreatedV6Data event;
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("event")
-  private P2ApplicationFeedbackCreatedV6Data event;
+    public P2ApplicationFeedbackCreatedV6Data getEvent() {
+        return this.event;
+    }
 
-  public P2ApplicationFeedbackCreatedV6Data getEvent() {
-    return this.event;
-  }
-
-  public void setEvent(P2ApplicationFeedbackCreatedV6Data event) {
-    this.event = event;
-  }
+    public void setEvent(P2ApplicationFeedbackCreatedV6Data event) {
+        this.event = event;
+    }
 
 }

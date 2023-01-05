@@ -16,32 +16,31 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationVisibilityAddedV6Data {
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("users")
+    private User[] users;
+    /**
+     * <p> 示例值：
+     */
+    @SerializedName("source")
+    private Integer source;
 
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("users")
-  private User[] users;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("source")
-  private Integer source;
+    public User[] getUsers() {
+        return this.users;
+    }
 
-  public User[] getUsers() {
-    return this.users;
-  }
+    public void setUsers(User[] users) {
+        this.users = users;
+    }
 
-  public void setUsers(User[] users) {
-    this.users = users;
-  }
+    public Integer getSource() {
+        return this.source;
+    }
 
-  public Integer getSource() {
-    return this.source;
-  }
-
-  public void setSource(Integer source) {
-    this.source = source;
-  }
+    public void setSource(Integer source) {
+        this.source = source;
+    }
 
 }

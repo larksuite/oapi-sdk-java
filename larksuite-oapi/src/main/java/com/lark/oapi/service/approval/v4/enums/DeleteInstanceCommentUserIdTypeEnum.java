@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 用户ID类型，不填默认为open_id
  */
 public enum DeleteInstanceCommentUserIdTypeEnum {
-  OPEN_ID("open_id"), // open_id(ou_开头)
-  USER_ID("user_id"), // user_id（字符串）
-  UNION_ID("union_id"), // union_id（on_开头）
-  ;
-  private String value;
+    OPEN_ID("open_id"), // open_id(ou_开头)
+    USER_ID("user_id"), // user_id（字符串）
+    UNION_ID("union_id"), // union_id（on_开头）
+    ;
+    private String value;
 
-  DeleteInstanceCommentUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    DeleteInstanceCommentUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

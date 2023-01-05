@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteDataSourceItemReq {
-
-  /**
-   * 数据源的ID
-   * <p> 示例值：service_ticket
-   */
-  @Path
-  @SerializedName("data_source_id")
-  private String dataSourceId;
-  /**
-   * 数据记录的ID
-   * <p> 示例值：01010111
-   */
-  @Path
-  @SerializedName("item_id")
-  private String itemId;
-
-  // builder 开始
-  public DeleteDataSourceItemReq() {
-  }
-
-  public DeleteDataSourceItemReq(Builder builder) {
     /**
      * 数据源的ID
      * <p> 示例值：service_ticket
      */
-    this.dataSourceId = builder.dataSourceId;
+    @Path
+    @SerializedName("data_source_id")
+    private String dataSourceId;
     /**
      * 数据记录的ID
      * <p> 示例值：01010111
      */
-    this.itemId = builder.itemId;
-  }
+    @Path
+    @SerializedName("item_id")
+    private String itemId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDataSourceId() {
-    return this.dataSourceId;
-  }
-
-  public void setDataSourceId(String dataSourceId) {
-    this.dataSourceId = dataSourceId;
-  }
-
-  public String getItemId() {
-    return this.itemId;
-  }
-
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
-  }
-
-  public static class Builder {
-
-    private String dataSourceId; // 数据源的ID
-    private String itemId; // 数据记录的ID
-
-    /**
-     * 数据源的ID
-     * <p> 示例值：service_ticket
-     *
-     * @param dataSourceId
-     * @return
-     */
-    public Builder dataSourceId(String dataSourceId) {
-      this.dataSourceId = dataSourceId;
-      return this;
+    // builder 开始
+    public DeleteDataSourceItemReq() {
     }
 
-
-    /**
-     * 数据记录的ID
-     * <p> 示例值：01010111
-     *
-     * @param itemId
-     * @return
-     */
-    public Builder itemId(String itemId) {
-      this.itemId = itemId;
-      return this;
+    public DeleteDataSourceItemReq(Builder builder) {
+        /**
+         * 数据源的ID
+         * <p> 示例值：service_ticket
+         */
+        this.dataSourceId = builder.dataSourceId;
+        /**
+         * 数据记录的ID
+         * <p> 示例值：01010111
+         */
+        this.itemId = builder.itemId;
     }
 
-    public DeleteDataSourceItemReq build() {
-      return new DeleteDataSourceItemReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getDataSourceId() {
+        return this.dataSourceId;
+    }
+
+    public void setDataSourceId(String dataSourceId) {
+        this.dataSourceId = dataSourceId;
+    }
+
+    public String getItemId() {
+        return this.itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
+
+    public static class Builder {
+
+        private String dataSourceId; // 数据源的ID
+        private String itemId; // 数据记录的ID
+
+        /**
+         * 数据源的ID
+         * <p> 示例值：service_ticket
+         *
+         * @param dataSourceId
+         * @return
+         */
+        public Builder dataSourceId(String dataSourceId) {
+            this.dataSourceId = dataSourceId;
+            return this;
+        }
+
+
+        /**
+         * 数据记录的ID
+         * <p> 示例值：01010111
+         *
+         * @param itemId
+         * @return
+         */
+        public Builder itemId(String itemId) {
+            this.itemId = itemId;
+            return this;
+        }
+
+        public DeleteDataSourceItemReq build() {
+            return new DeleteDataSourceItemReq(this);
+        }
+    }
 }

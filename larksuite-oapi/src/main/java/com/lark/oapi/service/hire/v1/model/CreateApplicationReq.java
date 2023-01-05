@@ -16,51 +16,50 @@ package com.lark.oapi.service.hire.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateApplicationReq {
-
-  @Body
-  private CreateApplicationReqBody body;
-
-  // builder 开始
-  public CreateApplicationReq() {
-  }
-
-  public CreateApplicationReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateApplicationReqBody getCreateApplicationReqBody() {
-    return this.body;
-  }
-
-  public void setCreateApplicationReqBody(CreateApplicationReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateApplicationReqBody body;
 
+    // builder 开始
+    public CreateApplicationReq() {
+    }
+
+    public CreateApplicationReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateApplicationReqBody getCreateApplicationReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createApplicationReqBody(CreateApplicationReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateApplicationReqBody(CreateApplicationReqBody body) {
+        this.body = body;
     }
 
-    public CreateApplicationReq build() {
-      return new CreateApplicationReq(this);
+    public static class Builder {
+
+        private CreateApplicationReqBody body;
+
+        public CreateApplicationReqBody getCreateApplicationReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createApplicationReqBody(CreateApplicationReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateApplicationReq build() {
+            return new CreateApplicationReq(this);
+        }
     }
-  }
 }

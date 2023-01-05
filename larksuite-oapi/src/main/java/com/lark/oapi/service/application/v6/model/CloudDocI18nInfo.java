@@ -16,185 +16,182 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CloudDocI18nInfo {
-
-  /**
-   * 国际化语言的 key
-   * <p> 示例值：zh_cn
-   */
-  @SerializedName("i18n_key")
-  private String i18nKey;
-  /**
-   * 云文档国际化名称
-   * <p> 示例值：名称
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 云文档国际化读权限说明
-   * <p> 示例值：读权限说明
-   */
-  @SerializedName("read_description")
-  private String readDescription;
-  /**
-   * 云文档国际化写权限说明
-   * <p> 示例值：写权限说明
-   */
-  @SerializedName("write_description")
-  private String writeDescription;
-
-  // builder 开始
-  public CloudDocI18nInfo() {
-  }
-
-  public CloudDocI18nInfo(Builder builder) {
     /**
      * 国际化语言的 key
      * <p> 示例值：zh_cn
      */
-    this.i18nKey = builder.i18nKey;
-    /**
-     * 云文档国际化名称
-     * <p> 示例值：名称
-     */
-    this.name = builder.name;
-    /**
-     * 云文档国际化读权限说明
-     * <p> 示例值：读权限说明
-     */
-    this.readDescription = builder.readDescription;
-    /**
-     * 云文档国际化写权限说明
-     * <p> 示例值：写权限说明
-     */
-    this.writeDescription = builder.writeDescription;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getI18nKey() {
-    return this.i18nKey;
-  }
-
-  public void setI18nKey(String i18nKey) {
-    this.i18nKey = i18nKey;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getReadDescription() {
-    return this.readDescription;
-  }
-
-  public void setReadDescription(String readDescription) {
-    this.readDescription = readDescription;
-  }
-
-  public String getWriteDescription() {
-    return this.writeDescription;
-  }
-
-  public void setWriteDescription(String writeDescription) {
-    this.writeDescription = writeDescription;
-  }
-
-  public static class Builder {
-
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     */
+    @SerializedName("i18n_key")
     private String i18nKey;
     /**
      * 云文档国际化名称
      * <p> 示例值：名称
      */
+    @SerializedName("name")
     private String name;
     /**
      * 云文档国际化读权限说明
      * <p> 示例值：读权限说明
      */
+    @SerializedName("read_description")
     private String readDescription;
     /**
      * 云文档国际化写权限说明
      * <p> 示例值：写权限说明
      */
+    @SerializedName("write_description")
     private String writeDescription;
 
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     *
-     * @param i18nKey
-     * @return
-     */
-    public Builder i18nKey(String i18nKey) {
-      this.i18nKey = i18nKey;
-      return this;
+    // builder 开始
+    public CloudDocI18nInfo() {
     }
 
-    /**
-     * 国际化语言的 key
-     * <p> 示例值：zh_cn
-     *
-     * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.CloudDocI18nInfoI18nKeyEnum}
-     * @return
-     */
-    public Builder i18nKey(
-        com.lark.oapi.service.application.v6.enums.CloudDocI18nInfoI18nKeyEnum i18nKey) {
-      this.i18nKey = i18nKey.getValue();
-      return this;
+    public CloudDocI18nInfo(Builder builder) {
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         */
+        this.i18nKey = builder.i18nKey;
+        /**
+         * 云文档国际化名称
+         * <p> 示例值：名称
+         */
+        this.name = builder.name;
+        /**
+         * 云文档国际化读权限说明
+         * <p> 示例值：读权限说明
+         */
+        this.readDescription = builder.readDescription;
+        /**
+         * 云文档国际化写权限说明
+         * <p> 示例值：写权限说明
+         */
+        this.writeDescription = builder.writeDescription;
     }
 
-
-    /**
-     * 云文档国际化名称
-     * <p> 示例值：名称
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 云文档国际化读权限说明
-     * <p> 示例值：读权限说明
-     *
-     * @param readDescription
-     * @return
-     */
-    public Builder readDescription(String readDescription) {
-      this.readDescription = readDescription;
-      return this;
+    public String getI18nKey() {
+        return this.i18nKey;
     }
 
-
-    /**
-     * 云文档国际化写权限说明
-     * <p> 示例值：写权限说明
-     *
-     * @param writeDescription
-     * @return
-     */
-    public Builder writeDescription(String writeDescription) {
-      this.writeDescription = writeDescription;
-      return this;
+    public void setI18nKey(String i18nKey) {
+        this.i18nKey = i18nKey;
     }
 
-
-    public CloudDocI18nInfo build() {
-      return new CloudDocI18nInfo(this);
+    public String getName() {
+        return this.name;
     }
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getReadDescription() {
+        return this.readDescription;
+    }
+
+    public void setReadDescription(String readDescription) {
+        this.readDescription = readDescription;
+    }
+
+    public String getWriteDescription() {
+        return this.writeDescription;
+    }
+
+    public void setWriteDescription(String writeDescription) {
+        this.writeDescription = writeDescription;
+    }
+
+    public static class Builder {
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         */
+        private String i18nKey;
+        /**
+         * 云文档国际化名称
+         * <p> 示例值：名称
+         */
+        private String name;
+        /**
+         * 云文档国际化读权限说明
+         * <p> 示例值：读权限说明
+         */
+        private String readDescription;
+        /**
+         * 云文档国际化写权限说明
+         * <p> 示例值：写权限说明
+         */
+        private String writeDescription;
+
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         *
+         * @param i18nKey
+         * @return
+         */
+        public Builder i18nKey(String i18nKey) {
+            this.i18nKey = i18nKey;
+            return this;
+        }
+
+        /**
+         * 国际化语言的 key
+         * <p> 示例值：zh_cn
+         *
+         * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.CloudDocI18nInfoI18nKeyEnum}
+         * @return
+         */
+        public Builder i18nKey(com.lark.oapi.service.application.v6.enums.CloudDocI18nInfoI18nKeyEnum i18nKey) {
+            this.i18nKey = i18nKey.getValue();
+            return this;
+        }
+
+
+        /**
+         * 云文档国际化名称
+         * <p> 示例值：名称
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 云文档国际化读权限说明
+         * <p> 示例值：读权限说明
+         *
+         * @param readDescription
+         * @return
+         */
+        public Builder readDescription(String readDescription) {
+            this.readDescription = readDescription;
+            return this;
+        }
+
+
+        /**
+         * 云文档国际化写权限说明
+         * <p> 示例值：写权限说明
+         *
+         * @param writeDescription
+         * @return
+         */
+        public Builder writeDescription(String writeDescription) {
+            this.writeDescription = writeDescription;
+            return this;
+        }
+
+
+        public CloudDocI18nInfo build() {
+            return new CloudDocI18nInfo(this);
+        }
+    }
 }

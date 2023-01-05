@@ -18,189 +18,187 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListTicketMessageReq {
-
-  /**
-   * 起始时间
-   * <p> 示例值：1617960686
-   */
-  @Query
-  @SerializedName("time_start")
-  private Integer timeStart;
-  /**
-   * 结束时间
-   * <p> 示例值：1617960687
-   */
-  @Query
-  @SerializedName("time_end")
-  private Integer timeEnd;
-  /**
-   * 页数ID
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("page")
-  private Integer page;
-  /**
-   * 消息数量，最大200，默认20
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 工单ID
-   * <p> 示例值：6948728206392295444
-   */
-  @Path
-  @SerializedName("ticket_id")
-  private String ticketId;
-
-  // builder 开始
-  public ListTicketMessageReq() {
-  }
-
-  public ListTicketMessageReq(Builder builder) {
     /**
      * 起始时间
      * <p> 示例值：1617960686
      */
-    this.timeStart = builder.timeStart;
+    @Query
+    @SerializedName("time_start")
+    private Integer timeStart;
     /**
      * 结束时间
      * <p> 示例值：1617960687
      */
-    this.timeEnd = builder.timeEnd;
+    @Query
+    @SerializedName("time_end")
+    private Integer timeEnd;
     /**
      * 页数ID
      * <p> 示例值：1
      */
-    this.page = builder.page;
+    @Query
+    @SerializedName("page")
+    private Integer page;
     /**
      * 消息数量，最大200，默认20
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 工单ID
      * <p> 示例值：6948728206392295444
      */
-    this.ticketId = builder.ticketId;
-  }
+    @Path
+    @SerializedName("ticket_id")
+    private String ticketId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getTimeStart() {
-    return this.timeStart;
-  }
-
-  public void setTimeStart(Integer timeStart) {
-    this.timeStart = timeStart;
-  }
-
-  public Integer getTimeEnd() {
-    return this.timeEnd;
-  }
-
-  public void setTimeEnd(Integer timeEnd) {
-    this.timeEnd = timeEnd;
-  }
-
-  public Integer getPage() {
-    return this.page;
-  }
-
-  public void setPage(Integer page) {
-    this.page = page;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public static class Builder {
-
-    private Integer timeStart; // 起始时间
-    private Integer timeEnd; // 结束时间
-    private Integer page; // 页数ID
-    private Integer pageSize; // 消息数量，最大200，默认20
-    private String ticketId; // 工单ID
-
-    /**
-     * 起始时间
-     * <p> 示例值：1617960686
-     *
-     * @param timeStart
-     * @return
-     */
-    public Builder timeStart(Integer timeStart) {
-      this.timeStart = timeStart;
-      return this;
+    // builder 开始
+    public ListTicketMessageReq() {
     }
 
-    /**
-     * 结束时间
-     * <p> 示例值：1617960687
-     *
-     * @param timeEnd
-     * @return
-     */
-    public Builder timeEnd(Integer timeEnd) {
-      this.timeEnd = timeEnd;
-      return this;
+    public ListTicketMessageReq(Builder builder) {
+        /**
+         * 起始时间
+         * <p> 示例值：1617960686
+         */
+        this.timeStart = builder.timeStart;
+        /**
+         * 结束时间
+         * <p> 示例值：1617960687
+         */
+        this.timeEnd = builder.timeEnd;
+        /**
+         * 页数ID
+         * <p> 示例值：1
+         */
+        this.page = builder.page;
+        /**
+         * 消息数量，最大200，默认20
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 工单ID
+         * <p> 示例值：6948728206392295444
+         */
+        this.ticketId = builder.ticketId;
     }
 
-    /**
-     * 页数ID
-     * <p> 示例值：1
-     *
-     * @param page
-     * @return
-     */
-    public Builder page(Integer page) {
-      this.page = page;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 消息数量，最大200，默认20
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getTimeStart() {
+        return this.timeStart;
     }
 
-    /**
-     * 工单ID
-     * <p> 示例值：6948728206392295444
-     *
-     * @param ticketId
-     * @return
-     */
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
+    public void setTimeStart(Integer timeStart) {
+        this.timeStart = timeStart;
     }
 
-    public ListTicketMessageReq build() {
-      return new ListTicketMessageReq(this);
+    public Integer getTimeEnd() {
+        return this.timeEnd;
     }
-  }
+
+    public void setTimeEnd(Integer timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
+    public Integer getPage() {
+        return this.page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getTicketId() {
+        return this.ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
+    public static class Builder {
+        private Integer timeStart; // 起始时间
+        private Integer timeEnd; // 结束时间
+        private Integer page; // 页数ID
+        private Integer pageSize; // 消息数量，最大200，默认20
+        private String ticketId; // 工单ID
+
+        /**
+         * 起始时间
+         * <p> 示例值：1617960686
+         *
+         * @param timeStart
+         * @return
+         */
+        public Builder timeStart(Integer timeStart) {
+            this.timeStart = timeStart;
+            return this;
+        }
+
+        /**
+         * 结束时间
+         * <p> 示例值：1617960687
+         *
+         * @param timeEnd
+         * @return
+         */
+        public Builder timeEnd(Integer timeEnd) {
+            this.timeEnd = timeEnd;
+            return this;
+        }
+
+        /**
+         * 页数ID
+         * <p> 示例值：1
+         *
+         * @param page
+         * @return
+         */
+        public Builder page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * 消息数量，最大200，默认20
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 工单ID
+         * <p> 示例值：6948728206392295444
+         *
+         * @param ticketId
+         * @return
+         */
+        public Builder ticketId(String ticketId) {
+            this.ticketId = ticketId;
+            return this;
+        }
+
+        public ListTicketMessageReq build() {
+            return new ListTicketMessageReq(this);
+        }
+    }
 }

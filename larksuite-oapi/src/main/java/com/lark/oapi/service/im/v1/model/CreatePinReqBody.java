@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreatePinReqBody {
-
-  /**
-   * 待Pin的消息ID
-   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-   */
-  @SerializedName("message_id")
-  private String messageId;
-
-  // builder 开始
-  public CreatePinReqBody() {
-  }
-
-  public CreatePinReqBody(Builder builder) {
     /**
-     * 待Pin的消息ID
+     * 待Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      */
-    this.messageId = builder.messageId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 待Pin的消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
+    @SerializedName("message_id")
     private String messageId;
 
-    /**
-     * 待Pin的消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     *
-     * @param messageId
-     * @return
-     */
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    // builder 开始
+    public CreatePinReqBody() {
     }
 
-
-    public CreatePinReqBody build() {
-      return new CreatePinReqBody(this);
+    public CreatePinReqBody(Builder builder) {
+        /**
+         * 待Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        this.messageId = builder.messageId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    public static class Builder {
+        /**
+         * 待Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        private String messageId;
+
+        /**
+         * 待Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+
+        public CreatePinReqBody build() {
+            return new CreatePinReqBody(this);
+        }
+    }
 }

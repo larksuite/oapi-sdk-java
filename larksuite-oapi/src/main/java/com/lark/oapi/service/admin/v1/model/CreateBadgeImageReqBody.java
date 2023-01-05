@@ -16,111 +16,108 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateBadgeImageReqBody {
-
-  /**
-   * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
-   * <p> 示例值：file binary
-   */
-  @SerializedName("image_file")
-  private java.io.File imageFile;
-  /**
-   * 图片的类型
-   * <p> 示例值：1
-   */
-  @SerializedName("image_type")
-  private Integer imageType;
-
-  // builder 开始
-  public CreateBadgeImageReqBody() {
-  }
-
-  public CreateBadgeImageReqBody(Builder builder) {
     /**
      * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
      * <p> 示例值：file binary
      */
-    this.imageFile = builder.imageFile;
-    /**
-     * 图片的类型
-     * <p> 示例值：1
-     */
-    this.imageType = builder.imageType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public java.io.File getImageFile() {
-    return this.imageFile;
-  }
-
-  public void setImageFile(java.io.File imageFile) {
-    this.imageFile = imageFile;
-  }
-
-  public Integer getImageType() {
-    return this.imageType;
-  }
-
-  public void setImageType(Integer imageType) {
-    this.imageType = imageType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
-     * <p> 示例值：file binary
-     */
+    @SerializedName("image_file")
     private java.io.File imageFile;
     /**
      * 图片的类型
      * <p> 示例值：1
      */
+    @SerializedName("image_type")
     private Integer imageType;
 
-    /**
-     * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
-     * <p> 示例值：file binary
-     *
-     * @param imageFile
-     * @return
-     */
-    public Builder imageFile(java.io.File imageFile) {
-      this.imageFile = imageFile;
-      return this;
+    // builder 开始
+    public CreateBadgeImageReqBody() {
     }
 
-
-    /**
-     * 图片的类型
-     * <p> 示例值：1
-     *
-     * @param imageType
-     * @return
-     */
-    public Builder imageType(Integer imageType) {
-      this.imageType = imageType;
-      return this;
+    public CreateBadgeImageReqBody(Builder builder) {
+        /**
+         * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
+         * <p> 示例值：file binary
+         */
+        this.imageFile = builder.imageFile;
+        /**
+         * 图片的类型
+         * <p> 示例值：1
+         */
+        this.imageType = builder.imageType;
     }
 
-    /**
-     * 图片的类型
-     * <p> 示例值：1
-     *
-     * @param imageType {@link com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum}
-     * @return
-     */
-    public Builder imageType(
-        com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum imageType) {
-      this.imageType = imageType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public CreateBadgeImageReqBody build() {
-      return new CreateBadgeImageReqBody(this);
+    public java.io.File getImageFile() {
+        return this.imageFile;
     }
-  }
+
+    public void setImageFile(java.io.File imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    public Integer getImageType() {
+        return this.imageType;
+    }
+
+    public void setImageType(Integer imageType) {
+        this.imageType = imageType;
+    }
+
+    public static class Builder {
+        /**
+         * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
+         * <p> 示例值：file binary
+         */
+        private java.io.File imageFile;
+        /**
+         * 图片的类型
+         * <p> 示例值：1
+         */
+        private Integer imageType;
+
+        /**
+         * 勋章图片的文件，仅支持 PNG 格式，320 x 320 像素，大小不超过 1024 KB。
+         * <p> 示例值：file binary
+         *
+         * @param imageFile
+         * @return
+         */
+        public Builder imageFile(java.io.File imageFile) {
+            this.imageFile = imageFile;
+            return this;
+        }
+
+
+        /**
+         * 图片的类型
+         * <p> 示例值：1
+         *
+         * @param imageType
+         * @return
+         */
+        public Builder imageType(Integer imageType) {
+            this.imageType = imageType;
+            return this;
+        }
+
+        /**
+         * 图片的类型
+         * <p> 示例值：1
+         *
+         * @param imageType {@link com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum}
+         * @return
+         */
+        public Builder imageType(com.lark.oapi.service.admin.v1.enums.CreateBadgeImageImageTypeEnum imageType) {
+            this.imageType = imageType.getValue();
+            return this;
+        }
+
+
+        public CreateBadgeImageReqBody build() {
+            return new CreateBadgeImageReqBody(this);
+        }
+    }
 }

@@ -16,161 +16,157 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppRoleBlockRole {
-
-  /**
-   * Block的ID
-   * <p> 示例值：blknkqrP3RqUkcAW
-   */
-  @SerializedName("block_id")
-  private String blockId;
-  /**
-   * Block类型
-   * <p> 示例值：dashboard
-   */
-  @SerializedName("block_type")
-  private String blockType;
-  /**
-   * Block权限
-   * <p> 示例值：0
-   */
-  @SerializedName("block_perm")
-  private Integer blockPerm;
-
-  // builder 开始
-  public AppRoleBlockRole() {
-  }
-
-  public AppRoleBlockRole(Builder builder) {
     /**
-     * Block的ID
+     * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
      * <p> 示例值：blknkqrP3RqUkcAW
      */
-    this.blockId = builder.blockId;
-    /**
-     * Block类型
-     * <p> 示例值：dashboard
-     */
-    this.blockType = builder.blockType;
-    /**
-     * Block权限
-     * <p> 示例值：0
-     */
-    this.blockPerm = builder.blockPerm;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public String getBlockType() {
-    return this.blockType;
-  }
-
-  public void setBlockType(String blockType) {
-    this.blockType = blockType;
-  }
-
-  public Integer getBlockPerm() {
-    return this.blockPerm;
-  }
-
-  public void setBlockPerm(Integer blockPerm) {
-    this.blockPerm = blockPerm;
-  }
-
-  public static class Builder {
-
-    /**
-     * Block的ID
-     * <p> 示例值：blknkqrP3RqUkcAW
-     */
+    @SerializedName("block_id")
     private String blockId;
     /**
      * Block类型
      * <p> 示例值：dashboard
      */
+    @SerializedName("block_type")
     private String blockType;
     /**
      * Block权限
      * <p> 示例值：0
      */
+    @SerializedName("block_perm")
     private Integer blockPerm;
 
-    /**
-     * Block的ID
-     * <p> 示例值：blknkqrP3RqUkcAW
-     *
-     * @param blockId
-     * @return
-     */
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    // builder 开始
+    public AppRoleBlockRole() {
     }
 
-
-    /**
-     * Block类型
-     * <p> 示例值：dashboard
-     *
-     * @param blockType
-     * @return
-     */
-    public Builder blockType(String blockType) {
-      this.blockType = blockType;
-      return this;
+    public AppRoleBlockRole(Builder builder) {
+        /**
+         * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
+         * <p> 示例值：blknkqrP3RqUkcAW
+         */
+        this.blockId = builder.blockId;
+        /**
+         * Block类型
+         * <p> 示例值：dashboard
+         */
+        this.blockType = builder.blockType;
+        /**
+         * Block权限
+         * <p> 示例值：0
+         */
+        this.blockPerm = builder.blockPerm;
     }
 
-    /**
-     * Block类型
-     * <p> 示例值：dashboard
-     *
-     * @param blockType {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum}
-     * @return
-     */
-    public Builder blockType(
-        com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum blockType) {
-      this.blockType = blockType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * Block权限
-     * <p> 示例值：0
-     *
-     * @param blockPerm
-     * @return
-     */
-    public Builder blockPerm(Integer blockPerm) {
-      this.blockPerm = blockPerm;
-      return this;
+    public String getBlockId() {
+        return this.blockId;
     }
 
-    /**
-     * Block权限
-     * <p> 示例值：0
-     *
-     * @param blockPerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum}
-     * @return
-     */
-    public Builder blockPerm(
-        com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum blockPerm) {
-      this.blockPerm = blockPerm.getValue();
-      return this;
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
     }
 
-
-    public AppRoleBlockRole build() {
-      return new AppRoleBlockRole(this);
+    public String getBlockType() {
+        return this.blockType;
     }
-  }
+
+    public void setBlockType(String blockType) {
+        this.blockType = blockType;
+    }
+
+    public Integer getBlockPerm() {
+        return this.blockPerm;
+    }
+
+    public void setBlockPerm(Integer blockPerm) {
+        this.blockPerm = blockPerm;
+    }
+
+    public static class Builder {
+        /**
+         * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
+         * <p> 示例值：blknkqrP3RqUkcAW
+         */
+        private String blockId;
+        /**
+         * Block类型
+         * <p> 示例值：dashboard
+         */
+        private String blockType;
+        /**
+         * Block权限
+         * <p> 示例值：0
+         */
+        private Integer blockPerm;
+
+        /**
+         * Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id
+         * <p> 示例值：blknkqrP3RqUkcAW
+         *
+         * @param blockId
+         * @return
+         */
+        public Builder blockId(String blockId) {
+            this.blockId = blockId;
+            return this;
+        }
+
+
+        /**
+         * Block类型
+         * <p> 示例值：dashboard
+         *
+         * @param blockType
+         * @return
+         */
+        public Builder blockType(String blockType) {
+            this.blockType = blockType;
+            return this;
+        }
+
+        /**
+         * Block类型
+         * <p> 示例值：dashboard
+         *
+         * @param blockType {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum}
+         * @return
+         */
+        public Builder blockType(com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum blockType) {
+            this.blockType = blockType.getValue();
+            return this;
+        }
+
+
+        /**
+         * Block权限
+         * <p> 示例值：0
+         *
+         * @param blockPerm
+         * @return
+         */
+        public Builder blockPerm(Integer blockPerm) {
+            this.blockPerm = blockPerm;
+            return this;
+        }
+
+        /**
+         * Block权限
+         * <p> 示例值：0
+         *
+         * @param blockPerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum}
+         * @return
+         */
+        public Builder blockPerm(com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum blockPerm) {
+            this.blockPerm = blockPerm.getValue();
+            return this;
+        }
+
+
+        public AppRoleBlockRole build() {
+            return new AppRoleBlockRole(this);
+        }
+    }
 }

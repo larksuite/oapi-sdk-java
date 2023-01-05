@@ -17,19 +17,19 @@ package com.lark.oapi.service.approval.v4.enums;
  * 任务所属的任务分组，如「待办」、「已办」等
  */
 public enum TaskTopicEnum {
-  TODOAPPROVAL("1"), // 待办
-  DONEAPPROVAL("2"), // 已办
-  INITIATEDAPPROVAL("3"), // 已发起
-  UNREADNOTICE("17"), // 未读知会
-  READNOTICE("18"), // 已读知会
-  ;
-  private String value;
+    TODOAPPROVAL("1"), // 待办
+    DONEAPPROVAL("2"), // 已办
+    INITIATEDAPPROVAL("3"), // 已发起
+    UNREADNOTICE("17"), // 未读知会
+    READNOTICE("18"), // 已读知会
+    ;
+    private String value;
 
-  TaskTopicEnum(String value) {
-    this.value = value;
-  }
+    TaskTopicEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateUserFlow {
 
-  /**
-   * 打卡流水记录列表
-   * <p> 示例值：
-   */
-  @SerializedName("flow_records")
-  private UserFlow[] flowRecords;
+    /**
+     * 打卡流水记录列表
+     * <p> 示例值：
+     */
+    @SerializedName("flow_records")
+    private UserFlow[] flowRecords;
 
-  public UserFlow[] getFlowRecords() {
-    return this.flowRecords;
-  }
+    public UserFlow[] getFlowRecords() {
+        return this.flowRecords;
+    }
 
-  public void setFlowRecords(UserFlow[] flowRecords) {
-    this.flowRecords = flowRecords;
-  }
+    public void setFlowRecords(UserFlow[] flowRecords) {
+        this.flowRecords = flowRecords;
+    }
 
 }

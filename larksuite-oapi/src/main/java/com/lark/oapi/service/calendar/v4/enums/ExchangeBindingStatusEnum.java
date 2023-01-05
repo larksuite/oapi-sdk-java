@@ -17,19 +17,19 @@ package com.lark.oapi.service.calendar.v4.enums;
  * exchange账户同步状态
  */
 public enum ExchangeBindingStatusEnum {
-  DOING("doing"), // 日历正在同步
-  CAL_DONE("cal_done"), // 日历同步完成
-  TIMESPAN_DONE("timespan_done"), // 近期时间段同步完成
-  DONE("done"), // 日程同步完成
-  ERR("err"), // 同步错误
-  ;
-  private String value;
+    DOING("doing"), // 日历正在同步
+    CAL_DONE("cal_done"), // 日历同步完成
+    TIMESPAN_DONE("timespan_done"), // 近期时间段同步完成
+    DONE("done"), // 日程同步完成
+    ERR("err"), // 同步错误
+    ;
+    private String value;
 
-  ExchangeBindingStatusEnum(String value) {
-    this.value = value;
-  }
+    ExchangeBindingStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

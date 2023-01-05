@@ -16,20 +16,19 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchCalendarRespBody {
+    /**
+     * 更新后的日历实体
+     * <p> 示例值：
+     */
+    @SerializedName("calendar")
+    private Calendar calendar;
 
-  /**
-   * 更新后的日历实体
-   * <p> 示例值：
-   */
-  @SerializedName("calendar")
-  private Calendar calendar;
+    public Calendar getCalendar() {
+        return this.calendar;
+    }
 
-  public Calendar getCalendar() {
-    return this.calendar;
-  }
-
-  public void setCalendar(Calendar calendar) {
-    this.calendar = calendar;
-  }
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
 
 }

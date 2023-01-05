@@ -16,34 +16,33 @@ package com.lark.oapi.service.meeting_room.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2MeetingRoomStatusChangedV1Data {
+    /**
+     * 会议室名称
+     * <p> 示例值：room1
+     */
+    @SerializedName("room_name")
+    private String roomName;
+    /**
+     * 会议室 ID
+     * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
+     */
+    @SerializedName("room_id")
+    private String roomId;
 
-  /**
-   * 会议室名称
-   * <p> 示例值：room1
-   */
-  @SerializedName("room_name")
-  private String roomName;
-  /**
-   * 会议室 ID
-   * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
-   */
-  @SerializedName("room_id")
-  private String roomId;
+    public String getRoomName() {
+        return this.roomName;
+    }
 
-  public String getRoomName() {
-    return this.roomName;
-  }
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
 
-  public void setRoomName(String roomName) {
-    this.roomName = roomName;
-  }
+    public String getRoomId() {
+        return this.roomId;
+    }
 
-  public String getRoomId() {
-    return this.roomId;
-  }
-
-  public void setRoomId(String roomId) {
-    this.roomId = roomId;
-  }
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
 
 }

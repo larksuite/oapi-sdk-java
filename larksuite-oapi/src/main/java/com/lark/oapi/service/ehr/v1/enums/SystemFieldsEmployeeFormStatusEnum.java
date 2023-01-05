@@ -17,17 +17,17 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 入职登记表状态
  */
 public enum SystemFieldsEmployeeFormStatusEnum {
-  NOT_SENT(1), // 未发送
-  TO_BE_SUBMITTED(2), // 待提交
-  SUBMITTED(3), // 已提交
-  ;
-  private Integer value;
+    NOT_SENT(1), // 未发送
+    TO_BE_SUBMITTED(2), // 待提交
+    SUBMITTED(3), // 已提交
+    ;
+    private Integer value;
 
-  SystemFieldsEmployeeFormStatusEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsEmployeeFormStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -18,90 +18,121 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class OfferApplicationReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 投递ID
-   * <p> 示例值：6949805467799537964
-   */
-  @Path
-  @SerializedName("application_id")
-  private String applicationId;
-
-  // builder 开始
-  public OfferApplicationReq() {
-  }
-
-  public OfferApplicationReq(Builder builder) {
     /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     * 用户 ID 类型
+     * <p> 示例值：open_id
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
+     * 此次调用中使用的部门 ID 的类型
+     * <p> 示例值：open_department_id
+     */
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 投递ID
      * <p> 示例值：6949805467799537964
      */
-    this.applicationId = builder.applicationId;
-  }
+    @Path
+    @SerializedName("application_id")
+    private String applicationId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String applicationId; // 投递ID
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public OfferApplicationReq() {
     }
 
-    /**
-     * 投递ID
-     * <p> 示例值：6949805467799537964
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    public OfferApplicationReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 投递ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.applicationId = builder.applicationId;
     }
 
-    public OfferApplicationReq build() {
-      return new OfferApplicationReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 用户 ID 类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private String applicationId; // 投递ID
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 投递ID
+         * <p> 示例值：6949805467799537964
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+        public OfferApplicationReq build() {
+            return new OfferApplicationReq(this);
+        }
+    }
 }

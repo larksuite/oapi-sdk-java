@@ -16,106 +16,106 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1RemedyApprovalV4Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("employee_id")
-  private String employeeId;
-  @SerializedName("start_time")
-  private long startTime;
-  @SerializedName("end_time")
-  private long endTime;
-  @SerializedName("remedy_time")
-  private String remedyTime;
-  @SerializedName("remedy_reason")
-  private String remedyReason;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("instance_code")
+    private String instanceCode;
+    @SerializedName("open_id")
+    private String openId;
+    @SerializedName("employee_id")
+    private String employeeId;
+    @SerializedName("start_time")
+    private long startTime;
+    @SerializedName("end_time")
+    private long endTime;
+    @SerializedName("remedy_time")
+    private String remedyTime;
+    @SerializedName("remedy_reason")
+    private String remedyReason;
 
-  public String getRemedyTime() {
-    return remedyTime;
-  }
+    public String getRemedyTime() {
+        return remedyTime;
+    }
 
-  public void setRemedyTime(String remedyTime) {
-    this.remedyTime = remedyTime;
-  }
+    public void setRemedyTime(String remedyTime) {
+        this.remedyTime = remedyTime;
+    }
 
-  public String getRemedyReason() {
-    return remedyReason;
-  }
+    public String getRemedyReason() {
+        return remedyReason;
+    }
 
-  public void setRemedyReason(String remedyReason) {
-    this.remedyReason = remedyReason;
-  }
+    public void setRemedyReason(String remedyReason) {
+        this.remedyReason = remedyReason;
+    }
 
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public String getInstanceCode() {
-    return instanceCode;
-  }
+    public String getInstanceCode() {
+        return instanceCode;
+    }
 
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
+    }
 
-  public String getOpenId() {
-    return openId;
-  }
+    public String getOpenId() {
+        return openId;
+    }
 
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
-  public String getEmployeeId() {
-    return employeeId;
-  }
+    public String getEmployeeId() {
+        return employeeId;
+    }
 
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
-  public long getStartTime() {
-    return startTime;
-  }
+    public long getStartTime() {
+        return startTime;
+    }
 
-  public void setStartTime(long startTime) {
-    this.startTime = startTime;
-  }
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 
-  public long getEndTime() {
-    return endTime;
-  }
+    public long getEndTime() {
+        return endTime;
+    }
 
-  public void setEndTime(long endTime) {
-    this.endTime = endTime;
-  }
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
 
 }

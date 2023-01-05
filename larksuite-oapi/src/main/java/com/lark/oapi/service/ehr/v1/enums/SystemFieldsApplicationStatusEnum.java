@@ -17,17 +17,17 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 转正状态
  */
 public enum SystemFieldsApplicationStatusEnum {
-  NO_CONVERSION_REQUIRED(1), // 无需转正
-  PENDING_CONVERSION(2), // 待转正
-  REGULAR(3), // 已转正
-  ;
-  private Integer value;
+    NO_CONVERSION_REQUIRED(1), // 无需转正
+    PENDING_CONVERSION(2), // 待转正
+    REGULAR(3), // 已转正
+    ;
+    private Integer value;
 
-  SystemFieldsApplicationStatusEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsApplicationStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

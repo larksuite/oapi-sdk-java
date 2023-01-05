@@ -16,34 +16,33 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListTicketMessageRespBody {
+    /**
+     * 工单消息列表
+     * <p> 示例值：
+     */
+    @SerializedName("messages")
+    private TicketMessage[] messages;
+    /**
+     * 消息总数
+     * <p> 示例值：100
+     */
+    @SerializedName("total")
+    private Integer total;
 
-  /**
-   * 工单消息列表
-   * <p> 示例值：
-   */
-  @SerializedName("messages")
-  private TicketMessage[] messages;
-  /**
-   * 消息总数
-   * <p> 示例值：100
-   */
-  @SerializedName("total")
-  private Integer total;
+    public TicketMessage[] getMessages() {
+        return this.messages;
+    }
 
-  public TicketMessage[] getMessages() {
-    return this.messages;
-  }
+    public void setMessages(TicketMessage[] messages) {
+        this.messages = messages;
+    }
 
-  public void setMessages(TicketMessage[] messages) {
-    this.messages = messages;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public Integer getTotal() {
-    return this.total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
 }

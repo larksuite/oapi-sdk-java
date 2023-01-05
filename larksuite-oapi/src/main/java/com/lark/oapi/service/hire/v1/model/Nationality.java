@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Nationality {
-
-  /**
-   * 国家编码
-   * <p> 示例值：
-   */
-  @SerializedName("nationality_code")
-  private String nationalityCode;
-  /**
-   * 名字
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 英文名
-   * <p> 示例值：
-   */
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public Nationality() {
-  }
-
-  public Nationality(Builder builder) {
     /**
      * 国家编码
      * <p> 示例值：
      */
-    this.nationalityCode = builder.nationalityCode;
-    /**
-     * 名字
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 英文名
-     * <p> 示例值：
-     */
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNationalityCode() {
-    return this.nationalityCode;
-  }
-
-  public void setNationalityCode(String nationalityCode) {
-    this.nationalityCode = nationalityCode;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 国家编码
-     * <p> 示例值：
-     */
+    @SerializedName("nationality_code")
     private String nationalityCode;
     /**
      * 名字
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
      * 英文名
      * <p> 示例值：
      */
+    @SerializedName("en_name")
     private String enName;
 
-    /**
-     * 国家编码
-     * <p> 示例值：
-     *
-     * @param nationalityCode
-     * @return
-     */
-    public Builder nationalityCode(String nationalityCode) {
-      this.nationalityCode = nationalityCode;
-      return this;
+    // builder 开始
+    public Nationality() {
     }
 
-
-    /**
-     * 名字
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Nationality(Builder builder) {
+        /**
+         * 国家编码
+         * <p> 示例值：
+         */
+        this.nationalityCode = builder.nationalityCode;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        this.enName = builder.enName;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Nationality build() {
-      return new Nationality(this);
+    public String getNationalityCode() {
+        return this.nationalityCode;
     }
-  }
+
+    public void setNationalityCode(String nationalityCode) {
+        this.nationalityCode = nationalityCode;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public static class Builder {
+        /**
+         * 国家编码
+         * <p> 示例值：
+         */
+        private String nationalityCode;
+        /**
+         * 名字
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 英文名
+         * <p> 示例值：
+         */
+        private String enName;
+
+        /**
+         * 国家编码
+         * <p> 示例值：
+         *
+         * @param nationalityCode
+         * @return
+         */
+        public Builder nationalityCode(String nationalityCode) {
+            this.nationalityCode = nationalityCode;
+            return this;
+        }
+
+
+        /**
+         * 名字
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        public Nationality build() {
+            return new Nationality(this);
+        }
+    }
 }

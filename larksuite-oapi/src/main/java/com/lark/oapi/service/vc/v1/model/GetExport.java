@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetExport {
 
-  /**
-   * 任务状态
-   * <p> 示例值：3
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * 文件下载地址
-   * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-   */
-  @SerializedName("url")
-  private String url;
+    /**
+     * 任务状态
+     * <p> 示例值：3
+     */
+    @SerializedName("status")
+    private Integer status;
+    /**
+     * 文件下载地址
+     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+     */
+    @SerializedName("url")
+    private String url;
 
-  public Integer getStatus() {
-    return this.status;
-  }
+    public Integer getStatus() {
+        return this.status;
+    }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-  public String getUrl() {
-    return this.url;
-  }
+    public String getUrl() {
+        return this.url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }

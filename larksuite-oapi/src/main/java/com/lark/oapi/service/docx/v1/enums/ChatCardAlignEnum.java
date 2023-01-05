@@ -17,17 +17,17 @@ package com.lark.oapi.service.docx.v1.enums;
  * 对齐方式
  */
 public enum ChatCardAlignEnum {
-  LEFT(1), //
-  CENTER(2), //
-  RIGHT(3), //
-  ;
-  private Integer value;
+    LEFT(1), //
+    CENTER(2), //
+    RIGHT(3), //
+    ;
+    private Integer value;
 
-  ChatCardAlignEnum(Integer value) {
-    this.value = value;
-  }
+    ChatCardAlignEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

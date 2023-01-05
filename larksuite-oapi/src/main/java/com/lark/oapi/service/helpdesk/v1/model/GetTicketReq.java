@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetTicketReq {
-
-  /**
-   * ticket id
-   * <p> 示例值：123456
-   */
-  @Path
-  @SerializedName("ticket_id")
-  private String ticketId;
-
-  // builder 开始
-  public GetTicketReq() {
-  }
-
-  public GetTicketReq(Builder builder) {
     /**
      * ticket id
      * <p> 示例值：123456
      */
-    this.ticketId = builder.ticketId;
-  }
+    @Path
+    @SerializedName("ticket_id")
+    private String ticketId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public static class Builder {
-
-    private String ticketId; // ticket id
-
-    /**
-     * ticket id
-     * <p> 示例值：123456
-     *
-     * @param ticketId
-     * @return
-     */
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
+    // builder 开始
+    public GetTicketReq() {
     }
 
-    public GetTicketReq build() {
-      return new GetTicketReq(this);
+    public GetTicketReq(Builder builder) {
+        /**
+         * ticket id
+         * <p> 示例值：123456
+         */
+        this.ticketId = builder.ticketId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTicketId() {
+        return this.ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
+    public static class Builder {
+
+        private String ticketId; // ticket id
+
+        /**
+         * ticket id
+         * <p> 示例值：123456
+         *
+         * @param ticketId
+         * @return
+         */
+        public Builder ticketId(String ticketId) {
+            this.ticketId = ticketId;
+            return this;
+        }
+
+        public GetTicketReq build() {
+            return new GetTicketReq(this);
+        }
+    }
 }

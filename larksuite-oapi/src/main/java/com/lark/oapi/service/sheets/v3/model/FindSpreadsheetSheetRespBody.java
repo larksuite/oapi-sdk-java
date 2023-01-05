@@ -16,20 +16,19 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FindSpreadsheetSheetRespBody {
+    /**
+     * 符合条件的信息
+     * <p> 示例值：
+     */
+    @SerializedName("find_result")
+    private FindReplaceResult findResult;
 
-  /**
-   * 查找返回符合条件的信息
-   * <p> 示例值：
-   */
-  @SerializedName("find_result")
-  private FindReplaceResult findResult;
+    public FindReplaceResult getFindResult() {
+        return this.findResult;
+    }
 
-  public FindReplaceResult getFindResult() {
-    return this.findResult;
-  }
-
-  public void setFindResult(FindReplaceResult findResult) {
-    this.findResult = findResult;
-  }
+    public void setFindResult(FindReplaceResult findResult) {
+        this.findResult = findResult;
+    }
 
 }

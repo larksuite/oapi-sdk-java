@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetPublicMailbox {
 
-  /**
-   * The unique ID of a public mailbox
-   * <p> 示例值：xxxxxxxxxxxxxxx
-   */
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-  /**
-   * The public mailbox's email address
-   * <p> 示例值：test_public_mailbox@xxx.xx
-   */
-  @SerializedName("email")
-  private String email;
-  /**
-   * The public mailbox's display name
-   * <p> 示例值：test public mailbox
-   */
-  @SerializedName("name")
-  private String name;
+    /**
+     * The unique ID of a public mailbox
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
+    @SerializedName("public_mailbox_id")
+    private String publicMailboxId;
+    /**
+     * The public mailbox's email address
+     * <p> 示例值：test_public_mailbox@xxx.xx
+     */
+    @SerializedName("email")
+    private String email;
+    /**
+     * The public mailbox's display name
+     * <p> 示例值：test public mailbox
+     */
+    @SerializedName("name")
+    private String name;
 
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
+    }
 
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
+    }
 
-  public String getEmail() {
-    return this.email;
-  }
+    public String getEmail() {
+        return this.email;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

@@ -17,92 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetDailyReportReq {
-
-  /**
-   * 开始时间（unix时间，单位sec）
-   * <p> 示例值：1608888867
-   */
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 结束时间（unix时间，单位sec）
-   * <p> 示例值：1608888966
-   */
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public GetDailyReportReq() {
-  }
-
-  public GetDailyReportReq(Builder builder) {
     /**
      * 开始时间（unix时间，单位sec）
      * <p> 示例值：1608888867
      */
-    this.startTime = builder.startTime;
+    @Query
+    @SerializedName("start_time")
+    private String startTime;
     /**
      * 结束时间（unix时间，单位sec）
      * <p> 示例值：1608888966
      */
-    this.endTime = builder.endTime;
-  }
+    @Query
+    @SerializedName("end_time")
+    private String endTime;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
-    private String startTime; // 开始时间（unix时间，单位sec）
-    private String endTime; // 结束时间（unix时间，单位sec）
-
-
-    /**
-     * 开始时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    // builder 开始
+    public GetDailyReportReq() {
     }
 
-
-    /**
-     * 结束时间（unix时间，单位sec）
-     * <p> 示例值：1608888966
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public GetDailyReportReq(Builder builder) {
+        /**
+         * 开始时间（unix时间，单位sec）
+         * <p> 示例值：1608888867
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 结束时间（unix时间，单位sec）
+         * <p> 示例值：1608888966
+         */
+        this.endTime = builder.endTime;
     }
 
-    public GetDailyReportReq build() {
-      return new GetDailyReportReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public static class Builder {
+        private String startTime; // 开始时间（unix时间，单位sec）
+        private String endTime; // 结束时间（unix时间，单位sec）
+
+
+        /**
+         * 开始时间（unix时间，单位sec）
+         * <p> 示例值：1608888867
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间（unix时间，单位sec）
+         * <p> 示例值：1608888966
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        public GetDailyReportReq build() {
+            return new GetDailyReportReq(this);
+        }
+    }
 }

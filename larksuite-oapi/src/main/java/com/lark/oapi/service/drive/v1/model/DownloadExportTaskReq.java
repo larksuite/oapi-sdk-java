@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DownloadExportTaskReq {
-
-  /**
-   * 导出文档token
-   * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public DownloadExportTaskReq() {
-  }
-
-  public DownloadExportTaskReq(Builder builder) {
     /**
      * 导出文档token
      * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
      */
-    this.fileToken = builder.fileToken;
-  }
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 导出文档token
-
-    /**
-     * 导出文档token
-     * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public DownloadExportTaskReq() {
     }
 
-    public DownloadExportTaskReq build() {
-      return new DownloadExportTaskReq(this);
+    public DownloadExportTaskReq(Builder builder) {
+        /**
+         * 导出文档token
+         * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
+         */
+        this.fileToken = builder.fileToken;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public static class Builder {
+
+        private String fileToken; // 导出文档token
+
+        /**
+         * 导出文档token
+         * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public DownloadExportTaskReq build() {
+            return new DownloadExportTaskReq(this);
+        }
+    }
 }

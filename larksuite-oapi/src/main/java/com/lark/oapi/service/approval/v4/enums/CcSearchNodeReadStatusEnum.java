@@ -17,16 +17,16 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批抄送状态
  */
 public enum CcSearchNodeReadStatusEnum {
-  READ("read"), // 已读
-  UNREAD("unread"), // 未读
-  ;
-  private String value;
+    READ("read"), // 已读
+    UNREAD("unread"), // 未读
+    ;
+    private String value;
 
-  CcSearchNodeReadStatusEnum(String value) {
-    this.value = value;
-  }
+    CcSearchNodeReadStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

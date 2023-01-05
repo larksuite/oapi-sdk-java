@@ -17,16 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 负责人类型
  */
 public enum DepartmentLeaderDepartmentLeaderTypeEnum {
-  MAIN(1), // 主负责人
-  DEPUTY(2), // 副负责人
-  ;
-  private Integer value;
+    MAIN(1), // 主负责人
+    DEPUTY(2), // 副负责人
+    ;
+    private Integer value;
 
-  DepartmentLeaderDepartmentLeaderTypeEnum(Integer value) {
-    this.value = value;
-  }
+    DepartmentLeaderDepartmentLeaderTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

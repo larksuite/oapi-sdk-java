@@ -16,98 +16,96 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Job {
-
-  /**
-   * 职位 ID
-   * <p> 示例值：1695838220091399
-   */
-  @SerializedName("id")
-  private Long id;
-  /**
-   * 职位名称
-   * <p> 示例值：测试工程师
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public Job() {
-  }
-
-  public Job(Builder builder) {
     /**
      * 职位 ID
      * <p> 示例值：1695838220091399
      */
-    this.id = builder.id;
-    /**
-     * 职位名称
-     * <p> 示例值：测试工程师
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 职位 ID
-     * <p> 示例值：1695838220091399
-     */
+    @SerializedName("id")
     private Long id;
     /**
      * 职位名称
      * <p> 示例值：测试工程师
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 职位 ID
-     * <p> 示例值：1695838220091399
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(Long id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Job() {
     }
 
-
-    /**
-     * 职位名称
-     * <p> 示例值：测试工程师
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Job(Builder builder) {
+        /**
+         * 职位 ID
+         * <p> 示例值：1695838220091399
+         */
+        this.id = builder.id;
+        /**
+         * 职位名称
+         * <p> 示例值：测试工程师
+         */
+        this.name = builder.name;
     }
 
-
-    public Job build() {
-      return new Job(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 职位 ID
+         * <p> 示例值：1695838220091399
+         */
+        private Long id;
+        /**
+         * 职位名称
+         * <p> 示例值：测试工程师
+         */
+        private String name;
+
+        /**
+         * 职位 ID
+         * <p> 示例值：1695838220091399
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 职位名称
+         * <p> 示例值：测试工程师
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public Job build() {
+            return new Job(this);
+        }
+    }
 }

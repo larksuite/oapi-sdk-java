@@ -16,34 +16,33 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchCalendarRespBody {
+    /**
+     * 搜索命中的日历列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Calendar[] items;
+    /**
+     * 下次请求需要带上的分页标记
+     * <p> 示例值：10
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * 搜索命中的日历列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Calendar[] items;
-  /**
-   * 下次请求需要带上的分页标记
-   * <p> 示例值：10
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public Calendar[] getItems() {
+        return this.items;
+    }
 
-  public Calendar[] getItems() {
-    return this.items;
-  }
+    public void setItems(Calendar[] items) {
+        this.items = items;
+    }
 
-  public void setItems(Calendar[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

@@ -15,21 +15,21 @@ package com.lark.oapi.service.translation.v1.model;
 
 public class Text {
 
-  // builder 开始
-  public Text() {
-  }
-
-  public Text(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public Text build() {
-      return new Text(this);
+    // builder 开始
+    public Text() {
     }
-  }
+
+    public Text(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public Text build() {
+            return new Text(this);
+        }
+    }
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.search.v2.enums;
  * 对外展示类型
  */
 public enum SchemaDisplayOptionDisplayTypeEnum {
-  TITLE("0"), //
-  SNIPPET("1"), //
-  FOOTER("2"), //
-  ICON("3"), //
-  ;
-  private String value;
+    TITLE("0"), //
+    SNIPPET("1"), //
+    FOOTER("2"), //
+    ICON("3"), //
+    ;
+    private String value;
 
-  SchemaDisplayOptionDisplayTypeEnum(String value) {
-    this.value = value;
-  }
+    SchemaDisplayOptionDisplayTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

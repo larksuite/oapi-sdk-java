@@ -16,61 +16,59 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TextRun {
-
-  /**
-   * 回复 普通文本
-   * <p> 示例值：comment text
-   */
-  @SerializedName("text")
-  private String text;
-
-  // builder 开始
-  public TextRun() {
-  }
-
-  public TextRun(Builder builder) {
     /**
      * 回复 普通文本
      * <p> 示例值：comment text
      */
-    this.text = builder.text;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public static class Builder {
-
-    /**
-     * 回复 普通文本
-     * <p> 示例值：comment text
-     */
+    @SerializedName("text")
     private String text;
 
-    /**
-     * 回复 普通文本
-     * <p> 示例值：comment text
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    // builder 开始
+    public TextRun() {
     }
 
-
-    public TextRun build() {
-      return new TextRun(this);
+    public TextRun(Builder builder) {
+        /**
+         * 回复 普通文本
+         * <p> 示例值：comment text
+         */
+        this.text = builder.text;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public static class Builder {
+        /**
+         * 回复 普通文本
+         * <p> 示例值：comment text
+         */
+        private String text;
+
+        /**
+         * 回复 普通文本
+         * <p> 示例值：comment text
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+
+        public TextRun build() {
+            return new TextRun(this);
+        }
+    }
 }

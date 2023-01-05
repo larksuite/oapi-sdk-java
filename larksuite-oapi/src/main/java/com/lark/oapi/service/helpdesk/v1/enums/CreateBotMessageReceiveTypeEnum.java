@@ -17,16 +17,16 @@ package com.lark.oapi.service.helpdesk.v1.enums;
  * 接收消息方式，chat(服务台专属服务群)或user(服务台机器人私聊)。若选择专属服务群，用户有正在处理的工单将会发送失败。默认以chat方式发送。
  */
 public enum CreateBotMessageReceiveTypeEnum {
-  CHAT("chat"), // 通过服务台专属群发送
-  USER("user"), // 通过服务台机器人私聊发送
-  ;
-  private String value;
+    CHAT("chat"), // 通过服务台专属群发送
+    USER("user"), // 通过服务台机器人私聊发送
+    ;
+    private String value;
 
-  CreateBotMessageReceiveTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateBotMessageReceiveTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

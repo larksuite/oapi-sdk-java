@@ -16,61 +16,59 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class KickoutMeetingReqBody {
-
-  /**
-   * 需踢出的用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("kickout_users")
-  private MeetingUser[] kickoutUsers;
-
-  // builder 开始
-  public KickoutMeetingReqBody() {
-  }
-
-  public KickoutMeetingReqBody(Builder builder) {
     /**
-     * 需踢出的用户列表
+     * 需移除的用户列表
      * <p> 示例值：
      */
-    this.kickoutUsers = builder.kickoutUsers;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public MeetingUser[] getKickoutUsers() {
-    return this.kickoutUsers;
-  }
-
-  public void setKickoutUsers(MeetingUser[] kickoutUsers) {
-    this.kickoutUsers = kickoutUsers;
-  }
-
-  public static class Builder {
-
-    /**
-     * 需踢出的用户列表
-     * <p> 示例值：
-     */
+    @SerializedName("kickout_users")
     private MeetingUser[] kickoutUsers;
 
-    /**
-     * 需踢出的用户列表
-     * <p> 示例值：
-     *
-     * @param kickoutUsers
-     * @return
-     */
-    public Builder kickoutUsers(MeetingUser[] kickoutUsers) {
-      this.kickoutUsers = kickoutUsers;
-      return this;
+    // builder 开始
+    public KickoutMeetingReqBody() {
     }
 
-
-    public KickoutMeetingReqBody build() {
-      return new KickoutMeetingReqBody(this);
+    public KickoutMeetingReqBody(Builder builder) {
+        /**
+         * 需移除的用户列表
+         * <p> 示例值：
+         */
+        this.kickoutUsers = builder.kickoutUsers;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public MeetingUser[] getKickoutUsers() {
+        return this.kickoutUsers;
+    }
+
+    public void setKickoutUsers(MeetingUser[] kickoutUsers) {
+        this.kickoutUsers = kickoutUsers;
+    }
+
+    public static class Builder {
+        /**
+         * 需移除的用户列表
+         * <p> 示例值：
+         */
+        private MeetingUser[] kickoutUsers;
+
+        /**
+         * 需移除的用户列表
+         * <p> 示例值：
+         *
+         * @param kickoutUsers
+         * @return
+         */
+        public Builder kickoutUsers(MeetingUser[] kickoutUsers) {
+            this.kickoutUsers = kickoutUsers;
+            return this;
+        }
+
+
+        public KickoutMeetingReqBody build() {
+            return new KickoutMeetingReqBody(this);
+        }
+    }
 }

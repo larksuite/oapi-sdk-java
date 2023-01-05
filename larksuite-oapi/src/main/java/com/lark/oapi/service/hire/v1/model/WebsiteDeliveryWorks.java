@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryWorks {
-
-  /**
-   * 作品描述
-   * <p> 示例值：作品描述：xxxx
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 作品链接
-   * <p> 示例值：www.toutiao.com
-   */
-  @SerializedName("link")
-  private String link;
-  /**
-   * 附件
-   * <p> 示例值：
-   */
-  @SerializedName("attachment")
-  private WebsiteDeliveryWorksAttachment attachment;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-
-  // builder 开始
-  public WebsiteDeliveryWorks() {
-  }
-
-  public WebsiteDeliveryWorks(Builder builder) {
     /**
      * 作品描述
      * <p> 示例值：作品描述：xxxx
      */
-    this.desc = builder.desc;
-    /**
-     * 作品链接
-     * <p> 示例值：www.toutiao.com
-     */
-    this.link = builder.link;
-    /**
-     * 附件
-     * <p> 示例值：
-     */
-    this.attachment = builder.attachment;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedData = builder.customizedData;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public WebsiteDeliveryWorksAttachment getAttachment() {
-    return this.attachment;
-  }
-
-  public void setAttachment(WebsiteDeliveryWorksAttachment attachment) {
-    this.attachment = attachment;
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public static class Builder {
-
-    /**
-     * 作品描述
-     * <p> 示例值：作品描述：xxxx
-     */
+    @SerializedName("desc")
     private String desc;
     /**
      * 作品链接
      * <p> 示例值：www.toutiao.com
      */
+    @SerializedName("link")
     private String link;
     /**
      * 附件
      * <p> 示例值：
      */
+    @SerializedName("attachment")
     private WebsiteDeliveryWorksAttachment attachment;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
 
-    /**
-     * 作品描述
-     * <p> 示例值：作品描述：xxxx
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryWorks() {
     }
 
-
-    /**
-     * 作品链接
-     * <p> 示例值：www.toutiao.com
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public WebsiteDeliveryWorks(Builder builder) {
+        /**
+         * 作品描述
+         * <p> 示例值：作品描述：xxxx
+         */
+        this.desc = builder.desc;
+        /**
+         * 作品链接
+         * <p> 示例值：www.toutiao.com
+         */
+        this.link = builder.link;
+        /**
+         * 附件
+         * <p> 示例值：
+         */
+        this.attachment = builder.attachment;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
     }
 
-
-    /**
-     * 附件
-     * <p> 示例值：
-     *
-     * @param attachment
-     * @return
-     */
-    public Builder attachment(WebsiteDeliveryWorksAttachment attachment) {
-      this.attachment = attachment;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    public String getDesc() {
+        return this.desc;
     }
 
-
-    public WebsiteDeliveryWorks build() {
-      return new WebsiteDeliveryWorks(this);
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
-  }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public WebsiteDeliveryWorksAttachment getAttachment() {
+        return this.attachment;
+    }
+
+    public void setAttachment(WebsiteDeliveryWorksAttachment attachment) {
+        this.attachment = attachment;
+    }
+
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
+    }
+
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public static class Builder {
+        /**
+         * 作品描述
+         * <p> 示例值：作品描述：xxxx
+         */
+        private String desc;
+        /**
+         * 作品链接
+         * <p> 示例值：www.toutiao.com
+         */
+        private String link;
+        /**
+         * 附件
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryWorksAttachment attachment;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+
+        /**
+         * 作品描述
+         * <p> 示例值：作品描述：xxxx
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 作品链接
+         * <p> 示例值：www.toutiao.com
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        /**
+         * 附件
+         * <p> 示例值：
+         *
+         * @param attachment
+         * @return
+         */
+        public Builder attachment(WebsiteDeliveryWorksAttachment attachment) {
+            this.attachment = attachment;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        public WebsiteDeliveryWorks build() {
+            return new WebsiteDeliveryWorks(this);
+        }
+    }
 }

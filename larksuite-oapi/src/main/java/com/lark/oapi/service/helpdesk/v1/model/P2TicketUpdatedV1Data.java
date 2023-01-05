@@ -16,34 +16,33 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2TicketUpdatedV1Data {
+    /**
+     * ticket after update
+     * <p> 示例值：
+     */
+    @SerializedName("object")
+    private TicketEvent object;
+    /**
+     * ticket before update, only has updated fields
+     * <p> 示例值：
+     */
+    @SerializedName("old_object")
+    private TicketEventUpdateInfo oldObject;
 
-  /**
-   * ticket after update
-   * <p> 示例值：
-   */
-  @SerializedName("object")
-  private TicketEvent object;
-  /**
-   * ticket before update, only has updated fields
-   * <p> 示例值：
-   */
-  @SerializedName("old_object")
-  private TicketEventUpdateInfo oldObject;
+    public TicketEvent getObject() {
+        return this.object;
+    }
 
-  public TicketEvent getObject() {
-    return this.object;
-  }
+    public void setObject(TicketEvent object) {
+        this.object = object;
+    }
 
-  public void setObject(TicketEvent object) {
-    this.object = object;
-  }
+    public TicketEventUpdateInfo getOldObject() {
+        return this.oldObject;
+    }
 
-  public TicketEventUpdateInfo getOldObject() {
-    return this.oldObject;
-  }
-
-  public void setOldObject(TicketEventUpdateInfo oldObject) {
-    this.oldObject = oldObject;
-  }
+    public void setOldObject(TicketEventUpdateInfo oldObject) {
+        this.oldObject = oldObject;
+    }
 
 }

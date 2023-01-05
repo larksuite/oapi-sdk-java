@@ -16,172 +16,170 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DocsBlock {
-
-  /**
-   * BlockTypeID
-   * <p> 示例值：blk_4fb61568435880110854c1d0
-   */
-  @SerializedName("block_type_id")
-  private String blockTypeId;
-  /**
-   * block 的国际化信息
-   * <p> 示例值：
-   */
-  @SerializedName("i18n")
-  private BlockI18nInfo[] i18n;
-  /**
-   * 移动端 icon 链接
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("mobile_icon_url")
-  private String mobileIconUrl;
-  /**
-   * pc 端口 icon 链接
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("pc_icon_url")
-  private String pcIconUrl;
-
-  // builder 开始
-  public DocsBlock() {
-  }
-
-  public DocsBlock(Builder builder) {
     /**
      * BlockTypeID
      * <p> 示例值：blk_4fb61568435880110854c1d0
      */
-    this.blockTypeId = builder.blockTypeId;
-    /**
-     * block 的国际化信息
-     * <p> 示例值：
-     */
-    this.i18n = builder.i18n;
-    /**
-     * 移动端 icon 链接
-     * <p> 示例值：https://www.example.com
-     */
-    this.mobileIconUrl = builder.mobileIconUrl;
-    /**
-     * pc 端口 icon 链接
-     * <p> 示例值：https://www.example.com
-     */
-    this.pcIconUrl = builder.pcIconUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockTypeId() {
-    return this.blockTypeId;
-  }
-
-  public void setBlockTypeId(String blockTypeId) {
-    this.blockTypeId = blockTypeId;
-  }
-
-  public BlockI18nInfo[] getI18n() {
-    return this.i18n;
-  }
-
-  public void setI18n(BlockI18nInfo[] i18n) {
-    this.i18n = i18n;
-  }
-
-  public String getMobileIconUrl() {
-    return this.mobileIconUrl;
-  }
-
-  public void setMobileIconUrl(String mobileIconUrl) {
-    this.mobileIconUrl = mobileIconUrl;
-  }
-
-  public String getPcIconUrl() {
-    return this.pcIconUrl;
-  }
-
-  public void setPcIconUrl(String pcIconUrl) {
-    this.pcIconUrl = pcIconUrl;
-  }
-
-  public static class Builder {
-
-    /**
-     * BlockTypeID
-     * <p> 示例值：blk_4fb61568435880110854c1d0
-     */
+    @SerializedName("block_type_id")
     private String blockTypeId;
     /**
      * block 的国际化信息
      * <p> 示例值：
      */
+    @SerializedName("i18n")
     private BlockI18nInfo[] i18n;
     /**
      * 移动端 icon 链接
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("mobile_icon_url")
     private String mobileIconUrl;
     /**
      * pc 端口 icon 链接
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("pc_icon_url")
     private String pcIconUrl;
 
-    /**
-     * BlockTypeID
-     * <p> 示例值：blk_4fb61568435880110854c1d0
-     *
-     * @param blockTypeId
-     * @return
-     */
-    public Builder blockTypeId(String blockTypeId) {
-      this.blockTypeId = blockTypeId;
-      return this;
+    // builder 开始
+    public DocsBlock() {
     }
 
-
-    /**
-     * block 的国际化信息
-     * <p> 示例值：
-     *
-     * @param i18n
-     * @return
-     */
-    public Builder i18n(BlockI18nInfo[] i18n) {
-      this.i18n = i18n;
-      return this;
+    public DocsBlock(Builder builder) {
+        /**
+         * BlockTypeID
+         * <p> 示例值：blk_4fb61568435880110854c1d0
+         */
+        this.blockTypeId = builder.blockTypeId;
+        /**
+         * block 的国际化信息
+         * <p> 示例值：
+         */
+        this.i18n = builder.i18n;
+        /**
+         * 移动端 icon 链接
+         * <p> 示例值：https://www.example.com
+         */
+        this.mobileIconUrl = builder.mobileIconUrl;
+        /**
+         * pc 端口 icon 链接
+         * <p> 示例值：https://www.example.com
+         */
+        this.pcIconUrl = builder.pcIconUrl;
     }
 
-
-    /**
-     * 移动端 icon 链接
-     * <p> 示例值：https://www.example.com
-     *
-     * @param mobileIconUrl
-     * @return
-     */
-    public Builder mobileIconUrl(String mobileIconUrl) {
-      this.mobileIconUrl = mobileIconUrl;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * pc 端口 icon 链接
-     * <p> 示例值：https://www.example.com
-     *
-     * @param pcIconUrl
-     * @return
-     */
-    public Builder pcIconUrl(String pcIconUrl) {
-      this.pcIconUrl = pcIconUrl;
-      return this;
+    public String getBlockTypeId() {
+        return this.blockTypeId;
     }
 
-
-    public DocsBlock build() {
-      return new DocsBlock(this);
+    public void setBlockTypeId(String blockTypeId) {
+        this.blockTypeId = blockTypeId;
     }
-  }
+
+    public BlockI18nInfo[] getI18n() {
+        return this.i18n;
+    }
+
+    public void setI18n(BlockI18nInfo[] i18n) {
+        this.i18n = i18n;
+    }
+
+    public String getMobileIconUrl() {
+        return this.mobileIconUrl;
+    }
+
+    public void setMobileIconUrl(String mobileIconUrl) {
+        this.mobileIconUrl = mobileIconUrl;
+    }
+
+    public String getPcIconUrl() {
+        return this.pcIconUrl;
+    }
+
+    public void setPcIconUrl(String pcIconUrl) {
+        this.pcIconUrl = pcIconUrl;
+    }
+
+    public static class Builder {
+        /**
+         * BlockTypeID
+         * <p> 示例值：blk_4fb61568435880110854c1d0
+         */
+        private String blockTypeId;
+        /**
+         * block 的国际化信息
+         * <p> 示例值：
+         */
+        private BlockI18nInfo[] i18n;
+        /**
+         * 移动端 icon 链接
+         * <p> 示例值：https://www.example.com
+         */
+        private String mobileIconUrl;
+        /**
+         * pc 端口 icon 链接
+         * <p> 示例值：https://www.example.com
+         */
+        private String pcIconUrl;
+
+        /**
+         * BlockTypeID
+         * <p> 示例值：blk_4fb61568435880110854c1d0
+         *
+         * @param blockTypeId
+         * @return
+         */
+        public Builder blockTypeId(String blockTypeId) {
+            this.blockTypeId = blockTypeId;
+            return this;
+        }
+
+
+        /**
+         * block 的国际化信息
+         * <p> 示例值：
+         *
+         * @param i18n
+         * @return
+         */
+        public Builder i18n(BlockI18nInfo[] i18n) {
+            this.i18n = i18n;
+            return this;
+        }
+
+
+        /**
+         * 移动端 icon 链接
+         * <p> 示例值：https://www.example.com
+         *
+         * @param mobileIconUrl
+         * @return
+         */
+        public Builder mobileIconUrl(String mobileIconUrl) {
+            this.mobileIconUrl = mobileIconUrl;
+            return this;
+        }
+
+
+        /**
+         * pc 端口 icon 链接
+         * <p> 示例值：https://www.example.com
+         *
+         * @param pcIconUrl
+         * @return
+         */
+        public Builder pcIconUrl(String pcIconUrl) {
+            this.pcIconUrl = pcIconUrl;
+            return this;
+        }
+
+
+        public DocsBlock build() {
+            return new DocsBlock(this);
+        }
+    }
 }

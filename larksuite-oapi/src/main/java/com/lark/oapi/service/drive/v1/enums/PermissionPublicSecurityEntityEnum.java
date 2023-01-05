@@ -17,17 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 谁可以复制内容、创建副本、打印、下载
  */
 public enum PermissionPublicSecurityEntityEnum {
-  ANYONECANVIEW("anyone_can_view"), // 拥有可阅读权限的用户
-  ANYONECANEDIT("anyone_can_edit"), // 拥有可编辑权限的用户
-  ONLYFULLACCESS("only_full_access"), // 拥有可管理权限（包括我）的用户
-  ;
-  private String value;
+    ANYONECANVIEW("anyone_can_view"), // 拥有可阅读权限的用户
+    ANYONECANEDIT("anyone_can_edit"), // 拥有可编辑权限的用户
+    ONLYFULLACCESS("only_full_access"), // 拥有可管理权限（包括我）的用户
+    ;
+    private String value;
 
-  PermissionPublicSecurityEntityEnum(String value) {
-    this.value = value;
-  }
+    PermissionPublicSecurityEntityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

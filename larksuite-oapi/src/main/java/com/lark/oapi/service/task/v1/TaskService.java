@@ -18,1440 +18,1653 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.event.IEventHandler;
-import com.lark.oapi.service.task.v1.model.BatchDeleteCollaboratorTaskReq;
-import com.lark.oapi.service.task.v1.model.BatchDeleteCollaboratorTaskResp;
-import com.lark.oapi.service.task.v1.model.BatchDeleteFollowerTaskReq;
-import com.lark.oapi.service.task.v1.model.BatchDeleteFollowerTaskResp;
-import com.lark.oapi.service.task.v1.model.CompleteTaskReq;
-import com.lark.oapi.service.task.v1.model.CompleteTaskResp;
-import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorReq;
-import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorResp;
-import com.lark.oapi.service.task.v1.model.CreateTaskCommentReq;
-import com.lark.oapi.service.task.v1.model.CreateTaskCommentResp;
-import com.lark.oapi.service.task.v1.model.CreateTaskFollowerReq;
-import com.lark.oapi.service.task.v1.model.CreateTaskFollowerResp;
-import com.lark.oapi.service.task.v1.model.CreateTaskReminderReq;
-import com.lark.oapi.service.task.v1.model.CreateTaskReminderResp;
-import com.lark.oapi.service.task.v1.model.CreateTaskReq;
-import com.lark.oapi.service.task.v1.model.CreateTaskResp;
-import com.lark.oapi.service.task.v1.model.DeleteTaskCollaboratorReq;
-import com.lark.oapi.service.task.v1.model.DeleteTaskCollaboratorResp;
-import com.lark.oapi.service.task.v1.model.DeleteTaskCommentReq;
-import com.lark.oapi.service.task.v1.model.DeleteTaskCommentResp;
-import com.lark.oapi.service.task.v1.model.DeleteTaskFollowerReq;
-import com.lark.oapi.service.task.v1.model.DeleteTaskFollowerResp;
-import com.lark.oapi.service.task.v1.model.DeleteTaskReminderReq;
-import com.lark.oapi.service.task.v1.model.DeleteTaskReminderResp;
-import com.lark.oapi.service.task.v1.model.DeleteTaskReq;
-import com.lark.oapi.service.task.v1.model.DeleteTaskResp;
-import com.lark.oapi.service.task.v1.model.GetTaskCommentReq;
-import com.lark.oapi.service.task.v1.model.GetTaskCommentResp;
-import com.lark.oapi.service.task.v1.model.GetTaskReq;
-import com.lark.oapi.service.task.v1.model.GetTaskResp;
-import com.lark.oapi.service.task.v1.model.ListTaskCollaboratorReq;
-import com.lark.oapi.service.task.v1.model.ListTaskCollaboratorResp;
-import com.lark.oapi.service.task.v1.model.ListTaskCommentReq;
-import com.lark.oapi.service.task.v1.model.ListTaskCommentResp;
-import com.lark.oapi.service.task.v1.model.ListTaskFollowerReq;
-import com.lark.oapi.service.task.v1.model.ListTaskFollowerResp;
-import com.lark.oapi.service.task.v1.model.ListTaskReminderReq;
-import com.lark.oapi.service.task.v1.model.ListTaskReminderResp;
-import com.lark.oapi.service.task.v1.model.ListTaskReq;
-import com.lark.oapi.service.task.v1.model.ListTaskResp;
-import com.lark.oapi.service.task.v1.model.P2TaskCommentUpdatedV1;
-import com.lark.oapi.service.task.v1.model.P2TaskUpdateTenantV1;
-import com.lark.oapi.service.task.v1.model.P2TaskUpdatedV1;
-import com.lark.oapi.service.task.v1.model.PatchTaskReq;
-import com.lark.oapi.service.task.v1.model.PatchTaskResp;
-import com.lark.oapi.service.task.v1.model.UncompleteTaskReq;
-import com.lark.oapi.service.task.v1.model.UncompleteTaskResp;
-import com.lark.oapi.service.task.v1.model.UpdateTaskCommentReq;
-import com.lark.oapi.service.task.v1.model.UpdateTaskCommentResp;
+import com.lark.oapi.service.task.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class TaskService {
+    private static final Logger log = LoggerFactory.getLogger(TaskService.class);
+    private final Task task; // 任务
+    private final TaskCollaborator taskCollaborator; // 执行者
+    private final TaskComment taskComment; // 评论
+    private final TaskFollower taskFollower; // 关注人
+    private final TaskReminder taskReminder; // 提醒
 
-  private final Task task; // 任务
-  private final TaskCollaborator taskCollaborator; // 执行者
-  private final TaskComment taskComment; // 评论
-  private final TaskFollower taskFollower; // 关注人
-  private final TaskReminder taskReminder; // 提醒
-
-  public TaskService(Config config) {
-    this.task = new Task(config);
-    this.taskCollaborator = new TaskCollaborator(config);
-    this.taskComment = new TaskComment(config);
-    this.taskFollower = new TaskFollower(config);
-    this.taskReminder = new TaskReminder(config);
-  }
-
-  /**
-   * 任务
-   *
-   * @return
-   */
-  public Task task() {
-    return task;
-  }
-
-  /**
-   * 执行者
-   *
-   * @return
-   */
-  public TaskCollaborator taskCollaborator() {
-    return taskCollaborator;
-  }
-
-  /**
-   * 评论
-   *
-   * @return
-   */
-  public TaskComment taskComment() {
-    return taskComment;
-  }
-
-  /**
-   * 关注人
-   *
-   * @return
-   */
-  public TaskFollower taskFollower() {
-    return taskFollower;
-  }
-
-  /**
-   * 提醒
-   *
-   * @return
-   */
-  public TaskReminder taskReminder() {
-    return taskReminder;
-  }
-
-  public static class Task {
-
-    private final Config config;
-
-    public Task(Config config) {
-      this.config = config;
+    public TaskService(Config config) {
+        this.task = new Task(config);
+        this.taskCollaborator = new TaskCollaborator(config);
+        this.taskComment = new TaskComment(config);
+        this.taskFollower = new TaskFollower(config);
+        this.taskReminder = new TaskReminder(config);
     }
 
     /**
-     * 批量删除执行者，该接口用于批量删除执行者
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java</a>
-     * ;
+     * 任务
+     *
+     * @return
      */
-    public BatchDeleteCollaboratorTaskResp batchDeleteCollaborator(
-        BatchDeleteCollaboratorTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchDeleteCollaboratorTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchDeleteCollaboratorTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Task task() {
+        return task;
     }
 
     /**
-     * 批量删除执行者，该接口用于批量删除执行者
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java</a>
-     * ;
+     * 执行者
+     *
+     * @return
      */
-    public BatchDeleteCollaboratorTaskResp batchDeleteCollaborator(
-        BatchDeleteCollaboratorTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchDeleteCollaboratorTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchDeleteCollaboratorTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public TaskCollaborator taskCollaborator() {
+        return taskCollaborator;
     }
 
     /**
-     * 批量删除关注人，该接口用于批量删除关注人
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java</a>
-     * ;
+     * 评论
+     *
+     * @return
      */
-    public BatchDeleteFollowerTaskResp batchDeleteFollower(BatchDeleteFollowerTaskReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchDeleteFollowerTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchDeleteFollowerTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public TaskComment taskComment() {
+        return taskComment;
     }
 
     /**
-     * 批量删除关注人，该接口用于批量删除关注人
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java</a>
-     * ;
+     * 关注人
+     *
+     * @return
      */
-    public BatchDeleteFollowerTaskResp batchDeleteFollower(BatchDeleteFollowerTaskReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchDeleteFollowerTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchDeleteFollowerTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public TaskFollower taskFollower() {
+        return taskFollower;
     }
 
     /**
-     * 完成任务，该接口用于将任务状态修改为”已完成“
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java</a>
-     * ;
+     * 提醒
+     *
+     * @return
      */
-    public CompleteTaskResp complete(CompleteTaskReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/complete"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CompleteTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public TaskReminder taskReminder() {
+        return taskReminder;
     }
 
-    /**
-     * 完成任务，该接口用于将任务状态修改为”已完成“
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java</a>
-     * ;
-     */
-    public CompleteTaskResp complete(CompleteTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Task {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/complete"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public Task(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      CompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CompleteTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 批量删除执行者，该接口用于批量删除执行者
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java</a> ;
+         */
+        public BatchDeleteCollaboratorTaskResp batchDeleteCollaborator(BatchDeleteCollaboratorTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchDeleteCollaboratorTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteCollaboratorTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 批量删除执行者，该接口用于批量删除执行者
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteCollaboratorTaskSample.java</a> ;
+         */
+        public BatchDeleteCollaboratorTaskResp batchDeleteCollaborator(BatchDeleteCollaboratorTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchDeleteCollaboratorTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteCollaboratorTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 批量删除关注人，该接口用于批量删除关注人
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java</a> ;
+         */
+        public BatchDeleteFollowerTaskResp batchDeleteFollower(BatchDeleteFollowerTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchDeleteFollowerTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteFollowerTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 批量删除关注人，该接口用于批量删除关注人
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/BatchDeleteFollowerTaskSample.java</a> ;
+         */
+        public BatchDeleteFollowerTaskResp batchDeleteFollower(BatchDeleteFollowerTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchDeleteFollowerTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteFollowerTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 完成任务，该接口用于将任务状态修改为“已完成”。;完成任务是指整个任务全部完成，而不支持执行者分别完成任务，执行成功后，任务对所有关联用户都变为完成状态。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java</a> ;
+         */
+        public CompleteTaskResp complete(CompleteTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/complete"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CompleteTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/complete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 完成任务，该接口用于将任务状态修改为“已完成”。;完成任务是指整个任务全部完成，而不支持执行者分别完成任务，执行成功后，任务对所有关联用户都变为完成状态。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CompleteTaskSample.java</a> ;
+         */
+        public CompleteTaskResp complete(CompleteTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/complete"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CompleteTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/complete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建任务，该接口可以创建一个任务，支持填写任务的基本信息，包括任务的标题，描述及协作者等。;在此基础上，创建任务时可以设置截止时间和重复规则，将任务设置为定期执行的重复任务。通过添加协作者，则可以让其他用户协同完成该任务。;此外，接口也提供了一些支持自定义内容的字段，调用方可以实现定制化效果，如完成任务后跳转到指定结束界面。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java</a> ;
+         */
+        public CreateTaskResp create(CreateTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建任务，该接口可以创建一个任务，支持填写任务的基本信息，包括任务的标题，描述及协作者等。;在此基础上，创建任务时可以设置截止时间和重复规则，将任务设置为定期执行的重复任务。通过添加协作者，则可以让其他用户协同完成该任务。;此外，接口也提供了一些支持自定义内容的字段，调用方可以实现定制化效果，如完成任务后跳转到指定结束界面。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java</a> ;
+         */
+        public CreateTaskResp create(CreateTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除任务，该接口用于删除任务
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java</a> ;
+         */
+        public DeleteTaskResp delete(DeleteTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除任务，该接口用于删除任务
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java</a> ;
+         */
+        public DeleteTaskResp delete(DeleteTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取任务详情，该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java</a> ;
+         */
+        public GetTaskResp get(GetTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取任务详情，该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java</a> ;
+         */
+        public GetTaskResp get(GetTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取任务列表，以分页的方式获取任务列表。当使用user_access_token时，获取与该用户身份相关的所有任务。当使用tenant_access_token时，获取以该应用身份通过“创建任务“接口创建的所有任务（并非获取该应用所在租户下所有用户创建的任务）。;本接口支持通过任务创建时间以及任务的完成状态对任务进行过滤。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java</a> ;
+         */
+        public ListTaskResp list(ListTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取任务列表，以分页的方式获取任务列表。当使用user_access_token时，获取与该用户身份相关的所有任务。当使用tenant_access_token时，获取以该应用身份通过“创建任务“接口创建的所有任务（并非获取该应用所在租户下所有用户创建的任务）。;本接口支持通过任务创建时间以及任务的完成状态对任务进行过滤。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java</a> ;
+         */
+        public ListTaskResp list(ListTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新任务，该接口用于修改任务的标题、描述、时间、来源等相关信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java</a> ;
+         */
+        public PatchTaskResp patch(PatchTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/task/v1/tasks/:task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新任务，该接口用于修改任务的标题、描述、时间、来源等相关信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java</a> ;
+         */
+        public PatchTaskResp patch(PatchTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/task/v1/tasks/:task_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消完成任务，该接口用于取消任务的已完成状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java</a> ;
+         */
+        public UncompleteTaskResp uncomplete(UncompleteTaskReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/uncomplete"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UncompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UncompleteTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/uncomplete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消完成任务，该接口用于取消任务的已完成状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java</a> ;
+         */
+        public UncompleteTaskResp uncomplete(UncompleteTaskReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/uncomplete"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UncompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UncompleteTaskResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/uncomplete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 创建任务，该接口可以创建一个任务（基本信息），如果需要绑定协作者等需要调用别的资源管理接口。其中查询字段 user_id_type 是用于控制返回体中 creator_id
-     * 的类型，不传时默认返回 open_id。当使用tenant_access_token 调用接口时，如果user_id_type为user_id，则不会返回creator_id。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java</a>
-     * ;
-     */
-    public CreateTaskResp create(CreateTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class TaskCollaborator {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public TaskCollaborator(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      CreateTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 新增执行者，该接口用于新增任务执行者，一次性可以添加多个执行者。;只有任务的创建者和执行者才能添加执行者，关注人无权限添加。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java</a> ;
+         */
+        public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/collaborators"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskCollaboratorResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/collaborators"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 新增执行者，该接口用于新增任务执行者，一次性可以添加多个执行者。;只有任务的创建者和执行者才能添加执行者，关注人无权限添加。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java</a> ;
+         */
+        public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/collaborators"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskCollaboratorResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/collaborators"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除执行者，该接口用于删除任务执行者
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java</a> ;
+         */
+        public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskCollaboratorResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除执行者，该接口用于删除任务执行者
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java</a> ;
+         */
+        public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskCollaboratorResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取一个任务的执行者列表，该接口用于查询任务执行者列表，支持分页，最大值为50
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java</a> ;
+         */
+        public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/collaborators"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskCollaboratorResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/collaborators"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取一个任务的执行者列表，该接口用于查询任务执行者列表，支持分页，最大值为50
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java</a> ;
+         */
+        public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/collaborators"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskCollaboratorResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/collaborators"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 创建任务，该接口可以创建一个任务（基本信息），如果需要绑定协作者等需要调用别的资源管理接口。其中查询字段 user_id_type 是用于控制返回体中 creator_id
-     * 的类型，不传时默认返回 open_id。当使用tenant_access_token 调用接口时，如果user_id_type为user_id，则不会返回creator_id。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskSample.java</a>
-     * ;
-     */
-    public CreateTaskResp create(CreateTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class TaskComment {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public TaskComment(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      CreateTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 创建评论，该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java</a> ;
+         */
+        public CreateTaskCommentResp create(CreateTaskCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/comments"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建评论，该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java</a> ;
+         */
+        public CreateTaskCommentResp create(CreateTaskCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/comments"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除评论，该接口用于通过评论ID删除评论
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java</a> ;
+         */
+        public DeleteTaskCommentResp delete(DeleteTaskCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除评论，该接口用于通过评论ID删除评论
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java</a> ;
+         */
+        public DeleteTaskCommentResp delete(DeleteTaskCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取评论详情，该接口用于通过评论ID获取评论详情
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java</a> ;
+         */
+        public GetTaskCommentResp get(GetTaskCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取评论详情，该接口用于通过评论ID获取评论详情
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java</a> ;
+         */
+        public GetTaskCommentResp get(GetTaskCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取评论列表，该接口用于查询任务评论列表，支持分页，最大值为100
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java</a> ;
+         */
+        public ListTaskCommentResp list(ListTaskCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/comments"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取评论列表，该接口用于查询任务评论列表，支持分页，最大值为100
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java</a> ;
+         */
+        public ListTaskCommentResp list(ListTaskCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/comments"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新评论，该接口用于更新评论内容
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java</a> ;
+         */
+        public UpdateTaskCommentResp update(UpdateTaskCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新评论，该接口用于更新评论内容
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java</a> ;
+         */
+        public UpdateTaskCommentResp update(UpdateTaskCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UpdateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateTaskCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 删除任务，该接口用于删除任务
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java</a>
-     * ;
-     */
-    public DeleteTaskResp delete(DeleteTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class TaskFollower {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public TaskFollower(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      DeleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java</a> ;
+         */
+        public CreateTaskFollowerResp create(CreateTaskFollowerReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/followers"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskFollowerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java</a> ;
+         */
+        public CreateTaskFollowerResp create(CreateTaskFollowerReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/followers"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskFollowerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除关注人，该接口用于删除任务关注人
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java</a> ;
+         */
+        public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskFollowerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除关注人，该接口用于删除任务关注人
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java</a> ;
+         */
+        public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskFollowerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java</a> ;
+         */
+        public ListTaskFollowerResp list(ListTaskFollowerReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/followers"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskFollowerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java</a> ;
+         */
+        public ListTaskFollowerResp list(ListTaskFollowerReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/followers"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskFollowerResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/followers"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 删除任务，该接口用于删除任务
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskSample.java</a>
-     * ;
-     */
-    public DeleteTaskResp delete(DeleteTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class TaskReminder {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public TaskReminder(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      DeleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 新增提醒时间，该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java</a> ;
+         */
+        public CreateTaskReminderResp create(CreateTaskReminderReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/reminders"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskReminderResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/reminders"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 新增提醒时间，该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java</a> ;
+         */
+        public CreateTaskReminderResp create(CreateTaskReminderReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/task/v1/tasks/:task_id/reminders"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskReminderResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/reminders"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除提醒时间，删除提醒时间，返回结果状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java</a> ;
+         */
+        public DeleteTaskReminderResp delete(DeleteTaskReminderReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskReminderResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除提醒时间，删除提醒时间，返回结果状态
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java</a> ;
+         */
+        public DeleteTaskReminderResp delete(DeleteTaskReminderReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskReminderResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询提醒时间列表，返回提醒时间列表，支持分页，最大值为50
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java</a> ;
+         */
+        public ListTaskReminderResp list(ListTaskReminderReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/reminders"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskReminderResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/reminders"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询提醒时间列表，返回提醒时间列表，支持分页，最大值为50
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java</a> ;
+         */
+        public ListTaskReminderResp list(ListTaskReminderReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/task/v1/tasks/:task_id/reminders"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskReminderResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v1/tasks/:task_id/reminders"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取任务详情，该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java</a>
-     * ;
-     */
-    public GetTaskResp get(GetTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public abstract static class P2TaskUpdateTenantV1Handler implements IEventHandler<P2TaskUpdateTenantV1> {
+        @Override
+        public P2TaskUpdateTenantV1 getEvent() {
+            return new P2TaskUpdateTenantV1();
+        }
     }
 
-    /**
-     * 获取任务详情，该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskSample.java</a>
-     * ;
-     */
-    public GetTaskResp get(GetTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public abstract static class P2TaskUpdatedV1Handler implements IEventHandler<P2TaskUpdatedV1> {
+        @Override
+        public P2TaskUpdatedV1 getEvent() {
+            return new P2TaskUpdatedV1();
+        }
     }
 
-    /**
-     * 获取任务列表，以分页的方式获取任务列表。当使用user_access_token时，获取与该用户身份相关的所有任务。当使用tenant_access_token时，获取以该应用身份通过“创建任务“接口创建的所有任务（并非获取该应用所在租户下所有用户创建的任务）。;本接口支持通过任务创建时间以及任务的完成状态对任务进行过滤。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java</a>
-     * ;
-     */
-    public ListTaskResp list(ListTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public abstract static class P2TaskCommentUpdatedV1Handler implements IEventHandler<P2TaskCommentUpdatedV1> {
+        @Override
+        public P2TaskCommentUpdatedV1 getEvent() {
+            return new P2TaskCommentUpdatedV1();
+        }
     }
-
-    /**
-     * 获取任务列表，以分页的方式获取任务列表。当使用user_access_token时，获取与该用户身份相关的所有任务。当使用tenant_access_token时，获取以该应用身份通过“创建任务“接口创建的所有任务（并非获取该应用所在租户下所有用户创建的任务）。;本接口支持通过任务创建时间以及任务的完成状态对任务进行过滤。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskSample.java</a>
-     * ;
-     */
-    public ListTaskResp list(ListTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新任务，该接口用于修改任务的标题、描述、时间、来源等相关信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java</a>
-     * ;
-     */
-    public PatchTaskResp patch(PatchTaskReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/task/v1/tasks/:task_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新任务，该接口用于修改任务的标题、描述、时间、来源等相关信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/PatchTaskSample.java</a>
-     * ;
-     */
-    public PatchTaskResp patch(PatchTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/task/v1/tasks/:task_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消完成任务，该接口用于取消任务的已完成状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java</a>
-     * ;
-     */
-    public UncompleteTaskResp uncomplete(UncompleteTaskReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/uncomplete"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UncompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UncompleteTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消完成任务，该接口用于取消任务的已完成状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UncompleteTaskSample.java</a>
-     * ;
-     */
-    public UncompleteTaskResp uncomplete(UncompleteTaskReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/uncomplete"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UncompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UncompleteTaskResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class TaskCollaborator {
-
-    private final Config config;
-
-    public TaskCollaborator(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 新增执行者，该接口用于新增任务执行者，一次性可以添加多个执行者。新增的执行者必须是表示是用户的ID。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java</a>
-     * ;
-     */
-    public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/collaborators"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskCollaboratorResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 新增执行者，该接口用于新增任务执行者，一次性可以添加多个执行者。新增的执行者必须是表示是用户的ID。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCollaboratorSample.java</a>
-     * ;
-     */
-    public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/collaborators"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskCollaboratorResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除执行者，该接口用于删除任务执行者
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java</a>
-     * ;
-     */
-    public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskCollaboratorResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除执行者，该接口用于删除任务执行者
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCollaboratorSample.java</a>
-     * ;
-     */
-    public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskCollaboratorResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取一个任务的执行者列表，该接口用于查询任务执行者列表，支持分页，最大值为50
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java</a>
-     * ;
-     */
-    public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/collaborators"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskCollaboratorResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取一个任务的执行者列表，该接口用于查询任务执行者列表，支持分页，最大值为50
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCollaboratorSample.java</a>
-     * ;
-     */
-    public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/collaborators"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskCollaboratorResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class TaskComment {
-
-    private final Config config;
-
-    public TaskComment(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建评论，该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java</a>
-     * ;
-     */
-    public CreateTaskCommentResp create(CreateTaskCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/comments"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建评论，该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskCommentSample.java</a>
-     * ;
-     */
-    public CreateTaskCommentResp create(CreateTaskCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/comments"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除评论，该接口用于通过评论ID删除评论
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java</a>
-     * ;
-     */
-    public DeleteTaskCommentResp delete(DeleteTaskCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除评论，该接口用于通过评论ID删除评论
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskCommentSample.java</a>
-     * ;
-     */
-    public DeleteTaskCommentResp delete(DeleteTaskCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论详情，该接口用于通过评论ID获取评论详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java</a>
-     * ;
-     */
-    public GetTaskCommentResp get(GetTaskCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论详情，该接口用于通过评论ID获取评论详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/GetTaskCommentSample.java</a>
-     * ;
-     */
-    public GetTaskCommentResp get(GetTaskCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论列表，该接口用于查询任务评论列表，支持分页，最大值为100
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java</a>
-     * ;
-     */
-    public ListTaskCommentResp list(ListTaskCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/comments"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取评论列表，该接口用于查询任务评论列表，支持分页，最大值为100
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskCommentSample.java</a>
-     * ;
-     */
-    public ListTaskCommentResp list(ListTaskCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/comments"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新评论，该接口用于更新评论内容
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java</a>
-     * ;
-     */
-    public UpdateTaskCommentResp update(UpdateTaskCommentReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新评论，该接口用于更新评论内容
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/UpdateTaskCommentSample.java</a>
-     * ;
-     */
-    public UpdateTaskCommentResp update(UpdateTaskCommentReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UpdateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateTaskCommentResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class TaskFollower {
-
-    private final Config config;
-
-    public TaskFollower(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java</a>
-     * ;
-     */
-    public CreateTaskFollowerResp create(CreateTaskFollowerReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/followers"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskFollowerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskFollowerSample.java</a>
-     * ;
-     */
-    public CreateTaskFollowerResp create(CreateTaskFollowerReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/followers"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskFollowerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除关注人，该接口用于删除任务关注人
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java</a>
-     * ;
-     */
-    public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskFollowerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除关注人，该接口用于删除任务关注人
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskFollowerSample.java</a>
-     * ;
-     */
-    public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskFollowerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java</a>
-     * ;
-     */
-    public ListTaskFollowerResp list(ListTaskFollowerReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/followers"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskFollowerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskFollowerSample.java</a>
-     * ;
-     */
-    public ListTaskFollowerResp list(ListTaskFollowerReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/followers"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskFollowerResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class TaskReminder {
-
-    private final Config config;
-
-    public TaskReminder(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 新增提醒时间，该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java</a>
-     * ;
-     */
-    public CreateTaskReminderResp create(CreateTaskReminderReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/reminders"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskReminderResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 新增提醒时间，该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/CreateTaskReminderSample.java</a>
-     * ;
-     */
-    public CreateTaskReminderResp create(CreateTaskReminderReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/task/v1/tasks/:task_id/reminders"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTaskReminderResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除提醒时间，删除提醒时间，返回结果状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java</a>
-     * ;
-     */
-    public DeleteTaskReminderResp delete(DeleteTaskReminderReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskReminderResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除提醒时间，删除提醒时间，返回结果状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/DeleteTaskReminderSample.java</a>
-     * ;
-     */
-    public DeleteTaskReminderResp delete(DeleteTaskReminderReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTaskReminderResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询提醒时间列表，返回提醒时间列表，支持分页，最大值为50
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java</a>
-     * ;
-     */
-    public ListTaskReminderResp list(ListTaskReminderReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/reminders"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskReminderResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询提醒时间列表，返回提醒时间列表，支持分页，最大值为50
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1/ListTaskReminderSample.java</a>
-     * ;
-     */
-    public ListTaskReminderResp list(ListTaskReminderReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/task/v1/tasks/:task_id/reminders"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListTaskReminderResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public abstract static class P2TaskUpdateTenantV1Handler implements
-      IEventHandler<P2TaskUpdateTenantV1> {
-
-    @Override
-    public P2TaskUpdateTenantV1 getEvent() {
-      return new P2TaskUpdateTenantV1();
-    }
-  }
-
-  public abstract static class P2TaskUpdatedV1Handler implements IEventHandler<P2TaskUpdatedV1> {
-
-    @Override
-    public P2TaskUpdatedV1 getEvent() {
-      return new P2TaskUpdatedV1();
-    }
-  }
-
-  public abstract static class P2TaskCommentUpdatedV1Handler implements
-      IEventHandler<P2TaskCommentUpdatedV1> {
-
-    @Override
-    public P2TaskCommentUpdatedV1 getEvent() {
-      return new P2TaskCommentUpdatedV1();
-    }
-  }
 }

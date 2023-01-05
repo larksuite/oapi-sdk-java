@@ -16,98 +16,96 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UploadFinishFileReqBody {
-
-  /**
-   * 分片上传事务ID
-   * <p> 示例值：7111211691345512356
-   */
-  @SerializedName("upload_id")
-  private String uploadId;
-  /**
-   * 分片数量
-   * <p> 示例值：1
-   */
-  @SerializedName("block_num")
-  private Integer blockNum;
-
-  // builder 开始
-  public UploadFinishFileReqBody() {
-  }
-
-  public UploadFinishFileReqBody(Builder builder) {
     /**
      * 分片上传事务ID
      * <p> 示例值：7111211691345512356
      */
-    this.uploadId = builder.uploadId;
-    /**
-     * 分片数量
-     * <p> 示例值：1
-     */
-    this.blockNum = builder.blockNum;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUploadId() {
-    return this.uploadId;
-  }
-
-  public void setUploadId(String uploadId) {
-    this.uploadId = uploadId;
-  }
-
-  public Integer getBlockNum() {
-    return this.blockNum;
-  }
-
-  public void setBlockNum(Integer blockNum) {
-    this.blockNum = blockNum;
-  }
-
-  public static class Builder {
-
-    /**
-     * 分片上传事务ID
-     * <p> 示例值：7111211691345512356
-     */
+    @SerializedName("upload_id")
     private String uploadId;
     /**
      * 分片数量
      * <p> 示例值：1
      */
+    @SerializedName("block_num")
     private Integer blockNum;
 
-    /**
-     * 分片上传事务ID
-     * <p> 示例值：7111211691345512356
-     *
-     * @param uploadId
-     * @return
-     */
-    public Builder uploadId(String uploadId) {
-      this.uploadId = uploadId;
-      return this;
+    // builder 开始
+    public UploadFinishFileReqBody() {
     }
 
-
-    /**
-     * 分片数量
-     * <p> 示例值：1
-     *
-     * @param blockNum
-     * @return
-     */
-    public Builder blockNum(Integer blockNum) {
-      this.blockNum = blockNum;
-      return this;
+    public UploadFinishFileReqBody(Builder builder) {
+        /**
+         * 分片上传事务ID
+         * <p> 示例值：7111211691345512356
+         */
+        this.uploadId = builder.uploadId;
+        /**
+         * 分片数量
+         * <p> 示例值：1
+         */
+        this.blockNum = builder.blockNum;
     }
 
-
-    public UploadFinishFileReqBody build() {
-      return new UploadFinishFileReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUploadId() {
+        return this.uploadId;
+    }
+
+    public void setUploadId(String uploadId) {
+        this.uploadId = uploadId;
+    }
+
+    public Integer getBlockNum() {
+        return this.blockNum;
+    }
+
+    public void setBlockNum(Integer blockNum) {
+        this.blockNum = blockNum;
+    }
+
+    public static class Builder {
+        /**
+         * 分片上传事务ID
+         * <p> 示例值：7111211691345512356
+         */
+        private String uploadId;
+        /**
+         * 分片数量
+         * <p> 示例值：1
+         */
+        private Integer blockNum;
+
+        /**
+         * 分片上传事务ID
+         * <p> 示例值：7111211691345512356
+         *
+         * @param uploadId
+         * @return
+         */
+        public Builder uploadId(String uploadId) {
+            this.uploadId = uploadId;
+            return this;
+        }
+
+
+        /**
+         * 分片数量
+         * <p> 示例值：1
+         *
+         * @param blockNum
+         * @return
+         */
+        public Builder blockNum(Integer blockNum) {
+            this.blockNum = blockNum;
+            return this;
+        }
+
+
+        public UploadFinishFileReqBody build() {
+            return new UploadFinishFileReqBody(this);
+        }
+    }
 }

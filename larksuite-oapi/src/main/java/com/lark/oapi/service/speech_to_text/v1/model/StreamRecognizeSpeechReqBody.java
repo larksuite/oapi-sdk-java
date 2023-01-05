@@ -16,98 +16,96 @@ package com.lark.oapi.service.speech_to_text.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class StreamRecognizeSpeechReqBody {
-
-  /**
-   * 语音资源
-   * <p> 示例值：
-   */
-  @SerializedName("speech")
-  private Speech speech;
-  /**
-   * 配置属性
-   * <p> 示例值：
-   */
-  @SerializedName("config")
-  private StreamConfig config;
-
-  // builder 开始
-  public StreamRecognizeSpeechReqBody() {
-  }
-
-  public StreamRecognizeSpeechReqBody(Builder builder) {
     /**
      * 语音资源
      * <p> 示例值：
      */
-    this.speech = builder.speech;
-    /**
-     * 配置属性
-     * <p> 示例值：
-     */
-    this.config = builder.config;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Speech getSpeech() {
-    return this.speech;
-  }
-
-  public void setSpeech(Speech speech) {
-    this.speech = speech;
-  }
-
-  public StreamConfig getConfig() {
-    return this.config;
-  }
-
-  public void setConfig(StreamConfig config) {
-    this.config = config;
-  }
-
-  public static class Builder {
-
-    /**
-     * 语音资源
-     * <p> 示例值：
-     */
+    @SerializedName("speech")
     private Speech speech;
     /**
      * 配置属性
      * <p> 示例值：
      */
+    @SerializedName("config")
     private StreamConfig config;
 
-    /**
-     * 语音资源
-     * <p> 示例值：
-     *
-     * @param speech
-     * @return
-     */
-    public Builder speech(Speech speech) {
-      this.speech = speech;
-      return this;
+    // builder 开始
+    public StreamRecognizeSpeechReqBody() {
     }
 
-
-    /**
-     * 配置属性
-     * <p> 示例值：
-     *
-     * @param config
-     * @return
-     */
-    public Builder config(StreamConfig config) {
-      this.config = config;
-      return this;
+    public StreamRecognizeSpeechReqBody(Builder builder) {
+        /**
+         * 语音资源
+         * <p> 示例值：
+         */
+        this.speech = builder.speech;
+        /**
+         * 配置属性
+         * <p> 示例值：
+         */
+        this.config = builder.config;
     }
 
-
-    public StreamRecognizeSpeechReqBody build() {
-      return new StreamRecognizeSpeechReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Speech getSpeech() {
+        return this.speech;
+    }
+
+    public void setSpeech(Speech speech) {
+        this.speech = speech;
+    }
+
+    public StreamConfig getConfig() {
+        return this.config;
+    }
+
+    public void setConfig(StreamConfig config) {
+        this.config = config;
+    }
+
+    public static class Builder {
+        /**
+         * 语音资源
+         * <p> 示例值：
+         */
+        private Speech speech;
+        /**
+         * 配置属性
+         * <p> 示例值：
+         */
+        private StreamConfig config;
+
+        /**
+         * 语音资源
+         * <p> 示例值：
+         *
+         * @param speech
+         * @return
+         */
+        public Builder speech(Speech speech) {
+            this.speech = speech;
+            return this;
+        }
+
+
+        /**
+         * 配置属性
+         * <p> 示例值：
+         *
+         * @param config
+         * @return
+         */
+        public Builder config(StreamConfig config) {
+            this.config = config;
+            return this;
+        }
+
+
+        public StreamRecognizeSpeechReqBody build() {
+            return new StreamRecognizeSpeechReqBody(this);
+        }
+    }
 }

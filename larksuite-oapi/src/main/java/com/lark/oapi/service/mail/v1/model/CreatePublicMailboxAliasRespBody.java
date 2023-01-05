@@ -16,20 +16,19 @@ package com.lark.oapi.service.mail.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreatePublicMailboxAliasRespBody {
+    /**
+     * 公共邮箱别名
+     * <p> 示例值：
+     */
+    @SerializedName("public_mailbox_alias")
+    private EmailAlias publicMailboxAlias;
 
-  /**
-   * 公共邮箱别名
-   * <p> 示例值：
-   */
-  @SerializedName("public_mailbox_alias")
-  private EmailAlias publicMailboxAlias;
+    public EmailAlias getPublicMailboxAlias() {
+        return this.publicMailboxAlias;
+    }
 
-  public EmailAlias getPublicMailboxAlias() {
-    return this.publicMailboxAlias;
-  }
-
-  public void setPublicMailboxAlias(EmailAlias publicMailboxAlias) {
-    this.publicMailboxAlias = publicMailboxAlias;
-  }
+    public void setPublicMailboxAlias(EmailAlias publicMailboxAlias) {
+        this.publicMailboxAlias = publicMailboxAlias;
+    }
 
 }

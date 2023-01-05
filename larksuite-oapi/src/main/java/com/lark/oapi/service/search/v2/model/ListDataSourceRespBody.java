@@ -16,48 +16,47 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListDataSourceRespBody {
+    /**
+     * 是否有更多数据
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 取数据的凭证
+     * <p> 示例值：763bd1e74d05e958
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 数据源中的数据记录
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private DataSource[] items;
 
-  /**
-   * 是否有更多数据
-   * <p> 示例值：
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 取数据的凭证
-   * <p> 示例值：
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 数据源中的数据记录
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private DataSource[] items;
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public DataSource[] getItems() {
+        return this.items;
+    }
 
-  public DataSource[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(DataSource[] items) {
-    this.items = items;
-  }
+    public void setItems(DataSource[] items) {
+        this.items = items;
+    }
 
 }

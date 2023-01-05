@@ -16,98 +16,96 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CustomAttrGenericUser {
-
-  /**
-   * 用户的user_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-   * <p> 示例值：9b2fabg5
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 用户类型    1：用户
-   * <p> 示例值：1
-   */
-  @SerializedName("type")
-  private Integer type;
-
-  // builder 开始
-  public CustomAttrGenericUser() {
-  }
-
-  public CustomAttrGenericUser(Builder builder) {
     /**
-     * 用户的user_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+     * 用户的user_id ，具体参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：9b2fabg5
      */
-    this.id = builder.id;
-    /**
-     * 用户类型    1：用户
-     * <p> 示例值：1
-     */
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户的user_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：9b2fabg5
-     */
+    @SerializedName("id")
     private String id;
     /**
-     * 用户类型    1：用户
+     * 用户类型:  ;1：用户;;目前固定为1，表示用户类型
      * <p> 示例值：1
      */
+    @SerializedName("type")
     private Integer type;
 
-    /**
-     * 用户的user_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：9b2fabg5
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public CustomAttrGenericUser() {
     }
 
-
-    /**
-     * 用户类型    1：用户
-     * <p> 示例值：1
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public CustomAttrGenericUser(Builder builder) {
+        /**
+         * 用户的user_id ，具体参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：9b2fabg5
+         */
+        this.id = builder.id;
+        /**
+         * 用户类型:  ;1：用户;;目前固定为1，表示用户类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
     }
 
-
-    public CustomAttrGenericUser build() {
-      return new CustomAttrGenericUser(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public static class Builder {
+        /**
+         * 用户的user_id ，具体参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：9b2fabg5
+         */
+        private String id;
+        /**
+         * 用户类型:  ;1：用户;;目前固定为1，表示用户类型
+         * <p> 示例值：1
+         */
+        private Integer type;
+
+        /**
+         * 用户的user_id ，具体参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+         * <p> 示例值：9b2fabg5
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 用户类型:  ;1：用户;;目前固定为1，表示用户类型
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+
+        public CustomAttrGenericUser build() {
+            return new CustomAttrGenericUser(this);
+        }
+    }
 }

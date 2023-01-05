@@ -16,76 +16,75 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationFeedbackUpdatedV6Data {
+    /**
+     * 反馈id列表
+     * <p> 示例值：
+     */
+    @SerializedName("feedback_ids")
+    private String[] feedbackIds;
+    /**
+     * 反馈处理状态（枚举值，0: 未处理  1: 已处理  2: 处理中 3: 已关闭）
+     * <p> 示例值：1
+     */
+    @SerializedName("status")
+    private Integer status;
+    /**
+     * 应用的 app_id
+     * <p> 示例值：cli_9b445f5258795107
+     */
+    @SerializedName("app_id")
+    private String appId;
+    /**
+     * 反馈处理时间，格式为yyyy-mm-dd hh:mm:ss
+     * <p> 示例值：2021-07-01 17:00:00
+     */
+    @SerializedName("update_time")
+    private String updateTime;
+    /**
+     * 操作者用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("operator_id")
+    private UserId operatorId;
 
-  /**
-   * 反馈id列表
-   * <p> 示例值：
-   */
-  @SerializedName("feedback_ids")
-  private String[] feedbackIds;
-  /**
-   * 反馈处理状态（枚举值，0: 未处理  1: 已处理  2: 处理中 3: 已关闭）
-   * <p> 示例值：1
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * 应用的 app_id
-   * <p> 示例值：cli_9b445f5258795107
-   */
-  @SerializedName("app_id")
-  private String appId;
-  /**
-   * 反馈处理时间，格式为yyyy-mm-dd hh:mm:ss
-   * <p> 示例值：2021-07-01 17:00:00
-   */
-  @SerializedName("update_time")
-  private String updateTime;
-  /**
-   * 操作者用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("operator_id")
-  private UserId operatorId;
+    public String[] getFeedbackIds() {
+        return this.feedbackIds;
+    }
 
-  public String[] getFeedbackIds() {
-    return this.feedbackIds;
-  }
+    public void setFeedbackIds(String[] feedbackIds) {
+        this.feedbackIds = feedbackIds;
+    }
 
-  public void setFeedbackIds(String[] feedbackIds) {
-    this.feedbackIds = feedbackIds;
-  }
+    public Integer getStatus() {
+        return this.status;
+    }
 
-  public Integer getStatus() {
-    return this.status;
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
 
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
 
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
 }

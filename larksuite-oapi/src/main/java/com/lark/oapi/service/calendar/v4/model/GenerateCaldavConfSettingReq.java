@@ -16,51 +16,50 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class GenerateCaldavConfSettingReq {
-
-  @Body
-  private GenerateCaldavConfSettingReqBody body;
-
-  // builder 开始
-  public GenerateCaldavConfSettingReq() {
-  }
-
-  public GenerateCaldavConfSettingReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public GenerateCaldavConfSettingReqBody getGenerateCaldavConfSettingReqBody() {
-    return this.body;
-  }
-
-  public void setGenerateCaldavConfSettingReqBody(GenerateCaldavConfSettingReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private GenerateCaldavConfSettingReqBody body;
 
+    // builder 开始
+    public GenerateCaldavConfSettingReq() {
+    }
+
+    public GenerateCaldavConfSettingReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public GenerateCaldavConfSettingReqBody getGenerateCaldavConfSettingReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder generateCaldavConfSettingReqBody(GenerateCaldavConfSettingReqBody body) {
-      this.body = body;
-      return this;
+    public void setGenerateCaldavConfSettingReqBody(GenerateCaldavConfSettingReqBody body) {
+        this.body = body;
     }
 
-    public GenerateCaldavConfSettingReq build() {
-      return new GenerateCaldavConfSettingReq(this);
+    public static class Builder {
+
+        private GenerateCaldavConfSettingReqBody body;
+
+        public GenerateCaldavConfSettingReqBody getGenerateCaldavConfSettingReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder generateCaldavConfSettingReqBody(GenerateCaldavConfSettingReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public GenerateCaldavConfSettingReq build() {
+            return new GenerateCaldavConfSettingReq(this);
+        }
     }
-  }
 }

@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateEntityReq {
-
-  /**
-   * block唯一标识
-   * <p> 示例值：7794641623571830467
-   */
-  @Path
-  @SerializedName("block_id")
-  private String blockId;
-  @Body
-  private Entity body;
-
-  // builder 开始
-  public UpdateEntityReq() {
-  }
-
-  public UpdateEntityReq(Builder builder) {
     /**
      * block唯一标识
      * <p> 示例值：7794641623571830467
      */
-    this.blockId = builder.blockId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public Entity getEntity() {
-    return this.body;
-  }
-
-  public void setEntity(Entity body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String blockId; // block唯一标识
+    @Path
+    @SerializedName("block_id")
+    private String blockId;
+    @Body
     private Entity body;
 
-    /**
-     * block唯一标识
-     * <p> 示例值：7794641623571830467
-     *
-     * @param blockId
-     * @return
-     */
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    // builder 开始
+    public UpdateEntityReq() {
+    }
+
+    public UpdateEntityReq(Builder builder) {
+        /**
+         * block唯一标识
+         * <p> 示例值：7794641623571830467
+         */
+        this.blockId = builder.blockId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getBlockId() {
+        return this.blockId;
+    }
+
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
     }
 
     public Entity getEntity() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder entity(Entity body) {
-      this.body = body;
-      return this;
+    public void setEntity(Entity body) {
+        this.body = body;
     }
 
-    public UpdateEntityReq build() {
-      return new UpdateEntityReq(this);
+    public static class Builder {
+
+        private String blockId; // block唯一标识
+        private Entity body;
+
+        /**
+         * block唯一标识
+         * <p> 示例值：7794641623571830467
+         *
+         * @param blockId
+         * @return
+         */
+        public Builder blockId(String blockId) {
+            this.blockId = blockId;
+            return this;
+        }
+
+        public Entity getEntity() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder entity(Entity body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateEntityReq build() {
+            return new UpdateEntityReq(this);
+        }
     }
-  }
 }

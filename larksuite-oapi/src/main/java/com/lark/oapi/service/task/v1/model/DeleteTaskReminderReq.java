@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTaskReminderReq {
-
-  /**
-   * 任务 ID
-   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  /**
-   * 任务提醒时间设置的 ID（即 reminder.id）
-   * <p> 示例值：1
-   */
-  @Path
-  @SerializedName("reminder_id")
-  private String reminderId;
-
-  // builder 开始
-  public DeleteTaskReminderReq() {
-  }
-
-  public DeleteTaskReminderReq(Builder builder) {
     /**
      * 任务 ID
      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    this.taskId = builder.taskId;
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
     /**
      * 任务提醒时间设置的 ID（即 reminder.id）
      * <p> 示例值：1
      */
-    this.reminderId = builder.reminderId;
-  }
+    @Path
+    @SerializedName("reminder_id")
+    private String reminderId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getReminderId() {
-    return this.reminderId;
-  }
-
-  public void setReminderId(String reminderId) {
-    this.reminderId = reminderId;
-  }
-
-  public static class Builder {
-
-    private String taskId; // 任务 ID
-    private String reminderId; // 任务提醒时间设置的 ID（即 reminder.id）
-
-    /**
-     * 任务 ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    // builder 开始
+    public DeleteTaskReminderReq() {
     }
 
-
-    /**
-     * 任务提醒时间设置的 ID（即 reminder.id）
-     * <p> 示例值：1
-     *
-     * @param reminderId
-     * @return
-     */
-    public Builder reminderId(String reminderId) {
-      this.reminderId = reminderId;
-      return this;
+    public DeleteTaskReminderReq(Builder builder) {
+        /**
+         * 任务 ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         */
+        this.taskId = builder.taskId;
+        /**
+         * 任务提醒时间设置的 ID（即 reminder.id）
+         * <p> 示例值：1
+         */
+        this.reminderId = builder.reminderId;
     }
 
-    public DeleteTaskReminderReq build() {
-      return new DeleteTaskReminderReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public String getReminderId() {
+        return this.reminderId;
+    }
+
+    public void setReminderId(String reminderId) {
+        this.reminderId = reminderId;
+    }
+
+    public static class Builder {
+
+        private String taskId; // 任务 ID
+        private String reminderId; // 任务提醒时间设置的 ID（即 reminder.id）
+
+        /**
+         * 任务 ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+
+        /**
+         * 任务提醒时间设置的 ID（即 reminder.id）
+         * <p> 示例值：1
+         *
+         * @param reminderId
+         * @return
+         */
+        public Builder reminderId(String reminderId) {
+            this.reminderId = reminderId;
+            return this;
+        }
+
+        public DeleteTaskReminderReq build() {
+            return new DeleteTaskReminderReq(this);
+        }
+    }
 }

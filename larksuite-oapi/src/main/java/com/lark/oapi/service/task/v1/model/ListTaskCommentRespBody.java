@@ -16,48 +16,47 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListTaskCommentRespBody {
+    /**
+     * 返回的评论列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Comment[] items;
+    /**
+     * 分页标记，分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否还有更多数据
+     * <p> 示例值：
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 返回的评论列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Comment[] items;
-  /**
-   * 分页标记，分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否还有更多数据
-   * <p> 示例值：
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public Comment[] getItems() {
+        return this.items;
+    }
 
-  public Comment[] getItems() {
-    return this.items;
-  }
+    public void setItems(Comment[] items) {
+        this.items = items;
+    }
 
-  public void setItems(Comment[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

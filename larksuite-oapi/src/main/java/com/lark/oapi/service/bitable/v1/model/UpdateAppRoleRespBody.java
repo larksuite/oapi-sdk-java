@@ -16,20 +16,19 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateAppRoleRespBody {
+    /**
+     * 自定义角色
+     * <p> 示例值：
+     */
+    @SerializedName("role")
+    private AppRole role;
 
-  /**
-   * 自定义角色
-   * <p> 示例值：
-   */
-  @SerializedName("role")
-  private AppRole role;
+    public AppRole getRole() {
+        return this.role;
+    }
 
-  public AppRole getRole() {
-    return this.role;
-  }
-
-  public void setRole(AppRole role) {
-    this.role = role;
-  }
+    public void setRole(AppRole role) {
+        this.role = role;
+    }
 
 }

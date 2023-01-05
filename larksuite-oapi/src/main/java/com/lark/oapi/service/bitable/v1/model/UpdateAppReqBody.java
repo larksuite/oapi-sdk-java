@@ -16,98 +16,96 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateAppReqBody {
-
-  /**
-   * 新的多维表格名字
-   * <p> 示例值：新的多维表格名字
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 多维表格是否开启高级权限
-   * <p> 示例值：false
-   */
-  @SerializedName("is_advanced")
-  private Boolean isAdvanced;
-
-  // builder 开始
-  public UpdateAppReqBody() {
-  }
-
-  public UpdateAppReqBody(Builder builder) {
     /**
      * 新的多维表格名字
      * <p> 示例值：新的多维表格名字
      */
-    this.name = builder.name;
-    /**
-     * 多维表格是否开启高级权限
-     * <p> 示例值：false
-     */
-    this.isAdvanced = builder.isAdvanced;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Boolean getIsAdvanced() {
-    return this.isAdvanced;
-  }
-
-  public void setIsAdvanced(Boolean isAdvanced) {
-    this.isAdvanced = isAdvanced;
-  }
-
-  public static class Builder {
-
-    /**
-     * 新的多维表格名字
-     * <p> 示例值：新的多维表格名字
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 多维表格是否开启高级权限
-     * <p> 示例值：false
+     * <p> 示例值：true
      */
+    @SerializedName("is_advanced")
     private Boolean isAdvanced;
 
-    /**
-     * 新的多维表格名字
-     * <p> 示例值：新的多维表格名字
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public UpdateAppReqBody() {
     }
 
-
-    /**
-     * 多维表格是否开启高级权限
-     * <p> 示例值：false
-     *
-     * @param isAdvanced
-     * @return
-     */
-    public Builder isAdvanced(Boolean isAdvanced) {
-      this.isAdvanced = isAdvanced;
-      return this;
+    public UpdateAppReqBody(Builder builder) {
+        /**
+         * 新的多维表格名字
+         * <p> 示例值：新的多维表格名字
+         */
+        this.name = builder.name;
+        /**
+         * 多维表格是否开启高级权限
+         * <p> 示例值：true
+         */
+        this.isAdvanced = builder.isAdvanced;
     }
 
-
-    public UpdateAppReqBody build() {
-      return new UpdateAppReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsAdvanced() {
+        return this.isAdvanced;
+    }
+
+    public void setIsAdvanced(Boolean isAdvanced) {
+        this.isAdvanced = isAdvanced;
+    }
+
+    public static class Builder {
+        /**
+         * 新的多维表格名字
+         * <p> 示例值：新的多维表格名字
+         */
+        private String name;
+        /**
+         * 多维表格是否开启高级权限
+         * <p> 示例值：true
+         */
+        private Boolean isAdvanced;
+
+        /**
+         * 新的多维表格名字
+         * <p> 示例值：新的多维表格名字
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 多维表格是否开启高级权限
+         * <p> 示例值：true
+         *
+         * @param isAdvanced
+         * @return
+         */
+        public Builder isAdvanced(Boolean isAdvanced) {
+            this.isAdvanced = isAdvanced;
+            return this;
+        }
+
+
+        public UpdateAppReqBody build() {
+            return new UpdateAppReqBody(this);
+        }
+    }
 }

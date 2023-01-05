@@ -16,39 +16,33 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetNotificationRespBody {
+    /**
+     * push任务详情
+     * <p> 示例值：{"approval_app_link":"","notification":{"chat_list":null,"create_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"created_at":"1626329642000","department_list":null,"ext":"","helpdesk_id":"6969495102523703316","id":"6985032626234982420","instance_code":"","job_name":"api push create test","new_staff_scope_department_list":null,"new_staff_scope_type":null,"push_content":"{\n  \"config\": {\n    \"wide_screen_mode\": true\n  },\n  \"elements\": [\n    {\n      \"tag\": \"div\",\n      \"text\": {\n        \"tag\": \"lark_md\",\n        \"content\": \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"\n      }\n    }\n  ]\n}",":0,"send_at":"","sent_user_count":0,"status":0,"target_user_count":7814,"tenant_id":"1","update_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"updated_at":"","user_list":null}}
+     */
+    @SerializedName("notification")
+    private Notification notification;
+    /**
+     * 审批链接
+     * <p> 示例值：""
+     */
+    @SerializedName("approval_app_link")
+    private String approvalAppLink;
 
-  /**
-   * push任务详情
-   * <p> 示例值：{"approval_app_link":"","notification":{"chat_list":null,"create_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"created_at":"1626329642000","department_list":null,"ext":"","helpdesk_id":"6969495102523703316","id":"6985032626234982420","instance_code":"","job_name":"api
-   * push create test","new_staff_scope_department_list":null,"new_staff_scope_type":null,"push_content":"{\n
-   *  \"config\": {\n    \"wide_screen_mode\": true\n  },\n  \"elements\": [\n    {\n      \"tag\":
-   * \"div\",\n      \"text\": {\n        \"tag\": \"lark_md\",\n        \"content\":
-   * \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"\n      }\n
-   * }\n  ]\n}",":0,"send_at":"","sent_user_count":0,"status":0,"target_user_count":7814,"tenant_id":"1","update_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"updated_at":"","user_list":null}}
-   */
-  @SerializedName("notification")
-  private Notification notification;
-  /**
-   * 审批链接
-   * <p> 示例值：""
-   */
-  @SerializedName("approval_app_link")
-  private String approvalAppLink;
+    public Notification getNotification() {
+        return this.notification;
+    }
 
-  public Notification getNotification() {
-    return this.notification;
-  }
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
 
-  public void setNotification(Notification notification) {
-    this.notification = notification;
-  }
+    public String getApprovalAppLink() {
+        return this.approvalAppLink;
+    }
 
-  public String getApprovalAppLink() {
-    return this.approvalAppLink;
-  }
-
-  public void setApprovalAppLink(String approvalAppLink) {
-    this.approvalAppLink = approvalAppLink;
-  }
+    public void setApprovalAppLink(String approvalAppLink) {
+        this.approvalAppLink = approvalAppLink;
+    }
 
 }

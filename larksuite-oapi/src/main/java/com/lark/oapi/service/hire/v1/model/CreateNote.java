@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateNote {
 
-  /**
-   * 备注信息
-   * <p> 示例值：
-   */
-  @SerializedName("note")
-  private Note note;
+    /**
+     * 备注信息
+     * <p> 示例值：
+     */
+    @SerializedName("note")
+    private Note note;
 
-  public Note getNote() {
-    return this.note;
-  }
+    public Note getNote() {
+        return this.note;
+    }
 
-  public void setNote(Note note) {
-    this.note = note;
-  }
+    public void setNote(Note note) {
+        this.note = note;
+    }
 
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class LateOffLateOnRule {
-
-  /**
-   * 晚走多久
-   * <p> 示例值：60
-   */
-  @SerializedName("late_off_minutes")
-  private Integer lateOffMinutes;
-  /**
-   * 晚到多久
-   * <p> 示例值：30
-   */
-  @SerializedName("late_on_minutes")
-  private Integer lateOnMinutes;
-
-  // builder 开始
-  public LateOffLateOnRule() {
-  }
-
-  public LateOffLateOnRule(Builder builder) {
     /**
      * 晚走多久
      * <p> 示例值：60
      */
-    this.lateOffMinutes = builder.lateOffMinutes;
-    /**
-     * 晚到多久
-     * <p> 示例值：30
-     */
-    this.lateOnMinutes = builder.lateOnMinutes;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getLateOffMinutes() {
-    return this.lateOffMinutes;
-  }
-
-  public void setLateOffMinutes(Integer lateOffMinutes) {
-    this.lateOffMinutes = lateOffMinutes;
-  }
-
-  public Integer getLateOnMinutes() {
-    return this.lateOnMinutes;
-  }
-
-  public void setLateOnMinutes(Integer lateOnMinutes) {
-    this.lateOnMinutes = lateOnMinutes;
-  }
-
-  public static class Builder {
-
-    /**
-     * 晚走多久
-     * <p> 示例值：60
-     */
+    @SerializedName("late_off_minutes")
     private Integer lateOffMinutes;
     /**
      * 晚到多久
      * <p> 示例值：30
      */
+    @SerializedName("late_on_minutes")
     private Integer lateOnMinutes;
 
-    /**
-     * 晚走多久
-     * <p> 示例值：60
-     *
-     * @param lateOffMinutes
-     * @return
-     */
-    public Builder lateOffMinutes(Integer lateOffMinutes) {
-      this.lateOffMinutes = lateOffMinutes;
-      return this;
+    // builder 开始
+    public LateOffLateOnRule() {
     }
 
-
-    /**
-     * 晚到多久
-     * <p> 示例值：30
-     *
-     * @param lateOnMinutes
-     * @return
-     */
-    public Builder lateOnMinutes(Integer lateOnMinutes) {
-      this.lateOnMinutes = lateOnMinutes;
-      return this;
+    public LateOffLateOnRule(Builder builder) {
+        /**
+         * 晚走多久
+         * <p> 示例值：60
+         */
+        this.lateOffMinutes = builder.lateOffMinutes;
+        /**
+         * 晚到多久
+         * <p> 示例值：30
+         */
+        this.lateOnMinutes = builder.lateOnMinutes;
     }
 
-
-    public LateOffLateOnRule build() {
-      return new LateOffLateOnRule(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getLateOffMinutes() {
+        return this.lateOffMinutes;
+    }
+
+    public void setLateOffMinutes(Integer lateOffMinutes) {
+        this.lateOffMinutes = lateOffMinutes;
+    }
+
+    public Integer getLateOnMinutes() {
+        return this.lateOnMinutes;
+    }
+
+    public void setLateOnMinutes(Integer lateOnMinutes) {
+        this.lateOnMinutes = lateOnMinutes;
+    }
+
+    public static class Builder {
+        /**
+         * 晚走多久
+         * <p> 示例值：60
+         */
+        private Integer lateOffMinutes;
+        /**
+         * 晚到多久
+         * <p> 示例值：30
+         */
+        private Integer lateOnMinutes;
+
+        /**
+         * 晚走多久
+         * <p> 示例值：60
+         *
+         * @param lateOffMinutes
+         * @return
+         */
+        public Builder lateOffMinutes(Integer lateOffMinutes) {
+            this.lateOffMinutes = lateOffMinutes;
+            return this;
+        }
+
+
+        /**
+         * 晚到多久
+         * <p> 示例值：30
+         *
+         * @param lateOnMinutes
+         * @return
+         */
+        public Builder lateOnMinutes(Integer lateOnMinutes) {
+            this.lateOnMinutes = lateOnMinutes;
+            return this;
+        }
+
+
+        public LateOffLateOnRule build() {
+            return new LateOffLateOnRule(this);
+        }
+    }
 }

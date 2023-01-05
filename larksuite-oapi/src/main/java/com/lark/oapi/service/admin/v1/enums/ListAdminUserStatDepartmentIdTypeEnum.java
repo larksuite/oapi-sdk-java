@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 部门ID类型
  */
 public enum ListAdminUserStatDepartmentIdTypeEnum {
-  DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
-  OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
-  ;
-  private String value;
+    DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
+    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
+    ;
+    private String value;
 
-  ListAdminUserStatDepartmentIdTypeEnum(String value) {
-    this.value = value;
-  }
+    ListAdminUserStatDepartmentIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

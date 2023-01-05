@@ -19,69 +19,69 @@ import com.lark.oapi.service.bitable.v1.model.Url;
 
 public class AppTableRecordUtil {
 
-  public static String getStringField(AppTableRecord appTableRecord, String key) {
-    if (appTableRecord == null || appTableRecord.getFields() == null) {
-      return null;
+    public static String getStringField(AppTableRecord appTableRecord, String key) {
+        if (appTableRecord == null || appTableRecord.getFields() == null) {
+            return null;
+        }
+
+        if (appTableRecord.getFields().containsKey(key)) {
+            return (String) appTableRecord.getFields().get(key);
+        }
+        return null;
     }
 
-    if (appTableRecord.getFields().containsKey(key)) {
-      return (String) appTableRecord.getFields().get(key);
-    }
-    return null;
-  }
+    public static Boolean getBooleanField(AppTableRecord appTableRecord, String key) {
+        if (appTableRecord == null || appTableRecord.getFields() == null) {
+            return null;
+        }
 
-  public static Boolean getBooleanField(AppTableRecord appTableRecord, String key) {
-    if (appTableRecord == null || appTableRecord.getFields() == null) {
-      return null;
-    }
-
-    if (appTableRecord.getFields().containsKey(key)) {
-      return (Boolean) appTableRecord.getFields().get(key);
-    }
-    return null;
-  }
-
-  public static String[] getStringListField(AppTableRecord appTableRecord, String key) {
-    if (appTableRecord == null || appTableRecord.getFields() == null) {
-      return null;
+        if (appTableRecord.getFields().containsKey(key)) {
+            return (Boolean) appTableRecord.getFields().get(key);
+        }
+        return null;
     }
 
-    if (appTableRecord.getFields().containsKey(key)) {
-      return (String[]) appTableRecord.getFields().get(key);
-    }
-    return null;
-  }
+    public static String[] getStringListField(AppTableRecord appTableRecord, String key) {
+        if (appTableRecord == null || appTableRecord.getFields() == null) {
+            return null;
+        }
 
-  public static Url[] getUrlListField(AppTableRecord appTableRecord, String key) {
-    if (appTableRecord == null || appTableRecord.getFields() == null) {
-      return null;
-    }
-
-    if (appTableRecord.getFields().containsKey(key)) {
-      return (Url[]) appTableRecord.getFields().get(key);
-    }
-    return null;
-  }
-
-  public static Person[] getPersonListField(AppTableRecord appTableRecord, String key) {
-    if (appTableRecord == null || appTableRecord.getFields() == null) {
-      return null;
+        if (appTableRecord.getFields().containsKey(key)) {
+            return (String[]) appTableRecord.getFields().get(key);
+        }
+        return null;
     }
 
-    if (appTableRecord.getFields().containsKey(key)) {
-      return (Person[]) appTableRecord.getFields().get(key);
-    }
-    return null;
-  }
+    public static Url[] getUrlListField(AppTableRecord appTableRecord, String key) {
+        if (appTableRecord == null || appTableRecord.getFields() == null) {
+            return null;
+        }
 
-  public static Attachment[] getAttachmentListField(AppTableRecord appTableRecord, String key) {
-    if (appTableRecord == null || appTableRecord.getFields() == null) {
-      return null;
+        if (appTableRecord.getFields().containsKey(key)) {
+            return (Url[]) appTableRecord.getFields().get(key);
+        }
+        return null;
     }
 
-    if (appTableRecord.getFields().containsKey(key)) {
-      return (Attachment[]) appTableRecord.getFields().get(key);
+    public static Person[] getPersonListField(AppTableRecord appTableRecord, String key) {
+        if (appTableRecord == null || appTableRecord.getFields() == null) {
+            return null;
+        }
+
+        if (appTableRecord.getFields().containsKey(key)) {
+            return (Person[]) appTableRecord.getFields().get(key);
+        }
+        return null;
     }
-    return null;
-  }
+
+    public static Attachment[] getAttachmentListField(AppTableRecord appTableRecord, String key) {
+        if (appTableRecord == null || appTableRecord.getFields() == null) {
+            return null;
+        }
+
+        if (appTableRecord.getFields().containsKey(key)) {
+            return (Attachment[]) appTableRecord.getFields().get(key);
+        }
+        return null;
+    }
 }

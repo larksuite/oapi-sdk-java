@@ -17,19 +17,19 @@ package com.lark.oapi.service.search.v2.enums;
  * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
  */
 public enum SchemaSortOptionsSchemaSortPriorityEnum {
-  ZERO(0), // 最高优先级
-  ONE(1), // 次高优先级
-  TWO(2), // 次次高优先级
-  THREE(3), // 次低优先级
-  FOUR(4), // 最低优先级
-  ;
-  private Integer value;
+    ZERO(0), // 最高优先级
+    ONE(1), // 次高优先级
+    TWO(2), // 次次高优先级
+    THREE(3), // 次低优先级
+    FOUR(4), // 最低优先级
+    ;
+    private Integer value;
 
-  SchemaSortOptionsSchemaSortPriorityEnum(Integer value) {
-    this.value = value;
-  }
+    SchemaSortOptionsSchemaSortPriorityEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

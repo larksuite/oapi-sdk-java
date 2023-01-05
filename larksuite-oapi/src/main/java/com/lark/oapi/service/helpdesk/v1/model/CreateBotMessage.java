@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateBotMessage {
 
-  /**
-   * chat消息open_id
-   * <p> 示例值：om_7054301238434
-   */
-  @SerializedName("message_id")
-  private String messageId;
+    /**
+     * chat消息open_id
+     * <p> 示例值：om_7054301238434
+     */
+    @SerializedName("message_id")
+    private String messageId;
 
-  public String getMessageId() {
-    return this.messageId;
-  }
+    public String getMessageId() {
+        return this.messageId;
+    }
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
 
 }

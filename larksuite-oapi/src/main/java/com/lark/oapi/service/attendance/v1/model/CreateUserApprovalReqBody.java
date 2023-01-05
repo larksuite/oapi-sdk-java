@@ -16,61 +16,59 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateUserApprovalReqBody {
-
-  /**
-   * 审批信息
-   * <p> 示例值：
-   */
-  @SerializedName("user_approval")
-  private UserApproval userApproval;
-
-  // builder 开始
-  public CreateUserApprovalReqBody() {
-  }
-
-  public CreateUserApprovalReqBody(Builder builder) {
     /**
      * 审批信息
      * <p> 示例值：
      */
-    this.userApproval = builder.userApproval;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserApproval getUserApproval() {
-    return this.userApproval;
-  }
-
-  public void setUserApproval(UserApproval userApproval) {
-    this.userApproval = userApproval;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批信息
-     * <p> 示例值：
-     */
+    @SerializedName("user_approval")
     private UserApproval userApproval;
 
-    /**
-     * 审批信息
-     * <p> 示例值：
-     *
-     * @param userApproval
-     * @return
-     */
-    public Builder userApproval(UserApproval userApproval) {
-      this.userApproval = userApproval;
-      return this;
+    // builder 开始
+    public CreateUserApprovalReqBody() {
     }
 
-
-    public CreateUserApprovalReqBody build() {
-      return new CreateUserApprovalReqBody(this);
+    public CreateUserApprovalReqBody(Builder builder) {
+        /**
+         * 审批信息
+         * <p> 示例值：
+         */
+        this.userApproval = builder.userApproval;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public UserApproval getUserApproval() {
+        return this.userApproval;
+    }
+
+    public void setUserApproval(UserApproval userApproval) {
+        this.userApproval = userApproval;
+    }
+
+    public static class Builder {
+        /**
+         * 审批信息
+         * <p> 示例值：
+         */
+        private UserApproval userApproval;
+
+        /**
+         * 审批信息
+         * <p> 示例值：
+         *
+         * @param userApproval
+         * @return
+         */
+        public Builder userApproval(UserApproval userApproval) {
+            this.userApproval = userApproval;
+            return this;
+        }
+
+
+        public CreateUserApprovalReqBody build() {
+            return new CreateUserApprovalReqBody(this);
+        }
+    }
 }

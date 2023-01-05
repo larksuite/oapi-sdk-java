@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListUserMailboxAlias {
 
-  /**
-   * 用户邮箱别名
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private EmailAlias[] items;
+    /**
+     * 用户邮箱别名
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private EmailAlias[] items;
 
-  public EmailAlias[] getItems() {
-    return this.items;
-  }
+    public EmailAlias[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(EmailAlias[] items) {
-    this.items = items;
-  }
+    public void setItems(EmailAlias[] items) {
+        this.items = items;
+    }
 
 }

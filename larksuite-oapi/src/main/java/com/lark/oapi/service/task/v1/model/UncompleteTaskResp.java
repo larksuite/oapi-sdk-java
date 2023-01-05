@@ -17,5 +17,4 @@ import com.lark.oapi.core.response.BaseResponse;
 import com.lark.oapi.core.response.EmptyData;
 
 public class UncompleteTaskResp extends BaseResponse<EmptyData> {
-
 }

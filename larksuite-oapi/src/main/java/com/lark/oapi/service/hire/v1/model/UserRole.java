@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserRole {
-
-  /**
-   * 用户 ID
-   * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 角色 ID
-   * <p> 示例值：101
-   */
-  @SerializedName("role_id")
-  private String roleId;
-  /**
-   * 修改时间
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("modify_time")
-  private String modifyTime;
-
-  // builder 开始
-  public UserRole() {
-  }
-
-  public UserRole(Builder builder) {
     /**
      * 用户 ID
      * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
      */
-    this.userId = builder.userId;
-    /**
-     * 角色 ID
-     * <p> 示例值：101
-     */
-    this.roleId = builder.roleId;
-    /**
-     * 修改时间
-     * <p> 示例值：1618500278663
-     */
-    this.modifyTime = builder.modifyTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public String getModifyTime() {
-    return this.modifyTime;
-  }
-
-  public void setModifyTime(String modifyTime) {
-    this.modifyTime = modifyTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 角色 ID
      * <p> 示例值：101
      */
+    @SerializedName("role_id")
     private String roleId;
     /**
      * 修改时间
      * <p> 示例值：1618500278663
      */
+    @SerializedName("modify_time")
     private String modifyTime;
 
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public UserRole() {
     }
 
-
-    /**
-     * 角色 ID
-     * <p> 示例值：101
-     *
-     * @param roleId
-     * @return
-     */
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public UserRole(Builder builder) {
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
+         */
+        this.userId = builder.userId;
+        /**
+         * 角色 ID
+         * <p> 示例值：101
+         */
+        this.roleId = builder.roleId;
+        /**
+         * 修改时间
+         * <p> 示例值：1618500278663
+         */
+        this.modifyTime = builder.modifyTime;
     }
 
-
-    /**
-     * 修改时间
-     * <p> 示例值：1618500278663
-     *
-     * @param modifyTime
-     * @return
-     */
-    public Builder modifyTime(String modifyTime) {
-      this.modifyTime = modifyTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UserRole build() {
-      return new UserRole(this);
+    public String getUserId() {
+        return this.userId;
     }
-  }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(String modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public static class Builder {
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
+         */
+        private String userId;
+        /**
+         * 角色 ID
+         * <p> 示例值：101
+         */
+        private String roleId;
+        /**
+         * 修改时间
+         * <p> 示例值：1618500278663
+         */
+        private String modifyTime;
+
+        /**
+         * 用户 ID
+         * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 角色 ID
+         * <p> 示例值：101
+         *
+         * @param roleId
+         * @return
+         */
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
+
+
+        /**
+         * 修改时间
+         * <p> 示例值：1618500278663
+         *
+         * @param modifyTime
+         * @return
+         */
+        public Builder modifyTime(String modifyTime) {
+            this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        public UserRole build() {
+            return new UserRole(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GroupMeta {
-
-  /**
-   * 考勤组 ID
-   * <p> 示例值：6919358128597097404
-   */
-  @SerializedName("group_id")
-  private String groupId;
-  /**
-   * 考勤组名称
-   * <p> 示例值：考勤组1
-   */
-  @SerializedName("group_name")
-  private String groupName;
-
-  // builder 开始
-  public GroupMeta() {
-  }
-
-  public GroupMeta(Builder builder) {
     /**
      * 考勤组 ID
      * <p> 示例值：6919358128597097404
      */
-    this.groupId = builder.groupId;
-    /**
-     * 考勤组名称
-     * <p> 示例值：考勤组1
-     */
-    this.groupName = builder.groupName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public String getGroupName() {
-    return this.groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 考勤组 ID
-     * <p> 示例值：6919358128597097404
-     */
+    @SerializedName("group_id")
     private String groupId;
     /**
      * 考勤组名称
      * <p> 示例值：考勤组1
      */
+    @SerializedName("group_name")
     private String groupName;
 
-    /**
-     * 考勤组 ID
-     * <p> 示例值：6919358128597097404
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public GroupMeta() {
     }
 
-
-    /**
-     * 考勤组名称
-     * <p> 示例值：考勤组1
-     *
-     * @param groupName
-     * @return
-     */
-    public Builder groupName(String groupName) {
-      this.groupName = groupName;
-      return this;
+    public GroupMeta(Builder builder) {
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6919358128597097404
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         */
+        this.groupName = builder.groupName;
     }
 
-
-    public GroupMeta build() {
-      return new GroupMeta(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getGroupName() {
+        return this.groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public static class Builder {
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6919358128597097404
+         */
+        private String groupId;
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         */
+        private String groupName;
+
+        /**
+         * 考勤组 ID
+         * <p> 示例值：6919358128597097404
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+
+        /**
+         * 考勤组名称
+         * <p> 示例值：考勤组1
+         *
+         * @param groupName
+         * @return
+         */
+        public Builder groupName(String groupName) {
+            this.groupName = groupName;
+            return this;
+        }
+
+
+        public GroupMeta build() {
+            return new GroupMeta(this);
+        }
+    }
 }

@@ -15,17 +15,17 @@ package com.lark.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum ViewTypeEnum {
-  CARD(1),
-  PREVIEW(2),
-  INLINE(3),
-  ;
-  private Integer value;
+    CARD(1),
+    PREVIEW(2),
+    INLINE(3),
+    ;
+    private Integer value;
 
-  ViewTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ViewTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

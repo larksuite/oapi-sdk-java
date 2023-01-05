@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateMoto {
 
-  /**
-   * desc22222
-   * <p> 示例值：
-   */
-  @SerializedName("moto")
-  private Moto moto;
+    /**
+     * desc22222
+     * <p> 示例值：
+     */
+    @SerializedName("moto")
+    private Moto moto;
 
-  public Moto getMoto() {
-    return this.moto;
-  }
+    public Moto getMoto() {
+        return this.moto;
+    }
 
-  public void setMoto(Moto moto) {
-    this.moto = moto;
-  }
+    public void setMoto(Moto moto) {
+        this.moto = moto;
+    }
 
 }

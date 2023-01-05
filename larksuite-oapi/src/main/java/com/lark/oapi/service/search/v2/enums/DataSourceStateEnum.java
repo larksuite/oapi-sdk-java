@@ -14,19 +14,19 @@
 package com.lark.oapi.service.search.v2.enums;
 
 /**
- * 数据源状态，0-已上线，1-未上线
+ * 数据源状态，0-已上线，1-未上线。如果未填，默认是未上线状态。
  */
 public enum DataSourceStateEnum {
-  ONLINE(0), // 已上线
-  OFFLINE(1), // 未上线
-  ;
-  private Integer value;
+    ONLINE(0), // 已上线
+    OFFLINE(1), // 未上线
+    ;
+    private Integer value;
 
-  DataSourceStateEnum(Integer value) {
-    this.value = value;
-  }
+    DataSourceStateEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

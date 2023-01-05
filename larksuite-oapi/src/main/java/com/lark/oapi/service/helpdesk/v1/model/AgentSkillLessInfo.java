@@ -16,135 +16,133 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AgentSkillLessInfo {
-
-  /**
-   * 客服技能 id
-   * <p> 示例值：agent-skill-id
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 客服技能名
-   * <p> 示例值：agent-skill
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 是默认技能
-   * <p> 示例值：false
-   */
-  @SerializedName("is_default")
-  private Boolean isDefault;
-
-  // builder 开始
-  public AgentSkillLessInfo() {
-  }
-
-  public AgentSkillLessInfo(Builder builder) {
     /**
      * 客服技能 id
      * <p> 示例值：agent-skill-id
      */
-    this.id = builder.id;
-    /**
-     * 客服技能名
-     * <p> 示例值：agent-skill
-     */
-    this.name = builder.name;
-    /**
-     * 是默认技能
-     * <p> 示例值：false
-     */
-    this.isDefault = builder.isDefault;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Boolean getIsDefault() {
-    return this.isDefault;
-  }
-
-  public void setIsDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
-  }
-
-  public static class Builder {
-
-    /**
-     * 客服技能 id
-     * <p> 示例值：agent-skill-id
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 客服技能名
      * <p> 示例值：agent-skill
      */
+    @SerializedName("name")
     private String name;
     /**
      * 是默认技能
      * <p> 示例值：false
      */
+    @SerializedName("is_default")
     private Boolean isDefault;
 
-    /**
-     * 客服技能 id
-     * <p> 示例值：agent-skill-id
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public AgentSkillLessInfo() {
     }
 
-
-    /**
-     * 客服技能名
-     * <p> 示例值：agent-skill
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public AgentSkillLessInfo(Builder builder) {
+        /**
+         * 客服技能 id
+         * <p> 示例值：agent-skill-id
+         */
+        this.id = builder.id;
+        /**
+         * 客服技能名
+         * <p> 示例值：agent-skill
+         */
+        this.name = builder.name;
+        /**
+         * 是默认技能
+         * <p> 示例值：false
+         */
+        this.isDefault = builder.isDefault;
     }
 
-
-    /**
-     * 是默认技能
-     * <p> 示例值：false
-     *
-     * @param isDefault
-     * @return
-     */
-    public Builder isDefault(Boolean isDefault) {
-      this.isDefault = isDefault;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AgentSkillLessInfo build() {
-      return new AgentSkillLessInfo(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsDefault() {
+        return this.isDefault;
+    }
+
+    public void setIsDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    public static class Builder {
+        /**
+         * 客服技能 id
+         * <p> 示例值：agent-skill-id
+         */
+        private String id;
+        /**
+         * 客服技能名
+         * <p> 示例值：agent-skill
+         */
+        private String name;
+        /**
+         * 是默认技能
+         * <p> 示例值：false
+         */
+        private Boolean isDefault;
+
+        /**
+         * 客服技能 id
+         * <p> 示例值：agent-skill-id
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 客服技能名
+         * <p> 示例值：agent-skill
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 是默认技能
+         * <p> 示例值：false
+         *
+         * @param isDefault
+         * @return
+         */
+        public Builder isDefault(Boolean isDefault) {
+            this.isDefault = isDefault;
+            return this;
+        }
+
+
+        public AgentSkillLessInfo build() {
+            return new AgentSkillLessInfo(this);
+        }
+    }
 }

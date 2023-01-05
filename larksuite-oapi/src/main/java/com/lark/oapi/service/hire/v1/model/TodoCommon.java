@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TodoCommon {
-
-  /**
-   * 候选人 ID
-   * <p> 示例值：6891524011667228941
-   */
-  @SerializedName("talent_id")
-  private String talentId;
-  /**
-   * 职位 ID
-   * <p> 示例值：6891113155221522701
-   */
-  @SerializedName("job_id")
-  private String jobId;
-  /**
-   * 投递 ID
-   * <p> 示例值：6945436033023625516
-   */
-  @SerializedName("application_id")
-  private String applicationId;
-  /**
-   * ID
-   * <p> 示例值：6914542162822695181
-   */
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public TodoCommon() {
-  }
-
-  public TodoCommon(Builder builder) {
     /**
      * 候选人 ID
      * <p> 示例值：6891524011667228941
      */
-    this.talentId = builder.talentId;
-    /**
-     * 职位 ID
-     * <p> 示例值：6891113155221522701
-     */
-    this.jobId = builder.jobId;
-    /**
-     * 投递 ID
-     * <p> 示例值：6945436033023625516
-     */
-    this.applicationId = builder.applicationId;
-    /**
-     * ID
-     * <p> 示例值：6914542162822695181
-     */
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public String getJobId() {
-    return this.jobId;
-  }
-
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    /**
-     * 候选人 ID
-     * <p> 示例值：6891524011667228941
-     */
+    @SerializedName("talent_id")
     private String talentId;
     /**
      * 职位 ID
      * <p> 示例值：6891113155221522701
      */
+    @SerializedName("job_id")
     private String jobId;
     /**
      * 投递 ID
      * <p> 示例值：6945436033023625516
      */
+    @SerializedName("application_id")
     private String applicationId;
     /**
      * ID
      * <p> 示例值：6914542162822695181
      */
+    @SerializedName("id")
     private String id;
 
-    /**
-     * 候选人 ID
-     * <p> 示例值：6891524011667228941
-     *
-     * @param talentId
-     * @return
-     */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
+    // builder 开始
+    public TodoCommon() {
     }
 
-
-    /**
-     * 职位 ID
-     * <p> 示例值：6891113155221522701
-     *
-     * @param jobId
-     * @return
-     */
-    public Builder jobId(String jobId) {
-      this.jobId = jobId;
-      return this;
+    public TodoCommon(Builder builder) {
+        /**
+         * 候选人 ID
+         * <p> 示例值：6891524011667228941
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 职位 ID
+         * <p> 示例值：6891113155221522701
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 投递 ID
+         * <p> 示例值：6945436033023625516
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * ID
+         * <p> 示例值：6914542162822695181
+         */
+        this.id = builder.id;
     }
 
-
-    /**
-     * 投递 ID
-     * <p> 示例值：6945436033023625516
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * ID
-     * <p> 示例值：6914542162822695181
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getTalentId() {
+        return this.talentId;
     }
 
-
-    public TodoCommon build() {
-      return new TodoCommon(this);
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
     }
-  }
+
+    public String getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+        /**
+         * 候选人 ID
+         * <p> 示例值：6891524011667228941
+         */
+        private String talentId;
+        /**
+         * 职位 ID
+         * <p> 示例值：6891113155221522701
+         */
+        private String jobId;
+        /**
+         * 投递 ID
+         * <p> 示例值：6945436033023625516
+         */
+        private String applicationId;
+        /**
+         * ID
+         * <p> 示例值：6914542162822695181
+         */
+        private String id;
+
+        /**
+         * 候选人 ID
+         * <p> 示例值：6891524011667228941
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 职位 ID
+         * <p> 示例值：6891113155221522701
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 投递 ID
+         * <p> 示例值：6945436033023625516
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * ID
+         * <p> 示例值：6914542162822695181
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public TodoCommon build() {
+            return new TodoCommon(this);
+        }
+    }
 }

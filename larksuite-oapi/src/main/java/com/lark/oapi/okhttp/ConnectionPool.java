@@ -18,6 +18,7 @@
 package com.lark.oapi.okhttp;
 
 import com.lark.oapi.okhttp.internal.connection.RealConnectionPool;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -27,39 +28,39 @@ import java.util.concurrent.TimeUnit;
  */
 public final class ConnectionPool {
 
-  final RealConnectionPool delegate;
+    final RealConnectionPool delegate;
 
-  /**
-   * Create a new connection pool with tuning parameters appropriate for a single-user application.
-   * The tuning parameters in this pool are subject to change in future OkHttp releases. Currently
-   * this pool holds up to 5 idle connections which will be evicted after 5 minutes of inactivity.
-   */
-  public ConnectionPool() {
-    this(5, 5, TimeUnit.MINUTES);
-  }
+    /**
+     * Create a new connection pool with tuning parameters appropriate for a single-user application.
+     * The tuning parameters in this pool are subject to change in future OkHttp releases. Currently
+     * this pool holds up to 5 idle connections which will be evicted after 5 minutes of inactivity.
+     */
+    public ConnectionPool() {
+        this(5, 5, TimeUnit.MINUTES);
+    }
 
-  public ConnectionPool(int maxIdleConnections, long keepAliveDuration, TimeUnit timeUnit) {
-    this.delegate = new RealConnectionPool(maxIdleConnections, keepAliveDuration, timeUnit);
-  }
+    public ConnectionPool(int maxIdleConnections, long keepAliveDuration, TimeUnit timeUnit) {
+        this.delegate = new RealConnectionPool(maxIdleConnections, keepAliveDuration, timeUnit);
+    }
 
-  /**
-   * Returns the number of idle connections in the pool.
-   */
-  public int idleConnectionCount() {
-    return delegate.idleConnectionCount();
-  }
+    /**
+     * Returns the number of idle connections in the pool.
+     */
+    public int idleConnectionCount() {
+        return delegate.idleConnectionCount();
+    }
 
-  /**
-   * Returns total number of connections in the pool.
-   */
-  public int connectionCount() {
-    return delegate.connectionCount();
-  }
+    /**
+     * Returns total number of connections in the pool.
+     */
+    public int connectionCount() {
+        return delegate.connectionCount();
+    }
 
-  /**
-   * Close and remove all idle connections in the pool.
-   */
-  public void evictAll() {
-    delegate.evictAll();
-  }
+    /**
+     * Close and remove all idle connections in the pool.
+     */
+    public void evictAll() {
+        delegate.evictAll();
+    }
 }

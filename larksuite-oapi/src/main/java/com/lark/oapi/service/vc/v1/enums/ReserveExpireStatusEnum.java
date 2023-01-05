@@ -17,16 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 过期状态
  */
 public enum ReserveExpireStatusEnum {
-  NOT_EXPIRED(1), // 未过期
-  EXPIRED(2), // 已过期
-  ;
-  private Integer value;
+    NOT_EXPIRED(1), // 未过期
+    EXPIRED(2), // 已过期
+    ;
+    private Integer value;
 
-  ReserveExpireStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ReserveExpireStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

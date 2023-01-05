@@ -16,135 +16,133 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ChatTabContent {
-
-  /**
-   * URL类型
-   * <p> 示例值：https://www.feishu.cn
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * Doc链接
-   * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
-   */
-  @SerializedName("doc")
-  private String doc;
-  /**
-   * 会议纪要
-   * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
-   */
-  @SerializedName("meeting_minute")
-  private String meetingMinute;
-
-  // builder 开始
-  public ChatTabContent() {
-  }
-
-  public ChatTabContent(Builder builder) {
     /**
      * URL类型
      * <p> 示例值：https://www.feishu.cn
      */
-    this.url = builder.url;
-    /**
-     * Doc链接
-     * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
-     */
-    this.doc = builder.doc;
-    /**
-     * 会议纪要
-     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
-     */
-    this.meetingMinute = builder.meetingMinute;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getDoc() {
-    return this.doc;
-  }
-
-  public void setDoc(String doc) {
-    this.doc = doc;
-  }
-
-  public String getMeetingMinute() {
-    return this.meetingMinute;
-  }
-
-  public void setMeetingMinute(String meetingMinute) {
-    this.meetingMinute = meetingMinute;
-  }
-
-  public static class Builder {
-
-    /**
-     * URL类型
-     * <p> 示例值：https://www.feishu.cn
-     */
+    @SerializedName("url")
     private String url;
     /**
      * Doc链接
      * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
      */
+    @SerializedName("doc")
     private String doc;
     /**
      * 会议纪要
      * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
      */
+    @SerializedName("meeting_minute")
     private String meetingMinute;
 
-    /**
-     * URL类型
-     * <p> 示例值：https://www.feishu.cn
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    // builder 开始
+    public ChatTabContent() {
     }
 
-
-    /**
-     * Doc链接
-     * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
-     *
-     * @param doc
-     * @return
-     */
-    public Builder doc(String doc) {
-      this.doc = doc;
-      return this;
+    public ChatTabContent(Builder builder) {
+        /**
+         * URL类型
+         * <p> 示例值：https://www.feishu.cn
+         */
+        this.url = builder.url;
+        /**
+         * Doc链接
+         * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+         */
+        this.doc = builder.doc;
+        /**
+         * 会议纪要
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+         */
+        this.meetingMinute = builder.meetingMinute;
     }
 
-
-    /**
-     * 会议纪要
-     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
-     *
-     * @param meetingMinute
-     * @return
-     */
-    public Builder meetingMinute(String meetingMinute) {
-      this.meetingMinute = meetingMinute;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ChatTabContent build() {
-      return new ChatTabContent(this);
+    public String getUrl() {
+        return this.url;
     }
-  }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDoc() {
+        return this.doc;
+    }
+
+    public void setDoc(String doc) {
+        this.doc = doc;
+    }
+
+    public String getMeetingMinute() {
+        return this.meetingMinute;
+    }
+
+    public void setMeetingMinute(String meetingMinute) {
+        this.meetingMinute = meetingMinute;
+    }
+
+    public static class Builder {
+        /**
+         * URL类型
+         * <p> 示例值：https://www.feishu.cn
+         */
+        private String url;
+        /**
+         * Doc链接
+         * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+         */
+        private String doc;
+        /**
+         * 会议纪要
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+         */
+        private String meetingMinute;
+
+        /**
+         * URL类型
+         * <p> 示例值：https://www.feishu.cn
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * Doc链接
+         * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+         *
+         * @param doc
+         * @return
+         */
+        public Builder doc(String doc) {
+            this.doc = doc;
+            return this;
+        }
+
+
+        /**
+         * 会议纪要
+         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+         *
+         * @param meetingMinute
+         * @return
+         */
+        public Builder meetingMinute(String meetingMinute) {
+            this.meetingMinute = meetingMinute;
+            return this;
+        }
+
+
+        public ChatTabContent build() {
+            return new ChatTabContent(this);
+        }
+    }
 }

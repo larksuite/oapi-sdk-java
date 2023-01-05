@@ -15,21 +15,21 @@ package com.lark.oapi.service.hire.v1.model;
 
 public class TalentInterviewRegistration {
 
-  // builder 开始
-  public TalentInterviewRegistration() {
-  }
-
-  public TalentInterviewRegistration(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public TalentInterviewRegistration build() {
-      return new TalentInterviewRegistration(this);
+    // builder 开始
+    public TalentInterviewRegistration() {
     }
-  }
+
+    public TalentInterviewRegistration(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public TalentInterviewRegistration build() {
+            return new TalentInterviewRegistration(this);
+        }
+    }
 }

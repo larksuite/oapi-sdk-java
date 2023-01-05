@@ -18,103 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetChatAnnouncementReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_5ad11d72b830411d72b836c20
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-
-  // builder 开始
-  public GetChatAnnouncementReq() {
-  }
-
-  public GetChatAnnouncementReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：open_id
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
-     * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      */
-    this.chatId = builder.chatId;
-  }
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String chatId; // 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public GetChatAnnouncementReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
-     *
-     * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetChatAnnouncementUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.im.v1.enums.GetChatAnnouncementUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public GetChatAnnouncementReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         */
+        this.chatId = builder.chatId;
     }
 
-    /**
-     * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public GetChatAnnouncementReq build() {
-      return new GetChatAnnouncementReq(this);
+    public String getUserIdType() {
+        return this.userIdType;
     }
-  }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String chatId; // 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetChatAnnouncementUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.GetChatAnnouncementUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：不支持P2P单聊
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public GetChatAnnouncementReq build() {
+            return new GetChatAnnouncementReq(this);
+        }
+    }
 }

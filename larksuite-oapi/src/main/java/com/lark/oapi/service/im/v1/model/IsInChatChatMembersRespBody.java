@@ -16,20 +16,19 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class IsInChatChatMembersRespBody {
+    /**
+     * 用户或者机器人是否在群中
+     * <p> 示例值：false
+     */
+    @SerializedName("is_in_chat")
+    private Boolean isInChat;
 
-  /**
-   * 用户或者机器人是否在群中
-   * <p> 示例值：false
-   */
-  @SerializedName("is_in_chat")
-  private Boolean isInChat;
+    public Boolean getIsInChat() {
+        return this.isInChat;
+    }
 
-  public Boolean getIsInChat() {
-    return this.isInChat;
-  }
-
-  public void setIsInChat(Boolean isInChat) {
-    this.isInChat = isInChat;
-  }
+    public void setIsInChat(Boolean isInChat) {
+        this.isInChat = isInChat;
+    }
 
 }

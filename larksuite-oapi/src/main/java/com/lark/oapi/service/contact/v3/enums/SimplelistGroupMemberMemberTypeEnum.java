@@ -17,16 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 欲获取的用户组成员类型。
  */
 public enum SimplelistGroupMemberMemberTypeEnum {
-  USER("user"), // 该次获取的用户组的用户成员
-  DEPARTMENT("department"), // 该次获取的用户组的部门成员
-  ;
-  private String value;
+    USER("user"), // 该次获取的用户组的用户成员
+    DEPARTMENT("department"), // 该次获取的用户组的部门成员
+    ;
+    private String value;
 
-  SimplelistGroupMemberMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    SimplelistGroupMemberMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

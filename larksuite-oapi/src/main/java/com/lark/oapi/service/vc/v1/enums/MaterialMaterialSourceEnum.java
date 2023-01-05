@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 素材来源
  */
 public enum MaterialMaterialSourceEnum {
-  ISV(1), // 用户通过ISV从本地添加上传
-  ISV_FROM_VC(2), // 从飞书同步到ISV的图，通过ISV编辑后上传
-  ISV_FROM_PRESET(3), // 预置在ISV的图，通过ISV编辑后上传
-  ;
-  private Integer value;
+    ISV(1), // 用户通过ISV从本地添加上传
+    ISV_FROM_VC(2), // 从飞书同步到ISV的图，通过ISV编辑后上传
+    ISV_FROM_PRESET(3), // 预置在ISV的图，通过ISV编辑后上传
+    ;
+    private Integer value;
 
-  MaterialMaterialSourceEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialMaterialSourceEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

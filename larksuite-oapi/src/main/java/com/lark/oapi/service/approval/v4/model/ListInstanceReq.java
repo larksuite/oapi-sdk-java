@@ -17,194 +17,192 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListInstanceReq {
-
-  /**
-   * 分页大小
-   * <p> 示例值：100
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 审批定义唯一标识
-   * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-   */
-  @Query
-  @SerializedName("approval_code")
-  private String approvalCode;
-  /**
-   * 审批实例创建时间区间（毫秒）
-   * <p> 示例值：1567690398020
-   */
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  /**
-   * 审批实例创建时间区间（毫秒）
-   * <p> 示例值：1567690398020
-   */
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public ListInstanceReq() {
-  }
-
-  public ListInstanceReq(Builder builder) {
     /**
      * 分页大小
      * <p> 示例值：100
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
      * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 审批定义唯一标识
      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    this.approvalCode = builder.approvalCode;
+    @Query
+    @SerializedName("approval_code")
+    private String approvalCode;
     /**
      * 审批实例创建时间区间（毫秒）
      * <p> 示例值：1567690398020
      */
-    this.startTime = builder.startTime;
+    @Query
+    @SerializedName("start_time")
+    private String startTime;
     /**
      * 审批实例创建时间区间（毫秒）
      * <p> 示例值：1567690398020
      */
-    this.endTime = builder.endTime;
-  }
+    @Query
+    @SerializedName("end_time")
+    private String endTime;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
-    private Integer pageSize; // 分页大小
-    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-    private String approvalCode; // 审批定义唯一标识
-    private String startTime; // 审批实例创建时间区间（毫秒）
-    private String endTime; // 审批实例创建时间区间（毫秒）
-
-
-    /**
-     * 分页大小
-     * <p> 示例值：100
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    // builder 开始
+    public ListInstanceReq() {
     }
 
-
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public ListInstanceReq(Builder builder) {
+        /**
+         * 分页大小
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 审批定义唯一标识
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.approvalCode = builder.approvalCode;
+        /**
+         * 审批实例创建时间区间（毫秒）
+         * <p> 示例值：1567690398020
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 审批实例创建时间区间（毫秒）
+         * <p> 示例值：1567690398020
+         */
+        this.endTime = builder.endTime;
     }
 
-
-    /**
-     * 审批定义唯一标识
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     *
-     * @param approvalCode
-     * @return
-     */
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 审批实例创建时间区间（毫秒）
-     * <p> 示例值：1567690398020
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-
-    /**
-     * 审批实例创建时间区间（毫秒）
-     * <p> 示例值：1567690398020
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public ListInstanceReq build() {
-      return new ListInstanceReq(this);
+    public String getPageToken() {
+        return this.pageToken;
     }
-  }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
+
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public static class Builder {
+        private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private String approvalCode; // 审批定义唯一标识
+        private String startTime; // 审批实例创建时间区间（毫秒）
+        private String endTime; // 审批实例创建时间区间（毫秒）
+
+
+        /**
+         * 分页大小
+         * <p> 示例值：100
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 审批定义唯一标识
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
+
+
+        /**
+         * 审批实例创建时间区间（毫秒）
+         * <p> 示例值：1567690398020
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 审批实例创建时间区间（毫秒）
+         * <p> 示例值：1567690398020
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        public ListInstanceReq build() {
+            return new ListInstanceReq(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Find {
-
-  /**
-   * 查找条件
-   * <p> 示例值：
-   */
-  @SerializedName("find_condition")
-  private FindCondition findCondition;
-  /**
-   * 查找的字符串
-   * <p> 示例值：hello
-   */
-  @SerializedName("find")
-  private String find;
-
-  // builder 开始
-  public Find() {
-  }
-
-  public Find(Builder builder) {
     /**
      * 查找条件
      * <p> 示例值：
      */
-    this.findCondition = builder.findCondition;
-    /**
-     * 查找的字符串
-     * <p> 示例值：hello
-     */
-    this.find = builder.find;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FindCondition getFindCondition() {
-    return this.findCondition;
-  }
-
-  public void setFindCondition(FindCondition findCondition) {
-    this.findCondition = findCondition;
-  }
-
-  public String getFind() {
-    return this.find;
-  }
-
-  public void setFind(String find) {
-    this.find = find;
-  }
-
-  public static class Builder {
-
-    /**
-     * 查找条件
-     * <p> 示例值：
-     */
+    @SerializedName("find_condition")
     private FindCondition findCondition;
     /**
-     * 查找的字符串
-     * <p> 示例值：hello
+     * 查找的字符串，当`search_by_regex`字段为 true 时，该字段为正则表达式
+     * <p> 示例值：如下;;- 普通查找示例: "hello";- 正则查找示例: "[A-Z]\w+"
      */
+    @SerializedName("find")
     private String find;
 
-    /**
-     * 查找条件
-     * <p> 示例值：
-     *
-     * @param findCondition
-     * @return
-     */
-    public Builder findCondition(FindCondition findCondition) {
-      this.findCondition = findCondition;
-      return this;
+    // builder 开始
+    public Find() {
     }
 
-
-    /**
-     * 查找的字符串
-     * <p> 示例值：hello
-     *
-     * @param find
-     * @return
-     */
-    public Builder find(String find) {
-      this.find = find;
-      return this;
+    public Find(Builder builder) {
+        /**
+         * 查找条件
+         * <p> 示例值：
+         */
+        this.findCondition = builder.findCondition;
+        /**
+         * 查找的字符串，当`search_by_regex`字段为 true 时，该字段为正则表达式
+         * <p> 示例值：如下;;- 普通查找示例: "hello";- 正则查找示例: "[A-Z]\w+"
+         */
+        this.find = builder.find;
     }
 
-
-    public Find build() {
-      return new Find(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public FindCondition getFindCondition() {
+        return this.findCondition;
+    }
+
+    public void setFindCondition(FindCondition findCondition) {
+        this.findCondition = findCondition;
+    }
+
+    public String getFind() {
+        return this.find;
+    }
+
+    public void setFind(String find) {
+        this.find = find;
+    }
+
+    public static class Builder {
+        /**
+         * 查找条件
+         * <p> 示例值：
+         */
+        private FindCondition findCondition;
+        /**
+         * 查找的字符串，当`search_by_regex`字段为 true 时，该字段为正则表达式
+         * <p> 示例值：如下;;- 普通查找示例: "hello";- 正则查找示例: "[A-Z]\w+"
+         */
+        private String find;
+
+        /**
+         * 查找条件
+         * <p> 示例值：
+         *
+         * @param findCondition
+         * @return
+         */
+        public Builder findCondition(FindCondition findCondition) {
+            this.findCondition = findCondition;
+            return this;
+        }
+
+
+        /**
+         * 查找的字符串，当`search_by_regex`字段为 true 时，该字段为正则表达式
+         * <p> 示例值：如下;;- 普通查找示例: "hello";- 正则查找示例: "[A-Z]\w+"
+         *
+         * @param find
+         * @return
+         */
+        public Builder find(String find) {
+            this.find = find;
+            return this;
+        }
+
+
+        public Find build() {
+            return new Find(this);
+        }
+    }
 }

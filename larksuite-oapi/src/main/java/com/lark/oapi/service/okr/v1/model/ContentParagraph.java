@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentParagraph {
-
-  /**
-   * 段落样式
-   * <p> 示例值：
-   */
-  @SerializedName("style")
-  private ContentParagraphStyle style;
-  /**
-   * 段落元素组成一个段落
-   * <p> 示例值：
-   */
-  @SerializedName("elements")
-  private ContentParagraphElement[] elements;
-
-  // builder 开始
-  public ContentParagraph() {
-  }
-
-  public ContentParagraph(Builder builder) {
     /**
      * 段落样式
      * <p> 示例值：
      */
-    this.style = builder.style;
-    /**
-     * 段落元素组成一个段落
-     * <p> 示例值：
-     */
-    this.elements = builder.elements;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ContentParagraphStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(ContentParagraphStyle style) {
-    this.style = style;
-  }
-
-  public ContentParagraphElement[] getElements() {
-    return this.elements;
-  }
-
-  public void setElements(ContentParagraphElement[] elements) {
-    this.elements = elements;
-  }
-
-  public static class Builder {
-
-    /**
-     * 段落样式
-     * <p> 示例值：
-     */
+    @SerializedName("style")
     private ContentParagraphStyle style;
     /**
      * 段落元素组成一个段落
      * <p> 示例值：
      */
+    @SerializedName("elements")
     private ContentParagraphElement[] elements;
 
-    /**
-     * 段落样式
-     * <p> 示例值：
-     *
-     * @param style
-     * @return
-     */
-    public Builder style(ContentParagraphStyle style) {
-      this.style = style;
-      return this;
+    // builder 开始
+    public ContentParagraph() {
     }
 
-
-    /**
-     * 段落元素组成一个段落
-     * <p> 示例值：
-     *
-     * @param elements
-     * @return
-     */
-    public Builder elements(ContentParagraphElement[] elements) {
-      this.elements = elements;
-      return this;
+    public ContentParagraph(Builder builder) {
+        /**
+         * 段落样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
+        /**
+         * 段落元素组成一个段落
+         * <p> 示例值：
+         */
+        this.elements = builder.elements;
     }
 
-
-    public ContentParagraph build() {
-      return new ContentParagraph(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public ContentParagraphStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(ContentParagraphStyle style) {
+        this.style = style;
+    }
+
+    public ContentParagraphElement[] getElements() {
+        return this.elements;
+    }
+
+    public void setElements(ContentParagraphElement[] elements) {
+        this.elements = elements;
+    }
+
+    public static class Builder {
+        /**
+         * 段落样式
+         * <p> 示例值：
+         */
+        private ContentParagraphStyle style;
+        /**
+         * 段落元素组成一个段落
+         * <p> 示例值：
+         */
+        private ContentParagraphElement[] elements;
+
+        /**
+         * 段落样式
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(ContentParagraphStyle style) {
+            this.style = style;
+            return this;
+        }
+
+
+        /**
+         * 段落元素组成一个段落
+         * <p> 示例值：
+         *
+         * @param elements
+         * @return
+         */
+        public Builder elements(ContentParagraphElement[] elements) {
+            this.elements = elements;
+            return this;
+        }
+
+
+        public ContentParagraph build() {
+            return new ContentParagraph(this);
+        }
+    }
 }

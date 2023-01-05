@@ -17,16 +17,16 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
  */
 public enum CalendarEventRespEventFreeBusyStatusEnum {
-  BUSY("busy"), // 忙碌
-  FREE("free"), // 空闲
-  ;
-  private String value;
+    BUSY("busy"), // 忙碌
+    FREE("free"), // 空闲
+    ;
+    private String value;
 
-  CalendarEventRespEventFreeBusyStatusEnum(String value) {
-    this.value = value;
-  }
+    CalendarEventRespEventFreeBusyStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

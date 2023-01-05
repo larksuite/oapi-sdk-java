@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class SubmitApproveNotificationReq {
-
-  /**
-   * 创建接口返回的唯一id
-   * <p> 示例值：6985032626234982420
-   */
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-  @Body
-  private SubmitApproveNotificationReqBody body;
-
-  // builder 开始
-  public SubmitApproveNotificationReq() {
-  }
-
-  public SubmitApproveNotificationReq(Builder builder) {
     /**
      * 创建接口返回的唯一id
      * <p> 示例值：6985032626234982420
      */
-    this.notificationId = builder.notificationId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public SubmitApproveNotificationReqBody getSubmitApproveNotificationReqBody() {
-    return this.body;
-  }
-
-  public void setSubmitApproveNotificationReqBody(SubmitApproveNotificationReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String notificationId; // 创建接口返回的唯一id
+    @Path
+    @SerializedName("notification_id")
+    private String notificationId;
+    @Body
     private SubmitApproveNotificationReqBody body;
 
-    /**
-     * 创建接口返回的唯一id
-     * <p> 示例值：6985032626234982420
-     *
-     * @param notificationId
-     * @return
-     */
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
+    // builder 开始
+    public SubmitApproveNotificationReq() {
+    }
+
+    public SubmitApproveNotificationReq(Builder builder) {
+        /**
+         * 创建接口返回的唯一id
+         * <p> 示例值：6985032626234982420
+         */
+        this.notificationId = builder.notificationId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNotificationId() {
+        return this.notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
     }
 
     public SubmitApproveNotificationReqBody getSubmitApproveNotificationReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder submitApproveNotificationReqBody(SubmitApproveNotificationReqBody body) {
-      this.body = body;
-      return this;
+    public void setSubmitApproveNotificationReqBody(SubmitApproveNotificationReqBody body) {
+        this.body = body;
     }
 
-    public SubmitApproveNotificationReq build() {
-      return new SubmitApproveNotificationReq(this);
+    public static class Builder {
+
+        private String notificationId; // 创建接口返回的唯一id
+        private SubmitApproveNotificationReqBody body;
+
+        /**
+         * 创建接口返回的唯一id
+         * <p> 示例值：6985032626234982420
+         *
+         * @param notificationId
+         * @return
+         */
+        public Builder notificationId(String notificationId) {
+            this.notificationId = notificationId;
+            return this;
+        }
+
+        public SubmitApproveNotificationReqBody getSubmitApproveNotificationReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder submitApproveNotificationReqBody(SubmitApproveNotificationReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public SubmitApproveNotificationReq build() {
+            return new SubmitApproveNotificationReq(this);
+        }
     }
-  }
 }

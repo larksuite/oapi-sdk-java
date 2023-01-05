@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateBadgeReq {
-
-  /**
-   * 勋章ID
-   * <p> 示例值：m_MzfKDM
-   */
-  @Path
-  @SerializedName("badge_id")
-  private String badgeId;
-  @Body
-  private Badge body;
-
-  // builder 开始
-  public UpdateBadgeReq() {
-  }
-
-  public UpdateBadgeReq(Builder builder) {
     /**
      * 勋章ID
      * <p> 示例值：m_MzfKDM
      */
-    this.badgeId = builder.badgeId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBadgeId() {
-    return this.badgeId;
-  }
-
-  public void setBadgeId(String badgeId) {
-    this.badgeId = badgeId;
-  }
-
-  public Badge getBadge() {
-    return this.body;
-  }
-
-  public void setBadge(Badge body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String badgeId; // 勋章ID
+    @Path
+    @SerializedName("badge_id")
+    private String badgeId;
+    @Body
     private Badge body;
 
-    /**
-     * 勋章ID
-     * <p> 示例值：m_MzfKDM
-     *
-     * @param badgeId
-     * @return
-     */
-    public Builder badgeId(String badgeId) {
-      this.badgeId = badgeId;
-      return this;
+    // builder 开始
+    public UpdateBadgeReq() {
+    }
+
+    public UpdateBadgeReq(Builder builder) {
+        /**
+         * 勋章ID
+         * <p> 示例值：m_MzfKDM
+         */
+        this.badgeId = builder.badgeId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getBadgeId() {
+        return this.badgeId;
+    }
+
+    public void setBadgeId(String badgeId) {
+        this.badgeId = badgeId;
     }
 
     public Badge getBadge() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder badge(Badge body) {
-      this.body = body;
-      return this;
+    public void setBadge(Badge body) {
+        this.body = body;
     }
 
-    public UpdateBadgeReq build() {
-      return new UpdateBadgeReq(this);
+    public static class Builder {
+
+        private String badgeId; // 勋章ID
+        private Badge body;
+
+        /**
+         * 勋章ID
+         * <p> 示例值：m_MzfKDM
+         *
+         * @param badgeId
+         * @return
+         */
+        public Builder badgeId(String badgeId) {
+            this.badgeId = badgeId;
+            return this;
+        }
+
+        public Badge getBadge() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder badge(Badge body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateBadgeReq build() {
+            return new UpdateBadgeReq(this);
+        }
     }
-  }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Abbreviation {
-
-  /**
-   * 相关词条 ID
-   * <p> 示例值：enterprise_51587960
-   */
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public Abbreviation() {
-  }
-
-  public Abbreviation(Builder builder) {
     /**
      * 相关词条 ID
      * <p> 示例值：enterprise_51587960
      */
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
-    /**
-     * 相关词条 ID
-     * <p> 示例值：enterprise_51587960
-     */
+    @SerializedName("id")
     private String id;
 
-    /**
-     * 相关词条 ID
-     * <p> 示例值：enterprise_51587960
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Abbreviation() {
     }
 
-
-    public Abbreviation build() {
-      return new Abbreviation(this);
+    public Abbreviation(Builder builder) {
+        /**
+         * 相关词条 ID
+         * <p> 示例值：enterprise_51587960
+         */
+        this.id = builder.id;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static class Builder {
+        /**
+         * 相关词条 ID
+         * <p> 示例值：enterprise_51587960
+         */
+        private String id;
+
+        /**
+         * 相关词条 ID
+         * <p> 示例值：enterprise_51587960
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public Abbreviation build() {
+            return new Abbreviation(this);
+        }
+    }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.docx.v1.enums;
  * 类型
  */
 public enum BitableBitableViewTypeEnum {
-  GRID(1), // 数据表
-  KANBAN(2), // 看板
-  ;
-  private Integer value;
+    GRID(1), // 数据表
+    KANBAN(2), // 看板
+    ;
+    private Integer value;
 
-  BitableBitableViewTypeEnum(Integer value) {
-    this.value = value;
-  }
+    BitableBitableViewTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

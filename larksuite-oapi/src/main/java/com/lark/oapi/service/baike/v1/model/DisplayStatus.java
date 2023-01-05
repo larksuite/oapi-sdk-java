@@ -16,98 +16,96 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DisplayStatus {
-
-  /**
-   * 对应名称是否在消息/云文档高亮
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_highlight")
-  private Boolean allowHighlight;
-  /**
-   * 对应名称是否在搜索结果中展示
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_search")
-  private Boolean allowSearch;
-
-  // builder 开始
-  public DisplayStatus() {
-  }
-
-  public DisplayStatus(Builder builder) {
     /**
      * 对应名称是否在消息/云文档高亮
      * <p> 示例值：true
      */
-    this.allowHighlight = builder.allowHighlight;
-    /**
-     * 对应名称是否在搜索结果中展示
-     * <p> 示例值：true
-     */
-    this.allowSearch = builder.allowSearch;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getAllowHighlight() {
-    return this.allowHighlight;
-  }
-
-  public void setAllowHighlight(Boolean allowHighlight) {
-    this.allowHighlight = allowHighlight;
-  }
-
-  public Boolean getAllowSearch() {
-    return this.allowSearch;
-  }
-
-  public void setAllowSearch(Boolean allowSearch) {
-    this.allowSearch = allowSearch;
-  }
-
-  public static class Builder {
-
-    /**
-     * 对应名称是否在消息/云文档高亮
-     * <p> 示例值：true
-     */
+    @SerializedName("allow_highlight")
     private Boolean allowHighlight;
     /**
      * 对应名称是否在搜索结果中展示
      * <p> 示例值：true
      */
+    @SerializedName("allow_search")
     private Boolean allowSearch;
 
-    /**
-     * 对应名称是否在消息/云文档高亮
-     * <p> 示例值：true
-     *
-     * @param allowHighlight
-     * @return
-     */
-    public Builder allowHighlight(Boolean allowHighlight) {
-      this.allowHighlight = allowHighlight;
-      return this;
+    // builder 开始
+    public DisplayStatus() {
     }
 
-
-    /**
-     * 对应名称是否在搜索结果中展示
-     * <p> 示例值：true
-     *
-     * @param allowSearch
-     * @return
-     */
-    public Builder allowSearch(Boolean allowSearch) {
-      this.allowSearch = allowSearch;
-      return this;
+    public DisplayStatus(Builder builder) {
+        /**
+         * 对应名称是否在消息/云文档高亮
+         * <p> 示例值：true
+         */
+        this.allowHighlight = builder.allowHighlight;
+        /**
+         * 对应名称是否在搜索结果中展示
+         * <p> 示例值：true
+         */
+        this.allowSearch = builder.allowSearch;
     }
 
-
-    public DisplayStatus build() {
-      return new DisplayStatus(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Boolean getAllowHighlight() {
+        return this.allowHighlight;
+    }
+
+    public void setAllowHighlight(Boolean allowHighlight) {
+        this.allowHighlight = allowHighlight;
+    }
+
+    public Boolean getAllowSearch() {
+        return this.allowSearch;
+    }
+
+    public void setAllowSearch(Boolean allowSearch) {
+        this.allowSearch = allowSearch;
+    }
+
+    public static class Builder {
+        /**
+         * 对应名称是否在消息/云文档高亮
+         * <p> 示例值：true
+         */
+        private Boolean allowHighlight;
+        /**
+         * 对应名称是否在搜索结果中展示
+         * <p> 示例值：true
+         */
+        private Boolean allowSearch;
+
+        /**
+         * 对应名称是否在消息/云文档高亮
+         * <p> 示例值：true
+         *
+         * @param allowHighlight
+         * @return
+         */
+        public Builder allowHighlight(Boolean allowHighlight) {
+            this.allowHighlight = allowHighlight;
+            return this;
+        }
+
+
+        /**
+         * 对应名称是否在搜索结果中展示
+         * <p> 示例值：true
+         *
+         * @param allowSearch
+         * @return
+         */
+        public Builder allowSearch(Boolean allowSearch) {
+            this.allowSearch = allowSearch;
+            return this;
+        }
+
+
+        public DisplayStatus build() {
+            return new DisplayStatus(this);
+        }
+    }
 }

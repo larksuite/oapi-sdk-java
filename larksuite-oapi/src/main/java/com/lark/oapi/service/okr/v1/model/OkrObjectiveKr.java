@@ -16,542 +16,540 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OkrObjectiveKr {
-
-  /**
-   * Key Result ID
-   * <p> 示例值：1231231223
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * KeyResult 内容
-   * <p> 示例值：KeyResult 内容
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * KeyResult打分（0 - 100）
-   * <p> 示例值：100
-   */
-  @SerializedName("score")
-  private Integer score;
-  /**
-   * KeyResult权重（0 - 100）（废弃）
-   * <p> 示例值：100
-   */
-  @SerializedName("weight")
-  private Integer weight;
-  /**
-   * KeyResult的权重（0 - 100）
-   * <p> 示例值：33.33
-   */
-  @SerializedName("kr_weight")
-  private Double krWeight;
-  /**
-   * KR进度
-   * <p> 示例值：
-   */
-  @SerializedName("progress_rate")
-  private OkrObjectiveProgressRate progressRate;
-  /**
-   * 该KR的进度列表
-   * <p> 示例值：
-   */
-  @SerializedName("progress_record_list")
-  private ProgressRecordSimplify[] progressRecordList;
-  /**
-   * 最后一次进度百分比更新时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("progress_rate_percent_last_updated_time")
-  private String progressRatePercentLastUpdatedTime;
-  /**
-   * 最后一次状态更新时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("progress_rate_status_last_updated_time")
-  private String progressRateStatusLastUpdatedTime;
-  /**
-   * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("progress_record_last_updated_time")
-  private String progressRecordLastUpdatedTime;
-  /**
-   * 最后一次编辑进展记录/备注的时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("progress_report_last_updated_time")
-  private String progressReportLastUpdatedTime;
-  /**
-   * 最后一次打分更新时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("score_last_updated_time")
-  private String scoreLastUpdatedTime;
-  /**
-   * 截止时间 毫秒
-   * <p> 示例值：1618500278663
-   */
-  @SerializedName("deadline")
-  private String deadline;
-  /**
-   * 该Objective提到的人员列表
-   * <p> 示例值：
-   */
-  @SerializedName("mentioned_user_list")
-  private OkrObjectiveAlignedObjectiveOwner[] mentionedUserList;
-
-  // builder 开始
-  public OkrObjectiveKr() {
-  }
-
-  public OkrObjectiveKr(Builder builder) {
     /**
      * Key Result ID
      * <p> 示例值：1231231223
      */
-    this.id = builder.id;
-    /**
-     * KeyResult 内容
-     * <p> 示例值：KeyResult 内容
-     */
-    this.content = builder.content;
-    /**
-     * KeyResult打分（0 - 100）
-     * <p> 示例值：100
-     */
-    this.score = builder.score;
-    /**
-     * KeyResult权重（0 - 100）（废弃）
-     * <p> 示例值：100
-     */
-    this.weight = builder.weight;
-    /**
-     * KeyResult的权重（0 - 100）
-     * <p> 示例值：33.33
-     */
-    this.krWeight = builder.krWeight;
-    /**
-     * KR进度
-     * <p> 示例值：
-     */
-    this.progressRate = builder.progressRate;
-    /**
-     * 该KR的进度列表
-     * <p> 示例值：
-     */
-    this.progressRecordList = builder.progressRecordList;
-    /**
-     * 最后一次进度百分比更新时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.progressRatePercentLastUpdatedTime = builder.progressRatePercentLastUpdatedTime;
-    /**
-     * 最后一次状态更新时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.progressRateStatusLastUpdatedTime = builder.progressRateStatusLastUpdatedTime;
-    /**
-     * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.progressRecordLastUpdatedTime = builder.progressRecordLastUpdatedTime;
-    /**
-     * 最后一次编辑进展记录/备注的时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.progressReportLastUpdatedTime = builder.progressReportLastUpdatedTime;
-    /**
-     * 最后一次打分更新时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.scoreLastUpdatedTime = builder.scoreLastUpdatedTime;
-    /**
-     * 截止时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    this.deadline = builder.deadline;
-    /**
-     * 该Objective提到的人员列表
-     * <p> 示例值：
-     */
-    this.mentionedUserList = builder.mentionedUserList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Integer getScore() {
-    return this.score;
-  }
-
-  public void setScore(Integer score) {
-    this.score = score;
-  }
-
-  public Integer getWeight() {
-    return this.weight;
-  }
-
-  public void setWeight(Integer weight) {
-    this.weight = weight;
-  }
-
-  public Double getKrWeight() {
-    return this.krWeight;
-  }
-
-  public void setKrWeight(Double krWeight) {
-    this.krWeight = krWeight;
-  }
-
-  public OkrObjectiveProgressRate getProgressRate() {
-    return this.progressRate;
-  }
-
-  public void setProgressRate(OkrObjectiveProgressRate progressRate) {
-    this.progressRate = progressRate;
-  }
-
-  public ProgressRecordSimplify[] getProgressRecordList() {
-    return this.progressRecordList;
-  }
-
-  public void setProgressRecordList(ProgressRecordSimplify[] progressRecordList) {
-    this.progressRecordList = progressRecordList;
-  }
-
-  public String getProgressRatePercentLastUpdatedTime() {
-    return this.progressRatePercentLastUpdatedTime;
-  }
-
-  public void setProgressRatePercentLastUpdatedTime(String progressRatePercentLastUpdatedTime) {
-    this.progressRatePercentLastUpdatedTime = progressRatePercentLastUpdatedTime;
-  }
-
-  public String getProgressRateStatusLastUpdatedTime() {
-    return this.progressRateStatusLastUpdatedTime;
-  }
-
-  public void setProgressRateStatusLastUpdatedTime(String progressRateStatusLastUpdatedTime) {
-    this.progressRateStatusLastUpdatedTime = progressRateStatusLastUpdatedTime;
-  }
-
-  public String getProgressRecordLastUpdatedTime() {
-    return this.progressRecordLastUpdatedTime;
-  }
-
-  public void setProgressRecordLastUpdatedTime(String progressRecordLastUpdatedTime) {
-    this.progressRecordLastUpdatedTime = progressRecordLastUpdatedTime;
-  }
-
-  public String getProgressReportLastUpdatedTime() {
-    return this.progressReportLastUpdatedTime;
-  }
-
-  public void setProgressReportLastUpdatedTime(String progressReportLastUpdatedTime) {
-    this.progressReportLastUpdatedTime = progressReportLastUpdatedTime;
-  }
-
-  public String getScoreLastUpdatedTime() {
-    return this.scoreLastUpdatedTime;
-  }
-
-  public void setScoreLastUpdatedTime(String scoreLastUpdatedTime) {
-    this.scoreLastUpdatedTime = scoreLastUpdatedTime;
-  }
-
-  public String getDeadline() {
-    return this.deadline;
-  }
-
-  public void setDeadline(String deadline) {
-    this.deadline = deadline;
-  }
-
-  public OkrObjectiveAlignedObjectiveOwner[] getMentionedUserList() {
-    return this.mentionedUserList;
-  }
-
-  public void setMentionedUserList(OkrObjectiveAlignedObjectiveOwner[] mentionedUserList) {
-    this.mentionedUserList = mentionedUserList;
-  }
-
-  public static class Builder {
-
-    /**
-     * Key Result ID
-     * <p> 示例值：1231231223
-     */
+    @SerializedName("id")
     private String id;
     /**
      * KeyResult 内容
      * <p> 示例值：KeyResult 内容
      */
+    @SerializedName("content")
     private String content;
     /**
      * KeyResult打分（0 - 100）
      * <p> 示例值：100
      */
+    @SerializedName("score")
     private Integer score;
     /**
      * KeyResult权重（0 - 100）（废弃）
      * <p> 示例值：100
      */
+    @SerializedName("weight")
     private Integer weight;
     /**
      * KeyResult的权重（0 - 100）
      * <p> 示例值：33.33
      */
+    @SerializedName("kr_weight")
     private Double krWeight;
     /**
      * KR进度
      * <p> 示例值：
      */
+    @SerializedName("progress_rate")
     private OkrObjectiveProgressRate progressRate;
     /**
      * 该KR的进度列表
      * <p> 示例值：
      */
+    @SerializedName("progress_record_list")
     private ProgressRecordSimplify[] progressRecordList;
     /**
      * 最后一次进度百分比更新时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("progress_rate_percent_last_updated_time")
     private String progressRatePercentLastUpdatedTime;
     /**
      * 最后一次状态更新时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("progress_rate_status_last_updated_time")
     private String progressRateStatusLastUpdatedTime;
     /**
      * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("progress_record_last_updated_time")
     private String progressRecordLastUpdatedTime;
     /**
-     * 最后一次编辑进展记录/备注的时间 毫秒
+     * 最后一次编辑备注的时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("progress_report_last_updated_time")
     private String progressReportLastUpdatedTime;
     /**
      * 最后一次打分更新时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("score_last_updated_time")
     private String scoreLastUpdatedTime;
     /**
      * 截止时间 毫秒
      * <p> 示例值：1618500278663
      */
+    @SerializedName("deadline")
     private String deadline;
     /**
      * 该Objective提到的人员列表
      * <p> 示例值：
      */
+    @SerializedName("mentioned_user_list")
     private OkrObjectiveAlignedObjectiveOwner[] mentionedUserList;
 
-    /**
-     * Key Result ID
-     * <p> 示例值：1231231223
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OkrObjectiveKr() {
     }
 
-
-    /**
-     * KeyResult 内容
-     * <p> 示例值：KeyResult 内容
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public OkrObjectiveKr(Builder builder) {
+        /**
+         * Key Result ID
+         * <p> 示例值：1231231223
+         */
+        this.id = builder.id;
+        /**
+         * KeyResult 内容
+         * <p> 示例值：KeyResult 内容
+         */
+        this.content = builder.content;
+        /**
+         * KeyResult打分（0 - 100）
+         * <p> 示例值：100
+         */
+        this.score = builder.score;
+        /**
+         * KeyResult权重（0 - 100）（废弃）
+         * <p> 示例值：100
+         */
+        this.weight = builder.weight;
+        /**
+         * KeyResult的权重（0 - 100）
+         * <p> 示例值：33.33
+         */
+        this.krWeight = builder.krWeight;
+        /**
+         * KR进度
+         * <p> 示例值：
+         */
+        this.progressRate = builder.progressRate;
+        /**
+         * 该KR的进度列表
+         * <p> 示例值：
+         */
+        this.progressRecordList = builder.progressRecordList;
+        /**
+         * 最后一次进度百分比更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.progressRatePercentLastUpdatedTime = builder.progressRatePercentLastUpdatedTime;
+        /**
+         * 最后一次状态更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.progressRateStatusLastUpdatedTime = builder.progressRateStatusLastUpdatedTime;
+        /**
+         * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.progressRecordLastUpdatedTime = builder.progressRecordLastUpdatedTime;
+        /**
+         * 最后一次编辑备注的时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.progressReportLastUpdatedTime = builder.progressReportLastUpdatedTime;
+        /**
+         * 最后一次打分更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.scoreLastUpdatedTime = builder.scoreLastUpdatedTime;
+        /**
+         * 截止时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        this.deadline = builder.deadline;
+        /**
+         * 该Objective提到的人员列表
+         * <p> 示例值：
+         */
+        this.mentionedUserList = builder.mentionedUserList;
     }
 
-
-    /**
-     * KeyResult打分（0 - 100）
-     * <p> 示例值：100
-     *
-     * @param score
-     * @return
-     */
-    public Builder score(Integer score) {
-      this.score = score;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * KeyResult权重（0 - 100）（废弃）
-     * <p> 示例值：100
-     *
-     * @param weight
-     * @return
-     */
-    public Builder weight(Integer weight) {
-      this.weight = weight;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * KeyResult的权重（0 - 100）
-     * <p> 示例值：33.33
-     *
-     * @param krWeight
-     * @return
-     */
-    public Builder krWeight(Double krWeight) {
-      this.krWeight = krWeight;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * KR进度
-     * <p> 示例值：
-     *
-     * @param progressRate
-     * @return
-     */
-    public Builder progressRate(OkrObjectiveProgressRate progressRate) {
-      this.progressRate = progressRate;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-
-    /**
-     * 该KR的进度列表
-     * <p> 示例值：
-     *
-     * @param progressRecordList
-     * @return
-     */
-    public Builder progressRecordList(ProgressRecordSimplify[] progressRecordList) {
-      this.progressRecordList = progressRecordList;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-
-    /**
-     * 最后一次进度百分比更新时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param progressRatePercentLastUpdatedTime
-     * @return
-     */
-    public Builder progressRatePercentLastUpdatedTime(String progressRatePercentLastUpdatedTime) {
-      this.progressRatePercentLastUpdatedTime = progressRatePercentLastUpdatedTime;
-      return this;
+    public Integer getScore() {
+        return this.score;
     }
 
-
-    /**
-     * 最后一次状态更新时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param progressRateStatusLastUpdatedTime
-     * @return
-     */
-    public Builder progressRateStatusLastUpdatedTime(String progressRateStatusLastUpdatedTime) {
-      this.progressRateStatusLastUpdatedTime = progressRateStatusLastUpdatedTime;
-      return this;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
-
-    /**
-     * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param progressRecordLastUpdatedTime
-     * @return
-     */
-    public Builder progressRecordLastUpdatedTime(String progressRecordLastUpdatedTime) {
-      this.progressRecordLastUpdatedTime = progressRecordLastUpdatedTime;
-      return this;
+    public Integer getWeight() {
+        return this.weight;
     }
 
-
-    /**
-     * 最后一次编辑进展记录/备注的时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param progressReportLastUpdatedTime
-     * @return
-     */
-    public Builder progressReportLastUpdatedTime(String progressReportLastUpdatedTime) {
-      this.progressReportLastUpdatedTime = progressReportLastUpdatedTime;
-      return this;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
-
-    /**
-     * 最后一次打分更新时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param scoreLastUpdatedTime
-     * @return
-     */
-    public Builder scoreLastUpdatedTime(String scoreLastUpdatedTime) {
-      this.scoreLastUpdatedTime = scoreLastUpdatedTime;
-      return this;
+    public Double getKrWeight() {
+        return this.krWeight;
     }
 
-
-    /**
-     * 截止时间 毫秒
-     * <p> 示例值：1618500278663
-     *
-     * @param deadline
-     * @return
-     */
-    public Builder deadline(String deadline) {
-      this.deadline = deadline;
-      return this;
+    public void setKrWeight(Double krWeight) {
+        this.krWeight = krWeight;
     }
 
-
-    /**
-     * 该Objective提到的人员列表
-     * <p> 示例值：
-     *
-     * @param mentionedUserList
-     * @return
-     */
-    public Builder mentionedUserList(OkrObjectiveAlignedObjectiveOwner[] mentionedUserList) {
-      this.mentionedUserList = mentionedUserList;
-      return this;
+    public OkrObjectiveProgressRate getProgressRate() {
+        return this.progressRate;
     }
 
-
-    public OkrObjectiveKr build() {
-      return new OkrObjectiveKr(this);
+    public void setProgressRate(OkrObjectiveProgressRate progressRate) {
+        this.progressRate = progressRate;
     }
-  }
+
+    public ProgressRecordSimplify[] getProgressRecordList() {
+        return this.progressRecordList;
+    }
+
+    public void setProgressRecordList(ProgressRecordSimplify[] progressRecordList) {
+        this.progressRecordList = progressRecordList;
+    }
+
+    public String getProgressRatePercentLastUpdatedTime() {
+        return this.progressRatePercentLastUpdatedTime;
+    }
+
+    public void setProgressRatePercentLastUpdatedTime(String progressRatePercentLastUpdatedTime) {
+        this.progressRatePercentLastUpdatedTime = progressRatePercentLastUpdatedTime;
+    }
+
+    public String getProgressRateStatusLastUpdatedTime() {
+        return this.progressRateStatusLastUpdatedTime;
+    }
+
+    public void setProgressRateStatusLastUpdatedTime(String progressRateStatusLastUpdatedTime) {
+        this.progressRateStatusLastUpdatedTime = progressRateStatusLastUpdatedTime;
+    }
+
+    public String getProgressRecordLastUpdatedTime() {
+        return this.progressRecordLastUpdatedTime;
+    }
+
+    public void setProgressRecordLastUpdatedTime(String progressRecordLastUpdatedTime) {
+        this.progressRecordLastUpdatedTime = progressRecordLastUpdatedTime;
+    }
+
+    public String getProgressReportLastUpdatedTime() {
+        return this.progressReportLastUpdatedTime;
+    }
+
+    public void setProgressReportLastUpdatedTime(String progressReportLastUpdatedTime) {
+        this.progressReportLastUpdatedTime = progressReportLastUpdatedTime;
+    }
+
+    public String getScoreLastUpdatedTime() {
+        return this.scoreLastUpdatedTime;
+    }
+
+    public void setScoreLastUpdatedTime(String scoreLastUpdatedTime) {
+        this.scoreLastUpdatedTime = scoreLastUpdatedTime;
+    }
+
+    public String getDeadline() {
+        return this.deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public OkrObjectiveAlignedObjectiveOwner[] getMentionedUserList() {
+        return this.mentionedUserList;
+    }
+
+    public void setMentionedUserList(OkrObjectiveAlignedObjectiveOwner[] mentionedUserList) {
+        this.mentionedUserList = mentionedUserList;
+    }
+
+    public static class Builder {
+        /**
+         * Key Result ID
+         * <p> 示例值：1231231223
+         */
+        private String id;
+        /**
+         * KeyResult 内容
+         * <p> 示例值：KeyResult 内容
+         */
+        private String content;
+        /**
+         * KeyResult打分（0 - 100）
+         * <p> 示例值：100
+         */
+        private Integer score;
+        /**
+         * KeyResult权重（0 - 100）（废弃）
+         * <p> 示例值：100
+         */
+        private Integer weight;
+        /**
+         * KeyResult的权重（0 - 100）
+         * <p> 示例值：33.33
+         */
+        private Double krWeight;
+        /**
+         * KR进度
+         * <p> 示例值：
+         */
+        private OkrObjectiveProgressRate progressRate;
+        /**
+         * 该KR的进度列表
+         * <p> 示例值：
+         */
+        private ProgressRecordSimplify[] progressRecordList;
+        /**
+         * 最后一次进度百分比更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String progressRatePercentLastUpdatedTime;
+        /**
+         * 最后一次状态更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String progressRateStatusLastUpdatedTime;
+        /**
+         * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String progressRecordLastUpdatedTime;
+        /**
+         * 最后一次编辑备注的时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String progressReportLastUpdatedTime;
+        /**
+         * 最后一次打分更新时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String scoreLastUpdatedTime;
+        /**
+         * 截止时间 毫秒
+         * <p> 示例值：1618500278663
+         */
+        private String deadline;
+        /**
+         * 该Objective提到的人员列表
+         * <p> 示例值：
+         */
+        private OkrObjectiveAlignedObjectiveOwner[] mentionedUserList;
+
+        /**
+         * Key Result ID
+         * <p> 示例值：1231231223
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * KeyResult 内容
+         * <p> 示例值：KeyResult 内容
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * KeyResult打分（0 - 100）
+         * <p> 示例值：100
+         *
+         * @param score
+         * @return
+         */
+        public Builder score(Integer score) {
+            this.score = score;
+            return this;
+        }
+
+
+        /**
+         * KeyResult权重（0 - 100）（废弃）
+         * <p> 示例值：100
+         *
+         * @param weight
+         * @return
+         */
+        public Builder weight(Integer weight) {
+            this.weight = weight;
+            return this;
+        }
+
+
+        /**
+         * KeyResult的权重（0 - 100）
+         * <p> 示例值：33.33
+         *
+         * @param krWeight
+         * @return
+         */
+        public Builder krWeight(Double krWeight) {
+            this.krWeight = krWeight;
+            return this;
+        }
+
+
+        /**
+         * KR进度
+         * <p> 示例值：
+         *
+         * @param progressRate
+         * @return
+         */
+        public Builder progressRate(OkrObjectiveProgressRate progressRate) {
+            this.progressRate = progressRate;
+            return this;
+        }
+
+
+        /**
+         * 该KR的进度列表
+         * <p> 示例值：
+         *
+         * @param progressRecordList
+         * @return
+         */
+        public Builder progressRecordList(ProgressRecordSimplify[] progressRecordList) {
+            this.progressRecordList = progressRecordList;
+            return this;
+        }
+
+
+        /**
+         * 最后一次进度百分比更新时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param progressRatePercentLastUpdatedTime
+         * @return
+         */
+        public Builder progressRatePercentLastUpdatedTime(String progressRatePercentLastUpdatedTime) {
+            this.progressRatePercentLastUpdatedTime = progressRatePercentLastUpdatedTime;
+            return this;
+        }
+
+
+        /**
+         * 最后一次状态更新时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param progressRateStatusLastUpdatedTime
+         * @return
+         */
+        public Builder progressRateStatusLastUpdatedTime(String progressRateStatusLastUpdatedTime) {
+            this.progressRateStatusLastUpdatedTime = progressRateStatusLastUpdatedTime;
+            return this;
+        }
+
+
+        /**
+         * 最后一次在侧边栏新增或者编辑进展的时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param progressRecordLastUpdatedTime
+         * @return
+         */
+        public Builder progressRecordLastUpdatedTime(String progressRecordLastUpdatedTime) {
+            this.progressRecordLastUpdatedTime = progressRecordLastUpdatedTime;
+            return this;
+        }
+
+
+        /**
+         * 最后一次编辑备注的时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param progressReportLastUpdatedTime
+         * @return
+         */
+        public Builder progressReportLastUpdatedTime(String progressReportLastUpdatedTime) {
+            this.progressReportLastUpdatedTime = progressReportLastUpdatedTime;
+            return this;
+        }
+
+
+        /**
+         * 最后一次打分更新时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param scoreLastUpdatedTime
+         * @return
+         */
+        public Builder scoreLastUpdatedTime(String scoreLastUpdatedTime) {
+            this.scoreLastUpdatedTime = scoreLastUpdatedTime;
+            return this;
+        }
+
+
+        /**
+         * 截止时间 毫秒
+         * <p> 示例值：1618500278663
+         *
+         * @param deadline
+         * @return
+         */
+        public Builder deadline(String deadline) {
+            this.deadline = deadline;
+            return this;
+        }
+
+
+        /**
+         * 该Objective提到的人员列表
+         * <p> 示例值：
+         *
+         * @param mentionedUserList
+         * @return
+         */
+        public Builder mentionedUserList(OkrObjectiveAlignedObjectiveOwner[] mentionedUserList) {
+            this.mentionedUserList = mentionedUserList;
+            return this;
+        }
+
+
+        public OkrObjectiveKr build() {
+            return new OkrObjectiveKr(this);
+        }
+    }
 }

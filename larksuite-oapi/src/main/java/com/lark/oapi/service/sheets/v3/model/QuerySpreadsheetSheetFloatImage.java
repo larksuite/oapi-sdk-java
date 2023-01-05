@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuerySpreadsheetSheetFloatImage {
 
-  /**
-   * 子表的所有浮动图片信息
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private FloatImage[] items;
+    /**
+     * 子表的所有浮动图片信息
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private FloatImage[] items;
 
-  public FloatImage[] getItems() {
-    return this.items;
-  }
+    public FloatImage[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(FloatImage[] items) {
-    this.items = items;
-  }
+    public void setItems(FloatImage[] items) {
+        this.items = items;
+    }
 
 }

@@ -16,34 +16,33 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CustomizedFieldsTicketRespBody {
+    /**
+     * 用户自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("user_customized_fields")
+    private UserCustomizedField[] userCustomizedFields;
+    /**
+     * 自定义工单字段
+     * <p> 示例值：
+     */
+    @SerializedName("ticket_customized_fields")
+    private TicketCustomizedField[] ticketCustomizedFields;
 
-  /**
-   * 用户自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("user_customized_fields")
-  private UserCustomizedField[] userCustomizedFields;
-  /**
-   * 自定义工单字段
-   * <p> 示例值：
-   */
-  @SerializedName("ticket_customized_fields")
-  private TicketCustomizedField[] ticketCustomizedFields;
+    public UserCustomizedField[] getUserCustomizedFields() {
+        return this.userCustomizedFields;
+    }
 
-  public UserCustomizedField[] getUserCustomizedFields() {
-    return this.userCustomizedFields;
-  }
+    public void setUserCustomizedFields(UserCustomizedField[] userCustomizedFields) {
+        this.userCustomizedFields = userCustomizedFields;
+    }
 
-  public void setUserCustomizedFields(UserCustomizedField[] userCustomizedFields) {
-    this.userCustomizedFields = userCustomizedFields;
-  }
+    public TicketCustomizedField[] getTicketCustomizedFields() {
+        return this.ticketCustomizedFields;
+    }
 
-  public TicketCustomizedField[] getTicketCustomizedFields() {
-    return this.ticketCustomizedFields;
-  }
-
-  public void setTicketCustomizedFields(TicketCustomizedField[] ticketCustomizedFields) {
-    this.ticketCustomizedFields = ticketCustomizedFields;
-  }
+    public void setTicketCustomizedFields(TicketCustomizedField[] ticketCustomizedFields) {
+        this.ticketCustomizedFields = ticketCustomizedFields;
+    }
 
 }

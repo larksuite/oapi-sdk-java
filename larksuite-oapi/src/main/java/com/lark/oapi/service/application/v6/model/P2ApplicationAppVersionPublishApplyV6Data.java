@@ -16,62 +16,61 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationAppVersionPublishApplyV6Data {
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    /**
+     * 当前线上版本信息
+     * <p> 示例值：
+     */
+    @SerializedName("online_version")
+    private ApplicationAppVersionEvent onlineVersion;
+    /**
+     * 当前在审核的应用版本
+     * <p> 示例值：
+     */
+    @SerializedName("under_audit_version")
+    private ApplicationAppVersionEvent underAuditVersion;
+    /**
+     * 应用状态
+     * <p> 示例值：1
+     */
+    @SerializedName("app_status")
+    private Integer appStatus;
 
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  /**
-   * 当前线上版本信息
-   * <p> 示例值：
-   */
-  @SerializedName("online_version")
-  private ApplicationAppVersionEvent onlineVersion;
-  /**
-   * 当前线上版本信息
-   * <p> 示例值：
-   */
-  @SerializedName("under_audit_version")
-  private ApplicationAppVersionEvent underAuditVersion;
-  /**
-   * 应用状态
-   * <p> 示例值：1
-   */
-  @SerializedName("app_status")
-  private Integer appStatus;
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public ApplicationAppVersionEvent getOnlineVersion() {
+        return this.onlineVersion;
+    }
 
-  public ApplicationAppVersionEvent getOnlineVersion() {
-    return this.onlineVersion;
-  }
+    public void setOnlineVersion(ApplicationAppVersionEvent onlineVersion) {
+        this.onlineVersion = onlineVersion;
+    }
 
-  public void setOnlineVersion(ApplicationAppVersionEvent onlineVersion) {
-    this.onlineVersion = onlineVersion;
-  }
+    public ApplicationAppVersionEvent getUnderAuditVersion() {
+        return this.underAuditVersion;
+    }
 
-  public ApplicationAppVersionEvent getUnderAuditVersion() {
-    return this.underAuditVersion;
-  }
+    public void setUnderAuditVersion(ApplicationAppVersionEvent underAuditVersion) {
+        this.underAuditVersion = underAuditVersion;
+    }
 
-  public void setUnderAuditVersion(ApplicationAppVersionEvent underAuditVersion) {
-    this.underAuditVersion = underAuditVersion;
-  }
+    public Integer getAppStatus() {
+        return this.appStatus;
+    }
 
-  public Integer getAppStatus() {
-    return this.appStatus;
-  }
-
-  public void setAppStatus(Integer appStatus) {
-    this.appStatus = appStatus;
-  }
+    public void setAppStatus(Integer appStatus) {
+        this.appStatus = appStatus;
+    }
 
 }

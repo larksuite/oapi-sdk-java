@@ -15,16 +15,16 @@ package com.lark.oapi.service.attendance.v1.enums;
 
 // 生成枚举值
 public enum EmployeeTypeEnum {
-  EMPLOYEE_ID("employee_id"),
-  EMPLOYEE_NO("employee_no"),
-  ;
-  private String value;
+    EMPLOYEE_ID("employee_id"),
+    EMPLOYEE_NO("employee_no"),
+    ;
+    private String value;
 
-  EmployeeTypeEnum(String value) {
-    this.value = value;
-  }
+    EmployeeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

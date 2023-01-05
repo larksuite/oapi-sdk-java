@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobConfigInterviewRound {
-
-  /**
-   * 面试官列表
-   * <p> 示例值：
-   */
-  @SerializedName("interviewer_list")
-  private IdNameObject[] interviewerList;
-  /**
-   * 面试轮次
-   * <p> 示例值：1
-   */
-  @SerializedName("round")
-  private Integer round;
-
-  // builder 开始
-  public JobConfigInterviewRound() {
-  }
-
-  public JobConfigInterviewRound(Builder builder) {
     /**
      * 面试官列表
      * <p> 示例值：
      */
-    this.interviewerList = builder.interviewerList;
-    /**
-     * 面试轮次
-     * <p> 示例值：1
-     */
-    this.round = builder.round;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public IdNameObject[] getInterviewerList() {
-    return this.interviewerList;
-  }
-
-  public void setInterviewerList(IdNameObject[] interviewerList) {
-    this.interviewerList = interviewerList;
-  }
-
-  public Integer getRound() {
-    return this.round;
-  }
-
-  public void setRound(Integer round) {
-    this.round = round;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试官列表
-     * <p> 示例值：
-     */
+    @SerializedName("interviewer_list")
     private IdNameObject[] interviewerList;
     /**
      * 面试轮次
      * <p> 示例值：1
      */
+    @SerializedName("round")
     private Integer round;
 
-    /**
-     * 面试官列表
-     * <p> 示例值：
-     *
-     * @param interviewerList
-     * @return
-     */
-    public Builder interviewerList(IdNameObject[] interviewerList) {
-      this.interviewerList = interviewerList;
-      return this;
+    // builder 开始
+    public JobConfigInterviewRound() {
     }
 
-
-    /**
-     * 面试轮次
-     * <p> 示例值：1
-     *
-     * @param round
-     * @return
-     */
-    public Builder round(Integer round) {
-      this.round = round;
-      return this;
+    public JobConfigInterviewRound(Builder builder) {
+        /**
+         * 面试官列表
+         * <p> 示例值：
+         */
+        this.interviewerList = builder.interviewerList;
+        /**
+         * 面试轮次
+         * <p> 示例值：1
+         */
+        this.round = builder.round;
     }
 
-
-    public JobConfigInterviewRound build() {
-      return new JobConfigInterviewRound(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public IdNameObject[] getInterviewerList() {
+        return this.interviewerList;
+    }
+
+    public void setInterviewerList(IdNameObject[] interviewerList) {
+        this.interviewerList = interviewerList;
+    }
+
+    public Integer getRound() {
+        return this.round;
+    }
+
+    public void setRound(Integer round) {
+        this.round = round;
+    }
+
+    public static class Builder {
+        /**
+         * 面试官列表
+         * <p> 示例值：
+         */
+        private IdNameObject[] interviewerList;
+        /**
+         * 面试轮次
+         * <p> 示例值：1
+         */
+        private Integer round;
+
+        /**
+         * 面试官列表
+         * <p> 示例值：
+         *
+         * @param interviewerList
+         * @return
+         */
+        public Builder interviewerList(IdNameObject[] interviewerList) {
+            this.interviewerList = interviewerList;
+            return this;
+        }
+
+
+        /**
+         * 面试轮次
+         * <p> 示例值：1
+         *
+         * @param round
+         * @return
+         */
+        public Builder round(Integer round) {
+            this.round = round;
+            return this;
+        }
+
+
+        public JobConfigInterviewRound build() {
+            return new JobConfigInterviewRound(this);
+        }
+    }
 }

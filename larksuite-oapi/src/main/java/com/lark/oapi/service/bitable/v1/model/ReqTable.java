@@ -16,61 +16,133 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReqTable {
-
-  /**
-   * 数据表 名字
-   * <p> 示例值：table1
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public ReqTable() {
-  }
-
-  public ReqTable(Builder builder) {
     /**
-     * 数据表 名字
+     * 数据表名字，必填字段
      * <p> 示例值：table1
      */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 数据表 名字
-     * <p> 示例值：table1
-     */
+    @SerializedName("name")
     private String name;
-
     /**
-     * 数据表 名字
-     * <p> 示例值：table1
-     *
-     * @param name
-     * @return
+     * 默认表格视图的名称
+     * <p> 示例值：表格
      */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    @SerializedName("default_view_name")
+    private String defaultViewName;
+    /**
+     * 允许设置数据表的初始字段,默认第一个字段为索引列
+     * <p> 示例值：
+     */
+    @SerializedName("fields")
+    private AppTableCreateHeader[] fields;
+
+    // builder 开始
+    public ReqTable() {
     }
 
-
-    public ReqTable build() {
-      return new ReqTable(this);
+    public ReqTable(Builder builder) {
+        /**
+         * 数据表名字，必填字段
+         * <p> 示例值：table1
+         */
+        this.name = builder.name;
+        /**
+         * 默认表格视图的名称
+         * <p> 示例值：表格
+         */
+        this.defaultViewName = builder.defaultViewName;
+        /**
+         * 允许设置数据表的初始字段,默认第一个字段为索引列
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDefaultViewName() {
+        return this.defaultViewName;
+    }
+
+    public void setDefaultViewName(String defaultViewName) {
+        this.defaultViewName = defaultViewName;
+    }
+
+    public AppTableCreateHeader[] getFields() {
+        return this.fields;
+    }
+
+    public void setFields(AppTableCreateHeader[] fields) {
+        this.fields = fields;
+    }
+
+    public static class Builder {
+        /**
+         * 数据表名字，必填字段
+         * <p> 示例值：table1
+         */
+        private String name;
+        /**
+         * 默认表格视图的名称
+         * <p> 示例值：表格
+         */
+        private String defaultViewName;
+        /**
+         * 允许设置数据表的初始字段,默认第一个字段为索引列
+         * <p> 示例值：
+         */
+        private AppTableCreateHeader[] fields;
+
+        /**
+         * 数据表名字，必填字段
+         * <p> 示例值：table1
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 默认表格视图的名称
+         * <p> 示例值：表格
+         *
+         * @param defaultViewName
+         * @return
+         */
+        public Builder defaultViewName(String defaultViewName) {
+            this.defaultViewName = defaultViewName;
+            return this;
+        }
+
+
+        /**
+         * 允许设置数据表的初始字段,默认第一个字段为索引列
+         * <p> 示例值：
+         *
+         * @param fields
+         * @return
+         */
+        public Builder fields(AppTableCreateHeader[] fields) {
+            this.fields = fields;
+            return this;
+        }
+
+
+        public ReqTable build() {
+            return new ReqTable(this);
+        }
+    }
 }

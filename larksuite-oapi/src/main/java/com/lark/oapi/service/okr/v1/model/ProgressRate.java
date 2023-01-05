@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ProgressRate {
-
-  /**
-   * 进度百分比
-   * <p> 示例值：
-   */
-  @SerializedName("percent")
-  private Integer percent;
-  /**
-   * 状态
-   * <p> 示例值：
-   */
-  @SerializedName("status")
-  private Integer status;
-
-  // builder 开始
-  public ProgressRate() {
-  }
-
-  public ProgressRate(Builder builder) {
     /**
      * 进度百分比
      * <p> 示例值：
      */
-    this.percent = builder.percent;
-    /**
-     * 状态
-     * <p> 示例值：
-     */
-    this.status = builder.status;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPercent() {
-    return this.percent;
-  }
-
-  public void setPercent(Integer percent) {
-    this.percent = percent;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public static class Builder {
-
-    /**
-     * 进度百分比
-     * <p> 示例值：
-     */
+    @SerializedName("percent")
     private Integer percent;
     /**
      * 状态
      * <p> 示例值：
      */
+    @SerializedName("status")
     private Integer status;
 
-    /**
-     * 进度百分比
-     * <p> 示例值：
-     *
-     * @param percent
-     * @return
-     */
-    public Builder percent(Integer percent) {
-      this.percent = percent;
-      return this;
+    // builder 开始
+    public ProgressRate() {
     }
 
-
-    /**
-     * 状态
-     * <p> 示例值：
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public ProgressRate(Builder builder) {
+        /**
+         * 进度百分比
+         * <p> 示例值：
+         */
+        this.percent = builder.percent;
+        /**
+         * 状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
     }
 
-
-    public ProgressRate build() {
-      return new ProgressRate(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getPercent() {
+        return this.percent;
+    }
+
+    public void setPercent(Integer percent) {
+        this.percent = percent;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public static class Builder {
+        /**
+         * 进度百分比
+         * <p> 示例值：
+         */
+        private Integer percent;
+        /**
+         * 状态
+         * <p> 示例值：
+         */
+        private Integer status;
+
+        /**
+         * 进度百分比
+         * <p> 示例值：
+         *
+         * @param percent
+         * @return
+         */
+        public Builder percent(Integer percent) {
+            this.percent = percent;
+            return this;
+        }
+
+
+        /**
+         * 状态
+         * <p> 示例值：
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+
+        public ProgressRate build() {
+            return new ProgressRate(this);
+        }
+    }
 }

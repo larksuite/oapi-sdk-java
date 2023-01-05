@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadImage {
 
-  /**
-   * 图片url和token信息
-   * <p> 示例值：
-   */
-  @SerializedName("data")
-  private ImageInfo data;
+    /**
+     * 图片url和token信息
+     * <p> 示例值：
+     */
+    @SerializedName("data")
+    private ImageInfo data;
 
-  public ImageInfo getData() {
-    return this.data;
-  }
+    public ImageInfo getData() {
+        return this.data;
+    }
 
-  public void setData(ImageInfo data) {
-    this.data = data;
-  }
+    public void setData(ImageInfo data) {
+        this.data = data;
+    }
 
 }

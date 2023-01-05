@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InterviewTask {
-
-  /**
-   * 面试 ID
-   * <p> 示例值：6989202908470446380
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 职位 ID
-   * <p> 示例值：6897921873523247373
-   */
-  @SerializedName("job_id")
-  private String jobId;
-  /**
-   * 人才 ID
-   * <p> 示例值：7046263097923537196
-   */
-  @SerializedName("talent_id")
-  private String talentId;
-  /**
-   * 投递 ID
-   * <p> 示例值：7046315599510833452
-   */
-  @SerializedName("application_id")
-  private String applicationId;
-  /**
-   * 任务状态
-   * <p> 示例值：1
-   */
-  @SerializedName("activity_status")
-  private Integer activityStatus;
-
-  // builder 开始
-  public InterviewTask() {
-  }
-
-  public InterviewTask(Builder builder) {
     /**
      * 面试 ID
      * <p> 示例值：6989202908470446380
      */
-    this.id = builder.id;
-    /**
-     * 职位 ID
-     * <p> 示例值：6897921873523247373
-     */
-    this.jobId = builder.jobId;
-    /**
-     * 人才 ID
-     * <p> 示例值：7046263097923537196
-     */
-    this.talentId = builder.talentId;
-    /**
-     * 投递 ID
-     * <p> 示例值：7046315599510833452
-     */
-    this.applicationId = builder.applicationId;
-    /**
-     * 任务状态
-     * <p> 示例值：1
-     */
-    this.activityStatus = builder.activityStatus;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getJobId() {
-    return this.jobId;
-  }
-
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public Integer getActivityStatus() {
-    return this.activityStatus;
-  }
-
-  public void setActivityStatus(Integer activityStatus) {
-    this.activityStatus = activityStatus;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试 ID
-     * <p> 示例值：6989202908470446380
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 职位 ID
      * <p> 示例值：6897921873523247373
      */
+    @SerializedName("job_id")
     private String jobId;
     /**
      * 人才 ID
      * <p> 示例值：7046263097923537196
      */
+    @SerializedName("talent_id")
     private String talentId;
     /**
      * 投递 ID
      * <p> 示例值：7046315599510833452
      */
+    @SerializedName("application_id")
     private String applicationId;
     /**
      * 任务状态
      * <p> 示例值：1
      */
+    @SerializedName("activity_status")
     private Integer activityStatus;
 
-    /**
-     * 面试 ID
-     * <p> 示例值：6989202908470446380
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public InterviewTask() {
     }
 
-
-    /**
-     * 职位 ID
-     * <p> 示例值：6897921873523247373
-     *
-     * @param jobId
-     * @return
-     */
-    public Builder jobId(String jobId) {
-      this.jobId = jobId;
-      return this;
+    public InterviewTask(Builder builder) {
+        /**
+         * 面试 ID
+         * <p> 示例值：6989202908470446380
+         */
+        this.id = builder.id;
+        /**
+         * 职位 ID
+         * <p> 示例值：6897921873523247373
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 人才 ID
+         * <p> 示例值：7046263097923537196
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 投递 ID
+         * <p> 示例值：7046315599510833452
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 任务状态
+         * <p> 示例值：1
+         */
+        this.activityStatus = builder.activityStatus;
     }
 
-
-    /**
-     * 人才 ID
-     * <p> 示例值：7046263097923537196
-     *
-     * @param talentId
-     * @return
-     */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 投递 ID
-     * <p> 示例值：7046315599510833452
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 任务状态
-     * <p> 示例值：1
-     *
-     * @param activityStatus
-     * @return
-     */
-    public Builder activityStatus(Integer activityStatus) {
-      this.activityStatus = activityStatus;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public InterviewTask build() {
-      return new InterviewTask(this);
+    public String getJobId() {
+        return this.jobId;
     }
-  }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public Integer getActivityStatus() {
+        return this.activityStatus;
+    }
+
+    public void setActivityStatus(Integer activityStatus) {
+        this.activityStatus = activityStatus;
+    }
+
+    public static class Builder {
+        /**
+         * 面试 ID
+         * <p> 示例值：6989202908470446380
+         */
+        private String id;
+        /**
+         * 职位 ID
+         * <p> 示例值：6897921873523247373
+         */
+        private String jobId;
+        /**
+         * 人才 ID
+         * <p> 示例值：7046263097923537196
+         */
+        private String talentId;
+        /**
+         * 投递 ID
+         * <p> 示例值：7046315599510833452
+         */
+        private String applicationId;
+        /**
+         * 任务状态
+         * <p> 示例值：1
+         */
+        private Integer activityStatus;
+
+        /**
+         * 面试 ID
+         * <p> 示例值：6989202908470446380
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 职位 ID
+         * <p> 示例值：6897921873523247373
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 人才 ID
+         * <p> 示例值：7046263097923537196
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 投递 ID
+         * <p> 示例值：7046315599510833452
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * 任务状态
+         * <p> 示例值：1
+         *
+         * @param activityStatus
+         * @return
+         */
+        public Builder activityStatus(Integer activityStatus) {
+            this.activityStatus = activityStatus;
+            return this;
+        }
+
+
+        public InterviewTask build() {
+            return new InterviewTask(this);
+        }
+    }
 }

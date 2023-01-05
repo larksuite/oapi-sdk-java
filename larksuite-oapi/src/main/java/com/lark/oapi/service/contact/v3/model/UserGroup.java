@@ -16,233 +16,231 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserGroup {
-
-  /**
-   * 用户组的自定义ID
-   * <p> 示例值：test
-   */
-  @SerializedName("user_group_id")
-  private String userGroupId;
-  /**
-   * 用户组的名称
-   * <p> 示例值：userGroupName
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 用户组的类型
-   * <p> 示例值：1
-   */
-  @SerializedName("type")
-  private Integer type;
-  /**
-   * 成员数量
-   * <p> 示例值：10
-   */
-  @SerializedName("member_count")
-  private Integer memberCount;
-  /**
-   * 用户组状态
-   * <p> 示例值：1
-   */
-  @SerializedName("status")
-  private Integer status;
-
-  // builder 开始
-  public UserGroup() {
-  }
-
-  public UserGroup(Builder builder) {
     /**
      * 用户组的自定义ID
      * <p> 示例值：test
      */
-    this.userGroupId = builder.userGroupId;
-    /**
-     * 用户组的名称
-     * <p> 示例值：userGroupName
-     */
-    this.name = builder.name;
-    /**
-     * 用户组的类型
-     * <p> 示例值：1
-     */
-    this.type = builder.type;
-    /**
-     * 成员数量
-     * <p> 示例值：10
-     */
-    this.memberCount = builder.memberCount;
-    /**
-     * 用户组状态
-     * <p> 示例值：1
-     */
-    this.status = builder.status;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserGroupId() {
-    return this.userGroupId;
-  }
-
-  public void setUserGroupId(String userGroupId) {
-    this.userGroupId = userGroupId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public Integer getMemberCount() {
-    return this.memberCount;
-  }
-
-  public void setMemberCount(Integer memberCount) {
-    this.memberCount = memberCount;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户组的自定义ID
-     * <p> 示例值：test
-     */
+    @SerializedName("user_group_id")
     private String userGroupId;
     /**
      * 用户组的名称
      * <p> 示例值：userGroupName
      */
+    @SerializedName("name")
     private String name;
     /**
      * 用户组的类型
      * <p> 示例值：1
      */
+    @SerializedName("type")
     private Integer type;
     /**
      * 成员数量
      * <p> 示例值：10
      */
+    @SerializedName("member_count")
     private Integer memberCount;
     /**
      * 用户组状态
      * <p> 示例值：1
      */
+    @SerializedName("status")
     private Integer status;
 
-    /**
-     * 用户组的自定义ID
-     * <p> 示例值：test
-     *
-     * @param userGroupId
-     * @return
-     */
-    public Builder userGroupId(String userGroupId) {
-      this.userGroupId = userGroupId;
-      return this;
+    // builder 开始
+    public UserGroup() {
     }
 
-
-    /**
-     * 用户组的名称
-     * <p> 示例值：userGroupName
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public UserGroup(Builder builder) {
+        /**
+         * 用户组的自定义ID
+         * <p> 示例值：test
+         */
+        this.userGroupId = builder.userGroupId;
+        /**
+         * 用户组的名称
+         * <p> 示例值：userGroupName
+         */
+        this.name = builder.name;
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 成员数量
+         * <p> 示例值：10
+         */
+        this.memberCount = builder.memberCount;
+        /**
+         * 用户组状态
+         * <p> 示例值：1
+         */
+        this.status = builder.status;
     }
 
-
-    /**
-     * 用户组的类型
-     * <p> 示例值：1
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 用户组的类型
-     * <p> 示例值：1
-     *
-     * @param type {@link com.lark.oapi.service.contact.v3.enums.UserGroupTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.contact.v3.enums.UserGroupTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public String getUserGroupId() {
+        return this.userGroupId;
     }
 
-
-    /**
-     * 成员数量
-     * <p> 示例值：10
-     *
-     * @param memberCount
-     * @return
-     */
-    public Builder memberCount(Integer memberCount) {
-      this.memberCount = memberCount;
-      return this;
+    public void setUserGroupId(String userGroupId) {
+        this.userGroupId = userGroupId;
     }
 
-
-    /**
-     * 用户组状态
-     * <p> 示例值：1
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    /**
-     * 用户组状态
-     * <p> 示例值：1
-     *
-     * @param status {@link com.lark.oapi.service.contact.v3.enums.UserGroupStatusEnum}
-     * @return
-     */
-    public Builder status(com.lark.oapi.service.contact.v3.enums.UserGroupStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-
-    public UserGroup build() {
-      return new UserGroup(this);
+    public Integer getType() {
+        return this.type;
     }
-  }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getMemberCount() {
+        return this.memberCount;
+    }
+
+    public void setMemberCount(Integer memberCount) {
+        this.memberCount = memberCount;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public static class Builder {
+        /**
+         * 用户组的自定义ID
+         * <p> 示例值：test
+         */
+        private String userGroupId;
+        /**
+         * 用户组的名称
+         * <p> 示例值：userGroupName
+         */
+        private String name;
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         */
+        private Integer type;
+        /**
+         * 成员数量
+         * <p> 示例值：10
+         */
+        private Integer memberCount;
+        /**
+         * 用户组状态
+         * <p> 示例值：1
+         */
+        private Integer status;
+
+        /**
+         * 用户组的自定义ID
+         * <p> 示例值：test
+         *
+         * @param userGroupId
+         * @return
+         */
+        public Builder userGroupId(String userGroupId) {
+            this.userGroupId = userGroupId;
+            return this;
+        }
+
+
+        /**
+         * 用户组的名称
+         * <p> 示例值：userGroupName
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         *
+         * @param type {@link com.lark.oapi.service.contact.v3.enums.UserGroupTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.contact.v3.enums.UserGroupTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 成员数量
+         * <p> 示例值：10
+         *
+         * @param memberCount
+         * @return
+         */
+        public Builder memberCount(Integer memberCount) {
+            this.memberCount = memberCount;
+            return this;
+        }
+
+
+        /**
+         * 用户组状态
+         * <p> 示例值：1
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 用户组状态
+         * <p> 示例值：1
+         *
+         * @param status {@link com.lark.oapi.service.contact.v3.enums.UserGroupStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.contact.v3.enums.UserGroupStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+
+        public UserGroup build() {
+            return new UserGroup(this);
+        }
+    }
 }

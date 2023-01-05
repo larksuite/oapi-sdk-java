@@ -17,16 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 检查方式
  */
 public enum ReservePermissionCheckerPermCheckModeEnum {
-  WITHIN(1), // 在check_list中为有权限（白名单）
-  WITHOUT(2), // 不在check_list中为有权限（黑名单）
-  ;
-  private Integer value;
+    WITHIN(1), // 在check_list中为有权限（白名单）
+    WITHOUT(2), // 不在check_list中为有权限（黑名单）
+    ;
+    private Integer value;
 
-  ReservePermissionCheckerPermCheckModeEnum(Integer value) {
-    this.value = value;
-  }
+    ReservePermissionCheckerPermCheckModeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

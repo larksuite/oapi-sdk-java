@@ -16,172 +16,170 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserOkr {
-
-  /**
-   * OKR ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * OKR周期名称(lang指定中英文)
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 权限，0无权限，1有权限
-   * <p> 示例值：
-   */
-  @SerializedName("permission")
-  private Integer permission;
-  /**
-   * OKR的Objective 列表
-   * <p> 示例值：
-   */
-  @SerializedName("objective_list")
-  private UserOkrObjective[] objectiveList;
-
-  // builder 开始
-  public UserOkr() {
-  }
-
-  public UserOkr(Builder builder) {
     /**
      * OKR ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * OKR周期名称(lang指定中英文)
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 权限，0无权限，1有权限
-     * <p> 示例值：
-     */
-    this.permission = builder.permission;
-    /**
-     * OKR的Objective 列表
-     * <p> 示例值：
-     */
-    this.objectiveList = builder.objectiveList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getPermission() {
-    return this.permission;
-  }
-
-  public void setPermission(Integer permission) {
-    this.permission = permission;
-  }
-
-  public UserOkrObjective[] getObjectiveList() {
-    return this.objectiveList;
-  }
-
-  public void setObjectiveList(UserOkrObjective[] objectiveList) {
-    this.objectiveList = objectiveList;
-  }
-
-  public static class Builder {
-
-    /**
-     * OKR ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * OKR周期名称(lang指定中英文)
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
      * 权限，0无权限，1有权限
      * <p> 示例值：
      */
+    @SerializedName("permission")
     private Integer permission;
     /**
      * OKR的Objective 列表
      * <p> 示例值：
      */
+    @SerializedName("objective_list")
     private UserOkrObjective[] objectiveList;
 
-    /**
-     * OKR ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public UserOkr() {
     }
 
-
-    /**
-     * OKR周期名称(lang指定中英文)
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public UserOkr(Builder builder) {
+        /**
+         * OKR ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * OKR周期名称(lang指定中英文)
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 权限，0无权限，1有权限
+         * <p> 示例值：
+         */
+        this.permission = builder.permission;
+        /**
+         * OKR的Objective 列表
+         * <p> 示例值：
+         */
+        this.objectiveList = builder.objectiveList;
     }
 
-
-    /**
-     * 权限，0无权限，1有权限
-     * <p> 示例值：
-     *
-     * @param permission
-     * @return
-     */
-    public Builder permission(Integer permission) {
-      this.permission = permission;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * OKR的Objective 列表
-     * <p> 示例值：
-     *
-     * @param objectiveList
-     * @return
-     */
-    public Builder objectiveList(UserOkrObjective[] objectiveList) {
-      this.objectiveList = objectiveList;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public UserOkr build() {
-      return new UserOkr(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPermission() {
+        return this.permission;
+    }
+
+    public void setPermission(Integer permission) {
+        this.permission = permission;
+    }
+
+    public UserOkrObjective[] getObjectiveList() {
+        return this.objectiveList;
+    }
+
+    public void setObjectiveList(UserOkrObjective[] objectiveList) {
+        this.objectiveList = objectiveList;
+    }
+
+    public static class Builder {
+        /**
+         * OKR ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * OKR周期名称(lang指定中英文)
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 权限，0无权限，1有权限
+         * <p> 示例值：
+         */
+        private Integer permission;
+        /**
+         * OKR的Objective 列表
+         * <p> 示例值：
+         */
+        private UserOkrObjective[] objectiveList;
+
+        /**
+         * OKR ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * OKR周期名称(lang指定中英文)
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 权限，0无权限，1有权限
+         * <p> 示例值：
+         *
+         * @param permission
+         * @return
+         */
+        public Builder permission(Integer permission) {
+            this.permission = permission;
+            return this;
+        }
+
+
+        /**
+         * OKR的Objective 列表
+         * <p> 示例值：
+         *
+         * @param objectiveList
+         * @return
+         */
+        public Builder objectiveList(UserOkrObjective[] objectiveList) {
+            this.objectiveList = objectiveList;
+            return this;
+        }
+
+
+        public UserOkr build() {
+            return new UserOkr(this);
+        }
+    }
 }

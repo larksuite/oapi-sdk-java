@@ -16,172 +16,170 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Spreadsheet {
-
-  /**
-   * 表格标题
-   * <p> 示例值：title
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-   * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
-   */
-  @SerializedName("folder_token")
-  private String folderToken;
-  /**
-   * 文档url
-   * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 表格token
-   * <p> 示例值：shtcnmBA*****yGehy8
-   */
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-
-  // builder 开始
-  public Spreadsheet() {
-  }
-
-  public Spreadsheet(Builder builder) {
     /**
      * 表格标题
      * <p> 示例值：title
      */
-    this.title = builder.title;
-    /**
-     * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
-     */
-    this.folderToken = builder.folderToken;
-    /**
-     * 文档url
-     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-     */
-    this.url = builder.url;
-    /**
-     * 表格token
-     * <p> 示例值：shtcnmBA*****yGehy8
-     */
-    this.spreadsheetToken = builder.spreadsheetToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getFolderToken() {
-    return this.folderToken;
-  }
-
-  public void setFolderToken(String folderToken) {
-    this.folderToken = folderToken;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public static class Builder {
-
-    /**
-     * 表格标题
-     * <p> 示例值：title
-     */
+    @SerializedName("title")
     private String title;
     /**
-     * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
      * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
      */
+    @SerializedName("folder_token")
     private String folderToken;
     /**
      * 文档url
      * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
      */
+    @SerializedName("url")
     private String url;
     /**
      * 表格token
      * <p> 示例值：shtcnmBA*****yGehy8
      */
+    @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
 
-    /**
-     * 表格标题
-     * <p> 示例值：title
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    // builder 开始
+    public Spreadsheet() {
     }
 
-
-    /**
-     * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
-     *
-     * @param folderToken
-     * @return
-     */
-    public Builder folderToken(String folderToken) {
-      this.folderToken = folderToken;
-      return this;
+    public Spreadsheet(Builder builder) {
+        /**
+         * 表格标题
+         * <p> 示例值：title
+         */
+        this.title = builder.title;
+        /**
+         * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+         * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+         */
+        this.folderToken = builder.folderToken;
+        /**
+         * 文档url
+         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+         */
+        this.url = builder.url;
+        /**
+         * 表格token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
     }
 
-
-    /**
-     * 文档url
-     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 表格token
-     * <p> 示例值：shtcnmBA*****yGehy8
-     *
-     * @param spreadsheetToken
-     * @return
-     */
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-
-    public Spreadsheet build() {
-      return new Spreadsheet(this);
+    public void setTitle(String title) {
+        this.title = title;
     }
-  }
+
+    public String getFolderToken() {
+        return this.folderToken;
+    }
+
+    public void setFolderToken(String folderToken) {
+        this.folderToken = folderToken;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public static class Builder {
+        /**
+         * 表格标题
+         * <p> 示例值：title
+         */
+        private String title;
+        /**
+         * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+         * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+         */
+        private String folderToken;
+        /**
+         * 文档url
+         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+         */
+        private String url;
+        /**
+         * 表格token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        private String spreadsheetToken;
+
+        /**
+         * 表格标题
+         * <p> 示例值：title
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+         * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+         *
+         * @param folderToken
+         * @return
+         */
+        public Builder folderToken(String folderToken) {
+            this.folderToken = folderToken;
+            return this;
+        }
+
+
+        /**
+         * 文档url
+         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 表格token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         *
+         * @param spreadsheetToken
+         * @return
+         */
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+
+        public Spreadsheet build() {
+            return new Spreadsheet(this);
+        }
+    }
 }

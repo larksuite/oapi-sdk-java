@@ -16,20 +16,19 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateAppRespBody {
+    /**
+     * 多维表格元数据
+     * <p> 示例值：
+     */
+    @SerializedName("app")
+    private DisplayAppV2 app;
 
-  /**
-   * 多维表格元数据
-   * <p> 示例值：
-   */
-  @SerializedName("app")
-  private DisplayAppV2 app;
+    public DisplayAppV2 getApp() {
+        return this.app;
+    }
 
-  public DisplayAppV2 getApp() {
-    return this.app;
-  }
-
-  public void setApp(DisplayAppV2 app) {
-    this.app = app;
-  }
+    public void setApp(DisplayAppV2 app) {
+        this.app = app;
+    }
 
 }

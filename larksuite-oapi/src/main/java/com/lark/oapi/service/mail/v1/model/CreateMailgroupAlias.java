@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateMailgroupAlias {
 
-  /**
-   * 邮件组别名
-   * <p> 示例值：
-   */
-  @SerializedName("mailgroup_alias")
-  private EmailAlias mailgroupAlias;
+    /**
+     * 邮件组别名
+     * <p> 示例值：
+     */
+    @SerializedName("mailgroup_alias")
+    private EmailAlias mailgroupAlias;
 
-  public EmailAlias getMailgroupAlias() {
-    return this.mailgroupAlias;
-  }
+    public EmailAlias getMailgroupAlias() {
+        return this.mailgroupAlias;
+    }
 
-  public void setMailgroupAlias(EmailAlias mailgroupAlias) {
-    this.mailgroupAlias = mailgroupAlias;
-  }
+    public void setMailgroupAlias(EmailAlias mailgroupAlias) {
+        this.mailgroupAlias = mailgroupAlias;
+    }
 
 }

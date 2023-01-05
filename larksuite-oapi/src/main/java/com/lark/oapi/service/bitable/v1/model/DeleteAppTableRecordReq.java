@@ -17,125 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAppTableRecordReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * 单条记录的Id
-   * <p> 示例值：recpCsf4ME
-   */
-  @Path
-  @SerializedName("record_id")
-  private String recordId;
-
-  // builder 开始
-  public DeleteAppTableRecordReq() {
-  }
-
-  public DeleteAppTableRecordReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * table id
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     /**
      * 单条记录的Id
      * <p> 示例值：recpCsf4ME
      */
-    this.recordId = builder.recordId;
-  }
+    @Path
+    @SerializedName("record_id")
+    private String recordId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
-    private String tableId; // table id
-    private String recordId; // 单条记录的Id
-
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public DeleteAppTableRecordReq() {
     }
 
-
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public DeleteAppTableRecordReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * 单条记录的Id
+         * <p> 示例值：recpCsf4ME
+         */
+        this.recordId = builder.recordId;
     }
 
-
-    /**
-     * 单条记录的Id
-     * <p> 示例值：recpCsf4ME
-     *
-     * @param recordId
-     * @return
-     */
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public DeleteAppTableRecordReq build() {
-      return new DeleteAppTableRecordReq(this);
+    public String getAppToken() {
+        return this.appToken;
     }
-  }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
+
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private String tableId; // table id
+        private String recordId; // 单条记录的Id
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+
+        /**
+         * 单条记录的Id
+         * <p> 示例值：recpCsf4ME
+         *
+         * @param recordId
+         * @return
+         */
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
+            return this;
+        }
+
+        public DeleteAppTableRecordReq build() {
+            return new DeleteAppTableRecordReq(this);
+        }
+    }
 }

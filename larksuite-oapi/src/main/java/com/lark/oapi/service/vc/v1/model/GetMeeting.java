@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetMeeting {
 
-  /**
-   * 会议数据
-   * <p> 示例值：
-   */
-  @SerializedName("meeting")
-  private Meeting meeting;
+    /**
+     * 会议数据
+     * <p> 示例值：
+     */
+    @SerializedName("meeting")
+    private Meeting meeting;
 
-  public Meeting getMeeting() {
-    return this.meeting;
-  }
+    public Meeting getMeeting() {
+        return this.meeting;
+    }
 
-  public void setMeeting(Meeting meeting) {
-    this.meeting = meeting;
-  }
+    public void setMeeting(Meeting meeting) {
+        this.meeting = meeting;
+    }
 
 }

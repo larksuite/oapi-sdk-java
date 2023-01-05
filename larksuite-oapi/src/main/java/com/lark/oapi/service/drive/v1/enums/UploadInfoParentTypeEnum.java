@@ -17,23 +17,23 @@ package com.lark.oapi.service.drive.v1.enums;
  * 父节点类型（父文件系统类型）
  */
 public enum UploadInfoParentTypeEnum {
-  EXPLORER("explorer"), // 云空间
-  DOC_IMAGE("doc_image"), // docs图片
-  SHEET_IMAGE("sheet_image"), // sheet图片
-  DOC_FILE("doc_file"), // doc文件
-  SHEET_FILE("sheet_file"), // sheet文件
-  VC_VIRTUAL_BACKGROUND("vc_virtual_background"), // vc虚拟背景
-  BITABLE_IMAGE("bitable_image"), // bitable图片
-  BITABLE_FILE("bitable_file"), // bitable文件
-  MOMENTS("moments"), // 同事圈
-  ;
-  private String value;
+    EXPLORER("explorer"), // 云空间
+    DOC_IMAGE("doc_image"), // docs图片
+    SHEET_IMAGE("sheet_image"), // sheet图片
+    DOC_FILE("doc_file"), // doc文件
+    SHEET_FILE("sheet_file"), // sheet文件
+    VC_VIRTUAL_BACKGROUND("vc_virtual_background"), // vc虚拟背景
+    BITABLE_IMAGE("bitable_image"), // bitable图片
+    BITABLE_FILE("bitable_file"), // bitable文件
+    MOMENTS("moments"), // 同事圈
+    ;
+    private String value;
 
-  UploadInfoParentTypeEnum(String value) {
-    this.value = value;
-  }
+    UploadInfoParentTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListMessageReaction {
 
-  /**
-   * 查询指定reaction_type返回的reaction列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private MessageReaction[] items;
-  /**
-   * 是否还有后续翻页
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下一页分页的token
-   * <p> 示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL*********Wfa9xXkud6UKCybPuUgQ1vM26dj6
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    /**
+     * 查询指定reaction_type返回的reaction列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private MessageReaction[] items;
+    /**
+     * 是否还有后续翻页
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL*********Wfa9xXkud6UKCybPuUgQ1vM26dj6
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  public MessageReaction[] getItems() {
-    return this.items;
-  }
+    public MessageReaction[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(MessageReaction[] items) {
-    this.items = items;
-  }
+    public void setItems(MessageReaction[] items) {
+        this.items = items;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

@@ -16,172 +16,170 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CcSearchItem {
-
-  /**
-   * 审批定义
-   * <p> 示例值：
-   */
-  @SerializedName("approval")
-  private InstanceSearchApproval approval;
-  /**
-   * 审批定义分组
-   * <p> 示例值：
-   */
-  @SerializedName("group")
-  private InstanceSearchGroup group;
-  /**
-   * 审批实例信息
-   * <p> 示例值：
-   */
-  @SerializedName("instance")
-  private InstanceSearchNode instance;
-  /**
-   * 审批抄送
-   * <p> 示例值：
-   */
-  @SerializedName("cc")
-  private CcSearchNode cc;
-
-  // builder 开始
-  public CcSearchItem() {
-  }
-
-  public CcSearchItem(Builder builder) {
     /**
      * 审批定义
      * <p> 示例值：
      */
-    this.approval = builder.approval;
-    /**
-     * 审批定义分组
-     * <p> 示例值：
-     */
-    this.group = builder.group;
-    /**
-     * 审批实例信息
-     * <p> 示例值：
-     */
-    this.instance = builder.instance;
-    /**
-     * 审批抄送
-     * <p> 示例值：
-     */
-    this.cc = builder.cc;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public InstanceSearchApproval getApproval() {
-    return this.approval;
-  }
-
-  public void setApproval(InstanceSearchApproval approval) {
-    this.approval = approval;
-  }
-
-  public InstanceSearchGroup getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(InstanceSearchGroup group) {
-    this.group = group;
-  }
-
-  public InstanceSearchNode getInstance() {
-    return this.instance;
-  }
-
-  public void setInstance(InstanceSearchNode instance) {
-    this.instance = instance;
-  }
-
-  public CcSearchNode getCc() {
-    return this.cc;
-  }
-
-  public void setCc(CcSearchNode cc) {
-    this.cc = cc;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批定义
-     * <p> 示例值：
-     */
+    @SerializedName("approval")
     private InstanceSearchApproval approval;
     /**
      * 审批定义分组
      * <p> 示例值：
      */
+    @SerializedName("group")
     private InstanceSearchGroup group;
     /**
      * 审批实例信息
      * <p> 示例值：
      */
+    @SerializedName("instance")
     private InstanceSearchNode instance;
     /**
      * 审批抄送
      * <p> 示例值：
      */
+    @SerializedName("cc")
     private CcSearchNode cc;
 
-    /**
-     * 审批定义
-     * <p> 示例值：
-     *
-     * @param approval
-     * @return
-     */
-    public Builder approval(InstanceSearchApproval approval) {
-      this.approval = approval;
-      return this;
+    // builder 开始
+    public CcSearchItem() {
     }
 
-
-    /**
-     * 审批定义分组
-     * <p> 示例值：
-     *
-     * @param group
-     * @return
-     */
-    public Builder group(InstanceSearchGroup group) {
-      this.group = group;
-      return this;
+    public CcSearchItem(Builder builder) {
+        /**
+         * 审批定义
+         * <p> 示例值：
+         */
+        this.approval = builder.approval;
+        /**
+         * 审批定义分组
+         * <p> 示例值：
+         */
+        this.group = builder.group;
+        /**
+         * 审批实例信息
+         * <p> 示例值：
+         */
+        this.instance = builder.instance;
+        /**
+         * 审批抄送
+         * <p> 示例值：
+         */
+        this.cc = builder.cc;
     }
 
-
-    /**
-     * 审批实例信息
-     * <p> 示例值：
-     *
-     * @param instance
-     * @return
-     */
-    public Builder instance(InstanceSearchNode instance) {
-      this.instance = instance;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 审批抄送
-     * <p> 示例值：
-     *
-     * @param cc
-     * @return
-     */
-    public Builder cc(CcSearchNode cc) {
-      this.cc = cc;
-      return this;
+    public InstanceSearchApproval getApproval() {
+        return this.approval;
     }
 
-
-    public CcSearchItem build() {
-      return new CcSearchItem(this);
+    public void setApproval(InstanceSearchApproval approval) {
+        this.approval = approval;
     }
-  }
+
+    public InstanceSearchGroup getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(InstanceSearchGroup group) {
+        this.group = group;
+    }
+
+    public InstanceSearchNode getInstance() {
+        return this.instance;
+    }
+
+    public void setInstance(InstanceSearchNode instance) {
+        this.instance = instance;
+    }
+
+    public CcSearchNode getCc() {
+        return this.cc;
+    }
+
+    public void setCc(CcSearchNode cc) {
+        this.cc = cc;
+    }
+
+    public static class Builder {
+        /**
+         * 审批定义
+         * <p> 示例值：
+         */
+        private InstanceSearchApproval approval;
+        /**
+         * 审批定义分组
+         * <p> 示例值：
+         */
+        private InstanceSearchGroup group;
+        /**
+         * 审批实例信息
+         * <p> 示例值：
+         */
+        private InstanceSearchNode instance;
+        /**
+         * 审批抄送
+         * <p> 示例值：
+         */
+        private CcSearchNode cc;
+
+        /**
+         * 审批定义
+         * <p> 示例值：
+         *
+         * @param approval
+         * @return
+         */
+        public Builder approval(InstanceSearchApproval approval) {
+            this.approval = approval;
+            return this;
+        }
+
+
+        /**
+         * 审批定义分组
+         * <p> 示例值：
+         *
+         * @param group
+         * @return
+         */
+        public Builder group(InstanceSearchGroup group) {
+            this.group = group;
+            return this;
+        }
+
+
+        /**
+         * 审批实例信息
+         * <p> 示例值：
+         *
+         * @param instance
+         * @return
+         */
+        public Builder instance(InstanceSearchNode instance) {
+            this.instance = instance;
+            return this;
+        }
+
+
+        /**
+         * 审批抄送
+         * <p> 示例值：
+         *
+         * @param cc
+         * @return
+         */
+        public Builder cc(CcSearchNode cc) {
+            this.cc = cc;
+            return this;
+        }
+
+
+        public CcSearchItem build() {
+            return new CcSearchItem(this);
+        }
+    }
 }

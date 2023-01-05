@@ -19,176 +19,172 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateChatMembersReq {
-
-  /**
-   * 进群成员 id 类型 open_id/user_id/union_id/app_id
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  /**
-   * 出现不可用ID后的处理方式 0/1/2
-   * <p> 示例值：0
-   */
-  @Query
-  @SerializedName("succeed_type")
-  private Integer succeedType;
-  /**
-   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private CreateChatMembersReqBody body;
-
-  // builder 开始
-  public CreateChatMembersReq() {
-  }
-
-  public CreateChatMembersReq(Builder builder) {
     /**
-     * 进群成员 id 类型 open_id/user_id/union_id/app_id
+     * 进群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**：拉机器人入群请使用 ==app_id==
      * <p> 示例值：open_id
      */
-    this.memberIdType = builder.memberIdType;
+    @Query
+    @SerializedName("member_id_type")
+    private String memberIdType;
     /**
      * 出现不可用ID后的处理方式 0/1/2
      * <p> 示例值：0
      */
-    this.succeedType = builder.succeedType;
+    @Query
+    @SerializedName("succeed_type")
+    private Integer succeedType;
     /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public Integer getSucceedType() {
-    return this.succeedType;
-  }
-
-  public void setSucceedType(Integer succeedType) {
-    this.succeedType = succeedType;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public CreateChatMembersReqBody getCreateChatMembersReqBody() {
-    return this.body;
-  }
-
-  public void setCreateChatMembersReqBody(CreateChatMembersReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String memberIdType; // 进群成员 id 类型 open_id/user_id/union_id/app_id
-    private Integer succeedType; // 出现不可用ID后的处理方式 0/1/2
-    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+    @Body
     private CreateChatMembersReqBody body;
 
-    /**
-     * 进群成员 id 类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType
-     * @return
-     */
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    // builder 开始
+    public CreateChatMembersReq() {
     }
 
-    /**
-     * 进群成员 id 类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum}
-     * @return
-     */
-    public Builder memberIdType(
-        com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
+    public CreateChatMembersReq(Builder builder) {
+        /**
+         * 进群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**：拉机器人入群请使用 ==app_id==
+         * <p> 示例值：open_id
+         */
+        this.memberIdType = builder.memberIdType;
+        /**
+         * 出现不可用ID后的处理方式 0/1/2
+         * <p> 示例值：0
+         */
+        this.succeedType = builder.succeedType;
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        this.body = builder.body;
     }
 
-    /**
-     * 出现不可用ID后的处理方式 0/1/2
-     * <p> 示例值：0
-     *
-     * @param succeedType
-     * @return
-     */
-    public Builder succeedType(Integer succeedType) {
-      this.succeedType = succeedType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 出现不可用ID后的处理方式 0/1/2
-     * <p> 示例值：0
-     *
-     * @param succeedType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersSucceedTypeEnum}
-     * @return
-     */
-    public Builder succeedType(
-        com.lark.oapi.service.im.v1.enums.CreateChatMembersSucceedTypeEnum succeedType) {
-      this.succeedType = succeedType.getValue();
-      return this;
+    public String getMemberIdType() {
+        return this.memberIdType;
     }
 
-    /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    public Integer getSucceedType() {
+        return this.succeedType;
+    }
+
+    public void setSucceedType(Integer succeedType) {
+        this.succeedType = succeedType;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
     public CreateChatMembersReqBody getCreateChatMembersReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createChatMembersReqBody(CreateChatMembersReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateChatMembersReqBody(CreateChatMembersReqBody body) {
+        this.body = body;
     }
 
-    public CreateChatMembersReq build() {
-      return new CreateChatMembersReq(this);
+    public static class Builder {
+        private String memberIdType; // 进群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**：拉机器人入群请使用 ==app_id==
+        private Integer succeedType; // 出现不可用ID后的处理方式 0/1/2
+        private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
+        private CreateChatMembersReqBody body;
+
+        /**
+         * 进群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**：拉机器人入群请使用 ==app_id==
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType
+         * @return
+         */
+        public Builder memberIdType(String memberIdType) {
+            this.memberIdType = memberIdType;
+            return this;
+        }
+
+        /**
+         * 进群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**：拉机器人入群请使用 ==app_id==
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum}
+         * @return
+         */
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum memberIdType) {
+            this.memberIdType = memberIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 出现不可用ID后的处理方式 0/1/2
+         * <p> 示例值：0
+         *
+         * @param succeedType
+         * @return
+         */
+        public Builder succeedType(Integer succeedType) {
+            this.succeedType = succeedType;
+            return this;
+        }
+
+        /**
+         * 出现不可用ID后的处理方式 0/1/2
+         * <p> 示例值：0
+         *
+         * @param succeedType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersSucceedTypeEnum}
+         * @return
+         */
+        public Builder succeedType(com.lark.oapi.service.im.v1.enums.CreateChatMembersSucceedTypeEnum succeedType) {
+            this.succeedType = succeedType.getValue();
+            return this;
+        }
+
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public CreateChatMembersReqBody getCreateChatMembersReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createChatMembersReqBody(CreateChatMembersReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateChatMembersReq build() {
+            return new CreateChatMembersReq(this);
+        }
     }
-  }
 }

@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class ReadUserBatchMessageReq {
-
-  /**
-   * 待查询的批量消息的ID
-   * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
-   */
-  @Path
-  @SerializedName("batch_message_id")
-  private String batchMessageId;
-
-  // builder 开始
-  public ReadUserBatchMessageReq() {
-  }
-
-  public ReadUserBatchMessageReq(Builder builder) {
     /**
-     * 待查询的批量消息的ID
+     * 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
      * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
      */
-    this.batchMessageId = builder.batchMessageId;
-  }
+    @Path
+    @SerializedName("batch_message_id")
+    private String batchMessageId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBatchMessageId() {
-    return this.batchMessageId;
-  }
-
-  public void setBatchMessageId(String batchMessageId) {
-    this.batchMessageId = batchMessageId;
-  }
-
-  public static class Builder {
-
-    private String batchMessageId; // 待查询的批量消息的ID
-
-    /**
-     * 待查询的批量消息的ID
-     * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
-     *
-     * @param batchMessageId
-     * @return
-     */
-    public Builder batchMessageId(String batchMessageId) {
-      this.batchMessageId = batchMessageId;
-      return this;
+    // builder 开始
+    public ReadUserBatchMessageReq() {
     }
 
-    public ReadUserBatchMessageReq build() {
-      return new ReadUserBatchMessageReq(this);
+    public ReadUserBatchMessageReq(Builder builder) {
+        /**
+         * 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
+         * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+         */
+        this.batchMessageId = builder.batchMessageId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getBatchMessageId() {
+        return this.batchMessageId;
+    }
+
+    public void setBatchMessageId(String batchMessageId) {
+        this.batchMessageId = batchMessageId;
+    }
+
+    public static class Builder {
+
+        private String batchMessageId; // 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
+
+        /**
+         * 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
+         * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+         *
+         * @param batchMessageId
+         * @return
+         */
+        public Builder batchMessageId(String batchMessageId) {
+            this.batchMessageId = batchMessageId;
+            return this;
+        }
+
+        public ReadUserBatchMessageReq build() {
+            return new ReadUserBatchMessageReq(this);
+        }
+    }
 }

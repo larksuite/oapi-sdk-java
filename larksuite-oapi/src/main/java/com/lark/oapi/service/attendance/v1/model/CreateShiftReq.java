@@ -16,51 +16,50 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateShiftReq {
-
-  @Body
-  private Shift body;
-
-  // builder 开始
-  public CreateShiftReq() {
-  }
-
-  public CreateShiftReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Shift getShift() {
-    return this.body;
-  }
-
-  public void setShift(Shift body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Shift body;
 
+    // builder 开始
+    public CreateShiftReq() {
+    }
+
+    public CreateShiftReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Shift getShift() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder shift(Shift body) {
-      this.body = body;
-      return this;
+    public void setShift(Shift body) {
+        this.body = body;
     }
 
-    public CreateShiftReq build() {
-      return new CreateShiftReq(this);
+    public static class Builder {
+
+        private Shift body;
+
+        public Shift getShift() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder shift(Shift body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateShiftReq build() {
+            return new CreateShiftReq(this);
+        }
     }
-  }
 }

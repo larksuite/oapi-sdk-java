@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteReserveReq {
-
-  /**
-   * 预约ID（预约的唯一标识）
-   * <p> 示例值：6911188411932033028
-   */
-  @Path
-  @SerializedName("reserve_id")
-  private String reserveId;
-
-  // builder 开始
-  public DeleteReserveReq() {
-  }
-
-  public DeleteReserveReq(Builder builder) {
     /**
      * 预约ID（预约的唯一标识）
      * <p> 示例值：6911188411932033028
      */
-    this.reserveId = builder.reserveId;
-  }
+    @Path
+    @SerializedName("reserve_id")
+    private String reserveId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReserveId() {
-    return this.reserveId;
-  }
-
-  public void setReserveId(String reserveId) {
-    this.reserveId = reserveId;
-  }
-
-  public static class Builder {
-
-    private String reserveId; // 预约ID（预约的唯一标识）
-
-    /**
-     * 预约ID（预约的唯一标识）
-     * <p> 示例值：6911188411932033028
-     *
-     * @param reserveId
-     * @return
-     */
-    public Builder reserveId(String reserveId) {
-      this.reserveId = reserveId;
-      return this;
+    // builder 开始
+    public DeleteReserveReq() {
     }
 
-    public DeleteReserveReq build() {
-      return new DeleteReserveReq(this);
+    public DeleteReserveReq(Builder builder) {
+        /**
+         * 预约ID（预约的唯一标识）
+         * <p> 示例值：6911188411932033028
+         */
+        this.reserveId = builder.reserveId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getReserveId() {
+        return this.reserveId;
+    }
+
+    public void setReserveId(String reserveId) {
+        this.reserveId = reserveId;
+    }
+
+    public static class Builder {
+
+        private String reserveId; // 预约ID（预约的唯一标识）
+
+        /**
+         * 预约ID（预约的唯一标识）
+         * <p> 示例值：6911188411932033028
+         *
+         * @param reserveId
+         * @return
+         */
+        public Builder reserveId(String reserveId) {
+            this.reserveId = reserveId;
+            return this;
+        }
+
+        public DeleteReserveReq build() {
+            return new DeleteReserveReq(this);
+        }
+    }
 }

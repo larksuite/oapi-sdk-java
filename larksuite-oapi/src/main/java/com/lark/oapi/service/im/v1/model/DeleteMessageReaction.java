@@ -17,61 +17,61 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteMessageReaction {
 
-  /**
-   * reaction资源ID
-   * <p> 示例值：
-   */
-  @SerializedName("reaction_id")
-  private String reactionId;
-  /**
-   * 添加reaction的操作人
-   * <p> 示例值：
-   */
-  @SerializedName("operator")
-  private Operator operator;
-  /**
-   * reaction动作的的unix timestamp(单位:ms)
-   * <p> 示例值：
-   */
-  @SerializedName("action_time")
-  private String actionTime;
-  /**
-   * reaction资源类型
-   * <p> 示例值：
-   */
-  @SerializedName("reaction_type")
-  private Emoji reactionType;
+    /**
+     * reaction资源ID
+     * <p> 示例值：
+     */
+    @SerializedName("reaction_id")
+    private String reactionId;
+    /**
+     * 添加reaction的操作人
+     * <p> 示例值：
+     */
+    @SerializedName("operator")
+    private Operator operator;
+    /**
+     * reaction动作的的unix timestamp(单位:ms)
+     * <p> 示例值：
+     */
+    @SerializedName("action_time")
+    private String actionTime;
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     */
+    @SerializedName("reaction_type")
+    private Emoji reactionType;
 
-  public String getReactionId() {
-    return this.reactionId;
-  }
+    public String getReactionId() {
+        return this.reactionId;
+    }
 
-  public void setReactionId(String reactionId) {
-    this.reactionId = reactionId;
-  }
+    public void setReactionId(String reactionId) {
+        this.reactionId = reactionId;
+    }
 
-  public Operator getOperator() {
-    return this.operator;
-  }
+    public Operator getOperator() {
+        return this.operator;
+    }
 
-  public void setOperator(Operator operator) {
-    this.operator = operator;
-  }
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
 
-  public String getActionTime() {
-    return this.actionTime;
-  }
+    public String getActionTime() {
+        return this.actionTime;
+    }
 
-  public void setActionTime(String actionTime) {
-    this.actionTime = actionTime;
-  }
+    public void setActionTime(String actionTime) {
+        this.actionTime = actionTime;
+    }
 
-  public Emoji getReactionType() {
-    return this.reactionType;
-  }
+    public Emoji getReactionType() {
+        return this.reactionType;
+    }
 
-  public void setReactionType(Emoji reactionType) {
-    this.reactionType = reactionType;
-  }
+    public void setReactionType(Emoji reactionType) {
+        this.reactionType = reactionType;
+    }
 
 }

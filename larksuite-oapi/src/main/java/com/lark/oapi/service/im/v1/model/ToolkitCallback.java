@@ -16,98 +16,96 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ToolkitCallback {
-
-  /**
-   * 回调地址
-   * <p> 示例值：https://***.com/
-   */
-  @SerializedName("webhook")
-  private String webhook;
-  /**
-   * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
-   * <p> 示例值：SendMessage
-   */
-  @SerializedName("action_key")
-  private String actionKey;
-
-  // builder 开始
-  public ToolkitCallback() {
-  }
-
-  public ToolkitCallback(Builder builder) {
     /**
      * 回调地址
      * <p> 示例值：https://***.com/
      */
-    this.webhook = builder.webhook;
-    /**
-     * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
-     * <p> 示例值：SendMessage
-     */
-    this.actionKey = builder.actionKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getWebhook() {
-    return this.webhook;
-  }
-
-  public void setWebhook(String webhook) {
-    this.webhook = webhook;
-  }
-
-  public String getActionKey() {
-    return this.actionKey;
-  }
-
-  public void setActionKey(String actionKey) {
-    this.actionKey = actionKey;
-  }
-
-  public static class Builder {
-
-    /**
-     * 回调地址
-     * <p> 示例值：https://***.com/
-     */
+    @SerializedName("webhook")
     private String webhook;
     /**
      * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
      * <p> 示例值：SendMessage
      */
+    @SerializedName("action_key")
     private String actionKey;
 
-    /**
-     * 回调地址
-     * <p> 示例值：https://***.com/
-     *
-     * @param webhook
-     * @return
-     */
-    public Builder webhook(String webhook) {
-      this.webhook = webhook;
-      return this;
+    // builder 开始
+    public ToolkitCallback() {
     }
 
-
-    /**
-     * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
-     * <p> 示例值：SendMessage
-     *
-     * @param actionKey
-     * @return
-     */
-    public Builder actionKey(String actionKey) {
-      this.actionKey = actionKey;
-      return this;
+    public ToolkitCallback(Builder builder) {
+        /**
+         * 回调地址
+         * <p> 示例值：https://***.com/
+         */
+        this.webhook = builder.webhook;
+        /**
+         * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
+         * <p> 示例值：SendMessage
+         */
+        this.actionKey = builder.actionKey;
     }
 
-
-    public ToolkitCallback build() {
-      return new ToolkitCallback(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getWebhook() {
+        return this.webhook;
+    }
+
+    public void setWebhook(String webhook) {
+        this.webhook = webhook;
+    }
+
+    public String getActionKey() {
+        return this.actionKey;
+    }
+
+    public void setActionKey(String actionKey) {
+        this.actionKey = actionKey;
+    }
+
+    public static class Builder {
+        /**
+         * 回调地址
+         * <p> 示例值：https://***.com/
+         */
+        private String webhook;
+        /**
+         * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
+         * <p> 示例值：SendMessage
+         */
+        private String actionKey;
+
+        /**
+         * 回调地址
+         * <p> 示例值：https://***.com/
+         *
+         * @param webhook
+         * @return
+         */
+        public Builder webhook(String webhook) {
+            this.webhook = webhook;
+            return this;
+        }
+
+
+        /**
+         * 开发者自己识别的action_key，标识快捷组件的作用，回调时会把该字段带到回调地址
+         * <p> 示例值：SendMessage
+         *
+         * @param actionKey
+         * @return
+         */
+        public Builder actionKey(String actionKey) {
+            this.actionKey = actionKey;
+            return this;
+        }
+
+
+        public ToolkitCallback build() {
+            return new ToolkitCallback(this);
+        }
+    }
 }

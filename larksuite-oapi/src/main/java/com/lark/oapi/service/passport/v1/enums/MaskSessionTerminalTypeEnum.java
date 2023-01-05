@@ -17,20 +17,20 @@ package com.lark.oapi.service.passport.v1.enums;
  * 客户端类型
  */
 public enum MaskSessionTerminalTypeEnum {
-  UNKNOW(0), // 未知
-  PC(1), // 个人电脑
-  WEB(2), // 浏览器
-  ANDROID(3), // 安卓手机
-  IOS(4), // Apple手机
-  SERVER(5), // 服务端
-  ;
-  private Integer value;
+    UNKNOW(0), // 未知
+    PC(1), // 个人电脑
+    WEB(2), // 浏览器
+    ANDROID(3), // 安卓手机
+    IOS(4), // Apple手机
+    SERVER(5), // 服务端
+    ;
+    private Integer value;
 
-  MaskSessionTerminalTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MaskSessionTerminalTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

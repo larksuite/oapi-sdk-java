@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 操作类型，每个任务都可以配置2个操作，会展示审批列表中，当用户操作时，回调请求会带上该字段，表示用户进行了同意操作还是拒绝操作
  */
 public enum ActionConfigActionTypeEnum {
-  APPROVE("APPROVE"), // 同意
-  REJECT("REJECT"), // 拒绝
-  KEY("{KEY}"), // 任意字符串，如果使用任意字符串，则需要提供 action_name
-  ;
-  private String value;
+    APPROVE("APPROVE"), // 同意
+    REJECT("REJECT"), // 拒绝
+    KEY("{KEY}"), // 任意字符串，如果使用任意字符串，则需要提供 action_name
+    ;
+    private String value;
 
-  ActionConfigActionTypeEnum(String value) {
-    this.value = value;
-  }
+    ActionConfigActionTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

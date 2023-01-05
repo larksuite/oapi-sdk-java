@@ -17,16 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 会议初始类型
  */
 public enum ReserveMeetingSettingMeetingInitialTypeEnum {
-  GROUP_MEETING(1), // 多人会议
-  CALL(2), // 1v1呼叫
-  ;
-  private Integer value;
+    GROUP_MEETING(1), // 多人会议
+    CALL(2), // 1v1呼叫
+    ;
+    private Integer value;
 
-  ReserveMeetingSettingMeetingInitialTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ReserveMeetingSettingMeetingInitialTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

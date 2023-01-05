@@ -17,20 +17,20 @@ package com.lark.oapi.service.approval.v4.enums;
  * 流程实例状态
  */
 public enum TaskProcessStatusEnum {
-  NONE("0"), // 无流程状态，不展示对应标签
-  RUNNING("1"), // 流程实例流转中
-  APPROVED("2"), // 已通过
-  REJECTED("3"), // 已拒绝
-  CANCELED("4"), // 已撤销
-  TERMINATED("5"), // 已终止
-  ;
-  private String value;
+    NONE("0"), // 无流程状态，不展示对应标签
+    RUNNING("1"), // 流程实例流转中
+    APPROVED("2"), // 已通过
+    REJECTED("3"), // 已拒绝
+    CANCELED("4"), // 已撤销
+    TERMINATED("5"), // 已终止
+    ;
+    private String value;
 
-  TaskProcessStatusEnum(String value) {
-    this.value = value;
-  }
+    TaskProcessStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

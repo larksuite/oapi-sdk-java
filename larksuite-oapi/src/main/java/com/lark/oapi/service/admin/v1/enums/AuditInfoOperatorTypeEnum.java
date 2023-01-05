@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 操作人类型
  */
 public enum AuditInfoOperatorTypeEnum {
-  USER(0), // 用户
-  BOT(1), // 机器人
-  ;
-  private Integer value;
+    USER(0), // 用户
+    BOT(1), // 机器人
+    ;
+    private Integer value;
 
-  AuditInfoOperatorTypeEnum(Integer value) {
-    this.value = value;
-  }
+    AuditInfoOperatorTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

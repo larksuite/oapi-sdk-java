@@ -16,98 +16,96 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PinedMessage {
-
-  /**
-   * Pin的操作信息
-   * <p> 示例值：
-   */
-  @SerializedName("pin")
-  private Pin pin;
-  /**
-   * 被Pin的消息实体
-   * <p> 示例值：
-   */
-  @SerializedName("message")
-  private Message message;
-
-  // builder 开始
-  public PinedMessage() {
-  }
-
-  public PinedMessage(Builder builder) {
     /**
      * Pin的操作信息
      * <p> 示例值：
      */
-    this.pin = builder.pin;
-    /**
-     * 被Pin的消息实体
-     * <p> 示例值：
-     */
-    this.message = builder.message;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Pin getPin() {
-    return this.pin;
-  }
-
-  public void setPin(Pin pin) {
-    this.pin = pin;
-  }
-
-  public Message getMessage() {
-    return this.message;
-  }
-
-  public void setMessage(Message message) {
-    this.message = message;
-  }
-
-  public static class Builder {
-
-    /**
-     * Pin的操作信息
-     * <p> 示例值：
-     */
+    @SerializedName("pin")
     private Pin pin;
     /**
      * 被Pin的消息实体
      * <p> 示例值：
      */
+    @SerializedName("message")
     private Message message;
 
-    /**
-     * Pin的操作信息
-     * <p> 示例值：
-     *
-     * @param pin
-     * @return
-     */
-    public Builder pin(Pin pin) {
-      this.pin = pin;
-      return this;
+    // builder 开始
+    public PinedMessage() {
     }
 
-
-    /**
-     * 被Pin的消息实体
-     * <p> 示例值：
-     *
-     * @param message
-     * @return
-     */
-    public Builder message(Message message) {
-      this.message = message;
-      return this;
+    public PinedMessage(Builder builder) {
+        /**
+         * Pin的操作信息
+         * <p> 示例值：
+         */
+        this.pin = builder.pin;
+        /**
+         * 被Pin的消息实体
+         * <p> 示例值：
+         */
+        this.message = builder.message;
     }
 
-
-    public PinedMessage build() {
-      return new PinedMessage(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Pin getPin() {
+        return this.pin;
+    }
+
+    public void setPin(Pin pin) {
+        this.pin = pin;
+    }
+
+    public Message getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+
+    public static class Builder {
+        /**
+         * Pin的操作信息
+         * <p> 示例值：
+         */
+        private Pin pin;
+        /**
+         * 被Pin的消息实体
+         * <p> 示例值：
+         */
+        private Message message;
+
+        /**
+         * Pin的操作信息
+         * <p> 示例值：
+         *
+         * @param pin
+         * @return
+         */
+        public Builder pin(Pin pin) {
+            this.pin = pin;
+            return this;
+        }
+
+
+        /**
+         * 被Pin的消息实体
+         * <p> 示例值：
+         *
+         * @param message
+         * @return
+         */
+        public Builder message(Message message) {
+            this.message = message;
+            return this;
+        }
+
+
+        public PinedMessage build() {
+            return new PinedMessage(this);
+        }
+    }
 }

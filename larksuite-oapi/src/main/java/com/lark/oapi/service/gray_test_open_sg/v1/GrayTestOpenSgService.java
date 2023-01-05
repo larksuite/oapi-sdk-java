@@ -18,195 +18,236 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoResp;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoResp;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.ListMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.ListMotoResp;
+import com.lark.oapi.service.gray_test_open_sg.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class GrayTestOpenSgService {
+    private static final Logger log = LoggerFactory.getLogger(GrayTestOpenSgService.class);
+    private final Moto moto; // moto
 
-  private final Moto moto; // moto
-
-  public GrayTestOpenSgService(Config config) {
-    this.moto = new Moto(config);
-  }
-
-  /**
-   * moto
-   *
-   * @return
-   */
-  public Moto moto() {
-    return moto;
-  }
-
-  public static class Moto {
-
-    private final Config config;
-
-    public Moto(Config config) {
-      this.config = config;
+    public GrayTestOpenSgService(Config config) {
+        this.moto = new Moto(config);
     }
 
     /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java</a>
-     * ;
+     * moto
+     *
+     * @return
      */
-    public CreateMotoResp create(CreateMotoReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Moto moto() {
+        return moto;
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java</a>
-     * ;
-     */
-    public CreateMotoResp create(CreateMotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Moto {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public Moto(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java</a> ;
+         */
+        public CreateMotoResp create(CreateMotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/gray_test_open_sg/v1/motos"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/gray_test_open_sg/v1/motos"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java</a> ;
+         */
+        public CreateMotoResp create(CreateMotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/gray_test_open_sg/v1/motos"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/gray_test_open_sg/v1/motos"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java</a> ;
+         */
+        public GetMotoResp get(GetMotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java</a> ;
+         */
+        public GetMotoResp get(GetMotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java</a> ;
+         */
+        public ListMotoResp list(ListMotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/gray_test_open_sg/v1/motos"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/gray_test_open_sg/v1/motos"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java</a> ;
+         */
+        public ListMotoResp list(ListMotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/gray_test_open_sg/v1/motos"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/gray_test_open_sg/v1/motos"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java</a>
-     * ;
-     */
-    public GetMotoResp get(GetMotoReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java</a>
-     * ;
-     */
-    public GetMotoResp get(GetMotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java</a>
-     * ;
-     */
-    public ListMotoResp list(ListMotoReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java</a>
-     * ;
-     */
-    public ListMotoResp list(ListMotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

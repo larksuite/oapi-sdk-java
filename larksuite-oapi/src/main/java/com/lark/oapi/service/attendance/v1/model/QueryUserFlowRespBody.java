@@ -16,20 +16,19 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserFlowRespBody {
+    /**
+     * 打卡记录列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_flow_results")
+    private UserFlow[] userFlowResults;
 
-  /**
-   * 打卡记录列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_flow_results")
-  private UserFlow[] userFlowResults;
+    public UserFlow[] getUserFlowResults() {
+        return this.userFlowResults;
+    }
 
-  public UserFlow[] getUserFlowResults() {
-    return this.userFlowResults;
-  }
-
-  public void setUserFlowResults(UserFlow[] userFlowResults) {
-    this.userFlowResults = userFlowResults;
-  }
+    public void setUserFlowResults(UserFlow[] userFlowResults) {
+        this.userFlowResults = userFlowResults;
+    }
 
 }

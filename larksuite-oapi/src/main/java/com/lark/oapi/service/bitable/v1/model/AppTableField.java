@@ -16,221 +16,219 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppTableField {
-
-  /**
-   * 多维表格字段 id
-   * <p> 示例值：
-   */
-  @SerializedName("field_id")
-  private String fieldId;
-  /**
-   * 多维表格字段名
-   * <p> 示例值：多行文本
-   */
-  @SerializedName("field_name")
-  private String fieldName;
-  /**
-   * 多维表格字段类型
-   * <p> 示例值：1
-   */
-  @SerializedName("type")
-  private Integer type;
-  /**
-   * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
-   * <p> 示例值：
-   */
-  @SerializedName("property")
-  private AppTableFieldProperty property;
-  /**
-   * 字段的描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private AppTableFieldDescription description;
-
-  // builder 开始
-  public AppTableField() {
-  }
-
-  public AppTableField(Builder builder) {
     /**
      * 多维表格字段 id
      * <p> 示例值：
      */
-    this.fieldId = builder.fieldId;
-    /**
-     * 多维表格字段名
-     * <p> 示例值：多行文本
-     */
-    this.fieldName = builder.fieldName;
-    /**
-     * 多维表格字段类型
-     * <p> 示例值：1
-     */
-    this.type = builder.type;
-    /**
-     * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
-     * <p> 示例值：
-     */
-    this.property = builder.property;
-    /**
-     * 字段的描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public String getFieldName() {
-    return this.fieldName;
-  }
-
-  public void setFieldName(String fieldName) {
-    this.fieldName = fieldName;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public AppTableFieldProperty getProperty() {
-    return this.property;
-  }
-
-  public void setProperty(AppTableFieldProperty property) {
-    this.property = property;
-  }
-
-  public AppTableFieldDescription getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(AppTableFieldDescription description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
-    /**
-     * 多维表格字段 id
-     * <p> 示例值：
-     */
+    @SerializedName("field_id")
     private String fieldId;
     /**
      * 多维表格字段名
      * <p> 示例值：多行文本
      */
+    @SerializedName("field_name")
     private String fieldName;
     /**
      * 多维表格字段类型
      * <p> 示例值：1
      */
+    @SerializedName("type")
     private Integer type;
     /**
      * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
      * <p> 示例值：
      */
+    @SerializedName("property")
     private AppTableFieldProperty property;
     /**
      * 字段的描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private AppTableFieldDescription description;
 
-    /**
-     * 多维表格字段 id
-     * <p> 示例值：
-     *
-     * @param fieldId
-     * @return
-     */
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
+    // builder 开始
+    public AppTableField() {
     }
 
-
-    /**
-     * 多维表格字段名
-     * <p> 示例值：多行文本
-     *
-     * @param fieldName
-     * @return
-     */
-    public Builder fieldName(String fieldName) {
-      this.fieldName = fieldName;
-      return this;
+    public AppTableField(Builder builder) {
+        /**
+         * 多维表格字段 id
+         * <p> 示例值：
+         */
+        this.fieldId = builder.fieldId;
+        /**
+         * 多维表格字段名
+         * <p> 示例值：多行文本
+         */
+        this.fieldName = builder.fieldName;
+        /**
+         * 多维表格字段类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+         * <p> 示例值：
+         */
+        this.property = builder.property;
+        /**
+         * 字段的描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
     }
 
-
-    /**
-     * 多维表格字段类型
-     * <p> 示例值：1
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 多维表格字段类型
-     * <p> 示例值：1
-     *
-     * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum}
-     * @return
-     */
-    public Builder type(com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public String getFieldId() {
+        return this.fieldId;
     }
 
-
-    /**
-     * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
-     * <p> 示例值：
-     *
-     * @param property
-     * @return
-     */
-    public Builder property(AppTableFieldProperty property) {
-      this.property = property;
-      return this;
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
     }
 
-
-    /**
-     * 字段的描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(AppTableFieldDescription description) {
-      this.description = description;
-      return this;
+    public String getFieldName() {
+        return this.fieldName;
     }
 
-
-    public AppTableField build() {
-      return new AppTableField(this);
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
-  }
+
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public AppTableFieldProperty getProperty() {
+        return this.property;
+    }
+
+    public void setProperty(AppTableFieldProperty property) {
+        this.property = property;
+    }
+
+    public AppTableFieldDescription getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(AppTableFieldDescription description) {
+        this.description = description;
+    }
+
+    public static class Builder {
+        /**
+         * 多维表格字段 id
+         * <p> 示例值：
+         */
+        private String fieldId;
+        /**
+         * 多维表格字段名
+         * <p> 示例值：多行文本
+         */
+        private String fieldName;
+        /**
+         * 多维表格字段类型
+         * <p> 示例值：1
+         */
+        private Integer type;
+        /**
+         * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+         * <p> 示例值：
+         */
+        private AppTableFieldProperty property;
+        /**
+         * 字段的描述
+         * <p> 示例值：
+         */
+        private AppTableFieldDescription description;
+
+        /**
+         * 多维表格字段 id
+         * <p> 示例值：
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
+            return this;
+        }
+
+
+        /**
+         * 多维表格字段名
+         * <p> 示例值：多行文本
+         *
+         * @param fieldName
+         * @return
+         */
+        public Builder fieldName(String fieldName) {
+            this.fieldName = fieldName;
+            return this;
+        }
+
+
+        /**
+         * 多维表格字段类型
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 多维表格字段类型
+         * <p> 示例值：1
+         *
+         * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+         * <p> 示例值：
+         *
+         * @param property
+         * @return
+         */
+        public Builder property(AppTableFieldProperty property) {
+            this.property = property;
+            return this;
+        }
+
+
+        /**
+         * 字段的描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(AppTableFieldDescription description) {
+            this.description = description;
+            return this;
+        }
+
+
+        public AppTableField build() {
+            return new AppTableField(this);
+        }
+    }
 }

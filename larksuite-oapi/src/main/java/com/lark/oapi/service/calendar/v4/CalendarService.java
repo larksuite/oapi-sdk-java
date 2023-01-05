@@ -18,2297 +18,2576 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.event.IEventHandler;
-import com.lark.oapi.service.calendar.v4.model.BatchDeleteCalendarEventAttendeeReq;
-import com.lark.oapi.service.calendar.v4.model.BatchDeleteCalendarEventAttendeeResp;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarAclReq;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarAclResp;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventAttendeeReq;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventAttendeeResp;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.CreateExchangeBindingReq;
-import com.lark.oapi.service.calendar.v4.model.CreateExchangeBindingResp;
-import com.lark.oapi.service.calendar.v4.model.CreateTimeoffEventReq;
-import com.lark.oapi.service.calendar.v4.model.CreateTimeoffEventResp;
-import com.lark.oapi.service.calendar.v4.model.DeleteCalendarAclReq;
-import com.lark.oapi.service.calendar.v4.model.DeleteCalendarAclResp;
-import com.lark.oapi.service.calendar.v4.model.DeleteCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.DeleteCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.DeleteCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.DeleteCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.DeleteExchangeBindingReq;
-import com.lark.oapi.service.calendar.v4.model.DeleteExchangeBindingResp;
-import com.lark.oapi.service.calendar.v4.model.DeleteTimeoffEventReq;
-import com.lark.oapi.service.calendar.v4.model.DeleteTimeoffEventResp;
-import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingReq;
-import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingResp;
-import com.lark.oapi.service.calendar.v4.model.GetCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.GetCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.GetCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.GetCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.GetExchangeBindingReq;
-import com.lark.oapi.service.calendar.v4.model.GetExchangeBindingResp;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarAclReq;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarAclResp;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarEventAttendeeChatMemberReq;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarEventAttendeeChatMemberResp;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarEventAttendeeReq;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarEventAttendeeResp;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.ListCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.ListFreebusyReq;
-import com.lark.oapi.service.calendar.v4.model.ListFreebusyResp;
-import com.lark.oapi.service.calendar.v4.model.P2CalendarAclCreatedV4;
-import com.lark.oapi.service.calendar.v4.model.P2CalendarAclDeletedV4;
-import com.lark.oapi.service.calendar.v4.model.P2CalendarChangedV4;
-import com.lark.oapi.service.calendar.v4.model.P2CalendarEventChangedV4;
-import com.lark.oapi.service.calendar.v4.model.PatchCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.PatchCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.PatchCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.PatchCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.PrimaryCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.PrimaryCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.SubscribeCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.SubscribeCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.SubscriptionCalendarAclReq;
-import com.lark.oapi.service.calendar.v4.model.SubscriptionCalendarAclResp;
-import com.lark.oapi.service.calendar.v4.model.SubscriptionCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.SubscriptionCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.SubscriptionCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.UnsubscribeCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.UnsubscribeCalendarResp;
-import com.lark.oapi.service.calendar.v4.model.UnsubscriptionCalendarAclReq;
-import com.lark.oapi.service.calendar.v4.model.UnsubscriptionCalendarAclResp;
-import com.lark.oapi.service.calendar.v4.model.UnsubscriptionCalendarEventReq;
-import com.lark.oapi.service.calendar.v4.model.UnsubscriptionCalendarEventResp;
-import com.lark.oapi.service.calendar.v4.model.UnsubscriptionCalendarResp;
+import com.lark.oapi.service.calendar.v4.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.StandardCharsets;
 
 public class CalendarService {
+    private static final Logger log = LoggerFactory.getLogger(CalendarService.class);
+    private final Calendar calendar; // 日历管理
+    private final CalendarAcl calendarAcl; // 日历访问控制
+    private final CalendarEvent calendarEvent; // 日程
+    private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
+    private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
+    private final ExchangeBinding exchangeBinding; // Exchange绑定
+    private final Freebusy freebusy; // freebusy
+    private final Setting setting; // 日历设置
+    private final TimeoffEvent timeoffEvent; // 请假
 
-  private final Calendar calendar; // 日历
-  private final CalendarAcl calendarAcl; // 用户访问控制
-  private final CalendarEvent calendarEvent; // 日程
-  private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
-  private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
-  private final ExchangeBinding exchangeBinding; // Exchange绑定
-  private final Freebusy freebusy; // 忙闲
-  private final Setting setting; // 日历设置
-  private final TimeoffEvent timeoffEvent; // 请假
-
-  public CalendarService(Config config) {
-    this.calendar = new Calendar(config);
-    this.calendarAcl = new CalendarAcl(config);
-    this.calendarEvent = new CalendarEvent(config);
-    this.calendarEventAttendee = new CalendarEventAttendee(config);
-    this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
-    this.exchangeBinding = new ExchangeBinding(config);
-    this.freebusy = new Freebusy(config);
-    this.setting = new Setting(config);
-    this.timeoffEvent = new TimeoffEvent(config);
-  }
-
-  /**
-   * 日历
-   *
-   * @return
-   */
-  public Calendar calendar() {
-    return calendar;
-  }
-
-  /**
-   * 用户访问控制
-   *
-   * @return
-   */
-  public CalendarAcl calendarAcl() {
-    return calendarAcl;
-  }
-
-  /**
-   * 日程
-   *
-   * @return
-   */
-  public CalendarEvent calendarEvent() {
-    return calendarEvent;
-  }
-
-  /**
-   * 日程参与人
-   *
-   * @return
-   */
-  public CalendarEventAttendee calendarEventAttendee() {
-    return calendarEventAttendee;
-  }
-
-  /**
-   * 日程参与人群成员
-   *
-   * @return
-   */
-  public CalendarEventAttendeeChatMember calendarEventAttendeeChatMember() {
-    return calendarEventAttendeeChatMember;
-  }
-
-  /**
-   * Exchange绑定
-   *
-   * @return
-   */
-  public ExchangeBinding exchangeBinding() {
-    return exchangeBinding;
-  }
-
-  /**
-   * 忙闲
-   *
-   * @return
-   */
-  public Freebusy freebusy() {
-    return freebusy;
-  }
-
-  /**
-   * 日历设置
-   *
-   * @return
-   */
-  public Setting setting() {
-    return setting;
-  }
-
-  /**
-   * 请假
-   *
-   * @return
-   */
-  public TimeoffEvent timeoffEvent() {
-    return timeoffEvent;
-  }
-
-  public static class Calendar {
-
-    private final Config config;
-
-    public Calendar(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建日历，该接口用于为当前身份（应用 / 用户）创建一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java</a>
-     * ;
-     */
-    public CreateCalendarResp create(CreateCalendarReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建日历，该接口用于为当前身份（应用 / 用户）创建一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java</a>
-     * ;
-     */
-    public CreateCalendarResp create(CreateCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除日历，该接口用于以当前身份（应用 / 用户）删除一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历具有 owner 权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java</a>
-     * ;
-     */
-    public DeleteCalendarResp delete(DeleteCalendarReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/calendars/:calendar_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除日历，该接口用于以当前身份（应用 / 用户）删除一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历具有 owner 权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java</a>
-     * ;
-     */
-    public DeleteCalendarResp delete(DeleteCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/calendars/:calendar_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日历，该接口用于以当前身份（应用 / 用户）根据日历 ID 获取日历信息。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有访问权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java</a>
-     * ;
-     */
-    public GetCalendarResp get(GetCalendarReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日历，该接口用于以当前身份（应用 / 用户）根据日历 ID 获取日历信息。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有访问权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java</a>
-     * ;
-     */
-    public GetCalendarResp get(GetCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日历列表，该接口用于分页获得当前身份（应用 / 用户）的日历列表。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 调用时首先使用 page_token 分页拉取存量数据，之后使用 sync_token 增量同步变更数据。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java</a>
-     * ;
-     */
-    public ListCalendarResp list(ListCalendarReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日历列表，该接口用于分页获得当前身份（应用 / 用户）的日历列表。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 调用时首先使用 page_token 分页拉取存量数据，之后使用 sync_token 增量同步变更数据。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java</a>
-     * ;
-     */
-    public ListCalendarResp list(ListCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新日历，该接口用于以当前身份（应用 / 用户）修改日历信息。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份对日历有 owner 权限时，可修改全局字段：summary, description, permission。;;当前身份对日历不具有 owner
-     * 权限时，仅可修改对自己生效的字段：color, summary_alias。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java</a>
-     * ;
-     */
-    public PatchCalendarResp patch(PatchCalendarReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/calendar/v4/calendars/:calendar_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新日历，该接口用于以当前身份（应用 / 用户）修改日历信息。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份对日历有 owner 权限时，可修改全局字段：summary, description, permission。;;当前身份对日历不具有 owner
-     * 权限时，仅可修改对自己生效的字段：color, summary_alias。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java</a>
-     * ;
-     */
-    public PatchCalendarResp patch(PatchCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/calendar/v4/calendars/:calendar_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取主日历，获取当前身份的主日历信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java</a>
-     * ;
-     */
-    public PrimaryCalendarResp primary(PrimaryCalendarReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/primary"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PrimaryCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PrimaryCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取主日历，获取当前身份的主日历信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java</a>
-     * ;
-     */
-    public PrimaryCalendarResp primary(PrimaryCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/primary"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PrimaryCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PrimaryCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 搜索日历，该接口用于通过关键字查询公共日历或用户主日历。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java</a>
-     * ;
-     */
-    public SearchCalendarResp search(SearchCalendarReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/search"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      SearchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SearchCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 搜索日历，该接口用于通过关键字查询公共日历或用户主日历。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java</a>
-     * ;
-     */
-    public SearchCalendarResp search(SearchCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/search"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      SearchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SearchCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日历，该接口用于以当前身份（应用 / 用户）订阅某个日历。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> - 仅可订阅类型为 primary 或 shared 的公开日历。;- 可订阅日历数量上限为1000。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java</a>
-     * ;
-     */
-    public SubscribeCalendarResp subscribe(SubscribeCalendarReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      SubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscribeCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日历，该接口用于以当前身份（应用 / 用户）订阅某个日历。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> - 仅可订阅类型为 primary 或 shared 的公开日历。;- 可订阅日历数量上限为1000。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java</a>
-     * ;
-     */
-    public SubscribeCalendarResp subscribe(SubscribeCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      SubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscribeCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日历变更事件，该接口用于以用户身份订阅当前身份下日历列表中的所有日历变更。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java</a>
-     * ;
-     */
-    public SubscriptionCalendarResp subscription(RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/subscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , null);
-
-      // 反序列化
-      SubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscriptionCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
-    }
-
-    /**
-     * 订阅日历变更事件，该接口用于以用户身份订阅当前身份下日历列表中的所有日历变更。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java</a>
-     * ;
-     */
-    public SubscriptionCalendarResp subscription() throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/subscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , null);
-
-      // 反序列化
-      SubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscriptionCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
-    }
-
-    /**
-     * 取消订阅日历，该接口用于以当前身份（应用 / 用户）取消对某日历的订阅状态。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 仅可操作已经被当前身份订阅的日历。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java</a>
-     * ;
-     */
-    public UnsubscribeCalendarResp unsubscribe(UnsubscribeCalendarReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UnsubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscribeCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消订阅日历，该接口用于以当前身份（应用 / 用户）取消对某日历的订阅状态。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 仅可操作已经被当前身份订阅的日历。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java</a>
-     * ;
-     */
-    public UnsubscribeCalendarResp unsubscribe(UnsubscribeCalendarReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
-          , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UnsubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscribeCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消订阅日历变更事件，该接口用于以用户身份取消订阅当前身份下日历列表中的日历变更事件。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java</a>
-     * ;
-     */
-    public UnsubscriptionCalendarResp unsubscription(RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/unsubscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , null);
-
-      // 反序列化
-      UnsubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscriptionCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
-    }
-
-    /**
-     * 取消订阅日历变更事件，该接口用于以用户身份取消订阅当前身份下日历列表中的日历变更事件。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java</a>
-     * ;
-     */
-    public UnsubscriptionCalendarResp unsubscription() throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/unsubscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , null);
-
-      // 反序列化
-      UnsubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscriptionCalendarResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
-    }
-  }
-
-  public static class CalendarAcl {
-
-    private final Config config;
-
-    public CalendarAcl(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建访问控制，该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java</a>
-     * ;
-     */
-    public CreateCalendarAclResp create(CreateCalendarAclReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建访问控制，该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java</a>
-     * ;
-     */
-    public CreateCalendarAclResp create(CreateCalendarAclReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除访问控制，该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java</a>
-     * ;
-     */
-    public DeleteCalendarAclResp delete(DeleteCalendarAclReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除访问控制，该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java</a>
-     * ;
-     */
-    public DeleteCalendarAclResp delete(DeleteCalendarAclReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取访问控制列表，该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java</a>
-     * ;
-     */
-    public ListCalendarAclResp list(ListCalendarAclReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取访问控制列表，该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java</a>
-     * ;
-     */
-    public ListCalendarAclResp list(ListCalendarAclReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日历访问控制变更事件;，该接口用于以用户身份订阅指定日历下的日历成员变更事件。
-     * <p> 用户必须对日历有访问权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java</a>
-     * ;
-     */
-    public SubscriptionCalendarAclResp subscription(SubscriptionCalendarAclReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscriptionCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日历访问控制变更事件;，该接口用于以用户身份订阅指定日历下的日历成员变更事件。
-     * <p> 用户必须对日历有访问权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java</a>
-     * ;
-     */
-    public SubscriptionCalendarAclResp subscription(SubscriptionCalendarAclReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscriptionCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消订阅日历访问控制变更事件，该接口用于以用户身份取消订阅指定日历下的日历成员变更事件。
-     * <p> 用户必须对日历有访问权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java</a>
-     * ;
-     */
-    public UnsubscriptionCalendarAclResp unsubscription(UnsubscriptionCalendarAclReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UnsubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscriptionCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消订阅日历访问控制变更事件，该接口用于以用户身份取消订阅指定日历下的日历成员变更事件。
-     * <p> 用户必须对日历有访问权限。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java</a>
-     * ;
-     */
-    public UnsubscriptionCalendarAclResp unsubscription(UnsubscriptionCalendarAclReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UnsubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscriptionCalendarAclResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class CalendarEvent {
-
-    private final Config config;
-
-    public CalendarEvent(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建日程，该接口用于以当前身份（应用 / 用户）在日历上创建一个日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java</a>
-     * ;
-     */
-    public CreateCalendarEventResp create(CreateCalendarEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建日程，该接口用于以当前身份（应用 / 用户）在日历上创建一个日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java</a>
-     * ;
-     */
-    public CreateCalendarEventResp create(CreateCalendarEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除日程，该接口用于以当前身份（应用 / 用户）删除日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份必须是日程的组织者。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java</a>
-     * ;
-     */
-    public DeleteCalendarEventResp delete(DeleteCalendarEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除日程，该接口用于以当前身份（应用 / 用户）删除日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份必须是日程的组织者。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java</a>
-     * ;
-     */
-    public DeleteCalendarEventResp delete(DeleteCalendarEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程，该接口用于以当前身份（应用 / 用户）获取日历上的一个日程。;身份由 Header Authorization 的 Token 类型决定。
-     * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;-
-     * [例外日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction#71c5ec78)可通过event_id的非0时间戳后缀，来获取修改的重复性日程的哪一天日程的时间信息。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java</a>
-     * ;
-     */
-    public GetCalendarEventResp get(GetCalendarEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程，该接口用于以当前身份（应用 / 用户）获取日历上的一个日程。;身份由 Header Authorization 的 Token 类型决定。
-     * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;-
-     * [例外日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction#71c5ec78)可通过event_id的非0时间戳后缀，来获取修改的重复性日程的哪一天日程的时间信息。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java</a>
-     * ;
-     */
-    public GetCalendarEventResp get(GetCalendarEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程列表，该接口用于以当前身份（应用 / 用户）获取日历下的日程列表。;身份由 Header Authorization 的 Token 类型决定。
-     * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;-
-     * 仅支持primary、shared和resource类型的日历获取日程列表。;;- 调用时首先使用 page_token 分页拉取存量数据，之后使用 sync_token
-     * 增量同步变更数据。;;- 为了确保调用方日程同步数据的一致性，在使用sync_token时，不能同时使用start_time和end_time，否则可能造成日程数据缺失。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java</a>
-     * ;
-     */
-    public ListCalendarEventResp list(ListCalendarEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程列表，该接口用于以当前身份（应用 / 用户）获取日历下的日程列表。;身份由 Header Authorization 的 Token 类型决定。
-     * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;-
-     * 仅支持primary、shared和resource类型的日历获取日程列表。;;- 调用时首先使用 page_token 分页拉取存量数据，之后使用 sync_token
-     * 增量同步变更数据。;;- 为了确保调用方日程同步数据的一致性，在使用sync_token时，不能同时使用start_time和end_time，否则可能造成日程数据缺失。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java</a>
-     * ;
-     */
-    public ListCalendarEventResp list(ListCalendarEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新日程，该接口用于以当前身份（应用 / 用户）更新日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份为日程组织者时，可修改所有可编辑字段。;;当前身份为日程参与者时，仅可编辑部分字段。（如：visibility,
-     * free_busy_status, color, reminders） ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java</a>
-     * ;
-     */
-    public PatchCalendarEventResp patch(PatchCalendarEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 更新日程，该接口用于以当前身份（应用 / 用户）更新日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份为日程组织者时，可修改所有可编辑字段。;;当前身份为日程参与者时，仅可编辑部分字段。（如：visibility,
-     * free_busy_status, color, reminders） ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java</a>
-     * ;
-     */
-    public PatchCalendarEventResp patch(PatchCalendarEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      PatchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          PatchCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 搜索日程，该接口用于以用户身份搜索某日历下的相关日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java</a>
-     * ;
-     */
-    public SearchCalendarEventResp search(SearchCalendarEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      SearchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SearchCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 搜索日程，该接口用于以用户身份搜索某日历下的相关日程。;;身份由 Header Authorization 的 Token 类型决定。
-     * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java</a>
-     * ;
-     */
-    public SearchCalendarEventResp search(SearchCalendarEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      SearchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SearchCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日程变更事件，该接口用于以用户身份订阅指定日历下的日程变更事件。
-     * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java</a>
-     * ;
-     */
-    public SubscriptionCalendarEventResp subscription(SubscriptionCalendarEventReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      SubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscriptionCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 订阅日程变更事件，该接口用于以用户身份订阅指定日历下的日程变更事件。
-     * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java</a>
-     * ;
-     */
-    public SubscriptionCalendarEventResp subscription(SubscriptionCalendarEventReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      SubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          SubscriptionCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消订阅日程变更事件，该接口用于以用户身份取消订阅指定日历下的日程变更事件。
-     * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java</a>
-     * ;
-     */
-    public UnsubscriptionCalendarEventResp unsubscription(UnsubscriptionCalendarEventReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UnsubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscriptionCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 取消订阅日程变更事件，该接口用于以用户身份取消订阅指定日历下的日程变更事件。
-     * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。
-     * ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java</a>
-     * ;
-     */
-    public UnsubscriptionCalendarEventResp unsubscription(UnsubscriptionCalendarEventReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      UnsubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UnsubscriptionCalendarEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class CalendarEventAttendee {
-
-    private final Config config;
-
-    public CalendarEventAttendee(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 删除日程参与人，批量删除日程的参与人。
-     * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;- 当前身份需要是日程的组织者。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java</a>
-     * ;
-     */
-    public BatchDeleteCalendarEventAttendeeResp batchDelete(BatchDeleteCalendarEventAttendeeReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchDeleteCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchDeleteCalendarEventAttendeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 删除日程参与人，批量删除日程的参与人。
-     * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;- 当前身份需要是日程的组织者。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java</a>
-     * ;
-     */
-    public BatchDeleteCalendarEventAttendeeResp batchDelete(BatchDeleteCalendarEventAttendeeReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      BatchDeleteCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          BatchDeleteCalendarEventAttendeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建日程参与人;，批量给日程添加参与人。
-     * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;-
-     * 当前身份需要是日程的组织者，或日程设置了「参与人可邀请其它参与人」权限。;;- 新添加的日程参与人必须与日程组织者在同一个企业内。;;-
-     * 使用该接口添加会议室后，会议室会进入异步的预约流程，请求结束不代表会议室预约成功，需后续再查询预约状态。;;- 每个日程最多只能有 3000 名参与人。;;-
-     * 开启管理员能力后预约会议室可不受会议室预约范围的限制（当前不支持用管理员身份给其他人的日程预约会议室） ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java</a>
-     * ;
-     */
-    public CreateCalendarEventAttendeeResp create(CreateCalendarEventAttendeeReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarEventAttendeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建日程参与人;，批量给日程添加参与人。
-     * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;-
-     * 当前身份需要是日程的组织者，或日程设置了「参与人可邀请其它参与人」权限。;;- 新添加的日程参与人必须与日程组织者在同一个企业内。;;-
-     * 使用该接口添加会议室后，会议室会进入异步的预约流程，请求结束不代表会议室预约成功，需后续再查询预约状态。;;- 每个日程最多只能有 3000 名参与人。;;-
-     * 开启管理员能力后预约会议室可不受会议室预约范围的限制（当前不支持用管理员身份给其他人的日程预约会议室） ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java</a>
-     * ;
-     */
-    public CreateCalendarEventAttendeeResp create(CreateCalendarEventAttendeeReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateCalendarEventAttendeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程参与人列表，获取日程的参与人列表，若参与者列表中有群组，请使用 [获取参与人群成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list)
-     * 。
-     * <p> - 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;-
-     * 当前身份必须有权限查看日程的参与人列表。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java</a>
-     * ;
-     */
-    public ListCalendarEventAttendeeResp list(ListCalendarEventAttendeeReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarEventAttendeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程参与人列表，获取日程的参与人列表，若参与者列表中有群组，请使用 [获取参与人群成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list)
-     * 。
-     * <p> - 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;-
-     * 当前身份必须有权限查看日程的参与人列表。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java</a>
-     * ;
-     */
-    public ListCalendarEventAttendeeResp list(ListCalendarEventAttendeeReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarEventAttendeeResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class CalendarEventAttendeeChatMember {
-
-    private final Config config;
-
-    public CalendarEventAttendeeChatMember(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 获取日程参与群成员列表，获取日程的群参与人的群成员列表。
-     * <p> - 当前身份必须有权限查看日程的参与人列表。;;- 当前身份必须在群聊中，或有权限查看群成员列表。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java</a>
-     * ;
-     */
-    public ListCalendarEventAttendeeChatMemberResp list(ListCalendarEventAttendeeChatMemberReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarEventAttendeeChatMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarEventAttendeeChatMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 获取日程参与群成员列表，获取日程的群参与人的群成员列表。
-     * <p> - 当前身份必须有权限查看日程的参与人列表。;;- 当前身份必须在群聊中，或有权限查看群成员列表。 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java</a>
-     * ;
-     */
-    public ListCalendarEventAttendeeChatMemberResp list(ListCalendarEventAttendeeChatMemberReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          ,
-          "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListCalendarEventAttendeeChatMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListCalendarEventAttendeeChatMemberResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class ExchangeBinding {
-
-    private final Config config;
-
-    public ExchangeBinding(Config config) {
-      this.config = config;
-    }
-
-    /**
-     * 创建Exchange绑定关系，本接口将Exchange账户绑定到飞书账户，进而支持Exchange日历的导入
-     * <p> 操作用户需要是企业超级管理员 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java</a>
-     * ;
-     */
-    public CreateExchangeBindingResp create(CreateExchangeBindingReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/exchange_bindings"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateExchangeBindingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 创建Exchange绑定关系，本接口将Exchange账户绑定到飞书账户，进而支持Exchange日历的导入
-     * <p> 操作用户需要是企业超级管理员 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java</a>
-     * ;
-     */
-    public CreateExchangeBindingResp create(CreateExchangeBindingReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/exchange_bindings"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateExchangeBindingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 解除Exchange绑定关系，本接口解除Exchange账户和飞书账户的绑定关系，Exchange账户解除绑定后才能绑定其他飞书账户
-     * <p> 操作用户需要是企业超级管理员 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java</a>
-     * ;
-     */
-    public DeleteExchangeBindingResp delete(DeleteExchangeBindingReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteExchangeBindingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 解除Exchange绑定关系，本接口解除Exchange账户和飞书账户的绑定关系，Exchange账户解除绑定后才能绑定其他飞书账户
-     * <p> 操作用户需要是企业超级管理员 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java</a>
-     * ;
-     */
-    public DeleteExchangeBindingResp delete(DeleteExchangeBindingReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteExchangeBindingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public CalendarService(Config config) {
+        this.calendar = new Calendar(config);
+        this.calendarAcl = new CalendarAcl(config);
+        this.calendarEvent = new CalendarEvent(config);
+        this.calendarEventAttendee = new CalendarEventAttendee(config);
+        this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
+        this.exchangeBinding = new ExchangeBinding(config);
+        this.freebusy = new Freebusy(config);
+        this.setting = new Setting(config);
+        this.timeoffEvent = new TimeoffEvent(config);
     }
 
     /**
-     * 获取绑定状态，本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。
-     * <p> 操作用户需要是企业超级管理员 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java</a>
-     * ;
+     * 日历管理
+     *
+     * @return
      */
-    public GetExchangeBindingResp get(GetExchangeBindingReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetExchangeBindingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Calendar calendar() {
+        return calendar;
     }
 
     /**
-     * 获取绑定状态，本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。
-     * <p> 操作用户需要是企业超级管理员 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java</a>
-     * ;
+     * 日历访问控制
+     *
+     * @return
      */
-    public GetExchangeBindingResp get(GetExchangeBindingReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetExchangeBindingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public CalendarAcl calendarAcl() {
+        return calendarAcl;
     }
-  }
 
-  public static class Freebusy {
-
-    private final Config config;
-
-    public Freebusy(Config config) {
-      this.config = config;
-    }
-
     /**
-     * 查询忙闲，查询用户主日历或会议室的忙闲信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java</a>
-     * ;
+     * 日程
+     *
+     * @return
      */
-    public ListFreebusyResp list(ListFreebusyReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/freebusy/list"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListFreebusyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFreebusyResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 查询忙闲，查询用户主日历或会议室的忙闲信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java</a>
-     * ;
-     */
-    public ListFreebusyResp list(ListFreebusyReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/freebusy/list"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListFreebusyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFreebusyResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Setting {
-
-    private final Config config;
-
-    public Setting(Config config) {
-      this.config = config;
+    public CalendarEvent calendarEvent() {
+        return calendarEvent;
     }
 
     /**
-     * 生成CalDAV配置，用于为当前用户生成一个CalDAV账号密码，用于将飞书日历信息同步到本地设备日历。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java</a>
-     * ;
+     * 日程参与人
+     *
+     * @return
      */
-    public GenerateCaldavConfSettingResp generateCaldavConf(GenerateCaldavConfSettingReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/settings/generate_caldav_conf"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GenerateCaldavConfSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GenerateCaldavConfSettingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public CalendarEventAttendee calendarEventAttendee() {
+        return calendarEventAttendee;
     }
 
     /**
-     * 生成CalDAV配置，用于为当前用户生成一个CalDAV账号密码，用于将飞书日历信息同步到本地设备日历。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java</a>
-     * ;
+     * 日程参与人群成员
+     *
+     * @return
      */
-    public GenerateCaldavConfSettingResp generateCaldavConf(GenerateCaldavConfSettingReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/settings/generate_caldav_conf"
-          , Sets.newHashSet(AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GenerateCaldavConfSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GenerateCaldavConfSettingResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class TimeoffEvent {
-
-    private final Config config;
-
-    public TimeoffEvent(Config config) {
-      this.config = config;
+    public CalendarEventAttendeeChatMember calendarEventAttendeeChatMember() {
+        return calendarEventAttendeeChatMember;
     }
 
     /**
-     * 创建请假日程，为指定用户创建一个请假日程，可以是一个普通请假日程，也可以是一个全天日程。;创建请假日程后，会在相应时间内，在用户个人签名页展示请假信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java</a>
-     * ;
+     * Exchange绑定
+     *
+     * @return
      */
-    public CreateTimeoffEventResp create(CreateTimeoffEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/timeoff_events"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTimeoffEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public ExchangeBinding exchangeBinding() {
+        return exchangeBinding;
     }
 
     /**
-     * 创建请假日程，为指定用户创建一个请假日程，可以是一个普通请假日程，也可以是一个全天日程。;创建请假日程后，会在相应时间内，在用户个人签名页展示请假信息。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java</a>
-     * ;
+     * freebusy
+     *
+     * @return
      */
-    public CreateTimeoffEventResp create(CreateTimeoffEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/calendar/v4/timeoff_events"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateTimeoffEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Freebusy freebusy() {
+        return freebusy;
     }
 
     /**
-     * 删除请假日程，删除一个指定的请假日程，请假日程删除，用户个人签名页的请假信息也会消失。;一个应用只能删除自己创建的请假日程。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java</a>
-     * ;
+     * 日历设置
+     *
+     * @return
      */
-    public DeleteTimeoffEventResp delete(DeleteTimeoffEventReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DeleteTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTimeoffEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Setting setting() {
+        return setting;
     }
 
     /**
-     * 删除请假日程，删除一个指定的请假日程，请假日程删除，用户个人签名页的请假信息也会消失。;一个应用只能删除自己创建的请假日程。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java</a>
-     * ;
+     * 请假
+     *
+     * @return
      */
-    public DeleteTimeoffEventResp delete(DeleteTimeoffEventReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-          , "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DeleteTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DeleteTimeoffEventResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public abstract static class P2CalendarChangedV4Handler implements
-      IEventHandler<P2CalendarChangedV4> {
-
-    @Override
-    public P2CalendarChangedV4 getEvent() {
-      return new P2CalendarChangedV4();
-    }
-  }
-
-  public abstract static class P2CalendarAclCreatedV4Handler implements
-      IEventHandler<P2CalendarAclCreatedV4> {
-
-    @Override
-    public P2CalendarAclCreatedV4 getEvent() {
-      return new P2CalendarAclCreatedV4();
-    }
-  }
-
-  public abstract static class P2CalendarAclDeletedV4Handler implements
-      IEventHandler<P2CalendarAclDeletedV4> {
-
-    @Override
-    public P2CalendarAclDeletedV4 getEvent() {
-      return new P2CalendarAclDeletedV4();
-    }
-  }
-
-  public abstract static class P2CalendarEventChangedV4Handler implements
-      IEventHandler<P2CalendarEventChangedV4> {
-
-    @Override
-    public P2CalendarEventChangedV4 getEvent() {
-      return new P2CalendarEventChangedV4();
+    public TimeoffEvent timeoffEvent() {
+        return timeoffEvent;
+    }
+
+    public static class Calendar {
+        private final Config config;
+
+        public Calendar(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建共享日历，该接口用于为当前身份（应用 / 用户）创建一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java</a> ;
+         */
+        public CreateCalendarResp create(CreateCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建共享日历，该接口用于为当前身份（应用 / 用户）创建一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarSample.java</a> ;
+         */
+        public CreateCalendarResp create(CreateCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除共享日历，该接口用于以当前身份（应用 / 用户）删除一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历具有 owner 权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java</a> ;
+         */
+        public DeleteCalendarResp delete(DeleteCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除共享日历，该接口用于以当前身份（应用 / 用户）删除一个共享日历。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历具有 owner 权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarSample.java</a> ;
+         */
+        public DeleteCalendarResp delete(DeleteCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询日历信息，该接口用于以当前身份（应用 / 用户）根据日历 ID 获取日历信息。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有访问权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java</a> ;
+         */
+        public GetCalendarResp get(GetCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询日历信息，该接口用于以当前身份（应用 / 用户）根据日历 ID 获取日历信息。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有访问权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarSample.java</a> ;
+         */
+        public GetCalendarResp get(GetCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询日历列表，该接口用于分页获得当前身份（应用 / 用户）的日历列表。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 调用时首先使用 page_token 分页拉取存量数据，之后使用 sync_token 增量同步变更数据。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java</a> ;
+         */
+        public ListCalendarResp list(ListCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询日历列表，该接口用于分页获得当前身份（应用 / 用户）的日历列表。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 调用时首先使用 page_token 分页拉取存量数据，之后使用 sync_token 增量同步变更数据。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarSample.java</a> ;
+         */
+        public ListCalendarResp list(ListCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新日历信息，该接口用于以当前身份（应用 / 用户）修改日历信息。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份对日历有 owner 权限时，可修改全局字段：summary, description, permission。;;当前身份对日历不具有 owner 权限时，仅可修改对自己生效的字段：color, summary_alias。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java</a> ;
+         */
+        public PatchCalendarResp patch(PatchCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新日历信息，该接口用于以当前身份（应用 / 用户）修改日历信息。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份对日历有 owner 权限时，可修改全局字段：summary, description, permission。;;当前身份对日历不具有 owner 权限时，仅可修改对自己生效的字段：color, summary_alias。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarSample.java</a> ;
+         */
+        public PatchCalendarResp patch(PatchCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询主日历信息，获取当前身份的主日历信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java</a> ;
+         */
+        public PrimaryCalendarResp primary(PrimaryCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/primary"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PrimaryCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PrimaryCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/primary"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询主日历信息，获取当前身份的主日历信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PrimaryCalendarSample.java</a> ;
+         */
+        public PrimaryCalendarResp primary(PrimaryCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/primary"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PrimaryCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PrimaryCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/primary"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 搜索日历，该接口用于通过关键字查询公共日历或用户主日历。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java</a> ;
+         */
+        public SearchCalendarResp search(SearchCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/search"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SearchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/search"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 搜索日历，该接口用于通过关键字查询公共日历或用户主日历。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarSample.java</a> ;
+         */
+        public SearchCalendarResp search(SearchCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/search"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SearchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/search"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日历，该接口用于以当前身份（应用 / 用户）订阅某个日历。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> - 仅可订阅类型为 primary 或 shared 的公开日历。;- 可订阅日历数量上限为1000。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java</a> ;
+         */
+        public SubscribeCalendarResp subscribe(SubscribeCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日历，该接口用于以当前身份（应用 / 用户）订阅某个日历。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> - 仅可订阅类型为 primary 或 shared 的公开日历。;- 可订阅日历数量上限为1000。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscribeCalendarSample.java</a> ;
+         */
+        public SubscribeCalendarResp subscribe(SubscribeCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日历变更事件，该接口用于以用户身份订阅当前身份下日历列表中的所有日历变更。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java</a> ;
+         */
+        public SubscriptionCalendarResp subscription(RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/subscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , null);
+
+            // 反序列化
+            SubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/subscription"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+
+        /**
+         * 订阅日历变更事件，该接口用于以用户身份订阅当前身份下日历列表中的所有日历变更。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarSample.java</a> ;
+         */
+        public SubscriptionCalendarResp subscription() throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/subscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , null);
+
+            // 反序列化
+            SubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/subscription"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+
+        /**
+         * 取消订阅日历，该接口用于以当前身份（应用 / 用户）取消对某日历的订阅状态。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 仅可操作已经被当前身份订阅的日历。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java</a> ;
+         */
+        public UnsubscribeCalendarResp unsubscribe(UnsubscribeCalendarReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UnsubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscribeCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消订阅日历，该接口用于以当前身份（应用 / 用户）取消对某日历的订阅状态。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 仅可操作已经被当前身份订阅的日历。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscribeCalendarSample.java</a> ;
+         */
+        public UnsubscribeCalendarResp unsubscribe(UnsubscribeCalendarReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UnsubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscribeCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消订阅日历变更事件，该接口用于以用户身份取消订阅当前身份下日历列表中的日历变更事件。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java</a> ;
+         */
+        public UnsubscriptionCalendarResp unsubscription(RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/unsubscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , null);
+
+            // 反序列化
+            UnsubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/unsubscription"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+
+        /**
+         * 取消订阅日历变更事件，该接口用于以用户身份取消订阅当前身份下日历列表中的日历变更事件。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarSample.java</a> ;
+         */
+        public UnsubscriptionCalendarResp unsubscription() throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/unsubscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , null);
+
+            // 反序列化
+            UnsubscriptionCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/unsubscription"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+    }
+
+    public static class CalendarAcl {
+        private final Config config;
+
+        public CalendarAcl(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建访问控制，该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java</a> ;
+         */
+        public CreateCalendarAclResp create(CreateCalendarAclReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建访问控制，该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarAclSample.java</a> ;
+         */
+        public CreateCalendarAclResp create(CreateCalendarAclReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除访问控制，该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java</a> ;
+         */
+        public DeleteCalendarAclResp delete(DeleteCalendarAclReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除访问控制，该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarAclSample.java</a> ;
+         */
+        public DeleteCalendarAclResp delete(DeleteCalendarAclReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取访问控制列表，该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java</a> ;
+         */
+        public ListCalendarAclResp list(ListCalendarAclReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取访问控制列表，该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份需要有日历的 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarAclSample.java</a> ;
+         */
+        public ListCalendarAclResp list(ListCalendarAclReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日历访问控制变更事件;，该接口用于以用户身份订阅指定日历下的日历成员变更事件。
+         * <p> 用户必须对日历有访问权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java</a> ;
+         */
+        public SubscriptionCalendarAclResp subscription(SubscriptionCalendarAclReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日历访问控制变更事件;，该接口用于以用户身份订阅指定日历下的日历成员变更事件。
+         * <p> 用户必须对日历有访问权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarAclSample.java</a> ;
+         */
+        public SubscriptionCalendarAclResp subscription(SubscriptionCalendarAclReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消订阅日历访问控制变更事件，该接口用于以用户身份取消订阅指定日历下的日历成员变更事件。
+         * <p> 用户必须对日历有访问权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java</a> ;
+         */
+        public UnsubscriptionCalendarAclResp unsubscription(UnsubscriptionCalendarAclReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UnsubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消订阅日历访问控制变更事件，该接口用于以用户身份取消订阅指定日历下的日历成员变更事件。
+         * <p> 用户必须对日历有访问权限。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarAclSample.java</a> ;
+         */
+        public UnsubscriptionCalendarAclResp unsubscription(UnsubscriptionCalendarAclReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UnsubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarAclResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class CalendarEvent {
+        private final Config config;
+
+        public CalendarEvent(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建日程，该接口用于以当前身份（应用 / 用户）在日历上创建一个日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java</a> ;
+         */
+        public CreateCalendarEventResp create(CreateCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建日程，该接口用于以当前身份（应用 / 用户）在日历上创建一个日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventSample.java</a> ;
+         */
+        public CreateCalendarEventResp create(CreateCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除日程，该接口用于以当前身份（应用 / 用户）删除日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份必须是日程的组织者。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java</a> ;
+         */
+        public DeleteCalendarEventResp delete(DeleteCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除日程，该接口用于以当前身份（应用 / 用户）删除日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份必须是日程的组织者。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteCalendarEventSample.java</a> ;
+         */
+        public DeleteCalendarEventResp delete(DeleteCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程，该接口用于以当前身份（应用 / 用户）获取日历上的一个日程。;身份由 Header Authorization 的 Token 类型决定。
+         * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;- [例外日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction#71c5ec78)可通过event_id的非0时间戳后缀，来获取修改的重复性日程的哪一天日程的时间信息。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java</a> ;
+         */
+        public GetCalendarEventResp get(GetCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程，该接口用于以当前身份（应用 / 用户）获取日历上的一个日程。;身份由 Header Authorization 的 Token 类型决定。
+         * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;- [例外日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction#71c5ec78)可通过event_id的非0时间戳后缀，来获取修改的重复性日程的哪一天日程的时间信息。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetCalendarEventSample.java</a> ;
+         */
+        public GetCalendarEventResp get(GetCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程列表，该接口用于以当前身份（应用 / 用户）获取日历下的日程列表。;身份由 Header Authorization 的 Token 类型决定。
+         * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;- 仅支持primary、shared和resource类型的日历获取日程列表。;;- page_token 分页拉取存量数据，sync_token 增量同步变更数据；目前仅传anchor_time时，会返回page_token。;;- 为了确保调用方日程同步数据的一致性，在使用sync_token时，不能同时使用start_time和end_time，否则可能造成日程数据缺失。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java</a> ;
+         */
+        public ListCalendarEventResp list(ListCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程列表，该接口用于以当前身份（应用 / 用户）获取日历下的日程列表。;身份由 Header Authorization 的 Token 类型决定。
+         * <p> - 当前身份必须对日历有reader、writer或owner权限才会返回日程详细信息（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;- 仅支持primary、shared和resource类型的日历获取日程列表。;;- page_token 分页拉取存量数据，sync_token 增量同步变更数据；目前仅传anchor_time时，会返回page_token。;;- 为了确保调用方日程同步数据的一致性，在使用sync_token时，不能同时使用start_time和end_time，否则可能造成日程数据缺失。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventSample.java</a> ;
+         */
+        public ListCalendarEventResp list(ListCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新日程，该接口用于以当前身份（应用 / 用户）更新日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份为日程组织者时，可修改所有可编辑字段。;;当前身份为日程参与者时，仅可编辑部分字段。（如：visibility, free_busy_status, color, reminders） ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java</a> ;
+         */
+        public PatchCalendarEventResp patch(PatchCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新日程，该接口用于以当前身份（应用 / 用户）更新日历上的一个日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;当前身份为日程组织者时，可修改所有可编辑字段。;;当前身份为日程参与者时，仅可编辑部分字段。（如：visibility, free_busy_status, color, reminders） ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/PatchCalendarEventSample.java</a> ;
+         */
+        public PatchCalendarEventResp patch(PatchCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            PatchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 搜索日程，该接口用于以用户身份搜索某日历下的相关日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java</a> ;
+         */
+        public SearchCalendarEventResp search(SearchCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            SearchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 搜索日程，该接口用于以用户身份搜索某日历下的相关日程。;;身份由 Header Authorization 的 Token 类型决定。
+         * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SearchCalendarEventSample.java</a> ;
+         */
+        public SearchCalendarEventResp search(SearchCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            SearchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日程变更事件，该接口用于以用户身份订阅指定日历下的日程变更事件。
+         * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java</a> ;
+         */
+        public SubscriptionCalendarEventResp subscription(SubscriptionCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            SubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 订阅日程变更事件，该接口用于以用户身份订阅指定日历下的日程变更事件。
+         * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/SubscriptionCalendarEventSample.java</a> ;
+         */
+        public SubscriptionCalendarEventResp subscription(SubscriptionCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            SubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消订阅日程变更事件，该接口用于以用户身份取消订阅指定日历下的日程变更事件。
+         * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java</a> ;
+         */
+        public UnsubscriptionCalendarEventResp unsubscription(UnsubscriptionCalendarEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UnsubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 取消订阅日程变更事件，该接口用于以用户身份取消订阅指定日历下的日程变更事件。
+         * <p> 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/UnsubscriptionCalendarEventSample.java</a> ;
+         */
+        public UnsubscriptionCalendarEventResp unsubscription(UnsubscriptionCalendarEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            UnsubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionCalendarEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/unsubscription"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class CalendarEventAttendee {
+        private final Config config;
+
+        public CalendarEventAttendee(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 删除日程参与人，批量删除日程的参与人。
+         * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;- 当前身份需要是日程的组织者。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java</a> ;
+         */
+        public BatchDeleteCalendarEventAttendeeResp batchDelete(BatchDeleteCalendarEventAttendeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchDeleteCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteCalendarEventAttendeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除日程参与人，批量删除日程的参与人。
+         * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;- 当前身份需要是日程的组织者。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/BatchDeleteCalendarEventAttendeeSample.java</a> ;
+         */
+        public BatchDeleteCalendarEventAttendeeResp batchDelete(BatchDeleteCalendarEventAttendeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchDeleteCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteCalendarEventAttendeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建日程参与人;，批量给日程添加参与人。
+         * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;- 当前身份需要是日程的组织者，或日程设置了「参与人可邀请其它参与人」权限。;;- 新添加的日程参与人必须与日程组织者在同一个企业内。;;- 使用该接口添加会议室后，会议室会进入异步的预约流程，请求结束不代表会议室预约成功，需后续再查询预约状态。;;- 每个日程最多只能有 3000 名参与人。;;- 开启管理员能力后预约会议室可不受会议室预约范围的限制（当前不支持用管理员身份给其他人的日程预约会议室） ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java</a> ;
+         */
+        public CreateCalendarEventAttendeeResp create(CreateCalendarEventAttendeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarEventAttendeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建日程参与人;，批量给日程添加参与人。
+         * <p> - 当前身份需要有日历的 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。;;- 当前身份需要是日程的组织者，或日程设置了「参与人可邀请其它参与人」权限。;;- 新添加的日程参与人必须与日程组织者在同一个企业内。;;- 使用该接口添加会议室后，会议室会进入异步的预约流程，请求结束不代表会议室预约成功，需后续再查询预约状态。;;- 每个日程最多只能有 3000 名参与人。;;- 开启管理员能力后预约会议室可不受会议室预约范围的限制（当前不支持用管理员身份给其他人的日程预约会议室） ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateCalendarEventAttendeeSample.java</a> ;
+         */
+        public CreateCalendarEventAttendeeResp create(CreateCalendarEventAttendeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCalendarEventAttendeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程参与人列表，获取日程的参与人列表，若参与者列表中有群组，请使用 [获取参与人群成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list) 。
+         * <p> - 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;- 当前身份必须有权限查看日程的参与人列表。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java</a> ;
+         */
+        public ListCalendarEventAttendeeResp list(ListCalendarEventAttendeeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarEventAttendeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程参与人列表，获取日程的参与人列表，若参与者列表中有群组，请使用 [获取参与人群成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list) 。
+         * <p> - 当前身份必须对日历有reader、writer或owner权限（调用[获取日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，role字段可查看权限）。;;- 当前身份必须有权限查看日程的参与人列表。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeSample.java</a> ;
+         */
+        public ListCalendarEventAttendeeResp list(ListCalendarEventAttendeeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarEventAttendeeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class CalendarEventAttendeeChatMember {
+        private final Config config;
+
+        public CalendarEventAttendeeChatMember(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取日程参与群成员列表，获取日程的群参与人的群成员列表。
+         * <p> - 当前身份必须有权限查看日程的参与人列表。;;- 当前身份必须在群聊中，或有权限查看群成员列表。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java</a> ;
+         */
+        public ListCalendarEventAttendeeChatMemberResp list(ListCalendarEventAttendeeChatMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarEventAttendeeChatMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarEventAttendeeChatMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取日程参与群成员列表，获取日程的群参与人的群成员列表。
+         * <p> - 当前身份必须有权限查看日程的参与人列表。;;- 当前身份必须在群聊中，或有权限查看群成员列表。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListCalendarEventAttendeeChatMemberSample.java</a> ;
+         */
+        public ListCalendarEventAttendeeChatMemberResp list(ListCalendarEventAttendeeChatMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListCalendarEventAttendeeChatMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarEventAttendeeChatMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class ExchangeBinding {
+        private final Config config;
+
+        public ExchangeBinding(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建Exchange绑定关系，本接口将Exchange账户绑定到飞书账户，进而支持Exchange日历的导入
+         * <p> 操作用户需要是企业超级管理员 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java</a> ;
+         */
+        public CreateExchangeBindingResp create(CreateExchangeBindingReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/exchange_bindings"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExchangeBindingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建Exchange绑定关系，本接口将Exchange账户绑定到飞书账户，进而支持Exchange日历的导入
+         * <p> 操作用户需要是企业超级管理员 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateExchangeBindingSample.java</a> ;
+         */
+        public CreateExchangeBindingResp create(CreateExchangeBindingReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/exchange_bindings"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateExchangeBindingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 解除Exchange绑定关系，本接口解除Exchange账户和飞书账户的绑定关系，Exchange账户解除绑定后才能绑定其他飞书账户
+         * <p> 操作用户需要是企业超级管理员 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java</a> ;
+         */
+        public DeleteExchangeBindingResp delete(DeleteExchangeBindingReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteExchangeBindingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 解除Exchange绑定关系，本接口解除Exchange账户和飞书账户的绑定关系，Exchange账户解除绑定后才能绑定其他飞书账户
+         * <p> 操作用户需要是企业超级管理员 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteExchangeBindingSample.java</a> ;
+         */
+        public DeleteExchangeBindingResp delete(DeleteExchangeBindingReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteExchangeBindingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取绑定状态，本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。
+         * <p> 操作用户需要是企业超级管理员 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java</a> ;
+         */
+        public GetExchangeBindingResp get(GetExchangeBindingReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExchangeBindingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取绑定状态，本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。
+         * <p> 操作用户需要是企业超级管理员 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GetExchangeBindingSample.java</a> ;
+         */
+        public GetExchangeBindingResp get(GetExchangeBindingReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExchangeBindingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class Freebusy {
+        private final Config config;
+
+        public Freebusy(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 查询主日历忙闲信息，查询用户主日历或会议室的忙闲信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java</a> ;
+         */
+        public ListFreebusyResp list(ListFreebusyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/freebusy/list"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListFreebusyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFreebusyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/freebusy/list"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 查询主日历忙闲信息，查询用户主日历或会议室的忙闲信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/ListFreebusySample.java</a> ;
+         */
+        public ListFreebusyResp list(ListFreebusyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/freebusy/list"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListFreebusyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFreebusyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/freebusy/list"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class Setting {
+        private final Config config;
+
+        public Setting(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 生成CalDAV配置，用于为当前用户生成一个CalDAV账号密码，用于将飞书日历信息同步到本地设备日历。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java</a> ;
+         */
+        public GenerateCaldavConfSettingResp generateCaldavConf(GenerateCaldavConfSettingReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/settings/generate_caldav_conf"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GenerateCaldavConfSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GenerateCaldavConfSettingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/settings/generate_caldav_conf"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 生成CalDAV配置，用于为当前用户生成一个CalDAV账号密码，用于将飞书日历信息同步到本地设备日历。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/GenerateCaldavConfSettingSample.java</a> ;
+         */
+        public GenerateCaldavConfSettingResp generateCaldavConf(GenerateCaldavConfSettingReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/settings/generate_caldav_conf"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            GenerateCaldavConfSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GenerateCaldavConfSettingResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/settings/generate_caldav_conf"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class TimeoffEvent {
+        private final Config config;
+
+        public TimeoffEvent(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 创建请假日程，为指定用户创建一个请假日程，可以是一个普通请假日程，也可以是一个全天日程。;创建请假日程后，会在相应时间内，在用户个人签名页展示请假信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java</a> ;
+         */
+        public CreateTimeoffEventResp create(CreateTimeoffEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/timeoff_events"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTimeoffEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/timeoff_events"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建请假日程，为指定用户创建一个请假日程，可以是一个普通请假日程，也可以是一个全天日程。;创建请假日程后，会在相应时间内，在用户个人签名页展示请假信息。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/CreateTimeoffEventSample.java</a> ;
+         */
+        public CreateTimeoffEventResp create(CreateTimeoffEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/calendar/v4/timeoff_events"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTimeoffEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/timeoff_events"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除请假日程，删除一个指定的请假日程，请假日程删除，用户个人签名页的请假信息也会消失。;一个应用只能删除自己创建的请假日程。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java</a> ;
+         */
+        public DeleteTimeoffEventResp delete(DeleteTimeoffEventReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTimeoffEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除请假日程，删除一个指定的请假日程，请假日程删除，用户个人签名页的请假信息也会消失。;一个应用只能删除自己创建的请假日程。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/calendarv4/DeleteTimeoffEventSample.java</a> ;
+         */
+        public DeleteTimeoffEventResp delete(DeleteTimeoffEventReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTimeoffEventResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public abstract static class P2CalendarChangedV4Handler implements IEventHandler<P2CalendarChangedV4> {
+        @Override
+        public P2CalendarChangedV4 getEvent() {
+            return new P2CalendarChangedV4();
+        }
+    }
+
+    public abstract static class P2CalendarAclCreatedV4Handler implements IEventHandler<P2CalendarAclCreatedV4> {
+        @Override
+        public P2CalendarAclCreatedV4 getEvent() {
+            return new P2CalendarAclCreatedV4();
+        }
+    }
+
+    public abstract static class P2CalendarAclDeletedV4Handler implements IEventHandler<P2CalendarAclDeletedV4> {
+        @Override
+        public P2CalendarAclDeletedV4 getEvent() {
+            return new P2CalendarAclDeletedV4();
+        }
+    }
+
+    public abstract static class P2CalendarEventChangedV4Handler implements IEventHandler<P2CalendarEventChangedV4> {
+        @Override
+        public P2CalendarEventChangedV4 getEvent() {
+            return new P2CalendarEventChangedV4();
+        }
     }
-  }
 }

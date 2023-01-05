@@ -17,17 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 谁可以添加和管理协作者
  */
 public enum PermissionPublicRequestShareEntityEnum {
-  ANYONE("anyone"), // 所有可阅读或编辑此文档的用户
-  SAMETENANT("same_tenant"), // 组织内所有可阅读或编辑此文档的用户
-  ONLYFULLACCESS("only_full_access"), // 拥有可管理权限（包括我）的用户
-  ;
-  private String value;
+    ANYONE("anyone"), // 所有可阅读或编辑此文档的用户
+    SAMETENANT("same_tenant"), // 组织内所有可阅读或编辑此文档的用户
+    ONLYFULLACCESS("only_full_access"), // 拥有可管理权限（包括我）的用户
+    ;
+    private String value;
 
-  PermissionPublicRequestShareEntityEnum(String value) {
-    this.value = value;
-  }
+    PermissionPublicRequestShareEntityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchUser {
 
-  /**
-   * 用户信息
-   * <p> 示例值：
-   */
-  @SerializedName("user")
-  private User user;
+    /**
+     * 用户信息
+     * <p> 示例值：
+     */
+    @SerializedName("user")
+    private User user;
 
-  public User getUser() {
-    return this.user;
-  }
+    public User getUser() {
+        return this.user;
+    }
 
-  public void setUser(User user) {
-    this.user = user;
-  }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }

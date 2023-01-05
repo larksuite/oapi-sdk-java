@@ -15,17 +15,17 @@ package com.lark.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum CodeEnum {
-  INVALIDDOCTYPEERROR(970002),
-  NOPERMISSIONERROR(970003),
-  RECORDNOTFOUNDERROR(970005),
-  ;
-  private Integer value;
+    INVALIDDOCTYPEERROR(970002),
+    NOPERMISSIONERROR(970003),
+    RECORDNOTFOUNDERROR(970005),
+    ;
+    private Integer value;
 
-  CodeEnum(Integer value) {
-    this.value = value;
-  }
+    CodeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

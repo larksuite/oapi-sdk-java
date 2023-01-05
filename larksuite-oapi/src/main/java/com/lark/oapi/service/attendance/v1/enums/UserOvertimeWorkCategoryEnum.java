@@ -17,17 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 加班日期类型
  */
 public enum UserOvertimeWorkCategoryEnum {
-  WORKDAY(1), // 工作日
-  WEEKEND(2), // 休息日
-  HOLIDAY(3), // 节假日
-  ;
-  private Integer value;
+    WORKDAY(1), // 工作日
+    WEEKEND(2), // 休息日
+    HOLIDAY(3), // 节假日
+    ;
+    private Integer value;
 
-  UserOvertimeWorkCategoryEnum(Integer value) {
-    this.value = value;
-  }
+    UserOvertimeWorkCategoryEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

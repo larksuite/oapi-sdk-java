@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 会议状态
  */
 public enum MeetingMeetingStatusEnum {
-  CALLING(1), // 会议呼叫中
-  ON_THE_CALL(2), // 会议进行中
-  END(3), // 会议已结束
-  ;
-  private Integer value;
+    CALLING(1), // 会议呼叫中
+    ON_THE_CALL(2), // 会议进行中
+    END(3), // 会议已结束
+    ;
+    private Integer value;
 
-  MeetingMeetingStatusEnum(Integer value) {
-    this.value = value;
-  }
+    MeetingMeetingStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

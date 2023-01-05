@@ -16,135 +16,133 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserStatsData {
-
-  /**
-   * 用户姓名
-   * <p> 示例值：小李
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 用户 ID
-   * <p> 示例值：ec8ddg56
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 用户的统计数据
-   * <p> 示例值：
-   */
-  @SerializedName("datas")
-  private UserStatsDataCell[] datas;
-
-  // builder 开始
-  public UserStatsData() {
-  }
-
-  public UserStatsData(Builder builder) {
     /**
      * 用户姓名
      * <p> 示例值：小李
      */
-    this.name = builder.name;
-    /**
-     * 用户 ID
-     * <p> 示例值：ec8ddg56
-     */
-    this.userId = builder.userId;
-    /**
-     * 用户的统计数据
-     * <p> 示例值：
-     */
-    this.datas = builder.datas;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public UserStatsDataCell[] getDatas() {
-    return this.datas;
-  }
-
-  public void setDatas(UserStatsDataCell[] datas) {
-    this.datas = datas;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户姓名
-     * <p> 示例值：小李
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 用户 ID
      * <p> 示例值：ec8ddg56
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 用户的统计数据
      * <p> 示例值：
      */
+    @SerializedName("datas")
     private UserStatsDataCell[] datas;
 
-    /**
-     * 用户姓名
-     * <p> 示例值：小李
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public UserStatsData() {
     }
 
-
-    /**
-     * 用户 ID
-     * <p> 示例值：ec8ddg56
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public UserStatsData(Builder builder) {
+        /**
+         * 用户姓名
+         * <p> 示例值：小李
+         */
+        this.name = builder.name;
+        /**
+         * 用户 ID
+         * <p> 示例值：ec8ddg56
+         */
+        this.userId = builder.userId;
+        /**
+         * 用户的统计数据
+         * <p> 示例值：
+         */
+        this.datas = builder.datas;
     }
 
-
-    /**
-     * 用户的统计数据
-     * <p> 示例值：
-     *
-     * @param datas
-     * @return
-     */
-    public Builder datas(UserStatsDataCell[] datas) {
-      this.datas = datas;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UserStatsData build() {
-      return new UserStatsData(this);
+    public String getName() {
+        return this.name;
     }
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public UserStatsDataCell[] getDatas() {
+        return this.datas;
+    }
+
+    public void setDatas(UserStatsDataCell[] datas) {
+        this.datas = datas;
+    }
+
+    public static class Builder {
+        /**
+         * 用户姓名
+         * <p> 示例值：小李
+         */
+        private String name;
+        /**
+         * 用户 ID
+         * <p> 示例值：ec8ddg56
+         */
+        private String userId;
+        /**
+         * 用户的统计数据
+         * <p> 示例值：
+         */
+        private UserStatsDataCell[] datas;
+
+        /**
+         * 用户姓名
+         * <p> 示例值：小李
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 用户 ID
+         * <p> 示例值：ec8ddg56
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 用户的统计数据
+         * <p> 示例值：
+         *
+         * @param datas
+         * @return
+         */
+        public Builder datas(UserStatsDataCell[] datas) {
+            this.datas = datas;
+            return this;
+        }
+
+
+        public UserStatsData build() {
+            return new UserStatsData(this);
+        }
+    }
 }

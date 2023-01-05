@@ -16,175 +16,170 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateMessageReqBody {
-
-  /**
-   * 依据receive_id_type的值，填写对应的消息接收者id
-   * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-   */
-  @SerializedName("receive_id")
-  private String receiveId;
-  /**
-   * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-   * <p> 示例值：text
-   */
-  @SerializedName("msg_type")
-  private String msgType;
-  /**
-   * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-   * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test
-   * content\"}
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-   * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-   */
-  @SerializedName("uuid")
-  private String uuid;
-
-  // builder 开始
-  public CreateMessageReqBody() {
-  }
-
-  public CreateMessageReqBody(Builder builder) {
     /**
-     * 依据receive_id_type的值，填写对应的消息接收者id
+     * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    this.receiveId = builder.receiveId;
-    /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：text
-     */
-    this.msgType = builder.msgType;
-    /**
-     * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
-     */
-    this.content = builder.content;
-    /**
-     * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-     * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-     */
-    this.uuid = builder.uuid;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReceiveId() {
-    return this.receiveId;
-  }
-
-  public void setReceiveId(String receiveId) {
-    this.receiveId = receiveId;
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getUuid() {
-    return this.uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  public static class Builder {
-
-    /**
-     * 依据receive_id_type的值，填写对应的消息接收者id
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-     */
+    @SerializedName("receive_id")
     private String receiveId;
     /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：text
      */
+    @SerializedName("msg_type")
     private String msgType;
     /**
-     * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test
-     * content\"}
+     * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
+     * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
      */
+    @SerializedName("content")
     private String content;
     /**
      * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
      * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
      */
+    @SerializedName("uuid")
     private String uuid;
 
-    /**
-     * 依据receive_id_type的值，填写对应的消息接收者id
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-     *
-     * @param receiveId
-     * @return
-     */
-    public Builder receiveId(String receiveId) {
-      this.receiveId = receiveId;
-      return this;
+    // builder 开始
+    public CreateMessageReqBody() {
     }
 
-
-    /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：text
-     *
-     * @param msgType
-     * @return
-     */
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public CreateMessageReqBody(Builder builder) {
+        /**
+         * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        this.receiveId = builder.receiveId;
+        /**
+         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+         * <p> 示例值：text
+         */
+        this.msgType = builder.msgType;
+        /**
+         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
+         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
+         */
+        this.content = builder.content;
+        /**
+         * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
+         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+         */
+        this.uuid = builder.uuid;
     }
 
-
-    /**
-     * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test
-     * content\"}
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-     * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-     *
-     * @param uuid
-     * @return
-     */
-    public Builder uuid(String uuid) {
-      this.uuid = uuid;
-      return this;
+    public String getReceiveId() {
+        return this.receiveId;
     }
 
-
-    public CreateMessageReqBody build() {
-      return new CreateMessageReqBody(this);
+    public void setReceiveId(String receiveId) {
+        this.receiveId = receiveId;
     }
-  }
+
+    public String getMsgType() {
+        return this.msgType;
+    }
+
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public static class Builder {
+        /**
+         * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         */
+        private String receiveId;
+        /**
+         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+         * <p> 示例值：text
+         */
+        private String msgType;
+        /**
+         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
+         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
+         */
+        private String content;
+        /**
+         * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
+         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+         */
+        private String uuid;
+
+        /**
+         * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
+         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+         *
+         * @param receiveId
+         * @return
+         */
+        public Builder receiveId(String receiveId) {
+            this.receiveId = receiveId;
+            return this;
+        }
+
+
+        /**
+         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+         * <p> 示例值：text
+         *
+         * @param msgType
+         * @return
+         */
+        public Builder msgType(String msgType) {
+            this.msgType = msgType;
+            return this;
+        }
+
+
+        /**
+         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
+         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
+         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+         *
+         * @param uuid
+         * @return
+         */
+        public Builder uuid(String uuid) {
+            this.uuid = uuid;
+            return this;
+        }
+
+
+        public CreateMessageReqBody build() {
+            return new CreateMessageReqBody(this);
+        }
+    }
 }

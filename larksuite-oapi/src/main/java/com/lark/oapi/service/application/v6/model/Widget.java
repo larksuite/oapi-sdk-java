@@ -15,21 +15,21 @@ package com.lark.oapi.service.application.v6.model;
 
 public class Widget {
 
-  // builder 开始
-  public Widget() {
-  }
-
-  public Widget(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public Widget build() {
-      return new Widget(this);
+    // builder 开始
+    public Widget() {
     }
-  }
+
+    public Widget(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public Widget build() {
+            return new Widget(this);
+        }
+    }
 }

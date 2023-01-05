@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SegmentStyle {
-
-  /**
-   * 影响的文本
-   * <p> 示例值：a
-   */
-  @SerializedName("affected_text")
-  private String affectedText;
-  /**
-   * 样式
-   * <p> 示例值：
-   */
-  @SerializedName("style")
-  private SegmentStyleStyle style;
-
-  // builder 开始
-  public SegmentStyle() {
-  }
-
-  public SegmentStyle(Builder builder) {
     /**
      * 影响的文本
      * <p> 示例值：a
      */
-    this.affectedText = builder.affectedText;
-    /**
-     * 样式
-     * <p> 示例值：
-     */
-    this.style = builder.style;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAffectedText() {
-    return this.affectedText;
-  }
-
-  public void setAffectedText(String affectedText) {
-    this.affectedText = affectedText;
-  }
-
-  public SegmentStyleStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(SegmentStyleStyle style) {
-    this.style = style;
-  }
-
-  public static class Builder {
-
-    /**
-     * 影响的文本
-     * <p> 示例值：a
-     */
+    @SerializedName("affected_text")
     private String affectedText;
     /**
      * 样式
      * <p> 示例值：
      */
+    @SerializedName("style")
     private SegmentStyleStyle style;
 
-    /**
-     * 影响的文本
-     * <p> 示例值：a
-     *
-     * @param affectedText
-     * @return
-     */
-    public Builder affectedText(String affectedText) {
-      this.affectedText = affectedText;
-      return this;
+    // builder 开始
+    public SegmentStyle() {
     }
 
-
-    /**
-     * 样式
-     * <p> 示例值：
-     *
-     * @param style
-     * @return
-     */
-    public Builder style(SegmentStyleStyle style) {
-      this.style = style;
-      return this;
+    public SegmentStyle(Builder builder) {
+        /**
+         * 影响的文本
+         * <p> 示例值：a
+         */
+        this.affectedText = builder.affectedText;
+        /**
+         * 样式
+         * <p> 示例值：
+         */
+        this.style = builder.style;
     }
 
-
-    public SegmentStyle build() {
-      return new SegmentStyle(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getAffectedText() {
+        return this.affectedText;
+    }
+
+    public void setAffectedText(String affectedText) {
+        this.affectedText = affectedText;
+    }
+
+    public SegmentStyleStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(SegmentStyleStyle style) {
+        this.style = style;
+    }
+
+    public static class Builder {
+        /**
+         * 影响的文本
+         * <p> 示例值：a
+         */
+        private String affectedText;
+        /**
+         * 样式
+         * <p> 示例值：
+         */
+        private SegmentStyleStyle style;
+
+        /**
+         * 影响的文本
+         * <p> 示例值：a
+         *
+         * @param affectedText
+         * @return
+         */
+        public Builder affectedText(String affectedText) {
+            this.affectedText = affectedText;
+            return this;
+        }
+
+
+        /**
+         * 样式
+         * <p> 示例值：
+         *
+         * @param style
+         * @return
+         */
+        public Builder style(SegmentStyleStyle style) {
+            this.style = style;
+            return this;
+        }
+
+
+        public SegmentStyle build() {
+            return new SegmentStyle(this);
+        }
+    }
 }

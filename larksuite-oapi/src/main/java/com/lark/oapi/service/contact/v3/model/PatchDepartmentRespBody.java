@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchDepartmentRespBody {
+    /**
+     * 部门信息
+     * <p> 示例值：
+     */
+    @SerializedName("department")
+    private Department department;
 
-  /**
-   * 部门信息
-   * <p> 示例值：
-   */
-  @SerializedName("department")
-  private Department department;
+    public Department getDepartment() {
+        return this.department;
+    }
 
-  public Department getDepartment() {
-    return this.department;
-  }
-
-  public void setDepartment(Department department) {
-    this.department = department;
-  }
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
 }

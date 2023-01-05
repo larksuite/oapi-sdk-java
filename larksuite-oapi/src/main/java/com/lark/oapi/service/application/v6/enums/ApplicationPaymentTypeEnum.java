@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 付费类型
  */
 public enum ApplicationPaymentTypeEnum {
-  FREE(0), // 免费
-  PAID(1), // 付费
-  ;
-  private Integer value;
+    FREE(0), // 免费
+    PAID(1), // 付费
+    ;
+    private Integer value;
 
-  ApplicationPaymentTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationPaymentTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

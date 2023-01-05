@@ -17,16 +17,16 @@ package com.lark.oapi.service.okr.v1.enums;
  * 文档元素类型
  */
 public enum ContentBlockElementTypeEnum {
-  PARAGRAPH("paragraph"), // 文本段落
-  GALLERY("gallery"), // 图片
-  ;
-  private String value;
+    PARAGRAPH("paragraph"), // 文本段落
+    GALLERY("gallery"), // 图片
+    ;
+    private String value;
 
-  ContentBlockElementTypeEnum(String value) {
-    this.value = value;
-  }
+    ContentBlockElementTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

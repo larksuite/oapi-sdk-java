@@ -17,45 +17,45 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListShift {
 
-  /**
-   * 班次列表
-   * <p> 示例值：
-   */
-  @SerializedName("shift_list")
-  private Shift[] shiftList;
-  /**
-   * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    /**
+     * 班次列表
+     * <p> 示例值：
+     */
+    @SerializedName("shift_list")
+    private Shift[] shiftList;
+    /**
+     * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  public Shift[] getShiftList() {
-    return this.shiftList;
-  }
+    public Shift[] getShiftList() {
+        return this.shiftList;
+    }
 
-  public void setShiftList(Shift[] shiftList) {
-    this.shiftList = shiftList;
-  }
+    public void setShiftList(Shift[] shiftList) {
+        this.shiftList = shiftList;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

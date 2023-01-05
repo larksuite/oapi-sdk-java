@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UnsubscribeEventReqBody {
-
-  /**
-   * event list to unsubscribe
-   * <p> 示例值：
-   */
-  @SerializedName("events")
-  private Event[] events;
-
-  // builder 开始
-  public UnsubscribeEventReqBody() {
-  }
-
-  public UnsubscribeEventReqBody(Builder builder) {
     /**
      * event list to unsubscribe
      * <p> 示例值：
      */
-    this.events = builder.events;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Event[] getEvents() {
-    return this.events;
-  }
-
-  public void setEvents(Event[] events) {
-    this.events = events;
-  }
-
-  public static class Builder {
-
-    /**
-     * event list to unsubscribe
-     * <p> 示例值：
-     */
+    @SerializedName("events")
     private Event[] events;
 
-    /**
-     * event list to unsubscribe
-     * <p> 示例值：
-     *
-     * @param events
-     * @return
-     */
-    public Builder events(Event[] events) {
-      this.events = events;
-      return this;
+    // builder 开始
+    public UnsubscribeEventReqBody() {
     }
 
-
-    public UnsubscribeEventReqBody build() {
-      return new UnsubscribeEventReqBody(this);
+    public UnsubscribeEventReqBody(Builder builder) {
+        /**
+         * event list to unsubscribe
+         * <p> 示例值：
+         */
+        this.events = builder.events;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Event[] getEvents() {
+        return this.events;
+    }
+
+    public void setEvents(Event[] events) {
+        this.events = events;
+    }
+
+    public static class Builder {
+        /**
+         * event list to unsubscribe
+         * <p> 示例值：
+         */
+        private Event[] events;
+
+        /**
+         * event list to unsubscribe
+         * <p> 示例值：
+         *
+         * @param events
+         * @return
+         */
+        public Builder events(Event[] events) {
+            this.events = events;
+            return this;
+        }
+
+
+        public UnsubscribeEventReqBody build() {
+            return new UnsubscribeEventReqBody(this);
+        }
+    }
 }

@@ -16,34 +16,33 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateNotificationRespBody {
+    /**
+     * 创建成功后的唯一id
+     * <p> 示例值：6985032626234982420
+     */
+    @SerializedName("notification_id")
+    private String notificationId;
+    /**
+     * 当前状态
+     * <p> 示例值：0
+     */
+    @SerializedName("status")
+    private Integer status;
 
-  /**
-   * 创建成功后的唯一id
-   * <p> 示例值：6985032626234982420
-   */
-  @SerializedName("notification_id")
-  private String notificationId;
-  /**
-   * 当前状态
-   * <p> 示例值：0
-   */
-  @SerializedName("status")
-  private Integer status;
+    public String getNotificationId() {
+        return this.notificationId;
+    }
 
-  public String getNotificationId() {
-    return this.notificationId;
-  }
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
 
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
+    public Integer getStatus() {
+        return this.status;
+    }
 
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
 }

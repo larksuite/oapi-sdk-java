@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationPrehireOffer {
-
-  /**
-   * 投递基础信息
-   * <p> 示例值：
-   */
-  @SerializedName("basic_info")
-  private ApplicationPrehireOfferBasic basicInfo;
-  /**
-   * offer入职信息
-   * <p> 示例值：
-   */
-  @SerializedName("offer_onboard_profile")
-  private AppliOfferOnboardProfile offerOnboardProfile;
-  /**
-   * offer附件
-   * <p> 示例值：
-   */
-  @SerializedName("attachment_list")
-  private ApplicationOfferAttachment[] attachmentList;
-
-  // builder 开始
-  public ApplicationPrehireOffer() {
-  }
-
-  public ApplicationPrehireOffer(Builder builder) {
     /**
      * 投递基础信息
      * <p> 示例值：
      */
-    this.basicInfo = builder.basicInfo;
-    /**
-     * offer入职信息
-     * <p> 示例值：
-     */
-    this.offerOnboardProfile = builder.offerOnboardProfile;
-    /**
-     * offer附件
-     * <p> 示例值：
-     */
-    this.attachmentList = builder.attachmentList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ApplicationPrehireOfferBasic getBasicInfo() {
-    return this.basicInfo;
-  }
-
-  public void setBasicInfo(ApplicationPrehireOfferBasic basicInfo) {
-    this.basicInfo = basicInfo;
-  }
-
-  public AppliOfferOnboardProfile getOfferOnboardProfile() {
-    return this.offerOnboardProfile;
-  }
-
-  public void setOfferOnboardProfile(AppliOfferOnboardProfile offerOnboardProfile) {
-    this.offerOnboardProfile = offerOnboardProfile;
-  }
-
-  public ApplicationOfferAttachment[] getAttachmentList() {
-    return this.attachmentList;
-  }
-
-  public void setAttachmentList(ApplicationOfferAttachment[] attachmentList) {
-    this.attachmentList = attachmentList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 投递基础信息
-     * <p> 示例值：
-     */
+    @SerializedName("basic_info")
     private ApplicationPrehireOfferBasic basicInfo;
     /**
      * offer入职信息
      * <p> 示例值：
      */
+    @SerializedName("offer_onboard_profile")
     private AppliOfferOnboardProfile offerOnboardProfile;
     /**
      * offer附件
      * <p> 示例值：
      */
+    @SerializedName("attachment_list")
     private ApplicationOfferAttachment[] attachmentList;
 
-    /**
-     * 投递基础信息
-     * <p> 示例值：
-     *
-     * @param basicInfo
-     * @return
-     */
-    public Builder basicInfo(ApplicationPrehireOfferBasic basicInfo) {
-      this.basicInfo = basicInfo;
-      return this;
+    // builder 开始
+    public ApplicationPrehireOffer() {
     }
 
-
-    /**
-     * offer入职信息
-     * <p> 示例值：
-     *
-     * @param offerOnboardProfile
-     * @return
-     */
-    public Builder offerOnboardProfile(AppliOfferOnboardProfile offerOnboardProfile) {
-      this.offerOnboardProfile = offerOnboardProfile;
-      return this;
+    public ApplicationPrehireOffer(Builder builder) {
+        /**
+         * 投递基础信息
+         * <p> 示例值：
+         */
+        this.basicInfo = builder.basicInfo;
+        /**
+         * offer入职信息
+         * <p> 示例值：
+         */
+        this.offerOnboardProfile = builder.offerOnboardProfile;
+        /**
+         * offer附件
+         * <p> 示例值：
+         */
+        this.attachmentList = builder.attachmentList;
     }
 
-
-    /**
-     * offer附件
-     * <p> 示例值：
-     *
-     * @param attachmentList
-     * @return
-     */
-    public Builder attachmentList(ApplicationOfferAttachment[] attachmentList) {
-      this.attachmentList = attachmentList;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ApplicationPrehireOffer build() {
-      return new ApplicationPrehireOffer(this);
+    public ApplicationPrehireOfferBasic getBasicInfo() {
+        return this.basicInfo;
     }
-  }
+
+    public void setBasicInfo(ApplicationPrehireOfferBasic basicInfo) {
+        this.basicInfo = basicInfo;
+    }
+
+    public AppliOfferOnboardProfile getOfferOnboardProfile() {
+        return this.offerOnboardProfile;
+    }
+
+    public void setOfferOnboardProfile(AppliOfferOnboardProfile offerOnboardProfile) {
+        this.offerOnboardProfile = offerOnboardProfile;
+    }
+
+    public ApplicationOfferAttachment[] getAttachmentList() {
+        return this.attachmentList;
+    }
+
+    public void setAttachmentList(ApplicationOfferAttachment[] attachmentList) {
+        this.attachmentList = attachmentList;
+    }
+
+    public static class Builder {
+        /**
+         * 投递基础信息
+         * <p> 示例值：
+         */
+        private ApplicationPrehireOfferBasic basicInfo;
+        /**
+         * offer入职信息
+         * <p> 示例值：
+         */
+        private AppliOfferOnboardProfile offerOnboardProfile;
+        /**
+         * offer附件
+         * <p> 示例值：
+         */
+        private ApplicationOfferAttachment[] attachmentList;
+
+        /**
+         * 投递基础信息
+         * <p> 示例值：
+         *
+         * @param basicInfo
+         * @return
+         */
+        public Builder basicInfo(ApplicationPrehireOfferBasic basicInfo) {
+            this.basicInfo = basicInfo;
+            return this;
+        }
+
+
+        /**
+         * offer入职信息
+         * <p> 示例值：
+         *
+         * @param offerOnboardProfile
+         * @return
+         */
+        public Builder offerOnboardProfile(AppliOfferOnboardProfile offerOnboardProfile) {
+            this.offerOnboardProfile = offerOnboardProfile;
+            return this;
+        }
+
+
+        /**
+         * offer附件
+         * <p> 示例值：
+         *
+         * @param attachmentList
+         * @return
+         */
+        public Builder attachmentList(ApplicationOfferAttachment[] attachmentList) {
+            this.attachmentList = attachmentList;
+            return this;
+        }
+
+
+        public ApplicationPrehireOffer build() {
+            return new ApplicationPrehireOffer(this);
+        }
+    }
 }

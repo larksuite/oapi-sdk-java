@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ChatManagers {
-
-  /**
-   * 群管理员ID
-   * <p> 示例值：
-   */
-  @SerializedName("manager_id")
-  private String managerId;
-
-  // builder 开始
-  public ChatManagers() {
-  }
-
-  public ChatManagers(Builder builder) {
     /**
      * 群管理员ID
      * <p> 示例值：
      */
-    this.managerId = builder.managerId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getManagerId() {
-    return this.managerId;
-  }
-
-  public void setManagerId(String managerId) {
-    this.managerId = managerId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 群管理员ID
-     * <p> 示例值：
-     */
+    @SerializedName("manager_id")
     private String managerId;
 
-    /**
-     * 群管理员ID
-     * <p> 示例值：
-     *
-     * @param managerId
-     * @return
-     */
-    public Builder managerId(String managerId) {
-      this.managerId = managerId;
-      return this;
+    // builder 开始
+    public ChatManagers() {
     }
 
-
-    public ChatManagers build() {
-      return new ChatManagers(this);
+    public ChatManagers(Builder builder) {
+        /**
+         * 群管理员ID
+         * <p> 示例值：
+         */
+        this.managerId = builder.managerId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getManagerId() {
+        return this.managerId;
+    }
+
+    public void setManagerId(String managerId) {
+        this.managerId = managerId;
+    }
+
+    public static class Builder {
+        /**
+         * 群管理员ID
+         * <p> 示例值：
+         */
+        private String managerId;
+
+        /**
+         * 群管理员ID
+         * <p> 示例值：
+         *
+         * @param managerId
+         * @return
+         */
+        public Builder managerId(String managerId) {
+            this.managerId = managerId;
+            return this;
+        }
+
+
+        public ChatManagers build() {
+            return new ChatManagers(this);
+        }
+    }
 }

@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferApprovalTemplate {
-
-  /**
-   * ID
-   * <p> 示例值：1213213123123
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 创建时间
-   * <p> 示例值：1628512038000
-   */
-  @SerializedName("create_time")
-  private String createTime;
-  /**
-   * 备注
-   * <p> 示例值：test
-   */
-  @SerializedName("remark")
-  private String remark;
-  /**
-   * 适用部门
-   * <p> 示例值：
-   */
-  @SerializedName("department_list")
-  private Department[] departmentList;
-
-  // builder 开始
-  public OfferApprovalTemplate() {
-  }
-
-  public OfferApprovalTemplate(Builder builder) {
     /**
      * ID
      * <p> 示例值：1213213123123
      */
-    this.id = builder.id;
-    /**
-     * 名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 创建时间
-     * <p> 示例值：1628512038000
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 备注
-     * <p> 示例值：test
-     */
-    this.remark = builder.remark;
-    /**
-     * 适用部门
-     * <p> 示例值：
-     */
-    this.departmentList = builder.departmentList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getRemark() {
-    return this.remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public Department[] getDepartmentList() {
-    return this.departmentList;
-  }
-
-  public void setDepartmentList(Department[] departmentList) {
-    this.departmentList = departmentList;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：1213213123123
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 创建时间
      * <p> 示例值：1628512038000
      */
+    @SerializedName("create_time")
     private String createTime;
     /**
      * 备注
      * <p> 示例值：test
      */
+    @SerializedName("remark")
     private String remark;
     /**
      * 适用部门
      * <p> 示例值：
      */
+    @SerializedName("department_list")
     private Department[] departmentList;
 
-    /**
-     * ID
-     * <p> 示例值：1213213123123
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OfferApprovalTemplate() {
     }
 
-
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public OfferApprovalTemplate(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         */
+        this.id = builder.id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 备注
+         * <p> 示例值：test
+         */
+        this.remark = builder.remark;
+        /**
+         * 适用部门
+         * <p> 示例值：
+         */
+        this.departmentList = builder.departmentList;
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：1628512038000
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 备注
-     * <p> 示例值：test
-     *
-     * @param remark
-     * @return
-     */
-    public Builder remark(String remark) {
-      this.remark = remark;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 适用部门
-     * <p> 示例值：
-     *
-     * @param departmentList
-     * @return
-     */
-    public Builder departmentList(Department[] departmentList) {
-      this.departmentList = departmentList;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public OfferApprovalTemplate build() {
-      return new OfferApprovalTemplate(this);
+    public I18n getName() {
+        return this.name;
     }
-  }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Department[] getDepartmentList() {
+        return this.departmentList;
+    }
+
+    public void setDepartmentList(Department[] departmentList) {
+        this.departmentList = departmentList;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         */
+        private String id;
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         */
+        private String createTime;
+        /**
+         * 备注
+         * <p> 示例值：test
+         */
+        private String remark;
+        /**
+         * 适用部门
+         * <p> 示例值：
+         */
+        private Department[] departmentList;
+
+        /**
+         * ID
+         * <p> 示例值：1213213123123
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1628512038000
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 备注
+         * <p> 示例值：test
+         *
+         * @param remark
+         * @return
+         */
+        public Builder remark(String remark) {
+            this.remark = remark;
+            return this;
+        }
+
+
+        /**
+         * 适用部门
+         * <p> 示例值：
+         *
+         * @param departmentList
+         * @return
+         */
+        public Builder departmentList(Department[] departmentList) {
+            this.departmentList = departmentList;
+            return this;
+        }
+
+
+        public OfferApprovalTemplate build() {
+            return new OfferApprovalTemplate(this);
+        }
+    }
 }

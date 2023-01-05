@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InsertGridColumnRequest {
-
-  /**
-   * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
-   * <p> 示例值：1
-   */
-  @SerializedName("column_index")
-  private Integer columnIndex;
-
-  // builder 开始
-  public InsertGridColumnRequest() {
-  }
-
-  public InsertGridColumnRequest(Builder builder) {
     /**
      * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
      * <p> 示例值：1
      */
-    this.columnIndex = builder.columnIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnIndex() {
-    return this.columnIndex;
-  }
-
-  public void setColumnIndex(Integer columnIndex) {
-    this.columnIndex = columnIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
-     * <p> 示例值：1
-     */
+    @SerializedName("column_index")
     private Integer columnIndex;
 
-    /**
-     * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
-     * <p> 示例值：1
-     *
-     * @param columnIndex
-     * @return
-     */
-    public Builder columnIndex(Integer columnIndex) {
-      this.columnIndex = columnIndex;
-      return this;
+    // builder 开始
+    public InsertGridColumnRequest() {
     }
 
-
-    public InsertGridColumnRequest build() {
-      return new InsertGridColumnRequest(this);
+    public InsertGridColumnRequest(Builder builder) {
+        /**
+         * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+         * <p> 示例值：1
+         */
+        this.columnIndex = builder.columnIndex;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getColumnIndex() {
+        return this.columnIndex;
+    }
+
+    public void setColumnIndex(Integer columnIndex) {
+        this.columnIndex = columnIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+         * <p> 示例值：1
+         */
+        private Integer columnIndex;
+
+        /**
+         * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+         * <p> 示例值：1
+         *
+         * @param columnIndex
+         * @return
+         */
+        public Builder columnIndex(Integer columnIndex) {
+            this.columnIndex = columnIndex;
+            return this;
+        }
+
+
+        public InsertGridColumnRequest build() {
+            return new InsertGridColumnRequest(this);
+        }
+    }
 }

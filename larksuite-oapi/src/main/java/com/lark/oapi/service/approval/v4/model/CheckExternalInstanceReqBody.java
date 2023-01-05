@@ -16,61 +16,59 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CheckExternalInstanceReqBody {
-
-  /**
-   * 校验的实例信息
-   * <p> 示例值：
-   */
-  @SerializedName("instances")
-  private ExteranlInstanceCheck[] instances;
-
-  // builder 开始
-  public CheckExternalInstanceReqBody() {
-  }
-
-  public CheckExternalInstanceReqBody(Builder builder) {
     /**
      * 校验的实例信息
      * <p> 示例值：
      */
-    this.instances = builder.instances;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ExteranlInstanceCheck[] getInstances() {
-    return this.instances;
-  }
-
-  public void setInstances(ExteranlInstanceCheck[] instances) {
-    this.instances = instances;
-  }
-
-  public static class Builder {
-
-    /**
-     * 校验的实例信息
-     * <p> 示例值：
-     */
+    @SerializedName("instances")
     private ExteranlInstanceCheck[] instances;
 
-    /**
-     * 校验的实例信息
-     * <p> 示例值：
-     *
-     * @param instances
-     * @return
-     */
-    public Builder instances(ExteranlInstanceCheck[] instances) {
-      this.instances = instances;
-      return this;
+    // builder 开始
+    public CheckExternalInstanceReqBody() {
     }
 
-
-    public CheckExternalInstanceReqBody build() {
-      return new CheckExternalInstanceReqBody(this);
+    public CheckExternalInstanceReqBody(Builder builder) {
+        /**
+         * 校验的实例信息
+         * <p> 示例值：
+         */
+        this.instances = builder.instances;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ExteranlInstanceCheck[] getInstances() {
+        return this.instances;
+    }
+
+    public void setInstances(ExteranlInstanceCheck[] instances) {
+        this.instances = instances;
+    }
+
+    public static class Builder {
+        /**
+         * 校验的实例信息
+         * <p> 示例值：
+         */
+        private ExteranlInstanceCheck[] instances;
+
+        /**
+         * 校验的实例信息
+         * <p> 示例值：
+         *
+         * @param instances
+         * @return
+         */
+        public Builder instances(ExteranlInstanceCheck[] instances) {
+            this.instances = instances;
+            return this;
+        }
+
+
+        public CheckExternalInstanceReqBody build() {
+            return new CheckExternalInstanceReqBody(this);
+        }
+    }
 }

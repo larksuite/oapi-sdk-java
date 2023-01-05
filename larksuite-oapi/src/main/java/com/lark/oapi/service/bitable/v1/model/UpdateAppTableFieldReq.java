@@ -18,150 +18,149 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateAppTableFieldReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  /**
-   * field id
-   * <p> 示例值：fldPTb0U2y
-   */
-  @Path
-  @SerializedName("field_id")
-  private String fieldId;
-  @Body
-  private AppTableField body;
-
-  // builder 开始
-  public UpdateAppTableFieldReq() {
-  }
-
-  public UpdateAppTableFieldReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * table id
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
     /**
      * field id
      * <p> 示例值：fldPTb0U2y
      */
-    this.fieldId = builder.fieldId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public AppTableField getAppTableField() {
-    return this.body;
-  }
-
-  public void setAppTableField(AppTableField body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
-    private String tableId; // table id
-    private String fieldId; // field id
+    @Path
+    @SerializedName("field_id")
+    private String fieldId;
+    @Body
     private AppTableField body;
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public UpdateAppTableFieldReq() {
     }
 
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public UpdateAppTableFieldReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
+        /**
+         * field id
+         * <p> 示例值：fldPTb0U2y
+         */
+        this.fieldId = builder.fieldId;
+        this.body = builder.body;
     }
 
-    /**
-     * field id
-     * <p> 示例值：fldPTb0U2y
-     *
-     * @param fieldId
-     * @return
-     */
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getFieldId() {
+        return this.fieldId;
+    }
+
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
     }
 
     public AppTableField getAppTableField() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder appTableField(AppTableField body) {
-      this.body = body;
-      return this;
+    public void setAppTableField(AppTableField body) {
+        this.body = body;
     }
 
-    public UpdateAppTableFieldReq build() {
-      return new UpdateAppTableFieldReq(this);
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private String tableId; // table id
+        private String fieldId; // field id
+        private AppTableField body;
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+        /**
+         * field id
+         * <p> 示例值：fldPTb0U2y
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
+            return this;
+        }
+
+        public AppTableField getAppTableField() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder appTableField(AppTableField body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateAppTableFieldReq build() {
+            return new UpdateAppTableFieldReq(this);
+        }
     }
-  }
 }

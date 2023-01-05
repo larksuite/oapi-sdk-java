@@ -16,51 +16,50 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateCategoryReq {
-
-  @Body
-  private Category body;
-
-  // builder 开始
-  public CreateCategoryReq() {
-  }
-
-  public CreateCategoryReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Category getCategory() {
-    return this.body;
-  }
-
-  public void setCategory(Category body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Category body;
 
+    // builder 开始
+    public CreateCategoryReq() {
+    }
+
+    public CreateCategoryReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Category getCategory() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder category(Category body) {
-      this.body = body;
-      return this;
+    public void setCategory(Category body) {
+        this.body = body;
     }
 
-    public CreateCategoryReq build() {
-      return new CreateCategoryReq(this);
+    public static class Builder {
+
+        private Category body;
+
+        public Category getCategory() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder category(Category body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateCategoryReq build() {
+            return new CreateCategoryReq(this);
+        }
     }
-  }
 }

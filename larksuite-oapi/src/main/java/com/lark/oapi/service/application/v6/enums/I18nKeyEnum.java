@@ -15,17 +15,17 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum I18nKeyEnum {
-  ZH_CN("zh_cn"),
-  EN_US("en_us"),
-  JA_JP("ja_jp"),
-  ;
-  private String value;
+    ZH_CN("zh_cn"),
+    EN_US("en_us"),
+    JA_JP("ja_jp"),
+    ;
+    private String value;
 
-  I18nKeyEnum(String value) {
-    this.value = value;
-  }
+    I18nKeyEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

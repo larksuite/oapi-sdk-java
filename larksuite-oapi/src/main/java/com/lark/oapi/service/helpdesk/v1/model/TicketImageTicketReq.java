@@ -17,126 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class TicketImageTicketReq {
-
-  /**
-   * 工单ID
-   * <p> 示例值：12345
-   */
-  @Query
-  @SerializedName("ticket_id")
-  private String ticketId;
-  /**
-   * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
-   * <p> 示例值：12345
-   */
-  @Query
-  @SerializedName("msg_id")
-  private String msgId;
-  /**
-   * index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
-   * <p> 示例值：0
-   */
-  @Query
-  @SerializedName("index")
-  private Integer index;
-
-  // builder 开始
-  public TicketImageTicketReq() {
-  }
-
-  public TicketImageTicketReq(Builder builder) {
     /**
      * 工单ID
      * <p> 示例值：12345
      */
-    this.ticketId = builder.ticketId;
+    @Query
+    @SerializedName("ticket_id")
+    private String ticketId;
     /**
      * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
      * <p> 示例值：12345
      */
-    this.msgId = builder.msgId;
+    @Query
+    @SerializedName("msg_id")
+    private String msgId;
     /**
      * index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
      * <p> 示例值：0
      */
-    this.index = builder.index;
-  }
+    @Query
+    @SerializedName("index")
+    private Integer index;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public String getMsgId() {
-    return this.msgId;
-  }
-
-  public void setMsgId(String msgId) {
-    this.msgId = msgId;
-  }
-
-  public Integer getIndex() {
-    return this.index;
-  }
-
-  public void setIndex(Integer index) {
-    this.index = index;
-  }
-
-  public static class Builder {
-
-    private String ticketId; // 工单ID
-    private String msgId; // 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
-    private Integer index; // index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
-
-
-    /**
-     * 工单ID
-     * <p> 示例值：12345
-     *
-     * @param ticketId
-     * @return
-     */
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
+    // builder 开始
+    public TicketImageTicketReq() {
     }
 
-
-    /**
-     * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
-     * <p> 示例值：12345
-     *
-     * @param msgId
-     * @return
-     */
-    public Builder msgId(String msgId) {
-      this.msgId = msgId;
-      return this;
+    public TicketImageTicketReq(Builder builder) {
+        /**
+         * 工单ID
+         * <p> 示例值：12345
+         */
+        this.ticketId = builder.ticketId;
+        /**
+         * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+         * <p> 示例值：12345
+         */
+        this.msgId = builder.msgId;
+        /**
+         * index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
+         * <p> 示例值：0
+         */
+        this.index = builder.index;
     }
 
-
-    /**
-     * index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
-     * <p> 示例值：0
-     *
-     * @param index
-     * @return
-     */
-    public Builder index(Integer index) {
-      this.index = index;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public TicketImageTicketReq build() {
-      return new TicketImageTicketReq(this);
+    public String getTicketId() {
+        return this.ticketId;
     }
-  }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
+    public String getMsgId() {
+        return this.msgId;
+    }
+
+    public void setMsgId(String msgId) {
+        this.msgId = msgId;
+    }
+
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public static class Builder {
+        private String ticketId; // 工单ID
+        private String msgId; // 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+        private Integer index; // index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
+
+
+        /**
+         * 工单ID
+         * <p> 示例值：12345
+         *
+         * @param ticketId
+         * @return
+         */
+        public Builder ticketId(String ticketId) {
+            this.ticketId = ticketId;
+            return this;
+        }
+
+
+        /**
+         * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+         * <p> 示例值：12345
+         *
+         * @param msgId
+         * @return
+         */
+        public Builder msgId(String msgId) {
+            this.msgId = msgId;
+            return this;
+        }
+
+
+        /**
+         * index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
+         * <p> 示例值：0
+         *
+         * @param index
+         * @return
+         */
+        public Builder index(Integer index) {
+            this.index = index;
+            return this;
+        }
+
+        public TicketImageTicketReq build() {
+            return new TicketImageTicketReq(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PlusMenu {
-
-  /**
-   * pc 端链接
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("pc_app_link")
-  private String pcAppLink;
-  /**
-   * 移动端链接
-   * <p> 示例值：https://www.example.com
-   */
-  @SerializedName("mobile_app_link")
-  private String mobileAppLink;
-
-  // builder 开始
-  public PlusMenu() {
-  }
-
-  public PlusMenu(Builder builder) {
     /**
      * pc 端链接
      * <p> 示例值：https://www.example.com
      */
-    this.pcAppLink = builder.pcAppLink;
-    /**
-     * 移动端链接
-     * <p> 示例值：https://www.example.com
-     */
-    this.mobileAppLink = builder.mobileAppLink;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcAppLink() {
-    return this.pcAppLink;
-  }
-
-  public void setPcAppLink(String pcAppLink) {
-    this.pcAppLink = pcAppLink;
-  }
-
-  public String getMobileAppLink() {
-    return this.mobileAppLink;
-  }
-
-  public void setMobileAppLink(String mobileAppLink) {
-    this.mobileAppLink = mobileAppLink;
-  }
-
-  public static class Builder {
-
-    /**
-     * pc 端链接
-     * <p> 示例值：https://www.example.com
-     */
+    @SerializedName("pc_app_link")
     private String pcAppLink;
     /**
      * 移动端链接
      * <p> 示例值：https://www.example.com
      */
+    @SerializedName("mobile_app_link")
     private String mobileAppLink;
 
-    /**
-     * pc 端链接
-     * <p> 示例值：https://www.example.com
-     *
-     * @param pcAppLink
-     * @return
-     */
-    public Builder pcAppLink(String pcAppLink) {
-      this.pcAppLink = pcAppLink;
-      return this;
+    // builder 开始
+    public PlusMenu() {
     }
 
-
-    /**
-     * 移动端链接
-     * <p> 示例值：https://www.example.com
-     *
-     * @param mobileAppLink
-     * @return
-     */
-    public Builder mobileAppLink(String mobileAppLink) {
-      this.mobileAppLink = mobileAppLink;
-      return this;
+    public PlusMenu(Builder builder) {
+        /**
+         * pc 端链接
+         * <p> 示例值：https://www.example.com
+         */
+        this.pcAppLink = builder.pcAppLink;
+        /**
+         * 移动端链接
+         * <p> 示例值：https://www.example.com
+         */
+        this.mobileAppLink = builder.mobileAppLink;
     }
 
-
-    public PlusMenu build() {
-      return new PlusMenu(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getPcAppLink() {
+        return this.pcAppLink;
+    }
+
+    public void setPcAppLink(String pcAppLink) {
+        this.pcAppLink = pcAppLink;
+    }
+
+    public String getMobileAppLink() {
+        return this.mobileAppLink;
+    }
+
+    public void setMobileAppLink(String mobileAppLink) {
+        this.mobileAppLink = mobileAppLink;
+    }
+
+    public static class Builder {
+        /**
+         * pc 端链接
+         * <p> 示例值：https://www.example.com
+         */
+        private String pcAppLink;
+        /**
+         * 移动端链接
+         * <p> 示例值：https://www.example.com
+         */
+        private String mobileAppLink;
+
+        /**
+         * pc 端链接
+         * <p> 示例值：https://www.example.com
+         *
+         * @param pcAppLink
+         * @return
+         */
+        public Builder pcAppLink(String pcAppLink) {
+            this.pcAppLink = pcAppLink;
+            return this;
+        }
+
+
+        /**
+         * 移动端链接
+         * <p> 示例值：https://www.example.com
+         *
+         * @param mobileAppLink
+         * @return
+         */
+        public Builder mobileAppLink(String mobileAppLink) {
+            this.mobileAppLink = mobileAppLink;
+            return this;
+        }
+
+
+        public PlusMenu build() {
+            return new PlusMenu(this);
+        }
+    }
 }

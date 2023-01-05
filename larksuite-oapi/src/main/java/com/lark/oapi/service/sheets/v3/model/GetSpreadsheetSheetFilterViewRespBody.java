@@ -16,20 +16,19 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetSpreadsheetSheetFilterViewRespBody {
+    /**
+     * 筛选视图信息，包括 id、name、range
+     * <p> 示例值：
+     */
+    @SerializedName("filter_view")
+    private FilterView filterView;
 
-  /**
-   * 筛选视图信息，包括 id、name、range
-   * <p> 示例值：
-   */
-  @SerializedName("filter_view")
-  private FilterView filterView;
+    public FilterView getFilterView() {
+        return this.filterView;
+    }
 
-  public FilterView getFilterView() {
-    return this.filterView;
-  }
-
-  public void setFilterView(FilterView filterView) {
-    this.filterView = filterView;
-  }
+    public void setFilterView(FilterView filterView) {
+        this.filterView = filterView;
+    }
 
 }

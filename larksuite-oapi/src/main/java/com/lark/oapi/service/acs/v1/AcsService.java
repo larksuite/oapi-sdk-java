@@ -18,617 +18,703 @@ import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.event.IEventHandler;
-import com.lark.oapi.service.acs.v1.model.GetAccessRecordAccessPhotoReq;
-import com.lark.oapi.service.acs.v1.model.GetAccessRecordAccessPhotoResp;
-import com.lark.oapi.service.acs.v1.model.GetUserFaceReq;
-import com.lark.oapi.service.acs.v1.model.GetUserFaceResp;
-import com.lark.oapi.service.acs.v1.model.GetUserReq;
-import com.lark.oapi.service.acs.v1.model.GetUserResp;
-import com.lark.oapi.service.acs.v1.model.ListAccessRecordReq;
-import com.lark.oapi.service.acs.v1.model.ListAccessRecordResp;
-import com.lark.oapi.service.acs.v1.model.ListDeviceResp;
-import com.lark.oapi.service.acs.v1.model.ListUserReq;
-import com.lark.oapi.service.acs.v1.model.ListUserResp;
-import com.lark.oapi.service.acs.v1.model.P2AccessRecordCreatedV1;
-import com.lark.oapi.service.acs.v1.model.P2UserUpdatedV1;
-import com.lark.oapi.service.acs.v1.model.PatchUserReq;
-import com.lark.oapi.service.acs.v1.model.PatchUserResp;
-import com.lark.oapi.service.acs.v1.model.UpdateUserFaceReq;
-import com.lark.oapi.service.acs.v1.model.UpdateUserFaceResp;
+import com.lark.oapi.service.acs.v1.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 
 public class AcsService {
+    private static final Logger log = LoggerFactory.getLogger(AcsService.class);
+    private final AccessRecord accessRecord; // 门禁记录
+    private final AccessRecordAccessPhoto accessRecordAccessPhoto; // access_record.access_photo
+    private final Device device; // 门禁设备
+    private final User user; // 用户管理
+    private final UserFace userFace; // user.face
 
-  private final AccessRecord accessRecord; // 门禁记录
-  private final AccessRecordAccessPhoto accessRecordAccessPhoto; // 识别图片
-  private final Device device; // 门禁设备
-  private final User user; // 用户
-  private final UserFace userFace; // 人脸图片
-
-  public AcsService(Config config) {
-    this.accessRecord = new AccessRecord(config);
-    this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
-    this.device = new Device(config);
-    this.user = new User(config);
-    this.userFace = new UserFace(config);
-  }
-
-  /**
-   * 门禁记录
-   *
-   * @return
-   */
-  public AccessRecord accessRecord() {
-    return accessRecord;
-  }
-
-  /**
-   * 识别图片
-   *
-   * @return
-   */
-  public AccessRecordAccessPhoto accessRecordAccessPhoto() {
-    return accessRecordAccessPhoto;
-  }
-
-  /**
-   * 门禁设备
-   *
-   * @return
-   */
-  public Device device() {
-    return device;
-  }
-
-  /**
-   * 用户
-   *
-   * @return
-   */
-  public User user() {
-    return user;
-  }
-
-  /**
-   * 人脸图片
-   *
-   * @return
-   */
-  public UserFace userFace() {
-    return userFace;
-  }
-
-  public static class AccessRecord {
-
-    private final Config config;
-
-    public AccessRecord(Config config) {
-      this.config = config;
+    public AcsService(Config config) {
+        this.accessRecord = new AccessRecord(config);
+        this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
+        this.device = new Device(config);
+        this.user = new User(config);
+        this.userFace = new UserFace(config);
     }
 
     /**
-     * 获取门禁记录列表，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。;;该接口返回满足查询参数的识别记录
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java</a>
-     * ;
+     * 门禁记录
+     *
+     * @return
      */
-    public ListAccessRecordResp list(ListAccessRecordReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/access_records"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListAccessRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListAccessRecordResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public AccessRecord accessRecord() {
+        return accessRecord;
     }
 
     /**
-     * 获取门禁记录列表，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。;;该接口返回满足查询参数的识别记录
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java</a>
-     * ;
+     * access_record.access_photo
+     *
+     * @return
      */
-    public ListAccessRecordResp list(ListAccessRecordReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/access_records"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListAccessRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListAccessRecordResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class AccessRecordAccessPhoto {
-
-    private final Config config;
-
-    public AccessRecordAccessPhoto(Config config) {
-      this.config = config;
+    public AccessRecordAccessPhoto accessRecordAccessPhoto() {
+        return accessRecordAccessPhoto;
     }
 
     /**
-     * 下载人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java</a>
-     * ;
+     * 门禁设备
+     *
+     * @return
      */
-    public GetAccessRecordAccessPhotoResp get(GetAccessRecordAccessPhotoReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      if (httpResponse.getStatusCode() == 200) {
-        GetAccessRecordAccessPhotoResp resp = new GetAccessRecordAccessPhotoResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetAccessRecordAccessPhotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public Device device() {
+        return device;
     }
 
     /**
-     * 下载人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java</a>
-     * ;
+     * 用户管理
+     *
+     * @return
      */
-    public GetAccessRecordAccessPhotoResp get(GetAccessRecordAccessPhotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 下载请求，返回流
-      if (httpResponse.getStatusCode() == 200) {
-        GetAccessRecordAccessPhotoResp resp = new GetAccessRecordAccessPhotoResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          GetAccessRecordAccessPhotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public static class Device {
-
-    private final Config config;
-
-    public Device(Config config) {
-      this.config = config;
+    public User user() {
+        return user;
     }
 
     /**
-     * 获取设备列表，使用该接口获取租户内所有设备
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a>
-     * ;
+     * user.face
+     *
+     * @return
      */
-    public ListDeviceResp list(RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/devices"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , null);
-
-      // 反序列化
-      ListDeviceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDeviceResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
+    public UserFace userFace() {
+        return userFace;
     }
 
-    /**
-     * 获取设备列表，使用该接口获取租户内所有设备
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a>
-     * ;
-     */
-    public ListDeviceResp list() throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class AccessRecord {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/devices"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , null);
+        public AccessRecord(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListDeviceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDeviceResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
-    }
-  }
+        /**
+         * 获取门禁记录列表，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。;;该接口返回满足查询参数的识别记录。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java</a> ;
+         */
+        public ListAccessRecordResp list(ListAccessRecordReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-  public static class User {
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/access_records"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-    private final Config config;
+            // 反序列化
+            ListAccessRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAccessRecordResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/access_records"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-    public User(Config config) {
-      this.config = config;
-    }
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-    /**
-     * 获取单个用户信息，该接口用于获取智能门禁中单个用户的信息。
-     * <p> 只能获取已加入智能门禁权限组的用户 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java</a>
-     * ;
-     */
-    public GetUserResp get(GetUserReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+            return resp;
+        }
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/users/:user_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        /**
+         * 获取门禁记录列表，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。;;该接口返回满足查询参数的识别记录。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java</a> ;
+         */
+        public ListAccessRecordResp list(ListAccessRecordReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
 
-      // 反序列化
-      GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/access_records"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
 
-      return resp;
-    }
+            // 反序列化
+            ListAccessRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAccessRecordResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/access_records"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
 
-    /**
-     * 获取单个用户信息，该接口用于获取智能门禁中单个用户的信息。
-     * <p> 只能获取已加入智能门禁权限组的用户 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java</a>
-     * ;
-     */
-    public GetUserResp get(GetUserReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/users/:user_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+            return resp;
+        }
     }
 
-    /**
-     * 获取用户列表，使用该接口获取智能门禁中所有用户信息
-     * <p> 只能获取已加入智能门禁权限组的用户 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java</a>
-     * ;
-     */
-    public ListUserResp list(ListUserReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class AccessRecordAccessPhoto {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/users"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public AccessRecordAccessPhoto(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 下载开门时的人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java</a> ;
+         */
+        public GetAccessRecordAccessPhotoResp get(GetAccessRecordAccessPhotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportDownLoad(true);
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            if (httpResponse.getStatusCode() == 200) {
+                GetAccessRecordAccessPhotoResp resp = new GetAccessRecordAccessPhotoResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAccessRecordAccessPhotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载开门时的人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java</a> ;
+         */
+        public GetAccessRecordAccessPhotoResp get(GetAccessRecordAccessPhotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 下载请求，返回流
+            if (httpResponse.getStatusCode() == 200) {
+                GetAccessRecordAccessPhotoResp resp = new GetAccessRecordAccessPhotoResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAccessRecordAccessPhotoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 获取用户列表，使用该接口获取智能门禁中所有用户信息
-     * <p> 只能获取已加入智能门禁权限组的用户 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java</a>
-     * ;
-     */
-    public ListUserResp list(ListUserReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class Device {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/users"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Device(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取门禁设备列表，使用该接口获取租户内所有门禁设备。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a> ;
+         */
+        public ListDeviceResp list(RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/devices"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , null);
+
+            // 反序列化
+            ListDeviceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDeviceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/devices"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+
+        /**
+         * 获取门禁设备列表，使用该接口获取租户内所有门禁设备。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a> ;
+         */
+        public ListDeviceResp list() throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/devices"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , null);
+
+            // 反序列化
+            ListDeviceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListDeviceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/devices"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
     }
 
-    /**
-     * 修改用户部分信息，飞书智能门禁在人脸识别成功后会有韦根信号输出，输出用户的卡号。;对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java</a>
-     * ;
-     */
-    public PatchUserResp patch(PatchUserReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class User {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/acs/v1/users/:user_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public User(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 获取单个用户信息，该接口用于获取智能门禁中单个用户的信息。
+         * <p> 只能获取已加入智能门禁权限组的用户 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java</a> ;
+         */
+        public GetUserResp get(GetUserReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/users/:user_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取单个用户信息，该接口用于获取智能门禁中单个用户的信息。
+         * <p> 只能获取已加入智能门禁权限组的用户 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java</a> ;
+         */
+        public GetUserResp get(GetUserReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/users/:user_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取用户列表，使用该接口获取智能门禁中所有用户信息。
+         * <p> 只能获取已加入智能门禁权限组的用户。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java</a> ;
+         */
+        public ListUserResp list(ListUserReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/users"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取用户列表，使用该接口获取智能门禁中所有用户信息。
+         * <p> 只能获取已加入智能门禁权限组的用户。 ;
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java</a> ;
+         */
+        public ListUserResp list(ListUserReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/users"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 修改用户部分信息，飞书智能门禁在人脸识别成功后会有韦根信号输出，输出用户的卡号。;对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java</a> ;
+         */
+        public PatchUserResp patch(PatchUserReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/acs/v1/users/:user_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 修改用户部分信息，飞书智能门禁在人脸识别成功后会有韦根信号输出，输出用户的卡号。;对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java</a> ;
+         */
+        public PatchUserResp patch(PatchUserReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/acs/v1/users/:user_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
-    /**
-     * 修改用户部分信息，飞书智能门禁在人脸识别成功后会有韦根信号输出，输出用户的卡号。;对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java</a>
-     * ;
-     */
-    public PatchUserResp patch(PatchUserReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
+    public static class UserFace {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-          , "/open-apis/acs/v1/users/:user_id"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public UserFace(Config config) {
+            this.config = config;
+        }
 
-      // 反序列化
-      PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+        /**
+         * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a> ;
+         */
+        public GetUserFaceResp get(GetUserFaceReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportDownLoad(true);
 
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/users/:user_id/face"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            if (httpResponse.getStatusCode() == 200) {
+                GetUserFaceResp resp = new GetUserFaceResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a> ;
+         */
+        public GetUserFaceResp get(GetUserFaceReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportDownLoad(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/acs/v1/users/:user_id/face"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 下载请求，返回流
+            if (httpResponse.getStatusCode() == 200) {
+                GetUserFaceResp resp = new GetUserFaceResp();
+                resp.setRawResponse(httpResponse);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                outputStream.write(httpResponse.getBody());
+                resp.setData(outputStream);
+                resp.setFileName(httpResponse.getFileName());
+                return resp;
+            }
+            // 反序列化
+            GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a> ;
+         */
+        public UpdateUserFaceResp update(UpdateUserFaceReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/acs/v1/users/:user_id/face"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserFaceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a> ;
+         */
+        public UpdateUserFaceResp update(UpdateUserFaceReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+            reqOptions.setSupportUpload(true);
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/acs/v1/users/:user_id/face"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserFaceResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
-  }
 
-  public static class UserFace {
-
-    private final Config config;
-
-    public UserFace(Config config) {
-      this.config = config;
+    public abstract static class P2AccessRecordCreatedV1Handler implements IEventHandler<P2AccessRecordCreatedV1> {
+        @Override
+        public P2AccessRecordCreatedV1 getEvent() {
+            return new P2AccessRecordCreatedV1();
+        }
     }
 
-    /**
-     * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a>
-     * ;
-     */
-    public GetUserFaceResp get(GetUserFaceReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/users/:user_id/face"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      if (httpResponse.getStatusCode() == 200) {
-        GetUserFaceResp resp = new GetUserFaceResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
+    public abstract static class P2UserUpdatedV1Handler implements IEventHandler<P2UserUpdatedV1> {
+        @Override
+        public P2UserUpdatedV1 getEvent() {
+            return new P2UserUpdatedV1();
+        }
     }
-
-    /**
-     * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a>
-     * ;
-     */
-    public GetUserFaceResp get(GetUserFaceReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportDownLoad(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/acs/v1/users/:user_id/face"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 下载请求，返回流
-      if (httpResponse.getStatusCode() == 200) {
-        GetUserFaceResp resp = new GetUserFaceResp();
-        resp.setRawResponse(httpResponse);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(httpResponse.getBody());
-        resp.setData(outputStream);
-        resp.setFileName(httpResponse.getFileName());
-        return resp;
-      }
-      // 反序列化
-      GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a>
-     * ;
-     */
-    public UpdateUserFaceResp update(UpdateUserFaceReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/acs/v1/users/:user_id/face"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateUserFaceResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    /**
-     * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a>
-     * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a>
-     * ;
-     */
-    public UpdateUserFaceResp update(UpdateUserFaceReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportUpload(true);
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-          , "/open-apis/acs/v1/users/:user_id/face"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          UpdateUserFaceResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
-
-  public abstract static class P2AccessRecordCreatedV1Handler implements
-      IEventHandler<P2AccessRecordCreatedV1> {
-
-    @Override
-    public P2AccessRecordCreatedV1 getEvent() {
-      return new P2AccessRecordCreatedV1();
-    }
-  }
-
-  public abstract static class P2UserUpdatedV1Handler implements IEventHandler<P2UserUpdatedV1> {
-
-    @Override
-    public P2UserUpdatedV1 getEvent() {
-      return new P2UserUpdatedV1();
-    }
-  }
 }

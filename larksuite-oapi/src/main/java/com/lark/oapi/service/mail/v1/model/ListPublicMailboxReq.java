@@ -17,88 +17,86 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListPublicMailboxReq {
-
-  /**
-   * <p> 示例值：xxx
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListPublicMailboxReq() {
-  }
-
-  public ListPublicMailboxReq(Builder builder) {
-    /**
-     *
-     * <p> 示例值：xxx
-     */
-    this.pageToken = builder.pageToken;
-    /**
-     *
-     * <p> 示例值：10
-     */
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String pageToken; //
-    private Integer pageSize; //
-
-
     /**
      * <p> 示例值：xxx
-     *
-     * @param pageToken
-     * @return
      */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
      */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
+
+    // builder 开始
+    public ListPublicMailboxReq() {
     }
 
-    public ListPublicMailboxReq build() {
-      return new ListPublicMailboxReq(this);
+    public ListPublicMailboxReq(Builder builder) {
+        /**
+         *
+         * <p> 示例值：xxx
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String pageToken; //
+        private Integer pageSize; //
+
+
+        /**
+         * <p> 示例值：xxx
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListPublicMailboxReq build() {
+            return new ListPublicMailboxReq(this);
+        }
+    }
 }

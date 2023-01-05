@@ -17,18 +17,18 @@ package com.lark.oapi.service.application.v6.enums;
  * 应用状态
  */
 public enum ApplicationAppStatusEnum {
-  DISABLE(0), // 停用状态
-  ENABLE(1), // 启用状态
-  NOT_ENABLED(2), // 未启用状态
-  UNKNOWN(3), // 未知状态
-  ;
-  private Integer value;
+    DISABLE(0), // 停用状态
+    ENABLE(1), // 启用状态
+    NOT_ENABLED(2), // 未启用状态
+    UNKNOWN(3), // 未知状态
+    ;
+    private Integer value;
 
-  ApplicationAppStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ApplicationAppStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

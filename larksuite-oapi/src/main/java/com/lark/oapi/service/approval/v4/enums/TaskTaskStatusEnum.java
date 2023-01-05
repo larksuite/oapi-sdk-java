@@ -17,20 +17,20 @@ package com.lark.oapi.service.approval.v4.enums;
  * 任务状态
  */
 public enum TaskTaskStatusEnum {
-  TODO("1"), // 待办
-  DONE("2"), // 已办
-  UNREAD("17"), // 未读
-  READ("18"), // 已读
-  PROCESSING("33"), // 处理中，标记完成用
-  WITHDRAWN("34"), // 撤回
-  ;
-  private String value;
+    TODO("1"), // 待办
+    DONE("2"), // 已办
+    UNREAD("17"), // 未读
+    READ("18"), // 已读
+    PROCESSING("33"), // 处理中，标记完成用
+    WITHDRAWN("34"), // 撤回
+    ;
+    private String value;
 
-  TaskTaskStatusEnum(String value) {
-    this.value = value;
-  }
+    TaskTaskStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

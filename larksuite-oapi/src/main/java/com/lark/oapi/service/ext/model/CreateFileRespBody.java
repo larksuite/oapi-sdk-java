@@ -17,34 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateFileRespBody {
 
-  @SerializedName("url")
-  private String url;
-  @SerializedName("token")
-  private String token;
-  @SerializedName("revision")
-  private String revision;
+    @SerializedName("url")
+    private String url;
+    @SerializedName("token")
+    private String token;
+    @SerializedName("revision")
+    private String revision;
 
-  public String getUrl() {
-    return url;
-  }
+    public String getUrl() {
+        return url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-  public String getToken() {
-    return token;
-  }
+    public String getToken() {
+        return token;
+    }
 
-  public void setToken(String token) {
-    this.token = token;
-  }
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-  public String getRevision() {
-    return revision;
-  }
+    public String getRevision() {
+        return revision;
+    }
 
-  public void setRevision(String revision) {
-    this.revision = revision;
-  }
+    public void setRevision(String revision) {
+        this.revision = revision;
+    }
 }

@@ -16,133 +16,85 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
 
 public class CreateAppTableReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Body
-  private CreateAppTableReqBody body;
-
-  // builder 开始
-  public CreateAppTableReq() {
-  }
-
-  public CreateAppTableReq(Builder builder) {
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     */
-    this.userIdType = builder.userIdType;
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public CreateAppTableReqBody getCreateAppTableReqBody() {
-    return this.body;
-  }
-
-  public void setCreateAppTableReqBody(CreateAppTableReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String appToken; // bitable app token
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
+    @Body
     private CreateAppTableReqBody body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public CreateAppTableReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.CreateAppTableUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.bitable.v1.enums.CreateAppTableUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public CreateAppTableReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        this.body = builder.body;
     }
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
     public CreateAppTableReqBody getCreateAppTableReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createAppTableReqBody(CreateAppTableReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateAppTableReqBody(CreateAppTableReqBody body) {
+        this.body = body;
     }
 
-    public CreateAppTableReq build() {
-      return new CreateAppTableReq(this);
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private CreateAppTableReqBody body;
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+        public CreateAppTableReqBody getCreateAppTableReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createAppTableReqBody(CreateAppTableReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateAppTableReq build() {
+            return new CreateAppTableReq(this);
+        }
     }
-  }
 }

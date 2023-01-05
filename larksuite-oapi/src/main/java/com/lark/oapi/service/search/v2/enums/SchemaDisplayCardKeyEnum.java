@@ -14,18 +14,18 @@
 package com.lark.oapi.service.search.v2.enums;
 
 /**
- * 搜索数据的展示卡片
+ * 搜索数据的展示卡片;;;卡片详细信息请参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分
  */
 public enum SchemaDisplayCardKeyEnum {
-  COMMON("search_common_card"), // 普通 common 卡片
-  ;
-  private String value;
+    COMMON("search_common_card"), // 普通 common 卡片
+    ;
+    private String value;
 
-  SchemaDisplayCardKeyEnum(String value) {
-    this.value = value;
-  }
+    SchemaDisplayCardKeyEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

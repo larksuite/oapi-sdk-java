@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InsertTableColumnRequest {
-
-  /**
-   * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
-   * <p> 示例值：-1
-   */
-  @SerializedName("column_index")
-  private Integer columnIndex;
-
-  // builder 开始
-  public InsertTableColumnRequest() {
-  }
-
-  public InsertTableColumnRequest(Builder builder) {
     /**
      * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
      * <p> 示例值：-1
      */
-    this.columnIndex = builder.columnIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnIndex() {
-    return this.columnIndex;
-  }
-
-  public void setColumnIndex(Integer columnIndex) {
-    this.columnIndex = columnIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
-     * <p> 示例值：-1
-     */
+    @SerializedName("column_index")
     private Integer columnIndex;
 
-    /**
-     * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
-     * <p> 示例值：-1
-     *
-     * @param columnIndex
-     * @return
-     */
-    public Builder columnIndex(Integer columnIndex) {
-      this.columnIndex = columnIndex;
-      return this;
+    // builder 开始
+    public InsertTableColumnRequest() {
     }
 
-
-    public InsertTableColumnRequest build() {
-      return new InsertTableColumnRequest(this);
+    public InsertTableColumnRequest(Builder builder) {
+        /**
+         * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+         * <p> 示例值：-1
+         */
+        this.columnIndex = builder.columnIndex;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getColumnIndex() {
+        return this.columnIndex;
+    }
+
+    public void setColumnIndex(Integer columnIndex) {
+        this.columnIndex = columnIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+         * <p> 示例值：-1
+         */
+        private Integer columnIndex;
+
+        /**
+         * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+         * <p> 示例值：-1
+         *
+         * @param columnIndex
+         * @return
+         */
+        public Builder columnIndex(Integer columnIndex) {
+            this.columnIndex = columnIndex;
+            return this;
+        }
+
+
+        public InsertTableColumnRequest build() {
+            return new InsertTableColumnRequest(this);
+        }
+    }
 }

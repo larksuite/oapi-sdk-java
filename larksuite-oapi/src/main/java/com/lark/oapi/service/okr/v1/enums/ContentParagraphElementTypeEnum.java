@@ -17,17 +17,17 @@ package com.lark.oapi.service.okr.v1.enums;
  * 元素类型
  */
 public enum ContentParagraphElementTypeEnum {
-  TEXTRUN("textRun"), // 文本型元素
-  DOCSLINK("docsLink"), // 文档链接型元素
-  PERSON("person"), // 艾特用户型元素
-  ;
-  private String value;
+    TEXTRUN("textRun"), // 文本型元素
+    DOCSLINK("docsLink"), // 文档链接型元素
+    PERSON("person"), // 艾特用户型元素
+    ;
+    private String value;
 
-  ContentParagraphElementTypeEnum(String value) {
-    this.value = value;
-  }
+    ContentParagraphElementTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTableView {
 
-  /**
-   * 视图
-   * <p> 示例值：
-   */
-  @SerializedName("view")
-  private AppTableView view;
+    /**
+     * 视图
+     * <p> 示例值：
+     */
+    @SerializedName("view")
+    private AppTableView view;
 
-  public AppTableView getView() {
-    return this.view;
-  }
+    public AppTableView getView() {
+        return this.view;
+    }
 
-  public void setView(AppTableView view) {
-    this.view = view;
-  }
+    public void setView(AppTableView view) {
+        this.view = view;
+    }
 
 }

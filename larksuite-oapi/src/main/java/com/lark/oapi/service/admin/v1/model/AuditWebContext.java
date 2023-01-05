@@ -16,98 +16,96 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AuditWebContext {
-
-  /**
-   * UA信息
-   * <p> 示例值：
-   */
-  @SerializedName("user_agent")
-  private String userAgent;
-  /**
-   * 本机IP
-   * <p> 示例值：
-   */
-  @SerializedName("IP")
-  private String iP;
-
-  // builder 开始
-  public AuditWebContext() {
-  }
-
-  public AuditWebContext(Builder builder) {
     /**
      * UA信息
      * <p> 示例值：
      */
-    this.userAgent = builder.userAgent;
-    /**
-     * 本机IP
-     * <p> 示例值：
-     */
-    this.iP = builder.iP;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserAgent() {
-    return this.userAgent;
-  }
-
-  public void setUserAgent(String userAgent) {
-    this.userAgent = userAgent;
-  }
-
-  public String getIP() {
-    return this.iP;
-  }
-
-  public void setIP(String iP) {
-    this.iP = iP;
-  }
-
-  public static class Builder {
-
-    /**
-     * UA信息
-     * <p> 示例值：
-     */
+    @SerializedName("user_agent")
     private String userAgent;
     /**
      * 本机IP
      * <p> 示例值：
      */
+    @SerializedName("IP")
     private String iP;
 
-    /**
-     * UA信息
-     * <p> 示例值：
-     *
-     * @param userAgent
-     * @return
-     */
-    public Builder userAgent(String userAgent) {
-      this.userAgent = userAgent;
-      return this;
+    // builder 开始
+    public AuditWebContext() {
     }
 
-
-    /**
-     * 本机IP
-     * <p> 示例值：
-     *
-     * @param iP
-     * @return
-     */
-    public Builder iP(String iP) {
-      this.iP = iP;
-      return this;
+    public AuditWebContext(Builder builder) {
+        /**
+         * UA信息
+         * <p> 示例值：
+         */
+        this.userAgent = builder.userAgent;
+        /**
+         * 本机IP
+         * <p> 示例值：
+         */
+        this.iP = builder.iP;
     }
 
-
-    public AuditWebContext build() {
-      return new AuditWebContext(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUserAgent() {
+        return this.userAgent;
+    }
+
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+    }
+
+    public String getIP() {
+        return this.iP;
+    }
+
+    public void setIP(String iP) {
+        this.iP = iP;
+    }
+
+    public static class Builder {
+        /**
+         * UA信息
+         * <p> 示例值：
+         */
+        private String userAgent;
+        /**
+         * 本机IP
+         * <p> 示例值：
+         */
+        private String iP;
+
+        /**
+         * UA信息
+         * <p> 示例值：
+         *
+         * @param userAgent
+         * @return
+         */
+        public Builder userAgent(String userAgent) {
+            this.userAgent = userAgent;
+            return this;
+        }
+
+
+        /**
+         * 本机IP
+         * <p> 示例值：
+         *
+         * @param iP
+         * @return
+         */
+        public Builder iP(String iP) {
+            this.iP = iP;
+            return this;
+        }
+
+
+        public AuditWebContext build() {
+            return new AuditWebContext(this);
+        }
+    }
 }

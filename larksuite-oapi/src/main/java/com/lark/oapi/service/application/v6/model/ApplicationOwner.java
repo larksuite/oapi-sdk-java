@@ -16,259 +16,256 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationOwner {
-
-  /**
-   * 应用所有者类型
-   * <p> 示例值：0
-   */
-  @SerializedName("type")
-  private Integer type;
-  /**
-   * 应用所有者ID
-   * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-   */
-  @SerializedName("owner_id")
-  private String ownerId;
-  /**
-   * 应用开发商名称(仅商店应用返回)
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 应用开发商服务台链接(仅商店应用返回)
-   * <p> 示例值：
-   */
-  @SerializedName("help_desk")
-  private String helpDesk;
-  /**
-   * 应用开发商的邮箱(仅商店应用返回)
-   * <p> 示例值：
-   */
-  @SerializedName("email")
-  private String email;
-  /**
-   * 应用开发商的手机号(仅商店应用返回)
-   * <p> 示例值：
-   */
-  @SerializedName("phone")
-  private String phone;
-
-  // builder 开始
-  public ApplicationOwner() {
-  }
-
-  public ApplicationOwner(Builder builder) {
     /**
      * 应用所有者类型
      * <p> 示例值：0
      */
-    this.type = builder.type;
-    /**
-     * 应用所有者ID
-     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-     */
-    this.ownerId = builder.ownerId;
-    /**
-     * 应用开发商名称(仅商店应用返回)
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 应用开发商服务台链接(仅商店应用返回)
-     * <p> 示例值：
-     */
-    this.helpDesk = builder.helpDesk;
-    /**
-     * 应用开发商的邮箱(仅商店应用返回)
-     * <p> 示例值：
-     */
-    this.email = builder.email;
-    /**
-     * 应用开发商的手机号(仅商店应用返回)
-     * <p> 示例值：
-     */
-    this.phone = builder.phone;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public String getOwnerId() {
-    return this.ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getHelpDesk() {
-    return this.helpDesk;
-  }
-
-  public void setHelpDesk(String helpDesk) {
-    this.helpDesk = helpDesk;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getPhone() {
-    return this.phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  public static class Builder {
-
-    /**
-     * 应用所有者类型
-     * <p> 示例值：0
-     */
+    @SerializedName("type")
     private Integer type;
     /**
      * 应用所有者ID
      * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
      */
+    @SerializedName("owner_id")
     private String ownerId;
     /**
      * 应用开发商名称(仅商店应用返回)
-     * <p> 示例值：
+     * <p> 示例值：test tenant
      */
+    @SerializedName("name")
     private String name;
     /**
      * 应用开发商服务台链接(仅商店应用返回)
-     * <p> 示例值：
+     * <p> 示例值：https://applink.feishu.cn/client/helpdesk/open?id=6940534140529803284
      */
+    @SerializedName("help_desk")
     private String helpDesk;
     /**
      * 应用开发商的邮箱(仅商店应用返回)
-     * <p> 示例值：
+     * <p> 示例值：test123@163.com
      */
+    @SerializedName("email")
     private String email;
     /**
      * 应用开发商的手机号(仅商店应用返回)
-     * <p> 示例值：
+     * <p> 示例值：1234534234234
      */
+    @SerializedName("phone")
     private String phone;
 
-    /**
-     * 应用所有者类型
-     * <p> 示例值：0
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public ApplicationOwner() {
     }
 
-    /**
-     * 应用所有者类型
-     * <p> 示例值：0
-     *
-     * @param type {@link com.lark.oapi.service.application.v6.enums.ApplicationOwnerAppOwnerTypeEnum}
-     * @return
-     */
-    public Builder type(
-        com.lark.oapi.service.application.v6.enums.ApplicationOwnerAppOwnerTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public ApplicationOwner(Builder builder) {
+        /**
+         * 应用所有者类型
+         * <p> 示例值：0
+         */
+        this.type = builder.type;
+        /**
+         * 应用所有者ID
+         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+         */
+        this.ownerId = builder.ownerId;
+        /**
+         * 应用开发商名称(仅商店应用返回)
+         * <p> 示例值：test tenant
+         */
+        this.name = builder.name;
+        /**
+         * 应用开发商服务台链接(仅商店应用返回)
+         * <p> 示例值：https://applink.feishu.cn/client/helpdesk/open?id=6940534140529803284
+         */
+        this.helpDesk = builder.helpDesk;
+        /**
+         * 应用开发商的邮箱(仅商店应用返回)
+         * <p> 示例值：test123@163.com
+         */
+        this.email = builder.email;
+        /**
+         * 应用开发商的手机号(仅商店应用返回)
+         * <p> 示例值：1234534234234
+         */
+        this.phone = builder.phone;
     }
 
-
-    /**
-     * 应用所有者ID
-     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-     *
-     * @param ownerId
-     * @return
-     */
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 应用开发商名称(仅商店应用返回)
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Integer getType() {
+        return this.type;
     }
 
-
-    /**
-     * 应用开发商服务台链接(仅商店应用返回)
-     * <p> 示例值：
-     *
-     * @param helpDesk
-     * @return
-     */
-    public Builder helpDesk(String helpDesk) {
-      this.helpDesk = helpDesk;
-      return this;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-
-    /**
-     * 应用开发商的邮箱(仅商店应用返回)
-     * <p> 示例值：
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public String getOwnerId() {
+        return this.ownerId;
     }
 
-
-    /**
-     * 应用开发商的手机号(仅商店应用返回)
-     * <p> 示例值：
-     *
-     * @param phone
-     * @return
-     */
-    public Builder phone(String phone) {
-      this.phone = phone;
-      return this;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
-
-    public ApplicationOwner build() {
-      return new ApplicationOwner(this);
+    public String getName() {
+        return this.name;
     }
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHelpDesk() {
+        return this.helpDesk;
+    }
+
+    public void setHelpDesk(String helpDesk) {
+        this.helpDesk = helpDesk;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public static class Builder {
+        /**
+         * 应用所有者类型
+         * <p> 示例值：0
+         */
+        private Integer type;
+        /**
+         * 应用所有者ID
+         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+         */
+        private String ownerId;
+        /**
+         * 应用开发商名称(仅商店应用返回)
+         * <p> 示例值：test tenant
+         */
+        private String name;
+        /**
+         * 应用开发商服务台链接(仅商店应用返回)
+         * <p> 示例值：https://applink.feishu.cn/client/helpdesk/open?id=6940534140529803284
+         */
+        private String helpDesk;
+        /**
+         * 应用开发商的邮箱(仅商店应用返回)
+         * <p> 示例值：test123@163.com
+         */
+        private String email;
+        /**
+         * 应用开发商的手机号(仅商店应用返回)
+         * <p> 示例值：1234534234234
+         */
+        private String phone;
+
+        /**
+         * 应用所有者类型
+         * <p> 示例值：0
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 应用所有者类型
+         * <p> 示例值：0
+         *
+         * @param type {@link com.lark.oapi.service.application.v6.enums.ApplicationOwnerAppOwnerTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.application.v6.enums.ApplicationOwnerAppOwnerTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 应用所有者ID
+         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+         *
+         * @param ownerId
+         * @return
+         */
+        public Builder ownerId(String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
+
+        /**
+         * 应用开发商名称(仅商店应用返回)
+         * <p> 示例值：test tenant
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 应用开发商服务台链接(仅商店应用返回)
+         * <p> 示例值：https://applink.feishu.cn/client/helpdesk/open?id=6940534140529803284
+         *
+         * @param helpDesk
+         * @return
+         */
+        public Builder helpDesk(String helpDesk) {
+            this.helpDesk = helpDesk;
+            return this;
+        }
+
+
+        /**
+         * 应用开发商的邮箱(仅商店应用返回)
+         * <p> 示例值：test123@163.com
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 应用开发商的手机号(仅商店应用返回)
+         * <p> 示例值：1234534234234
+         *
+         * @param phone
+         * @return
+         */
+        public Builder phone(String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+
+        public ApplicationOwner build() {
+            return new ApplicationOwner(this);
+        }
+    }
 }

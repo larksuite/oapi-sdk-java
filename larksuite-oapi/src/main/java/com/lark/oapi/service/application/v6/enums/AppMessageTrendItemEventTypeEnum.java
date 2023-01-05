@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 消息事件类型,message_send:已发送消息;bot_notify_get_message:bot 通知收到消息;message_read:消息已读
  */
 public enum AppMessageTrendItemEventTypeEnum {
-  MESSAGE_SEND("message_send"), // 已发送消息
-  BOT_NOTIFY_GET_MESSAGE("bot_notify_get_message"), // bot 通知收到消息
-  MESSAGE_READ("message_read"), // 消息已读
-  ;
-  private String value;
+    MESSAGE_SEND("message_send"), // 已发送消息
+    BOT_NOTIFY_GET_MESSAGE("bot_notify_get_message"), // bot 通知收到消息
+    MESSAGE_READ("message_read"), // 消息已读
+    ;
+    private String value;
 
-  AppMessageTrendItemEventTypeEnum(String value) {
-    this.value = value;
-  }
+    AppMessageTrendItemEventTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

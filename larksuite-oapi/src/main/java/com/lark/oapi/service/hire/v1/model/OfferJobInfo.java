@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferJobInfo {
-
-  /**
-   * Offer 职位 ID
-   * <p> 示例值：7080891505426925854
-   */
-  @SerializedName("job_id")
-  private String jobId;
-  /**
-   * Offer 职位名称
-   * <p> 示例值：xx
-   */
-  @SerializedName("job_name")
-  private String jobName;
-
-  // builder 开始
-  public OfferJobInfo() {
-  }
-
-  public OfferJobInfo(Builder builder) {
     /**
      * Offer 职位 ID
      * <p> 示例值：7080891505426925854
      */
-    this.jobId = builder.jobId;
-    /**
-     * Offer 职位名称
-     * <p> 示例值：xx
-     */
-    this.jobName = builder.jobName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getJobId() {
-    return this.jobId;
-  }
-
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
-  }
-
-  public String getJobName() {
-    return this.jobName;
-  }
-
-  public void setJobName(String jobName) {
-    this.jobName = jobName;
-  }
-
-  public static class Builder {
-
-    /**
-     * Offer 职位 ID
-     * <p> 示例值：7080891505426925854
-     */
+    @SerializedName("job_id")
     private String jobId;
     /**
      * Offer 职位名称
      * <p> 示例值：xx
      */
+    @SerializedName("job_name")
     private String jobName;
 
-    /**
-     * Offer 职位 ID
-     * <p> 示例值：7080891505426925854
-     *
-     * @param jobId
-     * @return
-     */
-    public Builder jobId(String jobId) {
-      this.jobId = jobId;
-      return this;
+    // builder 开始
+    public OfferJobInfo() {
     }
 
-
-    /**
-     * Offer 职位名称
-     * <p> 示例值：xx
-     *
-     * @param jobName
-     * @return
-     */
-    public Builder jobName(String jobName) {
-      this.jobName = jobName;
-      return this;
+    public OfferJobInfo(Builder builder) {
+        /**
+         * Offer 职位 ID
+         * <p> 示例值：7080891505426925854
+         */
+        this.jobId = builder.jobId;
+        /**
+         * Offer 职位名称
+         * <p> 示例值：xx
+         */
+        this.jobName = builder.jobName;
     }
 
-
-    public OfferJobInfo build() {
-      return new OfferJobInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+    public String getJobName() {
+        return this.jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public static class Builder {
+        /**
+         * Offer 职位 ID
+         * <p> 示例值：7080891505426925854
+         */
+        private String jobId;
+        /**
+         * Offer 职位名称
+         * <p> 示例值：xx
+         */
+        private String jobName;
+
+        /**
+         * Offer 职位 ID
+         * <p> 示例值：7080891505426925854
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * Offer 职位名称
+         * <p> 示例值：xx
+         *
+         * @param jobName
+         * @return
+         */
+        public Builder jobName(String jobName) {
+            this.jobName = jobName;
+            return this;
+        }
+
+
+        public OfferJobInfo build() {
+            return new OfferJobInfo(this);
+        }
+    }
 }

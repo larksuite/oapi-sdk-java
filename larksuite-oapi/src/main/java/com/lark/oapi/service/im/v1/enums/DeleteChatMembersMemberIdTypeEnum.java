@@ -14,21 +14,21 @@
 package com.lark.oapi.service.im.v1.enums;
 
 /**
- * 出群成员 id 类型 open_id/user_id/union_id/app_id
+ * 出群成员ID类型;;**注意**：移除机器人请使用 ==app_id==
  */
 public enum DeleteChatMembersMemberIdTypeEnum {
-  USER_ID("user_id"), // 以user_id来识别成员
-  UNION_ID("union_id"), // 以union_id来识别成员
-  OPEN_ID("open_id"), // 以open_id来识别成员
-  APP_ID("app_id"), // 以app_id来识别成员
-  ;
-  private String value;
+    USER_ID("user_id"), // 以user_id来识别成员
+    UNION_ID("union_id"), // 以union_id来识别成员
+    OPEN_ID("open_id"), // 以open_id来识别成员
+    APP_ID("app_id"), // 以app_id来识别成员
+    ;
+    private String value;
 
-  DeleteChatMembersMemberIdTypeEnum(String value) {
-    this.value = value;
-  }
+    DeleteChatMembersMemberIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 第三方视频会议icon类型；可以为空，为空展示默认icon。
  */
 public enum VchatIconTypeEnum {
-  VC("vc"), // 飞书视频会议icon
-  LIVE("live"), // 直播视频会议icon
-  DEFAULT("default"), // 默认icon
-  ;
-  private String value;
+    VC("vc"), // 飞书视频会议icon
+    LIVE("live"), // 直播视频会议icon
+    DEFAULT("default"), // 默认icon
+    ;
+    private String value;
 
-  VchatIconTypeEnum(String value) {
-    this.value = value;
-  }
+    VchatIconTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户云文档活跃状态，"发生过如下事件，则认为该用户云文档活跃： ;事件1：文档/文件打开;事件2：进入docs相关页面：如文档详情页，space的各个页面"
  */
 public enum AdminUserStatDocsActiveFlagEnum {
-  INACTIVE(0), // 无活跃
-  ACTIVE(1), // 活跃
-  ;
-  private Integer value;
+    INACTIVE(0), // 无活跃
+    ACTIVE(1), // 活跃
+    ;
+    private Integer value;
 
-  AdminUserStatDocsActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    AdminUserStatDocsActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

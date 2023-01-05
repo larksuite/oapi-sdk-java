@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class CancelApproveNotificationReq {
-
-  /**
-   * 唯一ID
-   * <p> 示例值：6981801914270744596
-   */
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-
-  // builder 开始
-  public CancelApproveNotificationReq() {
-  }
-
-  public CancelApproveNotificationReq(Builder builder) {
     /**
      * 唯一ID
      * <p> 示例值：6981801914270744596
      */
-    this.notificationId = builder.notificationId;
-  }
+    @Path
+    @SerializedName("notification_id")
+    private String notificationId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public static class Builder {
-
-    private String notificationId; // 唯一ID
-
-    /**
-     * 唯一ID
-     * <p> 示例值：6981801914270744596
-     *
-     * @param notificationId
-     * @return
-     */
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
+    // builder 开始
+    public CancelApproveNotificationReq() {
     }
 
-    public CancelApproveNotificationReq build() {
-      return new CancelApproveNotificationReq(this);
+    public CancelApproveNotificationReq(Builder builder) {
+        /**
+         * 唯一ID
+         * <p> 示例值：6981801914270744596
+         */
+        this.notificationId = builder.notificationId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNotificationId() {
+        return this.notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    public static class Builder {
+
+        private String notificationId; // 唯一ID
+
+        /**
+         * 唯一ID
+         * <p> 示例值：6981801914270744596
+         *
+         * @param notificationId
+         * @return
+         */
+        public Builder notificationId(String notificationId) {
+            this.notificationId = notificationId;
+            return this;
+        }
+
+        public CancelApproveNotificationReq build() {
+            return new CancelApproveNotificationReq(this);
+        }
+    }
 }

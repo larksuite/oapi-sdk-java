@@ -18,170 +18,167 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetDocumentBlockReq {
-
-  /**
-   * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-   * <p> 示例值：-1
-   */
-  @Query
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 文档的唯一标识
-   * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-   */
-  @Path
-  @SerializedName("document_id")
-  private String documentId;
-  /**
-   * Block 的唯一标识
-   * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-   */
-  @Path
-  @SerializedName("block_id")
-  private String blockId;
-
-  // builder 开始
-  public GetDocumentBlockReq() {
-  }
-
-  public GetDocumentBlockReq(Builder builder) {
     /**
      * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
      * <p> 示例值：-1
      */
-    this.documentRevisionId = builder.documentRevisionId;
+    @Query
+    @SerializedName("document_revision_id")
+    private Integer documentRevisionId;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 文档的唯一标识
      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
      */
-    this.documentId = builder.documentId;
+    @Path
+    @SerializedName("document_id")
+    private String documentId;
     /**
      * Block 的唯一标识
      * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
      */
-    this.blockId = builder.blockId;
-  }
+    @Path
+    @SerializedName("block_id")
+    private String blockId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
-
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public static class Builder {
-
-    private Integer documentRevisionId; // 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String documentId; // 文档的唯一标识
-    private String blockId; // Block 的唯一标识
-
-    /**
-     * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-     * <p> 示例值：-1
-     *
-     * @param documentRevisionId
-     * @return
-     */
-    public Builder documentRevisionId(Integer documentRevisionId) {
-      this.documentRevisionId = documentRevisionId;
-      return this;
+    // builder 开始
+    public GetDocumentBlockReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public GetDocumentBlockReq(Builder builder) {
+        /**
+         * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
+         * <p> 示例值：-1
+         */
+        this.documentRevisionId = builder.documentRevisionId;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         */
+        this.documentId = builder.documentId;
+        /**
+         * Block 的唯一标识
+         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+         */
+        this.blockId = builder.blockId;
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.GetDocumentBlockUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.docx.v1.enums.GetDocumentBlockUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 文档的唯一标识
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-     *
-     * @param documentId
-     * @return
-     */
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
     }
 
-
-    /**
-     * Block 的唯一标识
-     * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-     *
-     * @param blockId
-     * @return
-     */
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
     }
 
-    public GetDocumentBlockReq build() {
-      return new GetDocumentBlockReq(this);
+    public String getUserIdType() {
+        return this.userIdType;
     }
-  }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDocumentId() {
+        return this.documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    public String getBlockId() {
+        return this.blockId;
+    }
+
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
+    }
+
+    public static class Builder {
+        private Integer documentRevisionId; // 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String documentId; // 文档的唯一标识
+        private String blockId; // Block 的唯一标识
+
+        /**
+         * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
+         * <p> 示例值：-1
+         *
+         * @param documentRevisionId
+         * @return
+         */
+        public Builder documentRevisionId(Integer documentRevisionId) {
+            this.documentRevisionId = documentRevisionId;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.GetDocumentBlockUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.docx.v1.enums.GetDocumentBlockUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         *
+         * @param documentId
+         * @return
+         */
+        public Builder documentId(String documentId) {
+            this.documentId = documentId;
+            return this;
+        }
+
+
+        /**
+         * Block 的唯一标识
+         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+         *
+         * @param blockId
+         * @return
+         */
+        public Builder blockId(String blockId) {
+            this.blockId = blockId;
+            return this;
+        }
+
+        public GetDocumentBlockReq build() {
+            return new GetDocumentBlockReq(this);
+        }
+    }
 }

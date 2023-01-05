@@ -17,18 +17,18 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 加班时长单位
  */
 public enum UserOvertimeWorkUnitEnum {
-  DAY(1), // 天
-  HOUR(2), // 小时
-  HALFDAY(3), // 半天
-  HALFHOUR(4), // 半小时
-  ;
-  private Integer value;
+    DAY(1), // 天
+    HOUR(2), // 小时
+    HALFDAY(3), // 半天
+    HALFHOUR(4), // 半小时
+    ;
+    private Integer value;
 
-  UserOvertimeWorkUnitEnum(Integer value) {
-    this.value = value;
-  }
+    UserOvertimeWorkUnitEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

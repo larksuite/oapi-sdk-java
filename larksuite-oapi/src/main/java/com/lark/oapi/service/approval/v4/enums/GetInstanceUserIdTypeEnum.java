@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 此次调用中使用的用户ID的类型
  */
 public enum GetInstanceUserIdTypeEnum {
-  USERID("user_id"), // 以user_id来识别用户
-  OPENID("open_id"), // 以open_id来识别用户
-  UNIONID("union_id"), // 以union_id来识别用户
-  ;
-  private String value;
+    USERID("user_id"), // 以user_id来识别用户
+    OPENID("open_id"), // 以open_id来识别用户
+    UNIONID("union_id"), // 以union_id来识别用户
+    ;
+    private String value;
 
-  GetInstanceUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    GetInstanceUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

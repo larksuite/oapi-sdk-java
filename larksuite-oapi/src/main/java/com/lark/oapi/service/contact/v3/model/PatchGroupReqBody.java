@@ -16,98 +16,96 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchGroupReqBody {
-
-  /**
-   * 用户组的名字，企业内唯一，最大长度：100 字符
-   * <p> 示例值：外包 IT 用户组
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 用户组描述信息;最大长度：500 字
-   * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
-   */
-  @SerializedName("description")
-  private String description;
-
-  // builder 开始
-  public PatchGroupReqBody() {
-  }
-
-  public PatchGroupReqBody(Builder builder) {
     /**
      * 用户组的名字，企业内唯一，最大长度：100 字符
      * <p> 示例值：外包 IT 用户组
      */
-    this.name = builder.name;
-    /**
-     * 用户组描述信息;最大长度：500 字
-     * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
-     */
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户组的名字，企业内唯一，最大长度：100 字符
-     * <p> 示例值：外包 IT 用户组
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 用户组描述信息;最大长度：500 字
      * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
      */
+    @SerializedName("description")
     private String description;
 
-    /**
-     * 用户组的名字，企业内唯一，最大长度：100 字符
-     * <p> 示例值：外包 IT 用户组
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public PatchGroupReqBody() {
     }
 
-
-    /**
-     * 用户组描述信息;最大长度：500 字
-     * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public PatchGroupReqBody(Builder builder) {
+        /**
+         * 用户组的名字，企业内唯一，最大长度：100 字符
+         * <p> 示例值：外包 IT 用户组
+         */
+        this.name = builder.name;
+        /**
+         * 用户组描述信息;最大长度：500 字
+         * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
+         */
+        this.description = builder.description;
     }
 
-
-    public PatchGroupReqBody build() {
-      return new PatchGroupReqBody(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public static class Builder {
+        /**
+         * 用户组的名字，企业内唯一，最大长度：100 字符
+         * <p> 示例值：外包 IT 用户组
+         */
+        private String name;
+        /**
+         * 用户组描述信息;最大长度：500 字
+         * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
+         */
+        private String description;
+
+        /**
+         * 用户组的名字，企业内唯一，最大长度：100 字符
+         * <p> 示例值：外包 IT 用户组
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 用户组描述信息;最大长度：500 字
+         * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        public PatchGroupReqBody build() {
+            return new PatchGroupReqBody(this);
+        }
+    }
 }

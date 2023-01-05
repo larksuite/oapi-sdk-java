@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateDimensionProperties {
-
-  /**
-   * 需要更新的行列信息
-   * <p> 示例值：
-   */
-  @SerializedName("dimension_range")
-  private Dimension dimensionRange;
-  /**
-   * 更新的属性
-   * <p> 示例值：
-   */
-  @SerializedName("properties")
-  private DimensionProperties properties;
-
-  // builder 开始
-  public UpdateDimensionProperties() {
-  }
-
-  public UpdateDimensionProperties(Builder builder) {
     /**
      * 需要更新的行列信息
      * <p> 示例值：
      */
-    this.dimensionRange = builder.dimensionRange;
-    /**
-     * 更新的属性
-     * <p> 示例值：
-     */
-    this.properties = builder.properties;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Dimension getDimensionRange() {
-    return this.dimensionRange;
-  }
-
-  public void setDimensionRange(Dimension dimensionRange) {
-    this.dimensionRange = dimensionRange;
-  }
-
-  public DimensionProperties getProperties() {
-    return this.properties;
-  }
-
-  public void setProperties(DimensionProperties properties) {
-    this.properties = properties;
-  }
-
-  public static class Builder {
-
-    /**
-     * 需要更新的行列信息
-     * <p> 示例值：
-     */
+    @SerializedName("dimension_range")
     private Dimension dimensionRange;
     /**
      * 更新的属性
      * <p> 示例值：
      */
+    @SerializedName("properties")
     private DimensionProperties properties;
 
-    /**
-     * 需要更新的行列信息
-     * <p> 示例值：
-     *
-     * @param dimensionRange
-     * @return
-     */
-    public Builder dimensionRange(Dimension dimensionRange) {
-      this.dimensionRange = dimensionRange;
-      return this;
+    // builder 开始
+    public UpdateDimensionProperties() {
     }
 
-
-    /**
-     * 更新的属性
-     * <p> 示例值：
-     *
-     * @param properties
-     * @return
-     */
-    public Builder properties(DimensionProperties properties) {
-      this.properties = properties;
-      return this;
+    public UpdateDimensionProperties(Builder builder) {
+        /**
+         * 需要更新的行列信息
+         * <p> 示例值：
+         */
+        this.dimensionRange = builder.dimensionRange;
+        /**
+         * 更新的属性
+         * <p> 示例值：
+         */
+        this.properties = builder.properties;
     }
 
-
-    public UpdateDimensionProperties build() {
-      return new UpdateDimensionProperties(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Dimension getDimensionRange() {
+        return this.dimensionRange;
+    }
+
+    public void setDimensionRange(Dimension dimensionRange) {
+        this.dimensionRange = dimensionRange;
+    }
+
+    public DimensionProperties getProperties() {
+        return this.properties;
+    }
+
+    public void setProperties(DimensionProperties properties) {
+        this.properties = properties;
+    }
+
+    public static class Builder {
+        /**
+         * 需要更新的行列信息
+         * <p> 示例值：
+         */
+        private Dimension dimensionRange;
+        /**
+         * 更新的属性
+         * <p> 示例值：
+         */
+        private DimensionProperties properties;
+
+        /**
+         * 需要更新的行列信息
+         * <p> 示例值：
+         *
+         * @param dimensionRange
+         * @return
+         */
+        public Builder dimensionRange(Dimension dimensionRange) {
+            this.dimensionRange = dimensionRange;
+            return this;
+        }
+
+
+        /**
+         * 更新的属性
+         * <p> 示例值：
+         *
+         * @param properties
+         * @return
+         */
+        public Builder properties(DimensionProperties properties) {
+            this.properties = properties;
+            return this;
+        }
+
+
+        public UpdateDimensionProperties build() {
+            return new UpdateDimensionProperties(this);
+        }
+    }
 }

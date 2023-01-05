@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryIdentification {
-
-  /**
-   * 身份证件号码
-   * <p> 示例值：11002030131312312
-   */
-  @SerializedName("identification_number")
-  private String identificationNumber;
-  /**
-   * 身份证件类型
-   * <p> 示例值：1
-   */
-  @SerializedName("identification_type")
-  private Integer identificationType;
-
-  // builder 开始
-  public WebsiteDeliveryIdentification() {
-  }
-
-  public WebsiteDeliveryIdentification(Builder builder) {
     /**
      * 身份证件号码
      * <p> 示例值：11002030131312312
      */
-    this.identificationNumber = builder.identificationNumber;
-    /**
-     * 身份证件类型
-     * <p> 示例值：1
-     */
-    this.identificationType = builder.identificationType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getIdentificationNumber() {
-    return this.identificationNumber;
-  }
-
-  public void setIdentificationNumber(String identificationNumber) {
-    this.identificationNumber = identificationNumber;
-  }
-
-  public Integer getIdentificationType() {
-    return this.identificationType;
-  }
-
-  public void setIdentificationType(Integer identificationType) {
-    this.identificationType = identificationType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 身份证件号码
-     * <p> 示例值：11002030131312312
-     */
+    @SerializedName("identification_number")
     private String identificationNumber;
     /**
      * 身份证件类型
      * <p> 示例值：1
      */
+    @SerializedName("identification_type")
     private Integer identificationType;
 
-    /**
-     * 身份证件号码
-     * <p> 示例值：11002030131312312
-     *
-     * @param identificationNumber
-     * @return
-     */
-    public Builder identificationNumber(String identificationNumber) {
-      this.identificationNumber = identificationNumber;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryIdentification() {
     }
 
-
-    /**
-     * 身份证件类型
-     * <p> 示例值：1
-     *
-     * @param identificationType
-     * @return
-     */
-    public Builder identificationType(Integer identificationType) {
-      this.identificationType = identificationType;
-      return this;
+    public WebsiteDeliveryIdentification(Builder builder) {
+        /**
+         * 身份证件号码
+         * <p> 示例值：11002030131312312
+         */
+        this.identificationNumber = builder.identificationNumber;
+        /**
+         * 身份证件类型
+         * <p> 示例值：1
+         */
+        this.identificationType = builder.identificationType;
     }
 
-
-    public WebsiteDeliveryIdentification build() {
-      return new WebsiteDeliveryIdentification(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getIdentificationNumber() {
+        return this.identificationNumber;
+    }
+
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
+    }
+
+    public Integer getIdentificationType() {
+        return this.identificationType;
+    }
+
+    public void setIdentificationType(Integer identificationType) {
+        this.identificationType = identificationType;
+    }
+
+    public static class Builder {
+        /**
+         * 身份证件号码
+         * <p> 示例值：11002030131312312
+         */
+        private String identificationNumber;
+        /**
+         * 身份证件类型
+         * <p> 示例值：1
+         */
+        private Integer identificationType;
+
+        /**
+         * 身份证件号码
+         * <p> 示例值：11002030131312312
+         *
+         * @param identificationNumber
+         * @return
+         */
+        public Builder identificationNumber(String identificationNumber) {
+            this.identificationNumber = identificationNumber;
+            return this;
+        }
+
+
+        /**
+         * 身份证件类型
+         * <p> 示例值：1
+         *
+         * @param identificationType
+         * @return
+         */
+        public Builder identificationType(Integer identificationType) {
+            this.identificationType = identificationType;
+            return this;
+        }
+
+
+        public WebsiteDeliveryIdentification build() {
+            return new WebsiteDeliveryIdentification(this);
+        }
+    }
 }

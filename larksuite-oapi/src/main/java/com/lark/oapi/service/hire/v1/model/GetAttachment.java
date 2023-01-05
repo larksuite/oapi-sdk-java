@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetAttachment {
 
-  /**
-   * 附件信息
-   * <p> 示例值：
-   */
-  @SerializedName("attachment")
-  private Attachment attachment;
+    /**
+     * 附件信息
+     * <p> 示例值：
+     */
+    @SerializedName("attachment")
+    private Attachment attachment;
 
-  public Attachment getAttachment() {
-    return this.attachment;
-  }
+    public Attachment getAttachment() {
+        return this.attachment;
+    }
 
-  public void setAttachment(Attachment attachment) {
-    this.attachment = attachment;
-  }
+    public void setAttachment(Attachment attachment) {
+        this.attachment = attachment;
+    }
 
 }

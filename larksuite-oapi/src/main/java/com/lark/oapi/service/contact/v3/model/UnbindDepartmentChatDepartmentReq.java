@@ -18,98 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class UnbindDepartmentChatDepartmentReq {
-
-  /**
-   * 此次调用中使用的部门ID的类型，默认为"open_department_id"
-   * <p> 示例值：open_department_id
-   */
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Body
-  private UnbindDepartmentChatDepartmentReqBody body;
-
-  // builder 开始
-  public UnbindDepartmentChatDepartmentReq() {
-  }
-
-  public UnbindDepartmentChatDepartmentReq(Builder builder) {
     /**
      * 此次调用中使用的部门ID的类型，默认为"open_department_id"
      * <p> 示例值：open_department_id
      */
-    this.departmentIdType = builder.departmentIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public UnbindDepartmentChatDepartmentReqBody getUnbindDepartmentChatDepartmentReqBody() {
-    return this.body;
-  }
-
-  public void setUnbindDepartmentChatDepartmentReqBody(UnbindDepartmentChatDepartmentReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String departmentIdType; // 此次调用中使用的部门ID的类型，默认为"open_department_id"
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
+    @Body
     private UnbindDepartmentChatDepartmentReqBody body;
 
-    /**
-     * 此次调用中使用的部门ID的类型，默认为"open_department_id"
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType
-     * @return
-     */
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    // builder 开始
+    public UnbindDepartmentChatDepartmentReq() {
     }
 
-    /**
-     * 此次调用中使用的部门ID的类型，默认为"open_department_id"
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentDepartmentIdTypeEnum}
-     * @return
-     */
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentDepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public UnbindDepartmentChatDepartmentReq(Builder builder) {
+        /**
+         * 此次调用中使用的部门ID的类型，默认为"open_department_id"
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
     }
 
     public UnbindDepartmentChatDepartmentReqBody getUnbindDepartmentChatDepartmentReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder unbindDepartmentChatDepartmentReqBody(
-        UnbindDepartmentChatDepartmentReqBody body) {
-      this.body = body;
-      return this;
+    public void setUnbindDepartmentChatDepartmentReqBody(UnbindDepartmentChatDepartmentReqBody body) {
+        this.body = body;
     }
 
-    public UnbindDepartmentChatDepartmentReq build() {
-      return new UnbindDepartmentChatDepartmentReq(this);
+    public static class Builder {
+        private String departmentIdType; // 此次调用中使用的部门ID的类型，默认为"open_department_id"
+        private UnbindDepartmentChatDepartmentReqBody body;
+
+        /**
+         * 此次调用中使用的部门ID的类型，默认为"open_department_id"
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门ID的类型，默认为"open_department_id"
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentDepartmentIdTypeEnum}
+         * @return
+         */
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.UnbindDepartmentChatDepartmentDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
+
+        public UnbindDepartmentChatDepartmentReqBody getUnbindDepartmentChatDepartmentReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder unbindDepartmentChatDepartmentReqBody(UnbindDepartmentChatDepartmentReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UnbindDepartmentChatDepartmentReq build() {
+            return new UnbindDepartmentChatDepartmentReq(this);
+        }
     }
-  }
 }

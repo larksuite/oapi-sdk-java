@@ -17,16 +17,16 @@ package com.lark.oapi.service.vc.v1.enums;
  * 排序依据（降序）
  */
 public enum GetTopUserReportTopUserOrderByEnum {
-  MEETING_COUNT(1), // 会议数量
-  MEETING_DURATION(2), // 会议时长
-  ;
-  private Integer value;
+    MEETING_COUNT(1), // 会议数量
+    MEETING_DURATION(2), // 会议时长
+    ;
+    private Integer value;
 
-  GetTopUserReportTopUserOrderByEnum(Integer value) {
-    this.value = value;
-  }
+    GetTopUserReportTopUserOrderByEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateFile {
 
-  /**
-   * 文件的key
-   * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-   */
-  @SerializedName("file_key")
-  private String fileKey;
+    /**
+     * 文件的key
+     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+     */
+    @SerializedName("file_key")
+    private String fileKey;
 
-  public String getFileKey() {
-    return this.fileKey;
-  }
+    public String getFileKey() {
+        return this.fileKey;
+    }
 
-  public void setFileKey(String fileKey) {
-    this.fileKey = fileKey;
-  }
+    public void setFileKey(String fileKey) {
+        this.fileKey = fileKey;
+    }
 
 }

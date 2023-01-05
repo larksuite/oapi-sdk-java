@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserDailyShift {
 
-  /**
-   * 班表信息列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_daily_shifts")
-  private UserDailyShift[] userDailyShifts;
+    /**
+     * 班表信息列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_daily_shifts")
+    private UserDailyShift[] userDailyShifts;
 
-  public UserDailyShift[] getUserDailyShifts() {
-    return this.userDailyShifts;
-  }
+    public UserDailyShift[] getUserDailyShifts() {
+        return this.userDailyShifts;
+    }
 
-  public void setUserDailyShifts(UserDailyShift[] userDailyShifts) {
-    this.userDailyShifts = userDailyShifts;
-  }
+    public void setUserDailyShifts(UserDailyShift[] userDailyShifts) {
+        this.userDailyShifts = userDailyShifts;
+    }
 
 }

@@ -18,143 +18,139 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateGroupReq {
-
-  /**
-   * 用户 ID 的类型
-   * <p> 示例值：employee_id
-   */
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  /**
-   * 部门 ID 的类型
-   * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
-   */
-  @Query
-  @SerializedName("dept_type")
-  private String deptType;
-  @Body
-  private CreateGroupReqBody body;
-
-  // builder 开始
-  public CreateGroupReq() {
-  }
-
-  public CreateGroupReq(Builder builder) {
     /**
      * 用户 ID 的类型
      * <p> 示例值：employee_id
      */
-    this.employeeType = builder.employeeType;
+    @Query
+    @SerializedName("employee_type")
+    private String employeeType;
     /**
      * 部门 ID 的类型
      * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
      */
-    this.deptType = builder.deptType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public String getDeptType() {
-    return this.deptType;
-  }
-
-  public void setDeptType(String deptType) {
-    this.deptType = deptType;
-  }
-
-  public CreateGroupReqBody getCreateGroupReqBody() {
-    return this.body;
-  }
-
-  public void setCreateGroupReqBody(CreateGroupReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String employeeType; // 用户 ID 的类型
-    private String deptType; // 部门 ID 的类型
+    @Query
+    @SerializedName("dept_type")
+    private String deptType;
+    @Body
     private CreateGroupReqBody body;
 
-    /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType
-     * @return
-     */
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
+    // builder 开始
+    public CreateGroupReq() {
     }
 
-    /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupEmployeeTypeEnum}
-     * @return
-     */
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.CreateGroupEmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
+    public CreateGroupReq(Builder builder) {
+        /**
+         * 用户 ID 的类型
+         * <p> 示例值：employee_id
+         */
+        this.employeeType = builder.employeeType;
+        /**
+         * 部门 ID 的类型
+         * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+         */
+        this.deptType = builder.deptType;
+        this.body = builder.body;
     }
 
-    /**
-     * 部门 ID 的类型
-     * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
-     *
-     * @param deptType
-     * @return
-     */
-    public Builder deptType(String deptType) {
-      this.deptType = deptType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 部门 ID 的类型
-     * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
-     *
-     * @param deptType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupDeptTypeEnum}
-     * @return
-     */
-    public Builder deptType(
-        com.lark.oapi.service.attendance.v1.enums.CreateGroupDeptTypeEnum deptType) {
-      this.deptType = deptType.getValue();
-      return this;
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public String getDeptType() {
+        return this.deptType;
+    }
+
+    public void setDeptType(String deptType) {
+        this.deptType = deptType;
     }
 
     public CreateGroupReqBody getCreateGroupReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createGroupReqBody(CreateGroupReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateGroupReqBody(CreateGroupReqBody body) {
+        this.body = body;
     }
 
-    public CreateGroupReq build() {
-      return new CreateGroupReq(this);
+    public static class Builder {
+        private String employeeType; // 用户 ID 的类型
+        private String deptType; // 部门 ID 的类型
+        private CreateGroupReqBody body;
+
+        /**
+         * 用户 ID 的类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 用户 ID 的类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateGroupEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
+
+        /**
+         * 部门 ID 的类型
+         * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+         *
+         * @param deptType
+         * @return
+         */
+        public Builder deptType(String deptType) {
+            this.deptType = deptType;
+            return this;
+        }
+
+        /**
+         * 部门 ID 的类型
+         * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+         *
+         * @param deptType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupDeptTypeEnum}
+         * @return
+         */
+        public Builder deptType(com.lark.oapi.service.attendance.v1.enums.CreateGroupDeptTypeEnum deptType) {
+            this.deptType = deptType.getValue();
+            return this;
+        }
+
+        public CreateGroupReqBody getCreateGroupReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createGroupReqBody(CreateGroupReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateGroupReq build() {
+            return new CreateGroupReq(this);
+        }
     }
-  }
 }

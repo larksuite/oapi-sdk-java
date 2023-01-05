@@ -16,209 +16,207 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ItemRecord {
-
-  /**
-   * 冗余当前item的ID
-   * <p> 示例值：
-   */
-  @SerializedName("item_id")
-  private String itemId;
-  /**
-   * 数据源id
-   * <p> 示例值：
-   */
-  @SerializedName("data_source_id")
-  private String dataSourceId;
-  /**
-   * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
-   * <p> 示例值：
-   */
-  @SerializedName("version")
-  private String version;
-  /**
-   * 第一次投递时间
-   * <p> 示例值：
-   */
-  @SerializedName("created_at")
-  private String createdAt;
-  /**
-   * 上一次更新落库时间
-   * <p> 示例值：
-   */
-  @SerializedName("updated_at")
-  private String updatedAt;
-
-  // builder 开始
-  public ItemRecord() {
-  }
-
-  public ItemRecord(Builder builder) {
     /**
      * 冗余当前item的ID
      * <p> 示例值：
      */
-    this.itemId = builder.itemId;
-    /**
-     * 数据源id
-     * <p> 示例值：
-     */
-    this.dataSourceId = builder.dataSourceId;
-    /**
-     * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
-     * <p> 示例值：
-     */
-    this.version = builder.version;
-    /**
-     * 第一次投递时间
-     * <p> 示例值：
-     */
-    this.createdAt = builder.createdAt;
-    /**
-     * 上一次更新落库时间
-     * <p> 示例值：
-     */
-    this.updatedAt = builder.updatedAt;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getItemId() {
-    return this.itemId;
-  }
-
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
-  }
-
-  public String getDataSourceId() {
-    return this.dataSourceId;
-  }
-
-  public void setDataSourceId(String dataSourceId) {
-    this.dataSourceId = dataSourceId;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getCreatedAt() {
-    return this.createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public String getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-  public static class Builder {
-
-    /**
-     * 冗余当前item的ID
-     * <p> 示例值：
-     */
+    @SerializedName("item_id")
     private String itemId;
     /**
      * 数据源id
      * <p> 示例值：
      */
+    @SerializedName("data_source_id")
     private String dataSourceId;
     /**
      * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
      * <p> 示例值：
      */
+    @SerializedName("version")
     private String version;
     /**
      * 第一次投递时间
      * <p> 示例值：
      */
+    @SerializedName("created_at")
     private String createdAt;
     /**
      * 上一次更新落库时间
      * <p> 示例值：
      */
+    @SerializedName("updated_at")
     private String updatedAt;
 
-    /**
-     * 冗余当前item的ID
-     * <p> 示例值：
-     *
-     * @param itemId
-     * @return
-     */
-    public Builder itemId(String itemId) {
-      this.itemId = itemId;
-      return this;
+    // builder 开始
+    public ItemRecord() {
     }
 
-
-    /**
-     * 数据源id
-     * <p> 示例值：
-     *
-     * @param dataSourceId
-     * @return
-     */
-    public Builder dataSourceId(String dataSourceId) {
-      this.dataSourceId = dataSourceId;
-      return this;
+    public ItemRecord(Builder builder) {
+        /**
+         * 冗余当前item的ID
+         * <p> 示例值：
+         */
+        this.itemId = builder.itemId;
+        /**
+         * 数据源id
+         * <p> 示例值：
+         */
+        this.dataSourceId = builder.dataSourceId;
+        /**
+         * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
+         * <p> 示例值：
+         */
+        this.version = builder.version;
+        /**
+         * 第一次投递时间
+         * <p> 示例值：
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 上一次更新落库时间
+         * <p> 示例值：
+         */
+        this.updatedAt = builder.updatedAt;
     }
 
-
-    /**
-     * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
-     * <p> 示例值：
-     *
-     * @param version
-     * @return
-     */
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 第一次投递时间
-     * <p> 示例值：
-     *
-     * @param createdAt
-     * @return
-     */
-    public Builder createdAt(String createdAt) {
-      this.createdAt = createdAt;
-      return this;
+    public String getItemId() {
+        return this.itemId;
     }
 
-
-    /**
-     * 上一次更新落库时间
-     * <p> 示例值：
-     *
-     * @param updatedAt
-     * @return
-     */
-    public Builder updatedAt(String updatedAt) {
-      this.updatedAt = updatedAt;
-      return this;
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
-
-    public ItemRecord build() {
-      return new ItemRecord(this);
+    public String getDataSourceId() {
+        return this.dataSourceId;
     }
-  }
+
+    public void setDataSourceId(String dataSourceId) {
+        this.dataSourceId = dataSourceId;
+    }
+
+    public String getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public static class Builder {
+        /**
+         * 冗余当前item的ID
+         * <p> 示例值：
+         */
+        private String itemId;
+        /**
+         * 数据源id
+         * <p> 示例值：
+         */
+        private String dataSourceId;
+        /**
+         * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
+         * <p> 示例值：
+         */
+        private String version;
+        /**
+         * 第一次投递时间
+         * <p> 示例值：
+         */
+        private String createdAt;
+        /**
+         * 上一次更新落库时间
+         * <p> 示例值：
+         */
+        private String updatedAt;
+
+        /**
+         * 冗余当前item的ID
+         * <p> 示例值：
+         *
+         * @param itemId
+         * @return
+         */
+        public Builder itemId(String itemId) {
+            this.itemId = itemId;
+            return this;
+        }
+
+
+        /**
+         * 数据源id
+         * <p> 示例值：
+         *
+         * @param dataSourceId
+         * @return
+         */
+        public Builder dataSourceId(String dataSourceId) {
+            this.dataSourceId = dataSourceId;
+            return this;
+        }
+
+
+        /**
+         * 当前数据的最新版本号，其值等于上一次item/create接口传入的时间戳
+         * <p> 示例值：
+         *
+         * @param version
+         * @return
+         */
+        public Builder version(String version) {
+            this.version = version;
+            return this;
+        }
+
+
+        /**
+         * 第一次投递时间
+         * <p> 示例值：
+         *
+         * @param createdAt
+         * @return
+         */
+        public Builder createdAt(String createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 上一次更新落库时间
+         * <p> 示例值：
+         *
+         * @param updatedAt
+         * @return
+         */
+        public Builder updatedAt(String updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+
+        public ItemRecord build() {
+            return new ItemRecord(this);
+        }
+    }
 }

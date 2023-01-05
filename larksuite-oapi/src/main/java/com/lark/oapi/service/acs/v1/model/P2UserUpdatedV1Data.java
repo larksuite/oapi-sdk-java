@@ -16,48 +16,47 @@ package com.lark.oapi.service.acs.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2UserUpdatedV1Data {
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("user_id")
+    private UserId userId;
+    /**
+     * 卡号
+     * <p> 示例值：123456
+     */
+    @SerializedName("card")
+    private Integer card;
+    /**
+     * 是否上传人脸图片
+     * <p> 示例值：true
+     */
+    @SerializedName("face_uploaded")
+    private Boolean faceUploaded;
 
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private UserId userId;
-  /**
-   * 卡号
-   * <p> 示例值：123456
-   */
-  @SerializedName("card")
-  private Integer card;
-  /**
-   * 是否上传人脸图片
-   * <p> 示例值：true
-   */
-  @SerializedName("face_uploaded")
-  private Boolean faceUploaded;
+    public UserId getUserId() {
+        return this.userId;
+    }
 
-  public UserId getUserId() {
-    return this.userId;
-  }
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
 
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
+    public Integer getCard() {
+        return this.card;
+    }
 
-  public Integer getCard() {
-    return this.card;
-  }
+    public void setCard(Integer card) {
+        this.card = card;
+    }
 
-  public void setCard(Integer card) {
-    this.card = card;
-  }
+    public Boolean getFaceUploaded() {
+        return this.faceUploaded;
+    }
 
-  public Boolean getFaceUploaded() {
-    return this.faceUploaded;
-  }
-
-  public void setFaceUploaded(Boolean faceUploaded) {
-    this.faceUploaded = faceUploaded;
-  }
+    public void setFaceUploaded(Boolean faceUploaded) {
+        this.faceUploaded = faceUploaded;
+    }
 
 }

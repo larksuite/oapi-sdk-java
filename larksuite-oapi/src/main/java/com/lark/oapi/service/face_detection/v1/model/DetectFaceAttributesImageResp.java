@@ -16,5 +16,4 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class DetectFaceAttributesImageResp extends BaseResponse<DetectFaceAttributesImageRespBody> {
-
 }

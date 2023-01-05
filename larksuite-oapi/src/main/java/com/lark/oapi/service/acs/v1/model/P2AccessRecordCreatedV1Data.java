@@ -16,90 +16,89 @@ package com.lark.oapi.service.acs.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2AccessRecordCreatedV1Data {
+    /**
+     * 门禁记录 ID
+     * <p> 示例值：6939433228970082591
+     */
+    @SerializedName("access_record_id")
+    private String accessRecordId;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("user_id")
+    private UserId userId;
+    /**
+     * 设备 ID
+     * <p> 示例值：6939433228970082593
+     */
+    @SerializedName("device_id")
+    private String deviceId;
+    /**
+     * 是否打卡
+     * <p> 示例值：true
+     */
+    @SerializedName("is_clock_in")
+    private Boolean isClockIn;
+    /**
+     * 是否开门
+     * <p> 示例值：true
+     */
+    @SerializedName("is_door_open")
+    private Boolean isDoorOpen;
+    /**
+     * 识别时间 （单位：秒）
+     * <p> 示例值：1624520221
+     */
+    @SerializedName("access_time")
+    private String accessTime;
 
-  /**
-   * 门禁记录 ID
-   * <p> 示例值：6939433228970082591
-   */
-  @SerializedName("access_record_id")
-  private String accessRecordId;
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private UserId userId;
-  /**
-   * 设备 ID
-   * <p> 示例值：6939433228970082593
-   */
-  @SerializedName("device_id")
-  private String deviceId;
-  /**
-   * 是否打卡
-   * <p> 示例值：true
-   */
-  @SerializedName("is_clock_in")
-  private Boolean isClockIn;
-  /**
-   * 是否开门
-   * <p> 示例值：true
-   */
-  @SerializedName("is_door_open")
-  private Boolean isDoorOpen;
-  /**
-   * 识别时间 （单位：秒）
-   * <p> 示例值：1624520221
-   */
-  @SerializedName("access_time")
-  private String accessTime;
+    public String getAccessRecordId() {
+        return this.accessRecordId;
+    }
 
-  public String getAccessRecordId() {
-    return this.accessRecordId;
-  }
+    public void setAccessRecordId(String accessRecordId) {
+        this.accessRecordId = accessRecordId;
+    }
 
-  public void setAccessRecordId(String accessRecordId) {
-    this.accessRecordId = accessRecordId;
-  }
+    public UserId getUserId() {
+        return this.userId;
+    }
 
-  public UserId getUserId() {
-    return this.userId;
-  }
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
 
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
+    public String getDeviceId() {
+        return this.deviceId;
+    }
 
-  public String getDeviceId() {
-    return this.deviceId;
-  }
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
+    public Boolean getIsClockIn() {
+        return this.isClockIn;
+    }
 
-  public Boolean getIsClockIn() {
-    return this.isClockIn;
-  }
+    public void setIsClockIn(Boolean isClockIn) {
+        this.isClockIn = isClockIn;
+    }
 
-  public void setIsClockIn(Boolean isClockIn) {
-    this.isClockIn = isClockIn;
-  }
+    public Boolean getIsDoorOpen() {
+        return this.isDoorOpen;
+    }
 
-  public Boolean getIsDoorOpen() {
-    return this.isDoorOpen;
-  }
+    public void setIsDoorOpen(Boolean isDoorOpen) {
+        this.isDoorOpen = isDoorOpen;
+    }
 
-  public void setIsDoorOpen(Boolean isDoorOpen) {
-    this.isDoorOpen = isDoorOpen;
-  }
+    public String getAccessTime() {
+        return this.accessTime;
+    }
 
-  public String getAccessTime() {
-    return this.accessTime;
-  }
-
-  public void setAccessTime(String accessTime) {
-    this.accessTime = accessTime;
-  }
+    public void setAccessTime(String accessTime) {
+        this.accessTime = accessTime;
+    }
 
 }

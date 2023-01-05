@@ -16,1874 +16,1872 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Group {
-
-  /**
-   * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
-   * <p> 示例值：6919358128597097404
-   */
-  @SerializedName("group_id")
-  private String groupId;
-  /**
-   * 考勤组名称
-   * <p> 示例值：开心考勤
-   */
-  @SerializedName("group_name")
-  private String groupName;
-  /**
-   * 时区
-   * <p> 示例值：Asia/Shanghai
-   */
-  @SerializedName("time_zone")
-  private String timeZone;
-  /**
-   * 绑定的部门 ID
-   * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
-   */
-  @SerializedName("bind_dept_ids")
-  private String[] bindDeptIds;
-  /**
-   * 排除的部门 ID
-   * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
-   */
-  @SerializedName("except_dept_ids")
-  private String[] exceptDeptIds;
-  /**
-   * 绑定的用户 ID
-   * <p> 示例值：52aa1fa1
-   */
-  @SerializedName("bind_user_ids")
-  private String[] bindUserIds;
-  /**
-   * 排除的用户 ID
-   * <p> 示例值：52aa1fa1
-   */
-  @SerializedName("except_user_ids")
-  private String[] exceptUserIds;
-  /**
-   * 考勤主负责人 ID 列表，必选字段
-   * <p> 示例值：2bg4a9be
-   */
-  @SerializedName("group_leader_ids")
-  private String[] groupLeaderIds;
-  /**
-   * 考勤子负责人 ID 列表
-   * <p> 示例值：52aa1fa1
-   */
-  @SerializedName("sub_group_leader_ids")
-  private String[] subGroupLeaderIds;
-  /**
-   * 是否允许外勤打卡
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_out_punch")
-  private Boolean allowOutPunch;
-  /**
-   * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("out_punch_need_approval")
-  private Boolean outPunchNeedApproval;
-  /**
-   * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("out_punch_need_remark")
-  private Boolean outPunchNeedRemark;
-  /**
-   * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("out_punch_need_photo")
-  private Boolean outPunchNeedPhoto;
-  /**
-   * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("out_punch_allowed_hide_addr")
-  private Boolean outPunchAllowedHideAddr;
-  /**
-   * 是否允许 PC 端打卡
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_pc_punch")
-  private Boolean allowPcPunch;
-  /**
-   * 是否限制补卡
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_remedy")
-  private Boolean allowRemedy;
-  /**
-   * 是否限制补卡次数
-   * <p> 示例值：true
-   */
-  @SerializedName("remedy_limit")
-  private Boolean remedyLimit;
-  /**
-   * 补卡次数
-   * <p> 示例值：3
-   */
-  @SerializedName("remedy_limit_count")
-  private Integer remedyLimitCount;
-  /**
-   * 是否限制补卡时间
-   * <p> 示例值：true
-   */
-  @SerializedName("remedy_date_limit")
-  private Boolean remedyDateLimit;
-  /**
-   * 补卡时间，几天内补卡
-   * <p> 示例值：3
-   */
-  @SerializedName("remedy_date_num")
-  private Integer remedyDateNum;
-  /**
-   * 允许缺卡补卡（需要允许补卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_remedy_type_lack")
-  private Boolean allowRemedyTypeLack;
-  /**
-   * 允许迟到补卡（需要允许补卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_remedy_type_late")
-  private Boolean allowRemedyTypeLate;
-  /**
-   * 允许早退补卡（需要允许补卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_remedy_type_early")
-  private Boolean allowRemedyTypeEarly;
-  /**
-   * 允许正常补卡（需要允许补卡才能设置生效）
-   * <p> 示例值：true
-   */
-  @SerializedName("allow_remedy_type_normal")
-  private Boolean allowRemedyTypeNormal;
-  /**
-   * 是否展示累计时长
-   * <p> 示例值：true
-   */
-  @SerializedName("show_cumulative_time")
-  private Boolean showCumulativeTime;
-  /**
-   * 是否展示加班时长
-   * <p> 示例值：true
-   */
-  @SerializedName("show_over_time")
-  private Boolean showOverTime;
-  /**
-   * 是否隐藏员工打卡详情
-   * <p> 示例值：true
-   */
-  @SerializedName("hide_staff_punch_time")
-  private Boolean hideStaffPunchTime;
-  /**
-   * 是否开启人脸识别打卡
-   * <p> 示例值：true
-   */
-  @SerializedName("face_punch")
-  private Boolean facePunch;
-  /**
-   * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
-   * <p> 示例值：1
-   */
-  @SerializedName("face_punch_cfg")
-  private Integer facePunchCfg;
-  /**
-   * 人脸识别失败时是否允许普通拍照打卡
-   * <p> 示例值：true
-   */
-  @SerializedName("face_downgrade")
-  private Boolean faceDowngrade;
-  /**
-   * 人脸识别失败时是否允许替换基准图片
-   * <p> 示例值：true
-   */
-  @SerializedName("replace_basic_pic")
-  private Boolean replaceBasicPic;
-  /**
-   * 考勤机列表
-   * <p> 示例值：
-   */
-  @SerializedName("machines")
-  private Machine[] machines;
-  /**
-   * GPS 打卡的有效范围（不建议使用）
-   * <p> 示例值：300
-   */
-  @SerializedName("gps_range")
-  private Integer gpsRange;
-  /**
-   * 地址列表
-   * <p> 示例值：
-   */
-  @SerializedName("locations")
-  private Location[] locations;
-  /**
-   * 考勤类型，0：固定班制，2：排班制， 3：自由班制
-   * <p> 示例值：0
-   */
-  @SerializedName("group_type")
-  private Integer groupType;
-  /**
-   * 固定班制必须填
-   * <p> 示例值：6921319402260496386
-   */
-  @SerializedName("punch_day_shift_ids")
-  private String[] punchDayShiftIds;
-  /**
-   * 配置自由班制
-   * <p> 示例值：
-   */
-  @SerializedName("free_punch_cfg")
-  private FreePunchCfg freePunchCfg;
-  /**
-   * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
-   * <p> 示例值：1
-   */
-  @SerializedName("calendar_id")
-  private Integer calendarId;
-  /**
-   * 必须打卡的特殊日期
-   * <p> 示例值：
-   */
-  @SerializedName("need_punch_special_days")
-  private PunchSpecialDateShift[] needPunchSpecialDays;
-  /**
-   * 无需打卡的特殊日期
-   * <p> 示例值：
-   */
-  @SerializedName("no_need_punch_special_days")
-  private PunchSpecialDateShift[] noNeedPunchSpecialDays;
-  /**
-   * 自由班制下工作日不打卡是否记为缺卡
-   * <p> 示例值：true
-   */
-  @SerializedName("work_day_no_punch_as_lack")
-  private Boolean workDayNoPunchAsLack;
-  /**
-   * 是否立即生效，默认 false
-   * <p> 示例值：true
-   */
-  @SerializedName("effect_now")
-  private Boolean effectNow;
-  /**
-   * 补卡周期类型
-   * <p> 示例值：0
-   */
-  @SerializedName("remedy_period_type")
-  private Integer remedyPeriodType;
-  /**
-   * 补卡自定义周期起始日期
-   * <p> 示例值：1
-   */
-  @SerializedName("remedy_period_custom_date")
-  private Integer remedyPeriodCustomDate;
-  /**
-   * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
-   * <p> 示例值：1
-   */
-  @SerializedName("punch_type")
-  private Integer punchType;
-  /**
-   * 生效时间，精确到秒的时间戳
-   * <p> 示例值：1611476284
-   */
-  @SerializedName("effect_time")
-  private String effectTime;
-  /**
-   * 固定班次生效时间，精确到秒的时间戳
-   * <p> 示例值：1611476284
-   */
-  @SerializedName("fixshift_effect_time")
-  private String fixshiftEffectTime;
-  /**
-   * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
-   * <p> 示例值：1611476284
-   */
-  @SerializedName("member_effect_time")
-  private String memberEffectTime;
-  /**
-   * 休息日打卡需审批
-   * <p> 示例值：true
-   */
-  @SerializedName("rest_clockIn_need_approval")
-  private Boolean restClockInNeedApproval;
-  /**
-   * 每次打卡均需拍照
-   * <p> 示例值：true
-   */
-  @SerializedName("clockIn_need_photo")
-  private Boolean clockInNeedPhoto;
-
-  // builder 开始
-  public Group() {
-  }
-
-  public Group(Builder builder) {
     /**
      * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
      * <p> 示例值：6919358128597097404
      */
-    this.groupId = builder.groupId;
-    /**
-     * 考勤组名称
-     * <p> 示例值：开心考勤
-     */
-    this.groupName = builder.groupName;
-    /**
-     * 时区
-     * <p> 示例值：Asia/Shanghai
-     */
-    this.timeZone = builder.timeZone;
-    /**
-     * 绑定的部门 ID
-     * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
-     */
-    this.bindDeptIds = builder.bindDeptIds;
-    /**
-     * 排除的部门 ID
-     * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
-     */
-    this.exceptDeptIds = builder.exceptDeptIds;
-    /**
-     * 绑定的用户 ID
-     * <p> 示例值：52aa1fa1
-     */
-    this.bindUserIds = builder.bindUserIds;
-    /**
-     * 排除的用户 ID
-     * <p> 示例值：52aa1fa1
-     */
-    this.exceptUserIds = builder.exceptUserIds;
-    /**
-     * 考勤主负责人 ID 列表，必选字段
-     * <p> 示例值：2bg4a9be
-     */
-    this.groupLeaderIds = builder.groupLeaderIds;
-    /**
-     * 考勤子负责人 ID 列表
-     * <p> 示例值：52aa1fa1
-     */
-    this.subGroupLeaderIds = builder.subGroupLeaderIds;
-    /**
-     * 是否允许外勤打卡
-     * <p> 示例值：true
-     */
-    this.allowOutPunch = builder.allowOutPunch;
-    /**
-     * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.outPunchNeedApproval = builder.outPunchNeedApproval;
-    /**
-     * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.outPunchNeedRemark = builder.outPunchNeedRemark;
-    /**
-     * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.outPunchNeedPhoto = builder.outPunchNeedPhoto;
-    /**
-     * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.outPunchAllowedHideAddr = builder.outPunchAllowedHideAddr;
-    /**
-     * 是否允许 PC 端打卡
-     * <p> 示例值：true
-     */
-    this.allowPcPunch = builder.allowPcPunch;
-    /**
-     * 是否限制补卡
-     * <p> 示例值：true
-     */
-    this.allowRemedy = builder.allowRemedy;
-    /**
-     * 是否限制补卡次数
-     * <p> 示例值：true
-     */
-    this.remedyLimit = builder.remedyLimit;
-    /**
-     * 补卡次数
-     * <p> 示例值：3
-     */
-    this.remedyLimitCount = builder.remedyLimitCount;
-    /**
-     * 是否限制补卡时间
-     * <p> 示例值：true
-     */
-    this.remedyDateLimit = builder.remedyDateLimit;
-    /**
-     * 补卡时间，几天内补卡
-     * <p> 示例值：3
-     */
-    this.remedyDateNum = builder.remedyDateNum;
-    /**
-     * 允许缺卡补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.allowRemedyTypeLack = builder.allowRemedyTypeLack;
-    /**
-     * 允许迟到补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.allowRemedyTypeLate = builder.allowRemedyTypeLate;
-    /**
-     * 允许早退补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.allowRemedyTypeEarly = builder.allowRemedyTypeEarly;
-    /**
-     * 允许正常补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     */
-    this.allowRemedyTypeNormal = builder.allowRemedyTypeNormal;
-    /**
-     * 是否展示累计时长
-     * <p> 示例值：true
-     */
-    this.showCumulativeTime = builder.showCumulativeTime;
-    /**
-     * 是否展示加班时长
-     * <p> 示例值：true
-     */
-    this.showOverTime = builder.showOverTime;
-    /**
-     * 是否隐藏员工打卡详情
-     * <p> 示例值：true
-     */
-    this.hideStaffPunchTime = builder.hideStaffPunchTime;
-    /**
-     * 是否开启人脸识别打卡
-     * <p> 示例值：true
-     */
-    this.facePunch = builder.facePunch;
-    /**
-     * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
-     * <p> 示例值：1
-     */
-    this.facePunchCfg = builder.facePunchCfg;
-    /**
-     * 人脸识别失败时是否允许普通拍照打卡
-     * <p> 示例值：true
-     */
-    this.faceDowngrade = builder.faceDowngrade;
-    /**
-     * 人脸识别失败时是否允许替换基准图片
-     * <p> 示例值：true
-     */
-    this.replaceBasicPic = builder.replaceBasicPic;
-    /**
-     * 考勤机列表
-     * <p> 示例值：
-     */
-    this.machines = builder.machines;
-    /**
-     * GPS 打卡的有效范围（不建议使用）
-     * <p> 示例值：300
-     */
-    this.gpsRange = builder.gpsRange;
-    /**
-     * 地址列表
-     * <p> 示例值：
-     */
-    this.locations = builder.locations;
-    /**
-     * 考勤类型，0：固定班制，2：排班制， 3：自由班制
-     * <p> 示例值：0
-     */
-    this.groupType = builder.groupType;
-    /**
-     * 固定班制必须填
-     * <p> 示例值：6921319402260496386
-     */
-    this.punchDayShiftIds = builder.punchDayShiftIds;
-    /**
-     * 配置自由班制
-     * <p> 示例值：
-     */
-    this.freePunchCfg = builder.freePunchCfg;
-    /**
-     * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
-     * <p> 示例值：1
-     */
-    this.calendarId = builder.calendarId;
-    /**
-     * 必须打卡的特殊日期
-     * <p> 示例值：
-     */
-    this.needPunchSpecialDays = builder.needPunchSpecialDays;
-    /**
-     * 无需打卡的特殊日期
-     * <p> 示例值：
-     */
-    this.noNeedPunchSpecialDays = builder.noNeedPunchSpecialDays;
-    /**
-     * 自由班制下工作日不打卡是否记为缺卡
-     * <p> 示例值：true
-     */
-    this.workDayNoPunchAsLack = builder.workDayNoPunchAsLack;
-    /**
-     * 是否立即生效，默认 false
-     * <p> 示例值：true
-     */
-    this.effectNow = builder.effectNow;
-    /**
-     * 补卡周期类型
-     * <p> 示例值：0
-     */
-    this.remedyPeriodType = builder.remedyPeriodType;
-    /**
-     * 补卡自定义周期起始日期
-     * <p> 示例值：1
-     */
-    this.remedyPeriodCustomDate = builder.remedyPeriodCustomDate;
-    /**
-     * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
-     * <p> 示例值：1
-     */
-    this.punchType = builder.punchType;
-    /**
-     * 生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
-    this.effectTime = builder.effectTime;
-    /**
-     * 固定班次生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
-    this.fixshiftEffectTime = builder.fixshiftEffectTime;
-    /**
-     * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     */
-    this.memberEffectTime = builder.memberEffectTime;
-    /**
-     * 休息日打卡需审批
-     * <p> 示例值：true
-     */
-    this.restClockInNeedApproval = builder.restClockInNeedApproval;
-    /**
-     * 每次打卡均需拍照
-     * <p> 示例值：true
-     */
-    this.clockInNeedPhoto = builder.clockInNeedPhoto;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public String getGroupName() {
-    return this.groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
-  }
-
-  public String getTimeZone() {
-    return this.timeZone;
-  }
-
-  public void setTimeZone(String timeZone) {
-    this.timeZone = timeZone;
-  }
-
-  public String[] getBindDeptIds() {
-    return this.bindDeptIds;
-  }
-
-  public void setBindDeptIds(String[] bindDeptIds) {
-    this.bindDeptIds = bindDeptIds;
-  }
-
-  public String[] getExceptDeptIds() {
-    return this.exceptDeptIds;
-  }
-
-  public void setExceptDeptIds(String[] exceptDeptIds) {
-    this.exceptDeptIds = exceptDeptIds;
-  }
-
-  public String[] getBindUserIds() {
-    return this.bindUserIds;
-  }
-
-  public void setBindUserIds(String[] bindUserIds) {
-    this.bindUserIds = bindUserIds;
-  }
-
-  public String[] getExceptUserIds() {
-    return this.exceptUserIds;
-  }
-
-  public void setExceptUserIds(String[] exceptUserIds) {
-    this.exceptUserIds = exceptUserIds;
-  }
-
-  public String[] getGroupLeaderIds() {
-    return this.groupLeaderIds;
-  }
-
-  public void setGroupLeaderIds(String[] groupLeaderIds) {
-    this.groupLeaderIds = groupLeaderIds;
-  }
-
-  public String[] getSubGroupLeaderIds() {
-    return this.subGroupLeaderIds;
-  }
-
-  public void setSubGroupLeaderIds(String[] subGroupLeaderIds) {
-    this.subGroupLeaderIds = subGroupLeaderIds;
-  }
-
-  public Boolean getAllowOutPunch() {
-    return this.allowOutPunch;
-  }
-
-  public void setAllowOutPunch(Boolean allowOutPunch) {
-    this.allowOutPunch = allowOutPunch;
-  }
-
-  public Boolean getOutPunchNeedApproval() {
-    return this.outPunchNeedApproval;
-  }
-
-  public void setOutPunchNeedApproval(Boolean outPunchNeedApproval) {
-    this.outPunchNeedApproval = outPunchNeedApproval;
-  }
-
-  public Boolean getOutPunchNeedRemark() {
-    return this.outPunchNeedRemark;
-  }
-
-  public void setOutPunchNeedRemark(Boolean outPunchNeedRemark) {
-    this.outPunchNeedRemark = outPunchNeedRemark;
-  }
-
-  public Boolean getOutPunchNeedPhoto() {
-    return this.outPunchNeedPhoto;
-  }
-
-  public void setOutPunchNeedPhoto(Boolean outPunchNeedPhoto) {
-    this.outPunchNeedPhoto = outPunchNeedPhoto;
-  }
-
-  public Boolean getOutPunchAllowedHideAddr() {
-    return this.outPunchAllowedHideAddr;
-  }
-
-  public void setOutPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
-    this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
-  }
-
-  public Boolean getAllowPcPunch() {
-    return this.allowPcPunch;
-  }
-
-  public void setAllowPcPunch(Boolean allowPcPunch) {
-    this.allowPcPunch = allowPcPunch;
-  }
-
-  public Boolean getAllowRemedy() {
-    return this.allowRemedy;
-  }
-
-  public void setAllowRemedy(Boolean allowRemedy) {
-    this.allowRemedy = allowRemedy;
-  }
-
-  public Boolean getRemedyLimit() {
-    return this.remedyLimit;
-  }
-
-  public void setRemedyLimit(Boolean remedyLimit) {
-    this.remedyLimit = remedyLimit;
-  }
-
-  public Integer getRemedyLimitCount() {
-    return this.remedyLimitCount;
-  }
-
-  public void setRemedyLimitCount(Integer remedyLimitCount) {
-    this.remedyLimitCount = remedyLimitCount;
-  }
-
-  public Boolean getRemedyDateLimit() {
-    return this.remedyDateLimit;
-  }
-
-  public void setRemedyDateLimit(Boolean remedyDateLimit) {
-    this.remedyDateLimit = remedyDateLimit;
-  }
-
-  public Integer getRemedyDateNum() {
-    return this.remedyDateNum;
-  }
-
-  public void setRemedyDateNum(Integer remedyDateNum) {
-    this.remedyDateNum = remedyDateNum;
-  }
-
-  public Boolean getAllowRemedyTypeLack() {
-    return this.allowRemedyTypeLack;
-  }
-
-  public void setAllowRemedyTypeLack(Boolean allowRemedyTypeLack) {
-    this.allowRemedyTypeLack = allowRemedyTypeLack;
-  }
-
-  public Boolean getAllowRemedyTypeLate() {
-    return this.allowRemedyTypeLate;
-  }
-
-  public void setAllowRemedyTypeLate(Boolean allowRemedyTypeLate) {
-    this.allowRemedyTypeLate = allowRemedyTypeLate;
-  }
-
-  public Boolean getAllowRemedyTypeEarly() {
-    return this.allowRemedyTypeEarly;
-  }
-
-  public void setAllowRemedyTypeEarly(Boolean allowRemedyTypeEarly) {
-    this.allowRemedyTypeEarly = allowRemedyTypeEarly;
-  }
-
-  public Boolean getAllowRemedyTypeNormal() {
-    return this.allowRemedyTypeNormal;
-  }
-
-  public void setAllowRemedyTypeNormal(Boolean allowRemedyTypeNormal) {
-    this.allowRemedyTypeNormal = allowRemedyTypeNormal;
-  }
-
-  public Boolean getShowCumulativeTime() {
-    return this.showCumulativeTime;
-  }
-
-  public void setShowCumulativeTime(Boolean showCumulativeTime) {
-    this.showCumulativeTime = showCumulativeTime;
-  }
-
-  public Boolean getShowOverTime() {
-    return this.showOverTime;
-  }
-
-  public void setShowOverTime(Boolean showOverTime) {
-    this.showOverTime = showOverTime;
-  }
-
-  public Boolean getHideStaffPunchTime() {
-    return this.hideStaffPunchTime;
-  }
-
-  public void setHideStaffPunchTime(Boolean hideStaffPunchTime) {
-    this.hideStaffPunchTime = hideStaffPunchTime;
-  }
-
-  public Boolean getFacePunch() {
-    return this.facePunch;
-  }
-
-  public void setFacePunch(Boolean facePunch) {
-    this.facePunch = facePunch;
-  }
-
-  public Integer getFacePunchCfg() {
-    return this.facePunchCfg;
-  }
-
-  public void setFacePunchCfg(Integer facePunchCfg) {
-    this.facePunchCfg = facePunchCfg;
-  }
-
-  public Boolean getFaceDowngrade() {
-    return this.faceDowngrade;
-  }
-
-  public void setFaceDowngrade(Boolean faceDowngrade) {
-    this.faceDowngrade = faceDowngrade;
-  }
-
-  public Boolean getReplaceBasicPic() {
-    return this.replaceBasicPic;
-  }
-
-  public void setReplaceBasicPic(Boolean replaceBasicPic) {
-    this.replaceBasicPic = replaceBasicPic;
-  }
-
-  public Machine[] getMachines() {
-    return this.machines;
-  }
-
-  public void setMachines(Machine[] machines) {
-    this.machines = machines;
-  }
-
-  public Integer getGpsRange() {
-    return this.gpsRange;
-  }
-
-  public void setGpsRange(Integer gpsRange) {
-    this.gpsRange = gpsRange;
-  }
-
-  public Location[] getLocations() {
-    return this.locations;
-  }
-
-  public void setLocations(Location[] locations) {
-    this.locations = locations;
-  }
-
-  public Integer getGroupType() {
-    return this.groupType;
-  }
-
-  public void setGroupType(Integer groupType) {
-    this.groupType = groupType;
-  }
-
-  public String[] getPunchDayShiftIds() {
-    return this.punchDayShiftIds;
-  }
-
-  public void setPunchDayShiftIds(String[] punchDayShiftIds) {
-    this.punchDayShiftIds = punchDayShiftIds;
-  }
-
-  public FreePunchCfg getFreePunchCfg() {
-    return this.freePunchCfg;
-  }
-
-  public void setFreePunchCfg(FreePunchCfg freePunchCfg) {
-    this.freePunchCfg = freePunchCfg;
-  }
-
-  public Integer getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(Integer calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public PunchSpecialDateShift[] getNeedPunchSpecialDays() {
-    return this.needPunchSpecialDays;
-  }
-
-  public void setNeedPunchSpecialDays(PunchSpecialDateShift[] needPunchSpecialDays) {
-    this.needPunchSpecialDays = needPunchSpecialDays;
-  }
-
-  public PunchSpecialDateShift[] getNoNeedPunchSpecialDays() {
-    return this.noNeedPunchSpecialDays;
-  }
-
-  public void setNoNeedPunchSpecialDays(PunchSpecialDateShift[] noNeedPunchSpecialDays) {
-    this.noNeedPunchSpecialDays = noNeedPunchSpecialDays;
-  }
-
-  public Boolean getWorkDayNoPunchAsLack() {
-    return this.workDayNoPunchAsLack;
-  }
-
-  public void setWorkDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
-    this.workDayNoPunchAsLack = workDayNoPunchAsLack;
-  }
-
-  public Boolean getEffectNow() {
-    return this.effectNow;
-  }
-
-  public void setEffectNow(Boolean effectNow) {
-    this.effectNow = effectNow;
-  }
-
-  public Integer getRemedyPeriodType() {
-    return this.remedyPeriodType;
-  }
-
-  public void setRemedyPeriodType(Integer remedyPeriodType) {
-    this.remedyPeriodType = remedyPeriodType;
-  }
-
-  public Integer getRemedyPeriodCustomDate() {
-    return this.remedyPeriodCustomDate;
-  }
-
-  public void setRemedyPeriodCustomDate(Integer remedyPeriodCustomDate) {
-    this.remedyPeriodCustomDate = remedyPeriodCustomDate;
-  }
-
-  public Integer getPunchType() {
-    return this.punchType;
-  }
-
-  public void setPunchType(Integer punchType) {
-    this.punchType = punchType;
-  }
-
-  public String getEffectTime() {
-    return this.effectTime;
-  }
-
-  public void setEffectTime(String effectTime) {
-    this.effectTime = effectTime;
-  }
-
-  public String getFixshiftEffectTime() {
-    return this.fixshiftEffectTime;
-  }
-
-  public void setFixshiftEffectTime(String fixshiftEffectTime) {
-    this.fixshiftEffectTime = fixshiftEffectTime;
-  }
-
-  public String getMemberEffectTime() {
-    return this.memberEffectTime;
-  }
-
-  public void setMemberEffectTime(String memberEffectTime) {
-    this.memberEffectTime = memberEffectTime;
-  }
-
-  public Boolean getRestClockInNeedApproval() {
-    return this.restClockInNeedApproval;
-  }
-
-  public void setRestClockInNeedApproval(Boolean restClockInNeedApproval) {
-    this.restClockInNeedApproval = restClockInNeedApproval;
-  }
-
-  public Boolean getClockInNeedPhoto() {
-    return this.clockInNeedPhoto;
-  }
-
-  public void setClockInNeedPhoto(Boolean clockInNeedPhoto) {
-    this.clockInNeedPhoto = clockInNeedPhoto;
-  }
-
-  public static class Builder {
-
-    /**
-     * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
-     * <p> 示例值：6919358128597097404
-     */
+    @SerializedName("group_id")
     private String groupId;
     /**
      * 考勤组名称
      * <p> 示例值：开心考勤
      */
+    @SerializedName("group_name")
     private String groupName;
     /**
      * 时区
      * <p> 示例值：Asia/Shanghai
      */
+    @SerializedName("time_zone")
     private String timeZone;
     /**
      * 绑定的部门 ID
      * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
      */
+    @SerializedName("bind_dept_ids")
     private String[] bindDeptIds;
     /**
      * 排除的部门 ID
      * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
      */
+    @SerializedName("except_dept_ids")
     private String[] exceptDeptIds;
     /**
      * 绑定的用户 ID
      * <p> 示例值：52aa1fa1
      */
+    @SerializedName("bind_user_ids")
     private String[] bindUserIds;
     /**
      * 排除的用户 ID
      * <p> 示例值：52aa1fa1
      */
+    @SerializedName("except_user_ids")
     private String[] exceptUserIds;
     /**
-     * 考勤主负责人 ID 列表，必选字段
+     * 考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）
      * <p> 示例值：2bg4a9be
      */
+    @SerializedName("group_leader_ids")
     private String[] groupLeaderIds;
     /**
      * 考勤子负责人 ID 列表
      * <p> 示例值：52aa1fa1
      */
+    @SerializedName("sub_group_leader_ids")
     private String[] subGroupLeaderIds;
     /**
      * 是否允许外勤打卡
      * <p> 示例值：true
      */
+    @SerializedName("allow_out_punch")
     private Boolean allowOutPunch;
     /**
      * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("out_punch_need_approval")
     private Boolean outPunchNeedApproval;
     /**
      * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("out_punch_need_remark")
     private Boolean outPunchNeedRemark;
     /**
      * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("out_punch_need_photo")
     private Boolean outPunchNeedPhoto;
     /**
      * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("out_punch_allowed_hide_addr")
     private Boolean outPunchAllowedHideAddr;
     /**
      * 是否允许 PC 端打卡
      * <p> 示例值：true
      */
+    @SerializedName("allow_pc_punch")
     private Boolean allowPcPunch;
     /**
      * 是否限制补卡
      * <p> 示例值：true
      */
+    @SerializedName("allow_remedy")
     private Boolean allowRemedy;
     /**
      * 是否限制补卡次数
      * <p> 示例值：true
      */
+    @SerializedName("remedy_limit")
     private Boolean remedyLimit;
     /**
      * 补卡次数
      * <p> 示例值：3
      */
+    @SerializedName("remedy_limit_count")
     private Integer remedyLimitCount;
     /**
      * 是否限制补卡时间
      * <p> 示例值：true
      */
+    @SerializedName("remedy_date_limit")
     private Boolean remedyDateLimit;
     /**
      * 补卡时间，几天内补卡
      * <p> 示例值：3
      */
+    @SerializedName("remedy_date_num")
     private Integer remedyDateNum;
     /**
      * 允许缺卡补卡（需要允许补卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("allow_remedy_type_lack")
     private Boolean allowRemedyTypeLack;
     /**
      * 允许迟到补卡（需要允许补卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("allow_remedy_type_late")
     private Boolean allowRemedyTypeLate;
     /**
      * 允许早退补卡（需要允许补卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("allow_remedy_type_early")
     private Boolean allowRemedyTypeEarly;
     /**
      * 允许正常补卡（需要允许补卡才能设置生效）
      * <p> 示例值：true
      */
+    @SerializedName("allow_remedy_type_normal")
     private Boolean allowRemedyTypeNormal;
     /**
      * 是否展示累计时长
      * <p> 示例值：true
      */
+    @SerializedName("show_cumulative_time")
     private Boolean showCumulativeTime;
     /**
      * 是否展示加班时长
      * <p> 示例值：true
      */
+    @SerializedName("show_over_time")
     private Boolean showOverTime;
     /**
      * 是否隐藏员工打卡详情
      * <p> 示例值：true
      */
+    @SerializedName("hide_staff_punch_time")
     private Boolean hideStaffPunchTime;
     /**
      * 是否开启人脸识别打卡
      * <p> 示例值：true
      */
+    @SerializedName("face_punch")
     private Boolean facePunch;
     /**
      * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
      * <p> 示例值：1
      */
+    @SerializedName("face_punch_cfg")
     private Integer facePunchCfg;
     /**
      * 人脸识别失败时是否允许普通拍照打卡
      * <p> 示例值：true
      */
+    @SerializedName("face_downgrade")
     private Boolean faceDowngrade;
     /**
      * 人脸识别失败时是否允许替换基准图片
      * <p> 示例值：true
      */
+    @SerializedName("replace_basic_pic")
     private Boolean replaceBasicPic;
     /**
      * 考勤机列表
      * <p> 示例值：
      */
+    @SerializedName("machines")
     private Machine[] machines;
     /**
      * GPS 打卡的有效范围（不建议使用）
      * <p> 示例值：300
      */
+    @SerializedName("gps_range")
     private Integer gpsRange;
     /**
      * 地址列表
      * <p> 示例值：
      */
+    @SerializedName("locations")
     private Location[] locations;
     /**
      * 考勤类型，0：固定班制，2：排班制， 3：自由班制
      * <p> 示例值：0
      */
+    @SerializedName("group_type")
     private Integer groupType;
     /**
      * 固定班制必须填
      * <p> 示例值：6921319402260496386
      */
+    @SerializedName("punch_day_shift_ids")
     private String[] punchDayShiftIds;
     /**
      * 配置自由班制
      * <p> 示例值：
      */
+    @SerializedName("free_punch_cfg")
     private FreePunchCfg freePunchCfg;
     /**
      * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
      * <p> 示例值：1
      */
+    @SerializedName("calendar_id")
     private Integer calendarId;
     /**
      * 必须打卡的特殊日期
      * <p> 示例值：
      */
+    @SerializedName("need_punch_special_days")
     private PunchSpecialDateShift[] needPunchSpecialDays;
     /**
      * 无需打卡的特殊日期
      * <p> 示例值：
      */
+    @SerializedName("no_need_punch_special_days")
     private PunchSpecialDateShift[] noNeedPunchSpecialDays;
     /**
      * 自由班制下工作日不打卡是否记为缺卡
      * <p> 示例值：true
      */
+    @SerializedName("work_day_no_punch_as_lack")
     private Boolean workDayNoPunchAsLack;
     /**
      * 是否立即生效，默认 false
      * <p> 示例值：true
      */
+    @SerializedName("effect_now")
     private Boolean effectNow;
     /**
      * 补卡周期类型
      * <p> 示例值：0
      */
+    @SerializedName("remedy_period_type")
     private Integer remedyPeriodType;
     /**
      * 补卡自定义周期起始日期
      * <p> 示例值：1
      */
+    @SerializedName("remedy_period_custom_date")
     private Integer remedyPeriodCustomDate;
     /**
      * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
      * <p> 示例值：1
      */
+    @SerializedName("punch_type")
     private Integer punchType;
     /**
      * 生效时间，精确到秒的时间戳
      * <p> 示例值：1611476284
      */
+    @SerializedName("effect_time")
     private String effectTime;
     /**
      * 固定班次生效时间，精确到秒的时间戳
      * <p> 示例值：1611476284
      */
+    @SerializedName("fixshift_effect_time")
     private String fixshiftEffectTime;
     /**
      * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
      * <p> 示例值：1611476284
      */
+    @SerializedName("member_effect_time")
     private String memberEffectTime;
     /**
      * 休息日打卡需审批
      * <p> 示例值：true
      */
+    @SerializedName("rest_clockIn_need_approval")
     private Boolean restClockInNeedApproval;
     /**
      * 每次打卡均需拍照
      * <p> 示例值：true
      */
+    @SerializedName("clockIn_need_photo")
     private Boolean clockInNeedPhoto;
 
-    /**
-     * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
-     * <p> 示例值：6919358128597097404
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public Group() {
     }
 
-
-    /**
-     * 考勤组名称
-     * <p> 示例值：开心考勤
-     *
-     * @param groupName
-     * @return
-     */
-    public Builder groupName(String groupName) {
-      this.groupName = groupName;
-      return this;
+    public Group(Builder builder) {
+        /**
+         * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
+         * <p> 示例值：6919358128597097404
+         */
+        this.groupId = builder.groupId;
+        /**
+         * 考勤组名称
+         * <p> 示例值：开心考勤
+         */
+        this.groupName = builder.groupName;
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timeZone = builder.timeZone;
+        /**
+         * 绑定的部门 ID
+         * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
+         */
+        this.bindDeptIds = builder.bindDeptIds;
+        /**
+         * 排除的部门 ID
+         * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
+         */
+        this.exceptDeptIds = builder.exceptDeptIds;
+        /**
+         * 绑定的用户 ID
+         * <p> 示例值：52aa1fa1
+         */
+        this.bindUserIds = builder.bindUserIds;
+        /**
+         * 排除的用户 ID
+         * <p> 示例值：52aa1fa1
+         */
+        this.exceptUserIds = builder.exceptUserIds;
+        /**
+         * 考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）
+         * <p> 示例值：2bg4a9be
+         */
+        this.groupLeaderIds = builder.groupLeaderIds;
+        /**
+         * 考勤子负责人 ID 列表
+         * <p> 示例值：52aa1fa1
+         */
+        this.subGroupLeaderIds = builder.subGroupLeaderIds;
+        /**
+         * 是否允许外勤打卡
+         * <p> 示例值：true
+         */
+        this.allowOutPunch = builder.allowOutPunch;
+        /**
+         * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.outPunchNeedApproval = builder.outPunchNeedApproval;
+        /**
+         * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.outPunchNeedRemark = builder.outPunchNeedRemark;
+        /**
+         * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.outPunchNeedPhoto = builder.outPunchNeedPhoto;
+        /**
+         * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.outPunchAllowedHideAddr = builder.outPunchAllowedHideAddr;
+        /**
+         * 是否允许 PC 端打卡
+         * <p> 示例值：true
+         */
+        this.allowPcPunch = builder.allowPcPunch;
+        /**
+         * 是否限制补卡
+         * <p> 示例值：true
+         */
+        this.allowRemedy = builder.allowRemedy;
+        /**
+         * 是否限制补卡次数
+         * <p> 示例值：true
+         */
+        this.remedyLimit = builder.remedyLimit;
+        /**
+         * 补卡次数
+         * <p> 示例值：3
+         */
+        this.remedyLimitCount = builder.remedyLimitCount;
+        /**
+         * 是否限制补卡时间
+         * <p> 示例值：true
+         */
+        this.remedyDateLimit = builder.remedyDateLimit;
+        /**
+         * 补卡时间，几天内补卡
+         * <p> 示例值：3
+         */
+        this.remedyDateNum = builder.remedyDateNum;
+        /**
+         * 允许缺卡补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.allowRemedyTypeLack = builder.allowRemedyTypeLack;
+        /**
+         * 允许迟到补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.allowRemedyTypeLate = builder.allowRemedyTypeLate;
+        /**
+         * 允许早退补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.allowRemedyTypeEarly = builder.allowRemedyTypeEarly;
+        /**
+         * 允许正常补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.allowRemedyTypeNormal = builder.allowRemedyTypeNormal;
+        /**
+         * 是否展示累计时长
+         * <p> 示例值：true
+         */
+        this.showCumulativeTime = builder.showCumulativeTime;
+        /**
+         * 是否展示加班时长
+         * <p> 示例值：true
+         */
+        this.showOverTime = builder.showOverTime;
+        /**
+         * 是否隐藏员工打卡详情
+         * <p> 示例值：true
+         */
+        this.hideStaffPunchTime = builder.hideStaffPunchTime;
+        /**
+         * 是否开启人脸识别打卡
+         * <p> 示例值：true
+         */
+        this.facePunch = builder.facePunch;
+        /**
+         * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
+         * <p> 示例值：1
+         */
+        this.facePunchCfg = builder.facePunchCfg;
+        /**
+         * 人脸识别失败时是否允许普通拍照打卡
+         * <p> 示例值：true
+         */
+        this.faceDowngrade = builder.faceDowngrade;
+        /**
+         * 人脸识别失败时是否允许替换基准图片
+         * <p> 示例值：true
+         */
+        this.replaceBasicPic = builder.replaceBasicPic;
+        /**
+         * 考勤机列表
+         * <p> 示例值：
+         */
+        this.machines = builder.machines;
+        /**
+         * GPS 打卡的有效范围（不建议使用）
+         * <p> 示例值：300
+         */
+        this.gpsRange = builder.gpsRange;
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
+        this.locations = builder.locations;
+        /**
+         * 考勤类型，0：固定班制，2：排班制， 3：自由班制
+         * <p> 示例值：0
+         */
+        this.groupType = builder.groupType;
+        /**
+         * 固定班制必须填
+         * <p> 示例值：6921319402260496386
+         */
+        this.punchDayShiftIds = builder.punchDayShiftIds;
+        /**
+         * 配置自由班制
+         * <p> 示例值：
+         */
+        this.freePunchCfg = builder.freePunchCfg;
+        /**
+         * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
+         * <p> 示例值：1
+         */
+        this.calendarId = builder.calendarId;
+        /**
+         * 必须打卡的特殊日期
+         * <p> 示例值：
+         */
+        this.needPunchSpecialDays = builder.needPunchSpecialDays;
+        /**
+         * 无需打卡的特殊日期
+         * <p> 示例值：
+         */
+        this.noNeedPunchSpecialDays = builder.noNeedPunchSpecialDays;
+        /**
+         * 自由班制下工作日不打卡是否记为缺卡
+         * <p> 示例值：true
+         */
+        this.workDayNoPunchAsLack = builder.workDayNoPunchAsLack;
+        /**
+         * 是否立即生效，默认 false
+         * <p> 示例值：true
+         */
+        this.effectNow = builder.effectNow;
+        /**
+         * 补卡周期类型
+         * <p> 示例值：0
+         */
+        this.remedyPeriodType = builder.remedyPeriodType;
+        /**
+         * 补卡自定义周期起始日期
+         * <p> 示例值：1
+         */
+        this.remedyPeriodCustomDate = builder.remedyPeriodCustomDate;
+        /**
+         * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
+         * <p> 示例值：1
+         */
+        this.punchType = builder.punchType;
+        /**
+         * 生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         */
+        this.effectTime = builder.effectTime;
+        /**
+         * 固定班次生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         */
+        this.fixshiftEffectTime = builder.fixshiftEffectTime;
+        /**
+         * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         */
+        this.memberEffectTime = builder.memberEffectTime;
+        /**
+         * 休息日打卡需审批
+         * <p> 示例值：true
+         */
+        this.restClockInNeedApproval = builder.restClockInNeedApproval;
+        /**
+         * 每次打卡均需拍照
+         * <p> 示例值：true
+         */
+        this.clockInNeedPhoto = builder.clockInNeedPhoto;
     }
 
-
-    /**
-     * 时区
-     * <p> 示例值：Asia/Shanghai
-     *
-     * @param timeZone
-     * @return
-     */
-    public Builder timeZone(String timeZone) {
-      this.timeZone = timeZone;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 绑定的部门 ID
-     * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
-     *
-     * @param bindDeptIds
-     * @return
-     */
-    public Builder bindDeptIds(String[] bindDeptIds) {
-      this.bindDeptIds = bindDeptIds;
-      return this;
+    public String getGroupId() {
+        return this.groupId;
     }
 
-
-    /**
-     * 排除的部门 ID
-     * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
-     *
-     * @param exceptDeptIds
-     * @return
-     */
-    public Builder exceptDeptIds(String[] exceptDeptIds) {
-      this.exceptDeptIds = exceptDeptIds;
-      return this;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
-
-    /**
-     * 绑定的用户 ID
-     * <p> 示例值：52aa1fa1
-     *
-     * @param bindUserIds
-     * @return
-     */
-    public Builder bindUserIds(String[] bindUserIds) {
-      this.bindUserIds = bindUserIds;
-      return this;
+    public String getGroupName() {
+        return this.groupName;
     }
 
-
-    /**
-     * 排除的用户 ID
-     * <p> 示例值：52aa1fa1
-     *
-     * @param exceptUserIds
-     * @return
-     */
-    public Builder exceptUserIds(String[] exceptUserIds) {
-      this.exceptUserIds = exceptUserIds;
-      return this;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-
-    /**
-     * 考勤主负责人 ID 列表，必选字段
-     * <p> 示例值：2bg4a9be
-     *
-     * @param groupLeaderIds
-     * @return
-     */
-    public Builder groupLeaderIds(String[] groupLeaderIds) {
-      this.groupLeaderIds = groupLeaderIds;
-      return this;
+    public String getTimeZone() {
+        return this.timeZone;
     }
 
-
-    /**
-     * 考勤子负责人 ID 列表
-     * <p> 示例值：52aa1fa1
-     *
-     * @param subGroupLeaderIds
-     * @return
-     */
-    public Builder subGroupLeaderIds(String[] subGroupLeaderIds) {
-      this.subGroupLeaderIds = subGroupLeaderIds;
-      return this;
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
-
-    /**
-     * 是否允许外勤打卡
-     * <p> 示例值：true
-     *
-     * @param allowOutPunch
-     * @return
-     */
-    public Builder allowOutPunch(Boolean allowOutPunch) {
-      this.allowOutPunch = allowOutPunch;
-      return this;
+    public String[] getBindDeptIds() {
+        return this.bindDeptIds;
     }
 
-
-    /**
-     * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param outPunchNeedApproval
-     * @return
-     */
-    public Builder outPunchNeedApproval(Boolean outPunchNeedApproval) {
-      this.outPunchNeedApproval = outPunchNeedApproval;
-      return this;
+    public void setBindDeptIds(String[] bindDeptIds) {
+        this.bindDeptIds = bindDeptIds;
     }
 
-
-    /**
-     * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param outPunchNeedRemark
-     * @return
-     */
-    public Builder outPunchNeedRemark(Boolean outPunchNeedRemark) {
-      this.outPunchNeedRemark = outPunchNeedRemark;
-      return this;
+    public String[] getExceptDeptIds() {
+        return this.exceptDeptIds;
     }
 
-
-    /**
-     * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param outPunchNeedPhoto
-     * @return
-     */
-    public Builder outPunchNeedPhoto(Boolean outPunchNeedPhoto) {
-      this.outPunchNeedPhoto = outPunchNeedPhoto;
-      return this;
+    public void setExceptDeptIds(String[] exceptDeptIds) {
+        this.exceptDeptIds = exceptDeptIds;
     }
 
-
-    /**
-     * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param outPunchAllowedHideAddr
-     * @return
-     */
-    public Builder outPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
-      this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
-      return this;
+    public String[] getBindUserIds() {
+        return this.bindUserIds;
     }
 
-
-    /**
-     * 是否允许 PC 端打卡
-     * <p> 示例值：true
-     *
-     * @param allowPcPunch
-     * @return
-     */
-    public Builder allowPcPunch(Boolean allowPcPunch) {
-      this.allowPcPunch = allowPcPunch;
-      return this;
+    public void setBindUserIds(String[] bindUserIds) {
+        this.bindUserIds = bindUserIds;
     }
 
-
-    /**
-     * 是否限制补卡
-     * <p> 示例值：true
-     *
-     * @param allowRemedy
-     * @return
-     */
-    public Builder allowRemedy(Boolean allowRemedy) {
-      this.allowRemedy = allowRemedy;
-      return this;
+    public String[] getExceptUserIds() {
+        return this.exceptUserIds;
     }
 
-
-    /**
-     * 是否限制补卡次数
-     * <p> 示例值：true
-     *
-     * @param remedyLimit
-     * @return
-     */
-    public Builder remedyLimit(Boolean remedyLimit) {
-      this.remedyLimit = remedyLimit;
-      return this;
+    public void setExceptUserIds(String[] exceptUserIds) {
+        this.exceptUserIds = exceptUserIds;
     }
 
-
-    /**
-     * 补卡次数
-     * <p> 示例值：3
-     *
-     * @param remedyLimitCount
-     * @return
-     */
-    public Builder remedyLimitCount(Integer remedyLimitCount) {
-      this.remedyLimitCount = remedyLimitCount;
-      return this;
+    public String[] getGroupLeaderIds() {
+        return this.groupLeaderIds;
     }
 
-
-    /**
-     * 是否限制补卡时间
-     * <p> 示例值：true
-     *
-     * @param remedyDateLimit
-     * @return
-     */
-    public Builder remedyDateLimit(Boolean remedyDateLimit) {
-      this.remedyDateLimit = remedyDateLimit;
-      return this;
+    public void setGroupLeaderIds(String[] groupLeaderIds) {
+        this.groupLeaderIds = groupLeaderIds;
     }
 
-
-    /**
-     * 补卡时间，几天内补卡
-     * <p> 示例值：3
-     *
-     * @param remedyDateNum
-     * @return
-     */
-    public Builder remedyDateNum(Integer remedyDateNum) {
-      this.remedyDateNum = remedyDateNum;
-      return this;
+    public String[] getSubGroupLeaderIds() {
+        return this.subGroupLeaderIds;
     }
 
-
-    /**
-     * 允许缺卡补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param allowRemedyTypeLack
-     * @return
-     */
-    public Builder allowRemedyTypeLack(Boolean allowRemedyTypeLack) {
-      this.allowRemedyTypeLack = allowRemedyTypeLack;
-      return this;
+    public void setSubGroupLeaderIds(String[] subGroupLeaderIds) {
+        this.subGroupLeaderIds = subGroupLeaderIds;
     }
 
-
-    /**
-     * 允许迟到补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param allowRemedyTypeLate
-     * @return
-     */
-    public Builder allowRemedyTypeLate(Boolean allowRemedyTypeLate) {
-      this.allowRemedyTypeLate = allowRemedyTypeLate;
-      return this;
+    public Boolean getAllowOutPunch() {
+        return this.allowOutPunch;
     }
 
-
-    /**
-     * 允许早退补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param allowRemedyTypeEarly
-     * @return
-     */
-    public Builder allowRemedyTypeEarly(Boolean allowRemedyTypeEarly) {
-      this.allowRemedyTypeEarly = allowRemedyTypeEarly;
-      return this;
+    public void setAllowOutPunch(Boolean allowOutPunch) {
+        this.allowOutPunch = allowOutPunch;
     }
 
-
-    /**
-     * 允许正常补卡（需要允许补卡才能设置生效）
-     * <p> 示例值：true
-     *
-     * @param allowRemedyTypeNormal
-     * @return
-     */
-    public Builder allowRemedyTypeNormal(Boolean allowRemedyTypeNormal) {
-      this.allowRemedyTypeNormal = allowRemedyTypeNormal;
-      return this;
+    public Boolean getOutPunchNeedApproval() {
+        return this.outPunchNeedApproval;
     }
 
-
-    /**
-     * 是否展示累计时长
-     * <p> 示例值：true
-     *
-     * @param showCumulativeTime
-     * @return
-     */
-    public Builder showCumulativeTime(Boolean showCumulativeTime) {
-      this.showCumulativeTime = showCumulativeTime;
-      return this;
+    public void setOutPunchNeedApproval(Boolean outPunchNeedApproval) {
+        this.outPunchNeedApproval = outPunchNeedApproval;
     }
 
-
-    /**
-     * 是否展示加班时长
-     * <p> 示例值：true
-     *
-     * @param showOverTime
-     * @return
-     */
-    public Builder showOverTime(Boolean showOverTime) {
-      this.showOverTime = showOverTime;
-      return this;
+    public Boolean getOutPunchNeedRemark() {
+        return this.outPunchNeedRemark;
     }
 
-
-    /**
-     * 是否隐藏员工打卡详情
-     * <p> 示例值：true
-     *
-     * @param hideStaffPunchTime
-     * @return
-     */
-    public Builder hideStaffPunchTime(Boolean hideStaffPunchTime) {
-      this.hideStaffPunchTime = hideStaffPunchTime;
-      return this;
+    public void setOutPunchNeedRemark(Boolean outPunchNeedRemark) {
+        this.outPunchNeedRemark = outPunchNeedRemark;
     }
 
-
-    /**
-     * 是否开启人脸识别打卡
-     * <p> 示例值：true
-     *
-     * @param facePunch
-     * @return
-     */
-    public Builder facePunch(Boolean facePunch) {
-      this.facePunch = facePunch;
-      return this;
+    public Boolean getOutPunchNeedPhoto() {
+        return this.outPunchNeedPhoto;
     }
 
-
-    /**
-     * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
-     * <p> 示例值：1
-     *
-     * @param facePunchCfg
-     * @return
-     */
-    public Builder facePunchCfg(Integer facePunchCfg) {
-      this.facePunchCfg = facePunchCfg;
-      return this;
+    public void setOutPunchNeedPhoto(Boolean outPunchNeedPhoto) {
+        this.outPunchNeedPhoto = outPunchNeedPhoto;
     }
 
-
-    /**
-     * 人脸识别失败时是否允许普通拍照打卡
-     * <p> 示例值：true
-     *
-     * @param faceDowngrade
-     * @return
-     */
-    public Builder faceDowngrade(Boolean faceDowngrade) {
-      this.faceDowngrade = faceDowngrade;
-      return this;
+    public Boolean getOutPunchAllowedHideAddr() {
+        return this.outPunchAllowedHideAddr;
     }
 
-
-    /**
-     * 人脸识别失败时是否允许替换基准图片
-     * <p> 示例值：true
-     *
-     * @param replaceBasicPic
-     * @return
-     */
-    public Builder replaceBasicPic(Boolean replaceBasicPic) {
-      this.replaceBasicPic = replaceBasicPic;
-      return this;
+    public void setOutPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
+        this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
     }
 
-
-    /**
-     * 考勤机列表
-     * <p> 示例值：
-     *
-     * @param machines
-     * @return
-     */
-    public Builder machines(Machine[] machines) {
-      this.machines = machines;
-      return this;
+    public Boolean getAllowPcPunch() {
+        return this.allowPcPunch;
     }
 
-
-    /**
-     * GPS 打卡的有效范围（不建议使用）
-     * <p> 示例值：300
-     *
-     * @param gpsRange
-     * @return
-     */
-    public Builder gpsRange(Integer gpsRange) {
-      this.gpsRange = gpsRange;
-      return this;
+    public void setAllowPcPunch(Boolean allowPcPunch) {
+        this.allowPcPunch = allowPcPunch;
     }
 
-
-    /**
-     * 地址列表
-     * <p> 示例值：
-     *
-     * @param locations
-     * @return
-     */
-    public Builder locations(Location[] locations) {
-      this.locations = locations;
-      return this;
+    public Boolean getAllowRemedy() {
+        return this.allowRemedy;
     }
 
-
-    /**
-     * 考勤类型，0：固定班制，2：排班制， 3：自由班制
-     * <p> 示例值：0
-     *
-     * @param groupType
-     * @return
-     */
-    public Builder groupType(Integer groupType) {
-      this.groupType = groupType;
-      return this;
+    public void setAllowRemedy(Boolean allowRemedy) {
+        this.allowRemedy = allowRemedy;
     }
 
-
-    /**
-     * 固定班制必须填
-     * <p> 示例值：6921319402260496386
-     *
-     * @param punchDayShiftIds
-     * @return
-     */
-    public Builder punchDayShiftIds(String[] punchDayShiftIds) {
-      this.punchDayShiftIds = punchDayShiftIds;
-      return this;
+    public Boolean getRemedyLimit() {
+        return this.remedyLimit;
     }
 
-
-    /**
-     * 配置自由班制
-     * <p> 示例值：
-     *
-     * @param freePunchCfg
-     * @return
-     */
-    public Builder freePunchCfg(FreePunchCfg freePunchCfg) {
-      this.freePunchCfg = freePunchCfg;
-      return this;
+    public void setRemedyLimit(Boolean remedyLimit) {
+        this.remedyLimit = remedyLimit;
     }
 
-
-    /**
-     * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
-     * <p> 示例值：1
-     *
-     * @param calendarId
-     * @return
-     */
-    public Builder calendarId(Integer calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public Integer getRemedyLimitCount() {
+        return this.remedyLimitCount;
     }
 
-
-    /**
-     * 必须打卡的特殊日期
-     * <p> 示例值：
-     *
-     * @param needPunchSpecialDays
-     * @return
-     */
-    public Builder needPunchSpecialDays(PunchSpecialDateShift[] needPunchSpecialDays) {
-      this.needPunchSpecialDays = needPunchSpecialDays;
-      return this;
+    public void setRemedyLimitCount(Integer remedyLimitCount) {
+        this.remedyLimitCount = remedyLimitCount;
     }
 
-
-    /**
-     * 无需打卡的特殊日期
-     * <p> 示例值：
-     *
-     * @param noNeedPunchSpecialDays
-     * @return
-     */
-    public Builder noNeedPunchSpecialDays(PunchSpecialDateShift[] noNeedPunchSpecialDays) {
-      this.noNeedPunchSpecialDays = noNeedPunchSpecialDays;
-      return this;
+    public Boolean getRemedyDateLimit() {
+        return this.remedyDateLimit;
     }
 
-
-    /**
-     * 自由班制下工作日不打卡是否记为缺卡
-     * <p> 示例值：true
-     *
-     * @param workDayNoPunchAsLack
-     * @return
-     */
-    public Builder workDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
-      this.workDayNoPunchAsLack = workDayNoPunchAsLack;
-      return this;
+    public void setRemedyDateLimit(Boolean remedyDateLimit) {
+        this.remedyDateLimit = remedyDateLimit;
     }
 
-
-    /**
-     * 是否立即生效，默认 false
-     * <p> 示例值：true
-     *
-     * @param effectNow
-     * @return
-     */
-    public Builder effectNow(Boolean effectNow) {
-      this.effectNow = effectNow;
-      return this;
+    public Integer getRemedyDateNum() {
+        return this.remedyDateNum;
     }
 
-
-    /**
-     * 补卡周期类型
-     * <p> 示例值：0
-     *
-     * @param remedyPeriodType
-     * @return
-     */
-    public Builder remedyPeriodType(Integer remedyPeriodType) {
-      this.remedyPeriodType = remedyPeriodType;
-      return this;
+    public void setRemedyDateNum(Integer remedyDateNum) {
+        this.remedyDateNum = remedyDateNum;
     }
 
-
-    /**
-     * 补卡自定义周期起始日期
-     * <p> 示例值：1
-     *
-     * @param remedyPeriodCustomDate
-     * @return
-     */
-    public Builder remedyPeriodCustomDate(Integer remedyPeriodCustomDate) {
-      this.remedyPeriodCustomDate = remedyPeriodCustomDate;
-      return this;
+    public Boolean getAllowRemedyTypeLack() {
+        return this.allowRemedyTypeLack;
     }
 
-
-    /**
-     * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
-     * <p> 示例值：1
-     *
-     * @param punchType
-     * @return
-     */
-    public Builder punchType(Integer punchType) {
-      this.punchType = punchType;
-      return this;
+    public void setAllowRemedyTypeLack(Boolean allowRemedyTypeLack) {
+        this.allowRemedyTypeLack = allowRemedyTypeLack;
     }
 
-
-    /**
-     * 生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     *
-     * @param effectTime
-     * @return
-     */
-    public Builder effectTime(String effectTime) {
-      this.effectTime = effectTime;
-      return this;
+    public Boolean getAllowRemedyTypeLate() {
+        return this.allowRemedyTypeLate;
     }
 
-
-    /**
-     * 固定班次生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     *
-     * @param fixshiftEffectTime
-     * @return
-     */
-    public Builder fixshiftEffectTime(String fixshiftEffectTime) {
-      this.fixshiftEffectTime = fixshiftEffectTime;
-      return this;
+    public void setAllowRemedyTypeLate(Boolean allowRemedyTypeLate) {
+        this.allowRemedyTypeLate = allowRemedyTypeLate;
     }
 
-
-    /**
-     * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
-     * <p> 示例值：1611476284
-     *
-     * @param memberEffectTime
-     * @return
-     */
-    public Builder memberEffectTime(String memberEffectTime) {
-      this.memberEffectTime = memberEffectTime;
-      return this;
+    public Boolean getAllowRemedyTypeEarly() {
+        return this.allowRemedyTypeEarly;
     }
 
-
-    /**
-     * 休息日打卡需审批
-     * <p> 示例值：true
-     *
-     * @param restClockInNeedApproval
-     * @return
-     */
-    public Builder restClockInNeedApproval(Boolean restClockInNeedApproval) {
-      this.restClockInNeedApproval = restClockInNeedApproval;
-      return this;
+    public void setAllowRemedyTypeEarly(Boolean allowRemedyTypeEarly) {
+        this.allowRemedyTypeEarly = allowRemedyTypeEarly;
     }
 
-
-    /**
-     * 每次打卡均需拍照
-     * <p> 示例值：true
-     *
-     * @param clockInNeedPhoto
-     * @return
-     */
-    public Builder clockInNeedPhoto(Boolean clockInNeedPhoto) {
-      this.clockInNeedPhoto = clockInNeedPhoto;
-      return this;
+    public Boolean getAllowRemedyTypeNormal() {
+        return this.allowRemedyTypeNormal;
     }
 
-
-    public Group build() {
-      return new Group(this);
+    public void setAllowRemedyTypeNormal(Boolean allowRemedyTypeNormal) {
+        this.allowRemedyTypeNormal = allowRemedyTypeNormal;
     }
-  }
+
+    public Boolean getShowCumulativeTime() {
+        return this.showCumulativeTime;
+    }
+
+    public void setShowCumulativeTime(Boolean showCumulativeTime) {
+        this.showCumulativeTime = showCumulativeTime;
+    }
+
+    public Boolean getShowOverTime() {
+        return this.showOverTime;
+    }
+
+    public void setShowOverTime(Boolean showOverTime) {
+        this.showOverTime = showOverTime;
+    }
+
+    public Boolean getHideStaffPunchTime() {
+        return this.hideStaffPunchTime;
+    }
+
+    public void setHideStaffPunchTime(Boolean hideStaffPunchTime) {
+        this.hideStaffPunchTime = hideStaffPunchTime;
+    }
+
+    public Boolean getFacePunch() {
+        return this.facePunch;
+    }
+
+    public void setFacePunch(Boolean facePunch) {
+        this.facePunch = facePunch;
+    }
+
+    public Integer getFacePunchCfg() {
+        return this.facePunchCfg;
+    }
+
+    public void setFacePunchCfg(Integer facePunchCfg) {
+        this.facePunchCfg = facePunchCfg;
+    }
+
+    public Boolean getFaceDowngrade() {
+        return this.faceDowngrade;
+    }
+
+    public void setFaceDowngrade(Boolean faceDowngrade) {
+        this.faceDowngrade = faceDowngrade;
+    }
+
+    public Boolean getReplaceBasicPic() {
+        return this.replaceBasicPic;
+    }
+
+    public void setReplaceBasicPic(Boolean replaceBasicPic) {
+        this.replaceBasicPic = replaceBasicPic;
+    }
+
+    public Machine[] getMachines() {
+        return this.machines;
+    }
+
+    public void setMachines(Machine[] machines) {
+        this.machines = machines;
+    }
+
+    public Integer getGpsRange() {
+        return this.gpsRange;
+    }
+
+    public void setGpsRange(Integer gpsRange) {
+        this.gpsRange = gpsRange;
+    }
+
+    public Location[] getLocations() {
+        return this.locations;
+    }
+
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
+    }
+
+    public Integer getGroupType() {
+        return this.groupType;
+    }
+
+    public void setGroupType(Integer groupType) {
+        this.groupType = groupType;
+    }
+
+    public String[] getPunchDayShiftIds() {
+        return this.punchDayShiftIds;
+    }
+
+    public void setPunchDayShiftIds(String[] punchDayShiftIds) {
+        this.punchDayShiftIds = punchDayShiftIds;
+    }
+
+    public FreePunchCfg getFreePunchCfg() {
+        return this.freePunchCfg;
+    }
+
+    public void setFreePunchCfg(FreePunchCfg freePunchCfg) {
+        this.freePunchCfg = freePunchCfg;
+    }
+
+    public Integer getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(Integer calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    public PunchSpecialDateShift[] getNeedPunchSpecialDays() {
+        return this.needPunchSpecialDays;
+    }
+
+    public void setNeedPunchSpecialDays(PunchSpecialDateShift[] needPunchSpecialDays) {
+        this.needPunchSpecialDays = needPunchSpecialDays;
+    }
+
+    public PunchSpecialDateShift[] getNoNeedPunchSpecialDays() {
+        return this.noNeedPunchSpecialDays;
+    }
+
+    public void setNoNeedPunchSpecialDays(PunchSpecialDateShift[] noNeedPunchSpecialDays) {
+        this.noNeedPunchSpecialDays = noNeedPunchSpecialDays;
+    }
+
+    public Boolean getWorkDayNoPunchAsLack() {
+        return this.workDayNoPunchAsLack;
+    }
+
+    public void setWorkDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
+        this.workDayNoPunchAsLack = workDayNoPunchAsLack;
+    }
+
+    public Boolean getEffectNow() {
+        return this.effectNow;
+    }
+
+    public void setEffectNow(Boolean effectNow) {
+        this.effectNow = effectNow;
+    }
+
+    public Integer getRemedyPeriodType() {
+        return this.remedyPeriodType;
+    }
+
+    public void setRemedyPeriodType(Integer remedyPeriodType) {
+        this.remedyPeriodType = remedyPeriodType;
+    }
+
+    public Integer getRemedyPeriodCustomDate() {
+        return this.remedyPeriodCustomDate;
+    }
+
+    public void setRemedyPeriodCustomDate(Integer remedyPeriodCustomDate) {
+        this.remedyPeriodCustomDate = remedyPeriodCustomDate;
+    }
+
+    public Integer getPunchType() {
+        return this.punchType;
+    }
+
+    public void setPunchType(Integer punchType) {
+        this.punchType = punchType;
+    }
+
+    public String getEffectTime() {
+        return this.effectTime;
+    }
+
+    public void setEffectTime(String effectTime) {
+        this.effectTime = effectTime;
+    }
+
+    public String getFixshiftEffectTime() {
+        return this.fixshiftEffectTime;
+    }
+
+    public void setFixshiftEffectTime(String fixshiftEffectTime) {
+        this.fixshiftEffectTime = fixshiftEffectTime;
+    }
+
+    public String getMemberEffectTime() {
+        return this.memberEffectTime;
+    }
+
+    public void setMemberEffectTime(String memberEffectTime) {
+        this.memberEffectTime = memberEffectTime;
+    }
+
+    public Boolean getRestClockInNeedApproval() {
+        return this.restClockInNeedApproval;
+    }
+
+    public void setRestClockInNeedApproval(Boolean restClockInNeedApproval) {
+        this.restClockInNeedApproval = restClockInNeedApproval;
+    }
+
+    public Boolean getClockInNeedPhoto() {
+        return this.clockInNeedPhoto;
+    }
+
+    public void setClockInNeedPhoto(Boolean clockInNeedPhoto) {
+        this.clockInNeedPhoto = clockInNeedPhoto;
+    }
+
+    public static class Builder {
+        /**
+         * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
+         * <p> 示例值：6919358128597097404
+         */
+        private String groupId;
+        /**
+         * 考勤组名称
+         * <p> 示例值：开心考勤
+         */
+        private String groupName;
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        private String timeZone;
+        /**
+         * 绑定的部门 ID
+         * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
+         */
+        private String[] bindDeptIds;
+        /**
+         * 排除的部门 ID
+         * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
+         */
+        private String[] exceptDeptIds;
+        /**
+         * 绑定的用户 ID
+         * <p> 示例值：52aa1fa1
+         */
+        private String[] bindUserIds;
+        /**
+         * 排除的用户 ID
+         * <p> 示例值：52aa1fa1
+         */
+        private String[] exceptUserIds;
+        /**
+         * 考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）
+         * <p> 示例值：2bg4a9be
+         */
+        private String[] groupLeaderIds;
+        /**
+         * 考勤子负责人 ID 列表
+         * <p> 示例值：52aa1fa1
+         */
+        private String[] subGroupLeaderIds;
+        /**
+         * 是否允许外勤打卡
+         * <p> 示例值：true
+         */
+        private Boolean allowOutPunch;
+        /**
+         * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean outPunchNeedApproval;
+        /**
+         * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean outPunchNeedRemark;
+        /**
+         * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean outPunchNeedPhoto;
+        /**
+         * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean outPunchAllowedHideAddr;
+        /**
+         * 是否允许 PC 端打卡
+         * <p> 示例值：true
+         */
+        private Boolean allowPcPunch;
+        /**
+         * 是否限制补卡
+         * <p> 示例值：true
+         */
+        private Boolean allowRemedy;
+        /**
+         * 是否限制补卡次数
+         * <p> 示例值：true
+         */
+        private Boolean remedyLimit;
+        /**
+         * 补卡次数
+         * <p> 示例值：3
+         */
+        private Integer remedyLimitCount;
+        /**
+         * 是否限制补卡时间
+         * <p> 示例值：true
+         */
+        private Boolean remedyDateLimit;
+        /**
+         * 补卡时间，几天内补卡
+         * <p> 示例值：3
+         */
+        private Integer remedyDateNum;
+        /**
+         * 允许缺卡补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean allowRemedyTypeLack;
+        /**
+         * 允许迟到补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean allowRemedyTypeLate;
+        /**
+         * 允许早退补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean allowRemedyTypeEarly;
+        /**
+         * 允许正常补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean allowRemedyTypeNormal;
+        /**
+         * 是否展示累计时长
+         * <p> 示例值：true
+         */
+        private Boolean showCumulativeTime;
+        /**
+         * 是否展示加班时长
+         * <p> 示例值：true
+         */
+        private Boolean showOverTime;
+        /**
+         * 是否隐藏员工打卡详情
+         * <p> 示例值：true
+         */
+        private Boolean hideStaffPunchTime;
+        /**
+         * 是否开启人脸识别打卡
+         * <p> 示例值：true
+         */
+        private Boolean facePunch;
+        /**
+         * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
+         * <p> 示例值：1
+         */
+        private Integer facePunchCfg;
+        /**
+         * 人脸识别失败时是否允许普通拍照打卡
+         * <p> 示例值：true
+         */
+        private Boolean faceDowngrade;
+        /**
+         * 人脸识别失败时是否允许替换基准图片
+         * <p> 示例值：true
+         */
+        private Boolean replaceBasicPic;
+        /**
+         * 考勤机列表
+         * <p> 示例值：
+         */
+        private Machine[] machines;
+        /**
+         * GPS 打卡的有效范围（不建议使用）
+         * <p> 示例值：300
+         */
+        private Integer gpsRange;
+        /**
+         * 地址列表
+         * <p> 示例值：
+         */
+        private Location[] locations;
+        /**
+         * 考勤类型，0：固定班制，2：排班制， 3：自由班制
+         * <p> 示例值：0
+         */
+        private Integer groupType;
+        /**
+         * 固定班制必须填
+         * <p> 示例值：6921319402260496386
+         */
+        private String[] punchDayShiftIds;
+        /**
+         * 配置自由班制
+         * <p> 示例值：
+         */
+        private FreePunchCfg freePunchCfg;
+        /**
+         * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
+         * <p> 示例值：1
+         */
+        private Integer calendarId;
+        /**
+         * 必须打卡的特殊日期
+         * <p> 示例值：
+         */
+        private PunchSpecialDateShift[] needPunchSpecialDays;
+        /**
+         * 无需打卡的特殊日期
+         * <p> 示例值：
+         */
+        private PunchSpecialDateShift[] noNeedPunchSpecialDays;
+        /**
+         * 自由班制下工作日不打卡是否记为缺卡
+         * <p> 示例值：true
+         */
+        private Boolean workDayNoPunchAsLack;
+        /**
+         * 是否立即生效，默认 false
+         * <p> 示例值：true
+         */
+        private Boolean effectNow;
+        /**
+         * 补卡周期类型
+         * <p> 示例值：0
+         */
+        private Integer remedyPeriodType;
+        /**
+         * 补卡自定义周期起始日期
+         * <p> 示例值：1
+         */
+        private Integer remedyPeriodCustomDate;
+        /**
+         * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
+         * <p> 示例值：1
+         */
+        private Integer punchType;
+        /**
+         * 生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         */
+        private String effectTime;
+        /**
+         * 固定班次生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         */
+        private String fixshiftEffectTime;
+        /**
+         * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         */
+        private String memberEffectTime;
+        /**
+         * 休息日打卡需审批
+         * <p> 示例值：true
+         */
+        private Boolean restClockInNeedApproval;
+        /**
+         * 每次打卡均需拍照
+         * <p> 示例值：true
+         */
+        private Boolean clockInNeedPhoto;
+
+        /**
+         * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
+         * <p> 示例值：6919358128597097404
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+
+        /**
+         * 考勤组名称
+         * <p> 示例值：开心考勤
+         *
+         * @param groupName
+         * @return
+         */
+        public Builder groupName(String groupName) {
+            this.groupName = groupName;
+            return this;
+        }
+
+
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
+            return this;
+        }
+
+
+        /**
+         * 绑定的部门 ID
+         * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
+         *
+         * @param bindDeptIds
+         * @return
+         */
+        public Builder bindDeptIds(String[] bindDeptIds) {
+            this.bindDeptIds = bindDeptIds;
+            return this;
+        }
+
+
+        /**
+         * 排除的部门 ID
+         * <p> 示例值：od-fcb45c28a45311afd440b7869541fce8
+         *
+         * @param exceptDeptIds
+         * @return
+         */
+        public Builder exceptDeptIds(String[] exceptDeptIds) {
+            this.exceptDeptIds = exceptDeptIds;
+            return this;
+        }
+
+
+        /**
+         * 绑定的用户 ID
+         * <p> 示例值：52aa1fa1
+         *
+         * @param bindUserIds
+         * @return
+         */
+        public Builder bindUserIds(String[] bindUserIds) {
+            this.bindUserIds = bindUserIds;
+            return this;
+        }
+
+
+        /**
+         * 排除的用户 ID
+         * <p> 示例值：52aa1fa1
+         *
+         * @param exceptUserIds
+         * @return
+         */
+        public Builder exceptUserIds(String[] exceptUserIds) {
+            this.exceptUserIds = exceptUserIds;
+            return this;
+        }
+
+
+        /**
+         * 考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）
+         * <p> 示例值：2bg4a9be
+         *
+         * @param groupLeaderIds
+         * @return
+         */
+        public Builder groupLeaderIds(String[] groupLeaderIds) {
+            this.groupLeaderIds = groupLeaderIds;
+            return this;
+        }
+
+
+        /**
+         * 考勤子负责人 ID 列表
+         * <p> 示例值：52aa1fa1
+         *
+         * @param subGroupLeaderIds
+         * @return
+         */
+        public Builder subGroupLeaderIds(String[] subGroupLeaderIds) {
+            this.subGroupLeaderIds = subGroupLeaderIds;
+            return this;
+        }
+
+
+        /**
+         * 是否允许外勤打卡
+         * <p> 示例值：true
+         *
+         * @param allowOutPunch
+         * @return
+         */
+        public Builder allowOutPunch(Boolean allowOutPunch) {
+            this.allowOutPunch = allowOutPunch;
+            return this;
+        }
+
+
+        /**
+         * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param outPunchNeedApproval
+         * @return
+         */
+        public Builder outPunchNeedApproval(Boolean outPunchNeedApproval) {
+            this.outPunchNeedApproval = outPunchNeedApproval;
+            return this;
+        }
+
+
+        /**
+         * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param outPunchNeedRemark
+         * @return
+         */
+        public Builder outPunchNeedRemark(Boolean outPunchNeedRemark) {
+            this.outPunchNeedRemark = outPunchNeedRemark;
+            return this;
+        }
+
+
+        /**
+         * 外勤打卡需拍照（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param outPunchNeedPhoto
+         * @return
+         */
+        public Builder outPunchNeedPhoto(Boolean outPunchNeedPhoto) {
+            this.outPunchNeedPhoto = outPunchNeedPhoto;
+            return this;
+        }
+
+
+        /**
+         * 外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param outPunchAllowedHideAddr
+         * @return
+         */
+        public Builder outPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
+            this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
+            return this;
+        }
+
+
+        /**
+         * 是否允许 PC 端打卡
+         * <p> 示例值：true
+         *
+         * @param allowPcPunch
+         * @return
+         */
+        public Builder allowPcPunch(Boolean allowPcPunch) {
+            this.allowPcPunch = allowPcPunch;
+            return this;
+        }
+
+
+        /**
+         * 是否限制补卡
+         * <p> 示例值：true
+         *
+         * @param allowRemedy
+         * @return
+         */
+        public Builder allowRemedy(Boolean allowRemedy) {
+            this.allowRemedy = allowRemedy;
+            return this;
+        }
+
+
+        /**
+         * 是否限制补卡次数
+         * <p> 示例值：true
+         *
+         * @param remedyLimit
+         * @return
+         */
+        public Builder remedyLimit(Boolean remedyLimit) {
+            this.remedyLimit = remedyLimit;
+            return this;
+        }
+
+
+        /**
+         * 补卡次数
+         * <p> 示例值：3
+         *
+         * @param remedyLimitCount
+         * @return
+         */
+        public Builder remedyLimitCount(Integer remedyLimitCount) {
+            this.remedyLimitCount = remedyLimitCount;
+            return this;
+        }
+
+
+        /**
+         * 是否限制补卡时间
+         * <p> 示例值：true
+         *
+         * @param remedyDateLimit
+         * @return
+         */
+        public Builder remedyDateLimit(Boolean remedyDateLimit) {
+            this.remedyDateLimit = remedyDateLimit;
+            return this;
+        }
+
+
+        /**
+         * 补卡时间，几天内补卡
+         * <p> 示例值：3
+         *
+         * @param remedyDateNum
+         * @return
+         */
+        public Builder remedyDateNum(Integer remedyDateNum) {
+            this.remedyDateNum = remedyDateNum;
+            return this;
+        }
+
+
+        /**
+         * 允许缺卡补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param allowRemedyTypeLack
+         * @return
+         */
+        public Builder allowRemedyTypeLack(Boolean allowRemedyTypeLack) {
+            this.allowRemedyTypeLack = allowRemedyTypeLack;
+            return this;
+        }
+
+
+        /**
+         * 允许迟到补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param allowRemedyTypeLate
+         * @return
+         */
+        public Builder allowRemedyTypeLate(Boolean allowRemedyTypeLate) {
+            this.allowRemedyTypeLate = allowRemedyTypeLate;
+            return this;
+        }
+
+
+        /**
+         * 允许早退补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param allowRemedyTypeEarly
+         * @return
+         */
+        public Builder allowRemedyTypeEarly(Boolean allowRemedyTypeEarly) {
+            this.allowRemedyTypeEarly = allowRemedyTypeEarly;
+            return this;
+        }
+
+
+        /**
+         * 允许正常补卡（需要允许补卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param allowRemedyTypeNormal
+         * @return
+         */
+        public Builder allowRemedyTypeNormal(Boolean allowRemedyTypeNormal) {
+            this.allowRemedyTypeNormal = allowRemedyTypeNormal;
+            return this;
+        }
+
+
+        /**
+         * 是否展示累计时长
+         * <p> 示例值：true
+         *
+         * @param showCumulativeTime
+         * @return
+         */
+        public Builder showCumulativeTime(Boolean showCumulativeTime) {
+            this.showCumulativeTime = showCumulativeTime;
+            return this;
+        }
+
+
+        /**
+         * 是否展示加班时长
+         * <p> 示例值：true
+         *
+         * @param showOverTime
+         * @return
+         */
+        public Builder showOverTime(Boolean showOverTime) {
+            this.showOverTime = showOverTime;
+            return this;
+        }
+
+
+        /**
+         * 是否隐藏员工打卡详情
+         * <p> 示例值：true
+         *
+         * @param hideStaffPunchTime
+         * @return
+         */
+        public Builder hideStaffPunchTime(Boolean hideStaffPunchTime) {
+            this.hideStaffPunchTime = hideStaffPunchTime;
+            return this;
+        }
+
+
+        /**
+         * 是否开启人脸识别打卡
+         * <p> 示例值：true
+         *
+         * @param facePunch
+         * @return
+         */
+        public Builder facePunch(Boolean facePunch) {
+            this.facePunch = facePunch;
+            return this;
+        }
+
+
+        /**
+         * 人脸识别打卡规则，1：每次打卡均需人脸识别，2：疑似作弊打卡时需要人脸识别
+         * <p> 示例值：1
+         *
+         * @param facePunchCfg
+         * @return
+         */
+        public Builder facePunchCfg(Integer facePunchCfg) {
+            this.facePunchCfg = facePunchCfg;
+            return this;
+        }
+
+
+        /**
+         * 人脸识别失败时是否允许普通拍照打卡
+         * <p> 示例值：true
+         *
+         * @param faceDowngrade
+         * @return
+         */
+        public Builder faceDowngrade(Boolean faceDowngrade) {
+            this.faceDowngrade = faceDowngrade;
+            return this;
+        }
+
+
+        /**
+         * 人脸识别失败时是否允许替换基准图片
+         * <p> 示例值：true
+         *
+         * @param replaceBasicPic
+         * @return
+         */
+        public Builder replaceBasicPic(Boolean replaceBasicPic) {
+            this.replaceBasicPic = replaceBasicPic;
+            return this;
+        }
+
+
+        /**
+         * 考勤机列表
+         * <p> 示例值：
+         *
+         * @param machines
+         * @return
+         */
+        public Builder machines(Machine[] machines) {
+            this.machines = machines;
+            return this;
+        }
+
+
+        /**
+         * GPS 打卡的有效范围（不建议使用）
+         * <p> 示例值：300
+         *
+         * @param gpsRange
+         * @return
+         */
+        public Builder gpsRange(Integer gpsRange) {
+            this.gpsRange = gpsRange;
+            return this;
+        }
+
+
+        /**
+         * 地址列表
+         * <p> 示例值：
+         *
+         * @param locations
+         * @return
+         */
+        public Builder locations(Location[] locations) {
+            this.locations = locations;
+            return this;
+        }
+
+
+        /**
+         * 考勤类型，0：固定班制，2：排班制， 3：自由班制
+         * <p> 示例值：0
+         *
+         * @param groupType
+         * @return
+         */
+        public Builder groupType(Integer groupType) {
+            this.groupType = groupType;
+            return this;
+        }
+
+
+        /**
+         * 固定班制必须填
+         * <p> 示例值：6921319402260496386
+         *
+         * @param punchDayShiftIds
+         * @return
+         */
+        public Builder punchDayShiftIds(String[] punchDayShiftIds) {
+            this.punchDayShiftIds = punchDayShiftIds;
+            return this;
+        }
+
+
+        /**
+         * 配置自由班制
+         * <p> 示例值：
+         *
+         * @param freePunchCfg
+         * @return
+         */
+        public Builder freePunchCfg(FreePunchCfg freePunchCfg) {
+            this.freePunchCfg = freePunchCfg;
+            return this;
+        }
+
+
+        /**
+         * 国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1
+         * <p> 示例值：1
+         *
+         * @param calendarId
+         * @return
+         */
+        public Builder calendarId(Integer calendarId) {
+            this.calendarId = calendarId;
+            return this;
+        }
+
+
+        /**
+         * 必须打卡的特殊日期
+         * <p> 示例值：
+         *
+         * @param needPunchSpecialDays
+         * @return
+         */
+        public Builder needPunchSpecialDays(PunchSpecialDateShift[] needPunchSpecialDays) {
+            this.needPunchSpecialDays = needPunchSpecialDays;
+            return this;
+        }
+
+
+        /**
+         * 无需打卡的特殊日期
+         * <p> 示例值：
+         *
+         * @param noNeedPunchSpecialDays
+         * @return
+         */
+        public Builder noNeedPunchSpecialDays(PunchSpecialDateShift[] noNeedPunchSpecialDays) {
+            this.noNeedPunchSpecialDays = noNeedPunchSpecialDays;
+            return this;
+        }
+
+
+        /**
+         * 自由班制下工作日不打卡是否记为缺卡
+         * <p> 示例值：true
+         *
+         * @param workDayNoPunchAsLack
+         * @return
+         */
+        public Builder workDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
+            this.workDayNoPunchAsLack = workDayNoPunchAsLack;
+            return this;
+        }
+
+
+        /**
+         * 是否立即生效，默认 false
+         * <p> 示例值：true
+         *
+         * @param effectNow
+         * @return
+         */
+        public Builder effectNow(Boolean effectNow) {
+            this.effectNow = effectNow;
+            return this;
+        }
+
+
+        /**
+         * 补卡周期类型
+         * <p> 示例值：0
+         *
+         * @param remedyPeriodType
+         * @return
+         */
+        public Builder remedyPeriodType(Integer remedyPeriodType) {
+            this.remedyPeriodType = remedyPeriodType;
+            return this;
+        }
+
+
+        /**
+         * 补卡自定义周期起始日期
+         * <p> 示例值：1
+         *
+         * @param remedyPeriodCustomDate
+         * @return
+         */
+        public Builder remedyPeriodCustomDate(Integer remedyPeriodCustomDate) {
+            this.remedyPeriodCustomDate = remedyPeriodCustomDate;
+            return this;
+        }
+
+
+        /**
+         * 打卡类型，位运算。1：GPS 打卡，2：Wi-Fi 打卡，4：考勤机打卡，8：IP 打卡
+         * <p> 示例值：1
+         *
+         * @param punchType
+         * @return
+         */
+        public Builder punchType(Integer punchType) {
+            this.punchType = punchType;
+            return this;
+        }
+
+
+        /**
+         * 生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         *
+         * @param effectTime
+         * @return
+         */
+        public Builder effectTime(String effectTime) {
+            this.effectTime = effectTime;
+            return this;
+        }
+
+
+        /**
+         * 固定班次生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         *
+         * @param fixshiftEffectTime
+         * @return
+         */
+        public Builder fixshiftEffectTime(String fixshiftEffectTime) {
+            this.fixshiftEffectTime = fixshiftEffectTime;
+            return this;
+        }
+
+
+        /**
+         * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+         * <p> 示例值：1611476284
+         *
+         * @param memberEffectTime
+         * @return
+         */
+        public Builder memberEffectTime(String memberEffectTime) {
+            this.memberEffectTime = memberEffectTime;
+            return this;
+        }
+
+
+        /**
+         * 休息日打卡需审批
+         * <p> 示例值：true
+         *
+         * @param restClockInNeedApproval
+         * @return
+         */
+        public Builder restClockInNeedApproval(Boolean restClockInNeedApproval) {
+            this.restClockInNeedApproval = restClockInNeedApproval;
+            return this;
+        }
+
+
+        /**
+         * 每次打卡均需拍照
+         * <p> 示例值：true
+         *
+         * @param clockInNeedPhoto
+         * @return
+         */
+        public Builder clockInNeedPhoto(Boolean clockInNeedPhoto) {
+            this.clockInNeedPhoto = clockInNeedPhoto;
+            return this;
+        }
+
+
+        public Group build() {
+            return new Group(this);
+        }
+    }
 }

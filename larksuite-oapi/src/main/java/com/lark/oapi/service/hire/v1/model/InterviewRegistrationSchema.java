@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InterviewRegistrationSchema {
-
-  /**
-   * 面试登记表模板 ID
-   * <p> 示例值：7044739584859326764
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 面试登记表模板名称
-   * <p> 示例值：默认面试登记表
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 是否用作面试登记表
-   * <p> 示例值：true
-   */
-  @SerializedName("is_used_as_interview")
-  private Boolean isUsedAsInterview;
-  /**
-   * 模块列表
-   * <p> 示例值：
-   */
-  @SerializedName("object_list")
-  private CommonSchema[] objectList;
-
-  // builder 开始
-  public InterviewRegistrationSchema() {
-  }
-
-  public InterviewRegistrationSchema(Builder builder) {
     /**
      * 面试登记表模板 ID
      * <p> 示例值：7044739584859326764
      */
-    this.id = builder.id;
-    /**
-     * 面试登记表模板名称
-     * <p> 示例值：默认面试登记表
-     */
-    this.name = builder.name;
-    /**
-     * 是否用作面试登记表
-     * <p> 示例值：true
-     */
-    this.isUsedAsInterview = builder.isUsedAsInterview;
-    /**
-     * 模块列表
-     * <p> 示例值：
-     */
-    this.objectList = builder.objectList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Boolean getIsUsedAsInterview() {
-    return this.isUsedAsInterview;
-  }
-
-  public void setIsUsedAsInterview(Boolean isUsedAsInterview) {
-    this.isUsedAsInterview = isUsedAsInterview;
-  }
-
-  public CommonSchema[] getObjectList() {
-    return this.objectList;
-  }
-
-  public void setObjectList(CommonSchema[] objectList) {
-    this.objectList = objectList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试登记表模板 ID
-     * <p> 示例值：7044739584859326764
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 面试登记表模板名称
      * <p> 示例值：默认面试登记表
      */
+    @SerializedName("name")
     private String name;
     /**
      * 是否用作面试登记表
      * <p> 示例值：true
      */
+    @SerializedName("is_used_as_interview")
     private Boolean isUsedAsInterview;
     /**
      * 模块列表
      * <p> 示例值：
      */
+    @SerializedName("object_list")
     private CommonSchema[] objectList;
 
-    /**
-     * 面试登记表模板 ID
-     * <p> 示例值：7044739584859326764
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public InterviewRegistrationSchema() {
     }
 
-
-    /**
-     * 面试登记表模板名称
-     * <p> 示例值：默认面试登记表
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public InterviewRegistrationSchema(Builder builder) {
+        /**
+         * 面试登记表模板 ID
+         * <p> 示例值：7044739584859326764
+         */
+        this.id = builder.id;
+        /**
+         * 面试登记表模板名称
+         * <p> 示例值：默认面试登记表
+         */
+        this.name = builder.name;
+        /**
+         * 是否用作面试登记表
+         * <p> 示例值：true
+         */
+        this.isUsedAsInterview = builder.isUsedAsInterview;
+        /**
+         * 模块列表
+         * <p> 示例值：
+         */
+        this.objectList = builder.objectList;
     }
 
-
-    /**
-     * 是否用作面试登记表
-     * <p> 示例值：true
-     *
-     * @param isUsedAsInterview
-     * @return
-     */
-    public Builder isUsedAsInterview(Boolean isUsedAsInterview) {
-      this.isUsedAsInterview = isUsedAsInterview;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 模块列表
-     * <p> 示例值：
-     *
-     * @param objectList
-     * @return
-     */
-    public Builder objectList(CommonSchema[] objectList) {
-      this.objectList = objectList;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public InterviewRegistrationSchema build() {
-      return new InterviewRegistrationSchema(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsUsedAsInterview() {
+        return this.isUsedAsInterview;
+    }
+
+    public void setIsUsedAsInterview(Boolean isUsedAsInterview) {
+        this.isUsedAsInterview = isUsedAsInterview;
+    }
+
+    public CommonSchema[] getObjectList() {
+        return this.objectList;
+    }
+
+    public void setObjectList(CommonSchema[] objectList) {
+        this.objectList = objectList;
+    }
+
+    public static class Builder {
+        /**
+         * 面试登记表模板 ID
+         * <p> 示例值：7044739584859326764
+         */
+        private String id;
+        /**
+         * 面试登记表模板名称
+         * <p> 示例值：默认面试登记表
+         */
+        private String name;
+        /**
+         * 是否用作面试登记表
+         * <p> 示例值：true
+         */
+        private Boolean isUsedAsInterview;
+        /**
+         * 模块列表
+         * <p> 示例值：
+         */
+        private CommonSchema[] objectList;
+
+        /**
+         * 面试登记表模板 ID
+         * <p> 示例值：7044739584859326764
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 面试登记表模板名称
+         * <p> 示例值：默认面试登记表
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 是否用作面试登记表
+         * <p> 示例值：true
+         *
+         * @param isUsedAsInterview
+         * @return
+         */
+        public Builder isUsedAsInterview(Boolean isUsedAsInterview) {
+            this.isUsedAsInterview = isUsedAsInterview;
+            return this;
+        }
+
+
+        /**
+         * 模块列表
+         * <p> 示例值：
+         *
+         * @param objectList
+         * @return
+         */
+        public Builder objectList(CommonSchema[] objectList) {
+            this.objectList = objectList;
+            return this;
+        }
+
+
+        public InterviewRegistrationSchema build() {
+            return new InterviewRegistrationSchema(this);
+        }
+    }
 }

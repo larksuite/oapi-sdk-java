@@ -16,48 +16,47 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UploadPrepareMediaRespBody {
+    /**
+     * 分片上传事务ID
+     * <p> 示例值：7111211691345512356
+     */
+    @SerializedName("upload_id")
+    private String uploadId;
+    /**
+     * 分片大小策略
+     * <p> 示例值：4194304
+     */
+    @SerializedName("block_size")
+    private Integer blockSize;
+    /**
+     * 分片数量
+     * <p> 示例值：1
+     */
+    @SerializedName("block_num")
+    private Integer blockNum;
 
-  /**
-   * 分片上传事务ID
-   * <p> 示例值：7111211691345512356
-   */
-  @SerializedName("upload_id")
-  private String uploadId;
-  /**
-   * 分片大小策略
-   * <p> 示例值：4194304
-   */
-  @SerializedName("block_size")
-  private Integer blockSize;
-  /**
-   * 分片数量
-   * <p> 示例值：1
-   */
-  @SerializedName("block_num")
-  private Integer blockNum;
+    public String getUploadId() {
+        return this.uploadId;
+    }
 
-  public String getUploadId() {
-    return this.uploadId;
-  }
+    public void setUploadId(String uploadId) {
+        this.uploadId = uploadId;
+    }
 
-  public void setUploadId(String uploadId) {
-    this.uploadId = uploadId;
-  }
+    public Integer getBlockSize() {
+        return this.blockSize;
+    }
 
-  public Integer getBlockSize() {
-    return this.blockSize;
-  }
+    public void setBlockSize(Integer blockSize) {
+        this.blockSize = blockSize;
+    }
 
-  public void setBlockSize(Integer blockSize) {
-    this.blockSize = blockSize;
-  }
+    public Integer getBlockNum() {
+        return this.blockNum;
+    }
 
-  public Integer getBlockNum() {
-    return this.blockNum;
-  }
-
-  public void setBlockNum(Integer blockNum) {
-    this.blockNum = blockNum;
-  }
+    public void setBlockNum(Integer blockNum) {
+        this.blockNum = blockNum;
+    }
 
 }

@@ -15,16 +15,16 @@ package com.lark.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum CalActiveFlagEnum {
-  INACTIVE(0),
-  ACTIVE(1),
-  ;
-  private Integer value;
+    INACTIVE(0),
+    ACTIVE(1),
+    ;
+    private Integer value;
 
-  CalActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    CalActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

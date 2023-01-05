@@ -16,61 +16,59 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteAppTableRecordReqBody {
-
-  /**
-   * 删除的多条记录id列表
-   * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
-   */
-  @SerializedName("records")
-  private String[] records;
-
-  // builder 开始
-  public BatchDeleteAppTableRecordReqBody() {
-  }
-
-  public BatchDeleteAppTableRecordReqBody(Builder builder) {
     /**
      * 删除的多条记录id列表
      * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
      */
-    this.records = builder.records;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getRecords() {
-    return this.records;
-  }
-
-  public void setRecords(String[] records) {
-    this.records = records;
-  }
-
-  public static class Builder {
-
-    /**
-     * 删除的多条记录id列表
-     * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
-     */
+    @SerializedName("records")
     private String[] records;
 
-    /**
-     * 删除的多条记录id列表
-     * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
-     *
-     * @param records
-     * @return
-     */
-    public Builder records(String[] records) {
-      this.records = records;
-      return this;
+    // builder 开始
+    public BatchDeleteAppTableRecordReqBody() {
     }
 
-
-    public BatchDeleteAppTableRecordReqBody build() {
-      return new BatchDeleteAppTableRecordReqBody(this);
+    public BatchDeleteAppTableRecordReqBody(Builder builder) {
+        /**
+         * 删除的多条记录id列表
+         * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+         */
+        this.records = builder.records;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getRecords() {
+        return this.records;
+    }
+
+    public void setRecords(String[] records) {
+        this.records = records;
+    }
+
+    public static class Builder {
+        /**
+         * 删除的多条记录id列表
+         * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+         */
+        private String[] records;
+
+        /**
+         * 删除的多条记录id列表
+         * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+         *
+         * @param records
+         * @return
+         */
+        public Builder records(String[] records) {
+            this.records = records;
+            return this;
+        }
+
+
+        public BatchDeleteAppTableRecordReqBody build() {
+            return new BatchDeleteAppTableRecordReqBody(this);
+        }
+    }
 }

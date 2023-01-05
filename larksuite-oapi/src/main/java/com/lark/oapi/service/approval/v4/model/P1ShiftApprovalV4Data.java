@@ -16,116 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1ShiftApprovalV4Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("employee_id")
-  private String employeeId;
-  @SerializedName("start_time")
-  private long startTime;
-  @SerializedName("end_time")
-  private long endTime;
-  @SerializedName("shift_time")
-  private String shiftTime;
-  @SerializedName("return_time")
-  private String returnTime;
-  @SerializedName("shift_reason")
-  private String shiftReason;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("instance_code")
+    private String instanceCode;
+    @SerializedName("open_id")
+    private String openId;
+    @SerializedName("employee_id")
+    private String employeeId;
+    @SerializedName("start_time")
+    private long startTime;
+    @SerializedName("end_time")
+    private long endTime;
+    @SerializedName("shift_time")
+    private String shiftTime;
+    @SerializedName("return_time")
+    private String returnTime;
+    @SerializedName("shift_reason")
+    private String shiftReason;
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public String getInstanceCode() {
-    return instanceCode;
-  }
+    public String getInstanceCode() {
+        return instanceCode;
+    }
 
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
+    }
 
-  public String getOpenId() {
-    return openId;
-  }
+    public String getOpenId() {
+        return openId;
+    }
 
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
-  public String getEmployeeId() {
-    return employeeId;
-  }
+    public String getEmployeeId() {
+        return employeeId;
+    }
 
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
-  public long getStartTime() {
-    return startTime;
-  }
+    public long getStartTime() {
+        return startTime;
+    }
 
-  public void setStartTime(long startTime) {
-    this.startTime = startTime;
-  }
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 
-  public long getEndTime() {
-    return endTime;
-  }
+    public long getEndTime() {
+        return endTime;
+    }
 
-  public void setEndTime(long endTime) {
-    this.endTime = endTime;
-  }
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
 
-  public String getShiftTime() {
-    return shiftTime;
-  }
+    public String getShiftTime() {
+        return shiftTime;
+    }
 
-  public void setShiftTime(String shiftTime) {
-    this.shiftTime = shiftTime;
-  }
+    public void setShiftTime(String shiftTime) {
+        this.shiftTime = shiftTime;
+    }
 
-  public String getReturnTime() {
-    return returnTime;
-  }
+    public String getReturnTime() {
+        return returnTime;
+    }
 
-  public void setReturnTime(String returnTime) {
-    this.returnTime = returnTime;
-  }
+    public void setReturnTime(String returnTime) {
+        this.returnTime = returnTime;
+    }
 
-  public String getShiftReason() {
-    return shiftReason;
-  }
+    public String getShiftReason() {
+        return shiftReason;
+    }
 
-  public void setShiftReason(String shiftReason) {
-    this.shiftReason = shiftReason;
-  }
+    public void setShiftReason(String shiftReason) {
+        this.shiftReason = shiftReason;
+    }
 
 
 }

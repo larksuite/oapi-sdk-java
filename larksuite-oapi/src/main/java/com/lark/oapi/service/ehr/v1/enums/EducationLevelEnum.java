@@ -17,23 +17,23 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 学历
  */
 public enum EducationLevelEnum {
-  ELEMENTARY_SCHOOL(1), // 小学
-  MIDDLE_SCHOOL(2), // 初中
-  HIGH_SCHOOL(3), // 高中
-  VOCATIONAL_SCHOOL(4), // 职业高级中学
-  SECONDARY_SPECIALIZED_SCHOOL(5), // 中等专业学校
-  ASSOCIATE_DEGREE(6), // 大专
-  BACHELOR(7), // 本科
-  MASTER(8), // 硕士
-  DOCTOR(9), // 博士
-  ;
-  private Integer value;
+    ELEMENTARY_SCHOOL(1), // 小学
+    MIDDLE_SCHOOL(2), // 初中
+    HIGH_SCHOOL(3), // 高中
+    VOCATIONAL_SCHOOL(4), // 职业高级中学
+    SECONDARY_SPECIALIZED_SCHOOL(5), // 中等专业学校
+    ASSOCIATE_DEGREE(6), // 大专
+    BACHELOR(7), // 本科
+    MASTER(8), // 硕士
+    DOCTOR(9), // 博士
+    ;
+    private Integer value;
 
-  EducationLevelEnum(Integer value) {
-    this.value = value;
-  }
+    EducationLevelEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -15,21 +15,21 @@ package com.lark.oapi.service.hire.v1.model;
 
 public class TalentSchema {
 
-  // builder 开始
-  public TalentSchema() {
-  }
-
-  public TalentSchema(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public TalentSchema build() {
-      return new TalentSchema(this);
+    // builder 开始
+    public TalentSchema() {
     }
-  }
+
+    public TalentSchema(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public TalentSchema build() {
+            return new TalentSchema(this);
+        }
+    }
 }

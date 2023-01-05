@@ -16,61 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MentionUser {
-
-  /**
-   * 用户 OpenID
-   * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public MentionUser() {
-  }
-
-  public MentionUser(Builder builder) {
     /**
      * 用户 OpenID
      * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
      */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户 OpenID
-     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-     */
+    @SerializedName("user_id")
     private String userId;
-
     /**
-     * 用户 OpenID
-     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-     *
-     * @param userId
-     * @return
+     * 文本局部样式
+     * <p> 示例值：
      */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    @SerializedName("text_element_style")
+    private TextElementStyle textElementStyle;
+
+    // builder 开始
+    public MentionUser() {
     }
 
-
-    public MentionUser build() {
-      return new MentionUser(this);
+    public MentionUser(Builder builder) {
+        /**
+         * 用户 OpenID
+         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+         */
+        this.userId = builder.userId;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        this.textElementStyle = builder.textElementStyle;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public TextElementStyle getTextElementStyle() {
+        return this.textElementStyle;
+    }
+
+    public void setTextElementStyle(TextElementStyle textElementStyle) {
+        this.textElementStyle = textElementStyle;
+    }
+
+    public static class Builder {
+        /**
+         * 用户 OpenID
+         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+         */
+        private String userId;
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         */
+        private TextElementStyle textElementStyle;
+
+        /**
+         * 用户 OpenID
+         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 文本局部样式
+         * <p> 示例值：
+         *
+         * @param textElementStyle
+         * @return
+         */
+        public Builder textElementStyle(TextElementStyle textElementStyle) {
+            this.textElementStyle = textElementStyle;
+            return this;
+        }
+
+
+        public MentionUser build() {
+            return new MentionUser(this);
+        }
+    }
 }

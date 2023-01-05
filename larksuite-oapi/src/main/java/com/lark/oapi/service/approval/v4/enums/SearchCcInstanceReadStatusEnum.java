@@ -17,17 +17,17 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批抄送状态，注：若不在集合中，报错
  */
 public enum SearchCcInstanceReadStatusEnum {
-  READ("READ"), // 已读
-  UNREAD("UNREAD"), // 未读
-  ALL("ALL"), // 所有状态
-  ;
-  private String value;
+    READ("READ"), // 已读
+    UNREAD("UNREAD"), // 未读
+    ALL("ALL"), // 所有状态
+    ;
+    private String value;
 
-  SearchCcInstanceReadStatusEnum(String value) {
-    this.value = value;
-  }
+    SearchCcInstanceReadStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

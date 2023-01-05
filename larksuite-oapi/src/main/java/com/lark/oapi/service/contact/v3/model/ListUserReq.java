@@ -17,216 +17,212 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListUserReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 此次调用中使用的部门ID的类型
-   * <p> 示例值：open_department_type
-   */
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  /**
-   * 填写该字段表示获取部门下所有用户，选填。
-   * <p> 示例值：od-xxxxxxxxxxxxx
-   */
-  @Query
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS%2BJKiSIkdexPw=
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListUserReq() {
-  }
-
-  public ListUserReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_type
+     * <p> 示例值：
      */
-    this.departmentIdType = builder.departmentIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 填写该字段表示获取部门下所有用户，选填。
-     * <p> 示例值：od-xxxxxxxxxxxxx
-     */
-    this.departmentId = builder.departmentId;
-    /**
-     *
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS%2BJKiSIkdexPw=
-     */
-    this.pageToken = builder.pageToken;
-    /**
-     *
-     * <p> 示例值：10
-     */
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String departmentIdType; // 此次调用中使用的部门ID的类型
-    private String departmentId; // 填写该字段表示获取部门下所有用户，选填。
-    private String pageToken; //
-    private Integer pageSize; //
-
-
-    /**
-     * 此次调用中使用的用户ID的类型
      * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
      */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
+    @Query
+    @SerializedName("department_id")
+    private String departmentId;
     /**
-     * 此次调用中使用的用户ID的类型
      * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ListUserUserIdTypeEnum}
-     * @return
      */
-    public Builder userIdType(
-        com.lark.oapi.service.contact.v3.enums.ListUserUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_type
-     *
-     * @param departmentIdType
-     * @return
+     * <p> 示例值：
      */
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
+
+    // builder 开始
+    public ListUserReq() {
     }
 
-    /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_type
-     *
-     * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ListUserDepartmentIdTypeEnum}
-     * @return
-     */
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.ListUserDepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public ListUserReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 填写该字段表示获取部门下所有用户，选填。
+         * <p> 示例值：
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.pageSize = builder.pageSize;
     }
 
-
-    /**
-     * 填写该字段表示获取部门下所有用户，选填。
-     * <p> 示例值：od-xxxxxxxxxxxxx
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS%2BJKiSIkdexPw=
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    public ListUserReq build() {
-      return new ListUserReq(this);
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
     }
-  }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String departmentIdType; // 此次调用中使用的部门ID的类型
+        private String departmentId; // 填写该字段表示获取部门下所有用户，选填。
+        private String pageToken; //
+        private Integer pageSize; //
+
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ListUserUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.ListUserUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门ID的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ListUserDepartmentIdTypeEnum}
+         * @return
+         */
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ListUserDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 填写该字段表示获取部门下所有用户，选填。
+         * <p> 示例值：
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public ListUserReq build() {
+            return new ListUserReq(this);
+        }
+    }
 }

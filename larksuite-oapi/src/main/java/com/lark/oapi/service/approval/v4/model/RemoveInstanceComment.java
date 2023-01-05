@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class RemoveInstanceComment {
 
-  /**
-   * 审批实例code
-   * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
-   */
-  @SerializedName("instance_id")
-  private String instanceId;
-  /**
-   * 租户自定义审批实例ID
-   * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
-   */
-  @SerializedName("external_id")
-  private String externalId;
+    /**
+     * 审批实例code
+     * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     */
+    @SerializedName("instance_id")
+    private String instanceId;
+    /**
+     * 租户自定义审批实例ID
+     * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     */
+    @SerializedName("external_id")
+    private String externalId;
 
-  public String getInstanceId() {
-    return this.instanceId;
-  }
+    public String getInstanceId() {
+        return this.instanceId;
+    }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
 
-  public String getExternalId() {
-    return this.externalId;
-  }
+    public String getExternalId() {
+        return this.externalId;
+    }
 
-  public void setExternalId(String externalId) {
-    this.externalId = externalId;
-  }
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
 
 }

@@ -19,6 +19,7 @@ package com.lark.oapi.okhttp.internal.cache2;
 
 import com.lark.oapi.okio.Buffer;
 import com.lark.oapi.okio.Okio;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
@@ -37,41 +38,41 @@ import java.nio.channels.FileChannel;
  */
 final class FileOperator {
 
-  private final FileChannel fileChannel;
+    private final FileChannel fileChannel;
 
-  FileOperator(FileChannel fileChannel) {
-    this.fileChannel = fileChannel;
-  }
-
-  /**
-   * Write {@code byteCount} bytes from {@code source} to the file at {@code pos}.
-   */
-  public void write(long pos, Buffer source, long byteCount) throws IOException {
-    if (byteCount < 0 || byteCount > source.size()) {
-      throw new IndexOutOfBoundsException();
+    FileOperator(FileChannel fileChannel) {
+        this.fileChannel = fileChannel;
     }
 
-    while (byteCount > 0L) {
-      long bytesWritten = fileChannel.transferFrom(source, pos, byteCount);
-      pos += bytesWritten;
-      byteCount -= bytesWritten;
-    }
-  }
+    /**
+     * Write {@code byteCount} bytes from {@code source} to the file at {@code pos}.
+     */
+    public void write(long pos, Buffer source, long byteCount) throws IOException {
+        if (byteCount < 0 || byteCount > source.size()) {
+            throw new IndexOutOfBoundsException();
+        }
 
-  /**
-   * Copy {@code byteCount} bytes from the file at {@code pos} into to {@code source}. It is the
-   * caller's responsibility to make sure there are sufficient bytes to read: if there aren't this
-   * method throws an {@link EOFException}.
-   */
-  public void read(long pos, Buffer sink, long byteCount) throws IOException {
-    if (byteCount < 0) {
-      throw new IndexOutOfBoundsException();
+        while (byteCount > 0L) {
+            long bytesWritten = fileChannel.transferFrom(source, pos, byteCount);
+            pos += bytesWritten;
+            byteCount -= bytesWritten;
+        }
     }
 
-    while (byteCount > 0L) {
-      long bytesRead = fileChannel.transferTo(pos, byteCount, sink);
-      pos += bytesRead;
-      byteCount -= bytesRead;
+    /**
+     * Copy {@code byteCount} bytes from the file at {@code pos} into to {@code source}. It is the
+     * caller's responsibility to make sure there are sufficient bytes to read: if there aren't this
+     * method throws an {@link EOFException}.
+     */
+    public void read(long pos, Buffer sink, long byteCount) throws IOException {
+        if (byteCount < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        while (byteCount > 0L) {
+            long bytesRead = fileChannel.transferTo(pos, byteCount, sink);
+            pos += bytesRead;
+            byteCount -= bytesRead;
+        }
     }
-  }
 }

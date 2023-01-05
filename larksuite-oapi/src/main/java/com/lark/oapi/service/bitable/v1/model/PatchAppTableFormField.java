@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchAppTableFormField {
 
-  /**
-   * 更新后的表单问题项
-   * <p> 示例值：
-   */
-  @SerializedName("field")
-  private AppTableFormPatchedField field;
+    /**
+     * 更新后的表单问题项
+     * <p> 示例值：
+     */
+    @SerializedName("field")
+    private AppTableFormPatchedField field;
 
-  public AppTableFormPatchedField getField() {
-    return this.field;
-  }
+    public AppTableFormPatchedField getField() {
+        return this.field;
+    }
 
-  public void setField(AppTableFormPatchedField field) {
-    this.field = field;
-  }
+    public void setField(AppTableFormPatchedField field) {
+        this.field = field;
+    }
 
 }

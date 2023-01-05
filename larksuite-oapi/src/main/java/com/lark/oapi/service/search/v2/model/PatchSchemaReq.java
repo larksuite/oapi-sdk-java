@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchSchemaReq {
-
-  /**
-   * 用户自定义数据范式的唯一标识
-   * <p> 示例值：custom_schema_id
-   */
-  @Path
-  @SerializedName("schema_id")
-  private String schemaId;
-  @Body
-  private PatchSchemaReqBody body;
-
-  // builder 开始
-  public PatchSchemaReq() {
-  }
-
-  public PatchSchemaReq(Builder builder) {
     /**
      * 用户自定义数据范式的唯一标识
      * <p> 示例值：custom_schema_id
      */
-    this.schemaId = builder.schemaId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSchemaId() {
-    return this.schemaId;
-  }
-
-  public void setSchemaId(String schemaId) {
-    this.schemaId = schemaId;
-  }
-
-  public PatchSchemaReqBody getPatchSchemaReqBody() {
-    return this.body;
-  }
-
-  public void setPatchSchemaReqBody(PatchSchemaReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String schemaId; // 用户自定义数据范式的唯一标识
+    @Path
+    @SerializedName("schema_id")
+    private String schemaId;
+    @Body
     private PatchSchemaReqBody body;
 
-    /**
-     * 用户自定义数据范式的唯一标识
-     * <p> 示例值：custom_schema_id
-     *
-     * @param schemaId
-     * @return
-     */
-    public Builder schemaId(String schemaId) {
-      this.schemaId = schemaId;
-      return this;
+    // builder 开始
+    public PatchSchemaReq() {
+    }
+
+    public PatchSchemaReq(Builder builder) {
+        /**
+         * 用户自定义数据范式的唯一标识
+         * <p> 示例值：custom_schema_id
+         */
+        this.schemaId = builder.schemaId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSchemaId() {
+        return this.schemaId;
+    }
+
+    public void setSchemaId(String schemaId) {
+        this.schemaId = schemaId;
     }
 
     public PatchSchemaReqBody getPatchSchemaReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder patchSchemaReqBody(PatchSchemaReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchSchemaReqBody(PatchSchemaReqBody body) {
+        this.body = body;
     }
 
-    public PatchSchemaReq build() {
-      return new PatchSchemaReq(this);
+    public static class Builder {
+
+        private String schemaId; // 用户自定义数据范式的唯一标识
+        private PatchSchemaReqBody body;
+
+        /**
+         * 用户自定义数据范式的唯一标识
+         * <p> 示例值：custom_schema_id
+         *
+         * @param schemaId
+         * @return
+         */
+        public Builder schemaId(String schemaId) {
+            this.schemaId = schemaId;
+            return this;
+        }
+
+        public PatchSchemaReqBody getPatchSchemaReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder patchSchemaReqBody(PatchSchemaReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchSchemaReq build() {
+            return new PatchSchemaReq(this);
+        }
     }
-  }
 }

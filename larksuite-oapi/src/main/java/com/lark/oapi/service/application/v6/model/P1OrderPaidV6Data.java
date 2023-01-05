@@ -16,135 +16,135 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1OrderPaidV6Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
 
-  @SerializedName("order_id")
-  private String orderId;
-  @SerializedName("price_plan_id")
-  private String pricePlanId;
-  @SerializedName("price_plan_type")
-  private String pricePlanType;
-  @SerializedName("buy_count")
-  private long buyCount;
-  @SerializedName("seats")
-  private long seats;
-  @SerializedName("order_pay_price")
-  private long orderPayPrice;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("pay_time")
-  private String payTime;
-  @SerializedName("src_order_id")
-  private String srcOrderId;
-  @SerializedName("buy_type")
-  private String buyType;
+    @SerializedName("order_id")
+    private String orderId;
+    @SerializedName("price_plan_id")
+    private String pricePlanId;
+    @SerializedName("price_plan_type")
+    private String pricePlanType;
+    @SerializedName("buy_count")
+    private long buyCount;
+    @SerializedName("seats")
+    private long seats;
+    @SerializedName("order_pay_price")
+    private long orderPayPrice;
+    @SerializedName("create_time")
+    private String createTime;
+    @SerializedName("pay_time")
+    private String payTime;
+    @SerializedName("src_order_id")
+    private String srcOrderId;
+    @SerializedName("buy_type")
+    private String buyType;
 
-  public String getOrderId() {
-    return orderId;
-  }
+    public String getOrderId() {
+        return orderId;
+    }
 
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
-  }
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
 
-  public String getPricePlanId() {
-    return pricePlanId;
-  }
+    public String getPricePlanId() {
+        return pricePlanId;
+    }
 
-  public void setPricePlanId(String pricePlanId) {
-    this.pricePlanId = pricePlanId;
-  }
+    public void setPricePlanId(String pricePlanId) {
+        this.pricePlanId = pricePlanId;
+    }
 
-  public String getPricePlanType() {
-    return pricePlanType;
-  }
+    public String getPricePlanType() {
+        return pricePlanType;
+    }
 
-  public void setPricePlanType(String pricePlanType) {
-    this.pricePlanType = pricePlanType;
-  }
+    public void setPricePlanType(String pricePlanType) {
+        this.pricePlanType = pricePlanType;
+    }
 
-  public long getBuyCount() {
-    return buyCount;
-  }
+    public long getBuyCount() {
+        return buyCount;
+    }
 
-  public void setBuyCount(long buyCount) {
-    this.buyCount = buyCount;
-  }
+    public void setBuyCount(long buyCount) {
+        this.buyCount = buyCount;
+    }
 
-  public long getSeats() {
-    return seats;
-  }
+    public long getSeats() {
+        return seats;
+    }
 
-  public void setSeats(long seats) {
-    this.seats = seats;
-  }
+    public void setSeats(long seats) {
+        this.seats = seats;
+    }
 
-  public long getOrderPayPrice() {
-    return orderPayPrice;
-  }
+    public long getOrderPayPrice() {
+        return orderPayPrice;
+    }
 
-  public void setOrderPayPrice(long orderPayPrice) {
-    this.orderPayPrice = orderPayPrice;
-  }
+    public void setOrderPayPrice(long orderPayPrice) {
+        this.orderPayPrice = orderPayPrice;
+    }
 
-  public String getCreateTime() {
-    return createTime;
-  }
+    public String getCreateTime() {
+        return createTime;
+    }
 
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
-  public String getPayTime() {
-    return payTime;
-  }
+    public String getPayTime() {
+        return payTime;
+    }
 
-  public void setPayTime(String payTime) {
-    this.payTime = payTime;
-  }
+    public void setPayTime(String payTime) {
+        this.payTime = payTime;
+    }
 
-  public String getSrcOrderId() {
-    return srcOrderId;
-  }
+    public String getSrcOrderId() {
+        return srcOrderId;
+    }
 
-  public void setSrcOrderId(String srcOrderId) {
-    this.srcOrderId = srcOrderId;
-  }
+    public void setSrcOrderId(String srcOrderId) {
+        this.srcOrderId = srcOrderId;
+    }
 
-  public String getBuyType() {
-    return buyType;
-  }
+    public String getBuyType() {
+        return buyType;
+    }
 
-  public void setBuyType(String buyType) {
-    this.buyType = buyType;
-  }
+    public void setBuyType(String buyType) {
+        this.buyType = buyType;
+    }
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 }

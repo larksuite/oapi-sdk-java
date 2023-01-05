@@ -18,102 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class RawContentDocumentReq {
-
-  /**
-   * 语言（用于 MentionUser 语言的选取）
-   * <p> 示例值：0
-   */
-  @Query
-  @SerializedName("lang")
-  private Integer lang;
-  /**
-   * 文档的唯一标识
-   * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
-   */
-  @Path
-  @SerializedName("document_id")
-  private String documentId;
-
-  // builder 开始
-  public RawContentDocumentReq() {
-  }
-
-  public RawContentDocumentReq(Builder builder) {
     /**
      * 语言（用于 MentionUser 语言的选取）
      * <p> 示例值：0
      */
-    this.lang = builder.lang;
+    @Query
+    @SerializedName("lang")
+    private Integer lang;
     /**
      * 文档的唯一标识
      * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
      */
-    this.documentId = builder.documentId;
-  }
+    @Path
+    @SerializedName("document_id")
+    private String documentId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getLang() {
-    return this.lang;
-  }
-
-  public void setLang(Integer lang) {
-    this.lang = lang;
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public static class Builder {
-
-    private Integer lang; // 语言（用于 MentionUser 语言的选取）
-    private String documentId; // 文档的唯一标识
-
-    /**
-     * 语言（用于 MentionUser 语言的选取）
-     * <p> 示例值：0
-     *
-     * @param lang
-     * @return
-     */
-    public Builder lang(Integer lang) {
-      this.lang = lang;
-      return this;
+    // builder 开始
+    public RawContentDocumentReq() {
     }
 
-    /**
-     * 语言（用于 MentionUser 语言的选取）
-     * <p> 示例值：0
-     *
-     * @param lang {@link com.lark.oapi.service.docx.v1.enums.RawContentDocumentLangEnum}
-     * @return
-     */
-    public Builder lang(com.lark.oapi.service.docx.v1.enums.RawContentDocumentLangEnum lang) {
-      this.lang = lang.getValue();
-      return this;
+    public RawContentDocumentReq(Builder builder) {
+        /**
+         * 语言（用于 MentionUser 语言的选取）
+         * <p> 示例值：0
+         */
+        this.lang = builder.lang;
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
+         */
+        this.documentId = builder.documentId;
     }
 
-    /**
-     * 文档的唯一标识
-     * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
-     *
-     * @param documentId
-     * @return
-     */
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public RawContentDocumentReq build() {
-      return new RawContentDocumentReq(this);
+    public Integer getLang() {
+        return this.lang;
     }
-  }
+
+    public void setLang(Integer lang) {
+        this.lang = lang;
+    }
+
+    public String getDocumentId() {
+        return this.documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    public static class Builder {
+        private Integer lang; // 语言（用于 MentionUser 语言的选取）
+        private String documentId; // 文档的唯一标识
+
+        /**
+         * 语言（用于 MentionUser 语言的选取）
+         * <p> 示例值：0
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(Integer lang) {
+            this.lang = lang;
+            return this;
+        }
+
+        /**
+         * 语言（用于 MentionUser 语言的选取）
+         * <p> 示例值：0
+         *
+         * @param lang {@link com.lark.oapi.service.docx.v1.enums.RawContentDocumentLangEnum}
+         * @return
+         */
+        public Builder lang(com.lark.oapi.service.docx.v1.enums.RawContentDocumentLangEnum lang) {
+            this.lang = lang.getValue();
+            return this;
+        }
+
+        /**
+         * 文档的唯一标识
+         * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
+         *
+         * @param documentId
+         * @return
+         */
+        public Builder documentId(String documentId) {
+            this.documentId = documentId;
+            return this;
+        }
+
+        public RawContentDocumentReq build() {
+            return new RawContentDocumentReq(this);
+        }
+    }
 }

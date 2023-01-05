@@ -17,19 +17,19 @@ package com.lark.oapi.service.application.v6.enums;
  * 链接类型应用项的默认展示语种（应用类型该字段为空）
  */
 public enum AppRecommendRuleItemInfoDefaultLocaleEnum {
-  ZH_CN("zh_cn"), // 简体中文
-  ZH_HK("zh_hk"), // 繁体中文（中国香港）
-  ZH_TW("zh_tw"), // 繁体中文（中国台湾）
-  EN_US("en_us"), // 英文
-  JA_JP("ja_jp"), // 日文
-  ;
-  private String value;
+    ZH_CN("zh_cn"), // 简体中文
+    ZH_HK("zh_hk"), // 繁体中文（中国香港）
+    ZH_TW("zh_tw"), // 繁体中文（中国台湾）
+    EN_US("en_us"), // 英文
+    JA_JP("ja_jp"), // 日文
+    ;
+    private String value;
 
-  AppRecommendRuleItemInfoDefaultLocaleEnum(String value) {
-    this.value = value;
-  }
+    AppRecommendRuleItemInfoDefaultLocaleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

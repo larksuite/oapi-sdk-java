@@ -17,15 +17,15 @@ package com.lark.oapi.service.vc.v1.enums;
  * 素材类型
  */
 public enum MaterialMaterialTypeEnum {
-  VIRTUAL_VACKGROUND(1), // 虚拟背景
-  ;
-  private Integer value;
+    VIRTUAL_VACKGROUND(1), // 虚拟背景
+    ;
+    private Integer value;
 
-  MaterialMaterialTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialMaterialTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

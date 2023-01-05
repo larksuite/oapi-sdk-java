@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class QuerySpreadsheetSheetFloatImageReq {
-
-  /**
-   * 表格 token
-   * <p> 示例值：shtcnmBA*****yGehy8
-   */
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-  /**
-   * 子表 id
-   * <p> 示例值：0b**12
-   */
-  @Path
-  @SerializedName("sheet_id")
-  private String sheetId;
-
-  // builder 开始
-  public QuerySpreadsheetSheetFloatImageReq() {
-  }
-
-  public QuerySpreadsheetSheetFloatImageReq(Builder builder) {
     /**
      * 表格 token
      * <p> 示例值：shtcnmBA*****yGehy8
      */
-    this.spreadsheetToken = builder.spreadsheetToken;
+    @Path
+    @SerializedName("spreadsheet_token")
+    private String spreadsheetToken;
     /**
      * 子表 id
      * <p> 示例值：0b**12
      */
-    this.sheetId = builder.sheetId;
-  }
+    @Path
+    @SerializedName("sheet_id")
+    private String sheetId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public String getSheetId() {
-    return this.sheetId;
-  }
-
-  public void setSheetId(String sheetId) {
-    this.sheetId = sheetId;
-  }
-
-  public static class Builder {
-
-    private String spreadsheetToken; // 表格 token
-    private String sheetId; // 子表 id
-
-    /**
-     * 表格 token
-     * <p> 示例值：shtcnmBA*****yGehy8
-     *
-     * @param spreadsheetToken
-     * @return
-     */
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
+    // builder 开始
+    public QuerySpreadsheetSheetFloatImageReq() {
     }
 
-
-    /**
-     * 子表 id
-     * <p> 示例值：0b**12
-     *
-     * @param sheetId
-     * @return
-     */
-    public Builder sheetId(String sheetId) {
-      this.sheetId = sheetId;
-      return this;
+    public QuerySpreadsheetSheetFloatImageReq(Builder builder) {
+        /**
+         * 表格 token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+        /**
+         * 子表 id
+         * <p> 示例值：0b**12
+         */
+        this.sheetId = builder.sheetId;
     }
 
-    public QuerySpreadsheetSheetFloatImageReq build() {
-      return new QuerySpreadsheetSheetFloatImageReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public String getSheetId() {
+        return this.sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
+    }
+
+    public static class Builder {
+
+        private String spreadsheetToken; // 表格 token
+        private String sheetId; // 子表 id
+
+        /**
+         * 表格 token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         *
+         * @param spreadsheetToken
+         * @return
+         */
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+
+        /**
+         * 子表 id
+         * <p> 示例值：0b**12
+         *
+         * @param sheetId
+         * @return
+         */
+        public Builder sheetId(String sheetId) {
+            this.sheetId = sheetId;
+            return this;
+        }
+
+        public QuerySpreadsheetSheetFloatImageReq build() {
+            return new QuerySpreadsheetSheetFloatImageReq(this);
+        }
+    }
 }

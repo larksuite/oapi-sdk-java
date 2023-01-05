@@ -16,98 +16,96 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserStatsDataFeature {
-
-  /**
-   * 统计数据列附加属性的名称
-   * <p> 示例值：Abnormal
-   */
-  @SerializedName("key")
-  private String key;
-  /**
-   * 统计数据列附加属性的值
-   * <p> 示例值：false
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public UserStatsDataFeature() {
-  }
-
-  public UserStatsDataFeature(Builder builder) {
     /**
      * 统计数据列附加属性的名称
      * <p> 示例值：Abnormal
      */
-    this.key = builder.key;
-    /**
-     * 统计数据列附加属性的值
-     * <p> 示例值：false
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getKey() {
-    return this.key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 统计数据列附加属性的名称
-     * <p> 示例值：Abnormal
-     */
+    @SerializedName("key")
     private String key;
     /**
      * 统计数据列附加属性的值
      * <p> 示例值：false
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 统计数据列附加属性的名称
-     * <p> 示例值：Abnormal
-     *
-     * @param key
-     * @return
-     */
-    public Builder key(String key) {
-      this.key = key;
-      return this;
+    // builder 开始
+    public UserStatsDataFeature() {
     }
 
-
-    /**
-     * 统计数据列附加属性的值
-     * <p> 示例值：false
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public UserStatsDataFeature(Builder builder) {
+        /**
+         * 统计数据列附加属性的名称
+         * <p> 示例值：Abnormal
+         */
+        this.key = builder.key;
+        /**
+         * 统计数据列附加属性的值
+         * <p> 示例值：false
+         */
+        this.value = builder.value;
     }
 
-
-    public UserStatsDataFeature build() {
-      return new UserStatsDataFeature(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 统计数据列附加属性的名称
+         * <p> 示例值：Abnormal
+         */
+        private String key;
+        /**
+         * 统计数据列附加属性的值
+         * <p> 示例值：false
+         */
+        private String value;
+
+        /**
+         * 统计数据列附加属性的名称
+         * <p> 示例值：Abnormal
+         *
+         * @param key
+         * @return
+         */
+        public Builder key(String key) {
+            this.key = key;
+            return this;
+        }
+
+
+        /**
+         * 统计数据列附加属性的值
+         * <p> 示例值：false
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public UserStatsDataFeature build() {
+            return new UserStatsDataFeature(this);
+        }
+    }
 }

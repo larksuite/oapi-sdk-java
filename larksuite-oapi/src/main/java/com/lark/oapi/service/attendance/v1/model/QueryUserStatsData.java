@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsData {
 
-  /**
-   * 用户统计数据
-   * <p> 示例值：
-   */
-  @SerializedName("user_datas")
-  private UserStatsData[] userDatas;
+    /**
+     * 用户统计数据
+     * <p> 示例值：
+     */
+    @SerializedName("user_datas")
+    private UserStatsData[] userDatas;
 
-  public UserStatsData[] getUserDatas() {
-    return this.userDatas;
-  }
+    public UserStatsData[] getUserDatas() {
+        return this.userDatas;
+    }
 
-  public void setUserDatas(UserStatsData[] userDatas) {
-    this.userDatas = userDatas;
-  }
+    public void setUserDatas(UserStatsData[] userDatas) {
+        this.userDatas = userDatas;
+    }
 
 }

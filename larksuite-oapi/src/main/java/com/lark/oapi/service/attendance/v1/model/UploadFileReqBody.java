@@ -16,61 +16,59 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UploadFileReqBody {
-
-  /**
-   * 文件内容
-   * <p> 示例值：二进制文件
-   */
-  @SerializedName("file")
-  private java.io.File file;
-
-  // builder 开始
-  public UploadFileReqBody() {
-  }
-
-  public UploadFileReqBody(Builder builder) {
     /**
      * 文件内容
      * <p> 示例值：二进制文件
      */
-    this.file = builder.file;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public java.io.File getFile() {
-    return this.file;
-  }
-
-  public void setFile(java.io.File file) {
-    this.file = file;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件内容
-     * <p> 示例值：二进制文件
-     */
+    @SerializedName("file")
     private java.io.File file;
 
-    /**
-     * 文件内容
-     * <p> 示例值：二进制文件
-     *
-     * @param file
-     * @return
-     */
-    public Builder file(java.io.File file) {
-      this.file = file;
-      return this;
+    // builder 开始
+    public UploadFileReqBody() {
     }
 
-
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
+    public UploadFileReqBody(Builder builder) {
+        /**
+         * 文件内容
+         * <p> 示例值：二进制文件
+         */
+        this.file = builder.file;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public java.io.File getFile() {
+        return this.file;
+    }
+
+    public void setFile(java.io.File file) {
+        this.file = file;
+    }
+
+    public static class Builder {
+        /**
+         * 文件内容
+         * <p> 示例值：二进制文件
+         */
+        private java.io.File file;
+
+        /**
+         * 文件内容
+         * <p> 示例值：二进制文件
+         *
+         * @param file
+         * @return
+         */
+        public Builder file(java.io.File file) {
+            this.file = file;
+            return this;
+        }
+
+
+        public UploadFileReqBody build() {
+            return new UploadFileReqBody(this);
+        }
+    }
 }

@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListByNoMeeting {
 
-  /**
-   * 是否还有数据
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下一页分页的token，下次请求时传入
-   * <p> 示例值：50
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 会议简要信息列表
-   * <p> 示例值：
-   */
-  @SerializedName("meeting_briefs")
-  private Meeting[] meetingBriefs;
+    /**
+     * 是否还有数据
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下一页分页的token，下次请求时传入
+     * <p> 示例值：50
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 会议简要信息列表
+     * <p> 示例值：
+     */
+    @SerializedName("meeting_briefs")
+    private Meeting[] meetingBriefs;
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Meeting[] getMeetingBriefs() {
-    return this.meetingBriefs;
-  }
+    public Meeting[] getMeetingBriefs() {
+        return this.meetingBriefs;
+    }
 
-  public void setMeetingBriefs(Meeting[] meetingBriefs) {
-    this.meetingBriefs = meetingBriefs;
-  }
+    public void setMeetingBriefs(Meeting[] meetingBriefs) {
+        this.meetingBriefs = meetingBriefs;
+    }
 
 }

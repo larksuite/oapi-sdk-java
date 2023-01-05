@@ -17,17 +17,17 @@ package com.lark.oapi.service.im.v1.enums;
  * 出现不可用ID后的处理方式 0/1/2
  */
 public enum CreateChatMembersSucceedTypeEnum {
-  SUCCEED_TYPE0(0), // 保持以前的策略，存在不可用的 ID 会拉群失败，返回错误响应
-  SUCCEED_TYPE1(1), // 将可用 ID 全部拉入群，返回拉群成功的响应，并展示不可用的
-  SUCCEED_TYPE2(2), // 存在不可用的 ID 会拉群失败，返回错误响应，并展示出不可用的 ID
-  ;
-  private Integer value;
+    SUCCEED_TYPE0(0), // 保持以前的策略，存在不可用的 ID 会拉群失败，返回错误响应
+    SUCCEED_TYPE1(1), // 将可用 ID 全部拉入群，返回拉群成功的响应，并展示不可用的
+    SUCCEED_TYPE2(2), // 存在不可用的 ID 会拉群失败，返回错误响应，并展示出不可用的 ID
+    ;
+    private Integer value;
 
-  CreateChatMembersSucceedTypeEnum(Integer value) {
-    this.value = value;
-  }
+    CreateChatMembersSucceedTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

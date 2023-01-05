@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Auth {
-
-  /**
-   * 权限 ID
-   * <p> 示例值：101
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 权限名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-
-  // builder 开始
-  public Auth() {
-  }
-
-  public Auth(Builder builder) {
     /**
      * 权限 ID
      * <p> 示例值：101
      */
-    this.id = builder.id;
-    /**
-     * 权限名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 权限 ID
-     * <p> 示例值：101
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 权限名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
 
-    /**
-     * 权限 ID
-     * <p> 示例值：101
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Auth() {
     }
 
-
-    /**
-     * 权限名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public Auth(Builder builder) {
+        /**
+         * 权限 ID
+         * <p> 示例值：101
+         */
+        this.id = builder.id;
+        /**
+         * 权限名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    public Auth build() {
-      return new Auth(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 权限 ID
+         * <p> 示例值：101
+         */
+        private String id;
+        /**
+         * 权限名称
+         * <p> 示例值：
+         */
+        private I18n name;
+
+        /**
+         * 权限 ID
+         * <p> 示例值：101
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 权限名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public Auth build() {
+            return new Auth(this);
+        }
+    }
 }

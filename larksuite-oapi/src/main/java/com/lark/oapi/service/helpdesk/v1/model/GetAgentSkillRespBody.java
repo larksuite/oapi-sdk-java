@@ -16,20 +16,19 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetAgentSkillRespBody {
+    /**
+     * 技能
+     * <p> 示例值：
+     */
+    @SerializedName("agent_skill")
+    private AgentSkill agentSkill;
 
-  /**
-   * 技能
-   * <p> 示例值：
-   */
-  @SerializedName("agent_skill")
-  private AgentSkill agentSkill;
+    public AgentSkill getAgentSkill() {
+        return this.agentSkill;
+    }
 
-  public AgentSkill getAgentSkill() {
-    return this.agentSkill;
-  }
-
-  public void setAgentSkill(AgentSkill agentSkill) {
-    this.agentSkill = agentSkill;
-  }
+    public void setAgentSkill(AgentSkill agentSkill) {
+        this.agentSkill = agentSkill;
+    }
 
 }

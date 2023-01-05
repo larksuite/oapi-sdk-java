@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class UrgentAppMessageReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 待加急的消息ID。注意不支持批量消息ID（bm_xxx）
-   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-   */
-  @Path
-  @SerializedName("message_id")
-  private String messageId;
-  @Body
-  private UrgentReceivers body;
-
-  // builder 开始
-  public UrgentAppMessageReq() {
-  }
-
-  public UrgentAppMessageReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
-     * 待加急的消息ID。注意不支持批量消息ID（bm_xxx）
+     * 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      */
-    this.messageId = builder.messageId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public UrgentReceivers getUrgentReceivers() {
-    return this.body;
-  }
-
-  public void setUrgentReceivers(UrgentReceivers body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String messageId; // 待加急的消息ID。注意不支持批量消息ID（bm_xxx）
+    @Path
+    @SerializedName("message_id")
+    private String messageId;
+    @Body
     private UrgentReceivers body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public UrgentAppMessageReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UrgentAppMessageUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.im.v1.enums.UrgentAppMessageUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public UrgentAppMessageReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         */
+        this.messageId = builder.messageId;
+        this.body = builder.body;
     }
 
-    /**
-     * 待加急的消息ID。注意不支持批量消息ID（bm_xxx）
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     *
-     * @param messageId
-     * @return
-     */
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
     public UrgentReceivers getUrgentReceivers() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder urgentReceivers(UrgentReceivers body) {
-      this.body = body;
-      return this;
+    public void setUrgentReceivers(UrgentReceivers body) {
+        this.body = body;
     }
 
-    public UrgentAppMessageReq build() {
-      return new UrgentAppMessageReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String messageId; // 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
+        private UrgentReceivers body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UrgentAppMessageUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UrgentAppMessageUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
+         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+        public UrgentReceivers getUrgentReceivers() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder urgentReceivers(UrgentReceivers body) {
+            this.body = body;
+            return this;
+        }
+
+        public UrgentAppMessageReq build() {
+            return new UrgentAppMessageReq(this);
+        }
     }
-  }
 }

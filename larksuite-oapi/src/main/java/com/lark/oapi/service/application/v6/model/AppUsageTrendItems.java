@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppUsageTrendItems {
-
-  /**
-   * 部门号
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 趋势统计
-   * <p> 示例值：
-   */
-  @SerializedName("trend")
-  private UsageTrendItem[] trend;
-
-  // builder 开始
-  public AppUsageTrendItems() {
-  }
-
-  public AppUsageTrendItems(Builder builder) {
     /**
      * 部门号
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * 趋势统计
-     * <p> 示例值：
-     */
-    this.trend = builder.trend;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public UsageTrendItem[] getTrend() {
-    return this.trend;
-  }
-
-  public void setTrend(UsageTrendItem[] trend) {
-    this.trend = trend;
-  }
-
-  public static class Builder {
-
-    /**
-     * 部门号
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 趋势统计
      * <p> 示例值：
      */
+    @SerializedName("trend")
     private UsageTrendItem[] trend;
 
-    /**
-     * 部门号
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public AppUsageTrendItems() {
     }
 
-
-    /**
-     * 趋势统计
-     * <p> 示例值：
-     *
-     * @param trend
-     * @return
-     */
-    public Builder trend(UsageTrendItem[] trend) {
-      this.trend = trend;
-      return this;
+    public AppUsageTrendItems(Builder builder) {
+        /**
+         * 部门号
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * 趋势统计
+         * <p> 示例值：
+         */
+        this.trend = builder.trend;
     }
 
-
-    public AppUsageTrendItems build() {
-      return new AppUsageTrendItems(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UsageTrendItem[] getTrend() {
+        return this.trend;
+    }
+
+    public void setTrend(UsageTrendItem[] trend) {
+        this.trend = trend;
+    }
+
+    public static class Builder {
+        /**
+         * 部门号
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * 趋势统计
+         * <p> 示例值：
+         */
+        private UsageTrendItem[] trend;
+
+        /**
+         * 部门号
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 趋势统计
+         * <p> 示例值：
+         *
+         * @param trend
+         * @return
+         */
+        public Builder trend(UsageTrendItem[] trend) {
+            this.trend = trend;
+            return this;
+        }
+
+
+        public AppUsageTrendItems build() {
+            return new AppUsageTrendItems(this);
+        }
+    }
 }

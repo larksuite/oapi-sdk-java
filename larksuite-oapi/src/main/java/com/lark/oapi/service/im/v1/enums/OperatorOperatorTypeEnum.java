@@ -17,16 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 操作人身份，用户或应用
  */
 public enum OperatorOperatorTypeEnum {
-  APP("app"), //
-  USER("user"), //
-  ;
-  private String value;
+    APP("app"), //
+    USER("user"), //
+    ;
+    private String value;
 
-  OperatorOperatorTypeEnum(String value) {
-    this.value = value;
-  }
+    OperatorOperatorTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

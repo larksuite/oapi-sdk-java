@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteEmployeeTypeEnumReq {
-
-  /**
-   * 枚举值id
-   * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-   */
-  @Path
-  @SerializedName("enum_id")
-  private String enumId;
-
-  // builder 开始
-  public DeleteEmployeeTypeEnumReq() {
-  }
-
-  public DeleteEmployeeTypeEnumReq(Builder builder) {
     /**
      * 枚举值id
      * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
      */
-    this.enumId = builder.enumId;
-  }
+    @Path
+    @SerializedName("enum_id")
+    private String enumId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEnumId() {
-    return this.enumId;
-  }
-
-  public void setEnumId(String enumId) {
-    this.enumId = enumId;
-  }
-
-  public static class Builder {
-
-    private String enumId; // 枚举值id
-
-    /**
-     * 枚举值id
-     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-     *
-     * @param enumId
-     * @return
-     */
-    public Builder enumId(String enumId) {
-      this.enumId = enumId;
-      return this;
+    // builder 开始
+    public DeleteEmployeeTypeEnumReq() {
     }
 
-    public DeleteEmployeeTypeEnumReq build() {
-      return new DeleteEmployeeTypeEnumReq(this);
+    public DeleteEmployeeTypeEnumReq(Builder builder) {
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         */
+        this.enumId = builder.enumId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getEnumId() {
+        return this.enumId;
+    }
+
+    public void setEnumId(String enumId) {
+        this.enumId = enumId;
+    }
+
+    public static class Builder {
+
+        private String enumId; // 枚举值id
+
+        /**
+         * 枚举值id
+         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+         *
+         * @param enumId
+         * @return
+         */
+        public Builder enumId(String enumId) {
+            this.enumId = enumId;
+            return this;
+        }
+
+        public DeleteEmployeeTypeEnumReq build() {
+            return new DeleteEmployeeTypeEnumReq(this);
+        }
+    }
 }

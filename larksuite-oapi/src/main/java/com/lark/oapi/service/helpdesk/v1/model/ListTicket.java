@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTicket {
 
-  /**
-   * 工单总数 (单次请求最大为10000条)
-   * <p> 示例值：100
-   */
-  @SerializedName("total")
-  private Integer total;
-  /**
-   * 工单
-   * <p> 示例值：
-   */
-  @SerializedName("tickets")
-  private Ticket[] tickets;
+    /**
+     * 工单总数 (单次请求最大为10000条)
+     * <p> 示例值：100
+     */
+    @SerializedName("total")
+    private Integer total;
+    /**
+     * 工单
+     * <p> 示例值：
+     */
+    @SerializedName("tickets")
+    private Ticket[] tickets;
 
-  public Integer getTotal() {
-    return this.total;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
-  public Ticket[] getTickets() {
-    return this.tickets;
-  }
+    public Ticket[] getTickets() {
+        return this.tickets;
+    }
 
-  public void setTickets(Ticket[] tickets) {
-    this.tickets = tickets;
-  }
+    public void setTickets(Ticket[] tickets) {
+        this.tickets = tickets;
+    }
 
 }

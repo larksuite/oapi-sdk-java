@@ -16,33 +16,33 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateReserveRespBody {
+    /**
+     * 预约数据
+     * <p> 示例值：
+     */
+    @SerializedName("reserve")
+    private Reserve reserve;
+    /**
+     * 预约参数检查信息
+     * <p> 示例值：
+     */
+    @SerializedName("reserve_correction_check_info")
+    private ReserveCorrectionCheckInfo reserveCorrectionCheckInfo;
 
-  /**
-   * 预约数据
-   * <p> 示例值：
-   */
-  @SerializedName("reserve")
-  private Reserve reserve;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("reserve_correction_check_info")
-  private ReserveCorrectionCheckInfo reserveCorrectionCheckInfo;
+    public Reserve getReserve() {
+        return this.reserve;
+    }
 
-  public Reserve getReserve() {
-    return this.reserve;
-  }
+    public void setReserve(Reserve reserve) {
+        this.reserve = reserve;
+    }
 
-  public void setReserve(Reserve reserve) {
-    this.reserve = reserve;
-  }
+    public ReserveCorrectionCheckInfo getReserveCorrectionCheckInfo() {
+        return this.reserveCorrectionCheckInfo;
+    }
 
-  public ReserveCorrectionCheckInfo getReserveCorrectionCheckInfo() {
-    return this.reserveCorrectionCheckInfo;
-  }
-
-  public void setReserveCorrectionCheckInfo(ReserveCorrectionCheckInfo reserveCorrectionCheckInfo) {
-    this.reserveCorrectionCheckInfo = reserveCorrectionCheckInfo;
-  }
+    public void setReserveCorrectionCheckInfo(ReserveCorrectionCheckInfo reserveCorrectionCheckInfo) {
+        this.reserveCorrectionCheckInfo = reserveCorrectionCheckInfo;
+    }
 
 }

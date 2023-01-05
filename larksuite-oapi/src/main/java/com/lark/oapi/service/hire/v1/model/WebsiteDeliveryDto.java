@@ -16,283 +16,281 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryDto {
-
-  /**
-   * 投递 ID
-   * <p> 示例值：6960663240925956657
-   */
-  @SerializedName("application_id")
-  private String applicationId;
-  /**
-   * ID
-   * <p> 示例值：6960663240925956655
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 职位 ID
-   * <p> 示例值：6960663240925956659
-   */
-  @SerializedName("job_id")
-  private String jobId;
-  /**
-   * 职位广告 ID
-   * <p> 示例值：6960663240925956658
-   */
-  @SerializedName("job_post_id")
-  private String jobPostId;
-  /**
-   * 官网简历 ID
-   * <p> 示例值：6960663240925956660
-   */
-  @SerializedName("portal_resume_id")
-  private String portalResumeId;
-  /**
-   * 官网用户 ID
-   * <p> 示例值：6960663240925956656
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 人才 ID
-   * <p> 示例值：7095600054216542508
-   */
-  @SerializedName("talent_id")
-  private String talentId;
-
-  // builder 开始
-  public WebsiteDeliveryDto() {
-  }
-
-  public WebsiteDeliveryDto(Builder builder) {
     /**
      * 投递 ID
      * <p> 示例值：6960663240925956657
      */
-    this.applicationId = builder.applicationId;
-    /**
-     * ID
-     * <p> 示例值：6960663240925956655
-     */
-    this.id = builder.id;
-    /**
-     * 职位 ID
-     * <p> 示例值：6960663240925956659
-     */
-    this.jobId = builder.jobId;
-    /**
-     * 职位广告 ID
-     * <p> 示例值：6960663240925956658
-     */
-    this.jobPostId = builder.jobPostId;
-    /**
-     * 官网简历 ID
-     * <p> 示例值：6960663240925956660
-     */
-    this.portalResumeId = builder.portalResumeId;
-    /**
-     * 官网用户 ID
-     * <p> 示例值：6960663240925956656
-     */
-    this.userId = builder.userId;
-    /**
-     * 人才 ID
-     * <p> 示例值：7095600054216542508
-     */
-    this.talentId = builder.talentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getJobId() {
-    return this.jobId;
-  }
-
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
-  }
-
-  public String getJobPostId() {
-    return this.jobPostId;
-  }
-
-  public void setJobPostId(String jobPostId) {
-    this.jobPostId = jobPostId;
-  }
-
-  public String getPortalResumeId() {
-    return this.portalResumeId;
-  }
-
-  public void setPortalResumeId(String portalResumeId) {
-    this.portalResumeId = portalResumeId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 投递 ID
-     * <p> 示例值：6960663240925956657
-     */
+    @SerializedName("application_id")
     private String applicationId;
     /**
      * ID
      * <p> 示例值：6960663240925956655
      */
+    @SerializedName("id")
     private String id;
     /**
      * 职位 ID
      * <p> 示例值：6960663240925956659
      */
+    @SerializedName("job_id")
     private String jobId;
     /**
      * 职位广告 ID
      * <p> 示例值：6960663240925956658
      */
+    @SerializedName("job_post_id")
     private String jobPostId;
     /**
      * 官网简历 ID
      * <p> 示例值：6960663240925956660
      */
+    @SerializedName("portal_resume_id")
     private String portalResumeId;
     /**
      * 官网用户 ID
      * <p> 示例值：6960663240925956656
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 人才 ID
      * <p> 示例值：7095600054216542508
      */
+    @SerializedName("talent_id")
     private String talentId;
 
-    /**
-     * 投递 ID
-     * <p> 示例值：6960663240925956657
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryDto() {
     }
 
-
-    /**
-     * ID
-     * <p> 示例值：6960663240925956655
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public WebsiteDeliveryDto(Builder builder) {
+        /**
+         * 投递 ID
+         * <p> 示例值：6960663240925956657
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * ID
+         * <p> 示例值：6960663240925956655
+         */
+        this.id = builder.id;
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956659
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 职位广告 ID
+         * <p> 示例值：6960663240925956658
+         */
+        this.jobPostId = builder.jobPostId;
+        /**
+         * 官网简历 ID
+         * <p> 示例值：6960663240925956660
+         */
+        this.portalResumeId = builder.portalResumeId;
+        /**
+         * 官网用户 ID
+         * <p> 示例值：6960663240925956656
+         */
+        this.userId = builder.userId;
+        /**
+         * 人才 ID
+         * <p> 示例值：7095600054216542508
+         */
+        this.talentId = builder.talentId;
     }
 
-
-    /**
-     * 职位 ID
-     * <p> 示例值：6960663240925956659
-     *
-     * @param jobId
-     * @return
-     */
-    public Builder jobId(String jobId) {
-      this.jobId = jobId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 职位广告 ID
-     * <p> 示例值：6960663240925956658
-     *
-     * @param jobPostId
-     * @return
-     */
-    public Builder jobPostId(String jobPostId) {
-      this.jobPostId = jobPostId;
-      return this;
+    public String getApplicationId() {
+        return this.applicationId;
     }
 
-
-    /**
-     * 官网简历 ID
-     * <p> 示例值：6960663240925956660
-     *
-     * @param portalResumeId
-     * @return
-     */
-    public Builder portalResumeId(String portalResumeId) {
-      this.portalResumeId = portalResumeId;
-      return this;
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
     }
 
-
-    /**
-     * 官网用户 ID
-     * <p> 示例值：6960663240925956656
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 人才 ID
-     * <p> 示例值：7095600054216542508
-     *
-     * @param talentId
-     * @return
-     */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public WebsiteDeliveryDto build() {
-      return new WebsiteDeliveryDto(this);
+    public String getJobId() {
+        return this.jobId;
     }
-  }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+    public String getJobPostId() {
+        return this.jobPostId;
+    }
+
+    public void setJobPostId(String jobPostId) {
+        this.jobPostId = jobPostId;
+    }
+
+    public String getPortalResumeId() {
+        return this.portalResumeId;
+    }
+
+    public void setPortalResumeId(String portalResumeId) {
+        this.portalResumeId = portalResumeId;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public static class Builder {
+        /**
+         * 投递 ID
+         * <p> 示例值：6960663240925956657
+         */
+        private String applicationId;
+        /**
+         * ID
+         * <p> 示例值：6960663240925956655
+         */
+        private String id;
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956659
+         */
+        private String jobId;
+        /**
+         * 职位广告 ID
+         * <p> 示例值：6960663240925956658
+         */
+        private String jobPostId;
+        /**
+         * 官网简历 ID
+         * <p> 示例值：6960663240925956660
+         */
+        private String portalResumeId;
+        /**
+         * 官网用户 ID
+         * <p> 示例值：6960663240925956656
+         */
+        private String userId;
+        /**
+         * 人才 ID
+         * <p> 示例值：7095600054216542508
+         */
+        private String talentId;
+
+        /**
+         * 投递 ID
+         * <p> 示例值：6960663240925956657
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * ID
+         * <p> 示例值：6960663240925956655
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 职位 ID
+         * <p> 示例值：6960663240925956659
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 职位广告 ID
+         * <p> 示例值：6960663240925956658
+         *
+         * @param jobPostId
+         * @return
+         */
+        public Builder jobPostId(String jobPostId) {
+            this.jobPostId = jobPostId;
+            return this;
+        }
+
+
+        /**
+         * 官网简历 ID
+         * <p> 示例值：6960663240925956660
+         *
+         * @param portalResumeId
+         * @return
+         */
+        public Builder portalResumeId(String portalResumeId) {
+            this.portalResumeId = portalResumeId;
+            return this;
+        }
+
+
+        /**
+         * 官网用户 ID
+         * <p> 示例值：6960663240925956656
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 人才 ID
+         * <p> 示例值：7095600054216542508
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        public WebsiteDeliveryDto build() {
+            return new WebsiteDeliveryDto(this);
+        }
+    }
 }

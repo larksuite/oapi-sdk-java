@@ -17,16 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 其他记录权限，仅在table_perm为2时有意义
  */
 public enum AppRoleTableRoleRecRuleOtherPermEnum {
-  NOPERM(0), // 禁止查看
-  READ(1), // 仅可阅读
-  ;
-  private Integer value;
+    NOPERM(0), // 禁止查看
+    READ(1), // 仅可阅读
+    ;
+    private Integer value;
 
-  AppRoleTableRoleRecRuleOtherPermEnum(Integer value) {
-    this.value = value;
-  }
+    AppRoleTableRoleRecRuleOtherPermEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

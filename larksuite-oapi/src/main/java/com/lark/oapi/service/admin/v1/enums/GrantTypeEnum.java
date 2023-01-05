@@ -15,16 +15,16 @@ package com.lark.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum GrantTypeEnum {
-  MANUAL(0),
-  JOIN_TIME(1),
-  ;
-  private Integer value;
+    MANUAL(0),
+    JOIN_TIME(1),
+    ;
+    private Integer value;
 
-  GrantTypeEnum(Integer value) {
-    this.value = value;
-  }
+    GrantTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchCalendarReqBody {
-
-  /**
-   * 搜索关键字
-   * <p> 示例值：query words
-   */
-  @SerializedName("query")
-  private String query;
-
-  // builder 开始
-  public SearchCalendarReqBody() {
-  }
-
-  public SearchCalendarReqBody(Builder builder) {
     /**
      * 搜索关键字
      * <p> 示例值：query words
      */
-    this.query = builder.query;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getQuery() {
-    return this.query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public static class Builder {
-
-    /**
-     * 搜索关键字
-     * <p> 示例值：query words
-     */
+    @SerializedName("query")
     private String query;
 
-    /**
-     * 搜索关键字
-     * <p> 示例值：query words
-     *
-     * @param query
-     * @return
-     */
-    public Builder query(String query) {
-      this.query = query;
-      return this;
+    // builder 开始
+    public SearchCalendarReqBody() {
     }
 
-
-    public SearchCalendarReqBody build() {
-      return new SearchCalendarReqBody(this);
+    public SearchCalendarReqBody(Builder builder) {
+        /**
+         * 搜索关键字
+         * <p> 示例值：query words
+         */
+        this.query = builder.query;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getQuery() {
+        return this.query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public static class Builder {
+        /**
+         * 搜索关键字
+         * <p> 示例值：query words
+         */
+        private String query;
+
+        /**
+         * 搜索关键字
+         * <p> 示例值：query words
+         *
+         * @param query
+         * @return
+         */
+        public Builder query(String query) {
+            this.query = query;
+            return this;
+        }
+
+
+        public SearchCalendarReqBody build() {
+            return new SearchCalendarReqBody(this);
+        }
+    }
 }

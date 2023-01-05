@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AddManagersChatManagersReqBody {
-
-  /**
-   * 要增加的 manager_id
-   * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-   */
-  @SerializedName("manager_ids")
-  private String[] managerIds;
-
-  // builder 开始
-  public AddManagersChatManagersReqBody() {
-  }
-
-  public AddManagersChatManagersReqBody(Builder builder) {
     /**
-     * 要增加的 manager_id
+     * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
      */
-    this.managerIds = builder.managerIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getManagerIds() {
-    return this.managerIds;
-  }
-
-  public void setManagerIds(String[] managerIds) {
-    this.managerIds = managerIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 要增加的 manager_id
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-     */
+    @SerializedName("manager_ids")
     private String[] managerIds;
 
-    /**
-     * 要增加的 manager_id
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-     *
-     * @param managerIds
-     * @return
-     */
-    public Builder managerIds(String[] managerIds) {
-      this.managerIds = managerIds;
-      return this;
+    // builder 开始
+    public AddManagersChatManagersReqBody() {
     }
 
-
-    public AddManagersChatManagersReqBody build() {
-      return new AddManagersChatManagersReqBody(this);
+    public AddManagersChatManagersReqBody(Builder builder) {
+        /**
+         * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
+         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+         */
+        this.managerIds = builder.managerIds;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getManagerIds() {
+        return this.managerIds;
+    }
+
+    public void setManagerIds(String[] managerIds) {
+        this.managerIds = managerIds;
+    }
+
+    public static class Builder {
+        /**
+         * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
+         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+         */
+        private String[] managerIds;
+
+        /**
+         * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
+         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+         *
+         * @param managerIds
+         * @return
+         */
+        public Builder managerIds(String[] managerIds) {
+            this.managerIds = managerIds;
+            return this;
+        }
+
+
+        public AddManagersChatManagersReqBody build() {
+            return new AddManagersChatManagersReqBody(this);
+        }
+    }
 }

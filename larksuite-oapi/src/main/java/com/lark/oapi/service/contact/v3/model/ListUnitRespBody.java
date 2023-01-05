@@ -16,48 +16,47 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListUnitRespBody {
+    /**
+     * 单位列表
+     * <p> 示例值：
+     */
+    @SerializedName("unitlist")
+    private Unit[] unitlist;
+    /**
+     * 是否还有分页数据
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 分页下次调用的page_token值
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBudfdagatagdd=
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * 单位列表
-   * <p> 示例值：
-   */
-  @SerializedName("unitlist")
-  private Unit[] unitlist;
-  /**
-   * 是否还有分页数据
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 分页下次调用的page_token值
-   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBudfdagatagdd=
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public Unit[] getUnitlist() {
+        return this.unitlist;
+    }
 
-  public Unit[] getUnitlist() {
-    return this.unitlist;
-  }
+    public void setUnitlist(Unit[] unitlist) {
+        this.unitlist = unitlist;
+    }
 
-  public void setUnitlist(Unit[] unitlist) {
-    this.unitlist = unitlist;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

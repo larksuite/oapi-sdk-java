@@ -15,21 +15,21 @@ package com.lark.oapi.service.mail.v1.enums;
 
 // 生成枚举值
 public enum TypeEnum {
-  USER("USER"),
-  DEPARTMENT("DEPARTMENT"),
-  COMPANY("COMPANY"),
-  EXTERNAL_USER("EXTERNAL_USER"),
-  MAIL_GROUP("MAIL_GROUP"),
-  PUBLIC_MAILBOX("PUBLIC_MAILBOX"),
-  OTHER_MEMBER("OTHER_MEMBER"),
-  ;
-  private String value;
+    USER("USER"),
+    DEPARTMENT("DEPARTMENT"),
+    COMPANY("COMPANY"),
+    EXTERNAL_USER("EXTERNAL_USER"),
+    MAIL_GROUP("MAIL_GROUP"),
+    PUBLIC_MAILBOX("PUBLIC_MAILBOX"),
+    OTHER_MEMBER("OTHER_MEMBER"),
+    ;
+    private String value;
 
-  TypeEnum(String value) {
-    this.value = value;
-  }
+    TypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

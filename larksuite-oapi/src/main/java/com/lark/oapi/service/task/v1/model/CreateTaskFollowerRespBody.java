@@ -16,20 +16,19 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskFollowerRespBody {
+    /**
+     * 创建后的任务关注者
+     * <p> 示例值：
+     */
+    @SerializedName("follower")
+    private Follower follower;
 
-  /**
-   * 创建后的任务关注者
-   * <p> 示例值：
-   */
-  @SerializedName("follower")
-  private Follower follower;
+    public Follower getFollower() {
+        return this.follower;
+    }
 
-  public Follower getFollower() {
-    return this.follower;
-  }
-
-  public void setFollower(Follower follower) {
-    this.follower = follower;
-  }
+    public void setFollower(Follower follower) {
+        this.follower = follower;
+    }
 
 }

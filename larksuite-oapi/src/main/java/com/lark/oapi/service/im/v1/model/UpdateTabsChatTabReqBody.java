@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateTabsChatTabReqBody {
-
-  /**
-   * 会话标签页
-   * <p> 示例值：
-   */
-  @SerializedName("chat_tabs")
-  private ChatTab[] chatTabs;
-
-  // builder 开始
-  public UpdateTabsChatTabReqBody() {
-  }
-
-  public UpdateTabsChatTabReqBody(Builder builder) {
     /**
      * 会话标签页
      * <p> 示例值：
      */
-    this.chatTabs = builder.chatTabs;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ChatTab[] getChatTabs() {
-    return this.chatTabs;
-  }
-
-  public void setChatTabs(ChatTab[] chatTabs) {
-    this.chatTabs = chatTabs;
-  }
-
-  public static class Builder {
-
-    /**
-     * 会话标签页
-     * <p> 示例值：
-     */
+    @SerializedName("chat_tabs")
     private ChatTab[] chatTabs;
 
-    /**
-     * 会话标签页
-     * <p> 示例值：
-     *
-     * @param chatTabs
-     * @return
-     */
-    public Builder chatTabs(ChatTab[] chatTabs) {
-      this.chatTabs = chatTabs;
-      return this;
+    // builder 开始
+    public UpdateTabsChatTabReqBody() {
     }
 
-
-    public UpdateTabsChatTabReqBody build() {
-      return new UpdateTabsChatTabReqBody(this);
+    public UpdateTabsChatTabReqBody(Builder builder) {
+        /**
+         * 会话标签页
+         * <p> 示例值：
+         */
+        this.chatTabs = builder.chatTabs;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ChatTab[] getChatTabs() {
+        return this.chatTabs;
+    }
+
+    public void setChatTabs(ChatTab[] chatTabs) {
+        this.chatTabs = chatTabs;
+    }
+
+    public static class Builder {
+        /**
+         * 会话标签页
+         * <p> 示例值：
+         */
+        private ChatTab[] chatTabs;
+
+        /**
+         * 会话标签页
+         * <p> 示例值：
+         *
+         * @param chatTabs
+         * @return
+         */
+        public Builder chatTabs(ChatTab[] chatTabs) {
+            this.chatTabs = chatTabs;
+            return this;
+        }
+
+
+        public UpdateTabsChatTabReqBody build() {
+            return new UpdateTabsChatTabReqBody(this);
+        }
+    }
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UnitDepartment {
-
-  /**
-   * 单位ID
-   * <p> 示例值：BU121
-   */
-  @SerializedName("unit_id")
-  private String unitId;
-  /**
-   * 部门ID
-   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-
-  // builder 开始
-  public UnitDepartment() {
-  }
-
-  public UnitDepartment(Builder builder) {
     /**
      * 单位ID
      * <p> 示例值：BU121
      */
-    this.unitId = builder.unitId;
-    /**
-     * 部门ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     */
-    this.departmentId = builder.departmentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 单位ID
-     * <p> 示例值：BU121
-     */
+    @SerializedName("unit_id")
     private String unitId;
     /**
      * 部门ID
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
+    @SerializedName("department_id")
     private String departmentId;
 
-    /**
-     * 单位ID
-     * <p> 示例值：BU121
-     *
-     * @param unitId
-     * @return
-     */
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    // builder 开始
+    public UnitDepartment() {
     }
 
-
-    /**
-     * 部门ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public UnitDepartment(Builder builder) {
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         */
+        this.unitId = builder.unitId;
+        /**
+         * 部门ID
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         */
+        this.departmentId = builder.departmentId;
     }
 
-
-    public UnitDepartment build() {
-      return new UnitDepartment(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getUnitId() {
+        return this.unitId;
+    }
+
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
+    }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public static class Builder {
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         */
+        private String unitId;
+        /**
+         * 部门ID
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         */
+        private String departmentId;
+
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         *
+         * @param unitId
+         * @return
+         */
+        public Builder unitId(String unitId) {
+            this.unitId = unitId;
+            return this;
+        }
+
+
+        /**
+         * 部门ID
+         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        public UnitDepartment build() {
+            return new UnitDepartment(this);
+        }
+    }
 }

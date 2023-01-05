@@ -16,135 +16,133 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppTableFieldPropertyOption {
-
-  /**
-   * 选项名
-   * <p> 示例值：红色
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 选项 ID，创建时不允许指定 ID
-   * <p> 示例值：optKl35lnG
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 选项颜色
-   * <p> 示例值：0
-   */
-  @SerializedName("color")
-  private Integer color;
-
-  // builder 开始
-  public AppTableFieldPropertyOption() {
-  }
-
-  public AppTableFieldPropertyOption(Builder builder) {
     /**
      * 选项名
      * <p> 示例值：红色
      */
-    this.name = builder.name;
-    /**
-     * 选项 ID，创建时不允许指定 ID
-     * <p> 示例值：optKl35lnG
-     */
-    this.id = builder.id;
-    /**
-     * 选项颜色
-     * <p> 示例值：0
-     */
-    this.color = builder.color;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getColor() {
-    return this.color;
-  }
-
-  public void setColor(Integer color) {
-    this.color = color;
-  }
-
-  public static class Builder {
-
-    /**
-     * 选项名
-     * <p> 示例值：红色
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 选项 ID，创建时不允许指定 ID
      * <p> 示例值：optKl35lnG
      */
+    @SerializedName("id")
     private String id;
     /**
      * 选项颜色
      * <p> 示例值：0
      */
+    @SerializedName("color")
     private Integer color;
 
-    /**
-     * 选项名
-     * <p> 示例值：红色
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public AppTableFieldPropertyOption() {
     }
 
-
-    /**
-     * 选项 ID，创建时不允许指定 ID
-     * <p> 示例值：optKl35lnG
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public AppTableFieldPropertyOption(Builder builder) {
+        /**
+         * 选项名
+         * <p> 示例值：红色
+         */
+        this.name = builder.name;
+        /**
+         * 选项 ID，创建时不允许指定 ID
+         * <p> 示例值：optKl35lnG
+         */
+        this.id = builder.id;
+        /**
+         * 选项颜色
+         * <p> 示例值：0
+         */
+        this.color = builder.color;
     }
 
-
-    /**
-     * 选项颜色
-     * <p> 示例值：0
-     *
-     * @param color
-     * @return
-     */
-    public Builder color(Integer color) {
-      this.color = color;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public AppTableFieldPropertyOption build() {
-      return new AppTableFieldPropertyOption(this);
+    public String getName() {
+        return this.name;
     }
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getColor() {
+        return this.color;
+    }
+
+    public void setColor(Integer color) {
+        this.color = color;
+    }
+
+    public static class Builder {
+        /**
+         * 选项名
+         * <p> 示例值：红色
+         */
+        private String name;
+        /**
+         * 选项 ID，创建时不允许指定 ID
+         * <p> 示例值：optKl35lnG
+         */
+        private String id;
+        /**
+         * 选项颜色
+         * <p> 示例值：0
+         */
+        private Integer color;
+
+        /**
+         * 选项名
+         * <p> 示例值：红色
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 选项 ID，创建时不允许指定 ID
+         * <p> 示例值：optKl35lnG
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 选项颜色
+         * <p> 示例值：0
+         *
+         * @param color
+         * @return
+         */
+        public Builder color(Integer color) {
+            this.color = color;
+            return this;
+        }
+
+
+        public AppTableFieldPropertyOption build() {
+            return new AppTableFieldPropertyOption(this);
+        }
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
  */
 public enum RemoveGroupMemberMemberIdTypeEnum {
-  OPENID("open_id"), // member_type =user时候，表示用户的open_id
-  UNIONID("union_id"), // member_type =user时候，表示用户的union_id
-  USERID("user_id"), // member_type =user时候，表示用户的user_id
-  ;
-  private String value;
+    OPENID("open_id"), // member_type =user时候，表示用户的open_id
+    UNIONID("union_id"), // member_type =user时候，表示用户的union_id
+    USERID("user_id"), // member_type =user时候，表示用户的user_id
+    ;
+    private String value;
 
-  RemoveGroupMemberMemberIdTypeEnum(String value) {
-    this.value = value;
-  }
+    RemoveGroupMemberMemberIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

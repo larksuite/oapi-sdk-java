@@ -17,78 +17,78 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetMailgroupMember {
 
-  /**
-   * The unique ID of a member in this mail group
-   * <p> 示例值：xxxxxxxxxxxxxxx
-   */
-  @SerializedName("member_id")
-  private String memberId;
-  /**
-   * The member's email address. Value is valid when type is one of USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
-   * <p> 示例值：test_memeber@xxx.xx
-   */
-  @SerializedName("email")
-  private String email;
-  /**
-   * The member's user id. Value is valid when type is USER
-   * <p> 示例值：xxxxxxxxxx
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * The member's department id. Value is valid when type is DEPARTMENT
-   * <p> 示例值：xxxxxxxxxx
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
-   * is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the
-   * organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public
-   * mailbox;- OTHER_MEMBER: other internal member
-   * <p> 示例值：USER
-   */
-  @SerializedName("type")
-  private String type;
+    /**
+     * The unique ID of a member in this mail group
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
+    @SerializedName("member_id")
+    private String memberId;
+    /**
+     * The member's email address. Value is valid when type is one of USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
+     * <p> 示例值：test_memeber@xxx.xx
+     */
+    @SerializedName("email")
+    private String email;
+    /**
+     * The member's user id. Value is valid when type is USER
+     * <p> 示例值：xxxxxxxxxx
+     */
+    @SerializedName("user_id")
+    private String userId;
+    /**
+     * The member's department id. Value is valid when type is DEPARTMENT
+     * <p> 示例值：xxxxxxxxxx
+     */
+    @SerializedName("department_id")
+    private String departmentId;
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
+     * is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the
+     * organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public
+     * mailbox;- OTHER_MEMBER: other internal member
+     * <p> 示例值：USER
+     */
+    @SerializedName("type")
+    private String type;
 
-  public String getMemberId() {
-    return this.memberId;
-  }
+    public String getMemberId() {
+        return this.memberId;
+    }
 
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
 
-  public String getEmail() {
-    return this.email;
-  }
+    public String getEmail() {
+        return this.email;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
 
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
 
-  public String getType() {
-    return this.type;
-  }
+    public String getType() {
+        return this.type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

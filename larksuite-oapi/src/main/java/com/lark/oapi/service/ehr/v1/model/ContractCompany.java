@@ -16,98 +16,96 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContractCompany {
-
-  /**
-   * 公司 ID
-   * <p> 示例值：1695838220091399
-   */
-  @SerializedName("id")
-  private Long id;
-  /**
-   * 公司名称
-   * <p> 示例值：油条一号
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public ContractCompany() {
-  }
-
-  public ContractCompany(Builder builder) {
     /**
      * 公司 ID
      * <p> 示例值：1695838220091399
      */
-    this.id = builder.id;
-    /**
-     * 公司名称
-     * <p> 示例值：油条一号
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 公司 ID
-     * <p> 示例值：1695838220091399
-     */
+    @SerializedName("id")
     private Long id;
     /**
      * 公司名称
      * <p> 示例值：油条一号
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 公司 ID
-     * <p> 示例值：1695838220091399
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(Long id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ContractCompany() {
     }
 
-
-    /**
-     * 公司名称
-     * <p> 示例值：油条一号
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public ContractCompany(Builder builder) {
+        /**
+         * 公司 ID
+         * <p> 示例值：1695838220091399
+         */
+        this.id = builder.id;
+        /**
+         * 公司名称
+         * <p> 示例值：油条一号
+         */
+        this.name = builder.name;
     }
 
-
-    public ContractCompany build() {
-      return new ContractCompany(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 公司 ID
+         * <p> 示例值：1695838220091399
+         */
+        private Long id;
+        /**
+         * 公司名称
+         * <p> 示例值：油条一号
+         */
+        private String name;
+
+        /**
+         * 公司 ID
+         * <p> 示例值：1695838220091399
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 公司名称
+         * <p> 示例值：油条一号
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public ContractCompany build() {
+            return new ContractCompany(this);
+        }
+    }
 }

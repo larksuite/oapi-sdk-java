@@ -16,34 +16,33 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2CalendarEventChangedV4Data {
+    /**
+     * 日历id
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
+    @SerializedName("calendar_id")
+    private String calendarId;
+    /**
+     * 需要推送事件的用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_id_list")
+    private UserId[] userIdList;
 
-  /**
-   * 日历id
-   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-   */
-  @SerializedName("calendar_id")
-  private String calendarId;
-  /**
-   * 需要推送事件的用户列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_id_list")
-  private UserId[] userIdList;
+    public String getCalendarId() {
+        return this.calendarId;
+    }
 
-  public String getCalendarId() {
-    return this.calendarId;
-  }
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
 
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
 
-  public UserId[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(UserId[] userIdList) {
-    this.userIdList = userIdList;
-  }
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
+    }
 
 }

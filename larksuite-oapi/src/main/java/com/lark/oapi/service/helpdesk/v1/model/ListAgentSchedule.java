@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAgentSchedule {
 
-  /**
-   * 客服列表
-   * <p> 示例值：
-   */
-  @SerializedName("agent_schedules")
-  private AgentSchedule[] agentSchedules;
+    /**
+     * 客服列表
+     * <p> 示例值：
+     */
+    @SerializedName("agent_schedules")
+    private AgentSchedule[] agentSchedules;
 
-  public AgentSchedule[] getAgentSchedules() {
-    return this.agentSchedules;
-  }
+    public AgentSchedule[] getAgentSchedules() {
+        return this.agentSchedules;
+    }
 
-  public void setAgentSchedules(AgentSchedule[] agentSchedules) {
-    this.agentSchedules = agentSchedules;
-  }
+    public void setAgentSchedules(AgentSchedule[] agentSchedules) {
+        this.agentSchedules = agentSchedules;
+    }
 
 }

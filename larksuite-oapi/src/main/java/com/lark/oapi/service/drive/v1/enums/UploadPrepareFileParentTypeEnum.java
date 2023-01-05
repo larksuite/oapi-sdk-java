@@ -17,15 +17,15 @@ package com.lark.oapi.service.drive.v1.enums;
  * 上传点类型
  */
 public enum UploadPrepareFileParentTypeEnum {
-  EXPLORER("explorer"), // 云空间
-  ;
-  private String value;
+    EXPLORER("explorer"), // 云空间
+    ;
+    private String value;
 
-  UploadPrepareFileParentTypeEnum(String value) {
-    this.value = value;
-  }
+    UploadPrepareFileParentTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

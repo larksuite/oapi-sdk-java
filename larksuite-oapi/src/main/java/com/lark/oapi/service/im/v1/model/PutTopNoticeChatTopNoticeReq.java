@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PutTopNoticeChatTopNoticeReq {
-
-  /**
-   * 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_5ad11d72b830411d72b836c20
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private PutTopNoticeChatTopNoticeReqBody body;
-
-  // builder 开始
-  public PutTopNoticeChatTopNoticeReq() {
-  }
-
-  public PutTopNoticeChatTopNoticeReq(Builder builder) {
     /**
      * 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      */
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public PutTopNoticeChatTopNoticeReqBody getPutTopNoticeChatTopNoticeReqBody() {
-    return this.body;
-  }
-
-  public void setPutTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String chatId; // 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+    @Body
     private PutTopNoticeChatTopNoticeReqBody body;
 
-    /**
-     * 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public PutTopNoticeChatTopNoticeReq() {
+    }
+
+    public PutTopNoticeChatTopNoticeReq(Builder builder) {
+        /**
+         * 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         */
+        this.chatId = builder.chatId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
     public PutTopNoticeChatTopNoticeReqBody getPutTopNoticeChatTopNoticeReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder putTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
-      this.body = body;
-      return this;
+    public void setPutTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
+        this.body = body;
     }
 
-    public PutTopNoticeChatTopNoticeReq build() {
-      return new PutTopNoticeChatTopNoticeReq(this);
+    public static class Builder {
+
+        private String chatId; // 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+        private PutTopNoticeChatTopNoticeReqBody body;
+
+        /**
+         * 待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public PutTopNoticeChatTopNoticeReqBody getPutTopNoticeChatTopNoticeReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder putTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public PutTopNoticeChatTopNoticeReq build() {
+            return new PutTopNoticeChatTopNoticeReq(this);
+        }
     }
-  }
 }

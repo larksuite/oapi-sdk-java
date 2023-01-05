@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetDocumentBlock {
 
-  /**
-   * 查询的 Block 的信息
-   * <p> 示例值：
-   */
-  @SerializedName("block")
-  private Block block;
+    /**
+     * 查询的 Block 的信息
+     * <p> 示例值：
+     */
+    @SerializedName("block")
+    private Block block;
 
-  public Block getBlock() {
-    return this.block;
-  }
+    public Block getBlock() {
+        return this.block;
+    }
 
-  public void setBlock(Block block) {
-    this.block = block;
-  }
+    public void setBlock(Block block) {
+        this.block = block;
+    }
 
 }

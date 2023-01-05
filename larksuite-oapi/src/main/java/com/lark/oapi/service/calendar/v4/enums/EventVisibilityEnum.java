@@ -15,17 +15,17 @@ package com.lark.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum EventVisibilityEnum {
-  DEFAULT("default"),
-  PUBLIC("public"),
-  PRIVATE("private"),
-  ;
-  private String value;
+    DEFAULT("default"),
+    PUBLIC("public"),
+    PRIVATE("private"),
+    ;
+    private String value;
 
-  EventVisibilityEnum(String value) {
-    this.value = value;
-  }
+    EventVisibilityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

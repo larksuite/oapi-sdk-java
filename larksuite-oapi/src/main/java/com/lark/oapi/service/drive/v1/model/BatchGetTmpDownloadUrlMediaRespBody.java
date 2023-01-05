@@ -16,20 +16,19 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchGetTmpDownloadUrlMediaRespBody {
+    /**
+     * 临时下载列表
+     * <p> 示例值：
+     */
+    @SerializedName("tmp_download_urls")
+    private TmpDownloadUrl[] tmpDownloadUrls;
 
-  /**
-   * 临时下载列表
-   * <p> 示例值：
-   */
-  @SerializedName("tmp_download_urls")
-  private TmpDownloadUrl[] tmpDownloadUrls;
+    public TmpDownloadUrl[] getTmpDownloadUrls() {
+        return this.tmpDownloadUrls;
+    }
 
-  public TmpDownloadUrl[] getTmpDownloadUrls() {
-    return this.tmpDownloadUrls;
-  }
-
-  public void setTmpDownloadUrls(TmpDownloadUrl[] tmpDownloadUrls) {
-    this.tmpDownloadUrls = tmpDownloadUrls;
-  }
+    public void setTmpDownloadUrls(TmpDownloadUrl[] tmpDownloadUrls) {
+        this.tmpDownloadUrls = tmpDownloadUrls;
+    }
 
 }

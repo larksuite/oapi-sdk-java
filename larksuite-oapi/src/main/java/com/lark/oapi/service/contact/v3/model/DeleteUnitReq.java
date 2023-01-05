@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteUnitReq {
-
-  /**
-   * 单位ID
-   * <p> 示例值：BU121
-   */
-  @Path
-  @SerializedName("unit_id")
-  private String unitId;
-
-  // builder 开始
-  public DeleteUnitReq() {
-  }
-
-  public DeleteUnitReq(Builder builder) {
     /**
      * 单位ID
      * <p> 示例值：BU121
      */
-    this.unitId = builder.unitId;
-  }
+    @Path
+    @SerializedName("unit_id")
+    private String unitId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public static class Builder {
-
-    private String unitId; // 单位ID
-
-    /**
-     * 单位ID
-     * <p> 示例值：BU121
-     *
-     * @param unitId
-     * @return
-     */
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    // builder 开始
+    public DeleteUnitReq() {
     }
 
-    public DeleteUnitReq build() {
-      return new DeleteUnitReq(this);
+    public DeleteUnitReq(Builder builder) {
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         */
+        this.unitId = builder.unitId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUnitId() {
+        return this.unitId;
+    }
+
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
+    }
+
+    public static class Builder {
+
+        private String unitId; // 单位ID
+
+        /**
+         * 单位ID
+         * <p> 示例值：BU121
+         *
+         * @param unitId
+         * @return
+         */
+        public Builder unitId(String unitId) {
+            this.unitId = unitId;
+            return this;
+        }
+
+        public DeleteUnitReq build() {
+            return new DeleteUnitReq(this);
+        }
+    }
 }

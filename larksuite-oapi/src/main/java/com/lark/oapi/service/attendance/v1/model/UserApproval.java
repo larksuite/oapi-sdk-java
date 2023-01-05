@@ -16,246 +16,281 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserApproval {
-
-  /**
-   * 审批用户 ID
-   * <p> 示例值：abd754f7
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 审批作用日期
-   * <p> 示例值：20210104
-   */
-  @SerializedName("date")
-  private String date;
-  /**
-   * 外出信息
-   * <p> 示例值：
-   */
-  @SerializedName("outs")
-  private UserOut[] outs;
-  /**
-   * 请假信息
-   * <p> 示例值：
-   */
-  @SerializedName("leaves")
-  private UserLeave[] leaves;
-  /**
-   * 加班信息
-   * <p> 示例值：
-   */
-  @SerializedName("overtime_works")
-  private UserOvertimeWork[] overtimeWorks;
-  /**
-   * 出差信息
-   * <p> 示例值：
-   */
-  @SerializedName("trips")
-  private UserTrip[] trips;
-
-  // builder 开始
-  public UserApproval() {
-  }
-
-  public UserApproval(Builder builder) {
     /**
      * 审批用户 ID
      * <p> 示例值：abd754f7
      */
-    this.userId = builder.userId;
-    /**
-     * 审批作用日期
-     * <p> 示例值：20210104
-     */
-    this.date = builder.date;
-    /**
-     * 外出信息
-     * <p> 示例值：
-     */
-    this.outs = builder.outs;
-    /**
-     * 请假信息
-     * <p> 示例值：
-     */
-    this.leaves = builder.leaves;
-    /**
-     * 加班信息
-     * <p> 示例值：
-     */
-    this.overtimeWorks = builder.overtimeWorks;
-    /**
-     * 出差信息
-     * <p> 示例值：
-     */
-    this.trips = builder.trips;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getDate() {
-    return this.date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public UserOut[] getOuts() {
-    return this.outs;
-  }
-
-  public void setOuts(UserOut[] outs) {
-    this.outs = outs;
-  }
-
-  public UserLeave[] getLeaves() {
-    return this.leaves;
-  }
-
-  public void setLeaves(UserLeave[] leaves) {
-    this.leaves = leaves;
-  }
-
-  public UserOvertimeWork[] getOvertimeWorks() {
-    return this.overtimeWorks;
-  }
-
-  public void setOvertimeWorks(UserOvertimeWork[] overtimeWorks) {
-    this.overtimeWorks = overtimeWorks;
-  }
-
-  public UserTrip[] getTrips() {
-    return this.trips;
-  }
-
-  public void setTrips(UserTrip[] trips) {
-    this.trips = trips;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批用户 ID
-     * <p> 示例值：abd754f7
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 审批作用日期
      * <p> 示例值：20210104
      */
+    @SerializedName("date")
     private String date;
     /**
      * 外出信息
      * <p> 示例值：
      */
+    @SerializedName("outs")
     private UserOut[] outs;
     /**
      * 请假信息
      * <p> 示例值：
      */
+    @SerializedName("leaves")
     private UserLeave[] leaves;
     /**
      * 加班信息
      * <p> 示例值：
      */
+    @SerializedName("overtime_works")
     private UserOvertimeWork[] overtimeWorks;
     /**
      * 出差信息
      * <p> 示例值：
      */
+    @SerializedName("trips")
     private UserTrip[] trips;
-
     /**
-     * 审批用户 ID
-     * <p> 示例值：abd754f7
-     *
-     * @param userId
-     * @return
+     * 计算时间所用的时区信息，为空是0时区
+     * <p> 示例值：Asia/Shanghai
      */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    @SerializedName("time_zone")
+    private String timeZone;
+
+    // builder 开始
+    public UserApproval() {
     }
 
-
-    /**
-     * 审批作用日期
-     * <p> 示例值：20210104
-     *
-     * @param date
-     * @return
-     */
-    public Builder date(String date) {
-      this.date = date;
-      return this;
+    public UserApproval(Builder builder) {
+        /**
+         * 审批用户 ID
+         * <p> 示例值：abd754f7
+         */
+        this.userId = builder.userId;
+        /**
+         * 审批作用日期
+         * <p> 示例值：20210104
+         */
+        this.date = builder.date;
+        /**
+         * 外出信息
+         * <p> 示例值：
+         */
+        this.outs = builder.outs;
+        /**
+         * 请假信息
+         * <p> 示例值：
+         */
+        this.leaves = builder.leaves;
+        /**
+         * 加班信息
+         * <p> 示例值：
+         */
+        this.overtimeWorks = builder.overtimeWorks;
+        /**
+         * 出差信息
+         * <p> 示例值：
+         */
+        this.trips = builder.trips;
+        /**
+         * 计算时间所用的时区信息，为空是0时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timeZone = builder.timeZone;
     }
 
-
-    /**
-     * 外出信息
-     * <p> 示例值：
-     *
-     * @param outs
-     * @return
-     */
-    public Builder outs(UserOut[] outs) {
-      this.outs = outs;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 请假信息
-     * <p> 示例值：
-     *
-     * @param leaves
-     * @return
-     */
-    public Builder leaves(UserLeave[] leaves) {
-      this.leaves = leaves;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * 加班信息
-     * <p> 示例值：
-     *
-     * @param overtimeWorks
-     * @return
-     */
-    public Builder overtimeWorks(UserOvertimeWork[] overtimeWorks) {
-      this.overtimeWorks = overtimeWorks;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-
-    /**
-     * 出差信息
-     * <p> 示例值：
-     *
-     * @param trips
-     * @return
-     */
-    public Builder trips(UserTrip[] trips) {
-      this.trips = trips;
-      return this;
+    public String getDate() {
+        return this.date;
     }
 
-
-    public UserApproval build() {
-      return new UserApproval(this);
+    public void setDate(String date) {
+        this.date = date;
     }
-  }
+
+    public UserOut[] getOuts() {
+        return this.outs;
+    }
+
+    public void setOuts(UserOut[] outs) {
+        this.outs = outs;
+    }
+
+    public UserLeave[] getLeaves() {
+        return this.leaves;
+    }
+
+    public void setLeaves(UserLeave[] leaves) {
+        this.leaves = leaves;
+    }
+
+    public UserOvertimeWork[] getOvertimeWorks() {
+        return this.overtimeWorks;
+    }
+
+    public void setOvertimeWorks(UserOvertimeWork[] overtimeWorks) {
+        this.overtimeWorks = overtimeWorks;
+    }
+
+    public UserTrip[] getTrips() {
+        return this.trips;
+    }
+
+    public void setTrips(UserTrip[] trips) {
+        this.trips = trips;
+    }
+
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public static class Builder {
+        /**
+         * 审批用户 ID
+         * <p> 示例值：abd754f7
+         */
+        private String userId;
+        /**
+         * 审批作用日期
+         * <p> 示例值：20210104
+         */
+        private String date;
+        /**
+         * 外出信息
+         * <p> 示例值：
+         */
+        private UserOut[] outs;
+        /**
+         * 请假信息
+         * <p> 示例值：
+         */
+        private UserLeave[] leaves;
+        /**
+         * 加班信息
+         * <p> 示例值：
+         */
+        private UserOvertimeWork[] overtimeWorks;
+        /**
+         * 出差信息
+         * <p> 示例值：
+         */
+        private UserTrip[] trips;
+        /**
+         * 计算时间所用的时区信息，为空是0时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        private String timeZone;
+
+        /**
+         * 审批用户 ID
+         * <p> 示例值：abd754f7
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 审批作用日期
+         * <p> 示例值：20210104
+         *
+         * @param date
+         * @return
+         */
+        public Builder date(String date) {
+            this.date = date;
+            return this;
+        }
+
+
+        /**
+         * 外出信息
+         * <p> 示例值：
+         *
+         * @param outs
+         * @return
+         */
+        public Builder outs(UserOut[] outs) {
+            this.outs = outs;
+            return this;
+        }
+
+
+        /**
+         * 请假信息
+         * <p> 示例值：
+         *
+         * @param leaves
+         * @return
+         */
+        public Builder leaves(UserLeave[] leaves) {
+            this.leaves = leaves;
+            return this;
+        }
+
+
+        /**
+         * 加班信息
+         * <p> 示例值：
+         *
+         * @param overtimeWorks
+         * @return
+         */
+        public Builder overtimeWorks(UserOvertimeWork[] overtimeWorks) {
+            this.overtimeWorks = overtimeWorks;
+            return this;
+        }
+
+
+        /**
+         * 出差信息
+         * <p> 示例值：
+         *
+         * @param trips
+         * @return
+         */
+        public Builder trips(UserTrip[] trips) {
+            this.trips = trips;
+            return this;
+        }
+
+
+        /**
+         * 计算时间所用的时区信息，为空是0时区
+         * <p> 示例值：Asia/Shanghai
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
+            return this;
+        }
+
+
+        public UserApproval build() {
+            return new UserApproval(this);
+        }
+    }
 }

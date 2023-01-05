@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户日历活跃状态，发生过如下事件，则认为用户日历活跃，包含进入日历、创建日程、收到日程邀请等
  */
 public enum AdminUserStatCalActiveFlagEnum {
-  INACTIVE(0), // 无活跃
-  ACTIVE(1), // 活跃
-  ;
-  private Integer value;
+    INACTIVE(0), // 无活跃
+    ACTIVE(1), // 活跃
+    ;
+    private Integer value;
 
-  AdminUserStatCalActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    AdminUserStatCalActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

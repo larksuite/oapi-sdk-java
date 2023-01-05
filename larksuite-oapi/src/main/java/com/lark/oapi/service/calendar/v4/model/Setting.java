@@ -15,21 +15,21 @@ package com.lark.oapi.service.calendar.v4.model;
 
 public class Setting {
 
-  // builder 开始
-  public Setting() {
-  }
-
-  public Setting(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public Setting build() {
-      return new Setting(this);
+    // builder 开始
+    public Setting() {
     }
-  }
+
+    public Setting(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public Setting build() {
+            return new Setting(this);
+        }
+    }
 }

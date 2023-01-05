@@ -17,22 +17,22 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批任务状态
  */
 public enum TaskSearchNodeStatusEnum {
-  REJECTED("rejected"), // 拒绝
-  PENDING("pending"), // 审批中
-  APPROVED("approved"), // 通过
-  TRANSFERRED("transferred"), // 转交
-  DONE("done"), // 已完成
-  RMREPEAT("rm_repeat"), // 去重
-  PROCESSED("processed"), // 已处理
-  HIDDEN("hidden"), //
-  ;
-  private String value;
+    REJECTED("rejected"), // 拒绝
+    PENDING("pending"), // 审批中
+    APPROVED("approved"), // 通过
+    TRANSFERRED("transferred"), // 转交
+    DONE("done"), // 已完成
+    RMREPEAT("rm_repeat"), // 去重
+    PROCESSED("processed"), // 已处理
+    HIDDEN("hidden"), //
+    ;
+    private String value;
 
-  TaskSearchNodeStatusEnum(String value) {
-    this.value = value;
-  }
+    TaskSearchNodeStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -15,21 +15,21 @@ package com.lark.oapi.service.im.v1.model;
 
 public class File {
 
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public File build() {
-      return new File(this);
+    // builder 开始
+    public File() {
     }
-  }
+
+    public File(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public File build() {
+            return new File(this);
+        }
+    }
 }

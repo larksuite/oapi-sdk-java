@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class SortTabsChatTabReq {
-
-  /**
-   * 群ID
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private SortTabsChatTabReqBody body;
-
-  // builder 开始
-  public SortTabsChatTabReq() {
-  }
-
-  public SortTabsChatTabReq(Builder builder) {
     /**
-     * 群ID
+     * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public SortTabsChatTabReqBody getSortTabsChatTabReqBody() {
-    return this.body;
-  }
-
-  public void setSortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String chatId; // 群ID
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+    @Body
     private SortTabsChatTabReqBody body;
 
-    /**
-     * 群ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public SortTabsChatTabReq() {
+    }
+
+    public SortTabsChatTabReq(Builder builder) {
+        /**
+         * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
     public SortTabsChatTabReqBody getSortTabsChatTabReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder sortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
-      this.body = body;
-      return this;
+    public void setSortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
+        this.body = body;
     }
 
-    public SortTabsChatTabReq build() {
-      return new SortTabsChatTabReq(this);
+    public static class Builder {
+
+        private String chatId; // 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
+        private SortTabsChatTabReqBody body;
+
+        /**
+         * 群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：支持群模式为`p2p`与`group`的群ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public SortTabsChatTabReqBody getSortTabsChatTabReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder sortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public SortTabsChatTabReq build() {
+            return new SortTabsChatTabReq(this);
+        }
     }
-  }
 }

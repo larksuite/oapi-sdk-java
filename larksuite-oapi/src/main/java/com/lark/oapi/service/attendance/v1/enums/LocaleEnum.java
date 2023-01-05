@@ -15,17 +15,17 @@ package com.lark.oapi.service.attendance.v1.enums;
 
 // 生成枚举值
 public enum LocaleEnum {
-  EN("en"),
-  JA("ja"),
-  ZH("zh"),
-  ;
-  private String value;
+    EN("en"),
+    JA("ja"),
+    ZH("zh"),
+    ;
+    private String value;
 
-  LocaleEnum(String value) {
-    this.value = value;
-  }
+    LocaleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 日历公开范围
  */
 public enum CalendarEventPermissionsEnum {
-  PRIVATE("private"), // 私密
-  SHOWONLYFREEBUSY("show_only_free_busy"), // 仅展示忙闲信息
-  PUBLIC("public"), // 他人可查看日程详情
-  ;
-  private String value;
+    PRIVATE("private"), // 私密
+    SHOWONLYFREEBUSY("show_only_free_busy"), // 仅展示忙闲信息
+    PUBLIC("public"), // 他人可查看日程详情
+    ;
+    private String value;
 
-  CalendarEventPermissionsEnum(String value) {
-    this.value = value;
-  }
+    CalendarEventPermissionsEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

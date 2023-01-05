@@ -16,98 +16,96 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FilterInfo {
-
-  /**
-   * 设置了筛选条件的列
-   * <p> 示例值：E
-   */
-  @SerializedName("col")
-  private String col;
-  /**
-   * 筛选条件
-   * <p> 示例值：
-   */
-  @SerializedName("conditions")
-  private Condition[] conditions;
-
-  // builder 开始
-  public FilterInfo() {
-  }
-
-  public FilterInfo(Builder builder) {
     /**
      * 设置了筛选条件的列
      * <p> 示例值：E
      */
-    this.col = builder.col;
-    /**
-     * 筛选条件
-     * <p> 示例值：
-     */
-    this.conditions = builder.conditions;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCol() {
-    return this.col;
-  }
-
-  public void setCol(String col) {
-    this.col = col;
-  }
-
-  public Condition[] getConditions() {
-    return this.conditions;
-  }
-
-  public void setConditions(Condition[] conditions) {
-    this.conditions = conditions;
-  }
-
-  public static class Builder {
-
-    /**
-     * 设置了筛选条件的列
-     * <p> 示例值：E
-     */
+    @SerializedName("col")
     private String col;
     /**
      * 筛选条件
      * <p> 示例值：
      */
+    @SerializedName("conditions")
     private Condition[] conditions;
 
-    /**
-     * 设置了筛选条件的列
-     * <p> 示例值：E
-     *
-     * @param col
-     * @return
-     */
-    public Builder col(String col) {
-      this.col = col;
-      return this;
+    // builder 开始
+    public FilterInfo() {
     }
 
-
-    /**
-     * 筛选条件
-     * <p> 示例值：
-     *
-     * @param conditions
-     * @return
-     */
-    public Builder conditions(Condition[] conditions) {
-      this.conditions = conditions;
-      return this;
+    public FilterInfo(Builder builder) {
+        /**
+         * 设置了筛选条件的列
+         * <p> 示例值：E
+         */
+        this.col = builder.col;
+        /**
+         * 筛选条件
+         * <p> 示例值：
+         */
+        this.conditions = builder.conditions;
     }
 
-
-    public FilterInfo build() {
-      return new FilterInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getCol() {
+        return this.col;
+    }
+
+    public void setCol(String col) {
+        this.col = col;
+    }
+
+    public Condition[] getConditions() {
+        return this.conditions;
+    }
+
+    public void setConditions(Condition[] conditions) {
+        this.conditions = conditions;
+    }
+
+    public static class Builder {
+        /**
+         * 设置了筛选条件的列
+         * <p> 示例值：E
+         */
+        private String col;
+        /**
+         * 筛选条件
+         * <p> 示例值：
+         */
+        private Condition[] conditions;
+
+        /**
+         * 设置了筛选条件的列
+         * <p> 示例值：E
+         *
+         * @param col
+         * @return
+         */
+        public Builder col(String col) {
+            this.col = col;
+            return this;
+        }
+
+
+        /**
+         * 筛选条件
+         * <p> 示例值：
+         *
+         * @param conditions
+         * @return
+         */
+        public Builder conditions(Condition[] conditions) {
+            this.conditions = conditions;
+            return this;
+        }
+
+
+        public FilterInfo build() {
+            return new FilterInfo(this);
+        }
+    }
 }

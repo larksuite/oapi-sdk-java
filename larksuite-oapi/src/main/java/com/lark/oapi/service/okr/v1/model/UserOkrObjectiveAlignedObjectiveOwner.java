@@ -16,209 +16,207 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserOkrObjectiveAlignedObjectiveOwner {
-
-  /**
-   * 用户的 open_id
-   * <p> 示例值：
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * 用户的 employee_id
-   * <p> 示例值：
-   */
-  @SerializedName("employee_id")
-  private String employeeId;
-  /**
-   * 工号
-   * <p> 示例值：
-   */
-  @SerializedName("employee_no")
-  private String employeeNo;
-  /**
-   * 用户的 union_id
-   * <p> 示例值：
-   */
-  @SerializedName("union_id")
-  private String unionId;
-  /**
-   * 用户名
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public UserOkrObjectiveAlignedObjectiveOwner() {
-  }
-
-  public UserOkrObjectiveAlignedObjectiveOwner(Builder builder) {
     /**
      * 用户的 open_id
      * <p> 示例值：
      */
-    this.openId = builder.openId;
-    /**
-     * 用户的 employee_id
-     * <p> 示例值：
-     */
-    this.employeeId = builder.employeeId;
-    /**
-     * 工号
-     * <p> 示例值：
-     */
-    this.employeeNo = builder.employeeNo;
-    /**
-     * 用户的 union_id
-     * <p> 示例值：
-     */
-    this.unionId = builder.unionId;
-    /**
-     * 用户名
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getEmployeeId() {
-    return this.employeeId;
-  }
-
-  public void setEmployeeId(String employeeId) {
-    this.employeeId = employeeId;
-  }
-
-  public String getEmployeeNo() {
-    return this.employeeNo;
-  }
-
-  public void setEmployeeNo(String employeeNo) {
-    this.employeeNo = employeeNo;
-  }
-
-  public String getUnionId() {
-    return this.unionId;
-  }
-
-  public void setUnionId(String unionId) {
-    this.unionId = unionId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户的 open_id
-     * <p> 示例值：
-     */
+    @SerializedName("open_id")
     private String openId;
     /**
      * 用户的 employee_id
      * <p> 示例值：
      */
+    @SerializedName("employee_id")
     private String employeeId;
     /**
      * 工号
      * <p> 示例值：
      */
+    @SerializedName("employee_no")
     private String employeeNo;
     /**
      * 用户的 union_id
      * <p> 示例值：
      */
+    @SerializedName("union_id")
     private String unionId;
     /**
      * 用户名
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 用户的 open_id
-     * <p> 示例值：
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    // builder 开始
+    public UserOkrObjectiveAlignedObjectiveOwner() {
     }
 
-
-    /**
-     * 用户的 employee_id
-     * <p> 示例值：
-     *
-     * @param employeeId
-     * @return
-     */
-    public Builder employeeId(String employeeId) {
-      this.employeeId = employeeId;
-      return this;
+    public UserOkrObjectiveAlignedObjectiveOwner(Builder builder) {
+        /**
+         * 用户的 open_id
+         * <p> 示例值：
+         */
+        this.openId = builder.openId;
+        /**
+         * 用户的 employee_id
+         * <p> 示例值：
+         */
+        this.employeeId = builder.employeeId;
+        /**
+         * 工号
+         * <p> 示例值：
+         */
+        this.employeeNo = builder.employeeNo;
+        /**
+         * 用户的 union_id
+         * <p> 示例值：
+         */
+        this.unionId = builder.unionId;
+        /**
+         * 用户名
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 工号
-     * <p> 示例值：
-     *
-     * @param employeeNo
-     * @return
-     */
-    public Builder employeeNo(String employeeNo) {
-      this.employeeNo = employeeNo;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 用户的 union_id
-     * <p> 示例值：
-     *
-     * @param unionId
-     * @return
-     */
-    public Builder unionId(String unionId) {
-      this.unionId = unionId;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-
-    /**
-     * 用户名
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
-
-    public UserOkrObjectiveAlignedObjectiveOwner build() {
-      return new UserOkrObjectiveAlignedObjectiveOwner(this);
+    public String getEmployeeId() {
+        return this.employeeId;
     }
-  }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getEmployeeNo() {
+        return this.employeeNo;
+    }
+
+    public void setEmployeeNo(String employeeNo) {
+        this.employeeNo = employeeNo;
+    }
+
+    public String getUnionId() {
+        return this.unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 用户的 open_id
+         * <p> 示例值：
+         */
+        private String openId;
+        /**
+         * 用户的 employee_id
+         * <p> 示例值：
+         */
+        private String employeeId;
+        /**
+         * 工号
+         * <p> 示例值：
+         */
+        private String employeeNo;
+        /**
+         * 用户的 union_id
+         * <p> 示例值：
+         */
+        private String unionId;
+        /**
+         * 用户名
+         * <p> 示例值：
+         */
+        private String name;
+
+        /**
+         * 用户的 open_id
+         * <p> 示例值：
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * 用户的 employee_id
+         * <p> 示例值：
+         *
+         * @param employeeId
+         * @return
+         */
+        public Builder employeeId(String employeeId) {
+            this.employeeId = employeeId;
+            return this;
+        }
+
+
+        /**
+         * 工号
+         * <p> 示例值：
+         *
+         * @param employeeNo
+         * @return
+         */
+        public Builder employeeNo(String employeeNo) {
+            this.employeeNo = employeeNo;
+            return this;
+        }
+
+
+        /**
+         * 用户的 union_id
+         * <p> 示例值：
+         *
+         * @param unionId
+         * @return
+         */
+        public Builder unionId(String unionId) {
+            this.unionId = unionId;
+            return this;
+        }
+
+
+        /**
+         * 用户名
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public UserOkrObjectiveAlignedObjectiveOwner build() {
+            return new UserOkrObjectiveAlignedObjectiveOwner(this);
+        }
+    }
 }

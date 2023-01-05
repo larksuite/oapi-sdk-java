@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ToolkitRedirectLink {
-
-  /**
-   * 跳转url
-   * <p> 示例值：https://applink.feishu.cn/client/calendar/open
-   */
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public ToolkitRedirectLink() {
-  }
-
-  public ToolkitRedirectLink(Builder builder) {
     /**
      * 跳转url
      * <p> 示例值：https://applink.feishu.cn/client/calendar/open
      */
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
-    /**
-     * 跳转url
-     * <p> 示例值：https://applink.feishu.cn/client/calendar/open
-     */
+    @SerializedName("url")
     private String url;
 
-    /**
-     * 跳转url
-     * <p> 示例值：https://applink.feishu.cn/client/calendar/open
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    // builder 开始
+    public ToolkitRedirectLink() {
     }
 
-
-    public ToolkitRedirectLink build() {
-      return new ToolkitRedirectLink(this);
+    public ToolkitRedirectLink(Builder builder) {
+        /**
+         * 跳转url
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/open
+         */
+        this.url = builder.url;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public static class Builder {
+        /**
+         * 跳转url
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/open
+         */
+        private String url;
+
+        /**
+         * 跳转url
+         * <p> 示例值：https://applink.feishu.cn/client/calendar/open
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        public ToolkitRedirectLink build() {
+            return new ToolkitRedirectLink(this);
+        }
+    }
 }

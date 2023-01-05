@@ -16,51 +16,50 @@ package com.lark.oapi.service.im.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateImageReq {
-
-  @Body
-  private CreateImageReqBody body;
-
-  // builder 开始
-  public CreateImageReq() {
-  }
-
-  public CreateImageReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateImageReqBody getCreateImageReqBody() {
-    return this.body;
-  }
-
-  public void setCreateImageReqBody(CreateImageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateImageReqBody body;
 
+    // builder 开始
+    public CreateImageReq() {
+    }
+
+    public CreateImageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateImageReqBody getCreateImageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createImageReqBody(CreateImageReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateImageReqBody(CreateImageReqBody body) {
+        this.body = body;
     }
 
-    public CreateImageReq build() {
-      return new CreateImageReq(this);
+    public static class Builder {
+
+        private CreateImageReqBody body;
+
+        public CreateImageReqBody getCreateImageReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createImageReqBody(CreateImageReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateImageReq build() {
+            return new CreateImageReq(this);
+        }
     }
-  }
 }

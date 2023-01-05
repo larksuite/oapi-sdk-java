@@ -16,51 +16,50 @@ package com.lark.oapi.service.mail.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class QueryUserReq {
-
-  @Body
-  private QueryUserReqBody body;
-
-  // builder 开始
-  public QueryUserReq() {
-  }
-
-  public QueryUserReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public QueryUserReqBody getQueryUserReqBody() {
-    return this.body;
-  }
-
-  public void setQueryUserReqBody(QueryUserReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private QueryUserReqBody body;
 
+    // builder 开始
+    public QueryUserReq() {
+    }
+
+    public QueryUserReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public QueryUserReqBody getQueryUserReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder queryUserReqBody(QueryUserReqBody body) {
-      this.body = body;
-      return this;
+    public void setQueryUserReqBody(QueryUserReqBody body) {
+        this.body = body;
     }
 
-    public QueryUserReq build() {
-      return new QueryUserReq(this);
+    public static class Builder {
+
+        private QueryUserReqBody body;
+
+        public QueryUserReqBody getQueryUserReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder queryUserReqBody(QueryUserReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public QueryUserReq build() {
+            return new QueryUserReq(this);
+        }
     }
-  }
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.wiki.v2.enums;
  * wiki类型
  */
 public enum NodeSearchObjTypeEnum {
-  OBJ_TYPEDOC(1), // 旧版文档
-  OBJ_TYPEDOCX(8), // 新版文档
-  ;
-  private Integer value;
+    OBJ_TYPEDOC(1), // 旧版文档
+    OBJ_TYPEDOCX(8), // 新版文档
+    ;
+    private Integer value;
 
-  NodeSearchObjTypeEnum(Integer value) {
-    this.value = value;
-  }
+    NodeSearchObjTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

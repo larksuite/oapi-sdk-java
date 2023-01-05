@@ -15,15 +15,15 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum MaterialTypeEnum {
-  VIRTUAL_VACKGROUND(1),
-  ;
-  private Integer value;
+    VIRTUAL_VACKGROUND(1),
+    ;
+    private Integer value;
 
-  MaterialTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

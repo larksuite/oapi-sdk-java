@@ -15,16 +15,16 @@ package com.lark.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum CommentEntityEnum {
-  ANYONECANVIEW("anyone_can_view"),
-  ANYONECANEDIT("anyone_can_edit"),
-  ;
-  private String value;
+    ANYONECANVIEW("anyone_can_view"),
+    ANYONECANEDIT("anyone_can_edit"),
+    ;
+    private String value;
 
-  CommentEntityEnum(String value) {
-    this.value = value;
-  }
+    CommentEntityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

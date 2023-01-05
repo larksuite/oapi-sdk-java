@@ -18,90 +18,88 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class DownloadMediaReq {
-
-  /**
-   * 扩展信息
-   * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-   */
-  @Query
-  @SerializedName("extra")
-  private String extra;
-  /**
-   * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public DownloadMediaReq() {
-  }
-
-  public DownloadMediaReq(Builder builder) {
     /**
      * 扩展信息
      * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
      */
-    this.extra = builder.extra;
+    @Query
+    @SerializedName("extra")
+    private String extra;
     /**
      * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    this.fileToken = builder.fileToken;
-  }
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
-    private String extra; // 扩展信息
-    private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-
-    /**
-     * 扩展信息
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-     *
-     * @param extra
-     * @return
-     */
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    // builder 开始
+    public DownloadMediaReq() {
     }
 
-    /**
-     * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    public DownloadMediaReq(Builder builder) {
+        /**
+         * 扩展信息
+         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+         */
+        this.extra = builder.extra;
+        /**
+         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        this.fileToken = builder.fileToken;
     }
 
-    public DownloadMediaReq build() {
-      return new DownloadMediaReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public static class Builder {
+        private String extra; // 扩展信息
+        private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+
+        /**
+         * 扩展信息
+         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
+            return this;
+        }
+
+        /**
+         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public DownloadMediaReq build() {
+            return new DownloadMediaReq(this);
+        }
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentParagraphStyle {
-
-  /**
-   * 有序列表/无序列表/任务列表
-   * <p> 示例值：
-   */
-  @SerializedName("list")
-  private ContentList[] list;
-
-  // builder 开始
-  public ContentParagraphStyle() {
-  }
-
-  public ContentParagraphStyle(Builder builder) {
     /**
      * 有序列表/无序列表/任务列表
      * <p> 示例值：
      */
-    this.list = builder.list;
-  }
+    @SerializedName("list")
+    private ContentList list;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ContentList[] getList() {
-    return this.list;
-  }
-
-  public void setList(ContentList[] list) {
-    this.list = list;
-  }
-
-  public static class Builder {
-
-    /**
-     * 有序列表/无序列表/任务列表
-     * <p> 示例值：
-     */
-    private ContentList[] list;
-
-    /**
-     * 有序列表/无序列表/任务列表
-     * <p> 示例值：
-     *
-     * @param list
-     * @return
-     */
-    public Builder list(ContentList[] list) {
-      this.list = list;
-      return this;
+    // builder 开始
+    public ContentParagraphStyle() {
     }
 
-
-    public ContentParagraphStyle build() {
-      return new ContentParagraphStyle(this);
+    public ContentParagraphStyle(Builder builder) {
+        /**
+         * 有序列表/无序列表/任务列表
+         * <p> 示例值：
+         */
+        this.list = builder.list;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ContentList getList() {
+        return this.list;
+    }
+
+    public void setList(ContentList list) {
+        this.list = list;
+    }
+
+    public static class Builder {
+        /**
+         * 有序列表/无序列表/任务列表
+         * <p> 示例值：
+         */
+        private ContentList list;
+
+        /**
+         * 有序列表/无序列表/任务列表
+         * <p> 示例值：
+         *
+         * @param list
+         * @return
+         */
+        public Builder list(ContentList list) {
+            this.list = list;
+            return this;
+        }
+
+
+        public ContentParagraphStyle build() {
+            return new ContentParagraphStyle(this);
+        }
+    }
 }

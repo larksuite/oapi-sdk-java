@@ -16,61 +16,59 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class File {
-
-  /**
-   * 文件 ID
-   * <p> 示例值：6b30e7636a38861bbe02869c726a4612
-   */
-  @SerializedName("file_id")
-  private String fileId;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
     /**
      * 文件 ID
      * <p> 示例值：6b30e7636a38861bbe02869c726a4612
      */
-    this.fileId = builder.fileId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileId() {
-    return this.fileId;
-  }
-
-  public void setFileId(String fileId) {
-    this.fileId = fileId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件 ID
-     * <p> 示例值：6b30e7636a38861bbe02869c726a4612
-     */
+    @SerializedName("file_id")
     private String fileId;
 
-    /**
-     * 文件 ID
-     * <p> 示例值：6b30e7636a38861bbe02869c726a4612
-     *
-     * @param fileId
-     * @return
-     */
-    public Builder fileId(String fileId) {
-      this.fileId = fileId;
-      return this;
+    // builder 开始
+    public File() {
     }
 
-
-    public File build() {
-      return new File(this);
+    public File(Builder builder) {
+        /**
+         * 文件 ID
+         * <p> 示例值：6b30e7636a38861bbe02869c726a4612
+         */
+        this.fileId = builder.fileId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileId() {
+        return this.fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public static class Builder {
+        /**
+         * 文件 ID
+         * <p> 示例值：6b30e7636a38861bbe02869c726a4612
+         */
+        private String fileId;
+
+        /**
+         * 文件 ID
+         * <p> 示例值：6b30e7636a38861bbe02869c726a4612
+         *
+         * @param fileId
+         * @return
+         */
+        public Builder fileId(String fileId) {
+            this.fileId = fileId;
+            return this;
+        }
+
+
+        public File build() {
+            return new File(this);
+        }
+    }
 }

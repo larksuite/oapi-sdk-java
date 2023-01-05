@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetApplication {
 
-  /**
-   * 应用数据
-   * <p> 示例值：
-   */
-  @SerializedName("app")
-  private Application app;
+    /**
+     * 应用数据
+     * <p> 示例值：
+     */
+    @SerializedName("app")
+    private Application app;
 
-  public Application getApp() {
-    return this.app;
-  }
+    public Application getApp() {
+        return this.app;
+    }
 
-  public void setApp(Application app) {
-    this.app = app;
-  }
+    public void setApp(Application app) {
+        this.app = app;
+    }
 
 }

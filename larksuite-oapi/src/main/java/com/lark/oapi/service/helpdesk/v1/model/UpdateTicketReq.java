@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateTicketReq {
-
-  /**
-   * 工单ID
-   * <p> 示例值：6945345902185807891
-   */
-  @Path
-  @SerializedName("ticket_id")
-  private String ticketId;
-  @Body
-  private UpdateTicketReqBody body;
-
-  // builder 开始
-  public UpdateTicketReq() {
-  }
-
-  public UpdateTicketReq(Builder builder) {
     /**
      * 工单ID
      * <p> 示例值：6945345902185807891
      */
-    this.ticketId = builder.ticketId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public UpdateTicketReqBody getUpdateTicketReqBody() {
-    return this.body;
-  }
-
-  public void setUpdateTicketReqBody(UpdateTicketReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String ticketId; // 工单ID
+    @Path
+    @SerializedName("ticket_id")
+    private String ticketId;
+    @Body
     private UpdateTicketReqBody body;
 
-    /**
-     * 工单ID
-     * <p> 示例值：6945345902185807891
-     *
-     * @param ticketId
-     * @return
-     */
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
+    // builder 开始
+    public UpdateTicketReq() {
+    }
+
+    public UpdateTicketReq(Builder builder) {
+        /**
+         * 工单ID
+         * <p> 示例值：6945345902185807891
+         */
+        this.ticketId = builder.ticketId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTicketId() {
+        return this.ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
     public UpdateTicketReqBody getUpdateTicketReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder updateTicketReqBody(UpdateTicketReqBody body) {
-      this.body = body;
-      return this;
+    public void setUpdateTicketReqBody(UpdateTicketReqBody body) {
+        this.body = body;
     }
 
-    public UpdateTicketReq build() {
-      return new UpdateTicketReq(this);
+    public static class Builder {
+
+        private String ticketId; // 工单ID
+        private UpdateTicketReqBody body;
+
+        /**
+         * 工单ID
+         * <p> 示例值：6945345902185807891
+         *
+         * @param ticketId
+         * @return
+         */
+        public Builder ticketId(String ticketId) {
+            this.ticketId = ticketId;
+            return this;
+        }
+
+        public UpdateTicketReqBody getUpdateTicketReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder updateTicketReqBody(UpdateTicketReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateTicketReq build() {
+            return new UpdateTicketReq(this);
+        }
     }
-  }
 }

@@ -16,110 +16,108 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class RequestDoc {
-
-  /**
-   * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-   * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-   */
-  @SerializedName("doc_token")
-  private String docToken;
-  /**
-   * 文件类型
-   * <p> 示例值：doc
-   */
-  @SerializedName("doc_type")
-  private String docType;
-
-  // builder 开始
-  public RequestDoc() {
-  }
-
-  public RequestDoc(Builder builder) {
     /**
      * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
      */
-    this.docToken = builder.docToken;
-    /**
-     * 文件类型
-     * <p> 示例值：doc
-     */
-    this.docType = builder.docType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocToken() {
-    return this.docToken;
-  }
-
-  public void setDocToken(String docToken) {
-    this.docToken = docToken;
-  }
-
-  public String getDocType() {
-    return this.docType;
-  }
-
-  public void setDocType(String docType) {
-    this.docType = docType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-     */
+    @SerializedName("doc_token")
     private String docToken;
     /**
      * 文件类型
      * <p> 示例值：doc
      */
+    @SerializedName("doc_type")
     private String docType;
 
-    /**
-     * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-     *
-     * @param docToken
-     * @return
-     */
-    public Builder docToken(String docToken) {
-      this.docToken = docToken;
-      return this;
+    // builder 开始
+    public RequestDoc() {
     }
 
-
-    /**
-     * 文件类型
-     * <p> 示例值：doc
-     *
-     * @param docType
-     * @return
-     */
-    public Builder docType(String docType) {
-      this.docType = docType;
-      return this;
+    public RequestDoc(Builder builder) {
+        /**
+         * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+         */
+        this.docToken = builder.docToken;
+        /**
+         * 文件类型
+         * <p> 示例值：doc
+         */
+        this.docType = builder.docType;
     }
 
-    /**
-     * 文件类型
-     * <p> 示例值：doc
-     *
-     * @param docType {@link com.lark.oapi.service.drive.v1.enums.RequestDocDocTypeEnum}
-     * @return
-     */
-    public Builder docType(com.lark.oapi.service.drive.v1.enums.RequestDocDocTypeEnum docType) {
-      this.docType = docType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public RequestDoc build() {
-      return new RequestDoc(this);
+    public String getDocToken() {
+        return this.docToken;
     }
-  }
+
+    public void setDocToken(String docToken) {
+        this.docToken = docToken;
+    }
+
+    public String getDocType() {
+        return this.docType;
+    }
+
+    public void setDocType(String docType) {
+        this.docType = docType;
+    }
+
+    public static class Builder {
+        /**
+         * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+         */
+        private String docToken;
+        /**
+         * 文件类型
+         * <p> 示例值：doc
+         */
+        private String docType;
+
+        /**
+         * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+         *
+         * @param docToken
+         * @return
+         */
+        public Builder docToken(String docToken) {
+            this.docToken = docToken;
+            return this;
+        }
+
+
+        /**
+         * 文件类型
+         * <p> 示例值：doc
+         *
+         * @param docType
+         * @return
+         */
+        public Builder docType(String docType) {
+            this.docType = docType;
+            return this;
+        }
+
+        /**
+         * 文件类型
+         * <p> 示例值：doc
+         *
+         * @param docType {@link com.lark.oapi.service.drive.v1.enums.RequestDocDocTypeEnum}
+         * @return
+         */
+        public Builder docType(com.lark.oapi.service.drive.v1.enums.RequestDocDocTypeEnum docType) {
+            this.docType = docType.getValue();
+            return this;
+        }
+
+
+        public RequestDoc build() {
+            return new RequestDoc(this);
+        }
+    }
 }

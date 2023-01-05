@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchGetOkr {
 
-  /**
-   * OKR 列表
-   * <p> 示例值：
-   */
-  @SerializedName("okr_list")
-  private OkrBatch[] okrList;
+    /**
+     * OKR 列表
+     * <p> 示例值：
+     */
+    @SerializedName("okr_list")
+    private OkrBatch[] okrList;
 
-  public OkrBatch[] getOkrList() {
-    return this.okrList;
-  }
+    public OkrBatch[] getOkrList() {
+        return this.okrList;
+    }
 
-  public void setOkrList(OkrBatch[] okrList) {
-    this.okrList = okrList;
-  }
+    public void setOkrList(OkrBatch[] okrList) {
+        this.okrList = okrList;
+    }
 
 }

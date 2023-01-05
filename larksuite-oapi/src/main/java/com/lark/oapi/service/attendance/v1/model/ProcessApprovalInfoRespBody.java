@@ -16,20 +16,19 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ProcessApprovalInfoRespBody {
+    /**
+     * 审批信息
+     * <p> 示例值：
+     */
+    @SerializedName("approval_info")
+    private ApprovalInfo approvalInfo;
 
-  /**
-   * 审批信息
-   * <p> 示例值：
-   */
-  @SerializedName("approval_info")
-  private ApprovalInfo approvalInfo;
+    public ApprovalInfo getApprovalInfo() {
+        return this.approvalInfo;
+    }
 
-  public ApprovalInfo getApprovalInfo() {
-    return this.approvalInfo;
-  }
-
-  public void setApprovalInfo(ApprovalInfo approvalInfo) {
-    this.approvalInfo = approvalInfo;
-  }
+    public void setApprovalInfo(ApprovalInfo approvalInfo) {
+        this.approvalInfo = approvalInfo;
+    }
 
 }

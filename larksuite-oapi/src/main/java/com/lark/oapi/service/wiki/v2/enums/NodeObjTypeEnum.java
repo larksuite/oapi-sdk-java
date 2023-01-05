@@ -14,23 +14,23 @@
 package com.lark.oapi.service.wiki.v2.enums;
 
 /**
- * 文档类型，对于快捷方式，该字段是对应的实体的obj_type
+ * 文档类型，对于快捷方式，该字段是对应的实体的obj_type。
  */
 public enum NodeObjTypeEnum {
-  OBJTYPEDOC("doc"), // doc
-  OBJTYPESHEET("sheet"), // sheet
-  OBJTYPEMINDNOTE("mindnote"), // mindnote
-  OBJTYPEBITABLE("bitable"), // bitable
-  OBJTYPEFILE("file"), // file
-  OBJTYPEDOCX("docx"), // docx
-  ;
-  private String value;
+    OBJTYPEDOC("doc"), // 旧版文档
+    OBJTYPESHEET("sheet"), // 表格
+    OBJTYPEMINDNOTE("mindnote"), // 思维导图
+    OBJTYPEBITABLE("bitable"), // 多维表格
+    OBJTYPEFILE("file"), // 文件
+    OBJTYPEDOCX("docx"), // 新版文档
+    ;
+    private String value;
 
-  NodeObjTypeEnum(String value) {
-    this.value = value;
-  }
+    NodeObjTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

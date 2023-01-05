@@ -16,61 +16,59 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WorkplaceWidget {
-
-  /**
-   * 最低兼容 lark 版本号
-   * <p> 示例值：1.0.0
-   */
-  @SerializedName("min_lark_version")
-  private String minLarkVersion;
-
-  // builder 开始
-  public WorkplaceWidget() {
-  }
-
-  public WorkplaceWidget(Builder builder) {
     /**
-     * 最低兼容 lark 版本号
+     * 最低兼容飞书版本号
      * <p> 示例值：1.0.0
      */
-    this.minLarkVersion = builder.minLarkVersion;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMinLarkVersion() {
-    return this.minLarkVersion;
-  }
-
-  public void setMinLarkVersion(String minLarkVersion) {
-    this.minLarkVersion = minLarkVersion;
-  }
-
-  public static class Builder {
-
-    /**
-     * 最低兼容 lark 版本号
-     * <p> 示例值：1.0.0
-     */
+    @SerializedName("min_lark_version")
     private String minLarkVersion;
 
-    /**
-     * 最低兼容 lark 版本号
-     * <p> 示例值：1.0.0
-     *
-     * @param minLarkVersion
-     * @return
-     */
-    public Builder minLarkVersion(String minLarkVersion) {
-      this.minLarkVersion = minLarkVersion;
-      return this;
+    // builder 开始
+    public WorkplaceWidget() {
     }
 
-
-    public WorkplaceWidget build() {
-      return new WorkplaceWidget(this);
+    public WorkplaceWidget(Builder builder) {
+        /**
+         * 最低兼容飞书版本号
+         * <p> 示例值：1.0.0
+         */
+        this.minLarkVersion = builder.minLarkVersion;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMinLarkVersion() {
+        return this.minLarkVersion;
+    }
+
+    public void setMinLarkVersion(String minLarkVersion) {
+        this.minLarkVersion = minLarkVersion;
+    }
+
+    public static class Builder {
+        /**
+         * 最低兼容飞书版本号
+         * <p> 示例值：1.0.0
+         */
+        private String minLarkVersion;
+
+        /**
+         * 最低兼容飞书版本号
+         * <p> 示例值：1.0.0
+         *
+         * @param minLarkVersion
+         * @return
+         */
+        public Builder minLarkVersion(String minLarkVersion) {
+            this.minLarkVersion = minLarkVersion;
+            return this;
+        }
+
+
+        public WorkplaceWidget build() {
+            return new WorkplaceWidget(this);
+        }
+    }
 }

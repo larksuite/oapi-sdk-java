@@ -15,16 +15,16 @@ package com.lark.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum GroupTypeEnum {
-  ASSIGN(1),
-  DYNAMIC(2),
-  ;
-  private Integer value;
+    ASSIGN(1),
+    DYNAMIC(2),
+    ;
+    private Integer value;
 
-  GroupTypeEnum(Integer value) {
-    this.value = value;
-  }
+    GroupTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

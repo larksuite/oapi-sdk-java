@@ -17,16 +17,16 @@ package com.lark.oapi.service.admin.v1.enums;
  * 用户消息活跃状态，发生过如下事件，则认为该用户消息活跃：;发送消息、回复消息、reaction、转发消息、阅读消息、查看会话、发送表情消息等
  */
 public enum AdminUserStatImActiveFlagEnum {
-  INACTIVE(0), // 无活跃
-  ACTIVE(1), // 活跃
-  ;
-  private Integer value;
+    INACTIVE(0), // 无活跃
+    ACTIVE(1), // 活跃
+    ;
+    private Integer value;
 
-  AdminUserStatImActiveFlagEnum(Integer value) {
-    this.value = value;
-  }
+    AdminUserStatImActiveFlagEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

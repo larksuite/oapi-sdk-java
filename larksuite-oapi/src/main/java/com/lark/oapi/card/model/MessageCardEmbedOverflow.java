@@ -13,60 +13,61 @@
 package com.lark.oapi.card.model;
 
 import com.google.gson.annotations.SerializedName;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MessageCardEmbedOverflow extends MessageCardElement implements
-    IMessageCardActionElement, IMessageCardExtraElement {
+        IMessageCardActionElement, IMessageCardExtraElement {
 
-  @SerializedName("options")
-  private MessageCardEmbedSelectOption[] options;
-  @SerializedName("value")
-  private Map<String, Object> value = new HashMap<>();
-  @SerializedName("confirm")
-  private MessageCardActionConfirm confirm;
-
-  private MessageCardEmbedOverflow(Builder builder) {
-    options = builder.options;
-    value = builder.value;
-    confirm = builder.confirm;
-    this.tag = "overflow";
-  }
-
-  public MessageCardEmbedOverflow() {
-    this.tag = "overflow";
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
+    @SerializedName("options")
     private MessageCardEmbedSelectOption[] options;
-    private Map<String, Object> value;
+    @SerializedName("value")
+    private Map<String, Object> value = new HashMap<>();
+    @SerializedName("confirm")
     private MessageCardActionConfirm confirm;
 
-    private Builder() {
+    private MessageCardEmbedOverflow(Builder builder) {
+        options = builder.options;
+        value = builder.value;
+        confirm = builder.confirm;
+        this.tag = "overflow";
     }
 
-    public Builder options(MessageCardEmbedSelectOption[] options) {
-      this.options = options;
-      return this;
+    public MessageCardEmbedOverflow() {
+        this.tag = "overflow";
     }
 
-    public Builder value(Map<String, Object> value) {
-      this.value = value;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Builder confirm(MessageCardActionConfirm confirm) {
-      this.confirm = confirm;
-      return this;
-    }
+    public static final class Builder {
 
-    public MessageCardEmbedOverflow build() {
-      return new MessageCardEmbedOverflow(this);
+        private MessageCardEmbedSelectOption[] options;
+        private Map<String, Object> value;
+        private MessageCardActionConfirm confirm;
+
+        private Builder() {
+        }
+
+        public Builder options(MessageCardEmbedSelectOption[] options) {
+            this.options = options;
+            return this;
+        }
+
+        public Builder value(Map<String, Object> value) {
+            this.value = value;
+            return this;
+        }
+
+        public Builder confirm(MessageCardActionConfirm confirm) {
+            this.confirm = confirm;
+            return this;
+        }
+
+        public MessageCardEmbedOverflow build() {
+            return new MessageCardEmbedOverflow(this);
+        }
     }
-  }
 }

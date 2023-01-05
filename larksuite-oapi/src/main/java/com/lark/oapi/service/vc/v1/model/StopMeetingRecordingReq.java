@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class StopMeetingRecordingReq {
-
-  /**
-   * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-   * <p> 示例值：6911188411932033028
-   */
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-
-  // builder 开始
-  public StopMeetingRecordingReq() {
-  }
-
-  public StopMeetingRecordingReq(Builder builder) {
     /**
      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
      * <p> 示例值：6911188411932033028
      */
-    this.meetingId = builder.meetingId;
-  }
+    @Path
+    @SerializedName("meeting_id")
+    private String meetingId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public static class Builder {
-
-    private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-
-    /**
-     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411932033028
-     *
-     * @param meetingId
-     * @return
-     */
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
+    // builder 开始
+    public StopMeetingRecordingReq() {
     }
 
-    public StopMeetingRecordingReq build() {
-      return new StopMeetingRecordingReq(this);
+    public StopMeetingRecordingReq(Builder builder) {
+        /**
+         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+         * <p> 示例值：6911188411932033028
+         */
+        this.meetingId = builder.meetingId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMeetingId() {
+        return this.meetingId;
+    }
+
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
+    }
+
+    public static class Builder {
+
+        private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+
+        /**
+         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+         * <p> 示例值：6911188411932033028
+         *
+         * @param meetingId
+         * @return
+         */
+        public Builder meetingId(String meetingId) {
+            this.meetingId = meetingId;
+            return this;
+        }
+
+        public StopMeetingRecordingReq build() {
+            return new StopMeetingRecordingReq(this);
+        }
+    }
 }

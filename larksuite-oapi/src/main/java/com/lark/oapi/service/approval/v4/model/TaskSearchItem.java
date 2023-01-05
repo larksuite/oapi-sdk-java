@@ -16,172 +16,170 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TaskSearchItem {
-
-  /**
-   * 审批定义
-   * <p> 示例值：
-   */
-  @SerializedName("approval")
-  private InstanceSearchApproval approval;
-  /**
-   * 审批定义分组
-   * <p> 示例值：
-   */
-  @SerializedName("group")
-  private InstanceSearchGroup group;
-  /**
-   * 审批实例信息
-   * <p> 示例值：
-   */
-  @SerializedName("instance")
-  private InstanceSearchNode instance;
-  /**
-   * 审批任务
-   * <p> 示例值：
-   */
-  @SerializedName("task")
-  private TaskSearchNode task;
-
-  // builder 开始
-  public TaskSearchItem() {
-  }
-
-  public TaskSearchItem(Builder builder) {
     /**
      * 审批定义
      * <p> 示例值：
      */
-    this.approval = builder.approval;
-    /**
-     * 审批定义分组
-     * <p> 示例值：
-     */
-    this.group = builder.group;
-    /**
-     * 审批实例信息
-     * <p> 示例值：
-     */
-    this.instance = builder.instance;
-    /**
-     * 审批任务
-     * <p> 示例值：
-     */
-    this.task = builder.task;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public InstanceSearchApproval getApproval() {
-    return this.approval;
-  }
-
-  public void setApproval(InstanceSearchApproval approval) {
-    this.approval = approval;
-  }
-
-  public InstanceSearchGroup getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(InstanceSearchGroup group) {
-    this.group = group;
-  }
-
-  public InstanceSearchNode getInstance() {
-    return this.instance;
-  }
-
-  public void setInstance(InstanceSearchNode instance) {
-    this.instance = instance;
-  }
-
-  public TaskSearchNode getTask() {
-    return this.task;
-  }
-
-  public void setTask(TaskSearchNode task) {
-    this.task = task;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批定义
-     * <p> 示例值：
-     */
+    @SerializedName("approval")
     private InstanceSearchApproval approval;
     /**
      * 审批定义分组
      * <p> 示例值：
      */
+    @SerializedName("group")
     private InstanceSearchGroup group;
     /**
      * 审批实例信息
      * <p> 示例值：
      */
+    @SerializedName("instance")
     private InstanceSearchNode instance;
     /**
      * 审批任务
      * <p> 示例值：
      */
+    @SerializedName("task")
     private TaskSearchNode task;
 
-    /**
-     * 审批定义
-     * <p> 示例值：
-     *
-     * @param approval
-     * @return
-     */
-    public Builder approval(InstanceSearchApproval approval) {
-      this.approval = approval;
-      return this;
+    // builder 开始
+    public TaskSearchItem() {
     }
 
-
-    /**
-     * 审批定义分组
-     * <p> 示例值：
-     *
-     * @param group
-     * @return
-     */
-    public Builder group(InstanceSearchGroup group) {
-      this.group = group;
-      return this;
+    public TaskSearchItem(Builder builder) {
+        /**
+         * 审批定义
+         * <p> 示例值：
+         */
+        this.approval = builder.approval;
+        /**
+         * 审批定义分组
+         * <p> 示例值：
+         */
+        this.group = builder.group;
+        /**
+         * 审批实例信息
+         * <p> 示例值：
+         */
+        this.instance = builder.instance;
+        /**
+         * 审批任务
+         * <p> 示例值：
+         */
+        this.task = builder.task;
     }
 
-
-    /**
-     * 审批实例信息
-     * <p> 示例值：
-     *
-     * @param instance
-     * @return
-     */
-    public Builder instance(InstanceSearchNode instance) {
-      this.instance = instance;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 审批任务
-     * <p> 示例值：
-     *
-     * @param task
-     * @return
-     */
-    public Builder task(TaskSearchNode task) {
-      this.task = task;
-      return this;
+    public InstanceSearchApproval getApproval() {
+        return this.approval;
     }
 
-
-    public TaskSearchItem build() {
-      return new TaskSearchItem(this);
+    public void setApproval(InstanceSearchApproval approval) {
+        this.approval = approval;
     }
-  }
+
+    public InstanceSearchGroup getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(InstanceSearchGroup group) {
+        this.group = group;
+    }
+
+    public InstanceSearchNode getInstance() {
+        return this.instance;
+    }
+
+    public void setInstance(InstanceSearchNode instance) {
+        this.instance = instance;
+    }
+
+    public TaskSearchNode getTask() {
+        return this.task;
+    }
+
+    public void setTask(TaskSearchNode task) {
+        this.task = task;
+    }
+
+    public static class Builder {
+        /**
+         * 审批定义
+         * <p> 示例值：
+         */
+        private InstanceSearchApproval approval;
+        /**
+         * 审批定义分组
+         * <p> 示例值：
+         */
+        private InstanceSearchGroup group;
+        /**
+         * 审批实例信息
+         * <p> 示例值：
+         */
+        private InstanceSearchNode instance;
+        /**
+         * 审批任务
+         * <p> 示例值：
+         */
+        private TaskSearchNode task;
+
+        /**
+         * 审批定义
+         * <p> 示例值：
+         *
+         * @param approval
+         * @return
+         */
+        public Builder approval(InstanceSearchApproval approval) {
+            this.approval = approval;
+            return this;
+        }
+
+
+        /**
+         * 审批定义分组
+         * <p> 示例值：
+         *
+         * @param group
+         * @return
+         */
+        public Builder group(InstanceSearchGroup group) {
+            this.group = group;
+            return this;
+        }
+
+
+        /**
+         * 审批实例信息
+         * <p> 示例值：
+         *
+         * @param instance
+         * @return
+         */
+        public Builder instance(InstanceSearchNode instance) {
+            this.instance = instance;
+            return this;
+        }
+
+
+        /**
+         * 审批任务
+         * <p> 示例值：
+         *
+         * @param task
+         * @return
+         */
+        public Builder task(TaskSearchNode task) {
+            this.task = task;
+            return this;
+        }
+
+
+        public TaskSearchItem build() {
+            return new TaskSearchItem(this);
+        }
+    }
 }

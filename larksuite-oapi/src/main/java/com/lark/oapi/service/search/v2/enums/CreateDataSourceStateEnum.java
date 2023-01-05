@@ -17,16 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 数据源状态，0-已上线，1-未上线
  */
 public enum CreateDataSourceStateEnum {
-  ONLINE(0), // 已上线
-  OFFLINE(1), // 未上线
-  ;
-  private Integer value;
+    ONLINE(0), // 已上线
+    OFFLINE(1), // 未上线
+    ;
+    private Integer value;
 
-  CreateDataSourceStateEnum(Integer value) {
-    this.value = value;
-  }
+    CreateDataSourceStateEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

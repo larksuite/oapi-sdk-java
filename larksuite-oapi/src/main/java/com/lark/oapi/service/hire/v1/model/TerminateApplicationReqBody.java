@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TerminateApplicationReqBody {
-
-  /**
-   * 终止原因的类型
-   * <p> 示例值：1
-   */
-  @SerializedName("termination_type")
-  private Integer terminationType;
-  /**
-   * 终止的具体原因的id列表
-   * <p> 示例值：["6891560630172518670"]
-   */
-  @SerializedName("termination_reason_list")
-  private String[] terminationReasonList;
-  /**
-   * 终止备注
-   * <p> 示例值：不符合期望
-   */
-  @SerializedName("termination_reason_note")
-  private String terminationReasonNote;
-
-  // builder 开始
-  public TerminateApplicationReqBody() {
-  }
-
-  public TerminateApplicationReqBody(Builder builder) {
     /**
      * 终止原因的类型
      * <p> 示例值：1
      */
-    this.terminationType = builder.terminationType;
-    /**
-     * 终止的具体原因的id列表
-     * <p> 示例值：["6891560630172518670"]
-     */
-    this.terminationReasonList = builder.terminationReasonList;
-    /**
-     * 终止备注
-     * <p> 示例值：不符合期望
-     */
-    this.terminationReasonNote = builder.terminationReasonNote;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getTerminationType() {
-    return this.terminationType;
-  }
-
-  public void setTerminationType(Integer terminationType) {
-    this.terminationType = terminationType;
-  }
-
-  public String[] getTerminationReasonList() {
-    return this.terminationReasonList;
-  }
-
-  public void setTerminationReasonList(String[] terminationReasonList) {
-    this.terminationReasonList = terminationReasonList;
-  }
-
-  public String getTerminationReasonNote() {
-    return this.terminationReasonNote;
-  }
-
-  public void setTerminationReasonNote(String terminationReasonNote) {
-    this.terminationReasonNote = terminationReasonNote;
-  }
-
-  public static class Builder {
-
-    /**
-     * 终止原因的类型
-     * <p> 示例值：1
-     */
+    @SerializedName("termination_type")
     private Integer terminationType;
     /**
      * 终止的具体原因的id列表
      * <p> 示例值：["6891560630172518670"]
      */
+    @SerializedName("termination_reason_list")
     private String[] terminationReasonList;
     /**
      * 终止备注
      * <p> 示例值：不符合期望
      */
+    @SerializedName("termination_reason_note")
     private String terminationReasonNote;
 
-    /**
-     * 终止原因的类型
-     * <p> 示例值：1
-     *
-     * @param terminationType
-     * @return
-     */
-    public Builder terminationType(Integer terminationType) {
-      this.terminationType = terminationType;
-      return this;
+    // builder 开始
+    public TerminateApplicationReqBody() {
     }
 
-
-    /**
-     * 终止的具体原因的id列表
-     * <p> 示例值：["6891560630172518670"]
-     *
-     * @param terminationReasonList
-     * @return
-     */
-    public Builder terminationReasonList(String[] terminationReasonList) {
-      this.terminationReasonList = terminationReasonList;
-      return this;
+    public TerminateApplicationReqBody(Builder builder) {
+        /**
+         * 终止原因的类型
+         * <p> 示例值：1
+         */
+        this.terminationType = builder.terminationType;
+        /**
+         * 终止的具体原因的id列表
+         * <p> 示例值：["6891560630172518670"]
+         */
+        this.terminationReasonList = builder.terminationReasonList;
+        /**
+         * 终止备注
+         * <p> 示例值：不符合期望
+         */
+        this.terminationReasonNote = builder.terminationReasonNote;
     }
 
-
-    /**
-     * 终止备注
-     * <p> 示例值：不符合期望
-     *
-     * @param terminationReasonNote
-     * @return
-     */
-    public Builder terminationReasonNote(String terminationReasonNote) {
-      this.terminationReasonNote = terminationReasonNote;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public TerminateApplicationReqBody build() {
-      return new TerminateApplicationReqBody(this);
+    public Integer getTerminationType() {
+        return this.terminationType;
     }
-  }
+
+    public void setTerminationType(Integer terminationType) {
+        this.terminationType = terminationType;
+    }
+
+    public String[] getTerminationReasonList() {
+        return this.terminationReasonList;
+    }
+
+    public void setTerminationReasonList(String[] terminationReasonList) {
+        this.terminationReasonList = terminationReasonList;
+    }
+
+    public String getTerminationReasonNote() {
+        return this.terminationReasonNote;
+    }
+
+    public void setTerminationReasonNote(String terminationReasonNote) {
+        this.terminationReasonNote = terminationReasonNote;
+    }
+
+    public static class Builder {
+        /**
+         * 终止原因的类型
+         * <p> 示例值：1
+         */
+        private Integer terminationType;
+        /**
+         * 终止的具体原因的id列表
+         * <p> 示例值：["6891560630172518670"]
+         */
+        private String[] terminationReasonList;
+        /**
+         * 终止备注
+         * <p> 示例值：不符合期望
+         */
+        private String terminationReasonNote;
+
+        /**
+         * 终止原因的类型
+         * <p> 示例值：1
+         *
+         * @param terminationType
+         * @return
+         */
+        public Builder terminationType(Integer terminationType) {
+            this.terminationType = terminationType;
+            return this;
+        }
+
+
+        /**
+         * 终止的具体原因的id列表
+         * <p> 示例值：["6891560630172518670"]
+         *
+         * @param terminationReasonList
+         * @return
+         */
+        public Builder terminationReasonList(String[] terminationReasonList) {
+            this.terminationReasonList = terminationReasonList;
+            return this;
+        }
+
+
+        /**
+         * 终止备注
+         * <p> 示例值：不符合期望
+         *
+         * @param terminationReasonNote
+         * @return
+         */
+        public Builder terminationReasonNote(String terminationReasonNote) {
+            this.terminationReasonNote = terminationReasonNote;
+            return this;
+        }
+
+
+        public TerminateApplicationReqBody build() {
+            return new TerminateApplicationReqBody(this);
+        }
+    }
 }

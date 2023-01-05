@@ -18,117 +18,116 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class CopySpaceNodeReq {
-
-  /**
-   * 知识空间id
-   * <p> 示例值：6946843325487912356
-   */
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  /**
-   * 节点token
-   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
-   */
-  @Path
-  @SerializedName("node_token")
-  private String nodeToken;
-  @Body
-  private CopySpaceNodeReqBody body;
-
-  // builder 开始
-  public CopySpaceNodeReq() {
-  }
-
-  public CopySpaceNodeReq(Builder builder) {
     /**
      * 知识空间id
      * <p> 示例值：6946843325487912356
      */
-    this.spaceId = builder.spaceId;
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
     /**
      * 节点token
-     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     * <p> 示例值：wikcnKQ1k3p******8Vabce
      */
-    this.nodeToken = builder.nodeToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public String getNodeToken() {
-    return this.nodeToken;
-  }
-
-  public void setNodeToken(String nodeToken) {
-    this.nodeToken = nodeToken;
-  }
-
-  public CopySpaceNodeReqBody getCopySpaceNodeReqBody() {
-    return this.body;
-  }
-
-  public void setCopySpaceNodeReqBody(CopySpaceNodeReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String spaceId; // 知识空间id
-    private String nodeToken; // 节点token
+    @Path
+    @SerializedName("node_token")
+    private String nodeToken;
+    @Body
     private CopySpaceNodeReqBody body;
 
-    /**
-     * 知识空间id
-     * <p> 示例值：6946843325487912356
-     *
-     * @param spaceId
-     * @return
-     */
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    // builder 开始
+    public CopySpaceNodeReq() {
     }
 
-    /**
-     * 节点token
-     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
-     *
-     * @param nodeToken
-     * @return
-     */
-    public Builder nodeToken(String nodeToken) {
-      this.nodeToken = nodeToken;
-      return this;
+    public CopySpaceNodeReq(Builder builder) {
+        /**
+         * 知识空间id
+         * <p> 示例值：6946843325487912356
+         */
+        this.spaceId = builder.spaceId;
+        /**
+         * 节点token
+         * <p> 示例值：wikcnKQ1k3p******8Vabce
+         */
+        this.nodeToken = builder.nodeToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public String getNodeToken() {
+        return this.nodeToken;
+    }
+
+    public void setNodeToken(String nodeToken) {
+        this.nodeToken = nodeToken;
     }
 
     public CopySpaceNodeReqBody getCopySpaceNodeReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder copySpaceNodeReqBody(CopySpaceNodeReqBody body) {
-      this.body = body;
-      return this;
+    public void setCopySpaceNodeReqBody(CopySpaceNodeReqBody body) {
+        this.body = body;
     }
 
-    public CopySpaceNodeReq build() {
-      return new CopySpaceNodeReq(this);
+    public static class Builder {
+
+        private String spaceId; // 知识空间id
+        private String nodeToken; // 节点token
+        private CopySpaceNodeReqBody body;
+
+        /**
+         * 知识空间id
+         * <p> 示例值：6946843325487912356
+         *
+         * @param spaceId
+         * @return
+         */
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
+
+        /**
+         * 节点token
+         * <p> 示例值：wikcnKQ1k3p******8Vabce
+         *
+         * @param nodeToken
+         * @return
+         */
+        public Builder nodeToken(String nodeToken) {
+            this.nodeToken = nodeToken;
+            return this;
+        }
+
+        public CopySpaceNodeReqBody getCopySpaceNodeReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder copySpaceNodeReqBody(CopySpaceNodeReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CopySpaceNodeReq build() {
+            return new CopySpaceNodeReq(this);
+        }
     }
-  }
 }

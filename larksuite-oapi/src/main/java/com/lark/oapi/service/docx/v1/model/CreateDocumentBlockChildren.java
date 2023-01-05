@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateDocumentBlockChildren {
 
-  /**
-   * 所添加的孩子的 Block 信息
-   * <p> 示例值：
-   */
-  @SerializedName("children")
-  private Block[] children;
-  /**
-   * 当前 block children 创建成功后文档的版本号
-   * <p> 示例值：
-   */
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  /**
-   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-   * <p> 示例值：
-   */
-  @SerializedName("client_token")
-  private String clientToken;
+    /**
+     * 所添加的孩子的 Block 信息
+     * <p> 示例值：
+     */
+    @SerializedName("children")
+    private Block[] children;
+    /**
+     * 当前 block children 创建成功后文档的版本号
+     * <p> 示例值：
+     */
+    @SerializedName("document_revision_id")
+    private Integer documentRevisionId;
+    /**
+     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+     * <p> 示例值：
+     */
+    @SerializedName("client_token")
+    private String clientToken;
 
-  public Block[] getChildren() {
-    return this.children;
-  }
+    public Block[] getChildren() {
+        return this.children;
+    }
 
-  public void setChildren(Block[] children) {
-    this.children = children;
-  }
+    public void setChildren(Block[] children) {
+        this.children = children;
+    }
 
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
+    }
 
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
+    }
 
-  public String getClientToken() {
-    return this.clientToken;
-  }
+    public String getClientToken() {
+        return this.clientToken;
+    }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
 
 }

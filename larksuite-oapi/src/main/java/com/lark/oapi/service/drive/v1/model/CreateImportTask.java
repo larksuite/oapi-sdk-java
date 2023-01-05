@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateImportTask {
 
-  /**
-   * 导入任务ID
-   * <p> 示例值：6990281xxxxxxxxxxx843
-   */
-  @SerializedName("ticket")
-  private String ticket;
+    /**
+     * 导入任务ID
+     * <p> 示例值：6990281xxxxxxxxxxx843
+     */
+    @SerializedName("ticket")
+    private String ticket;
 
-  public String getTicket() {
-    return this.ticket;
-  }
+    public String getTicket() {
+        return this.ticket;
+    }
 
-  public void setTicket(String ticket) {
-    this.ticket = ticket;
-  }
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
 
 }

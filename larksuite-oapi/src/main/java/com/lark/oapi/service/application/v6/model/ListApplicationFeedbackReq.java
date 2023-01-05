@@ -18,324 +18,319 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListApplicationFeedbackReq {
-
-  /**
-   * 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
-   * <p> 示例值：2022-01-30
-   */
-  @Query
-  @SerializedName("from_date")
-  private String fromDate;
-  /**
-   * 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
-   * <p> 示例值：2022-01-30
-   */
-  @Query
-  @SerializedName("to_date")
-  private String toDate;
-  /**
-   * 反馈类型，不填写则表示查询所有反馈类型。
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("feedback_type")
-  private Integer feedbackType;
-  /**
-   * 反馈处理状态，不填写则表示查询所有处理类型。
-   * <p> 示例值：0
-   */
-  @Query
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 分页拉取反馈列表起始位置标示，不填表示从头开始
-   * <p> 示例值："7064688334618378259"
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 本次拉取反馈列表最大个数
-   * <p> 示例值：100
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 目标应用 ID（本租户创建的所有应用）
-   * <p> 示例值：cli_9f115af860f7901b
-   */
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-
-  // builder 开始
-  public ListApplicationFeedbackReq() {
-  }
-
-  public ListApplicationFeedbackReq(Builder builder) {
     /**
      * 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
      * <p> 示例值：2022-01-30
      */
-    this.fromDate = builder.fromDate;
+    @Query
+    @SerializedName("from_date")
+    private String fromDate;
     /**
      * 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
      * <p> 示例值：2022-01-30
      */
-    this.toDate = builder.toDate;
+    @Query
+    @SerializedName("to_date")
+    private String toDate;
     /**
      * 反馈类型，不填写则表示查询所有反馈类型。
      * <p> 示例值：1
      */
-    this.feedbackType = builder.feedbackType;
+    @Query
+    @SerializedName("feedback_type")
+    private Integer feedbackType;
     /**
      * 反馈处理状态，不填写则表示查询所有处理类型。
      * <p> 示例值：0
      */
-    this.status = builder.status;
+    @Query
+    @SerializedName("status")
+    private Integer status;
     /**
-     *
      * <p> 示例值：open_id
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 分页拉取反馈列表起始位置标示，不填表示从头开始
      * <p> 示例值："7064688334618378259"
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 本次拉取反馈列表最大个数
      * <p> 示例值：100
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 目标应用 ID（本租户创建的所有应用）
      * <p> 示例值：cli_9f115af860f7901b
      */
-    this.appId = builder.appId;
-  }
+    @Path
+    @SerializedName("app_id")
+    private String appId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFromDate() {
-    return this.fromDate;
-  }
-
-  public void setFromDate(String fromDate) {
-    this.fromDate = fromDate;
-  }
-
-  public String getToDate() {
-    return this.toDate;
-  }
-
-  public void setToDate(String toDate) {
-    this.toDate = toDate;
-  }
-
-  public Integer getFeedbackType() {
-    return this.feedbackType;
-  }
-
-  public void setFeedbackType(Integer feedbackType) {
-    this.feedbackType = feedbackType;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public static class Builder {
-
-    private String fromDate; // 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
-    private String toDate; // 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
-    private Integer feedbackType; // 反馈类型，不填写则表示查询所有反馈类型。
-    private Integer status; // 反馈处理状态，不填写则表示查询所有处理类型。
-    private String userIdType; //
-    private String pageToken; // 分页拉取反馈列表起始位置标示，不填表示从头开始
-    private Integer pageSize; // 本次拉取反馈列表最大个数
-    private String appId; // 目标应用 ID（本租户创建的所有应用）
-
-    /**
-     * 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
-     * <p> 示例值：2022-01-30
-     *
-     * @param fromDate
-     * @return
-     */
-    public Builder fromDate(String fromDate) {
-      this.fromDate = fromDate;
-      return this;
+    // builder 开始
+    public ListApplicationFeedbackReq() {
     }
 
-    /**
-     * 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
-     * <p> 示例值：2022-01-30
-     *
-     * @param toDate
-     * @return
-     */
-    public Builder toDate(String toDate) {
-      this.toDate = toDate;
-      return this;
+    public ListApplicationFeedbackReq(Builder builder) {
+        /**
+         * 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
+         * <p> 示例值：2022-01-30
+         */
+        this.fromDate = builder.fromDate;
+        /**
+         * 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
+         * <p> 示例值：2022-01-30
+         */
+        this.toDate = builder.toDate;
+        /**
+         * 反馈类型，不填写则表示查询所有反馈类型。
+         * <p> 示例值：1
+         */
+        this.feedbackType = builder.feedbackType;
+        /**
+         * 反馈处理状态，不填写则表示查询所有处理类型。
+         * <p> 示例值：0
+         */
+        this.status = builder.status;
+        /**
+         *
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 分页拉取反馈列表起始位置标示，不填表示从头开始
+         * <p> 示例值："7064688334618378259"
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 本次拉取反馈列表最大个数
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 目标应用 ID（本租户创建的所有应用）
+         * <p> 示例值：cli_9f115af860f7901b
+         */
+        this.appId = builder.appId;
     }
 
-    /**
-     * 反馈类型，不填写则表示查询所有反馈类型。
-     * <p> 示例值：1
-     *
-     * @param feedbackType
-     * @return
-     */
-    public Builder feedbackType(Integer feedbackType) {
-      this.feedbackType = feedbackType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 反馈类型，不填写则表示查询所有反馈类型。
-     * <p> 示例值：1
-     *
-     * @param feedbackType {@link com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenFeedbackTypeEnum}
-     * @return
-     */
-    public Builder feedbackType(
-        com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenFeedbackTypeEnum feedbackType) {
-      this.feedbackType = feedbackType.getValue();
-      return this;
+    public String getFromDate() {
+        return this.fromDate;
     }
 
-    /**
-     * 反馈处理状态，不填写则表示查询所有处理类型。
-     * <p> 示例值：0
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
     }
 
-    /**
-     * 反馈处理状态，不填写则表示查询所有处理类型。
-     * <p> 示例值：0
-     *
-     * @param status {@link com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenMarkStatusEnum}
-     * @return
-     */
-    public Builder status(
-        com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenMarkStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public String getToDate() {
+        return this.toDate;
     }
 
-    /**
-     * <p> 示例值：open_id
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
     }
 
-    /**
-     * <p> 示例值：open_id
-     *
-     * @param userIdType {@link com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public Integer getFeedbackType() {
+        return this.feedbackType;
     }
 
-    /**
-     * 分页拉取反馈列表起始位置标示，不填表示从头开始
-     * <p> 示例值："7064688334618378259"
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setFeedbackType(Integer feedbackType) {
+        this.feedbackType = feedbackType;
     }
 
-    /**
-     * 本次拉取反馈列表最大个数
-     * <p> 示例值：100
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    /**
-     * 目标应用 ID（本租户创建的所有应用）
-     * <p> 示例值：cli_9f115af860f7901b
-     *
-     * @param appId
-     * @return
-     */
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public ListApplicationFeedbackReq build() {
-      return new ListApplicationFeedbackReq(this);
+    public String getUserIdType() {
+        return this.userIdType;
     }
-  }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public static class Builder {
+        private String fromDate; // 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
+        private String toDate; // 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
+        private Integer feedbackType; // 反馈类型，不填写则表示查询所有反馈类型。
+        private Integer status; // 反馈处理状态，不填写则表示查询所有处理类型。
+        private String userIdType; //
+        private String pageToken; // 分页拉取反馈列表起始位置标示，不填表示从头开始
+        private Integer pageSize; // 本次拉取反馈列表最大个数
+        private String appId; // 目标应用 ID（本租户创建的所有应用）
+
+        /**
+         * 查询的起始日期，格式为yyyy-mm-dd。不填则默认为当前日期减去180天。
+         * <p> 示例值：2022-01-30
+         *
+         * @param fromDate
+         * @return
+         */
+        public Builder fromDate(String fromDate) {
+            this.fromDate = fromDate;
+            return this;
+        }
+
+        /**
+         * 查询的结束日期，格式为yyyy-mm-dd。不填默认为当前日期。;只能查询 180 天内的数据。
+         * <p> 示例值：2022-01-30
+         *
+         * @param toDate
+         * @return
+         */
+        public Builder toDate(String toDate) {
+            this.toDate = toDate;
+            return this;
+        }
+
+        /**
+         * 反馈类型，不填写则表示查询所有反馈类型。
+         * <p> 示例值：1
+         *
+         * @param feedbackType
+         * @return
+         */
+        public Builder feedbackType(Integer feedbackType) {
+            this.feedbackType = feedbackType;
+            return this;
+        }
+
+        /**
+         * 反馈类型，不填写则表示查询所有反馈类型。
+         * <p> 示例值：1
+         *
+         * @param feedbackType {@link com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenFeedbackTypeEnum}
+         * @return
+         */
+        public Builder feedbackType(com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenFeedbackTypeEnum feedbackType) {
+            this.feedbackType = feedbackType.getValue();
+            return this;
+        }
+
+        /**
+         * 反馈处理状态，不填写则表示查询所有处理类型。
+         * <p> 示例值：0
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * 反馈处理状态，不填写则表示查询所有处理类型。
+         * <p> 示例值：0
+         *
+         * @param status {@link com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenMarkStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackOpenMarkStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
+        /**
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：open_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.application.v6.enums.ListApplicationFeedbackUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 分页拉取反馈列表起始位置标示，不填表示从头开始
+         * <p> 示例值："7064688334618378259"
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * 本次拉取反馈列表最大个数
+         * <p> 示例值：100
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 目标应用 ID（本租户创建的所有应用）
+         * <p> 示例值：cli_9f115af860f7901b
+         *
+         * @param appId
+         * @return
+         */
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+        public ListApplicationFeedbackReq build() {
+            return new ListApplicationFeedbackReq(this);
+        }
+    }
 }

@@ -15,21 +15,21 @@ package com.lark.oapi.service.hire.v1.model;
 
 public class PushStage {
 
-  // builder 开始
-  public PushStage() {
-  }
-
-  public PushStage(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public PushStage build() {
-      return new PushStage(this);
+    // builder 开始
+    public PushStage() {
     }
-  }
+
+    public PushStage(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public PushStage build() {
+            return new PushStage(this);
+        }
+    }
 }

@@ -16,51 +16,50 @@ package com.lark.oapi.service.translation.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class TranslateTextReq {
-
-  @Body
-  private TranslateTextReqBody body;
-
-  // builder 开始
-  public TranslateTextReq() {
-  }
-
-  public TranslateTextReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TranslateTextReqBody getTranslateTextReqBody() {
-    return this.body;
-  }
-
-  public void setTranslateTextReqBody(TranslateTextReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private TranslateTextReqBody body;
 
+    // builder 开始
+    public TranslateTextReq() {
+    }
+
+    public TranslateTextReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TranslateTextReqBody getTranslateTextReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder translateTextReqBody(TranslateTextReqBody body) {
-      this.body = body;
-      return this;
+    public void setTranslateTextReqBody(TranslateTextReqBody body) {
+        this.body = body;
     }
 
-    public TranslateTextReq build() {
-      return new TranslateTextReq(this);
+    public static class Builder {
+
+        private TranslateTextReqBody body;
+
+        public TranslateTextReqBody getTranslateTextReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder translateTextReqBody(TranslateTextReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public TranslateTextReq build() {
+            return new TranslateTextReq(this);
+        }
     }
-  }
 }

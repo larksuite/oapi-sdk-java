@@ -17,17 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 协作者的类型
  */
 public enum MemberTypeEnum {
-  USER("user"), // 用户
-  CHAT("chat"), // 群组
-  DEPARTMENT("department"), // 组织架构
-  ;
-  private String value;
+    USER("user"), // 用户
+    CHAT("chat"), // 群组
+    DEPARTMENT("department"), // 组织架构
+    ;
+    private String value;
 
-  MemberTypeEnum(String value) {
-    this.value = value;
-  }
+    MemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

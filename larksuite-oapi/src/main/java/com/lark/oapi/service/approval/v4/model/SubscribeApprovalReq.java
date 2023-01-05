@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class SubscribeApprovalReq {
-
-  /**
-   * 审批定义唯一标识
-   * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-   */
-  @Path
-  @SerializedName("approval_code")
-  private String approvalCode;
-
-  // builder 开始
-  public SubscribeApprovalReq() {
-  }
-
-  public SubscribeApprovalReq(Builder builder) {
     /**
      * 审批定义唯一标识
      * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    this.approvalCode = builder.approvalCode;
-  }
+    @Path
+    @SerializedName("approval_code")
+    private String approvalCode;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public static class Builder {
-
-    private String approvalCode; // 审批定义唯一标识
-
-    /**
-     * 审批定义唯一标识
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     *
-     * @param approvalCode
-     * @return
-     */
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    // builder 开始
+    public SubscribeApprovalReq() {
     }
 
-    public SubscribeApprovalReq build() {
-      return new SubscribeApprovalReq(this);
+    public SubscribeApprovalReq(Builder builder) {
+        /**
+         * 审批定义唯一标识
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         */
+        this.approvalCode = builder.approvalCode;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
+
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    public static class Builder {
+
+        private String approvalCode; // 审批定义唯一标识
+
+        /**
+         * 审批定义唯一标识
+         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
+            return this;
+        }
+
+        public SubscribeApprovalReq build() {
+            return new SubscribeApprovalReq(this);
+        }
+    }
 }

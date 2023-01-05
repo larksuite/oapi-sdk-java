@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SiteResumeLanguageSkill {
-
-  /**
-   * 语言名称
-   * <p> 示例值：
-   */
-  @SerializedName("language")
-  private String language;
-  /**
-   * 语言等级
-   * <p> 示例值：
-   */
-  @SerializedName("proficiency")
-  private String proficiency;
-
-  // builder 开始
-  public SiteResumeLanguageSkill() {
-  }
-
-  public SiteResumeLanguageSkill(Builder builder) {
     /**
      * 语言名称
      * <p> 示例值：
      */
-    this.language = builder.language;
-    /**
-     * 语言等级
-     * <p> 示例值：
-     */
-    this.proficiency = builder.proficiency;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLanguage() {
-    return this.language;
-  }
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-  public String getProficiency() {
-    return this.proficiency;
-  }
-
-  public void setProficiency(String proficiency) {
-    this.proficiency = proficiency;
-  }
-
-  public static class Builder {
-
-    /**
-     * 语言名称
-     * <p> 示例值：
-     */
+    @SerializedName("language")
     private String language;
     /**
      * 语言等级
      * <p> 示例值：
      */
+    @SerializedName("proficiency")
     private String proficiency;
 
-    /**
-     * 语言名称
-     * <p> 示例值：
-     *
-     * @param language
-     * @return
-     */
-    public Builder language(String language) {
-      this.language = language;
-      return this;
+    // builder 开始
+    public SiteResumeLanguageSkill() {
     }
 
-
-    /**
-     * 语言等级
-     * <p> 示例值：
-     *
-     * @param proficiency
-     * @return
-     */
-    public Builder proficiency(String proficiency) {
-      this.proficiency = proficiency;
-      return this;
+    public SiteResumeLanguageSkill(Builder builder) {
+        /**
+         * 语言名称
+         * <p> 示例值：
+         */
+        this.language = builder.language;
+        /**
+         * 语言等级
+         * <p> 示例值：
+         */
+        this.proficiency = builder.proficiency;
     }
 
-
-    public SiteResumeLanguageSkill build() {
-      return new SiteResumeLanguageSkill(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getLanguage() {
+        return this.language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getProficiency() {
+        return this.proficiency;
+    }
+
+    public void setProficiency(String proficiency) {
+        this.proficiency = proficiency;
+    }
+
+    public static class Builder {
+        /**
+         * 语言名称
+         * <p> 示例值：
+         */
+        private String language;
+        /**
+         * 语言等级
+         * <p> 示例值：
+         */
+        private String proficiency;
+
+        /**
+         * 语言名称
+         * <p> 示例值：
+         *
+         * @param language
+         * @return
+         */
+        public Builder language(String language) {
+            this.language = language;
+            return this;
+        }
+
+
+        /**
+         * 语言等级
+         * <p> 示例值：
+         *
+         * @param proficiency
+         * @return
+         */
+        public Builder proficiency(String proficiency) {
+            this.proficiency = proficiency;
+            return this;
+        }
+
+
+        public SiteResumeLanguageSkill build() {
+            return new SiteResumeLanguageSkill(this);
+        }
+    }
 }

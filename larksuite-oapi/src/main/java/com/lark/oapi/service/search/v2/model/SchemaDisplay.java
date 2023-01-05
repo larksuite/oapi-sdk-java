@@ -16,110 +16,108 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SchemaDisplay {
-
-  /**
-   * 搜索数据的展示卡片
-   * <p> 示例值：search_common_card
-   */
-  @SerializedName("card_key")
-  private String cardKey;
-  /**
-   * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
-   * <p> 示例值：
-   */
-  @SerializedName("fields_mapping")
-  private SchemaDisplayFieldMapping[] fieldsMapping;
-
-  // builder 开始
-  public SchemaDisplay() {
-  }
-
-  public SchemaDisplay(Builder builder) {
     /**
-     * 搜索数据的展示卡片
+     * 搜索数据的展示卡片;;;卡片详细信息请参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分
      * <p> 示例值：search_common_card
      */
-    this.cardKey = builder.cardKey;
-    /**
-     * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
-     * <p> 示例值：
-     */
-    this.fieldsMapping = builder.fieldsMapping;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCardKey() {
-    return this.cardKey;
-  }
-
-  public void setCardKey(String cardKey) {
-    this.cardKey = cardKey;
-  }
-
-  public SchemaDisplayFieldMapping[] getFieldsMapping() {
-    return this.fieldsMapping;
-  }
-
-  public void setFieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
-    this.fieldsMapping = fieldsMapping;
-  }
-
-  public static class Builder {
-
-    /**
-     * 搜索数据的展示卡片
-     * <p> 示例值：search_common_card
-     */
+    @SerializedName("card_key")
     private String cardKey;
     /**
      * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
      * <p> 示例值：
      */
+    @SerializedName("fields_mapping")
     private SchemaDisplayFieldMapping[] fieldsMapping;
 
-    /**
-     * 搜索数据的展示卡片
-     * <p> 示例值：search_common_card
-     *
-     * @param cardKey
-     * @return
-     */
-    public Builder cardKey(String cardKey) {
-      this.cardKey = cardKey;
-      return this;
+    // builder 开始
+    public SchemaDisplay() {
     }
 
-    /**
-     * 搜索数据的展示卡片
-     * <p> 示例值：search_common_card
-     *
-     * @param cardKey {@link com.lark.oapi.service.search.v2.enums.SchemaDisplayCardKeyEnum}
-     * @return
-     */
-    public Builder cardKey(com.lark.oapi.service.search.v2.enums.SchemaDisplayCardKeyEnum cardKey) {
-      this.cardKey = cardKey.getValue();
-      return this;
+    public SchemaDisplay(Builder builder) {
+        /**
+         * 搜索数据的展示卡片;;;卡片详细信息请参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分
+         * <p> 示例值：search_common_card
+         */
+        this.cardKey = builder.cardKey;
+        /**
+         * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+         * <p> 示例值：
+         */
+        this.fieldsMapping = builder.fieldsMapping;
     }
 
-
-    /**
-     * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
-     * <p> 示例值：
-     *
-     * @param fieldsMapping
-     * @return
-     */
-    public Builder fieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
-      this.fieldsMapping = fieldsMapping;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public SchemaDisplay build() {
-      return new SchemaDisplay(this);
+    public String getCardKey() {
+        return this.cardKey;
     }
-  }
+
+    public void setCardKey(String cardKey) {
+        this.cardKey = cardKey;
+    }
+
+    public SchemaDisplayFieldMapping[] getFieldsMapping() {
+        return this.fieldsMapping;
+    }
+
+    public void setFieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
+        this.fieldsMapping = fieldsMapping;
+    }
+
+    public static class Builder {
+        /**
+         * 搜索数据的展示卡片;;;卡片详细信息请参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分
+         * <p> 示例值：search_common_card
+         */
+        private String cardKey;
+        /**
+         * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+         * <p> 示例值：
+         */
+        private SchemaDisplayFieldMapping[] fieldsMapping;
+
+        /**
+         * 搜索数据的展示卡片;;;卡片详细信息请参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分
+         * <p> 示例值：search_common_card
+         *
+         * @param cardKey
+         * @return
+         */
+        public Builder cardKey(String cardKey) {
+            this.cardKey = cardKey;
+            return this;
+        }
+
+        /**
+         * 搜索数据的展示卡片;;;卡片详细信息请参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分
+         * <p> 示例值：search_common_card
+         *
+         * @param cardKey {@link com.lark.oapi.service.search.v2.enums.SchemaDisplayCardKeyEnum}
+         * @return
+         */
+        public Builder cardKey(com.lark.oapi.service.search.v2.enums.SchemaDisplayCardKeyEnum cardKey) {
+            this.cardKey = cardKey.getValue();
+            return this;
+        }
+
+
+        /**
+         * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+         * <p> 示例值：
+         *
+         * @param fieldsMapping
+         * @return
+         */
+        public Builder fieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
+            this.fieldsMapping = fieldsMapping;
+            return this;
+        }
+
+
+        public SchemaDisplay build() {
+            return new SchemaDisplay(this);
+        }
+    }
 }

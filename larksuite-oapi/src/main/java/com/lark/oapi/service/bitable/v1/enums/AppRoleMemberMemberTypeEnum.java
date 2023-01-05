@@ -17,17 +17,17 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 协作者类型
  */
 public enum AppRoleMemberMemberTypeEnum {
-  USER("user"), // 用户
-  CHAT("chat"), // 群组
-  DEPARTMENT("department"), // 部门
-  ;
-  private String value;
+    USER("user"), // 用户
+    CHAT("chat"), // 群组
+    DEPARTMENT("department"), // 部门
+    ;
+    private String value;
 
-  AppRoleMemberMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    AppRoleMemberMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

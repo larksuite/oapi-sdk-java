@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobProcesses {
-
-  /**
-   * ID
-   * <p> 示例值：123123123123
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 中文名称
-   * <p> 示例值：中文
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 英文名称
-   * <p> 示例值：name
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 类型 1=社招流程, 2=校招流程,
-   * <p> 示例值：1
-   */
-  @SerializedName("type")
-  private Integer type;
-  /**
-   * 阶段列表, 内部按用户设置顺序排列
-   * <p> 示例值：
-   */
-  @SerializedName("stage_list")
-  private JobProcessesStage[] stageList;
-
-  // builder 开始
-  public JobProcesses() {
-  }
-
-  public JobProcesses(Builder builder) {
     /**
      * ID
      * <p> 示例值：123123123123
      */
-    this.id = builder.id;
-    /**
-     * 中文名称
-     * <p> 示例值：中文
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 英文名称
-     * <p> 示例值：name
-     */
-    this.enName = builder.enName;
-    /**
-     * 类型 1=社招流程, 2=校招流程,
-     * <p> 示例值：1
-     */
-    this.type = builder.type;
-    /**
-     * 阶段列表, 内部按用户设置顺序排列
-     * <p> 示例值：
-     */
-    this.stageList = builder.stageList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public JobProcessesStage[] getStageList() {
-    return this.stageList;
-  }
-
-  public void setStageList(JobProcessesStage[] stageList) {
-    this.stageList = stageList;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：123123123123
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 中文名称
      * <p> 示例值：中文
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 英文名称
      * <p> 示例值：name
      */
+    @SerializedName("en_name")
     private String enName;
     /**
      * 类型 1=社招流程, 2=校招流程,
      * <p> 示例值：1
      */
+    @SerializedName("type")
     private Integer type;
     /**
      * 阶段列表, 内部按用户设置顺序排列
      * <p> 示例值：
      */
+    @SerializedName("stage_list")
     private JobProcessesStage[] stageList;
 
-    /**
-     * ID
-     * <p> 示例值：123123123123
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public JobProcesses() {
     }
 
-
-    /**
-     * 中文名称
-     * <p> 示例值：中文
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public JobProcesses(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：123123123123
+         */
+        this.id = builder.id;
+        /**
+         * 中文名称
+         * <p> 示例值：中文
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 英文名称
+         * <p> 示例值：name
+         */
+        this.enName = builder.enName;
+        /**
+         * 类型 1=社招流程, 2=校招流程,
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 阶段列表, 内部按用户设置顺序排列
+         * <p> 示例值：
+         */
+        this.stageList = builder.stageList;
     }
 
-
-    /**
-     * 英文名称
-     * <p> 示例值：name
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 类型 1=社招流程, 2=校招流程,
-     * <p> 示例值：1
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 阶段列表, 内部按用户设置顺序排列
-     * <p> 示例值：
-     *
-     * @param stageList
-     * @return
-     */
-    public Builder stageList(JobProcessesStage[] stageList) {
-      this.stageList = stageList;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public JobProcesses build() {
-      return new JobProcesses(this);
+    public String getZhName() {
+        return this.zhName;
     }
-  }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public JobProcessesStage[] getStageList() {
+        return this.stageList;
+    }
+
+    public void setStageList(JobProcessesStage[] stageList) {
+        this.stageList = stageList;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：123123123123
+         */
+        private String id;
+        /**
+         * 中文名称
+         * <p> 示例值：中文
+         */
+        private String zhName;
+        /**
+         * 英文名称
+         * <p> 示例值：name
+         */
+        private String enName;
+        /**
+         * 类型 1=社招流程, 2=校招流程,
+         * <p> 示例值：1
+         */
+        private Integer type;
+        /**
+         * 阶段列表, 内部按用户设置顺序排列
+         * <p> 示例值：
+         */
+        private JobProcessesStage[] stageList;
+
+        /**
+         * ID
+         * <p> 示例值：123123123123
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 中文名称
+         * <p> 示例值：中文
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 英文名称
+         * <p> 示例值：name
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 类型 1=社招流程, 2=校招流程,
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 阶段列表, 内部按用户设置顺序排列
+         * <p> 示例值：
+         *
+         * @param stageList
+         * @return
+         */
+        public Builder stageList(JobProcessesStage[] stageList) {
+            this.stageList = stageList;
+            return this;
+        }
+
+
+        public JobProcesses build() {
+            return new JobProcesses(this);
+        }
+    }
 }

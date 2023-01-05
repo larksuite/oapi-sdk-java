@@ -16,246 +16,244 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Attachment {
-
-  /**
-   * attachment token
-   * <p> 示例值：
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * attachment name
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * attachment type
-   * <p> 示例值：
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * attachment size
-   * <p> 示例值：
-   */
-  @SerializedName("size")
-  private Integer size;
-  /**
-   * download url
-   * <p> 示例值：
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * temporary download url
-   * <p> 示例值：
-   */
-  @SerializedName("tmp_url")
-  private String tmpUrl;
-
-  // builder 开始
-  public Attachment() {
-  }
-
-  public Attachment(Builder builder) {
     /**
      * attachment token
      * <p> 示例值：
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * attachment name
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * attachment type
-     * <p> 示例值：
-     */
-    this.type = builder.type;
-    /**
-     * attachment size
-     * <p> 示例值：
-     */
-    this.size = builder.size;
-    /**
-     * download url
-     * <p> 示例值：
-     */
-    this.url = builder.url;
-    /**
-     * temporary download url
-     * <p> 示例值：
-     */
-    this.tmpUrl = builder.tmpUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public Integer getSize() {
-    return this.size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getTmpUrl() {
-    return this.tmpUrl;
-  }
-
-  public void setTmpUrl(String tmpUrl) {
-    this.tmpUrl = tmpUrl;
-  }
-
-  public static class Builder {
-
-    /**
-     * attachment token
-     * <p> 示例值：
-     */
+    @SerializedName("file_token")
     private String fileToken;
     /**
      * attachment name
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
      * attachment type
      * <p> 示例值：
      */
+    @SerializedName("type")
     private String type;
     /**
      * attachment size
      * <p> 示例值：
      */
+    @SerializedName("size")
     private Integer size;
     /**
      * download url
      * <p> 示例值：
      */
+    @SerializedName("url")
     private String url;
     /**
      * temporary download url
      * <p> 示例值：
      */
+    @SerializedName("tmp_url")
     private String tmpUrl;
 
-    /**
-     * attachment token
-     * <p> 示例值：
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public Attachment() {
     }
 
-
-    /**
-     * attachment name
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public Attachment(Builder builder) {
+        /**
+         * attachment token
+         * <p> 示例值：
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * attachment name
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * attachment type
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * attachment size
+         * <p> 示例值：
+         */
+        this.size = builder.size;
+        /**
+         * download url
+         * <p> 示例值：
+         */
+        this.url = builder.url;
+        /**
+         * temporary download url
+         * <p> 示例值：
+         */
+        this.tmpUrl = builder.tmpUrl;
     }
 
-
-    /**
-     * attachment type
-     * <p> 示例值：
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * attachment size
-     * <p> 示例值：
-     *
-     * @param size
-     * @return
-     */
-    public Builder size(Integer size) {
-      this.size = size;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-
-    /**
-     * download url
-     * <p> 示例值：
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
-
-    /**
-     * temporary download url
-     * <p> 示例值：
-     *
-     * @param tmpUrl
-     * @return
-     */
-    public Builder tmpUrl(String tmpUrl) {
-      this.tmpUrl = tmpUrl;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    public Attachment build() {
-      return new Attachment(this);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTmpUrl() {
+        return this.tmpUrl;
+    }
+
+    public void setTmpUrl(String tmpUrl) {
+        this.tmpUrl = tmpUrl;
+    }
+
+    public static class Builder {
+        /**
+         * attachment token
+         * <p> 示例值：
+         */
+        private String fileToken;
+        /**
+         * attachment name
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * attachment type
+         * <p> 示例值：
+         */
+        private String type;
+        /**
+         * attachment size
+         * <p> 示例值：
+         */
+        private Integer size;
+        /**
+         * download url
+         * <p> 示例值：
+         */
+        private String url;
+        /**
+         * temporary download url
+         * <p> 示例值：
+         */
+        private String tmpUrl;
+
+        /**
+         * attachment token
+         * <p> 示例值：
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * attachment name
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * attachment type
+         * <p> 示例值：
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * attachment size
+         * <p> 示例值：
+         *
+         * @param size
+         * @return
+         */
+        public Builder size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+
+        /**
+         * download url
+         * <p> 示例值：
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * temporary download url
+         * <p> 示例值：
+         *
+         * @param tmpUrl
+         * @return
+         */
+        public Builder tmpUrl(String tmpUrl) {
+            this.tmpUrl = tmpUrl;
+            return this;
+        }
+
+
+        public Attachment build() {
+            return new Attachment(this);
+        }
+    }
 }

@@ -16,1664 +16,1699 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Block {
-
-  /**
-   * Block 唯一标识
-   * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
-   */
-  @SerializedName("block_id")
-  private String blockId;
-  /**
-   * block 的父亲 id
-   * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-   */
-  @SerializedName("parent_id")
-  private String parentId;
-  /**
-   * block 的孩子 id 列表
-   * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
-   */
-  @SerializedName("children")
-  private String[] children;
-  /**
-   * block 类型
-   * <p> 示例值：1
-   */
-  @SerializedName("block_type")
-  private Integer blockType;
-  /**
-   * 文档 Block
-   * <p> 示例值：
-   */
-  @SerializedName("page")
-  private Text page;
-  /**
-   * 文本 Block
-   * <p> 示例值：
-   */
-  @SerializedName("text")
-  private Text text;
-  /**
-   * 一级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading1")
-  private Text heading1;
-  /**
-   * 二级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading2")
-  private Text heading2;
-  /**
-   * 三级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading3")
-  private Text heading3;
-  /**
-   * 四级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading4")
-  private Text heading4;
-  /**
-   * 五级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading5")
-  private Text heading5;
-  /**
-   * 六级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading6")
-  private Text heading6;
-  /**
-   * 七级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading7")
-  private Text heading7;
-  /**
-   * 八级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading8")
-  private Text heading8;
-  /**
-   * 九级标题 Block
-   * <p> 示例值：
-   */
-  @SerializedName("heading9")
-  private Text heading9;
-  /**
-   * 无序列表 Block
-   * <p> 示例值：
-   */
-  @SerializedName("bullet")
-  private Text bullet;
-  /**
-   * 有序列表 Block
-   * <p> 示例值：
-   */
-  @SerializedName("ordered")
-  private Text ordered;
-  /**
-   * 代码块 Block
-   * <p> 示例值：
-   */
-  @SerializedName("code")
-  private Text code;
-  /**
-   * 引用 Block
-   * <p> 示例值：
-   */
-  @SerializedName("quote")
-  private Text quote;
-  /**
-   * 公式 Block
-   * <p> 示例值：
-   */
-  @SerializedName("equation")
-  private Text equation;
-  /**
-   * 任务 Block
-   * <p> 示例值：
-   */
-  @SerializedName("todo")
-  private Text todo;
-  /**
-   * 多维表格 Block
-   * <p> 示例值：
-   */
-  @SerializedName("bitable")
-  private Bitable bitable;
-  /**
-   * 高亮块 Block
-   * <p> 示例值：
-   */
-  @SerializedName("callout")
-  private Callout callout;
-  /**
-   * 群聊卡片 Block
-   * <p> 示例值：
-   */
-  @SerializedName("chat_card")
-  private ChatCard chatCard;
-  /**
-   * 流程图/UML Block
-   * <p> 示例值：
-   */
-  @SerializedName("diagram")
-  private Diagram diagram;
-  /**
-   * 分割线 Block
-   * <p> 示例值：
-   */
-  @SerializedName("divider")
-  private Divider divider;
-  /**
-   * 文件 Block
-   * <p> 示例值：
-   */
-  @SerializedName("file")
-  private File file;
-  /**
-   * 分栏 Block
-   * <p> 示例值：
-   */
-  @SerializedName("grid")
-  private Grid grid;
-  /**
-   * 分栏列 Block
-   * <p> 示例值：
-   */
-  @SerializedName("grid_column")
-  private GridColumn gridColumn;
-  /**
-   * 内嵌 Block
-   * <p> 示例值：
-   */
-  @SerializedName("iframe")
-  private Iframe iframe;
-  /**
-   * 图片 Block
-   * <p> 示例值：
-   */
-  @SerializedName("image")
-  private Image image;
-  /**
-   * 三方 Block
-   * <p> 示例值：
-   */
-  @SerializedName("isv")
-  private Isv isv;
-  /**
-   * 思维笔记 Block
-   * <p> 示例值：
-   */
-  @SerializedName("mindnote")
-  private Mindnote mindnote;
-  /**
-   * 电子表格 Block
-   * <p> 示例值：
-   */
-  @SerializedName("sheet")
-  private Sheet sheet;
-  /**
-   * 表格 Block
-   * <p> 示例值：
-   */
-  @SerializedName("table")
-  private Table table;
-  /**
-   * 单元格 Block
-   * <p> 示例值：
-   */
-  @SerializedName("table_cell")
-  private TableCell tableCell;
-  /**
-   * 视图 Block
-   * <p> 示例值：
-   */
-  @SerializedName("view")
-  private View view;
-  /**
-   * 未支持 Block
-   * <p> 示例值：
-   */
-  @SerializedName("undefined")
-  private Undefined undefined;
-  /**
-   * 引用容器 Block
-   * <p> 示例值：
-   */
-  @SerializedName("quote_container")
-  private QuoteContainer quoteContainer;
-  /**
-   * 任务 Block
-   * <p> 示例值：
-   */
-  @SerializedName("task")
-  private Task task;
-  /**
-   * OKR Block
-   * <p> 示例值：
-   */
-  @SerializedName("okr")
-  private Okr okr;
-  /**
-   * OKR Objective
-   * <p> 示例值：
-   */
-  @SerializedName("okr_objective")
-  private OkrObjective okrObjective;
-  /**
-   * OKR Key Result
-   * <p> 示例值：
-   */
-  @SerializedName("okr_key_result")
-  private OkrKeyResult okrKeyResult;
-  /**
-   * OKR 进展信息
-   * <p> 示例值：
-   */
-  @SerializedName("okr_progress")
-  private OkrProgress okrProgress;
-
-  // builder 开始
-  public Block() {
-  }
-
-  public Block(Builder builder) {
     /**
      * Block 唯一标识
      * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
      */
-    this.blockId = builder.blockId;
-    /**
-     * block 的父亲 id
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-     */
-    this.parentId = builder.parentId;
-    /**
-     * block 的孩子 id 列表
-     * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
-     */
-    this.children = builder.children;
-    /**
-     * block 类型
-     * <p> 示例值：1
-     */
-    this.blockType = builder.blockType;
-    /**
-     * 文档 Block
-     * <p> 示例值：
-     */
-    this.page = builder.page;
-    /**
-     * 文本 Block
-     * <p> 示例值：
-     */
-    this.text = builder.text;
-    /**
-     * 一级标题 Block
-     * <p> 示例值：
-     */
-    this.heading1 = builder.heading1;
-    /**
-     * 二级标题 Block
-     * <p> 示例值：
-     */
-    this.heading2 = builder.heading2;
-    /**
-     * 三级标题 Block
-     * <p> 示例值：
-     */
-    this.heading3 = builder.heading3;
-    /**
-     * 四级标题 Block
-     * <p> 示例值：
-     */
-    this.heading4 = builder.heading4;
-    /**
-     * 五级标题 Block
-     * <p> 示例值：
-     */
-    this.heading5 = builder.heading5;
-    /**
-     * 六级标题 Block
-     * <p> 示例值：
-     */
-    this.heading6 = builder.heading6;
-    /**
-     * 七级标题 Block
-     * <p> 示例值：
-     */
-    this.heading7 = builder.heading7;
-    /**
-     * 八级标题 Block
-     * <p> 示例值：
-     */
-    this.heading8 = builder.heading8;
-    /**
-     * 九级标题 Block
-     * <p> 示例值：
-     */
-    this.heading9 = builder.heading9;
-    /**
-     * 无序列表 Block
-     * <p> 示例值：
-     */
-    this.bullet = builder.bullet;
-    /**
-     * 有序列表 Block
-     * <p> 示例值：
-     */
-    this.ordered = builder.ordered;
-    /**
-     * 代码块 Block
-     * <p> 示例值：
-     */
-    this.code = builder.code;
-    /**
-     * 引用 Block
-     * <p> 示例值：
-     */
-    this.quote = builder.quote;
-    /**
-     * 公式 Block
-     * <p> 示例值：
-     */
-    this.equation = builder.equation;
-    /**
-     * 任务 Block
-     * <p> 示例值：
-     */
-    this.todo = builder.todo;
-    /**
-     * 多维表格 Block
-     * <p> 示例值：
-     */
-    this.bitable = builder.bitable;
-    /**
-     * 高亮块 Block
-     * <p> 示例值：
-     */
-    this.callout = builder.callout;
-    /**
-     * 群聊卡片 Block
-     * <p> 示例值：
-     */
-    this.chatCard = builder.chatCard;
-    /**
-     * 流程图/UML Block
-     * <p> 示例值：
-     */
-    this.diagram = builder.diagram;
-    /**
-     * 分割线 Block
-     * <p> 示例值：
-     */
-    this.divider = builder.divider;
-    /**
-     * 文件 Block
-     * <p> 示例值：
-     */
-    this.file = builder.file;
-    /**
-     * 分栏 Block
-     * <p> 示例值：
-     */
-    this.grid = builder.grid;
-    /**
-     * 分栏列 Block
-     * <p> 示例值：
-     */
-    this.gridColumn = builder.gridColumn;
-    /**
-     * 内嵌 Block
-     * <p> 示例值：
-     */
-    this.iframe = builder.iframe;
-    /**
-     * 图片 Block
-     * <p> 示例值：
-     */
-    this.image = builder.image;
-    /**
-     * 三方 Block
-     * <p> 示例值：
-     */
-    this.isv = builder.isv;
-    /**
-     * 思维笔记 Block
-     * <p> 示例值：
-     */
-    this.mindnote = builder.mindnote;
-    /**
-     * 电子表格 Block
-     * <p> 示例值：
-     */
-    this.sheet = builder.sheet;
-    /**
-     * 表格 Block
-     * <p> 示例值：
-     */
-    this.table = builder.table;
-    /**
-     * 单元格 Block
-     * <p> 示例值：
-     */
-    this.tableCell = builder.tableCell;
-    /**
-     * 视图 Block
-     * <p> 示例值：
-     */
-    this.view = builder.view;
-    /**
-     * 未支持 Block
-     * <p> 示例值：
-     */
-    this.undefined = builder.undefined;
-    /**
-     * 引用容器 Block
-     * <p> 示例值：
-     */
-    this.quoteContainer = builder.quoteContainer;
-    /**
-     * 任务 Block
-     * <p> 示例值：
-     */
-    this.task = builder.task;
-    /**
-     * OKR Block
-     * <p> 示例值：
-     */
-    this.okr = builder.okr;
-    /**
-     * OKR Objective
-     * <p> 示例值：
-     */
-    this.okrObjective = builder.okrObjective;
-    /**
-     * OKR Key Result
-     * <p> 示例值：
-     */
-    this.okrKeyResult = builder.okrKeyResult;
-    /**
-     * OKR 进展信息
-     * <p> 示例值：
-     */
-    this.okrProgress = builder.okrProgress;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public String getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
-
-  public String[] getChildren() {
-    return this.children;
-  }
-
-  public void setChildren(String[] children) {
-    this.children = children;
-  }
-
-  public Integer getBlockType() {
-    return this.blockType;
-  }
-
-  public void setBlockType(Integer blockType) {
-    this.blockType = blockType;
-  }
-
-  public Text getPage() {
-    return this.page;
-  }
-
-  public void setPage(Text page) {
-    this.page = page;
-  }
-
-  public Text getText() {
-    return this.text;
-  }
-
-  public void setText(Text text) {
-    this.text = text;
-  }
-
-  public Text getHeading1() {
-    return this.heading1;
-  }
-
-  public void setHeading1(Text heading1) {
-    this.heading1 = heading1;
-  }
-
-  public Text getHeading2() {
-    return this.heading2;
-  }
-
-  public void setHeading2(Text heading2) {
-    this.heading2 = heading2;
-  }
-
-  public Text getHeading3() {
-    return this.heading3;
-  }
-
-  public void setHeading3(Text heading3) {
-    this.heading3 = heading3;
-  }
-
-  public Text getHeading4() {
-    return this.heading4;
-  }
-
-  public void setHeading4(Text heading4) {
-    this.heading4 = heading4;
-  }
-
-  public Text getHeading5() {
-    return this.heading5;
-  }
-
-  public void setHeading5(Text heading5) {
-    this.heading5 = heading5;
-  }
-
-  public Text getHeading6() {
-    return this.heading6;
-  }
-
-  public void setHeading6(Text heading6) {
-    this.heading6 = heading6;
-  }
-
-  public Text getHeading7() {
-    return this.heading7;
-  }
-
-  public void setHeading7(Text heading7) {
-    this.heading7 = heading7;
-  }
-
-  public Text getHeading8() {
-    return this.heading8;
-  }
-
-  public void setHeading8(Text heading8) {
-    this.heading8 = heading8;
-  }
-
-  public Text getHeading9() {
-    return this.heading9;
-  }
-
-  public void setHeading9(Text heading9) {
-    this.heading9 = heading9;
-  }
-
-  public Text getBullet() {
-    return this.bullet;
-  }
-
-  public void setBullet(Text bullet) {
-    this.bullet = bullet;
-  }
-
-  public Text getOrdered() {
-    return this.ordered;
-  }
-
-  public void setOrdered(Text ordered) {
-    this.ordered = ordered;
-  }
-
-  public Text getCode() {
-    return this.code;
-  }
-
-  public void setCode(Text code) {
-    this.code = code;
-  }
-
-  public Text getQuote() {
-    return this.quote;
-  }
-
-  public void setQuote(Text quote) {
-    this.quote = quote;
-  }
-
-  public Text getEquation() {
-    return this.equation;
-  }
-
-  public void setEquation(Text equation) {
-    this.equation = equation;
-  }
-
-  public Text getTodo() {
-    return this.todo;
-  }
-
-  public void setTodo(Text todo) {
-    this.todo = todo;
-  }
-
-  public Bitable getBitable() {
-    return this.bitable;
-  }
-
-  public void setBitable(Bitable bitable) {
-    this.bitable = bitable;
-  }
-
-  public Callout getCallout() {
-    return this.callout;
-  }
-
-  public void setCallout(Callout callout) {
-    this.callout = callout;
-  }
-
-  public ChatCard getChatCard() {
-    return this.chatCard;
-  }
-
-  public void setChatCard(ChatCard chatCard) {
-    this.chatCard = chatCard;
-  }
-
-  public Diagram getDiagram() {
-    return this.diagram;
-  }
-
-  public void setDiagram(Diagram diagram) {
-    this.diagram = diagram;
-  }
-
-  public Divider getDivider() {
-    return this.divider;
-  }
-
-  public void setDivider(Divider divider) {
-    this.divider = divider;
-  }
-
-  public File getFile() {
-    return this.file;
-  }
-
-  public void setFile(File file) {
-    this.file = file;
-  }
-
-  public Grid getGrid() {
-    return this.grid;
-  }
-
-  public void setGrid(Grid grid) {
-    this.grid = grid;
-  }
-
-  public GridColumn getGridColumn() {
-    return this.gridColumn;
-  }
-
-  public void setGridColumn(GridColumn gridColumn) {
-    this.gridColumn = gridColumn;
-  }
-
-  public Iframe getIframe() {
-    return this.iframe;
-  }
-
-  public void setIframe(Iframe iframe) {
-    this.iframe = iframe;
-  }
-
-  public Image getImage() {
-    return this.image;
-  }
-
-  public void setImage(Image image) {
-    this.image = image;
-  }
-
-  public Isv getIsv() {
-    return this.isv;
-  }
-
-  public void setIsv(Isv isv) {
-    this.isv = isv;
-  }
-
-  public Mindnote getMindnote() {
-    return this.mindnote;
-  }
-
-  public void setMindnote(Mindnote mindnote) {
-    this.mindnote = mindnote;
-  }
-
-  public Sheet getSheet() {
-    return this.sheet;
-  }
-
-  public void setSheet(Sheet sheet) {
-    this.sheet = sheet;
-  }
-
-  public Table getTable() {
-    return this.table;
-  }
-
-  public void setTable(Table table) {
-    this.table = table;
-  }
-
-  public TableCell getTableCell() {
-    return this.tableCell;
-  }
-
-  public void setTableCell(TableCell tableCell) {
-    this.tableCell = tableCell;
-  }
-
-  public View getView() {
-    return this.view;
-  }
-
-  public void setView(View view) {
-    this.view = view;
-  }
-
-  public Undefined getUndefined() {
-    return this.undefined;
-  }
-
-  public void setUndefined(Undefined undefined) {
-    this.undefined = undefined;
-  }
-
-  public QuoteContainer getQuoteContainer() {
-    return this.quoteContainer;
-  }
-
-  public void setQuoteContainer(QuoteContainer quoteContainer) {
-    this.quoteContainer = quoteContainer;
-  }
-
-  public Task getTask() {
-    return this.task;
-  }
-
-  public void setTask(Task task) {
-    this.task = task;
-  }
-
-  public Okr getOkr() {
-    return this.okr;
-  }
-
-  public void setOkr(Okr okr) {
-    this.okr = okr;
-  }
-
-  public OkrObjective getOkrObjective() {
-    return this.okrObjective;
-  }
-
-  public void setOkrObjective(OkrObjective okrObjective) {
-    this.okrObjective = okrObjective;
-  }
-
-  public OkrKeyResult getOkrKeyResult() {
-    return this.okrKeyResult;
-  }
-
-  public void setOkrKeyResult(OkrKeyResult okrKeyResult) {
-    this.okrKeyResult = okrKeyResult;
-  }
-
-  public OkrProgress getOkrProgress() {
-    return this.okrProgress;
-  }
-
-  public void setOkrProgress(OkrProgress okrProgress) {
-    this.okrProgress = okrProgress;
-  }
-
-  public static class Builder {
-
-    /**
-     * Block 唯一标识
-     * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
-     */
+    @SerializedName("block_id")
     private String blockId;
     /**
      * block 的父亲 id
      * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
      */
+    @SerializedName("parent_id")
     private String parentId;
     /**
      * block 的孩子 id 列表
-     * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
+     * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
      */
+    @SerializedName("children")
     private String[] children;
     /**
      * block 类型
      * <p> 示例值：1
      */
+    @SerializedName("block_type")
     private Integer blockType;
     /**
      * 文档 Block
      * <p> 示例值：
      */
+    @SerializedName("page")
     private Text page;
     /**
      * 文本 Block
      * <p> 示例值：
      */
+    @SerializedName("text")
     private Text text;
     /**
      * 一级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading1")
     private Text heading1;
     /**
      * 二级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading2")
     private Text heading2;
     /**
      * 三级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading3")
     private Text heading3;
     /**
      * 四级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading4")
     private Text heading4;
     /**
      * 五级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading5")
     private Text heading5;
     /**
      * 六级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading6")
     private Text heading6;
     /**
      * 七级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading7")
     private Text heading7;
     /**
      * 八级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading8")
     private Text heading8;
     /**
      * 九级标题 Block
      * <p> 示例值：
      */
+    @SerializedName("heading9")
     private Text heading9;
     /**
      * 无序列表 Block
      * <p> 示例值：
      */
+    @SerializedName("bullet")
     private Text bullet;
     /**
      * 有序列表 Block
      * <p> 示例值：
      */
+    @SerializedName("ordered")
     private Text ordered;
     /**
      * 代码块 Block
      * <p> 示例值：
      */
+    @SerializedName("code")
     private Text code;
     /**
      * 引用 Block
      * <p> 示例值：
      */
+    @SerializedName("quote")
     private Text quote;
     /**
      * 公式 Block
      * <p> 示例值：
      */
+    @SerializedName("equation")
     private Text equation;
     /**
-     * 任务 Block
+     * 待办事项 Block
      * <p> 示例值：
      */
+    @SerializedName("todo")
     private Text todo;
     /**
      * 多维表格 Block
      * <p> 示例值：
      */
+    @SerializedName("bitable")
     private Bitable bitable;
     /**
      * 高亮块 Block
      * <p> 示例值：
      */
+    @SerializedName("callout")
     private Callout callout;
     /**
      * 群聊卡片 Block
      * <p> 示例值：
      */
+    @SerializedName("chat_card")
     private ChatCard chatCard;
     /**
      * 流程图/UML Block
      * <p> 示例值：
      */
+    @SerializedName("diagram")
     private Diagram diagram;
     /**
      * 分割线 Block
      * <p> 示例值：
      */
+    @SerializedName("divider")
     private Divider divider;
     /**
      * 文件 Block
      * <p> 示例值：
      */
+    @SerializedName("file")
     private File file;
     /**
      * 分栏 Block
      * <p> 示例值：
      */
+    @SerializedName("grid")
     private Grid grid;
     /**
      * 分栏列 Block
      * <p> 示例值：
      */
+    @SerializedName("grid_column")
     private GridColumn gridColumn;
     /**
      * 内嵌 Block
      * <p> 示例值：
      */
+    @SerializedName("iframe")
     private Iframe iframe;
     /**
      * 图片 Block
      * <p> 示例值：
      */
+    @SerializedName("image")
     private Image image;
     /**
      * 三方 Block
      * <p> 示例值：
      */
+    @SerializedName("isv")
     private Isv isv;
     /**
      * 思维笔记 Block
      * <p> 示例值：
      */
+    @SerializedName("mindnote")
     private Mindnote mindnote;
     /**
      * 电子表格 Block
      * <p> 示例值：
      */
+    @SerializedName("sheet")
     private Sheet sheet;
     /**
      * 表格 Block
      * <p> 示例值：
      */
+    @SerializedName("table")
     private Table table;
     /**
      * 单元格 Block
      * <p> 示例值：
      */
+    @SerializedName("table_cell")
     private TableCell tableCell;
     /**
      * 视图 Block
      * <p> 示例值：
      */
+    @SerializedName("view")
     private View view;
     /**
      * 未支持 Block
      * <p> 示例值：
      */
+    @SerializedName("undefined")
     private Undefined undefined;
     /**
      * 引用容器 Block
      * <p> 示例值：
      */
+    @SerializedName("quote_container")
     private QuoteContainer quoteContainer;
     /**
      * 任务 Block
      * <p> 示例值：
      */
+    @SerializedName("task")
     private Task task;
     /**
-     * OKR Block
+     * OKR Block，仅可在使用 `user_access_token` 时创建
      * <p> 示例值：
      */
+    @SerializedName("okr")
     private Okr okr;
     /**
-     * OKR Objective
+     * OKR Objective Block
      * <p> 示例值：
      */
+    @SerializedName("okr_objective")
     private OkrObjective okrObjective;
     /**
      * OKR Key Result
      * <p> 示例值：
      */
+    @SerializedName("okr_key_result")
     private OkrKeyResult okrKeyResult;
     /**
      * OKR 进展信息
      * <p> 示例值：
      */
+    @SerializedName("okr_progress")
     private OkrProgress okrProgress;
-
     /**
-     * Block 唯一标识
-     * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
-     *
-     * @param blockId
-     * @return
+     * 评论 id 列表
+     * <p> 示例值：["1660030311959965796"]
      */
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    @SerializedName("comment_ids")
+    private String[] commentIds;
+
+    // builder 开始
+    public Block() {
     }
 
-
-    /**
-     * block 的父亲 id
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-     *
-     * @param parentId
-     * @return
-     */
-    public Builder parentId(String parentId) {
-      this.parentId = parentId;
-      return this;
+    public Block(Builder builder) {
+        /**
+         * Block 唯一标识
+         * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
+         */
+        this.blockId = builder.blockId;
+        /**
+         * block 的父亲 id
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         */
+        this.parentId = builder.parentId;
+        /**
+         * block 的孩子 id 列表
+         * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+         */
+        this.children = builder.children;
+        /**
+         * block 类型
+         * <p> 示例值：1
+         */
+        this.blockType = builder.blockType;
+        /**
+         * 文档 Block
+         * <p> 示例值：
+         */
+        this.page = builder.page;
+        /**
+         * 文本 Block
+         * <p> 示例值：
+         */
+        this.text = builder.text;
+        /**
+         * 一级标题 Block
+         * <p> 示例值：
+         */
+        this.heading1 = builder.heading1;
+        /**
+         * 二级标题 Block
+         * <p> 示例值：
+         */
+        this.heading2 = builder.heading2;
+        /**
+         * 三级标题 Block
+         * <p> 示例值：
+         */
+        this.heading3 = builder.heading3;
+        /**
+         * 四级标题 Block
+         * <p> 示例值：
+         */
+        this.heading4 = builder.heading4;
+        /**
+         * 五级标题 Block
+         * <p> 示例值：
+         */
+        this.heading5 = builder.heading5;
+        /**
+         * 六级标题 Block
+         * <p> 示例值：
+         */
+        this.heading6 = builder.heading6;
+        /**
+         * 七级标题 Block
+         * <p> 示例值：
+         */
+        this.heading7 = builder.heading7;
+        /**
+         * 八级标题 Block
+         * <p> 示例值：
+         */
+        this.heading8 = builder.heading8;
+        /**
+         * 九级标题 Block
+         * <p> 示例值：
+         */
+        this.heading9 = builder.heading9;
+        /**
+         * 无序列表 Block
+         * <p> 示例值：
+         */
+        this.bullet = builder.bullet;
+        /**
+         * 有序列表 Block
+         * <p> 示例值：
+         */
+        this.ordered = builder.ordered;
+        /**
+         * 代码块 Block
+         * <p> 示例值：
+         */
+        this.code = builder.code;
+        /**
+         * 引用 Block
+         * <p> 示例值：
+         */
+        this.quote = builder.quote;
+        /**
+         * 公式 Block
+         * <p> 示例值：
+         */
+        this.equation = builder.equation;
+        /**
+         * 待办事项 Block
+         * <p> 示例值：
+         */
+        this.todo = builder.todo;
+        /**
+         * 多维表格 Block
+         * <p> 示例值：
+         */
+        this.bitable = builder.bitable;
+        /**
+         * 高亮块 Block
+         * <p> 示例值：
+         */
+        this.callout = builder.callout;
+        /**
+         * 群聊卡片 Block
+         * <p> 示例值：
+         */
+        this.chatCard = builder.chatCard;
+        /**
+         * 流程图/UML Block
+         * <p> 示例值：
+         */
+        this.diagram = builder.diagram;
+        /**
+         * 分割线 Block
+         * <p> 示例值：
+         */
+        this.divider = builder.divider;
+        /**
+         * 文件 Block
+         * <p> 示例值：
+         */
+        this.file = builder.file;
+        /**
+         * 分栏 Block
+         * <p> 示例值：
+         */
+        this.grid = builder.grid;
+        /**
+         * 分栏列 Block
+         * <p> 示例值：
+         */
+        this.gridColumn = builder.gridColumn;
+        /**
+         * 内嵌 Block
+         * <p> 示例值：
+         */
+        this.iframe = builder.iframe;
+        /**
+         * 图片 Block
+         * <p> 示例值：
+         */
+        this.image = builder.image;
+        /**
+         * 三方 Block
+         * <p> 示例值：
+         */
+        this.isv = builder.isv;
+        /**
+         * 思维笔记 Block
+         * <p> 示例值：
+         */
+        this.mindnote = builder.mindnote;
+        /**
+         * 电子表格 Block
+         * <p> 示例值：
+         */
+        this.sheet = builder.sheet;
+        /**
+         * 表格 Block
+         * <p> 示例值：
+         */
+        this.table = builder.table;
+        /**
+         * 单元格 Block
+         * <p> 示例值：
+         */
+        this.tableCell = builder.tableCell;
+        /**
+         * 视图 Block
+         * <p> 示例值：
+         */
+        this.view = builder.view;
+        /**
+         * 未支持 Block
+         * <p> 示例值：
+         */
+        this.undefined = builder.undefined;
+        /**
+         * 引用容器 Block
+         * <p> 示例值：
+         */
+        this.quoteContainer = builder.quoteContainer;
+        /**
+         * 任务 Block
+         * <p> 示例值：
+         */
+        this.task = builder.task;
+        /**
+         * OKR Block，仅可在使用 `user_access_token` 时创建
+         * <p> 示例值：
+         */
+        this.okr = builder.okr;
+        /**
+         * OKR Objective Block
+         * <p> 示例值：
+         */
+        this.okrObjective = builder.okrObjective;
+        /**
+         * OKR Key Result
+         * <p> 示例值：
+         */
+        this.okrKeyResult = builder.okrKeyResult;
+        /**
+         * OKR 进展信息
+         * <p> 示例值：
+         */
+        this.okrProgress = builder.okrProgress;
+        /**
+         * 评论 id 列表
+         * <p> 示例值：["1660030311959965796"]
+         */
+        this.commentIds = builder.commentIds;
     }
 
-
-    /**
-     * block 的孩子 id 列表
-     * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
-     *
-     * @param children
-     * @return
-     */
-    public Builder children(String[] children) {
-      this.children = children;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * block 类型
-     * <p> 示例值：1
-     *
-     * @param blockType
-     * @return
-     */
-    public Builder blockType(Integer blockType) {
-      this.blockType = blockType;
-      return this;
+    public String getBlockId() {
+        return this.blockId;
     }
 
-    /**
-     * block 类型
-     * <p> 示例值：1
-     *
-     * @param blockType {@link com.lark.oapi.service.docx.v1.enums.BlockBlockTypeEnum}
-     * @return
-     */
-    public Builder blockType(com.lark.oapi.service.docx.v1.enums.BlockBlockTypeEnum blockType) {
-      this.blockType = blockType.getValue();
-      return this;
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
     }
 
-
-    /**
-     * 文档 Block
-     * <p> 示例值：
-     *
-     * @param page
-     * @return
-     */
-    public Builder page(Text page) {
-      this.page = page;
-      return this;
+    public String getParentId() {
+        return this.parentId;
     }
 
-
-    /**
-     * 文本 Block
-     * <p> 示例值：
-     *
-     * @param text
-     * @return
-     */
-    public Builder text(Text text) {
-      this.text = text;
-      return this;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
-
-    /**
-     * 一级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading1
-     * @return
-     */
-    public Builder heading1(Text heading1) {
-      this.heading1 = heading1;
-      return this;
+    public String[] getChildren() {
+        return this.children;
     }
 
-
-    /**
-     * 二级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading2
-     * @return
-     */
-    public Builder heading2(Text heading2) {
-      this.heading2 = heading2;
-      return this;
+    public void setChildren(String[] children) {
+        this.children = children;
     }
 
-
-    /**
-     * 三级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading3
-     * @return
-     */
-    public Builder heading3(Text heading3) {
-      this.heading3 = heading3;
-      return this;
+    public Integer getBlockType() {
+        return this.blockType;
     }
 
-
-    /**
-     * 四级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading4
-     * @return
-     */
-    public Builder heading4(Text heading4) {
-      this.heading4 = heading4;
-      return this;
+    public void setBlockType(Integer blockType) {
+        this.blockType = blockType;
     }
 
-
-    /**
-     * 五级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading5
-     * @return
-     */
-    public Builder heading5(Text heading5) {
-      this.heading5 = heading5;
-      return this;
+    public Text getPage() {
+        return this.page;
     }
 
-
-    /**
-     * 六级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading6
-     * @return
-     */
-    public Builder heading6(Text heading6) {
-      this.heading6 = heading6;
-      return this;
+    public void setPage(Text page) {
+        this.page = page;
     }
 
-
-    /**
-     * 七级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading7
-     * @return
-     */
-    public Builder heading7(Text heading7) {
-      this.heading7 = heading7;
-      return this;
+    public Text getText() {
+        return this.text;
     }
 
-
-    /**
-     * 八级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading8
-     * @return
-     */
-    public Builder heading8(Text heading8) {
-      this.heading8 = heading8;
-      return this;
+    public void setText(Text text) {
+        this.text = text;
     }
 
-
-    /**
-     * 九级标题 Block
-     * <p> 示例值：
-     *
-     * @param heading9
-     * @return
-     */
-    public Builder heading9(Text heading9) {
-      this.heading9 = heading9;
-      return this;
+    public Text getHeading1() {
+        return this.heading1;
     }
 
-
-    /**
-     * 无序列表 Block
-     * <p> 示例值：
-     *
-     * @param bullet
-     * @return
-     */
-    public Builder bullet(Text bullet) {
-      this.bullet = bullet;
-      return this;
+    public void setHeading1(Text heading1) {
+        this.heading1 = heading1;
     }
 
-
-    /**
-     * 有序列表 Block
-     * <p> 示例值：
-     *
-     * @param ordered
-     * @return
-     */
-    public Builder ordered(Text ordered) {
-      this.ordered = ordered;
-      return this;
+    public Text getHeading2() {
+        return this.heading2;
     }
 
-
-    /**
-     * 代码块 Block
-     * <p> 示例值：
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(Text code) {
-      this.code = code;
-      return this;
+    public void setHeading2(Text heading2) {
+        this.heading2 = heading2;
     }
 
-
-    /**
-     * 引用 Block
-     * <p> 示例值：
-     *
-     * @param quote
-     * @return
-     */
-    public Builder quote(Text quote) {
-      this.quote = quote;
-      return this;
+    public Text getHeading3() {
+        return this.heading3;
     }
 
-
-    /**
-     * 公式 Block
-     * <p> 示例值：
-     *
-     * @param equation
-     * @return
-     */
-    public Builder equation(Text equation) {
-      this.equation = equation;
-      return this;
+    public void setHeading3(Text heading3) {
+        this.heading3 = heading3;
     }
 
-
-    /**
-     * 任务 Block
-     * <p> 示例值：
-     *
-     * @param todo
-     * @return
-     */
-    public Builder todo(Text todo) {
-      this.todo = todo;
-      return this;
+    public Text getHeading4() {
+        return this.heading4;
     }
 
-
-    /**
-     * 多维表格 Block
-     * <p> 示例值：
-     *
-     * @param bitable
-     * @return
-     */
-    public Builder bitable(Bitable bitable) {
-      this.bitable = bitable;
-      return this;
+    public void setHeading4(Text heading4) {
+        this.heading4 = heading4;
     }
 
-
-    /**
-     * 高亮块 Block
-     * <p> 示例值：
-     *
-     * @param callout
-     * @return
-     */
-    public Builder callout(Callout callout) {
-      this.callout = callout;
-      return this;
+    public Text getHeading5() {
+        return this.heading5;
     }
 
-
-    /**
-     * 群聊卡片 Block
-     * <p> 示例值：
-     *
-     * @param chatCard
-     * @return
-     */
-    public Builder chatCard(ChatCard chatCard) {
-      this.chatCard = chatCard;
-      return this;
+    public void setHeading5(Text heading5) {
+        this.heading5 = heading5;
     }
 
-
-    /**
-     * 流程图/UML Block
-     * <p> 示例值：
-     *
-     * @param diagram
-     * @return
-     */
-    public Builder diagram(Diagram diagram) {
-      this.diagram = diagram;
-      return this;
+    public Text getHeading6() {
+        return this.heading6;
     }
 
-
-    /**
-     * 分割线 Block
-     * <p> 示例值：
-     *
-     * @param divider
-     * @return
-     */
-    public Builder divider(Divider divider) {
-      this.divider = divider;
-      return this;
+    public void setHeading6(Text heading6) {
+        this.heading6 = heading6;
     }
 
-
-    /**
-     * 文件 Block
-     * <p> 示例值：
-     *
-     * @param file
-     * @return
-     */
-    public Builder file(File file) {
-      this.file = file;
-      return this;
+    public Text getHeading7() {
+        return this.heading7;
     }
 
-
-    /**
-     * 分栏 Block
-     * <p> 示例值：
-     *
-     * @param grid
-     * @return
-     */
-    public Builder grid(Grid grid) {
-      this.grid = grid;
-      return this;
+    public void setHeading7(Text heading7) {
+        this.heading7 = heading7;
     }
 
-
-    /**
-     * 分栏列 Block
-     * <p> 示例值：
-     *
-     * @param gridColumn
-     * @return
-     */
-    public Builder gridColumn(GridColumn gridColumn) {
-      this.gridColumn = gridColumn;
-      return this;
+    public Text getHeading8() {
+        return this.heading8;
     }
 
-
-    /**
-     * 内嵌 Block
-     * <p> 示例值：
-     *
-     * @param iframe
-     * @return
-     */
-    public Builder iframe(Iframe iframe) {
-      this.iframe = iframe;
-      return this;
+    public void setHeading8(Text heading8) {
+        this.heading8 = heading8;
     }
 
-
-    /**
-     * 图片 Block
-     * <p> 示例值：
-     *
-     * @param image
-     * @return
-     */
-    public Builder image(Image image) {
-      this.image = image;
-      return this;
+    public Text getHeading9() {
+        return this.heading9;
     }
 
-
-    /**
-     * 三方 Block
-     * <p> 示例值：
-     *
-     * @param isv
-     * @return
-     */
-    public Builder isv(Isv isv) {
-      this.isv = isv;
-      return this;
+    public void setHeading9(Text heading9) {
+        this.heading9 = heading9;
     }
 
-
-    /**
-     * 思维笔记 Block
-     * <p> 示例值：
-     *
-     * @param mindnote
-     * @return
-     */
-    public Builder mindnote(Mindnote mindnote) {
-      this.mindnote = mindnote;
-      return this;
+    public Text getBullet() {
+        return this.bullet;
     }
 
-
-    /**
-     * 电子表格 Block
-     * <p> 示例值：
-     *
-     * @param sheet
-     * @return
-     */
-    public Builder sheet(Sheet sheet) {
-      this.sheet = sheet;
-      return this;
+    public void setBullet(Text bullet) {
+        this.bullet = bullet;
     }
 
-
-    /**
-     * 表格 Block
-     * <p> 示例值：
-     *
-     * @param table
-     * @return
-     */
-    public Builder table(Table table) {
-      this.table = table;
-      return this;
+    public Text getOrdered() {
+        return this.ordered;
     }
 
-
-    /**
-     * 单元格 Block
-     * <p> 示例值：
-     *
-     * @param tableCell
-     * @return
-     */
-    public Builder tableCell(TableCell tableCell) {
-      this.tableCell = tableCell;
-      return this;
+    public void setOrdered(Text ordered) {
+        this.ordered = ordered;
     }
 
-
-    /**
-     * 视图 Block
-     * <p> 示例值：
-     *
-     * @param view
-     * @return
-     */
-    public Builder view(View view) {
-      this.view = view;
-      return this;
+    public Text getCode() {
+        return this.code;
     }
 
-
-    /**
-     * 未支持 Block
-     * <p> 示例值：
-     *
-     * @param undefined
-     * @return
-     */
-    public Builder undefined(Undefined undefined) {
-      this.undefined = undefined;
-      return this;
+    public void setCode(Text code) {
+        this.code = code;
     }
 
-
-    /**
-     * 引用容器 Block
-     * <p> 示例值：
-     *
-     * @param quoteContainer
-     * @return
-     */
-    public Builder quoteContainer(QuoteContainer quoteContainer) {
-      this.quoteContainer = quoteContainer;
-      return this;
+    public Text getQuote() {
+        return this.quote;
     }
 
-
-    /**
-     * 任务 Block
-     * <p> 示例值：
-     *
-     * @param task
-     * @return
-     */
-    public Builder task(Task task) {
-      this.task = task;
-      return this;
+    public void setQuote(Text quote) {
+        this.quote = quote;
     }
 
-
-    /**
-     * OKR Block
-     * <p> 示例值：
-     *
-     * @param okr
-     * @return
-     */
-    public Builder okr(Okr okr) {
-      this.okr = okr;
-      return this;
+    public Text getEquation() {
+        return this.equation;
     }
 
-
-    /**
-     * OKR Objective
-     * <p> 示例值：
-     *
-     * @param okrObjective
-     * @return
-     */
-    public Builder okrObjective(OkrObjective okrObjective) {
-      this.okrObjective = okrObjective;
-      return this;
+    public void setEquation(Text equation) {
+        this.equation = equation;
     }
 
-
-    /**
-     * OKR Key Result
-     * <p> 示例值：
-     *
-     * @param okrKeyResult
-     * @return
-     */
-    public Builder okrKeyResult(OkrKeyResult okrKeyResult) {
-      this.okrKeyResult = okrKeyResult;
-      return this;
+    public Text getTodo() {
+        return this.todo;
     }
 
-
-    /**
-     * OKR 进展信息
-     * <p> 示例值：
-     *
-     * @param okrProgress
-     * @return
-     */
-    public Builder okrProgress(OkrProgress okrProgress) {
-      this.okrProgress = okrProgress;
-      return this;
+    public void setTodo(Text todo) {
+        this.todo = todo;
     }
 
-
-    public Block build() {
-      return new Block(this);
+    public Bitable getBitable() {
+        return this.bitable;
     }
-  }
+
+    public void setBitable(Bitable bitable) {
+        this.bitable = bitable;
+    }
+
+    public Callout getCallout() {
+        return this.callout;
+    }
+
+    public void setCallout(Callout callout) {
+        this.callout = callout;
+    }
+
+    public ChatCard getChatCard() {
+        return this.chatCard;
+    }
+
+    public void setChatCard(ChatCard chatCard) {
+        this.chatCard = chatCard;
+    }
+
+    public Diagram getDiagram() {
+        return this.diagram;
+    }
+
+    public void setDiagram(Diagram diagram) {
+        this.diagram = diagram;
+    }
+
+    public Divider getDivider() {
+        return this.divider;
+    }
+
+    public void setDivider(Divider divider) {
+        this.divider = divider;
+    }
+
+    public File getFile() {
+        return this.file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public Grid getGrid() {
+        return this.grid;
+    }
+
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
+
+    public GridColumn getGridColumn() {
+        return this.gridColumn;
+    }
+
+    public void setGridColumn(GridColumn gridColumn) {
+        this.gridColumn = gridColumn;
+    }
+
+    public Iframe getIframe() {
+        return this.iframe;
+    }
+
+    public void setIframe(Iframe iframe) {
+        this.iframe = iframe;
+    }
+
+    public Image getImage() {
+        return this.image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public Isv getIsv() {
+        return this.isv;
+    }
+
+    public void setIsv(Isv isv) {
+        this.isv = isv;
+    }
+
+    public Mindnote getMindnote() {
+        return this.mindnote;
+    }
+
+    public void setMindnote(Mindnote mindnote) {
+        this.mindnote = mindnote;
+    }
+
+    public Sheet getSheet() {
+        return this.sheet;
+    }
+
+    public void setSheet(Sheet sheet) {
+        this.sheet = sheet;
+    }
+
+    public Table getTable() {
+        return this.table;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    public TableCell getTableCell() {
+        return this.tableCell;
+    }
+
+    public void setTableCell(TableCell tableCell) {
+        this.tableCell = tableCell;
+    }
+
+    public View getView() {
+        return this.view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
+    }
+
+    public Undefined getUndefined() {
+        return this.undefined;
+    }
+
+    public void setUndefined(Undefined undefined) {
+        this.undefined = undefined;
+    }
+
+    public QuoteContainer getQuoteContainer() {
+        return this.quoteContainer;
+    }
+
+    public void setQuoteContainer(QuoteContainer quoteContainer) {
+        this.quoteContainer = quoteContainer;
+    }
+
+    public Task getTask() {
+        return this.task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public Okr getOkr() {
+        return this.okr;
+    }
+
+    public void setOkr(Okr okr) {
+        this.okr = okr;
+    }
+
+    public OkrObjective getOkrObjective() {
+        return this.okrObjective;
+    }
+
+    public void setOkrObjective(OkrObjective okrObjective) {
+        this.okrObjective = okrObjective;
+    }
+
+    public OkrKeyResult getOkrKeyResult() {
+        return this.okrKeyResult;
+    }
+
+    public void setOkrKeyResult(OkrKeyResult okrKeyResult) {
+        this.okrKeyResult = okrKeyResult;
+    }
+
+    public OkrProgress getOkrProgress() {
+        return this.okrProgress;
+    }
+
+    public void setOkrProgress(OkrProgress okrProgress) {
+        this.okrProgress = okrProgress;
+    }
+
+    public String[] getCommentIds() {
+        return this.commentIds;
+    }
+
+    public void setCommentIds(String[] commentIds) {
+        this.commentIds = commentIds;
+    }
+
+    public static class Builder {
+        /**
+         * Block 唯一标识
+         * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
+         */
+        private String blockId;
+        /**
+         * block 的父亲 id
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         */
+        private String parentId;
+        /**
+         * block 的孩子 id 列表
+         * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+         */
+        private String[] children;
+        /**
+         * block 类型
+         * <p> 示例值：1
+         */
+        private Integer blockType;
+        /**
+         * 文档 Block
+         * <p> 示例值：
+         */
+        private Text page;
+        /**
+         * 文本 Block
+         * <p> 示例值：
+         */
+        private Text text;
+        /**
+         * 一级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading1;
+        /**
+         * 二级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading2;
+        /**
+         * 三级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading3;
+        /**
+         * 四级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading4;
+        /**
+         * 五级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading5;
+        /**
+         * 六级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading6;
+        /**
+         * 七级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading7;
+        /**
+         * 八级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading8;
+        /**
+         * 九级标题 Block
+         * <p> 示例值：
+         */
+        private Text heading9;
+        /**
+         * 无序列表 Block
+         * <p> 示例值：
+         */
+        private Text bullet;
+        /**
+         * 有序列表 Block
+         * <p> 示例值：
+         */
+        private Text ordered;
+        /**
+         * 代码块 Block
+         * <p> 示例值：
+         */
+        private Text code;
+        /**
+         * 引用 Block
+         * <p> 示例值：
+         */
+        private Text quote;
+        /**
+         * 公式 Block
+         * <p> 示例值：
+         */
+        private Text equation;
+        /**
+         * 待办事项 Block
+         * <p> 示例值：
+         */
+        private Text todo;
+        /**
+         * 多维表格 Block
+         * <p> 示例值：
+         */
+        private Bitable bitable;
+        /**
+         * 高亮块 Block
+         * <p> 示例值：
+         */
+        private Callout callout;
+        /**
+         * 群聊卡片 Block
+         * <p> 示例值：
+         */
+        private ChatCard chatCard;
+        /**
+         * 流程图/UML Block
+         * <p> 示例值：
+         */
+        private Diagram diagram;
+        /**
+         * 分割线 Block
+         * <p> 示例值：
+         */
+        private Divider divider;
+        /**
+         * 文件 Block
+         * <p> 示例值：
+         */
+        private File file;
+        /**
+         * 分栏 Block
+         * <p> 示例值：
+         */
+        private Grid grid;
+        /**
+         * 分栏列 Block
+         * <p> 示例值：
+         */
+        private GridColumn gridColumn;
+        /**
+         * 内嵌 Block
+         * <p> 示例值：
+         */
+        private Iframe iframe;
+        /**
+         * 图片 Block
+         * <p> 示例值：
+         */
+        private Image image;
+        /**
+         * 三方 Block
+         * <p> 示例值：
+         */
+        private Isv isv;
+        /**
+         * 思维笔记 Block
+         * <p> 示例值：
+         */
+        private Mindnote mindnote;
+        /**
+         * 电子表格 Block
+         * <p> 示例值：
+         */
+        private Sheet sheet;
+        /**
+         * 表格 Block
+         * <p> 示例值：
+         */
+        private Table table;
+        /**
+         * 单元格 Block
+         * <p> 示例值：
+         */
+        private TableCell tableCell;
+        /**
+         * 视图 Block
+         * <p> 示例值：
+         */
+        private View view;
+        /**
+         * 未支持 Block
+         * <p> 示例值：
+         */
+        private Undefined undefined;
+        /**
+         * 引用容器 Block
+         * <p> 示例值：
+         */
+        private QuoteContainer quoteContainer;
+        /**
+         * 任务 Block
+         * <p> 示例值：
+         */
+        private Task task;
+        /**
+         * OKR Block，仅可在使用 `user_access_token` 时创建
+         * <p> 示例值：
+         */
+        private Okr okr;
+        /**
+         * OKR Objective Block
+         * <p> 示例值：
+         */
+        private OkrObjective okrObjective;
+        /**
+         * OKR Key Result
+         * <p> 示例值：
+         */
+        private OkrKeyResult okrKeyResult;
+        /**
+         * OKR 进展信息
+         * <p> 示例值：
+         */
+        private OkrProgress okrProgress;
+        /**
+         * 评论 id 列表
+         * <p> 示例值：["1660030311959965796"]
+         */
+        private String[] commentIds;
+
+        /**
+         * Block 唯一标识
+         * <p> 示例值：doxcnSS4ouQkQEouGSUkTg9NJPe
+         *
+         * @param blockId
+         * @return
+         */
+        public Builder blockId(String blockId) {
+            this.blockId = blockId;
+            return this;
+        }
+
+
+        /**
+         * block 的父亲 id
+         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+         *
+         * @param parentId
+         * @return
+         */
+        public Builder parentId(String parentId) {
+            this.parentId = parentId;
+            return this;
+        }
+
+
+        /**
+         * block 的孩子 id 列表
+         * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+         *
+         * @param children
+         * @return
+         */
+        public Builder children(String[] children) {
+            this.children = children;
+            return this;
+        }
+
+
+        /**
+         * block 类型
+         * <p> 示例值：1
+         *
+         * @param blockType
+         * @return
+         */
+        public Builder blockType(Integer blockType) {
+            this.blockType = blockType;
+            return this;
+        }
+
+        /**
+         * block 类型
+         * <p> 示例值：1
+         *
+         * @param blockType {@link com.lark.oapi.service.docx.v1.enums.BlockBlockTypeEnum}
+         * @return
+         */
+        public Builder blockType(com.lark.oapi.service.docx.v1.enums.BlockBlockTypeEnum blockType) {
+            this.blockType = blockType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文档 Block
+         * <p> 示例值：
+         *
+         * @param page
+         * @return
+         */
+        public Builder page(Text page) {
+            this.page = page;
+            return this;
+        }
+
+
+        /**
+         * 文本 Block
+         * <p> 示例值：
+         *
+         * @param text
+         * @return
+         */
+        public Builder text(Text text) {
+            this.text = text;
+            return this;
+        }
+
+
+        /**
+         * 一级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading1
+         * @return
+         */
+        public Builder heading1(Text heading1) {
+            this.heading1 = heading1;
+            return this;
+        }
+
+
+        /**
+         * 二级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading2
+         * @return
+         */
+        public Builder heading2(Text heading2) {
+            this.heading2 = heading2;
+            return this;
+        }
+
+
+        /**
+         * 三级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading3
+         * @return
+         */
+        public Builder heading3(Text heading3) {
+            this.heading3 = heading3;
+            return this;
+        }
+
+
+        /**
+         * 四级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading4
+         * @return
+         */
+        public Builder heading4(Text heading4) {
+            this.heading4 = heading4;
+            return this;
+        }
+
+
+        /**
+         * 五级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading5
+         * @return
+         */
+        public Builder heading5(Text heading5) {
+            this.heading5 = heading5;
+            return this;
+        }
+
+
+        /**
+         * 六级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading6
+         * @return
+         */
+        public Builder heading6(Text heading6) {
+            this.heading6 = heading6;
+            return this;
+        }
+
+
+        /**
+         * 七级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading7
+         * @return
+         */
+        public Builder heading7(Text heading7) {
+            this.heading7 = heading7;
+            return this;
+        }
+
+
+        /**
+         * 八级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading8
+         * @return
+         */
+        public Builder heading8(Text heading8) {
+            this.heading8 = heading8;
+            return this;
+        }
+
+
+        /**
+         * 九级标题 Block
+         * <p> 示例值：
+         *
+         * @param heading9
+         * @return
+         */
+        public Builder heading9(Text heading9) {
+            this.heading9 = heading9;
+            return this;
+        }
+
+
+        /**
+         * 无序列表 Block
+         * <p> 示例值：
+         *
+         * @param bullet
+         * @return
+         */
+        public Builder bullet(Text bullet) {
+            this.bullet = bullet;
+            return this;
+        }
+
+
+        /**
+         * 有序列表 Block
+         * <p> 示例值：
+         *
+         * @param ordered
+         * @return
+         */
+        public Builder ordered(Text ordered) {
+            this.ordered = ordered;
+            return this;
+        }
+
+
+        /**
+         * 代码块 Block
+         * <p> 示例值：
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(Text code) {
+            this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 引用 Block
+         * <p> 示例值：
+         *
+         * @param quote
+         * @return
+         */
+        public Builder quote(Text quote) {
+            this.quote = quote;
+            return this;
+        }
+
+
+        /**
+         * 公式 Block
+         * <p> 示例值：
+         *
+         * @param equation
+         * @return
+         */
+        public Builder equation(Text equation) {
+            this.equation = equation;
+            return this;
+        }
+
+
+        /**
+         * 待办事项 Block
+         * <p> 示例值：
+         *
+         * @param todo
+         * @return
+         */
+        public Builder todo(Text todo) {
+            this.todo = todo;
+            return this;
+        }
+
+
+        /**
+         * 多维表格 Block
+         * <p> 示例值：
+         *
+         * @param bitable
+         * @return
+         */
+        public Builder bitable(Bitable bitable) {
+            this.bitable = bitable;
+            return this;
+        }
+
+
+        /**
+         * 高亮块 Block
+         * <p> 示例值：
+         *
+         * @param callout
+         * @return
+         */
+        public Builder callout(Callout callout) {
+            this.callout = callout;
+            return this;
+        }
+
+
+        /**
+         * 群聊卡片 Block
+         * <p> 示例值：
+         *
+         * @param chatCard
+         * @return
+         */
+        public Builder chatCard(ChatCard chatCard) {
+            this.chatCard = chatCard;
+            return this;
+        }
+
+
+        /**
+         * 流程图/UML Block
+         * <p> 示例值：
+         *
+         * @param diagram
+         * @return
+         */
+        public Builder diagram(Diagram diagram) {
+            this.diagram = diagram;
+            return this;
+        }
+
+
+        /**
+         * 分割线 Block
+         * <p> 示例值：
+         *
+         * @param divider
+         * @return
+         */
+        public Builder divider(Divider divider) {
+            this.divider = divider;
+            return this;
+        }
+
+
+        /**
+         * 文件 Block
+         * <p> 示例值：
+         *
+         * @param file
+         * @return
+         */
+        public Builder file(File file) {
+            this.file = file;
+            return this;
+        }
+
+
+        /**
+         * 分栏 Block
+         * <p> 示例值：
+         *
+         * @param grid
+         * @return
+         */
+        public Builder grid(Grid grid) {
+            this.grid = grid;
+            return this;
+        }
+
+
+        /**
+         * 分栏列 Block
+         * <p> 示例值：
+         *
+         * @param gridColumn
+         * @return
+         */
+        public Builder gridColumn(GridColumn gridColumn) {
+            this.gridColumn = gridColumn;
+            return this;
+        }
+
+
+        /**
+         * 内嵌 Block
+         * <p> 示例值：
+         *
+         * @param iframe
+         * @return
+         */
+        public Builder iframe(Iframe iframe) {
+            this.iframe = iframe;
+            return this;
+        }
+
+
+        /**
+         * 图片 Block
+         * <p> 示例值：
+         *
+         * @param image
+         * @return
+         */
+        public Builder image(Image image) {
+            this.image = image;
+            return this;
+        }
+
+
+        /**
+         * 三方 Block
+         * <p> 示例值：
+         *
+         * @param isv
+         * @return
+         */
+        public Builder isv(Isv isv) {
+            this.isv = isv;
+            return this;
+        }
+
+
+        /**
+         * 思维笔记 Block
+         * <p> 示例值：
+         *
+         * @param mindnote
+         * @return
+         */
+        public Builder mindnote(Mindnote mindnote) {
+            this.mindnote = mindnote;
+            return this;
+        }
+
+
+        /**
+         * 电子表格 Block
+         * <p> 示例值：
+         *
+         * @param sheet
+         * @return
+         */
+        public Builder sheet(Sheet sheet) {
+            this.sheet = sheet;
+            return this;
+        }
+
+
+        /**
+         * 表格 Block
+         * <p> 示例值：
+         *
+         * @param table
+         * @return
+         */
+        public Builder table(Table table) {
+            this.table = table;
+            return this;
+        }
+
+
+        /**
+         * 单元格 Block
+         * <p> 示例值：
+         *
+         * @param tableCell
+         * @return
+         */
+        public Builder tableCell(TableCell tableCell) {
+            this.tableCell = tableCell;
+            return this;
+        }
+
+
+        /**
+         * 视图 Block
+         * <p> 示例值：
+         *
+         * @param view
+         * @return
+         */
+        public Builder view(View view) {
+            this.view = view;
+            return this;
+        }
+
+
+        /**
+         * 未支持 Block
+         * <p> 示例值：
+         *
+         * @param undefined
+         * @return
+         */
+        public Builder undefined(Undefined undefined) {
+            this.undefined = undefined;
+            return this;
+        }
+
+
+        /**
+         * 引用容器 Block
+         * <p> 示例值：
+         *
+         * @param quoteContainer
+         * @return
+         */
+        public Builder quoteContainer(QuoteContainer quoteContainer) {
+            this.quoteContainer = quoteContainer;
+            return this;
+        }
+
+
+        /**
+         * 任务 Block
+         * <p> 示例值：
+         *
+         * @param task
+         * @return
+         */
+        public Builder task(Task task) {
+            this.task = task;
+            return this;
+        }
+
+
+        /**
+         * OKR Block，仅可在使用 `user_access_token` 时创建
+         * <p> 示例值：
+         *
+         * @param okr
+         * @return
+         */
+        public Builder okr(Okr okr) {
+            this.okr = okr;
+            return this;
+        }
+
+
+        /**
+         * OKR Objective Block
+         * <p> 示例值：
+         *
+         * @param okrObjective
+         * @return
+         */
+        public Builder okrObjective(OkrObjective okrObjective) {
+            this.okrObjective = okrObjective;
+            return this;
+        }
+
+
+        /**
+         * OKR Key Result
+         * <p> 示例值：
+         *
+         * @param okrKeyResult
+         * @return
+         */
+        public Builder okrKeyResult(OkrKeyResult okrKeyResult) {
+            this.okrKeyResult = okrKeyResult;
+            return this;
+        }
+
+
+        /**
+         * OKR 进展信息
+         * <p> 示例值：
+         *
+         * @param okrProgress
+         * @return
+         */
+        public Builder okrProgress(OkrProgress okrProgress) {
+            this.okrProgress = okrProgress;
+            return this;
+        }
+
+
+        /**
+         * 评论 id 列表
+         * <p> 示例值：["1660030311959965796"]
+         *
+         * @param commentIds
+         * @return
+         */
+        public Builder commentIds(String[] commentIds) {
+            this.commentIds = commentIds;
+            return this;
+        }
+
+
+        public Block build() {
+            return new Block(this);
+        }
+    }
 }

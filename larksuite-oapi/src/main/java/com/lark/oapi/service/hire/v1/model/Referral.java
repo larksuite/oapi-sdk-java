@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Referral {
-
-  /**
-   * 内推的 ID
-   * <p> 示例值：6643786345878
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 投递 ID
-   * <p> 示例值：643452344576878
-   */
-  @SerializedName("application_id")
-  private String applicationId;
-  /**
-   * 创建时间（ms）
-   * <p> 示例值：1618899376474
-   */
-  @SerializedName("create_time")
-  private Integer createTime;
-  /**
-   * 内推人的 ID
-   * <p> 示例值：ou_xxxx
-   */
-  @SerializedName("referral_user_id")
-  private String referralUserId;
-  /**
-   * 内推人信息
-   * <p> 示例值：
-   */
-  @SerializedName("referral_user")
-  private IdNameObject referralUser;
-
-  // builder 开始
-  public Referral() {
-  }
-
-  public Referral(Builder builder) {
     /**
      * 内推的 ID
      * <p> 示例值：6643786345878
      */
-    this.id = builder.id;
-    /**
-     * 投递 ID
-     * <p> 示例值：643452344576878
-     */
-    this.applicationId = builder.applicationId;
-    /**
-     * 创建时间（ms）
-     * <p> 示例值：1618899376474
-     */
-    this.createTime = builder.createTime;
-    /**
-     * 内推人的 ID
-     * <p> 示例值：ou_xxxx
-     */
-    this.referralUserId = builder.referralUserId;
-    /**
-     * 内推人信息
-     * <p> 示例值：
-     */
-    this.referralUser = builder.referralUser;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getReferralUserId() {
-    return this.referralUserId;
-  }
-
-  public void setReferralUserId(String referralUserId) {
-    this.referralUserId = referralUserId;
-  }
-
-  public IdNameObject getReferralUser() {
-    return this.referralUser;
-  }
-
-  public void setReferralUser(IdNameObject referralUser) {
-    this.referralUser = referralUser;
-  }
-
-  public static class Builder {
-
-    /**
-     * 内推的 ID
-     * <p> 示例值：6643786345878
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 投递 ID
      * <p> 示例值：643452344576878
      */
+    @SerializedName("application_id")
     private String applicationId;
     /**
      * 创建时间（ms）
      * <p> 示例值：1618899376474
      */
+    @SerializedName("create_time")
     private Integer createTime;
     /**
      * 内推人的 ID
      * <p> 示例值：ou_xxxx
      */
+    @SerializedName("referral_user_id")
     private String referralUserId;
     /**
      * 内推人信息
      * <p> 示例值：
      */
+    @SerializedName("referral_user")
     private IdNameObject referralUser;
 
-    /**
-     * 内推的 ID
-     * <p> 示例值：6643786345878
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Referral() {
     }
 
-
-    /**
-     * 投递 ID
-     * <p> 示例值：643452344576878
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    public Referral(Builder builder) {
+        /**
+         * 内推的 ID
+         * <p> 示例值：6643786345878
+         */
+        this.id = builder.id;
+        /**
+         * 投递 ID
+         * <p> 示例值：643452344576878
+         */
+        this.applicationId = builder.applicationId;
+        /**
+         * 创建时间（ms）
+         * <p> 示例值：1618899376474
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 内推人的 ID
+         * <p> 示例值：ou_xxxx
+         */
+        this.referralUserId = builder.referralUserId;
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         */
+        this.referralUser = builder.referralUser;
     }
 
-
-    /**
-     * 创建时间（ms）
-     * <p> 示例值：1618899376474
-     *
-     * @param createTime
-     * @return
-     */
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 内推人的 ID
-     * <p> 示例值：ou_xxxx
-     *
-     * @param referralUserId
-     * @return
-     */
-    public Builder referralUserId(String referralUserId) {
-      this.referralUserId = referralUserId;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 内推人信息
-     * <p> 示例值：
-     *
-     * @param referralUser
-     * @return
-     */
-    public Builder referralUser(IdNameObject referralUser) {
-      this.referralUser = referralUser;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public Referral build() {
-      return new Referral(this);
+    public String getApplicationId() {
+        return this.applicationId;
     }
-  }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getReferralUserId() {
+        return this.referralUserId;
+    }
+
+    public void setReferralUserId(String referralUserId) {
+        this.referralUserId = referralUserId;
+    }
+
+    public IdNameObject getReferralUser() {
+        return this.referralUser;
+    }
+
+    public void setReferralUser(IdNameObject referralUser) {
+        this.referralUser = referralUser;
+    }
+
+    public static class Builder {
+        /**
+         * 内推的 ID
+         * <p> 示例值：6643786345878
+         */
+        private String id;
+        /**
+         * 投递 ID
+         * <p> 示例值：643452344576878
+         */
+        private String applicationId;
+        /**
+         * 创建时间（ms）
+         * <p> 示例值：1618899376474
+         */
+        private Integer createTime;
+        /**
+         * 内推人的 ID
+         * <p> 示例值：ou_xxxx
+         */
+        private String referralUserId;
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         */
+        private IdNameObject referralUser;
+
+        /**
+         * 内推的 ID
+         * <p> 示例值：6643786345878
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 投递 ID
+         * <p> 示例值：643452344576878
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * 创建时间（ms）
+         * <p> 示例值：1618899376474
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Integer createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 内推人的 ID
+         * <p> 示例值：ou_xxxx
+         *
+         * @param referralUserId
+         * @return
+         */
+        public Builder referralUserId(String referralUserId) {
+            this.referralUserId = referralUserId;
+            return this;
+        }
+
+
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         *
+         * @param referralUser
+         * @return
+         */
+        public Builder referralUser(IdNameObject referralUser) {
+            this.referralUser = referralUser;
+            return this;
+        }
+
+
+        public Referral build() {
+            return new Referral(this);
+        }
+    }
 }

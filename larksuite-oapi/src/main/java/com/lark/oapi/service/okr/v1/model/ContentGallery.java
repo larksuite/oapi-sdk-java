@@ -16,61 +16,59 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentGallery {
-
-  /**
-   * 图片元素
-   * <p> 示例值：
-   */
-  @SerializedName("imageList")
-  private ContentImageItem[] imageList;
-
-  // builder 开始
-  public ContentGallery() {
-  }
-
-  public ContentGallery(Builder builder) {
     /**
      * 图片元素
      * <p> 示例值：
      */
-    this.imageList = builder.imageList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ContentImageItem[] getImageList() {
-    return this.imageList;
-  }
-
-  public void setImageList(ContentImageItem[] imageList) {
-    this.imageList = imageList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 图片元素
-     * <p> 示例值：
-     */
+    @SerializedName("imageList")
     private ContentImageItem[] imageList;
 
-    /**
-     * 图片元素
-     * <p> 示例值：
-     *
-     * @param imageList
-     * @return
-     */
-    public Builder imageList(ContentImageItem[] imageList) {
-      this.imageList = imageList;
-      return this;
+    // builder 开始
+    public ContentGallery() {
     }
 
-
-    public ContentGallery build() {
-      return new ContentGallery(this);
+    public ContentGallery(Builder builder) {
+        /**
+         * 图片元素
+         * <p> 示例值：
+         */
+        this.imageList = builder.imageList;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ContentImageItem[] getImageList() {
+        return this.imageList;
+    }
+
+    public void setImageList(ContentImageItem[] imageList) {
+        this.imageList = imageList;
+    }
+
+    public static class Builder {
+        /**
+         * 图片元素
+         * <p> 示例值：
+         */
+        private ContentImageItem[] imageList;
+
+        /**
+         * 图片元素
+         * <p> 示例值：
+         *
+         * @param imageList
+         * @return
+         */
+        public Builder imageList(ContentImageItem[] imageList) {
+            this.imageList = imageList;
+            return this;
+        }
+
+
+        public ContentGallery build() {
+            return new ContentGallery(this);
+        }
+    }
 }

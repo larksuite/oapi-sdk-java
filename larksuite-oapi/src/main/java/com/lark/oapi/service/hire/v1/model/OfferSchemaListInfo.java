@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferSchemaListInfo {
-
-  /**
-   * offer申请表列表
-   * <p> 示例值：
-   */
-  @SerializedName("schema_list")
-  private OfferSchemaChild[] schemaList;
-
-  // builder 开始
-  public OfferSchemaListInfo() {
-  }
-
-  public OfferSchemaListInfo(Builder builder) {
     /**
      * offer申请表列表
      * <p> 示例值：
      */
-    this.schemaList = builder.schemaList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public OfferSchemaChild[] getSchemaList() {
-    return this.schemaList;
-  }
-
-  public void setSchemaList(OfferSchemaChild[] schemaList) {
-    this.schemaList = schemaList;
-  }
-
-  public static class Builder {
-
-    /**
-     * offer申请表列表
-     * <p> 示例值：
-     */
+    @SerializedName("schema_list")
     private OfferSchemaChild[] schemaList;
 
-    /**
-     * offer申请表列表
-     * <p> 示例值：
-     *
-     * @param schemaList
-     * @return
-     */
-    public Builder schemaList(OfferSchemaChild[] schemaList) {
-      this.schemaList = schemaList;
-      return this;
+    // builder 开始
+    public OfferSchemaListInfo() {
     }
 
-
-    public OfferSchemaListInfo build() {
-      return new OfferSchemaListInfo(this);
+    public OfferSchemaListInfo(Builder builder) {
+        /**
+         * offer申请表列表
+         * <p> 示例值：
+         */
+        this.schemaList = builder.schemaList;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public OfferSchemaChild[] getSchemaList() {
+        return this.schemaList;
+    }
+
+    public void setSchemaList(OfferSchemaChild[] schemaList) {
+        this.schemaList = schemaList;
+    }
+
+    public static class Builder {
+        /**
+         * offer申请表列表
+         * <p> 示例值：
+         */
+        private OfferSchemaChild[] schemaList;
+
+        /**
+         * offer申请表列表
+         * <p> 示例值：
+         *
+         * @param schemaList
+         * @return
+         */
+        public Builder schemaList(OfferSchemaChild[] schemaList) {
+            this.schemaList = schemaList;
+            return this;
+        }
+
+
+        public OfferSchemaListInfo build() {
+            return new OfferSchemaListInfo(this);
+        }
+    }
 }

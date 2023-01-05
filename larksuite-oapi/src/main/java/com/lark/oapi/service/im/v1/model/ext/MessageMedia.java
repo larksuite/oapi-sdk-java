@@ -17,30 +17,30 @@ import com.lark.oapi.core.utils.Jsons;
 
 public class MessageMedia {
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
-    @SerializedName("file_key")
-    private String fileKey;
-    @SerializedName("image_key")
-    private String imageKey;
-
-    public Builder fileKey(String fileKey) {
-      this.fileKey = fileKey;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Builder imageKey(String imageKey) {
-      this.imageKey = imageKey;
-      return this;
-    }
+    public static final class Builder {
+
+        @SerializedName("file_key")
+        private String fileKey;
+        @SerializedName("image_key")
+        private String imageKey;
+
+        public Builder fileKey(String fileKey) {
+            this.fileKey = fileKey;
+            return this;
+        }
+
+        public Builder imageKey(String imageKey) {
+            this.imageKey = imageKey;
+            return this;
+        }
 
 
-    public String build() {
-      return Jsons.DEFAULT.toJson(this);
+        public String build() {
+            return Jsons.DEFAULT.toJson(this);
+        }
     }
-  }
 }

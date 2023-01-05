@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobConfigInterviewRoundConf {
-
-  /**
-   * 建议面试官 ID 列表
-   * <p> 示例值：6960663240925956571
-   */
-  @SerializedName("interviewer_id_list")
-  private String[] interviewerIdList;
-  /**
-   * 面试轮次
-   * <p> 示例值：1
-   */
-  @SerializedName("round")
-  private Integer round;
-
-  // builder 开始
-  public JobConfigInterviewRoundConf() {
-  }
-
-  public JobConfigInterviewRoundConf(Builder builder) {
     /**
      * 建议面试官 ID 列表
      * <p> 示例值：6960663240925956571
      */
-    this.interviewerIdList = builder.interviewerIdList;
-    /**
-     * 面试轮次
-     * <p> 示例值：1
-     */
-    this.round = builder.round;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getInterviewerIdList() {
-    return this.interviewerIdList;
-  }
-
-  public void setInterviewerIdList(String[] interviewerIdList) {
-    this.interviewerIdList = interviewerIdList;
-  }
-
-  public Integer getRound() {
-    return this.round;
-  }
-
-  public void setRound(Integer round) {
-    this.round = round;
-  }
-
-  public static class Builder {
-
-    /**
-     * 建议面试官 ID 列表
-     * <p> 示例值：6960663240925956571
-     */
+    @SerializedName("interviewer_id_list")
     private String[] interviewerIdList;
     /**
      * 面试轮次
      * <p> 示例值：1
      */
+    @SerializedName("round")
     private Integer round;
 
-    /**
-     * 建议面试官 ID 列表
-     * <p> 示例值：6960663240925956571
-     *
-     * @param interviewerIdList
-     * @return
-     */
-    public Builder interviewerIdList(String[] interviewerIdList) {
-      this.interviewerIdList = interviewerIdList;
-      return this;
+    // builder 开始
+    public JobConfigInterviewRoundConf() {
     }
 
-
-    /**
-     * 面试轮次
-     * <p> 示例值：1
-     *
-     * @param round
-     * @return
-     */
-    public Builder round(Integer round) {
-      this.round = round;
-      return this;
+    public JobConfigInterviewRoundConf(Builder builder) {
+        /**
+         * 建议面试官 ID 列表
+         * <p> 示例值：6960663240925956571
+         */
+        this.interviewerIdList = builder.interviewerIdList;
+        /**
+         * 面试轮次
+         * <p> 示例值：1
+         */
+        this.round = builder.round;
     }
 
-
-    public JobConfigInterviewRoundConf build() {
-      return new JobConfigInterviewRoundConf(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String[] getInterviewerIdList() {
+        return this.interviewerIdList;
+    }
+
+    public void setInterviewerIdList(String[] interviewerIdList) {
+        this.interviewerIdList = interviewerIdList;
+    }
+
+    public Integer getRound() {
+        return this.round;
+    }
+
+    public void setRound(Integer round) {
+        this.round = round;
+    }
+
+    public static class Builder {
+        /**
+         * 建议面试官 ID 列表
+         * <p> 示例值：6960663240925956571
+         */
+        private String[] interviewerIdList;
+        /**
+         * 面试轮次
+         * <p> 示例值：1
+         */
+        private Integer round;
+
+        /**
+         * 建议面试官 ID 列表
+         * <p> 示例值：6960663240925956571
+         *
+         * @param interviewerIdList
+         * @return
+         */
+        public Builder interviewerIdList(String[] interviewerIdList) {
+            this.interviewerIdList = interviewerIdList;
+            return this;
+        }
+
+
+        /**
+         * 面试轮次
+         * <p> 示例值：1
+         *
+         * @param round
+         * @return
+         */
+        public Builder round(Integer round) {
+            this.round = round;
+            return this;
+        }
+
+
+        public JobConfigInterviewRoundConf build() {
+            return new JobConfigInterviewRoundConf(this);
+        }
+    }
 }

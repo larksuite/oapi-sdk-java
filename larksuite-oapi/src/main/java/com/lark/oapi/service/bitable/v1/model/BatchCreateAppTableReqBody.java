@@ -16,61 +16,59 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppTableReqBody {
-
-  /**
-   * tables
-   * <p> 示例值：
-   */
-  @SerializedName("tables")
-  private ReqTable[] tables;
-
-  // builder 开始
-  public BatchCreateAppTableReqBody() {
-  }
-
-  public BatchCreateAppTableReqBody(Builder builder) {
     /**
      * tables
      * <p> 示例值：
      */
-    this.tables = builder.tables;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ReqTable[] getTables() {
-    return this.tables;
-  }
-
-  public void setTables(ReqTable[] tables) {
-    this.tables = tables;
-  }
-
-  public static class Builder {
-
-    /**
-     * tables
-     * <p> 示例值：
-     */
+    @SerializedName("tables")
     private ReqTable[] tables;
 
-    /**
-     * tables
-     * <p> 示例值：
-     *
-     * @param tables
-     * @return
-     */
-    public Builder tables(ReqTable[] tables) {
-      this.tables = tables;
-      return this;
+    // builder 开始
+    public BatchCreateAppTableReqBody() {
     }
 
-
-    public BatchCreateAppTableReqBody build() {
-      return new BatchCreateAppTableReqBody(this);
+    public BatchCreateAppTableReqBody(Builder builder) {
+        /**
+         * tables
+         * <p> 示例值：
+         */
+        this.tables = builder.tables;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ReqTable[] getTables() {
+        return this.tables;
+    }
+
+    public void setTables(ReqTable[] tables) {
+        this.tables = tables;
+    }
+
+    public static class Builder {
+        /**
+         * tables
+         * <p> 示例值：
+         */
+        private ReqTable[] tables;
+
+        /**
+         * tables
+         * <p> 示例值：
+         *
+         * @param tables
+         * @return
+         */
+        public Builder tables(ReqTable[] tables) {
+            this.tables = tables;
+            return this;
+        }
+
+
+        public BatchCreateAppTableReqBody build() {
+            return new BatchCreateAppTableReqBody(this);
+        }
+    }
 }

@@ -15,7 +15,5 @@ package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryUserAllowedRemedysUserTaskRemedyResp extends
-    BaseResponse<QueryUserAllowedRemedysUserTaskRemedyRespBody> {
-
+public class QueryUserAllowedRemedysUserTaskRemedyResp extends BaseResponse<QueryUserAllowedRemedysUserTaskRemedyRespBody> {
 }

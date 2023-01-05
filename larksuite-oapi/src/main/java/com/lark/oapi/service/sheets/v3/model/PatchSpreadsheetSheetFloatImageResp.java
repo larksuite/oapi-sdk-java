@@ -15,7 +15,5 @@ package com.lark.oapi.service.sheets.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class PatchSpreadsheetSheetFloatImageResp extends
-    BaseResponse<PatchSpreadsheetSheetFloatImageRespBody> {
-
+public class PatchSpreadsheetSheetFloatImageResp extends BaseResponse<PatchSpreadsheetSheetFloatImageRespBody> {
 }

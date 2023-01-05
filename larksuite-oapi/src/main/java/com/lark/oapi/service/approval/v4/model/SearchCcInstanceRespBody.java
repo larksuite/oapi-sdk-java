@@ -16,62 +16,61 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SearchCcInstanceRespBody {
+    /**
+     * 查询返回条数
+     * <p> 示例值：10
+     */
+    @SerializedName("count")
+    private Integer count;
+    /**
+     * 审批实例列表
+     * <p> 示例值：
+     */
+    @SerializedName("cc_list")
+    private CcSearchItem[] ccList;
+    /**
+     * 翻页 Token
+     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有更多任务可供拉取
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 查询返回条数
-   * <p> 示例值：10
-   */
-  @SerializedName("count")
-  private Integer count;
-  /**
-   * 审批实例列表
-   * <p> 示例值：
-   */
-  @SerializedName("cc_list")
-  private CcSearchItem[] ccList;
-  /**
-   * 翻页 Token
-   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有更多任务可供拉取
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public Integer getCount() {
+        return this.count;
+    }
 
-  public Integer getCount() {
-    return this.count;
-  }
+    public void setCount(Integer count) {
+        this.count = count;
+    }
 
-  public void setCount(Integer count) {
-    this.count = count;
-  }
+    public CcSearchItem[] getCcList() {
+        return this.ccList;
+    }
 
-  public CcSearchItem[] getCcList() {
-    return this.ccList;
-  }
+    public void setCcList(CcSearchItem[] ccList) {
+        this.ccList = ccList;
+    }
 
-  public void setCcList(CcSearchItem[] ccList) {
-    this.ccList = ccList;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

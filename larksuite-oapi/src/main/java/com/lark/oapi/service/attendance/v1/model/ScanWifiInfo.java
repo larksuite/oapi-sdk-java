@@ -16,92 +16,90 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ScanWifiInfo {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("ssid")
-  private String ssid;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("bssid")
-  private String bssid;
-
-  // builder 开始
-  public ScanWifiInfo() {
-  }
-
-  public ScanWifiInfo(Builder builder) {
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.ssid = builder.ssid;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.bssid = builder.bssid;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSsid() {
-    return this.ssid;
-  }
-
-  public void setSsid(String ssid) {
-    this.ssid = ssid;
-  }
-
-  public String getBssid() {
-    return this.bssid;
-  }
-
-  public void setBssid(String bssid) {
-    this.bssid = bssid;
-  }
-
-  public static class Builder {
-
     /**
      * <p> 示例值：
      */
+    @SerializedName("ssid")
     private String ssid;
     /**
      * <p> 示例值：
      */
+    @SerializedName("bssid")
     private String bssid;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param ssid
-     * @return
-     */
-    public Builder ssid(String ssid) {
-      this.ssid = ssid;
-      return this;
+    // builder 开始
+    public ScanWifiInfo() {
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param bssid
-     * @return
-     */
-    public Builder bssid(String bssid) {
-      this.bssid = bssid;
-      return this;
+    public ScanWifiInfo(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.ssid = builder.ssid;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.bssid = builder.bssid;
     }
 
-
-    public ScanWifiInfo build() {
-      return new ScanWifiInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getSsid() {
+        return this.ssid;
+    }
+
+    public void setSsid(String ssid) {
+        this.ssid = ssid;
+    }
+
+    public String getBssid() {
+        return this.bssid;
+    }
+
+    public void setBssid(String bssid) {
+        this.bssid = bssid;
+    }
+
+    public static class Builder {
+        /**
+         * <p> 示例值：
+         */
+        private String ssid;
+        /**
+         * <p> 示例值：
+         */
+        private String bssid;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param ssid
+         * @return
+         */
+        public Builder ssid(String ssid) {
+            this.ssid = ssid;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param bssid
+         * @return
+         */
+        public Builder bssid(String bssid) {
+            this.bssid = bssid;
+            return this;
+        }
+
+
+        public ScanWifiInfo build() {
+            return new ScanWifiInfo(this);
+        }
+    }
 }

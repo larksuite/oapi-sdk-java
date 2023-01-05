@@ -18,235 +18,232 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListUserOkrReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 请求列表的偏移，offset>=0
-   * <p> 示例值：0
-   */
-  @Query
-  @SerializedName("offset")
-  private String offset;
-  /**
-   * 列表长度，0-10
-   * <p> 示例值：5
-   */
-  @Query
-  @SerializedName("limit")
-  private String limit;
-  /**
-   * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
-   * <p> 示例值：zh_cn
-   */
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  /**
-   * period_id列表，最多10个
-   * <p> 示例值：["6951461264858777132"]
-   */
-  @Query
-  @SerializedName("period_ids")
-  private String[] periodIds;
-  /**
-   * 目标用户id
-   * <p> 示例值：ou-asdasdasdasdasd
-   */
-  @Path
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public ListUserOkrReq() {
-  }
-
-  public ListUserOkrReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 请求列表的偏移，offset>=0
      * <p> 示例值：0
      */
-    this.offset = builder.offset;
+    @Query
+    @SerializedName("offset")
+    private String offset;
     /**
      * 列表长度，0-10
      * <p> 示例值：5
      */
-    this.limit = builder.limit;
+    @Query
+    @SerializedName("limit")
+    private String limit;
     /**
      * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
      * <p> 示例值：zh_cn
      */
-    this.lang = builder.lang;
+    @Query
+    @SerializedName("lang")
+    private String lang;
     /**
      * period_id列表，最多10个
      * <p> 示例值：["6951461264858777132"]
      */
-    this.periodIds = builder.periodIds;
+    @Query
+    @SerializedName("period_ids")
+    private String[] periodIds;
     /**
      * 目标用户id
      * <p> 示例值：ou-asdasdasdasdasd
      */
-    this.userId = builder.userId;
-  }
+    @Path
+    @SerializedName("user_id")
+    private String userId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getOffset() {
-    return this.offset;
-  }
-
-  public void setOffset(String offset) {
-    this.offset = offset;
-  }
-
-  public String getLimit() {
-    return this.limit;
-  }
-
-  public void setLimit(String limit) {
-    this.limit = limit;
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public String[] getPeriodIds() {
-    return this.periodIds;
-  }
-
-  public void setPeriodIds(String[] periodIds) {
-    this.periodIds = periodIds;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String offset; // 请求列表的偏移，offset>=0
-    private String limit; // 列表长度，0-10
-    private String lang; // 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
-    private String[] periodIds; // period_id列表，最多10个
-    private String userId; // 目标用户id
-
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public ListUserOkrReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.ListUserOkrUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.okr.v1.enums.ListUserOkrUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public ListUserOkrReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 请求列表的偏移，offset>=0
+         * <p> 示例值：0
+         */
+        this.offset = builder.offset;
+        /**
+         * 列表长度，0-10
+         * <p> 示例值：5
+         */
+        this.limit = builder.limit;
+        /**
+         * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
+         * <p> 示例值：zh_cn
+         */
+        this.lang = builder.lang;
+        /**
+         * period_id列表，最多10个
+         * <p> 示例值：["6951461264858777132"]
+         */
+        this.periodIds = builder.periodIds;
+        /**
+         * 目标用户id
+         * <p> 示例值：ou-asdasdasdasdasd
+         */
+        this.userId = builder.userId;
     }
 
-    /**
-     * 请求列表的偏移，offset>=0
-     * <p> 示例值：0
-     *
-     * @param offset
-     * @return
-     */
-    public Builder offset(String offset) {
-      this.offset = offset;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 列表长度，0-10
-     * <p> 示例值：5
-     *
-     * @param limit
-     * @return
-     */
-    public Builder limit(String limit) {
-      this.limit = limit;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    /**
-     * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
-     * <p> 示例值：zh_cn
-     *
-     * @param lang
-     * @return
-     */
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    /**
-     * period_id列表，最多10个
-     * <p> 示例值：["6951461264858777132"]
-     *
-     * @param periodIds
-     * @return
-     */
-    public Builder periodIds(String[] periodIds) {
-      this.periodIds = periodIds;
-      return this;
+    public String getOffset() {
+        return this.offset;
     }
 
-    /**
-     * 目标用户id
-     * <p> 示例值：ou-asdasdasdasdasd
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setOffset(String offset) {
+        this.offset = offset;
     }
 
-    public ListUserOkrReq build() {
-      return new ListUserOkrReq(this);
+    public String getLimit() {
+        return this.limit;
     }
-  }
+
+    public void setLimit(String limit) {
+        this.limit = limit;
+    }
+
+    public String getLang() {
+        return this.lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public String[] getPeriodIds() {
+        return this.periodIds;
+    }
+
+    public void setPeriodIds(String[] periodIds) {
+        this.periodIds = periodIds;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String offset; // 请求列表的偏移，offset>=0
+        private String limit; // 列表长度，0-10
+        private String lang; // 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
+        private String[] periodIds; // period_id列表，最多10个
+        private String userId; // 目标用户id
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.ListUserOkrUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.ListUserOkrUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 请求列表的偏移，offset>=0
+         * <p> 示例值：0
+         *
+         * @param offset
+         * @return
+         */
+        public Builder offset(String offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * 列表长度，0-10
+         * <p> 示例值：5
+         *
+         * @param limit
+         * @return
+         */
+        public Builder limit(String limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * 请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn
+         * <p> 示例值：zh_cn
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
+
+        /**
+         * period_id列表，最多10个
+         * <p> 示例值：["6951461264858777132"]
+         *
+         * @param periodIds
+         * @return
+         */
+        public Builder periodIds(String[] periodIds) {
+            this.periodIds = periodIds;
+            return this;
+        }
+
+        /**
+         * 目标用户id
+         * <p> 示例值：ou-asdasdasdasdasd
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public ListUserOkrReq build() {
+            return new ListUserOkrReq(this);
+        }
+    }
 }

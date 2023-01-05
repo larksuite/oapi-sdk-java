@@ -17,17 +17,17 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 分享范围限制
  */
 public enum PatchAppTableFormSharedLimitEnum {
-  OFF("off"), // 仅邀请的人可填写
-  TENANTEDITABLE("tenant_editable"), // 组织内获得链接的人可填写
-  ANYONEEDITABLE("anyone_editable"), // 互联网上获得链接的人可填写
-  ;
-  private String value;
+    OFF("off"), // 仅邀请的人可填写
+    TENANTEDITABLE("tenant_editable"), // 组织内获得链接的人可填写
+    ANYONEEDITABLE("anyone_editable"), // 互联网上获得链接的人可填写
+    ;
+    private String value;
 
-  PatchAppTableFormSharedLimitEnum(String value) {
-    this.value = value;
-  }
+    PatchAppTableFormSharedLimitEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

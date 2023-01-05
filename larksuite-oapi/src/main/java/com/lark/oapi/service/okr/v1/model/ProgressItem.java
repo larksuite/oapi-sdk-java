@@ -16,135 +16,133 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ProgressItem {
-
-  /**
-   * 进度内容
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 更新时间
-   * <p> 示例值：
-   */
-  @SerializedName("timestamp")
-  private Integer timestamp;
-  /**
-   * 负责人
-   * <p> 示例值：
-   */
-  @SerializedName("mention_list")
-  private String[] mentionList;
-
-  // builder 开始
-  public ProgressItem() {
-  }
-
-  public ProgressItem(Builder builder) {
     /**
      * 进度内容
      * <p> 示例值：
      */
-    this.content = builder.content;
-    /**
-     * 更新时间
-     * <p> 示例值：
-     */
-    this.timestamp = builder.timestamp;
-    /**
-     * 负责人
-     * <p> 示例值：
-     */
-    this.mentionList = builder.mentionList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Integer getTimestamp() {
-    return this.timestamp;
-  }
-
-  public void setTimestamp(Integer timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public String[] getMentionList() {
-    return this.mentionList;
-  }
-
-  public void setMentionList(String[] mentionList) {
-    this.mentionList = mentionList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 进度内容
-     * <p> 示例值：
-     */
+    @SerializedName("content")
     private String content;
     /**
      * 更新时间
      * <p> 示例值：
      */
-    private Integer timestamp;
+    @SerializedName("timestamp")
+    private String timestamp;
     /**
      * 负责人
      * <p> 示例值：
      */
+    @SerializedName("mention_list")
     private String[] mentionList;
 
-    /**
-     * 进度内容
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public ProgressItem() {
     }
 
-
-    /**
-     * 更新时间
-     * <p> 示例值：
-     *
-     * @param timestamp
-     * @return
-     */
-    public Builder timestamp(Integer timestamp) {
-      this.timestamp = timestamp;
-      return this;
+    public ProgressItem(Builder builder) {
+        /**
+         * 进度内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
+        /**
+         * 更新时间
+         * <p> 示例值：
+         */
+        this.timestamp = builder.timestamp;
+        /**
+         * 负责人
+         * <p> 示例值：
+         */
+        this.mentionList = builder.mentionList;
     }
 
-
-    /**
-     * 负责人
-     * <p> 示例值：
-     *
-     * @param mentionList
-     * @return
-     */
-    public Builder mentionList(String[] mentionList) {
-      this.mentionList = mentionList;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ProgressItem build() {
-      return new ProgressItem(this);
+    public String getContent() {
+        return this.content;
     }
-  }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String[] getMentionList() {
+        return this.mentionList;
+    }
+
+    public void setMentionList(String[] mentionList) {
+        this.mentionList = mentionList;
+    }
+
+    public static class Builder {
+        /**
+         * 进度内容
+         * <p> 示例值：
+         */
+        private String content;
+        /**
+         * 更新时间
+         * <p> 示例值：
+         */
+        private String timestamp;
+        /**
+         * 负责人
+         * <p> 示例值：
+         */
+        private String[] mentionList;
+
+        /**
+         * 进度内容
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：
+         *
+         * @param timestamp
+         * @return
+         */
+        public Builder timestamp(String timestamp) {
+            this.timestamp = timestamp;
+            return this;
+        }
+
+
+        /**
+         * 负责人
+         * <p> 示例值：
+         *
+         * @param mentionList
+         * @return
+         */
+        public Builder mentionList(String[] mentionList) {
+            this.mentionList = mentionList;
+            return this;
+        }
+
+
+        public ProgressItem build() {
+            return new ProgressItem(this);
+        }
+    }
 }

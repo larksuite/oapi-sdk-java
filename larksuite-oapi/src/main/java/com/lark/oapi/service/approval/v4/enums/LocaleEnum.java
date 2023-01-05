@@ -15,17 +15,17 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum LocaleEnum {
-  ZHCN("zh-CN"),
-  ENUS("en-US"),
-  JAJP("ja-JP"),
-  ;
-  private String value;
+    ZHCN("zh-CN"),
+    ENUS("en-US"),
+    JAJP("ja-JP"),
+    ;
+    private String value;
 
-  LocaleEnum(String value) {
-    this.value = value;
-  }
+    LocaleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

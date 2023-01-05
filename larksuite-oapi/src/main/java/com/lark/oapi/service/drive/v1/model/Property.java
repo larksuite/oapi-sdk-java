@@ -16,98 +16,96 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Property {
-
-  /**
-   * 自定义属性键对象
-   * <p> 示例值：
-   */
-  @SerializedName("key")
-  private String key;
-  /**
-   * 自定义属性值对象
-   * <p> 示例值：
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public Property() {
-  }
-
-  public Property(Builder builder) {
     /**
      * 自定义属性键对象
-     * <p> 示例值：
+     * <p> 示例值：target_type
      */
-    this.key = builder.key;
-    /**
-     * 自定义属性值对象
-     * <p> 示例值：
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getKey() {
-    return this.key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义属性键对象
-     * <p> 示例值：
-     */
+    @SerializedName("key")
     private String key;
     /**
      * 自定义属性值对象
-     * <p> 示例值：
+     * <p> 示例值：docx
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 自定义属性键对象
-     * <p> 示例值：
-     *
-     * @param key
-     * @return
-     */
-    public Builder key(String key) {
-      this.key = key;
-      return this;
+    // builder 开始
+    public Property() {
     }
 
-
-    /**
-     * 自定义属性值对象
-     * <p> 示例值：
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public Property(Builder builder) {
+        /**
+         * 自定义属性键对象
+         * <p> 示例值：target_type
+         */
+        this.key = builder.key;
+        /**
+         * 自定义属性值对象
+         * <p> 示例值：docx
+         */
+        this.value = builder.value;
     }
 
-
-    public Property build() {
-      return new Property(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义属性键对象
+         * <p> 示例值：target_type
+         */
+        private String key;
+        /**
+         * 自定义属性值对象
+         * <p> 示例值：docx
+         */
+        private String value;
+
+        /**
+         * 自定义属性键对象
+         * <p> 示例值：target_type
+         *
+         * @param key
+         * @return
+         */
+        public Builder key(String key) {
+            this.key = key;
+            return this;
+        }
+
+
+        /**
+         * 自定义属性值对象
+         * <p> 示例值：docx
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public Property build() {
+            return new Property(this);
+        }
+    }
 }

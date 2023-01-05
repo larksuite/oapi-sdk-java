@@ -16,20 +16,19 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateDocumentRespBody {
+    /**
+     * 新建文档的文档信息
+     * <p> 示例值：
+     */
+    @SerializedName("document")
+    private Document document;
 
-  /**
-   * 新建文档的文档信息
-   * <p> 示例值：
-   */
-  @SerializedName("document")
-  private Document document;
+    public Document getDocument() {
+        return this.document;
+    }
 
-  public Document getDocument() {
-    return this.document;
-  }
-
-  public void setDocument(Document document) {
-    this.document = document;
-  }
+    public void setDocument(Document document) {
+        this.document = document;
+    }
 
 }

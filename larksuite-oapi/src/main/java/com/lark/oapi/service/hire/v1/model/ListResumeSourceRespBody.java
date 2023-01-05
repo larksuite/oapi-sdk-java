@@ -16,46 +16,45 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListResumeSourceRespBody {
+    /**
+     * 数据
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private ResumeSource[] items;
+    /**
+     * <p> 示例值：1
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  /**
-   * 数据
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private ResumeSource[] items;
-  /**
-   * <p> 示例值：1
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public ResumeSource[] getItems() {
+        return this.items;
+    }
 
-  public ResumeSource[] getItems() {
-    return this.items;
-  }
+    public void setItems(ResumeSource[] items) {
+        this.items = items;
+    }
 
-  public void setItems(ResumeSource[] items) {
-    this.items = items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

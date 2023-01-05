@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateExternalInstance {
 
-  /**
-   * 同步的实例数据
-   * <p> 示例值：
-   */
-  @SerializedName("data")
-  private ExternalInstance data;
+    /**
+     * 同步的实例数据
+     * <p> 示例值：
+     */
+    @SerializedName("data")
+    private ExternalInstance data;
 
-  public ExternalInstance getData() {
-    return this.data;
-  }
+    public ExternalInstance getData() {
+        return this.data;
+    }
 
-  public void setData(ExternalInstance data) {
-    this.data = data;
-  }
+    public void setData(ExternalInstance data) {
+        this.data = data;
+    }
 
 }

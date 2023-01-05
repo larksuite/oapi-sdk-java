@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetImageReq {
-
-  /**
-   * 图片的key
-   * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-   */
-  @Path
-  @SerializedName("image_key")
-  private String imageKey;
-
-  // builder 开始
-  public GetImageReq() {
-  }
-
-  public GetImageReq(Builder builder) {
     /**
-     * 图片的key
+     * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
      * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
      */
-    this.imageKey = builder.imageKey;
-  }
+    @Path
+    @SerializedName("image_key")
+    private String imageKey;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImageKey() {
-    return this.imageKey;
-  }
-
-  public void setImageKey(String imageKey) {
-    this.imageKey = imageKey;
-  }
-
-  public static class Builder {
-
-    private String imageKey; // 图片的key
-
-    /**
-     * 图片的key
-     * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-     *
-     * @param imageKey
-     * @return
-     */
-    public Builder imageKey(String imageKey) {
-      this.imageKey = imageKey;
-      return this;
+    // builder 开始
+    public GetImageReq() {
     }
 
-    public GetImageReq build() {
-      return new GetImageReq(this);
+    public GetImageReq(Builder builder) {
+        /**
+         * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
+         * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+         */
+        this.imageKey = builder.imageKey;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getImageKey() {
+        return this.imageKey;
+    }
+
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
+    }
+
+    public static class Builder {
+
+        private String imageKey; // 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
+
+        /**
+         * 图片的key，通过[上传图片](	https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得
+         * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+         *
+         * @param imageKey
+         * @return
+         */
+        public Builder imageKey(String imageKey) {
+            this.imageKey = imageKey;
+            return this;
+        }
+
+        public GetImageReq build() {
+            return new GetImageReq(this);
+        }
+    }
 }

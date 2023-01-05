@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class AddManagersChatManagersReq {
-
-  /**
-   * 群成员 id 类型 open_id/user_id/union_id/app_id
-   * <p> 示例值：open_id
-   */
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  /**
-   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private AddManagersChatManagersReqBody body;
-
-  // builder 开始
-  public AddManagersChatManagersReq() {
-  }
-
-  public AddManagersChatManagersReq(Builder builder) {
     /**
-     * 群成员 id 类型 open_id/user_id/union_id/app_id
+     * 群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**： 指定机器人类型的管理员请使用 ==app_id==
      * <p> 示例值：open_id
      */
-    this.memberIdType = builder.memberIdType;
+    @Query
+    @SerializedName("member_id_type")
+    private String memberIdType;
     /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public AddManagersChatManagersReqBody getAddManagersChatManagersReqBody() {
-    return this.body;
-  }
-
-  public void setAddManagersChatManagersReqBody(AddManagersChatManagersReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String memberIdType; // 群成员 id 类型 open_id/user_id/union_id/app_id
-    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
+    @Body
     private AddManagersChatManagersReqBody body;
 
-    /**
-     * 群成员 id 类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType
-     * @return
-     */
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    // builder 开始
+    public AddManagersChatManagersReq() {
     }
 
-    /**
-     * 群成员 id 类型 open_id/user_id/union_id/app_id
-     * <p> 示例值：open_id
-     *
-     * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.AddManagersChatManagersMemberIdTypeEnum}
-     * @return
-     */
-    public Builder memberIdType(
-        com.lark.oapi.service.im.v1.enums.AddManagersChatManagersMemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
+    public AddManagersChatManagersReq(Builder builder) {
+        /**
+         * 群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**： 指定机器人类型的管理员请使用 ==app_id==
+         * <p> 示例值：open_id
+         */
+        this.memberIdType = builder.memberIdType;
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         */
+        this.chatId = builder.chatId;
+        this.body = builder.body;
     }
 
-    /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getMemberIdType() {
+        return this.memberIdType;
+    }
+
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
     public AddManagersChatManagersReqBody getAddManagersChatManagersReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder addManagersChatManagersReqBody(AddManagersChatManagersReqBody body) {
-      this.body = body;
-      return this;
+    public void setAddManagersChatManagersReqBody(AddManagersChatManagersReqBody body) {
+        this.body = body;
     }
 
-    public AddManagersChatManagersReq build() {
-      return new AddManagersChatManagersReq(this);
+    public static class Builder {
+        private String memberIdType; // 群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**： 指定机器人类型的管理员请使用 ==app_id==
+        private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
+        private AddManagersChatManagersReqBody body;
+
+        /**
+         * 群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**： 指定机器人类型的管理员请使用 ==app_id==
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType
+         * @return
+         */
+        public Builder memberIdType(String memberIdType) {
+            this.memberIdType = memberIdType;
+            return this;
+        }
+
+        /**
+         * 群成员 ID 类型 open_id/user_id/union_id/app_id;;**注意**： 指定机器人类型的管理员请使用 ==app_id==
+         * <p> 示例值：open_id
+         *
+         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.AddManagersChatManagersMemberIdTypeEnum}
+         * @return
+         */
+        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.AddManagersChatManagersMemberIdTypeEnum memberIdType) {
+            this.memberIdType = memberIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
+         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public AddManagersChatManagersReqBody getAddManagersChatManagersReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder addManagersChatManagersReqBody(AddManagersChatManagersReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public AddManagersChatManagersReq build() {
+            return new AddManagersChatManagersReq(this);
+        }
     }
-  }
 }

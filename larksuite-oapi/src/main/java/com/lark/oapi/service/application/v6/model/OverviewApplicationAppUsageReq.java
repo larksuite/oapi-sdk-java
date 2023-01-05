@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class OverviewApplicationAppUsageReq {
-
-  /**
-   * 调用中使用的部门ID的类型
-   * <p> 示例值：open_department_id
-   */
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  /**
-   * 目标应用 ID
-   * <p> 示例值：cli_9f115af860f7901b
-   */
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  @Body
-  private OverviewApplicationAppUsageReqBody body;
-
-  // builder 开始
-  public OverviewApplicationAppUsageReq() {
-  }
-
-  public OverviewApplicationAppUsageReq(Builder builder) {
     /**
      * 调用中使用的部门ID的类型
      * <p> 示例值：open_department_id
      */
-    this.departmentIdType = builder.departmentIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 目标应用 ID
      * <p> 示例值：cli_9f115af860f7901b
      */
-    this.appId = builder.appId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
-    return this.body;
-  }
-
-  public void setOverviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String departmentIdType; // 调用中使用的部门ID的类型
-    private String appId; // 目标应用 ID
+    @Path
+    @SerializedName("app_id")
+    private String appId;
+    @Body
     private OverviewApplicationAppUsageReqBody body;
 
-    /**
-     * 调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType
-     * @return
-     */
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    // builder 开始
+    public OverviewApplicationAppUsageReq() {
     }
 
-    /**
-     * 调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
-     *
-     * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum}
-     * @return
-     */
-    public Builder departmentIdType(
-        com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public OverviewApplicationAppUsageReq(Builder builder) {
+        /**
+         * 调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 目标应用 ID
+         * <p> 示例值：cli_9f115af860f7901b
+         */
+        this.appId = builder.appId;
+        this.body = builder.body;
     }
 
-    /**
-     * 目标应用 ID
-     * <p> 示例值：cli_9f115af860f7901b
-     *
-     * @param appId
-     * @return
-     */
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
     public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder overviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
-      this.body = body;
-      return this;
+    public void setOverviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
+        this.body = body;
     }
 
-    public OverviewApplicationAppUsageReq build() {
-      return new OverviewApplicationAppUsageReq(this);
+    public static class Builder {
+        private String departmentIdType; // 调用中使用的部门ID的类型
+        private String appId; // 目标应用 ID
+        private OverviewApplicationAppUsageReqBody body;
+
+        /**
+         * 调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 调用中使用的部门ID的类型
+         * <p> 示例值：open_department_id
+         *
+         * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum}
+         * @return
+         */
+        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum departmentIdType) {
+            this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 目标应用 ID
+         * <p> 示例值：cli_9f115af860f7901b
+         *
+         * @param appId
+         * @return
+         */
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+        public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder overviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public OverviewApplicationAppUsageReq build() {
+            return new OverviewApplicationAppUsageReq(this);
+        }
     }
-  }
 }

@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateTaskComment {
 
-  /**
-   * 返回修改后的任务评论详情
-   * <p> 示例值：
-   */
-  @SerializedName("comment")
-  private Comment comment;
+    /**
+     * 返回修改后的任务评论详情
+     * <p> 示例值：
+     */
+    @SerializedName("comment")
+    private Comment comment;
 
-  public Comment getComment() {
-    return this.comment;
-  }
+    public Comment getComment() {
+        return this.comment;
+    }
 
-  public void setComment(Comment comment) {
-    this.comment = comment;
-  }
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
 
 }

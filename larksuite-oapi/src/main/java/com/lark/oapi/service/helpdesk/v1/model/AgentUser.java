@@ -16,246 +16,244 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AgentUser {
-
-  /**
-   * 客服 id
-   * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * avatar url
-   * <p> 示例值：https://avatar-url.com/test.png
-   */
-  @SerializedName("avatar_url")
-  private String avatarUrl;
-  /**
-   * 客服名字
-   * <p> 示例值：test-user
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * email
-   * <p> 示例值：test@bytedance.com
-   */
-  @SerializedName("email")
-  private String email;
-  /**
-   * 部门
-   * <p> 示例值：测试部门
-   */
-  @SerializedName("department")
-  private String department;
-  /**
-   * 公司名
-   * <p> 示例值：test-company
-   */
-  @SerializedName("company_name")
-  private String companyName;
-
-  // builder 开始
-  public AgentUser() {
-  }
-
-  public AgentUser(Builder builder) {
     /**
      * 客服 id
      * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
      */
-    this.id = builder.id;
-    /**
-     * avatar url
-     * <p> 示例值：https://avatar-url.com/test.png
-     */
-    this.avatarUrl = builder.avatarUrl;
-    /**
-     * 客服名字
-     * <p> 示例值：test-user
-     */
-    this.name = builder.name;
-    /**
-     * email
-     * <p> 示例值：test@bytedance.com
-     */
-    this.email = builder.email;
-    /**
-     * 部门
-     * <p> 示例值：测试部门
-     */
-    this.department = builder.department;
-    /**
-     * 公司名
-     * <p> 示例值：test-company
-     */
-    this.companyName = builder.companyName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getAvatarUrl() {
-    return this.avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getDepartment() {
-    return this.department;
-  }
-
-  public void setDepartment(String department) {
-    this.department = department;
-  }
-
-  public String getCompanyName() {
-    return this.companyName;
-  }
-
-  public void setCompanyName(String companyName) {
-    this.companyName = companyName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 客服 id
-     * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
-     */
+    @SerializedName("id")
     private String id;
     /**
      * avatar url
      * <p> 示例值：https://avatar-url.com/test.png
      */
+    @SerializedName("avatar_url")
     private String avatarUrl;
     /**
      * 客服名字
      * <p> 示例值：test-user
      */
+    @SerializedName("name")
     private String name;
     /**
      * email
      * <p> 示例值：test@bytedance.com
      */
+    @SerializedName("email")
     private String email;
     /**
      * 部门
      * <p> 示例值：测试部门
      */
+    @SerializedName("department")
     private String department;
     /**
      * 公司名
      * <p> 示例值：test-company
      */
+    @SerializedName("company_name")
     private String companyName;
 
-    /**
-     * 客服 id
-     * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public AgentUser() {
     }
 
-
-    /**
-     * avatar url
-     * <p> 示例值：https://avatar-url.com/test.png
-     *
-     * @param avatarUrl
-     * @return
-     */
-    public Builder avatarUrl(String avatarUrl) {
-      this.avatarUrl = avatarUrl;
-      return this;
+    public AgentUser(Builder builder) {
+        /**
+         * 客服 id
+         * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
+         */
+        this.id = builder.id;
+        /**
+         * avatar url
+         * <p> 示例值：https://avatar-url.com/test.png
+         */
+        this.avatarUrl = builder.avatarUrl;
+        /**
+         * 客服名字
+         * <p> 示例值：test-user
+         */
+        this.name = builder.name;
+        /**
+         * email
+         * <p> 示例值：test@bytedance.com
+         */
+        this.email = builder.email;
+        /**
+         * 部门
+         * <p> 示例值：测试部门
+         */
+        this.department = builder.department;
+        /**
+         * 公司名
+         * <p> 示例值：test-company
+         */
+        this.companyName = builder.companyName;
     }
 
-
-    /**
-     * 客服名字
-     * <p> 示例值：test-user
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * email
-     * <p> 示例值：test@bytedance.com
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 部门
-     * <p> 示例值：测试部门
-     *
-     * @param department
-     * @return
-     */
-    public Builder department(String department) {
-      this.department = department;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 公司名
-     * <p> 示例值：test-company
-     *
-     * @param companyName
-     * @return
-     */
-    public Builder companyName(String companyName) {
-      this.companyName = companyName;
-      return this;
+    public String getAvatarUrl() {
+        return this.avatarUrl;
     }
 
-
-    public AgentUser build() {
-      return new AgentUser(this);
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDepartment() {
+        return this.department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public static class Builder {
+        /**
+         * 客服 id
+         * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
+         */
+        private String id;
+        /**
+         * avatar url
+         * <p> 示例值：https://avatar-url.com/test.png
+         */
+        private String avatarUrl;
+        /**
+         * 客服名字
+         * <p> 示例值：test-user
+         */
+        private String name;
+        /**
+         * email
+         * <p> 示例值：test@bytedance.com
+         */
+        private String email;
+        /**
+         * 部门
+         * <p> 示例值：测试部门
+         */
+        private String department;
+        /**
+         * 公司名
+         * <p> 示例值：test-company
+         */
+        private String companyName;
+
+        /**
+         * 客服 id
+         * <p> 示例值：ou_ea651a5c09e2d01af8acd34059f5359b
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * avatar url
+         * <p> 示例值：https://avatar-url.com/test.png
+         *
+         * @param avatarUrl
+         * @return
+         */
+        public Builder avatarUrl(String avatarUrl) {
+            this.avatarUrl = avatarUrl;
+            return this;
+        }
+
+
+        /**
+         * 客服名字
+         * <p> 示例值：test-user
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * email
+         * <p> 示例值：test@bytedance.com
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 部门
+         * <p> 示例值：测试部门
+         *
+         * @param department
+         * @return
+         */
+        public Builder department(String department) {
+            this.department = department;
+            return this;
+        }
+
+
+        /**
+         * 公司名
+         * <p> 示例值：test-company
+         *
+         * @param companyName
+         * @return
+         */
+        public Builder companyName(String companyName) {
+            this.companyName = companyName;
+            return this;
+        }
+
+
+        public AgentUser build() {
+            return new AgentUser(this);
+        }
+    }
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 检查字段类型
  */
 public enum ReservePermissionCheckerPermCheckFieldEnum {
-  USER_ID(1), // 用户ID
-  USER_TYPE(2), // 用户类型
-  TENANT_ID(3), // 租户ID
-  ;
-  private Integer value;
+    USER_ID(1), // 用户ID
+    USER_TYPE(2), // 用户类型
+    TENANT_ID(3), // 租户ID
+    ;
+    private Integer value;
 
-  ReservePermissionCheckerPermCheckFieldEnum(Integer value) {
-    this.value = value;
-  }
+    ReservePermissionCheckerPermCheckFieldEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

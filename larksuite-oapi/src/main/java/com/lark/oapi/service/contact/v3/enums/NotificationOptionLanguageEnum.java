@@ -17,17 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 语言类型
  */
 public enum NotificationOptionLanguageEnum {
-  ZH_CN("zh-CN"), // 中文
-  EN_US("en-US"), // 英文
-  JA_JP("ja-JP"), // 日文
-  ;
-  private String value;
+    ZH_CN("zh-CN"), // 中文
+    EN_US("en-US"), // 英文
+    JA_JP("ja-JP"), // 日文
+    ;
+    private String value;
 
-  NotificationOptionLanguageEnum(String value) {
-    this.value = value;
-  }
+    NotificationOptionLanguageEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

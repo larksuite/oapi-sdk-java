@@ -16,172 +16,170 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReadUser {
-
-  /**
-   * 用户id类型
-   * <p> 示例值：open_id
-   */
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 用户id
-   * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 阅读时间
-   * <p> 示例值：1609484183000
-   */
-  @SerializedName("timestamp")
-  private String timestamp;
-  /**
-   * tenant key
-   * <p> 示例值：736588c9260f175e
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  // builder 开始
-  public ReadUser() {
-  }
-
-  public ReadUser(Builder builder) {
     /**
      * 用户id类型
      * <p> 示例值：open_id
      */
-    this.userIdType = builder.userIdType;
-    /**
-     * 用户id
-     * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
-     */
-    this.userId = builder.userId;
-    /**
-     * 阅读时间
-     * <p> 示例值：1609484183000
-     */
-    this.timestamp = builder.timestamp;
-    /**
-     * tenant key
-     * <p> 示例值：736588c9260f175e
-     */
-    this.tenantKey = builder.tenantKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getTimestamp() {
-    return this.timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户id类型
-     * <p> 示例值：open_id
-     */
+    @SerializedName("user_id_type")
     private String userIdType;
     /**
      * 用户id
      * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
      */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 阅读时间
      * <p> 示例值：1609484183000
      */
+    @SerializedName("timestamp")
     private String timestamp;
     /**
      * tenant key
      * <p> 示例值：736588c9260f175e
      */
+    @SerializedName("tenant_key")
     private String tenantKey;
 
-    /**
-     * 用户id类型
-     * <p> 示例值：open_id
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public ReadUser() {
     }
 
-
-    /**
-     * 用户id
-     * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public ReadUser(Builder builder) {
+        /**
+         * 用户id类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 用户id
+         * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
+         */
+        this.userId = builder.userId;
+        /**
+         * 阅读时间
+         * <p> 示例值：1609484183000
+         */
+        this.timestamp = builder.timestamp;
+        /**
+         * tenant key
+         * <p> 示例值：736588c9260f175e
+         */
+        this.tenantKey = builder.tenantKey;
     }
 
-
-    /**
-     * 阅读时间
-     * <p> 示例值：1609484183000
-     *
-     * @param timestamp
-     * @return
-     */
-    public Builder timestamp(String timestamp) {
-      this.timestamp = timestamp;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * tenant key
-     * <p> 示例值：736588c9260f175e
-     *
-     * @param tenantKey
-     * @return
-     */
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-
-    public ReadUser build() {
-      return new ReadUser(this);
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
-  }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public static class Builder {
+        /**
+         * 用户id类型
+         * <p> 示例值：open_id
+         */
+        private String userIdType;
+        /**
+         * 用户id
+         * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
+         */
+        private String userId;
+        /**
+         * 阅读时间
+         * <p> 示例值：1609484183000
+         */
+        private String timestamp;
+        /**
+         * tenant key
+         * <p> 示例值：736588c9260f175e
+         */
+        private String tenantKey;
+
+        /**
+         * 用户id类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+
+        /**
+         * 用户id
+         * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 阅读时间
+         * <p> 示例值：1609484183000
+         *
+         * @param timestamp
+         * @return
+         */
+        public Builder timestamp(String timestamp) {
+            this.timestamp = timestamp;
+            return this;
+        }
+
+
+        /**
+         * tenant key
+         * <p> 示例值：736588c9260f175e
+         *
+         * @param tenantKey
+         * @return
+         */
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        public ReadUser build() {
+            return new ReadUser(this);
+        }
+    }
 }

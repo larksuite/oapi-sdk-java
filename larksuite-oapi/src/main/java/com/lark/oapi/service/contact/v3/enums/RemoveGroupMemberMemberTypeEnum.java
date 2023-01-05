@@ -17,15 +17,15 @@ package com.lark.oapi.service.contact.v3.enums;
  * 用户组成员的类型，取值为 user
  */
 public enum RemoveGroupMemberMemberTypeEnum {
-  USER("user"), // 表示从用户组中移除用户
-  ;
-  private String value;
+    USER("user"), // 表示从用户组中移除用户
+    ;
+    private String value;
 
-  RemoveGroupMemberMemberTypeEnum(String value) {
-    this.value = value;
-  }
+    RemoveGroupMemberMemberTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

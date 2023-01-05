@@ -16,172 +16,170 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteChannelInfo {
-
-  /**
-   * 推广渠道 ID
-   * <p> 示例值：7085989097067563300
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 推广渠道名称
-   * <p> 示例值：官网
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 推广渠道链接
-   * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
-   */
-  @SerializedName("link")
-  private String link;
-  /**
-   * 推广渠道推广码
-   * <p> 示例值：A1KM6A5
-   */
-  @SerializedName("code")
-  private String code;
-
-  // builder 开始
-  public WebsiteChannelInfo() {
-  }
-
-  public WebsiteChannelInfo(Builder builder) {
     /**
      * 推广渠道 ID
      * <p> 示例值：7085989097067563300
      */
-    this.id = builder.id;
-    /**
-     * 推广渠道名称
-     * <p> 示例值：官网
-     */
-    this.name = builder.name;
-    /**
-     * 推广渠道链接
-     * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
-     */
-    this.link = builder.link;
-    /**
-     * 推广渠道推广码
-     * <p> 示例值：A1KM6A5
-     */
-    this.code = builder.code;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public static class Builder {
-
-    /**
-     * 推广渠道 ID
-     * <p> 示例值：7085989097067563300
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 推广渠道名称
      * <p> 示例值：官网
      */
+    @SerializedName("name")
     private String name;
     /**
      * 推广渠道链接
      * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
      */
+    @SerializedName("link")
     private String link;
     /**
      * 推广渠道推广码
      * <p> 示例值：A1KM6A5
      */
+    @SerializedName("code")
     private String code;
 
-    /**
-     * 推广渠道 ID
-     * <p> 示例值：7085989097067563300
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public WebsiteChannelInfo() {
     }
 
-
-    /**
-     * 推广渠道名称
-     * <p> 示例值：官网
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public WebsiteChannelInfo(Builder builder) {
+        /**
+         * 推广渠道 ID
+         * <p> 示例值：7085989097067563300
+         */
+        this.id = builder.id;
+        /**
+         * 推广渠道名称
+         * <p> 示例值：官网
+         */
+        this.name = builder.name;
+        /**
+         * 推广渠道链接
+         * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
+         */
+        this.link = builder.link;
+        /**
+         * 推广渠道推广码
+         * <p> 示例值：A1KM6A5
+         */
+        this.code = builder.code;
     }
 
-
-    /**
-     * 推广渠道链接
-     * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 推广渠道推广码
-     * <p> 示例值：A1KM6A5
-     *
-     * @param code
-     * @return
-     */
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    public WebsiteChannelInfo build() {
-      return new WebsiteChannelInfo(this);
+    public void setId(String id) {
+        this.id = id;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public static class Builder {
+        /**
+         * 推广渠道 ID
+         * <p> 示例值：7085989097067563300
+         */
+        private String id;
+        /**
+         * 推广渠道名称
+         * <p> 示例值：官网
+         */
+        private String name;
+        /**
+         * 推广渠道链接
+         * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
+         */
+        private String link;
+        /**
+         * 推广渠道推广码
+         * <p> 示例值：A1KM6A5
+         */
+        private String code;
+
+        /**
+         * 推广渠道 ID
+         * <p> 示例值：7085989097067563300
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 推广渠道名称
+         * <p> 示例值：官网
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 推广渠道链接
+         * <p> 示例值：http://recrui-demo.jobs.xxx.cn/485083/?spread=A1KM6A5
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        /**
+         * 推广渠道推广码
+         * <p> 示例值：A1KM6A5
+         *
+         * @param code
+         * @return
+         */
+        public Builder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+
+        public WebsiteChannelInfo build() {
+            return new WebsiteChannelInfo(this);
+        }
+    }
 }

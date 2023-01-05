@@ -16,76 +16,75 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetCategoryRespBody {
+    /**
+     * category id
+     * <p> 示例值：
+     */
+    @SerializedName("category_id")
+    private String categoryId;
+    /**
+     * category id, for backward compatibility
+     * <p> 示例值：
+     */
+    @SerializedName("id")
+    private String id;
+    /**
+     * category name
+     * <p> 示例值：
+     */
+    @SerializedName("name")
+    private String name;
+    /**
+     * helpdesk id
+     * <p> 示例值：
+     */
+    @SerializedName("helpdesk_id")
+    private String helpdeskId;
+    /**
+     * category language
+     * <p> 示例值：
+     */
+    @SerializedName("language")
+    private String language;
 
-  /**
-   * category id
-   * <p> 示例值：
-   */
-  @SerializedName("category_id")
-  private String categoryId;
-  /**
-   * category id, for backward compatibility
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * category name
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * helpdesk id
-   * <p> 示例值：
-   */
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  /**
-   * category language
-   * <p> 示例值：
-   */
-  @SerializedName("language")
-  private String language;
+    public String getCategoryId() {
+        return this.categoryId;
+    }
 
-  public String getCategoryId() {
-    return this.categoryId;
-  }
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
 
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
+    public String getId() {
+        return this.id;
+    }
 
-  public String getId() {
-    return this.id;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public String getHelpdeskId() {
+        return this.helpdeskId;
+    }
 
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
+    }
 
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
+    public String getLanguage() {
+        return this.language;
+    }
 
-  public String getLanguage() {
-    return this.language;
-  }
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InterviewAssessmentTemplate {
-
-  /**
-   * 面试评价表 ID
-   * <p> 示例值：6949805467799537964
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 面试评价表名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 面试评价表题目
-   * <p> 示例值：
-   */
-  @SerializedName("args")
-  private InterviewAssessmentTemplateArgs args;
-
-  // builder 开始
-  public InterviewAssessmentTemplate() {
-  }
-
-  public InterviewAssessmentTemplate(Builder builder) {
     /**
      * 面试评价表 ID
      * <p> 示例值：6949805467799537964
      */
-    this.id = builder.id;
-    /**
-     * 面试评价表名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 面试评价表题目
-     * <p> 示例值：
-     */
-    this.args = builder.args;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public InterviewAssessmentTemplateArgs getArgs() {
-    return this.args;
-  }
-
-  public void setArgs(InterviewAssessmentTemplateArgs args) {
-    this.args = args;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试评价表 ID
-     * <p> 示例值：6949805467799537964
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 面试评价表名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 面试评价表题目
      * <p> 示例值：
      */
+    @SerializedName("args")
     private InterviewAssessmentTemplateArgs args;
 
-    /**
-     * 面试评价表 ID
-     * <p> 示例值：6949805467799537964
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public InterviewAssessmentTemplate() {
     }
 
-
-    /**
-     * 面试评价表名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public InterviewAssessmentTemplate(Builder builder) {
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 面试评价表题目
+         * <p> 示例值：
+         */
+        this.args = builder.args;
     }
 
-
-    /**
-     * 面试评价表题目
-     * <p> 示例值：
-     *
-     * @param args
-     * @return
-     */
-    public Builder args(InterviewAssessmentTemplateArgs args) {
-      this.args = args;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public InterviewAssessmentTemplate build() {
-      return new InterviewAssessmentTemplate(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public InterviewAssessmentTemplateArgs getArgs() {
+        return this.args;
+    }
+
+    public void setArgs(InterviewAssessmentTemplateArgs args) {
+        this.args = args;
+    }
+
+    public static class Builder {
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：6949805467799537964
+         */
+        private String id;
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 面试评价表题目
+         * <p> 示例值：
+         */
+        private InterviewAssessmentTemplateArgs args;
+
+        /**
+         * 面试评价表 ID
+         * <p> 示例值：6949805467799537964
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 面试评价表名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 面试评价表题目
+         * <p> 示例值：
+         *
+         * @param args
+         * @return
+         */
+        public Builder args(InterviewAssessmentTemplateArgs args) {
+            this.args = args;
+            return this;
+        }
+
+
+        public InterviewAssessmentTemplate build() {
+            return new InterviewAssessmentTemplate(this);
+        }
+    }
 }

@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMailgroupPermissionMemberReq {
-
-  /**
-   * The unique ID or email address of a mail group
-   * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-   */
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  /**
-   * The unique ID of a member in this permission group
-   * <p> 示例值：xxxxxxxxxxxxxxx
-   */
-  @Path
-  @SerializedName("permission_member_id")
-  private String permissionMemberId;
-
-  // builder 开始
-  public DeleteMailgroupPermissionMemberReq() {
-  }
-
-  public DeleteMailgroupPermissionMemberReq(Builder builder) {
     /**
      * The unique ID or email address of a mail group
      * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
      */
-    this.mailgroupId = builder.mailgroupId;
+    @Path
+    @SerializedName("mailgroup_id")
+    private String mailgroupId;
     /**
      * The unique ID of a member in this permission group
      * <p> 示例值：xxxxxxxxxxxxxxx
      */
-    this.permissionMemberId = builder.permissionMemberId;
-  }
+    @Path
+    @SerializedName("permission_member_id")
+    private String permissionMemberId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public String getPermissionMemberId() {
-    return this.permissionMemberId;
-  }
-
-  public void setPermissionMemberId(String permissionMemberId) {
-    this.permissionMemberId = permissionMemberId;
-  }
-
-  public static class Builder {
-
-    private String mailgroupId; // The unique ID or email address of a mail group
-    private String permissionMemberId; // The unique ID of a member in this permission group
-
-    /**
-     * The unique ID or email address of a mail group
-     * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-     *
-     * @param mailgroupId
-     * @return
-     */
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    // builder 开始
+    public DeleteMailgroupPermissionMemberReq() {
     }
 
-
-    /**
-     * The unique ID of a member in this permission group
-     * <p> 示例值：xxxxxxxxxxxxxxx
-     *
-     * @param permissionMemberId
-     * @return
-     */
-    public Builder permissionMemberId(String permissionMemberId) {
-      this.permissionMemberId = permissionMemberId;
-      return this;
+    public DeleteMailgroupPermissionMemberReq(Builder builder) {
+        /**
+         * The unique ID or email address of a mail group
+         * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+         */
+        this.mailgroupId = builder.mailgroupId;
+        /**
+         * The unique ID of a member in this permission group
+         * <p> 示例值：xxxxxxxxxxxxxxx
+         */
+        this.permissionMemberId = builder.permissionMemberId;
     }
 
-    public DeleteMailgroupPermissionMemberReq build() {
-      return new DeleteMailgroupPermissionMemberReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    public String getPermissionMemberId() {
+        return this.permissionMemberId;
+    }
+
+    public void setPermissionMemberId(String permissionMemberId) {
+        this.permissionMemberId = permissionMemberId;
+    }
+
+    public static class Builder {
+
+        private String mailgroupId; // The unique ID or email address of a mail group
+        private String permissionMemberId; // The unique ID of a member in this permission group
+
+        /**
+         * The unique ID or email address of a mail group
+         * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+         *
+         * @param mailgroupId
+         * @return
+         */
+        public Builder mailgroupId(String mailgroupId) {
+            this.mailgroupId = mailgroupId;
+            return this;
+        }
+
+
+        /**
+         * The unique ID of a member in this permission group
+         * <p> 示例值：xxxxxxxxxxxxxxx
+         *
+         * @param permissionMemberId
+         * @return
+         */
+        public Builder permissionMemberId(String permissionMemberId) {
+            this.permissionMemberId = permissionMemberId;
+            return this;
+        }
+
+        public DeleteMailgroupPermissionMemberReq build() {
+            return new DeleteMailgroupPermissionMemberReq(this);
+        }
+    }
 }

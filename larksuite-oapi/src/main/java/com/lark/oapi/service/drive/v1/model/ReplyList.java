@@ -16,61 +16,59 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReplyList {
-
-  /**
-   * 回复列表
-   * <p> 示例值：
-   */
-  @SerializedName("replies")
-  private FileCommentReply[] replies;
-
-  // builder 开始
-  public ReplyList() {
-  }
-
-  public ReplyList(Builder builder) {
     /**
      * 回复列表
      * <p> 示例值：
      */
-    this.replies = builder.replies;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FileCommentReply[] getReplies() {
-    return this.replies;
-  }
-
-  public void setReplies(FileCommentReply[] replies) {
-    this.replies = replies;
-  }
-
-  public static class Builder {
-
-    /**
-     * 回复列表
-     * <p> 示例值：
-     */
+    @SerializedName("replies")
     private FileCommentReply[] replies;
 
-    /**
-     * 回复列表
-     * <p> 示例值：
-     *
-     * @param replies
-     * @return
-     */
-    public Builder replies(FileCommentReply[] replies) {
-      this.replies = replies;
-      return this;
+    // builder 开始
+    public ReplyList() {
     }
 
-
-    public ReplyList build() {
-      return new ReplyList(this);
+    public ReplyList(Builder builder) {
+        /**
+         * 回复列表
+         * <p> 示例值：
+         */
+        this.replies = builder.replies;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public FileCommentReply[] getReplies() {
+        return this.replies;
+    }
+
+    public void setReplies(FileCommentReply[] replies) {
+        this.replies = replies;
+    }
+
+    public static class Builder {
+        /**
+         * 回复列表
+         * <p> 示例值：
+         */
+        private FileCommentReply[] replies;
+
+        /**
+         * 回复列表
+         * <p> 示例值：
+         *
+         * @param replies
+         * @return
+         */
+        public Builder replies(FileCommentReply[] replies) {
+            this.replies = replies;
+            return this;
+        }
+
+
+        public ReplyList build() {
+            return new ReplyList(this);
+        }
+    }
 }

@@ -16,20 +16,19 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateImageRespBody {
+    /**
+     * 图片的key
+     * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+     */
+    @SerializedName("image_key")
+    private String imageKey;
 
-  /**
-   * 图片的key
-   * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
-   */
-  @SerializedName("image_key")
-  private String imageKey;
+    public String getImageKey() {
+        return this.imageKey;
+    }
 
-  public String getImageKey() {
-    return this.imageKey;
-  }
-
-  public void setImageKey(String imageKey) {
-    this.imageKey = imageKey;
-  }
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
+    }
 
 }

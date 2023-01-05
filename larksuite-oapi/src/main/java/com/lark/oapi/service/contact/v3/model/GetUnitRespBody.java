@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetUnitRespBody {
+    /**
+     * 单位信息
+     * <p> 示例值：
+     */
+    @SerializedName("unit")
+    private Unit unit;
 
-  /**
-   * 单位信息
-   * <p> 示例值：
-   */
-  @SerializedName("unit")
-  private Unit unit;
+    public Unit getUnit() {
+        return this.unit;
+    }
 
-  public Unit getUnit() {
-    return this.unit;
-  }
-
-  public void setUnit(Unit unit) {
-    this.unit = unit;
-  }
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
 
 }

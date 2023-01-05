@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCategory {
 
-  /**
-   * 知识库分类列表
-   * <p> 示例值：
-   */
-  @SerializedName("categories")
-  private Category[] categories;
+    /**
+     * 知识库分类列表
+     * <p> 示例值：
+     */
+    @SerializedName("categories")
+    private Category[] categories;
 
-  public Category[] getCategories() {
-    return this.categories;
-  }
+    public Category[] getCategories() {
+        return this.categories;
+    }
 
-  public void setCategories(Category[] categories) {
-    this.categories = categories;
-  }
+    public void setCategories(Category[] categories) {
+        this.categories = categories;
+    }
 
 }

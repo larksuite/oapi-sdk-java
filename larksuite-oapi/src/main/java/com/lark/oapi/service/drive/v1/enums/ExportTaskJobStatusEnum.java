@@ -17,26 +17,26 @@ package com.lark.oapi.service.drive.v1.enums;
  * 任务状态
  */
 public enum ExportTaskJobStatusEnum {
-  SUCCESS(0), // 成功
-  NEW(1), // 初始化
-  PROCESSING(2), // 处理中
-  INTERNALERROR(3), // 内部错误
-  EXPORTSIZELIMIT(107), // 导出文档过大
-  TIMEOUT(108), // 处理超时
-  EXPORTBLOCKNOTPERMITED(109), // 导出内容块无权限
-  NOPERMISSION(110), // 导出文档无权限
-  DOCSDELETED(111), // 导出文档已删除
-  EXPORTDENIEDONCOPYING(122), // 创建副本中禁止导出
-  DOCSNOTEXIST(123), // 导出文档不存在
-  EXPORTIMAGESEXCEEDLIMIT(6000), // 导出文档图片太多
-  ;
-  private Integer value;
+    SUCCESS(0), // 成功
+    NEW(1), // 初始化
+    PROCESSING(2), // 处理中
+    INTERNALERROR(3), // 内部错误
+    EXPORTSIZELIMIT(107), // 导出文档过大
+    TIMEOUT(108), // 处理超时
+    EXPORTBLOCKNOTPERMITED(109), // 导出内容块无权限
+    NOPERMISSION(110), // 导出文档无权限
+    DOCSDELETED(111), // 导出文档已删除
+    EXPORTDENIEDONCOPYING(122), // 创建副本中禁止导出
+    DOCSNOTEXIST(123), // 导出文档不存在
+    EXPORTIMAGESEXCEEDLIMIT(6000), // 导出文档图片太多
+    ;
+    private Integer value;
 
-  ExportTaskJobStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ExportTaskJobStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

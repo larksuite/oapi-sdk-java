@@ -16,135 +16,133 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CustomAttrOption {
-
-  /**
-   * 枚举类型选项id
-   * <p> 示例值：qasdefgr
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
-   * <p> 示例值：Option
-   */
-  @SerializedName("value")
-  private String value;
-  /**
-   * 名称，仅option_type为PICTURE时有效
-   * <p> 示例值：Name
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public CustomAttrOption() {
-  }
-
-  public CustomAttrOption(Builder builder) {
     /**
      * 枚举类型选项id
      * <p> 示例值：qasdefgr
      */
-    this.id = builder.id;
-    /**
-     * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
-     * <p> 示例值：Option
-     */
-    this.value = builder.value;
-    /**
-     * 名称，仅option_type为PICTURE时有效
-     * <p> 示例值：Name
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 枚举类型选项id
-     * <p> 示例值：qasdefgr
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
      * <p> 示例值：Option
      */
+    @SerializedName("value")
     private String value;
     /**
      * 名称，仅option_type为PICTURE时有效
      * <p> 示例值：Name
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 枚举类型选项id
-     * <p> 示例值：qasdefgr
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public CustomAttrOption() {
     }
 
-
-    /**
-     * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
-     * <p> 示例值：Option
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public CustomAttrOption(Builder builder) {
+        /**
+         * 枚举类型选项id
+         * <p> 示例值：qasdefgr
+         */
+        this.id = builder.id;
+        /**
+         * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
+         * <p> 示例值：Option
+         */
+        this.value = builder.value;
+        /**
+         * 名称，仅option_type为PICTURE时有效
+         * <p> 示例值：Name
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 名称，仅option_type为PICTURE时有效
-     * <p> 示例值：Name
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public CustomAttrOption build() {
-      return new CustomAttrOption(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 枚举类型选项id
+         * <p> 示例值：qasdefgr
+         */
+        private String id;
+        /**
+         * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
+         * <p> 示例值：Option
+         */
+        private String value;
+        /**
+         * 名称，仅option_type为PICTURE时有效
+         * <p> 示例值：Name
+         */
+        private String name;
+
+        /**
+         * 枚举类型选项id
+         * <p> 示例值：qasdefgr
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接
+         * <p> 示例值：Option
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        /**
+         * 名称，仅option_type为PICTURE时有效
+         * <p> 示例值：Name
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public CustomAttrOption build() {
+            return new CustomAttrOption(this);
+        }
+    }
 }

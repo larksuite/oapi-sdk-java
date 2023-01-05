@@ -16,74 +16,71 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppFieldPropertyLocation {
-
-  /**
-   * 地理位置输入限制
-   * <p> 示例值：not_limit
-   */
-  @SerializedName("input_type")
-  private String inputType;
-
-  // builder 开始
-  public AppFieldPropertyLocation() {
-  }
-
-  public AppFieldPropertyLocation(Builder builder) {
     /**
      * 地理位置输入限制
      * <p> 示例值：not_limit
      */
-    this.inputType = builder.inputType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getInputType() {
-    return this.inputType;
-  }
-
-  public void setInputType(String inputType) {
-    this.inputType = inputType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 地理位置输入限制
-     * <p> 示例值：not_limit
-     */
+    @SerializedName("input_type")
     private String inputType;
 
-    /**
-     * 地理位置输入限制
-     * <p> 示例值：not_limit
-     *
-     * @param inputType
-     * @return
-     */
-    public Builder inputType(String inputType) {
-      this.inputType = inputType;
-      return this;
+    // builder 开始
+    public AppFieldPropertyLocation() {
     }
 
-    /**
-     * 地理位置输入限制
-     * <p> 示例值：not_limit
-     *
-     * @param inputType {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyLocationInputTypeEnum}
-     * @return
-     */
-    public Builder inputType(
-        com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyLocationInputTypeEnum inputType) {
-      this.inputType = inputType.getValue();
-      return this;
+    public AppFieldPropertyLocation(Builder builder) {
+        /**
+         * 地理位置输入限制
+         * <p> 示例值：not_limit
+         */
+        this.inputType = builder.inputType;
     }
 
-
-    public AppFieldPropertyLocation build() {
-      return new AppFieldPropertyLocation(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getInputType() {
+        return this.inputType;
+    }
+
+    public void setInputType(String inputType) {
+        this.inputType = inputType;
+    }
+
+    public static class Builder {
+        /**
+         * 地理位置输入限制
+         * <p> 示例值：not_limit
+         */
+        private String inputType;
+
+        /**
+         * 地理位置输入限制
+         * <p> 示例值：not_limit
+         *
+         * @param inputType
+         * @return
+         */
+        public Builder inputType(String inputType) {
+            this.inputType = inputType;
+            return this;
+        }
+
+        /**
+         * 地理位置输入限制
+         * <p> 示例值：not_limit
+         *
+         * @param inputType {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyLocationInputTypeEnum}
+         * @return
+         */
+        public Builder inputType(com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyLocationInputTypeEnum inputType) {
+            this.inputType = inputType.getValue();
+            return this;
+        }
+
+
+        public AppFieldPropertyLocation build() {
+            return new AppFieldPropertyLocation(this);
+        }
+    }
 }

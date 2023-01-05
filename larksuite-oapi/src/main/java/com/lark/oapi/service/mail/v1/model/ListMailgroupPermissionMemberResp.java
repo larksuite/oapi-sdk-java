@@ -15,7 +15,5 @@ package com.lark.oapi.service.mail.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListMailgroupPermissionMemberResp extends
-    BaseResponse<ListMailgroupPermissionMemberRespBody> {
-
+public class ListMailgroupPermissionMemberResp extends BaseResponse<ListMailgroupPermissionMemberRespBody> {
 }

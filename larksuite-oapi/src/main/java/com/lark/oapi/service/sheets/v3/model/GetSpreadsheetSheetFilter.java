@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetSpreadsheetSheetFilter {
 
-  /**
-   * 筛选信息
-   * <p> 示例值：
-   */
-  @SerializedName("sheet_filter_info")
-  private SheetFilterInfo sheetFilterInfo;
+    /**
+     * 筛选信息
+     * <p> 示例值：
+     */
+    @SerializedName("sheet_filter_info")
+    private SheetFilterInfo sheetFilterInfo;
 
-  public SheetFilterInfo getSheetFilterInfo() {
-    return this.sheetFilterInfo;
-  }
+    public SheetFilterInfo getSheetFilterInfo() {
+        return this.sheetFilterInfo;
+    }
 
-  public void setSheetFilterInfo(SheetFilterInfo sheetFilterInfo) {
-    this.sheetFilterInfo = sheetFilterInfo;
-  }
+    public void setSheetFilterInfo(SheetFilterInfo sheetFilterInfo) {
+        this.sheetFilterInfo = sheetFilterInfo;
+    }
 
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationWebsiteResumeSource {
-
-  /**
-   * 官网站点 ID
-   * <p> 示例值：614218419274131
-   */
-  @SerializedName("website_id")
-  private String websiteId;
-  /**
-   * 官网站点名称
-   * <p> 示例值：
-   */
-  @SerializedName("website_name")
-  private I18n websiteName;
-  /**
-   * 推广渠道来源
-   * <p> 示例值：
-   */
-  @SerializedName("channel")
-  private ApplicationWebsiteChannel channel;
-
-  // builder 开始
-  public ApplicationWebsiteResumeSource() {
-  }
-
-  public ApplicationWebsiteResumeSource(Builder builder) {
     /**
      * 官网站点 ID
      * <p> 示例值：614218419274131
      */
-    this.websiteId = builder.websiteId;
-    /**
-     * 官网站点名称
-     * <p> 示例值：
-     */
-    this.websiteName = builder.websiteName;
-    /**
-     * 推广渠道来源
-     * <p> 示例值：
-     */
-    this.channel = builder.channel;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getWebsiteId() {
-    return this.websiteId;
-  }
-
-  public void setWebsiteId(String websiteId) {
-    this.websiteId = websiteId;
-  }
-
-  public I18n getWebsiteName() {
-    return this.websiteName;
-  }
-
-  public void setWebsiteName(I18n websiteName) {
-    this.websiteName = websiteName;
-  }
-
-  public ApplicationWebsiteChannel getChannel() {
-    return this.channel;
-  }
-
-  public void setChannel(ApplicationWebsiteChannel channel) {
-    this.channel = channel;
-  }
-
-  public static class Builder {
-
-    /**
-     * 官网站点 ID
-     * <p> 示例值：614218419274131
-     */
+    @SerializedName("website_id")
     private String websiteId;
     /**
      * 官网站点名称
      * <p> 示例值：
      */
+    @SerializedName("website_name")
     private I18n websiteName;
     /**
      * 推广渠道来源
      * <p> 示例值：
      */
+    @SerializedName("channel")
     private ApplicationWebsiteChannel channel;
 
-    /**
-     * 官网站点 ID
-     * <p> 示例值：614218419274131
-     *
-     * @param websiteId
-     * @return
-     */
-    public Builder websiteId(String websiteId) {
-      this.websiteId = websiteId;
-      return this;
+    // builder 开始
+    public ApplicationWebsiteResumeSource() {
     }
 
-
-    /**
-     * 官网站点名称
-     * <p> 示例值：
-     *
-     * @param websiteName
-     * @return
-     */
-    public Builder websiteName(I18n websiteName) {
-      this.websiteName = websiteName;
-      return this;
+    public ApplicationWebsiteResumeSource(Builder builder) {
+        /**
+         * 官网站点 ID
+         * <p> 示例值：614218419274131
+         */
+        this.websiteId = builder.websiteId;
+        /**
+         * 官网站点名称
+         * <p> 示例值：
+         */
+        this.websiteName = builder.websiteName;
+        /**
+         * 推广渠道来源
+         * <p> 示例值：
+         */
+        this.channel = builder.channel;
     }
 
-
-    /**
-     * 推广渠道来源
-     * <p> 示例值：
-     *
-     * @param channel
-     * @return
-     */
-    public Builder channel(ApplicationWebsiteChannel channel) {
-      this.channel = channel;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ApplicationWebsiteResumeSource build() {
-      return new ApplicationWebsiteResumeSource(this);
+    public String getWebsiteId() {
+        return this.websiteId;
     }
-  }
+
+    public void setWebsiteId(String websiteId) {
+        this.websiteId = websiteId;
+    }
+
+    public I18n getWebsiteName() {
+        return this.websiteName;
+    }
+
+    public void setWebsiteName(I18n websiteName) {
+        this.websiteName = websiteName;
+    }
+
+    public ApplicationWebsiteChannel getChannel() {
+        return this.channel;
+    }
+
+    public void setChannel(ApplicationWebsiteChannel channel) {
+        this.channel = channel;
+    }
+
+    public static class Builder {
+        /**
+         * 官网站点 ID
+         * <p> 示例值：614218419274131
+         */
+        private String websiteId;
+        /**
+         * 官网站点名称
+         * <p> 示例值：
+         */
+        private I18n websiteName;
+        /**
+         * 推广渠道来源
+         * <p> 示例值：
+         */
+        private ApplicationWebsiteChannel channel;
+
+        /**
+         * 官网站点 ID
+         * <p> 示例值：614218419274131
+         *
+         * @param websiteId
+         * @return
+         */
+        public Builder websiteId(String websiteId) {
+            this.websiteId = websiteId;
+            return this;
+        }
+
+
+        /**
+         * 官网站点名称
+         * <p> 示例值：
+         *
+         * @param websiteName
+         * @return
+         */
+        public Builder websiteName(I18n websiteName) {
+            this.websiteName = websiteName;
+            return this;
+        }
+
+
+        /**
+         * 推广渠道来源
+         * <p> 示例值：
+         *
+         * @param channel
+         * @return
+         */
+        public Builder channel(ApplicationWebsiteChannel channel) {
+            this.channel = channel;
+            return this;
+        }
+
+
+        public ApplicationWebsiteResumeSource build() {
+            return new ApplicationWebsiteResumeSource(this);
+        }
+    }
 }

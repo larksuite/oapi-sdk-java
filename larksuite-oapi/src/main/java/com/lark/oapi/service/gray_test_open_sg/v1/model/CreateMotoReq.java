@@ -18,117 +18,115 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateMotoReq {
-
-  /**
-   * desc
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  /**
-   * desc
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private Level body;
-
-  // builder 开始
-  public CreateMotoReq() {
-  }
-
-  public CreateMotoReq(Builder builder) {
     /**
      * desc
      * <p> 示例值：
      */
-    this.departmentIdType = builder.departmentIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * desc
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public Level getLevel() {
-    return this.body;
-  }
-
-  public void setLevel(Level body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String departmentIdType; // desc
-    private String userIdType; // desc
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    @Body
     private Level body;
 
-    /**
-     * desc
-     * <p> 示例值：
-     *
-     * @param departmentIdType
-     * @return
-     */
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    // builder 开始
+    public CreateMotoReq() {
     }
 
-    /**
-     * desc
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public CreateMotoReq(Builder builder) {
+        /**
+         * desc
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * desc
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public Level getLevel() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder level(Level body) {
-      this.body = body;
-      return this;
+    public void setLevel(Level body) {
+        this.body = body;
     }
 
-    public CreateMotoReq build() {
-      return new CreateMotoReq(this);
+    public static class Builder {
+        private String departmentIdType; // desc
+        private String userIdType; // desc
+        private Level body;
+
+        /**
+         * desc
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * desc
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        public Level getLevel() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder level(Level body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateMotoReq build() {
+            return new CreateMotoReq(this);
+        }
     }
-  }
 }

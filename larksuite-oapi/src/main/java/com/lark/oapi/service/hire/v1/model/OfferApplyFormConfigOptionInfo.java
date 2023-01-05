@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferApplyFormConfigOptionInfo {
-
-  /**
-   * 选项 ID
-   * <p> 示例值：2378568265
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 选项名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-  /**
-   * 选项描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private I18n description;
-
-  // builder 开始
-  public OfferApplyFormConfigOptionInfo() {
-  }
-
-  public OfferApplyFormConfigOptionInfo(Builder builder) {
     /**
      * 选项 ID
      * <p> 示例值：2378568265
      */
-    this.id = builder.id;
-    /**
-     * 选项名称
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 选项描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public I18n getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(I18n description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
-    /**
-     * 选项 ID
-     * <p> 示例值：2378568265
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 选项名称
      * <p> 示例值：
      */
+    @SerializedName("name")
     private I18n name;
     /**
      * 选项描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private I18n description;
 
-    /**
-     * 选项 ID
-     * <p> 示例值：2378568265
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OfferApplyFormConfigOptionInfo() {
     }
 
-
-    /**
-     * 选项名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    public OfferApplyFormConfigOptionInfo(Builder builder) {
+        /**
+         * 选项 ID
+         * <p> 示例值：2378568265
+         */
+        this.id = builder.id;
+        /**
+         * 选项名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 选项描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
     }
 
-
-    /**
-     * 选项描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(I18n description) {
-      this.description = description;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public OfferApplyFormConfigOptionInfo build() {
-      return new OfferApplyFormConfigOptionInfo(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public I18n getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(I18n description) {
+        this.description = description;
+    }
+
+    public static class Builder {
+        /**
+         * 选项 ID
+         * <p> 示例值：2378568265
+         */
+        private String id;
+        /**
+         * 选项名称
+         * <p> 示例值：
+         */
+        private I18n name;
+        /**
+         * 选项描述
+         * <p> 示例值：
+         */
+        private I18n description;
+
+        /**
+         * 选项 ID
+         * <p> 示例值：2378568265
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 选项名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 选项描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(I18n description) {
+            this.description = description;
+            return this;
+        }
+
+
+        public OfferApplyFormConfigOptionInfo build() {
+            return new OfferApplyFormConfigOptionInfo(this);
+        }
+    }
 }

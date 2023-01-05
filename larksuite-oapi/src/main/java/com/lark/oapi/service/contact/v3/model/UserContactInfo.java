@@ -16,135 +16,133 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserContactInfo {
-
-  /**
-   * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-   * <p> 示例值：ou_979112345678741d29069abcdef089d4
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * 手机号，通过手机号查询时返回
-   * <p> 示例值：13812345678
-   */
-  @SerializedName("mobile")
-  private String mobile;
-  /**
-   * 邮箱，通过邮箱查询时返回
-   * <p> 示例值：lisi@z.com
-   */
-  @SerializedName("email")
-  private String email;
-
-  // builder 开始
-  public UserContactInfo() {
-  }
-
-  public UserContactInfo(Builder builder) {
     /**
      * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
      * <p> 示例值：ou_979112345678741d29069abcdef089d4
      */
-    this.userId = builder.userId;
-    /**
-     * 手机号，通过手机号查询时返回
-     * <p> 示例值：13812345678
-     */
-    this.mobile = builder.mobile;
-    /**
-     * 邮箱，通过邮箱查询时返回
-     * <p> 示例值：lisi@z.com
-     */
-    this.email = builder.email;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-     * <p> 示例值：ou_979112345678741d29069abcdef089d4
-     */
+    @SerializedName("user_id")
     private String userId;
     /**
      * 手机号，通过手机号查询时返回
      * <p> 示例值：13812345678
      */
+    @SerializedName("mobile")
     private String mobile;
     /**
      * 邮箱，通过邮箱查询时返回
      * <p> 示例值：lisi@z.com
      */
+    @SerializedName("email")
     private String email;
 
-    /**
-     * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-     * <p> 示例值：ou_979112345678741d29069abcdef089d4
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public UserContactInfo() {
     }
 
-
-    /**
-     * 手机号，通过手机号查询时返回
-     * <p> 示例值：13812345678
-     *
-     * @param mobile
-     * @return
-     */
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public UserContactInfo(Builder builder) {
+        /**
+         * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
+         * <p> 示例值：ou_979112345678741d29069abcdef089d4
+         */
+        this.userId = builder.userId;
+        /**
+         * 手机号，通过手机号查询时返回
+         * <p> 示例值：13812345678
+         */
+        this.mobile = builder.mobile;
+        /**
+         * 邮箱，通过邮箱查询时返回
+         * <p> 示例值：lisi@z.com
+         */
+        this.email = builder.email;
     }
 
-
-    /**
-     * 邮箱，通过邮箱查询时返回
-     * <p> 示例值：lisi@z.com
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public UserContactInfo build() {
-      return new UserContactInfo(this);
+    public String getUserId() {
+        return this.userId;
     }
-  }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public static class Builder {
+        /**
+         * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
+         * <p> 示例值：ou_979112345678741d29069abcdef089d4
+         */
+        private String userId;
+        /**
+         * 手机号，通过手机号查询时返回
+         * <p> 示例值：13812345678
+         */
+        private String mobile;
+        /**
+         * 邮箱，通过邮箱查询时返回
+         * <p> 示例值：lisi@z.com
+         */
+        private String email;
+
+        /**
+         * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
+         * <p> 示例值：ou_979112345678741d29069abcdef089d4
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 手机号，通过手机号查询时返回
+         * <p> 示例值：13812345678
+         *
+         * @param mobile
+         * @return
+         */
+        public Builder mobile(String mobile) {
+            this.mobile = mobile;
+            return this;
+        }
+
+
+        /**
+         * 邮箱，通过邮箱查询时返回
+         * <p> 示例值：lisi@z.com
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        public UserContactInfo build() {
+            return new UserContactInfo(this);
+        }
+    }
 }

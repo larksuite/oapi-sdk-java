@@ -16,172 +16,170 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateCalendarEventAttendeeReqBody {
-
-  /**
-   * 新增参与人列表；;- 单次请求会议室的数量限制为100。
-   * <p> 示例值：
-   */
-  @SerializedName("attendees")
-  private CalendarEventAttendee[] attendees;
-  /**
-   * 是否给参与人发送bot通知 默认为true
-   * <p> 示例值：false
-   */
-  @SerializedName("need_notification")
-  private Boolean needNotification;
-  /**
-   * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
-   * <p> 示例值：1647320400
-   */
-  @SerializedName("instance_start_time_admin")
-  private String instanceStartTimeAdmin;
-  /**
-   * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-   * <p> 示例值：false
-   */
-  @SerializedName("is_enable_admin")
-  private Boolean isEnableAdmin;
-
-  // builder 开始
-  public CreateCalendarEventAttendeeReqBody() {
-  }
-
-  public CreateCalendarEventAttendeeReqBody(Builder builder) {
     /**
      * 新增参与人列表；;- 单次请求会议室的数量限制为100。
      * <p> 示例值：
      */
-    this.attendees = builder.attendees;
-    /**
-     * 是否给参与人发送bot通知 默认为true
-     * <p> 示例值：false
-     */
-    this.needNotification = builder.needNotification;
-    /**
-     * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
-     * <p> 示例值：1647320400
-     */
-    this.instanceStartTimeAdmin = builder.instanceStartTimeAdmin;
-    /**
-     * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-     * <p> 示例值：false
-     */
-    this.isEnableAdmin = builder.isEnableAdmin;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CalendarEventAttendee[] getAttendees() {
-    return this.attendees;
-  }
-
-  public void setAttendees(CalendarEventAttendee[] attendees) {
-    this.attendees = attendees;
-  }
-
-  public Boolean getNeedNotification() {
-    return this.needNotification;
-  }
-
-  public void setNeedNotification(Boolean needNotification) {
-    this.needNotification = needNotification;
-  }
-
-  public String getInstanceStartTimeAdmin() {
-    return this.instanceStartTimeAdmin;
-  }
-
-  public void setInstanceStartTimeAdmin(String instanceStartTimeAdmin) {
-    this.instanceStartTimeAdmin = instanceStartTimeAdmin;
-  }
-
-  public Boolean getIsEnableAdmin() {
-    return this.isEnableAdmin;
-  }
-
-  public void setIsEnableAdmin(Boolean isEnableAdmin) {
-    this.isEnableAdmin = isEnableAdmin;
-  }
-
-  public static class Builder {
-
-    /**
-     * 新增参与人列表；;- 单次请求会议室的数量限制为100。
-     * <p> 示例值：
-     */
+    @SerializedName("attendees")
     private CalendarEventAttendee[] attendees;
     /**
      * 是否给参与人发送bot通知 默认为true
      * <p> 示例值：false
      */
+    @SerializedName("need_notification")
     private Boolean needNotification;
     /**
      * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
      * <p> 示例值：1647320400
      */
+    @SerializedName("instance_start_time_admin")
     private String instanceStartTimeAdmin;
     /**
      * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
      * <p> 示例值：false
      */
+    @SerializedName("is_enable_admin")
     private Boolean isEnableAdmin;
 
-    /**
-     * 新增参与人列表；;- 单次请求会议室的数量限制为100。
-     * <p> 示例值：
-     *
-     * @param attendees
-     * @return
-     */
-    public Builder attendees(CalendarEventAttendee[] attendees) {
-      this.attendees = attendees;
-      return this;
+    // builder 开始
+    public CreateCalendarEventAttendeeReqBody() {
     }
 
-
-    /**
-     * 是否给参与人发送bot通知 默认为true
-     * <p> 示例值：false
-     *
-     * @param needNotification
-     * @return
-     */
-    public Builder needNotification(Boolean needNotification) {
-      this.needNotification = needNotification;
-      return this;
+    public CreateCalendarEventAttendeeReqBody(Builder builder) {
+        /**
+         * 新增参与人列表；;- 单次请求会议室的数量限制为100。
+         * <p> 示例值：
+         */
+        this.attendees = builder.attendees;
+        /**
+         * 是否给参与人发送bot通知 默认为true
+         * <p> 示例值：false
+         */
+        this.needNotification = builder.needNotification;
+        /**
+         * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
+         * <p> 示例值：1647320400
+         */
+        this.instanceStartTimeAdmin = builder.instanceStartTimeAdmin;
+        /**
+         * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+         * <p> 示例值：false
+         */
+        this.isEnableAdmin = builder.isEnableAdmin;
     }
 
-
-    /**
-     * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
-     * <p> 示例值：1647320400
-     *
-     * @param instanceStartTimeAdmin
-     * @return
-     */
-    public Builder instanceStartTimeAdmin(String instanceStartTimeAdmin) {
-      this.instanceStartTimeAdmin = instanceStartTimeAdmin;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-     * <p> 示例值：false
-     *
-     * @param isEnableAdmin
-     * @return
-     */
-    public Builder isEnableAdmin(Boolean isEnableAdmin) {
-      this.isEnableAdmin = isEnableAdmin;
-      return this;
+    public CalendarEventAttendee[] getAttendees() {
+        return this.attendees;
     }
 
-
-    public CreateCalendarEventAttendeeReqBody build() {
-      return new CreateCalendarEventAttendeeReqBody(this);
+    public void setAttendees(CalendarEventAttendee[] attendees) {
+        this.attendees = attendees;
     }
-  }
+
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
+    }
+
+    public String getInstanceStartTimeAdmin() {
+        return this.instanceStartTimeAdmin;
+    }
+
+    public void setInstanceStartTimeAdmin(String instanceStartTimeAdmin) {
+        this.instanceStartTimeAdmin = instanceStartTimeAdmin;
+    }
+
+    public Boolean getIsEnableAdmin() {
+        return this.isEnableAdmin;
+    }
+
+    public void setIsEnableAdmin(Boolean isEnableAdmin) {
+        this.isEnableAdmin = isEnableAdmin;
+    }
+
+    public static class Builder {
+        /**
+         * 新增参与人列表；;- 单次请求会议室的数量限制为100。
+         * <p> 示例值：
+         */
+        private CalendarEventAttendee[] attendees;
+        /**
+         * 是否给参与人发送bot通知 默认为true
+         * <p> 示例值：false
+         */
+        private Boolean needNotification;
+        /**
+         * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
+         * <p> 示例值：1647320400
+         */
+        private String instanceStartTimeAdmin;
+        /**
+         * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+         * <p> 示例值：false
+         */
+        private Boolean isEnableAdmin;
+
+        /**
+         * 新增参与人列表；;- 单次请求会议室的数量限制为100。
+         * <p> 示例值：
+         *
+         * @param attendees
+         * @return
+         */
+        public Builder attendees(CalendarEventAttendee[] attendees) {
+            this.attendees = attendees;
+            return this;
+        }
+
+
+        /**
+         * 是否给参与人发送bot通知 默认为true
+         * <p> 示例值：false
+         *
+         * @param needNotification
+         * @return
+         */
+        public Builder needNotification(Boolean needNotification) {
+            this.needNotification = needNotification;
+            return this;
+        }
+
+
+        /**
+         * 使用管理员身份访问时要修改的实例(仅用于重复日程修改其中的一个实例，非重复日程无需填此字段)
+         * <p> 示例值：1647320400
+         *
+         * @param instanceStartTimeAdmin
+         * @return
+         */
+        public Builder instanceStartTimeAdmin(String instanceStartTimeAdmin) {
+            this.instanceStartTimeAdmin = instanceStartTimeAdmin;
+            return this;
+        }
+
+
+        /**
+         * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+         * <p> 示例值：false
+         *
+         * @param isEnableAdmin
+         * @return
+         */
+        public Builder isEnableAdmin(Boolean isEnableAdmin) {
+            this.isEnableAdmin = isEnableAdmin;
+            return this;
+        }
+
+
+        public CreateCalendarEventAttendeeReqBody build() {
+            return new CreateCalendarEventAttendeeReqBody(this);
+        }
+    }
 }

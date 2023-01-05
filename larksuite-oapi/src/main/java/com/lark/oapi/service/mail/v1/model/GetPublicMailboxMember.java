@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetPublicMailboxMember {
 
-  /**
-   * The unique ID of a member in this public mailbox
-   * <p> 示例值：xxxxxxxxxxxxxxx
-   */
-  @SerializedName("member_id")
-  private String memberId;
-  /**
-   * The member's user id. Value is valid when type is USER
-   * <p> 示例值：xxxxxxxxxx
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * The type of member. Possible values are:;- USER: internal user in the team
-   * <p> 示例值：USER
-   */
-  @SerializedName("type")
-  private String type;
+    /**
+     * The unique ID of a member in this public mailbox
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
+    @SerializedName("member_id")
+    private String memberId;
+    /**
+     * The member's user id. Value is valid when type is USER
+     * <p> 示例值：xxxxxxxxxx
+     */
+    @SerializedName("user_id")
+    private String userId;
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team
+     * <p> 示例值：USER
+     */
+    @SerializedName("type")
+    private String type;
 
-  public String getMemberId() {
-    return this.memberId;
-  }
+    public String getMemberId() {
+        return this.memberId;
+    }
 
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getType() {
-    return this.type;
-  }
+    public String getType() {
+        return this.type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

@@ -18,165 +18,160 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class QueryUserTaskReq {
-
-  /**
-   * 员工工号类型
-   * <p> 示例值：employee_id
-   */
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  /**
-   * 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
-   * <p> 示例值：true
-   */
-  @Query
-  @SerializedName("ignore_invalid_users")
-  private Boolean ignoreInvalidUsers;
-  /**
-   * 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 +
-   * 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
-   * <p> 示例值：true
-   */
-  @Query
-  @SerializedName("include_terminated_user")
-  private Boolean includeTerminatedUser;
-  @Body
-  private QueryUserTaskReqBody body;
-
-  // builder 开始
-  public QueryUserTaskReq() {
-  }
-
-  public QueryUserTaskReq(Builder builder) {
     /**
      * 员工工号类型
      * <p> 示例值：employee_id
      */
-    this.employeeType = builder.employeeType;
+    @Query
+    @SerializedName("employee_type")
+    private String employeeType;
     /**
      * 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
      * <p> 示例值：true
      */
-    this.ignoreInvalidUsers = builder.ignoreInvalidUsers;
+    @Query
+    @SerializedName("ignore_invalid_users")
+    private Boolean ignoreInvalidUsers;
     /**
      * 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 + 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
      * <p> 示例值：true
      */
-    this.includeTerminatedUser = builder.includeTerminatedUser;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public Boolean getIgnoreInvalidUsers() {
-    return this.ignoreInvalidUsers;
-  }
-
-  public void setIgnoreInvalidUsers(Boolean ignoreInvalidUsers) {
-    this.ignoreInvalidUsers = ignoreInvalidUsers;
-  }
-
-  public Boolean getIncludeTerminatedUser() {
-    return this.includeTerminatedUser;
-  }
-
-  public void setIncludeTerminatedUser(Boolean includeTerminatedUser) {
-    this.includeTerminatedUser = includeTerminatedUser;
-  }
-
-  public QueryUserTaskReqBody getQueryUserTaskReqBody() {
-    return this.body;
-  }
-
-  public void setQueryUserTaskReqBody(QueryUserTaskReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String employeeType; // 员工工号类型
-    private Boolean ignoreInvalidUsers; // 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
-    private Boolean includeTerminatedUser; // 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 + 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
+    @Query
+    @SerializedName("include_terminated_user")
+    private Boolean includeTerminatedUser;
+    @Body
     private QueryUserTaskReqBody body;
 
-    /**
-     * 员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType
-     * @return
-     */
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
+    // builder 开始
+    public QueryUserTaskReq() {
     }
 
-    /**
-     * 员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserTaskEmployeeTypeEnum}
-     * @return
-     */
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.QueryUserTaskEmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
+    public QueryUserTaskReq(Builder builder) {
+        /**
+         * 员工工号类型
+         * <p> 示例值：employee_id
+         */
+        this.employeeType = builder.employeeType;
+        /**
+         * 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
+         * <p> 示例值：true
+         */
+        this.ignoreInvalidUsers = builder.ignoreInvalidUsers;
+        /**
+         * 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 + 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
+         * <p> 示例值：true
+         */
+        this.includeTerminatedUser = builder.includeTerminatedUser;
+        this.body = builder.body;
     }
 
-    /**
-     * 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
-     * <p> 示例值：true
-     *
-     * @param ignoreInvalidUsers
-     * @return
-     */
-    public Builder ignoreInvalidUsers(Boolean ignoreInvalidUsers) {
-      this.ignoreInvalidUsers = ignoreInvalidUsers;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 +
-     * 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
-     * <p> 示例值：true
-     *
-     * @param includeTerminatedUser
-     * @return
-     */
-    public Builder includeTerminatedUser(Boolean includeTerminatedUser) {
-      this.includeTerminatedUser = includeTerminatedUser;
-      return this;
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public Boolean getIgnoreInvalidUsers() {
+        return this.ignoreInvalidUsers;
+    }
+
+    public void setIgnoreInvalidUsers(Boolean ignoreInvalidUsers) {
+        this.ignoreInvalidUsers = ignoreInvalidUsers;
+    }
+
+    public Boolean getIncludeTerminatedUser() {
+        return this.includeTerminatedUser;
+    }
+
+    public void setIncludeTerminatedUser(Boolean includeTerminatedUser) {
+        this.includeTerminatedUser = includeTerminatedUser;
     }
 
     public QueryUserTaskReqBody getQueryUserTaskReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder queryUserTaskReqBody(QueryUserTaskReqBody body) {
-      this.body = body;
-      return this;
+    public void setQueryUserTaskReqBody(QueryUserTaskReqBody body) {
+        this.body = body;
     }
 
-    public QueryUserTaskReq build() {
-      return new QueryUserTaskReq(this);
+    public static class Builder {
+        private String employeeType; // 员工工号类型
+        private Boolean ignoreInvalidUsers; // 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
+        private Boolean includeTerminatedUser; // 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 + 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
+        private QueryUserTaskReqBody body;
+
+        /**
+         * 员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserTaskEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.QueryUserTaskEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
+
+        /**
+         * 是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误
+         * <p> 示例值：true
+         *
+         * @param ignoreInvalidUsers
+         * @return
+         */
+        public Builder ignoreInvalidUsers(Boolean ignoreInvalidUsers) {
+            this.ignoreInvalidUsers = ignoreInvalidUsers;
+            return this;
+        }
+
+        /**
+         * 由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 + 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据
+         * <p> 示例值：true
+         *
+         * @param includeTerminatedUser
+         * @return
+         */
+        public Builder includeTerminatedUser(Boolean includeTerminatedUser) {
+            this.includeTerminatedUser = includeTerminatedUser;
+            return this;
+        }
+
+        public QueryUserTaskReqBody getQueryUserTaskReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder queryUserTaskReqBody(QueryUserTaskReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public QueryUserTaskReq build() {
+            return new QueryUserTaskReq(this);
+        }
     }
-  }
 }

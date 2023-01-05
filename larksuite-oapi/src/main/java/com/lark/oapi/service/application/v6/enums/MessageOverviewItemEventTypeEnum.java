@@ -17,17 +17,17 @@ package com.lark.oapi.service.application.v6.enums;
  * 事件类型
  */
 public enum MessageOverviewItemEventTypeEnum {
-  BOT_NOTIFY_GET_MESSAGE("bot_notify_get_message"), //
-  MESSAGE_READ("message_read"), //
-  MESSAGE_SEND("message_send"), //
-  ;
-  private String value;
+    BOT_NOTIFY_GET_MESSAGE("bot_notify_get_message"), //
+    MESSAGE_READ("message_read"), //
+    MESSAGE_SEND("message_send"), //
+    ;
+    private String value;
 
-  MessageOverviewItemEventTypeEnum(String value) {
-    this.value = value;
-  }
+    MessageOverviewItemEventTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

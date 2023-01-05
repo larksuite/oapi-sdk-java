@@ -17,24 +17,24 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 打卡结果
  */
 public enum UserFlowCheckResultEnum {
-  NONEEDCHECK("NoNeedCheck"), // 无需打卡
-  SYSTEMCHECK("SystemCheck"), // 系统打卡
-  NORMAL("Normal"), // 正常
-  EARLY("Early"), // 早退
-  LATE("Late"), // 迟到
-  SERIOUSLATE("SeriousLate"), // 严重迟到
-  LACK("Lack"), // 缺卡
-  INVALID("Invalid"), // 无效
-  NONE("None"), // 无状态
-  TODO("Todo"), // 尚未打卡
-  ;
-  private String value;
+    NONEEDCHECK("NoNeedCheck"), // 无需打卡
+    SYSTEMCHECK("SystemCheck"), // 系统打卡
+    NORMAL("Normal"), // 正常
+    EARLY("Early"), // 早退
+    LATE("Late"), // 迟到
+    SERIOUSLATE("SeriousLate"), // 严重迟到
+    LACK("Lack"), // 缺卡
+    INVALID("Invalid"), // 无效
+    NONE("None"), // 无状态
+    TODO("Todo"), // 尚未打卡
+    ;
+    private String value;
 
-  UserFlowCheckResultEnum(String value) {
-    this.value = value;
-  }
+    UserFlowCheckResultEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

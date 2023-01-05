@@ -16,185 +16,182 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppRoleTableRoleRecRuleCondition {
-
-  /**
-   * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
-   * <p> 示例值：单选
-   */
-  @SerializedName("field_name")
-  private String fieldName;
-  /**
-   * 运算符
-   * <p> 示例值：is
-   */
-  @SerializedName("operator")
-  private String operator;
-  /**
-   * 单选或多选字段的选项id
-   * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-   */
-  @SerializedName("value")
-  private String[] value;
-  /**
-   * 字段类型
-   * <p> 示例值：3
-   */
-  @SerializedName("field_type")
-  private Integer fieldType;
-
-  // builder 开始
-  public AppRoleTableRoleRecRuleCondition() {
-  }
-
-  public AppRoleTableRoleRecRuleCondition(Builder builder) {
     /**
      * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
      * <p> 示例值：单选
      */
-    this.fieldName = builder.fieldName;
-    /**
-     * 运算符
-     * <p> 示例值：is
-     */
-    this.operator = builder.operator;
-    /**
-     * 单选或多选字段的选项id
-     * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-     */
-    this.value = builder.value;
-    /**
-     * 字段类型
-     * <p> 示例值：3
-     */
-    this.fieldType = builder.fieldType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFieldName() {
-    return this.fieldName;
-  }
-
-  public void setFieldName(String fieldName) {
-    this.fieldName = fieldName;
-  }
-
-  public String getOperator() {
-    return this.operator;
-  }
-
-  public void setOperator(String operator) {
-    this.operator = operator;
-  }
-
-  public String[] getValue() {
-    return this.value;
-  }
-
-  public void setValue(String[] value) {
-    this.value = value;
-  }
-
-  public Integer getFieldType() {
-    return this.fieldType;
-  }
-
-  public void setFieldType(Integer fieldType) {
-    this.fieldType = fieldType;
-  }
-
-  public static class Builder {
-
-    /**
-     * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
-     * <p> 示例值：单选
-     */
+    @SerializedName("field_name")
     private String fieldName;
     /**
      * 运算符
      * <p> 示例值：is
      */
+    @SerializedName("operator")
     private String operator;
     /**
      * 单选或多选字段的选项id
      * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
      */
+    @SerializedName("value")
     private String[] value;
     /**
      * 字段类型
      * <p> 示例值：3
      */
+    @SerializedName("field_type")
     private Integer fieldType;
 
-    /**
-     * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
-     * <p> 示例值：单选
-     *
-     * @param fieldName
-     * @return
-     */
-    public Builder fieldName(String fieldName) {
-      this.fieldName = fieldName;
-      return this;
+    // builder 开始
+    public AppRoleTableRoleRecRuleCondition() {
     }
 
-
-    /**
-     * 运算符
-     * <p> 示例值：is
-     *
-     * @param operator
-     * @return
-     */
-    public Builder operator(String operator) {
-      this.operator = operator;
-      return this;
+    public AppRoleTableRoleRecRuleCondition(Builder builder) {
+        /**
+         * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+         * <p> 示例值：单选
+         */
+        this.fieldName = builder.fieldName;
+        /**
+         * 运算符
+         * <p> 示例值：is
+         */
+        this.operator = builder.operator;
+        /**
+         * 单选或多选字段的选项id
+         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+         */
+        this.value = builder.value;
+        /**
+         * 字段类型
+         * <p> 示例值：3
+         */
+        this.fieldType = builder.fieldType;
     }
 
-    /**
-     * 运算符
-     * <p> 示例值：is
-     *
-     * @param operator {@link com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleConditionOperatorEnum}
-     * @return
-     */
-    public Builder operator(
-        com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleConditionOperatorEnum operator) {
-      this.operator = operator.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 单选或多选字段的选项id
-     * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String[] value) {
-      this.value = value;
-      return this;
+    public String getFieldName() {
+        return this.fieldName;
     }
 
-
-    /**
-     * 字段类型
-     * <p> 示例值：3
-     *
-     * @param fieldType
-     * @return
-     */
-    public Builder fieldType(Integer fieldType) {
-      this.fieldType = fieldType;
-      return this;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
-
-    public AppRoleTableRoleRecRuleCondition build() {
-      return new AppRoleTableRoleRecRuleCondition(this);
+    public String getOperator() {
+        return this.operator;
     }
-  }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
+    public String[] getValue() {
+        return this.value;
+    }
+
+    public void setValue(String[] value) {
+        this.value = value;
+    }
+
+    public Integer getFieldType() {
+        return this.fieldType;
+    }
+
+    public void setFieldType(Integer fieldType) {
+        this.fieldType = fieldType;
+    }
+
+    public static class Builder {
+        /**
+         * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+         * <p> 示例值：单选
+         */
+        private String fieldName;
+        /**
+         * 运算符
+         * <p> 示例值：is
+         */
+        private String operator;
+        /**
+         * 单选或多选字段的选项id
+         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+         */
+        private String[] value;
+        /**
+         * 字段类型
+         * <p> 示例值：3
+         */
+        private Integer fieldType;
+
+        /**
+         * 字段名，记录筛选条件是`创建人包含访问者本人`时，此参数值为""
+         * <p> 示例值：单选
+         *
+         * @param fieldName
+         * @return
+         */
+        public Builder fieldName(String fieldName) {
+            this.fieldName = fieldName;
+            return this;
+        }
+
+
+        /**
+         * 运算符
+         * <p> 示例值：is
+         *
+         * @param operator
+         * @return
+         */
+        public Builder operator(String operator) {
+            this.operator = operator;
+            return this;
+        }
+
+        /**
+         * 运算符
+         * <p> 示例值：is
+         *
+         * @param operator {@link com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleConditionOperatorEnum}
+         * @return
+         */
+        public Builder operator(com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleConditionOperatorEnum operator) {
+            this.operator = operator.getValue();
+            return this;
+        }
+
+
+        /**
+         * 单选或多选字段的选项id
+         * <p> 示例值：["optbdVHf4q", "optrpd3eIJ"]
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String[] value) {
+            this.value = value;
+            return this;
+        }
+
+
+        /**
+         * 字段类型
+         * <p> 示例值：3
+         *
+         * @param fieldType
+         * @return
+         */
+        public Builder fieldType(Integer fieldType) {
+            this.fieldType = fieldType;
+            return this;
+        }
+
+
+        public AppRoleTableRoleRecRuleCondition build() {
+            return new AppRoleTableRoleRecRuleCondition(this);
+        }
+    }
 }

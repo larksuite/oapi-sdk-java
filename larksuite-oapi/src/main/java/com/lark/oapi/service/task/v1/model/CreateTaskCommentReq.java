@@ -16,86 +16,130 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class CreateTaskCommentReq {
-
-  /**
-   * 任务 ID
-   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-   */
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Body
-  private Comment body;
-
-  // builder 开始
-  public CreateTaskCommentReq() {
-  }
-
-  public CreateTaskCommentReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 任务 ID
      * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    this.taskId = builder.taskId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public Comment getComment() {
-    return this.body;
-  }
-
-  public void setComment(Comment body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String taskId; // 任务 ID
+    @Path
+    @SerializedName("task_id")
+    private String taskId;
+    @Body
     private Comment body;
 
-    /**
-     * 任务 ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-     *
-     * @param taskId
-     * @return
-     */
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    // builder 开始
+    public CreateTaskCommentReq() {
+    }
+
+    public CreateTaskCommentReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 任务 ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         */
+        this.taskId = builder.taskId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public Comment getComment() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder comment(Comment body) {
-      this.body = body;
-      return this;
+    public void setComment(Comment body) {
+        this.body = body;
     }
 
-    public CreateTaskCommentReq build() {
-      return new CreateTaskCommentReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String taskId; // 任务 ID
+        private Comment body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.task.v1.enums.CreateTaskCommentUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.task.v1.enums.CreateTaskCommentUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 任务 ID
+         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+         *
+         * @param taskId
+         * @return
+         */
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public Comment getComment() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder comment(Comment body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateTaskCommentReq build() {
+            return new CreateTaskCommentReq(this);
+        }
     }
-  }
 }

@@ -16,54 +16,54 @@ import com.google.gson.annotations.SerializedName;
 
 public class P1DepartmentChangedV3Data {
 
-  @SerializedName("type")
-  private String type;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("open_department_id")
-  private String openDepartmentId;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("open_id")
+    private String openId;
+    @SerializedName("open_department_id")
+    private String openDepartmentId;
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getAppId() {
-    return appId;
-  }
+    public String getAppId() {
+        return appId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getTenantKey() {
-    return tenantKey;
-  }
+    public String getTenantKey() {
+        return tenantKey;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public String getOpenId() {
-    return openId;
-  }
+    public String getOpenId() {
+        return openId;
+    }
 
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
-  public String getOpenDepartmentId() {
-    return openDepartmentId;
-  }
+    public String getOpenDepartmentId() {
+        return openDepartmentId;
+    }
 
-  public void setOpenDepartmentId(String openDepartmentId) {
-    this.openDepartmentId = openDepartmentId;
-  }
+    public void setOpenDepartmentId(String openDepartmentId) {
+        this.openDepartmentId = openDepartmentId;
+    }
 }

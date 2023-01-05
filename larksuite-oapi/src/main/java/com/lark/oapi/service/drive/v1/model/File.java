@@ -16,246 +16,244 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class File {
-
-  /**
-   * 文件标识
-   * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
-   */
-  @SerializedName("token")
-  private String token;
-  /**
-   * 文件名
-   * <p> 示例值：123.txt
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 文件类型
-   * <p> 示例值：file
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 父文件夹标识
-   * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-   */
-  @SerializedName("parent_token")
-  private String parentToken;
-  /**
-   * 在浏览器中查看的链接
-   * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 快捷方式文件信息
-   * <p> 示例值：
-   */
-  @SerializedName("shortcut_info")
-  private ShortcutInfo shortcutInfo;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
     /**
      * 文件标识
-     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
-     */
-    this.token = builder.token;
-    /**
-     * 文件名
-     * <p> 示例值：123.txt
-     */
-    this.name = builder.name;
-    /**
-     * 文件类型
-     * <p> 示例值：file
-     */
-    this.type = builder.type;
-    /**
-     * 父文件夹标识
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-     */
-    this.parentToken = builder.parentToken;
-    /**
-     * 在浏览器中查看的链接
-     * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
-     */
-    this.url = builder.url;
-    /**
-     * 快捷方式文件信息
      * <p> 示例值：
      */
-    this.shortcutInfo = builder.shortcutInfo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getParentToken() {
-    return this.parentToken;
-  }
-
-  public void setParentToken(String parentToken) {
-    this.parentToken = parentToken;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public ShortcutInfo getShortcutInfo() {
-    return this.shortcutInfo;
-  }
-
-  public void setShortcutInfo(ShortcutInfo shortcutInfo) {
-    this.shortcutInfo = shortcutInfo;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件标识
-     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
-     */
+    @SerializedName("token")
     private String token;
     /**
      * 文件名
-     * <p> 示例值：123.txt
+     * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
      * 文件类型
-     * <p> 示例值：file
+     * <p> 示例值：
      */
+    @SerializedName("type")
     private String type;
     /**
      * 父文件夹标识
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     * <p> 示例值：
      */
+    @SerializedName("parent_token")
     private String parentToken;
     /**
      * 在浏览器中查看的链接
-     * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
+     * <p> 示例值：
      */
+    @SerializedName("url")
     private String url;
     /**
      * 快捷方式文件信息
      * <p> 示例值：
      */
+    @SerializedName("shortcut_info")
     private ShortcutInfo shortcutInfo;
 
-    /**
-     * 文件标识
-     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public File() {
     }
 
-
-    /**
-     * 文件名
-     * <p> 示例值：123.txt
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public File(Builder builder) {
+        /**
+         * 文件标识
+         * <p> 示例值：
+         */
+        this.token = builder.token;
+        /**
+         * 文件名
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 文件类型
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * 父文件夹标识
+         * <p> 示例值：
+         */
+        this.parentToken = builder.parentToken;
+        /**
+         * 在浏览器中查看的链接
+         * <p> 示例值：
+         */
+        this.url = builder.url;
+        /**
+         * 快捷方式文件信息
+         * <p> 示例值：
+         */
+        this.shortcutInfo = builder.shortcutInfo;
     }
 
-
-    /**
-     * 文件类型
-     * <p> 示例值：file
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 父文件夹标识
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-     *
-     * @param parentToken
-     * @return
-     */
-    public Builder parentToken(String parentToken) {
-      this.parentToken = parentToken;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-
-    /**
-     * 在浏览器中查看的链接
-     * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-
-    /**
-     * 快捷方式文件信息
-     * <p> 示例值：
-     *
-     * @param shortcutInfo
-     * @return
-     */
-    public Builder shortcutInfo(ShortcutInfo shortcutInfo) {
-      this.shortcutInfo = shortcutInfo;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    public File build() {
-      return new File(this);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getParentToken() {
+        return this.parentToken;
+    }
+
+    public void setParentToken(String parentToken) {
+        this.parentToken = parentToken;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public ShortcutInfo getShortcutInfo() {
+        return this.shortcutInfo;
+    }
+
+    public void setShortcutInfo(ShortcutInfo shortcutInfo) {
+        this.shortcutInfo = shortcutInfo;
+    }
+
+    public static class Builder {
+        /**
+         * 文件标识
+         * <p> 示例值：
+         */
+        private String token;
+        /**
+         * 文件名
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 文件类型
+         * <p> 示例值：
+         */
+        private String type;
+        /**
+         * 父文件夹标识
+         * <p> 示例值：
+         */
+        private String parentToken;
+        /**
+         * 在浏览器中查看的链接
+         * <p> 示例值：
+         */
+        private String url;
+        /**
+         * 快捷方式文件信息
+         * <p> 示例值：
+         */
+        private ShortcutInfo shortcutInfo;
+
+        /**
+         * 文件标识
+         * <p> 示例值：
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 文件名
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 文件类型
+         * <p> 示例值：
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 父文件夹标识
+         * <p> 示例值：
+         *
+         * @param parentToken
+         * @return
+         */
+        public Builder parentToken(String parentToken) {
+            this.parentToken = parentToken;
+            return this;
+        }
+
+
+        /**
+         * 在浏览器中查看的链接
+         * <p> 示例值：
+         *
+         * @param url
+         * @return
+         */
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 快捷方式文件信息
+         * <p> 示例值：
+         *
+         * @param shortcutInfo
+         * @return
+         */
+        public Builder shortcutInfo(ShortcutInfo shortcutInfo) {
+            this.shortcutInfo = shortcutInfo;
+            return this;
+        }
+
+
+        public File build() {
+            return new File(this);
+        }
+    }
 }

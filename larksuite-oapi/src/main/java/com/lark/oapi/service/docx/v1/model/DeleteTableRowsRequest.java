@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DeleteTableRowsRequest {
-
-  /**
-   * 行开始索引（区间左闭右开）
-   * <p> 示例值：0
-   */
-  @SerializedName("row_start_index")
-  private Integer rowStartIndex;
-  /**
-   * 行结束索引（区间左闭右开）
-   * <p> 示例值：1
-   */
-  @SerializedName("row_end_index")
-  private Integer rowEndIndex;
-
-  // builder 开始
-  public DeleteTableRowsRequest() {
-  }
-
-  public DeleteTableRowsRequest(Builder builder) {
     /**
      * 行开始索引（区间左闭右开）
      * <p> 示例值：0
      */
-    this.rowStartIndex = builder.rowStartIndex;
-    /**
-     * 行结束索引（区间左闭右开）
-     * <p> 示例值：1
-     */
-    this.rowEndIndex = builder.rowEndIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowStartIndex() {
-    return this.rowStartIndex;
-  }
-
-  public void setRowStartIndex(Integer rowStartIndex) {
-    this.rowStartIndex = rowStartIndex;
-  }
-
-  public Integer getRowEndIndex() {
-    return this.rowEndIndex;
-  }
-
-  public void setRowEndIndex(Integer rowEndIndex) {
-    this.rowEndIndex = rowEndIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 行开始索引（区间左闭右开）
-     * <p> 示例值：0
-     */
+    @SerializedName("row_start_index")
     private Integer rowStartIndex;
     /**
      * 行结束索引（区间左闭右开）
      * <p> 示例值：1
      */
+    @SerializedName("row_end_index")
     private Integer rowEndIndex;
 
-    /**
-     * 行开始索引（区间左闭右开）
-     * <p> 示例值：0
-     *
-     * @param rowStartIndex
-     * @return
-     */
-    public Builder rowStartIndex(Integer rowStartIndex) {
-      this.rowStartIndex = rowStartIndex;
-      return this;
+    // builder 开始
+    public DeleteTableRowsRequest() {
     }
 
-
-    /**
-     * 行结束索引（区间左闭右开）
-     * <p> 示例值：1
-     *
-     * @param rowEndIndex
-     * @return
-     */
-    public Builder rowEndIndex(Integer rowEndIndex) {
-      this.rowEndIndex = rowEndIndex;
-      return this;
+    public DeleteTableRowsRequest(Builder builder) {
+        /**
+         * 行开始索引（区间左闭右开）
+         * <p> 示例值：0
+         */
+        this.rowStartIndex = builder.rowStartIndex;
+        /**
+         * 行结束索引（区间左闭右开）
+         * <p> 示例值：1
+         */
+        this.rowEndIndex = builder.rowEndIndex;
     }
 
-
-    public DeleteTableRowsRequest build() {
-      return new DeleteTableRowsRequest(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getRowStartIndex() {
+        return this.rowStartIndex;
+    }
+
+    public void setRowStartIndex(Integer rowStartIndex) {
+        this.rowStartIndex = rowStartIndex;
+    }
+
+    public Integer getRowEndIndex() {
+        return this.rowEndIndex;
+    }
+
+    public void setRowEndIndex(Integer rowEndIndex) {
+        this.rowEndIndex = rowEndIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 行开始索引（区间左闭右开）
+         * <p> 示例值：0
+         */
+        private Integer rowStartIndex;
+        /**
+         * 行结束索引（区间左闭右开）
+         * <p> 示例值：1
+         */
+        private Integer rowEndIndex;
+
+        /**
+         * 行开始索引（区间左闭右开）
+         * <p> 示例值：0
+         *
+         * @param rowStartIndex
+         * @return
+         */
+        public Builder rowStartIndex(Integer rowStartIndex) {
+            this.rowStartIndex = rowStartIndex;
+            return this;
+        }
+
+
+        /**
+         * 行结束索引（区间左闭右开）
+         * <p> 示例值：1
+         *
+         * @param rowEndIndex
+         * @return
+         */
+        public Builder rowEndIndex(Integer rowEndIndex) {
+            this.rowEndIndex = rowEndIndex;
+            return this;
+        }
+
+
+        public DeleteTableRowsRequest build() {
+            return new DeleteTableRowsRequest(this);
+        }
+    }
 }

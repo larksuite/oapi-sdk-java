@@ -16,20 +16,19 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTableRecordRespBody {
+    /**
+     * 新增的记录的内容
+     * <p> 示例值：
+     */
+    @SerializedName("record")
+    private AppTableRecord record;
 
-  /**
-   * 记录
-   * <p> 示例值：
-   */
-  @SerializedName("record")
-  private AppTableRecord record;
+    public AppTableRecord getRecord() {
+        return this.record;
+    }
 
-  public AppTableRecord getRecord() {
-    return this.record;
-  }
-
-  public void setRecord(AppTableRecord record) {
-    this.record = record;
-  }
+    public void setRecord(AppTableRecord record) {
+        this.record = record;
+    }
 
 }

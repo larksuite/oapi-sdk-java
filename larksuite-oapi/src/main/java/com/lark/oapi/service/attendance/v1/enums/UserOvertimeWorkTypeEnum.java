@@ -17,18 +17,18 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 加班规则类型
  */
 public enum UserOvertimeWorkTypeEnum {
-  NONE(0), // 不关联加班规则
-  DAYSOFF(1), // 调休
-  FEE(2), // 加班费
-  BIND(3), // 关联加班规则，没有调休或加班费
-  ;
-  private Integer value;
+    NONE(0), // 不关联加班规则
+    DAYSOFF(1), // 调休
+    FEE(2), // 加班费
+    BIND(3), // 关联加班规则，没有调休或加班费
+    ;
+    private Integer value;
 
-  UserOvertimeWorkTypeEnum(Integer value) {
-    this.value = value;
-  }
+    UserOvertimeWorkTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

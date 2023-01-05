@@ -17,17 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 成员ID类型
  */
 public enum MemberBelongGroupMemberIdTypeEnum {
-  OPENID("open_id"), //
-  UNIONID("union_id"), //
-  USERID("user_id"), //
-  ;
-  private String value;
+    OPENID("open_id"), //
+    UNIONID("union_id"), //
+    USERID("user_id"), //
+    ;
+    private String value;
 
-  MemberBelongGroupMemberIdTypeEnum(String value) {
-    this.value = value;
-  }
+    MemberBelongGroupMemberIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.human_authentication.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Identity {
-
-  /**
-   * user identity name
-   * <p> 示例值：
-   */
-  @SerializedName("identity_name")
-  private String identityName;
-  /**
-   * user identity code
-   * <p> 示例值：
-   */
-  @SerializedName("identity_code")
-  private String identityCode;
-  /**
-   * user mobile
-   * <p> 示例值：
-   */
-  @SerializedName("mobile")
-  private String mobile;
-
-  // builder 开始
-  public Identity() {
-  }
-
-  public Identity(Builder builder) {
     /**
      * user identity name
      * <p> 示例值：
      */
-    this.identityName = builder.identityName;
-    /**
-     * user identity code
-     * <p> 示例值：
-     */
-    this.identityCode = builder.identityCode;
-    /**
-     * user mobile
-     * <p> 示例值：
-     */
-    this.mobile = builder.mobile;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getIdentityName() {
-    return this.identityName;
-  }
-
-  public void setIdentityName(String identityName) {
-    this.identityName = identityName;
-  }
-
-  public String getIdentityCode() {
-    return this.identityCode;
-  }
-
-  public void setIdentityCode(String identityCode) {
-    this.identityCode = identityCode;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public static class Builder {
-
-    /**
-     * user identity name
-     * <p> 示例值：
-     */
+    @SerializedName("identity_name")
     private String identityName;
     /**
      * user identity code
      * <p> 示例值：
      */
+    @SerializedName("identity_code")
     private String identityCode;
     /**
      * user mobile
      * <p> 示例值：
      */
+    @SerializedName("mobile")
     private String mobile;
 
-    /**
-     * user identity name
-     * <p> 示例值：
-     *
-     * @param identityName
-     * @return
-     */
-    public Builder identityName(String identityName) {
-      this.identityName = identityName;
-      return this;
+    // builder 开始
+    public Identity() {
     }
 
-
-    /**
-     * user identity code
-     * <p> 示例值：
-     *
-     * @param identityCode
-     * @return
-     */
-    public Builder identityCode(String identityCode) {
-      this.identityCode = identityCode;
-      return this;
+    public Identity(Builder builder) {
+        /**
+         * user identity name
+         * <p> 示例值：
+         */
+        this.identityName = builder.identityName;
+        /**
+         * user identity code
+         * <p> 示例值：
+         */
+        this.identityCode = builder.identityCode;
+        /**
+         * user mobile
+         * <p> 示例值：
+         */
+        this.mobile = builder.mobile;
     }
 
-
-    /**
-     * user mobile
-     * <p> 示例值：
-     *
-     * @param mobile
-     * @return
-     */
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Identity build() {
-      return new Identity(this);
+    public String getIdentityName() {
+        return this.identityName;
     }
-  }
+
+    public void setIdentityName(String identityName) {
+        this.identityName = identityName;
+    }
+
+    public String getIdentityCode() {
+        return this.identityCode;
+    }
+
+    public void setIdentityCode(String identityCode) {
+        this.identityCode = identityCode;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public static class Builder {
+        /**
+         * user identity name
+         * <p> 示例值：
+         */
+        private String identityName;
+        /**
+         * user identity code
+         * <p> 示例值：
+         */
+        private String identityCode;
+        /**
+         * user mobile
+         * <p> 示例值：
+         */
+        private String mobile;
+
+        /**
+         * user identity name
+         * <p> 示例值：
+         *
+         * @param identityName
+         * @return
+         */
+        public Builder identityName(String identityName) {
+            this.identityName = identityName;
+            return this;
+        }
+
+
+        /**
+         * user identity code
+         * <p> 示例值：
+         *
+         * @param identityCode
+         * @return
+         */
+        public Builder identityCode(String identityCode) {
+            this.identityCode = identityCode;
+            return this;
+        }
+
+
+        /**
+         * user mobile
+         * <p> 示例值：
+         *
+         * @param mobile
+         * @return
+         */
+        public Builder mobile(String mobile) {
+            this.mobile = mobile;
+            return this;
+        }
+
+
+        public Identity build() {
+            return new Identity(this);
+        }
+    }
 }

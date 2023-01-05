@@ -16,51 +16,50 @@ package com.lark.oapi.service.drive.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class UploadPartFileReq {
-
-  @Body
-  private UploadPartFileReqBody body;
-
-  // builder 开始
-  public UploadPartFileReq() {
-  }
-
-  public UploadPartFileReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UploadPartFileReqBody getUploadPartFileReqBody() {
-    return this.body;
-  }
-
-  public void setUploadPartFileReqBody(UploadPartFileReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private UploadPartFileReqBody body;
 
+    // builder 开始
+    public UploadPartFileReq() {
+    }
+
+    public UploadPartFileReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UploadPartFileReqBody getUploadPartFileReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder uploadPartFileReqBody(UploadPartFileReqBody body) {
-      this.body = body;
-      return this;
+    public void setUploadPartFileReqBody(UploadPartFileReqBody body) {
+        this.body = body;
     }
 
-    public UploadPartFileReq build() {
-      return new UploadPartFileReq(this);
+    public static class Builder {
+
+        private UploadPartFileReqBody body;
+
+        public UploadPartFileReqBody getUploadPartFileReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder uploadPartFileReqBody(UploadPartFileReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UploadPartFileReq build() {
+            return new UploadPartFileReq(this);
+        }
     }
-  }
 }

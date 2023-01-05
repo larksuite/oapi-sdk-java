@@ -16,20 +16,19 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetEmployeeRespBody {
+    /**
+     * 员工信息
+     * <p> 示例值：
+     */
+    @SerializedName("employee")
+    private Employee employee;
 
-  /**
-   * 员工信息
-   * <p> 示例值：
-   */
-  @SerializedName("employee")
-  private Employee employee;
+    public Employee getEmployee() {
+        return this.employee;
+    }
 
-  public Employee getEmployee() {
-    return this.employee;
-  }
-
-  public void setEmployee(Employee employee) {
-    this.employee = employee;
-  }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
 }

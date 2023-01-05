@@ -15,16 +15,16 @@ package com.lark.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum EnumTypeEnum {
-  DEFUALT(1),
-  CUSTOM(2),
-  ;
-  private Integer value;
+    DEFUALT(1),
+    CUSTOM(2),
+    ;
+    private Integer value;
 
-  EnumTypeEnum(Integer value) {
-    this.value = value;
-  }
+    EnumTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

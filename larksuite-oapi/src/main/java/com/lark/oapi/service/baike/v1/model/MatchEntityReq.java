@@ -16,51 +16,50 @@ package com.lark.oapi.service.baike.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class MatchEntityReq {
-
-  @Body
-  private MatchEntityReqBody body;
-
-  // builder 开始
-  public MatchEntityReq() {
-  }
-
-  public MatchEntityReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public MatchEntityReqBody getMatchEntityReqBody() {
-    return this.body;
-  }
-
-  public void setMatchEntityReqBody(MatchEntityReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private MatchEntityReqBody body;
 
+    // builder 开始
+    public MatchEntityReq() {
+    }
+
+    public MatchEntityReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public MatchEntityReqBody getMatchEntityReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder matchEntityReqBody(MatchEntityReqBody body) {
-      this.body = body;
-      return this;
+    public void setMatchEntityReqBody(MatchEntityReqBody body) {
+        this.body = body;
     }
 
-    public MatchEntityReq build() {
-      return new MatchEntityReq(this);
+    public static class Builder {
+
+        private MatchEntityReqBody body;
+
+        public MatchEntityReqBody getMatchEntityReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder matchEntityReqBody(MatchEntityReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public MatchEntityReq build() {
+            return new MatchEntityReq(this);
+        }
     }
-  }
 }

@@ -23,67 +23,68 @@ import com.lark.oapi.okhttp.Response;
 import com.lark.oapi.okhttp.internal.connection.RealConnection;
 import com.lark.oapi.okio.Sink;
 import com.lark.oapi.okio.Source;
-import java.io.IOException;
+
 import javax.annotation.Nullable;
+import java.io.IOException;
 
 /**
  * Encodes HTTP requests and decodes HTTP responses.
  */
 public interface ExchangeCodec {
 
-  /**
-   * The timeout to use while discarding a stream of input data. Since this is used for connection
-   * reuse, this timeout should be significantly less than the time it takes to establish a new
-   * connection.
-   */
-  int DISCARD_STREAM_TIMEOUT_MILLIS = 100;
+    /**
+     * The timeout to use while discarding a stream of input data. Since this is used for connection
+     * reuse, this timeout should be significantly less than the time it takes to establish a new
+     * connection.
+     */
+    int DISCARD_STREAM_TIMEOUT_MILLIS = 100;
 
-  /**
-   * Returns the connection that carries this codec.
-   */
-  RealConnection connection();
+    /**
+     * Returns the connection that carries this codec.
+     */
+    RealConnection connection();
 
-  /**
-   * Returns an output stream where the request body can be streamed.
-   */
-  Sink createRequestBody(Request request, long contentLength) throws IOException;
+    /**
+     * Returns an output stream where the request body can be streamed.
+     */
+    Sink createRequestBody(Request request, long contentLength) throws IOException;
 
-  /**
-   * This should update the HTTP engine's sentRequestMillis field.
-   */
-  void writeRequestHeaders(Request request) throws IOException;
+    /**
+     * This should update the HTTP engine's sentRequestMillis field.
+     */
+    void writeRequestHeaders(Request request) throws IOException;
 
-  /**
-   * Flush the request to the underlying socket.
-   */
-  void flushRequest() throws IOException;
+    /**
+     * Flush the request to the underlying socket.
+     */
+    void flushRequest() throws IOException;
 
-  /**
-   * Flush the request to the underlying socket and signal no more bytes will be transmitted.
-   */
-  void finishRequest() throws IOException;
+    /**
+     * Flush the request to the underlying socket and signal no more bytes will be transmitted.
+     */
+    void finishRequest() throws IOException;
 
-  /**
-   * Parses bytes of a response header from an HTTP transport.
-   *
-   * @param expectContinue true to return null if this is an intermediate response with a "100"
-   *                       response code. Otherwise this method never returns null.
-   */
-  @Nullable
-  Response.Builder readResponseHeaders(boolean expectContinue) throws IOException;
+    /**
+     * Parses bytes of a response header from an HTTP transport.
+     *
+     * @param expectContinue true to return null if this is an intermediate response with a "100"
+     *                       response code. Otherwise this method never returns null.
+     */
+    @Nullable
+    Response.Builder readResponseHeaders(boolean expectContinue) throws IOException;
 
-  long reportedContentLength(Response response) throws IOException;
+    long reportedContentLength(Response response) throws IOException;
 
-  Source openResponseBodySource(Response response) throws IOException;
+    Source openResponseBodySource(Response response) throws IOException;
 
-  /**
-   * Returns the trailers after the HTTP response. May be empty.
-   */
-  Headers trailers() throws IOException;
+    /**
+     * Returns the trailers after the HTTP response. May be empty.
+     */
+    Headers trailers() throws IOException;
 
-  /**
-   * Cancel this stream. Resources held by this stream will be cleaned up, though not synchronously.
-   * That may happen later by the connection pool thread.
-   */
-  void cancel();
+    /**
+     * Cancel this stream. Resources held by this stream will be cleaned up, though not synchronously.
+     * That may happen later by the connection pool thread.
+     */
+    void cancel();
 }

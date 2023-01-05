@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetTalent {
 
-  /**
-   * 人才信息
-   * <p> 示例值：
-   */
-  @SerializedName("talent")
-  private Talent talent;
+    /**
+     * 人才信息
+     * <p> 示例值：
+     */
+    @SerializedName("talent")
+    private Talent talent;
 
-  public Talent getTalent() {
-    return this.talent;
-  }
+    public Talent getTalent() {
+        return this.talent;
+    }
 
-  public void setTalent(Talent talent) {
-    this.talent = talent;
-  }
+    public void setTalent(Talent talent) {
+        this.talent = talent;
+    }
 
 }

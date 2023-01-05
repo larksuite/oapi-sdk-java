@@ -18,183 +18,179 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class DeletePermissionMemberReq {
-
-  /**
-   * 文件类型，放于query参数中，如：`?type=doc`
-   * <p> 示例值：doc
-   */
-  @Query
-  @SerializedName("type")
-  private String type;
-  /**
-   * 权限成员类型，放于query参数中，如：`?member_type=openid`
-   * <p> 示例值：openid
-   */
-  @Query
-  @SerializedName("member_type")
-  private String memberType;
-  /**
-   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-   * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-   */
-  @Path
-  @SerializedName("token")
-  private String token;
-  /**
-   * 权限成员的ID，与`member_type`相对应
-   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-   */
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-
-  // builder 开始
-  public DeletePermissionMemberReq() {
-  }
-
-  public DeletePermissionMemberReq(Builder builder) {
     /**
-     * 文件类型，放于query参数中，如：`?type=doc`
+     * 文件类型，需要与文件的 token 相匹配
      * <p> 示例值：doc
      */
-    this.type = builder.type;
+    @Query
+    @SerializedName("type")
+    private String type;
     /**
-     * 权限成员类型，放于query参数中，如：`?member_type=openid`
+     * 协作者 ID 类型，与协作者 ID 需要对应
      * <p> 示例值：openid
      */
-    this.memberType = builder.memberType;
+    @Query
+    @SerializedName("member_type")
+    private String memberType;
     /**
      * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
-    this.token = builder.token;
+    @Path
+    @SerializedName("token")
+    private String token;
     /**
-     * 权限成员的ID，与`member_type`相对应
+     * 协作者 ID，与协作者 ID 类型需要对应
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    this.memberId = builder.memberId;
-  }
+    @Path
+    @SerializedName("member_id")
+    private String memberId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getMemberType() {
-    return this.memberType;
-  }
-
-  public void setMemberType(String memberType) {
-    this.memberType = memberType;
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
-    private String type; // 文件类型，放于query参数中，如：`?type=doc`
-    private String memberType; // 权限成员类型，放于query参数中，如：`?member_type=openid`
-    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-    private String memberId; // 权限成员的ID，与`member_type`相对应
-
-    /**
-     * 文件类型，放于query参数中，如：`?type=doc`
-     * <p> 示例值：doc
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    // builder 开始
+    public DeletePermissionMemberReq() {
     }
 
-    /**
-     * 文件类型，放于query参数中，如：`?type=doc`
-     * <p> 示例值：doc
-     *
-     * @param type {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTokenTypeV2Enum}
-     * @return
-     */
-    public Builder type(
-        com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTokenTypeV2Enum type) {
-      this.type = type.getValue();
-      return this;
+    public DeletePermissionMemberReq(Builder builder) {
+        /**
+         * 文件类型，需要与文件的 token 相匹配
+         * <p> 示例值：doc
+         */
+        this.type = builder.type;
+        /**
+         * 协作者 ID 类型，与协作者 ID 需要对应
+         * <p> 示例值：openid
+         */
+        this.memberType = builder.memberType;
+        /**
+         * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+         */
+        this.token = builder.token;
+        /**
+         * 协作者 ID，与协作者 ID 类型需要对应
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        this.memberId = builder.memberId;
     }
 
-    /**
-     * 权限成员类型，放于query参数中，如：`?member_type=openid`
-     * <p> 示例值：openid
-     *
-     * @param memberType
-     * @return
-     */
-    public Builder memberType(String memberType) {
-      this.memberType = memberType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 权限成员类型，放于query参数中，如：`?member_type=openid`
-     * <p> 示例值：openid
-     *
-     * @param memberType {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberMemberTypeEnum}
-     * @return
-     */
-    public Builder memberType(
-        com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberMemberTypeEnum memberType) {
-      this.memberType = memberType.getValue();
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-
-    /**
-     * 权限成员的ID，与`member_type`相对应
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     *
-     * @param memberId
-     * @return
-     */
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public String getMemberType() {
+        return this.memberType;
     }
 
-    public DeletePermissionMemberReq build() {
-      return new DeletePermissionMemberReq(this);
+    public void setMemberType(String memberType) {
+        this.memberType = memberType;
     }
-  }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public static class Builder {
+        private String type; // 文件类型，需要与文件的 token 相匹配
+        private String memberType; // 协作者 ID 类型，与协作者 ID 需要对应
+        private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+        private String memberId; // 协作者 ID，与协作者 ID 类型需要对应
+
+        /**
+         * 文件类型，需要与文件的 token 相匹配
+         * <p> 示例值：doc
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 文件类型，需要与文件的 token 相匹配
+         * <p> 示例值：doc
+         *
+         * @param type {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTokenTypeV2Enum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTokenTypeV2Enum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+        /**
+         * 协作者 ID 类型，与协作者 ID 需要对应
+         * <p> 示例值：openid
+         *
+         * @param memberType
+         * @return
+         */
+        public Builder memberType(String memberType) {
+            this.memberType = memberType;
+            return this;
+        }
+
+        /**
+         * 协作者 ID 类型，与协作者 ID 需要对应
+         * <p> 示例值：openid
+         *
+         * @param memberType {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberMemberTypeEnum}
+         * @return
+         */
+        public Builder memberType(com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberMemberTypeEnum memberType) {
+            this.memberType = memberType.getValue();
+            return this;
+        }
+
+        /**
+         * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 协作者 ID，与协作者 ID 类型需要对应
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         *
+         * @param memberId
+         * @return
+         */
+        public Builder memberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+        public DeletePermissionMemberReq build() {
+            return new DeletePermissionMemberReq(this);
+        }
+    }
 }

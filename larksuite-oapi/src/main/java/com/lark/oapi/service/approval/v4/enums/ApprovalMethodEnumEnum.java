@@ -15,16 +15,16 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum ApprovalMethodEnumEnum {
-  OR_SIGN(1),
-  ADD_SIGN(2),
-  ;
-  private Integer value;
+    OR_SIGN(1),
+    ADD_SIGN(2),
+    ;
+    private Integer value;
 
-  ApprovalMethodEnumEnum(Integer value) {
-    this.value = value;
-  }
+    ApprovalMethodEnumEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

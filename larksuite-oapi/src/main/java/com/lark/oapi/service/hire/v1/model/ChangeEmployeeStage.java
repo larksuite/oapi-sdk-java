@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ChangeEmployeeStage {
-
-  /**
-   * 修改状态操作
-   * <p> 示例值：1
-   */
-  @SerializedName("operation")
-  private Integer operation;
-  /**
-   * 转正信息
-   * <p> 示例值：
-   */
-  @SerializedName("conversion_info")
-  private EmployeeConversionInfo conversionInfo;
-  /**
-   * 离职信息
-   * <p> 示例值：
-   */
-  @SerializedName("overboard_info")
-  private EmployeeOverboardInfo overboardInfo;
-
-  // builder 开始
-  public ChangeEmployeeStage() {
-  }
-
-  public ChangeEmployeeStage(Builder builder) {
     /**
      * 修改状态操作
      * <p> 示例值：1
      */
-    this.operation = builder.operation;
-    /**
-     * 转正信息
-     * <p> 示例值：
-     */
-    this.conversionInfo = builder.conversionInfo;
-    /**
-     * 离职信息
-     * <p> 示例值：
-     */
-    this.overboardInfo = builder.overboardInfo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getOperation() {
-    return this.operation;
-  }
-
-  public void setOperation(Integer operation) {
-    this.operation = operation;
-  }
-
-  public EmployeeConversionInfo getConversionInfo() {
-    return this.conversionInfo;
-  }
-
-  public void setConversionInfo(EmployeeConversionInfo conversionInfo) {
-    this.conversionInfo = conversionInfo;
-  }
-
-  public EmployeeOverboardInfo getOverboardInfo() {
-    return this.overboardInfo;
-  }
-
-  public void setOverboardInfo(EmployeeOverboardInfo overboardInfo) {
-    this.overboardInfo = overboardInfo;
-  }
-
-  public static class Builder {
-
-    /**
-     * 修改状态操作
-     * <p> 示例值：1
-     */
+    @SerializedName("operation")
     private Integer operation;
     /**
      * 转正信息
      * <p> 示例值：
      */
+    @SerializedName("conversion_info")
     private EmployeeConversionInfo conversionInfo;
     /**
      * 离职信息
      * <p> 示例值：
      */
+    @SerializedName("overboard_info")
     private EmployeeOverboardInfo overboardInfo;
 
-    /**
-     * 修改状态操作
-     * <p> 示例值：1
-     *
-     * @param operation
-     * @return
-     */
-    public Builder operation(Integer operation) {
-      this.operation = operation;
-      return this;
+    // builder 开始
+    public ChangeEmployeeStage() {
     }
 
-
-    /**
-     * 转正信息
-     * <p> 示例值：
-     *
-     * @param conversionInfo
-     * @return
-     */
-    public Builder conversionInfo(EmployeeConversionInfo conversionInfo) {
-      this.conversionInfo = conversionInfo;
-      return this;
+    public ChangeEmployeeStage(Builder builder) {
+        /**
+         * 修改状态操作
+         * <p> 示例值：1
+         */
+        this.operation = builder.operation;
+        /**
+         * 转正信息
+         * <p> 示例值：
+         */
+        this.conversionInfo = builder.conversionInfo;
+        /**
+         * 离职信息
+         * <p> 示例值：
+         */
+        this.overboardInfo = builder.overboardInfo;
     }
 
-
-    /**
-     * 离职信息
-     * <p> 示例值：
-     *
-     * @param overboardInfo
-     * @return
-     */
-    public Builder overboardInfo(EmployeeOverboardInfo overboardInfo) {
-      this.overboardInfo = overboardInfo;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ChangeEmployeeStage build() {
-      return new ChangeEmployeeStage(this);
+    public Integer getOperation() {
+        return this.operation;
     }
-  }
+
+    public void setOperation(Integer operation) {
+        this.operation = operation;
+    }
+
+    public EmployeeConversionInfo getConversionInfo() {
+        return this.conversionInfo;
+    }
+
+    public void setConversionInfo(EmployeeConversionInfo conversionInfo) {
+        this.conversionInfo = conversionInfo;
+    }
+
+    public EmployeeOverboardInfo getOverboardInfo() {
+        return this.overboardInfo;
+    }
+
+    public void setOverboardInfo(EmployeeOverboardInfo overboardInfo) {
+        this.overboardInfo = overboardInfo;
+    }
+
+    public static class Builder {
+        /**
+         * 修改状态操作
+         * <p> 示例值：1
+         */
+        private Integer operation;
+        /**
+         * 转正信息
+         * <p> 示例值：
+         */
+        private EmployeeConversionInfo conversionInfo;
+        /**
+         * 离职信息
+         * <p> 示例值：
+         */
+        private EmployeeOverboardInfo overboardInfo;
+
+        /**
+         * 修改状态操作
+         * <p> 示例值：1
+         *
+         * @param operation
+         * @return
+         */
+        public Builder operation(Integer operation) {
+            this.operation = operation;
+            return this;
+        }
+
+
+        /**
+         * 转正信息
+         * <p> 示例值：
+         *
+         * @param conversionInfo
+         * @return
+         */
+        public Builder conversionInfo(EmployeeConversionInfo conversionInfo) {
+            this.conversionInfo = conversionInfo;
+            return this;
+        }
+
+
+        /**
+         * 离职信息
+         * <p> 示例值：
+         *
+         * @param overboardInfo
+         * @return
+         */
+        public Builder overboardInfo(EmployeeOverboardInfo overboardInfo) {
+            this.overboardInfo = overboardInfo;
+            return this;
+        }
+
+
+        public ChangeEmployeeStage build() {
+            return new ChangeEmployeeStage(this);
+        }
+    }
 }

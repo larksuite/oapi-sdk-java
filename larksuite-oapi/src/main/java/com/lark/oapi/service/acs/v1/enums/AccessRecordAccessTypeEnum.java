@@ -17,15 +17,15 @@ package com.lark.oapi.service.acs.v1.enums;
  * 识别方式
  */
 public enum AccessRecordAccessTypeEnum {
-  FA("FA"), // 人脸识别方式
-  ;
-  private String value;
+    FA("FA"), // 人脸识别方式
+    ;
+    private String value;
 
-  AccessRecordAccessTypeEnum(String value) {
-    this.value = value;
-  }
+    AccessRecordAccessTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,51 +16,50 @@ package com.lark.oapi.service.face_detection.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class DetectFaceAttributesImageReq {
-
-  @Body
-  private DetectFaceAttributesImageReqBody body;
-
-  // builder 开始
-  public DetectFaceAttributesImageReq() {
-  }
-
-  public DetectFaceAttributesImageReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public DetectFaceAttributesImageReqBody getDetectFaceAttributesImageReqBody() {
-    return this.body;
-  }
-
-  public void setDetectFaceAttributesImageReqBody(DetectFaceAttributesImageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private DetectFaceAttributesImageReqBody body;
 
+    // builder 开始
+    public DetectFaceAttributesImageReq() {
+    }
+
+    public DetectFaceAttributesImageReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public DetectFaceAttributesImageReqBody getDetectFaceAttributesImageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder detectFaceAttributesImageReqBody(DetectFaceAttributesImageReqBody body) {
-      this.body = body;
-      return this;
+    public void setDetectFaceAttributesImageReqBody(DetectFaceAttributesImageReqBody body) {
+        this.body = body;
     }
 
-    public DetectFaceAttributesImageReq build() {
-      return new DetectFaceAttributesImageReq(this);
+    public static class Builder {
+
+        private DetectFaceAttributesImageReqBody body;
+
+        public DetectFaceAttributesImageReqBody getDetectFaceAttributesImageReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder detectFaceAttributesImageReqBody(DetectFaceAttributesImageReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public DetectFaceAttributesImageReq build() {
+            return new DetectFaceAttributesImageReq(this);
+        }
     }
-  }
 }

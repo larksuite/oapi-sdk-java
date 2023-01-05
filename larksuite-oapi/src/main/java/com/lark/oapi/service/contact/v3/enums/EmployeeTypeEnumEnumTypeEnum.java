@@ -17,16 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 类型
  */
 public enum EmployeeTypeEnumEnumTypeEnum {
-  DEFUALT(1), // 内置类型
-  CUSTOM(2), // 自定义
-  ;
-  private Integer value;
+    DEFUALT(1), // 内置类型
+    CUSTOM(2), // 自定义
+    ;
+    private Integer value;
 
-  EmployeeTypeEnumEnumTypeEnum(Integer value) {
-    this.value = value;
-  }
+    EmployeeTypeEnumEnumTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

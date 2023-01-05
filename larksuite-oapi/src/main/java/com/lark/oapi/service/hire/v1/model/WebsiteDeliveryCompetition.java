@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryCompetition {
-
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-  /**
-   * 竞赛描述
-   * <p> 示例值：唱歌比赛
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 竞赛名称
-   * <p> 示例值：青年歌手大赛
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public WebsiteDeliveryCompetition() {
-  }
-
-  public WebsiteDeliveryCompetition(Builder builder) {
     /**
      * 自定义字段
      * <p> 示例值：
      */
-    this.customizedData = builder.customizedData;
-    /**
-     * 竞赛描述
-     * <p> 示例值：唱歌比赛
-     */
-    this.desc = builder.desc;
-    /**
-     * 竞赛名称
-     * <p> 示例值：青年歌手大赛
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
     /**
      * 竞赛描述
      * <p> 示例值：唱歌比赛
      */
+    @SerializedName("desc")
     private String desc;
     /**
      * 竞赛名称
      * <p> 示例值：青年歌手大赛
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryCompetition() {
     }
 
-
-    /**
-     * 竞赛描述
-     * <p> 示例值：唱歌比赛
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    public WebsiteDeliveryCompetition(Builder builder) {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
+        /**
+         * 竞赛描述
+         * <p> 示例值：唱歌比赛
+         */
+        this.desc = builder.desc;
+        /**
+         * 竞赛名称
+         * <p> 示例值：青年歌手大赛
+         */
+        this.name = builder.name;
     }
 
-
-    /**
-     * 竞赛名称
-     * <p> 示例值：青年歌手大赛
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public WebsiteDeliveryCompetition build() {
-      return new WebsiteDeliveryCompetition(this);
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
     }
-  }
+
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+        /**
+         * 竞赛描述
+         * <p> 示例值：唱歌比赛
+         */
+        private String desc;
+        /**
+         * 竞赛名称
+         * <p> 示例值：青年歌手大赛
+         */
+        private String name;
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        /**
+         * 竞赛描述
+         * <p> 示例值：唱歌比赛
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 竞赛名称
+         * <p> 示例值：青年歌手大赛
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public WebsiteDeliveryCompetition build() {
+            return new WebsiteDeliveryCompetition(this);
+        }
+    }
 }

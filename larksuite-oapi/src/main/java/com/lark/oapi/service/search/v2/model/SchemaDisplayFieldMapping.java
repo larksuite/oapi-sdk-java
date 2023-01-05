@@ -16,98 +16,96 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SchemaDisplayFieldMapping {
-
-  /**
-   * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
-   * <p> 示例值：summary
-   */
-  @SerializedName("display_field")
-  private String displayField;
-  /**
-   * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
-   * <p> 示例值：${description}
-   */
-  @SerializedName("data_field")
-  private String dataField;
-
-  // builder 开始
-  public SchemaDisplayFieldMapping() {
-  }
-
-  public SchemaDisplayFieldMapping(Builder builder) {
     /**
      * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
      * <p> 示例值：summary
      */
-    this.displayField = builder.displayField;
-    /**
-     * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
-     * <p> 示例值：${description}
-     */
-    this.dataField = builder.dataField;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDisplayField() {
-    return this.displayField;
-  }
-
-  public void setDisplayField(String displayField) {
-    this.displayField = displayField;
-  }
-
-  public String getDataField() {
-    return this.dataField;
-  }
-
-  public void setDataField(String dataField) {
-    this.dataField = dataField;
-  }
-
-  public static class Builder {
-
-    /**
-     * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
-     * <p> 示例值：summary
-     */
+    @SerializedName("display_field")
     private String displayField;
     /**
      * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
      * <p> 示例值：${description}
      */
+    @SerializedName("data_field")
     private String dataField;
 
-    /**
-     * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
-     * <p> 示例值：summary
-     *
-     * @param displayField
-     * @return
-     */
-    public Builder displayField(String displayField) {
-      this.displayField = displayField;
-      return this;
+    // builder 开始
+    public SchemaDisplayFieldMapping() {
     }
 
-
-    /**
-     * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
-     * <p> 示例值：${description}
-     *
-     * @param dataField
-     * @return
-     */
-    public Builder dataField(String dataField) {
-      this.dataField = dataField;
-      return this;
+    public SchemaDisplayFieldMapping(Builder builder) {
+        /**
+         * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
+         * <p> 示例值：summary
+         */
+        this.displayField = builder.displayField;
+        /**
+         * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
+         * <p> 示例值：${description}
+         */
+        this.dataField = builder.dataField;
     }
 
-
-    public SchemaDisplayFieldMapping build() {
-      return new SchemaDisplayFieldMapping(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getDisplayField() {
+        return this.displayField;
+    }
+
+    public void setDisplayField(String displayField) {
+        this.displayField = displayField;
+    }
+
+    public String getDataField() {
+        return this.dataField;
+    }
+
+    public void setDataField(String dataField) {
+        this.dataField = dataField;
+    }
+
+    public static class Builder {
+        /**
+         * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
+         * <p> 示例值：summary
+         */
+        private String displayField;
+        /**
+         * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
+         * <p> 示例值：${description}
+         */
+        private String dataField;
+
+        /**
+         * 展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复
+         * <p> 示例值：summary
+         *
+         * @param displayField
+         * @return
+         */
+        public Builder displayField(String displayField) {
+            this.displayField = displayField;
+            return this;
+        }
+
+
+        /**
+         * 数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述
+         * <p> 示例值：${description}
+         *
+         * @param dataField
+         * @return
+         */
+        public Builder dataField(String dataField) {
+            this.dataField = dataField;
+            return this;
+        }
+
+
+        public SchemaDisplayFieldMapping build() {
+            return new SchemaDisplayFieldMapping(this);
+        }
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.task.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UserIdList {
-
-  /**
-   * 用户 ID 列表
-   * <p> 示例值：
-   */
-  @SerializedName("user_id_list")
-  private UserId[] userIdList;
-
-  // builder 开始
-  public UserIdList() {
-  }
-
-  public UserIdList(Builder builder) {
     /**
      * 用户 ID 列表
      * <p> 示例值：
      */
-    this.userIdList = builder.userIdList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(UserId[] userIdList) {
-    this.userIdList = userIdList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户 ID 列表
-     * <p> 示例值：
-     */
+    @SerializedName("user_id_list")
     private UserId[] userIdList;
 
-    /**
-     * 用户 ID 列表
-     * <p> 示例值：
-     *
-     * @param userIdList
-     * @return
-     */
-    public Builder userIdList(UserId[] userIdList) {
-      this.userIdList = userIdList;
-      return this;
+    // builder 开始
+    public UserIdList() {
     }
 
-
-    public UserIdList build() {
-      return new UserIdList(this);
+    public UserIdList(Builder builder) {
+        /**
+         * 用户 ID 列表
+         * <p> 示例值：
+         */
+        this.userIdList = builder.userIdList;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
+
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
+    }
+
+    public static class Builder {
+        /**
+         * 用户 ID 列表
+         * <p> 示例值：
+         */
+        private UserId[] userIdList;
+
+        /**
+         * 用户 ID 列表
+         * <p> 示例值：
+         *
+         * @param userIdList
+         * @return
+         */
+        public Builder userIdList(UserId[] userIdList) {
+            this.userIdList = userIdList;
+            return this;
+        }
+
+
+        public UserIdList build() {
+            return new UserIdList(this);
+        }
+    }
 }

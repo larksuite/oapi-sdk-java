@@ -17,47 +17,47 @@ import com.lark.oapi.card.enums.MessageCardActionLayoutEnum;
 
 public class MessageCardAction extends MessageCardElement implements IMessageCardElement {
 
-  @SerializedName("actions")
-  private IMessageCardActionElement[] actions;
-  @SerializedName("layout")
-  private String layout;
-
-  private MessageCardAction(Builder builder) {
-    actions = builder.actions;
-    if (builder.layout != null) {
-      layout = builder.layout.getValue();
-    }
-    tag = "action";
-  }
-
-  public MessageCardAction() {
-    tag = "action";
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
+    @SerializedName("actions")
     private IMessageCardActionElement[] actions;
-    private MessageCardActionLayoutEnum layout;
+    @SerializedName("layout")
+    private String layout;
 
-    private Builder() {
+    private MessageCardAction(Builder builder) {
+        actions = builder.actions;
+        if (builder.layout != null) {
+            layout = builder.layout.getValue();
+        }
+        tag = "action";
     }
 
-    public Builder actions(IMessageCardActionElement[] actions) {
-      this.actions = actions;
-      return this;
+    public MessageCardAction() {
+        tag = "action";
     }
 
-    public Builder layout(MessageCardActionLayoutEnum layout) {
-      this.layout = layout;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public MessageCardAction build() {
-      return new MessageCardAction(this);
+    public static final class Builder {
+
+        private IMessageCardActionElement[] actions;
+        private MessageCardActionLayoutEnum layout;
+
+        private Builder() {
+        }
+
+        public Builder actions(IMessageCardActionElement[] actions) {
+            this.actions = actions;
+            return this;
+        }
+
+        public Builder layout(MessageCardActionLayoutEnum layout) {
+            this.layout = layout;
+            return this;
+        }
+
+        public MessageCardAction build() {
+            return new MessageCardAction(this);
+        }
     }
-  }
 }

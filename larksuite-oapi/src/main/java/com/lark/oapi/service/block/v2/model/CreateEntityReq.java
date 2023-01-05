@@ -16,51 +16,50 @@ package com.lark.oapi.service.block.v2.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateEntityReq {
-
-  @Body
-  private CreateEntityReqBody body;
-
-  // builder 开始
-  public CreateEntityReq() {
-  }
-
-  public CreateEntityReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateEntityReqBody getCreateEntityReqBody() {
-    return this.body;
-  }
-
-  public void setCreateEntityReqBody(CreateEntityReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateEntityReqBody body;
 
+    // builder 开始
+    public CreateEntityReq() {
+    }
+
+    public CreateEntityReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateEntityReqBody getCreateEntityReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createEntityReqBody(CreateEntityReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateEntityReqBody(CreateEntityReqBody body) {
+        this.body = body;
     }
 
-    public CreateEntityReq build() {
-      return new CreateEntityReq(this);
+    public static class Builder {
+
+        private CreateEntityReqBody body;
+
+        public CreateEntityReqBody getCreateEntityReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createEntityReqBody(CreateEntityReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateEntityReq build() {
+            return new CreateEntityReq(this);
+        }
     }
-  }
 }

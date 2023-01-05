@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class PreviewNotificationReq {
-
-  /**
-   * 创建推送接口成功后返回的唯一id
-   * <p> 示例值：6985032626234982420
-   */
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-
-  // builder 开始
-  public PreviewNotificationReq() {
-  }
-
-  public PreviewNotificationReq(Builder builder) {
     /**
      * 创建推送接口成功后返回的唯一id
      * <p> 示例值：6985032626234982420
      */
-    this.notificationId = builder.notificationId;
-  }
+    @Path
+    @SerializedName("notification_id")
+    private String notificationId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public static class Builder {
-
-    private String notificationId; // 创建推送接口成功后返回的唯一id
-
-    /**
-     * 创建推送接口成功后返回的唯一id
-     * <p> 示例值：6985032626234982420
-     *
-     * @param notificationId
-     * @return
-     */
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
+    // builder 开始
+    public PreviewNotificationReq() {
     }
 
-    public PreviewNotificationReq build() {
-      return new PreviewNotificationReq(this);
+    public PreviewNotificationReq(Builder builder) {
+        /**
+         * 创建推送接口成功后返回的唯一id
+         * <p> 示例值：6985032626234982420
+         */
+        this.notificationId = builder.notificationId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNotificationId() {
+        return this.notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    public static class Builder {
+
+        private String notificationId; // 创建推送接口成功后返回的唯一id
+
+        /**
+         * 创建推送接口成功后返回的唯一id
+         * <p> 示例值：6985032626234982420
+         *
+         * @param notificationId
+         * @return
+         */
+        public Builder notificationId(String notificationId) {
+            this.notificationId = notificationId;
+            return this;
+        }
+
+        public PreviewNotificationReq build() {
+            return new PreviewNotificationReq(this);
+        }
+    }
 }

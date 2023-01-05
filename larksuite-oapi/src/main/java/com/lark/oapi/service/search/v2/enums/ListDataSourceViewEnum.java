@@ -17,16 +17,16 @@ package com.lark.oapi.service.search.v2.enums;
  * 回包数据格式，0-全量数据；1-摘要数据。;;**注**：摘要数据仅包含"id"，"name"，"state"。
  */
 public enum ListDataSourceViewEnum {
-  FULL(0), // 全量数据
-  BASIC(1), // 摘要数据
-  ;
-  private Integer value;
+    FULL(0), // 全量数据
+    BASIC(1), // 摘要数据
+    ;
+    private Integer value;
 
-  ListDataSourceViewEnum(Integer value) {
-    this.value = value;
-  }
+    ListDataSourceViewEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

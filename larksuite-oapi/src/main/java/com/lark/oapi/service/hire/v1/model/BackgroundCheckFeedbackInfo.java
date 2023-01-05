@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BackgroundCheckFeedbackInfo {
-
-  /**
-   * 背调信息附件下载链接
-   * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-   */
-  @SerializedName("attachment_url")
-  private String attachmentUrl;
-  /**
-   * 背调结果：红灯、黄灯、绿灯
-   * <p> 示例值：红灯
-   */
-  @SerializedName("result")
-  private String result;
-
-  // builder 开始
-  public BackgroundCheckFeedbackInfo() {
-  }
-
-  public BackgroundCheckFeedbackInfo(Builder builder) {
     /**
      * 背调信息附件下载链接
      * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
      */
-    this.attachmentUrl = builder.attachmentUrl;
-    /**
-     * 背调结果：红灯、黄灯、绿灯
-     * <p> 示例值：红灯
-     */
-    this.result = builder.result;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAttachmentUrl() {
-    return this.attachmentUrl;
-  }
-
-  public void setAttachmentUrl(String attachmentUrl) {
-    this.attachmentUrl = attachmentUrl;
-  }
-
-  public String getResult() {
-    return this.result;
-  }
-
-  public void setResult(String result) {
-    this.result = result;
-  }
-
-  public static class Builder {
-
-    /**
-     * 背调信息附件下载链接
-     * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-     */
+    @SerializedName("attachment_url")
     private String attachmentUrl;
     /**
      * 背调结果：红灯、黄灯、绿灯
      * <p> 示例值：红灯
      */
+    @SerializedName("result")
     private String result;
 
-    /**
-     * 背调信息附件下载链接
-     * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
-     *
-     * @param attachmentUrl
-     * @return
-     */
-    public Builder attachmentUrl(String attachmentUrl) {
-      this.attachmentUrl = attachmentUrl;
-      return this;
+    // builder 开始
+    public BackgroundCheckFeedbackInfo() {
     }
 
-
-    /**
-     * 背调结果：红灯、黄灯、绿灯
-     * <p> 示例值：红灯
-     *
-     * @param result
-     * @return
-     */
-    public Builder result(String result) {
-      this.result = result;
-      return this;
+    public BackgroundCheckFeedbackInfo(Builder builder) {
+        /**
+         * 背调信息附件下载链接
+         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+         */
+        this.attachmentUrl = builder.attachmentUrl;
+        /**
+         * 背调结果：红灯、黄灯、绿灯
+         * <p> 示例值：红灯
+         */
+        this.result = builder.result;
     }
 
-
-    public BackgroundCheckFeedbackInfo build() {
-      return new BackgroundCheckFeedbackInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getAttachmentUrl() {
+        return this.attachmentUrl;
+    }
+
+    public void setAttachmentUrl(String attachmentUrl) {
+        this.attachmentUrl = attachmentUrl;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public static class Builder {
+        /**
+         * 背调信息附件下载链接
+         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+         */
+        private String attachmentUrl;
+        /**
+         * 背调结果：红灯、黄灯、绿灯
+         * <p> 示例值：红灯
+         */
+        private String result;
+
+        /**
+         * 背调信息附件下载链接
+         * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
+         *
+         * @param attachmentUrl
+         * @return
+         */
+        public Builder attachmentUrl(String attachmentUrl) {
+            this.attachmentUrl = attachmentUrl;
+            return this;
+        }
+
+
+        /**
+         * 背调结果：红灯、黄灯、绿灯
+         * <p> 示例值：红灯
+         *
+         * @param result
+         * @return
+         */
+        public Builder result(String result) {
+            this.result = result;
+            return this;
+        }
+
+
+        public BackgroundCheckFeedbackInfo build() {
+            return new BackgroundCheckFeedbackInfo(this);
+        }
+    }
 }

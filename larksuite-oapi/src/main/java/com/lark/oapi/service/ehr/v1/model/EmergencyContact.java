@@ -16,148 +16,145 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EmergencyContact {
-
-  /**
-   * 紧急联系人姓名
-   * <p> 示例值：张三
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 与紧急联系人的关系
-   * <p> 示例值：1
-   */
-  @SerializedName("relationship")
-  private Integer relationship;
-  /**
-   * 手机号
-   * <p> 示例值：(+86) 13812345678
-   */
-  @SerializedName("mobile")
-  private String mobile;
-
-  // builder 开始
-  public EmergencyContact() {
-  }
-
-  public EmergencyContact(Builder builder) {
     /**
      * 紧急联系人姓名
      * <p> 示例值：张三
      */
-    this.name = builder.name;
-    /**
-     * 与紧急联系人的关系
-     * <p> 示例值：1
-     */
-    this.relationship = builder.relationship;
-    /**
-     * 手机号
-     * <p> 示例值：(+86) 13812345678
-     */
-    this.mobile = builder.mobile;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getRelationship() {
-    return this.relationship;
-  }
-
-  public void setRelationship(Integer relationship) {
-    this.relationship = relationship;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public static class Builder {
-
-    /**
-     * 紧急联系人姓名
-     * <p> 示例值：张三
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 与紧急联系人的关系
      * <p> 示例值：1
      */
+    @SerializedName("relationship")
     private Integer relationship;
     /**
      * 手机号
      * <p> 示例值：(+86) 13812345678
      */
+    @SerializedName("mobile")
     private String mobile;
 
-    /**
-     * 紧急联系人姓名
-     * <p> 示例值：张三
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public EmergencyContact() {
     }
 
-
-    /**
-     * 与紧急联系人的关系
-     * <p> 示例值：1
-     *
-     * @param relationship
-     * @return
-     */
-    public Builder relationship(Integer relationship) {
-      this.relationship = relationship;
-      return this;
+    public EmergencyContact(Builder builder) {
+        /**
+         * 紧急联系人姓名
+         * <p> 示例值：张三
+         */
+        this.name = builder.name;
+        /**
+         * 与紧急联系人的关系
+         * <p> 示例值：1
+         */
+        this.relationship = builder.relationship;
+        /**
+         * 手机号
+         * <p> 示例值：(+86) 13812345678
+         */
+        this.mobile = builder.mobile;
     }
 
-    /**
-     * 与紧急联系人的关系
-     * <p> 示例值：1
-     *
-     * @param relationship {@link com.lark.oapi.service.ehr.v1.enums.EmergencyContactRelationshipEnum}
-     * @return
-     */
-    public Builder relationship(
-        com.lark.oapi.service.ehr.v1.enums.EmergencyContactRelationshipEnum relationship) {
-      this.relationship = relationship.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 手机号
-     * <p> 示例值：(+86) 13812345678
-     *
-     * @param mobile
-     * @return
-     */
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-
-    public EmergencyContact build() {
-      return new EmergencyContact(this);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
+
+    public Integer getRelationship() {
+        return this.relationship;
+    }
+
+    public void setRelationship(Integer relationship) {
+        this.relationship = relationship;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public static class Builder {
+        /**
+         * 紧急联系人姓名
+         * <p> 示例值：张三
+         */
+        private String name;
+        /**
+         * 与紧急联系人的关系
+         * <p> 示例值：1
+         */
+        private Integer relationship;
+        /**
+         * 手机号
+         * <p> 示例值：(+86) 13812345678
+         */
+        private String mobile;
+
+        /**
+         * 紧急联系人姓名
+         * <p> 示例值：张三
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 与紧急联系人的关系
+         * <p> 示例值：1
+         *
+         * @param relationship
+         * @return
+         */
+        public Builder relationship(Integer relationship) {
+            this.relationship = relationship;
+            return this;
+        }
+
+        /**
+         * 与紧急联系人的关系
+         * <p> 示例值：1
+         *
+         * @param relationship {@link com.lark.oapi.service.ehr.v1.enums.EmergencyContactRelationshipEnum}
+         * @return
+         */
+        public Builder relationship(com.lark.oapi.service.ehr.v1.enums.EmergencyContactRelationshipEnum relationship) {
+            this.relationship = relationship.getValue();
+            return this;
+        }
+
+
+        /**
+         * 手机号
+         * <p> 示例值：(+86) 13812345678
+         *
+         * @param mobile
+         * @return
+         */
+        public Builder mobile(String mobile) {
+            this.mobile = mobile;
+            return this;
+        }
+
+
+        public EmergencyContact build() {
+            return new EmergencyContact(this);
+        }
+    }
 }

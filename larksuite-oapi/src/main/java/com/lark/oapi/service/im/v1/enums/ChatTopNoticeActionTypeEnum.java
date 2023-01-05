@@ -14,19 +14,19 @@
 package com.lark.oapi.service.im.v1.enums;
 
 /**
- * 置顶的类型
+ * 置顶的类型;;**注意**：;- 选择 ==消息类型== 时必须填写`message_id`字段;- 选择 ==群公告类型== 时填写的`message_id`将被忽略
  */
 public enum ChatTopNoticeActionTypeEnum {
-  MESSAGE("1"), // 消息类型
-  ANNOUCEMENT("2"), // 群公告类型
-  ;
-  private String value;
+    MESSAGE("1"), // 消息类型
+    ANNOUCEMENT("2"), // 群公告类型
+    ;
+    private String value;
 
-  ChatTopNoticeActionTypeEnum(String value) {
-    this.value = value;
-  }
+    ChatTopNoticeActionTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

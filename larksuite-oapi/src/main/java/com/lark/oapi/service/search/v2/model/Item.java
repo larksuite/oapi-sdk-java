@@ -16,211 +16,207 @@ package com.lark.oapi.service.search.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Item {
-
-  /**
-   * item 在 datasource 中的唯一标识
-   * <p> 示例值：01010111
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"
-   * <p> 示例值：
-   */
-  @SerializedName("acl")
-  private Acl[] acl;
-  /**
-   * item 的元信息
-   * <p> 示例值：
-   */
-  @SerializedName("metadata")
-  private ItemMetadata metadata;
-  /**
-   * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段（title字段无须在此另外指定）；
-   * <p> 示例值：{\"key\":\"value\"}
-   */
-  @SerializedName("structured_data")
-  private String structuredData;
-  /**
-   * 非结构化数据，如文档文本，飞书搜索会用来做召回
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private ItemContent content;
-
-  // builder 开始
-  public Item() {
-  }
-
-  public Item(Builder builder) {
     /**
      * item 在 datasource 中的唯一标识
      * <p> 示例值：01010111
      */
-    this.id = builder.id;
+    @SerializedName("id")
+    private String id;
     /**
      * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"
      * <p> 示例值：
      */
-    this.acl = builder.acl;
-    /**
-     * item 的元信息
-     * <p> 示例值：
-     */
-    this.metadata = builder.metadata;
-    /**
-     * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段（title字段无须在此另外指定）；
-     * <p> 示例值：{\"key\":\"value\"}
-     */
-    this.structuredData = builder.structuredData;
-    /**
-     * 非结构化数据，如文档文本，飞书搜索会用来做召回
-     * <p> 示例值：
-     */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Acl[] getAcl() {
-    return this.acl;
-  }
-
-  public void setAcl(Acl[] acl) {
-    this.acl = acl;
-  }
-
-  public ItemMetadata getMetadata() {
-    return this.metadata;
-  }
-
-  public void setMetadata(ItemMetadata metadata) {
-    this.metadata = metadata;
-  }
-
-  public String getStructuredData() {
-    return this.structuredData;
-  }
-
-  public void setStructuredData(String structuredData) {
-    this.structuredData = structuredData;
-  }
-
-  public ItemContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(ItemContent content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * item 在 datasource 中的唯一标识
-     * <p> 示例值：01010111
-     */
-    private String id;
-    /**
-     * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user";
-     * value="everyone"
-     * <p> 示例值：
-     */
+    @SerializedName("acl")
     private Acl[] acl;
     /**
      * item 的元信息
      * <p> 示例值：
      */
+    @SerializedName("metadata")
     private ItemMetadata metadata;
     /**
-     * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段（title字段无须在此另外指定）；
+     * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段(特殊字段无须在此另外指定);具体格式可参参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook) **请求创建数据项**部分
      * <p> 示例值：{\"key\":\"value\"}
      */
+    @SerializedName("structured_data")
     private String structuredData;
     /**
      * 非结构化数据，如文档文本，飞书搜索会用来做召回
      * <p> 示例值：
      */
+    @SerializedName("content")
     private ItemContent content;
 
-    /**
-     * item 在 datasource 中的唯一标识
-     * <p> 示例值：01010111
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Item() {
     }
 
-
-    /**
-     * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user";
-     * value="everyone"
-     * <p> 示例值：
-     *
-     * @param acl
-     * @return
-     */
-    public Builder acl(Acl[] acl) {
-      this.acl = acl;
-      return this;
+    public Item(Builder builder) {
+        /**
+         * item 在 datasource 中的唯一标识
+         * <p> 示例值：01010111
+         */
+        this.id = builder.id;
+        /**
+         * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"
+         * <p> 示例值：
+         */
+        this.acl = builder.acl;
+        /**
+         * item 的元信息
+         * <p> 示例值：
+         */
+        this.metadata = builder.metadata;
+        /**
+         * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段(特殊字段无须在此另外指定);具体格式可参参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook) **请求创建数据项**部分
+         * <p> 示例值：{\"key\":\"value\"}
+         */
+        this.structuredData = builder.structuredData;
+        /**
+         * 非结构化数据，如文档文本，飞书搜索会用来做召回
+         * <p> 示例值：
+         */
+        this.content = builder.content;
     }
 
-
-    /**
-     * item 的元信息
-     * <p> 示例值：
-     *
-     * @param metadata
-     * @return
-     */
-    public Builder metadata(ItemMetadata metadata) {
-      this.metadata = metadata;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段（title字段无须在此另外指定）；
-     * <p> 示例值：{\"key\":\"value\"}
-     *
-     * @param structuredData
-     * @return
-     */
-    public Builder structuredData(String structuredData) {
-      this.structuredData = structuredData;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 非结构化数据，如文档文本，飞书搜索会用来做召回
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(ItemContent content) {
-      this.content = content;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public Item build() {
-      return new Item(this);
+    public Acl[] getAcl() {
+        return this.acl;
     }
-  }
+
+    public void setAcl(Acl[] acl) {
+        this.acl = acl;
+    }
+
+    public ItemMetadata getMetadata() {
+        return this.metadata;
+    }
+
+    public void setMetadata(ItemMetadata metadata) {
+        this.metadata = metadata;
+    }
+
+    public String getStructuredData() {
+        return this.structuredData;
+    }
+
+    public void setStructuredData(String structuredData) {
+        this.structuredData = structuredData;
+    }
+
+    public ItemContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(ItemContent content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * item 在 datasource 中的唯一标识
+         * <p> 示例值：01010111
+         */
+        private String id;
+        /**
+         * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"
+         * <p> 示例值：
+         */
+        private Acl[] acl;
+        /**
+         * item 的元信息
+         * <p> 示例值：
+         */
+        private ItemMetadata metadata;
+        /**
+         * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段(特殊字段无须在此另外指定);具体格式可参参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook) **请求创建数据项**部分
+         * <p> 示例值：{\"key\":\"value\"}
+         */
+        private String structuredData;
+        /**
+         * 非结构化数据，如文档文本，飞书搜索会用来做召回
+         * <p> 示例值：
+         */
+        private ItemContent content;
+
+        /**
+         * item 在 datasource 中的唯一标识
+         * <p> 示例值：01010111
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"
+         * <p> 示例值：
+         *
+         * @param acl
+         * @return
+         */
+        public Builder acl(Acl[] acl) {
+            this.acl = acl;
+            return this;
+        }
+
+
+        /**
+         * item 的元信息
+         * <p> 示例值：
+         *
+         * @param metadata
+         * @return
+         */
+        public Builder metadata(ItemMetadata metadata) {
+            this.metadata = metadata;
+            return this;
+        }
+
+
+        /**
+         * 结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段(特殊字段无须在此另外指定);具体格式可参参考 [通用模块接入指南](/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook) **请求创建数据项**部分
+         * <p> 示例值：{\"key\":\"value\"}
+         *
+         * @param structuredData
+         * @return
+         */
+        public Builder structuredData(String structuredData) {
+            this.structuredData = structuredData;
+            return this;
+        }
+
+
+        /**
+         * 非结构化数据，如文档文本，飞书搜索会用来做召回
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(ItemContent content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public Item build() {
+            return new Item(this);
+        }
+    }
 }

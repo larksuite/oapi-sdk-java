@@ -16,76 +16,76 @@ import com.google.gson.annotations.SerializedName;
 
 public class MarketplaceAppAccessTokenReq {
 
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("app_secret")
-  private String appSecret;
-  @SerializedName("app_ticket")
-  private String appTicket;
-
-  public MarketplaceAppAccessTokenReq(Builder builder) {
-    setAppId(builder.appId);
-    setAppSecret(builder.appSecret);
-    setAppTicket(builder.appTicket);
-  }
-
-  public MarketplaceAppAccessTokenReq() {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getAppSecret() {
-    return appSecret;
-  }
-
-  public void setAppSecret(String appSecret) {
-    this.appSecret = appSecret;
-  }
-
-  public String getAppTicket() {
-    return appTicket;
-  }
-
-  public void setAppTicket(String appTicket) {
-    this.appTicket = appTicket;
-  }
-
-  public static final class Builder {
-
+    @SerializedName("app_id")
     private String appId;
+    @SerializedName("app_secret")
     private String appSecret;
+    @SerializedName("app_ticket")
     private String appTicket;
 
-    private Builder() {
+    public MarketplaceAppAccessTokenReq(Builder builder) {
+        setAppId(builder.appId);
+        setAppSecret(builder.appSecret);
+        setAppTicket(builder.appTicket);
     }
 
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public MarketplaceAppAccessTokenReq() {
     }
 
-    public Builder appSecret(String appSecret) {
-      this.appSecret = appSecret;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Builder appTicket(String appTicket) {
-      this.appTicket = appTicket;
-      return this;
+    public String getAppId() {
+        return appId;
     }
 
-    public MarketplaceAppAccessTokenReq build() {
-      return new MarketplaceAppAccessTokenReq(this);
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
-  }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public void setAppSecret(String appSecret) {
+        this.appSecret = appSecret;
+    }
+
+    public String getAppTicket() {
+        return appTicket;
+    }
+
+    public void setAppTicket(String appTicket) {
+        this.appTicket = appTicket;
+    }
+
+    public static final class Builder {
+
+        private String appId;
+        private String appSecret;
+        private String appTicket;
+
+        private Builder() {
+        }
+
+        public Builder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+        public Builder appSecret(String appSecret) {
+            this.appSecret = appSecret;
+            return this;
+        }
+
+        public Builder appTicket(String appTicket) {
+            this.appTicket = appTicket;
+            return this;
+        }
+
+        public MarketplaceAppAccessTokenReq build() {
+            return new MarketplaceAppAccessTokenReq(this);
+        }
+    }
 }

@@ -16,172 +16,244 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentBatchInfo {
-
-  /**
-   * 人才 ID
-   * <p> 示例值：6891560630172518670
-   */
-  @SerializedName("talent_id")
-  private String talentId;
-  /**
-   * 手机国家区号
-   * <p> 示例值：86
-   */
-  @SerializedName("mobile_code")
-  private String mobileCode;
-  /**
-   * 手机号
-   * <p> 示例值：182900291190
-   */
-  @SerializedName("mobile_number")
-  private String mobileNumber;
-  /**
-   * 邮箱
-   * <p> 示例值：foo@bytedance.com
-   */
-  @SerializedName("email")
-  private String email;
-
-  // builder 开始
-  public TalentBatchInfo() {
-  }
-
-  public TalentBatchInfo(Builder builder) {
     /**
      * 人才 ID
      * <p> 示例值：6891560630172518670
      */
-    this.talentId = builder.talentId;
-    /**
-     * 手机国家区号
-     * <p> 示例值：86
-     */
-    this.mobileCode = builder.mobileCode;
-    /**
-     * 手机号
-     * <p> 示例值：182900291190
-     */
-    this.mobileNumber = builder.mobileNumber;
-    /**
-     * 邮箱
-     * <p> 示例值：foo@bytedance.com
-     */
-    this.email = builder.email;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public String getMobileCode() {
-    return this.mobileCode;
-  }
-
-  public void setMobileCode(String mobileCode) {
-    this.mobileCode = mobileCode;
-  }
-
-  public String getMobileNumber() {
-    return this.mobileNumber;
-  }
-
-  public void setMobileNumber(String mobileNumber) {
-    this.mobileNumber = mobileNumber;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public static class Builder {
-
-    /**
-     * 人才 ID
-     * <p> 示例值：6891560630172518670
-     */
+    @SerializedName("talent_id")
     private String talentId;
     /**
      * 手机国家区号
      * <p> 示例值：86
      */
+    @SerializedName("mobile_code")
     private String mobileCode;
     /**
      * 手机号
      * <p> 示例值：182900291190
      */
+    @SerializedName("mobile_number")
     private String mobileNumber;
     /**
      * 邮箱
      * <p> 示例值：foo@bytedance.com
      */
+    @SerializedName("email")
     private String email;
-
     /**
-     * 人才 ID
-     * <p> 示例值：6891560630172518670
-     *
-     * @param talentId
-     * @return
+     * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
+     * <p> 示例值：1
      */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
-    }
-
-
+    @SerializedName("identification_type")
+    private Integer identificationType;
     /**
-     * 手机国家区号
-     * <p> 示例值：86
-     *
-     * @param mobileCode
-     * @return
+     * 证件号
+     * <p> 示例值：130xxxxxxxxx
      */
-    public Builder mobileCode(String mobileCode) {
-      this.mobileCode = mobileCode;
-      return this;
+    @SerializedName("identification_number")
+    private String identificationNumber;
+
+    // builder 开始
+    public TalentBatchInfo() {
     }
 
-
-    /**
-     * 手机号
-     * <p> 示例值：182900291190
-     *
-     * @param mobileNumber
-     * @return
-     */
-    public Builder mobileNumber(String mobileNumber) {
-      this.mobileNumber = mobileNumber;
-      return this;
+    public TalentBatchInfo(Builder builder) {
+        /**
+         * 人才 ID
+         * <p> 示例值：6891560630172518670
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 手机国家区号
+         * <p> 示例值：86
+         */
+        this.mobileCode = builder.mobileCode;
+        /**
+         * 手机号
+         * <p> 示例值：182900291190
+         */
+        this.mobileNumber = builder.mobileNumber;
+        /**
+         * 邮箱
+         * <p> 示例值：foo@bytedance.com
+         */
+        this.email = builder.email;
+        /**
+         * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
+         * <p> 示例值：1
+         */
+        this.identificationType = builder.identificationType;
+        /**
+         * 证件号
+         * <p> 示例值：130xxxxxxxxx
+         */
+        this.identificationNumber = builder.identificationNumber;
     }
 
-
-    /**
-     * 邮箱
-     * <p> 示例值：foo@bytedance.com
-     *
-     * @param email
-     * @return
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public TalentBatchInfo build() {
-      return new TalentBatchInfo(this);
+    public String getTalentId() {
+        return this.talentId;
     }
-  }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public String getMobileCode() {
+        return this.mobileCode;
+    }
+
+    public void setMobileCode(String mobileCode) {
+        this.mobileCode = mobileCode;
+    }
+
+    public String getMobileNumber() {
+        return this.mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getIdentificationType() {
+        return this.identificationType;
+    }
+
+    public void setIdentificationType(Integer identificationType) {
+        this.identificationType = identificationType;
+    }
+
+    public String getIdentificationNumber() {
+        return this.identificationNumber;
+    }
+
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
+    }
+
+    public static class Builder {
+        /**
+         * 人才 ID
+         * <p> 示例值：6891560630172518670
+         */
+        private String talentId;
+        /**
+         * 手机国家区号
+         * <p> 示例值：86
+         */
+        private String mobileCode;
+        /**
+         * 手机号
+         * <p> 示例值：182900291190
+         */
+        private String mobileNumber;
+        /**
+         * 邮箱
+         * <p> 示例值：foo@bytedance.com
+         */
+        private String email;
+        /**
+         * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
+         * <p> 示例值：1
+         */
+        private Integer identificationType;
+        /**
+         * 证件号
+         * <p> 示例值：130xxxxxxxxx
+         */
+        private String identificationNumber;
+
+        /**
+         * 人才 ID
+         * <p> 示例值：6891560630172518670
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 手机国家区号
+         * <p> 示例值：86
+         *
+         * @param mobileCode
+         * @return
+         */
+        public Builder mobileCode(String mobileCode) {
+            this.mobileCode = mobileCode;
+            return this;
+        }
+
+
+        /**
+         * 手机号
+         * <p> 示例值：182900291190
+         *
+         * @param mobileNumber
+         * @return
+         */
+        public Builder mobileNumber(String mobileNumber) {
+            this.mobileNumber = mobileNumber;
+            return this;
+        }
+
+
+        /**
+         * 邮箱
+         * <p> 示例值：foo@bytedance.com
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
+         * <p> 示例值：1
+         *
+         * @param identificationType
+         * @return
+         */
+        public Builder identificationType(Integer identificationType) {
+            this.identificationType = identificationType;
+            return this;
+        }
+
+
+        /**
+         * 证件号
+         * <p> 示例值：130xxxxxxxxx
+         *
+         * @param identificationNumber
+         * @return
+         */
+        public Builder identificationNumber(String identificationNumber) {
+            this.identificationNumber = identificationNumber;
+            return this;
+        }
+
+
+        public TalentBatchInfo build() {
+            return new TalentBatchInfo(this);
+        }
+    }
 }

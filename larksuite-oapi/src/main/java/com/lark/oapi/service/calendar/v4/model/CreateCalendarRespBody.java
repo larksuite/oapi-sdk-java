@@ -16,20 +16,19 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateCalendarRespBody {
+    /**
+     * 新创建的日历实体
+     * <p> 示例值：
+     */
+    @SerializedName("calendar")
+    private Calendar calendar;
 
-  /**
-   * 新创建的日历实体
-   * <p> 示例值：
-   */
-  @SerializedName("calendar")
-  private Calendar calendar;
+    public Calendar getCalendar() {
+        return this.calendar;
+    }
 
-  public Calendar getCalendar() {
-    return this.calendar;
-  }
-
-  public void setCalendar(Calendar calendar) {
-    this.calendar = calendar;
-  }
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
 
 }

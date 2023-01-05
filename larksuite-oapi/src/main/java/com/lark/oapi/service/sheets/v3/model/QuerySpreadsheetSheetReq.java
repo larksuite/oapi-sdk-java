@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class QuerySpreadsheetSheetReq {
-
-  /**
-   * 电子表格的token
-   * <p> 示例值：shtxxxxxxxxxxxxxxxx
-   */
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-
-  // builder 开始
-  public QuerySpreadsheetSheetReq() {
-  }
-
-  public QuerySpreadsheetSheetReq(Builder builder) {
     /**
      * 电子表格的token
      * <p> 示例值：shtxxxxxxxxxxxxxxxx
      */
-    this.spreadsheetToken = builder.spreadsheetToken;
-  }
+    @Path
+    @SerializedName("spreadsheet_token")
+    private String spreadsheetToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public static class Builder {
-
-    private String spreadsheetToken; // 电子表格的token
-
-    /**
-     * 电子表格的token
-     * <p> 示例值：shtxxxxxxxxxxxxxxxx
-     *
-     * @param spreadsheetToken
-     * @return
-     */
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
+    // builder 开始
+    public QuerySpreadsheetSheetReq() {
     }
 
-    public QuerySpreadsheetSheetReq build() {
-      return new QuerySpreadsheetSheetReq(this);
+    public QuerySpreadsheetSheetReq(Builder builder) {
+        /**
+         * 电子表格的token
+         * <p> 示例值：shtxxxxxxxxxxxxxxxx
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public static class Builder {
+
+        private String spreadsheetToken; // 电子表格的token
+
+        /**
+         * 电子表格的token
+         * <p> 示例值：shtxxxxxxxxxxxxxxxx
+         *
+         * @param spreadsheetToken
+         * @return
+         */
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+        public QuerySpreadsheetSheetReq build() {
+            return new QuerySpreadsheetSheetReq(this);
+        }
+    }
 }

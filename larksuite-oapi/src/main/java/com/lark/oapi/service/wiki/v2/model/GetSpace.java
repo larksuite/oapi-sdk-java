@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetSpace {
 
-  /**
-   * 知识空间
-   * <p> 示例值：
-   */
-  @SerializedName("space")
-  private Space space;
+    /**
+     * 知识空间
+     * <p> 示例值：
+     */
+    @SerializedName("space")
+    private Space space;
 
-  public Space getSpace() {
-    return this.space;
-  }
+    public Space getSpace() {
+        return this.space;
+    }
 
-  public void setSpace(Space space) {
-    this.space = space;
-  }
+    public void setSpace(Space space) {
+        this.space = space;
+    }
 
 }

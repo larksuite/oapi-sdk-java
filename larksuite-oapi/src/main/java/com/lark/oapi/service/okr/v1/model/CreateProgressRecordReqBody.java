@@ -16,222 +16,219 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateProgressRecordReqBody {
-
-  /**
-   * 进展来源
-   * <p> 示例值：周报系统
-   */
-  @SerializedName("source_title")
-  private String sourceTitle;
-  /**
-   * 进展来源链接
-   * <p> 示例值：https://www.zhoubao.com
-   */
-  @SerializedName("source_url")
-  private String sourceUrl;
-  /**
-   * 目标id，与target_type对应
-   * <p> 示例值：7041430377642082323
-   */
-  @SerializedName("target_id")
-  private String targetId;
-  /**
-   * 目标类型
-   * <p> 示例值：1
-   */
-  @SerializedName("target_type")
-  private Integer targetType;
-  /**
-   * 进展详情 富文本格式
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private ContentBlock content;
-
-  // builder 开始
-  public CreateProgressRecordReqBody() {
-  }
-
-  public CreateProgressRecordReqBody(Builder builder) {
     /**
      * 进展来源
      * <p> 示例值：周报系统
      */
-    this.sourceTitle = builder.sourceTitle;
-    /**
-     * 进展来源链接
-     * <p> 示例值：https://www.zhoubao.com
-     */
-    this.sourceUrl = builder.sourceUrl;
-    /**
-     * 目标id，与target_type对应
-     * <p> 示例值：7041430377642082323
-     */
-    this.targetId = builder.targetId;
-    /**
-     * 目标类型
-     * <p> 示例值：1
-     */
-    this.targetType = builder.targetType;
-    /**
-     * 进展详情 富文本格式
-     * <p> 示例值：
-     */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSourceTitle() {
-    return this.sourceTitle;
-  }
-
-  public void setSourceTitle(String sourceTitle) {
-    this.sourceTitle = sourceTitle;
-  }
-
-  public String getSourceUrl() {
-    return this.sourceUrl;
-  }
-
-  public void setSourceUrl(String sourceUrl) {
-    this.sourceUrl = sourceUrl;
-  }
-
-  public String getTargetId() {
-    return this.targetId;
-  }
-
-  public void setTargetId(String targetId) {
-    this.targetId = targetId;
-  }
-
-  public Integer getTargetType() {
-    return this.targetType;
-  }
-
-  public void setTargetType(Integer targetType) {
-    this.targetType = targetType;
-  }
-
-  public ContentBlock getContent() {
-    return this.content;
-  }
-
-  public void setContent(ContentBlock content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * 进展来源
-     * <p> 示例值：周报系统
-     */
+    @SerializedName("source_title")
     private String sourceTitle;
     /**
      * 进展来源链接
      * <p> 示例值：https://www.zhoubao.com
      */
+    @SerializedName("source_url")
     private String sourceUrl;
     /**
      * 目标id，与target_type对应
      * <p> 示例值：7041430377642082323
      */
+    @SerializedName("target_id")
     private String targetId;
     /**
      * 目标类型
      * <p> 示例值：1
      */
+    @SerializedName("target_type")
     private Integer targetType;
     /**
      * 进展详情 富文本格式
      * <p> 示例值：
      */
+    @SerializedName("content")
     private ContentBlock content;
 
-    /**
-     * 进展来源
-     * <p> 示例值：周报系统
-     *
-     * @param sourceTitle
-     * @return
-     */
-    public Builder sourceTitle(String sourceTitle) {
-      this.sourceTitle = sourceTitle;
-      return this;
+    // builder 开始
+    public CreateProgressRecordReqBody() {
     }
 
-
-    /**
-     * 进展来源链接
-     * <p> 示例值：https://www.zhoubao.com
-     *
-     * @param sourceUrl
-     * @return
-     */
-    public Builder sourceUrl(String sourceUrl) {
-      this.sourceUrl = sourceUrl;
-      return this;
+    public CreateProgressRecordReqBody(Builder builder) {
+        /**
+         * 进展来源
+         * <p> 示例值：周报系统
+         */
+        this.sourceTitle = builder.sourceTitle;
+        /**
+         * 进展来源链接
+         * <p> 示例值：https://www.zhoubao.com
+         */
+        this.sourceUrl = builder.sourceUrl;
+        /**
+         * 目标id，与target_type对应
+         * <p> 示例值：7041430377642082323
+         */
+        this.targetId = builder.targetId;
+        /**
+         * 目标类型
+         * <p> 示例值：1
+         */
+        this.targetType = builder.targetType;
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         */
+        this.content = builder.content;
     }
 
-
-    /**
-     * 目标id，与target_type对应
-     * <p> 示例值：7041430377642082323
-     *
-     * @param targetId
-     * @return
-     */
-    public Builder targetId(String targetId) {
-      this.targetId = targetId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 目标类型
-     * <p> 示例值：1
-     *
-     * @param targetType
-     * @return
-     */
-    public Builder targetType(Integer targetType) {
-      this.targetType = targetType;
-      return this;
+    public String getSourceTitle() {
+        return this.sourceTitle;
     }
 
-    /**
-     * 目标类型
-     * <p> 示例值：1
-     *
-     * @param targetType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordTargetTypeEnum}
-     * @return
-     */
-    public Builder targetType(
-        com.lark.oapi.service.okr.v1.enums.CreateProgressRecordTargetTypeEnum targetType) {
-      this.targetType = targetType.getValue();
-      return this;
+    public void setSourceTitle(String sourceTitle) {
+        this.sourceTitle = sourceTitle;
     }
 
-
-    /**
-     * 进展详情 富文本格式
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(ContentBlock content) {
-      this.content = content;
-      return this;
+    public String getSourceUrl() {
+        return this.sourceUrl;
     }
 
-
-    public CreateProgressRecordReqBody build() {
-      return new CreateProgressRecordReqBody(this);
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
     }
-  }
+
+    public String getTargetId() {
+        return this.targetId;
+    }
+
+    public void setTargetId(String targetId) {
+        this.targetId = targetId;
+    }
+
+    public Integer getTargetType() {
+        return this.targetType;
+    }
+
+    public void setTargetType(Integer targetType) {
+        this.targetType = targetType;
+    }
+
+    public ContentBlock getContent() {
+        return this.content;
+    }
+
+    public void setContent(ContentBlock content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * 进展来源
+         * <p> 示例值：周报系统
+         */
+        private String sourceTitle;
+        /**
+         * 进展来源链接
+         * <p> 示例值：https://www.zhoubao.com
+         */
+        private String sourceUrl;
+        /**
+         * 目标id，与target_type对应
+         * <p> 示例值：7041430377642082323
+         */
+        private String targetId;
+        /**
+         * 目标类型
+         * <p> 示例值：1
+         */
+        private Integer targetType;
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         */
+        private ContentBlock content;
+
+        /**
+         * 进展来源
+         * <p> 示例值：周报系统
+         *
+         * @param sourceTitle
+         * @return
+         */
+        public Builder sourceTitle(String sourceTitle) {
+            this.sourceTitle = sourceTitle;
+            return this;
+        }
+
+
+        /**
+         * 进展来源链接
+         * <p> 示例值：https://www.zhoubao.com
+         *
+         * @param sourceUrl
+         * @return
+         */
+        public Builder sourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+            return this;
+        }
+
+
+        /**
+         * 目标id，与target_type对应
+         * <p> 示例值：7041430377642082323
+         *
+         * @param targetId
+         * @return
+         */
+        public Builder targetId(String targetId) {
+            this.targetId = targetId;
+            return this;
+        }
+
+
+        /**
+         * 目标类型
+         * <p> 示例值：1
+         *
+         * @param targetType
+         * @return
+         */
+        public Builder targetType(Integer targetType) {
+            this.targetType = targetType;
+            return this;
+        }
+
+        /**
+         * 目标类型
+         * <p> 示例值：1
+         *
+         * @param targetType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordTargetTypeEnum}
+         * @return
+         */
+        public Builder targetType(com.lark.oapi.service.okr.v1.enums.CreateProgressRecordTargetTypeEnum targetType) {
+            this.targetType = targetType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 进展详情 富文本格式
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(ContentBlock content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public CreateProgressRecordReqBody build() {
+            return new CreateProgressRecordReqBody(this);
+        }
+    }
 }

@@ -16,58 +16,56 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EventTime {
-
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("time_stamp")
-  private String timeStamp;
-
-  // builder 开始
-  public EventTime() {
-  }
-
-  public EventTime(Builder builder) {
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.timeStamp = builder.timeStamp;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTimeStamp() {
-    return this.timeStamp;
-  }
-
-  public void setTimeStamp(String timeStamp) {
-    this.timeStamp = timeStamp;
-  }
-
-  public static class Builder {
-
     /**
      * <p> 示例值：
      */
+    @SerializedName("time_stamp")
     private String timeStamp;
 
-    /**
-     * <p> 示例值：
-     *
-     * @param timeStamp
-     * @return
-     */
-    public Builder timeStamp(String timeStamp) {
-      this.timeStamp = timeStamp;
-      return this;
+    // builder 开始
+    public EventTime() {
     }
 
-
-    public EventTime build() {
-      return new EventTime(this);
+    public EventTime(Builder builder) {
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.timeStamp = builder.timeStamp;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTimeStamp() {
+        return this.timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public static class Builder {
+        /**
+         * <p> 示例值：
+         */
+        private String timeStamp;
+
+        /**
+         * <p> 示例值：
+         *
+         * @param timeStamp
+         * @return
+         */
+        public Builder timeStamp(String timeStamp) {
+            this.timeStamp = timeStamp;
+            return this;
+        }
+
+
+        public EventTime build() {
+            return new EventTime(this);
+        }
+    }
 }

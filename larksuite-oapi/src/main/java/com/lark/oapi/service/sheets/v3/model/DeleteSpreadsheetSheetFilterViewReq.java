@@ -17,125 +17,124 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteSpreadsheetSheetFilterViewReq {
-
-  /**
-   * 表格 token
-   * <p> 示例值：shtcnmBA*****yGehy8
-   */
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-  /**
-   * 子表 id
-   * <p> 示例值：0b**12
-   */
-  @Path
-  @SerializedName("sheet_id")
-  private String sheetId;
-  /**
-   * 筛选视图 id
-   * <p> 示例值：pH9hbVcCXA
-   */
-  @Path
-  @SerializedName("filter_view_id")
-  private String filterViewId;
-
-  // builder 开始
-  public DeleteSpreadsheetSheetFilterViewReq() {
-  }
-
-  public DeleteSpreadsheetSheetFilterViewReq(Builder builder) {
     /**
      * 表格 token
      * <p> 示例值：shtcnmBA*****yGehy8
      */
-    this.spreadsheetToken = builder.spreadsheetToken;
+    @Path
+    @SerializedName("spreadsheet_token")
+    private String spreadsheetToken;
     /**
      * 子表 id
      * <p> 示例值：0b**12
      */
-    this.sheetId = builder.sheetId;
+    @Path
+    @SerializedName("sheet_id")
+    private String sheetId;
     /**
      * 筛选视图 id
      * <p> 示例值：pH9hbVcCXA
      */
-    this.filterViewId = builder.filterViewId;
-  }
+    @Path
+    @SerializedName("filter_view_id")
+    private String filterViewId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public String getSheetId() {
-    return this.sheetId;
-  }
-
-  public void setSheetId(String sheetId) {
-    this.sheetId = sheetId;
-  }
-
-  public String getFilterViewId() {
-    return this.filterViewId;
-  }
-
-  public void setFilterViewId(String filterViewId) {
-    this.filterViewId = filterViewId;
-  }
-
-  public static class Builder {
-
-    private String spreadsheetToken; // 表格 token
-    private String sheetId; // 子表 id
-    private String filterViewId; // 筛选视图 id
-
-    /**
-     * 表格 token
-     * <p> 示例值：shtcnmBA*****yGehy8
-     *
-     * @param spreadsheetToken
-     * @return
-     */
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
+    // builder 开始
+    public DeleteSpreadsheetSheetFilterViewReq() {
     }
 
-
-    /**
-     * 子表 id
-     * <p> 示例值：0b**12
-     *
-     * @param sheetId
-     * @return
-     */
-    public Builder sheetId(String sheetId) {
-      this.sheetId = sheetId;
-      return this;
+    public DeleteSpreadsheetSheetFilterViewReq(Builder builder) {
+        /**
+         * 表格 token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         */
+        this.spreadsheetToken = builder.spreadsheetToken;
+        /**
+         * 子表 id
+         * <p> 示例值：0b**12
+         */
+        this.sheetId = builder.sheetId;
+        /**
+         * 筛选视图 id
+         * <p> 示例值：pH9hbVcCXA
+         */
+        this.filterViewId = builder.filterViewId;
     }
 
-
-    /**
-     * 筛选视图 id
-     * <p> 示例值：pH9hbVcCXA
-     *
-     * @param filterViewId
-     * @return
-     */
-    public Builder filterViewId(String filterViewId) {
-      this.filterViewId = filterViewId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public DeleteSpreadsheetSheetFilterViewReq build() {
-      return new DeleteSpreadsheetSheetFilterViewReq(this);
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
     }
-  }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public String getSheetId() {
+        return this.sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
+    }
+
+    public String getFilterViewId() {
+        return this.filterViewId;
+    }
+
+    public void setFilterViewId(String filterViewId) {
+        this.filterViewId = filterViewId;
+    }
+
+    public static class Builder {
+
+        private String spreadsheetToken; // 表格 token
+        private String sheetId; // 子表 id
+        private String filterViewId; // 筛选视图 id
+
+        /**
+         * 表格 token
+         * <p> 示例值：shtcnmBA*****yGehy8
+         *
+         * @param spreadsheetToken
+         * @return
+         */
+        public Builder spreadsheetToken(String spreadsheetToken) {
+            this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+
+        /**
+         * 子表 id
+         * <p> 示例值：0b**12
+         *
+         * @param sheetId
+         * @return
+         */
+        public Builder sheetId(String sheetId) {
+            this.sheetId = sheetId;
+            return this;
+        }
+
+
+        /**
+         * 筛选视图 id
+         * <p> 示例值：pH9hbVcCXA
+         *
+         * @param filterViewId
+         * @return
+         */
+        public Builder filterViewId(String filterViewId) {
+            this.filterViewId = filterViewId;
+            return this;
+        }
+
+        public DeleteSpreadsheetSheetFilterViewReq build() {
+            return new DeleteSpreadsheetSheetFilterViewReq(this);
+        }
+    }
 }

@@ -17,43 +17,43 @@ package com.lark.oapi.service.drive.v1.enums;
  * 任务状态
  */
 public enum ImportTaskJobStatusEnum {
-  SUCCESS(0), // 成功
-  NEW(1), // 初始化
-  PROCESSING(2), // 处理中
-  INTERNALERROR(3), // 内部错误
-  FILEENCRYPTED(100), // 导入文档已加密
-  INTERNALERROR1(101), // 内部错误
-  INTERNALERROR2(102), // 内部错误
-  INTERNALERROR3(103), // 内部错误
-  BILLINGUNVAILABLE(104), // 租户容量不足
-  OUTOFLIMIT(105), // 文件夹节点太多
-  INTERNALERROR4(106), // 内部错误
-  TIMEOUT(108), // 处理超时
-  INTERNALERROR5(109), // 内部错误
-  NOPERMISSION(110), // 无权限
-  FORMATNOTSUPPORTED(112), // 格式不支持
-  OFFICENOTSUPPORTED(113), // office格式不支持
-  INTERNALERROR6(114), // 内部错误
-  IMPORTSIZELIMIT(115), // 导入文件过大
-  FOLDERNOPERMISSION(116), // 目录无权限
-  FOLDERDELETED(117), // 目录已删除
-  IMPORTFILEEXTENSIONNOTMATCH(118), // 导入文件和任务指定后缀不匹配
-  FOLDERNOTEXIST(119), // 目录不存在
-  IMPORTTYPENOTMATCH(120), // 导入文件和任务指定文件类型不匹配
-  IMPORTFILEEXPIRED(121), // 导入文件已过期
-  EXPORTDENIEDONCOPYING(122), // 创建副本中禁止导出
-  INTERNALERROR7(5000), // 内部错误
-  BLOCKQUANTITYEXCEEDLIMIT(7000), // docx block 数量超过系统上限
-  BLOCKLEVELEXCEEDLIMIT(7001), // docx block 层级超过系统上线
-  BLOCKSIZEEXCEEDLIMIT(7002), // docx block 大小超过系统上限
-  ;
-  private Integer value;
+    SUCCESS(0), // 成功
+    NEW(1), // 初始化
+    PROCESSING(2), // 处理中
+    INTERNALERROR(3), // 内部错误
+    FILEENCRYPTED(100), // 导入文档已加密
+    INTERNALERROR1(101), // 内部错误
+    INTERNALERROR2(102), // 内部错误
+    INTERNALERROR3(103), // 内部错误
+    BILLINGUNVAILABLE(104), // 租户容量不足
+    OUTOFLIMIT(105), // 文件夹节点太多
+    INTERNALERROR4(106), // 内部错误
+    TIMEOUT(108), // 处理超时
+    INTERNALERROR5(109), // 内部错误
+    NOPERMISSION(110), // 无权限
+    FORMATNOTSUPPORTED(112), // 格式不支持
+    OFFICENOTSUPPORTED(113), // office格式不支持
+    INTERNALERROR6(114), // 内部错误
+    IMPORTSIZELIMIT(115), // 导入文件过大
+    FOLDERNOPERMISSION(116), // 目录无权限
+    FOLDERDELETED(117), // 目录已删除
+    IMPORTFILEEXTENSIONNOTMATCH(118), // 导入文件和任务指定后缀不匹配
+    FOLDERNOTEXIST(119), // 目录不存在
+    IMPORTTYPENOTMATCH(120), // 导入文件和任务指定文件类型不匹配
+    IMPORTFILEEXPIRED(121), // 导入文件已过期
+    EXPORTDENIEDONCOPYING(122), // 创建副本中禁止导出
+    INTERNALERROR7(5000), // 内部错误
+    BLOCKQUANTITYEXCEEDLIMIT(7000), // docx block 数量超过系统上限
+    BLOCKLEVELEXCEEDLIMIT(7001), // docx block 层级超过系统上线
+    BLOCKSIZEEXCEEDLIMIT(7002), // docx block 大小超过系统上限
+    ;
+    private Integer value;
 
-  ImportTaskJobStatusEnum(Integer value) {
-    this.value = value;
-  }
+    ImportTaskJobStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

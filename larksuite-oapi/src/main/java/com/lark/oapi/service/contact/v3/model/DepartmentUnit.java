@@ -16,148 +16,145 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DepartmentUnit {
-
-  /**
-   * 部门单元自定义ID
-   * <p> 示例值：
-   */
-  @SerializedName("unit_id")
-  private String unitId;
-  /**
-   * 部门单元类型
-   * <p> 示例值：
-   */
-  @SerializedName("unit_type")
-  private String unitType;
-  /**
-   * 部门单元名称
-   * <p> 示例值：
-   */
-  @SerializedName("unit_name")
-  private String unitName;
-
-  // builder 开始
-  public DepartmentUnit() {
-  }
-
-  public DepartmentUnit(Builder builder) {
     /**
      * 部门单元自定义ID
      * <p> 示例值：
      */
-    this.unitId = builder.unitId;
-    /**
-     * 部门单元类型
-     * <p> 示例值：
-     */
-    this.unitType = builder.unitType;
-    /**
-     * 部门单元名称
-     * <p> 示例值：
-     */
-    this.unitName = builder.unitName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public String getUnitType() {
-    return this.unitType;
-  }
-
-  public void setUnitType(String unitType) {
-    this.unitType = unitType;
-  }
-
-  public String getUnitName() {
-    return this.unitName;
-  }
-
-  public void setUnitName(String unitName) {
-    this.unitName = unitName;
-  }
-
-  public static class Builder {
-
-    /**
-     * 部门单元自定义ID
-     * <p> 示例值：
-     */
+    @SerializedName("unit_id")
     private String unitId;
     /**
      * 部门单元类型
      * <p> 示例值：
      */
+    @SerializedName("unit_type")
     private String unitType;
     /**
      * 部门单元名称
      * <p> 示例值：
      */
+    @SerializedName("unit_name")
     private String unitName;
 
-    /**
-     * 部门单元自定义ID
-     * <p> 示例值：
-     *
-     * @param unitId
-     * @return
-     */
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    // builder 开始
+    public DepartmentUnit() {
     }
 
-
-    /**
-     * 部门单元类型
-     * <p> 示例值：
-     *
-     * @param unitType
-     * @return
-     */
-    public Builder unitType(String unitType) {
-      this.unitType = unitType;
-      return this;
+    public DepartmentUnit(Builder builder) {
+        /**
+         * 部门单元自定义ID
+         * <p> 示例值：
+         */
+        this.unitId = builder.unitId;
+        /**
+         * 部门单元类型
+         * <p> 示例值：
+         */
+        this.unitType = builder.unitType;
+        /**
+         * 部门单元名称
+         * <p> 示例值：
+         */
+        this.unitName = builder.unitName;
     }
 
-    /**
-     * 部门单元类型
-     * <p> 示例值：
-     *
-     * @param unitType {@link com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum}
-     * @return
-     */
-    public Builder unitType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum unitType) {
-      this.unitType = unitType.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 部门单元名称
-     * <p> 示例值：
-     *
-     * @param unitName
-     * @return
-     */
-    public Builder unitName(String unitName) {
-      this.unitName = unitName;
-      return this;
+    public String getUnitId() {
+        return this.unitId;
     }
 
-
-    public DepartmentUnit build() {
-      return new DepartmentUnit(this);
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
     }
-  }
+
+    public String getUnitType() {
+        return this.unitType;
+    }
+
+    public void setUnitType(String unitType) {
+        this.unitType = unitType;
+    }
+
+    public String getUnitName() {
+        return this.unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public static class Builder {
+        /**
+         * 部门单元自定义ID
+         * <p> 示例值：
+         */
+        private String unitId;
+        /**
+         * 部门单元类型
+         * <p> 示例值：
+         */
+        private String unitType;
+        /**
+         * 部门单元名称
+         * <p> 示例值：
+         */
+        private String unitName;
+
+        /**
+         * 部门单元自定义ID
+         * <p> 示例值：
+         *
+         * @param unitId
+         * @return
+         */
+        public Builder unitId(String unitId) {
+            this.unitId = unitId;
+            return this;
+        }
+
+
+        /**
+         * 部门单元类型
+         * <p> 示例值：
+         *
+         * @param unitType
+         * @return
+         */
+        public Builder unitType(String unitType) {
+            this.unitType = unitType;
+            return this;
+        }
+
+        /**
+         * 部门单元类型
+         * <p> 示例值：
+         *
+         * @param unitType {@link com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum}
+         * @return
+         */
+        public Builder unitType(com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum unitType) {
+            this.unitType = unitType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 部门单元名称
+         * <p> 示例值：
+         *
+         * @param unitName
+         * @return
+         */
+        public Builder unitName(String unitName) {
+            this.unitName = unitName;
+            return this;
+        }
+
+
+        public DepartmentUnit build() {
+            return new DepartmentUnit(this);
+        }
+    }
 }

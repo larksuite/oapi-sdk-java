@@ -19,117 +19,148 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class TransferOnboardApplicationReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 投递ID
-   * <p> 示例值：7073372582620416300
-   */
-  @Path
-  @SerializedName("application_id")
-  private String applicationId;
-  @Body
-  private TransferOnboardApplicationReqBody body;
-
-  // builder 开始
-  public TransferOnboardApplicationReq() {
-  }
-
-  public TransferOnboardApplicationReq(Builder builder) {
     /**
-     * 此次调用中使用的用户ID的类型
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
+     * 此次调用中使用的部门 ID 的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("department_id_type")
+    private String departmentIdType;
     /**
      * 投递ID
      * <p> 示例值：7073372582620416300
      */
-    this.applicationId = builder.applicationId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getApplicationId() {
-    return this.applicationId;
-  }
-
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
-  }
-
-  public TransferOnboardApplicationReqBody getTransferOnboardApplicationReqBody() {
-    return this.body;
-  }
-
-  public void setTransferOnboardApplicationReqBody(TransferOnboardApplicationReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String applicationId; // 投递ID
+    @Path
+    @SerializedName("application_id")
+    private String applicationId;
+    @Body
     private TransferOnboardApplicationReqBody body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public TransferOnboardApplicationReq() {
     }
 
-    /**
-     * 投递ID
-     * <p> 示例值：7073372582620416300
-     *
-     * @param applicationId
-     * @return
-     */
-    public Builder applicationId(String applicationId) {
-      this.applicationId = applicationId;
-      return this;
+    public TransferOnboardApplicationReq(Builder builder) {
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         */
+        this.departmentIdType = builder.departmentIdType;
+        /**
+         * 投递ID
+         * <p> 示例值：7073372582620416300
+         */
+        this.applicationId = builder.applicationId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
     }
 
     public TransferOnboardApplicationReqBody getTransferOnboardApplicationReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder transferOnboardApplicationReqBody(TransferOnboardApplicationReqBody body) {
-      this.body = body;
-      return this;
+    public void setTransferOnboardApplicationReqBody(TransferOnboardApplicationReqBody body) {
+        this.body = body;
     }
 
-    public TransferOnboardApplicationReq build() {
-      return new TransferOnboardApplicationReq(this);
+    public static class Builder {
+        private String userIdType; // 用户 ID 类型
+        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private String applicationId; // 投递ID
+        private TransferOnboardApplicationReqBody body;
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的部门 ID 的类型
+         * <p> 示例值：
+         *
+         * @param departmentIdType
+         * @return
+         */
+        public Builder departmentIdType(String departmentIdType) {
+            this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 投递ID
+         * <p> 示例值：7073372582620416300
+         *
+         * @param applicationId
+         * @return
+         */
+        public Builder applicationId(String applicationId) {
+            this.applicationId = applicationId;
+            return this;
+        }
+
+        public TransferOnboardApplicationReqBody getTransferOnboardApplicationReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder transferOnboardApplicationReqBody(TransferOnboardApplicationReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public TransferOnboardApplicationReq build() {
+            return new TransferOnboardApplicationReq(this);
+        }
     }
-  }
 }

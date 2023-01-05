@@ -17,21 +17,21 @@ package com.lark.oapi.service.vc.v1.enums;
  * 用户类型，当前仅支持用户类型6(pstn用户)
  */
 public enum ReserveCalleeUserTypeEnum {
-  LARK_USER(1), // lark用户
-  ROOM_USER(2), // rooms用户
-  DOC_USER(3), // 文档用户
-  NEO_USER(4), // neo单品用户
-  NEO_GUEST_USER(5), // neo单品游客用户
-  PSTN_USER(6), // pstn用户
-  SIP_USER(7), // sip用户
-  ;
-  private Integer value;
+    LARK_USER(1), // lark用户
+    ROOM_USER(2), // rooms用户
+    DOC_USER(3), // 文档用户
+    NEO_USER(4), // neo单品用户
+    NEO_GUEST_USER(5), // neo单品游客用户
+    PSTN_USER(6), // pstn用户
+    SIP_USER(7), // sip用户
+    ;
+    private Integer value;
 
-  ReserveCalleeUserTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ReserveCalleeUserTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

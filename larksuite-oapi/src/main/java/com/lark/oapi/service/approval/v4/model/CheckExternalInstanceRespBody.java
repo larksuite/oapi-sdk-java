@@ -16,20 +16,19 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CheckExternalInstanceRespBody {
+    /**
+     * 更新时间不一致的实例信息
+     * <p> 示例值：
+     */
+    @SerializedName("diff_instances")
+    private ExteranlInstanceCheckResponse[] diffInstances;
 
-  /**
-   * 更新时间不一致的实例信息
-   * <p> 示例值：
-   */
-  @SerializedName("diff_instances")
-  private ExteranlInstanceCheckResponse[] diffInstances;
+    public ExteranlInstanceCheckResponse[] getDiffInstances() {
+        return this.diffInstances;
+    }
 
-  public ExteranlInstanceCheckResponse[] getDiffInstances() {
-    return this.diffInstances;
-  }
-
-  public void setDiffInstances(ExteranlInstanceCheckResponse[] diffInstances) {
-    this.diffInstances = diffInstances;
-  }
+    public void setDiffInstances(ExteranlInstanceCheckResponse[] diffInstances) {
+        this.diffInstances = diffInstances;
+    }
 
 }

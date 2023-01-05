@@ -16,98 +16,96 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class NotificationDepartment {
-
-  /**
-   * 部门ID
-   * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * 非必填，部门名称
-   * <p> 示例值：测试部门
-   */
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public NotificationDepartment() {
-  }
-
-  public NotificationDepartment(Builder builder) {
     /**
      * 部门ID
      * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
      */
-    this.departmentId = builder.departmentId;
-    /**
-     * 非必填，部门名称
-     * <p> 示例值：测试部门
-     */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 部门ID
-     * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
-     */
+    @SerializedName("department_id")
     private String departmentId;
     /**
      * 非必填，部门名称
      * <p> 示例值：测试部门
      */
+    @SerializedName("name")
     private String name;
 
-    /**
-     * 部门ID
-     * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    // builder 开始
+    public NotificationDepartment() {
     }
 
-
-    /**
-     * 非必填，部门名称
-     * <p> 示例值：测试部门
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public NotificationDepartment(Builder builder) {
+        /**
+         * 部门ID
+         * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 非必填，部门名称
+         * <p> 示例值：测试部门
+         */
+        this.name = builder.name;
     }
 
-
-    public NotificationDepartment build() {
-      return new NotificationDepartment(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 部门ID
+         * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+         */
+        private String departmentId;
+        /**
+         * 非必填，部门名称
+         * <p> 示例值：测试部门
+         */
+        private String name;
+
+        /**
+         * 部门ID
+         * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 非必填，部门名称
+         * <p> 示例值：测试部门
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public NotificationDepartment build() {
+            return new NotificationDepartment(this);
+        }
+    }
 }

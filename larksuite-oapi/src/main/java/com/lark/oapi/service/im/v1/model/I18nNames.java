@@ -16,135 +16,133 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class I18nNames {
-
-  /**
-   * 中文名
-   * <p> 示例值：群聊
-   */
-  @SerializedName("zh_cn")
-  private String zhCn;
-  /**
-   * 英文名
-   * <p> 示例值：group chat
-   */
-  @SerializedName("en_us")
-  private String enUs;
-  /**
-   * 日文名
-   * <p> 示例值：グループチャット
-   */
-  @SerializedName("ja_jp")
-  private String jaJp;
-
-  // builder 开始
-  public I18nNames() {
-  }
-
-  public I18nNames(Builder builder) {
     /**
      * 中文名
-     * <p> 示例值：群聊
+     * <p> 示例值：评审报名
      */
-    this.zhCn = builder.zhCn;
-    /**
-     * 英文名
-     * <p> 示例值：group chat
-     */
-    this.enUs = builder.enUs;
-    /**
-     * 日文名
-     * <p> 示例值：グループチャット
-     */
-    this.jaJp = builder.jaJp;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getZhCn() {
-    return this.zhCn;
-  }
-
-  public void setZhCn(String zhCn) {
-    this.zhCn = zhCn;
-  }
-
-  public String getEnUs() {
-    return this.enUs;
-  }
-
-  public void setEnUs(String enUs) {
-    this.enUs = enUs;
-  }
-
-  public String getJaJp() {
-    return this.jaJp;
-  }
-
-  public void setJaJp(String jaJp) {
-    this.jaJp = jaJp;
-  }
-
-  public static class Builder {
-
-    /**
-     * 中文名
-     * <p> 示例值：群聊
-     */
+    @SerializedName("zh_cn")
     private String zhCn;
     /**
      * 英文名
-     * <p> 示例值：group chat
+     * <p> 示例值：Sign up
      */
+    @SerializedName("en_us")
     private String enUs;
     /**
      * 日文名
-     * <p> 示例值：グループチャット
+     * <p> 示例值：サインアップ
      */
+    @SerializedName("ja_jp")
     private String jaJp;
 
-    /**
-     * 中文名
-     * <p> 示例值：群聊
-     *
-     * @param zhCn
-     * @return
-     */
-    public Builder zhCn(String zhCn) {
-      this.zhCn = zhCn;
-      return this;
+    // builder 开始
+    public I18nNames() {
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：group chat
-     *
-     * @param enUs
-     * @return
-     */
-    public Builder enUs(String enUs) {
-      this.enUs = enUs;
-      return this;
+    public I18nNames(Builder builder) {
+        /**
+         * 中文名
+         * <p> 示例值：评审报名
+         */
+        this.zhCn = builder.zhCn;
+        /**
+         * 英文名
+         * <p> 示例值：Sign up
+         */
+        this.enUs = builder.enUs;
+        /**
+         * 日文名
+         * <p> 示例值：サインアップ
+         */
+        this.jaJp = builder.jaJp;
     }
 
-
-    /**
-     * 日文名
-     * <p> 示例值：グループチャット
-     *
-     * @param jaJp
-     * @return
-     */
-    public Builder jaJp(String jaJp) {
-      this.jaJp = jaJp;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public I18nNames build() {
-      return new I18nNames(this);
+    public String getZhCn() {
+        return this.zhCn;
     }
-  }
+
+    public void setZhCn(String zhCn) {
+        this.zhCn = zhCn;
+    }
+
+    public String getEnUs() {
+        return this.enUs;
+    }
+
+    public void setEnUs(String enUs) {
+        this.enUs = enUs;
+    }
+
+    public String getJaJp() {
+        return this.jaJp;
+    }
+
+    public void setJaJp(String jaJp) {
+        this.jaJp = jaJp;
+    }
+
+    public static class Builder {
+        /**
+         * 中文名
+         * <p> 示例值：评审报名
+         */
+        private String zhCn;
+        /**
+         * 英文名
+         * <p> 示例值：Sign up
+         */
+        private String enUs;
+        /**
+         * 日文名
+         * <p> 示例值：サインアップ
+         */
+        private String jaJp;
+
+        /**
+         * 中文名
+         * <p> 示例值：评审报名
+         *
+         * @param zhCn
+         * @return
+         */
+        public Builder zhCn(String zhCn) {
+            this.zhCn = zhCn;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：Sign up
+         *
+         * @param enUs
+         * @return
+         */
+        public Builder enUs(String enUs) {
+            this.enUs = enUs;
+            return this;
+        }
+
+
+        /**
+         * 日文名
+         * <p> 示例值：サインアップ
+         *
+         * @param jaJp
+         * @return
+         */
+        public Builder jaJp(String jaJp) {
+            this.jaJp = jaJp;
+            return this;
+        }
+
+
+        public I18nNames build() {
+            return new I18nNames(this);
+        }
+    }
 }

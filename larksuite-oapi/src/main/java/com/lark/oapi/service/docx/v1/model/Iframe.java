@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Iframe {
-
-  /**
-   * iframe 的组成元素
-   * <p> 示例值：
-   */
-  @SerializedName("component")
-  private IframeComponent component;
-
-  // builder 开始
-  public Iframe() {
-  }
-
-  public Iframe(Builder builder) {
     /**
      * iframe 的组成元素
      * <p> 示例值：
      */
-    this.component = builder.component;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public IframeComponent getComponent() {
-    return this.component;
-  }
-
-  public void setComponent(IframeComponent component) {
-    this.component = component;
-  }
-
-  public static class Builder {
-
-    /**
-     * iframe 的组成元素
-     * <p> 示例值：
-     */
+    @SerializedName("component")
     private IframeComponent component;
 
-    /**
-     * iframe 的组成元素
-     * <p> 示例值：
-     *
-     * @param component
-     * @return
-     */
-    public Builder component(IframeComponent component) {
-      this.component = component;
-      return this;
+    // builder 开始
+    public Iframe() {
     }
 
-
-    public Iframe build() {
-      return new Iframe(this);
+    public Iframe(Builder builder) {
+        /**
+         * iframe 的组成元素
+         * <p> 示例值：
+         */
+        this.component = builder.component;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public IframeComponent getComponent() {
+        return this.component;
+    }
+
+    public void setComponent(IframeComponent component) {
+        this.component = component;
+    }
+
+    public static class Builder {
+        /**
+         * iframe 的组成元素
+         * <p> 示例值：
+         */
+        private IframeComponent component;
+
+        /**
+         * iframe 的组成元素
+         * <p> 示例值：
+         *
+         * @param component
+         * @return
+         */
+        public Builder component(IframeComponent component) {
+            this.component = component;
+            return this;
+        }
+
+
+        public Iframe build() {
+            return new Iframe(this);
+        }
+    }
 }

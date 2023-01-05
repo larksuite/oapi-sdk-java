@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateUserTaskRemedy {
 
-  /**
-   * 补卡审批信息
-   * <p> 示例值：
-   */
-  @SerializedName("user_remedy")
-  private UserTaskRemedy userRemedy;
+    /**
+     * 补卡审批信息
+     * <p> 示例值：
+     */
+    @SerializedName("user_remedy")
+    private UserTaskRemedy userRemedy;
 
-  public UserTaskRemedy getUserRemedy() {
-    return this.userRemedy;
-  }
+    public UserTaskRemedy getUserRemedy() {
+        return this.userRemedy;
+    }
 
-  public void setUserRemedy(UserTaskRemedy userRemedy) {
-    this.userRemedy = userRemedy;
-  }
+    public void setUserRemedy(UserTaskRemedy userRemedy) {
+        this.userRemedy = userRemedy;
+    }
 
 }

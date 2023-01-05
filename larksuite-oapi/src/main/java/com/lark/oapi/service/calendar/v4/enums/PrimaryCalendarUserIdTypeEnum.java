@@ -17,17 +17,17 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 此次调用中使用的用户ID的类型
  */
 public enum PrimaryCalendarUserIdTypeEnum {
-  USER_ID("user_id"), // 以user_id来识别用户id
-  UNION_ID("union_id"), // 以union_id来识别用户id
-  OPEN_ID("open_id"), // 以open_id来识别用户id
-  ;
-  private String value;
+    USER_ID("user_id"), // 以user_id来识别用户id
+    UNION_ID("union_id"), // 以union_id来识别用户id
+    OPEN_ID("open_id"), // 以open_id来识别用户id
+    ;
+    private String value;
 
-  PrimaryCalendarUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    PrimaryCalendarUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

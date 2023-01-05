@@ -16,20 +16,47 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateProgressRecordRespBody {
+    /**
+     * OKR 进展ID
+     * <p> 示例值：7041469619902693396
+     */
+    @SerializedName("progress_id")
+    private String progressId;
+    /**
+     * 进展更新时间 毫秒
+     * <p> 示例值：1618500278663
+     */
+    @SerializedName("modify_time")
+    private String modifyTime;
+    /**
+     * 进展 对应的 Content 详细内容
+     * <p> 示例值：
+     */
+    @SerializedName("content")
+    private ContentBlock content;
 
-  /**
-   * 更新后的进行详情
-   * <p> 示例值：
-   */
-  @SerializedName("data")
-  private ProgressRecord data;
+    public String getProgressId() {
+        return this.progressId;
+    }
 
-  public ProgressRecord getData() {
-    return this.data;
-  }
+    public void setProgressId(String progressId) {
+        this.progressId = progressId;
+    }
 
-  public void setData(ProgressRecord data) {
-    this.data = data;
-  }
+    public String getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(String modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public ContentBlock getContent() {
+        return this.content;
+    }
+
+    public void setContent(ContentBlock content) {
+        this.content = content;
+    }
 
 }

@@ -16,101 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferCustomizedInfo {
-
-  /**
-   * 自定义字段 ID
-   * <p> 示例值：6972464088568269100
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："2022-05-26";4. 年份选择："2022";5.
-   * 月份选择："2022-05";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
-   * <p> 示例值：1
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public OfferCustomizedInfo() {
-  }
-
-  public OfferCustomizedInfo(Builder builder) {
     /**
      * 自定义字段 ID
      * <p> 示例值：6972464088568269100
      */
-    this.id = builder.id;
-    /**
-     * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："2022-05-26";4. 年份选择："2022";5. 月份选择："2022-05";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
-     * <p> 示例值：1
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6972464088568269100
-     */
+    @SerializedName("id")
     private String id;
     /**
-     * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："2022-05-26";4. 年份选择："2022";5.
-     * 月份选择："2022-05";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
+     * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："{"date":"2022-01-01"}";4. 年份选择："{"date":"2022"}";5. 月份选择："{"date":"2022-01"}";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
      * <p> 示例值：1
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 自定义字段 ID
-     * <p> 示例值：6972464088568269100
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public OfferCustomizedInfo() {
     }
 
-
-    /**
-     * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："2022-05-26";4. 年份选择："2022";5.
-     * 月份选择："2022-05";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
-     * <p> 示例值：1
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public OfferCustomizedInfo(Builder builder) {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6972464088568269100
+         */
+        this.id = builder.id;
+        /**
+         * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："{"date":"2022-01-01"}";4. 年份选择："{"date":"2022"}";5. 月份选择："{"date":"2022-01"}";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
+         * <p> 示例值：1
+         */
+        this.value = builder.value;
     }
 
-
-    public OfferCustomizedInfo build() {
-      return new OfferCustomizedInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6972464088568269100
+         */
+        private String id;
+        /**
+         * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："{"date":"2022-01-01"}";4. 年份选择："{"date":"2022"}";5. 月份选择："{"date":"2022-01"}";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
+         * <p> 示例值：1
+         */
+        private String value;
+
+        /**
+         * 自定义字段 ID
+         * <p> 示例值：6972464088568269100
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段信息，以字符串形式传入，如：;1. 单选： "1";2. 多选："[\"1\", \"2\"]";3. 日期："{"date":"2022-01-01"}";4. 年份选择："{"date":"2022"}";5. 月份选择："{"date":"2022-01"}";6. 单行文本："xxx ";7. 多行文本："xxx ";8. 数字："123";9. 金额："123.1"
+         * <p> 示例值：1
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public OfferCustomizedInfo build() {
+            return new OfferCustomizedInfo(this);
+        }
+    }
 }

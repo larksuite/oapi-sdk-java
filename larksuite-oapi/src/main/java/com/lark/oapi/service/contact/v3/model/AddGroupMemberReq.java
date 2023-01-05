@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class AddGroupMemberReq {
-
-  /**
-   * 用户组ID
-   * <p> 示例值：g281721
-   */
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-  @Body
-  private AddGroupMemberReqBody body;
-
-  // builder 开始
-  public AddGroupMemberReq() {
-  }
-
-  public AddGroupMemberReq(Builder builder) {
     /**
      * 用户组ID
      * <p> 示例值：g281721
      */
-    this.groupId = builder.groupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public AddGroupMemberReqBody getAddGroupMemberReqBody() {
-    return this.body;
-  }
-
-  public void setAddGroupMemberReqBody(AddGroupMemberReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String groupId; // 用户组ID
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
+    @Body
     private AddGroupMemberReqBody body;
 
-    /**
-     * 用户组ID
-     * <p> 示例值：g281721
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public AddGroupMemberReq() {
+    }
+
+    public AddGroupMemberReq(Builder builder) {
+        /**
+         * 用户组ID
+         * <p> 示例值：g281721
+         */
+        this.groupId = builder.groupId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public AddGroupMemberReqBody getAddGroupMemberReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder addGroupMemberReqBody(AddGroupMemberReqBody body) {
-      this.body = body;
-      return this;
+    public void setAddGroupMemberReqBody(AddGroupMemberReqBody body) {
+        this.body = body;
     }
 
-    public AddGroupMemberReq build() {
-      return new AddGroupMemberReq(this);
+    public static class Builder {
+
+        private String groupId; // 用户组ID
+        private AddGroupMemberReqBody body;
+
+        /**
+         * 用户组ID
+         * <p> 示例值：g281721
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+        public AddGroupMemberReqBody getAddGroupMemberReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder addGroupMemberReqBody(AddGroupMemberReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public AddGroupMemberReq build() {
+            return new AddGroupMemberReq(this);
+        }
     }
-  }
 }

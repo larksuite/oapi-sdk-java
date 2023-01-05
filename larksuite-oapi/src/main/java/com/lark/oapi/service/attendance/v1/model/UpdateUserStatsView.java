@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateUserStatsView {
 
-  /**
-   * 视图
-   * <p> 示例值：
-   */
-  @SerializedName("view")
-  private UserStatsView view;
+    /**
+     * 视图
+     * <p> 示例值：
+     */
+    @SerializedName("view")
+    private UserStatsView view;
 
-  public UserStatsView getView() {
-    return this.view;
-  }
+    public UserStatsView getView() {
+        return this.view;
+    }
 
-  public void setView(UserStatsView view) {
-    this.view = view;
-  }
+    public void setView(UserStatsView view) {
+        this.view = view;
+    }
 
 }

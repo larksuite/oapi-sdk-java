@@ -17,18 +17,18 @@ package com.lark.oapi.service.vc.v1.enums;
  * 授权对象类型
  */
 public enum RecordingPermissionObjectAuthTypeEnum {
-  USER(1), // 用户授权
-  GROUP(2), // 群组授权
-  TENANT(3), // 租户内授权（id字段不填）
-  PUBLIC(4), // 公网授权（id字段不填）
-  ;
-  private Integer value;
+    USER(1), // 用户授权
+    GROUP(2), // 群组授权
+    TENANT(3), // 租户内授权（id字段不填）
+    PUBLIC(4), // 公网授权（id字段不填）
+    ;
+    private Integer value;
 
-  RecordingPermissionObjectAuthTypeEnum(Integer value) {
-    this.value = value;
-  }
+    RecordingPermissionObjectAuthTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

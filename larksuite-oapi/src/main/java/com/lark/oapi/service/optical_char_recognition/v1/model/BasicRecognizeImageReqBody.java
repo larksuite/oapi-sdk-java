@@ -16,61 +16,59 @@ package com.lark.oapi.service.optical_char_recognition.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BasicRecognizeImageReqBody {
-
-  /**
-   * base64 后的图片数据
-   * <p> 示例值：base64后的图片二进制数据
-   */
-  @SerializedName("image")
-  private String image;
-
-  // builder 开始
-  public BasicRecognizeImageReqBody() {
-  }
-
-  public BasicRecognizeImageReqBody(Builder builder) {
     /**
      * base64 后的图片数据
      * <p> 示例值：base64后的图片二进制数据
      */
-    this.image = builder.image;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImage() {
-    return this.image;
-  }
-
-  public void setImage(String image) {
-    this.image = image;
-  }
-
-  public static class Builder {
-
-    /**
-     * base64 后的图片数据
-     * <p> 示例值：base64后的图片二进制数据
-     */
+    @SerializedName("image")
     private String image;
 
-    /**
-     * base64 后的图片数据
-     * <p> 示例值：base64后的图片二进制数据
-     *
-     * @param image
-     * @return
-     */
-    public Builder image(String image) {
-      this.image = image;
-      return this;
+    // builder 开始
+    public BasicRecognizeImageReqBody() {
     }
 
-
-    public BasicRecognizeImageReqBody build() {
-      return new BasicRecognizeImageReqBody(this);
+    public BasicRecognizeImageReqBody(Builder builder) {
+        /**
+         * base64 后的图片数据
+         * <p> 示例值：base64后的图片二进制数据
+         */
+        this.image = builder.image;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public static class Builder {
+        /**
+         * base64 后的图片数据
+         * <p> 示例值：base64后的图片二进制数据
+         */
+        private String image;
+
+        /**
+         * base64 后的图片数据
+         * <p> 示例值：base64后的图片二进制数据
+         *
+         * @param image
+         * @return
+         */
+        public Builder image(String image) {
+            this.image = image;
+            return this;
+        }
+
+
+        public BasicRecognizeImageReqBody build() {
+            return new BasicRecognizeImageReqBody(this);
+        }
+    }
 }

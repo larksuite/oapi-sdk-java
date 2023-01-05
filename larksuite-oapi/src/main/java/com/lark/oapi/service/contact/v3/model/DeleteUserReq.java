@@ -19,130 +19,127 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class DeleteUserReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 用户ID，需要与查询参数中的user_id_type类型保持一致。
-   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-   */
-  @Path
-  @SerializedName("user_id")
-  private String userId;
-  @Body
-  private DeleteUserReqBody body;
-
-  // builder 开始
-  public DeleteUserReq() {
-  }
-
-  public DeleteUserReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 用户ID，需要与查询参数中的user_id_type类型保持一致。
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    this.userId = builder.userId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public DeleteUserReqBody getDeleteUserReqBody() {
-    return this.body;
-  }
-
-  public void setDeleteUserReqBody(DeleteUserReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String userId; // 用户ID，需要与查询参数中的user_id_type类型保持一致。
+    @Path
+    @SerializedName("user_id")
+    private String userId;
+    @Body
     private DeleteUserReqBody body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public DeleteUserReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteUserUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.contact.v3.enums.DeleteUserUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public DeleteUserReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 用户ID，需要与查询参数中的user_id_type类型保持一致。
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         */
+        this.userId = builder.userId;
+        this.body = builder.body;
     }
 
-    /**
-     * 用户ID，需要与查询参数中的user_id_type类型保持一致。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public DeleteUserReqBody getDeleteUserReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder deleteUserReqBody(DeleteUserReqBody body) {
-      this.body = body;
-      return this;
+    public void setDeleteUserReqBody(DeleteUserReqBody body) {
+        this.body = body;
     }
 
-    public DeleteUserReq build() {
-      return new DeleteUserReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String userId; // 用户ID，需要与查询参数中的user_id_type类型保持一致。
+        private DeleteUserReqBody body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteUserUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.DeleteUserUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 用户ID，需要与查询参数中的user_id_type类型保持一致。
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public DeleteUserReqBody getDeleteUserReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder deleteUserReqBody(DeleteUserReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public DeleteUserReq build() {
+            return new DeleteUserReq(this);
+        }
     }
-  }
 }

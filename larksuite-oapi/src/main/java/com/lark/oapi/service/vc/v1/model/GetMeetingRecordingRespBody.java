@@ -16,20 +16,19 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetMeetingRecordingRespBody {
+    /**
+     * 录制文件数据
+     * <p> 示例值：
+     */
+    @SerializedName("recording")
+    private MeetingRecording recording;
 
-  /**
-   * 录制文件数据
-   * <p> 示例值：
-   */
-  @SerializedName("recording")
-  private MeetingRecording recording;
+    public MeetingRecording getRecording() {
+        return this.recording;
+    }
 
-  public MeetingRecording getRecording() {
-    return this.recording;
-  }
-
-  public void setRecording(MeetingRecording recording) {
-    this.recording = recording;
-  }
+    public void setRecording(MeetingRecording recording) {
+        this.recording = recording;
+    }
 
 }

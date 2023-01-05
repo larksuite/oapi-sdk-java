@@ -16,283 +16,281 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class EducationInfo {
-
-  /**
-   * 学历
-   * <p> 示例值：
-   */
-  @SerializedName("degree")
-  private Integer degree;
-  /**
-   * 结束时间
-   * <p> 示例值：
-   */
-  @SerializedName("end_time")
-  private Integer endTime;
-  /**
-   * 专业
-   * <p> 示例值：
-   */
-  @SerializedName("field_of_study")
-  private String fieldOfStudy;
-  /**
-   * 学校
-   * <p> 示例值：
-   */
-  @SerializedName("school")
-  private String school;
-  /**
-   * 开始时间
-   * <p> 示例值：
-   */
-  @SerializedName("start_time")
-  private Integer startTime;
-  /**
-   * 学历类型
-   * <p> 示例值：
-   */
-  @SerializedName("education_type")
-  private Integer educationType;
-  /**
-   * 排名
-   * <p> 示例值：
-   */
-  @SerializedName("academic_ranking")
-  private Integer academicRanking;
-
-  // builder 开始
-  public EducationInfo() {
-  }
-
-  public EducationInfo(Builder builder) {
     /**
      * 学历
      * <p> 示例值：
      */
-    this.degree = builder.degree;
-    /**
-     * 结束时间
-     * <p> 示例值：
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 专业
-     * <p> 示例值：
-     */
-    this.fieldOfStudy = builder.fieldOfStudy;
-    /**
-     * 学校
-     * <p> 示例值：
-     */
-    this.school = builder.school;
-    /**
-     * 开始时间
-     * <p> 示例值：
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 学历类型
-     * <p> 示例值：
-     */
-    this.educationType = builder.educationType;
-    /**
-     * 排名
-     * <p> 示例值：
-     */
-    this.academicRanking = builder.academicRanking;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getDegree() {
-    return this.degree;
-  }
-
-  public void setDegree(Integer degree) {
-    this.degree = degree;
-  }
-
-  public Integer getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(Integer endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getFieldOfStudy() {
-    return this.fieldOfStudy;
-  }
-
-  public void setFieldOfStudy(String fieldOfStudy) {
-    this.fieldOfStudy = fieldOfStudy;
-  }
-
-  public String getSchool() {
-    return this.school;
-  }
-
-  public void setSchool(String school) {
-    this.school = school;
-  }
-
-  public Integer getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(Integer startTime) {
-    this.startTime = startTime;
-  }
-
-  public Integer getEducationType() {
-    return this.educationType;
-  }
-
-  public void setEducationType(Integer educationType) {
-    this.educationType = educationType;
-  }
-
-  public Integer getAcademicRanking() {
-    return this.academicRanking;
-  }
-
-  public void setAcademicRanking(Integer academicRanking) {
-    this.academicRanking = academicRanking;
-  }
-
-  public static class Builder {
-
-    /**
-     * 学历
-     * <p> 示例值：
-     */
+    @SerializedName("degree")
     private Integer degree;
     /**
      * 结束时间
      * <p> 示例值：
      */
+    @SerializedName("end_time")
     private Integer endTime;
     /**
      * 专业
      * <p> 示例值：
      */
+    @SerializedName("field_of_study")
     private String fieldOfStudy;
     /**
      * 学校
      * <p> 示例值：
      */
+    @SerializedName("school")
     private String school;
     /**
      * 开始时间
      * <p> 示例值：
      */
+    @SerializedName("start_time")
     private Integer startTime;
     /**
      * 学历类型
      * <p> 示例值：
      */
+    @SerializedName("education_type")
     private Integer educationType;
     /**
      * 排名
      * <p> 示例值：
      */
+    @SerializedName("academic_ranking")
     private Integer academicRanking;
 
-    /**
-     * 学历
-     * <p> 示例值：
-     *
-     * @param degree
-     * @return
-     */
-    public Builder degree(Integer degree) {
-      this.degree = degree;
-      return this;
+    // builder 开始
+    public EducationInfo() {
     }
 
-
-    /**
-     * 结束时间
-     * <p> 示例值：
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(Integer endTime) {
-      this.endTime = endTime;
-      return this;
+    public EducationInfo(Builder builder) {
+        /**
+         * 学历
+         * <p> 示例值：
+         */
+        this.degree = builder.degree;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 专业
+         * <p> 示例值：
+         */
+        this.fieldOfStudy = builder.fieldOfStudy;
+        /**
+         * 学校
+         * <p> 示例值：
+         */
+        this.school = builder.school;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 学历类型
+         * <p> 示例值：
+         */
+        this.educationType = builder.educationType;
+        /**
+         * 排名
+         * <p> 示例值：
+         */
+        this.academicRanking = builder.academicRanking;
     }
 
-
-    /**
-     * 专业
-     * <p> 示例值：
-     *
-     * @param fieldOfStudy
-     * @return
-     */
-    public Builder fieldOfStudy(String fieldOfStudy) {
-      this.fieldOfStudy = fieldOfStudy;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 学校
-     * <p> 示例值：
-     *
-     * @param school
-     * @return
-     */
-    public Builder school(String school) {
-      this.school = school;
-      return this;
+    public Integer getDegree() {
+        return this.degree;
     }
 
-
-    /**
-     * 开始时间
-     * <p> 示例值：
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(Integer startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setDegree(Integer degree) {
+        this.degree = degree;
     }
 
-
-    /**
-     * 学历类型
-     * <p> 示例值：
-     *
-     * @param educationType
-     * @return
-     */
-    public Builder educationType(Integer educationType) {
-      this.educationType = educationType;
-      return this;
+    public Integer getEndTime() {
+        return this.endTime;
     }
 
-
-    /**
-     * 排名
-     * <p> 示例值：
-     *
-     * @param academicRanking
-     * @return
-     */
-    public Builder academicRanking(Integer academicRanking) {
-      this.academicRanking = academicRanking;
-      return this;
+    public void setEndTime(Integer endTime) {
+        this.endTime = endTime;
     }
 
-
-    public EducationInfo build() {
-      return new EducationInfo(this);
+    public String getFieldOfStudy() {
+        return this.fieldOfStudy;
     }
-  }
+
+    public void setFieldOfStudy(String fieldOfStudy) {
+        this.fieldOfStudy = fieldOfStudy;
+    }
+
+    public String getSchool() {
+        return this.school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public Integer getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(Integer startTime) {
+        this.startTime = startTime;
+    }
+
+    public Integer getEducationType() {
+        return this.educationType;
+    }
+
+    public void setEducationType(Integer educationType) {
+        this.educationType = educationType;
+    }
+
+    public Integer getAcademicRanking() {
+        return this.academicRanking;
+    }
+
+    public void setAcademicRanking(Integer academicRanking) {
+        this.academicRanking = academicRanking;
+    }
+
+    public static class Builder {
+        /**
+         * 学历
+         * <p> 示例值：
+         */
+        private Integer degree;
+        /**
+         * 结束时间
+         * <p> 示例值：
+         */
+        private Integer endTime;
+        /**
+         * 专业
+         * <p> 示例值：
+         */
+        private String fieldOfStudy;
+        /**
+         * 学校
+         * <p> 示例值：
+         */
+        private String school;
+        /**
+         * 开始时间
+         * <p> 示例值：
+         */
+        private Integer startTime;
+        /**
+         * 学历类型
+         * <p> 示例值：
+         */
+        private Integer educationType;
+        /**
+         * 排名
+         * <p> 示例值：
+         */
+        private Integer academicRanking;
+
+        /**
+         * 学历
+         * <p> 示例值：
+         *
+         * @param degree
+         * @return
+         */
+        public Builder degree(Integer degree) {
+            this.degree = degree;
+            return this;
+        }
+
+
+        /**
+         * 结束时间
+         * <p> 示例值：
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(Integer endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 专业
+         * <p> 示例值：
+         *
+         * @param fieldOfStudy
+         * @return
+         */
+        public Builder fieldOfStudy(String fieldOfStudy) {
+            this.fieldOfStudy = fieldOfStudy;
+            return this;
+        }
+
+
+        /**
+         * 学校
+         * <p> 示例值：
+         *
+         * @param school
+         * @return
+         */
+        public Builder school(String school) {
+            this.school = school;
+            return this;
+        }
+
+
+        /**
+         * 开始时间
+         * <p> 示例值：
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(Integer startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 学历类型
+         * <p> 示例值：
+         *
+         * @param educationType
+         * @return
+         */
+        public Builder educationType(Integer educationType) {
+            this.educationType = educationType;
+            return this;
+        }
+
+
+        /**
+         * 排名
+         * <p> 示例值：
+         *
+         * @param academicRanking
+         * @return
+         */
+        public Builder academicRanking(Integer academicRanking) {
+            this.academicRanking = academicRanking;
+            return this;
+        }
+
+
+        public EducationInfo build() {
+            return new EducationInfo(this);
+        }
+    }
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationTalentSnsInfo {
-
-  /**
-   * ID
-   * <p> 示例值：
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * SNS类型
-   * <p> 示例值：
-   */
-  @SerializedName("sns_type")
-  private Integer snsType;
-  /**
-   * SNS链接
-   * <p> 示例值：
-   */
-  @SerializedName("link")
-  private String link;
-
-  // builder 开始
-  public ApplicationTalentSnsInfo() {
-  }
-
-  public ApplicationTalentSnsInfo(Builder builder) {
     /**
      * ID
      * <p> 示例值：
      */
-    this.id = builder.id;
-    /**
-     * SNS类型
-     * <p> 示例值：
-     */
-    this.snsType = builder.snsType;
-    /**
-     * SNS链接
-     * <p> 示例值：
-     */
-    this.link = builder.link;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getSnsType() {
-    return this.snsType;
-  }
-
-  public void setSnsType(Integer snsType) {
-    this.snsType = snsType;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：
-     */
+    @SerializedName("id")
     private String id;
     /**
      * SNS类型
      * <p> 示例值：
      */
+    @SerializedName("sns_type")
     private Integer snsType;
     /**
      * SNS链接
      * <p> 示例值：
      */
+    @SerializedName("link")
     private String link;
 
-    /**
-     * ID
-     * <p> 示例值：
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public ApplicationTalentSnsInfo() {
     }
 
-
-    /**
-     * SNS类型
-     * <p> 示例值：
-     *
-     * @param snsType
-     * @return
-     */
-    public Builder snsType(Integer snsType) {
-      this.snsType = snsType;
-      return this;
+    public ApplicationTalentSnsInfo(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        this.id = builder.id;
+        /**
+         * SNS类型
+         * <p> 示例值：
+         */
+        this.snsType = builder.snsType;
+        /**
+         * SNS链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
     }
 
-
-    /**
-     * SNS链接
-     * <p> 示例值：
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ApplicationTalentSnsInfo build() {
-      return new ApplicationTalentSnsInfo(this);
+    public String getId() {
+        return this.id;
     }
-  }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getSnsType() {
+        return this.snsType;
+    }
+
+    public void setSnsType(Integer snsType) {
+        this.snsType = snsType;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：
+         */
+        private String id;
+        /**
+         * SNS类型
+         * <p> 示例值：
+         */
+        private Integer snsType;
+        /**
+         * SNS链接
+         * <p> 示例值：
+         */
+        private String link;
+
+        /**
+         * ID
+         * <p> 示例值：
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * SNS类型
+         * <p> 示例值：
+         *
+         * @param snsType
+         * @return
+         */
+        public Builder snsType(Integer snsType) {
+            this.snsType = snsType;
+            return this;
+        }
+
+
+        /**
+         * SNS链接
+         * <p> 示例值：
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        public ApplicationTalentSnsInfo build() {
+            return new ApplicationTalentSnsInfo(this);
+        }
+    }
 }

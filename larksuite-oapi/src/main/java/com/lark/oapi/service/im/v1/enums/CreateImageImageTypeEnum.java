@@ -17,16 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 图片类型
  */
 public enum CreateImageImageTypeEnum {
-  MESSAGE("message"), // 用于发送消息
-  AVATAR("avatar"), // 用于设置头像
-  ;
-  private String value;
+    MESSAGE("message"), // 用于发送消息
+    AVATAR("avatar"), // 用于设置头像
+    ;
+    private String value;
 
-  CreateImageImageTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateImageImageTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

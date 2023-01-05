@@ -16,135 +16,133 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Setting {
-
-  /**
-   * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
-   * <p> 示例值：admin/admin_and_member
-   */
-  @SerializedName("create_setting")
-  private String createSetting;
-  /**
-   * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
-   * <p> 示例值：allow/not_allow
-   */
-  @SerializedName("security_setting")
-  private String securitySetting;
-  /**
-   * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
-   * <p> 示例值：allow/not_allow
-   */
-  @SerializedName("comment_setting")
-  private String commentSetting;
-
-  // builder 开始
-  public Setting() {
-  }
-
-  public Setting(Builder builder) {
     /**
      * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
      * <p> 示例值：admin/admin_and_member
      */
-    this.createSetting = builder.createSetting;
-    /**
-     * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
-     * <p> 示例值：allow/not_allow
-     */
-    this.securitySetting = builder.securitySetting;
-    /**
-     * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
-     * <p> 示例值：allow/not_allow
-     */
-    this.commentSetting = builder.commentSetting;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCreateSetting() {
-    return this.createSetting;
-  }
-
-  public void setCreateSetting(String createSetting) {
-    this.createSetting = createSetting;
-  }
-
-  public String getSecuritySetting() {
-    return this.securitySetting;
-  }
-
-  public void setSecuritySetting(String securitySetting) {
-    this.securitySetting = securitySetting;
-  }
-
-  public String getCommentSetting() {
-    return this.commentSetting;
-  }
-
-  public void setCommentSetting(String commentSetting) {
-    this.commentSetting = commentSetting;
-  }
-
-  public static class Builder {
-
-    /**
-     * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
-     * <p> 示例值：admin/admin_and_member
-     */
+    @SerializedName("create_setting")
     private String createSetting;
     /**
      * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
      * <p> 示例值：allow/not_allow
      */
+    @SerializedName("security_setting")
     private String securitySetting;
     /**
      * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
      * <p> 示例值：allow/not_allow
      */
+    @SerializedName("comment_setting")
     private String commentSetting;
 
-    /**
-     * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
-     * <p> 示例值：admin/admin_and_member
-     *
-     * @param createSetting
-     * @return
-     */
-    public Builder createSetting(String createSetting) {
-      this.createSetting = createSetting;
-      return this;
+    // builder 开始
+    public Setting() {
     }
 
-
-    /**
-     * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
-     * <p> 示例值：allow/not_allow
-     *
-     * @param securitySetting
-     * @return
-     */
-    public Builder securitySetting(String securitySetting) {
-      this.securitySetting = securitySetting;
-      return this;
+    public Setting(Builder builder) {
+        /**
+         * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
+         * <p> 示例值：admin/admin_and_member
+         */
+        this.createSetting = builder.createSetting;
+        /**
+         * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
+         * <p> 示例值：allow/not_allow
+         */
+        this.securitySetting = builder.securitySetting;
+        /**
+         * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
+         * <p> 示例值：allow/not_allow
+         */
+        this.commentSetting = builder.commentSetting;
     }
 
-
-    /**
-     * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
-     * <p> 示例值：allow/not_allow
-     *
-     * @param commentSetting
-     * @return
-     */
-    public Builder commentSetting(String commentSetting) {
-      this.commentSetting = commentSetting;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public Setting build() {
-      return new Setting(this);
+    public String getCreateSetting() {
+        return this.createSetting;
     }
-  }
+
+    public void setCreateSetting(String createSetting) {
+        this.createSetting = createSetting;
+    }
+
+    public String getSecuritySetting() {
+        return this.securitySetting;
+    }
+
+    public void setSecuritySetting(String securitySetting) {
+        this.securitySetting = securitySetting;
+    }
+
+    public String getCommentSetting() {
+        return this.commentSetting;
+    }
+
+    public void setCommentSetting(String commentSetting) {
+        this.commentSetting = commentSetting;
+    }
+
+    public static class Builder {
+        /**
+         * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
+         * <p> 示例值：admin/admin_and_member
+         */
+        private String createSetting;
+        /**
+         * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
+         * <p> 示例值：allow/not_allow
+         */
+        private String securitySetting;
+        /**
+         * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
+         * <p> 示例值：allow/not_allow
+         */
+        private String commentSetting;
+
+        /**
+         * 谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员
+         * <p> 示例值：admin/admin_and_member
+         *
+         * @param createSetting
+         * @return
+         */
+        public Builder createSetting(String createSetting) {
+            this.createSetting = createSetting;
+            return this;
+        }
+
+
+        /**
+         * 可阅读用户可否创建副本/打印/导出/复制： "allow" - 允许 "not_allow" - 不允许
+         * <p> 示例值：allow/not_allow
+         *
+         * @param securitySetting
+         * @return
+         */
+        public Builder securitySetting(String securitySetting) {
+            this.securitySetting = securitySetting;
+            return this;
+        }
+
+
+        /**
+         * 可阅读用户可否评论： "allow" - 允许 "not_allow" - 不允许
+         * <p> 示例值：allow/not_allow
+         *
+         * @param commentSetting
+         * @return
+         */
+        public Builder commentSetting(String commentSetting) {
+            this.commentSetting = commentSetting;
+            return this;
+        }
+
+
+        public Setting build() {
+            return new Setting(this);
+        }
+    }
 }

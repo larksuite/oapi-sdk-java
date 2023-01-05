@@ -16,20 +16,19 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class KickoutMeetingRespBody {
+    /**
+     * 移除结果
+     * <p> 示例值：
+     */
+    @SerializedName("kickout_results")
+    private MeetingParticipantResult[] kickoutResults;
 
-  /**
-   * 踢出结果
-   * <p> 示例值：
-   */
-  @SerializedName("kickout_results")
-  private MeetingParticipantResult[] kickoutResults;
+    public MeetingParticipantResult[] getKickoutResults() {
+        return this.kickoutResults;
+    }
 
-  public MeetingParticipantResult[] getKickoutResults() {
-    return this.kickoutResults;
-  }
-
-  public void setKickoutResults(MeetingParticipantResult[] kickoutResults) {
-    this.kickoutResults = kickoutResults;
-  }
+    public void setKickoutResults(MeetingParticipantResult[] kickoutResults) {
+        this.kickoutResults = kickoutResults;
+    }
 
 }

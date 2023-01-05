@@ -21,35 +21,36 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.okhttp.OkHttpClient;
 import com.lark.oapi.service.application.v6.model.GetApplicationReq;
 import com.lark.oapi.service.application.v6.model.GetApplicationResp;
+
 import java.util.concurrent.TimeUnit;
 
 public class GrayTestSample {
 
-  public static void main(String arg[]) throws Exception {
-    String appId = System.getenv().get("APP_ID");
-    String appSecret = System.getenv().get("APP_SECRET");
+    public static void main(String arg[]) throws Exception {
+        String appId = System.getenv().get("APP_ID");
+        String appSecret = System.getenv().get("APP_SECRET");
 
-    // 构建client
-    Client client = Client.newBuilder(appId, appSecret)
-        .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
-        .openBaseUrl(BaseUrlEnum.FeiShu) // 设置域名，默认为飞书
-        .helpDeskCredential("helpDeskId", "helpDeskSecret") // 服务台应用才需要设置
-        .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
-        .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
-        //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
-        .logReqAtDebug(true)
-        .httpTransport(new OkHttpTransport(new OkHttpClient.Builder().build())) // 自定义传输层
-        .build();
+        // 构建client
+        Client client = Client.newBuilder(appId, appSecret)
+                .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
+                .openBaseUrl(BaseUrlEnum.FeiShu) // 设置域名，默认为飞书
+                .helpDeskCredential("helpDeskId", "helpDeskSecret") // 服务台应用才需要设置
+                .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
+                .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
+                //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
+                .logReqAtDebug(true)
+                .httpTransport(new OkHttpTransport(new OkHttpClient.Builder().build())) // 自定义传输层
+                .build();
 
-    GetApplicationResp resp = client.application().application().get(GetApplicationReq.newBuilder()
-        .lang("zh_cn")
-        .appId(appId)
-        .build());
-    if (resp.success()) {
-      System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
-    } else {
-      System.out.println(
-          String.format("%d,%s,%s", resp.getCode(), resp.getMsg(), resp.getRequestId()));
+        GetApplicationResp resp = client.application().application().get(GetApplicationReq.newBuilder()
+                .lang("zh_cn")
+                .appId(appId)
+                .build());
+        if (resp.success()) {
+            System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
+        } else {
+            System.out.println(
+                    String.format("%d,%s,%s", resp.getCode(), resp.getMsg(), resp.getRequestId()));
+        }
     }
-  }
 }

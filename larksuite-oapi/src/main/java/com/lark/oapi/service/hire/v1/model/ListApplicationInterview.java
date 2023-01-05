@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListApplicationInterview {
 
-  /**
-   * 分页标志
-   * <p> 示例值：xx
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有更多
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 面试列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Interview[] items;
+    /**
+     * 分页标志
+     * <p> 示例值：xx
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有更多
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 面试列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Interview[] items;
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public Interview[] getItems() {
-    return this.items;
-  }
+    public Interview[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(Interview[] items) {
-    this.items = items;
-  }
+    public void setItems(Interview[] items) {
+        this.items = items;
+    }
 
 }

@@ -17,17 +17,17 @@ package com.lark.oapi.service.drive.v1.enums;
  * 协作者对应的权限角色
  */
 public enum MemberPermEnum {
-  VIEW("view"), // 可阅读角色
-  EDIT("edit"), // 可编辑角色
-  FULL_ACCESS("full_access"), // 可管理角色
-  ;
-  private String value;
+    VIEW("view"), // 可阅读角色
+    EDIT("edit"), // 可编辑角色
+    FULL_ACCESS("full_access"), // 可管理角色
+    ;
+    private String value;
 
-  MemberPermEnum(String value) {
-    this.value = value;
-  }
+    MemberPermEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -16,246 +16,244 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class WebsiteDeliveryInternship {
-
-  /**
-   * 描述
-   * <p> 示例值：这是一家创业公司，非常不错
-   */
-  @SerializedName("desc")
-  private String desc;
-  /**
-   * 结束时间, 如果是至今传值 -1
-   * <p> 示例值：1618500278667
-   */
-  @SerializedName("end_time")
-  private Integer endTime;
-  /**
-   * 开始时间
-   * <p> 示例值：1609430400
-   */
-  @SerializedName("start_time")
-  private Integer startTime;
-  /**
-   * 职位名称
-   * <p> 示例值：后端研发实习生
-   */
-  @SerializedName("title")
-  private String title;
-  /**
-   * 公司
-   * <p> 示例值：字节跳动
-   */
-  @SerializedName("company")
-  private String company;
-  /**
-   * 自定义字段
-   * <p> 示例值：
-   */
-  @SerializedName("customized_data")
-  private WebsiteDeliveryCustomizedData[] customizedData;
-
-  // builder 开始
-  public WebsiteDeliveryInternship() {
-  }
-
-  public WebsiteDeliveryInternship(Builder builder) {
     /**
      * 描述
      * <p> 示例值：这是一家创业公司，非常不错
      */
-    this.desc = builder.desc;
-    /**
-     * 结束时间, 如果是至今传值 -1
-     * <p> 示例值：1618500278667
-     */
-    this.endTime = builder.endTime;
-    /**
-     * 开始时间
-     * <p> 示例值：1609430400
-     */
-    this.startTime = builder.startTime;
-    /**
-     * 职位名称
-     * <p> 示例值：后端研发实习生
-     */
-    this.title = builder.title;
-    /**
-     * 公司
-     * <p> 示例值：字节跳动
-     */
-    this.company = builder.company;
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    this.customizedData = builder.customizedData;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDesc() {
-    return this.desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
-
-  public Integer getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(Integer endTime) {
-    this.endTime = endTime;
-  }
-
-  public Integer getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(Integer startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getCompany() {
-    return this.company;
-  }
-
-  public void setCompany(String company) {
-    this.company = company;
-  }
-
-  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-    return this.customizedData;
-  }
-
-  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-    this.customizedData = customizedData;
-  }
-
-  public static class Builder {
-
-    /**
-     * 描述
-     * <p> 示例值：这是一家创业公司，非常不错
-     */
+    @SerializedName("desc")
     private String desc;
     /**
      * 结束时间, 如果是至今传值 -1
      * <p> 示例值：1618500278667
      */
+    @SerializedName("end_time")
     private Integer endTime;
     /**
      * 开始时间
      * <p> 示例值：1609430400
      */
+    @SerializedName("start_time")
     private Integer startTime;
     /**
      * 职位名称
      * <p> 示例值：后端研发实习生
      */
+    @SerializedName("title")
     private String title;
     /**
      * 公司
      * <p> 示例值：字节跳动
      */
+    @SerializedName("company")
     private String company;
     /**
      * 自定义字段
      * <p> 示例值：
      */
+    @SerializedName("customized_data")
     private WebsiteDeliveryCustomizedData[] customizedData;
 
-    /**
-     * 描述
-     * <p> 示例值：这是一家创业公司，非常不错
-     *
-     * @param desc
-     * @return
-     */
-    public Builder desc(String desc) {
-      this.desc = desc;
-      return this;
+    // builder 开始
+    public WebsiteDeliveryInternship() {
     }
 
-
-    /**
-     * 结束时间, 如果是至今传值 -1
-     * <p> 示例值：1618500278667
-     *
-     * @param endTime
-     * @return
-     */
-    public Builder endTime(Integer endTime) {
-      this.endTime = endTime;
-      return this;
+    public WebsiteDeliveryInternship(Builder builder) {
+        /**
+         * 描述
+         * <p> 示例值：这是一家创业公司，非常不错
+         */
+        this.desc = builder.desc;
+        /**
+         * 结束时间, 如果是至今传值 -1
+         * <p> 示例值：1618500278667
+         */
+        this.endTime = builder.endTime;
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         */
+        this.startTime = builder.startTime;
+        /**
+         * 职位名称
+         * <p> 示例值：后端研发实习生
+         */
+        this.title = builder.title;
+        /**
+         * 公司
+         * <p> 示例值：字节跳动
+         */
+        this.company = builder.company;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customizedData = builder.customizedData;
     }
 
-
-    /**
-     * 开始时间
-     * <p> 示例值：1609430400
-     *
-     * @param startTime
-     * @return
-     */
-    public Builder startTime(Integer startTime) {
-      this.startTime = startTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 职位名称
-     * <p> 示例值：后端研发实习生
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getDesc() {
+        return this.desc;
     }
 
-
-    /**
-     * 公司
-     * <p> 示例值：字节跳动
-     *
-     * @param company
-     * @return
-     */
-    public Builder company(String company) {
-      this.company = company;
-      return this;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-
-    /**
-     * 自定义字段
-     * <p> 示例值：
-     *
-     * @param customizedData
-     * @return
-     */
-    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-      this.customizedData = customizedData;
-      return this;
+    public Integer getEndTime() {
+        return this.endTime;
     }
 
-
-    public WebsiteDeliveryInternship build() {
-      return new WebsiteDeliveryInternship(this);
+    public void setEndTime(Integer endTime) {
+        this.endTime = endTime;
     }
-  }
+
+    public Integer getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(Integer startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCompany() {
+        return this.company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+        return this.customizedData;
+    }
+
+    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+        this.customizedData = customizedData;
+    }
+
+    public static class Builder {
+        /**
+         * 描述
+         * <p> 示例值：这是一家创业公司，非常不错
+         */
+        private String desc;
+        /**
+         * 结束时间, 如果是至今传值 -1
+         * <p> 示例值：1618500278667
+         */
+        private Integer endTime;
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         */
+        private Integer startTime;
+        /**
+         * 职位名称
+         * <p> 示例值：后端研发实习生
+         */
+        private String title;
+        /**
+         * 公司
+         * <p> 示例值：字节跳动
+         */
+        private String company;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private WebsiteDeliveryCustomizedData[] customizedData;
+
+        /**
+         * 描述
+         * <p> 示例值：这是一家创业公司，非常不错
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
+            return this;
+        }
+
+
+        /**
+         * 结束时间, 如果是至今传值 -1
+         * <p> 示例值：1618500278667
+         *
+         * @param endTime
+         * @return
+         */
+        public Builder endTime(Integer endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 开始时间
+         * <p> 示例值：1609430400
+         *
+         * @param startTime
+         * @return
+         */
+        public Builder startTime(Integer startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+
+        /**
+         * 职位名称
+         * <p> 示例值：后端研发实习生
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 公司
+         * <p> 示例值：字节跳动
+         *
+         * @param company
+         * @return
+         */
+        public Builder company(String company) {
+            this.company = company;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customizedData
+         * @return
+         */
+        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+            this.customizedData = customizedData;
+            return this;
+        }
+
+
+        public WebsiteDeliveryInternship build() {
+            return new WebsiteDeliveryInternship(this);
+        }
+    }
 }

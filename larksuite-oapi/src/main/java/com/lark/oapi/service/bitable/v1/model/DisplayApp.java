@@ -16,172 +16,170 @@ package com.lark.oapi.service.bitable.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DisplayApp {
-
-  /**
-   * 多维表格的 app_token
-   * <p> 示例值：
-   */
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * 多维表格的名字
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
-   * <p> 示例值：
-   */
-  @SerializedName("revision")
-  private Integer revision;
-  /**
-   * 多维表格是否已开启高级权限
-   * <p> 示例值：
-   */
-  @SerializedName("is_advanced")
-  private Boolean isAdvanced;
-
-  // builder 开始
-  public DisplayApp() {
-  }
-
-  public DisplayApp(Builder builder) {
     /**
-     * 多维表格的 app_token
+     * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
      * <p> 示例值：
      */
-    this.appToken = builder.appToken;
-    /**
-     * 多维表格的名字
-     * <p> 示例值：
-     */
-    this.name = builder.name;
-    /**
-     * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
-     * <p> 示例值：
-     */
-    this.revision = builder.revision;
-    /**
-     * 多维表格是否已开启高级权限
-     * <p> 示例值：
-     */
-    this.isAdvanced = builder.isAdvanced;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getRevision() {
-    return this.revision;
-  }
-
-  public void setRevision(Integer revision) {
-    this.revision = revision;
-  }
-
-  public Boolean getIsAdvanced() {
-    return this.isAdvanced;
-  }
-
-  public void setIsAdvanced(Boolean isAdvanced) {
-    this.isAdvanced = isAdvanced;
-  }
-
-  public static class Builder {
-
-    /**
-     * 多维表格的 app_token
-     * <p> 示例值：
-     */
+    @SerializedName("app_token")
     private String appToken;
     /**
      * 多维表格的名字
      * <p> 示例值：
      */
+    @SerializedName("name")
     private String name;
     /**
-     * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
+     * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
      * <p> 示例值：
      */
+    @SerializedName("revision")
     private Integer revision;
     /**
-     * 多维表格是否已开启高级权限
+     * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
      * <p> 示例值：
      */
+    @SerializedName("is_advanced")
     private Boolean isAdvanced;
 
-    /**
-     * 多维表格的 app_token
-     * <p> 示例值：
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public DisplayApp() {
     }
 
-
-    /**
-     * 多维表格的名字
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public DisplayApp(Builder builder) {
+        /**
+         * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 多维表格的名字
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
+         * <p> 示例值：
+         */
+        this.revision = builder.revision;
+        /**
+         * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
+         * <p> 示例值：
+         */
+        this.isAdvanced = builder.isAdvanced;
     }
 
-
-    /**
-     * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
-     * <p> 示例值：
-     *
-     * @param revision
-     * @return
-     */
-    public Builder revision(Integer revision) {
-      this.revision = revision;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 多维表格是否已开启高级权限
-     * <p> 示例值：
-     *
-     * @param isAdvanced
-     * @return
-     */
-    public Builder isAdvanced(Boolean isAdvanced) {
-      this.isAdvanced = isAdvanced;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-
-    public DisplayApp build() {
-      return new DisplayApp(this);
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getRevision() {
+        return this.revision;
+    }
+
+    public void setRevision(Integer revision) {
+        this.revision = revision;
+    }
+
+    public Boolean getIsAdvanced() {
+        return this.isAdvanced;
+    }
+
+    public void setIsAdvanced(Boolean isAdvanced) {
+        this.isAdvanced = isAdvanced;
+    }
+
+    public static class Builder {
+        /**
+         * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：
+         */
+        private String appToken;
+        /**
+         * 多维表格的名字
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
+         * <p> 示例值：
+         */
+        private Integer revision;
+        /**
+         * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
+         * <p> 示例值：
+         */
+        private Boolean isAdvanced;
+
+        /**
+         * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
+         * <p> 示例值：
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * 多维表格的名字
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
+         * <p> 示例值：
+         *
+         * @param revision
+         * @return
+         */
+        public Builder revision(Integer revision) {
+            this.revision = revision;
+            return this;
+        }
+
+
+        /**
+         * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
+         * <p> 示例值：
+         *
+         * @param isAdvanced
+         * @return
+         */
+        public Builder isAdvanced(Boolean isAdvanced) {
+            this.isAdvanced = isAdvanced;
+            return this;
+        }
+
+
+        public DisplayApp build() {
+            return new DisplayApp(this);
+        }
+    }
 }

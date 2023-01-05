@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SiteResumeSns {
-
-  /**
-   * 社交网站类型
-   * <p> 示例值：
-   */
-  @SerializedName("sns_type")
-  private String snsType;
-  /**
-   * 链接
-   * <p> 示例值：
-   */
-  @SerializedName("link")
-  private String link;
-
-  // builder 开始
-  public SiteResumeSns() {
-  }
-
-  public SiteResumeSns(Builder builder) {
     /**
      * 社交网站类型
      * <p> 示例值：
      */
-    this.snsType = builder.snsType;
-    /**
-     * 链接
-     * <p> 示例值：
-     */
-    this.link = builder.link;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSnsType() {
-    return this.snsType;
-  }
-
-  public void setSnsType(String snsType) {
-    this.snsType = snsType;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public static class Builder {
-
-    /**
-     * 社交网站类型
-     * <p> 示例值：
-     */
+    @SerializedName("sns_type")
     private String snsType;
     /**
      * 链接
      * <p> 示例值：
      */
+    @SerializedName("link")
     private String link;
 
-    /**
-     * 社交网站类型
-     * <p> 示例值：
-     *
-     * @param snsType
-     * @return
-     */
-    public Builder snsType(String snsType) {
-      this.snsType = snsType;
-      return this;
+    // builder 开始
+    public SiteResumeSns() {
     }
 
-
-    /**
-     * 链接
-     * <p> 示例值：
-     *
-     * @param link
-     * @return
-     */
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public SiteResumeSns(Builder builder) {
+        /**
+         * 社交网站类型
+         * <p> 示例值：
+         */
+        this.snsType = builder.snsType;
+        /**
+         * 链接
+         * <p> 示例值：
+         */
+        this.link = builder.link;
     }
 
-
-    public SiteResumeSns build() {
-      return new SiteResumeSns(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getSnsType() {
+        return this.snsType;
+    }
+
+    public void setSnsType(String snsType) {
+        this.snsType = snsType;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public static class Builder {
+        /**
+         * 社交网站类型
+         * <p> 示例值：
+         */
+        private String snsType;
+        /**
+         * 链接
+         * <p> 示例值：
+         */
+        private String link;
+
+        /**
+         * 社交网站类型
+         * <p> 示例值：
+         *
+         * @param snsType
+         * @return
+         */
+        public Builder snsType(String snsType) {
+            this.snsType = snsType;
+            return this;
+        }
+
+
+        /**
+         * 链接
+         * <p> 示例值：
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
+            return this;
+        }
+
+
+        public SiteResumeSns build() {
+            return new SiteResumeSns(this);
+        }
+    }
 }

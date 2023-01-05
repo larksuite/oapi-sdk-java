@@ -17,62 +17,62 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateMailgroupPermissionMember {
 
-  /**
-   * The unique ID of a member in this permission group
-   * <p> 示例值：xxxxxxxxxxxxxxx
-   */
-  @SerializedName("permission_member_id")
-  private String permissionMemberId;
-  /**
-   * The member's user id. Value is valid when type is USER
-   * <p> 示例值：xxxxxxxxxx
-   */
-  @SerializedName("user_id")
-  private String userId;
-  /**
-   * The member's department id. Value is valid when type is DEPARTMENT
-   * <p> 示例值：xxxxxxxxxx
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-  /**
-   * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
-   * is a department
-   * <p> 示例值：USER
-   */
-  @SerializedName("type")
-  private String type;
+    /**
+     * The unique ID of a member in this permission group
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
+    @SerializedName("permission_member_id")
+    private String permissionMemberId;
+    /**
+     * The member's user id. Value is valid when type is USER
+     * <p> 示例值：xxxxxxxxxx
+     */
+    @SerializedName("user_id")
+    private String userId;
+    /**
+     * The member's department id. Value is valid when type is DEPARTMENT
+     * <p> 示例值：xxxxxxxxxx
+     */
+    @SerializedName("department_id")
+    private String departmentId;
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
+     * is a department
+     * <p> 示例值：USER
+     */
+    @SerializedName("type")
+    private String type;
 
-  public String getPermissionMemberId() {
-    return this.permissionMemberId;
-  }
+    public String getPermissionMemberId() {
+        return this.permissionMemberId;
+    }
 
-  public void setPermissionMemberId(String permissionMemberId) {
-    this.permissionMemberId = permissionMemberId;
-  }
+    public void setPermissionMemberId(String permissionMemberId) {
+        this.permissionMemberId = permissionMemberId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
 
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
 
-  public String getType() {
-    return this.type;
-  }
+    public String getType() {
+        return this.type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

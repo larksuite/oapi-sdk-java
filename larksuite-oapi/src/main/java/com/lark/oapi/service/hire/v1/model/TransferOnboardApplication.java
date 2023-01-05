@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class TransferOnboardApplication {
 
-  /**
-   * employee
-   * <p> 示例值：
-   */
-  @SerializedName("employee")
-  private Employee employee;
+    /**
+     * employee
+     * <p> 示例值：
+     */
+    @SerializedName("employee")
+    private Employee employee;
 
-  public Employee getEmployee() {
-    return this.employee;
-  }
+    public Employee getEmployee() {
+        return this.employee;
+    }
 
-  public void setEmployee(Employee employee) {
-    this.employee = employee;
-  }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
 }

@@ -17,16 +17,16 @@ package com.lark.oapi.service.application.v6.enums;
  * 调用中使用的部门ID的类型
  */
 public enum OverviewApplicationAppUsageDepartmentIdTypeEnum {
-  DEPARTMENTID("department_id"), // 以自定义department_id来标识部门
-  OPENDEPARTMENTID("open_department_id"), // 以open_department_id来标识部门
-  ;
-  private String value;
+    DEPARTMENTID("department_id"), // 以自定义department_id来标识部门
+    OPENDEPARTMENTID("open_department_id"), // 以open_department_id来标识部门
+    ;
+    private String value;
 
-  OverviewApplicationAppUsageDepartmentIdTypeEnum(String value) {
-    this.value = value;
-  }
+    OverviewApplicationAppUsageDepartmentIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

@@ -17,330 +17,328 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListApplicationReq {
-
-  /**
-   * 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
-   * <p> 示例值：6960663240925956554
-   */
-  @Query
-  @SerializedName("process_id")
-  private String processId;
-  /**
-   * 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
-   * <p> 示例值：614218419274131
-   */
-  @Query
-  @SerializedName("stage_id")
-  private String stageId;
-  /**
-   * 按人才过滤
-   * <p> 示例值：6891560630172518670
-   */
-  @Query
-  @SerializedName("talent_id")
-  private String talentId;
-  /**
-   * 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("active_status")
-  private String activeStatus;
-  /**
-   * 职位 ID
-   * <p> 示例值：7334134355464633
-   */
-  @Query
-  @SerializedName("job_id")
-  private String jobId;
-  /**
-   * 查询游标, 由上一页结果返回, 第一页不传
-   * <p> 示例值：1
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 每页限制, 每页最大不超过100
-   * <p> 示例值：100
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 最早更新时间，毫秒级时间戳
-   * <p> 示例值：1618500278663
-   */
-  @Query
-  @SerializedName("update_start_time")
-  private String updateStartTime;
-  /**
-   * 最晚更新时间，毫秒级时间戳
-   * <p> 示例值：1618500278663
-   */
-  @Query
-  @SerializedName("update_end_time")
-  private String updateEndTime;
-
-  // builder 开始
-  public ListApplicationReq() {
-  }
-
-  public ListApplicationReq(Builder builder) {
     /**
      * 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
      * <p> 示例值：6960663240925956554
      */
-    this.processId = builder.processId;
+    @Query
+    @SerializedName("process_id")
+    private String processId;
     /**
      * 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
      * <p> 示例值：614218419274131
      */
-    this.stageId = builder.stageId;
+    @Query
+    @SerializedName("stage_id")
+    private String stageId;
     /**
      * 按人才过滤
      * <p> 示例值：6891560630172518670
      */
-    this.talentId = builder.talentId;
+    @Query
+    @SerializedName("talent_id")
+    private String talentId;
     /**
      * 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
      * <p> 示例值：1
      */
-    this.activeStatus = builder.activeStatus;
+    @Query
+    @SerializedName("active_status")
+    private String activeStatus;
     /**
      * 职位 ID
      * <p> 示例值：7334134355464633
      */
-    this.jobId = builder.jobId;
+    @Query
+    @SerializedName("job_id")
+    private String jobId;
     /**
      * 查询游标, 由上一页结果返回, 第一页不传
      * <p> 示例值：1
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 每页限制, 每页最大不超过100
      * <p> 示例值：100
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * 最早更新时间，毫秒级时间戳
      * <p> 示例值：1618500278663
      */
-    this.updateStartTime = builder.updateStartTime;
+    @Query
+    @SerializedName("update_start_time")
+    private String updateStartTime;
     /**
      * 最晚更新时间，毫秒级时间戳
      * <p> 示例值：1618500278663
      */
-    this.updateEndTime = builder.updateEndTime;
-  }
+    @Query
+    @SerializedName("update_end_time")
+    private String updateEndTime;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getProcessId() {
-    return this.processId;
-  }
-
-  public void setProcessId(String processId) {
-    this.processId = processId;
-  }
-
-  public String getStageId() {
-    return this.stageId;
-  }
-
-  public void setStageId(String stageId) {
-    this.stageId = stageId;
-  }
-
-  public String getTalentId() {
-    return this.talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public String getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(String activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public String getJobId() {
-    return this.jobId;
-  }
-
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getUpdateStartTime() {
-    return this.updateStartTime;
-  }
-
-  public void setUpdateStartTime(String updateStartTime) {
-    this.updateStartTime = updateStartTime;
-  }
-
-  public String getUpdateEndTime() {
-    return this.updateEndTime;
-  }
-
-  public void setUpdateEndTime(String updateEndTime) {
-    this.updateEndTime = updateEndTime;
-  }
-
-  public static class Builder {
-
-    private String processId; // 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
-    private String stageId; // 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
-    private String talentId; // 按人才过滤
-    private String activeStatus; // 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
-    private String jobId; // 职位 ID
-    private String pageToken; // 查询游标, 由上一页结果返回, 第一页不传
-    private Integer pageSize; // 每页限制, 每页最大不超过100
-    private String updateStartTime; // 最早更新时间，毫秒级时间戳
-    private String updateEndTime; // 最晚更新时间，毫秒级时间戳
-
-
-    /**
-     * 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
-     * <p> 示例值：6960663240925956554
-     *
-     * @param processId
-     * @return
-     */
-    public Builder processId(String processId) {
-      this.processId = processId;
-      return this;
+    // builder 开始
+    public ListApplicationReq() {
     }
 
-
-    /**
-     * 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
-     * <p> 示例值：614218419274131
-     *
-     * @param stageId
-     * @return
-     */
-    public Builder stageId(String stageId) {
-      this.stageId = stageId;
-      return this;
+    public ListApplicationReq(Builder builder) {
+        /**
+         * 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
+         * <p> 示例值：6960663240925956554
+         */
+        this.processId = builder.processId;
+        /**
+         * 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
+         * <p> 示例值：614218419274131
+         */
+        this.stageId = builder.stageId;
+        /**
+         * 按人才过滤
+         * <p> 示例值：6891560630172518670
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
+         * <p> 示例值：1
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 职位 ID
+         * <p> 示例值：7334134355464633
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 查询游标, 由上一页结果返回, 第一页不传
+         * <p> 示例值：1
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         * 每页限制, 每页最大不超过100
+         * <p> 示例值：100
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * 最早更新时间，毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.updateStartTime = builder.updateStartTime;
+        /**
+         * 最晚更新时间，毫秒级时间戳
+         * <p> 示例值：1618500278663
+         */
+        this.updateEndTime = builder.updateEndTime;
     }
 
-
-    /**
-     * 按人才过滤
-     * <p> 示例值：6891560630172518670
-     *
-     * @param talentId
-     * @return
-     */
-    public Builder talentId(String talentId) {
-      this.talentId = talentId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
-     * <p> 示例值：1
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(String activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public String getProcessId() {
+        return this.processId;
     }
 
-
-    /**
-     * 职位 ID
-     * <p> 示例值：7334134355464633
-     *
-     * @param jobId
-     * @return
-     */
-    public Builder jobId(String jobId) {
-      this.jobId = jobId;
-      return this;
+    public void setProcessId(String processId) {
+        this.processId = processId;
     }
 
-
-    /**
-     * 查询游标, 由上一页结果返回, 第一页不传
-     * <p> 示例值：1
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public String getStageId() {
+        return this.stageId;
     }
 
-
-    /**
-     * 每页限制, 每页最大不超过100
-     * <p> 示例值：100
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setStageId(String stageId) {
+        this.stageId = stageId;
     }
 
-
-    /**
-     * 最早更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
-     *
-     * @param updateStartTime
-     * @return
-     */
-    public Builder updateStartTime(String updateStartTime) {
-      this.updateStartTime = updateStartTime;
-      return this;
+    public String getTalentId() {
+        return this.talentId;
     }
 
-
-    /**
-     * 最晚更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
-     *
-     * @param updateEndTime
-     * @return
-     */
-    public Builder updateEndTime(String updateEndTime) {
-      this.updateEndTime = updateEndTime;
-      return this;
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
     }
 
-    public ListApplicationReq build() {
-      return new ListApplicationReq(this);
+    public String getActiveStatus() {
+        return this.activeStatus;
     }
-  }
+
+    public void setActiveStatus(String activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public String getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getUpdateStartTime() {
+        return this.updateStartTime;
+    }
+
+    public void setUpdateStartTime(String updateStartTime) {
+        this.updateStartTime = updateStartTime;
+    }
+
+    public String getUpdateEndTime() {
+        return this.updateEndTime;
+    }
+
+    public void setUpdateEndTime(String updateEndTime) {
+        this.updateEndTime = updateEndTime;
+    }
+
+    public static class Builder {
+        private String processId; // 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
+        private String stageId; // 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
+        private String talentId; // 按人才过滤
+        private String activeStatus; // 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
+        private String jobId; // 职位 ID
+        private String pageToken; // 查询游标, 由上一页结果返回, 第一页不传
+        private Integer pageSize; // 每页限制, 每页最大不超过100
+        private String updateStartTime; // 最早更新时间，毫秒级时间戳
+        private String updateEndTime; // 最晚更新时间，毫秒级时间戳
+
+
+        /**
+         * 按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取
+         * <p> 示例值：6960663240925956554
+         *
+         * @param processId
+         * @return
+         */
+        public Builder processId(String processId) {
+            this.processId = processId;
+            return this;
+        }
+
+
+        /**
+         * 按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取
+         * <p> 示例值：614218419274131
+         *
+         * @param stageId
+         * @return
+         */
+        public Builder stageId(String stageId) {
+            this.stageId = stageId;
+            return this;
+        }
+
+
+        /**
+         * 按人才过滤
+         * <p> 示例值：6891560630172518670
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
+         * <p> 示例值：1
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(String activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 职位 ID
+         * <p> 示例值：7334134355464633
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 查询游标, 由上一页结果返回, 第一页不传
+         * <p> 示例值：1
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 每页限制, 每页最大不超过100
+         * <p> 示例值：100
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 最早更新时间，毫秒级时间戳
+         * <p> 示例值：1618500278663
+         *
+         * @param updateStartTime
+         * @return
+         */
+        public Builder updateStartTime(String updateStartTime) {
+            this.updateStartTime = updateStartTime;
+            return this;
+        }
+
+
+        /**
+         * 最晚更新时间，毫秒级时间戳
+         * <p> 示例值：1618500278663
+         *
+         * @param updateEndTime
+         * @return
+         */
+        public Builder updateEndTime(String updateEndTime) {
+            this.updateEndTime = updateEndTime;
+            return this;
+        }
+
+        public ListApplicationReq build() {
+            return new ListApplicationReq(this);
+        }
+    }
 }

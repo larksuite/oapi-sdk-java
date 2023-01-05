@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class MoveFileReq {
-
-  /**
-   * 需要移动的文件token
-   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  @Body
-  private MoveFileReqBody body;
-
-  // builder 开始
-  public MoveFileReq() {
-  }
-
-  public MoveFileReq(Builder builder) {
     /**
      * 需要移动的文件token
      * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    this.fileToken = builder.fileToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public MoveFileReqBody getMoveFileReqBody() {
-    return this.body;
-  }
-
-  public void setMoveFileReqBody(MoveFileReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 需要移动的文件token
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
+    @Body
     private MoveFileReqBody body;
 
-    /**
-     * 需要移动的文件token
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public MoveFileReq() {
+    }
+
+    public MoveFileReq(Builder builder) {
+        /**
+         * 需要移动的文件token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         */
+        this.fileToken = builder.fileToken;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
     public MoveFileReqBody getMoveFileReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder moveFileReqBody(MoveFileReqBody body) {
-      this.body = body;
-      return this;
+    public void setMoveFileReqBody(MoveFileReqBody body) {
+        this.body = body;
     }
 
-    public MoveFileReq build() {
-      return new MoveFileReq(this);
+    public static class Builder {
+
+        private String fileToken; // 需要移动的文件token
+        private MoveFileReqBody body;
+
+        /**
+         * 需要移动的文件token
+         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public MoveFileReqBody getMoveFileReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder moveFileReqBody(MoveFileReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public MoveFileReq build() {
+            return new MoveFileReq(this);
+        }
     }
-  }
 }

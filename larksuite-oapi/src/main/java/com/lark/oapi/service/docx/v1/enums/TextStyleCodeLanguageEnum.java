@@ -17,81 +17,89 @@ package com.lark.oapi.service.docx.v1.enums;
  * 代码块语言
  */
 public enum TextStyleCodeLanguageEnum {
-  PLAINTEXT(1), // PlainText
-  ABAP(2), // ABAP
-  ADA(3), // Ada
-  APACHE(4), // Apache
-  APEX(5), // Apex
-  ASSEMBLYLANGUAGE(6), // Assembly Language
-  BASH(7), // Bash
-  CSHARP(8), // CSharp
-  CPLUSPLUS(9), // C++
-  C(10), // C
-  COBOL(11), // COBOL
-  CSS(12), // CSS
-  COFFEESCRIPT(13), // CoffeeScript
-  D(14), // D
-  DART(15), // Dart
-  DELPHI(16), // Delphi
-  DJANGO(17), // Django
-  DOCKERFILE(18), // Dockerfile
-  ERLANG(19), // Erlang
-  FORTRAN(20), // Fortran
-  FOXPRO(21), // FoxPro
-  GO(22), // Go
-  GROOVY(23), // Groovy
-  HTML(24), // HTML
-  HTMLBARS(25), // HTMLBars
-  HTTP(26), // HTTP
-  HASKELL(27), // Haskell
-  JSON(28), // JSON
-  JAVA(29), // Java
-  JAVASCRIPT(30), // JavaScript
-  JULIA(31), // Julia
-  KOTLIN(32), // Kotlin
-  LATEX(33), // LateX
-  LISP(34), // Lisp
-  LOGO(35), // Logo
-  LUA(36), // Lua
-  MATLAB(37), // MATLAB
-  MAKEFILE(38), // Makefile
-  MARKDOWN(39), // Markdown
-  NGINX(40), // Nginx
-  OBJECTIVEC(41), // Objective-C
-  OPENEDGEABL(42), // OpenEdgeABL
-  PHP(43), // PHP
-  PERL(44), // Perl
-  POSTSCRIPT(45), // PostScript
-  POWERSHELL(46), // Power Shell
-  PROLOG(47), // Prolog
-  PROTOBUF(48), // ProtoBuf
-  PYTHON(49), // Python
-  R(50), // R
-  RPG(51), // RPG
-  RUBY(52), // Ruby
-  RUST(53), // Rust
-  SAS(54), // SAS
-  SCSS(55), // SCSS
-  SQL(56), // SQL
-  SCALA(57), // Scala
-  SCHEME(58), // Scheme
-  SCRATCH(59), // Scratch
-  SHELL(60), // Shell
-  SWIFT(61), // Swift
-  THRIFT(62), // Thrift
-  TYPESCRIPT(63), // TypeScript
-  VBSCRIPT(64), // VBScript
-  VISUALBASIC(65), // Visual Basic
-  XML(66), // XML
-  YAML(67), // YAML
-  ;
-  private Integer value;
+    PLAINTEXT(1), // PlainText
+    ABAP(2), // ABAP
+    ADA(3), // Ada
+    APACHE(4), // Apache
+    APEX(5), // Apex
+    ASSEMBLYLANGUAGE(6), // Assembly Language
+    BASH(7), // Bash
+    CSHARP(8), // CSharp
+    CPLUSPLUS(9), // C++
+    C(10), // C
+    COBOL(11), // COBOL
+    CSS(12), // CSS
+    COFFEESCRIPT(13), // CoffeeScript
+    D(14), // D
+    DART(15), // Dart
+    DELPHI(16), // Delphi
+    DJANGO(17), // Django
+    DOCKERFILE(18), // Dockerfile
+    ERLANG(19), // Erlang
+    FORTRAN(20), // Fortran
+    FOXPRO(21), // FoxPro（已废弃）
+    GO(22), // Go
+    GROOVY(23), // Groovy
+    HTML(24), // HTML
+    HTMLBARS(25), // HTMLBars
+    HTTP(26), // HTTP
+    HASKELL(27), // Haskell
+    JSON(28), // JSON
+    JAVA(29), // Java
+    JAVASCRIPT(30), // JavaScript
+    JULIA(31), // Julia
+    KOTLIN(32), // Kotlin
+    LATEX(33), // LateX
+    LISP(34), // Lisp
+    LOGO(35), // Logo（已废弃）
+    LUA(36), // Lua
+    MATLAB(37), // MATLAB
+    MAKEFILE(38), // Makefile
+    MARKDOWN(39), // Markdown
+    NGINX(40), // Nginx
+    OBJECTIVEC(41), // Objective-C
+    OPENEDGEABL(42), // OpenEdgeABL（已废弃）
+    PHP(43), // PHP
+    PERL(44), // Perl
+    POSTSCRIPT(45), // PostScript（已废弃）
+    POWERSHELL(46), // Power Shell
+    PROLOG(47), // Prolog
+    PROTOBUF(48), // ProtoBuf
+    PYTHON(49), // Python
+    R(50), // R
+    RPG(51), // RPG（已废弃）
+    RUBY(52), // Ruby
+    RUST(53), // Rust
+    SAS(54), // SAS
+    SCSS(55), // SCSS
+    SQL(56), // SQL
+    SCALA(57), // Scala
+    SCHEME(58), // Scheme
+    SCRATCH(59), // Scratch（已废弃）
+    SHELL(60), // Shell
+    SWIFT(61), // Swift
+    THRIFT(62), // Thrift
+    TYPESCRIPT(63), // TypeScript
+    VBSCRIPT(64), // VBScript
+    VISUALBASIC(65), // Visual Basic
+    XML(66), // XML
+    YAML(67), // YAML
+    CMAKE(68), // CMake
+    DIFF(69), // Diff
+    GHERKIN(70), // Gherkin
+    GRAPHQL(71), // GraphQL
+    OPENGLSHADINGLANGUAGE(72), // OpenGL Shading Language
+    PROPERTIES(73), // Properties
+    SOLIDITY(74), // Solidity
+    TOML(75), // TOML
+    ;
+    private Integer value;
 
-  TextStyleCodeLanguageEnum(Integer value) {
-    this.value = value;
-  }
+    TextStyleCodeLanguageEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

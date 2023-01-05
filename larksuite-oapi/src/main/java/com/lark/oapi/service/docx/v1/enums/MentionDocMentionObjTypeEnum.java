@@ -17,22 +17,22 @@ package com.lark.oapi.service.docx.v1.enums;
  * 云文档类型
  */
 public enum MentionDocMentionObjTypeEnum {
-  DOC(1), // Doc
-  SHEET(3), // Sheet
-  BITABLE(8), // Bitable
-  MINDNOTE(11), // MindNote
-  FILE(12), // File
-  SLIDE(15), // Slide
-  WIKI(16), // Wiki
-  DOCX(22), // Docx
-  ;
-  private Integer value;
+    DOC(1), // Doc
+    SHEET(3), // Sheet
+    BITABLE(8), // Bitable
+    MINDNOTE(11), // MindNote
+    FILE(12), // File
+    SLIDE(15), // Slide
+    WIKI(16), // Wiki
+    DOCX(22), // Docx
+    ;
+    private Integer value;
 
-  MentionDocMentionObjTypeEnum(Integer value) {
-    this.value = value;
-  }
+    MentionDocMentionObjTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

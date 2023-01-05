@@ -16,51 +16,50 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateCalendarReq {
-
-  @Body
-  private Calendar body;
-
-  // builder 开始
-  public CreateCalendarReq() {
-  }
-
-  public CreateCalendarReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Calendar getCalendar() {
-    return this.body;
-  }
-
-  public void setCalendar(Calendar body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Calendar body;
 
+    // builder 开始
+    public CreateCalendarReq() {
+    }
+
+    public CreateCalendarReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Calendar getCalendar() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder calendar(Calendar body) {
-      this.body = body;
-      return this;
+    public void setCalendar(Calendar body) {
+        this.body = body;
     }
 
-    public CreateCalendarReq build() {
-      return new CreateCalendarReq(this);
+    public static class Builder {
+
+        private Calendar body;
+
+        public Calendar getCalendar() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder calendar(Calendar body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateCalendarReq build() {
+            return new CreateCalendarReq(this);
+        }
     }
-  }
 }

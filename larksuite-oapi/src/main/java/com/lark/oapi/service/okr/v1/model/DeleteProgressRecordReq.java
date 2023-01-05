@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteProgressRecordReq {
-
-  /**
-   * 待删除的 OKR进展记录 ID
-   * <p> 示例值：7041857032248410131
-   */
-  @Path
-  @SerializedName("progress_id")
-  private String progressId;
-
-  // builder 开始
-  public DeleteProgressRecordReq() {
-  }
-
-  public DeleteProgressRecordReq(Builder builder) {
     /**
      * 待删除的 OKR进展记录 ID
      * <p> 示例值：7041857032248410131
      */
-    this.progressId = builder.progressId;
-  }
+    @Path
+    @SerializedName("progress_id")
+    private String progressId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getProgressId() {
-    return this.progressId;
-  }
-
-  public void setProgressId(String progressId) {
-    this.progressId = progressId;
-  }
-
-  public static class Builder {
-
-    private String progressId; // 待删除的 OKR进展记录 ID
-
-    /**
-     * 待删除的 OKR进展记录 ID
-     * <p> 示例值：7041857032248410131
-     *
-     * @param progressId
-     * @return
-     */
-    public Builder progressId(String progressId) {
-      this.progressId = progressId;
-      return this;
+    // builder 开始
+    public DeleteProgressRecordReq() {
     }
 
-    public DeleteProgressRecordReq build() {
-      return new DeleteProgressRecordReq(this);
+    public DeleteProgressRecordReq(Builder builder) {
+        /**
+         * 待删除的 OKR进展记录 ID
+         * <p> 示例值：7041857032248410131
+         */
+        this.progressId = builder.progressId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getProgressId() {
+        return this.progressId;
+    }
+
+    public void setProgressId(String progressId) {
+        this.progressId = progressId;
+    }
+
+    public static class Builder {
+
+        private String progressId; // 待删除的 OKR进展记录 ID
+
+        /**
+         * 待删除的 OKR进展记录 ID
+         * <p> 示例值：7041857032248410131
+         *
+         * @param progressId
+         * @return
+         */
+        public Builder progressId(String progressId) {
+            this.progressId = progressId;
+            return this;
+        }
+
+        public DeleteProgressRecordReq build() {
+            return new DeleteProgressRecordReq(this);
+        }
+    }
 }

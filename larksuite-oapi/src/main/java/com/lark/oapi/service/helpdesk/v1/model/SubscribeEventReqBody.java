@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SubscribeEventReqBody {
-
-  /**
-   * 可订阅的事件列表
-   * <p> 示例值：
-   */
-  @SerializedName("events")
-  private Event[] events;
-
-  // builder 开始
-  public SubscribeEventReqBody() {
-  }
-
-  public SubscribeEventReqBody(Builder builder) {
     /**
      * 可订阅的事件列表
      * <p> 示例值：
      */
-    this.events = builder.events;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Event[] getEvents() {
-    return this.events;
-  }
-
-  public void setEvents(Event[] events) {
-    this.events = events;
-  }
-
-  public static class Builder {
-
-    /**
-     * 可订阅的事件列表
-     * <p> 示例值：
-     */
+    @SerializedName("events")
     private Event[] events;
 
-    /**
-     * 可订阅的事件列表
-     * <p> 示例值：
-     *
-     * @param events
-     * @return
-     */
-    public Builder events(Event[] events) {
-      this.events = events;
-      return this;
+    // builder 开始
+    public SubscribeEventReqBody() {
     }
 
-
-    public SubscribeEventReqBody build() {
-      return new SubscribeEventReqBody(this);
+    public SubscribeEventReqBody(Builder builder) {
+        /**
+         * 可订阅的事件列表
+         * <p> 示例值：
+         */
+        this.events = builder.events;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Event[] getEvents() {
+        return this.events;
+    }
+
+    public void setEvents(Event[] events) {
+        this.events = events;
+    }
+
+    public static class Builder {
+        /**
+         * 可订阅的事件列表
+         * <p> 示例值：
+         */
+        private Event[] events;
+
+        /**
+         * 可订阅的事件列表
+         * <p> 示例值：
+         *
+         * @param events
+         * @return
+         */
+        public Builder events(Event[] events) {
+            this.events = events;
+            return this;
+        }
+
+
+        public SubscribeEventReqBody build() {
+            return new SubscribeEventReqBody(this);
+        }
+    }
 }

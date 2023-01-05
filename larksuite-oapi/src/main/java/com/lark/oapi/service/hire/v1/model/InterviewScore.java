@@ -16,246 +16,244 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InterviewScore {
-
-  /**
-   * 面试评分 ID
-   * <p> 示例值：6949805467799537964
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 分数级别
-   * <p> 示例值：3
-   */
-  @SerializedName("level")
-  private Integer level;
-  /**
-   * 中文名称
-   * <p> 示例值：3
-   */
-  @SerializedName("zh_name")
-  private String zhName;
-  /**
-   * 中文描述
-   * <p> 示例值：通过, 能力达到要求, 建议录用
-   */
-  @SerializedName("zh_description")
-  private String zhDescription;
-  /**
-   * 英文名称
-   * <p> 示例值：three
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 英文描述
-   * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
-   */
-  @SerializedName("en_description")
-  private String enDescription;
-
-  // builder 开始
-  public InterviewScore() {
-  }
-
-  public InterviewScore(Builder builder) {
     /**
      * 面试评分 ID
      * <p> 示例值：6949805467799537964
      */
-    this.id = builder.id;
-    /**
-     * 分数级别
-     * <p> 示例值：3
-     */
-    this.level = builder.level;
-    /**
-     * 中文名称
-     * <p> 示例值：3
-     */
-    this.zhName = builder.zhName;
-    /**
-     * 中文描述
-     * <p> 示例值：通过, 能力达到要求, 建议录用
-     */
-    this.zhDescription = builder.zhDescription;
-    /**
-     * 英文名称
-     * <p> 示例值：three
-     */
-    this.enName = builder.enName;
-    /**
-     * 英文描述
-     * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
-     */
-    this.enDescription = builder.enDescription;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getLevel() {
-    return this.level;
-  }
-
-  public void setLevel(Integer level) {
-    this.level = level;
-  }
-
-  public String getZhName() {
-    return this.zhName;
-  }
-
-  public void setZhName(String zhName) {
-    this.zhName = zhName;
-  }
-
-  public String getZhDescription() {
-    return this.zhDescription;
-  }
-
-  public void setZhDescription(String zhDescription) {
-    this.zhDescription = zhDescription;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public String getEnDescription() {
-    return this.enDescription;
-  }
-
-  public void setEnDescription(String enDescription) {
-    this.enDescription = enDescription;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试评分 ID
-     * <p> 示例值：6949805467799537964
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 分数级别
      * <p> 示例值：3
      */
+    @SerializedName("level")
     private Integer level;
     /**
      * 中文名称
      * <p> 示例值：3
      */
+    @SerializedName("zh_name")
     private String zhName;
     /**
      * 中文描述
      * <p> 示例值：通过, 能力达到要求, 建议录用
      */
+    @SerializedName("zh_description")
     private String zhDescription;
     /**
      * 英文名称
      * <p> 示例值：three
      */
+    @SerializedName("en_name")
     private String enName;
     /**
      * 英文描述
      * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
      */
+    @SerializedName("en_description")
     private String enDescription;
 
-    /**
-     * 面试评分 ID
-     * <p> 示例值：6949805467799537964
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public InterviewScore() {
     }
 
-
-    /**
-     * 分数级别
-     * <p> 示例值：3
-     *
-     * @param level
-     * @return
-     */
-    public Builder level(Integer level) {
-      this.level = level;
-      return this;
+    public InterviewScore(Builder builder) {
+        /**
+         * 面试评分 ID
+         * <p> 示例值：6949805467799537964
+         */
+        this.id = builder.id;
+        /**
+         * 分数级别
+         * <p> 示例值：3
+         */
+        this.level = builder.level;
+        /**
+         * 中文名称
+         * <p> 示例值：3
+         */
+        this.zhName = builder.zhName;
+        /**
+         * 中文描述
+         * <p> 示例值：通过, 能力达到要求, 建议录用
+         */
+        this.zhDescription = builder.zhDescription;
+        /**
+         * 英文名称
+         * <p> 示例值：three
+         */
+        this.enName = builder.enName;
+        /**
+         * 英文描述
+         * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
+         */
+        this.enDescription = builder.enDescription;
     }
 
-
-    /**
-     * 中文名称
-     * <p> 示例值：3
-     *
-     * @param zhName
-     * @return
-     */
-    public Builder zhName(String zhName) {
-      this.zhName = zhName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 中文描述
-     * <p> 示例值：通过, 能力达到要求, 建议录用
-     *
-     * @param zhDescription
-     * @return
-     */
-    public Builder zhDescription(String zhDescription) {
-      this.zhDescription = zhDescription;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 英文名称
-     * <p> 示例值：three
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 英文描述
-     * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
-     *
-     * @param enDescription
-     * @return
-     */
-    public Builder enDescription(String enDescription) {
-      this.enDescription = enDescription;
-      return this;
+    public Integer getLevel() {
+        return this.level;
     }
 
-
-    public InterviewScore build() {
-      return new InterviewScore(this);
+    public void setLevel(Integer level) {
+        this.level = level;
     }
-  }
+
+    public String getZhName() {
+        return this.zhName;
+    }
+
+    public void setZhName(String zhName) {
+        this.zhName = zhName;
+    }
+
+    public String getZhDescription() {
+        return this.zhDescription;
+    }
+
+    public void setZhDescription(String zhDescription) {
+        this.zhDescription = zhDescription;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public String getEnDescription() {
+        return this.enDescription;
+    }
+
+    public void setEnDescription(String enDescription) {
+        this.enDescription = enDescription;
+    }
+
+    public static class Builder {
+        /**
+         * 面试评分 ID
+         * <p> 示例值：6949805467799537964
+         */
+        private String id;
+        /**
+         * 分数级别
+         * <p> 示例值：3
+         */
+        private Integer level;
+        /**
+         * 中文名称
+         * <p> 示例值：3
+         */
+        private String zhName;
+        /**
+         * 中文描述
+         * <p> 示例值：通过, 能力达到要求, 建议录用
+         */
+        private String zhDescription;
+        /**
+         * 英文名称
+         * <p> 示例值：three
+         */
+        private String enName;
+        /**
+         * 英文描述
+         * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
+         */
+        private String enDescription;
+
+        /**
+         * 面试评分 ID
+         * <p> 示例值：6949805467799537964
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 分数级别
+         * <p> 示例值：3
+         *
+         * @param level
+         * @return
+         */
+        public Builder level(Integer level) {
+            this.level = level;
+            return this;
+        }
+
+
+        /**
+         * 中文名称
+         * <p> 示例值：3
+         *
+         * @param zhName
+         * @return
+         */
+        public Builder zhName(String zhName) {
+            this.zhName = zhName;
+            return this;
+        }
+
+
+        /**
+         * 中文描述
+         * <p> 示例值：通过, 能力达到要求, 建议录用
+         *
+         * @param zhDescription
+         * @return
+         */
+        public Builder zhDescription(String zhDescription) {
+            this.zhDescription = zhDescription;
+            return this;
+        }
+
+
+        /**
+         * 英文名称
+         * <p> 示例值：three
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 英文描述
+         * <p> 示例值：Pass, ability to meet the requirements, suggest to hire
+         *
+         * @param enDescription
+         * @return
+         */
+        public Builder enDescription(String enDescription) {
+            this.enDescription = enDescription;
+            return this;
+        }
+
+
+        public InterviewScore build() {
+            return new InterviewScore(this);
+        }
+    }
 }

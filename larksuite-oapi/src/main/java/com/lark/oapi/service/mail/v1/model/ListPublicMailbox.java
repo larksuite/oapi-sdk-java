@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListPublicMailbox {
 
-  /**
-   * 是否有下一页数据
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下一页分页的token
-   * <p> 示例值：xxx
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 公共邮箱列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private PublicMailbox[] items;
+    /**
+     * 是否有下一页数据
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：xxx
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 公共邮箱列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private PublicMailbox[] items;
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public PublicMailbox[] getItems() {
-    return this.items;
-  }
+    public PublicMailbox[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(PublicMailbox[] items) {
-    this.items = items;
-  }
+    public void setItems(PublicMailbox[] items) {
+        this.items = items;
+    }
 
 }

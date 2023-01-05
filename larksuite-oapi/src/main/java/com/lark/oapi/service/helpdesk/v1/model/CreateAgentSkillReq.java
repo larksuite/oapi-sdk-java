@@ -16,51 +16,50 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateAgentSkillReq {
-
-  @Body
-  private CreateAgentSkillReqBody body;
-
-  // builder 开始
-  public CreateAgentSkillReq() {
-  }
-
-  public CreateAgentSkillReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateAgentSkillReqBody getCreateAgentSkillReqBody() {
-    return this.body;
-  }
-
-  public void setCreateAgentSkillReqBody(CreateAgentSkillReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateAgentSkillReqBody body;
 
+    // builder 开始
+    public CreateAgentSkillReq() {
+    }
+
+    public CreateAgentSkillReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CreateAgentSkillReqBody getCreateAgentSkillReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createAgentSkillReqBody(CreateAgentSkillReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateAgentSkillReqBody(CreateAgentSkillReqBody body) {
+        this.body = body;
     }
 
-    public CreateAgentSkillReq build() {
-      return new CreateAgentSkillReq(this);
+    public static class Builder {
+
+        private CreateAgentSkillReqBody body;
+
+        public CreateAgentSkillReqBody getCreateAgentSkillReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createAgentSkillReqBody(CreateAgentSkillReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateAgentSkillReq build() {
+            return new CreateAgentSkillReq(this);
+        }
     }
-  }
 }

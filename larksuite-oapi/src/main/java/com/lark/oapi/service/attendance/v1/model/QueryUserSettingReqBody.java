@@ -16,61 +16,59 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserSettingReqBody {
-
-  /**
-   * employee_no 或 employee_id 列表
-   * <p> 示例值：["abd754f7"]
-   */
-  @SerializedName("user_ids")
-  private String[] userIds;
-
-  // builder 开始
-  public QueryUserSettingReqBody() {
-  }
-
-  public QueryUserSettingReqBody(Builder builder) {
     /**
      * employee_no 或 employee_id 列表
      * <p> 示例值：["abd754f7"]
      */
-    this.userIds = builder.userIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getUserIds() {
-    return this.userIds;
-  }
-
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * employee_no 或 employee_id 列表
-     * <p> 示例值：["abd754f7"]
-     */
+    @SerializedName("user_ids")
     private String[] userIds;
 
-    /**
-     * employee_no 或 employee_id 列表
-     * <p> 示例值：["abd754f7"]
-     *
-     * @param userIds
-     * @return
-     */
-    public Builder userIds(String[] userIds) {
-      this.userIds = userIds;
-      return this;
+    // builder 开始
+    public QueryUserSettingReqBody() {
     }
 
-
-    public QueryUserSettingReqBody build() {
-      return new QueryUserSettingReqBody(this);
+    public QueryUserSettingReqBody(Builder builder) {
+        /**
+         * employee_no 或 employee_id 列表
+         * <p> 示例值：["abd754f7"]
+         */
+        this.userIds = builder.userIds;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getUserIds() {
+        return this.userIds;
+    }
+
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
+
+    public static class Builder {
+        /**
+         * employee_no 或 employee_id 列表
+         * <p> 示例值：["abd754f7"]
+         */
+        private String[] userIds;
+
+        /**
+         * employee_no 或 employee_id 列表
+         * <p> 示例值：["abd754f7"]
+         *
+         * @param userIds
+         * @return
+         */
+        public Builder userIds(String[] userIds) {
+            this.userIds = userIds;
+            return this;
+        }
+
+
+        public QueryUserSettingReqBody build() {
+            return new QueryUserSettingReqBody(this);
+        }
+    }
 }

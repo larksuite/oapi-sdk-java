@@ -16,209 +16,207 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationBasicInfo {
-
-  /**
-   * 阶段信息
-   * <p> 示例值：
-   */
-  @SerializedName("stage")
-  private ApplicationStage stage;
-  /**
-   * 内推人信息
-   * <p> 示例值：
-   */
-  @SerializedName("referral")
-  private ApplicationReferral referral;
-  /**
-   * 状态
-   * <p> 示例值：
-   */
-  @SerializedName("active_status")
-  private Integer activeStatus;
-  /**
-   * 创建时间
-   * <p> 示例值：
-   */
-  @SerializedName("biz_create_time")
-  private Integer bizCreateTime;
-  /**
-   * 修改时间
-   * <p> 示例值：
-   */
-  @SerializedName("biz_modify_time")
-  private Integer bizModifyTime;
-
-  // builder 开始
-  public ApplicationBasicInfo() {
-  }
-
-  public ApplicationBasicInfo(Builder builder) {
     /**
      * 阶段信息
      * <p> 示例值：
      */
-    this.stage = builder.stage;
-    /**
-     * 内推人信息
-     * <p> 示例值：
-     */
-    this.referral = builder.referral;
-    /**
-     * 状态
-     * <p> 示例值：
-     */
-    this.activeStatus = builder.activeStatus;
-    /**
-     * 创建时间
-     * <p> 示例值：
-     */
-    this.bizCreateTime = builder.bizCreateTime;
-    /**
-     * 修改时间
-     * <p> 示例值：
-     */
-    this.bizModifyTime = builder.bizModifyTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ApplicationStage getStage() {
-    return this.stage;
-  }
-
-  public void setStage(ApplicationStage stage) {
-    this.stage = stage;
-  }
-
-  public ApplicationReferral getReferral() {
-    return this.referral;
-  }
-
-  public void setReferral(ApplicationReferral referral) {
-    this.referral = referral;
-  }
-
-  public Integer getActiveStatus() {
-    return this.activeStatus;
-  }
-
-  public void setActiveStatus(Integer activeStatus) {
-    this.activeStatus = activeStatus;
-  }
-
-  public Integer getBizCreateTime() {
-    return this.bizCreateTime;
-  }
-
-  public void setBizCreateTime(Integer bizCreateTime) {
-    this.bizCreateTime = bizCreateTime;
-  }
-
-  public Integer getBizModifyTime() {
-    return this.bizModifyTime;
-  }
-
-  public void setBizModifyTime(Integer bizModifyTime) {
-    this.bizModifyTime = bizModifyTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 阶段信息
-     * <p> 示例值：
-     */
+    @SerializedName("stage")
     private ApplicationStage stage;
     /**
      * 内推人信息
      * <p> 示例值：
      */
+    @SerializedName("referral")
     private ApplicationReferral referral;
     /**
      * 状态
      * <p> 示例值：
      */
+    @SerializedName("active_status")
     private Integer activeStatus;
     /**
      * 创建时间
      * <p> 示例值：
      */
+    @SerializedName("biz_create_time")
     private Integer bizCreateTime;
     /**
      * 修改时间
      * <p> 示例值：
      */
+    @SerializedName("biz_modify_time")
     private Integer bizModifyTime;
 
-    /**
-     * 阶段信息
-     * <p> 示例值：
-     *
-     * @param stage
-     * @return
-     */
-    public Builder stage(ApplicationStage stage) {
-      this.stage = stage;
-      return this;
+    // builder 开始
+    public ApplicationBasicInfo() {
     }
 
-
-    /**
-     * 内推人信息
-     * <p> 示例值：
-     *
-     * @param referral
-     * @return
-     */
-    public Builder referral(ApplicationReferral referral) {
-      this.referral = referral;
-      return this;
+    public ApplicationBasicInfo(Builder builder) {
+        /**
+         * 阶段信息
+         * <p> 示例值：
+         */
+        this.stage = builder.stage;
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         */
+        this.referral = builder.referral;
+        /**
+         * 状态
+         * <p> 示例值：
+         */
+        this.activeStatus = builder.activeStatus;
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        this.bizCreateTime = builder.bizCreateTime;
+        /**
+         * 修改时间
+         * <p> 示例值：
+         */
+        this.bizModifyTime = builder.bizModifyTime;
     }
 
-
-    /**
-     * 状态
-     * <p> 示例值：
-     *
-     * @param activeStatus
-     * @return
-     */
-    public Builder activeStatus(Integer activeStatus) {
-      this.activeStatus = activeStatus;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：
-     *
-     * @param bizCreateTime
-     * @return
-     */
-    public Builder bizCreateTime(Integer bizCreateTime) {
-      this.bizCreateTime = bizCreateTime;
-      return this;
+    public ApplicationStage getStage() {
+        return this.stage;
     }
 
-
-    /**
-     * 修改时间
-     * <p> 示例值：
-     *
-     * @param bizModifyTime
-     * @return
-     */
-    public Builder bizModifyTime(Integer bizModifyTime) {
-      this.bizModifyTime = bizModifyTime;
-      return this;
+    public void setStage(ApplicationStage stage) {
+        this.stage = stage;
     }
 
-
-    public ApplicationBasicInfo build() {
-      return new ApplicationBasicInfo(this);
+    public ApplicationReferral getReferral() {
+        return this.referral;
     }
-  }
+
+    public void setReferral(ApplicationReferral referral) {
+        this.referral = referral;
+    }
+
+    public Integer getActiveStatus() {
+        return this.activeStatus;
+    }
+
+    public void setActiveStatus(Integer activeStatus) {
+        this.activeStatus = activeStatus;
+    }
+
+    public Integer getBizCreateTime() {
+        return this.bizCreateTime;
+    }
+
+    public void setBizCreateTime(Integer bizCreateTime) {
+        this.bizCreateTime = bizCreateTime;
+    }
+
+    public Integer getBizModifyTime() {
+        return this.bizModifyTime;
+    }
+
+    public void setBizModifyTime(Integer bizModifyTime) {
+        this.bizModifyTime = bizModifyTime;
+    }
+
+    public static class Builder {
+        /**
+         * 阶段信息
+         * <p> 示例值：
+         */
+        private ApplicationStage stage;
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         */
+        private ApplicationReferral referral;
+        /**
+         * 状态
+         * <p> 示例值：
+         */
+        private Integer activeStatus;
+        /**
+         * 创建时间
+         * <p> 示例值：
+         */
+        private Integer bizCreateTime;
+        /**
+         * 修改时间
+         * <p> 示例值：
+         */
+        private Integer bizModifyTime;
+
+        /**
+         * 阶段信息
+         * <p> 示例值：
+         *
+         * @param stage
+         * @return
+         */
+        public Builder stage(ApplicationStage stage) {
+            this.stage = stage;
+            return this;
+        }
+
+
+        /**
+         * 内推人信息
+         * <p> 示例值：
+         *
+         * @param referral
+         * @return
+         */
+        public Builder referral(ApplicationReferral referral) {
+            this.referral = referral;
+            return this;
+        }
+
+
+        /**
+         * 状态
+         * <p> 示例值：
+         *
+         * @param activeStatus
+         * @return
+         */
+        public Builder activeStatus(Integer activeStatus) {
+            this.activeStatus = activeStatus;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：
+         *
+         * @param bizCreateTime
+         * @return
+         */
+        public Builder bizCreateTime(Integer bizCreateTime) {
+            this.bizCreateTime = bizCreateTime;
+            return this;
+        }
+
+
+        /**
+         * 修改时间
+         * <p> 示例值：
+         *
+         * @param bizModifyTime
+         * @return
+         */
+        public Builder bizModifyTime(Integer bizModifyTime) {
+            this.bizModifyTime = bizModifyTime;
+            return this;
+        }
+
+
+        public ApplicationBasicInfo build() {
+            return new ApplicationBasicInfo(this);
+        }
+    }
 }

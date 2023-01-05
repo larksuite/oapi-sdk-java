@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InternOfferOnboardingInfo {
-
-  /**
-   * 实际入职日期
-   * <p> 示例值：2022-01-01
-   */
-  @SerializedName("actual_onboarding_date")
-  private String actualOnboardingDate;
-
-  // builder 开始
-  public InternOfferOnboardingInfo() {
-  }
-
-  public InternOfferOnboardingInfo(Builder builder) {
     /**
      * 实际入职日期
      * <p> 示例值：2022-01-01
      */
-    this.actualOnboardingDate = builder.actualOnboardingDate;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getActualOnboardingDate() {
-    return this.actualOnboardingDate;
-  }
-
-  public void setActualOnboardingDate(String actualOnboardingDate) {
-    this.actualOnboardingDate = actualOnboardingDate;
-  }
-
-  public static class Builder {
-
-    /**
-     * 实际入职日期
-     * <p> 示例值：2022-01-01
-     */
+    @SerializedName("actual_onboarding_date")
     private String actualOnboardingDate;
 
-    /**
-     * 实际入职日期
-     * <p> 示例值：2022-01-01
-     *
-     * @param actualOnboardingDate
-     * @return
-     */
-    public Builder actualOnboardingDate(String actualOnboardingDate) {
-      this.actualOnboardingDate = actualOnboardingDate;
-      return this;
+    // builder 开始
+    public InternOfferOnboardingInfo() {
     }
 
-
-    public InternOfferOnboardingInfo build() {
-      return new InternOfferOnboardingInfo(this);
+    public InternOfferOnboardingInfo(Builder builder) {
+        /**
+         * 实际入职日期
+         * <p> 示例值：2022-01-01
+         */
+        this.actualOnboardingDate = builder.actualOnboardingDate;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getActualOnboardingDate() {
+        return this.actualOnboardingDate;
+    }
+
+    public void setActualOnboardingDate(String actualOnboardingDate) {
+        this.actualOnboardingDate = actualOnboardingDate;
+    }
+
+    public static class Builder {
+        /**
+         * 实际入职日期
+         * <p> 示例值：2022-01-01
+         */
+        private String actualOnboardingDate;
+
+        /**
+         * 实际入职日期
+         * <p> 示例值：2022-01-01
+         *
+         * @param actualOnboardingDate
+         * @return
+         */
+        public Builder actualOnboardingDate(String actualOnboardingDate) {
+            this.actualOnboardingDate = actualOnboardingDate;
+            return this;
+        }
+
+
+        public InternOfferOnboardingInfo build() {
+            return new InternOfferOnboardingInfo(this);
+        }
+    }
 }

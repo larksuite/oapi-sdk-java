@@ -18,97 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateUserApprovalReq {
-
-  /**
-   * 请求体和响应体中的 user_id 的员工工号类型
-   * <p> 示例值：employee_id
-   */
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Body
-  private CreateUserApprovalReqBody body;
-
-  // builder 开始
-  public CreateUserApprovalReq() {
-  }
-
-  public CreateUserApprovalReq(Builder builder) {
     /**
      * 请求体和响应体中的 user_id 的员工工号类型
      * <p> 示例值：employee_id
      */
-    this.employeeType = builder.employeeType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public CreateUserApprovalReqBody getCreateUserApprovalReqBody() {
-    return this.body;
-  }
-
-  public void setCreateUserApprovalReqBody(CreateUserApprovalReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
+    @Query
+    @SerializedName("employee_type")
+    private String employeeType;
+    @Body
     private CreateUserApprovalReqBody body;
 
-    /**
-     * 请求体和响应体中的 user_id 的员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType
-     * @return
-     */
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
+    // builder 开始
+    public CreateUserApprovalReq() {
     }
 
-    /**
-     * 请求体和响应体中的 user_id 的员工工号类型
-     * <p> 示例值：employee_id
-     *
-     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateUserApprovalEmployeeTypeEnum}
-     * @return
-     */
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.CreateUserApprovalEmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
+    public CreateUserApprovalReq(Builder builder) {
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         */
+        this.employeeType = builder.employeeType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
     }
 
     public CreateUserApprovalReqBody getCreateUserApprovalReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder createUserApprovalReqBody(CreateUserApprovalReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateUserApprovalReqBody(CreateUserApprovalReqBody body) {
+        this.body = body;
     }
 
-    public CreateUserApprovalReq build() {
-      return new CreateUserApprovalReq(this);
+    public static class Builder {
+        private String employeeType; // 请求体和响应体中的 user_id 的员工工号类型
+        private CreateUserApprovalReqBody body;
+
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 请求体和响应体中的 user_id 的员工工号类型
+         * <p> 示例值：employee_id
+         *
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateUserApprovalEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateUserApprovalEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
+
+        public CreateUserApprovalReqBody getCreateUserApprovalReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder createUserApprovalReqBody(CreateUserApprovalReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateUserApprovalReq build() {
+            return new CreateUserApprovalReq(this);
+        }
     }
-  }
 }

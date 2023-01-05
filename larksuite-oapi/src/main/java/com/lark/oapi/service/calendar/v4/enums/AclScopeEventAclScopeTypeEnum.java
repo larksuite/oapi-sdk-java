@@ -17,15 +17,15 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 权限类型，当type为User时，值为open_id/user_id/union_id
  */
 public enum AclScopeEventAclScopeTypeEnum {
-  USER("user"), // 用户
-  ;
-  private String value;
+    USER("user"), // 用户
+    ;
+    private String value;
 
-  AclScopeEventAclScopeTypeEnum(String value) {
-    this.value = value;
-  }
+    AclScopeEventAclScopeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

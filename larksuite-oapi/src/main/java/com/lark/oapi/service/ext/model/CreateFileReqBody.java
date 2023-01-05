@@ -18,45 +18,45 @@ import com.lark.oapi.service.ext.enums.FileTypeEnum;
 
 public class CreateFileReqBody {
 
-  @SerializedName("title")
-  private String title;
-  @SerializedName("type")
-  private String type;
-
-  private CreateFileReqBody(Builder builder) {
-    title = builder.title;
-    type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
+    @SerializedName("title")
     private String title;
+    @SerializedName("type")
     private String type;
 
-    private Builder() {
+    private CreateFileReqBody(Builder builder) {
+        title = builder.title;
+        type = builder.type;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
-    }
+    public static final class Builder {
 
-    public Builder type(FileTypeEnum type) {
-      this.type = type.getValue();
-      return this;
-    }
+        private String title;
+        private String type;
 
-    public CreateFileReqBody build() {
-      return new CreateFileReqBody(this);
+        private Builder() {
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder type(FileTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+        public CreateFileReqBody build() {
+            return new CreateFileReqBody(this);
+        }
     }
-  }
 }

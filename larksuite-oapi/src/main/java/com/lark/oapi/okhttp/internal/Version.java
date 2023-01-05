@@ -19,10 +19,10 @@ package com.lark.oapi.okhttp.internal;
 
 public final class Version {
 
-  private Version() {
-  }
+    private Version() {
+    }
 
-  public static String userAgent() {
-    return "okhttp/3.14.9";
-  }
+    public static String userAgent() {
+        return "okhttp/3.14.9";
+    }
 }

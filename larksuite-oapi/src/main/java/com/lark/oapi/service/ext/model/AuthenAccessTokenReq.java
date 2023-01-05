@@ -5,32 +5,32 @@ import com.lark.oapi.core.annotation.Body;
 
 public class AuthenAccessTokenReq {
 
-  @Body
-  @SerializedName("body")
-  private AuthenAccessTokenReqBody body;
-
-  private AuthenAccessTokenReq(Builder builder) {
-    body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
+    @Body
+    @SerializedName("body")
     private AuthenAccessTokenReqBody body;
 
-    private Builder() {
+    private AuthenAccessTokenReq(Builder builder) {
+        body = builder.body;
     }
 
-    public Builder body(AuthenAccessTokenReqBody body) {
-      this.body = body;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public AuthenAccessTokenReq build() {
-      return new AuthenAccessTokenReq(this);
+    public static final class Builder {
+
+        private AuthenAccessTokenReqBody body;
+
+        private Builder() {
+        }
+
+        public Builder body(AuthenAccessTokenReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public AuthenAccessTokenReq build() {
+            return new AuthenAccessTokenReq(this);
+        }
     }
-  }
 }

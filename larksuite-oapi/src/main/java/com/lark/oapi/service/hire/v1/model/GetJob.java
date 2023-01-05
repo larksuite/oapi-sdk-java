@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetJob {
 
-  /**
-   * 职位数据
-   * <p> 示例值：
-   */
-  @SerializedName("job")
-  private Job job;
+    /**
+     * 职位数据
+     * <p> 示例值：
+     */
+    @SerializedName("job")
+    private Job job;
 
-  public Job getJob() {
-    return this.job;
-  }
+    public Job getJob() {
+        return this.job;
+    }
 
-  public void setJob(Job job) {
-    this.job = job;
-  }
+    public void setJob(Job job) {
+        this.job = job;
+    }
 
 }

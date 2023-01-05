@@ -16,20 +16,19 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateSpaceMemberRespBody {
+    /**
+     * 知识空间成员
+     * <p> 示例值：
+     */
+    @SerializedName("member")
+    private Member member;
 
-  /**
-   * 知识空间成员
-   * <p> 示例值：
-   */
-  @SerializedName("member")
-  private Member member;
+    public Member getMember() {
+        return this.member;
+    }
 
-  public Member getMember() {
-    return this.member;
-  }
-
-  public void setMember(Member member) {
-    this.member = member;
-  }
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
 }

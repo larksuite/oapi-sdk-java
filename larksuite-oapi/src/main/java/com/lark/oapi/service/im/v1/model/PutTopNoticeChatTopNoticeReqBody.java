@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PutTopNoticeChatTopNoticeReqBody {
-
-  /**
-   * 要进行发布的群置顶
-   * <p> 示例值：
-   */
-  @SerializedName("chat_top_notice")
-  private ChatTopNotice[] chatTopNotice;
-
-  // builder 开始
-  public PutTopNoticeChatTopNoticeReqBody() {
-  }
-
-  public PutTopNoticeChatTopNoticeReqBody(Builder builder) {
     /**
      * 要进行发布的群置顶
      * <p> 示例值：
      */
-    this.chatTopNotice = builder.chatTopNotice;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ChatTopNotice[] getChatTopNotice() {
-    return this.chatTopNotice;
-  }
-
-  public void setChatTopNotice(ChatTopNotice[] chatTopNotice) {
-    this.chatTopNotice = chatTopNotice;
-  }
-
-  public static class Builder {
-
-    /**
-     * 要进行发布的群置顶
-     * <p> 示例值：
-     */
+    @SerializedName("chat_top_notice")
     private ChatTopNotice[] chatTopNotice;
 
-    /**
-     * 要进行发布的群置顶
-     * <p> 示例值：
-     *
-     * @param chatTopNotice
-     * @return
-     */
-    public Builder chatTopNotice(ChatTopNotice[] chatTopNotice) {
-      this.chatTopNotice = chatTopNotice;
-      return this;
+    // builder 开始
+    public PutTopNoticeChatTopNoticeReqBody() {
     }
 
-
-    public PutTopNoticeChatTopNoticeReqBody build() {
-      return new PutTopNoticeChatTopNoticeReqBody(this);
+    public PutTopNoticeChatTopNoticeReqBody(Builder builder) {
+        /**
+         * 要进行发布的群置顶
+         * <p> 示例值：
+         */
+        this.chatTopNotice = builder.chatTopNotice;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ChatTopNotice[] getChatTopNotice() {
+        return this.chatTopNotice;
+    }
+
+    public void setChatTopNotice(ChatTopNotice[] chatTopNotice) {
+        this.chatTopNotice = chatTopNotice;
+    }
+
+    public static class Builder {
+        /**
+         * 要进行发布的群置顶
+         * <p> 示例值：
+         */
+        private ChatTopNotice[] chatTopNotice;
+
+        /**
+         * 要进行发布的群置顶
+         * <p> 示例值：
+         *
+         * @param chatTopNotice
+         * @return
+         */
+        public Builder chatTopNotice(ChatTopNotice[] chatTopNotice) {
+            this.chatTopNotice = chatTopNotice;
+            return this;
+        }
+
+
+        public PutTopNoticeChatTopNoticeReqBody build() {
+            return new PutTopNoticeChatTopNoticeReqBody(this);
+        }
+    }
 }

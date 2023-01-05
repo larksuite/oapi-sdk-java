@@ -16,20 +16,19 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetDailyReportRespBody {
+    /**
+     * 会议报告
+     * <p> 示例值：
+     */
+    @SerializedName("meeting_report")
+    private Report meetingReport;
 
-  /**
-   * 会议报告
-   * <p> 示例值：
-   */
-  @SerializedName("meeting_report")
-  private Report meetingReport;
+    public Report getMeetingReport() {
+        return this.meetingReport;
+    }
 
-  public Report getMeetingReport() {
-    return this.meetingReport;
-  }
-
-  public void setMeetingReport(Report meetingReport) {
-    this.meetingReport = meetingReport;
-  }
+    public void setMeetingReport(Report meetingReport) {
+        this.meetingReport = meetingReport;
+    }
 
 }

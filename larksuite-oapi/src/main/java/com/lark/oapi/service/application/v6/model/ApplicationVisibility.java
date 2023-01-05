@@ -16,135 +16,133 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationVisibility {
-
-  /**
-   * 是否全员可见
-   * <p> 示例值：false
-   */
-  @SerializedName("is_all")
-  private Boolean isAll;
-  /**
-   * 可见名单
-   * <p> 示例值：
-   */
-  @SerializedName("visible_list")
-  private AppVisibleList visibleList;
-  /**
-   * 不可见名单
-   * <p> 示例值：
-   */
-  @SerializedName("invisible_list")
-  private AppVisibleList invisibleList;
-
-  // builder 开始
-  public ApplicationVisibility() {
-  }
-
-  public ApplicationVisibility(Builder builder) {
     /**
      * 是否全员可见
      * <p> 示例值：false
      */
-    this.isAll = builder.isAll;
-    /**
-     * 可见名单
-     * <p> 示例值：
-     */
-    this.visibleList = builder.visibleList;
-    /**
-     * 不可见名单
-     * <p> 示例值：
-     */
-    this.invisibleList = builder.invisibleList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsAll() {
-    return this.isAll;
-  }
-
-  public void setIsAll(Boolean isAll) {
-    this.isAll = isAll;
-  }
-
-  public AppVisibleList getVisibleList() {
-    return this.visibleList;
-  }
-
-  public void setVisibleList(AppVisibleList visibleList) {
-    this.visibleList = visibleList;
-  }
-
-  public AppVisibleList getInvisibleList() {
-    return this.invisibleList;
-  }
-
-  public void setInvisibleList(AppVisibleList invisibleList) {
-    this.invisibleList = invisibleList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 是否全员可见
-     * <p> 示例值：false
-     */
+    @SerializedName("is_all")
     private Boolean isAll;
     /**
      * 可见名单
      * <p> 示例值：
      */
+    @SerializedName("visible_list")
     private AppVisibleList visibleList;
     /**
      * 不可见名单
      * <p> 示例值：
      */
+    @SerializedName("invisible_list")
     private AppVisibleList invisibleList;
 
-    /**
-     * 是否全员可见
-     * <p> 示例值：false
-     *
-     * @param isAll
-     * @return
-     */
-    public Builder isAll(Boolean isAll) {
-      this.isAll = isAll;
-      return this;
+    // builder 开始
+    public ApplicationVisibility() {
     }
 
-
-    /**
-     * 可见名单
-     * <p> 示例值：
-     *
-     * @param visibleList
-     * @return
-     */
-    public Builder visibleList(AppVisibleList visibleList) {
-      this.visibleList = visibleList;
-      return this;
+    public ApplicationVisibility(Builder builder) {
+        /**
+         * 是否全员可见
+         * <p> 示例值：false
+         */
+        this.isAll = builder.isAll;
+        /**
+         * 可见名单
+         * <p> 示例值：
+         */
+        this.visibleList = builder.visibleList;
+        /**
+         * 不可见名单
+         * <p> 示例值：
+         */
+        this.invisibleList = builder.invisibleList;
     }
 
-
-    /**
-     * 不可见名单
-     * <p> 示例值：
-     *
-     * @param invisibleList
-     * @return
-     */
-    public Builder invisibleList(AppVisibleList invisibleList) {
-      this.invisibleList = invisibleList;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ApplicationVisibility build() {
-      return new ApplicationVisibility(this);
+    public Boolean getIsAll() {
+        return this.isAll;
     }
-  }
+
+    public void setIsAll(Boolean isAll) {
+        this.isAll = isAll;
+    }
+
+    public AppVisibleList getVisibleList() {
+        return this.visibleList;
+    }
+
+    public void setVisibleList(AppVisibleList visibleList) {
+        this.visibleList = visibleList;
+    }
+
+    public AppVisibleList getInvisibleList() {
+        return this.invisibleList;
+    }
+
+    public void setInvisibleList(AppVisibleList invisibleList) {
+        this.invisibleList = invisibleList;
+    }
+
+    public static class Builder {
+        /**
+         * 是否全员可见
+         * <p> 示例值：false
+         */
+        private Boolean isAll;
+        /**
+         * 可见名单
+         * <p> 示例值：
+         */
+        private AppVisibleList visibleList;
+        /**
+         * 不可见名单
+         * <p> 示例值：
+         */
+        private AppVisibleList invisibleList;
+
+        /**
+         * 是否全员可见
+         * <p> 示例值：false
+         *
+         * @param isAll
+         * @return
+         */
+        public Builder isAll(Boolean isAll) {
+            this.isAll = isAll;
+            return this;
+        }
+
+
+        /**
+         * 可见名单
+         * <p> 示例值：
+         *
+         * @param visibleList
+         * @return
+         */
+        public Builder visibleList(AppVisibleList visibleList) {
+            this.visibleList = visibleList;
+            return this;
+        }
+
+
+        /**
+         * 不可见名单
+         * <p> 示例值：
+         *
+         * @param invisibleList
+         * @return
+         */
+        public Builder invisibleList(AppVisibleList invisibleList) {
+            this.invisibleList = invisibleList;
+            return this;
+        }
+
+
+        public ApplicationVisibility build() {
+            return new ApplicationVisibility(this);
+        }
+    }
 }

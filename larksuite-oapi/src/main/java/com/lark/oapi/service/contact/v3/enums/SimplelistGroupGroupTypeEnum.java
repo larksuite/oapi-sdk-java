@@ -17,16 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 用户组类型
  */
 public enum SimplelistGroupGroupTypeEnum {
-  ASSIGN(1), // 普通用户组
-  DYNAMIC(2), // 动态用户组
-  ;
-  private Integer value;
+    ASSIGN(1), // 普通用户组
+    DYNAMIC(2), // 动态用户组
+    ;
+    private Integer value;
 
-  SimplelistGroupGroupTypeEnum(Integer value) {
-    this.value = value;
-  }
+    SimplelistGroupGroupTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

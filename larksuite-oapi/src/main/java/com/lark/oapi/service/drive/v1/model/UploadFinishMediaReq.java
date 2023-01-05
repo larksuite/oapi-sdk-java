@@ -16,51 +16,50 @@ package com.lark.oapi.service.drive.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class UploadFinishMediaReq {
-
-  @Body
-  private UploadFinishMediaReqBody body;
-
-  // builder 开始
-  public UploadFinishMediaReq() {
-  }
-
-  public UploadFinishMediaReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UploadFinishMediaReqBody getUploadFinishMediaReqBody() {
-    return this.body;
-  }
-
-  public void setUploadFinishMediaReqBody(UploadFinishMediaReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private UploadFinishMediaReqBody body;
 
+    // builder 开始
+    public UploadFinishMediaReq() {
+    }
+
+    public UploadFinishMediaReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UploadFinishMediaReqBody getUploadFinishMediaReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder uploadFinishMediaReqBody(UploadFinishMediaReqBody body) {
-      this.body = body;
-      return this;
+    public void setUploadFinishMediaReqBody(UploadFinishMediaReqBody body) {
+        this.body = body;
     }
 
-    public UploadFinishMediaReq build() {
-      return new UploadFinishMediaReq(this);
+    public static class Builder {
+
+        private UploadFinishMediaReqBody body;
+
+        public UploadFinishMediaReqBody getUploadFinishMediaReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder uploadFinishMediaReqBody(UploadFinishMediaReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public UploadFinishMediaReq build() {
+            return new UploadFinishMediaReq(this);
+        }
     }
-  }
 }

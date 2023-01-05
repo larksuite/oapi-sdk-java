@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class PatchDataSourceReq {
-
-  /**
-   * 数据源的唯一标识
-   * <p> 示例值：service_ticket
-   */
-  @Path
-  @SerializedName("data_source_id")
-  private String dataSourceId;
-  @Body
-  private PatchDataSourceReqBody body;
-
-  // builder 开始
-  public PatchDataSourceReq() {
-  }
-
-  public PatchDataSourceReq(Builder builder) {
     /**
      * 数据源的唯一标识
      * <p> 示例值：service_ticket
      */
-    this.dataSourceId = builder.dataSourceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDataSourceId() {
-    return this.dataSourceId;
-  }
-
-  public void setDataSourceId(String dataSourceId) {
-    this.dataSourceId = dataSourceId;
-  }
-
-  public PatchDataSourceReqBody getPatchDataSourceReqBody() {
-    return this.body;
-  }
-
-  public void setPatchDataSourceReqBody(PatchDataSourceReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String dataSourceId; // 数据源的唯一标识
+    @Path
+    @SerializedName("data_source_id")
+    private String dataSourceId;
+    @Body
     private PatchDataSourceReqBody body;
 
-    /**
-     * 数据源的唯一标识
-     * <p> 示例值：service_ticket
-     *
-     * @param dataSourceId
-     * @return
-     */
-    public Builder dataSourceId(String dataSourceId) {
-      this.dataSourceId = dataSourceId;
-      return this;
+    // builder 开始
+    public PatchDataSourceReq() {
+    }
+
+    public PatchDataSourceReq(Builder builder) {
+        /**
+         * 数据源的唯一标识
+         * <p> 示例值：service_ticket
+         */
+        this.dataSourceId = builder.dataSourceId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDataSourceId() {
+        return this.dataSourceId;
+    }
+
+    public void setDataSourceId(String dataSourceId) {
+        this.dataSourceId = dataSourceId;
     }
 
     public PatchDataSourceReqBody getPatchDataSourceReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder patchDataSourceReqBody(PatchDataSourceReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchDataSourceReqBody(PatchDataSourceReqBody body) {
+        this.body = body;
     }
 
-    public PatchDataSourceReq build() {
-      return new PatchDataSourceReq(this);
+    public static class Builder {
+
+        private String dataSourceId; // 数据源的唯一标识
+        private PatchDataSourceReqBody body;
+
+        /**
+         * 数据源的唯一标识
+         * <p> 示例值：service_ticket
+         *
+         * @param dataSourceId
+         * @return
+         */
+        public Builder dataSourceId(String dataSourceId) {
+            this.dataSourceId = dataSourceId;
+            return this;
+        }
+
+        public PatchDataSourceReqBody getPatchDataSourceReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder patchDataSourceReqBody(PatchDataSourceReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public PatchDataSourceReq build() {
+            return new PatchDataSourceReq(this);
+        }
     }
-  }
 }

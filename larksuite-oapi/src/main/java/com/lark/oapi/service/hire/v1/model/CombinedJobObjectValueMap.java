@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CombinedJobObjectValueMap {
-
-  /**
-   * 结构 ID
-   * <p> 示例值：6960663240925956549
-   */
-  @SerializedName("object_id")
-  private String objectId;
-  /**
-   * 结构值
-   * <p> 示例值：测试
-   */
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public CombinedJobObjectValueMap() {
-  }
-
-  public CombinedJobObjectValueMap(Builder builder) {
     /**
      * 结构 ID
      * <p> 示例值：6960663240925956549
      */
-    this.objectId = builder.objectId;
-    /**
-     * 结构值
-     * <p> 示例值：测试
-     */
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getObjectId() {
-    return this.objectId;
-  }
-
-  public void setObjectId(String objectId) {
-    this.objectId = objectId;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
-    /**
-     * 结构 ID
-     * <p> 示例值：6960663240925956549
-     */
+    @SerializedName("object_id")
     private String objectId;
     /**
      * 结构值
      * <p> 示例值：测试
      */
+    @SerializedName("value")
     private String value;
 
-    /**
-     * 结构 ID
-     * <p> 示例值：6960663240925956549
-     *
-     * @param objectId
-     * @return
-     */
-    public Builder objectId(String objectId) {
-      this.objectId = objectId;
-      return this;
+    // builder 开始
+    public CombinedJobObjectValueMap() {
     }
 
-
-    /**
-     * 结构值
-     * <p> 示例值：测试
-     *
-     * @param value
-     * @return
-     */
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public CombinedJobObjectValueMap(Builder builder) {
+        /**
+         * 结构 ID
+         * <p> 示例值：6960663240925956549
+         */
+        this.objectId = builder.objectId;
+        /**
+         * 结构值
+         * <p> 示例值：测试
+         */
+        this.value = builder.value;
     }
 
-
-    public CombinedJobObjectValueMap build() {
-      return new CombinedJobObjectValueMap(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getObjectId() {
+        return this.objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public static class Builder {
+        /**
+         * 结构 ID
+         * <p> 示例值：6960663240925956549
+         */
+        private String objectId;
+        /**
+         * 结构值
+         * <p> 示例值：测试
+         */
+        private String value;
+
+        /**
+         * 结构 ID
+         * <p> 示例值：6960663240925956549
+         *
+         * @param objectId
+         * @return
+         */
+        public Builder objectId(String objectId) {
+            this.objectId = objectId;
+            return this;
+        }
+
+
+        /**
+         * 结构值
+         * <p> 示例值：测试
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+
+        public CombinedJobObjectValueMap build() {
+            return new CombinedJobObjectValueMap(this);
+        }
+    }
 }

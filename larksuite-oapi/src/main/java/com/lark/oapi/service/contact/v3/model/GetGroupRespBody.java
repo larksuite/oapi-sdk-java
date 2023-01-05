@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetGroupRespBody {
+    /**
+     * 用户组详情
+     * <p> 示例值：
+     */
+    @SerializedName("group")
+    private Group group;
 
-  /**
-   * 用户组详情
-   * <p> 示例值：
-   */
-  @SerializedName("group")
-  private Group group;
+    public Group getGroup() {
+        return this.group;
+    }
 
-  public Group getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(Group group) {
-    this.group = group;
-  }
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
 }

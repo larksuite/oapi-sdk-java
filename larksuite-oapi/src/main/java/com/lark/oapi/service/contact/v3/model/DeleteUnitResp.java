@@ -17,5 +17,4 @@ import com.lark.oapi.core.response.BaseResponse;
 import com.lark.oapi.core.response.EmptyData;
 
 public class DeleteUnitResp extends BaseResponse<EmptyData> {
-
 }

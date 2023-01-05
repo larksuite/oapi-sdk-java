@@ -17,17 +17,17 @@ package com.lark.oapi.service.contact.v3.enums;
  * 返回值的用户ID的类型
  */
 public enum ListScopeUserIdTypeEnum {
-  OPEN_ID("open_id"), // 用户的 open id
-  UNION_ID("union_id"), // 用户的 union_id
-  USER_ID("user_id"), // 用户的 user_id
-  ;
-  private String value;
+    OPEN_ID("open_id"), // 用户的 open id
+    UNION_ID("union_id"), // 用户的 union_id
+    USER_ID("user_id"), // 用户的 user_id
+    ;
+    private String value;
 
-  ListScopeUserIdTypeEnum(String value) {
-    this.value = value;
-  }
+    ListScopeUserIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

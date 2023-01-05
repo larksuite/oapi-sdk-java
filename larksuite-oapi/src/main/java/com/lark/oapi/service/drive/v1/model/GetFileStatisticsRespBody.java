@@ -16,48 +16,47 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class GetFileStatisticsRespBody {
+    /**
+     * 文件 token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     */
+    @SerializedName("file_token")
+    private String fileToken;
+    /**
+     * 文件类型
+     * <p> 示例值：doc
+     */
+    @SerializedName("file_type")
+    private String fileType;
+    /**
+     * 文件统计信息
+     * <p> 示例值：
+     */
+    @SerializedName("statistics")
+    private FileStatistics statistics;
 
-  /**
-   * 文件 token
-   * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 文件类型
-   * <p> 示例值：doc
-   */
-  @SerializedName("file_type")
-  private String fileType;
-  /**
-   * 文件统计信息
-   * <p> 示例值：
-   */
-  @SerializedName("statistics")
-  private FileStatistics statistics;
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public String getFileToken() {
-    return this.fileToken;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
+    public String getFileType() {
+        return this.fileType;
+    }
 
-  public String getFileType() {
-    return this.fileType;
-  }
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
 
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
+    public FileStatistics getStatistics() {
+        return this.statistics;
+    }
 
-  public FileStatistics getStatistics() {
-    return this.statistics;
-  }
-
-  public void setStatistics(FileStatistics statistics) {
-    this.statistics = statistics;
-  }
+    public void setStatistics(FileStatistics statistics) {
+        this.statistics = statistics;
+    }
 
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Isv {
-
-  /**
-   * 团队互动应用唯一ID
-   * <p> 示例值：7056882725002051603
-   */
-  @SerializedName("component_id")
-  private String componentId;
-  /**
-   * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-   * <p> 示例值：blk_5f992038c64240015d280958
-   */
-  @SerializedName("component_type_id")
-  private String componentTypeId;
-
-  // builder 开始
-  public Isv() {
-  }
-
-  public Isv(Builder builder) {
     /**
      * 团队互动应用唯一ID
      * <p> 示例值：7056882725002051603
      */
-    this.componentId = builder.componentId;
-    /**
-     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-     * <p> 示例值：blk_5f992038c64240015d280958
-     */
-    this.componentTypeId = builder.componentTypeId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getComponentId() {
-    return this.componentId;
-  }
-
-  public void setComponentId(String componentId) {
-    this.componentId = componentId;
-  }
-
-  public String getComponentTypeId() {
-    return this.componentTypeId;
-  }
-
-  public void setComponentTypeId(String componentTypeId) {
-    this.componentTypeId = componentTypeId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 团队互动应用唯一ID
-     * <p> 示例值：7056882725002051603
-     */
+    @SerializedName("component_id")
     private String componentId;
     /**
      * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
      * <p> 示例值：blk_5f992038c64240015d280958
      */
+    @SerializedName("component_type_id")
     private String componentTypeId;
 
-    /**
-     * 团队互动应用唯一ID
-     * <p> 示例值：7056882725002051603
-     *
-     * @param componentId
-     * @return
-     */
-    public Builder componentId(String componentId) {
-      this.componentId = componentId;
-      return this;
+    // builder 开始
+    public Isv() {
     }
 
-
-    /**
-     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-     * <p> 示例值：blk_5f992038c64240015d280958
-     *
-     * @param componentTypeId
-     * @return
-     */
-    public Builder componentTypeId(String componentTypeId) {
-      this.componentTypeId = componentTypeId;
-      return this;
+    public Isv(Builder builder) {
+        /**
+         * 团队互动应用唯一ID
+         * <p> 示例值：7056882725002051603
+         */
+        this.componentId = builder.componentId;
+        /**
+         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
+         * <p> 示例值：blk_5f992038c64240015d280958
+         */
+        this.componentTypeId = builder.componentTypeId;
     }
 
-
-    public Isv build() {
-      return new Isv(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getComponentId() {
+        return this.componentId;
+    }
+
+    public void setComponentId(String componentId) {
+        this.componentId = componentId;
+    }
+
+    public String getComponentTypeId() {
+        return this.componentTypeId;
+    }
+
+    public void setComponentTypeId(String componentTypeId) {
+        this.componentTypeId = componentTypeId;
+    }
+
+    public static class Builder {
+        /**
+         * 团队互动应用唯一ID
+         * <p> 示例值：7056882725002051603
+         */
+        private String componentId;
+        /**
+         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
+         * <p> 示例值：blk_5f992038c64240015d280958
+         */
+        private String componentTypeId;
+
+        /**
+         * 团队互动应用唯一ID
+         * <p> 示例值：7056882725002051603
+         *
+         * @param componentId
+         * @return
+         */
+        public Builder componentId(String componentId) {
+            this.componentId = componentId;
+            return this;
+        }
+
+
+        /**
+         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
+         * <p> 示例值：blk_5f992038c64240015d280958
+         *
+         * @param componentTypeId
+         * @return
+         */
+        public Builder componentTypeId(String componentTypeId) {
+            this.componentTypeId = componentTypeId;
+            return this;
+        }
+
+
+        public Isv build() {
+            return new Isv(this);
+        }
+    }
 }

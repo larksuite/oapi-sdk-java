@@ -17,20 +17,20 @@ package com.lark.oapi.service.calendar.v4.enums;
  * 日历类型
  */
 public enum CalendarCalendarTypeEnum {
-  UNKNOWN("unknown"), // 未知类型
-  PRIMARY("primary"), // 用户或应用的主日历
-  SHARED("shared"), // 由用户或应用创建的共享日历
-  GOOGLE("google"), // 用户绑定的谷歌日历
-  RESOURCE("resource"), // 会议室日历
-  EXCHANGE("exchange"), // 用户绑定的Exchange日历
-  ;
-  private String value;
+    UNKNOWN("unknown"), // 未知类型
+    PRIMARY("primary"), // 用户或应用的主日历
+    SHARED("shared"), // 由用户或应用创建的共享日历
+    GOOGLE("google"), // 用户绑定的谷歌日历
+    RESOURCE("resource"), // 会议室日历
+    EXCHANGE("exchange"), // 用户绑定的Exchange日历
+    ;
+    private String value;
 
-  CalendarCalendarTypeEnum(String value) {
-    this.value = value;
-  }
+    CalendarCalendarTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

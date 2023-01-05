@@ -16,20 +16,19 @@ package com.lark.oapi.service.tenant.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryTenantRespBody {
+    /**
+     * 企业信息
+     * <p> 示例值：
+     */
+    @SerializedName("tenant")
+    private Tenant tenant;
 
-  /**
-   * 企业信息
-   * <p> 示例值：
-   */
-  @SerializedName("tenant")
-  private Tenant tenant;
+    public Tenant getTenant() {
+        return this.tenant;
+    }
 
-  public Tenant getTenant() {
-    return this.tenant;
-  }
-
-  public void setTenant(Tenant tenant) {
-    this.tenant = tenant;
-  }
+    public void setTenant(Tenant tenant) {
+        this.tenant = tenant;
+    }
 
 }

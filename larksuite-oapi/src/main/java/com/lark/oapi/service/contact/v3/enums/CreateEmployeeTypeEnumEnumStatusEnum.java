@@ -17,16 +17,16 @@ package com.lark.oapi.service.contact.v3.enums;
  * 类型
  */
 public enum CreateEmployeeTypeEnumEnumStatusEnum {
-  ACTIVE(1), // 激活
-  INACTIVE(2), // 未激活
-  ;
-  private Integer value;
+    ACTIVE(1), // 激活
+    INACTIVE(2), // 未激活
+    ;
+    private Integer value;
 
-  CreateEmployeeTypeEnumEnumStatusEnum(Integer value) {
-    this.value = value;
-  }
+    CreateEmployeeTypeEnumEnumStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

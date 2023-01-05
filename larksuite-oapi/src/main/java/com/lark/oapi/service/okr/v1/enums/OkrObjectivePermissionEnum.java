@@ -17,16 +17,16 @@ package com.lark.oapi.service.okr.v1.enums;
  * 权限
  */
 public enum OkrObjectivePermissionEnum {
-  无权限访问(0), // 此时OKR只返回id
-  有权限访问(1), // 返回OKR的其他具体字段
-  ;
-  private Integer value;
+    无权限访问(0), // 此时OKR只返回id
+    有权限访问(1), // 返回OKR的其他具体字段
+    ;
+    private Integer value;
 
-  OkrObjectivePermissionEnum(Integer value) {
-    this.value = value;
-  }
+    OkrObjectivePermissionEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

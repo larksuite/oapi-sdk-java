@@ -17,17 +17,17 @@ package com.lark.oapi.service.vc.v1.enums;
  * 用户会中角色
  */
 public enum MeetingEventUserMeetingUserRoleEnum {
-  NORMAL(1), // 普通参会人
-  HOST(2), // 主持人
-  CO_HOST(3), // 联席主持人
-  ;
-  private Integer value;
+    NORMAL(1), // 普通参会人
+    HOST(2), // 主持人
+    CO_HOST(3), // 联席主持人
+    ;
+    private Integer value;
 
-  MeetingEventUserMeetingUserRoleEnum(Integer value) {
-    this.value = value;
-  }
+    MeetingEventUserMeetingUserRoleEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

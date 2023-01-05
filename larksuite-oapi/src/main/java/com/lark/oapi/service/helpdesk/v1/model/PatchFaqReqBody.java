@@ -16,61 +16,59 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchFaqReqBody {
-
-  /**
-   * 修改的知识库内容
-   * <p> 示例值：
-   */
-  @SerializedName("faq")
-  private FaqUpdateInfo faq;
-
-  // builder 开始
-  public PatchFaqReqBody() {
-  }
-
-  public PatchFaqReqBody(Builder builder) {
     /**
      * 修改的知识库内容
      * <p> 示例值：
      */
-    this.faq = builder.faq;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FaqUpdateInfo getFaq() {
-    return this.faq;
-  }
-
-  public void setFaq(FaqUpdateInfo faq) {
-    this.faq = faq;
-  }
-
-  public static class Builder {
-
-    /**
-     * 修改的知识库内容
-     * <p> 示例值：
-     */
+    @SerializedName("faq")
     private FaqUpdateInfo faq;
 
-    /**
-     * 修改的知识库内容
-     * <p> 示例值：
-     *
-     * @param faq
-     * @return
-     */
-    public Builder faq(FaqUpdateInfo faq) {
-      this.faq = faq;
-      return this;
+    // builder 开始
+    public PatchFaqReqBody() {
     }
 
-
-    public PatchFaqReqBody build() {
-      return new PatchFaqReqBody(this);
+    public PatchFaqReqBody(Builder builder) {
+        /**
+         * 修改的知识库内容
+         * <p> 示例值：
+         */
+        this.faq = builder.faq;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public FaqUpdateInfo getFaq() {
+        return this.faq;
+    }
+
+    public void setFaq(FaqUpdateInfo faq) {
+        this.faq = faq;
+    }
+
+    public static class Builder {
+        /**
+         * 修改的知识库内容
+         * <p> 示例值：
+         */
+        private FaqUpdateInfo faq;
+
+        /**
+         * 修改的知识库内容
+         * <p> 示例值：
+         *
+         * @param faq
+         * @return
+         */
+        public Builder faq(FaqUpdateInfo faq) {
+            this.faq = faq;
+            return this;
+        }
+
+
+        public PatchFaqReqBody build() {
+            return new PatchFaqReqBody(this);
+        }
+    }
 }

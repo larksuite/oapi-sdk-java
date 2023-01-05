@@ -16,135 +16,133 @@ package com.lark.oapi.service.wiki.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MoveResult {
-
-  /**
-   * 移动完成的节点信息
-   * <p> 示例值：
-   */
-  @SerializedName("node")
-  private Node node;
-  /**
-   * 节点移动状态码
-   * <p> 示例值：0
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * 节点移动状态信息
-   * <p> 示例值：success
-   */
-  @SerializedName("status_msg")
-  private String statusMsg;
-
-  // builder 开始
-  public MoveResult() {
-  }
-
-  public MoveResult(Builder builder) {
     /**
      * 移动完成的节点信息
      * <p> 示例值：
      */
-    this.node = builder.node;
-    /**
-     * 节点移动状态码
-     * <p> 示例值：0
-     */
-    this.status = builder.status;
-    /**
-     * 节点移动状态信息
-     * <p> 示例值：success
-     */
-    this.statusMsg = builder.statusMsg;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Node getNode() {
-    return this.node;
-  }
-
-  public void setNode(Node node) {
-    this.node = node;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getStatusMsg() {
-    return this.statusMsg;
-  }
-
-  public void setStatusMsg(String statusMsg) {
-    this.statusMsg = statusMsg;
-  }
-
-  public static class Builder {
-
-    /**
-     * 移动完成的节点信息
-     * <p> 示例值：
-     */
+    @SerializedName("node")
     private Node node;
     /**
      * 节点移动状态码
      * <p> 示例值：0
      */
+    @SerializedName("status")
     private Integer status;
     /**
      * 节点移动状态信息
      * <p> 示例值：success
      */
+    @SerializedName("status_msg")
     private String statusMsg;
 
-    /**
-     * 移动完成的节点信息
-     * <p> 示例值：
-     *
-     * @param node
-     * @return
-     */
-    public Builder node(Node node) {
-      this.node = node;
-      return this;
+    // builder 开始
+    public MoveResult() {
     }
 
-
-    /**
-     * 节点移动状态码
-     * <p> 示例值：0
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public MoveResult(Builder builder) {
+        /**
+         * 移动完成的节点信息
+         * <p> 示例值：
+         */
+        this.node = builder.node;
+        /**
+         * 节点移动状态码
+         * <p> 示例值：0
+         */
+        this.status = builder.status;
+        /**
+         * 节点移动状态信息
+         * <p> 示例值：success
+         */
+        this.statusMsg = builder.statusMsg;
     }
 
-
-    /**
-     * 节点移动状态信息
-     * <p> 示例值：success
-     *
-     * @param statusMsg
-     * @return
-     */
-    public Builder statusMsg(String statusMsg) {
-      this.statusMsg = statusMsg;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public MoveResult build() {
-      return new MoveResult(this);
+    public Node getNode() {
+        return this.node;
     }
-  }
+
+    public void setNode(Node node) {
+        this.node = node;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getStatusMsg() {
+        return this.statusMsg;
+    }
+
+    public void setStatusMsg(String statusMsg) {
+        this.statusMsg = statusMsg;
+    }
+
+    public static class Builder {
+        /**
+         * 移动完成的节点信息
+         * <p> 示例值：
+         */
+        private Node node;
+        /**
+         * 节点移动状态码
+         * <p> 示例值：0
+         */
+        private Integer status;
+        /**
+         * 节点移动状态信息
+         * <p> 示例值：success
+         */
+        private String statusMsg;
+
+        /**
+         * 移动完成的节点信息
+         * <p> 示例值：
+         *
+         * @param node
+         * @return
+         */
+        public Builder node(Node node) {
+            this.node = node;
+            return this;
+        }
+
+
+        /**
+         * 节点移动状态码
+         * <p> 示例值：0
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+
+        /**
+         * 节点移动状态信息
+         * <p> 示例值：success
+         *
+         * @param statusMsg
+         * @return
+         */
+        public Builder statusMsg(String statusMsg) {
+            this.statusMsg = statusMsg;
+            return this;
+        }
+
+
+        public MoveResult build() {
+            return new MoveResult(this);
+        }
+    }
 }

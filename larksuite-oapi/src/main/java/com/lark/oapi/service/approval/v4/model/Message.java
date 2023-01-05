@@ -16,283 +16,281 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Message {
-
-  /**
-   * 消息id标识
-   * <p> 示例值：1705036822442409986
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 接受消息的各类id
-   * <p> 示例值：ou_xxx
-   */
-  @SerializedName("receive_id")
-  private String receiveId;
-  /**
-   * 消息体, json格式
-   * <p> 示例值：{}
-   */
-  @SerializedName("content")
-  private String content;
-  /**
-   * 消息类型
-   * <p> 示例值：interactive
-   */
-  @SerializedName("msg_type")
-  private String msgType;
-  /**
-   * 发送配置
-   * <p> 示例值：{}
-   */
-  @SerializedName("config")
-  private String config;
-  /**
-   * 特殊配制
-   * <p> 示例值：v2
-   */
-  @SerializedName("extra")
-  private String extra;
-  /**
-   * 幂等key
-   * <p> 示例值：a60cfe61268e10f054a3211ab72185c
-   */
-  @SerializedName("uuid")
-  private String uuid;
-
-  // builder 开始
-  public Message() {
-  }
-
-  public Message(Builder builder) {
     /**
      * 消息id标识
      * <p> 示例值：1705036822442409986
      */
-    this.id = builder.id;
-    /**
-     * 接受消息的各类id
-     * <p> 示例值：ou_xxx
-     */
-    this.receiveId = builder.receiveId;
-    /**
-     * 消息体, json格式
-     * <p> 示例值：{}
-     */
-    this.content = builder.content;
-    /**
-     * 消息类型
-     * <p> 示例值：interactive
-     */
-    this.msgType = builder.msgType;
-    /**
-     * 发送配置
-     * <p> 示例值：{}
-     */
-    this.config = builder.config;
-    /**
-     * 特殊配制
-     * <p> 示例值：v2
-     */
-    this.extra = builder.extra;
-    /**
-     * 幂等key
-     * <p> 示例值：a60cfe61268e10f054a3211ab72185c
-     */
-    this.uuid = builder.uuid;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getReceiveId() {
-    return this.receiveId;
-  }
-
-  public void setReceiveId(String receiveId) {
-    this.receiveId = receiveId;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public String getConfig() {
-    return this.config;
-  }
-
-  public void setConfig(String config) {
-    this.config = config;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String getUuid() {
-    return this.uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  public static class Builder {
-
-    /**
-     * 消息id标识
-     * <p> 示例值：1705036822442409986
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 接受消息的各类id
      * <p> 示例值：ou_xxx
      */
+    @SerializedName("receive_id")
     private String receiveId;
     /**
      * 消息体, json格式
      * <p> 示例值：{}
      */
+    @SerializedName("content")
     private String content;
     /**
      * 消息类型
      * <p> 示例值：interactive
      */
+    @SerializedName("msg_type")
     private String msgType;
     /**
      * 发送配置
      * <p> 示例值：{}
      */
+    @SerializedName("config")
     private String config;
     /**
      * 特殊配制
      * <p> 示例值：v2
      */
+    @SerializedName("extra")
     private String extra;
     /**
      * 幂等key
      * <p> 示例值：a60cfe61268e10f054a3211ab72185c
      */
+    @SerializedName("uuid")
     private String uuid;
 
-    /**
-     * 消息id标识
-     * <p> 示例值：1705036822442409986
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public Message() {
     }
 
-
-    /**
-     * 接受消息的各类id
-     * <p> 示例值：ou_xxx
-     *
-     * @param receiveId
-     * @return
-     */
-    public Builder receiveId(String receiveId) {
-      this.receiveId = receiveId;
-      return this;
+    public Message(Builder builder) {
+        /**
+         * 消息id标识
+         * <p> 示例值：1705036822442409986
+         */
+        this.id = builder.id;
+        /**
+         * 接受消息的各类id
+         * <p> 示例值：ou_xxx
+         */
+        this.receiveId = builder.receiveId;
+        /**
+         * 消息体, json格式
+         * <p> 示例值：{}
+         */
+        this.content = builder.content;
+        /**
+         * 消息类型
+         * <p> 示例值：interactive
+         */
+        this.msgType = builder.msgType;
+        /**
+         * 发送配置
+         * <p> 示例值：{}
+         */
+        this.config = builder.config;
+        /**
+         * 特殊配制
+         * <p> 示例值：v2
+         */
+        this.extra = builder.extra;
+        /**
+         * 幂等key
+         * <p> 示例值：a60cfe61268e10f054a3211ab72185c
+         */
+        this.uuid = builder.uuid;
     }
 
-
-    /**
-     * 消息体, json格式
-     * <p> 示例值：{}
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 消息类型
-     * <p> 示例值：interactive
-     *
-     * @param msgType
-     * @return
-     */
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-
-    /**
-     * 发送配置
-     * <p> 示例值：{}
-     *
-     * @param config
-     * @return
-     */
-    public Builder config(String config) {
-      this.config = config;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    /**
-     * 特殊配制
-     * <p> 示例值：v2
-     *
-     * @param extra
-     * @return
-     */
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public String getReceiveId() {
+        return this.receiveId;
     }
 
-
-    /**
-     * 幂等key
-     * <p> 示例值：a60cfe61268e10f054a3211ab72185c
-     *
-     * @param uuid
-     * @return
-     */
-    public Builder uuid(String uuid) {
-      this.uuid = uuid;
-      return this;
+    public void setReceiveId(String receiveId) {
+        this.receiveId = receiveId;
     }
 
-
-    public Message build() {
-      return new Message(this);
+    public String getContent() {
+        return this.content;
     }
-  }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getMsgType() {
+        return this.msgType;
+    }
+
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
+    }
+
+    public String getConfig() {
+        return this.config;
+    }
+
+    public void setConfig(String config) {
+        this.config = config;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public static class Builder {
+        /**
+         * 消息id标识
+         * <p> 示例值：1705036822442409986
+         */
+        private String id;
+        /**
+         * 接受消息的各类id
+         * <p> 示例值：ou_xxx
+         */
+        private String receiveId;
+        /**
+         * 消息体, json格式
+         * <p> 示例值：{}
+         */
+        private String content;
+        /**
+         * 消息类型
+         * <p> 示例值：interactive
+         */
+        private String msgType;
+        /**
+         * 发送配置
+         * <p> 示例值：{}
+         */
+        private String config;
+        /**
+         * 特殊配制
+         * <p> 示例值：v2
+         */
+        private String extra;
+        /**
+         * 幂等key
+         * <p> 示例值：a60cfe61268e10f054a3211ab72185c
+         */
+        private String uuid;
+
+        /**
+         * 消息id标识
+         * <p> 示例值：1705036822442409986
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 接受消息的各类id
+         * <p> 示例值：ou_xxx
+         *
+         * @param receiveId
+         * @return
+         */
+        public Builder receiveId(String receiveId) {
+            this.receiveId = receiveId;
+            return this;
+        }
+
+
+        /**
+         * 消息体, json格式
+         * <p> 示例值：{}
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 消息类型
+         * <p> 示例值：interactive
+         *
+         * @param msgType
+         * @return
+         */
+        public Builder msgType(String msgType) {
+            this.msgType = msgType;
+            return this;
+        }
+
+
+        /**
+         * 发送配置
+         * <p> 示例值：{}
+         *
+         * @param config
+         * @return
+         */
+        public Builder config(String config) {
+            this.config = config;
+            return this;
+        }
+
+
+        /**
+         * 特殊配制
+         * <p> 示例值：v2
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
+            return this;
+        }
+
+
+        /**
+         * 幂等key
+         * <p> 示例值：a60cfe61268e10f054a3211ab72185c
+         *
+         * @param uuid
+         * @return
+         */
+        public Builder uuid(String uuid) {
+            this.uuid = uuid;
+            return this;
+        }
+
+
+        public Message build() {
+            return new Message(this);
+        }
+    }
 }

@@ -18,219 +18,217 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class ListAppTableFieldReq {
-
-  /**
-   * 视图 ID
-   * <p> 示例值：vewOVMEXPF
-   */
-  @Query
-  @SerializedName("view_id")
-  private String viewId;
-  /**
-   * 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("text_field_as_array")
-  private Boolean textFieldAsArray;
-  /**
-   * <p> 示例值：fldwJ4YrtB
-   */
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * <p> 示例值：10
-   */
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * table id
-   * <p> 示例值：tblsRc9GRRXKqhvW
-   */
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-
-  // builder 开始
-  public ListAppTableFieldReq() {
-  }
-
-  public ListAppTableFieldReq(Builder builder) {
     /**
      * 视图 ID
      * <p> 示例值：vewOVMEXPF
      */
-    this.viewId = builder.viewId;
+    @Query
+    @SerializedName("view_id")
+    private String viewId;
     /**
-     * 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
-     * <p> 示例值：
+     * 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
+     * <p> 示例值：true
      */
-    this.textFieldAsArray = builder.textFieldAsArray;
+    @Query
+    @SerializedName("text_field_as_array")
+    private Boolean textFieldAsArray;
     /**
-     *
      * <p> 示例值：fldwJ4YrtB
      */
-    this.pageToken = builder.pageToken;
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     *
      * <p> 示例值：10
      */
-    this.pageSize = builder.pageSize;
+    @Query
+    @SerializedName("page_size")
+    private Integer pageSize;
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * table id
      * <p> 示例值：tblsRc9GRRXKqhvW
      */
-    this.tableId = builder.tableId;
-  }
+    @Path
+    @SerializedName("table_id")
+    private String tableId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getViewId() {
-    return this.viewId;
-  }
-
-  public void setViewId(String viewId) {
-    this.viewId = viewId;
-  }
-
-  public Boolean getTextFieldAsArray() {
-    return this.textFieldAsArray;
-  }
-
-  public void setTextFieldAsArray(Boolean textFieldAsArray) {
-    this.textFieldAsArray = textFieldAsArray;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public static class Builder {
-
-    private String viewId; // 视图 ID
-    private Boolean textFieldAsArray; // 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
-    private String pageToken; //
-    private Integer pageSize; //
-    private String appToken; // bitable app token
-    private String tableId; // table id
-
-    /**
-     * 视图 ID
-     * <p> 示例值：vewOVMEXPF
-     *
-     * @param viewId
-     * @return
-     */
-    public Builder viewId(String viewId) {
-      this.viewId = viewId;
-      return this;
+    // builder 开始
+    public ListAppTableFieldReq() {
     }
 
-    /**
-     * 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
-     * <p> 示例值：
-     *
-     * @param textFieldAsArray
-     * @return
-     */
-    public Builder textFieldAsArray(Boolean textFieldAsArray) {
-      this.textFieldAsArray = textFieldAsArray;
-      return this;
+    public ListAppTableFieldReq(Builder builder) {
+        /**
+         * 视图 ID
+         * <p> 示例值：vewOVMEXPF
+         */
+        this.viewId = builder.viewId;
+        /**
+         * 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
+         * <p> 示例值：true
+         */
+        this.textFieldAsArray = builder.textFieldAsArray;
+        /**
+         *
+         * <p> 示例值：fldwJ4YrtB
+         */
+        this.pageToken = builder.pageToken;
+        /**
+         *
+         * <p> 示例值：10
+         */
+        this.pageSize = builder.pageSize;
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         */
+        this.tableId = builder.tableId;
     }
 
-    /**
-     * <p> 示例值：fldwJ4YrtB
-     *
-     * @param pageToken
-     * @return
-     */
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * <p> 示例值：10
-     *
-     * @param pageSize
-     * @return
-     */
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getViewId() {
+        return this.viewId;
     }
 
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public void setViewId(String viewId) {
+        this.viewId = viewId;
     }
 
-
-    /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
-     *
-     * @param tableId
-     * @return
-     */
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public Boolean getTextFieldAsArray() {
+        return this.textFieldAsArray;
     }
 
-    public ListAppTableFieldReq build() {
-      return new ListAppTableFieldReq(this);
+    public void setTextFieldAsArray(Boolean textFieldAsArray) {
+        this.textFieldAsArray = textFieldAsArray;
     }
-  }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public static class Builder {
+        private String viewId; // 视图 ID
+        private Boolean textFieldAsArray; // 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
+        private String pageToken; //
+        private Integer pageSize; //
+        private String appToken; // bitable app token
+        private String tableId; // table id
+
+        /**
+         * 视图 ID
+         * <p> 示例值：vewOVMEXPF
+         *
+         * @param viewId
+         * @return
+         */
+        public Builder viewId(String viewId) {
+            this.viewId = viewId;
+            return this;
+        }
+
+        /**
+         * 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
+         * <p> 示例值：true
+         *
+         * @param textFieldAsArray
+         * @return
+         */
+        public Builder textFieldAsArray(Boolean textFieldAsArray) {
+            this.textFieldAsArray = textFieldAsArray;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：fldwJ4YrtB
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+        }
+
+        /**
+         * <p> 示例值：10
+         *
+         * @param pageSize
+         * @return
+         */
+        public Builder pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * table id
+         * <p> 示例值：tblsRc9GRRXKqhvW
+         *
+         * @param tableId
+         * @return
+         */
+        public Builder tableId(String tableId) {
+            this.tableId = tableId;
+            return this;
+        }
+
+        public ListAppTableFieldReq build() {
+            return new ListAppTableFieldReq(this);
+        }
+    }
 }

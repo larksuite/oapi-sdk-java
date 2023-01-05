@@ -16,20 +16,19 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateDraftRespBody {
+    /**
+     * 草稿
+     * <p> 示例值：
+     */
+    @SerializedName("draft")
+    private Draft draft;
 
-  /**
-   * 草稿
-   * <p> 示例值：
-   */
-  @SerializedName("draft")
-  private Draft draft;
+    public Draft getDraft() {
+        return this.draft;
+    }
 
-  public Draft getDraft() {
-    return this.draft;
-  }
-
-  public void setDraft(Draft draft) {
-    this.draft = draft;
-  }
+    public void setDraft(Draft draft) {
+        this.draft = draft;
+    }
 
 }

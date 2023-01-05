@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SiteJobPostSearchInfo {
-
-  /**
-   * 职位列表
-   * <p> 示例值：
-   */
-  @SerializedName("job_post_info")
-  private SiteJobPost[] jobPostInfo;
-  /**
-   * 职位总数
-   * <p> 示例值：
-   */
-  @SerializedName("count")
-  private Integer count;
-
-  // builder 开始
-  public SiteJobPostSearchInfo() {
-  }
-
-  public SiteJobPostSearchInfo(Builder builder) {
     /**
      * 职位列表
      * <p> 示例值：
      */
-    this.jobPostInfo = builder.jobPostInfo;
-    /**
-     * 职位总数
-     * <p> 示例值：
-     */
-    this.count = builder.count;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public SiteJobPost[] getJobPostInfo() {
-    return this.jobPostInfo;
-  }
-
-  public void setJobPostInfo(SiteJobPost[] jobPostInfo) {
-    this.jobPostInfo = jobPostInfo;
-  }
-
-  public Integer getCount() {
-    return this.count;
-  }
-
-  public void setCount(Integer count) {
-    this.count = count;
-  }
-
-  public static class Builder {
-
-    /**
-     * 职位列表
-     * <p> 示例值：
-     */
+    @SerializedName("job_post_info")
     private SiteJobPost[] jobPostInfo;
     /**
      * 职位总数
      * <p> 示例值：
      */
+    @SerializedName("count")
     private Integer count;
 
-    /**
-     * 职位列表
-     * <p> 示例值：
-     *
-     * @param jobPostInfo
-     * @return
-     */
-    public Builder jobPostInfo(SiteJobPost[] jobPostInfo) {
-      this.jobPostInfo = jobPostInfo;
-      return this;
+    // builder 开始
+    public SiteJobPostSearchInfo() {
     }
 
-
-    /**
-     * 职位总数
-     * <p> 示例值：
-     *
-     * @param count
-     * @return
-     */
-    public Builder count(Integer count) {
-      this.count = count;
-      return this;
+    public SiteJobPostSearchInfo(Builder builder) {
+        /**
+         * 职位列表
+         * <p> 示例值：
+         */
+        this.jobPostInfo = builder.jobPostInfo;
+        /**
+         * 职位总数
+         * <p> 示例值：
+         */
+        this.count = builder.count;
     }
 
-
-    public SiteJobPostSearchInfo build() {
-      return new SiteJobPostSearchInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public SiteJobPost[] getJobPostInfo() {
+        return this.jobPostInfo;
+    }
+
+    public void setJobPostInfo(SiteJobPost[] jobPostInfo) {
+        this.jobPostInfo = jobPostInfo;
+    }
+
+    public Integer getCount() {
+        return this.count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public static class Builder {
+        /**
+         * 职位列表
+         * <p> 示例值：
+         */
+        private SiteJobPost[] jobPostInfo;
+        /**
+         * 职位总数
+         * <p> 示例值：
+         */
+        private Integer count;
+
+        /**
+         * 职位列表
+         * <p> 示例值：
+         *
+         * @param jobPostInfo
+         * @return
+         */
+        public Builder jobPostInfo(SiteJobPost[] jobPostInfo) {
+            this.jobPostInfo = jobPostInfo;
+            return this;
+        }
+
+
+        /**
+         * 职位总数
+         * <p> 示例值：
+         *
+         * @param count
+         * @return
+         */
+        public Builder count(Integer count) {
+            this.count = count;
+            return this;
+        }
+
+
+        public SiteJobPostSearchInfo build() {
+            return new SiteJobPostSearchInfo(this);
+        }
+    }
 }

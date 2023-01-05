@@ -16,354 +16,352 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class LocationRecord {
-
-  /**
-   * 用户id
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private UserId userId;
-  /**
-   * 时间点
-   * <p> 示例值：
-   */
-  @SerializedName("timestamp")
-  private String timestamp;
-  /**
-   * 位置信息
-   * <p> 示例值：
-   */
-  @SerializedName("location")
-  private LocationInfoEvent location;
-  /**
-   * wifi信息
-   * <p> 示例值：
-   */
-  @SerializedName("wifi")
-  private WifiInfoEvent wifi;
-  /**
-   * 规则快照id
-   * <p> 示例值：
-   */
-  @SerializedName("rule_snapshot_id")
-  private String ruleSnapshotId;
-  /**
-   * 事件类型
-   * <p> 示例值：
-   */
-  @SerializedName("type")
-  private String type;
-  /**
-   * 附近的wifi设备列表
-   * <p> 示例值：
-   */
-  @SerializedName("scan_wifi_list")
-  private ScanWifiInfo[] scanWifiList;
-  /**
-   * 上报事件的设备ID
-   * <p> 示例值：
-   */
-  @SerializedName("device_id")
-  private String deviceId;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("client_info")
-  private String clientInfo;
-
-  // builder 开始
-  public LocationRecord() {
-  }
-
-  public LocationRecord(Builder builder) {
     /**
      * 用户id
      * <p> 示例值：
      */
-    this.userId = builder.userId;
-    /**
-     * 时间点
-     * <p> 示例值：
-     */
-    this.timestamp = builder.timestamp;
-    /**
-     * 位置信息
-     * <p> 示例值：
-     */
-    this.location = builder.location;
-    /**
-     * wifi信息
-     * <p> 示例值：
-     */
-    this.wifi = builder.wifi;
-    /**
-     * 规则快照id
-     * <p> 示例值：
-     */
-    this.ruleSnapshotId = builder.ruleSnapshotId;
-    /**
-     * 事件类型
-     * <p> 示例值：
-     */
-    this.type = builder.type;
-    /**
-     * 附近的wifi设备列表
-     * <p> 示例值：
-     */
-    this.scanWifiList = builder.scanWifiList;
-    /**
-     * 上报事件的设备ID
-     * <p> 示例值：
-     */
-    this.deviceId = builder.deviceId;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.clientInfo = builder.clientInfo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
-
-  public String getTimestamp() {
-    return this.timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public LocationInfoEvent getLocation() {
-    return this.location;
-  }
-
-  public void setLocation(LocationInfoEvent location) {
-    this.location = location;
-  }
-
-  public WifiInfoEvent getWifi() {
-    return this.wifi;
-  }
-
-  public void setWifi(WifiInfoEvent wifi) {
-    this.wifi = wifi;
-  }
-
-  public String getRuleSnapshotId() {
-    return this.ruleSnapshotId;
-  }
-
-  public void setRuleSnapshotId(String ruleSnapshotId) {
-    this.ruleSnapshotId = ruleSnapshotId;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public ScanWifiInfo[] getScanWifiList() {
-    return this.scanWifiList;
-  }
-
-  public void setScanWifiList(ScanWifiInfo[] scanWifiList) {
-    this.scanWifiList = scanWifiList;
-  }
-
-  public String getDeviceId() {
-    return this.deviceId;
-  }
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
-  public String getClientInfo() {
-    return this.clientInfo;
-  }
-
-  public void setClientInfo(String clientInfo) {
-    this.clientInfo = clientInfo;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户id
-     * <p> 示例值：
-     */
+    @SerializedName("user_id")
     private UserId userId;
     /**
      * 时间点
      * <p> 示例值：
      */
+    @SerializedName("timestamp")
     private String timestamp;
     /**
      * 位置信息
      * <p> 示例值：
      */
+    @SerializedName("location")
     private LocationInfoEvent location;
     /**
      * wifi信息
      * <p> 示例值：
      */
+    @SerializedName("wifi")
     private WifiInfoEvent wifi;
     /**
      * 规则快照id
      * <p> 示例值：
      */
+    @SerializedName("rule_snapshot_id")
     private String ruleSnapshotId;
     /**
      * 事件类型
      * <p> 示例值：
      */
+    @SerializedName("type")
     private String type;
     /**
      * 附近的wifi设备列表
      * <p> 示例值：
      */
+    @SerializedName("scan_wifi_list")
     private ScanWifiInfo[] scanWifiList;
     /**
      * 上报事件的设备ID
      * <p> 示例值：
      */
+    @SerializedName("device_id")
     private String deviceId;
     /**
      * <p> 示例值：
      */
+    @SerializedName("client_info")
     private String clientInfo;
 
-    /**
-     * 用户id
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(UserId userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public LocationRecord() {
     }
 
-
-    /**
-     * 时间点
-     * <p> 示例值：
-     *
-     * @param timestamp
-     * @return
-     */
-    public Builder timestamp(String timestamp) {
-      this.timestamp = timestamp;
-      return this;
+    public LocationRecord(Builder builder) {
+        /**
+         * 用户id
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 时间点
+         * <p> 示例值：
+         */
+        this.timestamp = builder.timestamp;
+        /**
+         * 位置信息
+         * <p> 示例值：
+         */
+        this.location = builder.location;
+        /**
+         * wifi信息
+         * <p> 示例值：
+         */
+        this.wifi = builder.wifi;
+        /**
+         * 规则快照id
+         * <p> 示例值：
+         */
+        this.ruleSnapshotId = builder.ruleSnapshotId;
+        /**
+         * 事件类型
+         * <p> 示例值：
+         */
+        this.type = builder.type;
+        /**
+         * 附近的wifi设备列表
+         * <p> 示例值：
+         */
+        this.scanWifiList = builder.scanWifiList;
+        /**
+         * 上报事件的设备ID
+         * <p> 示例值：
+         */
+        this.deviceId = builder.deviceId;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.clientInfo = builder.clientInfo;
     }
 
-
-    /**
-     * 位置信息
-     * <p> 示例值：
-     *
-     * @param location
-     * @return
-     */
-    public Builder location(LocationInfoEvent location) {
-      this.location = location;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * wifi信息
-     * <p> 示例值：
-     *
-     * @param wifi
-     * @return
-     */
-    public Builder wifi(WifiInfoEvent wifi) {
-      this.wifi = wifi;
-      return this;
+    public UserId getUserId() {
+        return this.userId;
     }
 
-
-    /**
-     * 规则快照id
-     * <p> 示例值：
-     *
-     * @param ruleSnapshotId
-     * @return
-     */
-    public Builder ruleSnapshotId(String ruleSnapshotId) {
-      this.ruleSnapshotId = ruleSnapshotId;
-      return this;
+    public void setUserId(UserId userId) {
+        this.userId = userId;
     }
 
-
-    /**
-     * 事件类型
-     * <p> 示例值：
-     *
-     * @param type
-     * @return
-     */
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getTimestamp() {
+        return this.timestamp;
     }
 
-
-    /**
-     * 附近的wifi设备列表
-     * <p> 示例值：
-     *
-     * @param scanWifiList
-     * @return
-     */
-    public Builder scanWifiList(ScanWifiInfo[] scanWifiList) {
-      this.scanWifiList = scanWifiList;
-      return this;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
-
-    /**
-     * 上报事件的设备ID
-     * <p> 示例值：
-     *
-     * @param deviceId
-     * @return
-     */
-    public Builder deviceId(String deviceId) {
-      this.deviceId = deviceId;
-      return this;
+    public LocationInfoEvent getLocation() {
+        return this.location;
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param clientInfo
-     * @return
-     */
-    public Builder clientInfo(String clientInfo) {
-      this.clientInfo = clientInfo;
-      return this;
+    public void setLocation(LocationInfoEvent location) {
+        this.location = location;
     }
 
-
-    public LocationRecord build() {
-      return new LocationRecord(this);
+    public WifiInfoEvent getWifi() {
+        return this.wifi;
     }
-  }
+
+    public void setWifi(WifiInfoEvent wifi) {
+        this.wifi = wifi;
+    }
+
+    public String getRuleSnapshotId() {
+        return this.ruleSnapshotId;
+    }
+
+    public void setRuleSnapshotId(String ruleSnapshotId) {
+        this.ruleSnapshotId = ruleSnapshotId;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public ScanWifiInfo[] getScanWifiList() {
+        return this.scanWifiList;
+    }
+
+    public void setScanWifiList(ScanWifiInfo[] scanWifiList) {
+        this.scanWifiList = scanWifiList;
+    }
+
+    public String getDeviceId() {
+        return this.deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getClientInfo() {
+        return this.clientInfo;
+    }
+
+    public void setClientInfo(String clientInfo) {
+        this.clientInfo = clientInfo;
+    }
+
+    public static class Builder {
+        /**
+         * 用户id
+         * <p> 示例值：
+         */
+        private UserId userId;
+        /**
+         * 时间点
+         * <p> 示例值：
+         */
+        private String timestamp;
+        /**
+         * 位置信息
+         * <p> 示例值：
+         */
+        private LocationInfoEvent location;
+        /**
+         * wifi信息
+         * <p> 示例值：
+         */
+        private WifiInfoEvent wifi;
+        /**
+         * 规则快照id
+         * <p> 示例值：
+         */
+        private String ruleSnapshotId;
+        /**
+         * 事件类型
+         * <p> 示例值：
+         */
+        private String type;
+        /**
+         * 附近的wifi设备列表
+         * <p> 示例值：
+         */
+        private ScanWifiInfo[] scanWifiList;
+        /**
+         * 上报事件的设备ID
+         * <p> 示例值：
+         */
+        private String deviceId;
+        /**
+         * <p> 示例值：
+         */
+        private String clientInfo;
+
+        /**
+         * 用户id
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(UserId userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 时间点
+         * <p> 示例值：
+         *
+         * @param timestamp
+         * @return
+         */
+        public Builder timestamp(String timestamp) {
+            this.timestamp = timestamp;
+            return this;
+        }
+
+
+        /**
+         * 位置信息
+         * <p> 示例值：
+         *
+         * @param location
+         * @return
+         */
+        public Builder location(LocationInfoEvent location) {
+            this.location = location;
+            return this;
+        }
+
+
+        /**
+         * wifi信息
+         * <p> 示例值：
+         *
+         * @param wifi
+         * @return
+         */
+        public Builder wifi(WifiInfoEvent wifi) {
+            this.wifi = wifi;
+            return this;
+        }
+
+
+        /**
+         * 规则快照id
+         * <p> 示例值：
+         *
+         * @param ruleSnapshotId
+         * @return
+         */
+        public Builder ruleSnapshotId(String ruleSnapshotId) {
+            this.ruleSnapshotId = ruleSnapshotId;
+            return this;
+        }
+
+
+        /**
+         * 事件类型
+         * <p> 示例值：
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+
+        /**
+         * 附近的wifi设备列表
+         * <p> 示例值：
+         *
+         * @param scanWifiList
+         * @return
+         */
+        public Builder scanWifiList(ScanWifiInfo[] scanWifiList) {
+            this.scanWifiList = scanWifiList;
+            return this;
+        }
+
+
+        /**
+         * 上报事件的设备ID
+         * <p> 示例值：
+         *
+         * @param deviceId
+         * @return
+         */
+        public Builder deviceId(String deviceId) {
+            this.deviceId = deviceId;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param clientInfo
+         * @return
+         */
+        public Builder clientInfo(String clientInfo) {
+            this.clientInfo = clientInfo;
+            return this;
+        }
+
+
+        public LocationRecord build() {
+            return new LocationRecord(this);
+        }
+    }
 }

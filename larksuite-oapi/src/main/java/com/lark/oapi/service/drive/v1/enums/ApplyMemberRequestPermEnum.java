@@ -17,16 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 需要申请的权限，权限值："view"，"edit"
  */
 public enum ApplyMemberRequestPermEnum {
-  VIEW("view"), // 申请阅读权限
-  EDIT("edit"), // 申请编辑权限
-  ;
-  private String value;
+    VIEW("view"), // 申请阅读权限
+    EDIT("edit"), // 申请编辑权限
+    ;
+    private String value;
 
-  ApplyMemberRequestPermEnum(String value) {
-    this.value = value;
-  }
+    ApplyMemberRequestPermEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

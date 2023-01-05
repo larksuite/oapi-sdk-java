@@ -17,16 +17,16 @@ package com.lark.oapi.service.approval.v4.enums;
  * 此次调用中使用的部门ID的类型
  */
 public enum CreateExternalApprovalDepartmentIdTypeEnum {
-  DEPARTMENTID("department_id"), // 以自定义department_id来标识部门
-  OPENDEPARTMENTID("open_department_id"), // 以open_department_id来标识部门
-  ;
-  private String value;
+    DEPARTMENTID("department_id"), // 以自定义department_id来标识部门
+    OPENDEPARTMENTID("open_department_id"), // 以open_department_id来标识部门
+    ;
+    private String value;
 
-  CreateExternalApprovalDepartmentIdTypeEnum(String value) {
-    this.value = value;
-  }
+    CreateExternalApprovalDepartmentIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

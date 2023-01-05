@@ -16,20 +16,19 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class HighlightEntityRespBody {
+    /**
+     * 识别到的词条信息
+     * <p> 示例值：
+     */
+    @SerializedName("phrases")
+    private Phrase[] phrases;
 
-  /**
-   * 识别到的词条信息
-   * <p> 示例值：
-   */
-  @SerializedName("phrases")
-  private Phrase[] phrases;
+    public Phrase[] getPhrases() {
+        return this.phrases;
+    }
 
-  public Phrase[] getPhrases() {
-    return this.phrases;
-  }
-
-  public void setPhrases(Phrase[] phrases) {
-    this.phrases = phrases;
-  }
+    public void setPhrases(Phrase[] phrases) {
+        this.phrases = phrases;
+    }
 
 }

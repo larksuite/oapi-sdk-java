@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class UpdateSpaceSettingReq {
-
-  /**
-   * 知识空间id
-   * <p> 示例值：1565676577122621
-   */
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  @Body
-  private Setting body;
-
-  // builder 开始
-  public UpdateSpaceSettingReq() {
-  }
-
-  public UpdateSpaceSettingReq(Builder builder) {
     /**
      * 知识空间id
      * <p> 示例值：1565676577122621
      */
-    this.spaceId = builder.spaceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public Setting getSetting() {
-    return this.body;
-  }
-
-  public void setSetting(Setting body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String spaceId; // 知识空间id
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
+    @Body
     private Setting body;
 
-    /**
-     * 知识空间id
-     * <p> 示例值：1565676577122621
-     *
-     * @param spaceId
-     * @return
-     */
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    // builder 开始
+    public UpdateSpaceSettingReq() {
+    }
+
+    public UpdateSpaceSettingReq(Builder builder) {
+        /**
+         * 知识空间id
+         * <p> 示例值：1565676577122621
+         */
+        this.spaceId = builder.spaceId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
     }
 
     public Setting getSetting() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder setting(Setting body) {
-      this.body = body;
-      return this;
+    public void setSetting(Setting body) {
+        this.body = body;
     }
 
-    public UpdateSpaceSettingReq build() {
-      return new UpdateSpaceSettingReq(this);
+    public static class Builder {
+
+        private String spaceId; // 知识空间id
+        private Setting body;
+
+        /**
+         * 知识空间id
+         * <p> 示例值：1565676577122621
+         *
+         * @param spaceId
+         * @return
+         */
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
+
+        public Setting getSetting() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder setting(Setting body) {
+            this.body = body;
+            return this;
+        }
+
+        public UpdateSpaceSettingReq build() {
+            return new UpdateSpaceSettingReq(this);
+        }
     }
-  }
 }

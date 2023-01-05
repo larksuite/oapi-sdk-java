@@ -16,98 +16,96 @@ package com.lark.oapi.service.translation.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Term {
-
-  /**
-   * 原文
-   * <p> 示例值：飞书
-   */
-  @SerializedName("from")
-  private String from;
-  /**
-   * 译文
-   * <p> 示例值：Lark
-   */
-  @SerializedName("to")
-  private String to;
-
-  // builder 开始
-  public Term() {
-  }
-
-  public Term(Builder builder) {
     /**
      * 原文
      * <p> 示例值：飞书
      */
-    this.from = builder.from;
-    /**
-     * 译文
-     * <p> 示例值：Lark
-     */
-    this.to = builder.to;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFrom() {
-    return this.from;
-  }
-
-  public void setFrom(String from) {
-    this.from = from;
-  }
-
-  public String getTo() {
-    return this.to;
-  }
-
-  public void setTo(String to) {
-    this.to = to;
-  }
-
-  public static class Builder {
-
-    /**
-     * 原文
-     * <p> 示例值：飞书
-     */
+    @SerializedName("from")
     private String from;
     /**
      * 译文
      * <p> 示例值：Lark
      */
+    @SerializedName("to")
     private String to;
 
-    /**
-     * 原文
-     * <p> 示例值：飞书
-     *
-     * @param from
-     * @return
-     */
-    public Builder from(String from) {
-      this.from = from;
-      return this;
+    // builder 开始
+    public Term() {
     }
 
-
-    /**
-     * 译文
-     * <p> 示例值：Lark
-     *
-     * @param to
-     * @return
-     */
-    public Builder to(String to) {
-      this.to = to;
-      return this;
+    public Term(Builder builder) {
+        /**
+         * 原文
+         * <p> 示例值：飞书
+         */
+        this.from = builder.from;
+        /**
+         * 译文
+         * <p> 示例值：Lark
+         */
+        this.to = builder.to;
     }
 
-
-    public Term build() {
-      return new Term(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getFrom() {
+        return this.from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return this.to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public static class Builder {
+        /**
+         * 原文
+         * <p> 示例值：飞书
+         */
+        private String from;
+        /**
+         * 译文
+         * <p> 示例值：Lark
+         */
+        private String to;
+
+        /**
+         * 原文
+         * <p> 示例值：飞书
+         *
+         * @param from
+         * @return
+         */
+        public Builder from(String from) {
+            this.from = from;
+            return this;
+        }
+
+
+        /**
+         * 译文
+         * <p> 示例值：Lark
+         *
+         * @param to
+         * @return
+         */
+        public Builder to(String to) {
+            this.to = to;
+            return this;
+        }
+
+
+        public Term build() {
+            return new Term(this);
+        }
+    }
 }

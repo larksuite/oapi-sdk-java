@@ -16,20 +16,19 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListFreebusyRespBody {
+    /**
+     * 日历上请求时间区间内的忙碌时间段信息。
+     * <p> 示例值：
+     */
+    @SerializedName("freebusy_list")
+    private Freebusy[] freebusyList;
 
-  /**
-   * 日历上请求时间区间内的忙碌时间段信息。
-   * <p> 示例值：
-   */
-  @SerializedName("freebusy_list")
-  private Freebusy[] freebusyList;
+    public Freebusy[] getFreebusyList() {
+        return this.freebusyList;
+    }
 
-  public Freebusy[] getFreebusyList() {
-    return this.freebusyList;
-  }
-
-  public void setFreebusyList(Freebusy[] freebusyList) {
-    this.freebusyList = freebusyList;
-  }
+    public void setFreebusyList(Freebusy[] freebusyList) {
+        this.freebusyList = freebusyList;
+    }
 
 }

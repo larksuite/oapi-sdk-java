@@ -18,169 +18,166 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class GetEntityReq {
-
-  /**
-   * 外部系统
-   * <p> 示例值：星云
-   */
-  @Query
-  @SerializedName("provider")
-  private String provider;
-  /**
-   * 词条在外部系统中对应的唯一 ID
-   * <p> 示例值：12345
-   */
-  @Query
-  @SerializedName("outer_id")
-  private String outerId;
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  /**
-   * 词条 ID
-   * <p> 示例值：enterprise_515879
-   */
-  @Path
-  @SerializedName("entity_id")
-  private String entityId;
-
-  // builder 开始
-  public GetEntityReq() {
-  }
-
-  public GetEntityReq(Builder builder) {
     /**
      * 外部系统
      * <p> 示例值：星云
      */
-    this.provider = builder.provider;
+    @Query
+    @SerializedName("provider")
+    private String provider;
     /**
      * 词条在外部系统中对应的唯一 ID
      * <p> 示例值：12345
      */
-    this.outerId = builder.outerId;
+    @Query
+    @SerializedName("outer_id")
+    private String outerId;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
-    this.userIdType = builder.userIdType;
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 词条 ID
      * <p> 示例值：enterprise_515879
      */
-    this.entityId = builder.entityId;
-  }
+    @Path
+    @SerializedName("entity_id")
+    private String entityId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getProvider() {
-    return this.provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
-  }
-
-  public String getOuterId() {
-    return this.outerId;
-  }
-
-  public void setOuterId(String outerId) {
-    this.outerId = outerId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getEntityId() {
-    return this.entityId;
-  }
-
-  public void setEntityId(String entityId) {
-    this.entityId = entityId;
-  }
-
-  public static class Builder {
-
-    private String provider; // 外部系统
-    private String outerId; // 词条在外部系统中对应的唯一 ID
-    private String userIdType; // 此次调用中使用的用户ID的类型
-    private String entityId; // 词条 ID
-
-    /**
-     * 外部系统
-     * <p> 示例值：星云
-     *
-     * @param provider
-     * @return
-     */
-    public Builder provider(String provider) {
-      this.provider = provider;
-      return this;
+    // builder 开始
+    public GetEntityReq() {
     }
 
-    /**
-     * 词条在外部系统中对应的唯一 ID
-     * <p> 示例值：12345
-     *
-     * @param outerId
-     * @return
-     */
-    public Builder outerId(String outerId) {
-      this.outerId = outerId;
-      return this;
+    public GetEntityReq(Builder builder) {
+        /**
+         * 外部系统
+         * <p> 示例值：星云
+         */
+        this.provider = builder.provider;
+        /**
+         * 词条在外部系统中对应的唯一 ID
+         * <p> 示例值：12345
+         */
+        this.outerId = builder.outerId;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
+         * 词条 ID
+         * <p> 示例值：enterprise_515879
+         */
+        this.entityId = builder.entityId;
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.baike.v1.enums.GetEntityUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.baike.v1.enums.GetEntityUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public String getProvider() {
+        return this.provider;
     }
 
-    /**
-     * 词条 ID
-     * <p> 示例值：enterprise_515879
-     *
-     * @param entityId
-     * @return
-     */
-    public Builder entityId(String entityId) {
-      this.entityId = entityId;
-      return this;
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 
-    public GetEntityReq build() {
-      return new GetEntityReq(this);
+    public String getOuterId() {
+        return this.outerId;
     }
-  }
+
+    public void setOuterId(String outerId) {
+        this.outerId = outerId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getEntityId() {
+        return this.entityId;
+    }
+
+    public void setEntityId(String entityId) {
+        this.entityId = entityId;
+    }
+
+    public static class Builder {
+        private String provider; // 外部系统
+        private String outerId; // 词条在外部系统中对应的唯一 ID
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String entityId; // 词条 ID
+
+        /**
+         * 外部系统
+         * <p> 示例值：星云
+         *
+         * @param provider
+         * @return
+         */
+        public Builder provider(String provider) {
+            this.provider = provider;
+            return this;
+        }
+
+        /**
+         * 词条在外部系统中对应的唯一 ID
+         * <p> 示例值：12345
+         *
+         * @param outerId
+         * @return
+         */
+        public Builder outerId(String outerId) {
+            this.outerId = outerId;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.baike.v1.enums.GetEntityUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.baike.v1.enums.GetEntityUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 词条 ID
+         * <p> 示例值：enterprise_515879
+         *
+         * @param entityId
+         * @return
+         */
+        public Builder entityId(String entityId) {
+            this.entityId = entityId;
+            return this;
+        }
+
+        public GetEntityReq build() {
+            return new GetEntityReq(this);
+        }
+    }
 }

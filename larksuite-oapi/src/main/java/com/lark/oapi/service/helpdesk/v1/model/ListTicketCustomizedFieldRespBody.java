@@ -16,48 +16,47 @@ package com.lark.oapi.service.helpdesk.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListTicketCustomizedFieldRespBody {
+    /**
+     * whether there is more data
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 下一分页标识
+     * <p> 示例值：6948728206392295444
+     */
+    @SerializedName("next_page_token")
+    private String nextPageToken;
+    /**
+     * 工单自定义字段列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private TicketCustomizedField[] items;
 
-  /**
-   * whether there is more data
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 下一分页标识
-   * <p> 示例值：6948728206392295444
-   */
-  @SerializedName("next_page_token")
-  private String nextPageToken;
-  /**
-   * 工单自定义字段列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private TicketCustomizedField[] items;
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getNextPageToken() {
+        return this.nextPageToken;
+    }
 
-  public String getNextPageToken() {
-    return this.nextPageToken;
-  }
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
 
-  public void setNextPageToken(String nextPageToken) {
-    this.nextPageToken = nextPageToken;
-  }
+    public TicketCustomizedField[] getItems() {
+        return this.items;
+    }
 
-  public TicketCustomizedField[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(TicketCustomizedField[] items) {
-    this.items = items;
-  }
+    public void setItems(TicketCustomizedField[] items) {
+        this.items = items;
+    }
 
 }

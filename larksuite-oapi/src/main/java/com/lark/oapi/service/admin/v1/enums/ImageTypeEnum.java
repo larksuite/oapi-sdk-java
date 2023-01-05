@@ -15,16 +15,16 @@ package com.lark.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum ImageTypeEnum {
-  DETAIL(1),
-  SHOW(2),
-  ;
-  private Integer value;
+    DETAIL(1),
+    SHOW(2),
+    ;
+    private Integer value;
 
-  ImageTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ImageTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

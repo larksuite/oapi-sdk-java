@@ -16,61 +16,59 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SortTabsChatTabReqBody {
-
-  /**
-   * 会话标签页ID列表
-   * <p> 示例值：["7101214603622940671", "7101214603622940672"]
-   */
-  @SerializedName("tab_ids")
-  private String[] tabIds;
-
-  // builder 开始
-  public SortTabsChatTabReqBody() {
-  }
-
-  public SortTabsChatTabReqBody(Builder builder) {
     /**
-     * 会话标签页ID列表
+     * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取;;**注意**：必须包含该会话中全部的Tab ID
      * <p> 示例值：["7101214603622940671", "7101214603622940672"]
      */
-    this.tabIds = builder.tabIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getTabIds() {
-    return this.tabIds;
-  }
-
-  public void setTabIds(String[] tabIds) {
-    this.tabIds = tabIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 会话标签页ID列表
-     * <p> 示例值：["7101214603622940671", "7101214603622940672"]
-     */
+    @SerializedName("tab_ids")
     private String[] tabIds;
 
-    /**
-     * 会话标签页ID列表
-     * <p> 示例值：["7101214603622940671", "7101214603622940672"]
-     *
-     * @param tabIds
-     * @return
-     */
-    public Builder tabIds(String[] tabIds) {
-      this.tabIds = tabIds;
-      return this;
+    // builder 开始
+    public SortTabsChatTabReqBody() {
     }
 
-
-    public SortTabsChatTabReqBody build() {
-      return new SortTabsChatTabReqBody(this);
+    public SortTabsChatTabReqBody(Builder builder) {
+        /**
+         * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取;;**注意**：必须包含该会话中全部的Tab ID
+         * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+         */
+        this.tabIds = builder.tabIds;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getTabIds() {
+        return this.tabIds;
+    }
+
+    public void setTabIds(String[] tabIds) {
+        this.tabIds = tabIds;
+    }
+
+    public static class Builder {
+        /**
+         * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取;;**注意**：必须包含该会话中全部的Tab ID
+         * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+         */
+        private String[] tabIds;
+
+        /**
+         * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取;;**注意**：必须包含该会话中全部的Tab ID
+         * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+         *
+         * @param tabIds
+         * @return
+         */
+        public Builder tabIds(String[] tabIds) {
+            this.tabIds = tabIds;
+            return this;
+        }
+
+
+        public SortTabsChatTabReqBody build() {
+            return new SortTabsChatTabReqBody(this);
+        }
+    }
 }

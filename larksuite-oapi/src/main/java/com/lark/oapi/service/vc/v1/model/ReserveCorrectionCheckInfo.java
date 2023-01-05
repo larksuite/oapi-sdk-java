@@ -16,61 +16,59 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ReserveCorrectionCheckInfo {
-
-  /**
-   * 指定主持人无效id列表
-   * <p> 示例值：
-   */
-  @SerializedName("invalid_host_id_list")
-  private String[] invalidHostIdList;
-
-  // builder 开始
-  public ReserveCorrectionCheckInfo() {
-  }
-
-  public ReserveCorrectionCheckInfo(Builder builder) {
     /**
      * 指定主持人无效id列表
      * <p> 示例值：
      */
-    this.invalidHostIdList = builder.invalidHostIdList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getInvalidHostIdList() {
-    return this.invalidHostIdList;
-  }
-
-  public void setInvalidHostIdList(String[] invalidHostIdList) {
-    this.invalidHostIdList = invalidHostIdList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 指定主持人无效id列表
-     * <p> 示例值：
-     */
+    @SerializedName("invalid_host_id_list")
     private String[] invalidHostIdList;
 
-    /**
-     * 指定主持人无效id列表
-     * <p> 示例值：
-     *
-     * @param invalidHostIdList
-     * @return
-     */
-    public Builder invalidHostIdList(String[] invalidHostIdList) {
-      this.invalidHostIdList = invalidHostIdList;
-      return this;
+    // builder 开始
+    public ReserveCorrectionCheckInfo() {
     }
 
-
-    public ReserveCorrectionCheckInfo build() {
-      return new ReserveCorrectionCheckInfo(this);
+    public ReserveCorrectionCheckInfo(Builder builder) {
+        /**
+         * 指定主持人无效id列表
+         * <p> 示例值：
+         */
+        this.invalidHostIdList = builder.invalidHostIdList;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getInvalidHostIdList() {
+        return this.invalidHostIdList;
+    }
+
+    public void setInvalidHostIdList(String[] invalidHostIdList) {
+        this.invalidHostIdList = invalidHostIdList;
+    }
+
+    public static class Builder {
+        /**
+         * 指定主持人无效id列表
+         * <p> 示例值：
+         */
+        private String[] invalidHostIdList;
+
+        /**
+         * 指定主持人无效id列表
+         * <p> 示例值：
+         *
+         * @param invalidHostIdList
+         * @return
+         */
+        public Builder invalidHostIdList(String[] invalidHostIdList) {
+            this.invalidHostIdList = invalidHostIdList;
+            return this;
+        }
+
+
+        public ReserveCorrectionCheckInfo build() {
+            return new ReserveCorrectionCheckInfo(this);
+        }
+    }
 }

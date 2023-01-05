@@ -17,16 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 多个筛选条件的关系
  */
 public enum AppRoleTableRoleRecRuleConjunctionEnum {
-  AND("and"), // 与
-  OR("or"), // 或
-  ;
-  private String value;
+    AND("and"), // 与
+    OR("or"), // 或
+    ;
+    private String value;
 
-  AppRoleTableRoleRecRuleConjunctionEnum(String value) {
-    this.value = value;
-  }
+    AppRoleTableRoleRecRuleConjunctionEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

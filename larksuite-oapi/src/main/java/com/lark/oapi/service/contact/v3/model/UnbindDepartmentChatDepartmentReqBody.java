@@ -16,61 +16,59 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UnbindDepartmentChatDepartmentReqBody {
-
-  /**
-   * 部门ID
-   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-   */
-  @SerializedName("department_id")
-  private String departmentId;
-
-  // builder 开始
-  public UnbindDepartmentChatDepartmentReqBody() {
-  }
-
-  public UnbindDepartmentChatDepartmentReqBody(Builder builder) {
     /**
      * 部门ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * <p> 示例值：D096
      */
-    this.departmentId = builder.departmentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 部门ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     */
+    @SerializedName("department_id")
     private String departmentId;
 
-    /**
-     * 部门ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-     *
-     * @param departmentId
-     * @return
-     */
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    // builder 开始
+    public UnbindDepartmentChatDepartmentReqBody() {
     }
 
-
-    public UnbindDepartmentChatDepartmentReqBody build() {
-      return new UnbindDepartmentChatDepartmentReqBody(this);
+    public UnbindDepartmentChatDepartmentReqBody(Builder builder) {
+        /**
+         * 部门ID
+         * <p> 示例值：D096
+         */
+        this.departmentId = builder.departmentId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public static class Builder {
+        /**
+         * 部门ID
+         * <p> 示例值：D096
+         */
+        private String departmentId;
+
+        /**
+         * 部门ID
+         * <p> 示例值：D096
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        public UnbindDepartmentChatDepartmentReqBody build() {
+            return new UnbindDepartmentChatDepartmentReqBody(this);
+        }
+    }
 }

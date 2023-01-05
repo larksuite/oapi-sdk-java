@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DownloadFileReq {
-
-  /**
-   * 需要下载的文件 token
-   * <p> 示例值：
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public DownloadFileReq() {
-  }
-
-  public DownloadFileReq(Builder builder) {
     /**
      * 需要下载的文件 token
-     * <p> 示例值：
+     * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
      */
-    this.fileToken = builder.fileToken;
-  }
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
-    private String fileToken; // 需要下载的文件 token
-
-    /**
-     * 需要下载的文件 token
-     * <p> 示例值：
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public DownloadFileReq() {
     }
 
-    public DownloadFileReq build() {
-      return new DownloadFileReq(this);
+    public DownloadFileReq(Builder builder) {
+        /**
+         * 需要下载的文件 token
+         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
+         */
+        this.fileToken = builder.fileToken;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public static class Builder {
+
+        private String fileToken; // 需要下载的文件 token
+
+        /**
+         * 需要下载的文件 token
+         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public DownloadFileReq build() {
+            return new DownloadFileReq(this);
+        }
+    }
 }

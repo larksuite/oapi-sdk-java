@@ -17,91 +17,90 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAppRoleReq {
-
-  /**
-   * bitable app token
-   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-   */
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  /**
-   * 自定义角色的id
-   * <p> 示例值：roljRpwIUt
-   */
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-
-  // builder 开始
-  public DeleteAppRoleReq() {
-  }
-
-  public DeleteAppRoleReq(Builder builder) {
     /**
      * bitable app token
      * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    this.appToken = builder.appToken;
+    @Path
+    @SerializedName("app_token")
+    private String appToken;
     /**
      * 自定义角色的id
      * <p> 示例值：roljRpwIUt
      */
-    this.roleId = builder.roleId;
-  }
+    @Path
+    @SerializedName("role_id")
+    private String roleId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public static class Builder {
-
-    private String appToken; // bitable app token
-    private String roleId; // 自定义角色的id
-
-    /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-     *
-     * @param appToken
-     * @return
-     */
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    // builder 开始
+    public DeleteAppRoleReq() {
     }
 
-
-    /**
-     * 自定义角色的id
-     * <p> 示例值：roljRpwIUt
-     *
-     * @param roleId
-     * @return
-     */
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public DeleteAppRoleReq(Builder builder) {
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         */
+        this.appToken = builder.appToken;
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         */
+        this.roleId = builder.roleId;
     }
 
-    public DeleteAppRoleReq build() {
-      return new DeleteAppRoleReq(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+    public static class Builder {
+
+        private String appToken; // bitable app token
+        private String roleId; // 自定义角色的id
+
+        /**
+         * bitable app token
+         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+         *
+         * @param appToken
+         * @return
+         */
+        public Builder appToken(String appToken) {
+            this.appToken = appToken;
+            return this;
+        }
+
+
+        /**
+         * 自定义角色的id
+         * <p> 示例值：roljRpwIUt
+         *
+         * @param roleId
+         * @return
+         */
+        public Builder roleId(String roleId) {
+            this.roleId = roleId;
+            return this;
+        }
+
+        public DeleteAppRoleReq build() {
+            return new DeleteAppRoleReq(this);
+        }
+    }
 }

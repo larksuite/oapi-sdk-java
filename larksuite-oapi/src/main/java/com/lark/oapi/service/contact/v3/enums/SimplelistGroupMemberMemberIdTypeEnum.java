@@ -14,22 +14,21 @@
 package com.lark.oapi.service.contact.v3.enums;
 
 /**
- * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id,
- * union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
+ * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
  */
 public enum SimplelistGroupMemberMemberIdTypeEnum {
-  OPEN_ID("open_id"), // member_type=user时候，表示用户的open_id；member_type=department时候，表示部门的open_id
-  UNION_ID("union_id"), // member_type=user时候，表示用户的union_id
-  USER_ID("user_id"), // member_type=user时候，表示用户的user_id
-  DEPARTMENT_ID("department_id"), // member_type=department时候，表示部门的department_id
-  ;
-  private String value;
+    OPEN_ID("open_id"), // member_type=user时候，表示用户的open_id；member_type=department时候，表示部门的open_id
+    UNION_ID("union_id"), // member_type=user时候，表示用户的union_id
+    USER_ID("user_id"), // member_type=user时候，表示用户的user_id
+    DEPARTMENT_ID("department_id"), // member_type=department时候，表示部门的department_id
+    ;
+    private String value;
 
-  SimplelistGroupMemberMemberIdTypeEnum(String value) {
-    this.value = value;
-  }
+    SimplelistGroupMemberMemberIdTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

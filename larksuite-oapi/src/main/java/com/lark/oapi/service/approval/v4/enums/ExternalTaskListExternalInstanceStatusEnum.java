@@ -17,20 +17,20 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批实例当前的状态
  */
 public enum ExternalTaskListExternalInstanceStatusEnum {
-  PENDING("PENDING"), // 审批中
-  APPROVED("APPROVED"), // 审批流程结束，结果为同意
-  REJECTED("REJECTED"), // 审批流程结束，结果为拒绝
-  CANCELED("CANCELED"), // 审批发起人撤回
-  DELETED("DELETED"), // 审批被删除
-  HIDDEN("HIDDEN"), // 状态隐藏(不显示状态)
-  ;
-  private String value;
+    PENDING("PENDING"), // 审批中
+    APPROVED("APPROVED"), // 审批流程结束，结果为同意
+    REJECTED("REJECTED"), // 审批流程结束，结果为拒绝
+    CANCELED("CANCELED"), // 审批发起人撤回
+    DELETED("DELETED"), // 审批被删除
+    HIDDEN("HIDDEN"), // 状态隐藏(不显示状态)
+    ;
+    private String value;
 
-  ExternalTaskListExternalInstanceStatusEnum(String value) {
-    this.value = value;
-  }
+    ExternalTaskListExternalInstanceStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

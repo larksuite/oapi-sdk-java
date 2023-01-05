@@ -17,16 +17,16 @@ package com.lark.oapi.service.im.v1.enums;
  * 快捷组件类型
  */
 public enum ToolkitToolkitTypeEnum {
-  REDIRECT_LINK("redirect_link"), // 跳转类型快捷组件
-  CALL_BACK("call_back"), // 回调类型快捷组件
-  ;
-  private String value;
+    REDIRECT_LINK("redirect_link"), // 跳转类型快捷组件
+    CALL_BACK("call_back"), // 回调类型快捷组件
+    ;
+    private String value;
 
-  ToolkitToolkitTypeEnum(String value) {
-    this.value = value;
-  }
+    ToolkitToolkitTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

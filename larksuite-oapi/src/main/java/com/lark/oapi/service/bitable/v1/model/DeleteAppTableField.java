@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteAppTableField {
 
-  /**
-   * field id
-   * <p> 示例值：fldPTb0U2y
-   */
-  @SerializedName("field_id")
-  private String fieldId;
-  /**
-   * 删除标记
-   * <p> 示例值：true
-   */
-  @SerializedName("deleted")
-  private Boolean deleted;
+    /**
+     * field id
+     * <p> 示例值：fldPTb0U2y
+     */
+    @SerializedName("field_id")
+    private String fieldId;
+    /**
+     * 删除标记
+     * <p> 示例值：true
+     */
+    @SerializedName("deleted")
+    private Boolean deleted;
 
-  public String getFieldId() {
-    return this.fieldId;
-  }
+    public String getFieldId() {
+        return this.fieldId;
+    }
 
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
+    }
 
-  public Boolean getDeleted() {
-    return this.deleted;
-  }
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
 
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 
 }

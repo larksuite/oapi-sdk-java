@@ -16,48 +16,47 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListPinRespBody {
+    /**
+     * Pin的操作信息
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Pin[] items;
+    /**
+     * 是否还有更多项
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
+    @SerializedName("page_token")
+    private String pageToken;
 
-  /**
-   * Pin的操作信息
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Pin[] items;
-  /**
-   * 是否还有更多项
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-   * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-   */
-  @SerializedName("page_token")
-  private String pageToken;
+    public Pin[] getItems() {
+        return this.items;
+    }
 
-  public Pin[] getItems() {
-    return this.items;
-  }
+    public void setItems(Pin[] items) {
+        this.items = items;
+    }
 
-  public void setItems(Pin[] items) {
-    this.items = items;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

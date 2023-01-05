@@ -16,61 +16,59 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DateTime {
-
-  /**
-   * 时间日期
-   * <p> 示例值：2022/02/22
-   */
-  @SerializedName("date_time")
-  private String dateTime;
-
-  // builder 开始
-  public DateTime() {
-  }
-
-  public DateTime(Builder builder) {
     /**
      * 时间日期
      * <p> 示例值：2022/02/22
      */
-    this.dateTime = builder.dateTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDateTime() {
-    return this.dateTime;
-  }
-
-  public void setDateTime(String dateTime) {
-    this.dateTime = dateTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * 时间日期
-     * <p> 示例值：2022/02/22
-     */
+    @SerializedName("date_time")
     private String dateTime;
 
-    /**
-     * 时间日期
-     * <p> 示例值：2022/02/22
-     *
-     * @param dateTime
-     * @return
-     */
-    public Builder dateTime(String dateTime) {
-      this.dateTime = dateTime;
-      return this;
+    // builder 开始
+    public DateTime() {
     }
 
-
-    public DateTime build() {
-      return new DateTime(this);
+    public DateTime(Builder builder) {
+        /**
+         * 时间日期
+         * <p> 示例值：2022/02/22
+         */
+        this.dateTime = builder.dateTime;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getDateTime() {
+        return this.dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public static class Builder {
+        /**
+         * 时间日期
+         * <p> 示例值：2022/02/22
+         */
+        private String dateTime;
+
+        /**
+         * 时间日期
+         * <p> 示例值：2022/02/22
+         *
+         * @param dateTime
+         * @return
+         */
+        public Builder dateTime(String dateTime) {
+            this.dateTime = dateTime;
+            return this;
+        }
+
+
+        public DateTime build() {
+            return new DateTime(this);
+        }
+    }
 }

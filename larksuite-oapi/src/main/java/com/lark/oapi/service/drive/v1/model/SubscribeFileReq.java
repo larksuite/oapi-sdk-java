@@ -18,103 +18,100 @@ import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
 public class SubscribeFileReq {
-
-  /**
-   * 文档类型
-   * <p> 示例值：doc
-   */
-  @Query
-  @SerializedName("file_type")
-  private String fileType;
-  /**
-   * 文档token
-   * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-   */
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public SubscribeFileReq() {
-  }
-
-  public SubscribeFileReq(Builder builder) {
     /**
      * 文档类型
      * <p> 示例值：doc
      */
-    this.fileType = builder.fileType;
+    @Query
+    @SerializedName("file_type")
+    private String fileType;
     /**
      * 文档token
      * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
      */
-    this.fileToken = builder.fileToken;
-  }
+    @Path
+    @SerializedName("file_token")
+    private String fileToken;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
-    private String fileType; // 文档类型
-    private String fileToken; // 文档token
-
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     *
-     * @param fileType
-     * @return
-     */
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
+    // builder 开始
+    public SubscribeFileReq() {
     }
 
-    /**
-     * 文档类型
-     * <p> 示例值：doc
-     *
-     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.SubscribeFileFileTypeEnum}
-     * @return
-     */
-    public Builder fileType(
-        com.lark.oapi.service.drive.v1.enums.SubscribeFileFileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
+    public SubscribeFileReq(Builder builder) {
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         */
+        this.fileType = builder.fileType;
+        /**
+         * 文档token
+         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
+         */
+        this.fileToken = builder.fileToken;
     }
 
-    /**
-     * 文档token
-     * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public SubscribeFileReq build() {
-      return new SubscribeFileReq(this);
+    public String getFileType() {
+        return this.fileType;
     }
-  }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public static class Builder {
+        private String fileType; // 文档类型
+        private String fileToken; // 文档token
+
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         *
+         * @param fileType
+         * @return
+         */
+        public Builder fileType(String fileType) {
+            this.fileType = fileType;
+            return this;
+        }
+
+        /**
+         * 文档类型
+         * <p> 示例值：doc
+         *
+         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.SubscribeFileFileTypeEnum}
+         * @return
+         */
+        public Builder fileType(com.lark.oapi.service.drive.v1.enums.SubscribeFileFileTypeEnum fileType) {
+            this.fileType = fileType.getValue();
+            return this;
+        }
+
+        /**
+         * 文档token
+         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+        public SubscribeFileReq build() {
+            return new SubscribeFileReq(this);
+        }
+    }
 }

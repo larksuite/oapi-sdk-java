@@ -16,172 +16,170 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ContentImageItem {
-
-  /**
-   * 图片 token，通过上传图片接口获取
-   * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-   */
-  @SerializedName("fileToken")
-  private String fileToken;
-  /**
-   * 图片链接，通过上传图片接口获取
-   * <p> 示例值：https://internal-api-okr.feishu-boe.cn/stream/api/downloadFile/?file_token=boxbcMTBQO9ofLjWkDuPxkxOA2c\&ticket=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0YXJnZXRfaWQiOiI3MDQxNDMwMzc3NjQyMDgyMzIzIiwidGFyZ2V0X3R5cGUiOjMsImFjdGlvbiI6MiwiZmlsZV90b2tlbiI6ImJveGJjTVRCUU85b2ZMaldrRHVQeGt4T0EyYyIsInVzZXJfaWQiOiI2OTY5ODU1NTAxNzQ0ODM0MDkyIiwidGVuYW50X2lkIjoiNjg3NzUwMjY4NzYwOTQwNjk5MCIsImV4cCI6MTY0MDE1NTk2M30.yc4qV2pkGUVwSO53-N_XGgeMucjmDn9iso1Ez_8vpghFz8YdeSDf4NHQpxOHYHc8RURvwI0a5UTNKKJ9CWagTQ
-   */
-  @SerializedName("url")
-  private String url;
-  /**
-   * 图片宽，单位px
-   * <p> 示例值：458
-   */
-  @SerializedName("width")
-  private Double width;
-  /**
-   * 图片高，单位px
-   * <p> 示例值：372
-   */
-  @SerializedName("height")
-  private Double height;
-
-  // builder 开始
-  public ContentImageItem() {
-  }
-
-  public ContentImageItem(Builder builder) {
     /**
      * 图片 token，通过上传图片接口获取
      * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * 图片链接，通过上传图片接口获取
-     * <p> 示例值：https://internal-api-okr.feishu-boe.cn/stream/api/downloadFile/?file_token=boxbcMTBQO9ofLjWkDuPxkxOA2c\&ticket=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0YXJnZXRfaWQiOiI3MDQxNDMwMzc3NjQyMDgyMzIzIiwidGFyZ2V0X3R5cGUiOjMsImFjdGlvbiI6MiwiZmlsZV90b2tlbiI6ImJveGJjTVRCUU85b2ZMaldrRHVQeGt4T0EyYyIsInVzZXJfaWQiOiI2OTY5ODU1NTAxNzQ0ODM0MDkyIiwidGVuYW50X2lkIjoiNjg3NzUwMjY4NzYwOTQwNjk5MCIsImV4cCI6MTY0MDE1NTk2M30.yc4qV2pkGUVwSO53-N_XGgeMucjmDn9iso1Ez_8vpghFz8YdeSDf4NHQpxOHYHc8RURvwI0a5UTNKKJ9CWagTQ
-     */
-    this.url = builder.url;
-    /**
-     * 图片宽，单位px
-     * <p> 示例值：458
-     */
-    this.width = builder.width;
-    /**
-     * 图片高，单位px
-     * <p> 示例值：372
-     */
-    this.height = builder.height;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public Double getWidth() {
-    return this.width;
-  }
-
-  public void setWidth(Double width) {
-    this.width = width;
-  }
-
-  public Double getHeight() {
-    return this.height;
-  }
-
-  public void setHeight(Double height) {
-    this.height = height;
-  }
-
-  public static class Builder {
-
-    /**
-     * 图片 token，通过上传图片接口获取
-     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-     */
+    @SerializedName("fileToken")
     private String fileToken;
     /**
-     * 图片链接，通过上传图片接口获取
-     * <p> 示例值：https://internal-api-okr.feishu-boe.cn/stream/api/downloadFile/?file_token=boxbcMTBQO9ofLjWkDuPxkxOA2c\&ticket=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0YXJnZXRfaWQiOiI3MDQxNDMwMzc3NjQyMDgyMzIzIiwidGFyZ2V0X3R5cGUiOjMsImFjdGlvbiI6MiwiZmlsZV90b2tlbiI6ImJveGJjTVRCUU85b2ZMaldrRHVQeGt4T0EyYyIsInVzZXJfaWQiOiI2OTY5ODU1NTAxNzQ0ODM0MDkyIiwidGVuYW50X2lkIjoiNjg3NzUwMjY4NzYwOTQwNjk5MCIsImV4cCI6MTY0MDE1NTk2M30.yc4qV2pkGUVwSO53-N_XGgeMucjmDn9iso1Ez_8vpghFz8YdeSDf4NHQpxOHYHc8RURvwI0a5UTNKKJ9CWagTQ
+     * 图片链接
+     * <p> 示例值：https://bytedance.feishu.cn/drive/home/
      */
-    private String url;
+    @SerializedName("src")
+    private String src;
     /**
      * 图片宽，单位px
      * <p> 示例值：458
      */
+    @SerializedName("width")
     private Double width;
     /**
      * 图片高，单位px
      * <p> 示例值：372
      */
+    @SerializedName("height")
     private Double height;
 
-    /**
-     * 图片 token，通过上传图片接口获取
-     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public ContentImageItem() {
     }
 
-
-    /**
-     * 图片链接，通过上传图片接口获取
-     * <p> 示例值：https://internal-api-okr.feishu-boe.cn/stream/api/downloadFile/?file_token=boxbcMTBQO9ofLjWkDuPxkxOA2c\&ticket=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0YXJnZXRfaWQiOiI3MDQxNDMwMzc3NjQyMDgyMzIzIiwidGFyZ2V0X3R5cGUiOjMsImFjdGlvbiI6MiwiZmlsZV90b2tlbiI6ImJveGJjTVRCUU85b2ZMaldrRHVQeGt4T0EyYyIsInVzZXJfaWQiOiI2OTY5ODU1NTAxNzQ0ODM0MDkyIiwidGVuYW50X2lkIjoiNjg3NzUwMjY4NzYwOTQwNjk5MCIsImV4cCI6MTY0MDE1NTk2M30.yc4qV2pkGUVwSO53-N_XGgeMucjmDn9iso1Ez_8vpghFz8YdeSDf4NHQpxOHYHc8RURvwI0a5UTNKKJ9CWagTQ
-     *
-     * @param url
-     * @return
-     */
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public ContentImageItem(Builder builder) {
+        /**
+         * 图片 token，通过上传图片接口获取
+         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 图片链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
+        this.src = builder.src;
+        /**
+         * 图片宽，单位px
+         * <p> 示例值：458
+         */
+        this.width = builder.width;
+        /**
+         * 图片高，单位px
+         * <p> 示例值：372
+         */
+        this.height = builder.height;
     }
 
-
-    /**
-     * 图片宽，单位px
-     * <p> 示例值：458
-     *
-     * @param width
-     * @return
-     */
-    public Builder width(Double width) {
-      this.width = width;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 图片高，单位px
-     * <p> 示例值：372
-     *
-     * @param height
-     * @return
-     */
-    public Builder height(Double height) {
-      this.height = height;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-
-    public ContentImageItem build() {
-      return new ContentImageItem(this);
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
-  }
+
+    public String getSrc() {
+        return this.src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    public Double getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(Double width) {
+        this.width = width;
+    }
+
+    public Double getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public static class Builder {
+        /**
+         * 图片 token，通过上传图片接口获取
+         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+         */
+        private String fileToken;
+        /**
+         * 图片链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         */
+        private String src;
+        /**
+         * 图片宽，单位px
+         * <p> 示例值：458
+         */
+        private Double width;
+        /**
+         * 图片高，单位px
+         * <p> 示例值：372
+         */
+        private Double height;
+
+        /**
+         * 图片 token，通过上传图片接口获取
+         * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 图片链接
+         * <p> 示例值：https://bytedance.feishu.cn/drive/home/
+         *
+         * @param src
+         * @return
+         */
+        public Builder src(String src) {
+            this.src = src;
+            return this;
+        }
+
+
+        /**
+         * 图片宽，单位px
+         * <p> 示例值：458
+         *
+         * @param width
+         * @return
+         */
+        public Builder width(Double width) {
+            this.width = width;
+            return this;
+        }
+
+
+        /**
+         * 图片高，单位px
+         * <p> 示例值：372
+         *
+         * @param height
+         * @return
+         */
+        public Builder height(Double height) {
+            this.height = height;
+            return this;
+        }
+
+
+        public ContentImageItem build() {
+            return new ContentImageItem(this);
+        }
+    }
 }

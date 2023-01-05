@@ -16,61 +16,59 @@ package com.lark.oapi.service.baike.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BaikeImage {
-
-  /**
-   * 通过文件接口上传后的图片 token
-   * <p> 示例值：
-   */
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public BaikeImage() {
-  }
-
-  public BaikeImage(Builder builder) {
     /**
-     * 通过文件接口上传后的图片 token
-     * <p> 示例值：
+     * 通过文件接口上传图片后，获得的图片 token
+     * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
      */
-    this.token = builder.token;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
-    /**
-     * 通过文件接口上传后的图片 token
-     * <p> 示例值：
-     */
+    @SerializedName("token")
     private String token;
 
-    /**
-     * 通过文件接口上传后的图片 token
-     * <p> 示例值：
-     *
-     * @param token
-     * @return
-     */
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    // builder 开始
+    public BaikeImage() {
     }
 
-
-    public BaikeImage build() {
-      return new BaikeImage(this);
+    public BaikeImage(Builder builder) {
+        /**
+         * 通过文件接口上传图片后，获得的图片 token
+         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
+         */
+        this.token = builder.token;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public static class Builder {
+        /**
+         * 通过文件接口上传图片后，获得的图片 token
+         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
+         */
+        private String token;
+
+        /**
+         * 通过文件接口上传图片后，获得的图片 token
+         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
+         *
+         * @param token
+         * @return
+         */
+        public Builder token(String token) {
+            this.token = token;
+            return this;
+        }
+
+
+        public BaikeImage build() {
+            return new BaikeImage(this);
+        }
+    }
 }

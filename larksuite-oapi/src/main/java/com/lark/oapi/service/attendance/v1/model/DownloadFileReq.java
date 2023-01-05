@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DownloadFileReq {
-
-  /**
-   * 文件 ID
-   * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-   */
-  @Path
-  @SerializedName("file_id")
-  private String fileId;
-
-  // builder 开始
-  public DownloadFileReq() {
-  }
-
-  public DownloadFileReq(Builder builder) {
     /**
      * 文件 ID
      * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
      */
-    this.fileId = builder.fileId;
-  }
+    @Path
+    @SerializedName("file_id")
+    private String fileId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileId() {
-    return this.fileId;
-  }
-
-  public void setFileId(String fileId) {
-    this.fileId = fileId;
-  }
-
-  public static class Builder {
-
-    private String fileId; // 文件 ID
-
-    /**
-     * 文件 ID
-     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-     *
-     * @param fileId
-     * @return
-     */
-    public Builder fileId(String fileId) {
-      this.fileId = fileId;
-      return this;
+    // builder 开始
+    public DownloadFileReq() {
     }
 
-    public DownloadFileReq build() {
-      return new DownloadFileReq(this);
+    public DownloadFileReq(Builder builder) {
+        /**
+         * 文件 ID
+         * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+         */
+        this.fileId = builder.fileId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getFileId() {
+        return this.fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public static class Builder {
+
+        private String fileId; // 文件 ID
+
+        /**
+         * 文件 ID
+         * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+         *
+         * @param fileId
+         * @return
+         */
+        public Builder fileId(String fileId) {
+            this.fileId = fileId;
+            return this;
+        }
+
+        public DownloadFileReq build() {
+            return new DownloadFileReq(this);
+        }
+    }
 }

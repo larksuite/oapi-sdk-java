@@ -16,61 +16,59 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Reminder {
-
-  /**
-   * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
-   * <p> 示例值：5
-   */
-  @SerializedName("minutes")
-  private Integer minutes;
-
-  // builder 开始
-  public Reminder() {
-  }
-
-  public Reminder(Builder builder) {
     /**
      * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
      * <p> 示例值：5
      */
-    this.minutes = builder.minutes;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getMinutes() {
-    return this.minutes;
-  }
-
-  public void setMinutes(Integer minutes) {
-    this.minutes = minutes;
-  }
-
-  public static class Builder {
-
-    /**
-     * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
-     * <p> 示例值：5
-     */
+    @SerializedName("minutes")
     private Integer minutes;
 
-    /**
-     * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
-     * <p> 示例值：5
-     *
-     * @param minutes
-     * @return
-     */
-    public Builder minutes(Integer minutes) {
-      this.minutes = minutes;
-      return this;
+    // builder 开始
+    public Reminder() {
     }
 
-
-    public Reminder build() {
-      return new Reminder(this);
+    public Reminder(Builder builder) {
+        /**
+         * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
+         * <p> 示例值：5
+         */
+        this.minutes = builder.minutes;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getMinutes() {
+        return this.minutes;
+    }
+
+    public void setMinutes(Integer minutes) {
+        this.minutes = minutes;
+    }
+
+    public static class Builder {
+        /**
+         * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
+         * <p> 示例值：5
+         */
+        private Integer minutes;
+
+        /**
+         * 日程提醒时间的偏移量，正数时表示在日程开始前X分钟提醒，负数时表示在日程开始后X分钟提醒;新建或更新日程时传入该字段，仅对当前身份生效
+         * <p> 示例值：5
+         *
+         * @param minutes
+         * @return
+         */
+        public Builder minutes(Integer minutes) {
+            this.minutes = minutes;
+            return this;
+        }
+
+
+        public Reminder build() {
+            return new Reminder(this);
+        }
+    }
 }

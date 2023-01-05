@@ -16,98 +16,96 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ListEventModerator {
-
-  /**
-   * 租户 Key
-   * <p> 示例值：86gwe65
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private UserId userId;
-
-  // builder 开始
-  public ListEventModerator() {
-  }
-
-  public ListEventModerator(Builder builder) {
     /**
      * 租户 Key
      * <p> 示例值：86gwe65
      */
-    this.tenantKey = builder.tenantKey;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public UserId getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 租户 Key
-     * <p> 示例值：86gwe65
-     */
+    @SerializedName("tenant_key")
     private String tenantKey;
     /**
      * 用户 ID
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private UserId userId;
 
-    /**
-     * 租户 Key
-     * <p> 示例值：86gwe65
-     *
-     * @param tenantKey
-     * @return
-     */
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    // builder 开始
+    public ListEventModerator() {
     }
 
-
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(UserId userId) {
-      this.userId = userId;
-      return this;
+    public ListEventModerator(Builder builder) {
+        /**
+         * 租户 Key
+         * <p> 示例值：86gwe65
+         */
+        this.tenantKey = builder.tenantKey;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
     }
 
-
-    public ListEventModerator build() {
-      return new ListEventModerator(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public UserId getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 租户 Key
+         * <p> 示例值：86gwe65
+         */
+        private String tenantKey;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        private UserId userId;
+
+        /**
+         * 租户 Key
+         * <p> 示例值：86gwe65
+         *
+         * @param tenantKey
+         * @return
+         */
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(UserId userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public ListEventModerator build() {
+            return new ListEventModerator(this);
+        }
+    }
 }

@@ -19,43 +19,43 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CreateFileReq {
 
-  @Path
-  @SerializedName("folderToken")
-  private String folderToken;
-
-  @Body
-  @SerializedName("body")
-  private CreateFileReqBody body;
-
-  private CreateFileReq(Builder builder) {
-    folderToken = builder.folderToken;
-    body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static final class Builder {
-
+    @Path
+    @SerializedName("folderToken")
     private String folderToken;
+
+    @Body
+    @SerializedName("body")
     private CreateFileReqBody body;
 
-    private Builder() {
+    private CreateFileReq(Builder builder) {
+        folderToken = builder.folderToken;
+        body = builder.body;
     }
 
-    public Builder folderToken(String folderToken) {
-      this.folderToken = folderToken;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public Builder body(CreateFileReqBody body) {
-      this.body = body;
-      return this;
-    }
+    public static final class Builder {
 
-    public CreateFileReq build() {
-      return new CreateFileReq(this);
+        private String folderToken;
+        private CreateFileReqBody body;
+
+        private Builder() {
+        }
+
+        public Builder folderToken(String folderToken) {
+            this.folderToken = folderToken;
+            return this;
+        }
+
+        public Builder body(CreateFileReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateFileReq build() {
+            return new CreateFileReq(this);
+        }
     }
-  }
 }

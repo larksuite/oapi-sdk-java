@@ -17,29 +17,29 @@ package com.lark.oapi.service.docx.v1.enums;
  * 高亮块背景色
  */
 public enum CalloutCalloutBackgroundColorEnum {
-  LIGHTRED(1), // 浅红色
-  LIGHTORANGE(2), // 浅橙色
-  LIGHTYELLOW(3), // 浅黄色
-  LIGHTGREEN(4), // 浅绿色
-  LIGHTBLUE(5), // 浅蓝色
-  LIGHTPURPLE(6), // 浅紫色
-  LIGHTNEUTRAL(7), // 浅灰色
-  DARKRED(8), // 暗红色
-  DARKORANGE(9), // 暗橙色
-  DARKYELLOW(10), // 暗黄色
-  DARKGREEN(11), // 暗绿色
-  DARKBLUE(12), // 暗蓝色
-  DARKPURPLE(13), // 暗紫色
-  DARKNEUTRAL(14), // 暗灰色
-  DARKSLIGHTGRAY(15), // 暗银灰色
-  ;
-  private Integer value;
+    LIGHTRED(1), // 浅红色
+    LIGHTORANGE(2), // 浅橙色
+    LIGHTYELLOW(3), // 浅黄色
+    LIGHTGREEN(4), // 浅绿色
+    LIGHTBLUE(5), // 浅蓝色
+    LIGHTPURPLE(6), // 浅紫色
+    LIGHTNEUTRAL(7), // 浅灰色
+    DARKRED(8), // 暗红色
+    DARKORANGE(9), // 暗橙色
+    DARKYELLOW(10), // 暗黄色
+    DARKGREEN(11), // 暗绿色
+    DARKBLUE(12), // 暗蓝色
+    DARKPURPLE(13), // 暗紫色
+    DARKNEUTRAL(14), // 暗灰色
+    DARKSLIGHTGRAY(15), // 暗银灰色
+    ;
+    private Integer value;
 
-  CalloutCalloutBackgroundColorEnum(Integer value) {
-    this.value = value;
-  }
+    CalloutCalloutBackgroundColorEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

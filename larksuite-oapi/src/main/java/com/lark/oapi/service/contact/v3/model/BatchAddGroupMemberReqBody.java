@@ -16,61 +16,59 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BatchAddGroupMemberReqBody {
-
-  /**
-   * 待添加成员
-   * <p> 示例值：
-   */
-  @SerializedName("members")
-  private Memberlist[] members;
-
-  // builder 开始
-  public BatchAddGroupMemberReqBody() {
-  }
-
-  public BatchAddGroupMemberReqBody(Builder builder) {
     /**
      * 待添加成员
      * <p> 示例值：
      */
-    this.members = builder.members;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Memberlist[] getMembers() {
-    return this.members;
-  }
-
-  public void setMembers(Memberlist[] members) {
-    this.members = members;
-  }
-
-  public static class Builder {
-
-    /**
-     * 待添加成员
-     * <p> 示例值：
-     */
+    @SerializedName("members")
     private Memberlist[] members;
 
-    /**
-     * 待添加成员
-     * <p> 示例值：
-     *
-     * @param members
-     * @return
-     */
-    public Builder members(Memberlist[] members) {
-      this.members = members;
-      return this;
+    // builder 开始
+    public BatchAddGroupMemberReqBody() {
     }
 
-
-    public BatchAddGroupMemberReqBody build() {
-      return new BatchAddGroupMemberReqBody(this);
+    public BatchAddGroupMemberReqBody(Builder builder) {
+        /**
+         * 待添加成员
+         * <p> 示例值：
+         */
+        this.members = builder.members;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Memberlist[] getMembers() {
+        return this.members;
+    }
+
+    public void setMembers(Memberlist[] members) {
+        this.members = members;
+    }
+
+    public static class Builder {
+        /**
+         * 待添加成员
+         * <p> 示例值：
+         */
+        private Memberlist[] members;
+
+        /**
+         * 待添加成员
+         * <p> 示例值：
+         *
+         * @param members
+         * @return
+         */
+        public Builder members(Memberlist[] members) {
+            this.members = members;
+            return this;
+        }
+
+
+        public BatchAddGroupMemberReqBody build() {
+            return new BatchAddGroupMemberReqBody(this);
+        }
+    }
 }

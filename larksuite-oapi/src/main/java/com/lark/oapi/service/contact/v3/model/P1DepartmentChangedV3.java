@@ -17,14 +17,14 @@ import com.lark.oapi.event.model.BaseEvent;
 
 public class P1DepartmentChangedV3 extends BaseEvent {
 
-  @SerializedName("event")
-  private P1DepartmentChangedV3Data event;
+    @SerializedName("event")
+    private P1DepartmentChangedV3Data event;
 
-  public P1DepartmentChangedV3Data getEvent() {
-    return event;
-  }
+    public P1DepartmentChangedV3Data getEvent() {
+        return event;
+    }
 
-  public void setEvent(P1DepartmentChangedV3Data event) {
-    this.event = event;
-  }
+    public void setEvent(P1DepartmentChangedV3Data event) {
+        this.event = event;
+    }
 }

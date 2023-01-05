@@ -17,75 +17,75 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListFaq {
 
-  /**
-   * if there's next page
-   * <p> 示例值：true
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  /**
-   * the next page token
-   * <p> 示例值：6856395634652479491
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 实际返回的FAQ数量
-   * <p> 示例值：100
-   */
-  @SerializedName("page_size")
-  private Integer pageSize;
-  /**
-   * 总数
-   * <p> 示例值：200
-   */
-  @SerializedName("total")
-  private Integer total;
-  /**
-   * 知识库列表
-   * <p> 示例值：
-   */
-  @SerializedName("items")
-  private Faq[] items;
+    /**
+     * if there's next page
+     * <p> 示例值：true
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    /**
+     * the next page token
+     * <p> 示例值：6856395634652479491
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 实际返回的FAQ数量
+     * <p> 示例值：100
+     */
+    @SerializedName("page_size")
+    private Integer pageSize;
+    /**
+     * 总数
+     * <p> 示例值：200
+     */
+    @SerializedName("total")
+    private Integer total;
+    /**
+     * 知识库列表
+     * <p> 示例值：
+     */
+    @SerializedName("items")
+    private Faq[] items;
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
 
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-  public Integer getTotal() {
-    return this.total;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
-  public Faq[] getItems() {
-    return this.items;
-  }
+    public Faq[] getItems() {
+        return this.items;
+    }
 
-  public void setItems(Faq[] items) {
-    this.items = items;
-  }
+    public void setItems(Faq[] items) {
+        this.items = items;
+    }
 
 }

@@ -17,18 +17,18 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批定义状态
  */
 public enum ApprovalOpenApiApprovalStatusEnum {
-  ACTIVE("ACTIVE"), // 已启用
-  INACTIVE("INACTIVE"), // 已停用
-  DELETED("DELETED"), // 已删除
-  UNKNOWN("UNKNOWN"), // 未知
-  ;
-  private String value;
+    ACTIVE("ACTIVE"), // 已启用
+    INACTIVE("INACTIVE"), // 已停用
+    DELETED("DELETED"), // 已删除
+    UNKNOWN("UNKNOWN"), // 未知
+    ;
+    private String value;
 
-  ApprovalOpenApiApprovalStatusEnum(String value) {
-    this.value = value;
-  }
+    ApprovalOpenApiApprovalStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

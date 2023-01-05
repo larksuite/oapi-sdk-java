@@ -16,172 +16,170 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ShareUser {
-
-  /**
-   * 用户的open_id
-   * <p> 示例值：ou_496670738e90fb26f899088a125226c5
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * 用户的名称
-   * <p> 示例值：测试用户
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 英文名
-   * <p> 示例值：testUser
-   */
-  @SerializedName("en_name")
-  private String enName;
-  /**
-   * 用户头像信息
-   * <p> 示例值：
-   */
-  @SerializedName("avatar")
-  private AvatarInfo avatar;
-
-  // builder 开始
-  public ShareUser() {
-  }
-
-  public ShareUser(Builder builder) {
     /**
      * 用户的open_id
      * <p> 示例值：ou_496670738e90fb26f899088a125226c5
      */
-    this.openId = builder.openId;
-    /**
-     * 用户的名称
-     * <p> 示例值：测试用户
-     */
-    this.name = builder.name;
-    /**
-     * 英文名
-     * <p> 示例值：testUser
-     */
-    this.enName = builder.enName;
-    /**
-     * 用户头像信息
-     * <p> 示例值：
-     */
-    this.avatar = builder.avatar;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public AvatarInfo getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(AvatarInfo avatar) {
-    this.avatar = avatar;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户的open_id
-     * <p> 示例值：ou_496670738e90fb26f899088a125226c5
-     */
+    @SerializedName("open_id")
     private String openId;
     /**
      * 用户的名称
      * <p> 示例值：测试用户
      */
+    @SerializedName("name")
     private String name;
     /**
      * 英文名
      * <p> 示例值：testUser
      */
+    @SerializedName("en_name")
     private String enName;
     /**
      * 用户头像信息
      * <p> 示例值：
      */
+    @SerializedName("avatar")
     private AvatarInfo avatar;
 
-    /**
-     * 用户的open_id
-     * <p> 示例值：ou_496670738e90fb26f899088a125226c5
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    // builder 开始
+    public ShareUser() {
     }
 
-
-    /**
-     * 用户的名称
-     * <p> 示例值：测试用户
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public ShareUser(Builder builder) {
+        /**
+         * 用户的open_id
+         * <p> 示例值：ou_496670738e90fb26f899088a125226c5
+         */
+        this.openId = builder.openId;
+        /**
+         * 用户的名称
+         * <p> 示例值：测试用户
+         */
+        this.name = builder.name;
+        /**
+         * 英文名
+         * <p> 示例值：testUser
+         */
+        this.enName = builder.enName;
+        /**
+         * 用户头像信息
+         * <p> 示例值：
+         */
+        this.avatar = builder.avatar;
     }
 
-
-    /**
-     * 英文名
-     * <p> 示例值：testUser
-     *
-     * @param enName
-     * @return
-     */
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 用户头像信息
-     * <p> 示例值：
-     *
-     * @param avatar
-     * @return
-     */
-    public Builder avatar(AvatarInfo avatar) {
-      this.avatar = avatar;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-
-    public ShareUser build() {
-      return new ShareUser(this);
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
+    }
+
+    public AvatarInfo getAvatar() {
+        return this.avatar;
+    }
+
+    public void setAvatar(AvatarInfo avatar) {
+        this.avatar = avatar;
+    }
+
+    public static class Builder {
+        /**
+         * 用户的open_id
+         * <p> 示例值：ou_496670738e90fb26f899088a125226c5
+         */
+        private String openId;
+        /**
+         * 用户的名称
+         * <p> 示例值：测试用户
+         */
+        private String name;
+        /**
+         * 英文名
+         * <p> 示例值：testUser
+         */
+        private String enName;
+        /**
+         * 用户头像信息
+         * <p> 示例值：
+         */
+        private AvatarInfo avatar;
+
+        /**
+         * 用户的open_id
+         * <p> 示例值：ou_496670738e90fb26f899088a125226c5
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * 用户的名称
+         * <p> 示例值：测试用户
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 英文名
+         * <p> 示例值：testUser
+         *
+         * @param enName
+         * @return
+         */
+        public Builder enName(String enName) {
+            this.enName = enName;
+            return this;
+        }
+
+
+        /**
+         * 用户头像信息
+         * <p> 示例值：
+         *
+         * @param avatar
+         * @return
+         */
+        public Builder avatar(AvatarInfo avatar) {
+            this.avatar = avatar;
+            return this;
+        }
+
+
+        public ShareUser build() {
+            return new ShareUser(this);
+        }
+    }
 }

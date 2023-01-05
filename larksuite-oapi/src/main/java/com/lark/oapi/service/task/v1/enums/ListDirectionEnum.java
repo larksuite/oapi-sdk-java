@@ -15,16 +15,16 @@ package com.lark.oapi.service.task.v1.enums;
 
 // 生成枚举值
 public enum ListDirectionEnum {
-  DOWN(0),
-  UP(1),
-  ;
-  private Integer value;
+    DOWN(0),
+    UP(1),
+    ;
+    private Integer value;
 
-  ListDirectionEnum(Integer value) {
-    this.value = value;
-  }
+    ListDirectionEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

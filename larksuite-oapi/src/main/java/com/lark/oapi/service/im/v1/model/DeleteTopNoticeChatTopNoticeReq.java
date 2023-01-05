@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTopNoticeChatTopNoticeReq {
-
-  /**
-   * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_5ad11d72b830411d72b836c20
-   */
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-
-  // builder 开始
-  public DeleteTopNoticeChatTopNoticeReq() {
-  }
-
-  public DeleteTopNoticeChatTopNoticeReq(Builder builder) {
     /**
      * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      */
-    this.chatId = builder.chatId;
-  }
+    @Path
+    @SerializedName("chat_id")
+    private String chatId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public static class Builder {
-
-    private String chatId; // 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-
-    /**
-     * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     *
-     * @param chatId
-     * @return
-     */
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    // builder 开始
+    public DeleteTopNoticeChatTopNoticeReq() {
     }
 
-    public DeleteTopNoticeChatTopNoticeReq build() {
-      return new DeleteTopNoticeChatTopNoticeReq(this);
+    public DeleteTopNoticeChatTopNoticeReq(Builder builder) {
+        /**
+         * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         */
+        this.chatId = builder.chatId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public static class Builder {
+
+        private String chatId; // 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+
+        /**
+         * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+         * <p> 示例值：oc_5ad11d72b830411d72b836c20
+         *
+         * @param chatId
+         * @return
+         */
+        public Builder chatId(String chatId) {
+            this.chatId = chatId;
+            return this;
+        }
+
+        public DeleteTopNoticeChatTopNoticeReq build() {
+            return new DeleteTopNoticeChatTopNoticeReq(this);
+        }
+    }
 }

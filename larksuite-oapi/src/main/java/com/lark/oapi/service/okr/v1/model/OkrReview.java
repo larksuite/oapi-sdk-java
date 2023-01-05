@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OkrReview {
-
-  /**
-   * 复盘的用户
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private OkrObjectiveAlignedObjectiveOwner userId;
-  /**
-   * 用户对应的OKR复盘列表
-   * <p> 示例值：
-   */
-  @SerializedName("review_period_list")
-  private OkrReviewPeriod[] reviewPeriodList;
-
-  // builder 开始
-  public OkrReview() {
-  }
-
-  public OkrReview(Builder builder) {
     /**
      * 复盘的用户
      * <p> 示例值：
      */
-    this.userId = builder.userId;
-    /**
-     * 用户对应的OKR复盘列表
-     * <p> 示例值：
-     */
-    this.reviewPeriodList = builder.reviewPeriodList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public OkrObjectiveAlignedObjectiveOwner getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(OkrObjectiveAlignedObjectiveOwner userId) {
-    this.userId = userId;
-  }
-
-  public OkrReviewPeriod[] getReviewPeriodList() {
-    return this.reviewPeriodList;
-  }
-
-  public void setReviewPeriodList(OkrReviewPeriod[] reviewPeriodList) {
-    this.reviewPeriodList = reviewPeriodList;
-  }
-
-  public static class Builder {
-
-    /**
-     * 复盘的用户
-     * <p> 示例值：
-     */
+    @SerializedName("user_id")
     private OkrObjectiveAlignedObjectiveOwner userId;
     /**
      * 用户对应的OKR复盘列表
      * <p> 示例值：
      */
+    @SerializedName("review_period_list")
     private OkrReviewPeriod[] reviewPeriodList;
 
-    /**
-     * 复盘的用户
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(OkrObjectiveAlignedObjectiveOwner userId) {
-      this.userId = userId;
-      return this;
+    // builder 开始
+    public OkrReview() {
     }
 
-
-    /**
-     * 用户对应的OKR复盘列表
-     * <p> 示例值：
-     *
-     * @param reviewPeriodList
-     * @return
-     */
-    public Builder reviewPeriodList(OkrReviewPeriod[] reviewPeriodList) {
-      this.reviewPeriodList = reviewPeriodList;
-      return this;
+    public OkrReview(Builder builder) {
+        /**
+         * 复盘的用户
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 用户对应的OKR复盘列表
+         * <p> 示例值：
+         */
+        this.reviewPeriodList = builder.reviewPeriodList;
     }
 
-
-    public OkrReview build() {
-      return new OkrReview(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public OkrObjectiveAlignedObjectiveOwner getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(OkrObjectiveAlignedObjectiveOwner userId) {
+        this.userId = userId;
+    }
+
+    public OkrReviewPeriod[] getReviewPeriodList() {
+        return this.reviewPeriodList;
+    }
+
+    public void setReviewPeriodList(OkrReviewPeriod[] reviewPeriodList) {
+        this.reviewPeriodList = reviewPeriodList;
+    }
+
+    public static class Builder {
+        /**
+         * 复盘的用户
+         * <p> 示例值：
+         */
+        private OkrObjectiveAlignedObjectiveOwner userId;
+        /**
+         * 用户对应的OKR复盘列表
+         * <p> 示例值：
+         */
+        private OkrReviewPeriod[] reviewPeriodList;
+
+        /**
+         * 复盘的用户
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(OkrObjectiveAlignedObjectiveOwner userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 用户对应的OKR复盘列表
+         * <p> 示例值：
+         *
+         * @param reviewPeriodList
+         * @return
+         */
+        public Builder reviewPeriodList(OkrReviewPeriod[] reviewPeriodList) {
+            this.reviewPeriodList = reviewPeriodList;
+            return this;
+        }
+
+
+        public OkrReview build() {
+            return new OkrReview(this);
+        }
+    }
 }

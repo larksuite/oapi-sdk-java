@@ -16,20 +16,19 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreatePinRespBody {
+    /**
+     * Pin的操作信息
+     * <p> 示例值：
+     */
+    @SerializedName("pin")
+    private Pin pin;
 
-  /**
-   * Pin的操作信息
-   * <p> 示例值：
-   */
-  @SerializedName("pin")
-  private Pin pin;
+    public Pin getPin() {
+        return this.pin;
+    }
 
-  public Pin getPin() {
-    return this.pin;
-  }
-
-  public void setPin(Pin pin) {
-    this.pin = pin;
-  }
+    public void setPin(Pin pin) {
+        this.pin = pin;
+    }
 
 }

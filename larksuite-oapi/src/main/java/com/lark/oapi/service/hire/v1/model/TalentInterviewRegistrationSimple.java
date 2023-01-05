@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TalentInterviewRegistrationSimple {
-
-  /**
-   * ID
-   * <p> 示例值：6833685612520950030
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * 创建时间
-   * <p> 示例值：1618494330932
-   */
-  @SerializedName("registration_time")
-  private Integer registrationTime;
-
-  // builder 开始
-  public TalentInterviewRegistrationSimple() {
-  }
-
-  public TalentInterviewRegistrationSimple(Builder builder) {
     /**
      * ID
      * <p> 示例值：6833685612520950030
      */
-    this.id = builder.id;
-    /**
-     * 创建时间
-     * <p> 示例值：1618494330932
-     */
-    this.registrationTime = builder.registrationTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getRegistrationTime() {
-    return this.registrationTime;
-  }
-
-  public void setRegistrationTime(Integer registrationTime) {
-    this.registrationTime = registrationTime;
-  }
-
-  public static class Builder {
-
-    /**
-     * ID
-     * <p> 示例值：6833685612520950030
-     */
+    @SerializedName("id")
     private String id;
     /**
      * 创建时间
      * <p> 示例值：1618494330932
      */
+    @SerializedName("registration_time")
     private Integer registrationTime;
 
-    /**
-     * ID
-     * <p> 示例值：6833685612520950030
-     *
-     * @param id
-     * @return
-     */
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    // builder 开始
+    public TalentInterviewRegistrationSimple() {
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：1618494330932
-     *
-     * @param registrationTime
-     * @return
-     */
-    public Builder registrationTime(Integer registrationTime) {
-      this.registrationTime = registrationTime;
-      return this;
+    public TalentInterviewRegistrationSimple(Builder builder) {
+        /**
+         * ID
+         * <p> 示例值：6833685612520950030
+         */
+        this.id = builder.id;
+        /**
+         * 创建时间
+         * <p> 示例值：1618494330932
+         */
+        this.registrationTime = builder.registrationTime;
     }
 
-
-    public TalentInterviewRegistrationSimple build() {
-      return new TalentInterviewRegistrationSimple(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getRegistrationTime() {
+        return this.registrationTime;
+    }
+
+    public void setRegistrationTime(Integer registrationTime) {
+        this.registrationTime = registrationTime;
+    }
+
+    public static class Builder {
+        /**
+         * ID
+         * <p> 示例值：6833685612520950030
+         */
+        private String id;
+        /**
+         * 创建时间
+         * <p> 示例值：1618494330932
+         */
+        private Integer registrationTime;
+
+        /**
+         * ID
+         * <p> 示例值：6833685612520950030
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：1618494330932
+         *
+         * @param registrationTime
+         * @return
+         */
+        public Builder registrationTime(Integer registrationTime) {
+            this.registrationTime = registrationTime;
+            return this;
+        }
+
+
+        public TalentInterviewRegistrationSimple build() {
+            return new TalentInterviewRegistrationSimple(this);
+        }
+    }
 }

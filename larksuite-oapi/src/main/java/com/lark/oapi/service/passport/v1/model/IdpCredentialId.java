@@ -16,61 +16,59 @@ package com.lark.oapi.service.passport.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class IdpCredentialId {
-
-  /**
-   * idp侧租户唯一标识
-   * <p> 示例值：
-   */
-  @SerializedName("idp_credential_id")
-  private String idpCredentialId;
-
-  // builder 开始
-  public IdpCredentialId() {
-  }
-
-  public IdpCredentialId(Builder builder) {
     /**
      * idp侧租户唯一标识
      * <p> 示例值：
      */
-    this.idpCredentialId = builder.idpCredentialId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getIdpCredentialId() {
-    return this.idpCredentialId;
-  }
-
-  public void setIdpCredentialId(String idpCredentialId) {
-    this.idpCredentialId = idpCredentialId;
-  }
-
-  public static class Builder {
-
-    /**
-     * idp侧租户唯一标识
-     * <p> 示例值：
-     */
+    @SerializedName("idp_credential_id")
     private String idpCredentialId;
 
-    /**
-     * idp侧租户唯一标识
-     * <p> 示例值：
-     *
-     * @param idpCredentialId
-     * @return
-     */
-    public Builder idpCredentialId(String idpCredentialId) {
-      this.idpCredentialId = idpCredentialId;
-      return this;
+    // builder 开始
+    public IdpCredentialId() {
     }
 
-
-    public IdpCredentialId build() {
-      return new IdpCredentialId(this);
+    public IdpCredentialId(Builder builder) {
+        /**
+         * idp侧租户唯一标识
+         * <p> 示例值：
+         */
+        this.idpCredentialId = builder.idpCredentialId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getIdpCredentialId() {
+        return this.idpCredentialId;
+    }
+
+    public void setIdpCredentialId(String idpCredentialId) {
+        this.idpCredentialId = idpCredentialId;
+    }
+
+    public static class Builder {
+        /**
+         * idp侧租户唯一标识
+         * <p> 示例值：
+         */
+        private String idpCredentialId;
+
+        /**
+         * idp侧租户唯一标识
+         * <p> 示例值：
+         *
+         * @param idpCredentialId
+         * @return
+         */
+        public Builder idpCredentialId(String idpCredentialId) {
+            this.idpCredentialId = idpCredentialId;
+            return this;
+        }
+
+
+        public IdpCredentialId build() {
+            return new IdpCredentialId(this);
+        }
+    }
 }

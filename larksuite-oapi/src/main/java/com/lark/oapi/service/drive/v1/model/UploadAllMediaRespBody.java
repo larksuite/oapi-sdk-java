@@ -16,20 +16,19 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UploadAllMediaRespBody {
+    /**
+     * 素材文件的 token。
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
+    @SerializedName("file_token")
+    private String fileToken;
 
-  /**
-   * 素材文件的 token。
-   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-   */
-  @SerializedName("file_token")
-  private String fileToken;
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
 }

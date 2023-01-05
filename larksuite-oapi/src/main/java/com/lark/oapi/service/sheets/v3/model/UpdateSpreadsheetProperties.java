@@ -16,61 +16,59 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateSpreadsheetProperties {
-
-  /**
-   * 表格标题
-   * <p> 示例值：title
-   */
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public UpdateSpreadsheetProperties() {
-  }
-
-  public UpdateSpreadsheetProperties(Builder builder) {
     /**
      * 表格标题
      * <p> 示例值：title
      */
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
-    /**
-     * 表格标题
-     * <p> 示例值：title
-     */
+    @SerializedName("title")
     private String title;
 
-    /**
-     * 表格标题
-     * <p> 示例值：title
-     *
-     * @param title
-     * @return
-     */
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    // builder 开始
+    public UpdateSpreadsheetProperties() {
     }
 
-
-    public UpdateSpreadsheetProperties build() {
-      return new UpdateSpreadsheetProperties(this);
+    public UpdateSpreadsheetProperties(Builder builder) {
+        /**
+         * 表格标题
+         * <p> 示例值：title
+         */
+        this.title = builder.title;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static class Builder {
+        /**
+         * 表格标题
+         * <p> 示例值：title
+         */
+        private String title;
+
+        /**
+         * 表格标题
+         * <p> 示例值：title
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        public UpdateSpreadsheetProperties build() {
+            return new UpdateSpreadsheetProperties(this);
+        }
+    }
 }

@@ -16,135 +16,133 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ChatMemberUser {
-
-  /**
-   * 用户名字
-   * <p> 示例值：user name
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 租户 Key
-   * <p> 示例值：3774yuu3743
-   */
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("user_id")
-  private UserId userId;
-
-  // builder 开始
-  public ChatMemberUser() {
-  }
-
-  public ChatMemberUser(Builder builder) {
     /**
      * 用户名字
      * <p> 示例值：user name
      */
-    this.name = builder.name;
-    /**
-     * 租户 Key
-     * <p> 示例值：3774yuu3743
-     */
-    this.tenantKey = builder.tenantKey;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public UserId getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户名字
-     * <p> 示例值：user name
-     */
+    @SerializedName("name")
     private String name;
     /**
-     * 租户 Key
+     * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
      * <p> 示例值：3774yuu3743
      */
+    @SerializedName("tenant_key")
     private String tenantKey;
     /**
      * 用户 ID
      * <p> 示例值：
      */
+    @SerializedName("user_id")
     private UserId userId;
 
-    /**
-     * 用户名字
-     * <p> 示例值：user name
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public ChatMemberUser() {
     }
 
-
-    /**
-     * 租户 Key
-     * <p> 示例值：3774yuu3743
-     *
-     * @param tenantKey
-     * @return
-     */
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public ChatMemberUser(Builder builder) {
+        /**
+         * 用户名字
+         * <p> 示例值：user name
+         */
+        this.name = builder.name;
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：3774yuu3743
+         */
+        this.tenantKey = builder.tenantKey;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
     }
 
-
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(UserId userId) {
-      this.userId = userId;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public ChatMemberUser build() {
-      return new ChatMemberUser(this);
+    public String getName() {
+        return this.name;
     }
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public UserId getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 用户名字
+         * <p> 示例值：user name
+         */
+        private String name;
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：3774yuu3743
+         */
+        private String tenantKey;
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         */
+        private UserId userId;
+
+        /**
+         * 用户名字
+         * <p> 示例值：user name
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识
+         * <p> 示例值：3774yuu3743
+         *
+         * @param tenantKey
+         * @return
+         */
+        public Builder tenantKey(String tenantKey) {
+            this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        /**
+         * 用户 ID
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(UserId userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public ChatMemberUser build() {
+            return new ChatMemberUser(this);
+        }
+    }
 }

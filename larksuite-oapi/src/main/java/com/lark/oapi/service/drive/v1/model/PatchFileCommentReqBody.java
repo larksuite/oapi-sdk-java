@@ -16,61 +16,59 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PatchFileCommentReqBody {
-
-  /**
-   * 评论解决标志
-   * <p> 示例值：true
-   */
-  @SerializedName("is_solved")
-  private Boolean isSolved;
-
-  // builder 开始
-  public PatchFileCommentReqBody() {
-  }
-
-  public PatchFileCommentReqBody(Builder builder) {
     /**
      * 评论解决标志
      * <p> 示例值：true
      */
-    this.isSolved = builder.isSolved;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsSolved() {
-    return this.isSolved;
-  }
-
-  public void setIsSolved(Boolean isSolved) {
-    this.isSolved = isSolved;
-  }
-
-  public static class Builder {
-
-    /**
-     * 评论解决标志
-     * <p> 示例值：true
-     */
+    @SerializedName("is_solved")
     private Boolean isSolved;
 
-    /**
-     * 评论解决标志
-     * <p> 示例值：true
-     *
-     * @param isSolved
-     * @return
-     */
-    public Builder isSolved(Boolean isSolved) {
-      this.isSolved = isSolved;
-      return this;
+    // builder 开始
+    public PatchFileCommentReqBody() {
     }
 
-
-    public PatchFileCommentReqBody build() {
-      return new PatchFileCommentReqBody(this);
+    public PatchFileCommentReqBody(Builder builder) {
+        /**
+         * 评论解决标志
+         * <p> 示例值：true
+         */
+        this.isSolved = builder.isSolved;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Boolean getIsSolved() {
+        return this.isSolved;
+    }
+
+    public void setIsSolved(Boolean isSolved) {
+        this.isSolved = isSolved;
+    }
+
+    public static class Builder {
+        /**
+         * 评论解决标志
+         * <p> 示例值：true
+         */
+        private Boolean isSolved;
+
+        /**
+         * 评论解决标志
+         * <p> 示例值：true
+         *
+         * @param isSolved
+         * @return
+         */
+        public Builder isSolved(Boolean isSolved) {
+            this.isSolved = isSolved;
+            return this;
+        }
+
+
+        public PatchFileCommentReqBody build() {
+            return new PatchFileCommentReqBody(this);
+        }
+    }
 }

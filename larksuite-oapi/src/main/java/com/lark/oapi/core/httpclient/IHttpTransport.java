@@ -17,5 +17,5 @@ import com.lark.oapi.core.response.RawResponse;
 
 public interface IHttpTransport {
 
-  RawResponse execute(RawRequest request) throws Exception;
+    RawResponse execute(RawRequest request) throws Exception;
 }

@@ -17,47 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListExternalTask {
 
-  /**
-   * 返回数据
-   * <p> 示例值：
-   */
-  @SerializedName("data")
-  private ExternalTaskList[] data;
-  /**
-   * 翻页 Token
-   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-   */
-  @SerializedName("page_token")
-  private String pageToken;
-  /**
-   * 是否有更多任务可供拉取
-   * <p> 示例值：false
-   */
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    /**
+     * 返回数据
+     * <p> 示例值：
+     */
+    @SerializedName("data")
+    private ExternalTaskList[] data;
+    /**
+     * 翻页 Token
+     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+     */
+    @SerializedName("page_token")
+    private String pageToken;
+    /**
+     * 是否有更多任务可供拉取
+     * <p> 示例值：false
+     */
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-  public ExternalTaskList[] getData() {
-    return this.data;
-  }
+    public ExternalTaskList[] getData() {
+        return this.data;
+    }
 
-  public void setData(ExternalTaskList[] data) {
-    this.data = data;
-  }
+    public void setData(ExternalTaskList[] data) {
+        this.data = data;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

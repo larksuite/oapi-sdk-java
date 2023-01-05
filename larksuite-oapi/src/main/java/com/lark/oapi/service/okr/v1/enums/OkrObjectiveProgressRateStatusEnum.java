@@ -17,18 +17,18 @@ package com.lark.oapi.service.okr.v1.enums;
  * Objective 进度状态
  */
 public enum OkrObjectiveProgressRateStatusEnum {
-  未更新("-1"), // 未更新
-  正常("0"), // 正常
-  有风险("1"), // 有风险
-  已延期("2"), // 已延期
-  ;
-  private String value;
+    未更新("-1"), // 未更新
+    正常("0"), // 正常
+    有风险("1"), // 有风险
+    已延期("2"), // 已延期
+    ;
+    private String value;
 
-  OkrObjectiveProgressRateStatusEnum(String value) {
-    this.value = value;
-  }
+    OkrObjectiveProgressRateStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

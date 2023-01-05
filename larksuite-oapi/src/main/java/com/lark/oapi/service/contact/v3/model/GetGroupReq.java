@@ -17,57 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
 
 public class GetGroupReq {
-
-  /**
-   * 用户组ID
-   * <p> 示例值：g193821
-   */
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-
-  // builder 开始
-  public GetGroupReq() {
-  }
-
-  public GetGroupReq(Builder builder) {
     /**
      * 用户组ID
      * <p> 示例值：g193821
      */
-    this.groupId = builder.groupId;
-  }
+    @Path
+    @SerializedName("group_id")
+    private String groupId;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public static class Builder {
-
-    private String groupId; // 用户组ID
-
-    /**
-     * 用户组ID
-     * <p> 示例值：g193821
-     *
-     * @param groupId
-     * @return
-     */
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    // builder 开始
+    public GetGroupReq() {
     }
 
-    public GetGroupReq build() {
-      return new GetGroupReq(this);
+    public GetGroupReq(Builder builder) {
+        /**
+         * 用户组ID
+         * <p> 示例值：g193821
+         */
+        this.groupId = builder.groupId;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public static class Builder {
+
+        private String groupId; // 用户组ID
+
+        /**
+         * 用户组ID
+         * <p> 示例值：g193821
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+        public GetGroupReq build() {
+            return new GetGroupReq(this);
+        }
+    }
 }

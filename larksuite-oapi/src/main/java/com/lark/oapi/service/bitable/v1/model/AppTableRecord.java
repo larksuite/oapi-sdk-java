@@ -14,249 +14,248 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+
 import java.util.Map;
 
 public class AppTableRecord {
-
-  /**
-   * 记录 id，更新多条记录时必填
-   * <p> 示例值：recqwIwhc6
-   */
-  @SerializedName("record_id")
-  private String recordId;
-  /**
-   * 创建人
-   * <p> 示例值：
-   */
-  @SerializedName("created_by")
-  private Person createdBy;
-  /**
-   * 创建时间
-   * <p> 示例值：1610281603
-   */
-  @SerializedName("created_time")
-  private Integer createdTime;
-  /**
-   * 修改人
-   * <p> 示例值：
-   */
-  @SerializedName("last_modified_by")
-  private Person lastModifiedBy;
-  /**
-   * 最近更新时间
-   * <p> 示例值：1610281603
-   */
-  @SerializedName("last_modified_time")
-  private Integer lastModifiedTime;
-  /**
-   * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
-   * <p> 示例值：
-   */
-  @SerializedName("fields")
-  private Map<String, Object> fields;
-
-  // builder 开始
-  public AppTableRecord() {
-  }
-
-  public AppTableRecord(Builder builder) {
     /**
-     * 记录 id，更新多条记录时必填
+     * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
      * <p> 示例值：recqwIwhc6
      */
-    this.recordId = builder.recordId;
-    /**
-     * 创建人
-     * <p> 示例值：
-     */
-    this.createdBy = builder.createdBy;
-    /**
-     * 创建时间
-     * <p> 示例值：1610281603
-     */
-    this.createdTime = builder.createdTime;
-    /**
-     * 修改人
-     * <p> 示例值：
-     */
-    this.lastModifiedBy = builder.lastModifiedBy;
-    /**
-     * 最近更新时间
-     * <p> 示例值：1610281603
-     */
-    this.lastModifiedTime = builder.lastModifiedTime;
-    /**
-     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
-     * <p> 示例值：
-     */
-    this.fields = builder.fields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public Person getCreatedBy() {
-    return this.createdBy;
-  }
-
-  public void setCreatedBy(Person createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public Integer getCreatedTime() {
-    return this.createdTime;
-  }
-
-  public void setCreatedTime(Integer createdTime) {
-    this.createdTime = createdTime;
-  }
-
-  public Person getLastModifiedBy() {
-    return this.lastModifiedBy;
-  }
-
-  public void setLastModifiedBy(Person lastModifiedBy) {
-    this.lastModifiedBy = lastModifiedBy;
-  }
-
-  public Integer getLastModifiedTime() {
-    return this.lastModifiedTime;
-  }
-
-  public void setLastModifiedTime(Integer lastModifiedTime) {
-    this.lastModifiedTime = lastModifiedTime;
-  }
-
-  public Map<String, Object> getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Map<String, Object> fields) {
-    this.fields = fields;
-  }
-
-  public static class Builder {
-
-    /**
-     * 记录 id，更新多条记录时必填
-     * <p> 示例值：recqwIwhc6
-     */
+    @SerializedName("record_id")
     private String recordId;
     /**
-     * 创建人
+     * 该记录的创建人
      * <p> 示例值：
      */
+    @SerializedName("created_by")
     private Person createdBy;
     /**
-     * 创建时间
+     * 该记录的创建时间
      * <p> 示例值：1610281603
      */
+    @SerializedName("created_time")
     private Integer createdTime;
     /**
-     * 修改人
+     * 该记录最新一次更新的修改人
      * <p> 示例值：
      */
+    @SerializedName("last_modified_by")
     private Person lastModifiedBy;
     /**
-     * 最近更新时间
+     * 该记录最近一次的更新时间
      * <p> 示例值：1610281603
      */
+    @SerializedName("last_modified_time")
     private Integer lastModifiedTime;
     /**
-     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
+     * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
      * <p> 示例值：
      */
+    @SerializedName("fields")
     private Map<String, Object> fields;
 
-    /**
-     * 记录 id，更新多条记录时必填
-     * <p> 示例值：recqwIwhc6
-     *
-     * @param recordId
-     * @return
-     */
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
+    // builder 开始
+    public AppTableRecord() {
     }
 
-
-    /**
-     * 创建人
-     * <p> 示例值：
-     *
-     * @param createdBy
-     * @return
-     */
-    public Builder createdBy(Person createdBy) {
-      this.createdBy = createdBy;
-      return this;
+    public AppTableRecord(Builder builder) {
+        /**
+         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
+         * <p> 示例值：recqwIwhc6
+         */
+        this.recordId = builder.recordId;
+        /**
+         * 该记录的创建人
+         * <p> 示例值：
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 该记录的创建时间
+         * <p> 示例值：1610281603
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 该记录最新一次更新的修改人
+         * <p> 示例值：
+         */
+        this.lastModifiedBy = builder.lastModifiedBy;
+        /**
+         * 该记录最近一次的更新时间
+         * <p> 示例值：1610281603
+         */
+        this.lastModifiedTime = builder.lastModifiedTime;
+        /**
+         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
     }
 
-
-    /**
-     * 创建时间
-     * <p> 示例值：1610281603
-     *
-     * @param createdTime
-     * @return
-     */
-    public Builder createdTime(Integer createdTime) {
-      this.createdTime = createdTime;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 修改人
-     * <p> 示例值：
-     *
-     * @param lastModifiedBy
-     * @return
-     */
-    public Builder lastModifiedBy(Person lastModifiedBy) {
-      this.lastModifiedBy = lastModifiedBy;
-      return this;
+    public String getRecordId() {
+        return this.recordId;
     }
 
-
-    /**
-     * 最近更新时间
-     * <p> 示例值：1610281603
-     *
-     * @param lastModifiedTime
-     * @return
-     */
-    public Builder lastModifiedTime(Integer lastModifiedTime) {
-      this.lastModifiedTime = lastModifiedTime;
-      return this;
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
     }
 
-
-    /**
-     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
-     * <p> 示例值：
-     *
-     * @param fields
-     * @return
-     */
-    public Builder fields(Map<String, Object> fields) {
-      this.fields = fields;
-      return this;
+    public Person getCreatedBy() {
+        return this.createdBy;
     }
 
-
-    public AppTableRecord build() {
-      return new AppTableRecord(this);
+    public void setCreatedBy(Person createdBy) {
+        this.createdBy = createdBy;
     }
-  }
+
+    public Integer getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public void setCreatedTime(Integer createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public Person getLastModifiedBy() {
+        return this.lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(Person lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public Integer getLastModifiedTime() {
+        return this.lastModifiedTime;
+    }
+
+    public void setLastModifiedTime(Integer lastModifiedTime) {
+        this.lastModifiedTime = lastModifiedTime;
+    }
+
+    public Map<String, Object> getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Map<String, Object> fields) {
+        this.fields = fields;
+    }
+
+    public static class Builder {
+        /**
+         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
+         * <p> 示例值：recqwIwhc6
+         */
+        private String recordId;
+        /**
+         * 该记录的创建人
+         * <p> 示例值：
+         */
+        private Person createdBy;
+        /**
+         * 该记录的创建时间
+         * <p> 示例值：1610281603
+         */
+        private Integer createdTime;
+        /**
+         * 该记录最新一次更新的修改人
+         * <p> 示例值：
+         */
+        private Person lastModifiedBy;
+        /**
+         * 该记录最近一次的更新时间
+         * <p> 示例值：1610281603
+         */
+        private Integer lastModifiedTime;
+        /**
+         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * <p> 示例值：
+         */
+        private Map<String, Object> fields;
+
+        /**
+         * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
+         * <p> 示例值：recqwIwhc6
+         *
+         * @param recordId
+         * @return
+         */
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
+            return this;
+        }
+
+
+        /**
+         * 该记录的创建人
+         * <p> 示例值：
+         *
+         * @param createdBy
+         * @return
+         */
+        public Builder createdBy(Person createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+
+        /**
+         * 该记录的创建时间
+         * <p> 示例值：1610281603
+         *
+         * @param createdTime
+         * @return
+         */
+        public Builder createdTime(Integer createdTime) {
+            this.createdTime = createdTime;
+            return this;
+        }
+
+
+        /**
+         * 该记录最新一次更新的修改人
+         * <p> 示例值：
+         *
+         * @param lastModifiedBy
+         * @return
+         */
+        public Builder lastModifiedBy(Person lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
+            return this;
+        }
+
+
+        /**
+         * 该记录最近一次的更新时间
+         * <p> 示例值：1610281603
+         *
+         * @param lastModifiedTime
+         * @return
+         */
+        public Builder lastModifiedTime(Integer lastModifiedTime) {
+            this.lastModifiedTime = lastModifiedTime;
+            return this;
+        }
+
+
+        /**
+         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * <p> 示例值：
+         *
+         * @param fields
+         * @return
+         */
+        public Builder fields(Map<String, Object> fields) {
+            this.fields = fields;
+            return this;
+        }
+
+
+        public AppTableRecord build() {
+            return new AppTableRecord(this);
+        }
+    }
 }

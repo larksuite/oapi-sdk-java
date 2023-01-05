@@ -16,61 +16,59 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateFileCommentReplyReqBody {
-
-  /**
-   * 回复内容
-   * <p> 示例值：
-   */
-  @SerializedName("content")
-  private ReplyContent content;
-
-  // builder 开始
-  public UpdateFileCommentReplyReqBody() {
-  }
-
-  public UpdateFileCommentReplyReqBody(Builder builder) {
     /**
      * 回复内容
      * <p> 示例值：
      */
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ReplyContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(ReplyContent content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
-    /**
-     * 回复内容
-     * <p> 示例值：
-     */
+    @SerializedName("content")
     private ReplyContent content;
 
-    /**
-     * 回复内容
-     * <p> 示例值：
-     *
-     * @param content
-     * @return
-     */
-    public Builder content(ReplyContent content) {
-      this.content = content;
-      return this;
+    // builder 开始
+    public UpdateFileCommentReplyReqBody() {
     }
 
-
-    public UpdateFileCommentReplyReqBody build() {
-      return new UpdateFileCommentReplyReqBody(this);
+    public UpdateFileCommentReplyReqBody(Builder builder) {
+        /**
+         * 回复内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public ReplyContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(ReplyContent content) {
+        this.content = content;
+    }
+
+    public static class Builder {
+        /**
+         * 回复内容
+         * <p> 示例值：
+         */
+        private ReplyContent content;
+
+        /**
+         * 回复内容
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(ReplyContent content) {
+            this.content = content;
+            return this;
+        }
+
+
+        public UpdateFileCommentReplyReqBody build() {
+            return new UpdateFileCommentReplyReqBody(this);
+        }
+    }
 }

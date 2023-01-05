@@ -16,20 +16,19 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateExternalApprovalRespBody {
+    /**
+     * 审批定义code，审批生成的唯一标识，用于三方审批实例同步时使用
+     * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+     */
+    @SerializedName("approval_code")
+    private String approvalCode;
 
-  /**
-   * 审批定义 code，用户自定义，定义的唯一标识
-   * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
-   */
-  @SerializedName("approval_code")
-  private String approvalCode;
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
 
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
 
 }

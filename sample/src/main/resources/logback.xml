@@ -11,14 +11,14 @@
   -->
 
 <configuration>
-  <appender class="ch.qos.logback.core.ConsoleAppender" name="default">
-    <encoder>
-      <pattern>%date %level [%thread] %logger{64} %msg%n</pattern>
-    </encoder>
-  </appender>
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="default">
+        <encoder>
+            <pattern>%date %level [%thread] %logger{64} %msg%n</pattern>
+        </encoder>
+    </appender>
 
-  <root level="debug">
-    <appender-ref ref="default"/>
-  </root>
+    <root level="debug">
+        <appender-ref ref="default"/>
+    </root>
 
 </configuration>

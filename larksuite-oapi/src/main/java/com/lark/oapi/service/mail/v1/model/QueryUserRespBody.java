@@ -16,20 +16,19 @@ package com.lark.oapi.service.mail.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class QueryUserRespBody {
+    /**
+     * 邮箱地址以及其对应的类型类型和状态
+     * <p> 示例值：
+     */
+    @SerializedName("user_list")
+    private User[] userList;
 
-  /**
-   * 邮箱地址以及其对应的类型类型和状态
-   * <p> 示例值：
-   */
-  @SerializedName("user_list")
-  private User[] userList;
+    public User[] getUserList() {
+        return this.userList;
+    }
 
-  public User[] getUserList() {
-    return this.userList;
-  }
-
-  public void setUserList(User[] userList) {
-    this.userList = userList;
-  }
+    public void setUserList(User[] userList) {
+        this.userList = userList;
+    }
 
 }

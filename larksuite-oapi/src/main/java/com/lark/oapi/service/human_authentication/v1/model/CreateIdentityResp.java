@@ -16,5 +16,4 @@ package com.lark.oapi.service.human_authentication.v1.model;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateIdentityResp extends BaseResponse<CreateIdentityRespBody> {
-
 }

@@ -16,104 +16,103 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2ChatUpdatedV1Data {
+    /**
+     * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
+     */
+    @SerializedName("chat_id")
+    private String chatId;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    /**
+     * 是否是外部群
+     * <p> 示例值：false
+     */
+    @SerializedName("external")
+    private Boolean external;
+    /**
+     * 操作者租户 Key
+     * <p> 示例值：86gwe65
+     */
+    @SerializedName("operator_tenant_key")
+    private String operatorTenantKey;
+    /**
+     * 更新后的群信息
+     * <p> 示例值：
+     */
+    @SerializedName("after_change")
+    private ChatChange afterChange;
+    /**
+     * 更新前的群信息
+     * <p> 示例值：
+     */
+    @SerializedName("before_change")
+    private ChatChange beforeChange;
+    /**
+     * 群可发言成员名单的变更信息
+     * <p> 示例值：
+     */
+    @SerializedName("moderator_list")
+    private ModeratorList moderatorList;
 
-  /**
-   * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-   * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
-   */
-  @SerializedName("chat_id")
-  private String chatId;
-  /**
-   * 用户 ID
-   * <p> 示例值：
-   */
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  /**
-   * 是否是外部群
-   * <p> 示例值：false
-   */
-  @SerializedName("external")
-  private Boolean external;
-  /**
-   * 操作者租户 Key
-   * <p> 示例值：86gwe65
-   */
-  @SerializedName("operator_tenant_key")
-  private String operatorTenantKey;
-  /**
-   * 更新后的群信息
-   * <p> 示例值：
-   */
-  @SerializedName("after_change")
-  private ChatChange afterChange;
-  /**
-   * 更新前的群信息
-   * <p> 示例值：
-   */
-  @SerializedName("before_change")
-  private ChatChange beforeChange;
-  /**
-   * 群可发言成员名单的变更信息
-   * <p> 示例值：
-   */
-  @SerializedName("moderator_list")
-  private ModeratorList moderatorList;
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public Boolean getExternal() {
+        return this.external;
+    }
 
-  public Boolean getExternal() {
-    return this.external;
-  }
+    public void setExternal(Boolean external) {
+        this.external = external;
+    }
 
-  public void setExternal(Boolean external) {
-    this.external = external;
-  }
+    public String getOperatorTenantKey() {
+        return this.operatorTenantKey;
+    }
 
-  public String getOperatorTenantKey() {
-    return this.operatorTenantKey;
-  }
+    public void setOperatorTenantKey(String operatorTenantKey) {
+        this.operatorTenantKey = operatorTenantKey;
+    }
 
-  public void setOperatorTenantKey(String operatorTenantKey) {
-    this.operatorTenantKey = operatorTenantKey;
-  }
+    public ChatChange getAfterChange() {
+        return this.afterChange;
+    }
 
-  public ChatChange getAfterChange() {
-    return this.afterChange;
-  }
+    public void setAfterChange(ChatChange afterChange) {
+        this.afterChange = afterChange;
+    }
 
-  public void setAfterChange(ChatChange afterChange) {
-    this.afterChange = afterChange;
-  }
+    public ChatChange getBeforeChange() {
+        return this.beforeChange;
+    }
 
-  public ChatChange getBeforeChange() {
-    return this.beforeChange;
-  }
+    public void setBeforeChange(ChatChange beforeChange) {
+        this.beforeChange = beforeChange;
+    }
 
-  public void setBeforeChange(ChatChange beforeChange) {
-    this.beforeChange = beforeChange;
-  }
+    public ModeratorList getModeratorList() {
+        return this.moderatorList;
+    }
 
-  public ModeratorList getModeratorList() {
-    return this.moderatorList;
-  }
-
-  public void setModeratorList(ModeratorList moderatorList) {
-    this.moderatorList = moderatorList;
-  }
+    public void setModeratorList(ModeratorList moderatorList) {
+        this.moderatorList = moderatorList;
+    }
 
 }

@@ -16,98 +16,96 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApprovalSetting {
-
-  /**
-   * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
-   * <p> 示例值：0
-   */
-  @SerializedName("revert_interval")
-  private Integer revertInterval;
-  /**
-   * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
-   * <p> 示例值：0
-   */
-  @SerializedName("revert_option")
-  private Integer revertOption;
-
-  // builder 开始
-  public ApprovalSetting() {
-  }
-
-  public ApprovalSetting(Builder builder) {
     /**
      * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
      * <p> 示例值：0
      */
-    this.revertInterval = builder.revertInterval;
-    /**
-     * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
-     * <p> 示例值：0
-     */
-    this.revertOption = builder.revertOption;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRevertInterval() {
-    return this.revertInterval;
-  }
-
-  public void setRevertInterval(Integer revertInterval) {
-    this.revertInterval = revertInterval;
-  }
-
-  public Integer getRevertOption() {
-    return this.revertOption;
-  }
-
-  public void setRevertOption(Integer revertOption) {
-    this.revertOption = revertOption;
-  }
-
-  public static class Builder {
-
-    /**
-     * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
-     * <p> 示例值：0
-     */
+    @SerializedName("revert_interval")
     private Integer revertInterval;
     /**
      * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
      * <p> 示例值：0
      */
+    @SerializedName("revert_option")
     private Integer revertOption;
 
-    /**
-     * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
-     * <p> 示例值：0
-     *
-     * @param revertInterval
-     * @return
-     */
-    public Builder revertInterval(Integer revertInterval) {
-      this.revertInterval = revertInterval;
-      return this;
+    // builder 开始
+    public ApprovalSetting() {
     }
 
-
-    /**
-     * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
-     * <p> 示例值：0
-     *
-     * @param revertOption
-     * @return
-     */
-    public Builder revertOption(Integer revertOption) {
-      this.revertOption = revertOption;
-      return this;
+    public ApprovalSetting(Builder builder) {
+        /**
+         * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
+         * <p> 示例值：0
+         */
+        this.revertInterval = builder.revertInterval;
+        /**
+         * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
+         * <p> 示例值：0
+         */
+        this.revertOption = builder.revertOption;
     }
 
-
-    public ApprovalSetting build() {
-      return new ApprovalSetting(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getRevertInterval() {
+        return this.revertInterval;
+    }
+
+    public void setRevertInterval(Integer revertInterval) {
+        this.revertInterval = revertInterval;
+    }
+
+    public Integer getRevertOption() {
+        return this.revertOption;
+    }
+
+    public void setRevertOption(Integer revertOption) {
+        this.revertOption = revertOption;
+    }
+
+    public static class Builder {
+        /**
+         * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
+         * <p> 示例值：0
+         */
+        private Integer revertInterval;
+        /**
+         * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
+         * <p> 示例值：0
+         */
+        private Integer revertOption;
+
+        /**
+         * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
+         * <p> 示例值：0
+         *
+         * @param revertInterval
+         * @return
+         */
+        public Builder revertInterval(Integer revertInterval) {
+            this.revertInterval = revertInterval;
+            return this;
+        }
+
+
+        /**
+         * 是否支持审批通过第一个节点后撤回，默认为1，0为不支持
+         * <p> 示例值：0
+         *
+         * @param revertOption
+         * @return
+         */
+        public Builder revertOption(Integer revertOption) {
+            this.revertOption = revertOption;
+            return this;
+        }
+
+
+        public ApprovalSetting build() {
+            return new ApprovalSetting(this);
+        }
+    }
 }

@@ -15,21 +15,21 @@ package com.lark.oapi.service.docx.v1.model;
 
 public class OkrProgress {
 
-  // builder 开始
-  public OkrProgress() {
-  }
-
-  public OkrProgress(Builder builder) {
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    public OkrProgress build() {
-      return new OkrProgress(this);
+    // builder 开始
+    public OkrProgress() {
     }
-  }
+
+    public OkrProgress(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public OkrProgress build() {
+            return new OkrProgress(this);
+        }
+    }
 }

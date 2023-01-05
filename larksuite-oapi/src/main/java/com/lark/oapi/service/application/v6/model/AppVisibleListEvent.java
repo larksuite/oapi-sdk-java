@@ -16,98 +16,96 @@ package com.lark.oapi.service.application.v6.model;
 import com.google.gson.annotations.SerializedName;
 
 public class AppVisibleListEvent {
-
-  /**
-   * 可见性成员 id 列表
-   * <p> 示例值：
-   */
-  @SerializedName("open_ids")
-  private UserId[] openIds;
-  /**
-   * 可见性部门的 id 列表
-   * <p> 示例值：
-   */
-  @SerializedName("department_ids")
-  private String[] departmentIds;
-
-  // builder 开始
-  public AppVisibleListEvent() {
-  }
-
-  public AppVisibleListEvent(Builder builder) {
     /**
      * 可见性成员 id 列表
      * <p> 示例值：
      */
-    this.openIds = builder.openIds;
-    /**
-     * 可见性部门的 id 列表
-     * <p> 示例值：
-     */
-    this.departmentIds = builder.departmentIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId[] getOpenIds() {
-    return this.openIds;
-  }
-
-  public void setOpenIds(UserId[] openIds) {
-    this.openIds = openIds;
-  }
-
-  public String[] getDepartmentIds() {
-    return this.departmentIds;
-  }
-
-  public void setDepartmentIds(String[] departmentIds) {
-    this.departmentIds = departmentIds;
-  }
-
-  public static class Builder {
-
-    /**
-     * 可见性成员 id 列表
-     * <p> 示例值：
-     */
+    @SerializedName("open_ids")
     private UserId[] openIds;
     /**
      * 可见性部门的 id 列表
      * <p> 示例值：
      */
+    @SerializedName("department_ids")
     private String[] departmentIds;
 
-    /**
-     * 可见性成员 id 列表
-     * <p> 示例值：
-     *
-     * @param openIds
-     * @return
-     */
-    public Builder openIds(UserId[] openIds) {
-      this.openIds = openIds;
-      return this;
+    // builder 开始
+    public AppVisibleListEvent() {
     }
 
-
-    /**
-     * 可见性部门的 id 列表
-     * <p> 示例值：
-     *
-     * @param departmentIds
-     * @return
-     */
-    public Builder departmentIds(String[] departmentIds) {
-      this.departmentIds = departmentIds;
-      return this;
+    public AppVisibleListEvent(Builder builder) {
+        /**
+         * 可见性成员 id 列表
+         * <p> 示例值：
+         */
+        this.openIds = builder.openIds;
+        /**
+         * 可见性部门的 id 列表
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
     }
 
-
-    public AppVisibleListEvent build() {
-      return new AppVisibleListEvent(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public UserId[] getOpenIds() {
+        return this.openIds;
+    }
+
+    public void setOpenIds(UserId[] openIds) {
+        this.openIds = openIds;
+    }
+
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
+    }
+
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
+    }
+
+    public static class Builder {
+        /**
+         * 可见性成员 id 列表
+         * <p> 示例值：
+         */
+        private UserId[] openIds;
+        /**
+         * 可见性部门的 id 列表
+         * <p> 示例值：
+         */
+        private String[] departmentIds;
+
+        /**
+         * 可见性成员 id 列表
+         * <p> 示例值：
+         *
+         * @param openIds
+         * @return
+         */
+        public Builder openIds(UserId[] openIds) {
+            this.openIds = openIds;
+            return this;
+        }
+
+
+        /**
+         * 可见性部门的 id 列表
+         * <p> 示例值：
+         *
+         * @param departmentIds
+         * @return
+         */
+        public Builder departmentIds(String[] departmentIds) {
+            this.departmentIds = departmentIds;
+            return this;
+        }
+
+
+        public AppVisibleListEvent build() {
+            return new AppVisibleListEvent(this);
+        }
+    }
 }

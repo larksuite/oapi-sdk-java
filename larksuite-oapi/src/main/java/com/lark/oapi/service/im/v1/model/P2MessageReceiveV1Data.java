@@ -16,34 +16,33 @@ package com.lark.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class P2MessageReceiveV1Data {
+    /**
+     * 事件的发送者
+     * <p> 示例值：
+     */
+    @SerializedName("sender")
+    private EventSender sender;
+    /**
+     * 事件中包含的消息内容
+     * <p> 示例值：
+     */
+    @SerializedName("message")
+    private EventMessage message;
 
-  /**
-   * 事件的发送者
-   * <p> 示例值：
-   */
-  @SerializedName("sender")
-  private EventSender sender;
-  /**
-   * 事件中包含的消息内容
-   * <p> 示例值：
-   */
-  @SerializedName("message")
-  private EventMessage message;
+    public EventSender getSender() {
+        return this.sender;
+    }
 
-  public EventSender getSender() {
-    return this.sender;
-  }
+    public void setSender(EventSender sender) {
+        this.sender = sender;
+    }
 
-  public void setSender(EventSender sender) {
-    this.sender = sender;
-  }
+    public EventMessage getMessage() {
+        return this.message;
+    }
 
-  public EventMessage getMessage() {
-    return this.message;
-  }
-
-  public void setMessage(EventMessage message) {
-    this.message = message;
-  }
+    public void setMessage(EventMessage message) {
+        this.message = message;
+    }
 
 }

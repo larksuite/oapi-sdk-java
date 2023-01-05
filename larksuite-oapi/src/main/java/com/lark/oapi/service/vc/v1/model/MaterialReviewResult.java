@@ -16,111 +16,108 @@ package com.lark.oapi.service.vc.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MaterialReviewResult {
-
-  /**
-   * 文件上传drive后的token
-   * <p> 示例值：u8ajdjadau8wqu
-   */
-  @SerializedName("file_token")
-  private String fileToken;
-  /**
-   * 审核结果
-   * <p> 示例值：1
-   */
-  @SerializedName("result")
-  private Integer result;
-
-  // builder 开始
-  public MaterialReviewResult() {
-  }
-
-  public MaterialReviewResult(Builder builder) {
     /**
      * 文件上传drive后的token
      * <p> 示例值：u8ajdjadau8wqu
      */
-    this.fileToken = builder.fileToken;
-    /**
-     * 审核结果
-     * <p> 示例值：1
-     */
-    this.result = builder.result;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public Integer getResult() {
-    return this.result;
-  }
-
-  public void setResult(Integer result) {
-    this.result = result;
-  }
-
-  public static class Builder {
-
-    /**
-     * 文件上传drive后的token
-     * <p> 示例值：u8ajdjadau8wqu
-     */
+    @SerializedName("file_token")
     private String fileToken;
     /**
      * 审核结果
      * <p> 示例值：1
      */
+    @SerializedName("result")
     private Integer result;
 
-    /**
-     * 文件上传drive后的token
-     * <p> 示例值：u8ajdjadau8wqu
-     *
-     * @param fileToken
-     * @return
-     */
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    // builder 开始
+    public MaterialReviewResult() {
     }
 
-
-    /**
-     * 审核结果
-     * <p> 示例值：1
-     *
-     * @param result
-     * @return
-     */
-    public Builder result(Integer result) {
-      this.result = result;
-      return this;
+    public MaterialReviewResult(Builder builder) {
+        /**
+         * 文件上传drive后的token
+         * <p> 示例值：u8ajdjadau8wqu
+         */
+        this.fileToken = builder.fileToken;
+        /**
+         * 审核结果
+         * <p> 示例值：1
+         */
+        this.result = builder.result;
     }
 
-    /**
-     * 审核结果
-     * <p> 示例值：1
-     *
-     * @param result {@link com.lark.oapi.service.vc.v1.enums.MaterialReviewResultReviewResultEnum}
-     * @return
-     */
-    public Builder result(
-        com.lark.oapi.service.vc.v1.enums.MaterialReviewResultReviewResultEnum result) {
-      this.result = result.getValue();
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    public MaterialReviewResult build() {
-      return new MaterialReviewResult(this);
+    public String getFileToken() {
+        return this.fileToken;
     }
-  }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public Integer getResult() {
+        return this.result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
+    }
+
+    public static class Builder {
+        /**
+         * 文件上传drive后的token
+         * <p> 示例值：u8ajdjadau8wqu
+         */
+        private String fileToken;
+        /**
+         * 审核结果
+         * <p> 示例值：1
+         */
+        private Integer result;
+
+        /**
+         * 文件上传drive后的token
+         * <p> 示例值：u8ajdjadau8wqu
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 审核结果
+         * <p> 示例值：1
+         *
+         * @param result
+         * @return
+         */
+        public Builder result(Integer result) {
+            this.result = result;
+            return this;
+        }
+
+        /**
+         * 审核结果
+         * <p> 示例值：1
+         *
+         * @param result {@link com.lark.oapi.service.vc.v1.enums.MaterialReviewResultReviewResultEnum}
+         * @return
+         */
+        public Builder result(com.lark.oapi.service.vc.v1.enums.MaterialReviewResultReviewResultEnum result) {
+            this.result = result.getValue();
+            return this;
+        }
+
+
+        public MaterialReviewResult build() {
+            return new MaterialReviewResult(this);
+        }
+    }
 }

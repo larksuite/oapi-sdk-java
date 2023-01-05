@@ -17,17 +17,17 @@ package com.lark.oapi.service.docx.v1.enums;
  * 视图类型
  */
 public enum ViewViewTypeEnum {
-  CARD(1), // 卡片视图
-  PREVIEW(2), // 预览视图
-  INLINE(3), // 内联试图
-  ;
-  private Integer value;
+    CARD(1), // 卡片视图
+    PREVIEW(2), // 预览视图
+    INLINE(3), // 内联试图
+    ;
+    private Integer value;
 
-  ViewViewTypeEnum(Integer value) {
-    this.value = value;
-  }
+    ViewViewTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

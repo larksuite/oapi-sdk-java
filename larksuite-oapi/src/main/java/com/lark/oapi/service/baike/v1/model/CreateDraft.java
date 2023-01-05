@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateDraft {
 
-  /**
-   * 草稿信息
-   * <p> 示例值：
-   */
-  @SerializedName("draft")
-  private Draft draft;
+    /**
+     * 草稿信息
+     * <p> 示例值：
+     */
+    @SerializedName("draft")
+    private Draft draft;
 
-  public Draft getDraft() {
-    return this.draft;
-  }
+    public Draft getDraft() {
+        return this.draft;
+    }
 
-  public void setDraft(Draft draft) {
-    this.draft = draft;
-  }
+    public void setDraft(Draft draft) {
+        this.draft = draft;
+    }
 
 }

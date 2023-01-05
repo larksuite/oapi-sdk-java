@@ -17,58 +17,56 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Query;
 
 public class CustomizedFieldsTicketReq {
-
-  /**
-   * visible only
-   * <p> 示例值：true
-   */
-  @Query
-  @SerializedName("visible_only")
-  private Boolean visibleOnly;
-
-  // builder 开始
-  public CustomizedFieldsTicketReq() {
-  }
-
-  public CustomizedFieldsTicketReq(Builder builder) {
     /**
      * visible only
      * <p> 示例值：true
      */
-    this.visibleOnly = builder.visibleOnly;
-  }
+    @Query
+    @SerializedName("visible_only")
+    private Boolean visibleOnly;
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getVisibleOnly() {
-    return this.visibleOnly;
-  }
-
-  public void setVisibleOnly(Boolean visibleOnly) {
-    this.visibleOnly = visibleOnly;
-  }
-
-  public static class Builder {
-
-    private Boolean visibleOnly; // visible only
-
-
-    /**
-     * visible only
-     * <p> 示例值：true
-     *
-     * @param visibleOnly
-     * @return
-     */
-    public Builder visibleOnly(Boolean visibleOnly) {
-      this.visibleOnly = visibleOnly;
-      return this;
+    // builder 开始
+    public CustomizedFieldsTicketReq() {
     }
 
-    public CustomizedFieldsTicketReq build() {
-      return new CustomizedFieldsTicketReq(this);
+    public CustomizedFieldsTicketReq(Builder builder) {
+        /**
+         * visible only
+         * <p> 示例值：true
+         */
+        this.visibleOnly = builder.visibleOnly;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Boolean getVisibleOnly() {
+        return this.visibleOnly;
+    }
+
+    public void setVisibleOnly(Boolean visibleOnly) {
+        this.visibleOnly = visibleOnly;
+    }
+
+    public static class Builder {
+        private Boolean visibleOnly; // visible only
+
+
+        /**
+         * visible only
+         * <p> 示例值：true
+         *
+         * @param visibleOnly
+         * @return
+         */
+        public Builder visibleOnly(Boolean visibleOnly) {
+            this.visibleOnly = visibleOnly;
+            return this;
+        }
+
+        public CustomizedFieldsTicketReq build() {
+            return new CustomizedFieldsTicketReq(this);
+        }
+    }
 }

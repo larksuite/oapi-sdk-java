@@ -16,98 +16,96 @@ package com.lark.oapi.service.okr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OkrObjectiveAlignedObjectiveOwner {
-
-  /**
-   * 用户的 open_id
-   * <p> 示例值：od-asd2dasdasd
-   */
-  @SerializedName("open_id")
-  private String openId;
-  /**
-   * 用户的 user_id
-   * <p> 示例值：ou-ux987dsf6x
-   */
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public OkrObjectiveAlignedObjectiveOwner() {
-  }
-
-  public OkrObjectiveAlignedObjectiveOwner(Builder builder) {
     /**
      * 用户的 open_id
      * <p> 示例值：od-asd2dasdasd
      */
-    this.openId = builder.openId;
-    /**
-     * 用户的 user_id
-     * <p> 示例值：ou-ux987dsf6x
-     */
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
-    /**
-     * 用户的 open_id
-     * <p> 示例值：od-asd2dasdasd
-     */
+    @SerializedName("open_id")
     private String openId;
     /**
      * 用户的 user_id
      * <p> 示例值：ou-ux987dsf6x
      */
+    @SerializedName("user_id")
     private String userId;
 
-    /**
-     * 用户的 open_id
-     * <p> 示例值：od-asd2dasdasd
-     *
-     * @param openId
-     * @return
-     */
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    // builder 开始
+    public OkrObjectiveAlignedObjectiveOwner() {
     }
 
-
-    /**
-     * 用户的 user_id
-     * <p> 示例值：ou-ux987dsf6x
-     *
-     * @param userId
-     * @return
-     */
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public OkrObjectiveAlignedObjectiveOwner(Builder builder) {
+        /**
+         * 用户的 open_id
+         * <p> 示例值：od-asd2dasdasd
+         */
+        this.openId = builder.openId;
+        /**
+         * 用户的 user_id
+         * <p> 示例值：ou-ux987dsf6x
+         */
+        this.userId = builder.userId;
     }
 
-
-    public OkrObjectiveAlignedObjectiveOwner build() {
-      return new OkrObjectiveAlignedObjectiveOwner(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public static class Builder {
+        /**
+         * 用户的 open_id
+         * <p> 示例值：od-asd2dasdasd
+         */
+        private String openId;
+        /**
+         * 用户的 user_id
+         * <p> 示例值：ou-ux987dsf6x
+         */
+        private String userId;
+
+        /**
+         * 用户的 open_id
+         * <p> 示例值：od-asd2dasdasd
+         *
+         * @param openId
+         * @return
+         */
+        public Builder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
+        /**
+         * 用户的 user_id
+         * <p> 示例值：ou-ux987dsf6x
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        public OkrObjectiveAlignedObjectiveOwner build() {
+            return new OkrObjectiveAlignedObjectiveOwner(this);
+        }
+    }
 }

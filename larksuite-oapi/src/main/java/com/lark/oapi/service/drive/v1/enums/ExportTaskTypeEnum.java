@@ -14,21 +14,21 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 导出文档类型
+ * 导出文档类型 [文档类型说明](/ssl::ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#560bf735)
  */
 public enum ExportTaskTypeEnum {
-  DOC("doc"), // 旧版飞书云文档类型
-  SHEET("sheet"), // 飞书电子表格类型
-  BITABLE("bitable"), // 飞书多维表格类型
-  DOCX("docx"), // 新版飞书云文档类型
-  ;
-  private String value;
+    DOC("doc"), // 旧版飞书云文档类型
+    SHEET("sheet"), // 飞书电子表格类型
+    BITABLE("bitable"), // 飞书多维表格类型
+    DOCX("docx"), // 新版飞书云文档类型
+    ;
+    private String value;
 
-  ExportTaskTypeEnum(String value) {
-    this.value = value;
-  }
+    ExportTaskTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

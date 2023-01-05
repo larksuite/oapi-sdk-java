@@ -16,320 +16,392 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class TripGroupSchedule {
-
-  /**
-   * 开始时间
-   * <p> 示例值：
-   */
-  @SerializedName("trip_start_time")
-  private String tripStartTime;
-  /**
-   * 结束时间
-   * <p> 示例值：
-   */
-  @SerializedName("trip_end_time")
-  private String tripEndTime;
-  /**
-   * 周期
-   * <p> 示例值：
-   */
-  @SerializedName("trip_interval")
-  private String tripInterval;
-  /**
-   * 出发地
-   * <p> 示例值：
-   */
-  @SerializedName("departure")
-  private String departure;
-  /**
-   * 目的地
-   * <p> 示例值：
-   */
-  @SerializedName("destination")
-  private String destination;
-  /**
-   * 交通工具
-   * <p> 示例值：
-   */
-  @SerializedName("transportation")
-  private String transportation;
-  /**
-   * 出差类型
-   * <p> 示例值：
-   */
-  @SerializedName("trip_type")
-  private String tripType;
-  /**
-   * 备注
-   * <p> 示例值：
-   */
-  @SerializedName("remark")
-  private String remark;
-
-  // builder 开始
-  public TripGroupSchedule() {
-  }
-
-  public TripGroupSchedule(Builder builder) {
     /**
      * 开始时间
-     * <p> 示例值：
+     * <p> 示例值：2022-08-25 12:00:00
      */
-    this.tripStartTime = builder.tripStartTime;
-    /**
-     * 结束时间
-     * <p> 示例值：
-     */
-    this.tripEndTime = builder.tripEndTime;
-    /**
-     * 周期
-     * <p> 示例值：
-     */
-    this.tripInterval = builder.tripInterval;
-    /**
-     * 出发地
-     * <p> 示例值：
-     */
-    this.departure = builder.departure;
-    /**
-     * 目的地
-     * <p> 示例值：
-     */
-    this.destination = builder.destination;
-    /**
-     * 交通工具
-     * <p> 示例值：
-     */
-    this.transportation = builder.transportation;
-    /**
-     * 出差类型
-     * <p> 示例值：
-     */
-    this.tripType = builder.tripType;
-    /**
-     * 备注
-     * <p> 示例值：
-     */
-    this.remark = builder.remark;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTripStartTime() {
-    return this.tripStartTime;
-  }
-
-  public void setTripStartTime(String tripStartTime) {
-    this.tripStartTime = tripStartTime;
-  }
-
-  public String getTripEndTime() {
-    return this.tripEndTime;
-  }
-
-  public void setTripEndTime(String tripEndTime) {
-    this.tripEndTime = tripEndTime;
-  }
-
-  public String getTripInterval() {
-    return this.tripInterval;
-  }
-
-  public void setTripInterval(String tripInterval) {
-    this.tripInterval = tripInterval;
-  }
-
-  public String getDeparture() {
-    return this.departure;
-  }
-
-  public void setDeparture(String departure) {
-    this.departure = departure;
-  }
-
-  public String getDestination() {
-    return this.destination;
-  }
-
-  public void setDestination(String destination) {
-    this.destination = destination;
-  }
-
-  public String getTransportation() {
-    return this.transportation;
-  }
-
-  public void setTransportation(String transportation) {
-    this.transportation = transportation;
-  }
-
-  public String getTripType() {
-    return this.tripType;
-  }
-
-  public void setTripType(String tripType) {
-    this.tripType = tripType;
-  }
-
-  public String getRemark() {
-    return this.remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public static class Builder {
-
-    /**
-     * 开始时间
-     * <p> 示例值：
-     */
+    @SerializedName("trip_start_time")
     private String tripStartTime;
     /**
      * 结束时间
-     * <p> 示例值：
+     * <p> 示例值：2022-09-01 00:00:00
      */
+    @SerializedName("trip_end_time")
     private String tripEndTime;
     /**
      * 周期
-     * <p> 示例值：
+     * <p> 示例值：561600
      */
+    @SerializedName("trip_interval")
     private String tripInterval;
     /**
      * 出发地
-     * <p> 示例值：
+     * <p> 示例值：中国
      */
+    @SerializedName("departure")
     private String departure;
     /**
      * 目的地
-     * <p> 示例值：
+     * <p> 示例值：中国
      */
+    @SerializedName("destination")
     private String destination;
     /**
      * 交通工具
-     * <p> 示例值：
+     * <p> 示例值：飞机
      */
+    @SerializedName("transportation")
     private String transportation;
     /**
      * 出差类型
-     * <p> 示例值：
+     * <p> 示例值：往返
      */
+    @SerializedName("trip_type")
     private String tripType;
     /**
      * 备注
-     * <p> 示例值：
+     * <p> 示例值：备注内容
      */
+    @SerializedName("remark")
     private String remark;
-
     /**
-     * 开始时间
-     * <p> 示例值：
-     *
-     * @param tripStartTime
-     * @return
+     * 出发地id
+     * <p> 示例值：6c758b5dc54930abc7a454c7477d3496cfca0a62fd941e0093b2d819e0e263a6
      */
-    public Builder tripStartTime(String tripStartTime) {
-      this.tripStartTime = tripStartTime;
-      return this;
-    }
-
-
+    @SerializedName("departure_id")
+    private String departureId;
     /**
-     * 结束时间
+     * 目的地id列表
      * <p> 示例值：
-     *
-     * @param tripEndTime
-     * @return
      */
-    public Builder tripEndTime(String tripEndTime) {
-      this.tripEndTime = tripEndTime;
-      return this;
+    @SerializedName("destination_ids")
+    private String[] destinationIds;
+
+    // builder 开始
+    public TripGroupSchedule() {
     }
 
-
-    /**
-     * 周期
-     * <p> 示例值：
-     *
-     * @param tripInterval
-     * @return
-     */
-    public Builder tripInterval(String tripInterval) {
-      this.tripInterval = tripInterval;
-      return this;
+    public TripGroupSchedule(Builder builder) {
+        /**
+         * 开始时间
+         * <p> 示例值：2022-08-25 12:00:00
+         */
+        this.tripStartTime = builder.tripStartTime;
+        /**
+         * 结束时间
+         * <p> 示例值：2022-09-01 00:00:00
+         */
+        this.tripEndTime = builder.tripEndTime;
+        /**
+         * 周期
+         * <p> 示例值：561600
+         */
+        this.tripInterval = builder.tripInterval;
+        /**
+         * 出发地
+         * <p> 示例值：中国
+         */
+        this.departure = builder.departure;
+        /**
+         * 目的地
+         * <p> 示例值：中国
+         */
+        this.destination = builder.destination;
+        /**
+         * 交通工具
+         * <p> 示例值：飞机
+         */
+        this.transportation = builder.transportation;
+        /**
+         * 出差类型
+         * <p> 示例值：往返
+         */
+        this.tripType = builder.tripType;
+        /**
+         * 备注
+         * <p> 示例值：备注内容
+         */
+        this.remark = builder.remark;
+        /**
+         * 出发地id
+         * <p> 示例值：6c758b5dc54930abc7a454c7477d3496cfca0a62fd941e0093b2d819e0e263a6
+         */
+        this.departureId = builder.departureId;
+        /**
+         * 目的地id列表
+         * <p> 示例值：
+         */
+        this.destinationIds = builder.destinationIds;
     }
 
-
-    /**
-     * 出发地
-     * <p> 示例值：
-     *
-     * @param departure
-     * @return
-     */
-    public Builder departure(String departure) {
-      this.departure = departure;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 目的地
-     * <p> 示例值：
-     *
-     * @param destination
-     * @return
-     */
-    public Builder destination(String destination) {
-      this.destination = destination;
-      return this;
+    public String getTripStartTime() {
+        return this.tripStartTime;
     }
 
-
-    /**
-     * 交通工具
-     * <p> 示例值：
-     *
-     * @param transportation
-     * @return
-     */
-    public Builder transportation(String transportation) {
-      this.transportation = transportation;
-      return this;
+    public void setTripStartTime(String tripStartTime) {
+        this.tripStartTime = tripStartTime;
     }
 
-
-    /**
-     * 出差类型
-     * <p> 示例值：
-     *
-     * @param tripType
-     * @return
-     */
-    public Builder tripType(String tripType) {
-      this.tripType = tripType;
-      return this;
+    public String getTripEndTime() {
+        return this.tripEndTime;
     }
 
-
-    /**
-     * 备注
-     * <p> 示例值：
-     *
-     * @param remark
-     * @return
-     */
-    public Builder remark(String remark) {
-      this.remark = remark;
-      return this;
+    public void setTripEndTime(String tripEndTime) {
+        this.tripEndTime = tripEndTime;
     }
 
-
-    public TripGroupSchedule build() {
-      return new TripGroupSchedule(this);
+    public String getTripInterval() {
+        return this.tripInterval;
     }
-  }
+
+    public void setTripInterval(String tripInterval) {
+        this.tripInterval = tripInterval;
+    }
+
+    public String getDeparture() {
+        return this.departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public String getDestination() {
+        return this.destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getTransportation() {
+        return this.transportation;
+    }
+
+    public void setTransportation(String transportation) {
+        this.transportation = transportation;
+    }
+
+    public String getTripType() {
+        return this.tripType;
+    }
+
+    public void setTripType(String tripType) {
+        this.tripType = tripType;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getDepartureId() {
+        return this.departureId;
+    }
+
+    public void setDepartureId(String departureId) {
+        this.departureId = departureId;
+    }
+
+    public String[] getDestinationIds() {
+        return this.destinationIds;
+    }
+
+    public void setDestinationIds(String[] destinationIds) {
+        this.destinationIds = destinationIds;
+    }
+
+    public static class Builder {
+        /**
+         * 开始时间
+         * <p> 示例值：2022-08-25 12:00:00
+         */
+        private String tripStartTime;
+        /**
+         * 结束时间
+         * <p> 示例值：2022-09-01 00:00:00
+         */
+        private String tripEndTime;
+        /**
+         * 周期
+         * <p> 示例值：561600
+         */
+        private String tripInterval;
+        /**
+         * 出发地
+         * <p> 示例值：中国
+         */
+        private String departure;
+        /**
+         * 目的地
+         * <p> 示例值：中国
+         */
+        private String destination;
+        /**
+         * 交通工具
+         * <p> 示例值：飞机
+         */
+        private String transportation;
+        /**
+         * 出差类型
+         * <p> 示例值：往返
+         */
+        private String tripType;
+        /**
+         * 备注
+         * <p> 示例值：备注内容
+         */
+        private String remark;
+        /**
+         * 出发地id
+         * <p> 示例值：6c758b5dc54930abc7a454c7477d3496cfca0a62fd941e0093b2d819e0e263a6
+         */
+        private String departureId;
+        /**
+         * 目的地id列表
+         * <p> 示例值：
+         */
+        private String[] destinationIds;
+
+        /**
+         * 开始时间
+         * <p> 示例值：2022-08-25 12:00:00
+         *
+         * @param tripStartTime
+         * @return
+         */
+        public Builder tripStartTime(String tripStartTime) {
+            this.tripStartTime = tripStartTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间
+         * <p> 示例值：2022-09-01 00:00:00
+         *
+         * @param tripEndTime
+         * @return
+         */
+        public Builder tripEndTime(String tripEndTime) {
+            this.tripEndTime = tripEndTime;
+            return this;
+        }
+
+
+        /**
+         * 周期
+         * <p> 示例值：561600
+         *
+         * @param tripInterval
+         * @return
+         */
+        public Builder tripInterval(String tripInterval) {
+            this.tripInterval = tripInterval;
+            return this;
+        }
+
+
+        /**
+         * 出发地
+         * <p> 示例值：中国
+         *
+         * @param departure
+         * @return
+         */
+        public Builder departure(String departure) {
+            this.departure = departure;
+            return this;
+        }
+
+
+        /**
+         * 目的地
+         * <p> 示例值：中国
+         *
+         * @param destination
+         * @return
+         */
+        public Builder destination(String destination) {
+            this.destination = destination;
+            return this;
+        }
+
+
+        /**
+         * 交通工具
+         * <p> 示例值：飞机
+         *
+         * @param transportation
+         * @return
+         */
+        public Builder transportation(String transportation) {
+            this.transportation = transportation;
+            return this;
+        }
+
+
+        /**
+         * 出差类型
+         * <p> 示例值：往返
+         *
+         * @param tripType
+         * @return
+         */
+        public Builder tripType(String tripType) {
+            this.tripType = tripType;
+            return this;
+        }
+
+
+        /**
+         * 备注
+         * <p> 示例值：备注内容
+         *
+         * @param remark
+         * @return
+         */
+        public Builder remark(String remark) {
+            this.remark = remark;
+            return this;
+        }
+
+
+        /**
+         * 出发地id
+         * <p> 示例值：6c758b5dc54930abc7a454c7477d3496cfca0a62fd941e0093b2d819e0e263a6
+         *
+         * @param departureId
+         * @return
+         */
+        public Builder departureId(String departureId) {
+            this.departureId = departureId;
+            return this;
+        }
+
+
+        /**
+         * 目的地id列表
+         * <p> 示例值：
+         *
+         * @param destinationIds
+         * @return
+         */
+        public Builder destinationIds(String[] destinationIds) {
+            this.destinationIds = destinationIds;
+            return this;
+        }
+
+
+        public TripGroupSchedule build() {
+            return new TripGroupSchedule(this);
+        }
+    }
 }

@@ -16,61 +16,59 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class MultiRange {
-
-  /**
-   * 同一个工作表的多个范围
-   * <p> 示例值：Sheet1!A1:B2
-   */
-  @SerializedName("ranges")
-  private String[] ranges;
-
-  // builder 开始
-  public MultiRange() {
-  }
-
-  public MultiRange(Builder builder) {
     /**
      * 同一个工作表的多个范围
      * <p> 示例值：Sheet1!A1:B2
      */
-    this.ranges = builder.ranges;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getRanges() {
-    return this.ranges;
-  }
-
-  public void setRanges(String[] ranges) {
-    this.ranges = ranges;
-  }
-
-  public static class Builder {
-
-    /**
-     * 同一个工作表的多个范围
-     * <p> 示例值：Sheet1!A1:B2
-     */
+    @SerializedName("ranges")
     private String[] ranges;
 
-    /**
-     * 同一个工作表的多个范围
-     * <p> 示例值：Sheet1!A1:B2
-     *
-     * @param ranges
-     * @return
-     */
-    public Builder ranges(String[] ranges) {
-      this.ranges = ranges;
-      return this;
+    // builder 开始
+    public MultiRange() {
     }
 
-
-    public MultiRange build() {
-      return new MultiRange(this);
+    public MultiRange(Builder builder) {
+        /**
+         * 同一个工作表的多个范围
+         * <p> 示例值：Sheet1!A1:B2
+         */
+        this.ranges = builder.ranges;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String[] getRanges() {
+        return this.ranges;
+    }
+
+    public void setRanges(String[] ranges) {
+        this.ranges = ranges;
+    }
+
+    public static class Builder {
+        /**
+         * 同一个工作表的多个范围
+         * <p> 示例值：Sheet1!A1:B2
+         */
+        private String[] ranges;
+
+        /**
+         * 同一个工作表的多个范围
+         * <p> 示例值：Sheet1!A1:B2
+         *
+         * @param ranges
+         * @return
+         */
+        public Builder ranges(String[] ranges) {
+            this.ranges = ranges;
+            return this;
+        }
+
+
+        public MultiRange build() {
+            return new MultiRange(this);
+        }
+    }
 }

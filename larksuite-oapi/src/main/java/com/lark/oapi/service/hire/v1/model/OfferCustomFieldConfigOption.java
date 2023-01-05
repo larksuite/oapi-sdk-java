@@ -16,61 +16,59 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class OfferCustomFieldConfigOption {
-
-  /**
-   * 选项名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private I18n name;
-
-  // builder 开始
-  public OfferCustomFieldConfigOption() {
-  }
-
-  public OfferCustomFieldConfigOption(Builder builder) {
     /**
      * 选项名称
      * <p> 示例值：
      */
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public I18n getName() {
-    return this.name;
-  }
-
-  public void setName(I18n name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
-    /**
-     * 选项名称
-     * <p> 示例值：
-     */
+    @SerializedName("name")
     private I18n name;
 
-    /**
-     * 选项名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(I18n name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public OfferCustomFieldConfigOption() {
     }
 
-
-    public OfferCustomFieldConfigOption build() {
-      return new OfferCustomFieldConfigOption(this);
+    public OfferCustomFieldConfigOption(Builder builder) {
+        /**
+         * 选项名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public I18n getName() {
+        return this.name;
+    }
+
+    public void setName(I18n name) {
+        this.name = name;
+    }
+
+    public static class Builder {
+        /**
+         * 选项名称
+         * <p> 示例值：
+         */
+        private I18n name;
+
+        /**
+         * 选项名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(I18n name) {
+            this.name = name;
+            return this;
+        }
+
+
+        public OfferCustomFieldConfigOption build() {
+            return new OfferCustomFieldConfigOption(this);
+        }
+    }
 }

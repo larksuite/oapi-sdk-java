@@ -17,19 +17,19 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 查询状态（不填默认查询已通过状态）
  */
 public enum QueryUserTaskRemedyRemedyStatusEnum {
-  PENDING(0), // 待审批
-  REJECTED(1), // 未通过
-  PASS(2), // 已通过
-  CANCEL(3), // 已取消
-  WITHDRAW(4), // 已撤回
-  ;
-  private Integer value;
+    PENDING(0), // 待审批
+    REJECTED(1), // 未通过
+    PASS(2), // 已通过
+    CANCEL(3), // 已取消
+    WITHDRAW(4), // 已撤回
+    ;
+    private Integer value;
 
-  QueryUserTaskRemedyRemedyStatusEnum(Integer value) {
-    this.value = value;
-  }
+    QueryUserTaskRemedyRemedyStatusEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

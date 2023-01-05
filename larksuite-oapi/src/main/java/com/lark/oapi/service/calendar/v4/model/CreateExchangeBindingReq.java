@@ -18,97 +18,94 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Query;
 
 public class CreateExchangeBindingReq {
-
-  /**
-   * 此次调用中使用的用户ID的类型
-   * <p> 示例值：
-   */
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private ExchangeBinding body;
-
-  // builder 开始
-  public CreateExchangeBindingReq() {
-  }
-
-  public CreateExchangeBindingReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     * <p> 示例值：user_id
      */
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public ExchangeBinding getExchangeBinding() {
-    return this.body;
-  }
-
-  public void setExchangeBinding(ExchangeBinding body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String userIdType; // 此次调用中使用的用户ID的类型
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    @Body
     private ExchangeBinding body;
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType
-     * @return
-     */
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    // builder 开始
+    public CreateExchangeBindingReq() {
     }
 
-    /**
-     * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
-     *
-     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateExchangeBindingUserIdTypeEnum}
-     * @return
-     */
-    public Builder userIdType(
-        com.lark.oapi.service.calendar.v4.enums.CreateExchangeBindingUserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public CreateExchangeBindingReq(Builder builder) {
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：user_id
+         */
+        this.userIdType = builder.userIdType;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public ExchangeBinding getExchangeBinding() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder exchangeBinding(ExchangeBinding body) {
-      this.body = body;
-      return this;
+    public void setExchangeBinding(ExchangeBinding body) {
+        this.body = body;
     }
 
-    public CreateExchangeBindingReq build() {
-      return new CreateExchangeBindingReq(this);
+    public static class Builder {
+        private String userIdType; // 此次调用中使用的用户ID的类型
+        private ExchangeBinding body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：user_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：user_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateExchangeBindingUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.CreateExchangeBindingUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        public ExchangeBinding getExchangeBinding() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder exchangeBinding(ExchangeBinding body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateExchangeBindingReq build() {
+            return new CreateExchangeBindingReq(this);
+        }
     }
-  }
 }

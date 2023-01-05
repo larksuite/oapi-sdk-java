@@ -16,25 +16,19 @@ package com.lark.oapi.service.admin.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class UpdateBadgeRespBody {
+    /**
+     * 勋章信息
+     * <p> 示例值：{     "badge_id": "m_DjMzaK",     "name": "字节范勋章",     "explanation": "奖励给值得鼓励的同学",     "badge_image": {         "image_key": "a210ea02-e406-49ee-997c-9acc57c59eac",         "image_url": "https://s1-imfile.feishucdn.com/static-resource/v1/a210ea02-e406-49ee-997c-9acc57c59eac~?image_size=noop&cut_type=&quality=&format=image&sticker_format=.webp"     },     "show_image": {         "image_key": "c23dcb4f-ee63-49c8-9b7d-85a7fe8f13cj",         "image_url": "https://s1-imfile.feishucdn.com/static-resource/v1/c23dcb4f-ee63-49c8-9b7d-85a7fe8f13cj~?image_size=noop&cut_type=&quality=&format=image&sticker_format=.webp"     } }
+     */
+    @SerializedName("badge")
+    private Badge badge;
 
-  /**
-   * 勋章信息
-   * <p> 示例值：{     "badge_id": "m_DjMzaK",     "name": "字节范勋章",     "explanation": "奖励给值得鼓励的同学",
-   * "badge_image": {         "image_key": "a210ea02-e406-49ee-997c-9acc57c59eac",
-   * "image_url": "https://s1-imfile.feishucdn.com/static-resource/v1/a210ea02-e406-49ee-997c-9acc57c59eac~?image_size=noop&cut_type=&quality=&format=image&sticker_format=.webp"
-   *     },     "show_image": {         "image_key": "c23dcb4f-ee63-49c8-9b7d-85a7fe8f13cj",
-   * "image_url": "https://s1-imfile.feishucdn.com/static-resource/v1/c23dcb4f-ee63-49c8-9b7d-85a7fe8f13cj~?image_size=noop&cut_type=&quality=&format=image&sticker_format=.webp"
-   * } }
-   */
-  @SerializedName("badge")
-  private Badge badge;
+    public Badge getBadge() {
+        return this.badge;
+    }
 
-  public Badge getBadge() {
-    return this.badge;
-  }
-
-  public void setBadge(Badge badge) {
-    this.badge = badge;
-  }
+    public void setBadge(Badge badge) {
+        this.badge = badge;
+    }
 
 }

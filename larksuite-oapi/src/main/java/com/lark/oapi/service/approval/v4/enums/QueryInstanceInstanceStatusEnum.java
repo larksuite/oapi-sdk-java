@@ -17,20 +17,20 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批实例状态，注：若不在集合中，报错
  */
 public enum QueryInstanceInstanceStatusEnum {
-  PENDING("PENDING"), // 审批中
-  RECALL("RECALL"), // 撤回
-  REJECT("REJECT"), // 拒绝
-  DELETED("DELETED"), // 已删除
-  APPROVERD("APPROVED"), // 通过
-  ALL("ALL"), // 所有状态
-  ;
-  private String value;
+    PENDING("PENDING"), // 审批中
+    RECALL("RECALL"), // 撤回
+    REJECT("REJECT"), // 拒绝
+    DELETED("DELETED"), // 已删除
+    APPROVERD("APPROVED"), // 通过
+    ALL("ALL"), // 所有状态
+    ;
+    private String value;
 
-  QueryInstanceInstanceStatusEnum(String value) {
-    this.value = value;
-  }
+    QueryInstanceInstanceStatusEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

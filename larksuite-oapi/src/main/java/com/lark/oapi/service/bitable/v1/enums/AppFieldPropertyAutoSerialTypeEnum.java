@@ -17,16 +17,16 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 自动编号类型
  */
 public enum AppFieldPropertyAutoSerialTypeEnum {
-  CUSTOM("custom"), // 自定义编号
-  AUTOINCREMENTNUMBER("auto_increment_number"), // 自增数字
-  ;
-  private String value;
+    CUSTOM("custom"), // 自定义编号
+    AUTOINCREMENTNUMBER("auto_increment_number"), // 自增数字
+    ;
+    private String value;
 
-  AppFieldPropertyAutoSerialTypeEnum(String value) {
-    this.value = value;
-  }
+    AppFieldPropertyAutoSerialTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

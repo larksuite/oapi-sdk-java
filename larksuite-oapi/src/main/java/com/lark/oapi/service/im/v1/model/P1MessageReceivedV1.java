@@ -6,15 +6,15 @@ import com.lark.oapi.event.model.BaseEvent;
 
 public class P1MessageReceivedV1 extends BaseEvent {
 
-  @SerializedName("event")
-  private P1MessageReceivedV1Data event;
+    @SerializedName("event")
+    private P1MessageReceivedV1Data event;
 
-  public P1MessageReceivedV1Data getEvent() {
-    return this.event;
-  }
+    public P1MessageReceivedV1Data getEvent() {
+        return this.event;
+    }
 
-  public void setEvent(P1MessageReceivedV1Data event) {
-    this.event = event;
-  }
+    public void setEvent(P1MessageReceivedV1Data event) {
+        this.event = event;
+    }
 
 }

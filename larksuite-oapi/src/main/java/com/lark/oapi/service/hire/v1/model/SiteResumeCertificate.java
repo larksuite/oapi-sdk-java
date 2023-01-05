@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class SiteResumeCertificate {
-
-  /**
-   * 名称
-   * <p> 示例值：
-   */
-  @SerializedName("name")
-  private String name;
-  /**
-   * 描述
-   * <p> 示例值：
-   */
-  @SerializedName("description")
-  private String description;
-
-  // builder 开始
-  public SiteResumeCertificate() {
-  }
-
-  public SiteResumeCertificate(Builder builder) {
     /**
      * 名称
      * <p> 示例值：
      */
-    this.name = builder.name;
-    /**
-     * 描述
-     * <p> 示例值：
-     */
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
-    /**
-     * 名称
-     * <p> 示例值：
-     */
+    @SerializedName("name")
     private String name;
     /**
      * 描述
      * <p> 示例值：
      */
+    @SerializedName("description")
     private String description;
 
-    /**
-     * 名称
-     * <p> 示例值：
-     *
-     * @param name
-     * @return
-     */
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    // builder 开始
+    public SiteResumeCertificate() {
     }
 
-
-    /**
-     * 描述
-     * <p> 示例值：
-     *
-     * @param description
-     * @return
-     */
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public SiteResumeCertificate(Builder builder) {
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        this.name = builder.name;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
     }
 
-
-    public SiteResumeCertificate build() {
-      return new SiteResumeCertificate(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public static class Builder {
+        /**
+         * 名称
+         * <p> 示例值：
+         */
+        private String name;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private String description;
+
+        /**
+         * 名称
+         * <p> 示例值：
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        public SiteResumeCertificate build() {
+            return new SiteResumeCertificate(this);
+        }
+    }
 }

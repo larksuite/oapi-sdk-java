@@ -17,61 +17,61 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetOfferSchema {
 
-  /**
-   * offer申请表ID
-   * <p> 示例值：1213213123123
-   */
-  @SerializedName("id")
-  private String id;
-  /**
-   * offer申请表使用场景
-   * <p> 示例值：1
-   */
-  @SerializedName("scenario")
-  private Integer scenario;
-  /**
-   * 申请表版本
-   * <p> 示例值：121
-   */
-  @SerializedName("version")
-  private Integer version;
-  /**
-   * 字段对象信息
-   * <p> 示例值：
-   */
-  @SerializedName("object_list")
-  private OfferSchemaDetail[] objectList;
+    /**
+     * offer申请表ID
+     * <p> 示例值：1213213123123
+     */
+    @SerializedName("id")
+    private String id;
+    /**
+     * offer申请表使用场景
+     * <p> 示例值：1
+     */
+    @SerializedName("scenario")
+    private Integer scenario;
+    /**
+     * 申请表版本
+     * <p> 示例值：121
+     */
+    @SerializedName("version")
+    private Integer version;
+    /**
+     * 字段对象信息
+     * <p> 示例值：
+     */
+    @SerializedName("object_list")
+    private OfferSchemaDetail[] objectList;
 
-  public String getId() {
-    return this.id;
-  }
+    public String getId() {
+        return this.id;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public Integer getScenario() {
-    return this.scenario;
-  }
+    public Integer getScenario() {
+        return this.scenario;
+    }
 
-  public void setScenario(Integer scenario) {
-    this.scenario = scenario;
-  }
+    public void setScenario(Integer scenario) {
+        this.scenario = scenario;
+    }
 
-  public Integer getVersion() {
-    return this.version;
-  }
+    public Integer getVersion() {
+        return this.version;
+    }
 
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
-  public OfferSchemaDetail[] getObjectList() {
-    return this.objectList;
-  }
+    public OfferSchemaDetail[] getObjectList() {
+        return this.objectList;
+    }
 
-  public void setObjectList(OfferSchemaDetail[] objectList) {
-    this.objectList = objectList;
-  }
+    public void setObjectList(OfferSchemaDetail[] objectList) {
+        this.objectList = objectList;
+    }
 
 }

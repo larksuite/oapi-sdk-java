@@ -16,98 +16,96 @@ package com.lark.oapi.service.approval.v4.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FieldGroup {
-
-  /**
-   * 可写权限的表单项的 id列表
-   * <p> 示例值：9293493
-   */
-  @SerializedName("writable")
-  private String[] writable;
-  /**
-   * 可读权限的表单项的 id列表
-   * <p> 示例值：9293493
-   */
-  @SerializedName("readable")
-  private String[] readable;
-
-  // builder 开始
-  public FieldGroup() {
-  }
-
-  public FieldGroup(Builder builder) {
     /**
      * 可写权限的表单项的 id列表
      * <p> 示例值：9293493
      */
-    this.writable = builder.writable;
-    /**
-     * 可读权限的表单项的 id列表
-     * <p> 示例值：9293493
-     */
-    this.readable = builder.readable;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getWritable() {
-    return this.writable;
-  }
-
-  public void setWritable(String[] writable) {
-    this.writable = writable;
-  }
-
-  public String[] getReadable() {
-    return this.readable;
-  }
-
-  public void setReadable(String[] readable) {
-    this.readable = readable;
-  }
-
-  public static class Builder {
-
-    /**
-     * 可写权限的表单项的 id列表
-     * <p> 示例值：9293493
-     */
+    @SerializedName("writable")
     private String[] writable;
     /**
      * 可读权限的表单项的 id列表
      * <p> 示例值：9293493
      */
+    @SerializedName("readable")
     private String[] readable;
 
-    /**
-     * 可写权限的表单项的 id列表
-     * <p> 示例值：9293493
-     *
-     * @param writable
-     * @return
-     */
-    public Builder writable(String[] writable) {
-      this.writable = writable;
-      return this;
+    // builder 开始
+    public FieldGroup() {
     }
 
-
-    /**
-     * 可读权限的表单项的 id列表
-     * <p> 示例值：9293493
-     *
-     * @param readable
-     * @return
-     */
-    public Builder readable(String[] readable) {
-      this.readable = readable;
-      return this;
+    public FieldGroup(Builder builder) {
+        /**
+         * 可写权限的表单项的 id列表
+         * <p> 示例值：9293493
+         */
+        this.writable = builder.writable;
+        /**
+         * 可读权限的表单项的 id列表
+         * <p> 示例值：9293493
+         */
+        this.readable = builder.readable;
     }
 
-
-    public FieldGroup build() {
-      return new FieldGroup(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public String[] getWritable() {
+        return this.writable;
+    }
+
+    public void setWritable(String[] writable) {
+        this.writable = writable;
+    }
+
+    public String[] getReadable() {
+        return this.readable;
+    }
+
+    public void setReadable(String[] readable) {
+        this.readable = readable;
+    }
+
+    public static class Builder {
+        /**
+         * 可写权限的表单项的 id列表
+         * <p> 示例值：9293493
+         */
+        private String[] writable;
+        /**
+         * 可读权限的表单项的 id列表
+         * <p> 示例值：9293493
+         */
+        private String[] readable;
+
+        /**
+         * 可写权限的表单项的 id列表
+         * <p> 示例值：9293493
+         *
+         * @param writable
+         * @return
+         */
+        public Builder writable(String[] writable) {
+            this.writable = writable;
+            return this;
+        }
+
+
+        /**
+         * 可读权限的表单项的 id列表
+         * <p> 示例值：9293493
+         *
+         * @param readable
+         * @return
+         */
+        public Builder readable(String[] readable) {
+            this.readable = readable;
+            return this;
+        }
+
+
+        public FieldGroup build() {
+            return new FieldGroup(this);
+        }
+    }
 }

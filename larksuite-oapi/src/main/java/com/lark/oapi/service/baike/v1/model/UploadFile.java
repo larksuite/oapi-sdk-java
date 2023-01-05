@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadFile {
 
-  /**
-   * 文件 token
-   * <p> 示例值：
-   */
-  @SerializedName("file_token")
-  private String fileToken;
+    /**
+     * 文件 token
+     * <p> 示例值：
+     */
+    @SerializedName("file_token")
+    private String fileToken;
 
-  public String getFileToken() {
-    return this.fileToken;
-  }
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
 }

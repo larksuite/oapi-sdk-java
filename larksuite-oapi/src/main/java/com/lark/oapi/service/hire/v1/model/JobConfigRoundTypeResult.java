@@ -16,98 +16,96 @@ package com.lark.oapi.service.hire.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class JobConfigRoundTypeResult {
-
-  /**
-   * 面试轮次类型
-   * <p> 示例值：
-   */
-  @SerializedName("assessment_round")
-  private IdNameObject assessmentRound;
-  /**
-   * 面试评价表
-   * <p> 示例值：
-   */
-  @SerializedName("assessment_template")
-  private IdNameObject assessmentTemplate;
-
-  // builder 开始
-  public JobConfigRoundTypeResult() {
-  }
-
-  public JobConfigRoundTypeResult(Builder builder) {
     /**
      * 面试轮次类型
      * <p> 示例值：
      */
-    this.assessmentRound = builder.assessmentRound;
-    /**
-     * 面试评价表
-     * <p> 示例值：
-     */
-    this.assessmentTemplate = builder.assessmentTemplate;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public IdNameObject getAssessmentRound() {
-    return this.assessmentRound;
-  }
-
-  public void setAssessmentRound(IdNameObject assessmentRound) {
-    this.assessmentRound = assessmentRound;
-  }
-
-  public IdNameObject getAssessmentTemplate() {
-    return this.assessmentTemplate;
-  }
-
-  public void setAssessmentTemplate(IdNameObject assessmentTemplate) {
-    this.assessmentTemplate = assessmentTemplate;
-  }
-
-  public static class Builder {
-
-    /**
-     * 面试轮次类型
-     * <p> 示例值：
-     */
+    @SerializedName("assessment_round")
     private IdNameObject assessmentRound;
     /**
      * 面试评价表
      * <p> 示例值：
      */
+    @SerializedName("assessment_template")
     private IdNameObject assessmentTemplate;
 
-    /**
-     * 面试轮次类型
-     * <p> 示例值：
-     *
-     * @param assessmentRound
-     * @return
-     */
-    public Builder assessmentRound(IdNameObject assessmentRound) {
-      this.assessmentRound = assessmentRound;
-      return this;
+    // builder 开始
+    public JobConfigRoundTypeResult() {
     }
 
-
-    /**
-     * 面试评价表
-     * <p> 示例值：
-     *
-     * @param assessmentTemplate
-     * @return
-     */
-    public Builder assessmentTemplate(IdNameObject assessmentTemplate) {
-      this.assessmentTemplate = assessmentTemplate;
-      return this;
+    public JobConfigRoundTypeResult(Builder builder) {
+        /**
+         * 面试轮次类型
+         * <p> 示例值：
+         */
+        this.assessmentRound = builder.assessmentRound;
+        /**
+         * 面试评价表
+         * <p> 示例值：
+         */
+        this.assessmentTemplate = builder.assessmentTemplate;
     }
 
-
-    public JobConfigRoundTypeResult build() {
-      return new JobConfigRoundTypeResult(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public IdNameObject getAssessmentRound() {
+        return this.assessmentRound;
+    }
+
+    public void setAssessmentRound(IdNameObject assessmentRound) {
+        this.assessmentRound = assessmentRound;
+    }
+
+    public IdNameObject getAssessmentTemplate() {
+        return this.assessmentTemplate;
+    }
+
+    public void setAssessmentTemplate(IdNameObject assessmentTemplate) {
+        this.assessmentTemplate = assessmentTemplate;
+    }
+
+    public static class Builder {
+        /**
+         * 面试轮次类型
+         * <p> 示例值：
+         */
+        private IdNameObject assessmentRound;
+        /**
+         * 面试评价表
+         * <p> 示例值：
+         */
+        private IdNameObject assessmentTemplate;
+
+        /**
+         * 面试轮次类型
+         * <p> 示例值：
+         *
+         * @param assessmentRound
+         * @return
+         */
+        public Builder assessmentRound(IdNameObject assessmentRound) {
+            this.assessmentRound = assessmentRound;
+            return this;
+        }
+
+
+        /**
+         * 面试评价表
+         * <p> 示例值：
+         *
+         * @param assessmentTemplate
+         * @return
+         */
+        public Builder assessmentTemplate(IdNameObject assessmentTemplate) {
+            this.assessmentTemplate = assessmentTemplate;
+            return this;
+        }
+
+
+        public JobConfigRoundTypeResult build() {
+            return new JobConfigRoundTypeResult(this);
+        }
+    }
 }

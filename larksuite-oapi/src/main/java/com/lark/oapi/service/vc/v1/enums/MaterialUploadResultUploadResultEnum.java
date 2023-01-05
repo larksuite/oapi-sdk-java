@@ -17,18 +17,18 @@ package com.lark.oapi.service.vc.v1.enums;
  * 上传结果
  */
 public enum MaterialUploadResultUploadResultEnum {
-  OK(1), // 上传成功
-  FAILED(2), // 上传失败
-  FILE_SIZE_LIMIT(3), // 文件大小超限制
-  FILE_COUNT_LIMIT(4), // 文件数量超限制
-  ;
-  private Integer value;
+    OK(1), // 上传成功
+    FAILED(2), // 上传失败
+    FILE_SIZE_LIMIT(3), // 文件大小超限制
+    FILE_COUNT_LIMIT(4), // 文件数量超限制
+    ;
+    private Integer value;
 
-  MaterialUploadResultUploadResultEnum(Integer value) {
-    this.value = value;
-  }
+    MaterialUploadResultUploadResultEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

@@ -16,270 +16,268 @@ package com.lark.oapi.service.ehr.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Education {
-
-  /**
-   * 学历
-   * <p> 示例值：8
-   */
-  @SerializedName("level")
-  private Integer level;
-  /**
-   * 毕业学校
-   * <p> 示例值：XXXX大学
-   */
-  @SerializedName("school")
-  private String school;
-  /**
-   * 专业
-   * <p> 示例值：XXX专业
-   */
-  @SerializedName("major")
-  private String major;
-  /**
-   * 学位
-   * <p> 示例值：2
-   */
-  @SerializedName("degree")
-  private Integer degree;
-  /**
-   * 开始日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("start")
-  private String start;
-  /**
-   * 结束日期
-   * <p> 示例值：2020-01-01
-   */
-  @SerializedName("end")
-  private String end;
-
-  // builder 开始
-  public Education() {
-  }
-
-  public Education(Builder builder) {
     /**
      * 学历
      * <p> 示例值：8
      */
-    this.level = builder.level;
-    /**
-     * 毕业学校
-     * <p> 示例值：XXXX大学
-     */
-    this.school = builder.school;
-    /**
-     * 专业
-     * <p> 示例值：XXX专业
-     */
-    this.major = builder.major;
-    /**
-     * 学位
-     * <p> 示例值：2
-     */
-    this.degree = builder.degree;
-    /**
-     * 开始日期
-     * <p> 示例值：2020-01-01
-     */
-    this.start = builder.start;
-    /**
-     * 结束日期
-     * <p> 示例值：2020-01-01
-     */
-    this.end = builder.end;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getLevel() {
-    return this.level;
-  }
-
-  public void setLevel(Integer level) {
-    this.level = level;
-  }
-
-  public String getSchool() {
-    return this.school;
-  }
-
-  public void setSchool(String school) {
-    this.school = school;
-  }
-
-  public String getMajor() {
-    return this.major;
-  }
-
-  public void setMajor(String major) {
-    this.major = major;
-  }
-
-  public Integer getDegree() {
-    return this.degree;
-  }
-
-  public void setDegree(Integer degree) {
-    this.degree = degree;
-  }
-
-  public String getStart() {
-    return this.start;
-  }
-
-  public void setStart(String start) {
-    this.start = start;
-  }
-
-  public String getEnd() {
-    return this.end;
-  }
-
-  public void setEnd(String end) {
-    this.end = end;
-  }
-
-  public static class Builder {
-
-    /**
-     * 学历
-     * <p> 示例值：8
-     */
+    @SerializedName("level")
     private Integer level;
     /**
      * 毕业学校
      * <p> 示例值：XXXX大学
      */
+    @SerializedName("school")
     private String school;
     /**
      * 专业
      * <p> 示例值：XXX专业
      */
+    @SerializedName("major")
     private String major;
     /**
      * 学位
      * <p> 示例值：2
      */
+    @SerializedName("degree")
     private Integer degree;
     /**
      * 开始日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("start")
     private String start;
     /**
      * 结束日期
      * <p> 示例值：2020-01-01
      */
+    @SerializedName("end")
     private String end;
 
-    /**
-     * 学历
-     * <p> 示例值：8
-     *
-     * @param level
-     * @return
-     */
-    public Builder level(Integer level) {
-      this.level = level;
-      return this;
+    // builder 开始
+    public Education() {
     }
 
-    /**
-     * 学历
-     * <p> 示例值：8
-     *
-     * @param level {@link com.lark.oapi.service.ehr.v1.enums.EducationLevelEnum}
-     * @return
-     */
-    public Builder level(com.lark.oapi.service.ehr.v1.enums.EducationLevelEnum level) {
-      this.level = level.getValue();
-      return this;
+    public Education(Builder builder) {
+        /**
+         * 学历
+         * <p> 示例值：8
+         */
+        this.level = builder.level;
+        /**
+         * 毕业学校
+         * <p> 示例值：XXXX大学
+         */
+        this.school = builder.school;
+        /**
+         * 专业
+         * <p> 示例值：XXX专业
+         */
+        this.major = builder.major;
+        /**
+         * 学位
+         * <p> 示例值：2
+         */
+        this.degree = builder.degree;
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         */
+        this.start = builder.start;
+        /**
+         * 结束日期
+         * <p> 示例值：2020-01-01
+         */
+        this.end = builder.end;
     }
 
-
-    /**
-     * 毕业学校
-     * <p> 示例值：XXXX大学
-     *
-     * @param school
-     * @return
-     */
-    public Builder school(String school) {
-      this.school = school;
-      return this;
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-
-    /**
-     * 专业
-     * <p> 示例值：XXX专业
-     *
-     * @param major
-     * @return
-     */
-    public Builder major(String major) {
-      this.major = major;
-      return this;
+    public Integer getLevel() {
+        return this.level;
     }
 
-
-    /**
-     * 学位
-     * <p> 示例值：2
-     *
-     * @param degree
-     * @return
-     */
-    public Builder degree(Integer degree) {
-      this.degree = degree;
-      return this;
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 
-    /**
-     * 学位
-     * <p> 示例值：2
-     *
-     * @param degree {@link com.lark.oapi.service.ehr.v1.enums.EducationDegreeEnum}
-     * @return
-     */
-    public Builder degree(com.lark.oapi.service.ehr.v1.enums.EducationDegreeEnum degree) {
-      this.degree = degree.getValue();
-      return this;
+    public String getSchool() {
+        return this.school;
     }
 
-
-    /**
-     * 开始日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param start
-     * @return
-     */
-    public Builder start(String start) {
-      this.start = start;
-      return this;
+    public void setSchool(String school) {
+        this.school = school;
     }
 
-
-    /**
-     * 结束日期
-     * <p> 示例值：2020-01-01
-     *
-     * @param end
-     * @return
-     */
-    public Builder end(String end) {
-      this.end = end;
-      return this;
+    public String getMajor() {
+        return this.major;
     }
 
-
-    public Education build() {
-      return new Education(this);
+    public void setMajor(String major) {
+        this.major = major;
     }
-  }
+
+    public Integer getDegree() {
+        return this.degree;
+    }
+
+    public void setDegree(Integer degree) {
+        this.degree = degree;
+    }
+
+    public String getStart() {
+        return this.start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return this.end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
+    public static class Builder {
+        /**
+         * 学历
+         * <p> 示例值：8
+         */
+        private Integer level;
+        /**
+         * 毕业学校
+         * <p> 示例值：XXXX大学
+         */
+        private String school;
+        /**
+         * 专业
+         * <p> 示例值：XXX专业
+         */
+        private String major;
+        /**
+         * 学位
+         * <p> 示例值：2
+         */
+        private Integer degree;
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         */
+        private String start;
+        /**
+         * 结束日期
+         * <p> 示例值：2020-01-01
+         */
+        private String end;
+
+        /**
+         * 学历
+         * <p> 示例值：8
+         *
+         * @param level
+         * @return
+         */
+        public Builder level(Integer level) {
+            this.level = level;
+            return this;
+        }
+
+        /**
+         * 学历
+         * <p> 示例值：8
+         *
+         * @param level {@link com.lark.oapi.service.ehr.v1.enums.EducationLevelEnum}
+         * @return
+         */
+        public Builder level(com.lark.oapi.service.ehr.v1.enums.EducationLevelEnum level) {
+            this.level = level.getValue();
+            return this;
+        }
+
+
+        /**
+         * 毕业学校
+         * <p> 示例值：XXXX大学
+         *
+         * @param school
+         * @return
+         */
+        public Builder school(String school) {
+            this.school = school;
+            return this;
+        }
+
+
+        /**
+         * 专业
+         * <p> 示例值：XXX专业
+         *
+         * @param major
+         * @return
+         */
+        public Builder major(String major) {
+            this.major = major;
+            return this;
+        }
+
+
+        /**
+         * 学位
+         * <p> 示例值：2
+         *
+         * @param degree
+         * @return
+         */
+        public Builder degree(Integer degree) {
+            this.degree = degree;
+            return this;
+        }
+
+        /**
+         * 学位
+         * <p> 示例值：2
+         *
+         * @param degree {@link com.lark.oapi.service.ehr.v1.enums.EducationDegreeEnum}
+         * @return
+         */
+        public Builder degree(com.lark.oapi.service.ehr.v1.enums.EducationDegreeEnum degree) {
+            this.degree = degree.getValue();
+            return this;
+        }
+
+
+        /**
+         * 开始日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param start
+         * @return
+         */
+        public Builder start(String start) {
+            this.start = start;
+            return this;
+        }
+
+
+        /**
+         * 结束日期
+         * <p> 示例值：2020-01-01
+         *
+         * @param end
+         * @return
+         */
+        public Builder end(String end) {
+            this.end = end;
+            return this;
+        }
+
+
+        public Education build() {
+            return new Education(this);
+        }
+    }
 }

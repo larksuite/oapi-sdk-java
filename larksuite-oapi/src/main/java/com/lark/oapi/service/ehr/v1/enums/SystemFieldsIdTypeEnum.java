@@ -17,19 +17,19 @@ package com.lark.oapi.service.ehr.v1.enums;
  * 证件类型
  */
 public enum SystemFieldsIdTypeEnum {
-  ID_NUMBER(1), // 居民身份证
-  MAINLAND_TRAVEL_PERMIT_HKMACAO(2), // 港澳居民来往内地通行证
-  MAINLAND_TRAVEL_PERMIT_TW(3), // 台湾居民来往大陆通行证
-  PASSPORT(4), // 护照
-  OTHER(5), // 其他
-  ;
-  private Integer value;
+    ID_NUMBER(1), // 居民身份证
+    MAINLAND_TRAVEL_PERMIT_HKMACAO(2), // 港澳居民来往内地通行证
+    MAINLAND_TRAVEL_PERMIT_TW(3), // 台湾居民来往大陆通行证
+    PASSPORT(4), // 护照
+    OTHER(5), // 其他
+    ;
+    private Integer value;
 
-  SystemFieldsIdTypeEnum(Integer value) {
-    this.value = value;
-  }
+    SystemFieldsIdTypeEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

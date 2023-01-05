@@ -17,33 +17,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateApproval {
 
-  /**
-   * 审批定义 Code
-   * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-   */
-  @SerializedName("approval_code")
-  private String approvalCode;
-  /**
-   * 审批定义 id
-   * <p> 示例值：7090754740375519252
-   */
-  @SerializedName("approval_id")
-  private String approvalId;
+    /**
+     * 审批定义 Code
+     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
+    @SerializedName("approval_code")
+    private String approvalCode;
+    /**
+     * 审批定义 id
+     * <p> 示例值：7090754740375519252
+     */
+    @SerializedName("approval_id")
+    private String approvalId;
 
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
 
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
 
-  public String getApprovalId() {
-    return this.approvalId;
-  }
+    public String getApprovalId() {
+        return this.approvalId;
+    }
 
-  public void setApprovalId(String approvalId) {
-    this.approvalId = approvalId;
-  }
+    public void setApprovalId(String approvalId) {
+        this.approvalId = approvalId;
+    }
 
 }

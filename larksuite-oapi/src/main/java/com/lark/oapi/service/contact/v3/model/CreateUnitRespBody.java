@@ -16,20 +16,19 @@ package com.lark.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateUnitRespBody {
+    /**
+     * 单位ID，可自定义
+     * <p> 示例值：BU121
+     */
+    @SerializedName("unit_id")
+    private String unitId;
 
-  /**
-   * 单位的自定义ID
-   * <p> 示例值：BU121
-   */
-  @SerializedName("unit_id")
-  private String unitId;
+    public String getUnitId() {
+        return this.unitId;
+    }
 
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
+    }
 
 }

@@ -16,51 +16,50 @@ package com.lark.oapi.service.admin.v1.model;
 import com.lark.oapi.core.annotation.Body;
 
 public class CreateBadgeReq {
-
-  @Body
-  private Badge body;
-
-  // builder 开始
-  public CreateBadgeReq() {
-  }
-
-  public CreateBadgeReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Badge getBadge() {
-    return this.body;
-  }
-
-  public void setBadge(Badge body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Badge body;
 
+    // builder 开始
+    public CreateBadgeReq() {
+    }
+
+    public CreateBadgeReq(Builder builder) {
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Badge getBadge() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder badge(Badge body) {
-      this.body = body;
-      return this;
+    public void setBadge(Badge body) {
+        this.body = body;
     }
 
-    public CreateBadgeReq build() {
-      return new CreateBadgeReq(this);
+    public static class Builder {
+
+        private Badge body;
+
+        public Badge getBadge() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder badge(Badge body) {
+            this.body = body;
+            return this;
+        }
+
+        public CreateBadgeReq build() {
+            return new CreateBadgeReq(this);
+        }
     }
-  }
 }

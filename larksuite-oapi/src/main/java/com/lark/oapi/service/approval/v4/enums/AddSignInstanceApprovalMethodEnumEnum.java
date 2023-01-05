@@ -14,19 +14,19 @@
 package com.lark.oapi.service.approval.v4.enums;
 
 /**
- *
+ * 仅在前加签、后加签时需要填写，1/2 分别代表或签/会签
  */
 public enum AddSignInstanceApprovalMethodEnumEnum {
-  OR_SIGN(1), // 或签
-  ADD_SIGN(2), // 会签
-  ;
-  private Integer value;
+    OR_SIGN(1), // 或签
+    ADD_SIGN(2), // 会签
+    ;
+    private Integer value;
 
-  AddSignInstanceApprovalMethodEnumEnum(Integer value) {
-    this.value = value;
-  }
+    AddSignInstanceApprovalMethodEnumEnum(Integer value) {
+        this.value = value;
+    }
 
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+        return this.value;
+    }
 }

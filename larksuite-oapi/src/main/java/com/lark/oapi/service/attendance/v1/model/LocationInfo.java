@@ -16,95 +16,93 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class LocationInfo {
-
-  /**
-   * 开关状态
-   * <p> 示例值：
-   */
-  @SerializedName("status")
-  private Integer status;
-  /**
-   * <p> 示例值：
-   */
-  @SerializedName("geofences")
-  private Area[] geofences;
-
-  // builder 开始
-  public LocationInfo() {
-  }
-
-  public LocationInfo(Builder builder) {
     /**
      * 开关状态
      * <p> 示例值：
      */
-    this.status = builder.status;
-    /**
-     *
-     * <p> 示例值：
-     */
-    this.geofences = builder.geofences;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public Area[] getGeofences() {
-    return this.geofences;
-  }
-
-  public void setGeofences(Area[] geofences) {
-    this.geofences = geofences;
-  }
-
-  public static class Builder {
-
-    /**
-     * 开关状态
-     * <p> 示例值：
-     */
+    @SerializedName("status")
     private Integer status;
     /**
      * <p> 示例值：
      */
+    @SerializedName("geofences")
     private Area[] geofences;
 
-    /**
-     * 开关状态
-     * <p> 示例值：
-     *
-     * @param status
-     * @return
-     */
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    // builder 开始
+    public LocationInfo() {
     }
 
-
-    /**
-     * <p> 示例值：
-     *
-     * @param geofences
-     * @return
-     */
-    public Builder geofences(Area[] geofences) {
-      this.geofences = geofences;
-      return this;
+    public LocationInfo(Builder builder) {
+        /**
+         * 开关状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
+        /**
+         *
+         * <p> 示例值：
+         */
+        this.geofences = builder.geofences;
     }
 
-
-    public LocationInfo build() {
-      return new LocationInfo(this);
+    public static Builder newBuilder() {
+        return new Builder();
     }
-  }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Area[] getGeofences() {
+        return this.geofences;
+    }
+
+    public void setGeofences(Area[] geofences) {
+        this.geofences = geofences;
+    }
+
+    public static class Builder {
+        /**
+         * 开关状态
+         * <p> 示例值：
+         */
+        private Integer status;
+        /**
+         * <p> 示例值：
+         */
+        private Area[] geofences;
+
+        /**
+         * 开关状态
+         * <p> 示例值：
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+
+        /**
+         * <p> 示例值：
+         *
+         * @param geofences
+         * @return
+         */
+        public Builder geofences(Area[] geofences) {
+            this.geofences = geofences;
+            return this;
+        }
+
+
+        public LocationInfo build() {
+            return new LocationInfo(this);
+        }
+    }
 }

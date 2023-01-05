@@ -18,84 +18,83 @@ import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 
 public class MoveDocsToWikiSpaceNodeReq {
-
-  /**
-   * 知识库id
-   * <p> 示例值：1565676577122621
-   */
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  @Body
-  private MoveDocsToWikiSpaceNodeReqBody body;
-
-  // builder 开始
-  public MoveDocsToWikiSpaceNodeReq() {
-  }
-
-  public MoveDocsToWikiSpaceNodeReq(Builder builder) {
     /**
      * 知识库id
      * <p> 示例值：1565676577122621
      */
-    this.spaceId = builder.spaceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public MoveDocsToWikiSpaceNodeReqBody getMoveDocsToWikiSpaceNodeReqBody() {
-    return this.body;
-  }
-
-  public void setMoveDocsToWikiSpaceNodeReqBody(MoveDocsToWikiSpaceNodeReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
-    private String spaceId; // 知识库id
+    @Path
+    @SerializedName("space_id")
+    private String spaceId;
+    @Body
     private MoveDocsToWikiSpaceNodeReqBody body;
 
-    /**
-     * 知识库id
-     * <p> 示例值：1565676577122621
-     *
-     * @param spaceId
-     * @return
-     */
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    // builder 开始
+    public MoveDocsToWikiSpaceNodeReq() {
+    }
+
+    public MoveDocsToWikiSpaceNodeReq(Builder builder) {
+        /**
+         * 知识库id
+         * <p> 示例值：1565676577122621
+         */
+        this.spaceId = builder.spaceId;
+        this.body = builder.body;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
     }
 
     public MoveDocsToWikiSpaceNodeReqBody getMoveDocsToWikiSpaceNodeReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    /**
-     * body
-     *
-     * @param body
-     * @return
-     */
-    public Builder moveDocsToWikiSpaceNodeReqBody(MoveDocsToWikiSpaceNodeReqBody body) {
-      this.body = body;
-      return this;
+    public void setMoveDocsToWikiSpaceNodeReqBody(MoveDocsToWikiSpaceNodeReqBody body) {
+        this.body = body;
     }
 
-    public MoveDocsToWikiSpaceNodeReq build() {
-      return new MoveDocsToWikiSpaceNodeReq(this);
+    public static class Builder {
+
+        private String spaceId; // 知识库id
+        private MoveDocsToWikiSpaceNodeReqBody body;
+
+        /**
+         * 知识库id
+         * <p> 示例值：1565676577122621
+         *
+         * @param spaceId
+         * @return
+         */
+        public Builder spaceId(String spaceId) {
+            this.spaceId = spaceId;
+            return this;
+        }
+
+        public MoveDocsToWikiSpaceNodeReqBody getMoveDocsToWikiSpaceNodeReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder moveDocsToWikiSpaceNodeReqBody(MoveDocsToWikiSpaceNodeReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public MoveDocsToWikiSpaceNodeReq build() {
+            return new MoveDocsToWikiSpaceNodeReq(this);
+        }
     }
-  }
 }

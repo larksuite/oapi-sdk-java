@@ -17,16 +17,16 @@ package com.lark.oapi.service.drive.v1.enums;
  * 可评论设置
  */
 public enum PermissionPublicCommentEntityEnum {
-  ANYONECANVIEW("anyone_can_view"), // 拥有可阅读权限的用户
-  ANYONECANEDIT("anyone_can_edit"), // 拥有可编辑权限的用户
-  ;
-  private String value;
+    ANYONECANVIEW("anyone_can_view"), // 拥有可阅读权限的用户
+    ANYONECANEDIT("anyone_can_edit"), // 拥有可编辑权限的用户
+    ;
+    private String value;
 
-  PermissionPublicCommentEntityEnum(String value) {
-    this.value = value;
-  }
+    PermissionPublicCommentEntityEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

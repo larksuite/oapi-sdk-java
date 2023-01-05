@@ -17,17 +17,17 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 语言类型
  */
 public enum QueryUserStatsFieldLocaleEnum {
-  EN("en"), // 英文
-  JA("ja"), // 日文
-  ZH("zh"), // 中文
-  ;
-  private String value;
+    EN("en"), // 英文
+    JA("ja"), // 日文
+    ZH("zh"), // 中文
+    ;
+    private String value;
 
-  QueryUserStatsFieldLocaleEnum(String value) {
-    this.value = value;
-  }
+    QueryUserStatsFieldLocaleEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

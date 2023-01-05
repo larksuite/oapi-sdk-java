@@ -17,16 +17,16 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 员工工号类型
  */
 public enum QueryUserTaskEmployeeTypeEnum {
-  EMPLOYEE_ID("employee_id"), // 员工employeeId
-  EMPLOYEE_NO("employee_no"), // 员工工号
-  ;
-  private String value;
+    EMPLOYEE_ID("employee_id"), // 员工employeeId
+    EMPLOYEE_NO("employee_no"), // 员工工号
+    ;
+    private String value;
 
-  QueryUserTaskEmployeeTypeEnum(String value) {
-    this.value = value;
-  }
+    QueryUserTaskEmployeeTypeEnum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }

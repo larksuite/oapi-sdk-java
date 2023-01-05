@@ -16,61 +16,59 @@ package com.lark.oapi.service.docx.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class InsertTableRowRequest {
-
-  /**
-   * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-   * <p> 示例值：-1
-   */
-  @SerializedName("row_index")
-  private Integer rowIndex;
-
-  // builder 开始
-  public InsertTableRowRequest() {
-  }
-
-  public InsertTableRowRequest(Builder builder) {
     /**
      * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
      * <p> 示例值：-1
      */
-    this.rowIndex = builder.rowIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowIndex() {
-    return this.rowIndex;
-  }
-
-  public void setRowIndex(Integer rowIndex) {
-    this.rowIndex = rowIndex;
-  }
-
-  public static class Builder {
-
-    /**
-     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-     * <p> 示例值：-1
-     */
+    @SerializedName("row_index")
     private Integer rowIndex;
 
-    /**
-     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-     * <p> 示例值：-1
-     *
-     * @param rowIndex
-     * @return
-     */
-    public Builder rowIndex(Integer rowIndex) {
-      this.rowIndex = rowIndex;
-      return this;
+    // builder 开始
+    public InsertTableRowRequest() {
     }
 
-
-    public InsertTableRowRequest build() {
-      return new InsertTableRowRequest(this);
+    public InsertTableRowRequest(Builder builder) {
+        /**
+         * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+         * <p> 示例值：-1
+         */
+        this.rowIndex = builder.rowIndex;
     }
-  }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public Integer getRowIndex() {
+        return this.rowIndex;
+    }
+
+    public void setRowIndex(Integer rowIndex) {
+        this.rowIndex = rowIndex;
+    }
+
+    public static class Builder {
+        /**
+         * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+         * <p> 示例值：-1
+         */
+        private Integer rowIndex;
+
+        /**
+         * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+         * <p> 示例值：-1
+         *
+         * @param rowIndex
+         * @return
+         */
+        public Builder rowIndex(Integer rowIndex) {
+            this.rowIndex = rowIndex;
+            return this;
+        }
+
+
+        public InsertTableRowRequest build() {
+            return new InsertTableRowRequest(this);
+        }
+    }
 }

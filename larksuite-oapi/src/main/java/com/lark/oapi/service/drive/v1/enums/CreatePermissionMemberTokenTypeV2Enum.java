@@ -17,22 +17,23 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文件类型，需要与文件的 token 相匹配
  */
 public enum CreatePermissionMemberTokenTypeV2Enum {
-  DOC("doc"), // 文档
-  SHEET("sheet"), // 电子表格
-  FILE("file"), // 云空间文件
-  WIKI("wiki"), // 知识库节点
-  BITABLE("bitable"), // 多维表格
-  DOCX("docx"), // 新版文档
-  FOLDER("folder"), // 文件夹
-  MINDNOTE("mindnote"), // 思维笔记
-  ;
-  private String value;
+    DOC("doc"), // 文档
+    SHEET("sheet"), // 电子表格
+    FILE("file"), // 云空间文件
+    WIKI("wiki"), // 知识库节点
+    BITABLE("bitable"), // 多维表格
+    DOCX("docx"), // 新版文档
+    FOLDER("folder"), // 文件夹
+    MINDNOTE("mindnote"), // 思维笔记
+    MINUTES("minutes"), // 妙记
+    ;
+    private String value;
 
-  CreatePermissionMemberTokenTypeV2Enum(String value) {
-    this.value = value;
-  }
+    CreatePermissionMemberTokenTypeV2Enum(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+        return this.value;
+    }
 }
