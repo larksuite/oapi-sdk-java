@@ -2,10 +2,7 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.PatchRoomReq;
-import com.lark.oapi.service.vc.v1.model.PatchRoomResp;
-import com.lark.oapi.service.vc.v1.model.Room;
-import com.lark.oapi.service.vc.v1.model.RoomStatus;
+import com.lark.oapi.service.vc.v1.model.*;
 
 // PATCH /open-apis/vc/v1/rooms/:room_id
 public class PatchRoomSample {
@@ -25,6 +22,7 @@ public class PatchRoomSample {
                         .customRoomId("1234")
                         .roomLevelId("omb_8d020b12fe49e82847c2af3c193d5754")
                         .roomStatus(RoomStatus.newBuilder().build())
+                        .device(new Device[]{})
                         .build())
                 .build();
 

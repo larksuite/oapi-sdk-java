@@ -38,7 +38,7 @@ public class GetJobReq {
      */
     @Path
     @SerializedName("job_id")
-    private Integer jobId;
+    private String jobId;
 
     // builder 开始
     public GetJobReq() {
@@ -82,18 +82,18 @@ public class GetJobReq {
         this.departmentIdType = departmentIdType;
     }
 
-    public Integer getJobId() {
+    public String getJobId() {
         return this.jobId;
     }
 
-    public void setJobId(Integer jobId) {
+    public void setJobId(String jobId) {
         this.jobId = jobId;
     }
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门 ID 的类型
-        private Integer jobId; // 职位 ID，请求Path中
+        private String jobId; // 职位 ID，请求Path中
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -126,7 +126,7 @@ public class GetJobReq {
          * @param jobId
          * @return
          */
-        public Builder jobId(Integer jobId) {
+        public Builder jobId(String jobId) {
             this.jobId = jobId;
             return this;
         }

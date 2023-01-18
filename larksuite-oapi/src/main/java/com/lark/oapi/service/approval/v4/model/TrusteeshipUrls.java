@@ -40,6 +40,12 @@ public class TrusteeshipUrls {
      */
     @SerializedName("action_callback_url")
     private String actionCallbackUrl;
+    /**
+     * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+     * <p> 示例值：https://#{your_domain}/api/pull_business_data
+     */
+    @SerializedName("pull_business_data_url")
+    private String pullBusinessDataUrl;
 
     // builder 开始
     public TrusteeshipUrls() {
@@ -66,6 +72,11 @@ public class TrusteeshipUrls {
          * <p> 示例值：https://#{your_domain}/api/approval_node
          */
         this.actionCallbackUrl = builder.actionCallbackUrl;
+        /**
+         * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+         * <p> 示例值：https://#{your_domain}/api/pull_business_data
+         */
+        this.pullBusinessDataUrl = builder.pullBusinessDataUrl;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +115,14 @@ public class TrusteeshipUrls {
         this.actionCallbackUrl = actionCallbackUrl;
     }
 
+    public String getPullBusinessDataUrl() {
+        return this.pullBusinessDataUrl;
+    }
+
+    public void setPullBusinessDataUrl(String pullBusinessDataUrl) {
+        this.pullBusinessDataUrl = pullBusinessDataUrl;
+    }
+
     public static class Builder {
         /**
          * 获取表单schema相关数据的url地址
@@ -125,6 +144,11 @@ public class TrusteeshipUrls {
          * <p> 示例值：https://#{your_domain}/api/approval_node
          */
         private String actionCallbackUrl;
+        /**
+         * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+         * <p> 示例值：https://#{your_domain}/api/pull_business_data
+         */
+        private String pullBusinessDataUrl;
 
         /**
          * 获取表单schema相关数据的url地址
@@ -174,6 +198,19 @@ public class TrusteeshipUrls {
          */
         public Builder actionCallbackUrl(String actionCallbackUrl) {
             this.actionCallbackUrl = actionCallbackUrl;
+            return this;
+        }
+
+
+        /**
+         * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+         * <p> 示例值：https://#{your_domain}/api/pull_business_data
+         *
+         * @param pullBusinessDataUrl
+         * @return
+         */
+        public Builder pullBusinessDataUrl(String pullBusinessDataUrl) {
+            this.pullBusinessDataUrl = pullBusinessDataUrl;
             return this;
         }
 

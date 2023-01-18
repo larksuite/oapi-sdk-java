@@ -208,6 +208,24 @@ public class Job {
      */
     @SerializedName("job_attribute")
     private Integer jobAttribute;
+    /**
+     * 创建时间戳
+     * <p> 示例值：1617170925462
+     */
+    @SerializedName("create_timestamp")
+    private String createTimestamp;
+    /**
+     * 更新时间戳
+     * <p> 示例值：1617170925462
+     */
+    @SerializedName("update_timestamp")
+    private String updateTimestamp;
+    /**
+     * 到期时间戳
+     * <p> 示例值：1622484739955
+     */
+    @SerializedName("expiry_timestamp")
+    private String expiryTimestamp;
 
     // builder 开始
     public Job() {
@@ -374,6 +392,21 @@ public class Job {
          * <p> 示例值：1
          */
         this.jobAttribute = builder.jobAttribute;
+        /**
+         * 创建时间戳
+         * <p> 示例值：1617170925462
+         */
+        this.createTimestamp = builder.createTimestamp;
+        /**
+         * 更新时间戳
+         * <p> 示例值：1617170925462
+         */
+        this.updateTimestamp = builder.updateTimestamp;
+        /**
+         * 到期时间戳
+         * <p> 示例值：1622484739955
+         */
+        this.expiryTimestamp = builder.expiryTimestamp;
     }
 
     public static Builder newBuilder() {
@@ -636,6 +669,30 @@ public class Job {
         this.jobAttribute = jobAttribute;
     }
 
+    public String getCreateTimestamp() {
+        return this.createTimestamp;
+    }
+
+    public void setCreateTimestamp(String createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public String getUpdateTimestamp() {
+        return this.updateTimestamp;
+    }
+
+    public void setUpdateTimestamp(String updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
+    }
+
+    public String getExpiryTimestamp() {
+        return this.expiryTimestamp;
+    }
+
+    public void setExpiryTimestamp(String expiryTimestamp) {
+        this.expiryTimestamp = expiryTimestamp;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -797,6 +854,21 @@ public class Job {
          * <p> 示例值：1
          */
         private Integer jobAttribute;
+        /**
+         * 创建时间戳
+         * <p> 示例值：1617170925462
+         */
+        private String createTimestamp;
+        /**
+         * 更新时间戳
+         * <p> 示例值：1617170925462
+         */
+        private String updateTimestamp;
+        /**
+         * 到期时间戳
+         * <p> 示例值：1622484739955
+         */
+        private String expiryTimestamp;
 
         /**
          * 职位 ID
@@ -1210,6 +1282,45 @@ public class Job {
          */
         public Builder jobAttribute(Integer jobAttribute) {
             this.jobAttribute = jobAttribute;
+            return this;
+        }
+
+
+        /**
+         * 创建时间戳
+         * <p> 示例值：1617170925462
+         *
+         * @param createTimestamp
+         * @return
+         */
+        public Builder createTimestamp(String createTimestamp) {
+            this.createTimestamp = createTimestamp;
+            return this;
+        }
+
+
+        /**
+         * 更新时间戳
+         * <p> 示例值：1617170925462
+         *
+         * @param updateTimestamp
+         * @return
+         */
+        public Builder updateTimestamp(String updateTimestamp) {
+            this.updateTimestamp = updateTimestamp;
+            return this;
+        }
+
+
+        /**
+         * 到期时间戳
+         * <p> 示例值：1622484739955
+         *
+         * @param expiryTimestamp
+         * @return
+         */
+        public Builder expiryTimestamp(String expiryTimestamp) {
+            this.expiryTimestamp = expiryTimestamp;
             return this;
         }
 

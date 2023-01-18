@@ -2,10 +2,7 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.CreateRoomReq;
-import com.lark.oapi.service.vc.v1.model.CreateRoomResp;
-import com.lark.oapi.service.vc.v1.model.Room;
-import com.lark.oapi.service.vc.v1.model.RoomStatus;
+import com.lark.oapi.service.vc.v1.model.*;
 
 // POST /open-apis/vc/v1/rooms
 public class CreateRoomSample {
@@ -24,6 +21,7 @@ public class CreateRoomSample {
                         .customRoomId("1234")
                         .roomLevelId("omb_8d020b12fe49e82847c2af3c193d5754")
                         .roomStatus(RoomStatus.newBuilder().build())
+                        .device(new Device[]{})
                         .build())
                 .build();
 

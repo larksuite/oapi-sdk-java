@@ -14,7 +14,7 @@ public class GetJobSample {
 
         // 创建请求对象
         GetJobReq req = GetJobReq.newBuilder()
-                .jobId(6001)
+                .jobId("6001")
                 .userIdType("user_id")
                 .departmentIdType("open_department_id")
                 .build();

@@ -16,7 +16,7 @@ public class ResetPasswordSample {
 
         // 创建请求对象
         ResetPasswordReq req = ResetPasswordReq.newBuilder()
-                .userIdType("open_id")
+                .userIdType("user_id")
                 .resetPasswordReqBody(ResetPasswordReqBody.newBuilder()
                         .password(Password.newBuilder().build())
                         .userId("abc123")

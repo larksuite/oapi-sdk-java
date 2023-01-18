@@ -88,6 +88,12 @@ public class InstanceCreate {
      */
     @SerializedName("allow_submit_again")
     private Boolean allowSubmitAgain;
+    /**
+     * 配置bot是否取消通知结果
+     * <p> 示例值：0
+     */
+    @SerializedName("cancel_bot_notification")
+    private String cancelBotNotification;
 
     // builder 开始
     public InstanceCreate() {
@@ -154,6 +160,11 @@ public class InstanceCreate {
          * <p> 示例值：true
          */
         this.allowSubmitAgain = builder.allowSubmitAgain;
+        /**
+         * 配置bot是否取消通知结果
+         * <p> 示例值：0
+         */
+        this.cancelBotNotification = builder.cancelBotNotification;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +267,14 @@ public class InstanceCreate {
         this.allowSubmitAgain = allowSubmitAgain;
     }
 
+    public String getCancelBotNotification() {
+        return this.cancelBotNotification;
+    }
+
+    public void setCancelBotNotification(String cancelBotNotification) {
+        this.cancelBotNotification = cancelBotNotification;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code
@@ -317,6 +336,11 @@ public class InstanceCreate {
          * <p> 示例值：true
          */
         private Boolean allowSubmitAgain;
+        /**
+         * 配置bot是否取消通知结果
+         * <p> 示例值：0
+         */
+        private String cancelBotNotification;
 
         /**
          * 审批定义 code
@@ -470,6 +494,19 @@ public class InstanceCreate {
          */
         public Builder allowSubmitAgain(Boolean allowSubmitAgain) {
             this.allowSubmitAgain = allowSubmitAgain;
+            return this;
+        }
+
+
+        /**
+         * 配置bot是否取消通知结果
+         * <p> 示例值：0
+         *
+         * @param cancelBotNotification
+         * @return
+         */
+        public Builder cancelBotNotification(String cancelBotNotification) {
+            this.cancelBotNotification = cancelBotNotification;
             return this;
         }
 

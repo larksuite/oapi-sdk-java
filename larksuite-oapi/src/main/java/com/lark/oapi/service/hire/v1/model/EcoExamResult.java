@@ -17,12 +17,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class EcoExamResult {
     /**
-     * 笔试 ID
-     * <p> 示例值：exam001
-     */
-    @SerializedName("exam_id")
-    private String examId;
-    /**
      * 笔试结果
      * <p> 示例值：60.5
      */
@@ -53,11 +47,6 @@ public class EcoExamResult {
 
     public EcoExamResult(Builder builder) {
         /**
-         * 笔试 ID
-         * <p> 示例值：exam001
-         */
-        this.examId = builder.examId;
-        /**
          * 笔试结果
          * <p> 示例值：60.5
          */
@@ -81,14 +70,6 @@ public class EcoExamResult {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String getExamId() {
-        return this.examId;
-    }
-
-    public void setExamId(String examId) {
-        this.examId = examId;
     }
 
     public String getResult() {
@@ -125,11 +106,6 @@ public class EcoExamResult {
 
     public static class Builder {
         /**
-         * 笔试 ID
-         * <p> 示例值：exam001
-         */
-        private String examId;
-        /**
          * 笔试结果
          * <p> 示例值：60.5
          */
@@ -149,19 +125,6 @@ public class EcoExamResult {
          * <p> 示例值：
          */
         private EcoExamResultDetail[] detailList;
-
-        /**
-         * 笔试 ID
-         * <p> 示例值：exam001
-         *
-         * @param examId
-         * @return
-         */
-        public Builder examId(String examId) {
-            this.examId = examId;
-            return this;
-        }
-
 
         /**
          * 笔试结果

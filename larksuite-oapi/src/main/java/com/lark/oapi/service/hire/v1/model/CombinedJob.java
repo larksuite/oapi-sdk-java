@@ -184,6 +184,12 @@ public class CombinedJob {
      */
     @SerializedName("job_attribute")
     private Integer jobAttribute;
+    /**
+     * 到期日期的毫秒时间戳
+     * <p> 示例值：1622484739955
+     */
+    @SerializedName("expiry_timestamp")
+    private String expiryTimestamp;
 
     // builder 开始
     public CombinedJob() {
@@ -330,6 +336,11 @@ public class CombinedJob {
          * <p> 示例值：职位类别
          */
         this.jobAttribute = builder.jobAttribute;
+        /**
+         * 到期日期的毫秒时间戳
+         * <p> 示例值：1622484739955
+         */
+        this.expiryTimestamp = builder.expiryTimestamp;
     }
 
     public static Builder newBuilder() {
@@ -560,6 +571,14 @@ public class CombinedJob {
         this.jobAttribute = jobAttribute;
     }
 
+    public String getExpiryTimestamp() {
+        return this.expiryTimestamp;
+    }
+
+    public void setExpiryTimestamp(String expiryTimestamp) {
+        this.expiryTimestamp = expiryTimestamp;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -701,6 +720,11 @@ public class CombinedJob {
          * <p> 示例值：职位类别
          */
         private Integer jobAttribute;
+        /**
+         * 到期日期的毫秒时间戳
+         * <p> 示例值：1622484739955
+         */
+        private String expiryTimestamp;
 
         /**
          * 职位 ID
@@ -1062,6 +1086,19 @@ public class CombinedJob {
          */
         public Builder jobAttribute(Integer jobAttribute) {
             this.jobAttribute = jobAttribute;
+            return this;
+        }
+
+
+        /**
+         * 到期日期的毫秒时间戳
+         * <p> 示例值：1622484739955
+         *
+         * @param expiryTimestamp
+         * @return
+         */
+        public Builder expiryTimestamp(String expiryTimestamp) {
+            this.expiryTimestamp = expiryTimestamp;
             return this;
         }
 

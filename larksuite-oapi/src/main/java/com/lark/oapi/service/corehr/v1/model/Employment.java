@@ -184,6 +184,18 @@ public class Employment {
      */
     @SerializedName("ats_application_id")
     private String atsApplicationId;
+    /**
+     * 是否离职重聘
+     * <p> 示例值：
+     */
+    @SerializedName("rehire")
+    private Enum rehire;
+    /**
+     * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
+     * <p> 示例值：7164286667866966659
+     */
+    @SerializedName("rehire_employment_id")
+    private String rehireEmploymentId;
 
     // builder 开始
     public Employment() {
@@ -330,6 +342,16 @@ public class Employment {
          * <p> 示例值：6838119494196871234
          */
         this.atsApplicationId = builder.atsApplicationId;
+        /**
+         * 是否离职重聘
+         * <p> 示例值：
+         */
+        this.rehire = builder.rehire;
+        /**
+         * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
+         * <p> 示例值：7164286667866966659
+         */
+        this.rehireEmploymentId = builder.rehireEmploymentId;
     }
 
     public static Builder newBuilder() {
@@ -560,6 +582,22 @@ public class Employment {
         this.atsApplicationId = atsApplicationId;
     }
 
+    public Enum getRehire() {
+        return this.rehire;
+    }
+
+    public void setRehire(Enum rehire) {
+        this.rehire = rehire;
+    }
+
+    public String getRehireEmploymentId() {
+        return this.rehireEmploymentId;
+    }
+
+    public void setRehireEmploymentId(String rehireEmploymentId) {
+        this.rehireEmploymentId = rehireEmploymentId;
+    }
+
     public static class Builder {
         /**
          * 待入职ID
@@ -701,6 +739,16 @@ public class Employment {
          * <p> 示例值：6838119494196871234
          */
         private String atsApplicationId;
+        /**
+         * 是否离职重聘
+         * <p> 示例值：
+         */
+        private Enum rehire;
+        /**
+         * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
+         * <p> 示例值：7164286667866966659
+         */
+        private String rehireEmploymentId;
 
         /**
          * 待入职ID
@@ -1062,6 +1110,32 @@ public class Employment {
          */
         public Builder atsApplicationId(String atsApplicationId) {
             this.atsApplicationId = atsApplicationId;
+            return this;
+        }
+
+
+        /**
+         * 是否离职重聘
+         * <p> 示例值：
+         *
+         * @param rehire
+         * @return
+         */
+        public Builder rehire(Enum rehire) {
+            this.rehire = rehire;
+            return this;
+        }
+
+
+        /**
+         * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
+         * <p> 示例值：7164286667866966659
+         *
+         * @param rehireEmploymentId
+         * @return
+         */
+        public Builder rehireEmploymentId(String rehireEmploymentId) {
+            this.rehireEmploymentId = rehireEmploymentId;
             return this;
         }
 

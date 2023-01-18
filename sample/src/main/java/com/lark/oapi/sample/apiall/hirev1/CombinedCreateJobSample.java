@@ -39,10 +39,11 @@ public class CombinedCreateJobSample {
                         .jobTypeId("6960663240925956551")
                         .maxLevelId("6960663240925956548")
                         .recruitmentTypeId("6960663240925956552")
-                        .requiredDegree(1)
+                        .requiredDegree(20)
                         .jobCategoryId("6960663240925956550")
                         .addressIdList(new String[]{})
-                        .jobAttribute(0)
+                        .jobAttribute(1)
+                        .expiryTimestamp("1622484739955")
                         .build())
                 .build();
 

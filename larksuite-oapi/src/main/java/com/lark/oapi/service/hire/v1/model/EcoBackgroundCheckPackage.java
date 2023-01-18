@@ -32,8 +32,8 @@ public class EcoBackgroundCheckPackage {
      * 附加调查项列表
      * <p> 示例值：
      */
-    @SerializedName("additonal_item_list")
-    private EcoBackgroundCheckPackageAdditionalItem[] additonalItemList;
+    @SerializedName("additional_item_list")
+    private EcoBackgroundCheckPackageAdditionalItem[] additionalItemList;
 
     // builder 开始
     public EcoBackgroundCheckPackage() {
@@ -54,7 +54,7 @@ public class EcoBackgroundCheckPackage {
          * 附加调查项列表
          * <p> 示例值：
          */
-        this.additonalItemList = builder.additonalItemList;
+        this.additionalItemList = builder.additionalItemList;
     }
 
     public static Builder newBuilder() {
@@ -77,12 +77,12 @@ public class EcoBackgroundCheckPackage {
         this.packageList = packageList;
     }
 
-    public EcoBackgroundCheckPackageAdditionalItem[] getAdditonalItemList() {
-        return this.additonalItemList;
+    public EcoBackgroundCheckPackageAdditionalItem[] getAdditionalItemList() {
+        return this.additionalItemList;
     }
 
-    public void setAdditonalItemList(EcoBackgroundCheckPackageAdditionalItem[] additonalItemList) {
-        this.additonalItemList = additonalItemList;
+    public void setAdditionalItemList(EcoBackgroundCheckPackageAdditionalItem[] additionalItemList) {
+        this.additionalItemList = additionalItemList;
     }
 
     public static class Builder {
@@ -100,7 +100,7 @@ public class EcoBackgroundCheckPackage {
          * 附加调查项列表
          * <p> 示例值：
          */
-        private EcoBackgroundCheckPackageAdditionalItem[] additonalItemList;
+        private EcoBackgroundCheckPackageAdditionalItem[] additionalItemList;
 
         /**
          * 背调账号 ID，可在「账号绑定」事件中获取
@@ -132,11 +132,11 @@ public class EcoBackgroundCheckPackage {
          * 附加调查项列表
          * <p> 示例值：
          *
-         * @param additonalItemList
+         * @param additionalItemList
          * @return
          */
-        public Builder additonalItemList(EcoBackgroundCheckPackageAdditionalItem[] additonalItemList) {
-            this.additonalItemList = additonalItemList;
+        public Builder additionalItemList(EcoBackgroundCheckPackageAdditionalItem[] additionalItemList) {
+            this.additionalItemList = additionalItemList;
             return this;
         }
 

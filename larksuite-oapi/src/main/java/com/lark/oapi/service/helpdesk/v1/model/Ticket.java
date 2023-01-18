@@ -81,7 +81,7 @@ public class Ticket {
      * <p> 示例值：
      */
     @SerializedName("dissatisfaction_reason")
-    private String[] dissatisfactionReason;
+    private I18n dissatisfactionReason;
     /**
      * 工单客服
      * <p> 示例值：
@@ -394,11 +394,11 @@ public class Ticket {
         this.closedAt = closedAt;
     }
 
-    public String[] getDissatisfactionReason() {
+    public I18n getDissatisfactionReason() {
         return this.dissatisfactionReason;
     }
 
-    public void setDissatisfactionReason(String[] dissatisfactionReason) {
+    public void setDissatisfactionReason(I18n dissatisfactionReason) {
         this.dissatisfactionReason = dissatisfactionReason;
     }
 
@@ -577,7 +577,7 @@ public class Ticket {
          * 不满意原因
          * <p> 示例值：
          */
-        private String[] dissatisfactionReason;
+        private I18n dissatisfactionReason;
         /**
          * 工单客服
          * <p> 示例值：
@@ -791,7 +791,7 @@ public class Ticket {
          * @param dissatisfactionReason
          * @return
          */
-        public Builder dissatisfactionReason(String[] dissatisfactionReason) {
+        public Builder dissatisfactionReason(I18n dissatisfactionReason) {
             this.dissatisfactionReason = dissatisfactionReason;
             return this;
         }

@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 public class AuditInfo {
     /**
      * 事件id
-     * <p> 示例值：
+     * <p> 示例值：7126195947859656705
      */
     @SerializedName("event_id")
     private String eventId;
     /**
      * 唯一id
-     * <p> 示例值：
+     * <p> 示例值：7126195947859656705
      */
     @SerializedName("unique_id")
     private String uniqueId;
     /**
      * 事件名称
-     * <p> 示例值：
+     * <p> 示例值：space_read_doc
      */
     @SerializedName("event_name")
     private String eventName;
@@ -42,7 +42,7 @@ public class AuditInfo {
     private String[] departmentIds;
     /**
      * 模块
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("event_module")
     private Integer eventModule;
@@ -54,7 +54,7 @@ public class AuditInfo {
     private Integer operatorType;
     /**
      * 操作人id
-     * <p> 示例值：
+     * <p> 示例值：11111111111111
      */
     @SerializedName("operator_value")
     private String operatorValue;
@@ -72,19 +72,19 @@ public class AuditInfo {
     private AuditRecipientEntity[] recipients;
     /**
      * 事件时间
-     * <p> 示例值：
+     * <p> 示例值：1669046400
      */
     @SerializedName("event_time")
     private Integer eventTime;
     /**
      * ip信息
-     * <p> 示例值：
+     * <p> 示例值：192.168.168.1
      */
     @SerializedName("ip")
     private String ip;
     /**
      * 第三方isvID
-     * <p> 示例值：
+     * <p> 示例值：xxx
      */
     @SerializedName("operator_app")
     private String operatorApp;
@@ -102,7 +102,7 @@ public class AuditInfo {
     private AuditEventExtend extend;
     /**
      * 第三方isv名称
-     * <p> 示例值：
+     * <p> 示例值：xxx
      */
     @SerializedName("operator_app_name")
     private String operatorAppName;
@@ -112,6 +112,12 @@ public class AuditInfo {
      */
     @SerializedName("common_drawers")
     private ApiAuditCommonDrawers commonDrawers;
+    /**
+     * 日志扩展信息
+     * <p> 示例值：
+     */
+    @SerializedName("audit_detail")
+    private AuditDetail auditDetail;
 
     // builder 开始
     public AuditInfo() {
@@ -120,17 +126,17 @@ public class AuditInfo {
     public AuditInfo(Builder builder) {
         /**
          * 事件id
-         * <p> 示例值：
+         * <p> 示例值：7126195947859656705
          */
         this.eventId = builder.eventId;
         /**
          * 唯一id
-         * <p> 示例值：
+         * <p> 示例值：7126195947859656705
          */
         this.uniqueId = builder.uniqueId;
         /**
          * 事件名称
-         * <p> 示例值：
+         * <p> 示例值：space_read_doc
          */
         this.eventName = builder.eventName;
         /**
@@ -140,7 +146,7 @@ public class AuditInfo {
         this.departmentIds = builder.departmentIds;
         /**
          * 模块
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.eventModule = builder.eventModule;
         /**
@@ -150,7 +156,7 @@ public class AuditInfo {
         this.operatorType = builder.operatorType;
         /**
          * 操作人id
-         * <p> 示例值：
+         * <p> 示例值：11111111111111
          */
         this.operatorValue = builder.operatorValue;
         /**
@@ -165,17 +171,17 @@ public class AuditInfo {
         this.recipients = builder.recipients;
         /**
          * 事件时间
-         * <p> 示例值：
+         * <p> 示例值：1669046400
          */
         this.eventTime = builder.eventTime;
         /**
          * ip信息
-         * <p> 示例值：
+         * <p> 示例值：192.168.168.1
          */
         this.ip = builder.ip;
         /**
          * 第三方isvID
-         * <p> 示例值：
+         * <p> 示例值：xxx
          */
         this.operatorApp = builder.operatorApp;
         /**
@@ -190,7 +196,7 @@ public class AuditInfo {
         this.extend = builder.extend;
         /**
          * 第三方isv名称
-         * <p> 示例值：
+         * <p> 示例值：xxx
          */
         this.operatorAppName = builder.operatorAppName;
         /**
@@ -198,6 +204,11 @@ public class AuditInfo {
          * <p> 示例值：
          */
         this.commonDrawers = builder.commonDrawers;
+        /**
+         * 日志扩展信息
+         * <p> 示例值：
+         */
+        this.auditDetail = builder.auditDetail;
     }
 
     public static Builder newBuilder() {
@@ -332,20 +343,28 @@ public class AuditInfo {
         this.commonDrawers = commonDrawers;
     }
 
+    public AuditDetail getAuditDetail() {
+        return this.auditDetail;
+    }
+
+    public void setAuditDetail(AuditDetail auditDetail) {
+        this.auditDetail = auditDetail;
+    }
+
     public static class Builder {
         /**
          * 事件id
-         * <p> 示例值：
+         * <p> 示例值：7126195947859656705
          */
         private String eventId;
         /**
          * 唯一id
-         * <p> 示例值：
+         * <p> 示例值：7126195947859656705
          */
         private String uniqueId;
         /**
          * 事件名称
-         * <p> 示例值：
+         * <p> 示例值：space_read_doc
          */
         private String eventName;
         /**
@@ -355,7 +374,7 @@ public class AuditInfo {
         private String[] departmentIds;
         /**
          * 模块
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Integer eventModule;
         /**
@@ -365,7 +384,7 @@ public class AuditInfo {
         private Integer operatorType;
         /**
          * 操作人id
-         * <p> 示例值：
+         * <p> 示例值：11111111111111
          */
         private String operatorValue;
         /**
@@ -380,17 +399,17 @@ public class AuditInfo {
         private AuditRecipientEntity[] recipients;
         /**
          * 事件时间
-         * <p> 示例值：
+         * <p> 示例值：1669046400
          */
         private Integer eventTime;
         /**
          * ip信息
-         * <p> 示例值：
+         * <p> 示例值：192.168.168.1
          */
         private String ip;
         /**
          * 第三方isvID
-         * <p> 示例值：
+         * <p> 示例值：xxx
          */
         private String operatorApp;
         /**
@@ -405,7 +424,7 @@ public class AuditInfo {
         private AuditEventExtend extend;
         /**
          * 第三方isv名称
-         * <p> 示例值：
+         * <p> 示例值：xxx
          */
         private String operatorAppName;
         /**
@@ -413,10 +432,15 @@ public class AuditInfo {
          * <p> 示例值：
          */
         private ApiAuditCommonDrawers commonDrawers;
+        /**
+         * 日志扩展信息
+         * <p> 示例值：
+         */
+        private AuditDetail auditDetail;
 
         /**
          * 事件id
-         * <p> 示例值：
+         * <p> 示例值：7126195947859656705
          *
          * @param eventId
          * @return
@@ -429,7 +453,7 @@ public class AuditInfo {
 
         /**
          * 唯一id
-         * <p> 示例值：
+         * <p> 示例值：7126195947859656705
          *
          * @param uniqueId
          * @return
@@ -442,7 +466,7 @@ public class AuditInfo {
 
         /**
          * 事件名称
-         * <p> 示例值：
+         * <p> 示例值：space_read_doc
          *
          * @param eventName
          * @return
@@ -468,7 +492,7 @@ public class AuditInfo {
 
         /**
          * 模块
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param eventModule
          * @return
@@ -506,7 +530,7 @@ public class AuditInfo {
 
         /**
          * 操作人id
-         * <p> 示例值：
+         * <p> 示例值：11111111111111
          *
          * @param operatorValue
          * @return
@@ -545,7 +569,7 @@ public class AuditInfo {
 
         /**
          * 事件时间
-         * <p> 示例值：
+         * <p> 示例值：1669046400
          *
          * @param eventTime
          * @return
@@ -558,7 +582,7 @@ public class AuditInfo {
 
         /**
          * ip信息
-         * <p> 示例值：
+         * <p> 示例值：192.168.168.1
          *
          * @param ip
          * @return
@@ -571,7 +595,7 @@ public class AuditInfo {
 
         /**
          * 第三方isvID
-         * <p> 示例值：
+         * <p> 示例值：xxx
          *
          * @param operatorApp
          * @return
@@ -610,7 +634,7 @@ public class AuditInfo {
 
         /**
          * 第三方isv名称
-         * <p> 示例值：
+         * <p> 示例值：xxx
          *
          * @param operatorAppName
          * @return
@@ -630,6 +654,19 @@ public class AuditInfo {
          */
         public Builder commonDrawers(ApiAuditCommonDrawers commonDrawers) {
             this.commonDrawers = commonDrawers;
+            return this;
+        }
+
+
+        /**
+         * 日志扩展信息
+         * <p> 示例值：
+         *
+         * @param auditDetail
+         * @return
+         */
+        public Builder auditDetail(AuditDetail auditDetail) {
+            this.auditDetail = auditDetail;
             return this;
         }
 

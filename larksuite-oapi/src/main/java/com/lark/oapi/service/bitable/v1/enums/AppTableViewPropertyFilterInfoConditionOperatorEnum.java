@@ -24,7 +24,7 @@ public enum AppTableViewPropertyFilterInfoConditionOperatorEnum {
     ISEMPTY("isEmpty"), // 为空
     ISNOTEMPTY("isNotEmpty"), // 不为空
     ISGREATER("isGreater"), // 大于
-    ISGREATEREQUAL("isGreater"), // 大于等于
+    ISGREATEREQUAL("isGreaterEqual"), // 大于等于
     ISLESS("isLess"), // 小于
     ISLESSEQUAL("isLessEqual"), // 小于等于
     ;

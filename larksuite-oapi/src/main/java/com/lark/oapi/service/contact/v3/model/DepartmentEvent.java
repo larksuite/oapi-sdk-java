@@ -70,6 +70,12 @@ public class DepartmentEvent {
      */
     @SerializedName("leaders")
     private DepartmentLeader[] leaders;
+    /**
+     * 部门HRBP
+     * <p> 示例值：
+     */
+    @SerializedName("department_hrbps")
+    private UserId[] departmentHrbps;
 
     // builder 开始
     public DepartmentEvent() {
@@ -121,6 +127,11 @@ public class DepartmentEvent {
          * <p> 示例值：
          */
         this.leaders = builder.leaders;
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         */
+        this.departmentHrbps = builder.departmentHrbps;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +210,14 @@ public class DepartmentEvent {
         this.leaders = leaders;
     }
 
+    public UserId[] getDepartmentHrbps() {
+        return this.departmentHrbps;
+    }
+
+    public void setDepartmentHrbps(UserId[] departmentHrbps) {
+        this.departmentHrbps = departmentHrbps;
+    }
+
     public static class Builder {
         /**
          * 部门名称
@@ -245,6 +264,11 @@ public class DepartmentEvent {
          * <p> 示例值：
          */
         private DepartmentLeader[] leaders;
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         */
+        private UserId[] departmentHrbps;
 
         /**
          * 部门名称
@@ -359,6 +383,19 @@ public class DepartmentEvent {
          */
         public Builder leaders(DepartmentLeader[] leaders) {
             this.leaders = leaders;
+            return this;
+        }
+
+
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         *
+         * @param departmentHrbps
+         * @return
+         */
+        public Builder departmentHrbps(UserId[] departmentHrbps) {
+            this.departmentHrbps = departmentHrbps;
             return this;
         }
 

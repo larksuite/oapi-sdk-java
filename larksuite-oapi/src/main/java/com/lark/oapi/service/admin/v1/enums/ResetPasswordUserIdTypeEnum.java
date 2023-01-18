@@ -14,7 +14,7 @@
 package com.lark.oapi.service.admin.v1.enums;
 
 /**
- *
+ * 用户ID类型
  */
 public enum ResetPasswordUserIdTypeEnum {
     OPEN_ID("open_id"), // open_id

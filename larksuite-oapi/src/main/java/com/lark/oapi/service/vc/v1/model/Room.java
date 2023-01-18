@@ -70,6 +70,12 @@ public class Room {
      */
     @SerializedName("room_status")
     private RoomStatus roomStatus;
+    /**
+     * 设施信息列表
+     * <p> 示例值：
+     */
+    @SerializedName("device")
+    private Device[] device;
 
     // builder 开始
     public Room() {
@@ -121,6 +127,11 @@ public class Room {
          * <p> 示例值：
          */
         this.roomStatus = builder.roomStatus;
+        /**
+         * 设施信息列表
+         * <p> 示例值：
+         */
+        this.device = builder.device;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +210,14 @@ public class Room {
         this.roomStatus = roomStatus;
     }
 
+    public Device[] getDevice() {
+        return this.device;
+    }
+
+    public void setDevice(Device[] device) {
+        this.device = device;
+    }
+
     public static class Builder {
         /**
          * 会议室ID
@@ -245,6 +264,11 @@ public class Room {
          * <p> 示例值：
          */
         private RoomStatus roomStatus;
+        /**
+         * 设施信息列表
+         * <p> 示例值：
+         */
+        private Device[] device;
 
         /**
          * 会议室ID
@@ -359,6 +383,19 @@ public class Room {
          */
         public Builder roomStatus(RoomStatus roomStatus) {
             this.roomStatus = roomStatus;
+            return this;
+        }
+
+
+        /**
+         * 设施信息列表
+         * <p> 示例值：
+         *
+         * @param device
+         * @return
+         */
+        public Builder device(Device[] device) {
+            this.device = device;
             return this;
         }
 

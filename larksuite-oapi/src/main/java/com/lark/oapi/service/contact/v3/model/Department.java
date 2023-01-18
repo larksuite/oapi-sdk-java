@@ -100,6 +100,12 @@ public class Department {
      */
     @SerializedName("group_chat_employee_types")
     private Integer[] groupChatEmployeeTypes;
+    /**
+     * 部门HRBP
+     * <p> 示例值：
+     */
+    @SerializedName("department_hrbps")
+    private String[] departmentHrbps;
 
     // builder 开始
     public Department() {
@@ -176,6 +182,11 @@ public class Department {
          * <p> 示例值：[1,2,3]
          */
         this.groupChatEmployeeTypes = builder.groupChatEmployeeTypes;
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         */
+        this.departmentHrbps = builder.departmentHrbps;
     }
 
     public static Builder newBuilder() {
@@ -294,6 +305,14 @@ public class Department {
         this.groupChatEmployeeTypes = groupChatEmployeeTypes;
     }
 
+    public String[] getDepartmentHrbps() {
+        return this.departmentHrbps;
+    }
+
+    public void setDepartmentHrbps(String[] departmentHrbps) {
+        this.departmentHrbps = departmentHrbps;
+    }
+
     public static class Builder {
         /**
          * 部门名称
@@ -365,6 +384,11 @@ public class Department {
          * <p> 示例值：[1,2,3]
          */
         private Integer[] groupChatEmployeeTypes;
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         */
+        private String[] departmentHrbps;
 
         /**
          * 部门名称
@@ -544,6 +568,19 @@ public class Department {
          */
         public Builder groupChatEmployeeTypes(Integer[] groupChatEmployeeTypes) {
             this.groupChatEmployeeTypes = groupChatEmployeeTypes;
+            return this;
+        }
+
+
+        /**
+         * 部门HRBP
+         * <p> 示例值：
+         *
+         * @param departmentHrbps
+         * @return
+         */
+        public Builder departmentHrbps(String[] departmentHrbps) {
+            this.departmentHrbps = departmentHrbps;
             return this;
         }
 

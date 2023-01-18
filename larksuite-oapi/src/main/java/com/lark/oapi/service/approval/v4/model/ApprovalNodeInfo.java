@@ -58,6 +58,12 @@ public class ApprovalNodeInfo {
      */
     @SerializedName("approver_chosen_range")
     private ApproverChosenRange[] approverChosenRange;
+    /**
+     * 是否签名
+     * <p> 示例值：false
+     */
+    @SerializedName("require_signature")
+    private Boolean requireSignature;
 
     // builder 开始
     public ApprovalNodeInfo() {
@@ -99,6 +105,11 @@ public class ApprovalNodeInfo {
          * <p> 示例值：
          */
         this.approverChosenRange = builder.approverChosenRange;
+        /**
+         * 是否签名
+         * <p> 示例值：false
+         */
+        this.requireSignature = builder.requireSignature;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class ApprovalNodeInfo {
         this.approverChosenRange = approverChosenRange;
     }
 
+    public Boolean getRequireSignature() {
+        return this.requireSignature;
+    }
+
+    public void setRequireSignature(Boolean requireSignature) {
+        this.requireSignature = requireSignature;
+    }
+
     public static class Builder {
         /**
          * 节点名称
@@ -197,6 +216,11 @@ public class ApprovalNodeInfo {
          * <p> 示例值：
          */
         private ApproverChosenRange[] approverChosenRange;
+        /**
+         * 是否签名
+         * <p> 示例值：false
+         */
+        private Boolean requireSignature;
 
         /**
          * 节点名称
@@ -297,6 +321,19 @@ public class ApprovalNodeInfo {
          */
         public Builder approverChosenRange(ApproverChosenRange[] approverChosenRange) {
             this.approverChosenRange = approverChosenRange;
+            return this;
+        }
+
+
+        /**
+         * 是否签名
+         * <p> 示例值：false
+         *
+         * @param requireSignature
+         * @return
+         */
+        public Builder requireSignature(Boolean requireSignature) {
+            this.requireSignature = requireSignature;
             return this;
         }
 

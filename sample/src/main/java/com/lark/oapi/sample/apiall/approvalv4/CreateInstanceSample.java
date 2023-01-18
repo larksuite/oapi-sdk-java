@@ -26,6 +26,7 @@ public class CreateInstanceSample {
                         .uuid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX")
                         .allowResubmit(true)
                         .allowSubmitAgain(true)
+                        .cancelBotNotification("0")
                         .build())
                 .build();
 

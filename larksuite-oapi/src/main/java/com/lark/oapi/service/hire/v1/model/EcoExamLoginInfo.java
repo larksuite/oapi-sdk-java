@@ -17,12 +17,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class EcoExamLoginInfo {
     /**
-     * 笔试 ID
-     * <p> 示例值：exam001
-     */
-    @SerializedName("exam_id")
-    private String examId;
-    /**
      * 笔试链接
      * <p> 示例值：https://xxxx/xxxx/xxxx
      */
@@ -47,11 +41,6 @@ public class EcoExamLoginInfo {
 
     public EcoExamLoginInfo(Builder builder) {
         /**
-         * 笔试 ID
-         * <p> 示例值：exam001
-         */
-        this.examId = builder.examId;
-        /**
          * 笔试链接
          * <p> 示例值：https://xxxx/xxxx/xxxx
          */
@@ -70,14 +59,6 @@ public class EcoExamLoginInfo {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String getExamId() {
-        return this.examId;
-    }
-
-    public void setExamId(String examId) {
-        this.examId = examId;
     }
 
     public String getExamUrl() {
@@ -106,11 +87,6 @@ public class EcoExamLoginInfo {
 
     public static class Builder {
         /**
-         * 笔试 ID
-         * <p> 示例值：exam001
-         */
-        private String examId;
-        /**
          * 笔试链接
          * <p> 示例值：https://xxxx/xxxx/xxxx
          */
@@ -125,19 +101,6 @@ public class EcoExamLoginInfo {
          * <p> 示例值：xxxxxx
          */
         private String password;
-
-        /**
-         * 笔试 ID
-         * <p> 示例值：exam001
-         *
-         * @param examId
-         * @return
-         */
-        public Builder examId(String examId) {
-            this.examId = examId;
-            return this;
-        }
-
 
         /**
          * 笔试链接

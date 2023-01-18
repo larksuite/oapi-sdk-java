@@ -154,6 +154,18 @@ public class UserEvent {
      */
     @SerializedName("custom_attrs")
     private UserCustomAttr[] customAttrs;
+    /**
+     * 职级ID
+     * <p> 示例值：mga5oa8ayjlp9rb
+     */
+    @SerializedName("job_level_id")
+    private String jobLevelId;
+    /**
+     * 序列ID
+     * <p> 示例值：mga5oa8ayjlp9rb
+     */
+    @SerializedName("job_family_id")
+    private String jobFamilyId;
 
     // builder 开始
     public UserEvent() {
@@ -275,6 +287,16 @@ public class UserEvent {
          * <p> 示例值：
          */
         this.customAttrs = builder.customAttrs;
+        /**
+         * 职级ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         */
+        this.jobLevelId = builder.jobLevelId;
+        /**
+         * 序列ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         */
+        this.jobFamilyId = builder.jobFamilyId;
     }
 
     public static Builder newBuilder() {
@@ -465,6 +487,22 @@ public class UserEvent {
         this.customAttrs = customAttrs;
     }
 
+    public String getJobLevelId() {
+        return this.jobLevelId;
+    }
+
+    public void setJobLevelId(String jobLevelId) {
+        this.jobLevelId = jobLevelId;
+    }
+
+    public String getJobFamilyId() {
+        return this.jobFamilyId;
+    }
+
+    public void setJobFamilyId(String jobFamilyId) {
+        this.jobFamilyId = jobFamilyId;
+    }
+
     public static class Builder {
         /**
          * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -581,6 +619,16 @@ public class UserEvent {
          * <p> 示例值：
          */
         private UserCustomAttr[] customAttrs;
+        /**
+         * 职级ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         */
+        private String jobLevelId;
+        /**
+         * 序列ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         */
+        private String jobFamilyId;
 
         /**
          * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -901,6 +949,32 @@ public class UserEvent {
          */
         public Builder customAttrs(UserCustomAttr[] customAttrs) {
             this.customAttrs = customAttrs;
+            return this;
+        }
+
+
+        /**
+         * 职级ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         *
+         * @param jobLevelId
+         * @return
+         */
+        public Builder jobLevelId(String jobLevelId) {
+            this.jobLevelId = jobLevelId;
+            return this;
+        }
+
+
+        /**
+         * 序列ID
+         * <p> 示例值：mga5oa8ayjlp9rb
+         *
+         * @param jobFamilyId
+         * @return
+         */
+        public Builder jobFamilyId(String jobFamilyId) {
+            this.jobFamilyId = jobFamilyId;
             return this;
         }
 
