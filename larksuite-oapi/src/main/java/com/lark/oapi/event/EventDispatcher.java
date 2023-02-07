@@ -1299,6 +1299,21 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ReserveConfigUpdatedV1(VcService.P2ReserveConfigUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("vc.reserve_config.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("vc.reserve_config.updated_v1");
+            }
+            eventType2EventHandler.put("vc.reserve_config.updated_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 创建会议室,当创建会议室时，会触发该事件
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/events/created</a>
          *
@@ -1340,6 +1355,51 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("vc.room.updated_v1");
             }
             eventType2EventHandler.put("vc.room.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2RoomLevelCreatedV1(VcService.P2RoomLevelCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("vc.room_level.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("vc.room_level.created_v1");
+            }
+            eventType2EventHandler.put("vc.room_level.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2RoomLevelDeletedV1(VcService.P2RoomLevelDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("vc.room_level.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("vc.room_level.deleted_v1");
+            }
+            eventType2EventHandler.put("vc.room_level.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2RoomLevelUpdatedV1(VcService.P2RoomLevelUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("vc.room_level.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("vc.room_level.updated_v1");
+            }
+            eventType2EventHandler.put("vc.room_level.updated_v1", handler);
             return this;
         }
 

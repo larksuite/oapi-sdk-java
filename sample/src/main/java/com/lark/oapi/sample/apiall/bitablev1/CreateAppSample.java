@@ -2,27 +2,27 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.ListAppTableViewReq;
-import com.lark.oapi.service.bitable.v1.model.ListAppTableViewResp;
+import com.lark.oapi.service.bitable.v1.model.CreateAppReq;
+import com.lark.oapi.service.bitable.v1.model.CreateAppResp;
+import com.lark.oapi.service.bitable.v1.model.ReqApp;
 
-// GET /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views
-public class ListAppTableViewSample {
+// POST /open-apis/bitable/v1/apps
+public class CreateAppSample {
 
     public static void main(String arg[]) throws Exception {
         // 构建client
         Client client = Client.newBuilder("appId", "appSecret").build();
 
         // 创建请求对象
-        ListAppTableViewReq req = ListAppTableViewReq.newBuilder()
-                .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
-                .tableId("tblsRc9GRRXKqhvW")
-                .pageSize(10)
-                .pageToken("vewTpR1urY")
-                .userIdType("user_id")
+        CreateAppReq req = CreateAppReq.newBuilder()
+                .reqApp(ReqApp.newBuilder()
+                        .name("一篇新的多维表格")
+                        .folderToken("fldbcoh8O99CIMltVc")
+                        .build())
                 .build();
 
         // 发起请求
-        ListAppTableViewResp resp = client.bitable().appTableView().list(req);
+        CreateAppResp resp = client.bitable().app().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -55,6 +55,7 @@ public enum BlockBlockTypeEnum {
     OKROBJECTIVE(37), // OKR Objective
     OKRKEYRESULT(38), // OKR Key Result
     OKRPROGRESS(39), // OKR 进展
+    ADDONS(40), // 文档小组件
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

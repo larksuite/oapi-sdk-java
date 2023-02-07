@@ -44,7 +44,6 @@ import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
 import com.lark.oapi.service.ext.ExtService;
-import com.lark.oapi.service.face_detection.v1.FaceDetectionService;
 import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.hire.v1.HireService;
@@ -71,7 +70,7 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     private Config config;
     private AcsService acs; // 智能门禁
-    private AdminService admin; // 管理后台-密码
+    private AdminService admin; // 管理后台-企业勋章
     private ApplicationService application; // 应用信息
     private ApprovalService approval; // 审批
     private AttendanceService attendance; // 打卡
@@ -86,7 +85,6 @@ public class Client {
     private DriveService drive; // 云文档-文件管理
     private EhrService ehr; // 智能人事
     private EventService event; // 事件订阅
-    private FaceDetectionService faceDetection; // AI能力
     private GrayTestOpenSgService grayTestOpenSg; //
     private HelpdeskService helpdesk; // 服务台
     private HireService hire; // 招聘
@@ -130,7 +128,7 @@ public class Client {
     }
 
     /**
-     * 管理后台-密码
+     * 管理后台-企业勋章
      *
      * @return
      */
@@ -260,15 +258,6 @@ public class Client {
      */
     public EventService event() {
         return event;
-    }
-
-    /**
-     * AI能力
-     *
-     * @return
-     */
-    public FaceDetectionService faceDetection() {
-        return faceDetection;
     }
 
     /**
@@ -616,7 +605,6 @@ public class Client {
             client.drive = new DriveService(config);
             client.ehr = new EhrService(config);
             client.event = new EventService(config);
-            client.faceDetection = new FaceDetectionService(config);
             client.grayTestOpenSg = new GrayTestOpenSgService(config);
             client.helpdesk = new HelpdeskService(config);
             client.hire = new HireService(config);

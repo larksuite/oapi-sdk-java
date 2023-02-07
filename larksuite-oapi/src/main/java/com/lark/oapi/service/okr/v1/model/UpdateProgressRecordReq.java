@@ -21,7 +21,7 @@ import com.lark.oapi.core.annotation.Query;
 public class UpdateProgressRecordReq {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：user_id
+     * <p> 示例值：
      */
     @Query
     @SerializedName("user_id_type")
@@ -43,7 +43,7 @@ public class UpdateProgressRecordReq {
     public UpdateProgressRecordReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
         /**
@@ -89,7 +89,7 @@ public class UpdateProgressRecordReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          *
          * @param userIdType
          * @return
@@ -101,7 +101,7 @@ public class UpdateProgressRecordReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          *
          * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.UpdateProgressRecordUserIdTypeEnum}
          * @return

@@ -11,13 +11,20 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.okr.v1.model;
+package com.lark.oapi.service.vc.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-public class CreateProgressRecordReq {
+public class GetReserveConfigAdminReq {
+    /**
+     * 会议室或层级
+     * <p> 示例值：2
+     */
+    @Query
+    @SerializedName("scope_type")
+    private Integer scopeType;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
@@ -25,24 +32,46 @@ public class CreateProgressRecordReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
-    @Body
-    private CreateProgressRecordReqBody body;
+    /**
+     * 会议室或层级id
+     * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+     */
+    @Path
+    @SerializedName("reserve_config_id")
+    private String reserveConfigId;
 
     // builder 开始
-    public CreateProgressRecordReq() {
+    public GetReserveConfigAdminReq() {
     }
 
-    public CreateProgressRecordReq(Builder builder) {
+    public GetReserveConfigAdminReq(Builder builder) {
+        /**
+         * 会议室或层级
+         * <p> 示例值：2
+         */
+        this.scopeType = builder.scopeType;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
-        this.body = builder.body;
+        /**
+         * 会议室或层级id
+         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+         */
+        this.reserveConfigId = builder.reserveConfigId;
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Integer getScopeType() {
+        return this.scopeType;
+    }
+
+    public void setScopeType(Integer scopeType) {
+        this.scopeType = scopeType;
     }
 
     public String getUserIdType() {
@@ -53,17 +82,30 @@ public class CreateProgressRecordReq {
         this.userIdType = userIdType;
     }
 
-    public CreateProgressRecordReqBody getCreateProgressRecordReqBody() {
-        return this.body;
+    public String getReserveConfigId() {
+        return this.reserveConfigId;
     }
 
-    public void setCreateProgressRecordReqBody(CreateProgressRecordReqBody body) {
-        this.body = body;
+    public void setReserveConfigId(String reserveConfigId) {
+        this.reserveConfigId = reserveConfigId;
     }
 
     public static class Builder {
+        private Integer scopeType; // 会议室或层级
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private CreateProgressRecordReqBody body;
+        private String reserveConfigId; // 会议室或层级id
+
+        /**
+         * 会议室或层级
+         * <p> 示例值：2
+         *
+         * @param scopeType
+         * @return
+         */
+        public Builder scopeType(Integer scopeType) {
+            this.scopeType = scopeType;
+            return this;
+        }
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -81,31 +123,28 @@ public class CreateProgressRecordReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetReserveConfigAdminUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.CreateProgressRecordUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetReserveConfigAdminUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
 
-        public CreateProgressRecordReqBody getCreateProgressRecordReqBody() {
-            return this.body;
-        }
-
         /**
-         * body
+         * 会议室或层级id
+         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
          *
-         * @param body
+         * @param reserveConfigId
          * @return
          */
-        public Builder createProgressRecordReqBody(CreateProgressRecordReqBody body) {
-            this.body = body;
+        public Builder reserveConfigId(String reserveConfigId) {
+            this.reserveConfigId = reserveConfigId;
             return this;
         }
 
-        public CreateProgressRecordReq build() {
-            return new CreateProgressRecordReq(this);
+        public GetReserveConfigAdminReq build() {
+            return new GetReserveConfigAdminReq(this);
         }
     }
 }

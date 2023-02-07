@@ -11,13 +11,14 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.okr.v1.model;
+package com.lark.oapi.service.vc.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-public class CreateProgressRecordReq {
+public class PatchReserveConfigAdminReq {
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
@@ -25,19 +26,31 @@ public class CreateProgressRecordReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 会议室或层级id
+     * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+     */
+    @Path
+    @SerializedName("reserve_config_id")
+    private String reserveConfigId;
     @Body
-    private CreateProgressRecordReqBody body;
+    private PatchReserveConfigAdminReqBody body;
 
     // builder 开始
-    public CreateProgressRecordReq() {
+    public PatchReserveConfigAdminReq() {
     }
 
-    public CreateProgressRecordReq(Builder builder) {
+    public PatchReserveConfigAdminReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 会议室或层级id
+         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+         */
+        this.reserveConfigId = builder.reserveConfigId;
         this.body = builder.body;
     }
 
@@ -53,17 +66,26 @@ public class CreateProgressRecordReq {
         this.userIdType = userIdType;
     }
 
-    public CreateProgressRecordReqBody getCreateProgressRecordReqBody() {
+    public String getReserveConfigId() {
+        return this.reserveConfigId;
+    }
+
+    public void setReserveConfigId(String reserveConfigId) {
+        this.reserveConfigId = reserveConfigId;
+    }
+
+    public PatchReserveConfigAdminReqBody getPatchReserveConfigAdminReqBody() {
         return this.body;
     }
 
-    public void setCreateProgressRecordReqBody(CreateProgressRecordReqBody body) {
+    public void setPatchReserveConfigAdminReqBody(PatchReserveConfigAdminReqBody body) {
         this.body = body;
     }
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private CreateProgressRecordReqBody body;
+        private String reserveConfigId; // 会议室或层级id
+        private PatchReserveConfigAdminReqBody body;
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -81,15 +103,27 @@ public class CreateProgressRecordReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.PatchReserveConfigAdminUserIdTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.CreateProgressRecordUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.PatchReserveConfigAdminUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
 
-        public CreateProgressRecordReqBody getCreateProgressRecordReqBody() {
+        /**
+         * 会议室或层级id
+         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+         *
+         * @param reserveConfigId
+         * @return
+         */
+        public Builder reserveConfigId(String reserveConfigId) {
+            this.reserveConfigId = reserveConfigId;
+            return this;
+        }
+
+        public PatchReserveConfigAdminReqBody getPatchReserveConfigAdminReqBody() {
             return this.body;
         }
 
@@ -99,13 +133,13 @@ public class CreateProgressRecordReq {
          * @param body
          * @return
          */
-        public Builder createProgressRecordReqBody(CreateProgressRecordReqBody body) {
+        public Builder patchReserveConfigAdminReqBody(PatchReserveConfigAdminReqBody body) {
             this.body = body;
             return this;
         }
 
-        public CreateProgressRecordReq build() {
-            return new CreateProgressRecordReq(this);
+        public PatchReserveConfigAdminReq build() {
+            return new PatchReserveConfigAdminReq(this);
         }
     }
 }

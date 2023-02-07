@@ -40,12 +40,6 @@ public class ReserveFormConfig {
      */
     @SerializedName("time_unit")
     private Integer timeUnit;
-    /**
-     * 题目选项配置
-     * <p> 示例值：
-     */
-    @SerializedName("custom_list")
-    private CustomList[] customList;
 
     // builder 开始
     public ReserveFormConfig() {
@@ -72,11 +66,6 @@ public class ReserveFormConfig {
          * <p> 示例值：3
          */
         this.timeUnit = builder.timeUnit;
-        /**
-         * 题目选项配置
-         * <p> 示例值：
-         */
-        this.customList = builder.customList;
     }
 
     public static Builder newBuilder() {
@@ -115,14 +104,6 @@ public class ReserveFormConfig {
         this.timeUnit = timeUnit;
     }
 
-    public CustomList[] getCustomList() {
-        return this.customList;
-    }
-
-    public void setCustomList(CustomList[] customList) {
-        this.customList = customList;
-    }
-
     public static class Builder {
         /**
          * 预定表单开关
@@ -144,11 +125,6 @@ public class ReserveFormConfig {
          * <p> 示例值：3
          */
         private Integer timeUnit;
-        /**
-         * 题目选项配置
-         * <p> 示例值：
-         */
-        private CustomList[] customList;
 
         /**
          * 预定表单开关
@@ -198,19 +174,6 @@ public class ReserveFormConfig {
          */
         public Builder timeUnit(Integer timeUnit) {
             this.timeUnit = timeUnit;
-            return this;
-        }
-
-
-        /**
-         * 题目选项配置
-         * <p> 示例值：
-         *
-         * @param customList
-         * @return
-         */
-        public Builder customList(CustomList[] customList) {
-            this.customList = customList;
             return this;
         }
 

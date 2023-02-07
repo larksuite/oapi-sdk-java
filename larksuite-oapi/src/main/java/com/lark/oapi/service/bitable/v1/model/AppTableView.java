@@ -40,6 +40,18 @@ public class AppTableView {
      */
     @SerializedName("property")
     private AppTableViewProperty property;
+    /**
+     * 视图公共等级 Public、Locked、Private
+     * <p> 示例值：Public
+     */
+    @SerializedName("view_public_level")
+    private String viewPublicLevel;
+    /**
+     * 个人视图的owner_id，id类型和 user_id_type 参数保持一致
+     * <p> 示例值：ou_2910013f1e6456f16a0ce75ede950a0a
+     */
+    @SerializedName("view_private_owner_id")
+    private String viewPrivateOwnerId;
 
     // builder 开始
     public AppTableView() {
@@ -66,6 +78,16 @@ public class AppTableView {
          * <p> 示例值：
          */
         this.property = builder.property;
+        /**
+         * 视图公共等级 Public、Locked、Private
+         * <p> 示例值：Public
+         */
+        this.viewPublicLevel = builder.viewPublicLevel;
+        /**
+         * 个人视图的owner_id，id类型和 user_id_type 参数保持一致
+         * <p> 示例值：ou_2910013f1e6456f16a0ce75ede950a0a
+         */
+        this.viewPrivateOwnerId = builder.viewPrivateOwnerId;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class AppTableView {
         this.property = property;
     }
 
+    public String getViewPublicLevel() {
+        return this.viewPublicLevel;
+    }
+
+    public void setViewPublicLevel(String viewPublicLevel) {
+        this.viewPublicLevel = viewPublicLevel;
+    }
+
+    public String getViewPrivateOwnerId() {
+        return this.viewPrivateOwnerId;
+    }
+
+    public void setViewPrivateOwnerId(String viewPrivateOwnerId) {
+        this.viewPrivateOwnerId = viewPrivateOwnerId;
+    }
+
     public static class Builder {
         /**
          * 视图Id
@@ -125,6 +163,16 @@ public class AppTableView {
          * <p> 示例值：
          */
         private AppTableViewProperty property;
+        /**
+         * 视图公共等级 Public、Locked、Private
+         * <p> 示例值：Public
+         */
+        private String viewPublicLevel;
+        /**
+         * 个人视图的owner_id，id类型和 user_id_type 参数保持一致
+         * <p> 示例值：ou_2910013f1e6456f16a0ce75ede950a0a
+         */
+        private String viewPrivateOwnerId;
 
         /**
          * 视图Id
@@ -174,6 +222,44 @@ public class AppTableView {
          */
         public Builder property(AppTableViewProperty property) {
             this.property = property;
+            return this;
+        }
+
+
+        /**
+         * 视图公共等级 Public、Locked、Private
+         * <p> 示例值：Public
+         *
+         * @param viewPublicLevel
+         * @return
+         */
+        public Builder viewPublicLevel(String viewPublicLevel) {
+            this.viewPublicLevel = viewPublicLevel;
+            return this;
+        }
+
+        /**
+         * 视图公共等级 Public、Locked、Private
+         * <p> 示例值：Public
+         *
+         * @param viewPublicLevel {@link com.lark.oapi.service.bitable.v1.enums.AppTableViewViewPublicLevelEnum}
+         * @return
+         */
+        public Builder viewPublicLevel(com.lark.oapi.service.bitable.v1.enums.AppTableViewViewPublicLevelEnum viewPublicLevel) {
+            this.viewPublicLevel = viewPublicLevel.getValue();
+            return this;
+        }
+
+
+        /**
+         * 个人视图的owner_id，id类型和 user_id_type 参数保持一致
+         * <p> 示例值：ou_2910013f1e6456f16a0ce75ede950a0a
+         *
+         * @param viewPrivateOwnerId
+         * @return
+         */
+        public Builder viewPrivateOwnerId(String viewPrivateOwnerId) {
+            this.viewPrivateOwnerId = viewPrivateOwnerId;
             return this;
         }
 

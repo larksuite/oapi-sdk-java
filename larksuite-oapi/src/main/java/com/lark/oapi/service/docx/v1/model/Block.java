@@ -30,7 +30,7 @@ public class Block {
     private String parentId;
     /**
      * block 的孩子 id 列表
-     * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+     * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
      */
     @SerializedName("children")
     private String[] children;
@@ -209,6 +209,12 @@ public class Block {
     @SerializedName("isv")
     private Isv isv;
     /**
+     * Add-ons
+     * <p> 示例值：
+     */
+    @SerializedName("add_ons")
+    private AddOns addOns;
+    /**
      * 思维笔记 Block
      * <p> 示例值：
      */
@@ -304,7 +310,7 @@ public class Block {
         this.parentId = builder.parentId;
         /**
          * block 的孩子 id 列表
-         * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+         * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
          */
         this.children = builder.children;
         /**
@@ -452,6 +458,11 @@ public class Block {
          * <p> 示例值：
          */
         this.isv = builder.isv;
+        /**
+         * Add-ons
+         * <p> 示例值：
+         */
+        this.addOns = builder.addOns;
         /**
          * 思维笔记 Block
          * <p> 示例值：
@@ -779,6 +790,14 @@ public class Block {
         this.isv = isv;
     }
 
+    public AddOns getAddOns() {
+        return this.addOns;
+    }
+
+    public void setAddOns(AddOns addOns) {
+        this.addOns = addOns;
+    }
+
     public Mindnote getMindnote() {
         return this.mindnote;
     }
@@ -896,7 +915,7 @@ public class Block {
         private String parentId;
         /**
          * block 的孩子 id 列表
-         * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+         * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
          */
         private String[] children;
         /**
@@ -1045,6 +1064,11 @@ public class Block {
          */
         private Isv isv;
         /**
+         * Add-ons
+         * <p> 示例值：
+         */
+        private AddOns addOns;
+        /**
          * 思维笔记 Block
          * <p> 示例值：
          */
@@ -1138,7 +1162,7 @@ public class Block {
 
         /**
          * block 的孩子 id 列表
-         * <p> 示例值：["doxcnO6UW6wAw2qIcYf4hZpFIth"]
+         * <p> 示例值：[doxcnO6UW6wAw2qIcYf4hZpFIth]
          *
          * @param children
          * @return
@@ -1534,6 +1558,19 @@ public class Block {
          */
         public Builder isv(Isv isv) {
             this.isv = isv;
+            return this;
+        }
+
+
+        /**
+         * Add-ons
+         * <p> 示例值：
+         *
+         * @param addOns
+         * @return
+         */
+        public Builder addOns(AddOns addOns) {
+            this.addOns = addOns;
             return this;
         }
 
