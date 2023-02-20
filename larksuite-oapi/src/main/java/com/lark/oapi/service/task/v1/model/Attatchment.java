@@ -11,23 +11,64 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.ehr.v1.enums;
+package com.lark.oapi.service.task.v1.model;
 
-/**
- * 离职类型
- */
-public enum SystemFieldsDepartureTypeEnum {
-    VOLUNTARY(1), // 主动
-    INVOLUNTARY(2), // 被动
-    OTHER(3), // 其他
-    ;
-    private Integer value;
+import com.google.gson.annotations.SerializedName;
 
-    SystemFieldsDepartureTypeEnum(Integer value) {
-        this.value = value;
+public class Attatchment {
+    /**
+     * 全局唯一ID
+     * <p> 示例值：dddd
+     */
+    @SerializedName("guid")
+    private String guid;
+
+    // builder 开始
+    public Attatchment() {
     }
 
-    public Integer getValue() {
-        return this.value;
+    public Attatchment(Builder builder) {
+        /**
+         * 全局唯一ID
+         * <p> 示例值：dddd
+         */
+        this.guid = builder.guid;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getGuid() {
+        return this.guid;
+    }
+
+    public void setGuid(String guid) {
+        this.guid = guid;
+    }
+
+    public static class Builder {
+        /**
+         * 全局唯一ID
+         * <p> 示例值：dddd
+         */
+        private String guid;
+
+        /**
+         * 全局唯一ID
+         * <p> 示例值：dddd
+         *
+         * @param guid
+         * @return
+         */
+        public Builder guid(String guid) {
+            this.guid = guid;
+            return this;
+        }
+
+
+        public Attatchment build() {
+            return new Attatchment(this);
+        }
     }
 }

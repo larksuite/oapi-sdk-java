@@ -17,15 +17,16 @@ public class CreateDataSourceSample {
         // 创建请求对象
         CreateDataSourceReq req = CreateDataSourceReq.newBuilder()
                 .dataSource(DataSource.newBuilder()
-                        .name("")
+                        .name("客服工单")
                         .state(0)
-                        .description("")
-                        .iconUrl("")
+                        .description("搜索客服工单")
+                        .iconUrl("https://s3-imfile.feishucdn.com/static-resource/v1/585fd740-f52e-4098-b864-57a32082ba1g")
                         .template("search_common_card")
                         .searchableFields(new String[]{})
                         .i18nName(I18nMeta.newBuilder().build())
                         .i18nDescription(I18nMeta.newBuilder().build())
-                        .schemaId("")
+                        .schemaId("7159054681489010384")
+                        .appId("cli_a1306bed4738d01b")
                         .build())
                 .build();
 

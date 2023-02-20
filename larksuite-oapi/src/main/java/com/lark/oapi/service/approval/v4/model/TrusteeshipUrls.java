@@ -41,7 +41,7 @@ public class TrusteeshipUrls {
     @SerializedName("action_callback_url")
     private String actionCallbackUrl;
     /**
-     * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+     * 获取托管动态数据URL,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
      * <p> 示例值：https://#{your_domain}/api/pull_business_data
      */
     @SerializedName("pull_business_data_url")
@@ -73,7 +73,7 @@ public class TrusteeshipUrls {
          */
         this.actionCallbackUrl = builder.actionCallbackUrl;
         /**
-         * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+         * 获取托管动态数据URL,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
          * <p> 示例值：https://#{your_domain}/api/pull_business_data
          */
         this.pullBusinessDataUrl = builder.pullBusinessDataUrl;
@@ -145,7 +145,7 @@ public class TrusteeshipUrls {
          */
         private String actionCallbackUrl;
         /**
-         * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+         * 获取托管动态数据URL,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
          * <p> 示例值：https://#{your_domain}/api/pull_business_data
          */
         private String pullBusinessDataUrl;
@@ -203,7 +203,7 @@ public class TrusteeshipUrls {
 
 
         /**
-         * 获取托管动态数据url 地址,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
+         * 获取托管动态数据URL,使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址,如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL
          * <p> 示例值：https://#{your_domain}/api/pull_business_data
          *
          * @param pullBusinessDataUrl

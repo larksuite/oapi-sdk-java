@@ -27,6 +27,8 @@ public class CreateInstanceSample {
                         .allowResubmit(true)
                         .allowSubmitAgain(true)
                         .cancelBotNotification("0")
+                        .forbidRevoke(false)
+                        .i18nResources(new I18nResource[]{})
                         .build())
                 .build();
 

@@ -40,6 +40,7 @@ public class PatchUserSample {
                         .isFrozen(false)
                         .jobLevelId("mga5oa8ayjlp9rb")
                         .jobFamilyId("mga5oa8ayjlp9rb")
+                        .subscriptionIds(new String[]{})
                         .build())
                 .build();
 

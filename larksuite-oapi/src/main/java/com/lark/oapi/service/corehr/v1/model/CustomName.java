@@ -15,97 +15,97 @@ package com.lark.oapi.service.corehr.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class EnumFieldSetting {
+public class CustomName {
     /**
-     * 选项信息
-     * <p> 示例值：
+     * 中文
+     * <p> 示例值：自定义姓名
      */
-    @SerializedName("enum_field_option_list")
-    private CommonSchemaOption[] enumFieldOptionList;
+    @SerializedName("zh_cn")
+    private String zhCn;
     /**
-     * 是否为多选
-     * <p> 示例值：false
+     * 英文
+     * <p> 示例值：Custom Name
      */
-    @SerializedName("is_multiple")
-    private Boolean isMultiple;
+    @SerializedName("en_us")
+    private String enUs;
 
     // builder 开始
-    public EnumFieldSetting() {
+    public CustomName() {
     }
 
-    public EnumFieldSetting(Builder builder) {
+    public CustomName(Builder builder) {
         /**
-         * 选项信息
-         * <p> 示例值：
+         * 中文
+         * <p> 示例值：自定义姓名
          */
-        this.enumFieldOptionList = builder.enumFieldOptionList;
+        this.zhCn = builder.zhCn;
         /**
-         * 是否为多选
-         * <p> 示例值：false
+         * 英文
+         * <p> 示例值：Custom Name
          */
-        this.isMultiple = builder.isMultiple;
+        this.enUs = builder.enUs;
     }
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
-    public CommonSchemaOption[] getEnumFieldOptionList() {
-        return this.enumFieldOptionList;
+    public String getZhCn() {
+        return this.zhCn;
     }
 
-    public void setEnumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
-        this.enumFieldOptionList = enumFieldOptionList;
+    public void setZhCn(String zhCn) {
+        this.zhCn = zhCn;
     }
 
-    public Boolean getIsMultiple() {
-        return this.isMultiple;
+    public String getEnUs() {
+        return this.enUs;
     }
 
-    public void setIsMultiple(Boolean isMultiple) {
-        this.isMultiple = isMultiple;
+    public void setEnUs(String enUs) {
+        this.enUs = enUs;
     }
 
     public static class Builder {
         /**
-         * 选项信息
-         * <p> 示例值：
+         * 中文
+         * <p> 示例值：自定义姓名
          */
-        private CommonSchemaOption[] enumFieldOptionList;
+        private String zhCn;
         /**
-         * 是否为多选
-         * <p> 示例值：false
+         * 英文
+         * <p> 示例值：Custom Name
          */
-        private Boolean isMultiple;
+        private String enUs;
 
         /**
-         * 选项信息
-         * <p> 示例值：
+         * 中文
+         * <p> 示例值：自定义姓名
          *
-         * @param enumFieldOptionList
+         * @param zhCn
          * @return
          */
-        public Builder enumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
-            this.enumFieldOptionList = enumFieldOptionList;
+        public Builder zhCn(String zhCn) {
+            this.zhCn = zhCn;
             return this;
         }
 
 
         /**
-         * 是否为多选
-         * <p> 示例值：false
+         * 英文
+         * <p> 示例值：Custom Name
          *
-         * @param isMultiple
+         * @param enUs
          * @return
          */
-        public Builder isMultiple(Boolean isMultiple) {
-            this.isMultiple = isMultiple;
+        public Builder enUs(String enUs) {
+            this.enUs = enUs;
             return this;
         }
 
 
-        public EnumFieldSetting build() {
-            return new EnumFieldSetting(this);
+        public CustomName build() {
+            return new CustomName(this);
         }
     }
 }

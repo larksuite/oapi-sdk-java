@@ -35,6 +35,12 @@ public class CommonSchemaConfig {
     @SerializedName("enum_field_setting")
     private EnumFieldSetting enumFieldSetting;
     /**
+     * 查找字段配置信息
+     * <p> 示例值：
+     */
+    @SerializedName("lookup_field_setting")
+    private LookupFieldSetting lookupFieldSetting;
+    /**
      * 日期时间配置信息
      * <p> 示例值：
      */
@@ -73,6 +79,11 @@ public class CommonSchemaConfig {
          * <p> 示例值：
          */
         this.enumFieldSetting = builder.enumFieldSetting;
+        /**
+         * 查找字段配置信息
+         * <p> 示例值：
+         */
+        this.lookupFieldSetting = builder.lookupFieldSetting;
         /**
          * 日期时间配置信息
          * <p> 示例值：
@@ -118,6 +129,14 @@ public class CommonSchemaConfig {
         this.enumFieldSetting = enumFieldSetting;
     }
 
+    public LookupFieldSetting getLookupFieldSetting() {
+        return this.lookupFieldSetting;
+    }
+
+    public void setLookupFieldSetting(LookupFieldSetting lookupFieldSetting) {
+        this.lookupFieldSetting = lookupFieldSetting;
+    }
+
     public DateTimeFieldSetting getDateTimeFieldSetting() {
         return this.dateTimeFieldSetting;
     }
@@ -158,6 +177,11 @@ public class CommonSchemaConfig {
          * <p> 示例值：
          */
         private EnumFieldSetting enumFieldSetting;
+        /**
+         * 查找字段配置信息
+         * <p> 示例值：
+         */
+        private LookupFieldSetting lookupFieldSetting;
         /**
          * 日期时间配置信息
          * <p> 示例值：
@@ -209,6 +233,19 @@ public class CommonSchemaConfig {
          */
         public Builder enumFieldSetting(EnumFieldSetting enumFieldSetting) {
             this.enumFieldSetting = enumFieldSetting;
+            return this;
+        }
+
+
+        /**
+         * 查找字段配置信息
+         * <p> 示例值：
+         *
+         * @param lookupFieldSetting
+         * @return
+         */
+        public Builder lookupFieldSetting(LookupFieldSetting lookupFieldSetting) {
+            this.lookupFieldSetting = lookupFieldSetting;
             return this;
         }
 

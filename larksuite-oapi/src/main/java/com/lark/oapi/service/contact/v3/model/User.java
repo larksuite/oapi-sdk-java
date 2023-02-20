@@ -190,6 +190,18 @@ public class User {
      */
     @SerializedName("job_family_id")
     private String jobFamilyId;
+    /**
+     * 分配给用户的席位ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("subscription_ids")
+    private String[] subscriptionIds;
+    /**
+     * 用户席位列表
+     * <p> 示例值：
+     */
+    @SerializedName("assign_info")
+    private UserAssignInfo[] assignInfo;
 
     // builder 开始
     public User() {
@@ -341,6 +353,16 @@ public class User {
          * <p> 示例值：mga5oa8ayjlp9rb
          */
         this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 分配给用户的席位ID列表
+         * <p> 示例值：
+         */
+        this.subscriptionIds = builder.subscriptionIds;
+        /**
+         * 用户席位列表
+         * <p> 示例值：
+         */
+        this.assignInfo = builder.assignInfo;
     }
 
     public static Builder newBuilder() {
@@ -579,6 +601,22 @@ public class User {
         this.jobFamilyId = jobFamilyId;
     }
 
+    public String[] getSubscriptionIds() {
+        return this.subscriptionIds;
+    }
+
+    public void setSubscriptionIds(String[] subscriptionIds) {
+        this.subscriptionIds = subscriptionIds;
+    }
+
+    public UserAssignInfo[] getAssignInfo() {
+        return this.assignInfo;
+    }
+
+    public void setAssignInfo(UserAssignInfo[] assignInfo) {
+        this.assignInfo = assignInfo;
+    }
+
     public static class Builder {
         /**
          * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -725,6 +763,16 @@ public class User {
          * <p> 示例值：mga5oa8ayjlp9rb
          */
         private String jobFamilyId;
+        /**
+         * 分配给用户的席位ID列表
+         * <p> 示例值：
+         */
+        private String[] subscriptionIds;
+        /**
+         * 用户席位列表
+         * <p> 示例值：
+         */
+        private UserAssignInfo[] assignInfo;
 
         /**
          * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -1111,6 +1159,32 @@ public class User {
          */
         public Builder jobFamilyId(String jobFamilyId) {
             this.jobFamilyId = jobFamilyId;
+            return this;
+        }
+
+
+        /**
+         * 分配给用户的席位ID列表
+         * <p> 示例值：
+         *
+         * @param subscriptionIds
+         * @return
+         */
+        public Builder subscriptionIds(String[] subscriptionIds) {
+            this.subscriptionIds = subscriptionIds;
+            return this;
+        }
+
+
+        /**
+         * 用户席位列表
+         * <p> 示例值：
+         *
+         * @param assignInfo
+         * @return
+         */
+        public Builder assignInfo(UserAssignInfo[] assignInfo) {
+            this.assignInfo = assignInfo;
             return this;
         }
 

@@ -42,19 +42,19 @@ public class DataSource {
     private String description;
     /**
      * 创建时间，使用Unix时间戳，单位为“秒”
-     * <p> 示例值：
+     * <p> 示例值：1674309260
      */
     @SerializedName("create_time")
     private String createTime;
     /**
      * 更新时间，使用Unix时间戳，单位为“秒”
-     * <p> 示例值：
+     * <p> 示例值：1674309260
      */
     @SerializedName("update_time")
     private String updateTime;
     /**
      * 是否超限
-     * <p> 示例值：
+     * <p> 示例值：false
      */
     @SerializedName("is_exceed_quota")
     private Boolean isExceedQuota;
@@ -94,6 +94,12 @@ public class DataSource {
      */
     @SerializedName("schema_id")
     private String schemaId;
+    /**
+     * datasource对应的开放平台应用id
+     * <p> 示例值：cli_a1306bed4738d01b
+     */
+    @SerializedName("app_id")
+    private String appId;
 
     // builder 开始
     public DataSource() {
@@ -122,17 +128,17 @@ public class DataSource {
         this.description = builder.description;
         /**
          * 创建时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：
+         * <p> 示例值：1674309260
          */
         this.createTime = builder.createTime;
         /**
          * 更新时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：
+         * <p> 示例值：1674309260
          */
         this.updateTime = builder.updateTime;
         /**
          * 是否超限
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         this.isExceedQuota = builder.isExceedQuota;
         /**
@@ -165,6 +171,11 @@ public class DataSource {
          * <p> 示例值：custom_schema
          */
         this.schemaId = builder.schemaId;
+        /**
+         * datasource对应的开放平台应用id
+         * <p> 示例值：cli_a1306bed4738d01b
+         */
+        this.appId = builder.appId;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +286,14 @@ public class DataSource {
         this.schemaId = schemaId;
     }
 
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
     public static class Builder {
         /**
          * 数据源的唯一标识
@@ -298,17 +317,17 @@ public class DataSource {
         private String description;
         /**
          * 创建时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：
+         * <p> 示例值：1674309260
          */
         private String createTime;
         /**
          * 更新时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：
+         * <p> 示例值：1674309260
          */
         private String updateTime;
         /**
          * 是否超限
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         private Boolean isExceedQuota;
         /**
@@ -341,6 +360,11 @@ public class DataSource {
          * <p> 示例值：custom_schema
          */
         private String schemaId;
+        /**
+         * datasource对应的开放平台应用id
+         * <p> 示例值：cli_a1306bed4738d01b
+         */
+        private String appId;
 
         /**
          * 数据源的唯一标识
@@ -408,7 +432,7 @@ public class DataSource {
 
         /**
          * 创建时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：
+         * <p> 示例值：1674309260
          *
          * @param createTime
          * @return
@@ -421,7 +445,7 @@ public class DataSource {
 
         /**
          * 更新时间，使用Unix时间戳，单位为“秒”
-         * <p> 示例值：
+         * <p> 示例值：1674309260
          *
          * @param updateTime
          * @return
@@ -434,7 +458,7 @@ public class DataSource {
 
         /**
          * 是否超限
-         * <p> 示例值：
+         * <p> 示例值：false
          *
          * @param isExceedQuota
          * @return
@@ -519,6 +543,19 @@ public class DataSource {
          */
         public Builder schemaId(String schemaId) {
             this.schemaId = schemaId;
+            return this;
+        }
+
+
+        /**
+         * datasource对应的开放平台应用id
+         * <p> 示例值：cli_a1306bed4738d01b
+         *
+         * @param appId
+         * @return
+         */
+        public Builder appId(String appId) {
+            this.appId = appId;
             return this;
         }
 

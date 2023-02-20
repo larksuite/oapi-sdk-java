@@ -15,32 +15,32 @@ package com.lark.oapi.service.corehr.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class EnumFieldSetting {
+public class LookupFieldSetting {
     /**
-     * 选项信息
-     * <p> 示例值：
+     * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+     * <p> 示例值：employment
      */
-    @SerializedName("enum_field_option_list")
-    private CommonSchemaOption[] enumFieldOptionList;
+    @SerializedName("lookup_obj_api_name")
+    private String lookupObjApiName;
     /**
-     * 是否为多选
+     * 是否为多值
      * <p> 示例值：false
      */
     @SerializedName("is_multiple")
     private Boolean isMultiple;
 
     // builder 开始
-    public EnumFieldSetting() {
+    public LookupFieldSetting() {
     }
 
-    public EnumFieldSetting(Builder builder) {
+    public LookupFieldSetting(Builder builder) {
         /**
-         * 选项信息
-         * <p> 示例值：
+         * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+         * <p> 示例值：employment
          */
-        this.enumFieldOptionList = builder.enumFieldOptionList;
+        this.lookupObjApiName = builder.lookupObjApiName;
         /**
-         * 是否为多选
+         * 是否为多值
          * <p> 示例值：false
          */
         this.isMultiple = builder.isMultiple;
@@ -50,12 +50,12 @@ public class EnumFieldSetting {
         return new Builder();
     }
 
-    public CommonSchemaOption[] getEnumFieldOptionList() {
-        return this.enumFieldOptionList;
+    public String getLookupObjApiName() {
+        return this.lookupObjApiName;
     }
 
-    public void setEnumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
-        this.enumFieldOptionList = enumFieldOptionList;
+    public void setLookupObjApiName(String lookupObjApiName) {
+        this.lookupObjApiName = lookupObjApiName;
     }
 
     public Boolean getIsMultiple() {
@@ -68,31 +68,31 @@ public class EnumFieldSetting {
 
     public static class Builder {
         /**
-         * 选项信息
-         * <p> 示例值：
+         * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+         * <p> 示例值：employment
          */
-        private CommonSchemaOption[] enumFieldOptionList;
+        private String lookupObjApiName;
         /**
-         * 是否为多选
+         * 是否为多值
          * <p> 示例值：false
          */
         private Boolean isMultiple;
 
         /**
-         * 选项信息
-         * <p> 示例值：
+         * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+         * <p> 示例值：employment
          *
-         * @param enumFieldOptionList
+         * @param lookupObjApiName
          * @return
          */
-        public Builder enumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
-            this.enumFieldOptionList = enumFieldOptionList;
+        public Builder lookupObjApiName(String lookupObjApiName) {
+            this.lookupObjApiName = lookupObjApiName;
             return this;
         }
 
 
         /**
-         * 是否为多选
+         * 是否为多值
          * <p> 示例值：false
          *
          * @param isMultiple
@@ -104,8 +104,8 @@ public class EnumFieldSetting {
         }
 
 
-        public EnumFieldSetting build() {
-            return new EnumFieldSetting(this);
+        public LookupFieldSetting build() {
+            return new LookupFieldSetting(this);
         }
     }
 }

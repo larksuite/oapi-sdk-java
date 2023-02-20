@@ -52,6 +52,24 @@ public class ApprovalNode {
      */
     @SerializedName("privilege_field")
     private FieldGroup privilegeField;
+    /**
+     * 自选审批人是否允许多选
+     * <p> 示例值：false
+     */
+    @SerializedName("approver_chosen_multi")
+    private Boolean approverChosenMulti;
+    /**
+     * 自选审批人选择范围
+     * <p> 示例值：
+     */
+    @SerializedName("approver_chosen_range")
+    private ApproverRange[] approverChosenRange;
+    /**
+     * 审批人为提交人时的操作
+     * <p> 示例值：STARTER
+     */
+    @SerializedName("starter_assignee")
+    private String starterAssignee;
 
     // builder 开始
     public ApprovalNode() {
@@ -88,6 +106,21 @@ public class ApprovalNode {
          * <p> 示例值：
          */
         this.privilegeField = builder.privilegeField;
+        /**
+         * 自选审批人是否允许多选
+         * <p> 示例值：false
+         */
+        this.approverChosenMulti = builder.approverChosenMulti;
+        /**
+         * 自选审批人选择范围
+         * <p> 示例值：
+         */
+        this.approverChosenRange = builder.approverChosenRange;
+        /**
+         * 审批人为提交人时的操作
+         * <p> 示例值：STARTER
+         */
+        this.starterAssignee = builder.starterAssignee;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +175,30 @@ public class ApprovalNode {
         this.privilegeField = privilegeField;
     }
 
+    public Boolean getApproverChosenMulti() {
+        return this.approverChosenMulti;
+    }
+
+    public void setApproverChosenMulti(Boolean approverChosenMulti) {
+        this.approverChosenMulti = approverChosenMulti;
+    }
+
+    public ApproverRange[] getApproverChosenRange() {
+        return this.approverChosenRange;
+    }
+
+    public void setApproverChosenRange(ApproverRange[] approverChosenRange) {
+        this.approverChosenRange = approverChosenRange;
+    }
+
+    public String getStarterAssignee() {
+        return this.starterAssignee;
+    }
+
+    public void setStarterAssignee(String starterAssignee) {
+        this.starterAssignee = starterAssignee;
+    }
+
     public static class Builder {
         /**
          * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
@@ -173,6 +230,21 @@ public class ApprovalNode {
          * <p> 示例值：
          */
         private FieldGroup privilegeField;
+        /**
+         * 自选审批人是否允许多选
+         * <p> 示例值：false
+         */
+        private Boolean approverChosenMulti;
+        /**
+         * 自选审批人选择范围
+         * <p> 示例值：
+         */
+        private ApproverRange[] approverChosenRange;
+        /**
+         * 审批人为提交人时的操作
+         * <p> 示例值：STARTER
+         */
+        private String starterAssignee;
 
         /**
          * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
@@ -260,6 +332,57 @@ public class ApprovalNode {
          */
         public Builder privilegeField(FieldGroup privilegeField) {
             this.privilegeField = privilegeField;
+            return this;
+        }
+
+
+        /**
+         * 自选审批人是否允许多选
+         * <p> 示例值：false
+         *
+         * @param approverChosenMulti
+         * @return
+         */
+        public Builder approverChosenMulti(Boolean approverChosenMulti) {
+            this.approverChosenMulti = approverChosenMulti;
+            return this;
+        }
+
+
+        /**
+         * 自选审批人选择范围
+         * <p> 示例值：
+         *
+         * @param approverChosenRange
+         * @return
+         */
+        public Builder approverChosenRange(ApproverRange[] approverChosenRange) {
+            this.approverChosenRange = approverChosenRange;
+            return this;
+        }
+
+
+        /**
+         * 审批人为提交人时的操作
+         * <p> 示例值：STARTER
+         *
+         * @param starterAssignee
+         * @return
+         */
+        public Builder starterAssignee(String starterAssignee) {
+            this.starterAssignee = starterAssignee;
+            return this;
+        }
+
+        /**
+         * 审批人为提交人时的操作
+         * <p> 示例值：STARTER
+         *
+         * @param starterAssignee {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeStarterAssigneeEnum}
+         * @return
+         */
+        public Builder starterAssignee(com.lark.oapi.service.approval.v4.enums.ApprovalNodeStarterAssigneeEnum starterAssignee) {
+            this.starterAssignee = starterAssignee.getValue();
             return this;
         }
 

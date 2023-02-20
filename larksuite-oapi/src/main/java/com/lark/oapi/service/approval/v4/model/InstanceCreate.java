@@ -94,6 +94,18 @@ public class InstanceCreate {
      */
     @SerializedName("cancel_bot_notification")
     private String cancelBotNotification;
+    /**
+     * 配置是否可以禁止撤销
+     * <p> 示例值：false
+     */
+    @SerializedName("forbid_revoke")
+    private Boolean forbidRevoke;
+    /**
+     * 国际化文案
+     * <p> 示例值：
+     */
+    @SerializedName("i18n_resources")
+    private I18nResource[] i18nResources;
 
     // builder 开始
     public InstanceCreate() {
@@ -165,6 +177,16 @@ public class InstanceCreate {
          * <p> 示例值：0
          */
         this.cancelBotNotification = builder.cancelBotNotification;
+        /**
+         * 配置是否可以禁止撤销
+         * <p> 示例值：false
+         */
+        this.forbidRevoke = builder.forbidRevoke;
+        /**
+         * 国际化文案
+         * <p> 示例值：
+         */
+        this.i18nResources = builder.i18nResources;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +297,22 @@ public class InstanceCreate {
         this.cancelBotNotification = cancelBotNotification;
     }
 
+    public Boolean getForbidRevoke() {
+        return this.forbidRevoke;
+    }
+
+    public void setForbidRevoke(Boolean forbidRevoke) {
+        this.forbidRevoke = forbidRevoke;
+    }
+
+    public I18nResource[] getI18nResources() {
+        return this.i18nResources;
+    }
+
+    public void setI18nResources(I18nResource[] i18nResources) {
+        this.i18nResources = i18nResources;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code
@@ -341,6 +379,16 @@ public class InstanceCreate {
          * <p> 示例值：0
          */
         private String cancelBotNotification;
+        /**
+         * 配置是否可以禁止撤销
+         * <p> 示例值：false
+         */
+        private Boolean forbidRevoke;
+        /**
+         * 国际化文案
+         * <p> 示例值：
+         */
+        private I18nResource[] i18nResources;
 
         /**
          * 审批定义 code
@@ -507,6 +555,32 @@ public class InstanceCreate {
          */
         public Builder cancelBotNotification(String cancelBotNotification) {
             this.cancelBotNotification = cancelBotNotification;
+            return this;
+        }
+
+
+        /**
+         * 配置是否可以禁止撤销
+         * <p> 示例值：false
+         *
+         * @param forbidRevoke
+         * @return
+         */
+        public Builder forbidRevoke(Boolean forbidRevoke) {
+            this.forbidRevoke = forbidRevoke;
+            return this;
+        }
+
+
+        /**
+         * 国际化文案
+         * <p> 示例值：
+         *
+         * @param i18nResources
+         * @return
+         */
+        public Builder i18nResources(I18nResource[] i18nResources) {
+            this.i18nResources = i18nResources;
             return this;
         }
 

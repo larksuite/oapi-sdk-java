@@ -70,6 +70,12 @@ public class TaskSearchNode {
      */
     @SerializedName("update_time")
     private String updateTime;
+    /**
+     * 三方审批扩展 ID
+     * <p> 示例值：123123daddf21313
+     */
+    @SerializedName("task_external_id")
+    private String taskExternalId;
 
     // builder 开始
     public TaskSearchNode() {
@@ -121,6 +127,11 @@ public class TaskSearchNode {
          * <p> 示例值：1547654251506
          */
         this.updateTime = builder.updateTime;
+        /**
+         * 三方审批扩展 ID
+         * <p> 示例值：123123daddf21313
+         */
+        this.taskExternalId = builder.taskExternalId;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +210,14 @@ public class TaskSearchNode {
         this.updateTime = updateTime;
     }
 
+    public String getTaskExternalId() {
+        return this.taskExternalId;
+    }
+
+    public void setTaskExternalId(String taskExternalId) {
+        this.taskExternalId = taskExternalId;
+    }
+
     public static class Builder {
         /**
          * 审批任务审批人 id
@@ -245,6 +264,11 @@ public class TaskSearchNode {
          * <p> 示例值：1547654251506
          */
         private String updateTime;
+        /**
+         * 三方审批扩展 ID
+         * <p> 示例值：123123daddf21313
+         */
+        private String taskExternalId;
 
         /**
          * 审批任务审批人 id
@@ -371,6 +395,19 @@ public class TaskSearchNode {
          */
         public Builder updateTime(String updateTime) {
             this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 三方审批扩展 ID
+         * <p> 示例值：123123daddf21313
+         *
+         * @param taskExternalId
+         * @return
+         */
+        public Builder taskExternalId(String taskExternalId) {
+            this.taskExternalId = taskExternalId;
             return this;
         }
 

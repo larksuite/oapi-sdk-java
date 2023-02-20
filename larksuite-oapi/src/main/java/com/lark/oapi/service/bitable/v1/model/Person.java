@@ -40,6 +40,12 @@ public class Person {
      */
     @SerializedName("email")
     private String email;
+    /**
+     * 头像链接
+     * <p> 示例值：https://example.com/avatar
+     */
+    @SerializedName("avatar_url")
+    private String avatarUrl;
 
     // builder 开始
     public Person() {
@@ -66,6 +72,11 @@ public class Person {
          * <p> 示例值：huangpaopao@feishu.cn
          */
         this.email = builder.email;
+        /**
+         * 头像链接
+         * <p> 示例值：https://example.com/avatar
+         */
+        this.avatarUrl = builder.avatarUrl;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +115,14 @@ public class Person {
         this.email = email;
     }
 
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     public static class Builder {
         /**
          * 用户id，id类型等于user_id_type所指定的类型。
@@ -125,6 +144,11 @@ public class Person {
          * <p> 示例值：huangpaopao@feishu.cn
          */
         private String email;
+        /**
+         * 头像链接
+         * <p> 示例值：https://example.com/avatar
+         */
+        private String avatarUrl;
 
         /**
          * 用户id，id类型等于user_id_type所指定的类型。
@@ -174,6 +198,19 @@ public class Person {
          */
         public Builder email(String email) {
             this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 头像链接
+         * <p> 示例值：https://example.com/avatar
+         *
+         * @param avatarUrl
+         * @return
+         */
+        public Builder avatarUrl(String avatarUrl) {
+            this.avatarUrl = avatarUrl;
             return this;
         }
 

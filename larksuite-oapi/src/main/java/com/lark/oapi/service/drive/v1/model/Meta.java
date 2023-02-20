@@ -64,6 +64,12 @@ public class Meta {
      */
     @SerializedName("url")
     private String url;
+    /**
+     * 文档密级标签名称
+     * <p> 示例值：L2-内部
+     */
+    @SerializedName("sec_label_name")
+    private String secLabelName;
 
     // builder 开始
     public Meta() {
@@ -110,6 +116,11 @@ public class Meta {
          * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
          */
         this.url = builder.url;
+        /**
+         * 文档密级标签名称
+         * <p> 示例值：L2-内部
+         */
+        this.secLabelName = builder.secLabelName;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +191,14 @@ public class Meta {
         this.url = url;
     }
 
+    public String getSecLabelName() {
+        return this.secLabelName;
+    }
+
+    public void setSecLabelName(String secLabelName) {
+        this.secLabelName = secLabelName;
+    }
+
     public static class Builder {
         /**
          * 文件token
@@ -221,6 +240,11 @@ public class Meta {
          * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
          */
         private String url;
+        /**
+         * 文档密级标签名称
+         * <p> 示例值：L2-内部
+         */
+        private String secLabelName;
 
         /**
          * 文件token
@@ -322,6 +346,19 @@ public class Meta {
          */
         public Builder url(String url) {
             this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 文档密级标签名称
+         * <p> 示例值：L2-内部
+         *
+         * @param secLabelName
+         * @return
+         */
+        public Builder secLabelName(String secLabelName) {
+            this.secLabelName = secLabelName;
             return this;
         }
 

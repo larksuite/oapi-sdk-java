@@ -24,7 +24,7 @@ public enum TaskSearchNodeStatusEnum {
     DONE("done"), // 已完成
     RMREPEAT("rm_repeat"), // 去重
     PROCESSED("processed"), // 已处理
-    HIDDEN("hidden"), //
+    HIDDEN("hidden"), // 隐藏
     ;
     private String value;
 

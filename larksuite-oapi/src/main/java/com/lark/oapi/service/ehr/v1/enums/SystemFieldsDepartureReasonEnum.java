@@ -28,6 +28,21 @@ public enum SystemFieldsDepartureReasonEnum {
     VIOLATION_OF_COMPANY_REGULATIONS(9), // 违反公司条例
     VIOLATION_OF_LAWS_AND_DISCIPLINE(10), // 试用期未通过
     OTHER_OF_INVOLUNTARY(11), // 其他
+    NOT_SATISFIED_WITH_WORK_CONTENT(12), // 不满意工作内容
+    LACK_OF_RECOGNITION_OF_LEADER(13), // 不认可上级或管理层
+    LACK_OF_RECOGNITION_OF_COMPANY_CULTURE(14), // 对公司文化缺乏认同
+    ACTIVE_ORGANIZE_BUSINESS_ADJUSTMENT(15), // 组织架构调整（主动离职）
+    JOB_HOPPING(16), // 跳槽
+    CHANGE_CAREER(17), // 转行
+    FAMILY(18), // 家庭原因
+    POOR_HEALTH(19), // 健康状况不佳
+    WORK_PLACE(20), // 工作地点原因
+    ACCIDENT(21), // 意外
+    DEATH(22), // 身故
+    FIRED(23), // 解雇
+    LOW_WORK_OUTPUT(24), // 工作产出低
+    BREAK_THE_LAW(25), // 违法
+    OTHER_OTHER(26), // 其他（其他）
     ;
     private Integer value;
 
