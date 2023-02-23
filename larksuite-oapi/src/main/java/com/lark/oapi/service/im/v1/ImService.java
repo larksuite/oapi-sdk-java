@@ -241,6 +241,39 @@ public class ImService {
         }
 
         /**
+         * 批量发送消息
+         * <p> 注意事项：;- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) ;- 接口权限说明：;    - 必须拥有获取与发送单聊、群组消息权限，或者以应用的身份发消息权限;    - 至少拥有一个批量发送消息权限：;        - 给用户发送需要拥有 给多个用户批量发消息 权限;        - 给部门成员发送需要拥有 给一个或多个部门的成员批量发消息 权限;- 应用需要拥有对所发送用户或部门的[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability);- 通过该接口发送的消息 不支持更新以及回复等操作;- 只能发送给用户，无法发送给群组;- 异步接口，会有一定延迟，每个应用待发送的消息按顺序处理，请合理安排批量发送范围和顺序。发送消息给单个用户的场景请使用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口;- 单个应用每天通过该接口发送的总消息条数不超过50万
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM">https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateBatchMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateBatchMessageSample.java</a> ;
+         */
+        public BatchMessageResp batchSendMessage(BatchMessageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/message/v4/batch_send"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchMessageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/message/v4/batch_send"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
          * 批量撤回消息，批量撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。
          * <p> 注意事项：;- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) ;- 撤回单条发送的消息请使用[撤回消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)接口;- 不支持撤回发出时间超过1天的消息;- 一次调用涉及大量消息，所以为异步接口，会有一定延迟。 ;
          * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete</a> ;
