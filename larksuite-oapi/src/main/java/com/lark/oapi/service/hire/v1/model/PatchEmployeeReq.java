@@ -28,7 +28,7 @@ public class PatchEmployeeReq {
     private String userIdType;
     /**
      * 此次调用中使用的部门 ID 的类型
-     * <p> 示例值：
+     * <p> 示例值：department_id
      */
     @Query
     @SerializedName("department_id_type")
@@ -55,7 +55,7 @@ public class PatchEmployeeReq {
         this.userIdType = builder.userIdType;
         /**
          * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
+         * <p> 示例值：department_id
          */
         this.departmentIdType = builder.departmentIdType;
         /**
@@ -122,7 +122,7 @@ public class PatchEmployeeReq {
 
         /**
          * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
+         * <p> 示例值：department_id
          *
          * @param departmentIdType
          * @return

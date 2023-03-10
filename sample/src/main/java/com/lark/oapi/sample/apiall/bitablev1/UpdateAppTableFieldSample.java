@@ -17,7 +17,7 @@ public class UpdateAppTableFieldSample {
                 .tableId("tblsRc9GRRXKqhvW")
                 .fieldId("fldPTb0U2y")
                 .appTableField(AppTableField.newBuilder()
-                        .fieldName("")
+                        .fieldName("字段名称")
                         .type(1)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())

@@ -35,6 +35,7 @@ import com.lark.oapi.service.calendar.v4.CalendarService;
 import com.lark.oapi.service.contact.v3.ContactService;
 import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
+import com.lark.oapi.service.hire.v1.HireService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
 import com.lark.oapi.service.task.v1.TaskService;
@@ -828,6 +829,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("helpdesk.ticket_message.created_v1");
             }
             eventType2EventHandler.put("helpdesk.ticket_message.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/application-stage-changed">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/application-stage-changed</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ApplicationStageChangedV1(HireService.P2ApplicationStageChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.application.stage_changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.application.stage_changed_v1");
+            }
+            eventType2EventHandler.put("hire.application.stage_changed_v1", handler);
             return this;
         }
 

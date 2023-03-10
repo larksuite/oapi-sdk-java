@@ -32,6 +32,7 @@ import com.lark.oapi.service.admin.v1.AdminService;
 import com.lark.oapi.service.application.v6.ApplicationService;
 import com.lark.oapi.service.approval.v4.ApprovalService;
 import com.lark.oapi.service.attendance.v1.AttendanceService;
+import com.lark.oapi.service.auth.v3.AuthService;
 import com.lark.oapi.service.authen.v1.AuthenService;
 import com.lark.oapi.service.baike.v1.BaikeService;
 import com.lark.oapi.service.bitable.v1.BitableService;
@@ -74,6 +75,7 @@ public class Client {
     private ApplicationService application; // 应用信息
     private ApprovalService approval; // 审批
     private AttendanceService attendance; // 打卡
+    private AuthService auth; //
     private AuthenService authen; //
     private BaikeService baike; // 企业百科
     private BitableService bitable; // 云文档-多维表格
@@ -161,6 +163,13 @@ public class Client {
      */
     public AttendanceService attendance() {
         return attendance;
+    }
+
+    /**
+     * @return
+     */
+    public AuthService auth() {
+        return auth;
     }
 
     /**
@@ -594,6 +603,7 @@ public class Client {
             client.application = new ApplicationService(config);
             client.approval = new ApprovalService(config);
             client.attendance = new AttendanceService(config);
+            client.auth = new AuthService(config);
             client.authen = new AuthenService(config);
             client.baike = new BaikeService(config);
             client.bitable = new BitableService(config);

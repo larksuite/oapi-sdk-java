@@ -17,7 +17,7 @@ public class CreateAppTableFieldSample {
                 .tableId("tblsRc9GRRXKqhvW")
                 .clientToken("fe599b60-450f-46ff-b2ef-9f6675625b97")
                 .appTableField(AppTableField.newBuilder()
-                        .fieldName("")
+                        .fieldName("字段名称")
                         .type(1)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())

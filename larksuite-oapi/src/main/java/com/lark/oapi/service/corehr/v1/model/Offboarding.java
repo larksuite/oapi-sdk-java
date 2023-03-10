@@ -23,7 +23,7 @@ public class Offboarding {
     @SerializedName("initiating_type")
     private String initiatingType;
     /**
-     * 离职状态，包括：
+     * 离职状态
      * <p> 示例值：Approving
      */
     @SerializedName("status")
@@ -58,7 +58,7 @@ public class Offboarding {
          */
         this.initiatingType = builder.initiatingType;
         /**
-         * 离职状态，包括：
+         * 离职状态
          * <p> 示例值：Approving
          */
         this.status = builder.status;
@@ -130,7 +130,7 @@ public class Offboarding {
          */
         private String initiatingType;
         /**
-         * 离职状态，包括：
+         * 离职状态
          * <p> 示例值：Approving
          */
         private String status;
@@ -164,7 +164,7 @@ public class Offboarding {
 
 
         /**
-         * 离职状态，包括：
+         * 离职状态
          * <p> 示例值：Approving
          *
          * @param status
@@ -172,6 +172,18 @@ public class Offboarding {
          */
         public Builder status(String status) {
             this.status = status;
+            return this;
+        }
+
+        /**
+         * 离职状态
+         * <p> 示例值：Approving
+         *
+         * @param status {@link com.lark.oapi.service.corehr.v1.enums.OffboardingOffboardingStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.corehr.v1.enums.OffboardingOffboardingStatusEnum status) {
+            this.status = status.getValue();
             return this;
         }
 

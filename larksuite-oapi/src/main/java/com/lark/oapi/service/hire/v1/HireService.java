@@ -21,6 +21,7 @@ import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.hire.v1.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ import java.nio.charset.StandardCharsets;
 
 public class HireService {
     private static final Logger log = LoggerFactory.getLogger(HireService.class);
-    private final Application application; // 投递
+    private final Application application; // 入职
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
     private final EhrImportTask ehrImportTask; // 导入 e-HR
@@ -60,7 +61,7 @@ public class HireService {
     }
 
     /**
-     * 投递
+     * 入职
      *
      * @return
      */
@@ -2194,4 +2195,10 @@ public class HireService {
         }
     }
 
+    public abstract static class P2ApplicationStageChangedV1Handler implements IEventHandler<P2ApplicationStageChangedV1> {
+        @Override
+        public P2ApplicationStageChangedV1 getEvent() {
+            return new P2ApplicationStageChangedV1();
+        }
+    }
 }

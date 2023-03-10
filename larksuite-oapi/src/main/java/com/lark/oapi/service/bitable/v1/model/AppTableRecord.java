@@ -32,10 +32,10 @@ public class AppTableRecord {
     private Person createdBy;
     /**
      * 该记录的创建时间
-     * <p> 示例值：1610281603
+     * <p> 示例值：
      */
     @SerializedName("created_time")
-    private Integer createdTime;
+    private Long createdTime;
     /**
      * 该记录最新一次更新的修改人
      * <p> 示例值：
@@ -44,10 +44,10 @@ public class AppTableRecord {
     private Person lastModifiedBy;
     /**
      * 该记录最近一次的更新时间
-     * <p> 示例值：1610281603
+     * <p> 示例值：
      */
     @SerializedName("last_modified_time")
-    private Integer lastModifiedTime;
+    private Long lastModifiedTime;
     /**
      * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
      * <p> 示例值：
@@ -72,7 +72,7 @@ public class AppTableRecord {
         this.createdBy = builder.createdBy;
         /**
          * 该记录的创建时间
-         * <p> 示例值：1610281603
+         * <p> 示例值：
          */
         this.createdTime = builder.createdTime;
         /**
@@ -82,7 +82,7 @@ public class AppTableRecord {
         this.lastModifiedBy = builder.lastModifiedBy;
         /**
          * 该记录最近一次的更新时间
-         * <p> 示例值：1610281603
+         * <p> 示例值：
          */
         this.lastModifiedTime = builder.lastModifiedTime;
         /**
@@ -112,11 +112,11 @@ public class AppTableRecord {
         this.createdBy = createdBy;
     }
 
-    public Integer getCreatedTime() {
+    public Long getCreatedTime() {
         return this.createdTime;
     }
 
-    public void setCreatedTime(Integer createdTime) {
+    public void setCreatedTime(Long createdTime) {
         this.createdTime = createdTime;
     }
 
@@ -128,11 +128,11 @@ public class AppTableRecord {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public Integer getLastModifiedTime() {
+    public Long getLastModifiedTime() {
         return this.lastModifiedTime;
     }
 
-    public void setLastModifiedTime(Integer lastModifiedTime) {
+    public void setLastModifiedTime(Long lastModifiedTime) {
         this.lastModifiedTime = lastModifiedTime;
     }
 
@@ -157,9 +157,9 @@ public class AppTableRecord {
         private Person createdBy;
         /**
          * 该记录的创建时间
-         * <p> 示例值：1610281603
+         * <p> 示例值：
          */
-        private Integer createdTime;
+        private Long createdTime;
         /**
          * 该记录最新一次更新的修改人
          * <p> 示例值：
@@ -167,9 +167,9 @@ public class AppTableRecord {
         private Person lastModifiedBy;
         /**
          * 该记录最近一次的更新时间
-         * <p> 示例值：1610281603
+         * <p> 示例值：
          */
-        private Integer lastModifiedTime;
+        private Long lastModifiedTime;
         /**
          * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
          * <p> 示例值：
@@ -204,12 +204,12 @@ public class AppTableRecord {
 
         /**
          * 该记录的创建时间
-         * <p> 示例值：1610281603
+         * <p> 示例值：
          *
          * @param createdTime
          * @return
          */
-        public Builder createdTime(Integer createdTime) {
+        public Builder createdTime(Long createdTime) {
             this.createdTime = createdTime;
             return this;
         }
@@ -230,12 +230,12 @@ public class AppTableRecord {
 
         /**
          * 该记录最近一次的更新时间
-         * <p> 示例值：1610281603
+         * <p> 示例值：
          *
          * @param lastModifiedTime
          * @return
          */
-        public Builder lastModifiedTime(Integer lastModifiedTime) {
+        public Builder lastModifiedTime(Long lastModifiedTime) {
             this.lastModifiedTime = lastModifiedTime;
             return this;
         }

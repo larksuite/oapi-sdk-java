@@ -21,6 +21,7 @@ import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.tenant.v2.model.QueryTenantProductAssignInfoResp;
 import com.lark.oapi.service.tenant.v2.model.QueryTenantResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +31,11 @@ import java.nio.charset.StandardCharsets;
 public class TenantService {
     private static final Logger log = LoggerFactory.getLogger(TenantService.class);
     private final Tenant tenant; // 企业信息
+    private final TenantProductAssignInfo tenantProductAssignInfo; // tenant.product_assign_info
 
     public TenantService(Config config) {
         this.tenant = new Tenant(config);
+        this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
     }
 
     /**
@@ -42,6 +45,15 @@ public class TenantService {
      */
     public Tenant tenant() {
         return tenant;
+    }
+
+    /**
+     * tenant.product_assign_info
+     *
+     * @return
+     */
+    public TenantProductAssignInfo tenantProductAssignInfo() {
+        return tenantProductAssignInfo;
     }
 
     public static class Tenant {
@@ -106,6 +118,78 @@ public class TenantService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/query"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+    }
+
+    public static class TenantProductAssignInfo {
+        private final Config config;
+
+        public TenantProductAssignInfo(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java</a> ;
+         */
+        public QueryTenantProductAssignInfoResp query(RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/tenant/v2/tenant/assign_info_list/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , null);
+
+            // 反序列化
+            QueryTenantProductAssignInfoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantProductAssignInfoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/assign_info_list/query"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java</a> ;
+         */
+        public QueryTenantProductAssignInfoResp query() throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/tenant/v2/tenant/assign_info_list/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , null);
+
+            // 反序列化
+            QueryTenantProductAssignInfoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantProductAssignInfoResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/assign_info_list/query"
                         , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

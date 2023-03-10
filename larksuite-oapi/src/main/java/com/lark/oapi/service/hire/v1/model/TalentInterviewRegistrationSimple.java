@@ -28,6 +28,12 @@ public class TalentInterviewRegistrationSimple {
      */
     @SerializedName("registration_time")
     private Integer registrationTime;
+    /**
+     * 下载链接
+     * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+     */
+    @SerializedName("download_url")
+    private String downloadUrl;
 
     // builder 开始
     public TalentInterviewRegistrationSimple() {
@@ -44,6 +50,11 @@ public class TalentInterviewRegistrationSimple {
          * <p> 示例值：1618494330932
          */
         this.registrationTime = builder.registrationTime;
+        /**
+         * 下载链接
+         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+         */
+        this.downloadUrl = builder.downloadUrl;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class TalentInterviewRegistrationSimple {
         this.registrationTime = registrationTime;
     }
 
+    public String getDownloadUrl() {
+        return this.downloadUrl;
+    }
+
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
+    }
+
     public static class Builder {
         /**
          * ID
@@ -77,6 +96,11 @@ public class TalentInterviewRegistrationSimple {
          * <p> 示例值：1618494330932
          */
         private Integer registrationTime;
+        /**
+         * 下载链接
+         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+         */
+        private String downloadUrl;
 
         /**
          * ID
@@ -100,6 +124,19 @@ public class TalentInterviewRegistrationSimple {
          */
         public Builder registrationTime(Integer registrationTime) {
             this.registrationTime = registrationTime;
+            return this;
+        }
+
+
+        /**
+         * 下载链接
+         * <p> 示例值：https://hire.feishu.cn/hire/file/blob/...token.../
+         *
+         * @param downloadUrl
+         * @return
+         */
+        public Builder downloadUrl(String downloadUrl) {
+            this.downloadUrl = downloadUrl;
             return this;
         }
 

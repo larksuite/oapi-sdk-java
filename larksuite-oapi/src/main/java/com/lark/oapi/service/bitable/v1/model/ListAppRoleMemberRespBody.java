@@ -36,7 +36,7 @@ public class ListAppRoleMemberRespBody {
     private String pageToken;
     /**
      * 总数
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @SerializedName("total")
     private Integer total;

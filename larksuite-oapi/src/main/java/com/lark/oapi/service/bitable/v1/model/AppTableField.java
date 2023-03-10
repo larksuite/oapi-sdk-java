@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class AppTableField {
     /**
      * 多维表格字段 id
-     * <p> 示例值：
+     * <p> 示例值：fldWJyCkFQ
      */
     @SerializedName("field_id")
     private String fieldId;
@@ -46,6 +46,18 @@ public class AppTableField {
      */
     @SerializedName("description")
     private AppTableFieldDescription description;
+    /**
+     * 是否是索引列
+     * <p> 示例值：true
+     */
+    @SerializedName("is_primary")
+    private Boolean isPrimary;
+    /**
+     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+     * <p> 示例值：Progress
+     */
+    @SerializedName("ui_type")
+    private String uiType;
 
     // builder 开始
     public AppTableField() {
@@ -54,7 +66,7 @@ public class AppTableField {
     public AppTableField(Builder builder) {
         /**
          * 多维表格字段 id
-         * <p> 示例值：
+         * <p> 示例值：fldWJyCkFQ
          */
         this.fieldId = builder.fieldId;
         /**
@@ -77,6 +89,16 @@ public class AppTableField {
          * <p> 示例值：
          */
         this.description = builder.description;
+        /**
+         * 是否是索引列
+         * <p> 示例值：true
+         */
+        this.isPrimary = builder.isPrimary;
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         */
+        this.uiType = builder.uiType;
     }
 
     public static Builder newBuilder() {
@@ -123,10 +145,26 @@ public class AppTableField {
         this.description = description;
     }
 
+    public Boolean getIsPrimary() {
+        return this.isPrimary;
+    }
+
+    public void setIsPrimary(Boolean isPrimary) {
+        this.isPrimary = isPrimary;
+    }
+
+    public String getUiType() {
+        return this.uiType;
+    }
+
+    public void setUiType(String uiType) {
+        this.uiType = uiType;
+    }
+
     public static class Builder {
         /**
          * 多维表格字段 id
-         * <p> 示例值：
+         * <p> 示例值：fldWJyCkFQ
          */
         private String fieldId;
         /**
@@ -149,10 +187,20 @@ public class AppTableField {
          * <p> 示例值：
          */
         private AppTableFieldDescription description;
+        /**
+         * 是否是索引列
+         * <p> 示例值：true
+         */
+        private Boolean isPrimary;
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         */
+        private String uiType;
 
         /**
          * 多维表格字段 id
-         * <p> 示例值：
+         * <p> 示例值：fldWJyCkFQ
          *
          * @param fieldId
          * @return
@@ -223,6 +271,32 @@ public class AppTableField {
          */
         public Builder description(AppTableFieldDescription description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 是否是索引列
+         * <p> 示例值：true
+         *
+         * @param isPrimary
+         * @return
+         */
+        public Builder isPrimary(Boolean isPrimary) {
+            this.isPrimary = isPrimary;
+            return this;
+        }
+
+
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         *
+         * @param uiType
+         * @return
+         */
+        public Builder uiType(String uiType) {
+            this.uiType = uiType;
             return this;
         }
 

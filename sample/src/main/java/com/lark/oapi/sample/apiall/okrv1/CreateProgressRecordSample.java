@@ -23,6 +23,8 @@ public class CreateProgressRecordSample {
                         .targetId("7041430377642082323")
                         .targetType(1)
                         .content(ContentBlock.newBuilder().build())
+                        .sourceUrlPc("open.feishu.cn")
+                        .sourceUrlMobile("open.feishu.cn")
                         .build())
                 .build();
 

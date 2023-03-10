@@ -1,26 +1,24 @@
-package com.lark.oapi.sample.apiall.approvalv4;
+package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.ListApprovalReq;
-import com.lark.oapi.service.approval.v4.model.ListApprovalResp;
+import com.lark.oapi.service.contact.v3.model.GetJobLevelReq;
+import com.lark.oapi.service.contact.v3.model.GetJobLevelResp;
 
-// GET /open-apis/approval/v4/approvals
-public class ListApprovalSample {
+// GET /open-apis/contact/v3/job_levels/:job_level_id
+public class GetJobLevelSample {
 
     public static void main(String arg[]) throws Exception {
         // 构建client
         Client client = Client.newBuilder("appId", "appSecret").build();
 
         // 创建请求对象
-        ListApprovalReq req = ListApprovalReq.newBuilder()
-                .pageSize(10)
-                .pageToken("ASDJHA1323_sda1JSASDFD")
-                .locale("zh-CN")
+        GetJobLevelReq req = GetJobLevelReq.newBuilder()
+                .jobLevelId("mga5oa8ayjlp9rb")
                 .build();
 
         // 发起请求
-        ListApprovalResp resp = client.approval().approval().list(req);
+        GetJobLevelResp resp = client.contact().jobLevel().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

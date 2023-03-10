@@ -46,6 +46,18 @@ public class CreateProgressRecordReqBody {
      */
     @SerializedName("content")
     private ContentBlock content;
+    /**
+     * pc进展来源链接
+     * <p> 示例值：open.feishu.cn
+     */
+    @SerializedName("source_url_pc")
+    private String sourceUrlPc;
+    /**
+     * mobile进展来源链接
+     * <p> 示例值：open.feishu.cn
+     */
+    @SerializedName("source_url_mobile")
+    private String sourceUrlMobile;
 
     // builder 开始
     public CreateProgressRecordReqBody() {
@@ -77,6 +89,16 @@ public class CreateProgressRecordReqBody {
          * <p> 示例值：
          */
         this.content = builder.content;
+        /**
+         * pc进展来源链接
+         * <p> 示例值：open.feishu.cn
+         */
+        this.sourceUrlPc = builder.sourceUrlPc;
+        /**
+         * mobile进展来源链接
+         * <p> 示例值：open.feishu.cn
+         */
+        this.sourceUrlMobile = builder.sourceUrlMobile;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +145,22 @@ public class CreateProgressRecordReqBody {
         this.content = content;
     }
 
+    public String getSourceUrlPc() {
+        return this.sourceUrlPc;
+    }
+
+    public void setSourceUrlPc(String sourceUrlPc) {
+        this.sourceUrlPc = sourceUrlPc;
+    }
+
+    public String getSourceUrlMobile() {
+        return this.sourceUrlMobile;
+    }
+
+    public void setSourceUrlMobile(String sourceUrlMobile) {
+        this.sourceUrlMobile = sourceUrlMobile;
+    }
+
     public static class Builder {
         /**
          * 进展来源
@@ -149,6 +187,16 @@ public class CreateProgressRecordReqBody {
          * <p> 示例值：
          */
         private ContentBlock content;
+        /**
+         * pc进展来源链接
+         * <p> 示例值：open.feishu.cn
+         */
+        private String sourceUrlPc;
+        /**
+         * mobile进展来源链接
+         * <p> 示例值：open.feishu.cn
+         */
+        private String sourceUrlMobile;
 
         /**
          * 进展来源
@@ -223,6 +271,32 @@ public class CreateProgressRecordReqBody {
          */
         public Builder content(ContentBlock content) {
             this.content = content;
+            return this;
+        }
+
+
+        /**
+         * pc进展来源链接
+         * <p> 示例值：open.feishu.cn
+         *
+         * @param sourceUrlPc
+         * @return
+         */
+        public Builder sourceUrlPc(String sourceUrlPc) {
+            this.sourceUrlPc = sourceUrlPc;
+            return this;
+        }
+
+
+        /**
+         * mobile进展来源链接
+         * <p> 示例值：open.feishu.cn
+         *
+         * @param sourceUrlMobile
+         * @return
+         */
+        public Builder sourceUrlMobile(String sourceUrlMobile) {
+            this.sourceUrlMobile = sourceUrlMobile;
             return this;
         }
 

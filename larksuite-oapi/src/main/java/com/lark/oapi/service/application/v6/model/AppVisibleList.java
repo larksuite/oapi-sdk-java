@@ -28,6 +28,12 @@ public class AppVisibleList {
      */
     @SerializedName("department_ids")
     private String[] departmentIds;
+    /**
+     * 可见性成员 group_id 列表
+     * <p> 示例值：
+     */
+    @SerializedName("group_ids")
+    private String[] groupIds;
 
     // builder 开始
     public AppVisibleList() {
@@ -44,6 +50,11 @@ public class AppVisibleList {
          * <p> 示例值：
          */
         this.departmentIds = builder.departmentIds;
+        /**
+         * 可见性成员 group_id 列表
+         * <p> 示例值：
+         */
+        this.groupIds = builder.groupIds;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class AppVisibleList {
         this.departmentIds = departmentIds;
     }
 
+    public String[] getGroupIds() {
+        return this.groupIds;
+    }
+
+    public void setGroupIds(String[] groupIds) {
+        this.groupIds = groupIds;
+    }
+
     public static class Builder {
         /**
          * 可见性成员 open_id 列表
@@ -77,6 +96,11 @@ public class AppVisibleList {
          * <p> 示例值：
          */
         private String[] departmentIds;
+        /**
+         * 可见性成员 group_id 列表
+         * <p> 示例值：
+         */
+        private String[] groupIds;
 
         /**
          * 可见性成员 open_id 列表
@@ -100,6 +124,19 @@ public class AppVisibleList {
          */
         public Builder departmentIds(String[] departmentIds) {
             this.departmentIds = departmentIds;
+            return this;
+        }
+
+
+        /**
+         * 可见性成员 group_id 列表
+         * <p> 示例值：
+         *
+         * @param groupIds
+         * @return
+         */
+        public Builder groupIds(String[] groupIds) {
+            this.groupIds = groupIds;
             return this;
         }
 

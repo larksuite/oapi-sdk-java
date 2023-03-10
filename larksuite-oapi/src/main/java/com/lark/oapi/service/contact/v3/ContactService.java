@@ -34,8 +34,12 @@ public class ContactService {
     private final CustomAttrEvent customAttrEvent; // 事件
     private final Department department; // 部门
     private final EmployeeTypeEnum employeeTypeEnum; // 人员类型
+    private final FunctionalRole functionalRole; // functional_role
+    private final FunctionalRoleMember functionalRoleMember; // functional_role.member
     private final Group group; // 用户组
     private final GroupMember groupMember; // 用户组成员
+    private final JobFamily jobFamily; // job_family
+    private final JobLevel jobLevel; // job_level
     private final Scope scope; // 通讯录权限范围
     private final Unit unit; // 单位
     private final User user; // 用户
@@ -45,8 +49,12 @@ public class ContactService {
         this.customAttrEvent = new CustomAttrEvent(config);
         this.department = new Department(config);
         this.employeeTypeEnum = new EmployeeTypeEnum(config);
+        this.functionalRole = new FunctionalRole(config);
+        this.functionalRoleMember = new FunctionalRoleMember(config);
         this.group = new Group(config);
         this.groupMember = new GroupMember(config);
+        this.jobFamily = new JobFamily(config);
+        this.jobLevel = new JobLevel(config);
         this.scope = new Scope(config);
         this.unit = new Unit(config);
         this.user = new User(config);
@@ -89,6 +97,24 @@ public class ContactService {
     }
 
     /**
+     * functional_role
+     *
+     * @return
+     */
+    public FunctionalRole functionalRole() {
+        return functionalRole;
+    }
+
+    /**
+     * functional_role.member
+     *
+     * @return
+     */
+    public FunctionalRoleMember functionalRoleMember() {
+        return functionalRoleMember;
+    }
+
+    /**
      * 用户组
      *
      * @return
@@ -104,6 +130,24 @@ public class ContactService {
      */
     public GroupMember groupMember() {
         return groupMember;
+    }
+
+    /**
+     * job_family
+     *
+     * @return
+     */
+    public JobFamily jobFamily() {
+        return jobFamily;
+    }
+
+    /**
+     * job_level
+     *
+     * @return
+     */
+    public JobLevel jobLevel() {
+        return jobLevel;
     }
 
     /**
@@ -1173,6 +1217,550 @@ public class ContactService {
         }
     }
 
+    public static class FunctionalRole {
+        private final Config config;
+
+        public FunctionalRole(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=functional_role&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=functional_role&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateFunctionalRoleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateFunctionalRoleSample.java</a> ;
+         */
+        public CreateFunctionalRoleResp create(CreateFunctionalRoleReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/functional_roles"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateFunctionalRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFunctionalRoleResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=functional_role&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=functional_role&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateFunctionalRoleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateFunctionalRoleSample.java</a> ;
+         */
+        public CreateFunctionalRoleResp create(CreateFunctionalRoleReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/functional_roles"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateFunctionalRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFunctionalRoleResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=functional_role&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=functional_role&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteFunctionalRoleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteFunctionalRoleSample.java</a> ;
+         */
+        public DeleteFunctionalRoleResp delete(DeleteFunctionalRoleReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/contact/v3/functional_roles/:role_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteFunctionalRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFunctionalRoleResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=functional_role&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=functional_role&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteFunctionalRoleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteFunctionalRoleSample.java</a> ;
+         */
+        public DeleteFunctionalRoleResp delete(DeleteFunctionalRoleReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/contact/v3/functional_roles/:role_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteFunctionalRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFunctionalRoleResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=functional_role&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=functional_role&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateFunctionalRoleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateFunctionalRoleSample.java</a> ;
+         */
+        public UpdateFunctionalRoleResp update(UpdateFunctionalRoleReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/contact/v3/functional_roles/:role_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateFunctionalRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateFunctionalRoleResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=functional_role&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=functional_role&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateFunctionalRoleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateFunctionalRoleSample.java</a> ;
+         */
+        public UpdateFunctionalRoleResp update(UpdateFunctionalRoleReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/contact/v3/functional_roles/:role_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateFunctionalRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateFunctionalRoleResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class FunctionalRoleMember {
+        private final Config config;
+
+        public FunctionalRoleMember(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchCreateFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchCreateFunctionalRoleMemberSample.java</a> ;
+         */
+        public BatchCreateFunctionalRoleMemberResp batchCreate(BatchCreateFunctionalRoleMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/batch_create"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchCreateFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/batch_create"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_create&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchCreateFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchCreateFunctionalRoleMemberSample.java</a> ;
+         */
+        public BatchCreateFunctionalRoleMemberResp batchCreate(BatchCreateFunctionalRoleMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/batch_create"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchCreateFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchCreateFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/batch_create"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchDeleteFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchDeleteFunctionalRoleMemberSample.java</a> ;
+         */
+        public BatchDeleteFunctionalRoleMemberResp batchDelete(BatchDeleteFunctionalRoleMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchDeleteFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/BatchDeleteFunctionalRoleMemberSample.java</a> ;
+         */
+        public BatchDeleteFunctionalRoleMemberResp batchDelete(BatchDeleteFunctionalRoleMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetFunctionalRoleMemberSample.java</a> ;
+         */
+        public GetFunctionalRoleMemberResp get(GetFunctionalRoleMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/:member_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/:member_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetFunctionalRoleMemberSample.java</a> ;
+         */
+        public GetFunctionalRoleMemberResp get(GetFunctionalRoleMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/:member_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/:member_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListFunctionalRoleMemberSample.java</a> ;
+         */
+        public ListFunctionalRoleMemberResp list(ListFunctionalRoleMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListFunctionalRoleMemberSample.java</a> ;
+         */
+        public ListFunctionalRoleMemberResp list(ListFunctionalRoleMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=scopes&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=scopes&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ScopesFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ScopesFunctionalRoleMemberSample.java</a> ;
+         */
+        public ScopesFunctionalRoleMemberResp scopes(ScopesFunctionalRoleMemberReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/scopes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ScopesFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ScopesFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/scopes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=scopes&project=contact&resource=functional_role.member&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=scopes&project=contact&resource=functional_role.member&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ScopesFunctionalRoleMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ScopesFunctionalRoleMemberSample.java</a> ;
+         */
+        public ScopesFunctionalRoleMemberResp scopes(ScopesFunctionalRoleMemberReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/contact/v3/functional_roles/:role_id/members/scopes"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ScopesFunctionalRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ScopesFunctionalRoleMemberResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/functional_roles/:role_id/members/scopes"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
     public static class Group {
         private final Config config;
 
@@ -1906,6 +2494,682 @@ public class ContactService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/group/:group_id/member/simplelist"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class JobFamily {
+        private final Config config;
+
+        public JobFamily(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobFamilySample.java</a> ;
+         */
+        public CreateJobFamilyResp create(CreateJobFamilyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/job_families"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobFamilySample.java</a> ;
+         */
+        public CreateJobFamilyResp create(CreateJobFamilyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/job_families"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobFamilySample.java</a> ;
+         */
+        public DeleteJobFamilyResp delete(DeleteJobFamilyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/contact/v3/job_families/:job_family_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families/:job_family_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobFamilySample.java</a> ;
+         */
+        public DeleteJobFamilyResp delete(DeleteJobFamilyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/contact/v3/job_families/:job_family_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families/:job_family_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobFamilySample.java</a> ;
+         */
+        public GetJobFamilyResp get(GetJobFamilyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_families/:job_family_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families/:job_family_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobFamilySample.java</a> ;
+         */
+        public GetJobFamilyResp get(GetJobFamilyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_families/:job_family_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families/:job_family_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobFamilySample.java</a> ;
+         */
+        public ListJobFamilyResp list(ListJobFamilyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_families"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobFamilySample.java</a> ;
+         */
+        public ListJobFamilyResp list(ListJobFamilyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_families"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobFamilySample.java</a> ;
+         */
+        public UpdateJobFamilyResp update(UpdateJobFamilyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/contact/v3/job_families/:job_family_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families/:job_family_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_family&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_family&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobFamilySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobFamilySample.java</a> ;
+         */
+        public UpdateJobFamilyResp update(UpdateJobFamilyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/contact/v3/job_families/:job_family_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateJobFamilyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateJobFamilyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_families/:job_family_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class JobLevel {
+        private final Config config;
+
+        public JobLevel(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobLevelSample.java</a> ;
+         */
+        public CreateJobLevelResp create(CreateJobLevelReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/job_levels"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/CreateJobLevelSample.java</a> ;
+         */
+        public CreateJobLevelResp create(CreateJobLevelReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/contact/v3/job_levels"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobLevelSample.java</a> ;
+         */
+        public DeleteJobLevelResp delete(DeleteJobLevelReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/contact/v3/job_levels/:job_level_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels/:job_level_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/DeleteJobLevelSample.java</a> ;
+         */
+        public DeleteJobLevelResp delete(DeleteJobLevelReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+                    , "/open-apis/contact/v3/job_levels/:job_level_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeleteJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels/:job_level_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobLevelSample.java</a> ;
+         */
+        public GetJobLevelResp get(GetJobLevelReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_levels/:job_level_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels/:job_level_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/GetJobLevelSample.java</a> ;
+         */
+        public GetJobLevelResp get(GetJobLevelReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_levels/:job_level_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels/:job_level_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobLevelSample.java</a> ;
+         */
+        public ListJobLevelResp list(ListJobLevelReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_levels"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/ListJobLevelSample.java</a> ;
+         */
+        public ListJobLevelResp list(ListJobLevelReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/contact/v3/job_levels"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobLevelSample.java</a> ;
+         */
+        public UpdateJobLevelResp update(UpdateJobLevelReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/contact/v3/job_levels/:job_level_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels/:job_level_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_level&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=contact&resource=job_level&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobLevelSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateJobLevelSample.java</a> ;
+         */
+        public UpdateJobLevelResp update(UpdateJobLevelReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+                    , "/open-apis/contact/v3/job_levels/:job_level_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateJobLevelResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateJobLevelResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/job_levels/:job_level_id"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

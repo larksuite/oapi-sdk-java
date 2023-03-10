@@ -28,6 +28,12 @@ public class CreateChatMembersRespBody {
      */
     @SerializedName("not_existed_id_list")
     private String[] notExistedIdList;
+    /**
+     * 等待群主或管理员审批的成员ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("pending_approval_id_list")
+    private String[] pendingApprovalIdList;
 
     public String[] getInvalidIdList() {
         return this.invalidIdList;
@@ -43,6 +49,14 @@ public class CreateChatMembersRespBody {
 
     public void setNotExistedIdList(String[] notExistedIdList) {
         this.notExistedIdList = notExistedIdList;
+    }
+
+    public String[] getPendingApprovalIdList() {
+        return this.pendingApprovalIdList;
+    }
+
+    public void setPendingApprovalIdList(String[] pendingApprovalIdList) {
+        this.pendingApprovalIdList = pendingApprovalIdList;
     }
 
 }

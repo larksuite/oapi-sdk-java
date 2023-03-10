@@ -20,7 +20,7 @@ import com.lark.oapi.core.annotation.Query;
 public class GetExchangeBindingReq {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：user_id
+     * <p> 示例值：
      */
     @Query
     @SerializedName("user_id_type")
@@ -40,7 +40,7 @@ public class GetExchangeBindingReq {
     public GetExchangeBindingReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
         /**
@@ -76,7 +76,7 @@ public class GetExchangeBindingReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          *
          * @param userIdType
          * @return
@@ -88,7 +88,7 @@ public class GetExchangeBindingReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          *
          * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.GetExchangeBindingUserIdTypeEnum}
          * @return

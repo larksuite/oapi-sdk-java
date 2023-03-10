@@ -32,7 +32,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
     private Integer pageSize;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：user_id
+     * <p> 示例值：
      */
     @Query
     @SerializedName("user_id_type")
@@ -76,7 +76,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
         this.pageSize = builder.pageSize;
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
         /**
@@ -180,7 +180,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          *
          * @param userIdType
          * @return
@@ -192,7 +192,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
+         * <p> 示例值：
          *
          * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeChatMemberUserIdTypeEnum}
          * @return
