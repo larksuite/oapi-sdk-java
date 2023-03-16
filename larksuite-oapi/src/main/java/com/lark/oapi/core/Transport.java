@@ -173,6 +173,11 @@ public class Transport {
                 requestOptions = new RequestOptions();
             }
 
+            // 兼容 auth_v3
+            if (accessTokenTypeSet.isEmpty()) {
+                accessTokenTypeSet.add(AccessTokenType.None);
+            }
+
             // 确定token类型
             AccessTokenType accessTokenType = determineTokenType(accessTokenTypeSet
                     , requestOptions
