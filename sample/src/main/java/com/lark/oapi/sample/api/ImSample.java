@@ -30,6 +30,7 @@ import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.sdk.apache.httpclient.ApacheHttpClientTransport;
 import com.lark.oapi.service.drive.v1.model.DownloadFileReq;
 import com.lark.oapi.service.drive.v1.model.DownloadFileResp;
 import com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum;
@@ -1095,9 +1096,7 @@ public class ImSample {
                 .requestTimeout(10, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
                 //.disableTokenCache() // 禁用token管理，禁用后需要开发者自己传递token
                 .logReqAtDebug(true)
-//        .httpTransport(ApacheHttpClientTransport.newBuilder()
-//            .httpclient(HttpClients.createDefault())
-//            .build())
+//                .httpTransport(ApacheHttpClientTransport.newBuilder().httpclient(HttpClients.createDefault()).build())
                 .build();
 
         sendPostMsg(client);
