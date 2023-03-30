@@ -63,19 +63,19 @@ public class Ticket {
      * <p> 示例值：1616920429000
      */
     @SerializedName("created_at")
-    private Integer createdAt;
+    private Long createdAt;
     /**
      * 工单更新时间，没有值时为-1
      * <p> 示例值：1616920429000
      */
     @SerializedName("updated_at")
-    private Integer updatedAt;
+    private Long updatedAt;
     /**
      * 工单结束时间
      * <p> 示例值：1616920429000
      */
     @SerializedName("closed_at")
-    private Integer closedAt;
+    private Long closedAt;
     /**
      * 不满意原因
      * <p> 示例值：
@@ -126,46 +126,46 @@ public class Ticket {
     private Double agentServiceDuration;
     /**
      * 客服首次回复时间距离客服进入时间的间隔(秒)
-     * <p> 示例值：123869
+     * <p> 示例值：1616920429000
      */
     @SerializedName("agent_first_response_duration")
-    private Integer agentFirstResponseDuration;
+    private Long agentFirstResponseDuration;
     /**
      * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-     * <p> 示例值：1
+     * <p> 示例值：1616920429000
      */
     @SerializedName("bot_service_duration")
-    private Integer botServiceDuration;
+    private Long botServiceDuration;
     /**
      * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-     * <p> 示例值：66
+     * <p> 示例值：1616920429000
      */
     @SerializedName("agent_resolution_time")
-    private Integer agentResolutionTime;
+    private Long agentResolutionTime;
     /**
      * 工单实际处理时间：从客服进入到关单，单位秒
-     * <p> 示例值：68
+     * <p> 示例值：1616920429000
      */
     @SerializedName("actual_processing_time")
-    private Integer actualProcessingTime;
+    private Long actualProcessingTime;
     /**
      * 客服进入时间，单位毫秒
-     * <p> 示例值：1636444596000
+     * <p> 示例值：1616920429000
      */
     @SerializedName("agent_entry_time")
-    private Integer agentEntryTime;
+    private Long agentEntryTime;
     /**
      * 客服首次回复时间，单位毫秒
-     * <p> 示例值：1636444696000
+     * <p> 示例值：1616920429000
      */
     @SerializedName("agent_first_response_time")
-    private Integer agentFirstResponseTime;
+    private Long agentFirstResponseTime;
     /**
      * 客服最后回复时间，单位毫秒
-     * <p> 示例值：1636444796000
+     * <p> 示例值：1616920429000
      */
     @SerializedName("agent_last_response_time")
-    private Integer agentLastResponseTime;
+    private Long agentLastResponseTime;
     /**
      * 主责客服
      * <p> 示例值：
@@ -270,37 +270,37 @@ public class Ticket {
         this.agentServiceDuration = builder.agentServiceDuration;
         /**
          * 客服首次回复时间距离客服进入时间的间隔(秒)
-         * <p> 示例值：123869
+         * <p> 示例值：1616920429000
          */
         this.agentFirstResponseDuration = builder.agentFirstResponseDuration;
         /**
          * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-         * <p> 示例值：1
+         * <p> 示例值：1616920429000
          */
         this.botServiceDuration = builder.botServiceDuration;
         /**
          * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-         * <p> 示例值：66
+         * <p> 示例值：1616920429000
          */
         this.agentResolutionTime = builder.agentResolutionTime;
         /**
          * 工单实际处理时间：从客服进入到关单，单位秒
-         * <p> 示例值：68
+         * <p> 示例值：1616920429000
          */
         this.actualProcessingTime = builder.actualProcessingTime;
         /**
          * 客服进入时间，单位毫秒
-         * <p> 示例值：1636444596000
+         * <p> 示例值：1616920429000
          */
         this.agentEntryTime = builder.agentEntryTime;
         /**
          * 客服首次回复时间，单位毫秒
-         * <p> 示例值：1636444696000
+         * <p> 示例值：1616920429000
          */
         this.agentFirstResponseTime = builder.agentFirstResponseTime;
         /**
          * 客服最后回复时间，单位毫秒
-         * <p> 示例值：1636444796000
+         * <p> 示例值：1616920429000
          */
         this.agentLastResponseTime = builder.agentLastResponseTime;
         /**
@@ -370,27 +370,27 @@ public class Ticket {
         this.score = score;
     }
 
-    public Integer getCreatedAt() {
+    public Long getCreatedAt() {
         return this.createdAt;
     }
 
-    public void setCreatedAt(Integer createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Integer getUpdatedAt() {
+    public Long getUpdatedAt() {
         return this.updatedAt;
     }
 
-    public void setUpdatedAt(Integer updatedAt) {
+    public void setUpdatedAt(Long updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Integer getClosedAt() {
+    public Long getClosedAt() {
         return this.closedAt;
     }
 
-    public void setClosedAt(Integer closedAt) {
+    public void setClosedAt(Long closedAt) {
         this.closedAt = closedAt;
     }
 
@@ -458,59 +458,59 @@ public class Ticket {
         this.agentServiceDuration = agentServiceDuration;
     }
 
-    public Integer getAgentFirstResponseDuration() {
+    public Long getAgentFirstResponseDuration() {
         return this.agentFirstResponseDuration;
     }
 
-    public void setAgentFirstResponseDuration(Integer agentFirstResponseDuration) {
+    public void setAgentFirstResponseDuration(Long agentFirstResponseDuration) {
         this.agentFirstResponseDuration = agentFirstResponseDuration;
     }
 
-    public Integer getBotServiceDuration() {
+    public Long getBotServiceDuration() {
         return this.botServiceDuration;
     }
 
-    public void setBotServiceDuration(Integer botServiceDuration) {
+    public void setBotServiceDuration(Long botServiceDuration) {
         this.botServiceDuration = botServiceDuration;
     }
 
-    public Integer getAgentResolutionTime() {
+    public Long getAgentResolutionTime() {
         return this.agentResolutionTime;
     }
 
-    public void setAgentResolutionTime(Integer agentResolutionTime) {
+    public void setAgentResolutionTime(Long agentResolutionTime) {
         this.agentResolutionTime = agentResolutionTime;
     }
 
-    public Integer getActualProcessingTime() {
+    public Long getActualProcessingTime() {
         return this.actualProcessingTime;
     }
 
-    public void setActualProcessingTime(Integer actualProcessingTime) {
+    public void setActualProcessingTime(Long actualProcessingTime) {
         this.actualProcessingTime = actualProcessingTime;
     }
 
-    public Integer getAgentEntryTime() {
+    public Long getAgentEntryTime() {
         return this.agentEntryTime;
     }
 
-    public void setAgentEntryTime(Integer agentEntryTime) {
+    public void setAgentEntryTime(Long agentEntryTime) {
         this.agentEntryTime = agentEntryTime;
     }
 
-    public Integer getAgentFirstResponseTime() {
+    public Long getAgentFirstResponseTime() {
         return this.agentFirstResponseTime;
     }
 
-    public void setAgentFirstResponseTime(Integer agentFirstResponseTime) {
+    public void setAgentFirstResponseTime(Long agentFirstResponseTime) {
         this.agentFirstResponseTime = agentFirstResponseTime;
     }
 
-    public Integer getAgentLastResponseTime() {
+    public Long getAgentLastResponseTime() {
         return this.agentLastResponseTime;
     }
 
-    public void setAgentLastResponseTime(Integer agentLastResponseTime) {
+    public void setAgentLastResponseTime(Long agentLastResponseTime) {
         this.agentLastResponseTime = agentLastResponseTime;
     }
 
@@ -562,17 +562,17 @@ public class Ticket {
          * 工单创建时间
          * <p> 示例值：1616920429000
          */
-        private Integer createdAt;
+        private Long createdAt;
         /**
          * 工单更新时间，没有值时为-1
          * <p> 示例值：1616920429000
          */
-        private Integer updatedAt;
+        private Long updatedAt;
         /**
          * 工单结束时间
          * <p> 示例值：1616920429000
          */
-        private Integer closedAt;
+        private Long closedAt;
         /**
          * 不满意原因
          * <p> 示例值：
@@ -615,39 +615,39 @@ public class Ticket {
         private Double agentServiceDuration;
         /**
          * 客服首次回复时间距离客服进入时间的间隔(秒)
-         * <p> 示例值：123869
+         * <p> 示例值：1616920429000
          */
-        private Integer agentFirstResponseDuration;
+        private Long agentFirstResponseDuration;
         /**
          * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-         * <p> 示例值：1
+         * <p> 示例值：1616920429000
          */
-        private Integer botServiceDuration;
+        private Long botServiceDuration;
         /**
          * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-         * <p> 示例值：66
+         * <p> 示例值：1616920429000
          */
-        private Integer agentResolutionTime;
+        private Long agentResolutionTime;
         /**
          * 工单实际处理时间：从客服进入到关单，单位秒
-         * <p> 示例值：68
+         * <p> 示例值：1616920429000
          */
-        private Integer actualProcessingTime;
+        private Long actualProcessingTime;
         /**
          * 客服进入时间，单位毫秒
-         * <p> 示例值：1636444596000
+         * <p> 示例值：1616920429000
          */
-        private Integer agentEntryTime;
+        private Long agentEntryTime;
         /**
          * 客服首次回复时间，单位毫秒
-         * <p> 示例值：1636444696000
+         * <p> 示例值：1616920429000
          */
-        private Integer agentFirstResponseTime;
+        private Long agentFirstResponseTime;
         /**
          * 客服最后回复时间，单位毫秒
-         * <p> 示例值：1636444796000
+         * <p> 示例值：1616920429000
          */
-        private Integer agentLastResponseTime;
+        private Long agentLastResponseTime;
         /**
          * 主责客服
          * <p> 示例值：
@@ -752,7 +752,7 @@ public class Ticket {
          * @param createdAt
          * @return
          */
-        public Builder createdAt(Integer createdAt) {
+        public Builder createdAt(Long createdAt) {
             this.createdAt = createdAt;
             return this;
         }
@@ -765,7 +765,7 @@ public class Ticket {
          * @param updatedAt
          * @return
          */
-        public Builder updatedAt(Integer updatedAt) {
+        public Builder updatedAt(Long updatedAt) {
             this.updatedAt = updatedAt;
             return this;
         }
@@ -778,7 +778,7 @@ public class Ticket {
          * @param closedAt
          * @return
          */
-        public Builder closedAt(Integer closedAt) {
+        public Builder closedAt(Long closedAt) {
             this.closedAt = closedAt;
             return this;
         }
@@ -890,12 +890,12 @@ public class Ticket {
 
         /**
          * 客服首次回复时间距离客服进入时间的间隔(秒)
-         * <p> 示例值：123869
+         * <p> 示例值：1616920429000
          *
          * @param agentFirstResponseDuration
          * @return
          */
-        public Builder agentFirstResponseDuration(Integer agentFirstResponseDuration) {
+        public Builder agentFirstResponseDuration(Long agentFirstResponseDuration) {
             this.agentFirstResponseDuration = agentFirstResponseDuration;
             return this;
         }
@@ -903,12 +903,12 @@ public class Ticket {
 
         /**
          * 机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒
-         * <p> 示例值：1
+         * <p> 示例值：1616920429000
          *
          * @param botServiceDuration
          * @return
          */
-        public Builder botServiceDuration(Integer botServiceDuration) {
+        public Builder botServiceDuration(Long botServiceDuration) {
             this.botServiceDuration = botServiceDuration;
             return this;
         }
@@ -916,12 +916,12 @@ public class Ticket {
 
         /**
          * 客服解决时长，关单时间距离客服进入时间的间隔，单位秒
-         * <p> 示例值：66
+         * <p> 示例值：1616920429000
          *
          * @param agentResolutionTime
          * @return
          */
-        public Builder agentResolutionTime(Integer agentResolutionTime) {
+        public Builder agentResolutionTime(Long agentResolutionTime) {
             this.agentResolutionTime = agentResolutionTime;
             return this;
         }
@@ -929,12 +929,12 @@ public class Ticket {
 
         /**
          * 工单实际处理时间：从客服进入到关单，单位秒
-         * <p> 示例值：68
+         * <p> 示例值：1616920429000
          *
          * @param actualProcessingTime
          * @return
          */
-        public Builder actualProcessingTime(Integer actualProcessingTime) {
+        public Builder actualProcessingTime(Long actualProcessingTime) {
             this.actualProcessingTime = actualProcessingTime;
             return this;
         }
@@ -942,12 +942,12 @@ public class Ticket {
 
         /**
          * 客服进入时间，单位毫秒
-         * <p> 示例值：1636444596000
+         * <p> 示例值：1616920429000
          *
          * @param agentEntryTime
          * @return
          */
-        public Builder agentEntryTime(Integer agentEntryTime) {
+        public Builder agentEntryTime(Long agentEntryTime) {
             this.agentEntryTime = agentEntryTime;
             return this;
         }
@@ -955,12 +955,12 @@ public class Ticket {
 
         /**
          * 客服首次回复时间，单位毫秒
-         * <p> 示例值：1636444696000
+         * <p> 示例值：1616920429000
          *
          * @param agentFirstResponseTime
          * @return
          */
-        public Builder agentFirstResponseTime(Integer agentFirstResponseTime) {
+        public Builder agentFirstResponseTime(Long agentFirstResponseTime) {
             this.agentFirstResponseTime = agentFirstResponseTime;
             return this;
         }
@@ -968,12 +968,12 @@ public class Ticket {
 
         /**
          * 客服最后回复时间，单位毫秒
-         * <p> 示例值：1636444796000
+         * <p> 示例值：1616920429000
          *
          * @param agentLastResponseTime
          * @return
          */
-        public Builder agentLastResponseTime(Integer agentLastResponseTime) {
+        public Builder agentLastResponseTime(Long agentLastResponseTime) {
             this.agentLastResponseTime = agentLastResponseTime;
             return this;
         }

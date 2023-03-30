@@ -47,6 +47,12 @@ public class Dependent {
     @SerializedName("nationality_id")
     private String nationalityId;
     /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     * <p> 示例值：7075702734054164012
+     */
+    @SerializedName("nationality_id_v2")
+    private String nationalityIdV2;
+    /**
      * 证件号码
      * <p> 示例值：
      */
@@ -76,6 +82,42 @@ public class Dependent {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 家庭成员姓名
+     * <p> 示例值：张三
+     */
+    @SerializedName("dependent_name")
+    private String dependentName;
+    /**
+     * 工作单位
+     * <p> 示例值：海淀区交警大队
+     */
+    @SerializedName("employer")
+    private String employer;
+    /**
+     * 岗位
+     * <p> 示例值：保安
+     */
+    @SerializedName("job")
+    private String job;
+    /**
+     * 电话
+     * <p> 示例值：
+     */
+    @SerializedName("phone")
+    private Phone phone;
+    /**
+     * 联系地址
+     * <p> 示例值：
+     */
+    @SerializedName("address")
+    private Address address;
+    /**
+     * 出生证明
+     * <p> 示例值：
+     */
+    @SerializedName("birth_certificate_of_child")
+    private File[] birthCertificateOfChild;
 
     // builder 开始
     public Dependent() {
@@ -108,6 +150,11 @@ public class Dependent {
          */
         this.nationalityId = builder.nationalityId;
         /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702734054164012
+         */
+        this.nationalityIdV2 = builder.nationalityIdV2;
+        /**
          * 证件号码
          * <p> 示例值：
          */
@@ -132,6 +179,36 @@ public class Dependent {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 家庭成员姓名
+         * <p> 示例值：张三
+         */
+        this.dependentName = builder.dependentName;
+        /**
+         * 工作单位
+         * <p> 示例值：海淀区交警大队
+         */
+        this.employer = builder.employer;
+        /**
+         * 岗位
+         * <p> 示例值：保安
+         */
+        this.job = builder.job;
+        /**
+         * 电话
+         * <p> 示例值：
+         */
+        this.phone = builder.phone;
+        /**
+         * 联系地址
+         * <p> 示例值：
+         */
+        this.address = builder.address;
+        /**
+         * 出生证明
+         * <p> 示例值：
+         */
+        this.birthCertificateOfChild = builder.birthCertificateOfChild;
     }
 
     public static Builder newBuilder() {
@@ -178,6 +255,14 @@ public class Dependent {
         this.nationalityId = nationalityId;
     }
 
+    public String getNationalityIdV2() {
+        return this.nationalityIdV2;
+    }
+
+    public void setNationalityIdV2(String nationalityIdV2) {
+        this.nationalityIdV2 = nationalityIdV2;
+    }
+
     public NationalId[] getNationalIdList() {
         return this.nationalIdList;
     }
@@ -218,6 +303,54 @@ public class Dependent {
         this.customFields = customFields;
     }
 
+    public String getDependentName() {
+        return this.dependentName;
+    }
+
+    public void setDependentName(String dependentName) {
+        this.dependentName = dependentName;
+    }
+
+    public String getEmployer() {
+        return this.employer;
+    }
+
+    public void setEmployer(String employer) {
+        this.employer = employer;
+    }
+
+    public String getJob() {
+        return this.job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public Phone getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public File[] getBirthCertificateOfChild() {
+        return this.birthCertificateOfChild;
+    }
+
+    public void setBirthCertificateOfChild(File[] birthCertificateOfChild) {
+        this.birthCertificateOfChild = birthCertificateOfChild;
+    }
+
     public static class Builder {
         /**
          * 亲属姓名
@@ -245,6 +378,11 @@ public class Dependent {
          */
         private String nationalityId;
         /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702734054164012
+         */
+        private String nationalityIdV2;
+        /**
          * 证件号码
          * <p> 示例值：
          */
@@ -269,6 +407,36 @@ public class Dependent {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 家庭成员姓名
+         * <p> 示例值：张三
+         */
+        private String dependentName;
+        /**
+         * 工作单位
+         * <p> 示例值：海淀区交警大队
+         */
+        private String employer;
+        /**
+         * 岗位
+         * <p> 示例值：保安
+         */
+        private String job;
+        /**
+         * 电话
+         * <p> 示例值：
+         */
+        private Phone phone;
+        /**
+         * 联系地址
+         * <p> 示例值：
+         */
+        private Address address;
+        /**
+         * 出生证明
+         * <p> 示例值：
+         */
+        private File[] birthCertificateOfChild;
 
         /**
          * 亲属姓名
@@ -336,6 +504,19 @@ public class Dependent {
 
 
         /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702734054164012
+         *
+         * @param nationalityIdV2
+         * @return
+         */
+        public Builder nationalityIdV2(String nationalityIdV2) {
+            this.nationalityIdV2 = nationalityIdV2;
+            return this;
+        }
+
+
+        /**
          * 证件号码
          * <p> 示例值：
          *
@@ -396,6 +577,84 @@ public class Dependent {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 家庭成员姓名
+         * <p> 示例值：张三
+         *
+         * @param dependentName
+         * @return
+         */
+        public Builder dependentName(String dependentName) {
+            this.dependentName = dependentName;
+            return this;
+        }
+
+
+        /**
+         * 工作单位
+         * <p> 示例值：海淀区交警大队
+         *
+         * @param employer
+         * @return
+         */
+        public Builder employer(String employer) {
+            this.employer = employer;
+            return this;
+        }
+
+
+        /**
+         * 岗位
+         * <p> 示例值：保安
+         *
+         * @param job
+         * @return
+         */
+        public Builder job(String job) {
+            this.job = job;
+            return this;
+        }
+
+
+        /**
+         * 电话
+         * <p> 示例值：
+         *
+         * @param phone
+         * @return
+         */
+        public Builder phone(Phone phone) {
+            this.phone = phone;
+            return this;
+        }
+
+
+        /**
+         * 联系地址
+         * <p> 示例值：
+         *
+         * @param address
+         * @return
+         */
+        public Builder address(Address address) {
+            this.address = address;
+            return this;
+        }
+
+
+        /**
+         * 出生证明
+         * <p> 示例值：
+         *
+         * @param birthCertificateOfChild
+         * @return
+         */
+        public Builder birthCertificateOfChild(File[] birthCertificateOfChild) {
+            this.birthCertificateOfChild = birthCertificateOfChild;
             return this;
         }
 

@@ -30,7 +30,7 @@ import java.nio.charset.StandardCharsets;
 
 public class HireService {
     private static final Logger log = LoggerFactory.getLogger(HireService.class);
-    private final Application application; // 入职
+    private final Application application; // 投递
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
     private final EhrImportTask ehrImportTask; // 导入 e-HR
@@ -61,7 +61,7 @@ public class HireService {
     }
 
     /**
-     * 入职
+     * 投递
      *
      * @return
      */

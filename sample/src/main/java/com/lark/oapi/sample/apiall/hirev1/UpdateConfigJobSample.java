@@ -23,6 +23,7 @@ public class UpdateConfigJobSample {
                         .assessmentTemplateBizId("6960663240925956571")
                         .interviewRoundConfList(new JobConfigInterviewRoundConf[]{})
                         .jrIdList(new String[]{})
+                        .interviewRegistrationSchemaId("6930815272790114324")
                         .interviewRoundTypeConfList(new JobConfigRoundType[]{})
                         .relatedJobIdList(new String[]{})
                         .interviewAppointmentConfig(InterviewAppointmentConfig.newBuilder().build())

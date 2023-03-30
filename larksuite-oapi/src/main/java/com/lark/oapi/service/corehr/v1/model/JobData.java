@@ -149,6 +149,12 @@ public class JobData {
     @SerializedName("second_direct_manager_id")
     private String secondDirectManagerId;
     /**
+     * 成本中心分摊信息
+     * <p> 示例值：
+     */
+    @SerializedName("cost_center_rate")
+    private SupportCostCenterItem[] costCenterRate;
+    /**
      * 自定义字段
      * <p> 示例值：
      */
@@ -270,6 +276,11 @@ public class JobData {
          * <p> 示例值：6890452208593372679
          */
         this.secondDirectManagerId = builder.secondDirectManagerId;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        this.costCenterRate = builder.costCenterRate;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -457,6 +468,14 @@ public class JobData {
         this.secondDirectManagerId = secondDirectManagerId;
     }
 
+    public SupportCostCenterItem[] getCostCenterRate() {
+        return this.costCenterRate;
+    }
+
+    public void setCostCenterRate(SupportCostCenterItem[] costCenterRate) {
+        this.costCenterRate = costCenterRate;
+    }
+
     public ObjectFieldData[] getCustomFields() {
         return this.customFields;
     }
@@ -576,6 +595,11 @@ public class JobData {
          * <p> 示例值：6890452208593372679
          */
         private String secondDirectManagerId;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        private SupportCostCenterItem[] costCenterRate;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -864,6 +888,19 @@ public class JobData {
          */
         public Builder secondDirectManagerId(String secondDirectManagerId) {
             this.secondDirectManagerId = secondDirectManagerId;
+            return this;
+        }
+
+
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         *
+         * @param costCenterRate
+         * @return
+         */
+        public Builder costCenterRate(SupportCostCenterItem[] costCenterRate) {
+            this.costCenterRate = costCenterRate;
             return this;
         }
 

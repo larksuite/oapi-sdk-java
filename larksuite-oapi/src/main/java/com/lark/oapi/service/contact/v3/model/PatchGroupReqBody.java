@@ -28,6 +28,18 @@ public class PatchGroupReqBody {
      */
     @SerializedName("description")
     private String description;
+    /**
+     * 动态用户组的规则
+     * <p> 示例值：
+     */
+    @SerializedName("dynamic_group_rule")
+    private DynamicGroupRule dynamicGroupRule;
+    /**
+     * 用户组指定可见范围
+     * <p> 示例值：
+     */
+    @SerializedName("visible_scope")
+    private GroupVisibleScope visibleScope;
 
     // builder 开始
     public PatchGroupReqBody() {
@@ -44,6 +56,16 @@ public class PatchGroupReqBody {
          * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
          */
         this.description = builder.description;
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         */
+        this.dynamicGroupRule = builder.dynamicGroupRule;
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         */
+        this.visibleScope = builder.visibleScope;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +88,22 @@ public class PatchGroupReqBody {
         this.description = description;
     }
 
+    public DynamicGroupRule getDynamicGroupRule() {
+        return this.dynamicGroupRule;
+    }
+
+    public void setDynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
+        this.dynamicGroupRule = dynamicGroupRule;
+    }
+
+    public GroupVisibleScope getVisibleScope() {
+        return this.visibleScope;
+    }
+
+    public void setVisibleScope(GroupVisibleScope visibleScope) {
+        this.visibleScope = visibleScope;
+    }
+
     public static class Builder {
         /**
          * 用户组的名字，企业内唯一，最大长度：100 字符
@@ -77,6 +115,16 @@ public class PatchGroupReqBody {
          * <p> 示例值：IT 外包用户组，需要进行细粒度权限管控
          */
         private String description;
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         */
+        private DynamicGroupRule dynamicGroupRule;
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         */
+        private GroupVisibleScope visibleScope;
 
         /**
          * 用户组的名字，企业内唯一，最大长度：100 字符
@@ -100,6 +148,32 @@ public class PatchGroupReqBody {
          */
         public Builder description(String description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         *
+         * @param dynamicGroupRule
+         * @return
+         */
+        public Builder dynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
+            this.dynamicGroupRule = dynamicGroupRule;
+            return this;
+        }
+
+
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         *
+         * @param visibleScope
+         * @return
+         */
+        public Builder visibleScope(GroupVisibleScope visibleScope) {
+            this.visibleScope = visibleScope;
             return this;
         }
 

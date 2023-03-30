@@ -29,14 +29,27 @@ import java.nio.charset.StandardCharsets;
 
 public class SearchService {
     private static final Logger log = LoggerFactory.getLogger(SearchService.class);
+    private final App app; // app
     private final DataSource dataSource; // 数据源
     private final DataSourceItem dataSourceItem; // 数据项
+    private final Message message; // message
     private final Schema schema; // 数据范式
 
     public SearchService(Config config) {
+        this.app = new App(config);
         this.dataSource = new DataSource(config);
         this.dataSourceItem = new DataSourceItem(config);
+        this.message = new Message(config);
         this.schema = new Schema(config);
+    }
+
+    /**
+     * app
+     *
+     * @return
+     */
+    public App app() {
+        return app;
     }
 
     /**
@@ -58,12 +71,95 @@ public class SearchService {
     }
 
     /**
+     * message
+     *
+     * @return
+     */
+    public Message message() {
+        return message;
+    }
+
+    /**
      * 数据范式
      *
      * @return
      */
     public Schema schema() {
         return schema;
+    }
+
+    public static class App {
+        private final Config config;
+
+        public App(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=app&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=app&version=v2</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateAppSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateAppSample.java</a> ;
+         */
+        public CreateAppResp create(CreateAppReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/search/v2/app"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateAppResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/app"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=app&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=app&version=v2</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateAppSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateAppSample.java</a> ;
+         */
+        public CreateAppResp create(CreateAppReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/search/v2/app"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateAppResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAppResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/app"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
     public static class DataSource {
@@ -597,6 +693,80 @@ public class SearchService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/data_sources/:data_source_id/items/:item_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class Message {
+        private final Config config;
+
+        public Message(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=message&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=message&version=v2</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateMessageSample.java</a> ;
+         */
+        public CreateMessageResp create(CreateMessageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/search/v2/message"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMessageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/message"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=message&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=search&resource=message&version=v2</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2/CreateMessageSample.java</a> ;
+         */
+        public CreateMessageResp create(CreateMessageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/search/v2/message"
+                    , Sets.newHashSet(AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMessageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/search/v2/message"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

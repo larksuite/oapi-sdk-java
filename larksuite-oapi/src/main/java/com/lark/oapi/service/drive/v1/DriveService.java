@@ -32,14 +32,14 @@ import java.nio.charset.StandardCharsets;
 public class DriveService {
     private static final Logger log = LoggerFactory.getLogger(DriveService.class);
     private final ExportTask exportTask; // 导出
-    private final File file; // 异步任务状态
+    private final File file; // 文件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
     private final FileSubscription fileSubscription; // 订阅
     private final FileVersion fileVersion; // 文档版本
     private final ImportTask importTask; // 导入
-    private final Media media; // 分片上传
+    private final Media media; // 素材
     private final Meta meta; // meta
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置
@@ -69,7 +69,7 @@ public class DriveService {
     }
 
     /**
-     * 异步任务状态
+     * 文件
      *
      * @return
      */
@@ -132,7 +132,7 @@ public class DriveService {
     }
 
     /**
-     * 分片上传
+     * 素材
      *
      * @return
      */
@@ -525,6 +525,72 @@ public class DriveService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/create_folder"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_shortcut&project=drive&resource=file&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_shortcut&project=drive&resource=file&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateShortcutFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateShortcutFileSample.java</a> ;
+         */
+        public CreateShortcutFileResp createShortcut(CreateShortcutFileReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/create_shortcut"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateShortcutFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateShortcutFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/create_shortcut"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_shortcut&project=drive&resource=file&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_shortcut&project=drive&resource=file&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateShortcutFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateShortcutFileSample.java</a> ;
+         */
+        public CreateShortcutFileResp createShortcut(CreateShortcutFileReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/create_shortcut"
+                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateShortcutFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateShortcutFileResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/create_shortcut"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));
@@ -1249,6 +1315,72 @@ public class DriveService {
         }
 
         /**
+         * 批量获取评论，该接口用于根据评论 ID 列表批量获取评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/batch_query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryFileCommentSample.java</a> ;
+         */
+        public BatchQueryFileCommentResp batchQuery(BatchQueryFileCommentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/comments/batch_query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchQueryFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/batch_query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 批量获取评论，该接口用于根据评论 ID 列表批量获取评论。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/batch_query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/BatchQueryFileCommentSample.java</a> ;
+         */
+        public BatchQueryFileCommentResp batchQuery(BatchQueryFileCommentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/drive/v1/files/:file_token/comments/batch_query"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            BatchQueryFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchQueryFileCommentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/batch_query"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
          * 添加评论，往云文档添加一条全局评论。
          * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a> ;
          * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateFileCommentSample.java</a> ;
@@ -1954,7 +2086,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -1986,7 +2118,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2020,7 +2152,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
                     , "/open-apis/drive/v1/files/:file_token/versions/:version_id"
-                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2052,7 +2184,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
                     , "/open-apis/drive/v1/files/:file_token/versions/:version_id"
-                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2152,7 +2284,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2184,7 +2316,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.User)
                     , req);
 
             // 反序列化

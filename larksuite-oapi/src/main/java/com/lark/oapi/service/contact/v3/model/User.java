@@ -202,6 +202,12 @@ public class User {
      */
     @SerializedName("assign_info")
     private UserAssignInfo[] assignInfo;
+    /**
+     * 部门路径
+     * <p> 示例值：
+     */
+    @SerializedName("department_path")
+    private DepartmentDetail[] departmentPath;
 
     // builder 开始
     public User() {
@@ -363,6 +369,11 @@ public class User {
          * <p> 示例值：
          */
         this.assignInfo = builder.assignInfo;
+        /**
+         * 部门路径
+         * <p> 示例值：
+         */
+        this.departmentPath = builder.departmentPath;
     }
 
     public static Builder newBuilder() {
@@ -617,6 +628,14 @@ public class User {
         this.assignInfo = assignInfo;
     }
 
+    public DepartmentDetail[] getDepartmentPath() {
+        return this.departmentPath;
+    }
+
+    public void setDepartmentPath(DepartmentDetail[] departmentPath) {
+        this.departmentPath = departmentPath;
+    }
+
     public static class Builder {
         /**
          * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -773,6 +792,11 @@ public class User {
          * <p> 示例值：
          */
         private UserAssignInfo[] assignInfo;
+        /**
+         * 部门路径
+         * <p> 示例值：
+         */
+        private DepartmentDetail[] departmentPath;
 
         /**
          * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -1185,6 +1209,19 @@ public class User {
          */
         public Builder assignInfo(UserAssignInfo[] assignInfo) {
             this.assignInfo = assignInfo;
+            return this;
+        }
+
+
+        /**
+         * 部门路径
+         * <p> 示例值：
+         *
+         * @param departmentPath
+         * @return
+         */
+        public Builder departmentPath(DepartmentDetail[] departmentPath) {
+            this.departmentPath = departmentPath;
             return this;
         }
 

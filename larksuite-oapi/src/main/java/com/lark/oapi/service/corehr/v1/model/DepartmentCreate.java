@@ -64,6 +64,12 @@ public class DepartmentCreate {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 成本中心id
+     * <p> 示例值：7142384817131652652
+     */
+    @SerializedName("cost_center_id")
+    private String costCenterId;
 
     // builder 开始
     public DepartmentCreate() {
@@ -110,6 +116,11 @@ public class DepartmentCreate {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         */
+        this.costCenterId = builder.costCenterId;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +191,14 @@ public class DepartmentCreate {
         this.customFields = customFields;
     }
 
+    public String getCostCenterId() {
+        return this.costCenterId;
+    }
+
+    public void setCostCenterId(String costCenterId) {
+        this.costCenterId = costCenterId;
+    }
+
     public static class Builder {
         /**
          * 实体在CoreHR内部的唯一键
@@ -221,6 +240,11 @@ public class DepartmentCreate {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         */
+        private String costCenterId;
 
         /**
          * 实体在CoreHR内部的唯一键
@@ -322,6 +346,19 @@ public class DepartmentCreate {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         *
+         * @param costCenterId
+         * @return
+         */
+        public Builder costCenterId(String costCenterId) {
+            this.costCenterId = costCenterId;
             return this;
         }
 

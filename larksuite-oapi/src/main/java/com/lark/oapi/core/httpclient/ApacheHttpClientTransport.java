@@ -6,13 +6,6 @@ import com.lark.oapi.core.request.RawRequest;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
-import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
@@ -23,6 +16,10 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import java.io.IOException;
+import java.net.URI;
+import java.util.*;
+
 public class ApacheHttpClientTransport implements IHttpTransport {
     private CloseableHttpClient httpclient;
 
@@ -30,12 +27,12 @@ public class ApacheHttpClientTransport implements IHttpTransport {
         this.httpclient = builder.httpclient;
     }
 
-    public void Close() throws IOException {
-        this.httpclient.close();
-    }
-
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public void Close() throws IOException {
+        this.httpclient.close();
     }
 
     public RawResponse execute(RawRequest rawRequest) throws Exception {
@@ -48,13 +45,13 @@ public class ApacheHttpClientTransport implements IHttpTransport {
         request.setURI(URI.create(rawRequest.getReqUrl()));
         Iterator var4 = rawRequest.getHeaders().entrySet().iterator();
 
-        while(var4.hasNext()) {
-            Map.Entry<String, List<String>> entry = (Map.Entry)var4.next();
-            String key = (String)entry.getKey();
-            Iterator var7 = ((List)entry.getValue()).iterator();
+        while (var4.hasNext()) {
+            Map.Entry<String, List<String>> entry = (Map.Entry) var4.next();
+            String key = (String) entry.getKey();
+            Iterator var7 = ((List) entry.getValue()).iterator();
 
-            while(var7.hasNext()) {
-                String value = (String)var7.next();
+            while (var7.hasNext()) {
+                String value = (String) var7.next();
                 request.addHeader(key, value);
             }
         }
@@ -65,18 +62,18 @@ public class ApacheHttpClientTransport implements IHttpTransport {
                 MultipartEntityBuilder builder = MultipartEntityBuilder.create();
                 builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
                 builder.setContentType(ContentType.create(ContentType.MULTIPART_FORM_DATA.getMimeType()));
-                Iterator var18 = ((FormData)rawRequest.getBody()).getFiles().iterator();
+                Iterator var18 = ((FormData) rawRequest.getBody()).getFiles().iterator();
 
-                while(var18.hasNext()) {
-                    FormDataFile file = (FormDataFile)var18.next();
+                while (var18.hasNext()) {
+                    FormDataFile file = (FormDataFile) var18.next();
                     builder.addBinaryBody(file.getFieldName(), file.getFile(), ContentType.APPLICATION_OCTET_STREAM, Strings.isEmpty(file.getFileName()) ? "unknown" : file.getFileName());
                 }
 
-                var18 = ((FormData)rawRequest.getBody()).getParams().entrySet().iterator();
+                var18 = ((FormData) rawRequest.getBody()).getParams().entrySet().iterator();
 
-                while(var18.hasNext()) {
-                    Map.Entry<String, Object> entry = (Map.Entry)var18.next();
-                    builder.addTextBody((String)entry.getKey(), (String)entry.getValue());
+                while (var18.hasNext()) {
+                    Map.Entry<String, Object> entry = (Map.Entry) var18.next();
+                    builder.addTextBody((String) entry.getKey(), (String) entry.getValue());
                 }
 
                 request.setEntity(builder.build());
@@ -96,10 +93,10 @@ public class ApacheHttpClientTransport implements IHttpTransport {
         Header[] var23 = response.getAllHeaders();
         int var9 = var23.length;
 
-        for(int var10 = 0; var10 < var9; ++var10) {
+        for (int var10 = 0; var10 < var9; ++var10) {
             Header header = var23[var10];
             if (headers.containsKey(header.getName())) {
-                ((List)headers.get(header.getName())).add(header.getValue());
+                ((List) headers.get(header.getName())).add(header.getValue());
             } else {
                 List<String> values = new ArrayList();
                 values.add(header.getValue());

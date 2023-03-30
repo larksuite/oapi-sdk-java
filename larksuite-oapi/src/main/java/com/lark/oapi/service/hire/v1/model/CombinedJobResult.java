@@ -34,6 +34,12 @@ public class CombinedJobResult {
      */
     @SerializedName("job_manager")
     private JobManager jobManager;
+    /**
+     * 面试登记表
+     * <p> 示例值：
+     */
+    @SerializedName("interview_registration_schema_info")
+    private RegistrationInfo interviewRegistrationSchemaInfo;
 
     // builder 开始
     public CombinedJobResult() {
@@ -55,6 +61,11 @@ public class CombinedJobResult {
          * <p> 示例值：
          */
         this.jobManager = builder.jobManager;
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         */
+        this.interviewRegistrationSchemaInfo = builder.interviewRegistrationSchemaInfo;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class CombinedJobResult {
         this.jobManager = jobManager;
     }
 
+    public RegistrationInfo getInterviewRegistrationSchemaInfo() {
+        return this.interviewRegistrationSchemaInfo;
+    }
+
+    public void setInterviewRegistrationSchemaInfo(RegistrationInfo interviewRegistrationSchemaInfo) {
+        this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
+    }
+
     public static class Builder {
         /**
          * 职位广告
@@ -101,6 +120,11 @@ public class CombinedJobResult {
          * <p> 示例值：
          */
         private JobManager jobManager;
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         */
+        private RegistrationInfo interviewRegistrationSchemaInfo;
 
         /**
          * 职位广告
@@ -137,6 +161,19 @@ public class CombinedJobResult {
          */
         public Builder jobManager(JobManager jobManager) {
             this.jobManager = jobManager;
+            return this;
+        }
+
+
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         *
+         * @param interviewRegistrationSchemaInfo
+         * @return
+         */
+        public Builder interviewRegistrationSchemaInfo(RegistrationInfo interviewRegistrationSchemaInfo) {
+            this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
             return this;
         }
 

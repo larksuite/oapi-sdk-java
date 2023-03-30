@@ -46,6 +46,24 @@ public class Group {
      */
     @SerializedName("member_department_count")
     private Integer memberDepartmentCount;
+    /**
+     * 用户组的类型
+     * <p> 示例值：1
+     */
+    @SerializedName("type")
+    private Integer type;
+    /**
+     * 动态用户组的规则
+     * <p> 示例值：
+     */
+    @SerializedName("dynamic_group_rule")
+    private DynamicGroupRule dynamicGroupRule;
+    /**
+     * 用户组指定可见范围
+     * <p> 示例值：
+     */
+    @SerializedName("visible_scope")
+    private GroupVisibleScope visibleScope;
 
     // builder 开始
     public Group() {
@@ -77,6 +95,21 @@ public class Group {
          * <p> 示例值：0
          */
         this.memberDepartmentCount = builder.memberDepartmentCount;
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         */
+        this.type = builder.type;
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         */
+        this.dynamicGroupRule = builder.dynamicGroupRule;
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         */
+        this.visibleScope = builder.visibleScope;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +156,30 @@ public class Group {
         this.memberDepartmentCount = memberDepartmentCount;
     }
 
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public DynamicGroupRule getDynamicGroupRule() {
+        return this.dynamicGroupRule;
+    }
+
+    public void setDynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
+        this.dynamicGroupRule = dynamicGroupRule;
+    }
+
+    public GroupVisibleScope getVisibleScope() {
+        return this.visibleScope;
+    }
+
+    public void setVisibleScope(GroupVisibleScope visibleScope) {
+        this.visibleScope = visibleScope;
+    }
+
     public static class Builder {
         /**
          * 用户组ID
@@ -149,6 +206,21 @@ public class Group {
          * <p> 示例值：0
          */
         private Integer memberDepartmentCount;
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         */
+        private Integer type;
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         */
+        private DynamicGroupRule dynamicGroupRule;
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         */
+        private GroupVisibleScope visibleScope;
 
         /**
          * 用户组ID
@@ -211,6 +283,57 @@ public class Group {
          */
         public Builder memberDepartmentCount(Integer memberDepartmentCount) {
             this.memberDepartmentCount = memberDepartmentCount;
+            return this;
+        }
+
+
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 用户组的类型
+         * <p> 示例值：1
+         *
+         * @param type {@link com.lark.oapi.service.contact.v3.enums.GroupGroupTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.contact.v3.enums.GroupGroupTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         *
+         * @param dynamicGroupRule
+         * @return
+         */
+        public Builder dynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
+            this.dynamicGroupRule = dynamicGroupRule;
+            return this;
+        }
+
+
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         *
+         * @param visibleScope
+         * @return
+         */
+        public Builder visibleScope(GroupVisibleScope visibleScope) {
+            this.visibleScope = visibleScope;
             return this;
         }
 

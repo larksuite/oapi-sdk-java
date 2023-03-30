@@ -2,10 +2,7 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.I18nNames;
-import com.lark.oapi.service.im.v1.model.UpdateChatReq;
-import com.lark.oapi.service.im.v1.model.UpdateChatReqBody;
-import com.lark.oapi.service.im.v1.model.UpdateChatResp;
+import com.lark.oapi.service.im.v1.model.*;
 
 // PUT /open-apis/im/v1/chats/:chat_id
 public class UpdateChatSample {
@@ -31,6 +28,7 @@ public class UpdateChatSample {
                         .joinMessageVisibility("only_owner")
                         .leaveMessageVisibility("only_owner")
                         .membershipApproval("no_approval_required")
+                        .restrictedModeSetting(RestrictedModeSetting.newBuilder().build())
                         .chatType("private")
                         .build())
                 .build();

@@ -59,6 +59,12 @@ public class JobConfig {
     @SerializedName("jr_id_list")
     private String[] jrIdList;
     /**
+     * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("interview_registration_schema_id")
+    private String interviewRegistrationSchemaId;
+    /**
      * 面试轮次类型 ID 列表
      * <p> 示例值：
      */
@@ -117,6 +123,11 @@ public class JobConfig {
          * <p> 示例值：6966533137982392320
          */
         this.jrIdList = builder.jrIdList;
+        /**
+         * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+         * <p> 示例值：6930815272790114324
+         */
+        this.interviewRegistrationSchemaId = builder.interviewRegistrationSchemaId;
         /**
          * 面试轮次类型 ID 列表
          * <p> 示例值：
@@ -194,6 +205,14 @@ public class JobConfig {
         this.jrIdList = jrIdList;
     }
 
+    public String getInterviewRegistrationSchemaId() {
+        return this.interviewRegistrationSchemaId;
+    }
+
+    public void setInterviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
+        this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
+    }
+
     public JobConfigRoundType[] getInterviewRoundTypeConfList() {
         return this.interviewRoundTypeConfList;
     }
@@ -254,6 +273,11 @@ public class JobConfig {
          * <p> 示例值：6966533137982392320
          */
         private String[] jrIdList;
+        /**
+         * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+         * <p> 示例值：6930815272790114324
+         */
+        private String interviewRegistrationSchemaId;
         /**
          * 面试轮次类型 ID 列表
          * <p> 示例值：
@@ -357,6 +381,19 @@ public class JobConfig {
          */
         public Builder jrIdList(String[] jrIdList) {
             this.jrIdList = jrIdList;
+            return this;
+        }
+
+
+        /**
+         * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+         * <p> 示例值：6930815272790114324
+         *
+         * @param interviewRegistrationSchemaId
+         * @return
+         */
+        public Builder interviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
+            this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
             return this;
         }
 

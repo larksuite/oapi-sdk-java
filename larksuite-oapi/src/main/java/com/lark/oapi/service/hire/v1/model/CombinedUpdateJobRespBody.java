@@ -34,6 +34,12 @@ public class CombinedUpdateJobRespBody {
      */
     @SerializedName("job_manager")
     private JobManager jobManager;
+    /**
+     * 面试登记表
+     * <p> 示例值：
+     */
+    @SerializedName("interview_registration_schema_info")
+    private RegistrationInfo interviewRegistrationSchemaInfo;
 
     public CombinedJobResultDefaultJobPost getDefaultJobPost() {
         return this.defaultJobPost;
@@ -57,6 +63,14 @@ public class CombinedUpdateJobRespBody {
 
     public void setJobManager(JobManager jobManager) {
         this.jobManager = jobManager;
+    }
+
+    public RegistrationInfo getInterviewRegistrationSchemaInfo() {
+        return this.interviewRegistrationSchemaInfo;
+    }
+
+    public void setInterviewRegistrationSchemaInfo(RegistrationInfo interviewRegistrationSchemaInfo) {
+        this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
     }
 
 }

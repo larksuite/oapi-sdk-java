@@ -59,6 +59,12 @@ public class JobConfigResult {
     @SerializedName("job_requirement_list")
     private IdNameObject[] jobRequirementList;
     /**
+     * 面试登记表
+     * <p> 示例值：
+     */
+    @SerializedName("interview_registration_schema")
+    private RegistrationInfo interviewRegistrationSchema;
+    /**
      * 面试轮次类型列表
      * <p> 示例值：
      */
@@ -117,6 +123,11 @@ public class JobConfigResult {
          * <p> 示例值：
          */
         this.jobRequirementList = builder.jobRequirementList;
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         */
+        this.interviewRegistrationSchema = builder.interviewRegistrationSchema;
         /**
          * 面试轮次类型列表
          * <p> 示例值：
@@ -194,6 +205,14 @@ public class JobConfigResult {
         this.jobRequirementList = jobRequirementList;
     }
 
+    public RegistrationInfo getInterviewRegistrationSchema() {
+        return this.interviewRegistrationSchema;
+    }
+
+    public void setInterviewRegistrationSchema(RegistrationInfo interviewRegistrationSchema) {
+        this.interviewRegistrationSchema = interviewRegistrationSchema;
+    }
+
     public JobConfigRoundTypeResult[] getInterviewRoundTypeList() {
         return this.interviewRoundTypeList;
     }
@@ -254,6 +273,11 @@ public class JobConfigResult {
          * <p> 示例值：
          */
         private IdNameObject[] jobRequirementList;
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         */
+        private RegistrationInfo interviewRegistrationSchema;
         /**
          * 面试轮次类型列表
          * <p> 示例值：
@@ -357,6 +381,19 @@ public class JobConfigResult {
          */
         public Builder jobRequirementList(IdNameObject[] jobRequirementList) {
             this.jobRequirementList = jobRequirementList;
+            return this;
+        }
+
+
+        /**
+         * 面试登记表
+         * <p> 示例值：
+         *
+         * @param interviewRegistrationSchema
+         * @return
+         */
+        public Builder interviewRegistrationSchema(RegistrationInfo interviewRegistrationSchema) {
+            this.interviewRegistrationSchema = interviewRegistrationSchema;
             return this;
         }
 

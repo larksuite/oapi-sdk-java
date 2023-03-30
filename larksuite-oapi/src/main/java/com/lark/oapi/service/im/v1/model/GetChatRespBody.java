@@ -77,6 +77,18 @@ public class GetChatRespBody {
     @SerializedName("owner_id")
     private String ownerId;
     /**
+     * 用户管理员列表
+     * <p> 示例值：
+     */
+    @SerializedName("user_manager_id_list")
+    private String[] userManagerIdList;
+    /**
+     * 机器人管理员列表
+     * <p> 示例值：
+     */
+    @SerializedName("bot_manager_id_list")
+    private String[] botManagerIdList;
+    /**
      * 群模式;;**可选值有**：;- `group`：群组;- `topic`: 话题;- `p2p`: 单聊
      * <p> 示例值：group
      */
@@ -142,6 +154,12 @@ public class GetChatRespBody {
      */
     @SerializedName("bot_count")
     private String botCount;
+    /**
+     * 防泄密模式设置
+     * <p> 示例值：
+     */
+    @SerializedName("restricted_mode_setting")
+    private RestrictedModeSetting restrictedModeSetting;
 
     public String getAvatar() {
         return this.avatar;
@@ -221,6 +239,22 @@ public class GetChatRespBody {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String[] getUserManagerIdList() {
+        return this.userManagerIdList;
+    }
+
+    public void setUserManagerIdList(String[] userManagerIdList) {
+        this.userManagerIdList = userManagerIdList;
+    }
+
+    public String[] getBotManagerIdList() {
+        return this.botManagerIdList;
+    }
+
+    public void setBotManagerIdList(String[] botManagerIdList) {
+        this.botManagerIdList = botManagerIdList;
     }
 
     public String getChatMode() {
@@ -311,5 +345,13 @@ public class GetChatRespBody {
         this.botCount = botCount;
     }
 
+
+    public RestrictedModeSetting getRestrictedModeSetting() {
+        return this.restrictedModeSetting;
+    }
+
+    public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+        this.restrictedModeSetting = restrictedModeSetting;
+    }
 
 }

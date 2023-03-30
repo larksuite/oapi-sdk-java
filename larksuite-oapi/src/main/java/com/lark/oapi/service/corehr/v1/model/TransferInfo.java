@@ -280,6 +280,18 @@ public class TransferInfo {
      */
     @SerializedName("target_work_shift")
     private String targetWorkShift;
+    /**
+     * 原成本中心分摊信息
+     * <p> 示例值：
+     */
+    @SerializedName("original_cost_center_rate")
+    private SupportCostCenterItem[] originalCostCenterRate;
+    /**
+     * 新成本中心分摊信息
+     * <p> 示例值：
+     */
+    @SerializedName("target_cost_center_rate")
+    private SupportCostCenterItem[] targetCostCenterRate;
 
     // builder 开始
     public TransferInfo() {
@@ -506,6 +518,16 @@ public class TransferInfo {
          * <p> 示例值：non_work_shift
          */
         this.targetWorkShift = builder.targetWorkShift;
+        /**
+         * 原成本中心分摊信息
+         * <p> 示例值：
+         */
+        this.originalCostCenterRate = builder.originalCostCenterRate;
+        /**
+         * 新成本中心分摊信息
+         * <p> 示例值：
+         */
+        this.targetCostCenterRate = builder.targetCostCenterRate;
     }
 
     public static Builder newBuilder() {
@@ -864,6 +886,22 @@ public class TransferInfo {
         this.targetWorkShift = targetWorkShift;
     }
 
+    public SupportCostCenterItem[] getOriginalCostCenterRate() {
+        return this.originalCostCenterRate;
+    }
+
+    public void setOriginalCostCenterRate(SupportCostCenterItem[] originalCostCenterRate) {
+        this.originalCostCenterRate = originalCostCenterRate;
+    }
+
+    public SupportCostCenterItem[] getTargetCostCenterRate() {
+        return this.targetCostCenterRate;
+    }
+
+    public void setTargetCostCenterRate(SupportCostCenterItem[] targetCostCenterRate) {
+        this.targetCostCenterRate = targetCostCenterRate;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1085,6 +1123,16 @@ public class TransferInfo {
          * <p> 示例值：non_work_shift
          */
         private String targetWorkShift;
+        /**
+         * 原成本中心分摊信息
+         * <p> 示例值：
+         */
+        private SupportCostCenterItem[] originalCostCenterRate;
+        /**
+         * 新成本中心分摊信息
+         * <p> 示例值：
+         */
+        private SupportCostCenterItem[] targetCostCenterRate;
 
         /**
          * 备注
@@ -1654,6 +1702,32 @@ public class TransferInfo {
          */
         public Builder targetWorkShift(String targetWorkShift) {
             this.targetWorkShift = targetWorkShift;
+            return this;
+        }
+
+
+        /**
+         * 原成本中心分摊信息
+         * <p> 示例值：
+         *
+         * @param originalCostCenterRate
+         * @return
+         */
+        public Builder originalCostCenterRate(SupportCostCenterItem[] originalCostCenterRate) {
+            this.originalCostCenterRate = originalCostCenterRate;
+            return this;
+        }
+
+
+        /**
+         * 新成本中心分摊信息
+         * <p> 示例值：
+         *
+         * @param targetCostCenterRate
+         * @return
+         */
+        public Builder targetCostCenterRate(SupportCostCenterItem[] targetCostCenterRate) {
+            this.targetCostCenterRate = targetCostCenterRate;
             return this;
         }
 

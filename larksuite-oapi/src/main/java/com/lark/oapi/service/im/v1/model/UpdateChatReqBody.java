@@ -89,6 +89,12 @@ public class UpdateChatReqBody {
     @SerializedName("membership_approval")
     private String membershipApproval;
     /**
+     * 防泄密模式设置
+     * <p> 示例值：
+     */
+    @SerializedName("restricted_mode_setting")
+    private RestrictedModeSetting restrictedModeSetting;
+    /**
      * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
      * <p> 示例值：private
      */
@@ -160,6 +166,11 @@ public class UpdateChatReqBody {
          * <p> 示例值：no_approval_required
          */
         this.membershipApproval = builder.membershipApproval;
+        /**
+         * 防泄密模式设置
+         * <p> 示例值：
+         */
+        this.restrictedModeSetting = builder.restrictedModeSetting;
         /**
          * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
          * <p> 示例值：private
@@ -267,6 +278,14 @@ public class UpdateChatReqBody {
         this.membershipApproval = membershipApproval;
     }
 
+    public RestrictedModeSetting getRestrictedModeSetting() {
+        return this.restrictedModeSetting;
+    }
+
+    public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+        this.restrictedModeSetting = restrictedModeSetting;
+    }
+
     public String getChatType() {
         return this.chatType;
     }
@@ -336,6 +355,11 @@ public class UpdateChatReqBody {
          * <p> 示例值：no_approval_required
          */
         private String membershipApproval;
+        /**
+         * 防泄密模式设置
+         * <p> 示例值：
+         */
+        private RestrictedModeSetting restrictedModeSetting;
         /**
          * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
          * <p> 示例值：private
@@ -494,6 +518,19 @@ public class UpdateChatReqBody {
          */
         public Builder membershipApproval(String membershipApproval) {
             this.membershipApproval = membershipApproval;
+            return this;
+        }
+
+
+        /**
+         * 防泄密模式设置
+         * <p> 示例值：
+         *
+         * @param restrictedModeSetting
+         * @return
+         */
+        public Builder restrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+            this.restrictedModeSetting = restrictedModeSetting;
             return this;
         }
 

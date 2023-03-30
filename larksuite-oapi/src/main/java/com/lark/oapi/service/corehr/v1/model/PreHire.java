@@ -65,6 +65,12 @@ public class PreHire {
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
     /**
+     * 成本中心分摊信息
+     * <p> 示例值：
+     */
+    @SerializedName("cost_center_rate")
+    private SupportCostCenterItem[] costCenterRate;
+    /**
      * 入职状态;;- 待入职(preboarding);;- 已删除(deleted);;- 准备就绪(day_one);;- 已撤销(withdrawn);;- 已完成(completed)
      * <p> 示例值：
      */
@@ -116,6 +122,11 @@ public class PreHire {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        this.costCenterRate = builder.costCenterRate;
         /**
          * 入职状态;;- 待入职(preboarding);;- 已删除(deleted);;- 准备就绪(day_one);;- 已撤销(withdrawn);;- 已完成(completed)
          * <p> 示例值：
@@ -191,6 +202,14 @@ public class PreHire {
         this.customFields = customFields;
     }
 
+    public SupportCostCenterItem[] getCostCenterRate() {
+        return this.costCenterRate;
+    }
+
+    public void setCostCenterRate(SupportCostCenterItem[] costCenterRate) {
+        this.costCenterRate = costCenterRate;
+    }
+
     public Enum getOnboardingStatus() {
         return this.onboardingStatus;
     }
@@ -240,6 +259,11 @@ public class PreHire {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        private SupportCostCenterItem[] costCenterRate;
         /**
          * 入职状态;;- 待入职(preboarding);;- 已删除(deleted);;- 准备就绪(day_one);;- 已撤销(withdrawn);;- 已完成(completed)
          * <p> 示例值：
@@ -346,6 +370,19 @@ public class PreHire {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         *
+         * @param costCenterRate
+         * @return
+         */
+        public Builder costCenterRate(SupportCostCenterItem[] costCenterRate) {
+            this.costCenterRate = costCenterRate;
             return this;
         }
 

@@ -15,6 +15,8 @@ public class GetGroupSample {
         // 创建请求对象
         GetGroupReq req = GetGroupReq.newBuilder()
                 .groupId("g193821")
+                .userIdType("open_id")
+                .departmentIdType("open_department_id")
                 .build();
 
         // 发起请求

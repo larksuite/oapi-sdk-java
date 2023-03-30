@@ -17,9 +17,15 @@ package com.lark.oapi.service.search.v2.enums;
  * 权限值类型
  */
 public enum AclAclTypeEnum {
-    USER("user"), // 用户的user_id
-    GROUP("group"), // 用户组
-    OPENUSER("open_id"), // 用户的open_id
+    USERID("user_id"), // 用户在租户内的身份ID，详细说明请参考：https://open.feishu.cn/document/home/user-identity-introduction/introduction
+    OPENID("open_id"), // 用户在应用内的身份ID，详细说明请参考：https://open.feishu.cn/document/home/user-identity-introduction/introduction
+    UNIONID("union_id"), // 用户在同一应用开发商提供的多个应用间的统一身份ID，详细说明请参考：https://open.feishu.cn/document/home/user-identity-introduction/introduction
+    DEPARTMENTID("department_id"), // 部门在租户内的唯一ID，详细说明请参考：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0
+    OPENDEPARTMENTID("open_department_id"), // 部门在应用内的唯一ID，详细说明请参考：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0
+    GROUPID("group_id"), // GroupID（灰度中，对部分租户开放）
+    APPGROUPID("app_group_id"), // AppGroupID（灰度中，对部分租户开放）
+    USER("user"), // 同 UserID
+    GROUP("group"), // 同 GroupID
     ;
     private String value;
 

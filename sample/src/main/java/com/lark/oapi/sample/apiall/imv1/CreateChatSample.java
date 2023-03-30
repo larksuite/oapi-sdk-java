@@ -2,10 +2,7 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.CreateChatReq;
-import com.lark.oapi.service.im.v1.model.CreateChatReqBody;
-import com.lark.oapi.service.im.v1.model.CreateChatResp;
-import com.lark.oapi.service.im.v1.model.I18nNames;
+import com.lark.oapi.service.im.v1.model.*;
 
 // POST /open-apis/im/v1/chats
 public class CreateChatSample {
@@ -33,6 +30,7 @@ public class CreateChatSample {
                         .joinMessageVisibility("all_members")
                         .leaveMessageVisibility("all_members")
                         .membershipApproval("no_approval_required")
+                        .restrictedModeSetting(RestrictedModeSetting.newBuilder().build())
                         .build())
                 .build();
 

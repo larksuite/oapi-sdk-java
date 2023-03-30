@@ -30,7 +30,6 @@ import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.sdk.apache.httpclient.ApacheHttpClientTransport;
 import com.lark.oapi.service.drive.v1.model.DownloadFileReq;
 import com.lark.oapi.service.drive.v1.model.DownloadFileResp;
 import com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum;

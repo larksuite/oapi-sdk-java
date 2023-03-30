@@ -64,6 +64,12 @@ public class MeetingEventMeeting {
      */
     @SerializedName("owner")
     private MeetingEventUser owner;
+    /**
+     * 日程实体的唯一标志
+     * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+     */
+    @SerializedName("calendar_event_id")
+    private String calendarEventId;
 
     // builder 开始
     public MeetingEventMeeting() {
@@ -110,6 +116,11 @@ public class MeetingEventMeeting {
          * <p> 示例值：
          */
         this.owner = builder.owner;
+        /**
+         * 日程实体的唯一标志
+         * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+         */
+        this.calendarEventId = builder.calendarEventId;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +191,14 @@ public class MeetingEventMeeting {
         this.owner = owner;
     }
 
+    public String getCalendarEventId() {
+        return this.calendarEventId;
+    }
+
+    public void setCalendarEventId(String calendarEventId) {
+        this.calendarEventId = calendarEventId;
+    }
+
     public static class Builder {
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
@@ -221,6 +240,11 @@ public class MeetingEventMeeting {
          * <p> 示例值：
          */
         private MeetingEventUser owner;
+        /**
+         * 日程实体的唯一标志
+         * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+         */
+        private String calendarEventId;
 
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
@@ -334,6 +358,19 @@ public class MeetingEventMeeting {
          */
         public Builder owner(MeetingEventUser owner) {
             this.owner = owner;
+            return this;
+        }
+
+
+        /**
+         * 日程实体的唯一标志
+         * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+         *
+         * @param calendarEventId
+         * @return
+         */
+        public Builder calendarEventId(String calendarEventId) {
+            this.calendarEventId = calendarEventId;
             return this;
         }
 

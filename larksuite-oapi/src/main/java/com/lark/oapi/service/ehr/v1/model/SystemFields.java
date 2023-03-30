@@ -375,13 +375,13 @@ public class SystemFields {
      * <p> 示例值：1608690517811
      */
     @SerializedName("create_time")
-    private Integer createTime;
+    private Long createTime;
     /**
      * 更新时间
      * <p> 示例值：1608690517811
      */
     @SerializedName("update_time")
-    private Integer updateTime;
+    private Long updateTime;
 
     // builder 开始
     public SystemFields() {
@@ -1171,19 +1171,19 @@ public class SystemFields {
         this.employeeFormStatus = employeeFormStatus;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return this.updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -1487,12 +1487,12 @@ public class SystemFields {
          * 创建时间
          * <p> 示例值：1608690517811
          */
-        private Integer createTime;
+        private Long createTime;
         /**
          * 更新时间
          * <p> 示例值：1608690517811
          */
-        private Integer updateTime;
+        private Long updateTime;
 
         /**
          * 中文姓名
@@ -2448,7 +2448,7 @@ public class SystemFields {
          * @param createTime
          * @return
          */
-        public Builder createTime(Integer createTime) {
+        public Builder createTime(Long createTime) {
             this.createTime = createTime;
             return this;
         }
@@ -2461,7 +2461,7 @@ public class SystemFields {
          * @param updateTime
          * @return
          */
-        public Builder updateTime(Integer updateTime) {
+        public Builder updateTime(Long updateTime) {
             this.updateTime = updateTime;
             return this;
         }

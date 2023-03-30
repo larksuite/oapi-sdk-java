@@ -34,6 +34,12 @@ public class ApprovalSetting {
      */
     @SerializedName("reject_option")
     private Integer rejectOption;
+    /**
+     * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+     * <p> 示例值：1
+     */
+    @SerializedName("quick_approval_option")
+    private Integer quickApprovalOption;
 
     // builder 开始
     public ApprovalSetting() {
@@ -55,6 +61,11 @@ public class ApprovalSetting {
          * <p> 示例值：0
          */
         this.rejectOption = builder.rejectOption;
+        /**
+         * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+         * <p> 示例值：1
+         */
+        this.quickApprovalOption = builder.quickApprovalOption;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class ApprovalSetting {
         this.rejectOption = rejectOption;
     }
 
+    public Integer getQuickApprovalOption() {
+        return this.quickApprovalOption;
+    }
+
+    public void setQuickApprovalOption(Integer quickApprovalOption) {
+        this.quickApprovalOption = quickApprovalOption;
+    }
+
     public static class Builder {
         /**
          * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
@@ -101,6 +120,11 @@ public class ApprovalSetting {
          * <p> 示例值：0
          */
         private Integer rejectOption;
+        /**
+         * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+         * <p> 示例值：1
+         */
+        private Integer quickApprovalOption;
 
         /**
          * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
@@ -149,6 +173,31 @@ public class ApprovalSetting {
          */
         public Builder rejectOption(com.lark.oapi.service.approval.v4.enums.ApprovalSettingRejectOptionEnum rejectOption) {
             this.rejectOption = rejectOption.getValue();
+            return this;
+        }
+
+
+        /**
+         * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+         * <p> 示例值：1
+         *
+         * @param quickApprovalOption
+         * @return
+         */
+        public Builder quickApprovalOption(Integer quickApprovalOption) {
+            this.quickApprovalOption = quickApprovalOption;
+            return this;
+        }
+
+        /**
+         * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
+         * <p> 示例值：1
+         *
+         * @param quickApprovalOption {@link com.lark.oapi.service.approval.v4.enums.ApprovalSettingQuickApprovalOptionEnum}
+         * @return
+         */
+        public Builder quickApprovalOption(com.lark.oapi.service.approval.v4.enums.ApprovalSettingQuickApprovalOptionEnum quickApprovalOption) {
+            this.quickApprovalOption = quickApprovalOption.getValue();
             return this;
         }
 

@@ -78,7 +78,7 @@ public class Client {
     private AuthService auth; //
     private AuthenService authen; //
     private BaikeService baike; // 企业百科
-    private BitableService bitable; // 云文档-多维表格
+    private BitableService bitable; // 云文档-电子表格
     private BlockService block; // 小组件
     private CalendarService calendar; // 日历
     private ContactService contact; // 通讯录
@@ -189,7 +189,7 @@ public class Client {
     }
 
     /**
-     * 云文档-多维表格
+     * 云文档-电子表格
      *
      * @return
      */

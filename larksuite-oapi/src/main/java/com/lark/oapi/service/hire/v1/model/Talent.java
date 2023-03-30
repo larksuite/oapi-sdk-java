@@ -112,6 +112,12 @@ public class Talent {
      */
     @SerializedName("top_degree")
     private Integer topDegree;
+    /**
+     * 第一学历
+     * <p> 示例值：3
+     */
+    @SerializedName("first_degree")
+    private Integer firstDegree;
 
     // builder 开始
     public Talent() {
@@ -198,6 +204,11 @@ public class Talent {
          * <p> 示例值：1
          */
         this.topDegree = builder.topDegree;
+        /**
+         * 第一学历
+         * <p> 示例值：3
+         */
+        this.firstDegree = builder.firstDegree;
     }
 
     public static Builder newBuilder() {
@@ -332,6 +343,14 @@ public class Talent {
         this.topDegree = topDegree;
     }
 
+    public Integer getFirstDegree() {
+        return this.firstDegree;
+    }
+
+    public void setFirstDegree(Integer firstDegree) {
+        this.firstDegree = firstDegree;
+    }
+
     public static class Builder {
         /**
          * 人才ID
@@ -413,6 +432,11 @@ public class Talent {
          * <p> 示例值：1
          */
         private Integer topDegree;
+        /**
+         * 第一学历
+         * <p> 示例值：3
+         */
+        private Integer firstDegree;
 
         /**
          * 人才ID
@@ -618,6 +642,19 @@ public class Talent {
          */
         public Builder topDegree(Integer topDegree) {
             this.topDegree = topDegree;
+            return this;
+        }
+
+
+        /**
+         * 第一学历
+         * <p> 示例值：3
+         *
+         * @param firstDegree
+         * @return
+         */
+        public Builder firstDegree(Integer firstDegree) {
+            this.firstDegree = firstDegree;
             return this;
         }
 

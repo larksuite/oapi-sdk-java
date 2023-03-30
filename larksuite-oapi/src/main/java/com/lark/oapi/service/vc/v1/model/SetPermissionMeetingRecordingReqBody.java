@@ -22,6 +22,12 @@ public class SetPermissionMeetingRecordingReqBody {
      */
     @SerializedName("permission_objects")
     private RecordingPermissionObject[] permissionObjects;
+    /**
+     * 授权或者取消授权，默认授权
+     * <p> 示例值：1
+     */
+    @SerializedName("action_type")
+    private Integer actionType;
 
     // builder 开始
     public SetPermissionMeetingRecordingReqBody() {
@@ -33,6 +39,11 @@ public class SetPermissionMeetingRecordingReqBody {
          * <p> 示例值：
          */
         this.permissionObjects = builder.permissionObjects;
+        /**
+         * 授权或者取消授权，默认授权
+         * <p> 示例值：1
+         */
+        this.actionType = builder.actionType;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +58,25 @@ public class SetPermissionMeetingRecordingReqBody {
         this.permissionObjects = permissionObjects;
     }
 
+    public Integer getActionType() {
+        return this.actionType;
+    }
+
+    public void setActionType(Integer actionType) {
+        this.actionType = actionType;
+    }
+
     public static class Builder {
         /**
          * 授权对象列表
          * <p> 示例值：
          */
         private RecordingPermissionObject[] permissionObjects;
+        /**
+         * 授权或者取消授权，默认授权
+         * <p> 示例值：1
+         */
+        private Integer actionType;
 
         /**
          * 授权对象列表
@@ -63,6 +87,31 @@ public class SetPermissionMeetingRecordingReqBody {
          */
         public Builder permissionObjects(RecordingPermissionObject[] permissionObjects) {
             this.permissionObjects = permissionObjects;
+            return this;
+        }
+
+
+        /**
+         * 授权或者取消授权，默认授权
+         * <p> 示例值：1
+         *
+         * @param actionType
+         * @return
+         */
+        public Builder actionType(Integer actionType) {
+            this.actionType = actionType;
+            return this;
+        }
+
+        /**
+         * 授权或者取消授权，默认授权
+         * <p> 示例值：1
+         *
+         * @param actionType {@link com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingActionTypeEnum}
+         * @return
+         */
+        public Builder actionType(com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingActionTypeEnum actionType) {
+            this.actionType = actionType.getValue();
             return this;
         }
 

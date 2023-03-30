@@ -20,6 +20,7 @@ public class SetPermissionMeetingRecordingSample {
                 .userIdType("user_id")
                 .setPermissionMeetingRecordingReqBody(SetPermissionMeetingRecordingReqBody.newBuilder()
                         .permissionObjects(new RecordingPermissionObject[]{})
+                        .actionType(1)
                         .build())
                 .build();
 

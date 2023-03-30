@@ -190,6 +190,12 @@ public class CombinedJob {
      */
     @SerializedName("expiry_timestamp")
     private String expiryTimestamp;
+    /**
+     * 面试登记表ID
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("interview_registration_schema_id")
+    private String interviewRegistrationSchemaId;
 
     // builder 开始
     public CombinedJob() {
@@ -341,6 +347,11 @@ public class CombinedJob {
          * <p> 示例值：1622484739955
          */
         this.expiryTimestamp = builder.expiryTimestamp;
+        /**
+         * 面试登记表ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.interviewRegistrationSchemaId = builder.interviewRegistrationSchemaId;
     }
 
     public static Builder newBuilder() {
@@ -579,6 +590,14 @@ public class CombinedJob {
         this.expiryTimestamp = expiryTimestamp;
     }
 
+    public String getInterviewRegistrationSchemaId() {
+        return this.interviewRegistrationSchemaId;
+    }
+
+    public void setInterviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
+        this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -725,6 +744,11 @@ public class CombinedJob {
          * <p> 示例值：1622484739955
          */
         private String expiryTimestamp;
+        /**
+         * 面试登记表ID
+         * <p> 示例值：6930815272790114324
+         */
+        private String interviewRegistrationSchemaId;
 
         /**
          * 职位 ID
@@ -1099,6 +1123,19 @@ public class CombinedJob {
          */
         public Builder expiryTimestamp(String expiryTimestamp) {
             this.expiryTimestamp = expiryTimestamp;
+            return this;
+        }
+
+
+        /**
+         * 面试登记表ID
+         * <p> 示例值：6930815272790114324
+         *
+         * @param interviewRegistrationSchemaId
+         * @return
+         */
+        public Builder interviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
+            this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
             return this;
         }
 

@@ -41,7 +41,7 @@ public class ListFileVersionReq {
     private String objType;
     /**
      * 用户id类型
-     * <p> 示例值：
+     * <p> 示例值：open_id
      */
     @Query
     @SerializedName("user_id_type")
@@ -76,7 +76,7 @@ public class ListFileVersionReq {
         this.objType = builder.objType;
         /**
          * 用户id类型
-         * <p> 示例值：
+         * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
         /**
@@ -187,7 +187,7 @@ public class ListFileVersionReq {
 
         /**
          * 用户id类型
-         * <p> 示例值：
+         * <p> 示例值：open_id
          *
          * @param userIdType
          * @return
@@ -199,7 +199,7 @@ public class ListFileVersionReq {
 
         /**
          * 用户id类型
-         * <p> 示例值：
+         * <p> 示例值：open_id
          *
          * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileVersionUserIdTypeEnum}
          * @return

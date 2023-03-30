@@ -71,6 +71,12 @@ public class PreHireQuery {
     @SerializedName("onboarding_status")
     private Enum onboardingStatus;
     /**
+     * 成本中心分摊信息
+     * <p> 示例值：
+     */
+    @SerializedName("cost_center_rate")
+    private SupportCostCenterItem[] costCenterRate;
+    /**
      * 工作邮箱
      * <p> 示例值：
      */
@@ -133,6 +139,11 @@ public class PreHireQuery {
          * <p> 示例值：
          */
         this.onboardingStatus = builder.onboardingStatus;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        this.costCenterRate = builder.costCenterRate;
         /**
          * 工作邮箱
          * <p> 示例值：
@@ -221,6 +232,14 @@ public class PreHireQuery {
         this.onboardingStatus = onboardingStatus;
     }
 
+    public SupportCostCenterItem[] getCostCenterRate() {
+        return this.costCenterRate;
+    }
+
+    public void setCostCenterRate(SupportCostCenterItem[] costCenterRate) {
+        this.costCenterRate = costCenterRate;
+    }
+
     public Email[] getWorkEmailList() {
         return this.workEmailList;
     }
@@ -283,6 +302,11 @@ public class PreHireQuery {
          * <p> 示例值：
          */
         private Enum onboardingStatus;
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         */
+        private SupportCostCenterItem[] costCenterRate;
         /**
          * 工作邮箱
          * <p> 示例值：
@@ -407,6 +431,19 @@ public class PreHireQuery {
          */
         public Builder onboardingStatus(Enum onboardingStatus) {
             this.onboardingStatus = onboardingStatus;
+            return this;
+        }
+
+
+        /**
+         * 成本中心分摊信息
+         * <p> 示例值：
+         *
+         * @param costCenterRate
+         * @return
+         */
+        public Builder costCenterRate(SupportCostCenterItem[] costCenterRate) {
+            this.costCenterRate = costCenterRate;
             return this;
         }
 

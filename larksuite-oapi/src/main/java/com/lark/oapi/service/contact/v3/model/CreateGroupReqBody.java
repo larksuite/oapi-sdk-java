@@ -40,6 +40,18 @@ public class CreateGroupReqBody {
      */
     @SerializedName("type")
     private Integer type;
+    /**
+     * 动态用户组的规则
+     * <p> 示例值：
+     */
+    @SerializedName("dynamic_group_rule")
+    private DynamicGroupRule dynamicGroupRule;
+    /**
+     * 用户组指定可见范围
+     * <p> 示例值：
+     */
+    @SerializedName("visible_scope")
+    private GroupVisibleScope visibleScope;
 
     // builder 开始
     public CreateGroupReqBody() {
@@ -66,6 +78,16 @@ public class CreateGroupReqBody {
          * <p> 示例值：1
          */
         this.type = builder.type;
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         */
+        this.dynamicGroupRule = builder.dynamicGroupRule;
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         */
+        this.visibleScope = builder.visibleScope;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class CreateGroupReqBody {
         this.type = type;
     }
 
+    public DynamicGroupRule getDynamicGroupRule() {
+        return this.dynamicGroupRule;
+    }
+
+    public void setDynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
+        this.dynamicGroupRule = dynamicGroupRule;
+    }
+
+    public GroupVisibleScope getVisibleScope() {
+        return this.visibleScope;
+    }
+
+    public void setVisibleScope(GroupVisibleScope visibleScope) {
+        this.visibleScope = visibleScope;
+    }
+
     public static class Builder {
         /**
          * 自定义用户组ID，可在创建时自定义，不自定义则由系统自动生成，已创建用户组不允许修改 group_id 。;;自定义group_id数据校验规则：;;最大长度：64 字符;;校验规则：数字、大小写字母的组合，不能包含空格
@@ -125,6 +163,16 @@ public class CreateGroupReqBody {
          * <p> 示例值：1
          */
         private Integer type;
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         */
+        private DynamicGroupRule dynamicGroupRule;
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         */
+        private GroupVisibleScope visibleScope;
 
         /**
          * 自定义用户组ID，可在创建时自定义，不自定义则由系统自动生成，已创建用户组不允许修改 group_id 。;;自定义group_id数据校验规则：;;最大长度：64 字符;;校验规则：数字、大小写字母的组合，不能包含空格
@@ -181,11 +229,37 @@ public class CreateGroupReqBody {
          * 用户组的类型。默认为1表示普通用户组
          * <p> 示例值：1
          *
-         * @param type {@link com.lark.oapi.service.contact.v3.enums.CreateGroupGroupTypeEnum}
+         * @param type {@link com.lark.oapi.service.contact.v3.enums.CreateGroupCreateGroupTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.contact.v3.enums.CreateGroupGroupTypeEnum type) {
+        public Builder type(com.lark.oapi.service.contact.v3.enums.CreateGroupCreateGroupTypeEnum type) {
             this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 动态用户组的规则
+         * <p> 示例值：
+         *
+         * @param dynamicGroupRule
+         * @return
+         */
+        public Builder dynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
+            this.dynamicGroupRule = dynamicGroupRule;
+            return this;
+        }
+
+
+        /**
+         * 用户组指定可见范围
+         * <p> 示例值：
+         *
+         * @param visibleScope
+         * @return
+         */
+        public Builder visibleScope(GroupVisibleScope visibleScope) {
+            this.visibleScope = visibleScope;
             return this;
         }
 
