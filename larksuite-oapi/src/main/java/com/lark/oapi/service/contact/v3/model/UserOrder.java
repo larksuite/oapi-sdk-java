@@ -34,6 +34,12 @@ public class UserOrder {
      */
     @SerializedName("department_order")
     private Integer departmentOrder;
+    /**
+     * 是否为用户主部门
+     * <p> 示例值：true
+     */
+    @SerializedName("is_primary_dept")
+    private Boolean isPrimaryDept;
 
     // builder 开始
     public UserOrder() {
@@ -55,6 +61,11 @@ public class UserOrder {
          * <p> 示例值：100
          */
         this.departmentOrder = builder.departmentOrder;
+        /**
+         * 是否为用户主部门
+         * <p> 示例值：true
+         */
+        this.isPrimaryDept = builder.isPrimaryDept;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class UserOrder {
         this.departmentOrder = departmentOrder;
     }
 
+    public Boolean getIsPrimaryDept() {
+        return this.isPrimaryDept;
+    }
+
+    public void setIsPrimaryDept(Boolean isPrimaryDept) {
+        this.isPrimaryDept = isPrimaryDept;
+    }
+
     public static class Builder {
         /**
          * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
@@ -101,6 +120,11 @@ public class UserOrder {
          * <p> 示例值：100
          */
         private Integer departmentOrder;
+        /**
+         * 是否为用户主部门
+         * <p> 示例值：true
+         */
+        private Boolean isPrimaryDept;
 
         /**
          * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
@@ -137,6 +161,19 @@ public class UserOrder {
          */
         public Builder departmentOrder(Integer departmentOrder) {
             this.departmentOrder = departmentOrder;
+            return this;
+        }
+
+
+        /**
+         * 是否为用户主部门
+         * <p> 示例值：true
+         *
+         * @param isPrimaryDept
+         * @return
+         */
+        public Builder isPrimaryDept(Boolean isPrimaryDept) {
+            this.isPrimaryDept = isPrimaryDept;
             return this;
         }
 

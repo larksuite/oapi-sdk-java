@@ -16,8 +16,8 @@ public class GetChatModerationSample {
         GetChatModerationReq req = GetChatModerationReq.newBuilder()
                 .chatId("oc_a0553eda9014c201e6969b478895c230")
                 .userIdType("user_id")
+                .pageSize(10)
                 .pageToken("dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==")
-                .pageSize(20)
                 .build();
 
         // 发起请求

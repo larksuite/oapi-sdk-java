@@ -136,6 +136,12 @@ public class CreateChatRespBody {
      */
     @SerializedName("moderation_permission")
     private String moderationPermission;
+    /**
+     * 防泄密模式设置
+     * <p> 示例值：
+     */
+    @SerializedName("restricted_mode_setting")
+    private RestrictedModeSetting restrictedModeSetting;
 
     public String getChatId() {
         return this.chatId;
@@ -297,5 +303,13 @@ public class CreateChatRespBody {
         this.moderationPermission = moderationPermission;
     }
 
+
+    public RestrictedModeSetting getRestrictedModeSetting() {
+        return this.restrictedModeSetting;
+    }
+
+    public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+        this.restrictedModeSetting = restrictedModeSetting;
+    }
 
 }

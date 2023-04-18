@@ -23,6 +23,7 @@ public class SearchChatRespBody {
     @SerializedName("items")
     private ListChat[] items;
     /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
      * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
      */
     @SerializedName("page_token")

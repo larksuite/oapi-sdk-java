@@ -40,12 +40,6 @@ public class Vchat {
      */
     @SerializedName("meeting_url")
     private String meetingUrl;
-    /**
-     * VC视频会议转直播URL，当vc_type=vc时有值。
-     * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-     */
-    @SerializedName("live_link")
-    private String liveLink;
 
     // builder 开始
     public Vchat() {
@@ -72,11 +66,6 @@ public class Vchat {
          * <p> 示例值：https://example.com
          */
         this.meetingUrl = builder.meetingUrl;
-        /**
-         * VC视频会议转直播URL，当vc_type=vc时有值。
-         * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-         */
-        this.liveLink = builder.liveLink;
     }
 
     public static Builder newBuilder() {
@@ -115,14 +104,6 @@ public class Vchat {
         this.meetingUrl = meetingUrl;
     }
 
-    public String getLiveLink() {
-        return this.liveLink;
-    }
-
-    public void setLiveLink(String liveLink) {
-        this.liveLink = liveLink;
-    }
-
     public static class Builder {
         /**
          * 视频会议类型
@@ -144,11 +125,6 @@ public class Vchat {
          * <p> 示例值：https://example.com
          */
         private String meetingUrl;
-        /**
-         * VC视频会议转直播URL，当vc_type=vc时有值。
-         * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-         */
-        private String liveLink;
 
         /**
          * 视频会议类型
@@ -222,19 +198,6 @@ public class Vchat {
          */
         public Builder meetingUrl(String meetingUrl) {
             this.meetingUrl = meetingUrl;
-            return this;
-        }
-
-
-        /**
-         * VC视频会议转直播URL，当vc_type=vc时有值。
-         * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-         *
-         * @param liveLink
-         * @return
-         */
-        public Builder liveLink(String liveLink) {
-            this.liveLink = liveLink;
             return this;
         }
 

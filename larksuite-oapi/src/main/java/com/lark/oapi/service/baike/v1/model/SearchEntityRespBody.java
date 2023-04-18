@@ -24,7 +24,7 @@ public class SearchEntityRespBody {
     private Entity[] entities;
     /**
      * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
-     * <p> 示例值：
+     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
      */
     @SerializedName("page_token")
     private String pageToken;

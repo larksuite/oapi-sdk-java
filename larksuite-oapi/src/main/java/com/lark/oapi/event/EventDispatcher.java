@@ -369,6 +369,21 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> 机器人自定义菜单,当用户点击类型为事件的机器人菜单时触发
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/bot/events/menu">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/bot/events/menu</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2BotMenuV6(ApplicationService.P2BotMenuV6Handler handler) {
+            if (eventType2EventHandler.containsKey("application.bot.menu_v6")) {
+                throw new EventTypeAlreadyHasHandlerException("application.bot.menu_v6");
+            }
+            eventType2EventHandler.put("application.bot.menu_v6", handler);
+            return this;
+        }
+
+        /**
          * <p> ,
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event</a>
          *

@@ -29,6 +29,8 @@ public class CreateInstanceSample {
                         .cancelBotNotification("0")
                         .forbidRevoke(false)
                         .i18nResources(new I18nResource[]{})
+                        .title("@i18n@1")
+                        .titleDisplayMethod(0)
                         .build())
                 .build();
 

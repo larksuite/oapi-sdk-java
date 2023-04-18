@@ -23,11 +23,13 @@ public class GetChatModerationRespBody {
     @SerializedName("moderation_setting")
     private String moderationSetting;
     /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
      * <p> 示例值：0
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 是否还有更多项
      * <p> 示例值：false
      */
     @SerializedName("has_more")

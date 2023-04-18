@@ -106,6 +106,18 @@ public class InstanceCreate {
      */
     @SerializedName("i18n_resources")
     private I18nResource[] i18nResources;
+    /**
+     * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+     * <p> 示例值：@i18n@1
+     */
+    @SerializedName("title")
+    private String title;
+    /**
+     * 详情页title展示模式
+     * <p> 示例值：0
+     */
+    @SerializedName("title_display_method")
+    private Integer titleDisplayMethod;
 
     // builder 开始
     public InstanceCreate() {
@@ -187,6 +199,16 @@ public class InstanceCreate {
          * <p> 示例值：
          */
         this.i18nResources = builder.i18nResources;
+        /**
+         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+         * <p> 示例值：@i18n@1
+         */
+        this.title = builder.title;
+        /**
+         * 详情页title展示模式
+         * <p> 示例值：0
+         */
+        this.titleDisplayMethod = builder.titleDisplayMethod;
     }
 
     public static Builder newBuilder() {
@@ -313,6 +335,22 @@ public class InstanceCreate {
         this.i18nResources = i18nResources;
     }
 
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getTitleDisplayMethod() {
+        return this.titleDisplayMethod;
+    }
+
+    public void setTitleDisplayMethod(Integer titleDisplayMethod) {
+        this.titleDisplayMethod = titleDisplayMethod;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code
@@ -389,6 +427,16 @@ public class InstanceCreate {
          * <p> 示例值：
          */
         private I18nResource[] i18nResources;
+        /**
+         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+         * <p> 示例值：@i18n@1
+         */
+        private String title;
+        /**
+         * 详情页title展示模式
+         * <p> 示例值：0
+         */
+        private Integer titleDisplayMethod;
 
         /**
          * 审批定义 code
@@ -581,6 +629,44 @@ public class InstanceCreate {
          */
         public Builder i18nResources(I18nResource[] i18nResources) {
             this.i18nResources = i18nResources;
+            return this;
+        }
+
+
+        /**
+         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
+         * <p> 示例值：@i18n@1
+         *
+         * @param title
+         * @return
+         */
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 详情页title展示模式
+         * <p> 示例值：0
+         *
+         * @param titleDisplayMethod
+         * @return
+         */
+        public Builder titleDisplayMethod(Integer titleDisplayMethod) {
+            this.titleDisplayMethod = titleDisplayMethod;
+            return this;
+        }
+
+        /**
+         * 详情页title展示模式
+         * <p> 示例值：0
+         *
+         * @param titleDisplayMethod {@link com.lark.oapi.service.approval.v4.enums.InstanceCreateTitleDisplayMethodEnum}
+         * @return
+         */
+        public Builder titleDisplayMethod(com.lark.oapi.service.approval.v4.enums.InstanceCreateTitleDisplayMethodEnum titleDisplayMethod) {
+            this.titleDisplayMethod = titleDisplayMethod.getValue();
             return this;
         }
 

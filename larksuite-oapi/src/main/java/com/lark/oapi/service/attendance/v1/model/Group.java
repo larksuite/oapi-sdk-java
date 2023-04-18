@@ -316,6 +316,12 @@ public class Group {
      */
     @SerializedName("clockIn_need_photo")
     private Boolean clockInNeedPhoto;
+    /**
+     * 人员异动打卡设置
+     * <p> 示例值：
+     */
+    @SerializedName("member_status_change")
+    private MemberStatusChange memberStatusChange;
 
     // builder 开始
     public Group() {
@@ -572,6 +578,11 @@ public class Group {
          * <p> 示例值：true
          */
         this.clockInNeedPhoto = builder.clockInNeedPhoto;
+        /**
+         * 人员异动打卡设置
+         * <p> 示例值：
+         */
+        this.memberStatusChange = builder.memberStatusChange;
     }
 
     public static Builder newBuilder() {
@@ -978,6 +989,14 @@ public class Group {
         this.clockInNeedPhoto = clockInNeedPhoto;
     }
 
+    public MemberStatusChange getMemberStatusChange() {
+        return this.memberStatusChange;
+    }
+
+    public void setMemberStatusChange(MemberStatusChange memberStatusChange) {
+        this.memberStatusChange = memberStatusChange;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1229,6 +1248,11 @@ public class Group {
          * <p> 示例值：true
          */
         private Boolean clockInNeedPhoto;
+        /**
+         * 人员异动打卡设置
+         * <p> 示例值：
+         */
+        private MemberStatusChange memberStatusChange;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1876,6 +1900,19 @@ public class Group {
          */
         public Builder clockInNeedPhoto(Boolean clockInNeedPhoto) {
             this.clockInNeedPhoto = clockInNeedPhoto;
+            return this;
+        }
+
+
+        /**
+         * 人员异动打卡设置
+         * <p> 示例值：
+         *
+         * @param memberStatusChange
+         * @return
+         */
+        public Builder memberStatusChange(MemberStatusChange memberStatusChange) {
+            this.memberStatusChange = memberStatusChange;
             return this;
         }
 

@@ -19,12 +19,14 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListUserMailboxAliasReq {
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：xxx
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10
      */
     @Query
@@ -44,12 +46,12 @@ public class ListUserMailboxAliasReq {
 
     public ListUserMailboxAliasReq(Builder builder) {
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：xxx
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
@@ -89,11 +91,12 @@ public class ListUserMailboxAliasReq {
     }
 
     public static class Builder {
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
         private String userMailboxId; // 用户邮箱地址
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：xxx
          *
          * @param pageToken
@@ -105,6 +108,7 @@ public class ListUserMailboxAliasReq {
         }
 
         /**
+         * 分页大小
          * <p> 示例值：10
          *
          * @param pageSize

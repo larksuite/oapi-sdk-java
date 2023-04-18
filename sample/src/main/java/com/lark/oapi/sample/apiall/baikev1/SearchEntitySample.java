@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.baikev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.baike.v1.model.ClassificationFilter;
 import com.lark.oapi.service.baike.v1.model.SearchEntityReq;
 import com.lark.oapi.service.baike.v1.model.SearchEntityReqBody;
 import com.lark.oapi.service.baike.v1.model.SearchEntityResp;
@@ -15,11 +16,14 @@ public class SearchEntitySample {
 
         // 创建请求对象
         SearchEntityReq req = SearchEntityReq.newBuilder()
-                .pageToken("b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c")
                 .pageSize(20)
+                .pageToken("b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c")
                 .userIdType("user_id")
                 .searchEntityReqBody(SearchEntityReqBody.newBuilder()
                         .query("百科")
+                        .classificationFilter(ClassificationFilter.newBuilder().build())
+                        .sources(new Integer[]{})
+                        .creators(new String[]{})
                         .build())
                 .build();
 

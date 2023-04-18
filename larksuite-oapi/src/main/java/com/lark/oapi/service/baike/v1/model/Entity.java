@@ -41,11 +41,23 @@ public class Entity {
     @SerializedName("description")
     private String description;
     /**
+     * 创建者
+     * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+     */
+    @SerializedName("creator")
+    private String creator;
+    /**
      * 词条创建时间
      * <p> 示例值：1649318125
      */
     @SerializedName("create_time")
     private String createTime;
+    /**
+     * 最近一次更新者
+     * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+     */
+    @SerializedName("updater")
+    private String updater;
     /**
      * 词条最近更新时间
      * <p> 示例值：1649318125
@@ -76,6 +88,12 @@ public class Entity {
      */
     @SerializedName("rich_text")
     private String richText;
+    /**
+     * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+     * <p> 示例值：1
+     */
+    @SerializedName("source")
+    private Integer source;
 
     // builder 开始
     public Entity() {
@@ -103,10 +121,20 @@ public class Entity {
          */
         this.description = builder.description;
         /**
+         * 创建者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         */
+        this.creator = builder.creator;
+        /**
          * 词条创建时间
          * <p> 示例值：1649318125
          */
         this.createTime = builder.createTime;
+        /**
+         * 最近一次更新者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         */
+        this.updater = builder.updater;
         /**
          * 词条最近更新时间
          * <p> 示例值：1649318125
@@ -132,6 +160,11 @@ public class Entity {
          * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
          */
         this.richText = builder.richText;
+        /**
+         * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+         * <p> 示例值：1
+         */
+        this.source = builder.source;
     }
 
     public static Builder newBuilder() {
@@ -170,12 +203,28 @@ public class Entity {
         this.description = description;
     }
 
+    public String getCreator() {
+        return this.creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
     public String getCreateTime() {
         return this.createTime;
     }
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public String getUpdater() {
+        return this.updater;
+    }
+
+    public void setUpdater(String updater) {
+        this.updater = updater;
     }
 
     public String getUpdateTime() {
@@ -218,6 +267,14 @@ public class Entity {
         this.richText = richText;
     }
 
+    public Integer getSource() {
+        return this.source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
     public static class Builder {
         /**
          * 词条 ID （需要更新某个词条时填写，若是创建新词条可不填写）
@@ -240,10 +297,20 @@ public class Entity {
          */
         private String description;
         /**
+         * 创建者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         */
+        private String creator;
+        /**
          * 词条创建时间
          * <p> 示例值：1649318125
          */
         private String createTime;
+        /**
+         * 最近一次更新者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         */
+        private String updater;
         /**
          * 词条最近更新时间
          * <p> 示例值：1649318125
@@ -269,6 +336,11 @@ public class Entity {
          * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
          */
         private String richText;
+        /**
+         * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+         * <p> 示例值：1
+         */
+        private Integer source;
 
         /**
          * 词条 ID （需要更新某个词条时填写，若是创建新词条可不填写）
@@ -323,6 +395,19 @@ public class Entity {
 
 
         /**
+         * 创建者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         *
+         * @param creator
+         * @return
+         */
+        public Builder creator(String creator) {
+            this.creator = creator;
+            return this;
+        }
+
+
+        /**
          * 词条创建时间
          * <p> 示例值：1649318125
          *
@@ -331,6 +416,19 @@ public class Entity {
          */
         public Builder createTime(String createTime) {
             this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 最近一次更新者
+         * <p> 示例值：ou_30b07b63089ea46518789914dac63d36
+         *
+         * @param updater
+         * @return
+         */
+        public Builder updater(String updater) {
+            this.updater = updater;
             return this;
         }
 
@@ -396,6 +494,19 @@ public class Entity {
          */
         public Builder richText(String richText) {
             this.richText = richText;
+            return this;
+        }
+
+
+        /**
+         * 词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建
+         * <p> 示例值：1
+         *
+         * @param source
+         * @return
+         */
+        public Builder source(Integer source) {
+            this.source = source;
             return this;
         }
 

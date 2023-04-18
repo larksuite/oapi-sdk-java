@@ -40,6 +40,12 @@ public class CreateCalendarEventAttendeeReqBody {
      */
     @SerializedName("is_enable_admin")
     private Boolean isEnableAdmin;
+    /**
+     * 是否添加会议室operate_id标识的用户到参与人
+     * <p> 示例值：false
+     */
+    @SerializedName("add_operator_to_attendee")
+    private Boolean addOperatorToAttendee;
 
     // builder 开始
     public CreateCalendarEventAttendeeReqBody() {
@@ -66,6 +72,11 @@ public class CreateCalendarEventAttendeeReqBody {
          * <p> 示例值：false
          */
         this.isEnableAdmin = builder.isEnableAdmin;
+        /**
+         * 是否添加会议室operate_id标识的用户到参与人
+         * <p> 示例值：false
+         */
+        this.addOperatorToAttendee = builder.addOperatorToAttendee;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +115,14 @@ public class CreateCalendarEventAttendeeReqBody {
         this.isEnableAdmin = isEnableAdmin;
     }
 
+    public Boolean getAddOperatorToAttendee() {
+        return this.addOperatorToAttendee;
+    }
+
+    public void setAddOperatorToAttendee(Boolean addOperatorToAttendee) {
+        this.addOperatorToAttendee = addOperatorToAttendee;
+    }
+
     public static class Builder {
         /**
          * 新增参与人列表；;- 单次请求会议室的数量限制为100。
@@ -125,6 +144,11 @@ public class CreateCalendarEventAttendeeReqBody {
          * <p> 示例值：false
          */
         private Boolean isEnableAdmin;
+        /**
+         * 是否添加会议室operate_id标识的用户到参与人
+         * <p> 示例值：false
+         */
+        private Boolean addOperatorToAttendee;
 
         /**
          * 新增参与人列表；;- 单次请求会议室的数量限制为100。
@@ -174,6 +198,19 @@ public class CreateCalendarEventAttendeeReqBody {
          */
         public Builder isEnableAdmin(Boolean isEnableAdmin) {
             this.isEnableAdmin = isEnableAdmin;
+            return this;
+        }
+
+
+        /**
+         * 是否添加会议室operate_id标识的用户到参与人
+         * <p> 示例值：false
+         *
+         * @param addOperatorToAttendee
+         * @return
+         */
+        public Builder addOperatorToAttendee(Boolean addOperatorToAttendee) {
+            this.addOperatorToAttendee = addOperatorToAttendee;
             return this;
         }
 

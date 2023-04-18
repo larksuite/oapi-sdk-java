@@ -19,17 +19,19 @@ import com.lark.oapi.core.annotation.Query;
 
 public class SearchEntityReq {
     /**
-     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
+     * 每页返回的词条量
      * <p> 示例值：10
      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+     */
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
     /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
@@ -46,15 +48,15 @@ public class SearchEntityReq {
 
     public SearchEntityReq(Builder builder) {
         /**
-         *
-         * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         *
+         * 每页返回的词条量
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+         */
+        this.pageToken = builder.pageToken;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -67,20 +69,20 @@ public class SearchEntityReq {
         return new Builder();
     }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
     public String getUserIdType() {
@@ -100,23 +102,13 @@ public class SearchEntityReq {
     }
 
     public static class Builder {
-        private String pageToken; //
-        private Integer pageSize; //
+        private Integer pageSize; // 每页返回的词条量
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 此次调用中使用的用户ID的类型
         private SearchEntityReqBody body;
 
         /**
-         * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
+         * 每页返回的词条量
          * <p> 示例值：10
          *
          * @param pageSize
@@ -124,6 +116,18 @@ public class SearchEntityReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
             return this;
         }
 

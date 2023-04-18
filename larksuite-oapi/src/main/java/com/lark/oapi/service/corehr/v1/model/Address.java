@@ -59,18 +59,6 @@ public class Address {
     @SerializedName("distinct_id")
     private String distinctId;
     /**
-     * 城市，可通过【查询城市信息】接口查询
-     * <p> 示例值：6863333254578046472
-     */
-    @SerializedName("city_id_v2")
-    private String cityIdV2;
-    /**
-     * 区/县，可通过【查询区/县信息】 接口查询
-     * <p> 示例值：6863333516579441141
-     */
-    @SerializedName("district_id_v2")
-    private String districtIdV2;
-    /**
      * 地址行 1（非拉丁语系的本地文字）
      * <p> 示例值：丹佛测试地址-纽埃时区
      */
@@ -195,16 +183,6 @@ public class Address {
          * <p> 示例值：6863333516579440141
          */
         this.distinctId = builder.distinctId;
-        /**
-         * 城市，可通过【查询城市信息】接口查询
-         * <p> 示例值：6863333254578046472
-         */
-        this.cityIdV2 = builder.cityIdV2;
-        /**
-         * 区/县，可通过【查询区/县信息】 接口查询
-         * <p> 示例值：6863333516579441141
-         */
-        this.districtIdV2 = builder.districtIdV2;
         /**
          * 地址行 1（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
@@ -335,22 +313,6 @@ public class Address {
 
     public void setDistinctId(String distinctId) {
         this.distinctId = distinctId;
-    }
-
-    public String getCityIdV2() {
-        return this.cityIdV2;
-    }
-
-    public void setCityIdV2(String cityIdV2) {
-        this.cityIdV2 = cityIdV2;
-    }
-
-    public String getDistrictIdV2() {
-        return this.districtIdV2;
-    }
-
-    public void setDistrictIdV2(String districtIdV2) {
-        this.districtIdV2 = districtIdV2;
     }
 
     public String getLocalAddressLine1() {
@@ -501,16 +463,6 @@ public class Address {
          * <p> 示例值：6863333516579440141
          */
         private String distinctId;
-        /**
-         * 城市，可通过【查询城市信息】接口查询
-         * <p> 示例值：6863333254578046472
-         */
-        private String cityIdV2;
-        /**
-         * 区/县，可通过【查询区/县信息】 接口查询
-         * <p> 示例值：6863333516579441141
-         */
-        private String districtIdV2;
         /**
          * 地址行 1（非拉丁语系的本地文字）
          * <p> 示例值：丹佛测试地址-纽埃时区
@@ -669,32 +621,6 @@ public class Address {
          */
         public Builder distinctId(String distinctId) {
             this.distinctId = distinctId;
-            return this;
-        }
-
-
-        /**
-         * 城市，可通过【查询城市信息】接口查询
-         * <p> 示例值：6863333254578046472
-         *
-         * @param cityIdV2
-         * @return
-         */
-        public Builder cityIdV2(String cityIdV2) {
-            this.cityIdV2 = cityIdV2;
-            return this;
-        }
-
-
-        /**
-         * 区/县，可通过【查询区/县信息】 接口查询
-         * <p> 示例值：6863333516579441141
-         *
-         * @param districtIdV2
-         * @return
-         */
-        public Builder districtIdV2(String districtIdV2) {
-            this.districtIdV2 = districtIdV2;
             return this;
         }
 

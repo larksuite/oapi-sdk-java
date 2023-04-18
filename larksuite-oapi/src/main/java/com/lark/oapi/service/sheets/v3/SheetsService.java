@@ -30,7 +30,7 @@ import java.nio.charset.StandardCharsets;
 public class SheetsService {
     private static final Logger log = LoggerFactory.getLogger(SheetsService.class);
     private final Spreadsheet spreadsheet; // 表格
-    private final SpreadsheetSheet spreadsheetSheet; // 行列
+    private final SpreadsheetSheet spreadsheetSheet; // 工作表
     private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
     private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
     private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
@@ -55,7 +55,7 @@ public class SheetsService {
     }
 
     /**
-     * 行列
+     * 工作表
      *
      * @return
      */

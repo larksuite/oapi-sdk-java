@@ -21,7 +21,7 @@ import com.lark.oapi.core.annotation.Query;
 public class UrgentPhoneMessageReq {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     * <p> 示例值：open_id
      */
     @Query
     @SerializedName("user_id_type")
@@ -43,7 +43,7 @@ public class UrgentPhoneMessageReq {
     public UrgentPhoneMessageReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
+         * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
         /**
@@ -89,7 +89,7 @@ public class UrgentPhoneMessageReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
+         * <p> 示例值：open_id
          *
          * @param userIdType
          * @return
@@ -101,7 +101,7 @@ public class UrgentPhoneMessageReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
+         * <p> 示例值：open_id
          *
          * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UrgentPhoneMessageUserIdTypeEnum}
          * @return

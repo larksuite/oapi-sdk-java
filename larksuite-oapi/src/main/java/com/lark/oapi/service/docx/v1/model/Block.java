@@ -292,6 +292,12 @@ public class Block {
      */
     @SerializedName("comment_ids")
     private String[] commentIds;
+    /**
+     * Jira Issue
+     * <p> 示例值：
+     */
+    @SerializedName("jira_issue")
+    private JiraIssue jiraIssue;
 
     // builder 开始
     public Block() {
@@ -528,6 +534,11 @@ public class Block {
          * <p> 示例值：["1660030311959965796"]
          */
         this.commentIds = builder.commentIds;
+        /**
+         * Jira Issue
+         * <p> 示例值：
+         */
+        this.jiraIssue = builder.jiraIssue;
     }
 
     public static Builder newBuilder() {
@@ -902,6 +913,14 @@ public class Block {
         this.commentIds = commentIds;
     }
 
+    public JiraIssue getJiraIssue() {
+        return this.jiraIssue;
+    }
+
+    public void setJiraIssue(JiraIssue jiraIssue) {
+        this.jiraIssue = jiraIssue;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1133,6 +1152,11 @@ public class Block {
          * <p> 示例值：["1660030311959965796"]
          */
         private String[] commentIds;
+        /**
+         * Jira Issue
+         * <p> 示例值：
+         */
+        private JiraIssue jiraIssue;
 
         /**
          * Block 唯一标识
@@ -1740,6 +1764,19 @@ public class Block {
          */
         public Builder commentIds(String[] commentIds) {
             this.commentIds = commentIds;
+            return this;
+        }
+
+
+        /**
+         * Jira Issue
+         * <p> 示例值：
+         *
+         * @param jiraIssue
+         * @return
+         */
+        public Builder jiraIssue(JiraIssue jiraIssue) {
+            this.jiraIssue = jiraIssue;
             return this;
         }
 

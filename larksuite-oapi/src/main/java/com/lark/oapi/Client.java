@@ -71,14 +71,14 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     private Config config;
     private AcsService acs; // 智能门禁
-    private AdminService admin; // 管理后台-企业勋章
+    private AdminService admin; // 管理后台-数据报表
     private ApplicationService application; // 应用信息
     private ApprovalService approval; // 审批
     private AttendanceService attendance; // 打卡
     private AuthService auth; //
     private AuthenService authen; //
     private BaikeService baike; // 企业百科
-    private BitableService bitable; // 云文档-电子表格
+    private BitableService bitable; // 云文档-多维表格
     private BlockService block; // 小组件
     private CalendarService calendar; // 日历
     private ContactService contact; // 通讯录
@@ -130,7 +130,7 @@ public class Client {
     }
 
     /**
-     * 管理后台-企业勋章
+     * 管理后台-数据报表
      *
      * @return
      */
@@ -189,7 +189,7 @@ public class Client {
     }
 
     /**
-     * 云文档-电子表格
+     * 云文档-多维表格
      *
      * @return
      */

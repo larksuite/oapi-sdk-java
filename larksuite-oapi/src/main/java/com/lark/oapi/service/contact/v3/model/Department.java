@@ -106,6 +106,12 @@ public class Department {
      */
     @SerializedName("department_hrbps")
     private String[] departmentHrbps;
+    /**
+     * 部门下主属用户的个数
+     * <p> 示例值：100
+     */
+    @SerializedName("primary_member_count")
+    private Integer primaryMemberCount;
 
     // builder 开始
     public Department() {
@@ -187,6 +193,11 @@ public class Department {
          * <p> 示例值：
          */
         this.departmentHrbps = builder.departmentHrbps;
+        /**
+         * 部门下主属用户的个数
+         * <p> 示例值：100
+         */
+        this.primaryMemberCount = builder.primaryMemberCount;
     }
 
     public static Builder newBuilder() {
@@ -313,6 +324,14 @@ public class Department {
         this.departmentHrbps = departmentHrbps;
     }
 
+    public Integer getPrimaryMemberCount() {
+        return this.primaryMemberCount;
+    }
+
+    public void setPrimaryMemberCount(Integer primaryMemberCount) {
+        this.primaryMemberCount = primaryMemberCount;
+    }
+
     public static class Builder {
         /**
          * 部门名称
@@ -389,6 +408,11 @@ public class Department {
          * <p> 示例值：
          */
         private String[] departmentHrbps;
+        /**
+         * 部门下主属用户的个数
+         * <p> 示例值：100
+         */
+        private Integer primaryMemberCount;
 
         /**
          * 部门名称
@@ -581,6 +605,19 @@ public class Department {
          */
         public Builder departmentHrbps(String[] departmentHrbps) {
             this.departmentHrbps = departmentHrbps;
+            return this;
+        }
+
+
+        /**
+         * 部门下主属用户的个数
+         * <p> 示例值：100
+         *
+         * @param primaryMemberCount
+         * @return
+         */
+        public Builder primaryMemberCount(Integer primaryMemberCount) {
+            this.primaryMemberCount = primaryMemberCount;
             return this;
         }
 

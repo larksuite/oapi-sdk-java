@@ -35,31 +35,37 @@ public class GetGroupRespBody {
     @SerializedName("time_zone")
     private String timeZone;
     /**
+     * 参加考勤的部门id列表
      * <p> 示例值：
      */
     @SerializedName("bind_dept_ids")
     private String[] bindDeptIds;
     /**
+     * 无需考勤的部门id列表
      * <p> 示例值：
      */
     @SerializedName("except_dept_ids")
     private String[] exceptDeptIds;
     /**
+     * 参加考勤的人员id列表
      * <p> 示例值：
      */
     @SerializedName("bind_user_ids")
     private String[] bindUserIds;
     /**
+     * 参加考勤的人员id列表
      * <p> 示例值：
      */
     @SerializedName("except_user_ids")
     private String[] exceptUserIds;
     /**
+     * 考勤组主负责人id列表
      * <p> 示例值：
      */
     @SerializedName("group_leader_ids")
     private String[] groupLeaderIds;
     /**
+     * 考勤组子负责人id列表
      * <p> 示例值：
      */
     @SerializedName("sub_group_leader_ids")
@@ -197,6 +203,7 @@ public class GetGroupRespBody {
     @SerializedName("replace_basic_pic")
     private Boolean replaceBasicPic;
     /**
+     * 考勤机信息
      * <p> 示例值：
      */
     @SerializedName("machines")
@@ -208,6 +215,7 @@ public class GetGroupRespBody {
     @SerializedName("gps_range")
     private Integer gpsRange;
     /**
+     * GPS打卡的地址信息
      * <p> 示例值：
      */
     @SerializedName("locations")
@@ -249,7 +257,7 @@ public class GetGroupRespBody {
     private PunchSpecialDateShift[] noNeedPunchSpecialDays;
     /**
      * 自由班次下工作日不打卡是否记为缺卡
-     * <p> 示例值：
+     * <p> 示例值：false
      */
     @SerializedName("work_day_no_punch_as_lack")
     private Boolean workDayNoPunchAsLack;
@@ -301,6 +309,12 @@ public class GetGroupRespBody {
      */
     @SerializedName("clockIn_need_photo")
     private Boolean clockInNeedPhoto;
+    /**
+     * 人员异动打卡设置
+     * <p> 示例值：
+     */
+    @SerializedName("member_status_change")
+    private MemberStatusChange memberStatusChange;
 
     public String getGroupId() {
         return this.groupId;
@@ -692,6 +706,14 @@ public class GetGroupRespBody {
 
     public void setClockInNeedPhoto(Boolean clockInNeedPhoto) {
         this.clockInNeedPhoto = clockInNeedPhoto;
+    }
+
+    public MemberStatusChange getMemberStatusChange() {
+        return this.memberStatusChange;
+    }
+
+    public void setMemberStatusChange(MemberStatusChange memberStatusChange) {
+        this.memberStatusChange = memberStatusChange;
     }
 
 }

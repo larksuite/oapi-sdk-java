@@ -39,12 +39,14 @@ public class ListUserReq {
     @SerializedName("department_id")
     private String departmentId;
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：
      */
     @Query
@@ -72,12 +74,12 @@ public class ListUserReq {
          */
         this.departmentId = builder.departmentId;
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：
          */
         this.pageSize = builder.pageSize;
@@ -131,8 +133,8 @@ public class ListUserReq {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门ID的类型
         private String departmentId; // 填写该字段表示获取部门下所有用户，选填。
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
 
 
         /**
@@ -199,6 +201,7 @@ public class ListUserReq {
 
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：
          *
          * @param pageToken
@@ -211,6 +214,7 @@ public class ListUserReq {
 
 
         /**
+         * 分页大小
          * <p> 示例值：
          *
          * @param pageSize

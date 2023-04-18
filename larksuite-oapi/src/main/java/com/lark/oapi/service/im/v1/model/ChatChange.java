@@ -94,6 +94,12 @@ public class ChatChange {
      */
     @SerializedName("owner_id")
     private UserId ownerId;
+    /**
+     * 防泄密模式设置
+     * <p> 示例值：
+     */
+    @SerializedName("restricted_mode_setting")
+    private RestrictedModeSetting restrictedModeSetting;
 
     // builder 开始
     public ChatChange() {
@@ -165,6 +171,11 @@ public class ChatChange {
          * <p> 示例值：
          */
         this.ownerId = builder.ownerId;
+        /**
+         * 防泄密模式设置
+         * <p> 示例值：
+         */
+        this.restrictedModeSetting = builder.restrictedModeSetting;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +286,14 @@ public class ChatChange {
         this.ownerId = ownerId;
     }
 
+    public RestrictedModeSetting getRestrictedModeSetting() {
+        return this.restrictedModeSetting;
+    }
+
+    public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+        this.restrictedModeSetting = restrictedModeSetting;
+    }
+
     public static class Builder {
         /**
          * 群头像
@@ -341,6 +360,11 @@ public class ChatChange {
          * <p> 示例值：
          */
         private UserId ownerId;
+        /**
+         * 防泄密模式设置
+         * <p> 示例值：
+         */
+        private RestrictedModeSetting restrictedModeSetting;
 
         /**
          * 群头像
@@ -507,6 +531,19 @@ public class ChatChange {
          */
         public Builder ownerId(UserId ownerId) {
             this.ownerId = ownerId;
+            return this;
+        }
+
+
+        /**
+         * 防泄密模式设置
+         * <p> 示例值：
+         *
+         * @param restrictedModeSetting
+         * @return
+         */
+        public Builder restrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+            this.restrictedModeSetting = restrictedModeSetting;
             return this;
         }
 

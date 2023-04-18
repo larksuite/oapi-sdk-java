@@ -16,8 +16,8 @@ public class GetChatMembersSample {
         GetChatMembersReq req = GetChatMembersReq.newBuilder()
                 .chatId("oc_a0553eda9014c201e6969b478895c230")
                 .memberIdType("open_id")
+                .pageSize(10)
                 .pageToken("dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==")
-                .pageSize(20)
                 .build();
 
         // 发起请求

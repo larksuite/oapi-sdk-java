@@ -24,6 +24,7 @@ public class CreateCalendarEventAttendeeSample {
                         .needNotification(false)
                         .instanceStartTimeAdmin("1647320400")
                         .isEnableAdmin(false)
+                        .addOperatorToAttendee(false)
                         .build())
                 .build();
 

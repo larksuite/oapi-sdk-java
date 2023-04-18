@@ -58,6 +58,12 @@ public class AppTableField {
      */
     @SerializedName("ui_type")
     private String uiType;
+    /**
+     * 是否是隐藏字段
+     * <p> 示例值：false
+     */
+    @SerializedName("is_hidden")
+    private Boolean isHidden;
 
     // builder 开始
     public AppTableField() {
@@ -99,6 +105,11 @@ public class AppTableField {
          * <p> 示例值：Progress
          */
         this.uiType = builder.uiType;
+        /**
+         * 是否是隐藏字段
+         * <p> 示例值：false
+         */
+        this.isHidden = builder.isHidden;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class AppTableField {
         this.uiType = uiType;
     }
 
+    public Boolean getIsHidden() {
+        return this.isHidden;
+    }
+
+    public void setIsHidden(Boolean isHidden) {
+        this.isHidden = isHidden;
+    }
+
     public static class Builder {
         /**
          * 多维表格字段 id
@@ -197,6 +216,11 @@ public class AppTableField {
          * <p> 示例值：Progress
          */
         private String uiType;
+        /**
+         * 是否是隐藏字段
+         * <p> 示例值：false
+         */
+        private Boolean isHidden;
 
         /**
          * 多维表格字段 id
@@ -297,6 +321,19 @@ public class AppTableField {
          */
         public Builder uiType(String uiType) {
             this.uiType = uiType;
+            return this;
+        }
+
+
+        /**
+         * 是否是隐藏字段
+         * <p> 示例值：false
+         *
+         * @param isHidden
+         * @return
+         */
+        public Builder isHidden(Boolean isHidden) {
+            this.isHidden = isHidden;
             return this;
         }
 

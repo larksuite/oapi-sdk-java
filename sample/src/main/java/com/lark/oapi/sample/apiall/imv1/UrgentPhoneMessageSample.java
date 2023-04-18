@@ -16,7 +16,7 @@ public class UrgentPhoneMessageSample {
         // 创建请求对象
         UrgentPhoneMessageReq req = UrgentPhoneMessageReq.newBuilder()
                 .messageId("om_dc13264520392913993dd051dba21dcf")
-                .userIdType("user_id")
+                .userIdType("open_id")
                 .urgentReceivers(UrgentReceivers.newBuilder()
                         .userIdList(new String[]{})
                         .build())
