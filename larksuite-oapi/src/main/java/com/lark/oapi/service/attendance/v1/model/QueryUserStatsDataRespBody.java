@@ -22,6 +22,12 @@ public class QueryUserStatsDataRespBody {
      */
     @SerializedName("user_datas")
     private UserStatsData[] userDatas;
+    /**
+     * 无权限获取的用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("invalid_user_list")
+    private String[] invalidUserList;
 
     public UserStatsData[] getUserDatas() {
         return this.userDatas;
@@ -29,6 +35,14 @@ public class QueryUserStatsDataRespBody {
 
     public void setUserDatas(UserStatsData[] userDatas) {
         this.userDatas = userDatas;
+    }
+
+    public String[] getInvalidUserList() {
+        return this.invalidUserList;
+    }
+
+    public void setInvalidUserList(String[] invalidUserList) {
+        this.invalidUserList = invalidUserList;
     }
 
 }

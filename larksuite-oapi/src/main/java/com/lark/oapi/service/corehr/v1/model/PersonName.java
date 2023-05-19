@@ -108,7 +108,7 @@ public class PersonName {
     private String secondary;
     /**
      * 尊称
-     * <p> 示例值：王大帅
+     * <p> 示例值：刘梓新
      */
     @SerializedName("social")
     private Enum social;
@@ -243,7 +243,7 @@ public class PersonName {
         this.secondary = builder.secondary;
         /**
          * 尊称
-         * <p> 示例值：王大帅
+         * <p> 示例值：刘梓新
          */
         this.social = builder.social;
         /**
@@ -562,7 +562,7 @@ public class PersonName {
         private String secondary;
         /**
          * 尊称
-         * <p> 示例值：王大帅
+         * <p> 示例值：刘梓新
          */
         private Enum social;
         /**
@@ -803,7 +803,7 @@ public class PersonName {
 
         /**
          * 尊称
-         * <p> 示例值：王大帅
+         * <p> 示例值：刘梓新
          *
          * @param social
          * @return

@@ -37,6 +37,7 @@ public class CreateExternalInstanceSample {
                         .trusteeshipUrlToken("788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306")
                         .trusteeshipUserIdType("user_id")
                         .trusteeshipUrls(TrusteeshipUrls.newBuilder().build())
+                        .trusteeshipCacheConfig(TrusteeshipInstanceCacheConfig.newBuilder().build())
                         .build())
                 .build();
 

@@ -862,6 +862,21 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> Offer 状态变更,当 Offer 状态发生变更时将触发该事件。
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/events/status_changed">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/events/status_changed</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2OfferStatusChangedV1(HireService.P2OfferStatusChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.offer.status_changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.offer.status_changed_v1");
+            }
+            eventType2EventHandler.put("hire.offer.status_changed_v1", handler);
+            return this;
+        }
+
 
         /**
          * <p> 群解散,群组被解散后触发此事件。

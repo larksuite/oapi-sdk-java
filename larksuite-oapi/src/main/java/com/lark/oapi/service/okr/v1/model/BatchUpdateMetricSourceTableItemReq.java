@@ -42,6 +42,7 @@ public class BatchUpdateMetricSourceTableItemReq {
     private String metricTableId;
     @Body
     private BatchUpdateMetricSourceTableItemReqBody body;
+
     // builder 开始
     public BatchUpdateMetricSourceTableItemReq() {
     }

@@ -154,6 +154,12 @@ public class ExternalInstance {
      */
     @SerializedName("trusteeship_urls")
     private TrusteeshipUrls trusteeshipUrls;
+    /**
+     * 托管预缓存策略
+     * <p> 示例值：
+     */
+    @SerializedName("trusteeship_cache_config")
+    private TrusteeshipInstanceCacheConfig trusteeshipCacheConfig;
 
     // builder 开始
     public ExternalInstance() {
@@ -275,6 +281,11 @@ public class ExternalInstance {
          * <p> 示例值：
          */
         this.trusteeshipUrls = builder.trusteeshipUrls;
+        /**
+         * 托管预缓存策略
+         * <p> 示例值：
+         */
+        this.trusteeshipCacheConfig = builder.trusteeshipCacheConfig;
     }
 
     public static Builder newBuilder() {
@@ -465,6 +476,14 @@ public class ExternalInstance {
         this.trusteeshipUrls = trusteeshipUrls;
     }
 
+    public TrusteeshipInstanceCacheConfig getTrusteeshipCacheConfig() {
+        return this.trusteeshipCacheConfig;
+    }
+
+    public void setTrusteeshipCacheConfig(TrusteeshipInstanceCacheConfig trusteeshipCacheConfig) {
+        this.trusteeshipCacheConfig = trusteeshipCacheConfig;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
@@ -581,6 +600,11 @@ public class ExternalInstance {
          * <p> 示例值：
          */
         private TrusteeshipUrls trusteeshipUrls;
+        /**
+         * 托管预缓存策略
+         * <p> 示例值：
+         */
+        private TrusteeshipInstanceCacheConfig trusteeshipCacheConfig;
 
         /**
          * 审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段
@@ -913,6 +937,19 @@ public class ExternalInstance {
          */
         public Builder trusteeshipUrls(TrusteeshipUrls trusteeshipUrls) {
             this.trusteeshipUrls = trusteeshipUrls;
+            return this;
+        }
+
+
+        /**
+         * 托管预缓存策略
+         * <p> 示例值：
+         *
+         * @param trusteeshipCacheConfig
+         * @return
+         */
+        public Builder trusteeshipCacheConfig(TrusteeshipInstanceCacheConfig trusteeshipCacheConfig) {
+            this.trusteeshipCacheConfig = trusteeshipCacheConfig;
             return this;
         }
 

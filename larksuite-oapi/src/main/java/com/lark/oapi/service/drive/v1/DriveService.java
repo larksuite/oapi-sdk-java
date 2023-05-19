@@ -32,14 +32,14 @@ import java.nio.charset.StandardCharsets;
 public class DriveService {
     private static final Logger log = LoggerFactory.getLogger(DriveService.class);
     private final ExportTask exportTask; // 导出
-    private final File file; // 文件
+    private final File file; // 异步任务状态
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
     private final FileSubscription fileSubscription; // 订阅
     private final FileVersion fileVersion; // 文档版本
     private final ImportTask importTask; // 导入
-    private final Media media; // 分片上传
+    private final Media media; // 素材
     private final Meta meta; // meta
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置
@@ -71,7 +71,7 @@ public class DriveService {
     }
 
     /**
-     * 文件
+     * 异步任务状态
      *
      * @return
      */
@@ -134,7 +134,7 @@ public class DriveService {
     }
 
     /**
-     * 分片上传
+     * 素材
      *
      * @return
      */

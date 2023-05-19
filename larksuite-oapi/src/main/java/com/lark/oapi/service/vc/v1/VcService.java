@@ -31,6 +31,7 @@ import java.nio.charset.StandardCharsets;
 
 public class VcService {
     private static final Logger log = LoggerFactory.getLogger(VcService.class);
+    private final Alert alert; // 告警中心
     private final Export export; // 导出
     private final Meeting meeting; // 会议
     private final MeetingRecording meetingRecording; // 录制
@@ -49,6 +50,7 @@ public class VcService {
     private final ScopeConfig scopeConfig; // 会议室配置
 
     public VcService(Config config) {
+        this.alert = new Alert(config);
         this.export = new Export(config);
         this.meeting = new Meeting(config);
         this.meetingRecording = new MeetingRecording(config);
@@ -65,6 +67,15 @@ public class VcService {
         this.roomConfig = new RoomConfig(config);
         this.roomLevel = new RoomLevel(config);
         this.scopeConfig = new ScopeConfig(config);
+    }
+
+    /**
+     * 告警中心
+     *
+     * @return
+     */
+    public Alert alert() {
+        return alert;
     }
 
     /**
@@ -209,6 +220,80 @@ public class VcService {
      */
     public ScopeConfig scopeConfig() {
         return scopeConfig;
+    }
+
+    public static class Alert {
+        private final Config config;
+
+        public Alert(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取告警记录，获取特定条件下租户的设备告警记录
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/alert/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/alert/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java</a> ;
+         */
+        public ListAlertResp list(ListAlertReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/vc/v1/alerts"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListAlertResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAlertResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/alerts"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取告警记录，获取特定条件下租户的设备告警记录
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/alert/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/alert/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java</a> ;
+         */
+        public ListAlertResp list(ListAlertReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/vc/v1/alerts"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListAlertResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAlertResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/alerts"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
     public static class Export {

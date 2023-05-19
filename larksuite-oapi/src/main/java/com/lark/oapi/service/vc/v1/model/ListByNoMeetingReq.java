@@ -39,12 +39,14 @@ public class ListByNoMeetingReq {
     @SerializedName("end_time")
     private String endTime;
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：5
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10
      */
     @Query
@@ -72,12 +74,12 @@ public class ListByNoMeetingReq {
          */
         this.endTime = builder.endTime;
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：5
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
@@ -131,8 +133,8 @@ public class ListByNoMeetingReq {
         private String meetingNo; // 9位会议号
         private String startTime; // 查询开始时间（unix时间，单位sec）
         private String endTime; // 查询结束时间（unix时间，单位sec）
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
 
 
         /**
@@ -175,6 +177,7 @@ public class ListByNoMeetingReq {
 
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：5
          *
          * @param pageToken
@@ -187,6 +190,7 @@ public class ListByNoMeetingReq {
 
 
         /**
+         * 分页大小
          * <p> 示例值：10
          *
          * @param pageSize

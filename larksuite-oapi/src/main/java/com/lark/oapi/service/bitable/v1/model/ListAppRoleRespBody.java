@@ -36,7 +36,7 @@ public class ListAppRoleRespBody {
     private Boolean hasMore;
     /**
      * 总数
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @SerializedName("total")
     private Integer total;

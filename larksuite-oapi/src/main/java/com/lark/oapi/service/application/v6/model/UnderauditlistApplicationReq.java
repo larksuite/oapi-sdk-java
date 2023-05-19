@@ -25,12 +25,14 @@ public class UnderauditlistApplicationReq {
     @SerializedName("lang")
     private String lang;
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10
      */
     @Query
@@ -55,12 +57,12 @@ public class UnderauditlistApplicationReq {
          */
         this.lang = builder.lang;
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
@@ -109,8 +111,8 @@ public class UnderauditlistApplicationReq {
 
     public static class Builder {
         private String lang; // 指定返回的语言
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
         private String userIdType; // 此次调用中使用的用户ID的类型
 
 
@@ -140,6 +142,7 @@ public class UnderauditlistApplicationReq {
 
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
          *
          * @param pageToken
@@ -152,6 +155,7 @@ public class UnderauditlistApplicationReq {
 
 
         /**
+         * 分页大小
          * <p> 示例值：10
          *
          * @param pageSize

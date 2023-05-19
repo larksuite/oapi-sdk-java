@@ -46,9 +46,11 @@ public class GetMetricSourceTableItemReq {
     @Path
     @SerializedName("metric_item_id")
     private String metricItemId;
+
     // builder 开始
     public GetMetricSourceTableItemReq() {
     }
+
     public GetMetricSourceTableItemReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
