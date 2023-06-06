@@ -33,32 +33,32 @@ public class ListDepartmentReq {
     private String departmentIdType;
     /**
      * 父部门的ID，填上获取部门下所有子部门
-     * <p> 示例值：
+     * <p> 示例值：od-80884c92e43e
      */
     @Query
     @SerializedName("parent_department_id")
     private String parentDepartmentId;
     /**
      * 是否递归获取子部门
-     * <p> 示例值：
+     * <p> 示例值：false
      */
     @Query
     @SerializedName("fetch_child")
     private Boolean fetchChild;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
      * 分页大小
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     * <p> 示例值：5bc498db4617
+     */
+    @Query
+    @SerializedName("page_token")
+    private String pageToken;
 
     // builder 开始
     public ListDepartmentReq() {
@@ -77,24 +77,24 @@ public class ListDepartmentReq {
         this.departmentIdType = builder.departmentIdType;
         /**
          * 父部门的ID，填上获取部门下所有子部门
-         * <p> 示例值：
+         * <p> 示例值：od-80884c92e43e
          */
         this.parentDepartmentId = builder.parentDepartmentId;
         /**
          * 是否递归获取子部门
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         this.fetchChild = builder.fetchChild;
         /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
          * 分页大小
-         * <p> 示例值：
+         * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：5bc498db4617
+         */
+        this.pageToken = builder.pageToken;
     }
 
     public static Builder newBuilder() {
@@ -133,14 +133,6 @@ public class ListDepartmentReq {
         this.fetchChild = fetchChild;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -149,13 +141,21 @@ public class ListDepartmentReq {
         this.pageSize = pageSize;
     }
 
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门ID的类型
         private String parentDepartmentId; // 父部门的ID，填上获取部门下所有子部门
         private Boolean fetchChild; // 是否递归获取子部门
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
 
 
         /**
@@ -210,7 +210,7 @@ public class ListDepartmentReq {
 
         /**
          * 父部门的ID，填上获取部门下所有子部门
-         * <p> 示例值：
+         * <p> 示例值：od-80884c92e43e
          *
          * @param parentDepartmentId
          * @return
@@ -223,7 +223,7 @@ public class ListDepartmentReq {
 
         /**
          * 是否递归获取子部门
-         * <p> 示例值：
+         * <p> 示例值：false
          *
          * @param fetchChild
          * @return
@@ -235,27 +235,27 @@ public class ListDepartmentReq {
 
 
         /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
          * 分页大小
-         * <p> 示例值：
+         * <p> 示例值：10
          *
          * @param pageSize
          * @return
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+         * <p> 示例值：5bc498db4617
+         *
+         * @param pageToken
+         * @return
+         */
+        public Builder pageToken(String pageToken) {
+            this.pageToken = pageToken;
             return this;
         }
 

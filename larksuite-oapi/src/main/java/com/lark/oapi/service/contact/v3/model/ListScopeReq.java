@@ -39,7 +39,7 @@ public class ListScopeReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 分页大小，控制返回值所有列表长度之和
+     * 分页大小，返回值所有列表长度之和不超过这个值
      * <p> 示例值：50
      */
     @Query
@@ -67,7 +67,7 @@ public class ListScopeReq {
          */
         this.pageToken = builder.pageToken;
         /**
-         * 分页大小，控制返回值所有列表长度之和
+         * 分页大小，返回值所有列表长度之和不超过这个值
          * <p> 示例值：50
          */
         this.pageSize = builder.pageSize;
@@ -113,7 +113,7 @@ public class ListScopeReq {
         private String userIdType; // 返回值的用户ID的类型
         private String departmentIdType; // 返回值的部门ID的类型
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private Integer pageSize; // 分页大小，控制返回值所有列表长度之和
+        private Integer pageSize; // 分页大小，返回值所有列表长度之和不超过这个值
 
 
         /**
@@ -180,7 +180,7 @@ public class ListScopeReq {
 
 
         /**
-         * 分页大小，控制返回值所有列表长度之和
+         * 分页大小，返回值所有列表长度之和不超过这个值
          * <p> 示例值：50
          *
          * @param pageSize

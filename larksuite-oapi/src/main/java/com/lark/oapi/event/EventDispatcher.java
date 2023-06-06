@@ -33,6 +33,7 @@ import com.lark.oapi.service.application.v6.ApplicationService;
 import com.lark.oapi.service.approval.v4.ApprovalService;
 import com.lark.oapi.service.calendar.v4.CalendarService;
 import com.lark.oapi.service.contact.v3.ContactService;
+import com.lark.oapi.service.corehr.v1.CorehrService;
 import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.hire.v1.HireService;
@@ -665,6 +666,261 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ContractCreatedV1(CorehrService.P2ContractCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.contract.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.contract.created_v1");
+            }
+            eventType2EventHandler.put("corehr.contract.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 部门创建,飞书人事中「部门被创建」时将触发此事件。触发时间为部门实际生效时间，如在 2022-01-01 创建部门，部门生效时间设置为 2022-05-01，事件将在 2022-05-01 进行推送。
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DepartmentCreatedV1(CorehrService.P2DepartmentCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.department.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.department.created_v1");
+            }
+            eventType2EventHandler.put("corehr.department.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 部门删除,飞书人事中「部门被删除」时将触发此事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/deleted</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DepartmentDeletedV1(CorehrService.P2DepartmentDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.department.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.department.deleted_v1");
+            }
+            eventType2EventHandler.put("corehr.department.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 部门更新,飞书人事中「部门信息被更新」时将触发此事件。触发时间为部门更新实际生效时间，如在 2022-01-01 更新部门，部门更新生效时间设置为 2022-05-01，事件将在 2022-05-01 进行推送。
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DepartmentUpdatedV1(CorehrService.P2DepartmentUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.department.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.department.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.department.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 员工转正,员工在飞书人事转正完成后将触发该事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/converted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/converted</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EmploymentConvertedV1(CorehrService.P2EmploymentConvertedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.employment.converted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.employment.converted_v1");
+            }
+            eventType2EventHandler.put("corehr.employment.converted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 雇佣信息创建,员工在飞书人事的「雇佣信息被创建」时将触发此事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/created</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EmploymentCreatedV1(CorehrService.P2EmploymentCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.employment.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.employment.created_v1");
+            }
+            eventType2EventHandler.put("corehr.employment.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 雇佣信息删除,员工在飞书人事的「雇佣信息被删除」时将触发此事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/deleted</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EmploymentDeletedV1(CorehrService.P2EmploymentDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.employment.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.employment.deleted_v1");
+            }
+            eventType2EventHandler.put("corehr.employment.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 员工完成离职,员工完成离职，即离职日期的次日凌晨时，员工雇佣状态更改为“离职”后触发该事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/resigned">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/resigned</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EmploymentResignedV1(CorehrService.P2EmploymentResignedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.employment.resigned_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.employment.resigned_v1");
+            }
+            eventType2EventHandler.put("corehr.employment.resigned_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 雇佣信息更新,员工在飞书人事的「雇佣信息被更新」时将触发此事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/events/updated</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EmploymentUpdatedV1(CorehrService.P2EmploymentUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.employment.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.employment.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.employment.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 异动状态变更事件,在异动发起审批和产生审批结果时触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobChangeUpdatedV1(CorehrService.P2JobChangeUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_change.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_change.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.job_change.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 员工异动,员工在飞书人事异动完成后将触发该事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/events/changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/events/changed</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobDataChangedV1(CorehrService.P2JobDataChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_data.changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_data.changed_v1");
+            }
+            eventType2EventHandler.put("corehr.job_data.changed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 员工完成入职,在「飞书人事」将待入职员工手动操作“完成入职”后，触发该事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/events/employed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/events/employed</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobDataEmployedV1(CorehrService.P2JobDataEmployedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_data.employed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_data.employed_v1");
+            }
+            eventType2EventHandler.put("corehr.job_data.employed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 离职状态变更事件,在离职发起审批和产生审批结果时触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/events/updated</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2OffboardingUpdatedV1(CorehrService.P2OffboardingUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.offboarding.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.offboarding.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.offboarding.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2OrgRoleAuthorizationUpdatedV1(CorehrService.P2OrgRoleAuthorizationUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.org_role_authorization.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.org_role_authorization.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.org_role_authorization.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PersonCreatedV1(CorehrService.P2PersonCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.person.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.person.created_v1");
+            }
+            eventType2EventHandler.put("corehr.person.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PersonDeletedV1(CorehrService.P2PersonDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.person.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.person.deleted_v1");
+            }
+            eventType2EventHandler.put("corehr.person.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 个人信息更新,员工在飞书人事的「个人信息被更新」时将触发此事件
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PersonUpdatedV1(CorehrService.P2PersonUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.person.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.person.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.person.updated_v1", handler);
+            return this;
+        }
+
 
         /**
          * <p> 多维表格字段变更,多维表格字段变更
@@ -859,6 +1115,36 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("hire.application.stage_changed_v1");
             }
             eventType2EventHandler.put("hire.application.stage_changed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EhrImportTaskImportedV1(HireService.P2EhrImportTaskImportedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.ehr_import_task.imported_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.ehr_import_task.imported_v1");
+            }
+            eventType2EventHandler.put("hire.ehr_import_task.imported_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EhrImportTaskForInternshipOfferImportedV1(HireService.P2EhrImportTaskForInternshipOfferImportedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.ehr_import_task_for_internship_offer.imported_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.ehr_import_task_for_internship_offer.imported_v1");
+            }
+            eventType2EventHandler.put("hire.ehr_import_task_for_internship_offer.imported_v1", handler);
             return this;
         }
 

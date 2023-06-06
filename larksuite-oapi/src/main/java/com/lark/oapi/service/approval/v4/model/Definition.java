@@ -28,6 +28,48 @@ public class Definition {
      */
     @SerializedName("approval_name")
     private String approvalName;
+    /**
+     * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+     * <p> 示例值：分组名称
+     */
+    @SerializedName("group_name")
+    private String groupName;
+    /**
+     * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+     * <p> 示例值：审批定义说明
+     */
+    @SerializedName("description")
+    private String description;
+    /**
+     * 审批图标链接
+     * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+     */
+    @SerializedName("icon_url")
+    private String iconUrl;
+    /**
+     * 审批定义所属审批分组
+     * <p> 示例值：work_group
+     */
+    @SerializedName("group_code")
+    private String groupCode;
+    /**
+     * 是否为第三方审批
+     * <p> 示例值：false
+     */
+    @SerializedName("is_external")
+    private Boolean isExternal;
+    /**
+     * PC端发起页链接
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+     */
+    @SerializedName("create_link_pc")
+    private String createLinkPc;
+    /**
+     * 移动端发起页链接
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+     */
+    @SerializedName("create_link_mobile")
+    private String createLinkMobile;
 
     // builder 开始
     public Definition() {
@@ -44,6 +86,41 @@ public class Definition {
          * <p> 示例值：请假
          */
         this.approvalName = builder.approvalName;
+        /**
+         * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+         * <p> 示例值：分组名称
+         */
+        this.groupName = builder.groupName;
+        /**
+         * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+         * <p> 示例值：审批定义说明
+         */
+        this.description = builder.description;
+        /**
+         * 审批图标链接
+         * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+         */
+        this.iconUrl = builder.iconUrl;
+        /**
+         * 审批定义所属审批分组
+         * <p> 示例值：work_group
+         */
+        this.groupCode = builder.groupCode;
+        /**
+         * 是否为第三方审批
+         * <p> 示例值：false
+         */
+        this.isExternal = builder.isExternal;
+        /**
+         * PC端发起页链接
+         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+         */
+        this.createLinkPc = builder.createLinkPc;
+        /**
+         * 移动端发起页链接
+         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+         */
+        this.createLinkMobile = builder.createLinkMobile;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +143,62 @@ public class Definition {
         this.approvalName = approvalName;
     }
 
+    public String getGroupName() {
+        return this.groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIconUrl() {
+        return this.iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
+    public String getGroupCode() {
+        return this.groupCode;
+    }
+
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
+    }
+
+    public Boolean getIsExternal() {
+        return this.isExternal;
+    }
+
+    public void setIsExternal(Boolean isExternal) {
+        this.isExternal = isExternal;
+    }
+
+    public String getCreateLinkPc() {
+        return this.createLinkPc;
+    }
+
+    public void setCreateLinkPc(String createLinkPc) {
+        this.createLinkPc = createLinkPc;
+    }
+
+    public String getCreateLinkMobile() {
+        return this.createLinkMobile;
+    }
+
+    public void setCreateLinkMobile(String createLinkMobile) {
+        this.createLinkMobile = createLinkMobile;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
@@ -77,6 +210,41 @@ public class Definition {
          * <p> 示例值：请假
          */
         private String approvalName;
+        /**
+         * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+         * <p> 示例值：分组名称
+         */
+        private String groupName;
+        /**
+         * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+         * <p> 示例值：审批定义说明
+         */
+        private String description;
+        /**
+         * 审批图标链接
+         * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+         */
+        private String iconUrl;
+        /**
+         * 审批定义所属审批分组
+         * <p> 示例值：work_group
+         */
+        private String groupCode;
+        /**
+         * 是否为第三方审批
+         * <p> 示例值：false
+         */
+        private Boolean isExternal;
+        /**
+         * PC端发起页链接
+         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+         */
+        private String createLinkPc;
+        /**
+         * 移动端发起页链接
+         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+         */
+        private String createLinkMobile;
 
         /**
          * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
@@ -100,6 +268,97 @@ public class Definition {
          */
         public Builder approvalName(String approvalName) {
             this.approvalName = approvalName;
+            return this;
+        }
+
+
+        /**
+         * 分组名称，值的格式是 i18n key，文案放在 i18n_resource
+         * <p> 示例值：分组名称
+         *
+         * @param groupName
+         * @return
+         */
+        public Builder groupName(String groupName) {
+            this.groupName = groupName;
+            return this;
+        }
+
+
+        /**
+         * 审批定义的说明，值的格式是 i18n key，文案放在 i18n_resource； 审批发起页 审批定义的说明内容来自该字段
+         * <p> 示例值：审批定义说明
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 审批图标链接
+         * <p> 示例值：https://lf3-ea.bytetos.com/obj/goofy/ee/approval/approval-admin/image/iconLib/v3/person.png
+         *
+         * @param iconUrl
+         * @return
+         */
+        public Builder iconUrl(String iconUrl) {
+            this.iconUrl = iconUrl;
+            return this;
+        }
+
+
+        /**
+         * 审批定义所属审批分组
+         * <p> 示例值：work_group
+         *
+         * @param groupCode
+         * @return
+         */
+        public Builder groupCode(String groupCode) {
+            this.groupCode = groupCode;
+            return this;
+        }
+
+
+        /**
+         * 是否为第三方审批
+         * <p> 示例值：false
+         *
+         * @param isExternal
+         * @return
+         */
+        public Builder isExternal(Boolean isExternal) {
+            this.isExternal = isExternal;
+            return this;
+        }
+
+
+        /**
+         * PC端发起页链接
+         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999
+         *
+         * @param createLinkPc
+         * @return
+         */
+        public Builder createLinkPc(String createLinkPc) {
+            this.createLinkPc = createLinkPc;
+            return this;
+        }
+
+
+        /**
+         * 移动端发起页链接
+         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999
+         *
+         * @param createLinkMobile
+         * @return
+         */
+        public Builder createLinkMobile(String createLinkMobile) {
+            this.createLinkMobile = createLinkMobile;
             return this;
         }
 

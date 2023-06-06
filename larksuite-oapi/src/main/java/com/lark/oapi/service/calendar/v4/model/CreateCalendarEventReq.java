@@ -16,8 +16,16 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class CreateCalendarEventReq {
+    /**
+     * 幂等唯一key
+     * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
+     */
+    @Query
+    @SerializedName("idempotency_key")
+    private String idempotencyKey;
     /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -34,6 +42,11 @@ public class CreateCalendarEventReq {
 
     public CreateCalendarEventReq(Builder builder) {
         /**
+         * 幂等唯一key
+         * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
+         */
+        this.idempotencyKey = builder.idempotencyKey;
+        /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          */
@@ -43,6 +56,14 @@ public class CreateCalendarEventReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getIdempotencyKey() {
+        return this.idempotencyKey;
+    }
+
+    public void setIdempotencyKey(String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
     }
 
     public String getCalendarId() {
@@ -62,9 +83,21 @@ public class CreateCalendarEventReq {
     }
 
     public static class Builder {
-
+        private String idempotencyKey; // 幂等唯一key
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private CalendarEvent body;
+
+        /**
+         * 幂等唯一key
+         * <p> 示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6
+         *
+         * @param idempotencyKey
+         * @return
+         */
+        public Builder idempotencyKey(String idempotencyKey) {
+            this.idempotencyKey = idempotencyKey;
+            return this;
+        }
 
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)

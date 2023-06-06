@@ -191,6 +191,12 @@ public class Group {
     @SerializedName("face_punch_cfg")
     private Integer facePunchCfg;
     /**
+     * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
+     * <p> 示例值：false
+     */
+    @SerializedName("face_live_need_action")
+    private Boolean faceLiveNeedAction;
+    /**
      * 人脸识别失败时是否允许普通拍照打卡
      * <p> 示例值：true
      */
@@ -322,6 +328,42 @@ public class Group {
      */
     @SerializedName("member_status_change")
     private MemberStatusChange memberStatusChange;
+    /**
+     * 请假离岗或返岗是否需打卡
+     * <p> 示例值：false
+     */
+    @SerializedName("leave_need_punch")
+    private Boolean leaveNeedPunch;
+    /**
+     * 请假离岗或返岗打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("leave_need_punch_cfg")
+    private LeaveNeedPunchCfg leaveNeedPunchCfg;
+    /**
+     * 外出期间是否需打卡
+     * <p> 示例值：0
+     */
+    @SerializedName("go_out_need_punch")
+    private Integer goOutNeedPunch;
+    /**
+     * 外出期间打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("go_out_need_punch_cfg")
+    private LeaveNeedPunchCfg goOutNeedPunchCfg;
+    /**
+     * 出差期间是否需打卡
+     * <p> 示例值：0
+     */
+    @SerializedName("travel_need_punch")
+    private Integer travelNeedPunch;
+    /**
+     * 出差期间打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("travel_need_punch_cfg")
+    private LeaveNeedPunchCfg travelNeedPunchCfg;
 
     // builder 开始
     public Group() {
@@ -474,6 +516,11 @@ public class Group {
          */
         this.facePunchCfg = builder.facePunchCfg;
         /**
+         * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
+         * <p> 示例值：false
+         */
+        this.faceLiveNeedAction = builder.faceLiveNeedAction;
+        /**
          * 人脸识别失败时是否允许普通拍照打卡
          * <p> 示例值：true
          */
@@ -583,6 +630,36 @@ public class Group {
          * <p> 示例值：
          */
         this.memberStatusChange = builder.memberStatusChange;
+        /**
+         * 请假离岗或返岗是否需打卡
+         * <p> 示例值：false
+         */
+        this.leaveNeedPunch = builder.leaveNeedPunch;
+        /**
+         * 请假离岗或返岗打卡规则
+         * <p> 示例值：
+         */
+        this.leaveNeedPunchCfg = builder.leaveNeedPunchCfg;
+        /**
+         * 外出期间是否需打卡
+         * <p> 示例值：0
+         */
+        this.goOutNeedPunch = builder.goOutNeedPunch;
+        /**
+         * 外出期间打卡规则
+         * <p> 示例值：
+         */
+        this.goOutNeedPunchCfg = builder.goOutNeedPunchCfg;
+        /**
+         * 出差期间是否需打卡
+         * <p> 示例值：0
+         */
+        this.travelNeedPunch = builder.travelNeedPunch;
+        /**
+         * 出差期间打卡规则
+         * <p> 示例值：
+         */
+        this.travelNeedPunchCfg = builder.travelNeedPunchCfg;
     }
 
     public static Builder newBuilder() {
@@ -821,6 +898,14 @@ public class Group {
         this.facePunchCfg = facePunchCfg;
     }
 
+    public Boolean getFaceLiveNeedAction() {
+        return this.faceLiveNeedAction;
+    }
+
+    public void setFaceLiveNeedAction(Boolean faceLiveNeedAction) {
+        this.faceLiveNeedAction = faceLiveNeedAction;
+    }
+
     public Boolean getFaceDowngrade() {
         return this.faceDowngrade;
     }
@@ -997,6 +1082,54 @@ public class Group {
         this.memberStatusChange = memberStatusChange;
     }
 
+    public Boolean getLeaveNeedPunch() {
+        return this.leaveNeedPunch;
+    }
+
+    public void setLeaveNeedPunch(Boolean leaveNeedPunch) {
+        this.leaveNeedPunch = leaveNeedPunch;
+    }
+
+    public LeaveNeedPunchCfg getLeaveNeedPunchCfg() {
+        return this.leaveNeedPunchCfg;
+    }
+
+    public void setLeaveNeedPunchCfg(LeaveNeedPunchCfg leaveNeedPunchCfg) {
+        this.leaveNeedPunchCfg = leaveNeedPunchCfg;
+    }
+
+    public Integer getGoOutNeedPunch() {
+        return this.goOutNeedPunch;
+    }
+
+    public void setGoOutNeedPunch(Integer goOutNeedPunch) {
+        this.goOutNeedPunch = goOutNeedPunch;
+    }
+
+    public LeaveNeedPunchCfg getGoOutNeedPunchCfg() {
+        return this.goOutNeedPunchCfg;
+    }
+
+    public void setGoOutNeedPunchCfg(LeaveNeedPunchCfg goOutNeedPunchCfg) {
+        this.goOutNeedPunchCfg = goOutNeedPunchCfg;
+    }
+
+    public Integer getTravelNeedPunch() {
+        return this.travelNeedPunch;
+    }
+
+    public void setTravelNeedPunch(Integer travelNeedPunch) {
+        this.travelNeedPunch = travelNeedPunch;
+    }
+
+    public LeaveNeedPunchCfg getTravelNeedPunchCfg() {
+        return this.travelNeedPunchCfg;
+    }
+
+    public void setTravelNeedPunchCfg(LeaveNeedPunchCfg travelNeedPunchCfg) {
+        this.travelNeedPunchCfg = travelNeedPunchCfg;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1144,6 +1277,11 @@ public class Group {
          */
         private Integer facePunchCfg;
         /**
+         * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
+         * <p> 示例值：false
+         */
+        private Boolean faceLiveNeedAction;
+        /**
          * 人脸识别失败时是否允许普通拍照打卡
          * <p> 示例值：true
          */
@@ -1253,6 +1391,36 @@ public class Group {
          * <p> 示例值：
          */
         private MemberStatusChange memberStatusChange;
+        /**
+         * 请假离岗或返岗是否需打卡
+         * <p> 示例值：false
+         */
+        private Boolean leaveNeedPunch;
+        /**
+         * 请假离岗或返岗打卡规则
+         * <p> 示例值：
+         */
+        private LeaveNeedPunchCfg leaveNeedPunchCfg;
+        /**
+         * 外出期间是否需打卡
+         * <p> 示例值：0
+         */
+        private Integer goOutNeedPunch;
+        /**
+         * 外出期间打卡规则
+         * <p> 示例值：
+         */
+        private LeaveNeedPunchCfg goOutNeedPunchCfg;
+        /**
+         * 出差期间是否需打卡
+         * <p> 示例值：0
+         */
+        private Integer travelNeedPunch;
+        /**
+         * 出差期间打卡规则
+         * <p> 示例值：
+         */
+        private LeaveNeedPunchCfg travelNeedPunchCfg;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1632,6 +1800,19 @@ public class Group {
 
 
         /**
+         * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
+         * <p> 示例值：false
+         *
+         * @param faceLiveNeedAction
+         * @return
+         */
+        public Builder faceLiveNeedAction(Boolean faceLiveNeedAction) {
+            this.faceLiveNeedAction = faceLiveNeedAction;
+            return this;
+        }
+
+
+        /**
          * 人脸识别失败时是否允许普通拍照打卡
          * <p> 示例值：true
          *
@@ -1913,6 +2094,84 @@ public class Group {
          */
         public Builder memberStatusChange(MemberStatusChange memberStatusChange) {
             this.memberStatusChange = memberStatusChange;
+            return this;
+        }
+
+
+        /**
+         * 请假离岗或返岗是否需打卡
+         * <p> 示例值：false
+         *
+         * @param leaveNeedPunch
+         * @return
+         */
+        public Builder leaveNeedPunch(Boolean leaveNeedPunch) {
+            this.leaveNeedPunch = leaveNeedPunch;
+            return this;
+        }
+
+
+        /**
+         * 请假离岗或返岗打卡规则
+         * <p> 示例值：
+         *
+         * @param leaveNeedPunchCfg
+         * @return
+         */
+        public Builder leaveNeedPunchCfg(LeaveNeedPunchCfg leaveNeedPunchCfg) {
+            this.leaveNeedPunchCfg = leaveNeedPunchCfg;
+            return this;
+        }
+
+
+        /**
+         * 外出期间是否需打卡
+         * <p> 示例值：0
+         *
+         * @param goOutNeedPunch
+         * @return
+         */
+        public Builder goOutNeedPunch(Integer goOutNeedPunch) {
+            this.goOutNeedPunch = goOutNeedPunch;
+            return this;
+        }
+
+
+        /**
+         * 外出期间打卡规则
+         * <p> 示例值：
+         *
+         * @param goOutNeedPunchCfg
+         * @return
+         */
+        public Builder goOutNeedPunchCfg(LeaveNeedPunchCfg goOutNeedPunchCfg) {
+            this.goOutNeedPunchCfg = goOutNeedPunchCfg;
+            return this;
+        }
+
+
+        /**
+         * 出差期间是否需打卡
+         * <p> 示例值：0
+         *
+         * @param travelNeedPunch
+         * @return
+         */
+        public Builder travelNeedPunch(Integer travelNeedPunch) {
+            this.travelNeedPunch = travelNeedPunch;
+            return this;
+        }
+
+
+        /**
+         * 出差期间打卡规则
+         * <p> 示例值：
+         *
+         * @param travelNeedPunchCfg
+         * @return
+         */
+        public Builder travelNeedPunchCfg(LeaveNeedPunchCfg travelNeedPunchCfg) {
+            this.travelNeedPunchCfg = travelNeedPunchCfg;
             return this;
         }
 

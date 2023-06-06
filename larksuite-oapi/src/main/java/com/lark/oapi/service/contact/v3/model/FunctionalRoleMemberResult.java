@@ -24,7 +24,7 @@ public class FunctionalRoleMemberResult {
     private String userId;
     /**
      * 成员处理结果
-     * <p> 示例值：0
+     * <p> 示例值：1
      */
     @SerializedName("reason")
     private Integer reason;
@@ -41,7 +41,7 @@ public class FunctionalRoleMemberResult {
         this.userId = builder.userId;
         /**
          * 成员处理结果
-         * <p> 示例值：0
+         * <p> 示例值：1
          */
         this.reason = builder.reason;
     }
@@ -74,7 +74,7 @@ public class FunctionalRoleMemberResult {
         private String userId;
         /**
          * 成员处理结果
-         * <p> 示例值：0
+         * <p> 示例值：1
          */
         private Integer reason;
 
@@ -93,7 +93,7 @@ public class FunctionalRoleMemberResult {
 
         /**
          * 成员处理结果
-         * <p> 示例值：0
+         * <p> 示例值：1
          *
          * @param reason
          * @return
@@ -105,7 +105,7 @@ public class FunctionalRoleMemberResult {
 
         /**
          * 成员处理结果
-         * <p> 示例值：0
+         * <p> 示例值：1
          *
          * @param reason {@link com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberResultReasonEnum}
          * @return

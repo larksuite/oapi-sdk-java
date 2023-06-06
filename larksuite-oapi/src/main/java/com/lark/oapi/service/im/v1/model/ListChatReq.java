@@ -25,6 +25,13 @@ public class ListChatReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 群组排序方式
+     * <p> 示例值：ByCreateTimeAsc
+     */
+    @Query
+    @SerializedName("sort_type")
+    private String sortType;
+    /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
      */
@@ -50,6 +57,11 @@ public class ListChatReq {
          */
         this.userIdType = builder.userIdType;
         /**
+         * 群组排序方式
+         * <p> 示例值：ByCreateTimeAsc
+         */
+        this.sortType = builder.sortType;
+        /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
          */
@@ -73,6 +85,14 @@ public class ListChatReq {
         this.userIdType = userIdType;
     }
 
+    public String getSortType() {
+        return this.sortType;
+    }
+
+    public void setSortType(String sortType) {
+        this.sortType = sortType;
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -91,6 +111,7 @@ public class ListChatReq {
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private String sortType; // 群组排序方式
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
 
@@ -116,6 +137,31 @@ public class ListChatReq {
          */
         public Builder userIdType(com.lark.oapi.service.im.v1.enums.ListChatUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 群组排序方式
+         * <p> 示例值：ByCreateTimeAsc
+         *
+         * @param sortType
+         * @return
+         */
+        public Builder sortType(String sortType) {
+            this.sortType = sortType;
+            return this;
+        }
+
+        /**
+         * 群组排序方式
+         * <p> 示例值：ByCreateTimeAsc
+         *
+         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListChatSortTypeEnum}
+         * @return
+         */
+        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListChatSortTypeEnum sortType) {
+            this.sortType = sortType.getValue();
             return this;
         }
 

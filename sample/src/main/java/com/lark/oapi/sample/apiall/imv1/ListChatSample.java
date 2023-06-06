@@ -15,6 +15,7 @@ public class ListChatSample {
         // 创建请求对象
         ListChatReq req = ListChatReq.newBuilder()
                 .userIdType("user_id")
+                .sortType("ByCreateTimeAsc")
                 .pageToken("dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==")
                 .pageSize(20)
                 .build();

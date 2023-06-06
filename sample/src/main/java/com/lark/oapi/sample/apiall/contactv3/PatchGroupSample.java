@@ -16,11 +16,12 @@ public class PatchGroupSample {
                 .groupId("g187131")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
-                .patchGroupReqBody(PatchGroupReqBody.newBuilder()
+                .group(Group.newBuilder()
                         .name("外包 IT 用户组")
                         .description("IT 外包用户组，需要进行细粒度权限管控")
                         .dynamicGroupRule(DynamicGroupRule.newBuilder().build())
                         .visibleScope(GroupVisibleScope.newBuilder().build())
+                        .departmentScopeList(new String[]{})
                         .build())
                 .build();
 

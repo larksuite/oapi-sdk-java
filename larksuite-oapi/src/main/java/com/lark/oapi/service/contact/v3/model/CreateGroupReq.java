@@ -33,7 +33,7 @@ public class CreateGroupReq {
     @SerializedName("department_id_type")
     private String departmentIdType;
     @Body
-    private CreateGroupReqBody body;
+    private Group body;
 
     // builder 开始
     public CreateGroupReq() {
@@ -73,18 +73,18 @@ public class CreateGroupReq {
         this.departmentIdType = departmentIdType;
     }
 
-    public CreateGroupReqBody getCreateGroupReqBody() {
+    public Group getGroup() {
         return this.body;
     }
 
-    public void setCreateGroupReqBody(CreateGroupReqBody body) {
+    public void setGroup(Group body) {
         this.body = body;
     }
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private CreateGroupReqBody body;
+        private Group body;
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -134,7 +134,7 @@ public class CreateGroupReq {
             return this;
         }
 
-        public CreateGroupReqBody getCreateGroupReqBody() {
+        public Group getGroup() {
             return this.body;
         }
 
@@ -144,7 +144,7 @@ public class CreateGroupReq {
          * @param body
          * @return
          */
-        public Builder createGroupReqBody(CreateGroupReqBody body) {
+        public Builder group(Group body) {
             this.body = body;
             return this;
         }

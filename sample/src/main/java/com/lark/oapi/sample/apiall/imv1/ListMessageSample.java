@@ -18,6 +18,7 @@ public class ListMessageSample {
                 .containerId("oc_234jsi43d3ssi993d43545f")
                 .startTime("1609296809")
                 .endTime("1608594809")
+                .sortType("ByCreateTimeAsc")
                 .pageSize(20)
                 .pageToken("GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==")
                 .build();

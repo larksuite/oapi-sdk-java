@@ -33,6 +33,8 @@ public class AttendanceService {
     private final ApprovalInfo approvalInfo; // approval_info
     private final File file; // 文件
     private final Group group; // 考勤组管理
+    private final LeaveAccrualRecord leaveAccrualRecord; // leave_accrual_record
+    private final LeaveEmployExpireRecord leaveEmployExpireRecord; // leave_employ_expire_record
     private final Shift shift; // 考勤班次
     private final UserApproval userApproval; // 假勤审批
     private final UserDailyShift userDailyShift; // 考勤排班
@@ -48,6 +50,8 @@ public class AttendanceService {
         this.approvalInfo = new ApprovalInfo(config);
         this.file = new File(config);
         this.group = new Group(config);
+        this.leaveAccrualRecord = new LeaveAccrualRecord(config);
+        this.leaveEmployExpireRecord = new LeaveEmployExpireRecord(config);
         this.shift = new Shift(config);
         this.userApproval = new UserApproval(config);
         this.userDailyShift = new UserDailyShift(config);
@@ -85,6 +89,24 @@ public class AttendanceService {
      */
     public Group group() {
         return group;
+    }
+
+    /**
+     * leave_accrual_record
+     *
+     * @return
+     */
+    public LeaveAccrualRecord leaveAccrualRecord() {
+        return leaveAccrualRecord;
+    }
+
+    /**
+     * leave_employ_expire_record
+     *
+     * @return
+     */
+    public LeaveEmployExpireRecord leaveEmployExpireRecord() {
+        return leaveEmployExpireRecord;
     }
 
     /**
@@ -745,6 +767,154 @@ public class AttendanceService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/groups/search"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class LeaveAccrualRecord {
+        private final Config config;
+
+        public LeaveAccrualRecord(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=attendance&resource=leave_accrual_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=attendance&resource=leave_accrual_record&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/PatchLeaveAccrualRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/PatchLeaveAccrualRecordSample.java</a> ;
+         */
+        public PatchLeaveAccrualRecordResp patch(PatchLeaveAccrualRecordReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/attendance/v1/leave_accrual_record/:leave_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchLeaveAccrualRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchLeaveAccrualRecordResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/leave_accrual_record/:leave_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=attendance&resource=leave_accrual_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=attendance&resource=leave_accrual_record&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/PatchLeaveAccrualRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/PatchLeaveAccrualRecordSample.java</a> ;
+         */
+        public PatchLeaveAccrualRecordResp patch(PatchLeaveAccrualRecordReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/attendance/v1/leave_accrual_record/:leave_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchLeaveAccrualRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchLeaveAccrualRecordResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/leave_accrual_record/:leave_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class LeaveEmployExpireRecord {
+        private final Config config;
+
+        public LeaveEmployExpireRecord(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=attendance&resource=leave_employ_expire_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=attendance&resource=leave_employ_expire_record&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/GetLeaveEmployExpireRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/GetLeaveEmployExpireRecordSample.java</a> ;
+         */
+        public GetLeaveEmployExpireRecordResp get(GetLeaveEmployExpireRecordReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/attendance/v1/leave_employ_expire_records/:leave_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetLeaveEmployExpireRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetLeaveEmployExpireRecordResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/leave_employ_expire_records/:leave_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=attendance&resource=leave_employ_expire_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=attendance&resource=leave_employ_expire_record&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/GetLeaveEmployExpireRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/GetLeaveEmployExpireRecordSample.java</a> ;
+         */
+        public GetLeaveEmployExpireRecordResp get(GetLeaveEmployExpireRecordReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/attendance/v1/leave_employ_expire_records/:leave_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            GetLeaveEmployExpireRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetLeaveEmployExpireRecordResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/leave_employ_expire_records/:leave_id"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

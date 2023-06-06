@@ -16,10 +16,10 @@ public class ListDepartmentSample {
         ListDepartmentReq req = ListDepartmentReq.newBuilder()
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
-                .parentDepartmentId("")
+                .parentDepartmentId("od-80884c92e43e")
                 .fetchChild(false)
-                .pageToken("")
-                .pageSize(20)
+                .pageSize(10)
+                .pageToken("5bc498db4617")
                 .build();
 
         // 发起请求

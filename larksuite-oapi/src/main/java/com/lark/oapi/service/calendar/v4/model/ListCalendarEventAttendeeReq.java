@@ -26,12 +26,14 @@ public class ListCalendarEventAttendeeReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：780TRhwXXXXX
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10
      */
     @Query
@@ -63,12 +65,12 @@ public class ListCalendarEventAttendeeReq {
          */
         this.userIdType = builder.userIdType;
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：780TRhwXXXXX
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
@@ -130,8 +132,8 @@ public class ListCalendarEventAttendeeReq {
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
 
@@ -160,6 +162,7 @@ public class ListCalendarEventAttendeeReq {
         }
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：780TRhwXXXXX
          *
          * @param pageToken
@@ -171,6 +174,7 @@ public class ListCalendarEventAttendeeReq {
         }
 
         /**
+         * 分页大小
          * <p> 示例值：10
          *
          * @param pageSize

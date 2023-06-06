@@ -298,6 +298,12 @@ public class Block {
      */
     @SerializedName("jira_issue")
     private JiraIssue jiraIssue;
+    /**
+     * Wiki 子目录 Block
+     * <p> 示例值：
+     */
+    @SerializedName("wiki_catalog")
+    private WikiCatalog wikiCatalog;
 
     // builder 开始
     public Block() {
@@ -539,6 +545,11 @@ public class Block {
          * <p> 示例值：
          */
         this.jiraIssue = builder.jiraIssue;
+        /**
+         * Wiki 子目录 Block
+         * <p> 示例值：
+         */
+        this.wikiCatalog = builder.wikiCatalog;
     }
 
     public static Builder newBuilder() {
@@ -921,6 +932,14 @@ public class Block {
         this.jiraIssue = jiraIssue;
     }
 
+    public WikiCatalog getWikiCatalog() {
+        return this.wikiCatalog;
+    }
+
+    public void setWikiCatalog(WikiCatalog wikiCatalog) {
+        this.wikiCatalog = wikiCatalog;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1157,6 +1176,11 @@ public class Block {
          * <p> 示例值：
          */
         private JiraIssue jiraIssue;
+        /**
+         * Wiki 子目录 Block
+         * <p> 示例值：
+         */
+        private WikiCatalog wikiCatalog;
 
         /**
          * Block 唯一标识
@@ -1777,6 +1801,19 @@ public class Block {
          */
         public Builder jiraIssue(JiraIssue jiraIssue) {
             this.jiraIssue = jiraIssue;
+            return this;
+        }
+
+
+        /**
+         * Wiki 子目录 Block
+         * <p> 示例值：
+         *
+         * @param wikiCatalog
+         * @return
+         */
+        public Builder wikiCatalog(WikiCatalog wikiCatalog) {
+            this.wikiCatalog = wikiCatalog;
             return this;
         }
 

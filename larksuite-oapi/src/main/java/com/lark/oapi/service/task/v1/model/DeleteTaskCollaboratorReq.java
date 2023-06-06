@@ -43,7 +43,6 @@ public class DeleteTaskCollaboratorReq {
     // builder 开始
     public DeleteTaskCollaboratorReq() {
     }
-
     public DeleteTaskCollaboratorReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型

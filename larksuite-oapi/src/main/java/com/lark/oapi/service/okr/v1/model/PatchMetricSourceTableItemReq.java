@@ -49,7 +49,6 @@ public class PatchMetricSourceTableItemReq {
     private String metricItemId;
     @Body
     private PatchMetricSourceTableItemReqBody body;
-
     // builder 开始
     public PatchMetricSourceTableItemReq() {
     }

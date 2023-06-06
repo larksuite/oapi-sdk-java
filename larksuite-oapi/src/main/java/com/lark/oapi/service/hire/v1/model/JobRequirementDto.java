@@ -89,6 +89,12 @@ public class JobRequirementDto {
     @SerializedName("recruiter_list")
     private IdNameObject[] recruiterList;
     /**
+     * 需求用人经理
+     * <p> 示例值：
+     */
+    @SerializedName("jr_hiring_managers")
+    private IdNameObject[] jrHiringManagers;
+    /**
      * 直属上级
      * <p> 示例值：
      */
@@ -220,6 +226,11 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         this.recruiterList = builder.recruiterList;
+        /**
+         * 需求用人经理
+         * <p> 示例值：
+         */
+        this.jrHiringManagers = builder.jrHiringManagers;
         /**
          * 直属上级
          * <p> 示例值：
@@ -377,6 +388,14 @@ public class JobRequirementDto {
         this.recruiterList = recruiterList;
     }
 
+    public IdNameObject[] getJrHiringManagers() {
+        return this.jrHiringManagers;
+    }
+
+    public void setJrHiringManagers(IdNameObject[] jrHiringManagers) {
+        this.jrHiringManagers = jrHiringManagers;
+    }
+
     public IdNameObject[] getDirectLeaderList() {
         return this.directLeaderList;
     }
@@ -526,6 +545,11 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         private IdNameObject[] recruiterList;
+        /**
+         * 需求用人经理
+         * <p> 示例值：
+         */
+        private IdNameObject[] jrHiringManagers;
         /**
          * 直属上级
          * <p> 示例值：
@@ -734,6 +758,19 @@ public class JobRequirementDto {
          */
         public Builder recruiterList(IdNameObject[] recruiterList) {
             this.recruiterList = recruiterList;
+            return this;
+        }
+
+
+        /**
+         * 需求用人经理
+         * <p> 示例值：
+         *
+         * @param jrHiringManagers
+         * @return
+         */
+        public Builder jrHiringManagers(IdNameObject[] jrHiringManagers) {
+            this.jrHiringManagers = jrHiringManagers;
             return this;
         }
 

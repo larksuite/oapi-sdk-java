@@ -15,13 +15,14 @@ public class CreateGroupSample {
         CreateGroupReq req = CreateGroupReq.newBuilder()
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
-                .createGroupReqBody(CreateGroupReqBody.newBuilder()
-                        .groupId("g122817")
+                .group(Group.newBuilder()
                         .name("IT 外包组")
                         .description("IT服务人员的集合")
                         .type(1)
                         .dynamicGroupRule(DynamicGroupRule.newBuilder().build())
                         .visibleScope(GroupVisibleScope.newBuilder().build())
+                        .departmentScopeList(new String[]{})
+                        .groupId("g122817")
                         .build())
                 .build();
 

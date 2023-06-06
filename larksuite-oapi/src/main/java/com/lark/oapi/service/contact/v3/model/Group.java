@@ -64,6 +64,18 @@ public class Group {
      */
     @SerializedName("visible_scope")
     private GroupVisibleScope visibleScope;
+    /**
+     * 部门范围
+     * <p> 示例值：
+     */
+    @SerializedName("department_scope_list")
+    private String[] departmentScopeList;
+    /**
+     * 自定义用户组ID
+     * <p> 示例值：4ba51ab38648f9cd
+     */
+    @SerializedName("group_id")
+    private String groupId;
 
     // builder 开始
     public Group() {
@@ -110,6 +122,16 @@ public class Group {
          * <p> 示例值：
          */
         this.visibleScope = builder.visibleScope;
+        /**
+         * 部门范围
+         * <p> 示例值：
+         */
+        this.departmentScopeList = builder.departmentScopeList;
+        /**
+         * 自定义用户组ID
+         * <p> 示例值：4ba51ab38648f9cd
+         */
+        this.groupId = builder.groupId;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +202,22 @@ public class Group {
         this.visibleScope = visibleScope;
     }
 
+    public String[] getDepartmentScopeList() {
+        return this.departmentScopeList;
+    }
+
+    public void setDepartmentScopeList(String[] departmentScopeList) {
+        this.departmentScopeList = departmentScopeList;
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
     public static class Builder {
         /**
          * 用户组ID
@@ -221,6 +259,16 @@ public class Group {
          * <p> 示例值：
          */
         private GroupVisibleScope visibleScope;
+        /**
+         * 部门范围
+         * <p> 示例值：
+         */
+        private String[] departmentScopeList;
+        /**
+         * 自定义用户组ID
+         * <p> 示例值：4ba51ab38648f9cd
+         */
+        private String groupId;
 
         /**
          * 用户组ID
@@ -334,6 +382,32 @@ public class Group {
          */
         public Builder visibleScope(GroupVisibleScope visibleScope) {
             this.visibleScope = visibleScope;
+            return this;
+        }
+
+
+        /**
+         * 部门范围
+         * <p> 示例值：
+         *
+         * @param departmentScopeList
+         * @return
+         */
+        public Builder departmentScopeList(String[] departmentScopeList) {
+            this.departmentScopeList = departmentScopeList;
+            return this;
+        }
+
+
+        /**
+         * 自定义用户组ID
+         * <p> 示例值：4ba51ab38648f9cd
+         *
+         * @param groupId
+         * @return
+         */
+        public Builder groupId(String groupId) {
+            this.groupId = groupId;
             return this;
         }
 

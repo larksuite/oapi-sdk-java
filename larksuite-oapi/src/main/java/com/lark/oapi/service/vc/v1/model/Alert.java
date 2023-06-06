@@ -70,6 +70,24 @@ public class Alert {
      */
     @SerializedName("alertRule")
     private String alertRule;
+    /**
+     * 处理时间
+     * <p> 示例值：1656914944
+     */
+    @SerializedName("process_time")
+    private String processTime;
+    /**
+     * 恢复时间
+     * <p> 示例值：1656914944
+     */
+    @SerializedName("recover_time")
+    private String recoverTime;
+    /**
+     * 处理状态：待处理/处理中/已恢复
+     * <p> 示例值：2
+     */
+    @SerializedName("process_status")
+    private Integer processStatus;
 
     // builder 开始
     public Alert() {
@@ -121,6 +139,21 @@ public class Alert {
          * <p> 示例值：签到板断开连接
          */
         this.alertRule = builder.alertRule;
+        /**
+         * 处理时间
+         * <p> 示例值：1656914944
+         */
+        this.processTime = builder.processTime;
+        /**
+         * 恢复时间
+         * <p> 示例值：1656914944
+         */
+        this.recoverTime = builder.recoverTime;
+        /**
+         * 处理状态：待处理/处理中/已恢复
+         * <p> 示例值：2
+         */
+        this.processStatus = builder.processStatus;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +232,30 @@ public class Alert {
         this.alertRule = alertRule;
     }
 
+    public String getProcessTime() {
+        return this.processTime;
+    }
+
+    public void setProcessTime(String processTime) {
+        this.processTime = processTime;
+    }
+
+    public String getRecoverTime() {
+        return this.recoverTime;
+    }
+
+    public void setRecoverTime(String recoverTime) {
+        this.recoverTime = recoverTime;
+    }
+
+    public Integer getProcessStatus() {
+        return this.processStatus;
+    }
+
+    public void setProcessStatus(Integer processStatus) {
+        this.processStatus = processStatus;
+    }
+
     public static class Builder {
         /**
          * 告警ID
@@ -245,6 +302,21 @@ public class Alert {
          * <p> 示例值：签到板断开连接
          */
         private String alertRule;
+        /**
+         * 处理时间
+         * <p> 示例值：1656914944
+         */
+        private String processTime;
+        /**
+         * 恢复时间
+         * <p> 示例值：1656914944
+         */
+        private String recoverTime;
+        /**
+         * 处理状态：待处理/处理中/已恢复
+         * <p> 示例值：2
+         */
+        private Integer processStatus;
 
         /**
          * 告警ID
@@ -383,6 +455,57 @@ public class Alert {
          */
         public Builder alertRule(String alertRule) {
             this.alertRule = alertRule;
+            return this;
+        }
+
+
+        /**
+         * 处理时间
+         * <p> 示例值：1656914944
+         *
+         * @param processTime
+         * @return
+         */
+        public Builder processTime(String processTime) {
+            this.processTime = processTime;
+            return this;
+        }
+
+
+        /**
+         * 恢复时间
+         * <p> 示例值：1656914944
+         *
+         * @param recoverTime
+         * @return
+         */
+        public Builder recoverTime(String recoverTime) {
+            this.recoverTime = recoverTime;
+            return this;
+        }
+
+
+        /**
+         * 处理状态：待处理/处理中/已恢复
+         * <p> 示例值：2
+         *
+         * @param processStatus
+         * @return
+         */
+        public Builder processStatus(Integer processStatus) {
+            this.processStatus = processStatus;
+            return this;
+        }
+
+        /**
+         * 处理状态：待处理/处理中/已恢复
+         * <p> 示例值：2
+         *
+         * @param processStatus {@link com.lark.oapi.service.vc.v1.enums.AlertProcessStatusEnum}
+         * @return
+         */
+        public Builder processStatus(com.lark.oapi.service.vc.v1.enums.AlertProcessStatusEnum processStatus) {
+            this.processStatus = processStatus.getValue();
             return this;
         }
 

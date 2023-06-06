@@ -191,6 +191,12 @@ public class GetGroupRespBody {
     @SerializedName("face_punch_cfg")
     private Integer facePunchCfg;
     /**
+     * 人脸打卡规则， false：开启活体验证 true：0动作验证，仅在 face_punch_cfg = 1 时有效
+     * <p> 示例值：false
+     */
+    @SerializedName("face_live_need_action")
+    private Boolean faceLiveNeedAction;
+    /**
      * 脸识别失败时允许普通拍照打卡
      * <p> 示例值：true
      */
@@ -315,6 +321,42 @@ public class GetGroupRespBody {
      */
     @SerializedName("member_status_change")
     private MemberStatusChange memberStatusChange;
+    /**
+     * 请假离岗或返岗是否需打卡
+     * <p> 示例值：false
+     */
+    @SerializedName("leave_need_punch")
+    private Boolean leaveNeedPunch;
+    /**
+     * 请假离岗或返岗打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("leave_need_punch_cfg")
+    private LeaveNeedPunchCfg leaveNeedPunchCfg;
+    /**
+     * 外出期间是否需打卡
+     * <p> 示例值：0
+     */
+    @SerializedName("go_out_need_punch")
+    private Integer goOutNeedPunch;
+    /**
+     * 外出期间打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("go_out_need_punch_cfg")
+    private LeaveNeedPunchCfg goOutNeedPunchCfg;
+    /**
+     * 出差期间是否需打卡
+     * <p> 示例值：0
+     */
+    @SerializedName("travel_need_punch")
+    private Integer travelNeedPunch;
+    /**
+     * 出差期间打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("travel_need_punch_cfg")
+    private LeaveNeedPunchCfg travelNeedPunchCfg;
 
     public String getGroupId() {
         return this.groupId;
@@ -548,6 +590,14 @@ public class GetGroupRespBody {
         this.facePunchCfg = facePunchCfg;
     }
 
+    public Boolean getFaceLiveNeedAction() {
+        return this.faceLiveNeedAction;
+    }
+
+    public void setFaceLiveNeedAction(Boolean faceLiveNeedAction) {
+        this.faceLiveNeedAction = faceLiveNeedAction;
+    }
+
     public Boolean getFaceDowngrade() {
         return this.faceDowngrade;
     }
@@ -714,6 +764,54 @@ public class GetGroupRespBody {
 
     public void setMemberStatusChange(MemberStatusChange memberStatusChange) {
         this.memberStatusChange = memberStatusChange;
+    }
+
+    public Boolean getLeaveNeedPunch() {
+        return this.leaveNeedPunch;
+    }
+
+    public void setLeaveNeedPunch(Boolean leaveNeedPunch) {
+        this.leaveNeedPunch = leaveNeedPunch;
+    }
+
+    public LeaveNeedPunchCfg getLeaveNeedPunchCfg() {
+        return this.leaveNeedPunchCfg;
+    }
+
+    public void setLeaveNeedPunchCfg(LeaveNeedPunchCfg leaveNeedPunchCfg) {
+        this.leaveNeedPunchCfg = leaveNeedPunchCfg;
+    }
+
+    public Integer getGoOutNeedPunch() {
+        return this.goOutNeedPunch;
+    }
+
+    public void setGoOutNeedPunch(Integer goOutNeedPunch) {
+        this.goOutNeedPunch = goOutNeedPunch;
+    }
+
+    public LeaveNeedPunchCfg getGoOutNeedPunchCfg() {
+        return this.goOutNeedPunchCfg;
+    }
+
+    public void setGoOutNeedPunchCfg(LeaveNeedPunchCfg goOutNeedPunchCfg) {
+        this.goOutNeedPunchCfg = goOutNeedPunchCfg;
+    }
+
+    public Integer getTravelNeedPunch() {
+        return this.travelNeedPunch;
+    }
+
+    public void setTravelNeedPunch(Integer travelNeedPunch) {
+        this.travelNeedPunch = travelNeedPunch;
+    }
+
+    public LeaveNeedPunchCfg getTravelNeedPunchCfg() {
+        return this.travelNeedPunchCfg;
+    }
+
+    public void setTravelNeedPunchCfg(LeaveNeedPunchCfg travelNeedPunchCfg) {
+        this.travelNeedPunchCfg = travelNeedPunchCfg;
     }
 
 }

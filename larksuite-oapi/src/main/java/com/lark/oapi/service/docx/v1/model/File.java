@@ -28,6 +28,12 @@ public class File {
      */
     @SerializedName("name")
     private String name;
+    /**
+     * 视图类型，卡片视图（默认）或预览视图
+     * <p> 示例值：1
+     */
+    @SerializedName("view_type")
+    private Integer viewType;
 
     // builder 开始
     public File() {
@@ -44,6 +50,11 @@ public class File {
          * <p> 示例值：文件名
          */
         this.name = builder.name;
+        /**
+         * 视图类型，卡片视图（默认）或预览视图
+         * <p> 示例值：1
+         */
+        this.viewType = builder.viewType;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class File {
         this.name = name;
     }
 
+    public Integer getViewType() {
+        return this.viewType;
+    }
+
+    public void setViewType(Integer viewType) {
+        this.viewType = viewType;
+    }
+
     public static class Builder {
         /**
          * 附件 Token
@@ -77,6 +96,11 @@ public class File {
          * <p> 示例值：文件名
          */
         private String name;
+        /**
+         * 视图类型，卡片视图（默认）或预览视图
+         * <p> 示例值：1
+         */
+        private Integer viewType;
 
         /**
          * 附件 Token
@@ -100,6 +124,31 @@ public class File {
          */
         public Builder name(String name) {
             this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 视图类型，卡片视图（默认）或预览视图
+         * <p> 示例值：1
+         *
+         * @param viewType
+         * @return
+         */
+        public Builder viewType(Integer viewType) {
+            this.viewType = viewType;
+            return this;
+        }
+
+        /**
+         * 视图类型，卡片视图（默认）或预览视图
+         * <p> 示例值：1
+         *
+         * @param viewType {@link com.lark.oapi.service.docx.v1.enums.FileViewTypeEnum}
+         * @return
+         */
+        public Builder viewType(com.lark.oapi.service.docx.v1.enums.FileViewTypeEnum viewType) {
+            this.viewType = viewType.getValue();
             return this;
         }
 

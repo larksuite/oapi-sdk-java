@@ -42,7 +42,6 @@ public class CreateAppRoleMemberReq {
     private String roleId;
     @Body
     private AppRoleMember body;
-
     // builder 开始
     public CreateAppRoleMemberReq() {
     }

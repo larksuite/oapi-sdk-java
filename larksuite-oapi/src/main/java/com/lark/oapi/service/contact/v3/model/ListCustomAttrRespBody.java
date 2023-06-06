@@ -23,6 +23,7 @@ public class ListCustomAttrRespBody {
     @SerializedName("items")
     private CustomAttr[] items;
     /**
+     * 分页标记
      * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RYU5lvOM4s6zgbeeNNaWd%2BVKwAsoreeRWk0J2noGvJy
      */
     @SerializedName("page_token")

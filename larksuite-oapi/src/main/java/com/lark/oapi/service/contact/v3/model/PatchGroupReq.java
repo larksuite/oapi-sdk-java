@@ -41,7 +41,7 @@ public class PatchGroupReq {
     @SerializedName("group_id")
     private String groupId;
     @Body
-    private PatchGroupReqBody body;
+    private Group body;
 
     // builder 开始
     public PatchGroupReq() {
@@ -94,11 +94,11 @@ public class PatchGroupReq {
         this.groupId = groupId;
     }
 
-    public PatchGroupReqBody getPatchGroupReqBody() {
+    public Group getGroup() {
         return this.body;
     }
 
-    public void setPatchGroupReqBody(PatchGroupReqBody body) {
+    public void setGroup(Group body) {
         this.body = body;
     }
 
@@ -106,7 +106,7 @@ public class PatchGroupReq {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 此次调用中使用的部门ID的类型
         private String groupId; // 用户组ID
-        private PatchGroupReqBody body;
+        private Group body;
 
         /**
          * 此次调用中使用的用户ID的类型
@@ -168,7 +168,7 @@ public class PatchGroupReq {
             return this;
         }
 
-        public PatchGroupReqBody getPatchGroupReqBody() {
+        public Group getGroup() {
             return this.body;
         }
 
@@ -178,7 +178,7 @@ public class PatchGroupReq {
          * @param body
          * @return
          */
-        public Builder patchGroupReqBody(PatchGroupReqBody body) {
+        public Builder group(Group body) {
             this.body = body;
             return this;
         }

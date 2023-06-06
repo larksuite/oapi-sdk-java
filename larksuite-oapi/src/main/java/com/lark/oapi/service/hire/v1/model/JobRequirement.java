@@ -83,6 +83,12 @@ public class JobRequirement {
     @SerializedName("recruiter_id_list")
     private String[] recruiterIdList;
     /**
+     * 需求用人经理 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("jr_hiring_manager_id_list")
+    private String[] jrHiringManagerIdList;
+    /**
      * 直属上级 ID
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
@@ -203,6 +209,11 @@ public class JobRequirement {
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
          */
         this.recruiterIdList = builder.recruiterIdList;
+        /**
+         * 需求用人经理 ID 列表
+         * <p> 示例值：
+         */
+        this.jrHiringManagerIdList = builder.jrHiringManagerIdList;
         /**
          * 直属上级 ID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
@@ -347,6 +358,14 @@ public class JobRequirement {
         this.recruiterIdList = recruiterIdList;
     }
 
+    public String[] getJrHiringManagerIdList() {
+        return this.jrHiringManagerIdList;
+    }
+
+    public void setJrHiringManagerIdList(String[] jrHiringManagerIdList) {
+        this.jrHiringManagerIdList = jrHiringManagerIdList;
+    }
+
     public String[] getDirectLeaderIdList() {
         return this.directLeaderIdList;
     }
@@ -483,6 +502,11 @@ public class JobRequirement {
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
          */
         private String[] recruiterIdList;
+        /**
+         * 需求用人经理 ID 列表
+         * <p> 示例值：
+         */
+        private String[] jrHiringManagerIdList;
         /**
          * 直属上级 ID
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
@@ -673,6 +697,19 @@ public class JobRequirement {
          */
         public Builder recruiterIdList(String[] recruiterIdList) {
             this.recruiterIdList = recruiterIdList;
+            return this;
+        }
+
+
+        /**
+         * 需求用人经理 ID 列表
+         * <p> 示例值：
+         *
+         * @param jrHiringManagerIdList
+         * @return
+         */
+        public Builder jrHiringManagerIdList(String[] jrHiringManagerIdList) {
+            this.jrHiringManagerIdList = jrHiringManagerIdList;
             return this;
         }
 

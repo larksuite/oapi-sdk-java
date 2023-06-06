@@ -71,7 +71,7 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     private Config config;
     private AcsService acs; // 智能门禁
-    private AdminService admin; // 管理后台-企业勋章
+    private AdminService admin; // 管理后台-密码
     private ApplicationService application; // 应用信息
     private ApprovalService approval; // 审批
     private AttendanceService attendance; // 打卡
@@ -91,7 +91,7 @@ public class Client {
     private HelpdeskService helpdesk; // 服务台
     private HireService hire; // 招聘
     private HumanAuthenticationService humanAuthentication; // 实名认证
-    private ImService im; // 消息与群组
+    private ImService im; // 消息卡片
     private MailService mail; // 邮箱
     private MeetingRoomService meetingRoom; //
     private OkrService okr; // OKR
@@ -130,7 +130,7 @@ public class Client {
     }
 
     /**
-     * 管理后台-企业勋章
+     * 管理后台-密码
      *
      * @return
      */
@@ -304,7 +304,7 @@ public class Client {
     }
 
     /**
-     * 消息与群组
+     * 消息卡片
      *
      * @return
      */

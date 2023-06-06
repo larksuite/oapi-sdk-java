@@ -18,31 +18,31 @@ import com.google.gson.annotations.SerializedName;
 public class CalendarEventResp {
     /**
      * 日程ID
-     * <p> 示例值：
+     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
      */
     @SerializedName("event_id")
     private String eventId;
     /**
      * 日程组织者日历ID
-     * <p> 示例值：
+     * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
      */
     @SerializedName("organizer_calendar_id")
     private String organizerCalendarId;
     /**
      * 日程标题
-     * <p> 示例值：
+     * <p> 示例值：日程主题
      */
     @SerializedName("summary")
     private String summary;
     /**
      * 日程描述
-     * <p> 示例值：
+     * <p> 示例值：日程描述
      */
     @SerializedName("description")
     private String description;
     /**
      * 是否发送通知消息
-     * <p> 示例值：
+     * <p> 示例值：true
      */
     @SerializedName("need_notification")
     private Boolean needNotification;
@@ -90,7 +90,7 @@ public class CalendarEventResp {
     private EventLocation location;
     /**
      * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-     * <p> 示例值：
+     * <p> 示例值：-1
      */
     @SerializedName("color")
     private Integer color;
@@ -102,7 +102,7 @@ public class CalendarEventResp {
     private Reminder[] reminders;
     /**
      * 重复日程的重复性规则
-     * <p> 示例值：
+     * <p> 示例值：FREQ=DAILY;INTERVAL=1
      */
     @SerializedName("recurrence")
     private String recurrence;
@@ -114,19 +114,19 @@ public class CalendarEventResp {
     private String status;
     /**
      * 日程是否是一个重复日程的例外日程
-     * <p> 示例值：
+     * <p> 示例值：true
      */
     @SerializedName("is_exception")
     private Boolean isException;
     /**
      * 例外日程的原重复日程的event_id
-     * <p> 示例值：
+     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
      */
     @SerializedName("recurring_event_id")
     private String recurringEventId;
     /**
      * 日程的创建时间戳
-     * <p> 示例值：
+     * <p> 示例值：1682585100
      */
     @SerializedName("create_time")
     private String createTime;
@@ -144,27 +144,27 @@ public class CalendarEventResp {
     public CalendarEventResp(Builder builder) {
         /**
          * 日程ID
-         * <p> 示例值：
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
          */
         this.eventId = builder.eventId;
         /**
          * 日程组织者日历ID
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
          */
         this.organizerCalendarId = builder.organizerCalendarId;
         /**
          * 日程标题
-         * <p> 示例值：
+         * <p> 示例值：日程主题
          */
         this.summary = builder.summary;
         /**
          * 日程描述
-         * <p> 示例值：
+         * <p> 示例值：日程描述
          */
         this.description = builder.description;
         /**
          * 是否发送通知消息
-         * <p> 示例值：
+         * <p> 示例值：true
          */
         this.needNotification = builder.needNotification;
         /**
@@ -204,7 +204,7 @@ public class CalendarEventResp {
         this.location = builder.location;
         /**
          * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-         * <p> 示例值：
+         * <p> 示例值：-1
          */
         this.color = builder.color;
         /**
@@ -214,7 +214,7 @@ public class CalendarEventResp {
         this.reminders = builder.reminders;
         /**
          * 重复日程的重复性规则
-         * <p> 示例值：
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
          */
         this.recurrence = builder.recurrence;
         /**
@@ -224,17 +224,17 @@ public class CalendarEventResp {
         this.status = builder.status;
         /**
          * 日程是否是一个重复日程的例外日程
-         * <p> 示例值：
+         * <p> 示例值：true
          */
         this.isException = builder.isException;
         /**
          * 例外日程的原重复日程的event_id
-         * <p> 示例值：
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
          */
         this.recurringEventId = builder.recurringEventId;
         /**
          * 日程的创建时间戳
-         * <p> 示例值：
+         * <p> 示例值：1682585100
          */
         this.createTime = builder.createTime;
         /**
@@ -411,27 +411,27 @@ public class CalendarEventResp {
     public static class Builder {
         /**
          * 日程ID
-         * <p> 示例值：
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
          */
         private String eventId;
         /**
          * 日程组织者日历ID
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
          */
         private String organizerCalendarId;
         /**
          * 日程标题
-         * <p> 示例值：
+         * <p> 示例值：日程主题
          */
         private String summary;
         /**
          * 日程描述
-         * <p> 示例值：
+         * <p> 示例值：日程描述
          */
         private String description;
         /**
          * 是否发送通知消息
-         * <p> 示例值：
+         * <p> 示例值：true
          */
         private Boolean needNotification;
         /**
@@ -471,7 +471,7 @@ public class CalendarEventResp {
         private EventLocation location;
         /**
          * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-         * <p> 示例值：
+         * <p> 示例值：-1
          */
         private Integer color;
         /**
@@ -481,7 +481,7 @@ public class CalendarEventResp {
         private Reminder[] reminders;
         /**
          * 重复日程的重复性规则
-         * <p> 示例值：
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
          */
         private String recurrence;
         /**
@@ -491,17 +491,17 @@ public class CalendarEventResp {
         private String status;
         /**
          * 日程是否是一个重复日程的例外日程
-         * <p> 示例值：
+         * <p> 示例值：true
          */
         private Boolean isException;
         /**
          * 例外日程的原重复日程的event_id
-         * <p> 示例值：
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
          */
         private String recurringEventId;
         /**
          * 日程的创建时间戳
-         * <p> 示例值：
+         * <p> 示例值：1682585100
          */
         private String createTime;
         /**
@@ -512,7 +512,7 @@ public class CalendarEventResp {
 
         /**
          * 日程ID
-         * <p> 示例值：
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
          *
          * @param eventId
          * @return
@@ -525,7 +525,7 @@ public class CalendarEventResp {
 
         /**
          * 日程组织者日历ID
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
          *
          * @param organizerCalendarId
          * @return
@@ -538,7 +538,7 @@ public class CalendarEventResp {
 
         /**
          * 日程标题
-         * <p> 示例值：
+         * <p> 示例值：日程主题
          *
          * @param summary
          * @return
@@ -551,7 +551,7 @@ public class CalendarEventResp {
 
         /**
          * 日程描述
-         * <p> 示例值：
+         * <p> 示例值：日程描述
          *
          * @param description
          * @return
@@ -564,7 +564,7 @@ public class CalendarEventResp {
 
         /**
          * 是否发送通知消息
-         * <p> 示例值：
+         * <p> 示例值：true
          *
          * @param needNotification
          * @return
@@ -704,7 +704,7 @@ public class CalendarEventResp {
 
         /**
          * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
-         * <p> 示例值：
+         * <p> 示例值：-1
          *
          * @param color
          * @return
@@ -730,7 +730,7 @@ public class CalendarEventResp {
 
         /**
          * 重复日程的重复性规则
-         * <p> 示例值：
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
          *
          * @param recurrence
          * @return
@@ -768,7 +768,7 @@ public class CalendarEventResp {
 
         /**
          * 日程是否是一个重复日程的例外日程
-         * <p> 示例值：
+         * <p> 示例值：true
          *
          * @param isException
          * @return
@@ -781,7 +781,7 @@ public class CalendarEventResp {
 
         /**
          * 例外日程的原重复日程的event_id
-         * <p> 示例值：
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
          *
          * @param recurringEventId
          * @return
@@ -794,7 +794,7 @@ public class CalendarEventResp {
 
         /**
          * 日程的创建时间戳
-         * <p> 示例值：
+         * <p> 示例值：1682585100
          *
          * @param createTime
          * @return

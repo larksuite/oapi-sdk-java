@@ -19,7 +19,7 @@ package com.lark.oapi.service.docx.v1.enums;
 public enum ViewViewTypeEnum {
     CARD(1), // 卡片视图
     PREVIEW(2), // 预览视图
-    INLINE(3), // 内联试图
+    INLINE(3), // 内联视图
     ;
     private Integer value;
 

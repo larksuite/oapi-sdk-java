@@ -40,6 +40,18 @@ public class FreePunchCfg {
      */
     @SerializedName("work_day_no_punch_as_lack")
     private Boolean workDayNoPunchAsLack;
+    /**
+     * 工作日出勤是否需满足时长要求
+     * <p> 示例值：false
+     */
+    @SerializedName("work_hours_demand")
+    private Boolean workHoursDemand;
+    /**
+     * 每日工作时长（分钟),范围[0,1440]
+     * <p> 示例值：480
+     */
+    @SerializedName("work_hours")
+    private Integer workHours;
 
     // builder 开始
     public FreePunchCfg() {
@@ -66,6 +78,16 @@ public class FreePunchCfg {
          * <p> 示例值：true
          */
         this.workDayNoPunchAsLack = builder.workDayNoPunchAsLack;
+        /**
+         * 工作日出勤是否需满足时长要求
+         * <p> 示例值：false
+         */
+        this.workHoursDemand = builder.workHoursDemand;
+        /**
+         * 每日工作时长（分钟),范围[0,1440]
+         * <p> 示例值：480
+         */
+        this.workHours = builder.workHours;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class FreePunchCfg {
         this.workDayNoPunchAsLack = workDayNoPunchAsLack;
     }
 
+    public Boolean getWorkHoursDemand() {
+        return this.workHoursDemand;
+    }
+
+    public void setWorkHoursDemand(Boolean workHoursDemand) {
+        this.workHoursDemand = workHoursDemand;
+    }
+
+    public Integer getWorkHours() {
+        return this.workHours;
+    }
+
+    public void setWorkHours(Integer workHours) {
+        this.workHours = workHours;
+    }
+
     public static class Builder {
         /**
          * 自由班制打卡开始时间
@@ -125,6 +163,16 @@ public class FreePunchCfg {
          * <p> 示例值：true
          */
         private Boolean workDayNoPunchAsLack;
+        /**
+         * 工作日出勤是否需满足时长要求
+         * <p> 示例值：false
+         */
+        private Boolean workHoursDemand;
+        /**
+         * 每日工作时长（分钟),范围[0,1440]
+         * <p> 示例值：480
+         */
+        private Integer workHours;
 
         /**
          * 自由班制打卡开始时间
@@ -174,6 +222,32 @@ public class FreePunchCfg {
          */
         public Builder workDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
             this.workDayNoPunchAsLack = workDayNoPunchAsLack;
+            return this;
+        }
+
+
+        /**
+         * 工作日出勤是否需满足时长要求
+         * <p> 示例值：false
+         *
+         * @param workHoursDemand
+         * @return
+         */
+        public Builder workHoursDemand(Boolean workHoursDemand) {
+            this.workHoursDemand = workHoursDemand;
+            return this;
+        }
+
+
+        /**
+         * 每日工作时长（分钟),范围[0,1440]
+         * <p> 示例值：480
+         *
+         * @param workHours
+         * @return
+         */
+        public Builder workHours(Integer workHours) {
+            this.workHours = workHours;
             return this;
         }
 

@@ -57,6 +57,7 @@ public enum BlockBlockTypeEnum {
     OKRPROGRESS(39), // OKR 进展
     ADDONS(40), // 文档小组件
     JIRAISSUE(41), // Jira Issue
+    WIKICATALOG(42), // Wiki 子目录 Block
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

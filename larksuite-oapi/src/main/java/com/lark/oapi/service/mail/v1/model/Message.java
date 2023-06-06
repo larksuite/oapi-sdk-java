@@ -22,6 +22,72 @@ public class Message {
      */
     @SerializedName("raw")
     private String raw;
+    /**
+     * 主题
+     * <p> 示例值：邮件标题
+     */
+    @SerializedName("subject")
+    private String subject;
+    /**
+     * 收件人
+     * <p> 示例值：
+     */
+    @SerializedName("to")
+    private MailAddress[] to;
+    /**
+     * 抄送
+     * <p> 示例值：
+     */
+    @SerializedName("cc")
+    private MailAddress[] cc;
+    /**
+     * 秘送
+     * <p> 示例值：
+     */
+    @SerializedName("bcc")
+    private MailAddress[] bcc;
+    /**
+     * 发件人
+     * <p> 示例值：
+     */
+    @SerializedName("head_from")
+    private MailAddress headFrom;
+    /**
+     * 正文(base64url)
+     * <p> 示例值：xxxx
+     */
+    @SerializedName("body_html")
+    private String bodyHtml;
+    /**
+     * 创建/收/发信时间（毫秒）
+     * <p> 示例值：1682377086000
+     */
+    @SerializedName("internal_date")
+    private String internalDate;
+    /**
+     * 邮件状态
+     * <p> 示例值：1（收信）2（发信）3（草稿）
+     */
+    @SerializedName("message_state")
+    private Integer messageState;
+    /**
+     * RFC协议id
+     * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
+     */
+    @SerializedName("smtp_message_id")
+    private String smtpMessageId;
+    /**
+     * 邮件id
+     * <p> 示例值：tfuh9N4WnzU6jdDw=
+     */
+    @SerializedName("message_id")
+    private String messageId;
+    /**
+     * 正文纯文本(base64url)
+     * <p> 示例值：xxxxx
+     */
+    @SerializedName("body_plain_text")
+    private String bodyPlainText;
 
     // builder 开始
     public Message() {
@@ -33,6 +99,61 @@ public class Message {
          * <p> 示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogdG9AeHh4Lnh4CmZyb206IHNlbmRlckB4eHgueHgKc3ViamVjdDogdGhpcyBpcyBhIHN1YmplY3QKCnRoaXMgaXMgdGhlIG1lc3NhZ2UgYm9keS4=
          */
         this.raw = builder.raw;
+        /**
+         * 主题
+         * <p> 示例值：邮件标题
+         */
+        this.subject = builder.subject;
+        /**
+         * 收件人
+         * <p> 示例值：
+         */
+        this.to = builder.to;
+        /**
+         * 抄送
+         * <p> 示例值：
+         */
+        this.cc = builder.cc;
+        /**
+         * 秘送
+         * <p> 示例值：
+         */
+        this.bcc = builder.bcc;
+        /**
+         * 发件人
+         * <p> 示例值：
+         */
+        this.headFrom = builder.headFrom;
+        /**
+         * 正文(base64url)
+         * <p> 示例值：xxxx
+         */
+        this.bodyHtml = builder.bodyHtml;
+        /**
+         * 创建/收/发信时间（毫秒）
+         * <p> 示例值：1682377086000
+         */
+        this.internalDate = builder.internalDate;
+        /**
+         * 邮件状态
+         * <p> 示例值：1（收信）2（发信）3（草稿）
+         */
+        this.messageState = builder.messageState;
+        /**
+         * RFC协议id
+         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
+         */
+        this.smtpMessageId = builder.smtpMessageId;
+        /**
+         * 邮件id
+         * <p> 示例值：tfuh9N4WnzU6jdDw=
+         */
+        this.messageId = builder.messageId;
+        /**
+         * 正文纯文本(base64url)
+         * <p> 示例值：xxxxx
+         */
+        this.bodyPlainText = builder.bodyPlainText;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +168,155 @@ public class Message {
         this.raw = raw;
     }
 
+    public String getSubject() {
+        return this.subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public MailAddress[] getTo() {
+        return this.to;
+    }
+
+    public void setTo(MailAddress[] to) {
+        this.to = to;
+    }
+
+    public MailAddress[] getCc() {
+        return this.cc;
+    }
+
+    public void setCc(MailAddress[] cc) {
+        this.cc = cc;
+    }
+
+    public MailAddress[] getBcc() {
+        return this.bcc;
+    }
+
+    public void setBcc(MailAddress[] bcc) {
+        this.bcc = bcc;
+    }
+
+    public MailAddress getHeadFrom() {
+        return this.headFrom;
+    }
+
+    public void setHeadFrom(MailAddress headFrom) {
+        this.headFrom = headFrom;
+    }
+
+    public String getBodyHtml() {
+        return this.bodyHtml;
+    }
+
+    public void setBodyHtml(String bodyHtml) {
+        this.bodyHtml = bodyHtml;
+    }
+
+    public String getInternalDate() {
+        return this.internalDate;
+    }
+
+    public void setInternalDate(String internalDate) {
+        this.internalDate = internalDate;
+    }
+
+    public Integer getMessageState() {
+        return this.messageState;
+    }
+
+    public void setMessageState(Integer messageState) {
+        this.messageState = messageState;
+    }
+
+    public String getSmtpMessageId() {
+        return this.smtpMessageId;
+    }
+
+    public void setSmtpMessageId(String smtpMessageId) {
+        this.smtpMessageId = smtpMessageId;
+    }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    public String getBodyPlainText() {
+        return this.bodyPlainText;
+    }
+
+    public void setBodyPlainText(String bodyPlainText) {
+        this.bodyPlainText = bodyPlainText;
+    }
+
     public static class Builder {
         /**
          * MIME邮件数据，基于base64url编码
          * <p> 示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogdG9AeHh4Lnh4CmZyb206IHNlbmRlckB4eHgueHgKc3ViamVjdDogdGhpcyBpcyBhIHN1YmplY3QKCnRoaXMgaXMgdGhlIG1lc3NhZ2UgYm9keS4=
          */
         private String raw;
+        /**
+         * 主题
+         * <p> 示例值：邮件标题
+         */
+        private String subject;
+        /**
+         * 收件人
+         * <p> 示例值：
+         */
+        private MailAddress[] to;
+        /**
+         * 抄送
+         * <p> 示例值：
+         */
+        private MailAddress[] cc;
+        /**
+         * 秘送
+         * <p> 示例值：
+         */
+        private MailAddress[] bcc;
+        /**
+         * 发件人
+         * <p> 示例值：
+         */
+        private MailAddress headFrom;
+        /**
+         * 正文(base64url)
+         * <p> 示例值：xxxx
+         */
+        private String bodyHtml;
+        /**
+         * 创建/收/发信时间（毫秒）
+         * <p> 示例值：1682377086000
+         */
+        private String internalDate;
+        /**
+         * 邮件状态
+         * <p> 示例值：1（收信）2（发信）3（草稿）
+         */
+        private Integer messageState;
+        /**
+         * RFC协议id
+         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
+         */
+        private String smtpMessageId;
+        /**
+         * 邮件id
+         * <p> 示例值：tfuh9N4WnzU6jdDw=
+         */
+        private String messageId;
+        /**
+         * 正文纯文本(base64url)
+         * <p> 示例值：xxxxx
+         */
+        private String bodyPlainText;
 
         /**
          * MIME邮件数据，基于base64url编码
@@ -63,6 +327,149 @@ public class Message {
          */
         public Builder raw(String raw) {
             this.raw = raw;
+            return this;
+        }
+
+
+        /**
+         * 主题
+         * <p> 示例值：邮件标题
+         *
+         * @param subject
+         * @return
+         */
+        public Builder subject(String subject) {
+            this.subject = subject;
+            return this;
+        }
+
+
+        /**
+         * 收件人
+         * <p> 示例值：
+         *
+         * @param to
+         * @return
+         */
+        public Builder to(MailAddress[] to) {
+            this.to = to;
+            return this;
+        }
+
+
+        /**
+         * 抄送
+         * <p> 示例值：
+         *
+         * @param cc
+         * @return
+         */
+        public Builder cc(MailAddress[] cc) {
+            this.cc = cc;
+            return this;
+        }
+
+
+        /**
+         * 秘送
+         * <p> 示例值：
+         *
+         * @param bcc
+         * @return
+         */
+        public Builder bcc(MailAddress[] bcc) {
+            this.bcc = bcc;
+            return this;
+        }
+
+
+        /**
+         * 发件人
+         * <p> 示例值：
+         *
+         * @param headFrom
+         * @return
+         */
+        public Builder headFrom(MailAddress headFrom) {
+            this.headFrom = headFrom;
+            return this;
+        }
+
+
+        /**
+         * 正文(base64url)
+         * <p> 示例值：xxxx
+         *
+         * @param bodyHtml
+         * @return
+         */
+        public Builder bodyHtml(String bodyHtml) {
+            this.bodyHtml = bodyHtml;
+            return this;
+        }
+
+
+        /**
+         * 创建/收/发信时间（毫秒）
+         * <p> 示例值：1682377086000
+         *
+         * @param internalDate
+         * @return
+         */
+        public Builder internalDate(String internalDate) {
+            this.internalDate = internalDate;
+            return this;
+        }
+
+
+        /**
+         * 邮件状态
+         * <p> 示例值：1（收信）2（发信）3（草稿）
+         *
+         * @param messageState
+         * @return
+         */
+        public Builder messageState(Integer messageState) {
+            this.messageState = messageState;
+            return this;
+        }
+
+
+        /**
+         * RFC协议id
+         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
+         *
+         * @param smtpMessageId
+         * @return
+         */
+        public Builder smtpMessageId(String smtpMessageId) {
+            this.smtpMessageId = smtpMessageId;
+            return this;
+        }
+
+
+        /**
+         * 邮件id
+         * <p> 示例值：tfuh9N4WnzU6jdDw=
+         *
+         * @param messageId
+         * @return
+         */
+        public Builder messageId(String messageId) {
+            this.messageId = messageId;
+            return this;
+        }
+
+
+        /**
+         * 正文纯文本(base64url)
+         * <p> 示例值：xxxxx
+         *
+         * @param bodyPlainText
+         * @return
+         */
+        public Builder bodyPlainText(String bodyPlainText) {
+            this.bodyPlainText = bodyPlainText;
             return this;
         }
 

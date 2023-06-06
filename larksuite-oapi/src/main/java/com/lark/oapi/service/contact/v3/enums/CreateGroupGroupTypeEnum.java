@@ -18,6 +18,7 @@ package com.lark.oapi.service.contact.v3.enums;
  */
 public enum CreateGroupGroupTypeEnum {
     ASSIGN(1), // 普通用户组
+    DYNAMIC(2), // 动态用户组
     ;
     private Integer value;
 
