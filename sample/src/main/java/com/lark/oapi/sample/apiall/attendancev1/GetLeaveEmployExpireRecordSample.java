@@ -16,6 +16,7 @@ public class GetLeaveEmployExpireRecordSample {
         // 创建请求对象
         GetLeaveEmployExpireRecordReq req = GetLeaveEmployExpireRecordReq.newBuilder()
                 .leaveId("1")
+                .userIdType("open_id")
                 .getLeaveEmployExpireRecordReqBody(GetLeaveEmployExpireRecordReqBody.newBuilder()
                         .employmentId("1")
                         .leaveTypeId("1")

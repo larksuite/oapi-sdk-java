@@ -23,11 +23,13 @@ public class ListShiftRespBody {
     @SerializedName("shift_list")
     private Shift[] shiftList;
     /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
      * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 是否还有更多项
      * <p> 示例值：true
      */
     @SerializedName("has_more")

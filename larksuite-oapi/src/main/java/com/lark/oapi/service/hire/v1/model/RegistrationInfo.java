@@ -20,8 +20,8 @@ public class RegistrationInfo {
      * 面试登记表ID
      * <p> 示例值：6930815272790114324
      */
-    @SerializedName("id")
-    private String id;
+    @SerializedName("schema_id")
+    private String schemaId;
     /**
      * 面试登记表名称
      * <p> 示例值：默认登记表
@@ -38,7 +38,7 @@ public class RegistrationInfo {
          * 面试登记表ID
          * <p> 示例值：6930815272790114324
          */
-        this.id = builder.id;
+        this.schemaId = builder.schemaId;
         /**
          * 面试登记表名称
          * <p> 示例值：默认登记表
@@ -50,12 +50,12 @@ public class RegistrationInfo {
         return new Builder();
     }
 
-    public String getId() {
-        return this.id;
+    public String getSchemaId() {
+        return this.schemaId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSchemaId(String schemaId) {
+        this.schemaId = schemaId;
     }
 
     public String getName() {
@@ -71,7 +71,7 @@ public class RegistrationInfo {
          * 面试登记表ID
          * <p> 示例值：6930815272790114324
          */
-        private String id;
+        private String schemaId;
         /**
          * 面试登记表名称
          * <p> 示例值：默认登记表
@@ -82,11 +82,11 @@ public class RegistrationInfo {
          * 面试登记表ID
          * <p> 示例值：6930815272790114324
          *
-         * @param id
+         * @param schemaId
          * @return
          */
-        public Builder id(String id) {
-            this.id = id;
+        public Builder schemaId(String schemaId) {
+            this.schemaId = schemaId;
             return this;
         }
 

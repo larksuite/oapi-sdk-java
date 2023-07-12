@@ -66,13 +66,13 @@ public class HiberarchyCommon {
     private I18n[] description;
     /**
      * 树形排序，代表同层级的部门排序序号
-     * <p> 示例值：
+     * <p> 示例值：001000
      */
     @SerializedName("tree_order")
     private String treeOrder;
     /**
      * 列表排序，代表所有部门的混排序号
-     * <p> 示例值：
+     * <p> 示例值：001000-001000
      */
     @SerializedName("list_order")
     private String listOrder;
@@ -130,12 +130,12 @@ public class HiberarchyCommon {
         this.description = builder.description;
         /**
          * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：
+         * <p> 示例值：001000
          */
         this.treeOrder = builder.treeOrder;
         /**
          * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：
+         * <p> 示例值：001000-001000
          */
         this.listOrder = builder.listOrder;
         /**
@@ -280,12 +280,12 @@ public class HiberarchyCommon {
         private I18n[] description;
         /**
          * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：
+         * <p> 示例值：001000
          */
         private String treeOrder;
         /**
          * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：
+         * <p> 示例值：001000-001000
          */
         private String listOrder;
         /**
@@ -400,7 +400,7 @@ public class HiberarchyCommon {
 
         /**
          * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：
+         * <p> 示例值：001000
          *
          * @param treeOrder
          * @return
@@ -413,7 +413,7 @@ public class HiberarchyCommon {
 
         /**
          * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：
+         * <p> 示例值：001000-001000
          *
          * @param listOrder
          * @return

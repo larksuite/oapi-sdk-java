@@ -33,7 +33,6 @@ public class CombinedCreateJobSample {
                         .isNeverExpired(false)
                         .maxSalary(2000)
                         .requirement("熟悉后端研发")
-                        .addressId("6960663240925956553")
                         .description("后端研发岗位描述")
                         .highlightList(new String[]{})
                         .jobTypeId("6960663240925956551")

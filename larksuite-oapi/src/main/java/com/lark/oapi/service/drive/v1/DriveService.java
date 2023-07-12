@@ -32,7 +32,7 @@ import java.nio.charset.StandardCharsets;
 public class DriveService {
     private static final Logger log = LoggerFactory.getLogger(DriveService.class);
     private final ExportTask exportTask; // 导出
-    private final File file; // 分片上传
+    private final File file; // 文件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -73,7 +73,7 @@ public class DriveService {
     }
 
     /**
-     * 分片上传
+     * 文件
      *
      * @return
      */
@@ -2108,7 +2108,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2140,7 +2140,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2174,7 +2174,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
                     , "/open-apis/drive/v1/files/:file_token/versions/:version_id"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2206,7 +2206,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
                     , "/open-apis/drive/v1/files/:file_token/versions/:version_id"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2306,7 +2306,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2338,7 +2338,7 @@ public class DriveService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                     , "/open-apis/drive/v1/files/:file_token/versions"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化

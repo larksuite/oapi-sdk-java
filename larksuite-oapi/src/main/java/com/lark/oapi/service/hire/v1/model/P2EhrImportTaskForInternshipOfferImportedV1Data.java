@@ -58,6 +58,7 @@ public class P2EhrImportTaskForInternshipOfferImportedV1Data {
      */
     @SerializedName("operator_user_id")
     private UserId operatorUserId;
+
     public String getTaskId() {
         return this.taskId;
     }

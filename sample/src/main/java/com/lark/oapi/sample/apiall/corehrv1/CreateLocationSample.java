@@ -5,6 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.model.Enum;
 
+
 // POST /open-apis/corehr/v1/locations
 public class CreateLocationSample {
 
@@ -21,8 +22,6 @@ public class CreateLocationSample {
                         .address(new Address[]{})
                         .workingHoursTypeId("4690238309151997779")
                         .effectiveTime("2020-05-01 00:00:00")
-                        .expirationTime("2020-05-02 00:00:00")
-                        .customFields(new ObjectFieldData[]{})
                         .locale(Enum.newBuilder().build())
                         .timeZoneId("123456789")
                         .displayLanguageId("123456789")

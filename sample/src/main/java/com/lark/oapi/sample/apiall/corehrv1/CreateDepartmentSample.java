@@ -23,7 +23,6 @@ public class CreateDepartmentSample {
                         .isConfidential(true)
                         .hiberarchyCommon(HiberarchyCommon.newBuilder().build())
                         .effectiveTime("2020-05-01 00:00:00")
-                        .expirationTime("2020-05-02 00:00:00")
                         .customFields(new ObjectFieldData[]{})
                         .costCenterId("7142384817131652652")
                         .build())

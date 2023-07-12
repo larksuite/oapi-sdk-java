@@ -22,6 +22,7 @@ public class QueryUserTaskSample {
                         .userIds(new String[]{})
                         .checkDateFrom(20190817)
                         .checkDateTo(20190820)
+                        .needOvertimeResult(true)
                         .build())
                 .build();
 

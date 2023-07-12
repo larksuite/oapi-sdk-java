@@ -17,12 +17,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class DynamicGroupRule {
     /**
-     * 动态用户组匹配部门列表
-     * <p> 示例值：
-     */
-    @SerializedName("department_ids")
-    private String[] departmentIds;
-    /**
      * 动态用户组匹配部门层级
      * <p> 示例值：recursive
      */
@@ -41,18 +35,6 @@ public class DynamicGroupRule {
     @SerializedName("joiner_rule")
     private String joinerRule;
     /**
-     * 白名单用户 ID 列表，白名单用户一定会被拉入动态用户组
-     * <p> 示例值：
-     */
-    @SerializedName("white_list")
-    private String[] whiteList;
-    /**
-     * 黑名单用户 ID 列表，黑名单用户一定会被排查在用户组外
-     * <p> 示例值：
-     */
-    @SerializedName("black_list")
-    private String[] blackList;
-    /**
      * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
      * <p> 示例值：1
      */
@@ -64,11 +46,6 @@ public class DynamicGroupRule {
     }
 
     public DynamicGroupRule(Builder builder) {
-        /**
-         * 动态用户组匹配部门列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
         /**
          * 动态用户组匹配部门层级
          * <p> 示例值：recursive
@@ -85,16 +62,6 @@ public class DynamicGroupRule {
          */
         this.joinerRule = builder.joinerRule;
         /**
-         * 白名单用户 ID 列表，白名单用户一定会被拉入动态用户组
-         * <p> 示例值：
-         */
-        this.whiteList = builder.whiteList;
-        /**
-         * 黑名单用户 ID 列表，黑名单用户一定会被排查在用户组外
-         * <p> 示例值：
-         */
-        this.blackList = builder.blackList;
-        /**
          * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
          * <p> 示例值：1
          */
@@ -103,14 +70,6 @@ public class DynamicGroupRule {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
     }
 
     public String getDepartmentLevel() {
@@ -137,22 +96,6 @@ public class DynamicGroupRule {
         this.joinerRule = joinerRule;
     }
 
-    public String[] getWhiteList() {
-        return this.whiteList;
-    }
-
-    public void setWhiteList(String[] whiteList) {
-        this.whiteList = whiteList;
-    }
-
-    public String[] getBlackList() {
-        return this.blackList;
-    }
-
-    public void setBlackList(String[] blackList) {
-        this.blackList = blackList;
-    }
-
     public String getGroupStatus() {
         return this.groupStatus;
     }
@@ -162,11 +105,6 @@ public class DynamicGroupRule {
     }
 
     public static class Builder {
-        /**
-         * 动态用户组匹配部门列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
         /**
          * 动态用户组匹配部门层级
          * <p> 示例值：recursive
@@ -183,33 +121,10 @@ public class DynamicGroupRule {
          */
         private String joinerRule;
         /**
-         * 白名单用户 ID 列表，白名单用户一定会被拉入动态用户组
-         * <p> 示例值：
-         */
-        private String[] whiteList;
-        /**
-         * 黑名单用户 ID 列表，黑名单用户一定会被排查在用户组外
-         * <p> 示例值：
-         */
-        private String[] blackList;
-        /**
          * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
          * <p> 示例值：1
          */
         private String groupStatus;
-
-        /**
-         * 动态用户组匹配部门列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
 
         /**
          * 动态用户组匹配部门层级
@@ -258,32 +173,6 @@ public class DynamicGroupRule {
          */
         public Builder joinerRule(String joinerRule) {
             this.joinerRule = joinerRule;
-            return this;
-        }
-
-
-        /**
-         * 白名单用户 ID 列表，白名单用户一定会被拉入动态用户组
-         * <p> 示例值：
-         *
-         * @param whiteList
-         * @return
-         */
-        public Builder whiteList(String[] whiteList) {
-            this.whiteList = whiteList;
-            return this;
-        }
-
-
-        /**
-         * 黑名单用户 ID 列表，黑名单用户一定会被排查在用户组外
-         * <p> 示例值：
-         *
-         * @param blackList
-         * @return
-         */
-        public Builder blackList(String[] blackList) {
-            this.blackList = blackList;
             return this;
         }
 

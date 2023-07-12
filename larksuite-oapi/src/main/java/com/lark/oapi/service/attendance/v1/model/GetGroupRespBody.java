@@ -357,6 +357,18 @@ public class GetGroupRespBody {
      */
     @SerializedName("travel_need_punch_cfg")
     private LeaveNeedPunchCfg travelNeedPunchCfg;
+    /**
+     * 需要打卡的人员配置（新）
+     * <p> 示例值：
+     */
+    @SerializedName("need_punch_members")
+    private PunchMember[] needPunchMembers;
+    /**
+     * 无需打卡的人员配置（新）
+     * <p> 示例值：
+     */
+    @SerializedName("no_need_punch_members")
+    private PunchMember[] noNeedPunchMembers;
 
     public String getGroupId() {
         return this.groupId;
@@ -812,6 +824,22 @@ public class GetGroupRespBody {
 
     public void setTravelNeedPunchCfg(LeaveNeedPunchCfg travelNeedPunchCfg) {
         this.travelNeedPunchCfg = travelNeedPunchCfg;
+    }
+
+    public PunchMember[] getNeedPunchMembers() {
+        return this.needPunchMembers;
+    }
+
+    public void setNeedPunchMembers(PunchMember[] needPunchMembers) {
+        this.needPunchMembers = needPunchMembers;
+    }
+
+    public PunchMember[] getNoNeedPunchMembers() {
+        return this.noNeedPunchMembers;
+    }
+
+    public void setNoNeedPunchMembers(PunchMember[] noNeedPunchMembers) {
+        this.noNeedPunchMembers = noNeedPunchMembers;
     }
 
 }

@@ -51,10 +51,12 @@ import com.lark.oapi.service.hire.v1.HireService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.mail.v1.MailService;
+import com.lark.oapi.service.mdm.v1.MdmService;
 import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
 import com.lark.oapi.service.okr.v1.OkrService;
 import com.lark.oapi.service.optical_char_recognition.v1.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.v1.PassportService;
+import com.lark.oapi.service.personal_settings.v1.PersonalSettingsService;
 import com.lark.oapi.service.search.v2.SearchService;
 import com.lark.oapi.service.sheets.v3.SheetsService;
 import com.lark.oapi.service.speech_to_text.v1.SpeechToTextService;
@@ -63,6 +65,7 @@ import com.lark.oapi.service.tenant.v2.TenantService;
 import com.lark.oapi.service.translation.v1.TranslationService;
 import com.lark.oapi.service.vc.v1.VcService;
 import com.lark.oapi.service.wiki.v2.WikiService;
+import com.lark.oapi.service.workplace.v1.WorkplaceService;
 
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
@@ -91,12 +94,14 @@ public class Client {
     private HelpdeskService helpdesk; // 服务台
     private HireService hire; // 招聘
     private HumanAuthenticationService humanAuthentication; // 实名认证
-    private ImService im; // 消息卡片
+    private ImService im; // 消息与群组
     private MailService mail; // 邮箱
+    private MdmService mdm; // 主数据
     private MeetingRoomService meetingRoom; //
     private OkrService okr; // OKR
     private OpticalCharRecognitionService opticalCharRecognition; // AI能力
     private PassportService passport; // 帐号
+    private PersonalSettingsService personalSettings; // 个人设置
     private SearchService search; // 搜索
     private SheetsService sheets; // 云文档-电子表格
     private SpeechToTextService speechToText; // AI能力
@@ -105,6 +110,7 @@ public class Client {
     private TranslationService translation; // AI能力
     private VcService vc; // 视频会议
     private WikiService wiki; // 云文档-知识库
+    private WorkplaceService workplace; //
 
     private ExtService extService;
 
@@ -304,7 +310,7 @@ public class Client {
     }
 
     /**
-     * 消息卡片
+     * 消息与群组
      *
      * @return
      */
@@ -319,6 +325,15 @@ public class Client {
      */
     public MailService mail() {
         return mail;
+    }
+
+    /**
+     * 主数据
+     *
+     * @return
+     */
+    public MdmService mdm() {
+        return mdm;
     }
 
     /**
@@ -353,6 +368,15 @@ public class Client {
      */
     public PassportService passport() {
         return passport;
+    }
+
+    /**
+     * 个人设置
+     *
+     * @return
+     */
+    public PersonalSettingsService personalSettings() {
+        return personalSettings;
     }
 
     /**
@@ -425,6 +449,13 @@ public class Client {
      */
     public WikiService wiki() {
         return wiki;
+    }
+
+    /**
+     * @return
+     */
+    public WorkplaceService workplace() {
+        return workplace;
     }
 
     public RawResponse post(String httpPath
@@ -621,10 +652,12 @@ public class Client {
             client.humanAuthentication = new HumanAuthenticationService(config);
             client.im = new ImService(config);
             client.mail = new MailService(config);
+            client.mdm = new MdmService(config);
             client.meetingRoom = new MeetingRoomService(config);
             client.okr = new OkrService(config);
             client.opticalCharRecognition = new OpticalCharRecognitionService(config);
             client.passport = new PassportService(config);
+            client.personalSettings = new PersonalSettingsService(config);
             client.search = new SearchService(config);
             client.sheets = new SheetsService(config);
             client.speechToText = new SpeechToTextService(config);
@@ -633,6 +666,7 @@ public class Client {
             client.translation = new TranslationService(config);
             client.vc = new VcService(config);
             client.wiki = new WikiService(config);
+            client.workplace = new WorkplaceService(config);
 
             return client;
         }

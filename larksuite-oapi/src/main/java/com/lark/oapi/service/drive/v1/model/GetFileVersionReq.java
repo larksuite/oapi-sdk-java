@@ -33,20 +33,6 @@ public class GetFileVersionReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：1665739388
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 分页大小
-     * <p> 示例值：10
-     */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    /**
      * 源文档token
      * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
      */
@@ -76,16 +62,6 @@ public class GetFileVersionReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：1665739388
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
         /**
          * 源文档token
          * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
@@ -118,22 +94,6 @@ public class GetFileVersionReq {
         this.userIdType = userIdType;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     public String getFileToken() {
         return this.fileToken;
     }
@@ -153,8 +113,6 @@ public class GetFileVersionReq {
     public static class Builder {
         private String objType; // 文档类型
         private String userIdType; // 用户ID类型
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private Integer pageSize; // 分页大小
         private String fileToken; // 源文档token
         private String versionId; // 版本文档版本号
 
@@ -203,30 +161,6 @@ public class GetFileVersionReq {
          */
         public Builder userIdType(com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：1665739388
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
             return this;
         }
 

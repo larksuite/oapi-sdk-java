@@ -76,6 +76,12 @@ public class GetShiftRespBody {
      */
     @SerializedName("rest_time_rule")
     private RestRule[] restTimeRule;
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("overtime_rule")
+    private OvertimeRule[] overtimeRule;
 
     public String getShiftId() {
         return this.shiftId;
@@ -155,6 +161,14 @@ public class GetShiftRespBody {
 
     public void setRestTimeRule(RestRule[] restTimeRule) {
         this.restTimeRule = restTimeRule;
+    }
+
+    public OvertimeRule[] getOvertimeRule() {
+        return this.overtimeRule;
+    }
+
+    public void setOvertimeRule(OvertimeRule[] overtimeRule) {
+        this.overtimeRule = overtimeRule;
     }
 
 }

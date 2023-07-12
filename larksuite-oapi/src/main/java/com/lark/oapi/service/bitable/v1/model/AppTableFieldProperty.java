@@ -82,6 +82,42 @@ public class AppTableFieldProperty {
      */
     @SerializedName("formula_expression")
     private String formulaExpression;
+    /**
+     * 字段支持的编辑模式
+     * <p> 示例值：
+     */
+    @SerializedName("allowed_edit_modes")
+    private AllowedEditModes allowedEditModes;
+    /**
+     * 进度、评分等字段的数据范围最小值
+     * <p> 示例值：0
+     */
+    @SerializedName("min")
+    private Double min;
+    /**
+     * 进度、评分等字段的数据范围最大值
+     * <p> 示例值：10
+     */
+    @SerializedName("max")
+    private Double max;
+    /**
+     * 进度等字段是否支持自定义范围
+     * <p> 示例值：true
+     */
+    @SerializedName("range_customize")
+    private Boolean rangeCustomize;
+    /**
+     * 货币币种
+     * <p> 示例值：CNY
+     */
+    @SerializedName("currency_code")
+    private String currencyCode;
+    /**
+     * 评分字段的相关设置
+     * <p> 示例值：
+     */
+    @SerializedName("rating")
+    private Rating rating;
 
     // builder 开始
     public AppTableFieldProperty() {
@@ -143,6 +179,36 @@ public class AppTableFieldProperty {
          * <p> 示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
          */
         this.formulaExpression = builder.formulaExpression;
+        /**
+         * 字段支持的编辑模式
+         * <p> 示例值：
+         */
+        this.allowedEditModes = builder.allowedEditModes;
+        /**
+         * 进度、评分等字段的数据范围最小值
+         * <p> 示例值：0
+         */
+        this.min = builder.min;
+        /**
+         * 进度、评分等字段的数据范围最大值
+         * <p> 示例值：10
+         */
+        this.max = builder.max;
+        /**
+         * 进度等字段是否支持自定义范围
+         * <p> 示例值：true
+         */
+        this.rangeCustomize = builder.rangeCustomize;
+        /**
+         * 货币币种
+         * <p> 示例值：CNY
+         */
+        this.currencyCode = builder.currencyCode;
+        /**
+         * 评分字段的相关设置
+         * <p> 示例值：
+         */
+        this.rating = builder.rating;
     }
 
     public static Builder newBuilder() {
@@ -237,6 +303,54 @@ public class AppTableFieldProperty {
         this.formulaExpression = formulaExpression;
     }
 
+    public AllowedEditModes getAllowedEditModes() {
+        return this.allowedEditModes;
+    }
+
+    public void setAllowedEditModes(AllowedEditModes allowedEditModes) {
+        this.allowedEditModes = allowedEditModes;
+    }
+
+    public Double getMin() {
+        return this.min;
+    }
+
+    public void setMin(Double min) {
+        this.min = min;
+    }
+
+    public Double getMax() {
+        return this.max;
+    }
+
+    public void setMax(Double max) {
+        this.max = max;
+    }
+
+    public Boolean getRangeCustomize() {
+        return this.rangeCustomize;
+    }
+
+    public void setRangeCustomize(Boolean rangeCustomize) {
+        this.rangeCustomize = rangeCustomize;
+    }
+
+    public String getCurrencyCode() {
+        return this.currencyCode;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
+    public Rating getRating() {
+        return this.rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
     public static class Builder {
         /**
          * 单选、多选字段的选项信息
@@ -293,6 +407,36 @@ public class AppTableFieldProperty {
          * <p> 示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
          */
         private String formulaExpression;
+        /**
+         * 字段支持的编辑模式
+         * <p> 示例值：
+         */
+        private AllowedEditModes allowedEditModes;
+        /**
+         * 进度、评分等字段的数据范围最小值
+         * <p> 示例值：0
+         */
+        private Double min;
+        /**
+         * 进度、评分等字段的数据范围最大值
+         * <p> 示例值：10
+         */
+        private Double max;
+        /**
+         * 进度等字段是否支持自定义范围
+         * <p> 示例值：true
+         */
+        private Boolean rangeCustomize;
+        /**
+         * 货币币种
+         * <p> 示例值：CNY
+         */
+        private String currencyCode;
+        /**
+         * 评分字段的相关设置
+         * <p> 示例值：
+         */
+        private Rating rating;
 
         /**
          * 单选、多选字段的选项信息
@@ -433,6 +577,84 @@ public class AppTableFieldProperty {
          */
         public Builder formulaExpression(String formulaExpression) {
             this.formulaExpression = formulaExpression;
+            return this;
+        }
+
+
+        /**
+         * 字段支持的编辑模式
+         * <p> 示例值：
+         *
+         * @param allowedEditModes
+         * @return
+         */
+        public Builder allowedEditModes(AllowedEditModes allowedEditModes) {
+            this.allowedEditModes = allowedEditModes;
+            return this;
+        }
+
+
+        /**
+         * 进度、评分等字段的数据范围最小值
+         * <p> 示例值：0
+         *
+         * @param min
+         * @return
+         */
+        public Builder min(Double min) {
+            this.min = min;
+            return this;
+        }
+
+
+        /**
+         * 进度、评分等字段的数据范围最大值
+         * <p> 示例值：10
+         *
+         * @param max
+         * @return
+         */
+        public Builder max(Double max) {
+            this.max = max;
+            return this;
+        }
+
+
+        /**
+         * 进度等字段是否支持自定义范围
+         * <p> 示例值：true
+         *
+         * @param rangeCustomize
+         * @return
+         */
+        public Builder rangeCustomize(Boolean rangeCustomize) {
+            this.rangeCustomize = rangeCustomize;
+            return this;
+        }
+
+
+        /**
+         * 货币币种
+         * <p> 示例值：CNY
+         *
+         * @param currencyCode
+         * @return
+         */
+        public Builder currencyCode(String currencyCode) {
+            this.currencyCode = currencyCode;
+            return this;
+        }
+
+
+        /**
+         * 评分字段的相关设置
+         * <p> 示例值：
+         *
+         * @param rating
+         * @return
+         */
+        public Builder rating(Rating rating) {
+            this.rating = rating;
             return this;
         }
 

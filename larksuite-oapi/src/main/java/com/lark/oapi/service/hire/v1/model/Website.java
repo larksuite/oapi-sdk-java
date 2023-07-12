@@ -33,7 +33,7 @@ public class Website {
      * <p> 示例值：
      */
     @SerializedName("process_type_list")
-    private String[] processTypeList;
+    private Integer[] processTypeList;
     /**
      * 职位渠道ID
      * <p> 示例值：1213213123123
@@ -88,11 +88,11 @@ public class Website {
         this.name = name;
     }
 
-    public String[] getProcessTypeList() {
+    public Integer[] getProcessTypeList() {
         return this.processTypeList;
     }
 
-    public void setProcessTypeList(String[] processTypeList) {
+    public void setProcessTypeList(Integer[] processTypeList) {
         this.processTypeList = processTypeList;
     }
 
@@ -119,7 +119,7 @@ public class Website {
          * 流程类型，1-社招，2-校招
          * <p> 示例值：
          */
-        private String[] processTypeList;
+        private Integer[] processTypeList;
         /**
          * 职位渠道ID
          * <p> 示例值：1213213123123
@@ -159,7 +159,7 @@ public class Website {
          * @param processTypeList
          * @return
          */
-        public Builder processTypeList(String[] processTypeList) {
+        public Builder processTypeList(Integer[] processTypeList) {
             this.processTypeList = processTypeList;
             return this;
         }

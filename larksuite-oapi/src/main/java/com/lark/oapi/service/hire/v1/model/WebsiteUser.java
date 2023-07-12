@@ -20,8 +20,8 @@ public class WebsiteUser {
      * 用户 ID
      * <p> 示例值：6960663240925956620
      */
-    @SerializedName("id")
-    private String id;
+    @SerializedName("user_id")
+    private String userId;
     /**
      * 姓名
      * <p> 示例值：dan27
@@ -62,7 +62,7 @@ public class WebsiteUser {
          * 用户 ID
          * <p> 示例值：6960663240925956620
          */
-        this.id = builder.id;
+        this.userId = builder.userId;
         /**
          * 姓名
          * <p> 示例值：dan27
@@ -94,12 +94,12 @@ public class WebsiteUser {
         return new Builder();
     }
 
-    public String getId() {
-        return this.id;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -147,7 +147,7 @@ public class WebsiteUser {
          * 用户 ID
          * <p> 示例值：6960663240925956620
          */
-        private String id;
+        private String userId;
         /**
          * 姓名
          * <p> 示例值：dan27
@@ -178,11 +178,11 @@ public class WebsiteUser {
          * 用户 ID
          * <p> 示例值：6960663240925956620
          *
-         * @param id
+         * @param userId
          * @return
          */
-        public Builder id(String id) {
-            this.id = id;
+        public Builder userId(String userId) {
+            this.userId = userId;
             return this;
         }
 

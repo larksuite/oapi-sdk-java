@@ -38,8 +38,8 @@ public class Application {
      * 简历来源 ID
      * <p> 示例值：6583482347283472832
      */
-    @SerializedName("resume_resource_id")
-    private String resumeResourceId;
+    @SerializedName("resume_source_id")
+    private String resumeSourceId;
     /**
      * 投递处于的阶段
      * <p> 示例值：
@@ -143,7 +143,7 @@ public class Application {
          * 简历来源 ID
          * <p> 示例值：6583482347283472832
          */
-        this.resumeResourceId = builder.resumeResourceId;
+        this.resumeSourceId = builder.resumeSourceId;
         /**
          * 投递处于的阶段
          * <p> 示例值：
@@ -239,12 +239,12 @@ public class Application {
         this.talentId = talentId;
     }
 
-    public String getResumeResourceId() {
-        return this.resumeResourceId;
+    public String getResumeSourceId() {
+        return this.resumeSourceId;
     }
 
-    public void setResumeResourceId(String resumeResourceId) {
-        this.resumeResourceId = resumeResourceId;
+    public void setResumeSourceId(String resumeSourceId) {
+        this.resumeSourceId = resumeSourceId;
     }
 
     public ApplicationStageInfo getStage() {
@@ -371,7 +371,7 @@ public class Application {
          * 简历来源 ID
          * <p> 示例值：6583482347283472832
          */
-        private String resumeResourceId;
+        private String resumeSourceId;
         /**
          * 投递处于的阶段
          * <p> 示例值：
@@ -481,11 +481,11 @@ public class Application {
          * 简历来源 ID
          * <p> 示例值：6583482347283472832
          *
-         * @param resumeResourceId
+         * @param resumeSourceId
          * @return
          */
-        public Builder resumeResourceId(String resumeResourceId) {
-            this.resumeResourceId = resumeResourceId;
+        public Builder resumeSourceId(String resumeSourceId) {
+            this.resumeSourceId = resumeSourceId;
             return this;
         }
 

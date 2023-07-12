@@ -24,6 +24,9 @@ public class SubmitOffboardingSample {
                         .offboardingReasonUniqueIdentifier("reason_for_offboarding_option8")
                         .offboardingReasonExplanation("离职原因说明")
                         .initiatorId("6982509313466189341")
+                        .addBlockList(false)
+                        .blockReason("红线")
+                        .blockReasonExplanation("xx 年 xx 月 xx 日因 xx 原因红线")
                         .customFields(new ObjectFieldData[]{})
                         .build())
                 .build();

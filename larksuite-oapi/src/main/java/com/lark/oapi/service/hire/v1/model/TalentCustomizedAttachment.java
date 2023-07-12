@@ -39,7 +39,7 @@ public class TalentCustomizedAttachment {
      * <p> 示例值：16615
      */
     @SerializedName("file_size")
-    private String fileSize;
+    private Integer fileSize;
 
     // builder 开始
     public TalentCustomizedAttachment() {
@@ -96,11 +96,11 @@ public class TalentCustomizedAttachment {
         this.contentType = contentType;
     }
 
-    public String getFileSize() {
+    public Integer getFileSize() {
         return this.fileSize;
     }
 
-    public void setFileSize(String fileSize) {
+    public void setFileSize(Integer fileSize) {
         this.fileSize = fileSize;
     }
 
@@ -124,7 +124,7 @@ public class TalentCustomizedAttachment {
          * 附件大小
          * <p> 示例值：16615
          */
-        private String fileSize;
+        private Integer fileSize;
 
         /**
          * 附件 ID
@@ -172,7 +172,7 @@ public class TalentCustomizedAttachment {
          * @param fileSize
          * @return
          */
-        public Builder fileSize(String fileSize) {
+        public Builder fileSize(Integer fileSize) {
             this.fileSize = fileSize;
             return this;
         }

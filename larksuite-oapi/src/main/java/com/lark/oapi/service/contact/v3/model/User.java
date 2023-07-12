@@ -179,12 +179,6 @@ public class User {
     @SerializedName("is_frozen")
     private Boolean isFrozen;
     /**
-     * 数据驻留地
-     * <p> 示例值：cn
-     */
-    @SerializedName("geo")
-    private String geo;
-    /**
      * 职级ID
      * <p> 示例值：mga5oa8ayjlp9rb
      */
@@ -355,11 +349,6 @@ public class User {
          * <p> 示例值：false
          */
         this.isFrozen = builder.isFrozen;
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         */
-        this.geo = builder.geo;
         /**
          * 职级ID
          * <p> 示例值：mga5oa8ayjlp9rb
@@ -607,14 +596,6 @@ public class User {
         this.isFrozen = isFrozen;
     }
 
-    public String getGeo() {
-        return this.geo;
-    }
-
-    public void setGeo(String geo) {
-        this.geo = geo;
-    }
-
     public String getJobLevelId() {
         return this.jobLevelId;
     }
@@ -791,11 +772,6 @@ public class User {
          * <p> 示例值：false
          */
         private Boolean isFrozen;
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         */
-        private String geo;
         /**
          * 职级ID
          * <p> 示例值：mga5oa8ayjlp9rb
@@ -1181,19 +1157,6 @@ public class User {
          */
         public Builder isFrozen(Boolean isFrozen) {
             this.isFrozen = isFrozen;
-            return this;
-        }
-
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         *
-         * @param geo
-         * @return
-         */
-        public Builder geo(String geo) {
-            this.geo = geo;
             return this;
         }
 

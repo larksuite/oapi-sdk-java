@@ -48,7 +48,7 @@ public class LeaveEmployExpireRecord {
     private String leftGrantingQuantity;
     /**
      * 授予单位，1表示天，2表示小时
-     * <p> 示例值：1表示天，2表示小时
+     * <p> 示例值：1
      */
     @SerializedName("granting_unit")
     private Integer grantingUnit;
@@ -121,7 +121,7 @@ public class LeaveEmployExpireRecord {
         this.leftGrantingQuantity = builder.leftGrantingQuantity;
         /**
          * 授予单位，1表示天，2表示小时
-         * <p> 示例值：1表示天，2表示小时
+         * <p> 示例值：1
          */
         this.grantingUnit = builder.grantingUnit;
         /**
@@ -284,7 +284,7 @@ public class LeaveEmployExpireRecord {
         private String leftGrantingQuantity;
         /**
          * 授予单位，1表示天，2表示小时
-         * <p> 示例值：1表示天，2表示小时
+         * <p> 示例值：1
          */
         private Integer grantingUnit;
         /**
@@ -385,7 +385,7 @@ public class LeaveEmployExpireRecord {
 
         /**
          * 授予单位，1表示天，2表示小时
-         * <p> 示例值：1表示天，2表示小时
+         * <p> 示例值：1
          *
          * @param grantingUnit
          * @return

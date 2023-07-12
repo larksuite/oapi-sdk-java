@@ -40,6 +40,18 @@ public class Period {
      */
     @SerializedName("status")
     private Integer status;
+    /**
+     * 周期开始时间
+     * <p> 示例值：1686740948123
+     */
+    @SerializedName("period_start_time")
+    private String periodStartTime;
+    /**
+     * 周期结束时间
+     * <p> 示例值：1686740948123
+     */
+    @SerializedName("period_end_time")
+    private String periodEndTime;
 
     // builder 开始
     public Period() {
@@ -66,6 +78,16 @@ public class Period {
          * <p> 示例值：0
          */
         this.status = builder.status;
+        /**
+         * 周期开始时间
+         * <p> 示例值：1686740948123
+         */
+        this.periodStartTime = builder.periodStartTime;
+        /**
+         * 周期结束时间
+         * <p> 示例值：1686740948123
+         */
+        this.periodEndTime = builder.periodEndTime;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class Period {
         this.status = status;
     }
 
+    public String getPeriodStartTime() {
+        return this.periodStartTime;
+    }
+
+    public void setPeriodStartTime(String periodStartTime) {
+        this.periodStartTime = periodStartTime;
+    }
+
+    public String getPeriodEndTime() {
+        return this.periodEndTime;
+    }
+
+    public void setPeriodEndTime(String periodEndTime) {
+        this.periodEndTime = periodEndTime;
+    }
+
     public static class Builder {
         /**
          * id
@@ -125,6 +163,16 @@ public class Period {
          * <p> 示例值：0
          */
         private Integer status;
+        /**
+         * 周期开始时间
+         * <p> 示例值：1686740948123
+         */
+        private String periodStartTime;
+        /**
+         * 周期结束时间
+         * <p> 示例值：1686740948123
+         */
+        private String periodEndTime;
 
         /**
          * id
@@ -186,6 +234,32 @@ public class Period {
          */
         public Builder status(com.lark.oapi.service.okr.v1.enums.PeriodPeriodStatusEnum status) {
             this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 周期开始时间
+         * <p> 示例值：1686740948123
+         *
+         * @param periodStartTime
+         * @return
+         */
+        public Builder periodStartTime(String periodStartTime) {
+            this.periodStartTime = periodStartTime;
+            return this;
+        }
+
+
+        /**
+         * 周期结束时间
+         * <p> 示例值：1686740948123
+         *
+         * @param periodEndTime
+         * @return
+         */
+        public Builder periodEndTime(String periodEndTime) {
+            this.periodEndTime = periodEndTime;
             return this;
         }
 

@@ -47,6 +47,24 @@ public class SubmitOffboardingRespBody {
     @SerializedName("offboarding_reason_explanation")
     private String offboardingReasonExplanation;
     /**
+     * 是否加入离职屏蔽名单
+     * <p> 示例值：false
+     */
+    @SerializedName("add_block_list")
+    private Boolean addBlockList;
+    /**
+     * 屏蔽原因
+     * <p> 示例值：红线
+     */
+    @SerializedName("block_reason")
+    private String blockReason;
+    /**
+     * 屏蔽原因说明
+     * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+     */
+    @SerializedName("block_reason_explanation")
+    private String blockReasonExplanation;
+    /**
      * 创建时间
      * <p> 示例值：2022-05-09 17:50:17
      */
@@ -91,6 +109,30 @@ public class SubmitOffboardingRespBody {
 
     public void setOffboardingReasonExplanation(String offboardingReasonExplanation) {
         this.offboardingReasonExplanation = offboardingReasonExplanation;
+    }
+
+    public Boolean getAddBlockList() {
+        return this.addBlockList;
+    }
+
+    public void setAddBlockList(Boolean addBlockList) {
+        this.addBlockList = addBlockList;
+    }
+
+    public String getBlockReason() {
+        return this.blockReason;
+    }
+
+    public void setBlockReason(String blockReason) {
+        this.blockReason = blockReason;
+    }
+
+    public String getBlockReasonExplanation() {
+        return this.blockReasonExplanation;
+    }
+
+    public void setBlockReasonExplanation(String blockReasonExplanation) {
+        this.blockReasonExplanation = blockReasonExplanation;
     }
 
     public String getCreatedTime() {

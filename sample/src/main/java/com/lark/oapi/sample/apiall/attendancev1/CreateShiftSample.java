@@ -23,6 +23,7 @@ public class CreateShiftSample {
                         .punchTimeRule(new PunchTimeRule[]{})
                         .lateOffLateOnRule(new LateOffLateOnRule[]{})
                         .restTimeRule(new RestRule[]{})
+                        .overtimeRule(new OvertimeRule[]{})
                         .build())
                 .build();
 

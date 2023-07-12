@@ -36,6 +36,7 @@ public enum CreateAppTableFieldTypeEnum {
     AUTOSERIAL(1005), // 自动编号
     PHONENUMBER(13), // 电话号码
     LOCATION(22), // 地理位置
+    GROUPCHAT(23), // 群组
     ;
     private Integer value;
 

@@ -17,6 +17,7 @@ public class PatchLeaveAccrualRecordSample {
         // 创建请求对象
         PatchLeaveAccrualRecordReq req = PatchLeaveAccrualRecordReq.newBuilder()
                 .leaveId("1")
+                .userIdType("open_id")
                 .patchLeaveAccrualRecordReqBody(PatchLeaveAccrualRecordReqBody.newBuilder()
                         .leaveGrantingRecordId("1")
                         .employmentId("1")

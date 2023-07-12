@@ -76,6 +76,12 @@ public class TaskResult {
      */
     @SerializedName("check_out_shift_time")
     private String checkOutShiftTime;
+    /**
+     * 班次类型，0正常，1加班班次
+     * <p> 示例值：0
+     */
+    @SerializedName("task_shift_type")
+    private Integer taskShiftType;
 
     // builder 开始
     public TaskResult() {
@@ -132,6 +138,11 @@ public class TaskResult {
          * <p> 示例值：1609754400
          */
         this.checkOutShiftTime = builder.checkOutShiftTime;
+        /**
+         * 班次类型，0正常，1加班班次
+         * <p> 示例值：0
+         */
+        this.taskShiftType = builder.taskShiftType;
     }
 
     public static Builder newBuilder() {
@@ -218,6 +229,14 @@ public class TaskResult {
         this.checkOutShiftTime = checkOutShiftTime;
     }
 
+    public Integer getTaskShiftType() {
+        return this.taskShiftType;
+    }
+
+    public void setTaskShiftType(Integer taskShiftType) {
+        this.taskShiftType = taskShiftType;
+    }
+
     public static class Builder {
         /**
          * 上班打卡记录 ID
@@ -269,6 +288,11 @@ public class TaskResult {
          * <p> 示例值：1609754400
          */
         private String checkOutShiftTime;
+        /**
+         * 班次类型，0正常，1加班班次
+         * <p> 示例值：0
+         */
+        private Integer taskShiftType;
 
         /**
          * 上班打卡记录 ID
@@ -444,6 +468,19 @@ public class TaskResult {
          */
         public Builder checkOutShiftTime(String checkOutShiftTime) {
             this.checkOutShiftTime = checkOutShiftTime;
+            return this;
+        }
+
+
+        /**
+         * 班次类型，0正常，1加班班次
+         * <p> 示例值：0
+         *
+         * @param taskShiftType
+         * @return
+         */
+        public Builder taskShiftType(Integer taskShiftType) {
+            this.taskShiftType = taskShiftType;
             return this;
         }
 

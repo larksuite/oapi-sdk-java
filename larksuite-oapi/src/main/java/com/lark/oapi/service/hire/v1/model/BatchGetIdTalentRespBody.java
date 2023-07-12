@@ -20,15 +20,15 @@ public class BatchGetIdTalentRespBody {
      * 人才信息列表
      * <p> 示例值：
      */
-    @SerializedName("talent")
-    private TalentBatchInfo[] talent;
+    @SerializedName("talent_list")
+    private TalentBatchInfo[] talentList;
 
-    public TalentBatchInfo[] getTalent() {
-        return this.talent;
+    public TalentBatchInfo[] getTalentList() {
+        return this.talentList;
     }
 
-    public void setTalent(TalentBatchInfo[] talent) {
-        this.talent = talent;
+    public void setTalentList(TalentBatchInfo[] talentList) {
+        this.talentList = talentList;
     }
 
 }

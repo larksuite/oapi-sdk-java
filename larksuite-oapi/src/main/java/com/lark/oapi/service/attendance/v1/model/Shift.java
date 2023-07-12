@@ -76,6 +76,12 @@ public class Shift {
      */
     @SerializedName("rest_time_rule")
     private RestRule[] restTimeRule;
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("overtime_rule")
+    private OvertimeRule[] overtimeRule;
 
     // builder 开始
     public Shift() {
@@ -132,6 +138,11 @@ public class Shift {
          * <p> 示例值：
          */
         this.restTimeRule = builder.restTimeRule;
+        /**
+         * 打卡规则
+         * <p> 示例值：
+         */
+        this.overtimeRule = builder.overtimeRule;
     }
 
     public static Builder newBuilder() {
@@ -218,6 +229,14 @@ public class Shift {
         this.restTimeRule = restTimeRule;
     }
 
+    public OvertimeRule[] getOvertimeRule() {
+        return this.overtimeRule;
+    }
+
+    public void setOvertimeRule(OvertimeRule[] overtimeRule) {
+        this.overtimeRule = overtimeRule;
+    }
+
     public static class Builder {
         /**
          * 班次 ID
@@ -269,6 +288,11 @@ public class Shift {
          * <p> 示例值：
          */
         private RestRule[] restTimeRule;
+        /**
+         * 打卡规则
+         * <p> 示例值：
+         */
+        private OvertimeRule[] overtimeRule;
 
         /**
          * 班次 ID
@@ -396,6 +420,19 @@ public class Shift {
          */
         public Builder restTimeRule(RestRule[] restTimeRule) {
             this.restTimeRule = restTimeRule;
+            return this;
+        }
+
+
+        /**
+         * 打卡规则
+         * <p> 示例值：
+         *
+         * @param overtimeRule
+         * @return
+         */
+        public Builder overtimeRule(OvertimeRule[] overtimeRule) {
+            this.overtimeRule = overtimeRule;
             return this;
         }
 

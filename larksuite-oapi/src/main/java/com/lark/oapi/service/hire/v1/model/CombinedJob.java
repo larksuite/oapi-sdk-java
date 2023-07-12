@@ -125,12 +125,6 @@ public class CombinedJob {
     @SerializedName("requirement")
     private String requirement;
     /**
-     * 工作地点，枚举通过接口「获取地址列表」获取，选择地点用途为「职位地址」
-     * <p> 示例值：6960663240925956553
-     */
-    @SerializedName("address_id")
-    private String addressId;
-    /**
      * 职位描述
      * <p> 示例值：后端研发岗位描述
      */
@@ -292,11 +286,6 @@ public class CombinedJob {
          * <p> 示例值：熟悉后端研发
          */
         this.requirement = builder.requirement;
-        /**
-         * 工作地点，枚举通过接口「获取地址列表」获取，选择地点用途为「职位地址」
-         * <p> 示例值：6960663240925956553
-         */
-        this.addressId = builder.addressId;
         /**
          * 职位描述
          * <p> 示例值：后端研发岗位描述
@@ -502,14 +491,6 @@ public class CombinedJob {
         this.requirement = requirement;
     }
 
-    public String getAddressId() {
-        return this.addressId;
-    }
-
-    public void setAddressId(String addressId) {
-        this.addressId = addressId;
-    }
-
     public String getDescription() {
         return this.description;
     }
@@ -689,11 +670,6 @@ public class CombinedJob {
          * <p> 示例值：熟悉后端研发
          */
         private String requirement;
-        /**
-         * 工作地点，枚举通过接口「获取地址列表」获取，选择地点用途为「职位地址」
-         * <p> 示例值：6960663240925956553
-         */
-        private String addressId;
         /**
          * 职位描述
          * <p> 示例值：后端研发岗位描述
@@ -980,19 +956,6 @@ public class CombinedJob {
          */
         public Builder requirement(String requirement) {
             this.requirement = requirement;
-            return this;
-        }
-
-
-        /**
-         * 工作地点，枚举通过接口「获取地址列表」获取，选择地点用途为「职位地址」
-         * <p> 示例值：6960663240925956553
-         *
-         * @param addressId
-         * @return
-         */
-        public Builder addressId(String addressId) {
-            this.addressId = addressId;
             return this;
         }
 

@@ -52,6 +52,12 @@ public class GetApprovalRespBody {
      */
     @SerializedName("approval_admin_ids")
     private String[] approvalAdminIds;
+    /**
+     * 组件之间值关联关系
+     * <p> 示例值：{\"groups\":[{\"id\":\"1\",\"parent_widgets_ids\":[\"widget1\",\"widget4\"],\"children_widget_ids\":[\"widget2.widget3\"],\"conditions\":[{\"parents_expr\":{\"type\":\"Multi\",\"expr\":{\"type\":\"and\",\"exprs\":[{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget1\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_0\"},{\"value\":\"value_1\"}]}}},{\"type\":\"Const\",\"expr\":{\"value\":true,\"widget_ids\":[\"widget4\"]}}]}},\"children_rule\":{\"expr\":{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget2.widget3\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_5\"}]}}},\"actions\":[{\"type\":\"SetOptions\",\"widget_id\":\"widget2.widget3\",\"value\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_4\"}]}}]}}]}]}
+     */
+    @SerializedName("form_widget_relation")
+    private String formWidgetRelation;
 
     public String getApprovalName() {
         return this.approvalName;
@@ -99,6 +105,14 @@ public class GetApprovalRespBody {
 
     public void setApprovalAdminIds(String[] approvalAdminIds) {
         this.approvalAdminIds = approvalAdminIds;
+    }
+
+    public String getFormWidgetRelation() {
+        return this.formWidgetRelation;
+    }
+
+    public void setFormWidgetRelation(String formWidgetRelation) {
+        this.formWidgetRelation = formWidgetRelation;
     }
 
 }

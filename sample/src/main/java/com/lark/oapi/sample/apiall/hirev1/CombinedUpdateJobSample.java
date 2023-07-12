@@ -33,7 +33,6 @@ public class CombinedUpdateJobSample {
                         .isNeverExpired(false)
                         .maxSalary(2000)
                         .requirement("熟悉后端研发")
-                        .addressId("6960663240925956553")
                         .description("后端研发岗位描述")
                         .highlightList(new String[]{})
                         .jobTypeId("6960663240925956551")
@@ -43,7 +42,6 @@ public class CombinedUpdateJobSample {
                         .addressIdList(new String[]{})
                         .jobAttribute(1)
                         .expiryTimestamp("1622484739955")
-                        .interviewRegistrationSchemaId("6930815272790114324")
                         .build())
                 .build();
 

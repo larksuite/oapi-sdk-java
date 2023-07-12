@@ -154,6 +154,42 @@ public class AdminUserStat {
      */
     @SerializedName("os_name")
     private String osName;
+    /**
+     * 邮件总发件量
+     * <p> 示例值：2
+     */
+    @SerializedName("email_send_count")
+    private String emailSendCount;
+    /**
+     * 邮件总收件量
+     * <p> 示例值：3
+     */
+    @SerializedName("email_receive_count")
+    private String emailReceiveCount;
+    /**
+     * 对外发件数
+     * <p> 示例值：4
+     */
+    @SerializedName("email_send_ext_count")
+    private String emailSendExtCount;
+    /**
+     * 来自外部收件数
+     * <p> 示例值：5
+     */
+    @SerializedName("email_receive_ext_count")
+    private String emailReceiveExtCount;
+    /**
+     * 对内发件数
+     * <p> 示例值：6
+     */
+    @SerializedName("email_send_in_count")
+    private String emailSendInCount;
+    /**
+     * 来自内部收件数
+     * <p> 示例值：7
+     */
+    @SerializedName("email_receive_in_count")
+    private String emailReceiveInCount;
 
     // builder 开始
     public AdminUserStat() {
@@ -275,6 +311,36 @@ public class AdminUserStat {
          * <p> 示例值：iOS,Andorid,Windows
          */
         this.osName = builder.osName;
+        /**
+         * 邮件总发件量
+         * <p> 示例值：2
+         */
+        this.emailSendCount = builder.emailSendCount;
+        /**
+         * 邮件总收件量
+         * <p> 示例值：3
+         */
+        this.emailReceiveCount = builder.emailReceiveCount;
+        /**
+         * 对外发件数
+         * <p> 示例值：4
+         */
+        this.emailSendExtCount = builder.emailSendExtCount;
+        /**
+         * 来自外部收件数
+         * <p> 示例值：5
+         */
+        this.emailReceiveExtCount = builder.emailReceiveExtCount;
+        /**
+         * 对内发件数
+         * <p> 示例值：6
+         */
+        this.emailSendInCount = builder.emailSendInCount;
+        /**
+         * 来自内部收件数
+         * <p> 示例值：7
+         */
+        this.emailReceiveInCount = builder.emailReceiveInCount;
     }
 
     public static Builder newBuilder() {
@@ -465,6 +531,54 @@ public class AdminUserStat {
         this.osName = osName;
     }
 
+    public String getEmailSendCount() {
+        return this.emailSendCount;
+    }
+
+    public void setEmailSendCount(String emailSendCount) {
+        this.emailSendCount = emailSendCount;
+    }
+
+    public String getEmailReceiveCount() {
+        return this.emailReceiveCount;
+    }
+
+    public void setEmailReceiveCount(String emailReceiveCount) {
+        this.emailReceiveCount = emailReceiveCount;
+    }
+
+    public String getEmailSendExtCount() {
+        return this.emailSendExtCount;
+    }
+
+    public void setEmailSendExtCount(String emailSendExtCount) {
+        this.emailSendExtCount = emailSendExtCount;
+    }
+
+    public String getEmailReceiveExtCount() {
+        return this.emailReceiveExtCount;
+    }
+
+    public void setEmailReceiveExtCount(String emailReceiveExtCount) {
+        this.emailReceiveExtCount = emailReceiveExtCount;
+    }
+
+    public String getEmailSendInCount() {
+        return this.emailSendInCount;
+    }
+
+    public void setEmailSendInCount(String emailSendInCount) {
+        this.emailSendInCount = emailSendInCount;
+    }
+
+    public String getEmailReceiveInCount() {
+        return this.emailReceiveInCount;
+    }
+
+    public void setEmailReceiveInCount(String emailReceiveInCount) {
+        this.emailReceiveInCount = emailReceiveInCount;
+    }
+
     public static class Builder {
         /**
          * 日期
@@ -581,6 +695,36 @@ public class AdminUserStat {
          * <p> 示例值：iOS,Andorid,Windows
          */
         private String osName;
+        /**
+         * 邮件总发件量
+         * <p> 示例值：2
+         */
+        private String emailSendCount;
+        /**
+         * 邮件总收件量
+         * <p> 示例值：3
+         */
+        private String emailReceiveCount;
+        /**
+         * 对外发件数
+         * <p> 示例值：4
+         */
+        private String emailSendExtCount;
+        /**
+         * 来自外部收件数
+         * <p> 示例值：5
+         */
+        private String emailReceiveExtCount;
+        /**
+         * 对内发件数
+         * <p> 示例值：6
+         */
+        private String emailSendInCount;
+        /**
+         * 来自内部收件数
+         * <p> 示例值：7
+         */
+        private String emailReceiveInCount;
 
         /**
          * 日期
@@ -949,6 +1093,84 @@ public class AdminUserStat {
          */
         public Builder osName(String osName) {
             this.osName = osName;
+            return this;
+        }
+
+
+        /**
+         * 邮件总发件量
+         * <p> 示例值：2
+         *
+         * @param emailSendCount
+         * @return
+         */
+        public Builder emailSendCount(String emailSendCount) {
+            this.emailSendCount = emailSendCount;
+            return this;
+        }
+
+
+        /**
+         * 邮件总收件量
+         * <p> 示例值：3
+         *
+         * @param emailReceiveCount
+         * @return
+         */
+        public Builder emailReceiveCount(String emailReceiveCount) {
+            this.emailReceiveCount = emailReceiveCount;
+            return this;
+        }
+
+
+        /**
+         * 对外发件数
+         * <p> 示例值：4
+         *
+         * @param emailSendExtCount
+         * @return
+         */
+        public Builder emailSendExtCount(String emailSendExtCount) {
+            this.emailSendExtCount = emailSendExtCount;
+            return this;
+        }
+
+
+        /**
+         * 来自外部收件数
+         * <p> 示例值：5
+         *
+         * @param emailReceiveExtCount
+         * @return
+         */
+        public Builder emailReceiveExtCount(String emailReceiveExtCount) {
+            this.emailReceiveExtCount = emailReceiveExtCount;
+            return this;
+        }
+
+
+        /**
+         * 对内发件数
+         * <p> 示例值：6
+         *
+         * @param emailSendInCount
+         * @return
+         */
+        public Builder emailSendInCount(String emailSendInCount) {
+            this.emailSendInCount = emailSendInCount;
+            return this;
+        }
+
+
+        /**
+         * 来自内部收件数
+         * <p> 示例值：7
+         *
+         * @param emailReceiveInCount
+         * @return
+         */
+        public Builder emailReceiveInCount(String emailReceiveInCount) {
+            this.emailReceiveInCount = emailReceiveInCount;
             return this;
         }
 

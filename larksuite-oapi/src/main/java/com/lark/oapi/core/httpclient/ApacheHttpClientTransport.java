@@ -78,7 +78,7 @@ public class ApacheHttpClientTransport implements IHttpTransport {
 
                 request.setEntity(builder.build());
             } else {
-                StringEntity entity = new StringEntity(Jsons.LONG_TO_STR.toJson(rawRequest.getBody()));
+                StringEntity entity = new StringEntity(Jsons.LONG_TO_STR.toJson(rawRequest.getBody()), "UTF-8");
                 request.setEntity(entity);
             }
         }

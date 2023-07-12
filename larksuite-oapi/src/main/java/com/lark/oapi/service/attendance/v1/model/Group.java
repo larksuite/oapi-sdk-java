@@ -364,6 +364,18 @@ public class Group {
      */
     @SerializedName("travel_need_punch_cfg")
     private LeaveNeedPunchCfg travelNeedPunchCfg;
+    /**
+     * 需要打卡的人员配置（新）
+     * <p> 示例值：
+     */
+    @SerializedName("need_punch_members")
+    private PunchMember[] needPunchMembers;
+    /**
+     * 无需打卡的人员配置（新）
+     * <p> 示例值：
+     */
+    @SerializedName("no_need_punch_members")
+    private PunchMember[] noNeedPunchMembers;
 
     // builder 开始
     public Group() {
@@ -660,6 +672,16 @@ public class Group {
          * <p> 示例值：
          */
         this.travelNeedPunchCfg = builder.travelNeedPunchCfg;
+        /**
+         * 需要打卡的人员配置（新）
+         * <p> 示例值：
+         */
+        this.needPunchMembers = builder.needPunchMembers;
+        /**
+         * 无需打卡的人员配置（新）
+         * <p> 示例值：
+         */
+        this.noNeedPunchMembers = builder.noNeedPunchMembers;
     }
 
     public static Builder newBuilder() {
@@ -1130,6 +1152,22 @@ public class Group {
         this.travelNeedPunchCfg = travelNeedPunchCfg;
     }
 
+    public PunchMember[] getNeedPunchMembers() {
+        return this.needPunchMembers;
+    }
+
+    public void setNeedPunchMembers(PunchMember[] needPunchMembers) {
+        this.needPunchMembers = needPunchMembers;
+    }
+
+    public PunchMember[] getNoNeedPunchMembers() {
+        return this.noNeedPunchMembers;
+    }
+
+    public void setNoNeedPunchMembers(PunchMember[] noNeedPunchMembers) {
+        this.noNeedPunchMembers = noNeedPunchMembers;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1421,6 +1459,16 @@ public class Group {
          * <p> 示例值：
          */
         private LeaveNeedPunchCfg travelNeedPunchCfg;
+        /**
+         * 需要打卡的人员配置（新）
+         * <p> 示例值：
+         */
+        private PunchMember[] needPunchMembers;
+        /**
+         * 无需打卡的人员配置（新）
+         * <p> 示例值：
+         */
+        private PunchMember[] noNeedPunchMembers;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -2172,6 +2220,32 @@ public class Group {
          */
         public Builder travelNeedPunchCfg(LeaveNeedPunchCfg travelNeedPunchCfg) {
             this.travelNeedPunchCfg = travelNeedPunchCfg;
+            return this;
+        }
+
+
+        /**
+         * 需要打卡的人员配置（新）
+         * <p> 示例值：
+         *
+         * @param needPunchMembers
+         * @return
+         */
+        public Builder needPunchMembers(PunchMember[] needPunchMembers) {
+            this.needPunchMembers = needPunchMembers;
+            return this;
+        }
+
+
+        /**
+         * 无需打卡的人员配置（新）
+         * <p> 示例值：
+         *
+         * @param noNeedPunchMembers
+         * @return
+         */
+        public Builder noNeedPunchMembers(PunchMember[] noNeedPunchMembers) {
+            this.noNeedPunchMembers = noNeedPunchMembers;
             return this;
         }
 

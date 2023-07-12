@@ -16,8 +16,16 @@ package com.lark.oapi.service.attendance.v1.model;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class GetLeaveEmployExpireRecordReq {
+    /**
+     * 用户 ID 类型
+     * <p> 示例值：open_id
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 假期类型ID
      * <p> 示例值：1
@@ -34,6 +42,11 @@ public class GetLeaveEmployExpireRecordReq {
 
     public GetLeaveEmployExpireRecordReq(Builder builder) {
         /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * 假期类型ID
          * <p> 示例值：1
          */
@@ -43,6 +56,14 @@ public class GetLeaveEmployExpireRecordReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getLeaveId() {
@@ -62,9 +83,33 @@ public class GetLeaveEmployExpireRecordReq {
     }
 
     public static class Builder {
-
+        private String userIdType; // 用户 ID 类型
         private String leaveId; // 假期类型ID
         private GetLeaveEmployExpireRecordReqBody body;
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 用户 ID 类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
         /**
          * 假期类型ID

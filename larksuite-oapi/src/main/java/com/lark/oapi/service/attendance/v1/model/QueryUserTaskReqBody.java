@@ -34,6 +34,12 @@ public class QueryUserTaskReqBody {
      */
     @SerializedName("check_date_to")
     private Integer checkDateTo;
+    /**
+     * 是否需要加班班段打卡结果
+     * <p> 示例值：true
+     */
+    @SerializedName("need_overtime_result")
+    private Boolean needOvertimeResult;
 
     // builder 开始
     public QueryUserTaskReqBody() {
@@ -55,6 +61,11 @@ public class QueryUserTaskReqBody {
          * <p> 示例值：20190820
          */
         this.checkDateTo = builder.checkDateTo;
+        /**
+         * 是否需要加班班段打卡结果
+         * <p> 示例值：true
+         */
+        this.needOvertimeResult = builder.needOvertimeResult;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class QueryUserTaskReqBody {
         this.checkDateTo = checkDateTo;
     }
 
+    public Boolean getNeedOvertimeResult() {
+        return this.needOvertimeResult;
+    }
+
+    public void setNeedOvertimeResult(Boolean needOvertimeResult) {
+        this.needOvertimeResult = needOvertimeResult;
+    }
+
     public static class Builder {
         /**
          * employee_no 或 employee_id 列表，长度不超过 50
@@ -101,6 +120,11 @@ public class QueryUserTaskReqBody {
          * <p> 示例值：20190820
          */
         private Integer checkDateTo;
+        /**
+         * 是否需要加班班段打卡结果
+         * <p> 示例值：true
+         */
+        private Boolean needOvertimeResult;
 
         /**
          * employee_no 或 employee_id 列表，长度不超过 50
@@ -137,6 +161,19 @@ public class QueryUserTaskReqBody {
          */
         public Builder checkDateTo(Integer checkDateTo) {
             this.checkDateTo = checkDateTo;
+            return this;
+        }
+
+
+        /**
+         * 是否需要加班班段打卡结果
+         * <p> 示例值：true
+         *
+         * @param needOvertimeResult
+         * @return
+         */
+        public Builder needOvertimeResult(Boolean needOvertimeResult) {
+            this.needOvertimeResult = needOvertimeResult;
             return this;
         }
 

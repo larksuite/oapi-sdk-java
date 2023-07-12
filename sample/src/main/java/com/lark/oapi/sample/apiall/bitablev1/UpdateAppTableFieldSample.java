@@ -21,6 +21,7 @@ public class UpdateAppTableFieldSample {
                         .type(1)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())
+                        .uiType("Progress")
                         .build())
                 .build();
 

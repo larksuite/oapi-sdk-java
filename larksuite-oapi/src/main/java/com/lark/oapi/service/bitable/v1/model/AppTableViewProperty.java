@@ -28,6 +28,12 @@ public class AppTableViewProperty {
      */
     @SerializedName("hidden_fields")
     private String[] hiddenFields;
+    /**
+     * 表格视图层级结构设置
+     * <p> 示例值：
+     */
+    @SerializedName("hierarchy_config")
+    private AppTableViewPropertyHierarchyConfig hierarchyConfig;
 
     // builder 开始
     public AppTableViewProperty() {
@@ -44,6 +50,11 @@ public class AppTableViewProperty {
          * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
          */
         this.hiddenFields = builder.hiddenFields;
+        /**
+         * 表格视图层级结构设置
+         * <p> 示例值：
+         */
+        this.hierarchyConfig = builder.hierarchyConfig;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class AppTableViewProperty {
         this.hiddenFields = hiddenFields;
     }
 
+    public AppTableViewPropertyHierarchyConfig getHierarchyConfig() {
+        return this.hierarchyConfig;
+    }
+
+    public void setHierarchyConfig(AppTableViewPropertyHierarchyConfig hierarchyConfig) {
+        this.hierarchyConfig = hierarchyConfig;
+    }
+
     public static class Builder {
         /**
          * 过滤条件
@@ -77,6 +96,11 @@ public class AppTableViewProperty {
          * <p> 示例值：["fldCGzANXx", "fldCGzANXx"]
          */
         private String[] hiddenFields;
+        /**
+         * 表格视图层级结构设置
+         * <p> 示例值：
+         */
+        private AppTableViewPropertyHierarchyConfig hierarchyConfig;
 
         /**
          * 过滤条件
@@ -100,6 +124,19 @@ public class AppTableViewProperty {
          */
         public Builder hiddenFields(String[] hiddenFields) {
             this.hiddenFields = hiddenFields;
+            return this;
+        }
+
+
+        /**
+         * 表格视图层级结构设置
+         * <p> 示例值：
+         *
+         * @param hierarchyConfig
+         * @return
+         */
+        public Builder hierarchyConfig(AppTableViewPropertyHierarchyConfig hierarchyConfig) {
+            this.hierarchyConfig = hierarchyConfig;
             return this;
         }
 

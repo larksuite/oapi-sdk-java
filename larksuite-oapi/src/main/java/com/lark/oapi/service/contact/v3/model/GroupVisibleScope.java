@@ -24,7 +24,7 @@ public class GroupVisibleScope {
     private String visibleScopeType;
     /**
      * 指定可见用户组的用户 ID列表
-     * <p> 示例值：cfe29725
+     * <p> 示例值：
      */
     @SerializedName("visible_users")
     private String[] visibleUsers;
@@ -53,7 +53,7 @@ public class GroupVisibleScope {
         this.visibleScopeType = builder.visibleScopeType;
         /**
          * 指定可见用户组的用户 ID列表
-         * <p> 示例值：cfe29725
+         * <p> 示例值：
          */
         this.visibleUsers = builder.visibleUsers;
         /**
@@ -112,7 +112,7 @@ public class GroupVisibleScope {
         private String visibleScopeType;
         /**
          * 指定可见用户组的用户 ID列表
-         * <p> 示例值：cfe29725
+         * <p> 示例值：
          */
         private String[] visibleUsers;
         /**
@@ -153,7 +153,7 @@ public class GroupVisibleScope {
 
         /**
          * 指定可见用户组的用户 ID列表
-         * <p> 示例值：cfe29725
+         * <p> 示例值：
          *
          * @param visibleUsers
          * @return

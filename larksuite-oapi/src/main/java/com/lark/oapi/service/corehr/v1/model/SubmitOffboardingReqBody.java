@@ -53,6 +53,24 @@ public class SubmitOffboardingReqBody {
     @SerializedName("initiator_id")
     private String initiatorId;
     /**
+     * 是否加入离职屏蔽名单
+     * <p> 示例值：false
+     */
+    @SerializedName("add_block_list")
+    private Boolean addBlockList;
+    /**
+     * 屏蔽原因
+     * <p> 示例值：红线
+     */
+    @SerializedName("block_reason")
+    private String blockReason;
+    /**
+     * 屏蔽原因说明
+     * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+     */
+    @SerializedName("block_reason_explanation")
+    private String blockReasonExplanation;
+    /**
      * 自定义字段
      * <p> 示例值：
      */
@@ -94,6 +112,21 @@ public class SubmitOffboardingReqBody {
          * <p> 示例值：6982509313466189341
          */
         this.initiatorId = builder.initiatorId;
+        /**
+         * 是否加入离职屏蔽名单
+         * <p> 示例值：false
+         */
+        this.addBlockList = builder.addBlockList;
+        /**
+         * 屏蔽原因
+         * <p> 示例值：红线
+         */
+        this.blockReason = builder.blockReason;
+        /**
+         * 屏蔽原因说明
+         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+         */
+        this.blockReasonExplanation = builder.blockReasonExplanation;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -153,6 +186,30 @@ public class SubmitOffboardingReqBody {
         this.initiatorId = initiatorId;
     }
 
+    public Boolean getAddBlockList() {
+        return this.addBlockList;
+    }
+
+    public void setAddBlockList(Boolean addBlockList) {
+        this.addBlockList = addBlockList;
+    }
+
+    public String getBlockReason() {
+        return this.blockReason;
+    }
+
+    public void setBlockReason(String blockReason) {
+        this.blockReason = blockReason;
+    }
+
+    public String getBlockReasonExplanation() {
+        return this.blockReasonExplanation;
+    }
+
+    public void setBlockReasonExplanation(String blockReasonExplanation) {
+        this.blockReasonExplanation = blockReasonExplanation;
+    }
+
     public ObjectFieldData[] getCustomFields() {
         return this.customFields;
     }
@@ -192,6 +249,21 @@ public class SubmitOffboardingReqBody {
          * <p> 示例值：6982509313466189341
          */
         private String initiatorId;
+        /**
+         * 是否加入离职屏蔽名单
+         * <p> 示例值：false
+         */
+        private Boolean addBlockList;
+        /**
+         * 屏蔽原因
+         * <p> 示例值：红线
+         */
+        private String blockReason;
+        /**
+         * 屏蔽原因说明
+         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+         */
+        private String blockReasonExplanation;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -284,6 +356,45 @@ public class SubmitOffboardingReqBody {
          */
         public Builder initiatorId(String initiatorId) {
             this.initiatorId = initiatorId;
+            return this;
+        }
+
+
+        /**
+         * 是否加入离职屏蔽名单
+         * <p> 示例值：false
+         *
+         * @param addBlockList
+         * @return
+         */
+        public Builder addBlockList(Boolean addBlockList) {
+            this.addBlockList = addBlockList;
+            return this;
+        }
+
+
+        /**
+         * 屏蔽原因
+         * <p> 示例值：红线
+         *
+         * @param blockReason
+         * @return
+         */
+        public Builder blockReason(String blockReason) {
+            this.blockReason = blockReason;
+            return this;
+        }
+
+
+        /**
+         * 屏蔽原因说明
+         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+         *
+         * @param blockReasonExplanation
+         * @return
+         */
+        public Builder blockReasonExplanation(String blockReasonExplanation) {
+            this.blockReasonExplanation = blockReasonExplanation;
             return this;
         }
 
