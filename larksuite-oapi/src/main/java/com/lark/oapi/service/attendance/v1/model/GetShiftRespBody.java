@@ -35,6 +35,12 @@ public class GetShiftRespBody {
     @SerializedName("punch_times")
     private Integer punchTimes;
     /**
+     * 排班组子负责人id列表
+     * <p> 示例值：
+     */
+    @SerializedName("sub_shift_leader_ids")
+    private String[] subShiftLeaderIds;
+    /**
      * 是否弹性打卡
      * <p> 示例值：false
      */
@@ -82,6 +88,12 @@ public class GetShiftRespBody {
      */
     @SerializedName("overtime_rule")
     private OvertimeRule[] overtimeRule;
+    /**
+     * 是否允许在非打卡时段申请打卡
+     * <p> 示例值：false
+     */
+    @SerializedName("allow_punch_approval")
+    private Boolean allowPunchApproval;
 
     public String getShiftId() {
         return this.shiftId;
@@ -105,6 +117,14 @@ public class GetShiftRespBody {
 
     public void setPunchTimes(Integer punchTimes) {
         this.punchTimes = punchTimes;
+    }
+
+    public String[] getSubShiftLeaderIds() {
+        return this.subShiftLeaderIds;
+    }
+
+    public void setSubShiftLeaderIds(String[] subShiftLeaderIds) {
+        this.subShiftLeaderIds = subShiftLeaderIds;
     }
 
     public Boolean getIsFlexible() {
@@ -169,6 +189,14 @@ public class GetShiftRespBody {
 
     public void setOvertimeRule(OvertimeRule[] overtimeRule) {
         this.overtimeRule = overtimeRule;
+    }
+
+    public Boolean getAllowPunchApproval() {
+        return this.allowPunchApproval;
+    }
+
+    public void setAllowPunchApproval(Boolean allowPunchApproval) {
+        this.allowPunchApproval = allowPunchApproval;
     }
 
 }

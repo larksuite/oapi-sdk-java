@@ -23,6 +23,7 @@ public class CreateLeaveGrantingRecordSample {
                         .grantingQuantity("0.5")
                         .grantingUnit(1)
                         .effectiveDate("2022-01-01")
+                        .expirationDate("2022-01-01")
                         .reason(new I18n[]{})
                         .externalId("111")
                         .build())

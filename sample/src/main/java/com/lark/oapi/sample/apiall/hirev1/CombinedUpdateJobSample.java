@@ -42,6 +42,7 @@ public class CombinedUpdateJobSample {
                         .addressIdList(new String[]{})
                         .jobAttribute(1)
                         .expiryTimestamp("1622484739955")
+                        .targetMajorIdList(new String[]{})
                         .build())
                 .build();
 

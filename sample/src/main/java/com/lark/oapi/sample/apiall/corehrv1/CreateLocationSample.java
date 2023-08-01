@@ -5,7 +5,6 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.model.Enum;
 
-
 // POST /open-apis/corehr/v1/locations
 public class CreateLocationSample {
 

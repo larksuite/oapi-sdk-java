@@ -226,6 +226,12 @@ public class Job {
      */
     @SerializedName("expiry_timestamp")
     private String expiryTimestamp;
+    /**
+     * 目标专业
+     * <p> 示例值：
+     */
+    @SerializedName("target_major_list")
+    private TargetMajorInfo[] targetMajorList;
 
     // builder 开始
     public Job() {
@@ -407,6 +413,11 @@ public class Job {
          * <p> 示例值：1622484739955
          */
         this.expiryTimestamp = builder.expiryTimestamp;
+        /**
+         * 目标专业
+         * <p> 示例值：
+         */
+        this.targetMajorList = builder.targetMajorList;
     }
 
     public static Builder newBuilder() {
@@ -693,6 +704,14 @@ public class Job {
         this.expiryTimestamp = expiryTimestamp;
     }
 
+    public TargetMajorInfo[] getTargetMajorList() {
+        return this.targetMajorList;
+    }
+
+    public void setTargetMajorList(TargetMajorInfo[] targetMajorList) {
+        this.targetMajorList = targetMajorList;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -869,6 +888,11 @@ public class Job {
          * <p> 示例值：1622484739955
          */
         private String expiryTimestamp;
+        /**
+         * 目标专业
+         * <p> 示例值：
+         */
+        private TargetMajorInfo[] targetMajorList;
 
         /**
          * 职位 ID
@@ -1321,6 +1345,19 @@ public class Job {
          */
         public Builder expiryTimestamp(String expiryTimestamp) {
             this.expiryTimestamp = expiryTimestamp;
+            return this;
+        }
+
+
+        /**
+         * 目标专业
+         * <p> 示例值：
+         *
+         * @param targetMajorList
+         * @return
+         */
+        public Builder targetMajorList(TargetMajorInfo[] targetMajorList) {
+            this.targetMajorList = targetMajorList;
             return this;
         }
 

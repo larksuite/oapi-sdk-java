@@ -190,6 +190,18 @@ public class CombinedJob {
      */
     @SerializedName("interview_registration_schema_id")
     private String interviewRegistrationSchemaId;
+    /**
+     * 入职登记表ID
+     * <p> 示例值：6930815272790114325
+     */
+    @SerializedName("onboard_registration_schema_id")
+    private String onboardRegistrationSchemaId;
+    /**
+     * 目标专业ID List
+     * <p> 示例值：
+     */
+    @SerializedName("target_major_id_list")
+    private String[] targetMajorIdList;
 
     // builder 开始
     public CombinedJob() {
@@ -341,6 +353,16 @@ public class CombinedJob {
          * <p> 示例值：6930815272790114324
          */
         this.interviewRegistrationSchemaId = builder.interviewRegistrationSchemaId;
+        /**
+         * 入职登记表ID
+         * <p> 示例值：6930815272790114325
+         */
+        this.onboardRegistrationSchemaId = builder.onboardRegistrationSchemaId;
+        /**
+         * 目标专业ID List
+         * <p> 示例值：
+         */
+        this.targetMajorIdList = builder.targetMajorIdList;
     }
 
     public static Builder newBuilder() {
@@ -579,6 +601,22 @@ public class CombinedJob {
         this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
     }
 
+    public String getOnboardRegistrationSchemaId() {
+        return this.onboardRegistrationSchemaId;
+    }
+
+    public void setOnboardRegistrationSchemaId(String onboardRegistrationSchemaId) {
+        this.onboardRegistrationSchemaId = onboardRegistrationSchemaId;
+    }
+
+    public String[] getTargetMajorIdList() {
+        return this.targetMajorIdList;
+    }
+
+    public void setTargetMajorIdList(String[] targetMajorIdList) {
+        this.targetMajorIdList = targetMajorIdList;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -725,6 +763,16 @@ public class CombinedJob {
          * <p> 示例值：6930815272790114324
          */
         private String interviewRegistrationSchemaId;
+        /**
+         * 入职登记表ID
+         * <p> 示例值：6930815272790114325
+         */
+        private String onboardRegistrationSchemaId;
+        /**
+         * 目标专业ID List
+         * <p> 示例值：
+         */
+        private String[] targetMajorIdList;
 
         /**
          * 职位 ID
@@ -1099,6 +1147,32 @@ public class CombinedJob {
          */
         public Builder interviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
             this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
+            return this;
+        }
+
+
+        /**
+         * 入职登记表ID
+         * <p> 示例值：6930815272790114325
+         *
+         * @param onboardRegistrationSchemaId
+         * @return
+         */
+        public Builder onboardRegistrationSchemaId(String onboardRegistrationSchemaId) {
+            this.onboardRegistrationSchemaId = onboardRegistrationSchemaId;
+            return this;
+        }
+
+
+        /**
+         * 目标专业ID List
+         * <p> 示例值：
+         *
+         * @param targetMajorIdList
+         * @return
+         */
+        public Builder targetMajorIdList(String[] targetMajorIdList) {
+            this.targetMajorIdList = targetMajorIdList;
             return this;
         }
 

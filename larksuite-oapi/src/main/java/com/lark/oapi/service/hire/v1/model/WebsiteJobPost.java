@@ -178,6 +178,12 @@ public class WebsiteJobPost {
      */
     @SerializedName("address_list")
     private CommonAddress[] addressList;
+    /**
+     * 目标专业
+     * <p> 示例值：
+     */
+    @SerializedName("target_major_list")
+    private IdNameObject[] targetMajorList;
 
     // builder 开始
     public WebsiteJobPost() {
@@ -319,6 +325,11 @@ public class WebsiteJobPost {
          * <p> 示例值：
          */
         this.addressList = builder.addressList;
+        /**
+         * 目标专业
+         * <p> 示例值：
+         */
+        this.targetMajorList = builder.targetMajorList;
     }
 
     public static Builder newBuilder() {
@@ -541,6 +552,14 @@ public class WebsiteJobPost {
         this.addressList = addressList;
     }
 
+    public IdNameObject[] getTargetMajorList() {
+        return this.targetMajorList;
+    }
+
+    public void setTargetMajorList(IdNameObject[] targetMajorList) {
+        this.targetMajorList = targetMajorList;
+    }
+
     public static class Builder {
         /**
          * 职位广告 ID
@@ -677,6 +696,11 @@ public class WebsiteJobPost {
          * <p> 示例值：
          */
         private CommonAddress[] addressList;
+        /**
+         * 目标专业
+         * <p> 示例值：
+         */
+        private IdNameObject[] targetMajorList;
 
         /**
          * 职位广告 ID
@@ -1025,6 +1049,19 @@ public class WebsiteJobPost {
          */
         public Builder addressList(CommonAddress[] addressList) {
             this.addressList = addressList;
+            return this;
+        }
+
+
+        /**
+         * 目标专业
+         * <p> 示例值：
+         *
+         * @param targetMajorList
+         * @return
+         */
+        public Builder targetMajorList(IdNameObject[] targetMajorList) {
+            this.targetMajorList = targetMajorList;
             return this;
         }
 

@@ -38,6 +38,7 @@ public class CreateUserSample {
                         .customAttrs(new UserCustomAttr[]{})
                         .enterpriseEmail("demo@mail.com")
                         .jobTitle("xxxxx")
+                        .geo("cn")
                         .jobLevelId("mga5oa8ayjlp9rb")
                         .jobFamilyId("mga5oa8ayjlp9rb")
                         .subscriptionIds(new String[]{})

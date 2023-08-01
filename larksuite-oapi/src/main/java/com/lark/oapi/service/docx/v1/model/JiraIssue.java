@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class JiraIssue {
     /**
      * Jira issue ID
-     * <p> 示例值：37159
+     * <p> 示例值：12345
      */
     @SerializedName("id")
     private String id;
     /**
      * Jira issue key
-     * <p> 示例值：Project-8317
+     * <p> 示例值：Project-123
      */
     @SerializedName("key")
     private String key;
@@ -36,12 +36,12 @@ public class JiraIssue {
     public JiraIssue(Builder builder) {
         /**
          * Jira issue ID
-         * <p> 示例值：37159
+         * <p> 示例值：12345
          */
         this.id = builder.id;
         /**
          * Jira issue key
-         * <p> 示例值：Project-8317
+         * <p> 示例值：Project-123
          */
         this.key = builder.key;
     }
@@ -69,18 +69,18 @@ public class JiraIssue {
     public static class Builder {
         /**
          * Jira issue ID
-         * <p> 示例值：37159
+         * <p> 示例值：12345
          */
         private String id;
         /**
          * Jira issue key
-         * <p> 示例值：Project-8317
+         * <p> 示例值：Project-123
          */
         private String key;
 
         /**
          * Jira issue ID
-         * <p> 示例值：37159
+         * <p> 示例值：12345
          *
          * @param id
          * @return
@@ -93,7 +93,7 @@ public class JiraIssue {
 
         /**
          * Jira issue key
-         * <p> 示例值：Project-8317
+         * <p> 示例值：Project-123
          *
          * @param key
          * @return

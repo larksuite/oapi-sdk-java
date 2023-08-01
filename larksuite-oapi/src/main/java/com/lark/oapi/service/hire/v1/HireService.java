@@ -53,9 +53,11 @@ public class HireService {
     private final Questionnaire questionnaire; // 问卷（灰度租户可见）
     private final Referral referral; // 内推
     private final ReferralWebsiteJobPost referralWebsiteJobPost; // referral_website.job_post
+    private final RegistrationSchema registrationSchema; // registration_schema
     private final ResumeSource resumeSource; // 简历来源
     private final Talent talent; // 人才
     private final TalentFolder talentFolder; // talent_folder
+    private final TalentObject talentObject; // talent_object
 
     public HireService(Config config) {
         this.application = new Application(config);
@@ -81,9 +83,11 @@ public class HireService {
         this.questionnaire = new Questionnaire(config);
         this.referral = new Referral(config);
         this.referralWebsiteJobPost = new ReferralWebsiteJobPost(config);
+        this.registrationSchema = new RegistrationSchema(config);
         this.resumeSource = new ResumeSource(config);
         this.talent = new Talent(config);
         this.talentFolder = new TalentFolder(config);
+        this.talentObject = new TalentObject(config);
     }
 
     /**
@@ -294,6 +298,15 @@ public class HireService {
     }
 
     /**
+     * registration_schema
+     *
+     * @return
+     */
+    public RegistrationSchema registrationSchema() {
+        return registrationSchema;
+    }
+
+    /**
      * 简历来源
      *
      * @return
@@ -318,6 +331,15 @@ public class HireService {
      */
     public TalentFolder talentFolder() {
         return talentFolder;
+    }
+
+    /**
+     * talent_object
+     *
+     * @return
+     */
+    public TalentObject talentObject() {
+        return talentObject;
     }
 
     public static class Application {
@@ -3738,6 +3760,80 @@ public class HireService {
         }
     }
 
+    public static class RegistrationSchema {
+        private final Config config;
+
+        public RegistrationSchema(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=registration_schema&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=registration_schema&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListRegistrationSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListRegistrationSchemaSample.java</a> ;
+         */
+        public ListRegistrationSchemaResp list(ListRegistrationSchemaReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/registration_schemas"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListRegistrationSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListRegistrationSchemaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/registration_schemas"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=registration_schema&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=registration_schema&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListRegistrationSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListRegistrationSchemaSample.java</a> ;
+         */
+        public ListRegistrationSchemaResp list(ListRegistrationSchemaReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/registration_schemas"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListRegistrationSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListRegistrationSchemaResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/registration_schemas"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
     public static class ResumeSource {
         private final Config config;
 
@@ -4088,6 +4184,78 @@ public class HireService {
             resp.setRawResponse(httpResponse);
             resp.setRequest(req);
 
+            return resp;
+        }
+    }
+
+    public static class TalentObject {
+        private final Config config;
+
+        public TalentObject(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 获取人才字段，获取人才字段
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a> ;
+         */
+        public QueryTalentObjectResp query(RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/talent_objects/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , null);
+
+            // 反序列化
+            QueryTalentObjectResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talent_objects/query"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            return resp;
+        }
+
+        /**
+         * 获取人才字段，获取人才字段
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a> ;
+         */
+        public QueryTalentObjectResp query() throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/talent_objects/query"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , null);
+
+            // 反序列化
+            QueryTalentObjectResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talent_objects/query"
+                        , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
             return resp;
         }
     }

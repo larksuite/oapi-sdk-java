@@ -24,6 +24,7 @@ public class UpdateConfigJobSample {
                         .interviewRoundConfList(new JobConfigInterviewRoundConf[]{})
                         .jrIdList(new String[]{})
                         .interviewRegistrationSchemaId("6930815272790114324")
+                        .onboardRegistrationSchemaId("6930815272790114324")
                         .interviewRoundTypeConfList(new JobConfigRoundType[]{})
                         .relatedJobIdList(new String[]{})
                         .interviewAppointmentConfig(InterviewAppointmentConfig.newBuilder().build())

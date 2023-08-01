@@ -17,6 +17,7 @@ public class ListCalendarEventAttendeeSample {
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .eventId("xxxxxxxxx_0")
                 .userIdType("user_id")
+                .needResourceCustomization(true)
                 .pageToken("780TRhwXXXXX")
                 .pageSize(20)
                 .build();

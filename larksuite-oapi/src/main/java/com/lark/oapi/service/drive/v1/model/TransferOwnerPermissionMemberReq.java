@@ -41,6 +41,13 @@ public class TransferOwnerPermissionMemberReq {
     @SerializedName("remove_old_owner")
     private Boolean removeOldOwner;
     /**
+     * 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("stay_put")
+    private Boolean stayPut;
+    /**
      * 文件的 token
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
@@ -70,6 +77,11 @@ public class TransferOwnerPermissionMemberReq {
          * <p> 示例值：false
          */
         this.removeOldOwner = builder.removeOldOwner;
+        /**
+         * 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
+         * <p> 示例值：false
+         */
+        this.stayPut = builder.stayPut;
         /**
          * 文件的 token
          * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
@@ -106,6 +118,14 @@ public class TransferOwnerPermissionMemberReq {
         this.removeOldOwner = removeOldOwner;
     }
 
+    public Boolean getStayPut() {
+        return this.stayPut;
+    }
+
+    public void setStayPut(Boolean stayPut) {
+        this.stayPut = stayPut;
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -126,6 +146,7 @@ public class TransferOwnerPermissionMemberReq {
         private String type; // 文件类型，需要与文件的 token 相匹配
         private Boolean needNotification; // 是否需要通知新 Owner
         private Boolean removeOldOwner; // 转移后是否需要移除原 Owner 的权限
+        private Boolean stayPut; // 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
         private String token; // 文件的 token
         private Owner body;
 
@@ -174,6 +195,18 @@ public class TransferOwnerPermissionMemberReq {
          */
         public Builder removeOldOwner(Boolean removeOldOwner) {
             this.removeOldOwner = removeOldOwner;
+            return this;
+        }
+
+        /**
+         * 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
+         * <p> 示例值：false
+         *
+         * @param stayPut
+         * @return
+         */
+        public Builder stayPut(Boolean stayPut) {
+            this.stayPut = stayPut;
             return this;
         }
 

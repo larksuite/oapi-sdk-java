@@ -35,6 +35,12 @@ public class Shift {
     @SerializedName("punch_times")
     private Integer punchTimes;
     /**
+     * 排班组子负责人id列表
+     * <p> 示例值：
+     */
+    @SerializedName("sub_shift_leader_ids")
+    private String[] subShiftLeaderIds;
+    /**
      * 是否弹性打卡
      * <p> 示例值：false
      */
@@ -82,6 +88,12 @@ public class Shift {
      */
     @SerializedName("overtime_rule")
     private OvertimeRule[] overtimeRule;
+    /**
+     * 是否允许在非打卡时段申请打卡
+     * <p> 示例值：false
+     */
+    @SerializedName("allow_punch_approval")
+    private Boolean allowPunchApproval;
 
     // builder 开始
     public Shift() {
@@ -103,6 +115,11 @@ public class Shift {
          * <p> 示例值：1
          */
         this.punchTimes = builder.punchTimes;
+        /**
+         * 排班组子负责人id列表
+         * <p> 示例值：
+         */
+        this.subShiftLeaderIds = builder.subShiftLeaderIds;
         /**
          * 是否弹性打卡
          * <p> 示例值：false
@@ -143,6 +160,11 @@ public class Shift {
          * <p> 示例值：
          */
         this.overtimeRule = builder.overtimeRule;
+        /**
+         * 是否允许在非打卡时段申请打卡
+         * <p> 示例值：false
+         */
+        this.allowPunchApproval = builder.allowPunchApproval;
     }
 
     public static Builder newBuilder() {
@@ -171,6 +193,14 @@ public class Shift {
 
     public void setPunchTimes(Integer punchTimes) {
         this.punchTimes = punchTimes;
+    }
+
+    public String[] getSubShiftLeaderIds() {
+        return this.subShiftLeaderIds;
+    }
+
+    public void setSubShiftLeaderIds(String[] subShiftLeaderIds) {
+        this.subShiftLeaderIds = subShiftLeaderIds;
     }
 
     public Boolean getIsFlexible() {
@@ -237,6 +267,14 @@ public class Shift {
         this.overtimeRule = overtimeRule;
     }
 
+    public Boolean getAllowPunchApproval() {
+        return this.allowPunchApproval;
+    }
+
+    public void setAllowPunchApproval(Boolean allowPunchApproval) {
+        this.allowPunchApproval = allowPunchApproval;
+    }
+
     public static class Builder {
         /**
          * 班次 ID
@@ -253,6 +291,11 @@ public class Shift {
          * <p> 示例值：1
          */
         private Integer punchTimes;
+        /**
+         * 排班组子负责人id列表
+         * <p> 示例值：
+         */
+        private String[] subShiftLeaderIds;
         /**
          * 是否弹性打卡
          * <p> 示例值：false
@@ -293,6 +336,11 @@ public class Shift {
          * <p> 示例值：
          */
         private OvertimeRule[] overtimeRule;
+        /**
+         * 是否允许在非打卡时段申请打卡
+         * <p> 示例值：false
+         */
+        private Boolean allowPunchApproval;
 
         /**
          * 班次 ID
@@ -329,6 +377,19 @@ public class Shift {
          */
         public Builder punchTimes(Integer punchTimes) {
             this.punchTimes = punchTimes;
+            return this;
+        }
+
+
+        /**
+         * 排班组子负责人id列表
+         * <p> 示例值：
+         *
+         * @param subShiftLeaderIds
+         * @return
+         */
+        public Builder subShiftLeaderIds(String[] subShiftLeaderIds) {
+            this.subShiftLeaderIds = subShiftLeaderIds;
             return this;
         }
 
@@ -433,6 +494,19 @@ public class Shift {
          */
         public Builder overtimeRule(OvertimeRule[] overtimeRule) {
             this.overtimeRule = overtimeRule;
+            return this;
+        }
+
+
+        /**
+         * 是否允许在非打卡时段申请打卡
+         * <p> 示例值：false
+         *
+         * @param allowPunchApproval
+         * @return
+         */
+        public Builder allowPunchApproval(Boolean allowPunchApproval) {
+            this.allowPunchApproval = allowPunchApproval;
             return this;
         }
 

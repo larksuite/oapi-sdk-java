@@ -44,6 +44,8 @@ public class CombinedCreateJobSample {
                         .jobAttribute(1)
                         .expiryTimestamp("1622484739955")
                         .interviewRegistrationSchemaId("6930815272790114324")
+                        .onboardRegistrationSchemaId("6930815272790114325")
+                        .targetMajorIdList(new String[]{})
                         .build())
                 .build();
 

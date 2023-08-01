@@ -108,7 +108,7 @@ public class JobData {
     private String jobFamilyId;
     /**
      * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-     * <p> 示例值：onboarding
+     * <p> 示例值：
      */
     @SerializedName("assignment_start_reason")
     private Enum assignmentStartReason;
@@ -243,7 +243,7 @@ public class JobData {
         this.jobFamilyId = builder.jobFamilyId;
         /**
          * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-         * <p> 示例值：onboarding
+         * <p> 示例值：
          */
         this.assignmentStartReason = builder.assignmentStartReason;
         /**
@@ -562,7 +562,7 @@ public class JobData {
         private String jobFamilyId;
         /**
          * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-         * <p> 示例值：onboarding
+         * <p> 示例值：
          */
         private Enum assignmentStartReason;
         /**
@@ -803,7 +803,7 @@ public class JobData {
 
         /**
          * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-         * <p> 示例值：onboarding
+         * <p> 示例值：
          *
          * @param assignmentStartReason
          * @return

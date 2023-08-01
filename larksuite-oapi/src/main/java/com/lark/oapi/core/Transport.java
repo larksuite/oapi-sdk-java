@@ -148,11 +148,6 @@ public class Transport {
                             , entry.getKey()));
                 }
 
-                if (entry.getKey().equalsIgnoreCase(Constants.HTTP_HEADER_KEY_LOG_ID)) {
-                    throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
-                            , entry.getKey()));
-                }
-
                 if (entry.getKey().equalsIgnoreCase(Constants.HTTP_HEADER_REQUEST_ID)) {
                     throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
                             , entry.getKey()));

@@ -62,8 +62,14 @@ public class JobConfigResult {
      * 面试登记表
      * <p> 示例值：
      */
-    @SerializedName("interview_registration_schema")
-    private RegistrationInfo interviewRegistrationSchema;
+    @SerializedName("interview_registration")
+    private RegistrationInfo interviewRegistration;
+    /**
+     * 入职登记表
+     * <p> 示例值：
+     */
+    @SerializedName("onboard_registration")
+    private RegistrationInfo onboardRegistration;
     /**
      * 面试轮次类型列表
      * <p> 示例值：
@@ -127,7 +133,12 @@ public class JobConfigResult {
          * 面试登记表
          * <p> 示例值：
          */
-        this.interviewRegistrationSchema = builder.interviewRegistrationSchema;
+        this.interviewRegistration = builder.interviewRegistration;
+        /**
+         * 入职登记表
+         * <p> 示例值：
+         */
+        this.onboardRegistration = builder.onboardRegistration;
         /**
          * 面试轮次类型列表
          * <p> 示例值：
@@ -205,12 +216,20 @@ public class JobConfigResult {
         this.jobRequirementList = jobRequirementList;
     }
 
-    public RegistrationInfo getInterviewRegistrationSchema() {
-        return this.interviewRegistrationSchema;
+    public RegistrationInfo getInterviewRegistration() {
+        return this.interviewRegistration;
     }
 
-    public void setInterviewRegistrationSchema(RegistrationInfo interviewRegistrationSchema) {
-        this.interviewRegistrationSchema = interviewRegistrationSchema;
+    public void setInterviewRegistration(RegistrationInfo interviewRegistration) {
+        this.interviewRegistration = interviewRegistration;
+    }
+
+    public RegistrationInfo getOnboardRegistration() {
+        return this.onboardRegistration;
+    }
+
+    public void setOnboardRegistration(RegistrationInfo onboardRegistration) {
+        this.onboardRegistration = onboardRegistration;
     }
 
     public JobConfigRoundTypeResult[] getInterviewRoundTypeList() {
@@ -277,7 +296,12 @@ public class JobConfigResult {
          * 面试登记表
          * <p> 示例值：
          */
-        private RegistrationInfo interviewRegistrationSchema;
+        private RegistrationInfo interviewRegistration;
+        /**
+         * 入职登记表
+         * <p> 示例值：
+         */
+        private RegistrationInfo onboardRegistration;
         /**
          * 面试轮次类型列表
          * <p> 示例值：
@@ -389,11 +413,24 @@ public class JobConfigResult {
          * 面试登记表
          * <p> 示例值：
          *
-         * @param interviewRegistrationSchema
+         * @param interviewRegistration
          * @return
          */
-        public Builder interviewRegistrationSchema(RegistrationInfo interviewRegistrationSchema) {
-            this.interviewRegistrationSchema = interviewRegistrationSchema;
+        public Builder interviewRegistration(RegistrationInfo interviewRegistration) {
+            this.interviewRegistration = interviewRegistration;
+            return this;
+        }
+
+
+        /**
+         * 入职登记表
+         * <p> 示例值：
+         *
+         * @param onboardRegistration
+         * @return
+         */
+        public Builder onboardRegistration(RegistrationInfo onboardRegistration) {
+            this.onboardRegistration = onboardRegistration;
             return this;
         }
 

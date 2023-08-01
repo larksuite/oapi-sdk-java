@@ -39,7 +39,19 @@ public class CombinedJobResult {
      * <p> 示例值：
      */
     @SerializedName("interview_registration_schema_info")
-    private RegistrationInfo interviewRegistrationSchemaInfo;
+    private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
+    /**
+     * 入职登记表
+     * <p> 示例值：
+     */
+    @SerializedName("onboard_registration_schema_info")
+    private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
+    /**
+     * 目标专业
+     * <p> 示例值：
+     */
+    @SerializedName("target_major_list")
+    private TargetMajorInfo[] targetMajorList;
 
     // builder 开始
     public CombinedJobResult() {
@@ -66,6 +78,16 @@ public class CombinedJobResult {
          * <p> 示例值：
          */
         this.interviewRegistrationSchemaInfo = builder.interviewRegistrationSchemaInfo;
+        /**
+         * 入职登记表
+         * <p> 示例值：
+         */
+        this.onboardRegistrationSchemaInfo = builder.onboardRegistrationSchemaInfo;
+        /**
+         * 目标专业
+         * <p> 示例值：
+         */
+        this.targetMajorList = builder.targetMajorList;
     }
 
     public static Builder newBuilder() {
@@ -96,12 +118,28 @@ public class CombinedJobResult {
         this.jobManager = jobManager;
     }
 
-    public RegistrationInfo getInterviewRegistrationSchemaInfo() {
+    public RegistrationSchemaInfo getInterviewRegistrationSchemaInfo() {
         return this.interviewRegistrationSchemaInfo;
     }
 
-    public void setInterviewRegistrationSchemaInfo(RegistrationInfo interviewRegistrationSchemaInfo) {
+    public void setInterviewRegistrationSchemaInfo(RegistrationSchemaInfo interviewRegistrationSchemaInfo) {
         this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
+    }
+
+    public RegistrationSchemaInfo getOnboardRegistrationSchemaInfo() {
+        return this.onboardRegistrationSchemaInfo;
+    }
+
+    public void setOnboardRegistrationSchemaInfo(RegistrationSchemaInfo onboardRegistrationSchemaInfo) {
+        this.onboardRegistrationSchemaInfo = onboardRegistrationSchemaInfo;
+    }
+
+    public TargetMajorInfo[] getTargetMajorList() {
+        return this.targetMajorList;
+    }
+
+    public void setTargetMajorList(TargetMajorInfo[] targetMajorList) {
+        this.targetMajorList = targetMajorList;
     }
 
     public static class Builder {
@@ -124,7 +162,17 @@ public class CombinedJobResult {
          * 面试登记表
          * <p> 示例值：
          */
-        private RegistrationInfo interviewRegistrationSchemaInfo;
+        private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
+        /**
+         * 入职登记表
+         * <p> 示例值：
+         */
+        private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
+        /**
+         * 目标专业
+         * <p> 示例值：
+         */
+        private TargetMajorInfo[] targetMajorList;
 
         /**
          * 职位广告
@@ -172,8 +220,34 @@ public class CombinedJobResult {
          * @param interviewRegistrationSchemaInfo
          * @return
          */
-        public Builder interviewRegistrationSchemaInfo(RegistrationInfo interviewRegistrationSchemaInfo) {
+        public Builder interviewRegistrationSchemaInfo(RegistrationSchemaInfo interviewRegistrationSchemaInfo) {
             this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
+            return this;
+        }
+
+
+        /**
+         * 入职登记表
+         * <p> 示例值：
+         *
+         * @param onboardRegistrationSchemaInfo
+         * @return
+         */
+        public Builder onboardRegistrationSchemaInfo(RegistrationSchemaInfo onboardRegistrationSchemaInfo) {
+            this.onboardRegistrationSchemaInfo = onboardRegistrationSchemaInfo;
+            return this;
+        }
+
+
+        /**
+         * 目标专业
+         * <p> 示例值：
+         *
+         * @param targetMajorList
+         * @return
+         */
+        public Builder targetMajorList(TargetMajorInfo[] targetMajorList) {
+            this.targetMajorList = targetMajorList;
             return this;
         }
 

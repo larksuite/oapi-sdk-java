@@ -40,6 +40,12 @@ public class Vchat {
      */
     @SerializedName("meeting_url")
     private String meetingUrl;
+    /**
+     * VC视频会议的会前设置
+     * <p> 示例值：
+     */
+    @SerializedName("meeting_settings")
+    private MeetingSettings meetingSettings;
 
     // builder 开始
     public Vchat() {
@@ -66,6 +72,11 @@ public class Vchat {
          * <p> 示例值：https://example.com
          */
         this.meetingUrl = builder.meetingUrl;
+        /**
+         * VC视频会议的会前设置
+         * <p> 示例值：
+         */
+        this.meetingSettings = builder.meetingSettings;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +115,14 @@ public class Vchat {
         this.meetingUrl = meetingUrl;
     }
 
+    public MeetingSettings getMeetingSettings() {
+        return this.meetingSettings;
+    }
+
+    public void setMeetingSettings(MeetingSettings meetingSettings) {
+        this.meetingSettings = meetingSettings;
+    }
+
     public static class Builder {
         /**
          * 视频会议类型
@@ -125,6 +144,11 @@ public class Vchat {
          * <p> 示例值：https://example.com
          */
         private String meetingUrl;
+        /**
+         * VC视频会议的会前设置
+         * <p> 示例值：
+         */
+        private MeetingSettings meetingSettings;
 
         /**
          * 视频会议类型
@@ -198,6 +222,19 @@ public class Vchat {
          */
         public Builder meetingUrl(String meetingUrl) {
             this.meetingUrl = meetingUrl;
+            return this;
+        }
+
+
+        /**
+         * VC视频会议的会前设置
+         * <p> 示例值：
+         *
+         * @param meetingSettings
+         * @return
+         */
+        public Builder meetingSettings(MeetingSettings meetingSettings) {
+            this.meetingSettings = meetingSettings;
             return this;
         }
 

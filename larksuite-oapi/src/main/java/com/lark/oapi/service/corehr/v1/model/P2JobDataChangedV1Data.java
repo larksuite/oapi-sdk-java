@@ -22,6 +22,18 @@ public class P2JobDataChangedV1Data {
      */
     @SerializedName("job_data_id")
     private String jobDataId;
+    /**
+     * 员工雇佣 ID
+     * <p> 示例值：7072306364927985196
+     */
+    @SerializedName("employment_id")
+    private String employmentId;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
+    @SerializedName("target_user_id")
+    private UserId targetUserId;
 
     public String getJobDataId() {
         return this.jobDataId;
@@ -29,6 +41,22 @@ public class P2JobDataChangedV1Data {
 
     public void setJobDataId(String jobDataId) {
         this.jobDataId = jobDataId;
+    }
+
+    public String getEmploymentId() {
+        return this.employmentId;
+    }
+
+    public void setEmploymentId(String employmentId) {
+        this.employmentId = employmentId;
+    }
+
+    public UserId getTargetUserId() {
+        return this.targetUserId;
+    }
+
+    public void setTargetUserId(UserId targetUserId) {
+        this.targetUserId = targetUserId;
     }
 
 }

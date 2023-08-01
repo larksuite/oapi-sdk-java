@@ -15,8 +15,23 @@ package com.lark.oapi.service.calendar.v4.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class GetCalendarEventReq {
+    /**
+     * 是否需要返回会前设置
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("need_meeting_settings")
+    private Boolean needMeetingSettings;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -38,6 +53,16 @@ public class GetCalendarEventReq {
 
     public GetCalendarEventReq(Builder builder) {
         /**
+         * 是否需要返回会前设置
+         * <p> 示例值：false
+         */
+        this.needMeetingSettings = builder.needMeetingSettings;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          */
@@ -51,6 +76,22 @@ public class GetCalendarEventReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getNeedMeetingSettings() {
+        return this.needMeetingSettings;
+    }
+
+    public void setNeedMeetingSettings(Boolean needMeetingSettings) {
+        this.needMeetingSettings = needMeetingSettings;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getCalendarId() {
@@ -70,9 +111,46 @@ public class GetCalendarEventReq {
     }
 
     public static class Builder {
-
+        private Boolean needMeetingSettings; // 是否需要返回会前设置
+        private String userIdType; // 此次调用中使用的用户ID的类型
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+
+        /**
+         * 是否需要返回会前设置
+         * <p> 示例值：false
+         *
+         * @param needMeetingSettings
+         * @return
+         */
+        public Builder needMeetingSettings(Boolean needMeetingSettings) {
+            this.needMeetingSettings = needMeetingSettings;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.GetCalendarEventUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.GetCalendarEventUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)

@@ -22,6 +22,24 @@ public class ReplaceImageRequest {
      */
     @SerializedName("token")
     private String token;
+    /**
+     * 图片宽度，单位 px
+     * <p> 示例值：100
+     */
+    @SerializedName("width")
+    private Integer width;
+    /**
+     * 图片高度，单位 px
+     * <p> 示例值：100
+     */
+    @SerializedName("height")
+    private Integer height;
+    /**
+     * 对齐方式
+     * <p> 示例值：2
+     */
+    @SerializedName("align")
+    private Integer align;
 
     // builder 开始
     public ReplaceImageRequest() {
@@ -33,6 +51,21 @@ public class ReplaceImageRequest {
          * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
          */
         this.token = builder.token;
+        /**
+         * 图片宽度，单位 px
+         * <p> 示例值：100
+         */
+        this.width = builder.width;
+        /**
+         * 图片高度，单位 px
+         * <p> 示例值：100
+         */
+        this.height = builder.height;
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         */
+        this.align = builder.align;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +80,51 @@ public class ReplaceImageRequest {
         this.token = token;
     }
 
+    public Integer getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getAlign() {
+        return this.align;
+    }
+
+    public void setAlign(Integer align) {
+        this.align = align;
+    }
+
     public static class Builder {
         /**
          * 图片 token
          * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
          */
         private String token;
+        /**
+         * 图片宽度，单位 px
+         * <p> 示例值：100
+         */
+        private Integer width;
+        /**
+         * 图片高度，单位 px
+         * <p> 示例值：100
+         */
+        private Integer height;
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         */
+        private Integer align;
 
         /**
          * 图片 token
@@ -63,6 +135,57 @@ public class ReplaceImageRequest {
          */
         public Builder token(String token) {
             this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 图片宽度，单位 px
+         * <p> 示例值：100
+         *
+         * @param width
+         * @return
+         */
+        public Builder width(Integer width) {
+            this.width = width;
+            return this;
+        }
+
+
+        /**
+         * 图片高度，单位 px
+         * <p> 示例值：100
+         *
+         * @param height
+         * @return
+         */
+        public Builder height(Integer height) {
+            this.height = height;
+            return this;
+        }
+
+
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         *
+         * @param align
+         * @return
+         */
+        public Builder align(Integer align) {
+            this.align = align;
+            return this;
+        }
+
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         *
+         * @param align {@link com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum}
+         * @return
+         */
+        public Builder align(com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum align) {
+            this.align = align.getValue();
             return this;
         }
 

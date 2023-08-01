@@ -26,7 +26,6 @@ public class CreateChatSample {
                         .botIdList(new String[]{})
                         .chatMode("group")
                         .chatType("private")
-                        .external(false)
                         .joinMessageVisibility("all_members")
                         .leaveMessageVisibility("all_members")
                         .membershipApproval("no_approval_required")

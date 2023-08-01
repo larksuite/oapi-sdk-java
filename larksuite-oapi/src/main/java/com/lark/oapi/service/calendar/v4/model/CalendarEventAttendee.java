@@ -100,6 +100,12 @@ public class CalendarEventAttendee {
      */
     @SerializedName("resource_customization")
     private CalendarAttendeeResourceCustomization[] resourceCustomization;
+    /**
+     * 会议室审批原因
+     * <p> 示例值：申请审批原因
+     */
+    @SerializedName("approval_reason")
+    private String approvalReason;
 
     // builder 开始
     public CalendarEventAttendee() {
@@ -176,6 +182,11 @@ public class CalendarEventAttendee {
          * <p> 示例值：
          */
         this.resourceCustomization = builder.resourceCustomization;
+        /**
+         * 会议室审批原因
+         * <p> 示例值：申请审批原因
+         */
+        this.approvalReason = builder.approvalReason;
     }
 
     public static Builder newBuilder() {
@@ -294,6 +305,14 @@ public class CalendarEventAttendee {
         this.resourceCustomization = resourceCustomization;
     }
 
+    public String getApprovalReason() {
+        return this.approvalReason;
+    }
+
+    public void setApprovalReason(String approvalReason) {
+        this.approvalReason = approvalReason;
+    }
+
     public static class Builder {
         /**
          * 参与人类型
@@ -365,6 +384,11 @@ public class CalendarEventAttendee {
          * <p> 示例值：
          */
         private CalendarAttendeeResourceCustomization[] resourceCustomization;
+        /**
+         * 会议室审批原因
+         * <p> 示例值：申请审批原因
+         */
+        private String approvalReason;
 
         /**
          * 参与人类型
@@ -568,6 +592,19 @@ public class CalendarEventAttendee {
          */
         public Builder resourceCustomization(CalendarAttendeeResourceCustomization[] resourceCustomization) {
             this.resourceCustomization = resourceCustomization;
+            return this;
+        }
+
+
+        /**
+         * 会议室审批原因
+         * <p> 示例值：申请审批原因
+         *
+         * @param approvalReason
+         * @return
+         */
+        public Builder approvalReason(String approvalReason) {
+            this.approvalReason = approvalReason;
             return this;
         }
 

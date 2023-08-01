@@ -17,6 +17,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class RoomMeetingReservation {
     /**
+     * 会议室ID
+     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+     */
+    @SerializedName("room_id")
+    private String roomId;
+    /**
      * 会议室名称
      * <p> 示例值：VIP Meeting Room
      */
@@ -119,6 +125,11 @@ public class RoomMeetingReservation {
 
     public RoomMeetingReservation(Builder builder) {
         /**
+         * 会议室ID
+         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+         */
+        this.roomId = builder.roomId;
+        /**
          * 会议室名称
          * <p> 示例值：VIP Meeting Room
          */
@@ -202,6 +213,14 @@ public class RoomMeetingReservation {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     public String getRoomName() {
@@ -334,6 +353,11 @@ public class RoomMeetingReservation {
 
     public static class Builder {
         /**
+         * 会议室ID
+         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+         */
+        private String roomId;
+        /**
          * 会议室名称
          * <p> 示例值：VIP Meeting Room
          */
@@ -413,6 +437,19 @@ public class RoomMeetingReservation {
          * <p> 示例值：2022.12.20 11:25:15 (GMT+08:00)
          */
         private String releasingTime;
+
+        /**
+         * 会议室ID
+         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+         *
+         * @param roomId
+         * @return
+         */
+        public Builder roomId(String roomId) {
+            this.roomId = roomId;
+            return this;
+        }
+
 
         /**
          * 会议室名称

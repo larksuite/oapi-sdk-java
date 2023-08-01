@@ -71,12 +71,6 @@ public class CreateChatReqBody {
     @SerializedName("chat_type")
     private String chatType;
     /**
-     * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
-     * <p> 示例值：false
-     */
-    @SerializedName("external")
-    private Boolean external;
-    /**
      * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
      * <p> 示例值：all_members
      */
@@ -151,11 +145,6 @@ public class CreateChatReqBody {
          * <p> 示例值：private
          */
         this.chatType = builder.chatType;
-        /**
-         * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
-         * <p> 示例值：false
-         */
-        this.external = builder.external;
         /**
          * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
          * <p> 示例值：all_members
@@ -254,14 +243,6 @@ public class CreateChatReqBody {
         this.chatType = chatType;
     }
 
-    public Boolean getExternal() {
-        return this.external;
-    }
-
-    public void setExternal(Boolean external) {
-        this.external = external;
-    }
-
     public String getJoinMessageVisibility() {
         return this.joinMessageVisibility;
     }
@@ -340,11 +321,6 @@ public class CreateChatReqBody {
          * <p> 示例值：private
          */
         private String chatType;
-        /**
-         * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
-         * <p> 示例值：false
-         */
-        private Boolean external;
         /**
          * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
          * <p> 示例值：all_members
@@ -479,19 +455,6 @@ public class CreateChatReqBody {
          */
         public Builder chatType(String chatType) {
             this.chatType = chatType;
-            return this;
-        }
-
-
-        /**
-         * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
-         * <p> 示例值：false
-         *
-         * @param external
-         * @return
-         */
-        public Builder external(Boolean external) {
-            this.external = external;
             return this;
         }
 

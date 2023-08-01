@@ -15,6 +15,7 @@ public class PatchCalendarEventSample {
         PatchCalendarEventReq req = PatchCalendarEventReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .eventId("00592a0e-7edf-4678-bc9d-1b77383ef08e_0")
+                .userIdType("user_id")
                 .calendarEvent(CalendarEvent.newBuilder()
                         .summary("日程标题")
                         .description("日程描述")

@@ -34,6 +34,12 @@ public class Image {
      */
     @SerializedName("token")
     private String token;
+    /**
+     * 对齐方式
+     * <p> 示例值：2
+     */
+    @SerializedName("align")
+    private Integer align;
 
     // builder 开始
     public Image() {
@@ -55,6 +61,11 @@ public class Image {
          * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
          */
         this.token = builder.token;
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         */
+        this.align = builder.align;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class Image {
         this.token = token;
     }
 
+    public Integer getAlign() {
+        return this.align;
+    }
+
+    public void setAlign(Integer align) {
+        this.align = align;
+    }
+
     public static class Builder {
         /**
          * 宽度单位 px
@@ -101,6 +120,11 @@ public class Image {
          * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
          */
         private String token;
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         */
+        private Integer align;
 
         /**
          * 宽度单位 px
@@ -137,6 +161,31 @@ public class Image {
          */
         public Builder token(String token) {
             this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         *
+         * @param align
+         * @return
+         */
+        public Builder align(Integer align) {
+            this.align = align;
+            return this;
+        }
+
+        /**
+         * 对齐方式
+         * <p> 示例值：2
+         *
+         * @param align {@link com.lark.oapi.service.docx.v1.enums.ImageAlignEnum}
+         * @return
+         */
+        public Builder align(com.lark.oapi.service.docx.v1.enums.ImageAlignEnum align) {
+            this.align = align.getValue();
             return this;
         }
 

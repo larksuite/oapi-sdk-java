@@ -47,6 +47,12 @@ public class CreateLeaveGrantingRecordReqBody {
     @SerializedName("effective_date")
     private String effectiveDate;
     /**
+     * 失效时间
+     * <p> 示例值：2022-01-01
+     */
+    @SerializedName("expiration_date")
+    private String expirationDate;
+    /**
      * 授予原因
      * <p> 示例值：
      */
@@ -89,6 +95,11 @@ public class CreateLeaveGrantingRecordReqBody {
          * <p> 示例值：2022-01-01
          */
         this.effectiveDate = builder.effectiveDate;
+        /**
+         * 失效时间
+         * <p> 示例值：2022-01-01
+         */
+        this.expirationDate = builder.expirationDate;
         /**
          * 授予原因
          * <p> 示例值：
@@ -145,6 +156,14 @@ public class CreateLeaveGrantingRecordReqBody {
         this.effectiveDate = effectiveDate;
     }
 
+    public String getExpirationDate() {
+        return this.expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
     public I18n[] getReason() {
         return this.reason;
     }
@@ -187,6 +206,11 @@ public class CreateLeaveGrantingRecordReqBody {
          * <p> 示例值：2022-01-01
          */
         private String effectiveDate;
+        /**
+         * 失效时间
+         * <p> 示例值：2022-01-01
+         */
+        private String expirationDate;
         /**
          * 授予原因
          * <p> 示例值：
@@ -259,6 +283,19 @@ public class CreateLeaveGrantingRecordReqBody {
          */
         public Builder effectiveDate(String effectiveDate) {
             this.effectiveDate = effectiveDate;
+            return this;
+        }
+
+
+        /**
+         * 失效时间
+         * <p> 示例值：2022-01-01
+         *
+         * @param expirationDate
+         * @return
+         */
+        public Builder expirationDate(String expirationDate) {
+            this.expirationDate = expirationDate;
             return this;
         }
 

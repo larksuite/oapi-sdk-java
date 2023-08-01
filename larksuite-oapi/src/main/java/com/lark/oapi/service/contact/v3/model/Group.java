@@ -53,24 +53,6 @@ public class Group {
     @SerializedName("type")
     private Integer type;
     /**
-     * 动态用户组的规则
-     * <p> 示例值：
-     */
-    @SerializedName("dynamic_group_rule")
-    private DynamicGroupRule dynamicGroupRule;
-    /**
-     * 用户组指定可见范围
-     * <p> 示例值：
-     */
-    @SerializedName("visible_scope")
-    private GroupVisibleScope visibleScope;
-    /**
-     * 部门范围
-     * <p> 示例值：
-     */
-    @SerializedName("department_scope_list")
-    private String[] departmentScopeList;
-    /**
      * 自定义用户组ID
      * <p> 示例值：4ba51ab38648f9cd
      */
@@ -112,21 +94,6 @@ public class Group {
          * <p> 示例值：1
          */
         this.type = builder.type;
-        /**
-         * 动态用户组的规则
-         * <p> 示例值：
-         */
-        this.dynamicGroupRule = builder.dynamicGroupRule;
-        /**
-         * 用户组指定可见范围
-         * <p> 示例值：
-         */
-        this.visibleScope = builder.visibleScope;
-        /**
-         * 部门范围
-         * <p> 示例值：
-         */
-        this.departmentScopeList = builder.departmentScopeList;
         /**
          * 自定义用户组ID
          * <p> 示例值：4ba51ab38648f9cd
@@ -186,30 +153,6 @@ public class Group {
         this.type = type;
     }
 
-    public DynamicGroupRule getDynamicGroupRule() {
-        return this.dynamicGroupRule;
-    }
-
-    public void setDynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
-        this.dynamicGroupRule = dynamicGroupRule;
-    }
-
-    public GroupVisibleScope getVisibleScope() {
-        return this.visibleScope;
-    }
-
-    public void setVisibleScope(GroupVisibleScope visibleScope) {
-        this.visibleScope = visibleScope;
-    }
-
-    public String[] getDepartmentScopeList() {
-        return this.departmentScopeList;
-    }
-
-    public void setDepartmentScopeList(String[] departmentScopeList) {
-        this.departmentScopeList = departmentScopeList;
-    }
-
     public String getGroupId() {
         return this.groupId;
     }
@@ -249,21 +192,6 @@ public class Group {
          * <p> 示例值：1
          */
         private Integer type;
-        /**
-         * 动态用户组的规则
-         * <p> 示例值：
-         */
-        private DynamicGroupRule dynamicGroupRule;
-        /**
-         * 用户组指定可见范围
-         * <p> 示例值：
-         */
-        private GroupVisibleScope visibleScope;
-        /**
-         * 部门范围
-         * <p> 示例值：
-         */
-        private String[] departmentScopeList;
         /**
          * 自定义用户组ID
          * <p> 示例值：4ba51ab38648f9cd
@@ -356,45 +284,6 @@ public class Group {
          */
         public Builder type(com.lark.oapi.service.contact.v3.enums.GroupGroupTypeEnum type) {
             this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 动态用户组的规则
-         * <p> 示例值：
-         *
-         * @param dynamicGroupRule
-         * @return
-         */
-        public Builder dynamicGroupRule(DynamicGroupRule dynamicGroupRule) {
-            this.dynamicGroupRule = dynamicGroupRule;
-            return this;
-        }
-
-
-        /**
-         * 用户组指定可见范围
-         * <p> 示例值：
-         *
-         * @param visibleScope
-         * @return
-         */
-        public Builder visibleScope(GroupVisibleScope visibleScope) {
-            this.visibleScope = visibleScope;
-            return this;
-        }
-
-
-        /**
-         * 部门范围
-         * <p> 示例值：
-         *
-         * @param departmentScopeList
-         * @return
-         */
-        public Builder departmentScopeList(String[] departmentScopeList) {
-            this.departmentScopeList = departmentScopeList;
             return this;
         }
 

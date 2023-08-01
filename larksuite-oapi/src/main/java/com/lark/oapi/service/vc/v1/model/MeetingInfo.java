@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class MeetingInfo {
     /**
-     * 会议ID
+     * 9位会议号
      * <p> 示例值：705605196
      */
     @SerializedName("meeting_id")
@@ -125,7 +125,7 @@ public class MeetingInfo {
 
     public MeetingInfo(Builder builder) {
         /**
-         * 会议ID
+         * 9位会议号
          * <p> 示例值：705605196
          */
         this.meetingId = builder.meetingId;
@@ -353,7 +353,7 @@ public class MeetingInfo {
 
     public static class Builder {
         /**
-         * 会议ID
+         * 9位会议号
          * <p> 示例值：705605196
          */
         private String meetingId;
@@ -439,7 +439,7 @@ public class MeetingInfo {
         private Boolean telephone;
 
         /**
-         * 会议ID
+         * 9位会议号
          * <p> 示例值：705605196
          *
          * @param meetingId

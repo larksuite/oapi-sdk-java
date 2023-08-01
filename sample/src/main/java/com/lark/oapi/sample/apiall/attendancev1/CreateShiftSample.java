@@ -16,6 +16,7 @@ public class CreateShiftSample {
                 .shift(Shift.newBuilder()
                         .shiftName("早班")
                         .punchTimes(1)
+                        .subShiftLeaderIds(new String[]{})
                         .isFlexible(false)
                         .flexibleMinutes(60)
                         .flexibleRule(new FlexibleRule[]{})
@@ -24,6 +25,7 @@ public class CreateShiftSample {
                         .lateOffLateOnRule(new LateOffLateOnRule[]{})
                         .restTimeRule(new RestRule[]{})
                         .overtimeRule(new OvertimeRule[]{})
+                        .allowPunchApproval(false)
                         .build())
                 .build();
 

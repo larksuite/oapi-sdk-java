@@ -2,7 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
+import com.lark.oapi.service.contact.v3.model.CreateGroupReq;
+import com.lark.oapi.service.contact.v3.model.CreateGroupResp;
+import com.lark.oapi.service.contact.v3.model.Group;
 
 // POST /open-apis/contact/v3/group
 public class CreateGroupSample {
@@ -19,9 +21,6 @@ public class CreateGroupSample {
                         .name("IT 外包组")
                         .description("IT服务人员的集合")
                         .type(1)
-                        .dynamicGroupRule(DynamicGroupRule.newBuilder().build())
-                        .visibleScope(GroupVisibleScope.newBuilder().build())
-                        .departmentScopeList(new String[]{})
                         .groupId("g122817")
                         .build())
                 .build();

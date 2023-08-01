@@ -40,6 +40,18 @@ public class TableProperty {
      */
     @SerializedName("merge_info")
     private TableMergeInfo[] mergeInfo;
+    /**
+     * 设置首行为标题行
+     * <p> 示例值：false
+     */
+    @SerializedName("header_row")
+    private Boolean headerRow;
+    /**
+     * 设置首列为标题列
+     * <p> 示例值：false
+     */
+    @SerializedName("header_column")
+    private Boolean headerColumn;
 
     // builder 开始
     public TableProperty() {
@@ -66,6 +78,16 @@ public class TableProperty {
          * <p> 示例值：
          */
         this.mergeInfo = builder.mergeInfo;
+        /**
+         * 设置首行为标题行
+         * <p> 示例值：false
+         */
+        this.headerRow = builder.headerRow;
+        /**
+         * 设置首列为标题列
+         * <p> 示例值：false
+         */
+        this.headerColumn = builder.headerColumn;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class TableProperty {
         this.mergeInfo = mergeInfo;
     }
 
+    public Boolean getHeaderRow() {
+        return this.headerRow;
+    }
+
+    public void setHeaderRow(Boolean headerRow) {
+        this.headerRow = headerRow;
+    }
+
+    public Boolean getHeaderColumn() {
+        return this.headerColumn;
+    }
+
+    public void setHeaderColumn(Boolean headerColumn) {
+        this.headerColumn = headerColumn;
+    }
+
     public static class Builder {
         /**
          * 行数
@@ -125,6 +163,16 @@ public class TableProperty {
          * <p> 示例值：
          */
         private TableMergeInfo[] mergeInfo;
+        /**
+         * 设置首行为标题行
+         * <p> 示例值：false
+         */
+        private Boolean headerRow;
+        /**
+         * 设置首列为标题列
+         * <p> 示例值：false
+         */
+        private Boolean headerColumn;
 
         /**
          * 行数
@@ -174,6 +222,32 @@ public class TableProperty {
          */
         public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
             this.mergeInfo = mergeInfo;
+            return this;
+        }
+
+
+        /**
+         * 设置首行为标题行
+         * <p> 示例值：false
+         *
+         * @param headerRow
+         * @return
+         */
+        public Builder headerRow(Boolean headerRow) {
+            this.headerRow = headerRow;
+            return this;
+        }
+
+
+        /**
+         * 设置首列为标题列
+         * <p> 示例值：false
+         *
+         * @param headerColumn
+         * @return
+         */
+        public Builder headerColumn(Boolean headerColumn) {
+            this.headerColumn = headerColumn;
             return this;
         }
 

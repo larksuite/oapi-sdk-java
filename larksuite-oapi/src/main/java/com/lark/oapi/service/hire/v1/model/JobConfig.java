@@ -59,11 +59,17 @@ public class JobConfig {
     @SerializedName("jr_id_list")
     private String[] jrIdList;
     /**
-     * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+     * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
      * <p> 示例值：6930815272790114324
      */
     @SerializedName("interview_registration_schema_id")
     private String interviewRegistrationSchemaId;
+    /**
+     * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("onboard_registration_schema_id")
+    private String onboardRegistrationSchemaId;
     /**
      * 面试轮次类型 ID 列表
      * <p> 示例值：
@@ -124,10 +130,15 @@ public class JobConfig {
          */
         this.jrIdList = builder.jrIdList;
         /**
-         * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+         * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
          * <p> 示例值：6930815272790114324
          */
         this.interviewRegistrationSchemaId = builder.interviewRegistrationSchemaId;
+        /**
+         * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+         * <p> 示例值：6930815272790114324
+         */
+        this.onboardRegistrationSchemaId = builder.onboardRegistrationSchemaId;
         /**
          * 面试轮次类型 ID 列表
          * <p> 示例值：
@@ -213,6 +224,14 @@ public class JobConfig {
         this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
     }
 
+    public String getOnboardRegistrationSchemaId() {
+        return this.onboardRegistrationSchemaId;
+    }
+
+    public void setOnboardRegistrationSchemaId(String onboardRegistrationSchemaId) {
+        this.onboardRegistrationSchemaId = onboardRegistrationSchemaId;
+    }
+
     public JobConfigRoundType[] getInterviewRoundTypeConfList() {
         return this.interviewRoundTypeConfList;
     }
@@ -274,10 +293,15 @@ public class JobConfig {
          */
         private String[] jrIdList;
         /**
-         * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+         * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
          * <p> 示例值：6930815272790114324
          */
         private String interviewRegistrationSchemaId;
+        /**
+         * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+         * <p> 示例值：6930815272790114324
+         */
+        private String onboardRegistrationSchemaId;
         /**
          * 面试轮次类型 ID 列表
          * <p> 示例值：
@@ -386,7 +410,7 @@ public class JobConfig {
 
 
         /**
-         * 面试登记表 ID, 仅在面试登记表使用设置中开启按职位设置选项后生效
+         * 面试登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
          * <p> 示例值：6930815272790114324
          *
          * @param interviewRegistrationSchemaId
@@ -394,6 +418,19 @@ public class JobConfig {
          */
         public Builder interviewRegistrationSchemaId(String interviewRegistrationSchemaId) {
             this.interviewRegistrationSchemaId = interviewRegistrationSchemaId;
+            return this;
+        }
+
+
+        /**
+         * 入职登记表ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。
+         * <p> 示例值：6930815272790114324
+         *
+         * @param onboardRegistrationSchemaId
+         * @return
+         */
+        public Builder onboardRegistrationSchemaId(String onboardRegistrationSchemaId) {
+            this.onboardRegistrationSchemaId = onboardRegistrationSchemaId;
             return this;
         }
 

@@ -15,6 +15,7 @@ public class CreateCalendarEventSample {
         CreateCalendarEventReq req = CreateCalendarEventReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .idempotencyKey("25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6")
+                .userIdType("user_id")
                 .calendarEvent(CalendarEvent.newBuilder()
                         .summary("日程标题")
                         .description("日程描述")

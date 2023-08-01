@@ -26,6 +26,13 @@ public class ListCalendarEventAttendeeReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 是否需要会议室表单信息
+     * <p> 示例值：true
+     */
+    @Query
+    @SerializedName("need_resource_customization")
+    private Boolean needResourceCustomization;
+    /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：780TRhwXXXXX
      */
@@ -65,6 +72,11 @@ public class ListCalendarEventAttendeeReq {
          */
         this.userIdType = builder.userIdType;
         /**
+         * 是否需要会议室表单信息
+         * <p> 示例值：true
+         */
+        this.needResourceCustomization = builder.needResourceCustomization;
+        /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：780TRhwXXXXX
          */
@@ -96,6 +108,14 @@ public class ListCalendarEventAttendeeReq {
 
     public void setUserIdType(String userIdType) {
         this.userIdType = userIdType;
+    }
+
+    public Boolean getNeedResourceCustomization() {
+        return this.needResourceCustomization;
+    }
+
+    public void setNeedResourceCustomization(Boolean needResourceCustomization) {
+        this.needResourceCustomization = needResourceCustomization;
     }
 
     public String getPageToken() {
@@ -132,6 +152,7 @@ public class ListCalendarEventAttendeeReq {
 
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private Boolean needResourceCustomization; // 是否需要会议室表单信息
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
@@ -158,6 +179,18 @@ public class ListCalendarEventAttendeeReq {
          */
         public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 是否需要会议室表单信息
+         * <p> 示例值：true
+         *
+         * @param needResourceCustomization
+         * @return
+         */
+        public Builder needResourceCustomization(Boolean needResourceCustomization) {
+            this.needResourceCustomization = needResourceCustomization;
             return this;
         }
 

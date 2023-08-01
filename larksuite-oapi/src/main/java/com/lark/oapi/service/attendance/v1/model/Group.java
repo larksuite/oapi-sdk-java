@@ -376,6 +376,30 @@ public class Group {
      */
     @SerializedName("no_need_punch_members")
     private PunchMember[] noNeedPunchMembers;
+    /**
+     * 是否直接保存可以自动变更的冲突规则
+     * <p> 示例值：false
+     */
+    @SerializedName("save_auto_changes")
+    private Boolean saveAutoChanges;
+    /**
+     * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
+     * <p> 示例值：false
+     */
+    @SerializedName("org_change_auto_adjust")
+    private Boolean orgChangeAutoAdjust;
+    /**
+     * 默认出勤的部门id列表
+     * <p> 示例值：
+     */
+    @SerializedName("bind_default_dept_ids")
+    private String[] bindDefaultDeptIds;
+    /**
+     * 默认出勤的用户ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("bind_default_user_ids")
+    private String[] bindDefaultUserIds;
 
     // builder 开始
     public Group() {
@@ -682,6 +706,26 @@ public class Group {
          * <p> 示例值：
          */
         this.noNeedPunchMembers = builder.noNeedPunchMembers;
+        /**
+         * 是否直接保存可以自动变更的冲突规则
+         * <p> 示例值：false
+         */
+        this.saveAutoChanges = builder.saveAutoChanges;
+        /**
+         * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
+         * <p> 示例值：false
+         */
+        this.orgChangeAutoAdjust = builder.orgChangeAutoAdjust;
+        /**
+         * 默认出勤的部门id列表
+         * <p> 示例值：
+         */
+        this.bindDefaultDeptIds = builder.bindDefaultDeptIds;
+        /**
+         * 默认出勤的用户ID列表
+         * <p> 示例值：
+         */
+        this.bindDefaultUserIds = builder.bindDefaultUserIds;
     }
 
     public static Builder newBuilder() {
@@ -1168,6 +1212,38 @@ public class Group {
         this.noNeedPunchMembers = noNeedPunchMembers;
     }
 
+    public Boolean getSaveAutoChanges() {
+        return this.saveAutoChanges;
+    }
+
+    public void setSaveAutoChanges(Boolean saveAutoChanges) {
+        this.saveAutoChanges = saveAutoChanges;
+    }
+
+    public Boolean getOrgChangeAutoAdjust() {
+        return this.orgChangeAutoAdjust;
+    }
+
+    public void setOrgChangeAutoAdjust(Boolean orgChangeAutoAdjust) {
+        this.orgChangeAutoAdjust = orgChangeAutoAdjust;
+    }
+
+    public String[] getBindDefaultDeptIds() {
+        return this.bindDefaultDeptIds;
+    }
+
+    public void setBindDefaultDeptIds(String[] bindDefaultDeptIds) {
+        this.bindDefaultDeptIds = bindDefaultDeptIds;
+    }
+
+    public String[] getBindDefaultUserIds() {
+        return this.bindDefaultUserIds;
+    }
+
+    public void setBindDefaultUserIds(String[] bindDefaultUserIds) {
+        this.bindDefaultUserIds = bindDefaultUserIds;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1469,6 +1545,26 @@ public class Group {
          * <p> 示例值：
          */
         private PunchMember[] noNeedPunchMembers;
+        /**
+         * 是否直接保存可以自动变更的冲突规则
+         * <p> 示例值：false
+         */
+        private Boolean saveAutoChanges;
+        /**
+         * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
+         * <p> 示例值：false
+         */
+        private Boolean orgChangeAutoAdjust;
+        /**
+         * 默认出勤的部门id列表
+         * <p> 示例值：
+         */
+        private String[] bindDefaultDeptIds;
+        /**
+         * 默认出勤的用户ID列表
+         * <p> 示例值：
+         */
+        private String[] bindDefaultUserIds;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -2246,6 +2342,58 @@ public class Group {
          */
         public Builder noNeedPunchMembers(PunchMember[] noNeedPunchMembers) {
             this.noNeedPunchMembers = noNeedPunchMembers;
+            return this;
+        }
+
+
+        /**
+         * 是否直接保存可以自动变更的冲突规则
+         * <p> 示例值：false
+         *
+         * @param saveAutoChanges
+         * @return
+         */
+        public Builder saveAutoChanges(Boolean saveAutoChanges) {
+            this.saveAutoChanges = saveAutoChanges;
+            return this;
+        }
+
+
+        /**
+         * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
+         * <p> 示例值：false
+         *
+         * @param orgChangeAutoAdjust
+         * @return
+         */
+        public Builder orgChangeAutoAdjust(Boolean orgChangeAutoAdjust) {
+            this.orgChangeAutoAdjust = orgChangeAutoAdjust;
+            return this;
+        }
+
+
+        /**
+         * 默认出勤的部门id列表
+         * <p> 示例值：
+         *
+         * @param bindDefaultDeptIds
+         * @return
+         */
+        public Builder bindDefaultDeptIds(String[] bindDefaultDeptIds) {
+            this.bindDefaultDeptIds = bindDefaultDeptIds;
+            return this;
+        }
+
+
+        /**
+         * 默认出勤的用户ID列表
+         * <p> 示例值：
+         *
+         * @param bindDefaultUserIds
+         * @return
+         */
+        public Builder bindDefaultUserIds(String[] bindDefaultUserIds) {
+            this.bindDefaultUserIds = bindDefaultUserIds;
             return this;
         }
 

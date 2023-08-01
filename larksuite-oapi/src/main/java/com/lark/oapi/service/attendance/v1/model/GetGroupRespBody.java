@@ -369,6 +369,30 @@ public class GetGroupRespBody {
      */
     @SerializedName("no_need_punch_members")
     private PunchMember[] noNeedPunchMembers;
+    /**
+     * 是否直接保存可以自动变更的冲突规则
+     * <p> 示例值：false
+     */
+    @SerializedName("save_auto_changes")
+    private Boolean saveAutoChanges;
+    /**
+     * 人员异动开关（人员组织架构变更后是否允许自动调整到该考勤组）
+     * <p> 示例值：false
+     */
+    @SerializedName("org_change_auto_adjust")
+    private Boolean orgChangeAutoAdjust;
+    /**
+     * 默认出勤的部门id列表
+     * <p> 示例值：
+     */
+    @SerializedName("bind_default_dept_ids")
+    private String[] bindDefaultDeptIds;
+    /**
+     * 默认出勤的用户ID列表
+     * <p> 示例值：
+     */
+    @SerializedName("bind_default_user_ids")
+    private String[] bindDefaultUserIds;
 
     public String getGroupId() {
         return this.groupId;
@@ -840,6 +864,38 @@ public class GetGroupRespBody {
 
     public void setNoNeedPunchMembers(PunchMember[] noNeedPunchMembers) {
         this.noNeedPunchMembers = noNeedPunchMembers;
+    }
+
+    public Boolean getSaveAutoChanges() {
+        return this.saveAutoChanges;
+    }
+
+    public void setSaveAutoChanges(Boolean saveAutoChanges) {
+        this.saveAutoChanges = saveAutoChanges;
+    }
+
+    public Boolean getOrgChangeAutoAdjust() {
+        return this.orgChangeAutoAdjust;
+    }
+
+    public void setOrgChangeAutoAdjust(Boolean orgChangeAutoAdjust) {
+        this.orgChangeAutoAdjust = orgChangeAutoAdjust;
+    }
+
+    public String[] getBindDefaultDeptIds() {
+        return this.bindDefaultDeptIds;
+    }
+
+    public void setBindDefaultDeptIds(String[] bindDefaultDeptIds) {
+        this.bindDefaultDeptIds = bindDefaultDeptIds;
+    }
+
+    public String[] getBindDefaultUserIds() {
+        return this.bindDefaultUserIds;
+    }
+
+    public void setBindDefaultUserIds(String[] bindDefaultUserIds) {
+        this.bindDefaultUserIds = bindDefaultUserIds;
     }
 
 }

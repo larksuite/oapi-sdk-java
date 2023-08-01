@@ -24,13 +24,13 @@ public class PatchDocumentBlockRespBody {
     private Block block;
     /**
      * 当前更新成功后文档的版本号
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("document_revision_id")
     private Integer documentRevisionId;
     /**
      * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：
+     * <p> 示例值：8aac2291-bc9e-4b12-a162-b3cf15bb06bd
      */
     @SerializedName("client_token")
     private String clientToken;

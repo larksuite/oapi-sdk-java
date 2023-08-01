@@ -95,6 +95,12 @@ public class Talent {
     @SerializedName("interview_registration_list")
     private TalentInterviewRegistrationSimple[] interviewRegistrationList;
     /**
+     * 登记表列表
+     * <p> 示例值：
+     */
+    @SerializedName("registration_list")
+    private RegistrationBasicInfo[] registrationList;
+    /**
      * 简历附件id列表（按照简历创建时间降序）
      * <p> 示例值：
      */
@@ -189,6 +195,11 @@ public class Talent {
          * <p> 示例值：
          */
         this.interviewRegistrationList = builder.interviewRegistrationList;
+        /**
+         * 登记表列表
+         * <p> 示例值：
+         */
+        this.registrationList = builder.registrationList;
         /**
          * 简历附件id列表（按照简历创建时间降序）
          * <p> 示例值：
@@ -319,6 +330,14 @@ public class Talent {
         this.interviewRegistrationList = interviewRegistrationList;
     }
 
+    public RegistrationBasicInfo[] getRegistrationList() {
+        return this.registrationList;
+    }
+
+    public void setRegistrationList(RegistrationBasicInfo[] registrationList) {
+        this.registrationList = registrationList;
+    }
+
     public String[] getResumeAttachmentIdList() {
         return this.resumeAttachmentIdList;
     }
@@ -417,6 +436,11 @@ public class Talent {
          * <p> 示例值：
          */
         private TalentInterviewRegistrationSimple[] interviewRegistrationList;
+        /**
+         * 登记表列表
+         * <p> 示例值：
+         */
+        private RegistrationBasicInfo[] registrationList;
         /**
          * 简历附件id列表（按照简历创建时间降序）
          * <p> 示例值：
@@ -603,6 +627,19 @@ public class Talent {
          */
         public Builder interviewRegistrationList(TalentInterviewRegistrationSimple[] interviewRegistrationList) {
             this.interviewRegistrationList = interviewRegistrationList;
+            return this;
+        }
+
+
+        /**
+         * 登记表列表
+         * <p> 示例值：
+         *
+         * @param registrationList
+         * @return
+         */
+        public Builder registrationList(RegistrationBasicInfo[] registrationList) {
+            this.registrationList = registrationList;
             return this;
         }
 

@@ -17,6 +17,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class BackgroundCheckFeedbackInfo {
     /**
+     * 背调报告ID
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("feedback_id")
+    private String feedbackId;
+    /**
      * 背调信息附件下载链接
      * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
      */
@@ -35,6 +41,11 @@ public class BackgroundCheckFeedbackInfo {
 
     public BackgroundCheckFeedbackInfo(Builder builder) {
         /**
+         * 背调报告ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.feedbackId = builder.feedbackId;
+        /**
          * 背调信息附件下载链接
          * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
          */
@@ -48,6 +59,14 @@ public class BackgroundCheckFeedbackInfo {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getFeedbackId() {
+        return this.feedbackId;
+    }
+
+    public void setFeedbackId(String feedbackId) {
+        this.feedbackId = feedbackId;
     }
 
     public String getAttachmentUrl() {
@@ -68,6 +87,11 @@ public class BackgroundCheckFeedbackInfo {
 
     public static class Builder {
         /**
+         * 背调报告ID
+         * <p> 示例值：6930815272790114324
+         */
+        private String feedbackId;
+        /**
          * 背调信息附件下载链接
          * <p> 示例值：https://feishucdn.com/staource/v1/2de04c10-5cda-4c50~?image_size=np&cutpe=&quity=&mat=g&stmat=.wp
          */
@@ -77,6 +101,19 @@ public class BackgroundCheckFeedbackInfo {
          * <p> 示例值：红灯
          */
         private String result;
+
+        /**
+         * 背调报告ID
+         * <p> 示例值：6930815272790114324
+         *
+         * @param feedbackId
+         * @return
+         */
+        public Builder feedbackId(String feedbackId) {
+            this.feedbackId = feedbackId;
+            return this;
+        }
+
 
         /**
          * 背调信息附件下载链接

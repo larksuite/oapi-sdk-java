@@ -18,7 +18,7 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetParticipantQualityListReq {
     /**
-     * 会议开始时间（unix时间，单位sec）
+     * 会议开始时间（需要精确到一分钟，unix时间，单位sec）
      * <p> 示例值：1655276858
      */
     @Query
@@ -87,7 +87,7 @@ public class GetParticipantQualityListReq {
 
     public GetParticipantQualityListReq(Builder builder) {
         /**
-         * 会议开始时间（unix时间，单位sec）
+         * 会议开始时间（需要精确到一分钟，unix时间，单位sec）
          * <p> 示例值：1655276858
          */
         this.meetingStartTime = builder.meetingStartTime;
@@ -210,7 +210,7 @@ public class GetParticipantQualityListReq {
     }
 
     public static class Builder {
-        private String meetingStartTime; // 会议开始时间（unix时间，单位sec）
+        private String meetingStartTime; // 会议开始时间（需要精确到一分钟，unix时间，单位sec）
         private String meetingEndTime; // 会议结束时间（unix时间，单位sec）
         private String meetingNo; // 9位会议号
         private String joinTime; // 参会人入会时间（unix时间，单位sec）
@@ -222,7 +222,7 @@ public class GetParticipantQualityListReq {
 
 
         /**
-         * 会议开始时间（unix时间，单位sec）
+         * 会议开始时间（需要精确到一分钟，unix时间，单位sec）
          * <p> 示例值：1655276858
          *
          * @param meetingStartTime

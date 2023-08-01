@@ -16,6 +16,8 @@ public class GetCalendarEventSample {
         GetCalendarEventReq req = GetCalendarEventReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .eventId("xxxxxxxxx_0")
+                .needMeetingSettings(false)
+                .userIdType("user_id")
                 .build();
 
         // 发起请求

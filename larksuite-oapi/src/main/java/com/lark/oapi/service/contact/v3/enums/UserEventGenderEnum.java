@@ -17,7 +17,7 @@ package com.lark.oapi.service.contact.v3.enums;
  * 性别
  */
 public enum UserEventGenderEnum {
-    UNKOWN(0), // 未知
+    UNKOWN(0), // 保密
     MALE(1), // 男
     FEMALE(2), // 女
     ;

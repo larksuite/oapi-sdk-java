@@ -19,6 +19,7 @@ public class TransferOwnerPermissionMemberSample {
                 .type("doc")
                 .needNotification(true)
                 .removeOldOwner(false)
+                .stayPut(false)
                 .owner(Owner.newBuilder()
                         .memberType("openid")
                         .memberId("string")

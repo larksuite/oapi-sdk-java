@@ -2,7 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
+import com.lark.oapi.service.contact.v3.model.Group;
+import com.lark.oapi.service.contact.v3.model.PatchGroupReq;
+import com.lark.oapi.service.contact.v3.model.PatchGroupResp;
 
 // PATCH /open-apis/contact/v3/group/:group_id
 public class PatchGroupSample {
@@ -19,9 +21,6 @@ public class PatchGroupSample {
                 .group(Group.newBuilder()
                         .name("外包 IT 用户组")
                         .description("IT 外包用户组，需要进行细粒度权限管控")
-                        .dynamicGroupRule(DynamicGroupRule.newBuilder().build())
-                        .visibleScope(GroupVisibleScope.newBuilder().build())
-                        .departmentScopeList(new String[]{})
                         .build())
                 .build();
 
