@@ -29,6 +29,9 @@ public class LeaveRequestHistoryLeaveSample {
                 .userIdType("people_corehr_id")
                 .leaveUpdateTimeMin("2022-10-24 10:00:00")
                 .leaveUpdateTimeMax("2022-10-24 10:00:00")
+                .returnDetail(false)
+                .leaveTermType(0)
+                .timeZone("Asia/Shanghai")
                 .build();
 
         // 发起请求

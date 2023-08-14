@@ -19,6 +19,8 @@ package com.lark.oapi.service.search.v2.enums;
 public enum FilterSchemaFilterTypeEnum {
     STRINGLIST("list<string>"), // string列表
     STRING("string"), // string类型
+    INT64("int64"), // int64类型
+    FLOAT("float"), // float类型
     ;
     private String value;
 

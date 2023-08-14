@@ -17,10 +17,7 @@ package com.lark.oapi.service.drive.v1.enums;
  * 版本文档类型
  */
 public enum CreateFileVersionObjTypeEnum {
-    DOC("doc"), // doc文档
-    SHEET("sheet"), // sheet文档
-    BITABLE("bitable"), // bitable文档
-    DOCX("docx"), // docx文档
+    DOCX("docx"), // 新版文档
     ;
     private String value;
 

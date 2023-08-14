@@ -17,6 +17,9 @@ public class ListFileSample {
                 .pageSize(10)
                 .pageToken("MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef")
                 .folderToken("fldbcO1UuPz8VwnpPx5a9abcef")
+                .orderBy("EditedTime")
+                .direction("DESC")
+                .userIdType("user_id")
                 .build();
 
         // 发起请求

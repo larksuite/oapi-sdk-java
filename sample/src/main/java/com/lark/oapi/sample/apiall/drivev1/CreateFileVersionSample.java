@@ -20,14 +20,14 @@ public class CreateFileVersionSample {
                 .version(Version.newBuilder()
                         .name("文档标题")
                         .version("version1")
-                        .parentToken("")
+                        .parentToken("doxcnMycg4ryxQofSeoKkJuXYOb")
                         .ownerId("694699009591869450")
                         .creatorId("694699009591869451")
                         .createTime("1660708537")
                         .updateTime("1660708537")
                         .status("0，1，2")
-                        .objType("doc/docx/sheet/bitable")
-                        .parentType("doc/docx/sheet/bitable")
+                        .objType("docx")
+                        .parentType("docx")
                         .build())
                 .build();
 

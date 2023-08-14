@@ -52,6 +52,12 @@ public class Passage {
      */
     @SerializedName("score")
     private Double score;
+    /**
+     * 其他source相关的字段
+     * <p> 示例值：{"obj_id":7263345601809530881}
+     */
+    @SerializedName("extra")
+    private String extra;
 
     // builder 开始
     public Passage() {
@@ -88,6 +94,11 @@ public class Passage {
          * <p> 示例值：0.94
          */
         this.score = builder.score;
+        /**
+         * 其他source相关的字段
+         * <p> 示例值：{"obj_id":7263345601809530881}
+         */
+        this.extra = builder.extra;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +153,14 @@ public class Passage {
         this.score = score;
     }
 
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
     public static class Builder {
         /**
          * passage的唯一标识
@@ -173,6 +192,11 @@ public class Passage {
          * <p> 示例值：0.94
          */
         private Double score;
+        /**
+         * 其他source相关的字段
+         * <p> 示例值：{"obj_id":7263345601809530881}
+         */
+        private String extra;
 
         /**
          * passage的唯一标识
@@ -260,6 +284,19 @@ public class Passage {
          */
         public Builder score(Double score) {
             this.score = score;
+            return this;
+        }
+
+
+        /**
+         * 其他source相关的字段
+         * <p> 示例值：{"obj_id":7263345601809530881}
+         *
+         * @param extra
+         * @return
+         */
+        public Builder extra(String extra) {
+            this.extra = extra;
             return this;
         }
 

@@ -23,6 +23,7 @@ public enum SchemaPropertySchemaPropertyTypeEnum {
     TIMESTAMP("timestamp"), // Unix 时间戳类型（单位为秒）
     DOUBLE("double"), // 浮点数类型（小数）
     TINYTEXT("tinytext"), // 短文本类型，（utf8 编码）长度小于 140 的文本
+    USERIDS("user_ids"), // 用户ID类型（数组类型）
     ;
     private String value;
 

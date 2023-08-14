@@ -17,6 +17,7 @@ public class CopyFileSample {
         // 创建请求对象
         CopyFileReq req = CopyFileReq.newBuilder()
                 .fileToken("doccngpahSdXrFPIBD4XdIabcef")
+                .userIdType("user_id")
                 .copyFileReqBody(CopyFileReqBody.newBuilder()
                         .name("test.txt")
                         .type("doc")

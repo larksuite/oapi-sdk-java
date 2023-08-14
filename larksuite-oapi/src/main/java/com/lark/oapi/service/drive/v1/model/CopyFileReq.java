@@ -16,8 +16,16 @@ package com.lark.oapi.service.drive.v1.model;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class CopyFileReq {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 被复制的文件token
      * <p> 示例值：doccngpahSdXrFPIBD4XdIabcef
@@ -34,6 +42,11 @@ public class CopyFileReq {
 
     public CopyFileReq(Builder builder) {
         /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * 被复制的文件token
          * <p> 示例值：doccngpahSdXrFPIBD4XdIabcef
          */
@@ -43,6 +56,14 @@ public class CopyFileReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getFileToken() {
@@ -62,9 +83,33 @@ public class CopyFileReq {
     }
 
     public static class Builder {
-
+        private String userIdType; // 此次调用中使用的用户ID的类型
         private String fileToken; // 被复制的文件token
         private CopyFileReqBody body;
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.CopyFileUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.CopyFileUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
         /**
          * 被复制的文件token

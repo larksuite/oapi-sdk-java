@@ -34,6 +34,12 @@ public class FilterSchema {
      */
     @SerializedName("default_val")
     private String defaultVal;
+    /**
+     * 用于构建dsl过滤的类型，默认是enum
+     * <p> 示例值：enum
+     */
+    @SerializedName("field_type")
+    private String fieldType;
 
     // builder 开始
     public FilterSchema() {
@@ -55,6 +61,11 @@ public class FilterSchema {
          * <p> 示例值：-1
          */
         this.defaultVal = builder.defaultVal;
+        /**
+         * 用于构建dsl过滤的类型，默认是enum
+         * <p> 示例值：enum
+         */
+        this.fieldType = builder.fieldType;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class FilterSchema {
         this.defaultVal = defaultVal;
     }
 
+    public String getFieldType() {
+        return this.fieldType;
+    }
+
+    public void setFieldType(String fieldType) {
+        this.fieldType = fieldType;
+    }
+
     public static class Builder {
         /**
          * 过滤字段的名字
@@ -101,6 +120,11 @@ public class FilterSchema {
          * <p> 示例值：-1
          */
         private String defaultVal;
+        /**
+         * 用于构建dsl过滤的类型，默认是enum
+         * <p> 示例值：enum
+         */
+        private String fieldType;
 
         /**
          * 过滤字段的名字
@@ -149,6 +173,31 @@ public class FilterSchema {
          */
         public Builder defaultVal(String defaultVal) {
             this.defaultVal = defaultVal;
+            return this;
+        }
+
+
+        /**
+         * 用于构建dsl过滤的类型，默认是enum
+         * <p> 示例值：enum
+         *
+         * @param fieldType
+         * @return
+         */
+        public Builder fieldType(String fieldType) {
+            this.fieldType = fieldType;
+            return this;
+        }
+
+        /**
+         * 用于构建dsl过滤的类型，默认是enum
+         * <p> 示例值：enum
+         *
+         * @param fieldType {@link com.lark.oapi.service.search.v2.enums.FilterSchemaFieldTypeEnum}
+         * @return
+         */
+        public Builder fieldType(com.lark.oapi.service.search.v2.enums.FilterSchemaFieldTypeEnum fieldType) {
+            this.fieldType = fieldType.getValue();
             return this;
         }
 

@@ -18,7 +18,7 @@ public class CreateAppTableFieldSample {
                 .clientToken("fe599b60-450f-46ff-b2ef-9f6675625b97")
                 .appTableField(AppTableField.newBuilder()
                         .fieldName("字段名称")
-                        .type(1)
+                        .type(0)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())
                         .uiType("Progress")

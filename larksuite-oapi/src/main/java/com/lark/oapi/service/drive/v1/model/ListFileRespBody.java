@@ -24,12 +24,13 @@ public class ListFileRespBody {
     private File[] files;
     /**
      * 分页标记，当 has_more 为 true 时，会同时返回下一次遍历的page_token，否则则不返回
-     * <p> 示例值：
+     * <p> 示例值：54mp576O5beh5qOA5qGI5L6L6KeG6aKRfDE2NTIyNTQ2NDR8NzA5NjM3OTcwNjM1Nzg5MTA5Mnwx
      */
     @SerializedName("next_page_token")
     private String nextPageToken;
     /**
-     * <p> 示例值：
+     * 是否有下一页
+     * <p> 示例值：true
      */
     @SerializedName("has_more")
     private Boolean hasMore;

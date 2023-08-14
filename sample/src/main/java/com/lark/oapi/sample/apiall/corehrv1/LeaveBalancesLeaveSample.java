@@ -19,6 +19,7 @@ public class LeaveBalancesLeaveSample {
                 .asOfDate("2022-07-29")
                 .employmentIdList(new String[]{})
                 .userIdType("people_corehr_id")
+                .timeZone("Asia/Shanghai")
                 .build();
 
         // 发起请求

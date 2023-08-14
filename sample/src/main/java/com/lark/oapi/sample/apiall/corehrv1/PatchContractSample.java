@@ -8,6 +8,7 @@ import com.lark.oapi.service.corehr.v1.model.PatchContractReq;
 import com.lark.oapi.service.corehr.v1.model.PatchContractResp;
 import com.lark.oapi.service.corehr.v1.model.Enum;
 
+
 // PATCH /open-apis/corehr/v1/contracts/:contract_id
 public class PatchContractSample {
 

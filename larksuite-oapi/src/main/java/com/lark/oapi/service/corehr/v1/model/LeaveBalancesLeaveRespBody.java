@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class LeaveBalancesLeaveRespBody {
     /**
      * 员工假期余额信息列表
-     * <p> 示例值：
+     * <p> 示例值：0
      */
     @SerializedName("employment_leave_balance_list")
     private EmploymentLeaveBalance[] employmentLeaveBalanceList;

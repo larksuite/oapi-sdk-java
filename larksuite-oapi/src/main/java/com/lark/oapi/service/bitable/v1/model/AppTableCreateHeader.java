@@ -17,12 +17,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTableCreateHeader {
     /**
-     * 字段Id
-     * <p> 示例值：fldDOzItFG
-     */
-    @SerializedName("field_id")
-    private String fieldId;
-    /**
      * 字段名
      * <p> 示例值：文本
      */
@@ -34,6 +28,18 @@ public class AppTableCreateHeader {
      */
     @SerializedName("type")
     private Integer type;
+    /**
+     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+     * <p> 示例值：Progress
+     */
+    @SerializedName("ui_type")
+    private String uiType;
+    /**
+     * 字段Id
+     * <p> 示例值：fldDOzItFG
+     */
+    @SerializedName("field_id")
+    private String fieldId;
     /**
      * 字段属性
      * <p> 示例值：
@@ -53,11 +59,6 @@ public class AppTableCreateHeader {
 
     public AppTableCreateHeader(Builder builder) {
         /**
-         * 字段Id
-         * <p> 示例值：fldDOzItFG
-         */
-        this.fieldId = builder.fieldId;
-        /**
          * 字段名
          * <p> 示例值：文本
          */
@@ -67,6 +68,16 @@ public class AppTableCreateHeader {
          * <p> 示例值：1
          */
         this.type = builder.type;
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         */
+        this.uiType = builder.uiType;
+        /**
+         * 字段Id
+         * <p> 示例值：fldDOzItFG
+         */
+        this.fieldId = builder.fieldId;
         /**
          * 字段属性
          * <p> 示例值：
@@ -83,14 +94,6 @@ public class AppTableCreateHeader {
         return new Builder();
     }
 
-    public String getFieldId() {
-        return this.fieldId;
-    }
-
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
-    }
-
     public String getFieldName() {
         return this.fieldName;
     }
@@ -105,6 +108,22 @@ public class AppTableCreateHeader {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public String getUiType() {
+        return this.uiType;
+    }
+
+    public void setUiType(String uiType) {
+        this.uiType = uiType;
+    }
+
+    public String getFieldId() {
+        return this.fieldId;
+    }
+
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
     }
 
     public AppTableFieldProperty getProperty() {
@@ -125,11 +144,6 @@ public class AppTableCreateHeader {
 
     public static class Builder {
         /**
-         * 字段Id
-         * <p> 示例值：fldDOzItFG
-         */
-        private String fieldId;
-        /**
          * 字段名
          * <p> 示例值：文本
          */
@@ -140,6 +154,16 @@ public class AppTableCreateHeader {
          */
         private Integer type;
         /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         */
+        private String uiType;
+        /**
+         * 字段Id
+         * <p> 示例值：fldDOzItFG
+         */
+        private String fieldId;
+        /**
          * 字段属性
          * <p> 示例值：
          */
@@ -149,19 +173,6 @@ public class AppTableCreateHeader {
          * <p> 示例值：
          */
         private AppTableFieldDescription description;
-
-        /**
-         * 字段Id
-         * <p> 示例值：fldDOzItFG
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
 
         /**
          * 字段名
@@ -197,6 +208,44 @@ public class AppTableCreateHeader {
          */
         public Builder type(com.lark.oapi.service.bitable.v1.enums.AppTableCreateHeaderTypeEnum type) {
             this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         *
+         * @param uiType
+         * @return
+         */
+        public Builder uiType(String uiType) {
+            this.uiType = uiType;
+            return this;
+        }
+
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         *
+         * @param uiType {@link com.lark.oapi.service.bitable.v1.enums.AppTableCreateHeaderUiTypeEnum}
+         * @return
+         */
+        public Builder uiType(com.lark.oapi.service.bitable.v1.enums.AppTableCreateHeaderUiTypeEnum uiType) {
+            this.uiType = uiType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 字段Id
+         * <p> 示例值：fldDOzItFG
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
             return this;
         }
 

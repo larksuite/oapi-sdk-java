@@ -52,6 +52,13 @@ public class LeaveBalancesLeaveReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 查询时区
+     * <p> 示例值：Asia/Shanghai
+     */
+    @Query
+    @SerializedName("time_zone")
+    private String timeZone;
 
     // builder 开始
     public LeaveBalancesLeaveReq() {
@@ -83,6 +90,11 @@ public class LeaveBalancesLeaveReq {
          * <p> 示例值：people_corehr_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 查询时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timeZone = builder.timeZone;
     }
 
     public static Builder newBuilder() {
@@ -129,12 +141,21 @@ public class LeaveBalancesLeaveReq {
         this.userIdType = userIdType;
     }
 
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大20
         private String asOfDate; // 查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）
         private String[] employmentIdList; // 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
         private String userIdType; // 用户 ID 类型
+        private String timeZone; // 查询时区
 
 
         /**
@@ -210,6 +231,19 @@ public class LeaveBalancesLeaveReq {
          */
         public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveBalancesLeaveUserIdTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 查询时区
+         * <p> 示例值：Asia/Shanghai
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
 

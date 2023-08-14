@@ -18,7 +18,7 @@ public class UpdateAppTableFieldSample {
                 .fieldId("fldPTb0U2y")
                 .appTableField(AppTableField.newBuilder()
                         .fieldName("字段名称")
-                        .type(1)
+                        .type(0)
                         .property(AppTableFieldProperty.newBuilder().build())
                         .description(AppTableFieldDescription.newBuilder().build())
                         .uiType("Progress")

@@ -18,31 +18,31 @@ import com.google.gson.annotations.SerializedName;
 public class File {
     /**
      * 文件标识
-     * <p> 示例值：
+     * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
      */
     @SerializedName("token")
     private String token;
     /**
      * 文件名
-     * <p> 示例值：
+     * <p> 示例值：测试
      */
     @SerializedName("name")
     private String name;
     /**
      * 文件类型
-     * <p> 示例值：
+     * <p> 示例值：doc
      */
     @SerializedName("type")
     private String type;
     /**
      * 父文件夹标识
-     * <p> 示例值：
+     * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
      */
     @SerializedName("parent_token")
     private String parentToken;
     /**
      * 在浏览器中查看的链接
-     * <p> 示例值：
+     * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
      */
     @SerializedName("url")
     private String url;
@@ -52,6 +52,24 @@ public class File {
      */
     @SerializedName("shortcut_info")
     private ShortcutInfo shortcutInfo;
+    /**
+     * 文件创建时间
+     * <p> 示例值：1686125119
+     */
+    @SerializedName("created_time")
+    private String createdTime;
+    /**
+     * 文件最近修改时间
+     * <p> 示例值：1686125119
+     */
+    @SerializedName("modified_time")
+    private String modifiedTime;
+    /**
+     * 文件所有者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
+    @SerializedName("owner_id")
+    private String ownerId;
 
     // builder 开始
     public File() {
@@ -60,27 +78,27 @@ public class File {
     public File(Builder builder) {
         /**
          * 文件标识
-         * <p> 示例值：
+         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
          */
         this.token = builder.token;
         /**
          * 文件名
-         * <p> 示例值：
+         * <p> 示例值：测试
          */
         this.name = builder.name;
         /**
          * 文件类型
-         * <p> 示例值：
+         * <p> 示例值：doc
          */
         this.type = builder.type;
         /**
          * 父文件夹标识
-         * <p> 示例值：
+         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
          */
         this.parentToken = builder.parentToken;
         /**
          * 在浏览器中查看的链接
-         * <p> 示例值：
+         * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
          */
         this.url = builder.url;
         /**
@@ -88,6 +106,21 @@ public class File {
          * <p> 示例值：
          */
         this.shortcutInfo = builder.shortcutInfo;
+        /**
+         * 文件创建时间
+         * <p> 示例值：1686125119
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 文件最近修改时间
+         * <p> 示例值：1686125119
+         */
+        this.modifiedTime = builder.modifiedTime;
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         */
+        this.ownerId = builder.ownerId;
     }
 
     public static Builder newBuilder() {
@@ -142,30 +175,54 @@ public class File {
         this.shortcutInfo = shortcutInfo;
     }
 
+    public String getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getModifiedTime() {
+        return this.modifiedTime;
+    }
+
+    public void setModifiedTime(String modifiedTime) {
+        this.modifiedTime = modifiedTime;
+    }
+
+    public String getOwnerId() {
+        return this.ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
     public static class Builder {
         /**
          * 文件标识
-         * <p> 示例值：
+         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
          */
         private String token;
         /**
          * 文件名
-         * <p> 示例值：
+         * <p> 示例值：测试
          */
         private String name;
         /**
          * 文件类型
-         * <p> 示例值：
+         * <p> 示例值：doc
          */
         private String type;
         /**
          * 父文件夹标识
-         * <p> 示例值：
+         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
          */
         private String parentToken;
         /**
          * 在浏览器中查看的链接
-         * <p> 示例值：
+         * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
          */
         private String url;
         /**
@@ -173,10 +230,25 @@ public class File {
          * <p> 示例值：
          */
         private ShortcutInfo shortcutInfo;
+        /**
+         * 文件创建时间
+         * <p> 示例值：1686125119
+         */
+        private String createdTime;
+        /**
+         * 文件最近修改时间
+         * <p> 示例值：1686125119
+         */
+        private String modifiedTime;
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         */
+        private String ownerId;
 
         /**
          * 文件标识
-         * <p> 示例值：
+         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
          *
          * @param token
          * @return
@@ -189,7 +261,7 @@ public class File {
 
         /**
          * 文件名
-         * <p> 示例值：
+         * <p> 示例值：测试
          *
          * @param name
          * @return
@@ -202,7 +274,7 @@ public class File {
 
         /**
          * 文件类型
-         * <p> 示例值：
+         * <p> 示例值：doc
          *
          * @param type
          * @return
@@ -215,7 +287,7 @@ public class File {
 
         /**
          * 父文件夹标识
-         * <p> 示例值：
+         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
          *
          * @param parentToken
          * @return
@@ -228,7 +300,7 @@ public class File {
 
         /**
          * 在浏览器中查看的链接
-         * <p> 示例值：
+         * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
          *
          * @param url
          * @return
@@ -248,6 +320,45 @@ public class File {
          */
         public Builder shortcutInfo(ShortcutInfo shortcutInfo) {
             this.shortcutInfo = shortcutInfo;
+            return this;
+        }
+
+
+        /**
+         * 文件创建时间
+         * <p> 示例值：1686125119
+         *
+         * @param createdTime
+         * @return
+         */
+        public Builder createdTime(String createdTime) {
+            this.createdTime = createdTime;
+            return this;
+        }
+
+
+        /**
+         * 文件最近修改时间
+         * <p> 示例值：1686125119
+         *
+         * @param modifiedTime
+         * @return
+         */
+        public Builder modifiedTime(String modifiedTime) {
+            this.modifiedTime = modifiedTime;
+            return this;
+        }
+
+
+        /**
+         * 文件所有者
+         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+         *
+         * @param ownerId
+         * @return
+         */
+        public Builder ownerId(String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
 

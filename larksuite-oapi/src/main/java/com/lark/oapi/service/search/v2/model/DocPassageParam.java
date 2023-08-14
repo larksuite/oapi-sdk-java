@@ -28,6 +28,12 @@ public class DocPassageParam {
      */
     @SerializedName("doc_tokens")
     private String[] docTokens;
+    /**
+     * 搜索特定的文件夹
+     * <p> 示例值：
+     */
+    @SerializedName("folder_tokens")
+    private String[] folderTokens;
 
     // builder 开始
     public DocPassageParam() {
@@ -44,6 +50,11 @@ public class DocPassageParam {
          * <p> 示例值：
          */
         this.docTokens = builder.docTokens;
+        /**
+         * 搜索特定的文件夹
+         * <p> 示例值：
+         */
+        this.folderTokens = builder.folderTokens;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class DocPassageParam {
         this.docTokens = docTokens;
     }
 
+    public String[] getFolderTokens() {
+        return this.folderTokens;
+    }
+
+    public void setFolderTokens(String[] folderTokens) {
+        this.folderTokens = folderTokens;
+    }
+
     public static class Builder {
         /**
          * 是否要搜索doc
@@ -77,6 +96,11 @@ public class DocPassageParam {
          * <p> 示例值：
          */
         private String[] docTokens;
+        /**
+         * 搜索特定的文件夹
+         * <p> 示例值：
+         */
+        private String[] folderTokens;
 
         /**
          * 是否要搜索doc
@@ -100,6 +124,19 @@ public class DocPassageParam {
          */
         public Builder docTokens(String[] docTokens) {
             this.docTokens = docTokens;
+            return this;
+        }
+
+
+        /**
+         * 搜索特定的文件夹
+         * <p> 示例值：
+         *
+         * @param folderTokens
+         * @return
+         */
+        public Builder folderTokens(String[] folderTokens) {
+            this.folderTokens = folderTokens;
             return this;
         }
 

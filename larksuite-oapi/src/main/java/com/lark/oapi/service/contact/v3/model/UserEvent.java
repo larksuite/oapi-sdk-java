@@ -166,6 +166,12 @@ public class UserEvent {
      */
     @SerializedName("job_family_id")
     private String jobFamilyId;
+    /**
+     * 虚线上级ID
+     * <p> 示例值：
+     */
+    @SerializedName("dotted_line_leader_user_ids")
+    private String[] dottedLineLeaderUserIds;
 
     // builder 开始
     public UserEvent() {
@@ -297,6 +303,11 @@ public class UserEvent {
          * <p> 示例值：mga5oa8ayjlp9rb
          */
         this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 虚线上级ID
+         * <p> 示例值：
+         */
+        this.dottedLineLeaderUserIds = builder.dottedLineLeaderUserIds;
     }
 
     public static Builder newBuilder() {
@@ -503,6 +514,14 @@ public class UserEvent {
         this.jobFamilyId = jobFamilyId;
     }
 
+    public String[] getDottedLineLeaderUserIds() {
+        return this.dottedLineLeaderUserIds;
+    }
+
+    public void setDottedLineLeaderUserIds(String[] dottedLineLeaderUserIds) {
+        this.dottedLineLeaderUserIds = dottedLineLeaderUserIds;
+    }
+
     public static class Builder {
         /**
          * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -629,6 +648,11 @@ public class UserEvent {
          * <p> 示例值：mga5oa8ayjlp9rb
          */
         private String jobFamilyId;
+        /**
+         * 虚线上级ID
+         * <p> 示例值：
+         */
+        private String[] dottedLineLeaderUserIds;
 
         /**
          * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -975,6 +999,19 @@ public class UserEvent {
          */
         public Builder jobFamilyId(String jobFamilyId) {
             this.jobFamilyId = jobFamilyId;
+            return this;
+        }
+
+
+        /**
+         * 虚线上级ID
+         * <p> 示例值：
+         *
+         * @param dottedLineLeaderUserIds
+         * @return
+         */
+        public Builder dottedLineLeaderUserIds(String[] dottedLineLeaderUserIds) {
+            this.dottedLineLeaderUserIds = dottedLineLeaderUserIds;
             return this;
         }
 

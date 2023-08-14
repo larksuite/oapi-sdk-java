@@ -17,10 +17,7 @@ package com.lark.oapi.service.drive.v1.enums;
  * 源文档类型
  */
 public enum VersionParentTypeEnum {
-    DOC("doc"), // doc文档
-    OBJTYPESHEET("sheet"), // sheet文档
-    OBJTYPEBITABLE("bitable"), // bitable文档
-    OBJTYPEDOCX("docx"), // docx文档
+    OBJTYPEDOCX("docx"), // 新版文档
     ;
     private String value;
 

@@ -214,6 +214,12 @@ public class User {
      */
     @SerializedName("department_path")
     private DepartmentDetail[] departmentPath;
+    /**
+     * 虚线上级ID
+     * <p> 示例值：
+     */
+    @SerializedName("dotted_line_leader_user_ids")
+    private String[] dottedLineLeaderUserIds;
 
     // builder 开始
     public User() {
@@ -385,6 +391,11 @@ public class User {
          * <p> 示例值：
          */
         this.departmentPath = builder.departmentPath;
+        /**
+         * 虚线上级ID
+         * <p> 示例值：
+         */
+        this.dottedLineLeaderUserIds = builder.dottedLineLeaderUserIds;
     }
 
     public static Builder newBuilder() {
@@ -655,6 +666,14 @@ public class User {
         this.departmentPath = departmentPath;
     }
 
+    public String[] getDottedLineLeaderUserIds() {
+        return this.dottedLineLeaderUserIds;
+    }
+
+    public void setDottedLineLeaderUserIds(String[] dottedLineLeaderUserIds) {
+        this.dottedLineLeaderUserIds = dottedLineLeaderUserIds;
+    }
+
     public static class Builder {
         /**
          * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -821,6 +840,11 @@ public class User {
          * <p> 示例值：
          */
         private DepartmentDetail[] departmentPath;
+        /**
+         * 虚线上级ID
+         * <p> 示例值：
+         */
+        private String[] dottedLineLeaderUserIds;
 
         /**
          * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
@@ -1259,6 +1283,19 @@ public class User {
          */
         public Builder departmentPath(DepartmentDetail[] departmentPath) {
             this.departmentPath = departmentPath;
+            return this;
+        }
+
+
+        /**
+         * 虚线上级ID
+         * <p> 示例值：
+         *
+         * @param dottedLineLeaderUserIds
+         * @return
+         */
+        public Builder dottedLineLeaderUserIds(String[] dottedLineLeaderUserIds) {
+            this.dottedLineLeaderUserIds = dottedLineLeaderUserIds;
             return this;
         }
 

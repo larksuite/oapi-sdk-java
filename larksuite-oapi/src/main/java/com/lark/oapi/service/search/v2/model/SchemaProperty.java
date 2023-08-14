@@ -64,6 +64,18 @@ public class SchemaProperty {
      */
     @SerializedName("search_options")
     private SchemaSearchOptions searchOptions;
+    /**
+     * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+     * <p> 示例值：false
+     */
+    @SerializedName("is_filterable")
+    private Boolean isFilterable;
+    /**
+     * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+     * <p> 示例值：
+     */
+    @SerializedName("filter_options")
+    private SchemaFilterOptions filterOptions;
 
     // builder 开始
     public SchemaProperty() {
@@ -110,6 +122,16 @@ public class SchemaProperty {
          * <p> 示例值：
          */
         this.searchOptions = builder.searchOptions;
+        /**
+         * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+         * <p> 示例值：false
+         */
+        this.isFilterable = builder.isFilterable;
+        /**
+         * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+         * <p> 示例值：
+         */
+        this.filterOptions = builder.filterOptions;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +202,22 @@ public class SchemaProperty {
         this.searchOptions = searchOptions;
     }
 
+    public Boolean getIsFilterable() {
+        return this.isFilterable;
+    }
+
+    public void setIsFilterable(Boolean isFilterable) {
+        this.isFilterable = isFilterable;
+    }
+
+    public SchemaFilterOptions getFilterOptions() {
+        return this.filterOptions;
+    }
+
+    public void setFilterOptions(SchemaFilterOptions filterOptions) {
+        this.filterOptions = filterOptions;
+    }
+
     public static class Builder {
         /**
          * 属性名
@@ -221,6 +259,16 @@ public class SchemaProperty {
          * <p> 示例值：
          */
         private SchemaSearchOptions searchOptions;
+        /**
+         * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+         * <p> 示例值：false
+         */
+        private Boolean isFilterable;
+        /**
+         * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+         * <p> 示例值：
+         */
+        private SchemaFilterOptions filterOptions;
 
         /**
          * 属性名
@@ -334,6 +382,32 @@ public class SchemaProperty {
          */
         public Builder searchOptions(SchemaSearchOptions searchOptions) {
             this.searchOptions = searchOptions;
+            return this;
+        }
+
+
+        /**
+         * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+         * <p> 示例值：false
+         *
+         * @param isFilterable
+         * @return
+         */
+        public Builder isFilterable(Boolean isFilterable) {
+            this.isFilterable = isFilterable;
+            return this;
+        }
+
+
+        /**
+         * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+         * <p> 示例值：
+         *
+         * @param filterOptions
+         * @return
+         */
+        public Builder filterOptions(SchemaFilterOptions filterOptions) {
+            this.filterOptions = filterOptions;
             return this;
         }
 

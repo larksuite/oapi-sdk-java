@@ -17,26 +17,26 @@ package com.lark.oapi.service.bitable.v1.enums;
  * 字段类型
  */
 public enum CreateAppTableFieldTypeEnum {
-    TEXT(1), // 多行文本
-    NUMBER(2), // 数字
+    TEXT(1), // 多行文本（默认值）、条码
+    NUMBER(2), // 数字（默认值）、进度、货币、评分
     SINGLESELECT(3), // 单选
     MULTISELECT(4), // 多选
     DATETIME(5), // 日期
     CHECKBOX(7), // 复选框
     USER(11), // 人员
+    PHONENUMBER(13), // 电话号码
     URL(15), // 超链接
     ATTACHMENT(17), // 附件
     LINK(18), // 单向关联
     FORMULA(20), // 公式
     DUPLEXLINK(21), // 双向关联
+    LOCATION(22), // 地理位置
+    GROUPCHAT(23), // 群组
     CREATEDTIME(1001), // 创建时间
     MODIFIEDTIME(1002), // 最后更新时间
     CREATEDUSER(1003), // 创建人
     MODIFIEDUSER(1004), // 修改人
     AUTOSERIAL(1005), // 自动编号
-    PHONENUMBER(13), // 电话号码
-    LOCATION(22), // 地理位置
-    GROUPCHAT(23), // 群组
     ;
     private Integer value;
 

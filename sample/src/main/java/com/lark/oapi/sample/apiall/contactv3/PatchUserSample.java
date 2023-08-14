@@ -41,6 +41,7 @@ public class PatchUserSample {
                         .jobLevelId("mga5oa8ayjlp9rb")
                         .jobFamilyId("mga5oa8ayjlp9rb")
                         .subscriptionIds(new String[]{})
+                        .dottedLineLeaderUserIds(new String[]{})
                         .build())
                 .build();
 

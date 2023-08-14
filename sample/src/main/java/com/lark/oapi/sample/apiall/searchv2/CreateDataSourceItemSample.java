@@ -15,7 +15,7 @@ public class CreateDataSourceItemSample {
         CreateDataSourceItemReq req = CreateDataSourceItemReq.newBuilder()
                 .dataSourceId("service_ticket")
                 .item(Item.newBuilder()
-                        .id("")
+                        .id("my_item_01010111")
                         .acl(new Acl[]{})
                         .metadata(ItemMetadata.newBuilder().build())
                         .structuredData("")

@@ -38,6 +38,27 @@ public class ListFileReq {
     @Query
     @SerializedName("folder_token")
     private String folderToken;
+    /**
+     * 排序规则
+     * <p> 示例值：EditedTime
+     */
+    @Query
+    @SerializedName("order_by")
+    private String orderBy;
+    /**
+     * 升序降序
+     * <p> 示例值：DESC
+     */
+    @Query
+    @SerializedName("direction")
+    private String direction;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
 
     // builder 开始
     public ListFileReq() {
@@ -59,6 +80,21 @@ public class ListFileReq {
          * <p> 示例值：fldbcO1UuPz8VwnpPx5a9abcef
          */
         this.folderToken = builder.folderToken;
+        /**
+         * 排序规则
+         * <p> 示例值：EditedTime
+         */
+        this.orderBy = builder.orderBy;
+        /**
+         * 升序降序
+         * <p> 示例值：DESC
+         */
+        this.direction = builder.direction;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
     }
 
     public static Builder newBuilder() {
@@ -89,10 +125,37 @@ public class ListFileReq {
         this.folderToken = folderToken;
     }
 
+    public String getOrderBy() {
+        return this.orderBy;
+    }
+
+    public void setOrderBy(String orderBy) {
+        this.orderBy = orderBy;
+    }
+
+    public String getDirection() {
+        return this.direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String folderToken; // 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
+        private String orderBy; // 排序规则
+        private String direction; // 升序降序
+        private String userIdType; // 此次调用中使用的用户ID的类型
 
 
         /**
@@ -130,6 +193,81 @@ public class ListFileReq {
          */
         public Builder folderToken(String folderToken) {
             this.folderToken = folderToken;
+            return this;
+        }
+
+
+        /**
+         * 排序规则
+         * <p> 示例值：EditedTime
+         *
+         * @param orderBy
+         * @return
+         */
+        public Builder orderBy(String orderBy) {
+            this.orderBy = orderBy;
+            return this;
+        }
+
+        /**
+         * 排序规则
+         * <p> 示例值：EditedTime
+         *
+         * @param orderBy {@link com.lark.oapi.service.drive.v1.enums.ListFileOrderByEnum}
+         * @return
+         */
+        public Builder orderBy(com.lark.oapi.service.drive.v1.enums.ListFileOrderByEnum orderBy) {
+            this.orderBy = orderBy.getValue();
+            return this;
+        }
+
+
+        /**
+         * 升序降序
+         * <p> 示例值：DESC
+         *
+         * @param direction
+         * @return
+         */
+        public Builder direction(String direction) {
+            this.direction = direction;
+            return this;
+        }
+
+        /**
+         * 升序降序
+         * <p> 示例值：DESC
+         *
+         * @param direction {@link com.lark.oapi.service.drive.v1.enums.ListFileDirectionEnum}
+         * @return
+         */
+        public Builder direction(com.lark.oapi.service.drive.v1.enums.ListFileDirectionEnum direction) {
+            this.direction = direction.getValue();
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
             return this;
         }
 

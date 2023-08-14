@@ -8,6 +8,7 @@ import com.lark.oapi.service.corehr.v1.model.CreateContractResp;
 import com.lark.oapi.service.corehr.v1.model.ObjectFieldData;
 import com.lark.oapi.service.corehr.v1.model.Enum;
 
+
 // POST /open-apis/corehr/v1/contracts
 public class CreateContractSample {
 

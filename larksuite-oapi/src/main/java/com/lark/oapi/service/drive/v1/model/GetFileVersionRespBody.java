@@ -29,8 +29,8 @@ public class GetFileVersionRespBody {
     @SerializedName("version")
     private String version;
     /**
-     * shtbcpM2mm3znrLfWnf4browTYp
-     * <p> 示例值：
+     * 源文档token
+     * <p> 示例值：doxcnMycg4ryxQofSeoKkJuXYOb
      */
     @SerializedName("parent_token")
     private String parentToken;
@@ -66,13 +66,13 @@ public class GetFileVersionRespBody {
     private String status;
     /**
      * 版本文档类型
-     * <p> 示例值：doc/docx/sheet/bitable
+     * <p> 示例值：docx
      */
     @SerializedName("obj_type")
     private String objType;
     /**
      * 源文档类型
-     * <p> 示例值：doc/docx/sheet/bitable
+     * <p> 示例值：docx
      */
     @SerializedName("parent_type")
     private String parentType;

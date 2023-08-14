@@ -17,12 +17,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTableField {
     /**
-     * 多维表格字段 id
-     * <p> 示例值：fldWJyCkFQ
-     */
-    @SerializedName("field_id")
-    private String fieldId;
-    /**
      * 多维表格字段名
      * <p> 示例值：多行文本
      */
@@ -53,6 +47,12 @@ public class AppTableField {
     @SerializedName("is_primary")
     private Boolean isPrimary;
     /**
+     * 多维表格字段 id
+     * <p> 示例值：fldWJyCkFQ
+     */
+    @SerializedName("field_id")
+    private String fieldId;
+    /**
      * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
      * <p> 示例值：Progress
      */
@@ -70,11 +70,6 @@ public class AppTableField {
     }
 
     public AppTableField(Builder builder) {
-        /**
-         * 多维表格字段 id
-         * <p> 示例值：fldWJyCkFQ
-         */
-        this.fieldId = builder.fieldId;
         /**
          * 多维表格字段名
          * <p> 示例值：多行文本
@@ -101,6 +96,11 @@ public class AppTableField {
          */
         this.isPrimary = builder.isPrimary;
         /**
+         * 多维表格字段 id
+         * <p> 示例值：fldWJyCkFQ
+         */
+        this.fieldId = builder.fieldId;
+        /**
          * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
          * <p> 示例值：Progress
          */
@@ -114,14 +114,6 @@ public class AppTableField {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String getFieldId() {
-        return this.fieldId;
-    }
-
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
     }
 
     public String getFieldName() {
@@ -164,6 +156,14 @@ public class AppTableField {
         this.isPrimary = isPrimary;
     }
 
+    public String getFieldId() {
+        return this.fieldId;
+    }
+
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
+    }
+
     public String getUiType() {
         return this.uiType;
     }
@@ -181,11 +181,6 @@ public class AppTableField {
     }
 
     public static class Builder {
-        /**
-         * 多维表格字段 id
-         * <p> 示例值：fldWJyCkFQ
-         */
-        private String fieldId;
         /**
          * 多维表格字段名
          * <p> 示例值：多行文本
@@ -212,6 +207,11 @@ public class AppTableField {
          */
         private Boolean isPrimary;
         /**
+         * 多维表格字段 id
+         * <p> 示例值：fldWJyCkFQ
+         */
+        private String fieldId;
+        /**
          * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
          * <p> 示例值：Progress
          */
@@ -221,19 +221,6 @@ public class AppTableField {
          * <p> 示例值：false
          */
         private Boolean isHidden;
-
-        /**
-         * 多维表格字段 id
-         * <p> 示例值：fldWJyCkFQ
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
 
         /**
          * 多维表格字段名
@@ -313,6 +300,19 @@ public class AppTableField {
 
 
         /**
+         * 多维表格字段 id
+         * <p> 示例值：fldWJyCkFQ
+         *
+         * @param fieldId
+         * @return
+         */
+        public Builder fieldId(String fieldId) {
+            this.fieldId = fieldId;
+            return this;
+        }
+
+
+        /**
          * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
          * <p> 示例值：Progress
          *
@@ -321,6 +321,18 @@ public class AppTableField {
          */
         public Builder uiType(String uiType) {
             this.uiType = uiType;
+            return this;
+        }
+
+        /**
+         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+         * <p> 示例值：Progress
+         *
+         * @param uiType {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldUiTypeEnum}
+         * @return
+         */
+        public Builder uiType(com.lark.oapi.service.bitable.v1.enums.AppTableFieldUiTypeEnum uiType) {
+            this.uiType = uiType.getValue();
             return this;
         }
 

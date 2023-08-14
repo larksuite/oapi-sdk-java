@@ -33,7 +33,7 @@ public class P2BotMenuV6Data {
      * <p> 示例值：1669364458
      */
     @SerializedName("timestamp")
-    private String timestamp;
+    private Long timestamp;
 
     public Operator getOperator() {
         return this.operator;
@@ -51,11 +51,11 @@ public class P2BotMenuV6Data {
         this.eventKey = eventKey;
     }
 
-    public String getTimestamp() {
+    public Long getTimestamp() {
         return this.timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 

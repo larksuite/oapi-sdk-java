@@ -106,6 +106,48 @@ public class LeaveRequest {
      */
     @SerializedName("notes")
     private String notes;
+    /**
+     * 审批通过日期
+     * <p> 示例值：2022-09-09
+     */
+    @SerializedName("approval_date")
+    private String approvalDate;
+    /**
+     * 是否带薪
+     * <p> 示例值：false
+     */
+    @SerializedName("is_deducted")
+    private Boolean isDeducted;
+    /**
+     * 请假详情
+     * <p> 示例值：
+     */
+    @SerializedName("details")
+    private LeaveRequestDetail[] details;
+    /**
+     * 假期类型枚举
+     * <p> 示例值：Annual Leave
+     */
+    @SerializedName("leave_type_code")
+    private String leaveTypeCode;
+    /**
+     * 实际结束日期
+     * <p> 示例值：2022-08-02
+     */
+    @SerializedName("actual_end_date")
+    private String actualEndDate;
+    /**
+     * 预估结束日期
+     * <p> 示例值：2022-08-02
+     */
+    @SerializedName("estimated_end_date")
+    private String estimatedEndDate;
+    /**
+     * 时区
+     * <p> 示例值：Asia/Shanghai
+     */
+    @SerializedName("time_zone")
+    private String timeZone;
 
     // builder 开始
     public LeaveRequest() {
@@ -187,6 +229,41 @@ public class LeaveRequest {
          * <p> 示例值：备注
          */
         this.notes = builder.notes;
+        /**
+         * 审批通过日期
+         * <p> 示例值：2022-09-09
+         */
+        this.approvalDate = builder.approvalDate;
+        /**
+         * 是否带薪
+         * <p> 示例值：false
+         */
+        this.isDeducted = builder.isDeducted;
+        /**
+         * 请假详情
+         * <p> 示例值：
+         */
+        this.details = builder.details;
+        /**
+         * 假期类型枚举
+         * <p> 示例值：Annual Leave
+         */
+        this.leaveTypeCode = builder.leaveTypeCode;
+        /**
+         * 实际结束日期
+         * <p> 示例值：2022-08-02
+         */
+        this.actualEndDate = builder.actualEndDate;
+        /**
+         * 预估结束日期
+         * <p> 示例值：2022-08-02
+         */
+        this.estimatedEndDate = builder.estimatedEndDate;
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        this.timeZone = builder.timeZone;
     }
 
     public static Builder newBuilder() {
@@ -313,6 +390,62 @@ public class LeaveRequest {
         this.notes = notes;
     }
 
+    public String getApprovalDate() {
+        return this.approvalDate;
+    }
+
+    public void setApprovalDate(String approvalDate) {
+        this.approvalDate = approvalDate;
+    }
+
+    public Boolean getIsDeducted() {
+        return this.isDeducted;
+    }
+
+    public void setIsDeducted(Boolean isDeducted) {
+        this.isDeducted = isDeducted;
+    }
+
+    public LeaveRequestDetail[] getDetails() {
+        return this.details;
+    }
+
+    public void setDetails(LeaveRequestDetail[] details) {
+        this.details = details;
+    }
+
+    public String getLeaveTypeCode() {
+        return this.leaveTypeCode;
+    }
+
+    public void setLeaveTypeCode(String leaveTypeCode) {
+        this.leaveTypeCode = leaveTypeCode;
+    }
+
+    public String getActualEndDate() {
+        return this.actualEndDate;
+    }
+
+    public void setActualEndDate(String actualEndDate) {
+        this.actualEndDate = actualEndDate;
+    }
+
+    public String getEstimatedEndDate() {
+        return this.estimatedEndDate;
+    }
+
+    public void setEstimatedEndDate(String estimatedEndDate) {
+        this.estimatedEndDate = estimatedEndDate;
+    }
+
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     public static class Builder {
         /**
          * 请假记录ID
@@ -389,6 +522,41 @@ public class LeaveRequest {
          * <p> 示例值：备注
          */
         private String notes;
+        /**
+         * 审批通过日期
+         * <p> 示例值：2022-09-09
+         */
+        private String approvalDate;
+        /**
+         * 是否带薪
+         * <p> 示例值：false
+         */
+        private Boolean isDeducted;
+        /**
+         * 请假详情
+         * <p> 示例值：
+         */
+        private LeaveRequestDetail[] details;
+        /**
+         * 假期类型枚举
+         * <p> 示例值：Annual Leave
+         */
+        private String leaveTypeCode;
+        /**
+         * 实际结束日期
+         * <p> 示例值：2022-08-02
+         */
+        private String actualEndDate;
+        /**
+         * 预估结束日期
+         * <p> 示例值：2022-08-02
+         */
+        private String estimatedEndDate;
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         */
+        private String timeZone;
 
         /**
          * 请假记录ID
@@ -581,6 +749,97 @@ public class LeaveRequest {
          */
         public Builder notes(String notes) {
             this.notes = notes;
+            return this;
+        }
+
+
+        /**
+         * 审批通过日期
+         * <p> 示例值：2022-09-09
+         *
+         * @param approvalDate
+         * @return
+         */
+        public Builder approvalDate(String approvalDate) {
+            this.approvalDate = approvalDate;
+            return this;
+        }
+
+
+        /**
+         * 是否带薪
+         * <p> 示例值：false
+         *
+         * @param isDeducted
+         * @return
+         */
+        public Builder isDeducted(Boolean isDeducted) {
+            this.isDeducted = isDeducted;
+            return this;
+        }
+
+
+        /**
+         * 请假详情
+         * <p> 示例值：
+         *
+         * @param details
+         * @return
+         */
+        public Builder details(LeaveRequestDetail[] details) {
+            this.details = details;
+            return this;
+        }
+
+
+        /**
+         * 假期类型枚举
+         * <p> 示例值：Annual Leave
+         *
+         * @param leaveTypeCode
+         * @return
+         */
+        public Builder leaveTypeCode(String leaveTypeCode) {
+            this.leaveTypeCode = leaveTypeCode;
+            return this;
+        }
+
+
+        /**
+         * 实际结束日期
+         * <p> 示例值：2022-08-02
+         *
+         * @param actualEndDate
+         * @return
+         */
+        public Builder actualEndDate(String actualEndDate) {
+            this.actualEndDate = actualEndDate;
+            return this;
+        }
+
+
+        /**
+         * 预估结束日期
+         * <p> 示例值：2022-08-02
+         *
+         * @param estimatedEndDate
+         * @return
+         */
+        public Builder estimatedEndDate(String estimatedEndDate) {
+            this.estimatedEndDate = estimatedEndDate;
+            return this;
+        }
+
+
+        /**
+         * 时区
+         * <p> 示例值：Asia/Shanghai
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
 

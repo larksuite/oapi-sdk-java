@@ -16,6 +16,7 @@ public class CreateShortcutFileSample {
 
         // 创建请求对象
         CreateShortcutFileReq req = CreateShortcutFileReq.newBuilder()
+                .userIdType("user_id")
                 .createShortcutFileReqBody(CreateShortcutFileReqBody.newBuilder()
                         .parentToken("fldbc5qgwyQnO0uedNllWuF3fAd")
                         .referEntity(ReferEntity.newBuilder().build())

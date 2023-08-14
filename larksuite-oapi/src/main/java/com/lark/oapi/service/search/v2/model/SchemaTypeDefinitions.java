@@ -22,6 +22,12 @@ public class SchemaTypeDefinitions {
      */
     @SerializedName("tag")
     private SchemaTagOptions[] tag;
+    /**
+     * 用户身份标识
+     * <p> 示例值：
+     */
+    @SerializedName("user_ids")
+    private SchemaUserIdsOption userIds;
 
     // builder 开始
     public SchemaTypeDefinitions() {
@@ -33,6 +39,11 @@ public class SchemaTypeDefinitions {
          * <p> 示例值：
          */
         this.tag = builder.tag;
+        /**
+         * 用户身份标识
+         * <p> 示例值：
+         */
+        this.userIds = builder.userIds;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +58,25 @@ public class SchemaTypeDefinitions {
         this.tag = tag;
     }
 
+    public SchemaUserIdsOption getUserIds() {
+        return this.userIds;
+    }
+
+    public void setUserIds(SchemaUserIdsOption userIds) {
+        this.userIds = userIds;
+    }
+
     public static class Builder {
         /**
          * 标签类型的定义
          * <p> 示例值：
          */
         private SchemaTagOptions[] tag;
+        /**
+         * 用户身份标识
+         * <p> 示例值：
+         */
+        private SchemaUserIdsOption userIds;
 
         /**
          * 标签类型的定义
@@ -63,6 +87,19 @@ public class SchemaTypeDefinitions {
          */
         public Builder tag(SchemaTagOptions[] tag) {
             this.tag = tag;
+            return this;
+        }
+
+
+        /**
+         * 用户身份标识
+         * <p> 示例值：
+         *
+         * @param userIds
+         * @return
+         */
+        public Builder userIds(SchemaUserIdsOption userIds) {
+            this.userIds = userIds;
             return this;
         }
 
