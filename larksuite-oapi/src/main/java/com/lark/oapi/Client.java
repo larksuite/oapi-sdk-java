@@ -84,17 +84,17 @@ public class Client {
     private BitableService bitable; // 云文档-多维表格
     private BlockService block; // 小组件
     private CalendarService calendar; // 日历
-    private ContactService contact; // 通讯录
+    private ContactService contact; // 搜索
     private CorehrService corehr; // CoreHR
     private DocxService docx; // 云文档-文档
-    private DriveService drive; // 云文档-文档
+    private DriveService drive; // 云文档-文件管理
     private EhrService ehr; // 智能人事
     private EventService event; // 事件订阅
     private GrayTestOpenSgService grayTestOpenSg; //
     private HelpdeskService helpdesk; // 服务台
     private HireService hire; // 招聘
     private HumanAuthenticationService humanAuthentication; // 实名认证
-    private ImService im; // 消息与群组
+    private ImService im; // 消息卡片
     private MailService mail; // 邮箱
     private MdmService mdm; // 主数据
     private MeetingRoomService meetingRoom; //
@@ -222,7 +222,7 @@ public class Client {
     }
 
     /**
-     * 通讯录
+     * 搜索
      *
      * @return
      */
@@ -249,7 +249,7 @@ public class Client {
     }
 
     /**
-     * 云文档-文档
+     * 云文档-文件管理
      *
      * @return
      */
@@ -310,7 +310,7 @@ public class Client {
     }
 
     /**
-     * 消息与群组
+     * 消息卡片
      *
      * @return
      */

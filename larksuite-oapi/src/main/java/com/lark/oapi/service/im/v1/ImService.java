@@ -49,7 +49,6 @@ public class ImService {
     private final MessageReaction messageReaction; // 消息 - 表情回复
     private final MessageResource messageResource; // message.resource
     private final Pin pin; // 消息 - Pin
-    private final SpecialFocus specialFocus; // 特别关注（灰度租户可见）
 
     public ImService(Config config) {
         this.batchMessage = new BatchMessage(config);
@@ -70,7 +69,6 @@ public class ImService {
         this.messageReaction = new MessageReaction(config);
         this.messageResource = new MessageResource(config);
         this.pin = new Pin(config);
-        this.specialFocus = new SpecialFocus(config);
     }
 
     /**
@@ -233,15 +231,6 @@ public class ImService {
      */
     public Pin pin() {
         return pin;
-    }
-
-    /**
-     * 特别关注（灰度租户可见）
-     *
-     * @return
-     */
-    public SpecialFocus specialFocus() {
-        return specialFocus;
     }
 
     public static class BatchMessage {
@@ -4320,146 +4309,6 @@ public class ImService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/pins"
-                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                                StandardCharsets.UTF_8)));
-                throw new IllegalArgumentException("The result returned by the server is illegal");
-            }
-
-            resp.setRawResponse(httpResponse);
-            resp.setRequest(req);
-
-            return resp;
-        }
-    }
-
-    public static class SpecialFocus {
-        private final Config config;
-
-        public SpecialFocus(Config config) {
-            this.config = config;
-        }
-
-        /**
-         * 获取特别关注列表，获取用户的特别关注列表。
-         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/list</a> ;
-         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListSpecialFocusSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListSpecialFocusSample.java</a> ;
-         */
-        public ListSpecialFocusResp list(ListSpecialFocusReq req, RequestOptions reqOptions) throws Exception {
-            // 请求参数选项
-            if (reqOptions == null) {
-                reqOptions = new RequestOptions();
-            }
-
-            // 发起请求
-            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                    , "/open-apis/im/v1/special_focus"
-                    , Sets.newHashSet(AccessTokenType.User)
-                    , req);
-
-            // 反序列化
-            ListSpecialFocusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpecialFocusResp.class);
-            if (resp == null) {
-                log.error(String.format(
-                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/special_focus"
-                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                                StandardCharsets.UTF_8)));
-                throw new IllegalArgumentException("The result returned by the server is illegal");
-            }
-
-            resp.setRawResponse(httpResponse);
-            resp.setRequest(req);
-
-            return resp;
-        }
-
-        /**
-         * 获取特别关注列表，获取用户的特别关注列表。
-         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/list</a> ;
-         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListSpecialFocusSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListSpecialFocusSample.java</a> ;
-         */
-        public ListSpecialFocusResp list(ListSpecialFocusReq req) throws Exception {
-            // 请求参数选项
-            RequestOptions reqOptions = new RequestOptions();
-
-            // 发起请求
-            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                    , "/open-apis/im/v1/special_focus"
-                    , Sets.newHashSet(AccessTokenType.User)
-                    , req);
-
-            // 反序列化
-            ListSpecialFocusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpecialFocusResp.class);
-            if (resp == null) {
-                log.error(String.format(
-                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/special_focus"
-                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                                StandardCharsets.UTF_8)));
-                throw new IllegalArgumentException("The result returned by the server is illegal");
-            }
-
-            resp.setRawResponse(httpResponse);
-            resp.setRequest(req);
-
-            return resp;
-        }
-
-        /**
-         * 获取特别关注未读信息，支持按单聊类型和群聊类型获取用户的特别关注未读消息数。
-         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/unread">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/unread</a> ;
-         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UnreadSpecialFocusSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UnreadSpecialFocusSample.java</a> ;
-         */
-        public UnreadSpecialFocusResp unread(UnreadSpecialFocusReq req, RequestOptions reqOptions) throws Exception {
-            // 请求参数选项
-            if (reqOptions == null) {
-                reqOptions = new RequestOptions();
-            }
-
-            // 发起请求
-            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                    , "/open-apis/im/v1/special_focus/unread"
-                    , Sets.newHashSet(AccessTokenType.User)
-                    , req);
-
-            // 反序列化
-            UnreadSpecialFocusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnreadSpecialFocusResp.class);
-            if (resp == null) {
-                log.error(String.format(
-                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/special_focus/unread"
-                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                                StandardCharsets.UTF_8)));
-                throw new IllegalArgumentException("The result returned by the server is illegal");
-            }
-
-            resp.setRawResponse(httpResponse);
-            resp.setRequest(req);
-
-            return resp;
-        }
-
-        /**
-         * 获取特别关注未读信息，支持按单聊类型和群聊类型获取用户的特别关注未读消息数。
-         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/unread">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/special_focus/unread</a> ;
-         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UnreadSpecialFocusSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UnreadSpecialFocusSample.java</a> ;
-         */
-        public UnreadSpecialFocusResp unread(UnreadSpecialFocusReq req) throws Exception {
-            // 请求参数选项
-            RequestOptions reqOptions = new RequestOptions();
-
-            // 发起请求
-            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                    , "/open-apis/im/v1/special_focus/unread"
-                    , Sets.newHashSet(AccessTokenType.User)
-                    , req);
-
-            // 反序列化
-            UnreadSpecialFocusResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnreadSpecialFocusResp.class);
-            if (resp == null) {
-                log.error(String.format(
-                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/special_focus/unread"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

@@ -30,7 +30,7 @@ public class ListAppTableFieldRespBody {
     private String pageToken;
     /**
      * 总数
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @SerializedName("total")
     private Integer total;
@@ -39,7 +39,7 @@ public class ListAppTableFieldRespBody {
      * <p> 示例值：
      */
     @SerializedName("items")
-    private AppTableField[] items;
+    private AppTableFieldForList[] items;
 
     public Boolean getHasMore() {
         return this.hasMore;
@@ -65,11 +65,11 @@ public class ListAppTableFieldRespBody {
         this.total = total;
     }
 
-    public AppTableField[] getItems() {
+    public AppTableFieldForList[] getItems() {
         return this.items;
     }
 
-    public void setItems(AppTableField[] items) {
+    public void setItems(AppTableFieldForList[] items) {
         this.items = items;
     }
 

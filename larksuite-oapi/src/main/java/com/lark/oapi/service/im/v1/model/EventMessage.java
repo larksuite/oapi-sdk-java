@@ -41,6 +41,12 @@ public class EventMessage {
     @SerializedName("create_time")
     private String createTime;
     /**
+     * 消息更新时间（毫秒）
+     * <p> 示例值：1687343654666
+     */
+    @SerializedName("update_time")
+    private String updateTime;
+    /**
      * 消息所在的群组 ID
      * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
      */
@@ -96,6 +102,11 @@ public class EventMessage {
          * <p> 示例值：1609073151345
          */
         this.createTime = builder.createTime;
+        /**
+         * 消息更新时间（毫秒）
+         * <p> 示例值：1687343654666
+         */
+        this.updateTime = builder.updateTime;
         /**
          * 消息所在的群组 ID
          * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
@@ -159,6 +170,14 @@ public class EventMessage {
         this.createTime = createTime;
     }
 
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public String getChatId() {
         return this.chatId;
     }
@@ -220,6 +239,11 @@ public class EventMessage {
          * <p> 示例值：1609073151345
          */
         private String createTime;
+        /**
+         * 消息更新时间（毫秒）
+         * <p> 示例值：1687343654666
+         */
+        private String updateTime;
         /**
          * 消息所在的群组 ID
          * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
@@ -294,6 +318,19 @@ public class EventMessage {
          */
         public Builder createTime(String createTime) {
             this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 消息更新时间（毫秒）
+         * <p> 示例值：1687343654666
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
 
