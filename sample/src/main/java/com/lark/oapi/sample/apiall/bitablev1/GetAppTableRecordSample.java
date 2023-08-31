@@ -20,6 +20,7 @@ public class GetAppTableRecordSample {
                 .textFieldAsArray(true)
                 .userIdType("user_id")
                 .displayFormulaRef(true)
+                .withSharedUrl(false)
                 .automaticFields(true)
                 .build();
 

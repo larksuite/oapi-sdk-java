@@ -17,6 +17,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class RoomDigitalSignage {
     /**
+     * 是否覆盖子层级及会议室
+     * <p> 示例值：true
+     */
+    @SerializedName("if_cover_child_scope")
+    private Boolean ifCoverChildScope;
+    /**
      * 是否开启数字标牌功能
      * <p> 示例值：true
      */
@@ -53,6 +59,11 @@ public class RoomDigitalSignage {
 
     public RoomDigitalSignage(Builder builder) {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        this.ifCoverChildScope = builder.ifCoverChildScope;
+        /**
          * 是否开启数字标牌功能
          * <p> 示例值：true
          */
@@ -81,6 +92,14 @@ public class RoomDigitalSignage {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getIfCoverChildScope() {
+        return this.ifCoverChildScope;
+    }
+
+    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+        this.ifCoverChildScope = ifCoverChildScope;
     }
 
     public Boolean getEnable() {
@@ -125,6 +144,11 @@ public class RoomDigitalSignage {
 
     public static class Builder {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        private Boolean ifCoverChildScope;
+        /**
          * 是否开启数字标牌功能
          * <p> 示例值：true
          */
@@ -149,6 +173,19 @@ public class RoomDigitalSignage {
          * <p> 示例值：
          */
         private RoomDigitalSignageMaterial[] materials;
+
+        /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         *
+         * @param ifCoverChildScope
+         * @return
+         */
+        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+            this.ifCoverChildScope = ifCoverChildScope;
+            return this;
+        }
+
 
         /**
          * 是否开启数字标牌功能

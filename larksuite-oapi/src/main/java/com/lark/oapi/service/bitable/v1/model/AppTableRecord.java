@@ -19,6 +19,12 @@ import java.util.Map;
 
 public class AppTableRecord {
     /**
+     * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+     * <p> 示例值：
+     */
+    @SerializedName("fields")
+    private Map<String, Object> fields;
+    /**
      * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
      * <p> 示例值：recqwIwhc6
      */
@@ -32,10 +38,10 @@ public class AppTableRecord {
     private Person createdBy;
     /**
      * 该记录的创建时间
-     * <p> 示例值：
+     * <p> 示例值：1610281603
      */
     @SerializedName("created_time")
-    private Long createdTime;
+    private Integer createdTime;
     /**
      * 该记录最新一次更新的修改人
      * <p> 示例值：
@@ -44,22 +50,21 @@ public class AppTableRecord {
     private Person lastModifiedBy;
     /**
      * 该记录最近一次的更新时间
-     * <p> 示例值：
+     * <p> 示例值：1610281603
      */
     @SerializedName("last_modified_time")
-    private Long lastModifiedTime;
-    /**
-     * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
-     * <p> 示例值：
-     */
-    @SerializedName("fields")
-    private Map<String, Object> fields;
+    private Integer lastModifiedTime;
 
     // builder 开始
     public AppTableRecord() {
     }
 
     public AppTableRecord(Builder builder) {
+        /**
+         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * <p> 示例值：
+         */
+        this.fields = builder.fields;
         /**
          * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
          * <p> 示例值：recqwIwhc6
@@ -72,7 +77,7 @@ public class AppTableRecord {
         this.createdBy = builder.createdBy;
         /**
          * 该记录的创建时间
-         * <p> 示例值：
+         * <p> 示例值：1610281603
          */
         this.createdTime = builder.createdTime;
         /**
@@ -82,18 +87,21 @@ public class AppTableRecord {
         this.lastModifiedBy = builder.lastModifiedBy;
         /**
          * 该记录最近一次的更新时间
-         * <p> 示例值：
+         * <p> 示例值：1610281603
          */
         this.lastModifiedTime = builder.lastModifiedTime;
-        /**
-         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Map<String, Object> getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Map<String, Object> fields) {
+        this.fields = fields;
     }
 
     public String getRecordId() {
@@ -112,11 +120,11 @@ public class AppTableRecord {
         this.createdBy = createdBy;
     }
 
-    public Long getCreatedTime() {
+    public Integer getCreatedTime() {
         return this.createdTime;
     }
 
-    public void setCreatedTime(Long createdTime) {
+    public void setCreatedTime(Integer createdTime) {
         this.createdTime = createdTime;
     }
 
@@ -128,23 +136,20 @@ public class AppTableRecord {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public Long getLastModifiedTime() {
+    public Integer getLastModifiedTime() {
         return this.lastModifiedTime;
     }
 
-    public void setLastModifiedTime(Long lastModifiedTime) {
+    public void setLastModifiedTime(Integer lastModifiedTime) {
         this.lastModifiedTime = lastModifiedTime;
     }
 
-    public Map<String, Object> getFields() {
-        return this.fields;
-    }
-
-    public void setFields(Map<String, Object> fields) {
-        this.fields = fields;
-    }
-
     public static class Builder {
+        /**
+         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
+         * <p> 示例值：
+         */
+        private Map<String, Object> fields;
         /**
          * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
          * <p> 示例值：recqwIwhc6
@@ -157,9 +162,9 @@ public class AppTableRecord {
         private Person createdBy;
         /**
          * 该记录的创建时间
-         * <p> 示例值：
+         * <p> 示例值：1610281603
          */
-        private Long createdTime;
+        private Integer createdTime;
         /**
          * 该记录最新一次更新的修改人
          * <p> 示例值：
@@ -167,14 +172,22 @@ public class AppTableRecord {
         private Person lastModifiedBy;
         /**
          * 该记录最近一次的更新时间
-         * <p> 示例值：
+         * <p> 示例值：1610281603
          */
-        private Long lastModifiedTime;
+        private Integer lastModifiedTime;
+
         /**
          * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
          * <p> 示例值：
+         *
+         * @param fields
+         * @return
          */
-        private Map<String, Object> fields;
+        public Builder fields(Map<String, Object> fields) {
+            this.fields = fields;
+            return this;
+        }
+
 
         /**
          * 一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)
@@ -204,12 +217,12 @@ public class AppTableRecord {
 
         /**
          * 该记录的创建时间
-         * <p> 示例值：
+         * <p> 示例值：1610281603
          *
          * @param createdTime
          * @return
          */
-        public Builder createdTime(Long createdTime) {
+        public Builder createdTime(Integer createdTime) {
             this.createdTime = createdTime;
             return this;
         }
@@ -230,26 +243,13 @@ public class AppTableRecord {
 
         /**
          * 该记录最近一次的更新时间
-         * <p> 示例值：
+         * <p> 示例值：1610281603
          *
          * @param lastModifiedTime
          * @return
          */
-        public Builder lastModifiedTime(Long lastModifiedTime) {
+        public Builder lastModifiedTime(Integer lastModifiedTime) {
             this.lastModifiedTime = lastModifiedTime;
-            return this;
-        }
-
-
-        /**
-         * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(Map<String, Object> fields) {
-            this.fields = fields;
             return this;
         }
 

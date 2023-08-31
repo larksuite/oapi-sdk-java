@@ -59,6 +59,18 @@ public class CreateChatRespBody {
     @SerializedName("owner_id_type")
     private String ownerIdType;
     /**
+     * 谁可以加急
+     * <p> 示例值：all_members
+     */
+    @SerializedName("urgent_setting")
+    private String urgentSetting;
+    /**
+     * 谁可以发起视频会议
+     * <p> 示例值：all_members
+     */
+    @SerializedName("video_conference_setting")
+    private String videoConferenceSetting;
+    /**
      * 拉 用户或机器人 入群权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
      * <p> 示例值：all members
      */
@@ -197,6 +209,22 @@ public class CreateChatRespBody {
 
     public void setOwnerIdType(String ownerIdType) {
         this.ownerIdType = ownerIdType;
+    }
+
+    public String getUrgentSetting() {
+        return this.urgentSetting;
+    }
+
+    public void setUrgentSetting(String urgentSetting) {
+        this.urgentSetting = urgentSetting;
+    }
+
+    public String getVideoConferenceSetting() {
+        return this.videoConferenceSetting;
+    }
+
+    public void setVideoConferenceSetting(String videoConferenceSetting) {
+        this.videoConferenceSetting = videoConferenceSetting;
     }
 
     public String getAddMemberPermission() {

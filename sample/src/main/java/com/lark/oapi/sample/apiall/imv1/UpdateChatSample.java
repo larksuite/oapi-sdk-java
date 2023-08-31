@@ -30,6 +30,8 @@ public class UpdateChatSample {
                         .membershipApproval("no_approval_required")
                         .restrictedModeSetting(RestrictedModeSetting.newBuilder().build())
                         .chatType("private")
+                        .urgentSetting("all_members")
+                        .videoConferenceSetting("all_members")
                         .build())
                 .build();
 

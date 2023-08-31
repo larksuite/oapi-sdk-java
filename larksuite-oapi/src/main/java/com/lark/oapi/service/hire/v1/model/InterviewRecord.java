@@ -35,18 +35,6 @@ public class InterviewRecord {
     @SerializedName("content")
     private String content;
     /**
-     * 建议定级下限的职级 ID
-     * <p> 示例值：6435238827342432
-     */
-    @SerializedName("min_job_level_id")
-    private String minJobLevelId;
-    /**
-     * 建议定级上限的职级 ID
-     * <p> 示例值：643523885843573
-     */
-    @SerializedName("max_job_level_id")
-    private String maxJobLevelId;
-    /**
      * 提交状态
      * <p> 示例值：1
      */
@@ -103,16 +91,6 @@ public class InterviewRecord {
          * <p> 示例值：代码还行，只是不够聪明
          */
         this.content = builder.content;
-        /**
-         * 建议定级下限的职级 ID
-         * <p> 示例值：6435238827342432
-         */
-        this.minJobLevelId = builder.minJobLevelId;
-        /**
-         * 建议定级上限的职级 ID
-         * <p> 示例值：643523885843573
-         */
-        this.maxJobLevelId = builder.maxJobLevelId;
         /**
          * 提交状态
          * <p> 示例值：1
@@ -171,22 +149,6 @@ public class InterviewRecord {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getMinJobLevelId() {
-        return this.minJobLevelId;
-    }
-
-    public void setMinJobLevelId(String minJobLevelId) {
-        this.minJobLevelId = minJobLevelId;
-    }
-
-    public String getMaxJobLevelId() {
-        return this.maxJobLevelId;
-    }
-
-    public void setMaxJobLevelId(String maxJobLevelId) {
-        this.maxJobLevelId = maxJobLevelId;
     }
 
     public Integer getCommitStatus() {
@@ -254,16 +216,6 @@ public class InterviewRecord {
          */
         private String content;
         /**
-         * 建议定级下限的职级 ID
-         * <p> 示例值：6435238827342432
-         */
-        private String minJobLevelId;
-        /**
-         * 建议定级上限的职级 ID
-         * <p> 示例值：643523885843573
-         */
-        private String maxJobLevelId;
-        /**
          * 提交状态
          * <p> 示例值：1
          */
@@ -329,32 +281,6 @@ public class InterviewRecord {
          */
         public Builder content(String content) {
             this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 建议定级下限的职级 ID
-         * <p> 示例值：6435238827342432
-         *
-         * @param minJobLevelId
-         * @return
-         */
-        public Builder minJobLevelId(String minJobLevelId) {
-            this.minJobLevelId = minJobLevelId;
-            return this;
-        }
-
-
-        /**
-         * 建议定级上限的职级 ID
-         * <p> 示例值：643523885843573
-         *
-         * @param maxJobLevelId
-         * @return
-         */
-        public Builder maxJobLevelId(String maxJobLevelId) {
-            this.maxJobLevelId = maxJobLevelId;
             return this;
         }
 

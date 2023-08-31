@@ -24,6 +24,13 @@ public class GetNodeSpaceReq {
     @Query
     @SerializedName("token")
     private String token;
+    /**
+     * 文档类型
+     * <p> 示例值：docx
+     */
+    @Query
+    @SerializedName("obj_type")
+    private String objType;
 
     // builder 开始
     public GetNodeSpaceReq() {
@@ -35,6 +42,11 @@ public class GetNodeSpaceReq {
          * <p> 示例值：wikcnKQ1k3p******8Vabcef
          */
         this.token = builder.token;
+        /**
+         * 文档类型
+         * <p> 示例值：docx
+         */
+        this.objType = builder.objType;
     }
 
     public static Builder newBuilder() {
@@ -49,8 +61,17 @@ public class GetNodeSpaceReq {
         this.token = token;
     }
 
+    public String getObjType() {
+        return this.objType;
+    }
+
+    public void setObjType(String objType) {
+        this.objType = objType;
+    }
+
     public static class Builder {
         private String token; // 文档的节点token
+        private String objType; // 文档类型
 
 
         /**
@@ -62,6 +83,31 @@ public class GetNodeSpaceReq {
          */
         public Builder token(String token) {
             this.token = token;
+            return this;
+        }
+
+
+        /**
+         * 文档类型
+         * <p> 示例值：docx
+         *
+         * @param objType
+         * @return
+         */
+        public Builder objType(String objType) {
+            this.objType = objType;
+            return this;
+        }
+
+        /**
+         * 文档类型
+         * <p> 示例值：docx
+         *
+         * @param objType {@link com.lark.oapi.service.wiki.v2.enums.GetNodeSpaceObjTypeForQueryEnum}
+         * @return
+         */
+        public Builder objType(com.lark.oapi.service.wiki.v2.enums.GetNodeSpaceObjTypeForQueryEnum objType) {
+            this.objType = objType.getValue();
             return this;
         }
 

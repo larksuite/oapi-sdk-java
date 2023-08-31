@@ -15,6 +15,7 @@ public class GetNodeSpaceSample {
         // 创建请求对象
         GetNodeSpaceReq req = GetNodeSpaceReq.newBuilder()
                 .token("wikcnKQ1k3p******8Vabcef")
+                .objType("wiki")
                 .build();
 
         // 发起请求

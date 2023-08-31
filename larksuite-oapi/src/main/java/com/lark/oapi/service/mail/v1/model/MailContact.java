@@ -66,7 +66,7 @@ public class MailContact {
     private String avatar;
     /**
      * 联系人职位
-     * <p> 示例值：CEO
+     * <p> 示例值：CFO
      */
     @SerializedName("position")
     private String position;
@@ -118,7 +118,7 @@ public class MailContact {
         this.avatar = builder.avatar;
         /**
          * 联系人职位
-         * <p> 示例值：CEO
+         * <p> 示例值：CFO
          */
         this.position = builder.position;
     }
@@ -242,7 +242,7 @@ public class MailContact {
         private String avatar;
         /**
          * 联系人职位
-         * <p> 示例值：CEO
+         * <p> 示例值：CFO
          */
         private String position;
 
@@ -352,7 +352,7 @@ public class MailContact {
 
         /**
          * 联系人职位
-         * <p> 示例值：CEO
+         * <p> 示例值：CFO
          *
          * @param position
          * @return

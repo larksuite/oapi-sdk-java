@@ -160,6 +160,18 @@ public class GetChatRespBody {
      */
     @SerializedName("restricted_mode_setting")
     private RestrictedModeSetting restrictedModeSetting;
+    /**
+     * 谁可以加急
+     * <p> 示例值：all_members
+     */
+    @SerializedName("urgent_setting")
+    private String urgentSetting;
+    /**
+     * 谁可以发起视频会议
+     * <p> 示例值：all_members
+     */
+    @SerializedName("video_conference_setting")
+    private String videoConferenceSetting;
 
     public String getAvatar() {
         return this.avatar;
@@ -352,6 +364,22 @@ public class GetChatRespBody {
 
     public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
         this.restrictedModeSetting = restrictedModeSetting;
+    }
+
+    public String getUrgentSetting() {
+        return this.urgentSetting;
+    }
+
+    public void setUrgentSetting(String urgentSetting) {
+        this.urgentSetting = urgentSetting;
+    }
+
+    public String getVideoConferenceSetting() {
+        return this.videoConferenceSetting;
+    }
+
+    public void setVideoConferenceSetting(String videoConferenceSetting) {
+        this.videoConferenceSetting = videoConferenceSetting;
     }
 
 }

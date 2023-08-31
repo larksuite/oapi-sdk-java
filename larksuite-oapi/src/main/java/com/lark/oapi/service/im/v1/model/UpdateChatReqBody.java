@@ -100,6 +100,18 @@ public class UpdateChatReqBody {
      */
     @SerializedName("chat_type")
     private String chatType;
+    /**
+     * 谁可以加急
+     * <p> 示例值：all_members
+     */
+    @SerializedName("urgent_setting")
+    private String urgentSetting;
+    /**
+     * 谁可以发起视频会议
+     * <p> 示例值：all_members
+     */
+    @SerializedName("video_conference_setting")
+    private String videoConferenceSetting;
 
     // builder 开始
     public UpdateChatReqBody() {
@@ -176,6 +188,16 @@ public class UpdateChatReqBody {
          * <p> 示例值：private
          */
         this.chatType = builder.chatType;
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         */
+        this.urgentSetting = builder.urgentSetting;
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         */
+        this.videoConferenceSetting = builder.videoConferenceSetting;
     }
 
     public static Builder newBuilder() {
@@ -294,6 +316,22 @@ public class UpdateChatReqBody {
         this.chatType = chatType;
     }
 
+    public String getUrgentSetting() {
+        return this.urgentSetting;
+    }
+
+    public void setUrgentSetting(String urgentSetting) {
+        this.urgentSetting = urgentSetting;
+    }
+
+    public String getVideoConferenceSetting() {
+        return this.videoConferenceSetting;
+    }
+
+    public void setVideoConferenceSetting(String videoConferenceSetting) {
+        this.videoConferenceSetting = videoConferenceSetting;
+    }
+
     public static class Builder {
         /**
          * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
@@ -365,6 +403,16 @@ public class UpdateChatReqBody {
          * <p> 示例值：private
          */
         private String chatType;
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         */
+        private String urgentSetting;
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         */
+        private String videoConferenceSetting;
 
         /**
          * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
@@ -544,6 +592,56 @@ public class UpdateChatReqBody {
          */
         public Builder chatType(String chatType) {
             this.chatType = chatType;
+            return this;
+        }
+
+
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         *
+         * @param urgentSetting
+         * @return
+         */
+        public Builder urgentSetting(String urgentSetting) {
+            this.urgentSetting = urgentSetting;
+            return this;
+        }
+
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         *
+         * @param urgentSetting {@link com.lark.oapi.service.im.v1.enums.UpdateChatUrgentSettingTypeEnum}
+         * @return
+         */
+        public Builder urgentSetting(com.lark.oapi.service.im.v1.enums.UpdateChatUrgentSettingTypeEnum urgentSetting) {
+            this.urgentSetting = urgentSetting.getValue();
+            return this;
+        }
+
+
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         *
+         * @param videoConferenceSetting
+         * @return
+         */
+        public Builder videoConferenceSetting(String videoConferenceSetting) {
+            this.videoConferenceSetting = videoConferenceSetting;
+            return this;
+        }
+
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         *
+         * @param videoConferenceSetting {@link com.lark.oapi.service.im.v1.enums.UpdateChatVideoConferenceSettingTypeEnum}
+         * @return
+         */
+        public Builder videoConferenceSetting(com.lark.oapi.service.im.v1.enums.UpdateChatVideoConferenceSettingTypeEnum videoConferenceSetting) {
+            this.videoConferenceSetting = videoConferenceSetting.getValue();
             return this;
         }
 

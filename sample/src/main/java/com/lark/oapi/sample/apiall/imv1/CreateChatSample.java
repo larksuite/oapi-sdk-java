@@ -30,6 +30,9 @@ public class CreateChatSample {
                         .leaveMessageVisibility("all_members")
                         .membershipApproval("no_approval_required")
                         .restrictedModeSetting(RestrictedModeSetting.newBuilder().build())
+                        .urgentSetting("all_members")
+                        .videoConferenceSetting("all_members")
+                        .editPermission("all_members")
                         .build())
                 .build();
 

@@ -17,6 +17,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReserveScopeConfig {
     /**
+     * 是否覆盖子层级及会议室
+     * <p> 示例值：true
+     */
+    @SerializedName("if_cover_child_scope")
+    private Boolean ifCoverChildScope;
+    /**
      * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
      * <p> 示例值：0
      */
@@ -41,6 +47,11 @@ public class ReserveScopeConfig {
 
     public ReserveScopeConfig(Builder builder) {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        this.ifCoverChildScope = builder.ifCoverChildScope;
+        /**
          * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
          * <p> 示例值：0
          */
@@ -59,6 +70,14 @@ public class ReserveScopeConfig {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getIfCoverChildScope() {
+        return this.ifCoverChildScope;
+    }
+
+    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+        this.ifCoverChildScope = ifCoverChildScope;
     }
 
     public Integer getAllowAllUsers() {
@@ -87,6 +106,11 @@ public class ReserveScopeConfig {
 
     public static class Builder {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        private Boolean ifCoverChildScope;
+        /**
          * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
          * <p> 示例值：0
          */
@@ -101,6 +125,19 @@ public class ReserveScopeConfig {
          * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
          */
         private SubscribeDepartment[] allowDepts;
+
+        /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         *
+         * @param ifCoverChildScope
+         * @return
+         */
+        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+            this.ifCoverChildScope = ifCoverChildScope;
+            return this;
+        }
+
 
         /**
          * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人

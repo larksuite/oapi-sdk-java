@@ -94,6 +94,24 @@ public class CreateChatReqBody {
      */
     @SerializedName("restricted_mode_setting")
     private RestrictedModeSetting restrictedModeSetting;
+    /**
+     * 谁可以加急
+     * <p> 示例值：all_members
+     */
+    @SerializedName("urgent_setting")
+    private String urgentSetting;
+    /**
+     * 谁可以发起视频会议
+     * <p> 示例值：all_members
+     */
+    @SerializedName("video_conference_setting")
+    private String videoConferenceSetting;
+    /**
+     * 谁可以编辑群信息
+     * <p> 示例值：all_members
+     */
+    @SerializedName("edit_permission")
+    private String editPermission;
 
     // builder 开始
     public CreateChatReqBody() {
@@ -165,6 +183,21 @@ public class CreateChatReqBody {
          * <p> 示例值：
          */
         this.restrictedModeSetting = builder.restrictedModeSetting;
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         */
+        this.urgentSetting = builder.urgentSetting;
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         */
+        this.videoConferenceSetting = builder.videoConferenceSetting;
+        /**
+         * 谁可以编辑群信息
+         * <p> 示例值：all_members
+         */
+        this.editPermission = builder.editPermission;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +308,30 @@ public class CreateChatReqBody {
         this.restrictedModeSetting = restrictedModeSetting;
     }
 
+    public String getUrgentSetting() {
+        return this.urgentSetting;
+    }
+
+    public void setUrgentSetting(String urgentSetting) {
+        this.urgentSetting = urgentSetting;
+    }
+
+    public String getVideoConferenceSetting() {
+        return this.videoConferenceSetting;
+    }
+
+    public void setVideoConferenceSetting(String videoConferenceSetting) {
+        this.videoConferenceSetting = videoConferenceSetting;
+    }
+
+    public String getEditPermission() {
+        return this.editPermission;
+    }
+
+    public void setEditPermission(String editPermission) {
+        this.editPermission = editPermission;
+    }
+
     public static class Builder {
         /**
          * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
@@ -341,6 +398,21 @@ public class CreateChatReqBody {
          * <p> 示例值：
          */
         private RestrictedModeSetting restrictedModeSetting;
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         */
+        private String urgentSetting;
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         */
+        private String videoConferenceSetting;
+        /**
+         * 谁可以编辑群信息
+         * <p> 示例值：all_members
+         */
+        private String editPermission;
 
         /**
          * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
@@ -507,6 +579,81 @@ public class CreateChatReqBody {
          */
         public Builder restrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
             this.restrictedModeSetting = restrictedModeSetting;
+            return this;
+        }
+
+
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         *
+         * @param urgentSetting
+         * @return
+         */
+        public Builder urgentSetting(String urgentSetting) {
+            this.urgentSetting = urgentSetting;
+            return this;
+        }
+
+        /**
+         * 谁可以加急
+         * <p> 示例值：all_members
+         *
+         * @param urgentSetting {@link com.lark.oapi.service.im.v1.enums.CreateChatUrgentSettingTypeEnum}
+         * @return
+         */
+        public Builder urgentSetting(com.lark.oapi.service.im.v1.enums.CreateChatUrgentSettingTypeEnum urgentSetting) {
+            this.urgentSetting = urgentSetting.getValue();
+            return this;
+        }
+
+
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         *
+         * @param videoConferenceSetting
+         * @return
+         */
+        public Builder videoConferenceSetting(String videoConferenceSetting) {
+            this.videoConferenceSetting = videoConferenceSetting;
+            return this;
+        }
+
+        /**
+         * 谁可以发起视频会议
+         * <p> 示例值：all_members
+         *
+         * @param videoConferenceSetting {@link com.lark.oapi.service.im.v1.enums.CreateChatVideoConferenceSettingTypeEnum}
+         * @return
+         */
+        public Builder videoConferenceSetting(com.lark.oapi.service.im.v1.enums.CreateChatVideoConferenceSettingTypeEnum videoConferenceSetting) {
+            this.videoConferenceSetting = videoConferenceSetting.getValue();
+            return this;
+        }
+
+
+        /**
+         * 谁可以编辑群信息
+         * <p> 示例值：all_members
+         *
+         * @param editPermission
+         * @return
+         */
+        public Builder editPermission(String editPermission) {
+            this.editPermission = editPermission;
+            return this;
+        }
+
+        /**
+         * 谁可以编辑群信息
+         * <p> 示例值：all_members
+         *
+         * @param editPermission {@link com.lark.oapi.service.im.v1.enums.CreateChatEditPermissiontypeEnum}
+         * @return
+         */
+        public Builder editPermission(com.lark.oapi.service.im.v1.enums.CreateChatEditPermissiontypeEnum editPermission) {
+            this.editPermission = editPermission.getValue();
             return this;
         }
 

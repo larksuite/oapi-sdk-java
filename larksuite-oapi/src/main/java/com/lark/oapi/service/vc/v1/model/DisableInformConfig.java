@@ -17,6 +17,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class DisableInformConfig {
     /**
+     * 是否覆盖子层级及会议室
+     * <p> 示例值：true
+     */
+    @SerializedName("if_cover_child_scope")
+    private Boolean ifCoverChildScope;
+    /**
      * 禁用状态变更通知开关
      * <p> 示例值：false
      */
@@ -41,6 +47,11 @@ public class DisableInformConfig {
 
     public DisableInformConfig(Builder builder) {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        this.ifCoverChildScope = builder.ifCoverChildScope;
+        /**
          * 禁用状态变更通知开关
          * <p> 示例值：false
          */
@@ -59,6 +70,14 @@ public class DisableInformConfig {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getIfCoverChildScope() {
+        return this.ifCoverChildScope;
+    }
+
+    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+        this.ifCoverChildScope = ifCoverChildScope;
     }
 
     public Boolean getIfInform() {
@@ -87,6 +106,11 @@ public class DisableInformConfig {
 
     public static class Builder {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        private Boolean ifCoverChildScope;
+        /**
          * 禁用状态变更通知开关
          * <p> 示例值：false
          */
@@ -101,6 +125,19 @@ public class DisableInformConfig {
          * <p> 示例值：
          */
         private SubscribeDepartment[] informedDepts;
+
+        /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         *
+         * @param ifCoverChildScope
+         * @return
+         */
+        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+            this.ifCoverChildScope = ifCoverChildScope;
+            return this;
+        }
+
 
         /**
          * 禁用状态变更通知开关

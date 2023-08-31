@@ -58,6 +58,12 @@ public class P2EhrImportTaskForInternshipOfferImportedV1Data {
      */
     @SerializedName("operator_user_id")
     private UserId operatorUserId;
+    /**
+     * 部门ID
+     * <p> 示例值：
+     */
+    @SerializedName("ehr_department")
+    private DepartmentId ehrDepartment;
 
     public String getTaskId() {
         return this.taskId;
@@ -113,6 +119,14 @@ public class P2EhrImportTaskForInternshipOfferImportedV1Data {
 
     public void setOperatorUserId(UserId operatorUserId) {
         this.operatorUserId = operatorUserId;
+    }
+
+    public DepartmentId getEhrDepartment() {
+        return this.ehrDepartment;
+    }
+
+    public void setEhrDepartment(DepartmentId ehrDepartment) {
+        this.ehrDepartment = ehrDepartment;
     }
 
 }

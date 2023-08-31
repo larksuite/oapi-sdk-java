@@ -32,7 +32,7 @@ import java.nio.charset.StandardCharsets;
 public class DriveService {
     private static final Logger log = LoggerFactory.getLogger(DriveService.class);
     private final ExportTask exportTask; // 导出
-    private final File file; // 文件夹
+    private final File file; // 文件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -40,7 +40,7 @@ public class DriveService {
     private final FileVersion fileVersion; // 文档版本
     private final FileViewRecord fileViewRecord; // file.view_record
     private final ImportTask importTask; // 导入
-    private final Media media; // 素材
+    private final Media media; // 分片上传
     private final Meta meta; // meta
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置
@@ -73,7 +73,7 @@ public class DriveService {
     }
 
     /**
-     * 文件夹
+     * 文件
      *
      * @return
      */
@@ -145,7 +145,7 @@ public class DriveService {
     }
 
     /**
-     * 素材
+     * 分片上传
      *
      * @return
      */
@@ -1860,6 +1860,72 @@ public class DriveService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取回复，该接口用于根据评论 ID 以及分页参数，获取回复。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentReplySample.java</a> ;
+         */
+        public ListFileCommentReplyResp list(ListFileCommentReplyReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileCommentReplyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 获取回复，该接口用于根据评论 ID 以及分页参数，获取回复。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/ListFileCommentReplySample.java</a> ;
+         */
+        public ListFileCommentReplyResp list(ListFileCommentReplyReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                    , req);
+
+            // 反序列化
+            ListFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileCommentReplyResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

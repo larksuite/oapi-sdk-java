@@ -88,6 +88,12 @@ public class Message {
      */
     @SerializedName("body_plain_text")
     private String bodyPlainText;
+    /**
+     * 邮件附件列表
+     * <p> 示例值：
+     */
+    @SerializedName("attachments")
+    private Attachment[] attachments;
 
     // builder 开始
     public Message() {
@@ -154,6 +160,11 @@ public class Message {
          * <p> 示例值：xxxxx
          */
         this.bodyPlainText = builder.bodyPlainText;
+        /**
+         * 邮件附件列表
+         * <p> 示例值：
+         */
+        this.attachments = builder.attachments;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +267,14 @@ public class Message {
         this.bodyPlainText = bodyPlainText;
     }
 
+    public Attachment[] getAttachments() {
+        return this.attachments;
+    }
+
+    public void setAttachments(Attachment[] attachments) {
+        this.attachments = attachments;
+    }
+
     public static class Builder {
         /**
          * MIME邮件数据，基于base64url编码
@@ -317,6 +336,11 @@ public class Message {
          * <p> 示例值：xxxxx
          */
         private String bodyPlainText;
+        /**
+         * 邮件附件列表
+         * <p> 示例值：
+         */
+        private Attachment[] attachments;
 
         /**
          * MIME邮件数据，基于base64url编码
@@ -470,6 +494,19 @@ public class Message {
          */
         public Builder bodyPlainText(String bodyPlainText) {
             this.bodyPlainText = bodyPlainText;
+            return this;
+        }
+
+
+        /**
+         * 邮件附件列表
+         * <p> 示例值：
+         *
+         * @param attachments
+         * @return
+         */
+        public Builder attachments(Attachment[] attachments) {
+            this.attachments = attachments;
             return this;
         }
 

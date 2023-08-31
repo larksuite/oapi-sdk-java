@@ -23,6 +23,8 @@ public class CardAction {
     private String userId;
     @SerializedName("open_message_id")
     private String openMessageId;
+    @SerializedName("open_chat_id")
+    private String openChatId;
     @SerializedName("tenant_key")
     private String tenantKey;
     @SerializedName("token")

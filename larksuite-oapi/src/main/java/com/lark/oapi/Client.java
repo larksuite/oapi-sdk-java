@@ -74,7 +74,7 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     private Config config;
     private AcsService acs; // 智能门禁
-    private AdminService admin; // 管理后台-数据报表
+    private AdminService admin; // 管理后台-企业勋章
     private ApplicationService application; // 应用信息
     private ApprovalService approval; // 审批
     private AttendanceService attendance; // 打卡
@@ -84,7 +84,7 @@ public class Client {
     private BitableService bitable; // 云文档-多维表格
     private BlockService block; // 小组件
     private CalendarService calendar; // 日历
-    private ContactService contact; // 搜索
+    private ContactService contact; // 通讯录
     private CorehrService corehr; // CoreHR
     private DocxService docx; // 云文档-文档
     private DriveService drive; // 云文档-文件管理
@@ -94,7 +94,7 @@ public class Client {
     private HelpdeskService helpdesk; // 服务台
     private HireService hire; // 招聘
     private HumanAuthenticationService humanAuthentication; // 实名认证
-    private ImService im; // 消息卡片
+    private ImService im; // 消息与群组
     private MailService mail; // 邮箱
     private MdmService mdm; // 主数据
     private MeetingRoomService meetingRoom; //
@@ -136,7 +136,7 @@ public class Client {
     }
 
     /**
-     * 管理后台-数据报表
+     * 管理后台-企业勋章
      *
      * @return
      */
@@ -222,7 +222,7 @@ public class Client {
     }
 
     /**
-     * 搜索
+     * 通讯录
      *
      * @return
      */
@@ -310,7 +310,7 @@ public class Client {
     }
 
     /**
-     * 消息卡片
+     * 消息与群组
      *
      * @return
      */

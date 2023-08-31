@@ -40,6 +40,13 @@ public class GetAppTableRecordReq {
     @SerializedName("display_formula_ref")
     private Boolean displayFormulaRef;
     /**
+     * 控制是否返回该记录的链接
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("with_shared_url")
+    private Boolean withSharedUrl;
+    /**
      * 控制是否返回自动计算的字段，例如 `created_by`/`created_time`/`last_modified_by`/`last_modified_time`，true 表示返回
      * <p> 示例值：true
      */
@@ -88,6 +95,11 @@ public class GetAppTableRecordReq {
          * <p> 示例值：true
          */
         this.displayFormulaRef = builder.displayFormulaRef;
+        /**
+         * 控制是否返回该记录的链接
+         * <p> 示例值：
+         */
+        this.withSharedUrl = builder.withSharedUrl;
         /**
          * 控制是否返回自动计算的字段，例如 `created_by`/`created_time`/`last_modified_by`/`last_modified_time`，true 表示返回
          * <p> 示例值：true
@@ -138,6 +150,14 @@ public class GetAppTableRecordReq {
         this.displayFormulaRef = displayFormulaRef;
     }
 
+    public Boolean getWithSharedUrl() {
+        return this.withSharedUrl;
+    }
+
+    public void setWithSharedUrl(Boolean withSharedUrl) {
+        this.withSharedUrl = withSharedUrl;
+    }
+
     public Boolean getAutomaticFields() {
         return this.automaticFields;
     }
@@ -174,6 +194,7 @@ public class GetAppTableRecordReq {
         private Boolean textFieldAsArray; // 控制多行文本字段数据的返回格式, true 表示以数组形式返回
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Boolean displayFormulaRef; // 控制公式、查找引用是否显示完整的原样返回结果
+        private Boolean withSharedUrl; // 控制是否返回该记录的链接
         private Boolean automaticFields; // 控制是否返回自动计算的字段，例如 `created_by`/`created_time`/`last_modified_by`/`last_modified_time`，true 表示返回
         private String appToken; // bitable app token
         private String tableId; // table id
@@ -224,6 +245,18 @@ public class GetAppTableRecordReq {
          */
         public Builder displayFormulaRef(Boolean displayFormulaRef) {
             this.displayFormulaRef = displayFormulaRef;
+            return this;
+        }
+
+        /**
+         * 控制是否返回该记录的链接
+         * <p> 示例值：
+         *
+         * @param withSharedUrl
+         * @return
+         */
+        public Builder withSharedUrl(Boolean withSharedUrl) {
+            this.withSharedUrl = withSharedUrl;
             return this;
         }
 

@@ -88,6 +88,12 @@ public class JobConfigResult {
      */
     @SerializedName("job_attribute")
     private Integer jobAttribute;
+    /**
+     * 面试官安排面试配置
+     * <p> 示例值：
+     */
+    @SerializedName("interview_appointment_config")
+    private InterviewAppointmentConfig interviewAppointmentConfig;
 
     // builder 开始
     public JobConfigResult() {
@@ -154,6 +160,11 @@ public class JobConfigResult {
          * <p> 示例值：1
          */
         this.jobAttribute = builder.jobAttribute;
+        /**
+         * 面试官安排面试配置
+         * <p> 示例值：
+         */
+        this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +267,14 @@ public class JobConfigResult {
         this.jobAttribute = jobAttribute;
     }
 
+    public InterviewAppointmentConfig getInterviewAppointmentConfig() {
+        return this.interviewAppointmentConfig;
+    }
+
+    public void setInterviewAppointmentConfig(InterviewAppointmentConfig interviewAppointmentConfig) {
+        this.interviewAppointmentConfig = interviewAppointmentConfig;
+    }
+
     public static class Builder {
         /**
          * Offer 申请表
@@ -317,6 +336,11 @@ public class JobConfigResult {
          * <p> 示例值：1
          */
         private Integer jobAttribute;
+        /**
+         * 面试官安排面试配置
+         * <p> 示例值：
+         */
+        private InterviewAppointmentConfig interviewAppointmentConfig;
 
         /**
          * Offer 申请表
@@ -470,6 +494,19 @@ public class JobConfigResult {
          */
         public Builder jobAttribute(Integer jobAttribute) {
             this.jobAttribute = jobAttribute;
+            return this;
+        }
+
+
+        /**
+         * 面试官安排面试配置
+         * <p> 示例值：
+         *
+         * @param interviewAppointmentConfig
+         * @return
+         */
+        public Builder interviewAppointmentConfig(InterviewAppointmentConfig interviewAppointmentConfig) {
+            this.interviewAppointmentConfig = interviewAppointmentConfig;
             return this;
         }
 

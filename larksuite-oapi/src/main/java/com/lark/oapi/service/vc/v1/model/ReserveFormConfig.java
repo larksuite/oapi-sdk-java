@@ -17,6 +17,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReserveFormConfig {
     /**
+     * 是否覆盖子层级及会议室
+     * <p> 示例值：true
+     */
+    @SerializedName("if_cover_child_scope")
+    private Boolean ifCoverChildScope;
+    /**
      * 预定表单开关
      * <p> 示例值：false
      */
@@ -47,6 +53,11 @@ public class ReserveFormConfig {
 
     public ReserveFormConfig(Builder builder) {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        this.ifCoverChildScope = builder.ifCoverChildScope;
+        /**
          * 预定表单开关
          * <p> 示例值：false
          */
@@ -70,6 +81,14 @@ public class ReserveFormConfig {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public Boolean getIfCoverChildScope() {
+        return this.ifCoverChildScope;
+    }
+
+    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+        this.ifCoverChildScope = ifCoverChildScope;
     }
 
     public Boolean getReserveForm() {
@@ -106,6 +125,11 @@ public class ReserveFormConfig {
 
     public static class Builder {
         /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         */
+        private Boolean ifCoverChildScope;
+        /**
          * 预定表单开关
          * <p> 示例值：false
          */
@@ -125,6 +149,19 @@ public class ReserveFormConfig {
          * <p> 示例值：3
          */
         private Integer timeUnit;
+
+        /**
+         * 是否覆盖子层级及会议室
+         * <p> 示例值：true
+         *
+         * @param ifCoverChildScope
+         * @return
+         */
+        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+            this.ifCoverChildScope = ifCoverChildScope;
+            return this;
+        }
+
 
         /**
          * 预定表单开关
