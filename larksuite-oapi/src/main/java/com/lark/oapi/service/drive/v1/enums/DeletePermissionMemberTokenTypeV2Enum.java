@@ -26,6 +26,7 @@ public enum DeletePermissionMemberTokenTypeV2Enum {
     FOLDER("folder"), // 文件夹
     MINDNOTE("mindnote"), // 思维笔记
     MINUTES("minutes"), // 妙记
+    SLIDES("slides"), // 幻灯片
     ;
     private String value;
 

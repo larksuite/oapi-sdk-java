@@ -58,6 +58,12 @@ public class SchemaFilterOptions {
      */
     @SerializedName("enable_client_filter")
     private Boolean enableClientFilter;
+    /**
+     * 可搜筛选器关联的数据源标识
+     * <p> 示例值：7264565154409461234
+     */
+    @SerializedName("reference_datasource_id")
+    private String referenceDatasourceId;
 
     // builder 开始
     public SchemaFilterOptions() {
@@ -99,6 +105,11 @@ public class SchemaFilterOptions {
          * <p> 示例值：true
          */
         this.enableClientFilter = builder.enableClientFilter;
+        /**
+         * 可搜筛选器关联的数据源标识
+         * <p> 示例值：7264565154409461234
+         */
+        this.referenceDatasourceId = builder.referenceDatasourceId;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class SchemaFilterOptions {
         this.enableClientFilter = enableClientFilter;
     }
 
+    public String getReferenceDatasourceId() {
+        return this.referenceDatasourceId;
+    }
+
+    public void setReferenceDatasourceId(String referenceDatasourceId) {
+        this.referenceDatasourceId = referenceDatasourceId;
+    }
+
     public static class Builder {
         /**
          * 筛选器展示名称
@@ -197,6 +216,11 @@ public class SchemaFilterOptions {
          * <p> 示例值：true
          */
         private Boolean enableClientFilter;
+        /**
+         * 可搜筛选器关联的数据源标识
+         * <p> 示例值：7264565154409461234
+         */
+        private String referenceDatasourceId;
 
         /**
          * 筛选器展示名称
@@ -321,6 +345,19 @@ public class SchemaFilterOptions {
          */
         public Builder enableClientFilter(Boolean enableClientFilter) {
             this.enableClientFilter = enableClientFilter;
+            return this;
+        }
+
+
+        /**
+         * 可搜筛选器关联的数据源标识
+         * <p> 示例值：7264565154409461234
+         *
+         * @param referenceDatasourceId
+         * @return
+         */
+        public Builder referenceDatasourceId(String referenceDatasourceId) {
+            this.referenceDatasourceId = referenceDatasourceId;
             return this;
         }
 

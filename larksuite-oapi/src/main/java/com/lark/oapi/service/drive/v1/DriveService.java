@@ -32,7 +32,7 @@ import java.nio.charset.StandardCharsets;
 public class DriveService {
     private static final Logger log = LoggerFactory.getLogger(DriveService.class);
     private final ExportTask exportTask; // 导出
-    private final File file; // 文件
+    private final File file; // 事件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics
@@ -73,7 +73,7 @@ public class DriveService {
     }
 
     /**
-     * 文件
+     * 事件
      *
      * @return
      */

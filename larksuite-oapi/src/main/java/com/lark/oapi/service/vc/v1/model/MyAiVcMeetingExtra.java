@@ -28,6 +28,18 @@ public class MyAiVcMeetingExtra {
      */
     @SerializedName("vc_locale")
     private String vcLocale;
+    /**
+     * applink域名
+     * <p> 示例值：applink.feishu.cn
+     */
+    @SerializedName("vc_applink_host")
+    private String vcApplinkHost;
+    /**
+     * app版本
+     * <p> 示例值：7.0.0
+     */
+    @SerializedName("vc_app_version")
+    private String vcAppVersion;
 
     // builder 开始
     public MyAiVcMeetingExtra() {
@@ -44,6 +56,16 @@ public class MyAiVcMeetingExtra {
          * <p> 示例值：zh_cn
          */
         this.vcLocale = builder.vcLocale;
+        /**
+         * applink域名
+         * <p> 示例值：applink.feishu.cn
+         */
+        this.vcApplinkHost = builder.vcApplinkHost;
+        /**
+         * app版本
+         * <p> 示例值：7.0.0
+         */
+        this.vcAppVersion = builder.vcAppVersion;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +88,22 @@ public class MyAiVcMeetingExtra {
         this.vcLocale = vcLocale;
     }
 
+    public String getVcApplinkHost() {
+        return this.vcApplinkHost;
+    }
+
+    public void setVcApplinkHost(String vcApplinkHost) {
+        this.vcApplinkHost = vcApplinkHost;
+    }
+
+    public String getVcAppVersion() {
+        return this.vcAppVersion;
+    }
+
+    public void setVcAppVersion(String vcAppVersion) {
+        this.vcAppVersion = vcAppVersion;
+    }
+
     public static class Builder {
         /**
          * 会议id
@@ -77,6 +115,16 @@ public class MyAiVcMeetingExtra {
          * <p> 示例值：zh_cn
          */
         private String vcLocale;
+        /**
+         * applink域名
+         * <p> 示例值：applink.feishu.cn
+         */
+        private String vcApplinkHost;
+        /**
+         * app版本
+         * <p> 示例值：7.0.0
+         */
+        private String vcAppVersion;
 
         /**
          * 会议id
@@ -100,6 +148,32 @@ public class MyAiVcMeetingExtra {
          */
         public Builder vcLocale(String vcLocale) {
             this.vcLocale = vcLocale;
+            return this;
+        }
+
+
+        /**
+         * applink域名
+         * <p> 示例值：applink.feishu.cn
+         *
+         * @param vcApplinkHost
+         * @return
+         */
+        public Builder vcApplinkHost(String vcApplinkHost) {
+            this.vcApplinkHost = vcApplinkHost;
+            return this;
+        }
+
+
+        /**
+         * app版本
+         * <p> 示例值：7.0.0
+         *
+         * @param vcAppVersion
+         * @return
+         */
+        public Builder vcAppVersion(String vcAppVersion) {
+            this.vcAppVersion = vcAppVersion;
             return this;
         }
 

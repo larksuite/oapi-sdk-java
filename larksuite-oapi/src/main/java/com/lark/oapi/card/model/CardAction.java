@@ -124,6 +124,14 @@ public class CardAction {
         this.action = action;
     }
 
+    public String getOpenChatId() {
+        return openChatId;
+    }
+
+    public void setOpenChatId(String openChatId) {
+        this.openChatId = openChatId;
+    }
+
     @Override
     public String toString() {
         return "Card{" +

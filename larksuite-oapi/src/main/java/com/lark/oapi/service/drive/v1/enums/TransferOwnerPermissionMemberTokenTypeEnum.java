@@ -25,6 +25,7 @@ public enum TransferOwnerPermissionMemberTokenTypeEnum {
     DOCX("docx"), // 新版文档
     MINDNOTE("mindnote"), // 思维笔记
     MINUTES("minutes"), // 妙记
+    SLIDES("slides"), // 幻灯片
     ;
     private String value;
 

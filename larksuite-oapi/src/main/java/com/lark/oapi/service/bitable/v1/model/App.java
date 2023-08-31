@@ -18,34 +18,40 @@ import com.google.gson.annotations.SerializedName;
 public class App {
     /**
      * 多维表格 app token
-     * <p> 示例值：
+     * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
      */
     @SerializedName("app_token")
     private String appToken;
     /**
      * 多维表格 App 名字
-     * <p> 示例值：
+     * <p> 示例值：一篇新的多维表格
      */
     @SerializedName("name")
     private String name;
     /**
      * 多维表格 App 版本号
-     * <p> 示例值：
+     * <p> 示例值：2
      */
     @SerializedName("revision")
     private Integer revision;
     /**
      * 多维表格 App 归属文件夹
-     * <p> 示例值：
+     * <p> 示例值：fldbco*****CIMltVc
      */
     @SerializedName("folder_token")
     private String folderToken;
     /**
      * 多维表格 App URL
-     * <p> 示例值：
+     * <p> 示例值：https://by*****ce.feishu.cn/base/S404b*****e9PQsYDWYcNryFn0g
      */
     @SerializedName("url")
     private String url;
+    /**
+     * 默认的表格id
+     * <p> 示例值：tblVlShPNxxxxxv9
+     */
+    @SerializedName("default_table_id")
+    private String defaultTableId;
 
     // builder 开始
     public App() {
@@ -54,29 +60,34 @@ public class App {
     public App(Builder builder) {
         /**
          * 多维表格 app token
-         * <p> 示例值：
+         * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
          */
         this.appToken = builder.appToken;
         /**
          * 多维表格 App 名字
-         * <p> 示例值：
+         * <p> 示例值：一篇新的多维表格
          */
         this.name = builder.name;
         /**
          * 多维表格 App 版本号
-         * <p> 示例值：
+         * <p> 示例值：2
          */
         this.revision = builder.revision;
         /**
          * 多维表格 App 归属文件夹
-         * <p> 示例值：
+         * <p> 示例值：fldbco*****CIMltVc
          */
         this.folderToken = builder.folderToken;
         /**
          * 多维表格 App URL
-         * <p> 示例值：
+         * <p> 示例值：https://by*****ce.feishu.cn/base/S404b*****e9PQsYDWYcNryFn0g
          */
         this.url = builder.url;
+        /**
+         * 默认的表格id
+         * <p> 示例值：tblVlShPNxxxxxv9
+         */
+        this.defaultTableId = builder.defaultTableId;
     }
 
     public static Builder newBuilder() {
@@ -123,36 +134,49 @@ public class App {
         this.url = url;
     }
 
+    public String getDefaultTableId() {
+        return this.defaultTableId;
+    }
+
+    public void setDefaultTableId(String defaultTableId) {
+        this.defaultTableId = defaultTableId;
+    }
+
     public static class Builder {
         /**
          * 多维表格 app token
-         * <p> 示例值：
+         * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
          */
         private String appToken;
         /**
          * 多维表格 App 名字
-         * <p> 示例值：
+         * <p> 示例值：一篇新的多维表格
          */
         private String name;
         /**
          * 多维表格 App 版本号
-         * <p> 示例值：
+         * <p> 示例值：2
          */
         private Integer revision;
         /**
          * 多维表格 App 归属文件夹
-         * <p> 示例值：
+         * <p> 示例值：fldbco*****CIMltVc
          */
         private String folderToken;
         /**
          * 多维表格 App URL
-         * <p> 示例值：
+         * <p> 示例值：https://by*****ce.feishu.cn/base/S404b*****e9PQsYDWYcNryFn0g
          */
         private String url;
+        /**
+         * 默认的表格id
+         * <p> 示例值：tblVlShPNxxxxxv9
+         */
+        private String defaultTableId;
 
         /**
          * 多维表格 app token
-         * <p> 示例值：
+         * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
          *
          * @param appToken
          * @return
@@ -165,7 +189,7 @@ public class App {
 
         /**
          * 多维表格 App 名字
-         * <p> 示例值：
+         * <p> 示例值：一篇新的多维表格
          *
          * @param name
          * @return
@@ -178,7 +202,7 @@ public class App {
 
         /**
          * 多维表格 App 版本号
-         * <p> 示例值：
+         * <p> 示例值：2
          *
          * @param revision
          * @return
@@ -191,7 +215,7 @@ public class App {
 
         /**
          * 多维表格 App 归属文件夹
-         * <p> 示例值：
+         * <p> 示例值：fldbco*****CIMltVc
          *
          * @param folderToken
          * @return
@@ -204,13 +228,26 @@ public class App {
 
         /**
          * 多维表格 App URL
-         * <p> 示例值：
+         * <p> 示例值：https://by*****ce.feishu.cn/base/S404b*****e9PQsYDWYcNryFn0g
          *
          * @param url
          * @return
          */
         public Builder url(String url) {
             this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 默认的表格id
+         * <p> 示例值：tblVlShPNxxxxxv9
+         *
+         * @param defaultTableId
+         * @return
+         */
+        public Builder defaultTableId(String defaultTableId) {
+            this.defaultTableId = defaultTableId;
             return this;
         }
 

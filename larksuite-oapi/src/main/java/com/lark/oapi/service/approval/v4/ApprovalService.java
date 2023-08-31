@@ -34,9 +34,9 @@ public class ApprovalService {
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
-    private final Instance instance; // 审批查询
+    private final Instance instance; // 原生审批实例
     private final InstanceComment instanceComment; // 原生审批评论
-    private final Task task; // 原生审批任务
+    private final Task task; // 审批查询
 
     public ApprovalService(Config config) {
         this.approval = new Approval(config);
@@ -85,7 +85,7 @@ public class ApprovalService {
     }
 
     /**
-     * 审批查询
+     * 原生审批实例
      *
      * @return
      */
@@ -103,7 +103,7 @@ public class ApprovalService {
     }
 
     /**
-     * 原生审批任务
+     * 审批查询
      *
      * @return
      */
