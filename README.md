@@ -1006,7 +1006,7 @@ public class CardActionController {
 更多卡片行为示例：[CardActionController.java](./sample/src/main/java/com/lark/oapi/sample/event/CardActionController.java)
 
 ## 加入答疑群
-[单击加入答疑群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=c3am2a68-f500-4926-bbb2-0a85762a87c1)
+[单击加入答疑群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=dc7p3b08-78ac-451b-855b-daf8156a4a11)
 ## License
 
 使用 MIT
