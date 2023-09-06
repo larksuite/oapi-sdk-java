@@ -87,7 +87,7 @@ public class MessagePost {
         }
 
         public Builder jaJp(MessagePostContent content) {
-            this.enUs = content;
+            this.jaJp = content;
             return this;
         }
 
