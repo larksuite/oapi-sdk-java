@@ -1005,6 +1005,23 @@ public class CardActionController {
 
 更多卡片行为示例：[CardActionController.java](./sample/src/main/java/com/lark/oapi/sample/event/CardActionController.java)
 
+## 扩展示例
+我们还基于 SDK 封装了常用的 API 组合调用及业务场景示例，如：
+* 消息
+    * [发送文件消息](https://github.com/larksuite/oapi-sdk-java-demo/blob/main/src/main/java/com/larksuite/oapi/composite_api/im/Im.java)
+    * [发送图片消息](https://github.com/larksuite/oapi-sdk-java-demo/blob/main/src/main/java/com/larksuite/oapi/composite_api/im/Im.java)
+* 通讯录
+    * [获取部门下所有用户列表](https://github.com/larksuite/oapi-sdk-java-demo/blob/main/src/main/java/com/larksuite/oapi/composite_api/contact/Contact.java)
+* 多维表格
+    * [创建多维表格同时添加数据表](https://github.com/larksuite/oapi-sdk-java-demo/blob/main/src/main/java/com/larksuite/oapi/composite_api/base/Base.java)
+* 电子表格
+    * [复制粘贴某个范围的单元格数据](https://github.com/larksuite/oapi-sdk-java-demo/blob/main/src/main/java/com/larksuite/oapi/composite_api/sheets/Sheets.java)
+    * [下载指定范围单元格的所有素材列表](https://github.com/larksuite/oapi-sdk-java-demo/blob/main/src/main/java/com/larksuite/oapi/composite_api/sheets/Sheets.java)
+* 教程
+    * [机器人自动拉群报警](https://github.com/larksuite/oapi-sdk-java-demo/tree/main/src/main/java/com/larksuite/oapi/quick_start/robot) ([开发教程](https://open.feishu.cn/document/home/message-development-tutorial/introduction))
+
+更多示例可参考：https://github.com/larksuite/oapi-sdk-java-demo
+
 ## 加入答疑群
 [单击加入答疑群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=dc7p3b08-78ac-451b-855b-daf8156a4a11)
 ## License
