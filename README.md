@@ -258,7 +258,7 @@ public interface IHttpTransport {
 
 1. 基于 [OKhttp](./larksuite-oapi/src/main/java/com/lark/oapi/core/httpclient/OkHttpTransport.java)
    的实现，使用 [demo](./sample/src/main/java/com/lark/oapi/sample/api/ClientSample.java)
-2. 基于 [Apache HttpClient](https://github.com/larksuite/oapi-sdk-java-ext)
+2. 基于 [Apache HttpClient](./larksuite-oapi/src/main/java/com/lark/oapi/core/httpclient/ApacheHttpClientTransport.java)
    的实现，使用 [demo](./sample/src/main/java/com/lark/oapi/sample/api/ClientSample.java)
 
 </td>
@@ -528,7 +528,7 @@ public class RawApiCall {
 #### 安装集成包
 
 要想把 SDK 集成已有 SpringBoot
-框架，开发者需要引入集成包 [oapi-sdk-java-ext](https://github.com/larksuite/oapi-sdk-java-ext)
+框架，开发者需要引入集成包
 
 需在项目 pom 文件中引入下面 maven 坐标
 
