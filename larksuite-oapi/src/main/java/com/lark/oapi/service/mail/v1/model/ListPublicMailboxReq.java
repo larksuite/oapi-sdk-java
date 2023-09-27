@@ -18,6 +18,20 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListPublicMailboxReq {
     /**
+     * user_id
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id")
+    private String userId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：xxx
      */
@@ -38,6 +52,16 @@ public class ListPublicMailboxReq {
 
     public ListPublicMailboxReq(Builder builder) {
         /**
+         * user_id
+         * <p> 示例值：
+         */
+        this.userId = builder.userId;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：xxx
          */
@@ -51,6 +75,22 @@ public class ListPublicMailboxReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getPageToken() {
@@ -70,8 +110,48 @@ public class ListPublicMailboxReq {
     }
 
     public static class Builder {
+        private String userId; // user_id
+        private String userIdType; // 此次调用中使用的用户ID的类型
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
         private Integer pageSize; // 分页大小
+
+
+        /**
+         * user_id
+         * <p> 示例值：
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListPublicMailboxUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.ListPublicMailboxUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
 
         /**

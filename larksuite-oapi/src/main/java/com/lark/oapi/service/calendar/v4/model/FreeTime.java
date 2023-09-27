@@ -28,6 +28,12 @@ public class FreeTime {
      */
     @SerializedName("free_time_end")
     private String freeTimeEnd;
+    /**
+     * 空闲时间列表
+     * <p> 示例值：none
+     */
+    @SerializedName("free_time_list")
+    private String freeTimeList;
 
     // builder 开始
     public FreeTime() {
@@ -44,6 +50,11 @@ public class FreeTime {
          * <p> 示例值：none
          */
         this.freeTimeEnd = builder.freeTimeEnd;
+        /**
+         * 空闲时间列表
+         * <p> 示例值：none
+         */
+        this.freeTimeList = builder.freeTimeList;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class FreeTime {
         this.freeTimeEnd = freeTimeEnd;
     }
 
+    public String getFreeTimeList() {
+        return this.freeTimeList;
+    }
+
+    public void setFreeTimeList(String freeTimeList) {
+        this.freeTimeList = freeTimeList;
+    }
+
     public static class Builder {
         /**
          * 空闲开始时间
@@ -77,6 +96,11 @@ public class FreeTime {
          * <p> 示例值：none
          */
         private String freeTimeEnd;
+        /**
+         * 空闲时间列表
+         * <p> 示例值：none
+         */
+        private String freeTimeList;
 
         /**
          * 空闲开始时间
@@ -100,6 +124,19 @@ public class FreeTime {
          */
         public Builder freeTimeEnd(String freeTimeEnd) {
             this.freeTimeEnd = freeTimeEnd;
+            return this;
+        }
+
+
+        /**
+         * 空闲时间列表
+         * <p> 示例值：none
+         *
+         * @param freeTimeList
+         * @return
+         */
+        public Builder freeTimeList(String freeTimeList) {
+            this.freeTimeList = freeTimeList;
             return this;
         }
 

@@ -34,6 +34,18 @@ public class EcoBackgroundCheckCreateEventCandidateInfo {
      */
     @SerializedName("email")
     private String email;
+    /**
+     * 名字
+     * <p> 示例值：Ming
+     */
+    @SerializedName("first_name")
+    private String firstName;
+    /**
+     * 姓氏
+     * <p> 示例值：Lee
+     */
+    @SerializedName("last_name")
+    private String lastName;
 
     // builder 开始
     public EcoBackgroundCheckCreateEventCandidateInfo() {
@@ -55,6 +67,16 @@ public class EcoBackgroundCheckCreateEventCandidateInfo {
          * <p> 示例值：xxx@abc.vom
          */
         this.email = builder.email;
+        /**
+         * 名字
+         * <p> 示例值：Ming
+         */
+        this.firstName = builder.firstName;
+        /**
+         * 姓氏
+         * <p> 示例值：Lee
+         */
+        this.lastName = builder.lastName;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +107,22 @@ public class EcoBackgroundCheckCreateEventCandidateInfo {
         this.email = email;
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public static class Builder {
         /**
          * 候选人姓名
@@ -101,6 +139,16 @@ public class EcoBackgroundCheckCreateEventCandidateInfo {
          * <p> 示例值：xxx@abc.vom
          */
         private String email;
+        /**
+         * 名字
+         * <p> 示例值：Ming
+         */
+        private String firstName;
+        /**
+         * 姓氏
+         * <p> 示例值：Lee
+         */
+        private String lastName;
 
         /**
          * 候选人姓名
@@ -137,6 +185,32 @@ public class EcoBackgroundCheckCreateEventCandidateInfo {
          */
         public Builder email(String email) {
             this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 名字
+         * <p> 示例值：Ming
+         *
+         * @param firstName
+         * @return
+         */
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+
+        /**
+         * 姓氏
+         * <p> 示例值：Lee
+         *
+         * @param lastName
+         * @return
+         */
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
             return this;
         }
 

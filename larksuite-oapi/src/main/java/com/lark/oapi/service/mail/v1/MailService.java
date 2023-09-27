@@ -1997,7 +1997,7 @@ public class MailService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                     , "/open-apis/mail/v1/public_mailboxes"
-                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -2029,7 +2029,7 @@ public class MailService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                     , "/open-apis/mail/v1/public_mailboxes"
-                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化

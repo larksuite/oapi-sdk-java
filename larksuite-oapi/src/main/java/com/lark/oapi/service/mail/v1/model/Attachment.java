@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Attachment {
     /**
-     * 附件的正文，使用 base64url 编码
+     * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
      * <p> 示例值：aGVsbG8gd29ybGQK
      */
     @SerializedName("body")
@@ -35,7 +35,7 @@ public class Attachment {
 
     public Attachment(Builder builder) {
         /**
-         * 附件的正文，使用 base64url 编码
+         * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
          * <p> 示例值：aGVsbG8gd29ybGQK
          */
         this.body = builder.body;
@@ -68,7 +68,7 @@ public class Attachment {
 
     public static class Builder {
         /**
-         * 附件的正文，使用 base64url 编码
+         * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
          * <p> 示例值：aGVsbG8gd29ybGQK
          */
         private String body;
@@ -79,7 +79,7 @@ public class Attachment {
         private String filename;
 
         /**
-         * 附件的正文，使用 base64url 编码
+         * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
          * <p> 示例值：aGVsbG8gd29ybGQK
          *
          * @param body

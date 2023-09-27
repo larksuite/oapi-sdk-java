@@ -34,6 +34,12 @@ public class DisplayAppV2 {
      */
     @SerializedName("is_advanced")
     private Boolean isAdvanced;
+    /**
+     * 文档时区
+     * <p> 示例值：
+     */
+    @SerializedName("time_zone")
+    private String timeZone;
 
     // builder 开始
     public DisplayAppV2() {
@@ -55,6 +61,11 @@ public class DisplayAppV2 {
          * <p> 示例值：
          */
         this.isAdvanced = builder.isAdvanced;
+        /**
+         * 文档时区
+         * <p> 示例值：
+         */
+        this.timeZone = builder.timeZone;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class DisplayAppV2 {
         this.isAdvanced = isAdvanced;
     }
 
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     public static class Builder {
         /**
          * 多维表格的 app_token
@@ -101,6 +120,11 @@ public class DisplayAppV2 {
          * <p> 示例值：
          */
         private Boolean isAdvanced;
+        /**
+         * 文档时区
+         * <p> 示例值：
+         */
+        private String timeZone;
 
         /**
          * 多维表格的 app_token
@@ -137,6 +161,19 @@ public class DisplayAppV2 {
          */
         public Builder isAdvanced(Boolean isAdvanced) {
             this.isAdvanced = isAdvanced;
+            return this;
+        }
+
+
+        /**
+         * 文档时区
+         * <p> 示例值：
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
 

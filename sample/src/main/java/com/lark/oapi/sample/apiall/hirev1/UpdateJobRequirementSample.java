@@ -24,6 +24,7 @@ public class UpdateJobRequirementSample {
                         .displayProgress(1)
                         .headCount(11)
                         .recruitmentTypeId("1618209327096")
+                        .employeeTypeId("6807409776231254285")
                         .maxLevelId("123")
                         .minLevelId("11")
                         .sequenceId("111")
@@ -41,6 +42,8 @@ public class UpdateJobRequirementSample {
                         .addressId("11")
                         .description("11")
                         .customizedDataList(new JobRequirementCustomizedData[]{})
+                        .processType(1)
+                        .jobTypeId("6930815272790114324")
                         .build())
                 .build();
 

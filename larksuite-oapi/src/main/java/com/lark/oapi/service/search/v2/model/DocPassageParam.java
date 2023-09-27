@@ -34,6 +34,12 @@ public class DocPassageParam {
      */
     @SerializedName("folder_tokens")
     private String[] folderTokens;
+    /**
+     * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+     * <p> 示例值：
+     */
+    @SerializedName("obj_ids")
+    private String[] objIds;
 
     // builder 开始
     public DocPassageParam() {
@@ -55,6 +61,11 @@ public class DocPassageParam {
          * <p> 示例值：
          */
         this.folderTokens = builder.folderTokens;
+        /**
+         * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+         * <p> 示例值：
+         */
+        this.objIds = builder.objIds;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class DocPassageParam {
         this.folderTokens = folderTokens;
     }
 
+    public String[] getObjIds() {
+        return this.objIds;
+    }
+
+    public void setObjIds(String[] objIds) {
+        this.objIds = objIds;
+    }
+
     public static class Builder {
         /**
          * 是否要搜索doc
@@ -101,6 +120,11 @@ public class DocPassageParam {
          * <p> 示例值：
          */
         private String[] folderTokens;
+        /**
+         * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+         * <p> 示例值：
+         */
+        private String[] objIds;
 
         /**
          * 是否要搜索doc
@@ -137,6 +161,19 @@ public class DocPassageParam {
          */
         public Builder folderTokens(String[] folderTokens) {
             this.folderTokens = folderTokens;
+            return this;
+        }
+
+
+        /**
+         * 搜索特定doc（仅限内部使用，有需求请用doc_tokens）
+         * <p> 示例值：
+         *
+         * @param objIds
+         * @return
+         */
+        public Builder objIds(String[] objIds) {
+            this.objIds = objIds;
             return this;
         }
 

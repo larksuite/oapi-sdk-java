@@ -100,6 +100,18 @@ public class DataSource {
      */
     @SerializedName("app_id")
     private String appId;
+    /**
+     * 搜索请求的接入方式
+     * <p> 示例值：1
+     */
+    @SerializedName("connect_type")
+    private Integer connectType;
+    /**
+     * 根据连接器类型不同所需要提供的相关参数
+     * <p> 示例值：
+     */
+    @SerializedName("connector_param")
+    private ConnectorParam connectorParam;
 
     // builder 开始
     public DataSource() {
@@ -176,6 +188,16 @@ public class DataSource {
          * <p> 示例值：cli_a1306bed4738d01b
          */
         this.appId = builder.appId;
+        /**
+         * 搜索请求的接入方式
+         * <p> 示例值：1
+         */
+        this.connectType = builder.connectType;
+        /**
+         * 根据连接器类型不同所需要提供的相关参数
+         * <p> 示例值：
+         */
+        this.connectorParam = builder.connectorParam;
     }
 
     public static Builder newBuilder() {
@@ -294,6 +316,22 @@ public class DataSource {
         this.appId = appId;
     }
 
+    public Integer getConnectType() {
+        return this.connectType;
+    }
+
+    public void setConnectType(Integer connectType) {
+        this.connectType = connectType;
+    }
+
+    public ConnectorParam getConnectorParam() {
+        return this.connectorParam;
+    }
+
+    public void setConnectorParam(ConnectorParam connectorParam) {
+        this.connectorParam = connectorParam;
+    }
+
     public static class Builder {
         /**
          * 数据源的唯一标识
@@ -365,6 +403,16 @@ public class DataSource {
          * <p> 示例值：cli_a1306bed4738d01b
          */
         private String appId;
+        /**
+         * 搜索请求的接入方式
+         * <p> 示例值：1
+         */
+        private Integer connectType;
+        /**
+         * 根据连接器类型不同所需要提供的相关参数
+         * <p> 示例值：
+         */
+        private ConnectorParam connectorParam;
 
         /**
          * 数据源的唯一标识
@@ -556,6 +604,44 @@ public class DataSource {
          */
         public Builder appId(String appId) {
             this.appId = appId;
+            return this;
+        }
+
+
+        /**
+         * 搜索请求的接入方式
+         * <p> 示例值：1
+         *
+         * @param connectType
+         * @return
+         */
+        public Builder connectType(Integer connectType) {
+            this.connectType = connectType;
+            return this;
+        }
+
+        /**
+         * 搜索请求的接入方式
+         * <p> 示例值：1
+         *
+         * @param connectType {@link com.lark.oapi.service.search.v2.enums.DataSourceConnectTypeEnum}
+         * @return
+         */
+        public Builder connectType(com.lark.oapi.service.search.v2.enums.DataSourceConnectTypeEnum connectType) {
+            this.connectType = connectType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 根据连接器类型不同所需要提供的相关参数
+         * <p> 示例值：
+         *
+         * @param connectorParam
+         * @return
+         */
+        public Builder connectorParam(ConnectorParam connectorParam) {
+            this.connectorParam = connectorParam;
             return this;
         }
 

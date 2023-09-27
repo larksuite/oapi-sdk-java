@@ -14,7 +14,6 @@
 package com.lark.oapi.service.hire.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
-import com.lark.oapi.core.response.EmptyData;
 
-public class UpdateOfferResp extends BaseResponse<EmptyData> {
+public class UpdateOfferResp extends BaseResponse<UpdateOfferRespBody> {
 }

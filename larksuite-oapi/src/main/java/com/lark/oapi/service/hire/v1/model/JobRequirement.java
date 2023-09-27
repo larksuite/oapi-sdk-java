@@ -47,6 +47,12 @@ public class JobRequirement {
     @SerializedName("recruitment_type_id")
     private String recruitmentTypeId;
     /**
+     * 人员类型
+     * <p> 示例值：6807409776231254285
+     */
+    @SerializedName("employee_type_id")
+    private String employeeTypeId;
+    /**
      * 最高职级 ID
      * <p> 示例值：6807409776231254285
      */
@@ -148,6 +154,18 @@ public class JobRequirement {
      */
     @SerializedName("customized_data_list")
     private JobRequirementCustomizedData[] customizedDataList;
+    /**
+     * 支持的招聘类型列表
+     * <p> 示例值：1
+     */
+    @SerializedName("process_type")
+    private Integer processType;
+    /**
+     * 招聘需求中的职位类别
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("job_type_id")
+    private String jobTypeId;
 
     // builder 开始
     public JobRequirement() {
@@ -179,6 +197,11 @@ public class JobRequirement {
          * <p> 示例值：101
          */
         this.recruitmentTypeId = builder.recruitmentTypeId;
+        /**
+         * 人员类型
+         * <p> 示例值：6807409776231254285
+         */
+        this.employeeTypeId = builder.employeeTypeId;
         /**
          * 最高职级 ID
          * <p> 示例值：6807409776231254285
@@ -264,6 +287,16 @@ public class JobRequirement {
          * <p> 示例值：
          */
         this.customizedDataList = builder.customizedDataList;
+        /**
+         * 支持的招聘类型列表
+         * <p> 示例值：1
+         */
+        this.processType = builder.processType;
+        /**
+         * 招聘需求中的职位类别
+         * <p> 示例值：6930815272790114324
+         */
+        this.jobTypeId = builder.jobTypeId;
     }
 
     public static Builder newBuilder() {
@@ -308,6 +341,14 @@ public class JobRequirement {
 
     public void setRecruitmentTypeId(String recruitmentTypeId) {
         this.recruitmentTypeId = recruitmentTypeId;
+    }
+
+    public String getEmployeeTypeId() {
+        return this.employeeTypeId;
+    }
+
+    public void setEmployeeTypeId(String employeeTypeId) {
+        this.employeeTypeId = employeeTypeId;
     }
 
     public String getMaxLevelId() {
@@ -446,6 +487,22 @@ public class JobRequirement {
         this.customizedDataList = customizedDataList;
     }
 
+    public Integer getProcessType() {
+        return this.processType;
+    }
+
+    public void setProcessType(Integer processType) {
+        this.processType = processType;
+    }
+
+    public String getJobTypeId() {
+        return this.jobTypeId;
+    }
+
+    public void setJobTypeId(String jobTypeId) {
+        this.jobTypeId = jobTypeId;
+    }
+
     public static class Builder {
         /**
          * 招聘需求编号
@@ -472,6 +529,11 @@ public class JobRequirement {
          * <p> 示例值：101
          */
         private String recruitmentTypeId;
+        /**
+         * 人员类型
+         * <p> 示例值：6807409776231254285
+         */
+        private String employeeTypeId;
         /**
          * 最高职级 ID
          * <p> 示例值：6807409776231254285
@@ -557,6 +619,16 @@ public class JobRequirement {
          * <p> 示例值：
          */
         private JobRequirementCustomizedData[] customizedDataList;
+        /**
+         * 支持的招聘类型列表
+         * <p> 示例值：1
+         */
+        private Integer processType;
+        /**
+         * 招聘需求中的职位类别
+         * <p> 示例值：6930815272790114324
+         */
+        private String jobTypeId;
 
         /**
          * 招聘需求编号
@@ -619,6 +691,19 @@ public class JobRequirement {
          */
         public Builder recruitmentTypeId(String recruitmentTypeId) {
             this.recruitmentTypeId = recruitmentTypeId;
+            return this;
+        }
+
+
+        /**
+         * 人员类型
+         * <p> 示例值：6807409776231254285
+         *
+         * @param employeeTypeId
+         * @return
+         */
+        public Builder employeeTypeId(String employeeTypeId) {
+            this.employeeTypeId = employeeTypeId;
             return this;
         }
 
@@ -840,6 +925,32 @@ public class JobRequirement {
          */
         public Builder customizedDataList(JobRequirementCustomizedData[] customizedDataList) {
             this.customizedDataList = customizedDataList;
+            return this;
+        }
+
+
+        /**
+         * 支持的招聘类型列表
+         * <p> 示例值：1
+         *
+         * @param processType
+         * @return
+         */
+        public Builder processType(Integer processType) {
+            this.processType = processType;
+            return this;
+        }
+
+
+        /**
+         * 招聘需求中的职位类别
+         * <p> 示例值：6930815272790114324
+         *
+         * @param jobTypeId
+         * @return
+         */
+        public Builder jobTypeId(String jobTypeId) {
+            this.jobTypeId = jobTypeId;
             return this;
         }
 

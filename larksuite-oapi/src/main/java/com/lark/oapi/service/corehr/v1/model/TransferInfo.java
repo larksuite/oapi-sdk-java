@@ -292,6 +292,18 @@ public class TransferInfo {
      */
     @SerializedName("target_cost_center_rate")
     private SupportCostCenterItem[] targetCostCenterRate;
+    /**
+     * 原工作信息
+     * <p> 示例值：
+     */
+    @SerializedName("original_employment_change")
+    private TranferEmploymentInfo originalEmploymentChange;
+    /**
+     * 新工作信息
+     * <p> 示例值：
+     */
+    @SerializedName("target_employment_change")
+    private TranferEmploymentInfo targetEmploymentChange;
 
     // builder 开始
     public TransferInfo() {
@@ -528,6 +540,16 @@ public class TransferInfo {
          * <p> 示例值：
          */
         this.targetCostCenterRate = builder.targetCostCenterRate;
+        /**
+         * 原工作信息
+         * <p> 示例值：
+         */
+        this.originalEmploymentChange = builder.originalEmploymentChange;
+        /**
+         * 新工作信息
+         * <p> 示例值：
+         */
+        this.targetEmploymentChange = builder.targetEmploymentChange;
     }
 
     public static Builder newBuilder() {
@@ -902,6 +924,22 @@ public class TransferInfo {
         this.targetCostCenterRate = targetCostCenterRate;
     }
 
+    public TranferEmploymentInfo getOriginalEmploymentChange() {
+        return this.originalEmploymentChange;
+    }
+
+    public void setOriginalEmploymentChange(TranferEmploymentInfo originalEmploymentChange) {
+        this.originalEmploymentChange = originalEmploymentChange;
+    }
+
+    public TranferEmploymentInfo getTargetEmploymentChange() {
+        return this.targetEmploymentChange;
+    }
+
+    public void setTargetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
+        this.targetEmploymentChange = targetEmploymentChange;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1133,6 +1171,16 @@ public class TransferInfo {
          * <p> 示例值：
          */
         private SupportCostCenterItem[] targetCostCenterRate;
+        /**
+         * 原工作信息
+         * <p> 示例值：
+         */
+        private TranferEmploymentInfo originalEmploymentChange;
+        /**
+         * 新工作信息
+         * <p> 示例值：
+         */
+        private TranferEmploymentInfo targetEmploymentChange;
 
         /**
          * 备注
@@ -1728,6 +1776,32 @@ public class TransferInfo {
          */
         public Builder targetCostCenterRate(SupportCostCenterItem[] targetCostCenterRate) {
             this.targetCostCenterRate = targetCostCenterRate;
+            return this;
+        }
+
+
+        /**
+         * 原工作信息
+         * <p> 示例值：
+         *
+         * @param originalEmploymentChange
+         * @return
+         */
+        public Builder originalEmploymentChange(TranferEmploymentInfo originalEmploymentChange) {
+            this.originalEmploymentChange = originalEmploymentChange;
+            return this;
+        }
+
+
+        /**
+         * 新工作信息
+         * <p> 示例值：
+         *
+         * @param targetEmploymentChange
+         * @return
+         */
+        public Builder targetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
+            this.targetEmploymentChange = targetEmploymentChange;
             return this;
         }
 

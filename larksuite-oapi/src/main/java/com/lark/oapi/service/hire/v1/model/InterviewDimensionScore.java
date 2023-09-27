@@ -28,6 +28,12 @@ public class InterviewDimensionScore {
      */
     @SerializedName("name")
     private I18n name;
+    /**
+     * 选项对应的分数，维度评价为方式「打分题(单选)」时关注该字段
+     * <p> 示例值：10
+     */
+    @SerializedName("score_val")
+    private Integer scoreVal;
 
     // builder 开始
     public InterviewDimensionScore() {
@@ -44,6 +50,11 @@ public class InterviewDimensionScore {
          * <p> 示例值：
          */
         this.name = builder.name;
+        /**
+         * 选项对应的分数，维度评价为方式「打分题(单选)」时关注该字段
+         * <p> 示例值：10
+         */
+        this.scoreVal = builder.scoreVal;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class InterviewDimensionScore {
         this.name = name;
     }
 
+    public Integer getScoreVal() {
+        return this.scoreVal;
+    }
+
+    public void setScoreVal(Integer scoreVal) {
+        this.scoreVal = scoreVal;
+    }
+
     public static class Builder {
         /**
          * 选项 ID
@@ -77,6 +96,11 @@ public class InterviewDimensionScore {
          * <p> 示例值：
          */
         private I18n name;
+        /**
+         * 选项对应的分数，维度评价为方式「打分题(单选)」时关注该字段
+         * <p> 示例值：10
+         */
+        private Integer scoreVal;
 
         /**
          * 选项 ID
@@ -100,6 +124,19 @@ public class InterviewDimensionScore {
          */
         public Builder name(I18n name) {
             this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 选项对应的分数，维度评价为方式「打分题(单选)」时关注该字段
+         * <p> 示例值：10
+         *
+         * @param scoreVal
+         * @return
+         */
+        public Builder scoreVal(Integer scoreVal) {
+            this.scoreVal = scoreVal;
             return this;
         }
 

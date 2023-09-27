@@ -58,6 +58,12 @@ public class EventCard {
      */
     @SerializedName("meeting_room_ids")
     private String meetingRoomIds;
+    /**
+     * 需要预定的日程长度
+     * <p> 示例值：1小时30分钟
+     */
+    @SerializedName("duration")
+    private String duration;
 
     // builder 开始
     public EventCard() {
@@ -99,6 +105,11 @@ public class EventCard {
          * <p> 示例值：omm_xxx;omm_yyy
          */
         this.meetingRoomIds = builder.meetingRoomIds;
+        /**
+         * 需要预定的日程长度
+         * <p> 示例值：1小时30分钟
+         */
+        this.duration = builder.duration;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class EventCard {
         this.meetingRoomIds = meetingRoomIds;
     }
 
+    public String getDuration() {
+        return this.duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
     public static class Builder {
         /**
          * 日程主题
@@ -197,6 +216,11 @@ public class EventCard {
          * <p> 示例值：omm_xxx;omm_yyy
          */
         private String meetingRoomIds;
+        /**
+         * 需要预定的日程长度
+         * <p> 示例值：1小时30分钟
+         */
+        private String duration;
 
         /**
          * 日程主题
@@ -285,6 +309,19 @@ public class EventCard {
          */
         public Builder meetingRoomIds(String meetingRoomIds) {
             this.meetingRoomIds = meetingRoomIds;
+            return this;
+        }
+
+
+        /**
+         * 需要预定的日程长度
+         * <p> 示例值：1小时30分钟
+         *
+         * @param duration
+         * @return
+         */
+        public Builder duration(String duration) {
+            this.duration = duration;
             return this;
         }
 

@@ -34,6 +34,12 @@ public class CopyAppReqBody {
      */
     @SerializedName("without_content")
     private Boolean withoutContent;
+    /**
+     * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+     * <p> 示例值：Asia/Beijing
+     */
+    @SerializedName("time_zone")
+    private String timeZone;
 
     // builder 开始
     public CopyAppReqBody() {
@@ -55,6 +61,11 @@ public class CopyAppReqBody {
          * <p> 示例值：false
          */
         this.withoutContent = builder.withoutContent;
+        /**
+         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+         * <p> 示例值：Asia/Beijing
+         */
+        this.timeZone = builder.timeZone;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class CopyAppReqBody {
         this.withoutContent = withoutContent;
     }
 
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     public static class Builder {
         /**
          * 多维表格 App 名字
@@ -101,6 +120,11 @@ public class CopyAppReqBody {
          * <p> 示例值：false
          */
         private Boolean withoutContent;
+        /**
+         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+         * <p> 示例值：Asia/Beijing
+         */
+        private String timeZone;
 
         /**
          * 多维表格 App 名字
@@ -137,6 +161,19 @@ public class CopyAppReqBody {
          */
         public Builder withoutContent(Boolean withoutContent) {
             this.withoutContent = withoutContent;
+            return this;
+        }
+
+
+        /**
+         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+         * <p> 示例值：Asia/Beijing
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
 

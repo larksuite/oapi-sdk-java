@@ -28,6 +28,12 @@ public class ReqApp {
      */
     @SerializedName("folder_token")
     private String folderToken;
+    /**
+     * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+     * <p> 示例值：Asia/Macau
+     */
+    @SerializedName("time_zone")
+    private String timeZone;
 
     // builder 开始
     public ReqApp() {
@@ -44,6 +50,11 @@ public class ReqApp {
          * <p> 示例值：fldbcoh8O99CIMltVc
          */
         this.folderToken = builder.folderToken;
+        /**
+         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+         * <p> 示例值：Asia/Macau
+         */
+        this.timeZone = builder.timeZone;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class ReqApp {
         this.folderToken = folderToken;
     }
 
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     public static class Builder {
         /**
          * 多维表格App名字
@@ -77,6 +96,11 @@ public class ReqApp {
          * <p> 示例值：fldbcoh8O99CIMltVc
          */
         private String folderToken;
+        /**
+         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+         * <p> 示例值：Asia/Macau
+         */
+        private String timeZone;
 
         /**
          * 多维表格App名字
@@ -100,6 +124,19 @@ public class ReqApp {
          */
         public Builder folderToken(String folderToken) {
             this.folderToken = folderToken;
+            return this;
+        }
+
+
+        /**
+         * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
+         * <p> 示例值：Asia/Macau
+         *
+         * @param timeZone
+         * @return
+         */
+        public Builder timeZone(String timeZone) {
+            this.timeZone = timeZone;
             return this;
         }
 

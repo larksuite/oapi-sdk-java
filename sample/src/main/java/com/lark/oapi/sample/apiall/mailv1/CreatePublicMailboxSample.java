@@ -18,6 +18,7 @@ public class CreatePublicMailboxSample {
                 .publicMailbox(PublicMailbox.newBuilder()
                         .email("test_public_mailbox@xxx.xx")
                         .name("test public mailbox")
+                        .geo("cn")
                         .build())
                 .build();
 

@@ -136,6 +136,12 @@ public class TalentBasicInfo {
      */
     @SerializedName("modify_time")
     private String modifyTime;
+    /**
+     * 户口所在地
+     * <p> 示例值：CN_1
+     */
+    @SerializedName("hukou_location_code")
+    private String hukouLocationCode;
 
     // builder 开始
     public TalentBasicInfo() {
@@ -242,6 +248,11 @@ public class TalentBasicInfo {
          * <p> 示例值：1634801678103
          */
         this.modifyTime = builder.modifyTime;
+        /**
+         * 户口所在地
+         * <p> 示例值：CN_1
+         */
+        this.hukouLocationCode = builder.hukouLocationCode;
     }
 
     public static Builder newBuilder() {
@@ -408,6 +419,14 @@ public class TalentBasicInfo {
         this.modifyTime = modifyTime;
     }
 
+    public String getHukouLocationCode() {
+        return this.hukouLocationCode;
+    }
+
+    public void setHukouLocationCode(String hukouLocationCode) {
+        this.hukouLocationCode = hukouLocationCode;
+    }
+
     public static class Builder {
         /**
          * 名字
@@ -509,6 +528,11 @@ public class TalentBasicInfo {
          * <p> 示例值：1634801678103
          */
         private String modifyTime;
+        /**
+         * 户口所在地
+         * <p> 示例值：CN_1
+         */
+        private String hukouLocationCode;
 
         /**
          * 名字
@@ -766,6 +790,19 @@ public class TalentBasicInfo {
          */
         public Builder modifyTime(String modifyTime) {
             this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * 户口所在地
+         * <p> 示例值：CN_1
+         *
+         * @param hukouLocationCode
+         * @return
+         */
+        public Builder hukouLocationCode(String hukouLocationCode) {
+            this.hukouLocationCode = hukouLocationCode;
             return this;
         }
 

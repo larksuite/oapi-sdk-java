@@ -2,10 +2,7 @@ package com.lark.oapi.sample.apiall.searchv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.search.v2.model.I18nMeta;
-import com.lark.oapi.service.search.v2.model.PatchDataSourceReq;
-import com.lark.oapi.service.search.v2.model.PatchDataSourceReqBody;
-import com.lark.oapi.service.search.v2.model.PatchDataSourceResp;
+import com.lark.oapi.service.search.v2.model.*;
 
 // PATCH /open-apis/search/v2/data_sources/:data_source_id
 public class PatchDataSourceSample {
@@ -24,6 +21,7 @@ public class PatchDataSourceSample {
                         .iconUrl("https://www.xxx.com/open.jpg")
                         .i18nName(I18nMeta.newBuilder().build())
                         .i18nDescription(I18nMeta.newBuilder().build())
+                        .connectorParam(ConnectorParam.newBuilder().build())
                         .build())
                 .build();
 

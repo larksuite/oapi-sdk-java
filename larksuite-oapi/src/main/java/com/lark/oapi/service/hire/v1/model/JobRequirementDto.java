@@ -53,6 +53,12 @@ public class JobRequirementDto {
     @SerializedName("recruitment_type")
     private IdNameObject recruitmentType;
     /**
+     * 人员类型
+     * <p> 示例值：
+     */
+    @SerializedName("employee_type")
+    private IdNameObject employeeType;
+    /**
      * 最高职级
      * <p> 示例值：
      */
@@ -160,6 +166,18 @@ public class JobRequirementDto {
      */
     @SerializedName("job_id_list")
     private String[] jobIdList;
+    /**
+     * 招聘需求支持的招聘类型
+     * <p> 示例值：1
+     */
+    @SerializedName("process_type")
+    private Integer processType;
+    /**
+     * 职位类别
+     * <p> 示例值：
+     */
+    @SerializedName("job_type")
+    private JobTypeInfo jobType;
 
     // builder 开始
     public JobRequirementDto() {
@@ -196,6 +214,11 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         this.recruitmentType = builder.recruitmentType;
+        /**
+         * 人员类型
+         * <p> 示例值：
+         */
+        this.employeeType = builder.employeeType;
         /**
          * 最高职级
          * <p> 示例值：
@@ -286,6 +309,16 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         this.jobIdList = builder.jobIdList;
+        /**
+         * 招聘需求支持的招聘类型
+         * <p> 示例值：1
+         */
+        this.processType = builder.processType;
+        /**
+         * 职位类别
+         * <p> 示例值：
+         */
+        this.jobType = builder.jobType;
     }
 
     public static Builder newBuilder() {
@@ -338,6 +371,14 @@ public class JobRequirementDto {
 
     public void setRecruitmentType(IdNameObject recruitmentType) {
         this.recruitmentType = recruitmentType;
+    }
+
+    public IdNameObject getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(IdNameObject employeeType) {
+        this.employeeType = employeeType;
     }
 
     public IdNameObject getMaxLevel() {
@@ -484,6 +525,22 @@ public class JobRequirementDto {
         this.jobIdList = jobIdList;
     }
 
+    public Integer getProcessType() {
+        return this.processType;
+    }
+
+    public void setProcessType(Integer processType) {
+        this.processType = processType;
+    }
+
+    public JobTypeInfo getJobType() {
+        return this.jobType;
+    }
+
+    public void setJobType(JobTypeInfo jobType) {
+        this.jobType = jobType;
+    }
+
     public static class Builder {
         /**
          * 招聘需求 ID
@@ -515,6 +572,11 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         private IdNameObject recruitmentType;
+        /**
+         * 人员类型
+         * <p> 示例值：
+         */
+        private IdNameObject employeeType;
         /**
          * 最高职级
          * <p> 示例值：
@@ -605,6 +667,16 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         private String[] jobIdList;
+        /**
+         * 招聘需求支持的招聘类型
+         * <p> 示例值：1
+         */
+        private Integer processType;
+        /**
+         * 职位类别
+         * <p> 示例值：
+         */
+        private JobTypeInfo jobType;
 
         /**
          * 招聘需求 ID
@@ -680,6 +752,19 @@ public class JobRequirementDto {
          */
         public Builder recruitmentType(IdNameObject recruitmentType) {
             this.recruitmentType = recruitmentType;
+            return this;
+        }
+
+
+        /**
+         * 人员类型
+         * <p> 示例值：
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(IdNameObject employeeType) {
+            this.employeeType = employeeType;
             return this;
         }
 
@@ -914,6 +999,32 @@ public class JobRequirementDto {
          */
         public Builder jobIdList(String[] jobIdList) {
             this.jobIdList = jobIdList;
+            return this;
+        }
+
+
+        /**
+         * 招聘需求支持的招聘类型
+         * <p> 示例值：1
+         *
+         * @param processType
+         * @return
+         */
+        public Builder processType(Integer processType) {
+            this.processType = processType;
+            return this;
+        }
+
+
+        /**
+         * 职位类别
+         * <p> 示例值：
+         *
+         * @param jobType
+         * @return
+         */
+        public Builder jobType(JobTypeInfo jobType) {
+            this.jobType = jobType;
             return this;
         }
 

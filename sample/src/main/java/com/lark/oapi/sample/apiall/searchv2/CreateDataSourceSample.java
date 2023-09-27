@@ -2,10 +2,7 @@ package com.lark.oapi.sample.apiall.searchv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.search.v2.model.CreateDataSourceReq;
-import com.lark.oapi.service.search.v2.model.CreateDataSourceResp;
-import com.lark.oapi.service.search.v2.model.DataSource;
-import com.lark.oapi.service.search.v2.model.I18nMeta;
+import com.lark.oapi.service.search.v2.model.*;
 
 // POST /open-apis/search/v2/data_sources
 public class CreateDataSourceSample {
@@ -27,6 +24,8 @@ public class CreateDataSourceSample {
                         .i18nDescription(I18nMeta.newBuilder().build())
                         .schemaId("7159054681489010384")
                         .appId("cli_a1306bed4738d01b")
+                        .connectType(0)
+                        .connectorParam(ConnectorParam.newBuilder().build())
                         .build())
                 .build();
 

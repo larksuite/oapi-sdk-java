@@ -34,6 +34,7 @@ public class ApplicationService {
     private final Application application; // 应用
     private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
     private final ApplicationAppVersion applicationAppVersion; // 事件
+    private final ApplicationContactsRange applicationContactsRange; // application.contacts_range
     private final ApplicationFeedback applicationFeedback; // 应用反馈
     private final ApplicationVisibility applicationVisibility; // 事件
     private final Bot bot; // 事件
@@ -43,6 +44,7 @@ public class ApplicationService {
         this.application = new Application(config);
         this.applicationAppUsage = new ApplicationAppUsage(config);
         this.applicationAppVersion = new ApplicationAppVersion(config);
+        this.applicationContactsRange = new ApplicationContactsRange(config);
         this.applicationFeedback = new ApplicationFeedback(config);
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
@@ -82,6 +84,15 @@ public class ApplicationService {
      */
     public ApplicationAppVersion applicationAppVersion() {
         return applicationAppVersion;
+    }
+
+    /**
+     * application.contacts_range
+     *
+     * @return
+     */
+    public ApplicationContactsRange applicationContactsRange() {
+        return applicationContactsRange;
     }
 
     /**
@@ -873,6 +884,80 @@ public class ApplicationService {
         }
     }
 
+    public static class ApplicationContactsRange {
+        private final Config config;
+
+        public ApplicationContactsRange(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.contacts_range&version=v6">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.contacts_range&version=v6</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationContactsRangeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationContactsRangeSample.java</a> ;
+         */
+        public PatchApplicationContactsRangeResp patch(PatchApplicationContactsRangeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/application/v6/applications/:app_id/contacts_range"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchApplicationContactsRangeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchApplicationContactsRangeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/applications/:app_id/contacts_range"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.contacts_range&version=v6">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.contacts_range&version=v6</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationContactsRangeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationContactsRangeSample.java</a> ;
+         */
+        public PatchApplicationContactsRangeResp patch(PatchApplicationContactsRangeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/application/v6/applications/:app_id/contacts_range"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchApplicationContactsRangeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchApplicationContactsRangeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/applications/:app_id/contacts_range"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
     public static class ApplicationFeedback {
         private final Config config;
 
@@ -1074,6 +1159,72 @@ public class ApplicationService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/applications/:app_id/visibility/check_white_black_list"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.visibility&version=v6">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.visibility&version=v6</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationVisibilitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationVisibilitySample.java</a> ;
+         */
+        public PatchApplicationVisibilityResp patch(PatchApplicationVisibilityReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/application/v6/applications/:app_id/visibility"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchApplicationVisibilityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchApplicationVisibilityResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/applications/:app_id/visibility"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.visibility&version=v6">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=application&resource=application.visibility&version=v6</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationVisibilitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationVisibilitySample.java</a> ;
+         */
+        public PatchApplicationVisibilityResp patch(PatchApplicationVisibilityReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/application/v6/applications/:app_id/visibility"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            PatchApplicationVisibilityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchApplicationVisibilityResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/applications/:app_id/visibility"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

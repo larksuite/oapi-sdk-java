@@ -17,10 +17,10 @@ public class CreateImportTaskSample {
         // 创建请求对象
         CreateImportTaskReq req = CreateImportTaskReq.newBuilder()
                 .importTask(ImportTask.newBuilder()
-                        .fileExtension("")
-                        .fileToken("")
-                        .type("")
-                        .fileName("")
+                        .fileExtension("txt")
+                        .fileToken("boxbcHgfxdfxxxxxxxxxxxfMky")
+                        .type("docx")
+                        .fileName("文件名")
                         .point(ImportTaskMountPoint.newBuilder().build())
                         .build())
                 .build();

@@ -59,11 +59,35 @@ public class InterviewRecord {
     @SerializedName("interview_score")
     private InterviewScore interviewScore;
     /**
+     * 面评打分题分数
+     * <p> 示例值：
+     */
+    @SerializedName("assessment_score")
+    private AssessmentScoreInfo assessmentScore;
+    /**
+     * 面试题目
+     * <p> 示例值：
+     */
+    @SerializedName("question_list")
+    private InterviewQuestion[] questionList;
+    /**
+     * 在线编程题目
+     * <p> 示例值：
+     */
+    @SerializedName("code_question_list")
+    private InterviewQuestion[] codeQuestionList;
+    /**
      * 面试官信息
      * <p> 示例值：
      */
     @SerializedName("interviewer")
     private IdNameObject interviewer;
+    /**
+     * 面试评价图片
+     * <p> 示例值：
+     */
+    @SerializedName("image_list")
+    private AttachmentV2[] imageList;
     /**
      * 面试评价
      * <p> 示例值：
@@ -112,10 +136,30 @@ public class InterviewRecord {
          */
         this.interviewScore = builder.interviewScore;
         /**
+         * 面评打分题分数
+         * <p> 示例值：
+         */
+        this.assessmentScore = builder.assessmentScore;
+        /**
+         * 面试题目
+         * <p> 示例值：
+         */
+        this.questionList = builder.questionList;
+        /**
+         * 在线编程题目
+         * <p> 示例值：
+         */
+        this.codeQuestionList = builder.codeQuestionList;
+        /**
          * 面试官信息
          * <p> 示例值：
          */
         this.interviewer = builder.interviewer;
+        /**
+         * 面试评价图片
+         * <p> 示例值：
+         */
+        this.imageList = builder.imageList;
         /**
          * 面试评价
          * <p> 示例值：
@@ -183,12 +227,44 @@ public class InterviewRecord {
         this.interviewScore = interviewScore;
     }
 
+    public AssessmentScoreInfo getAssessmentScore() {
+        return this.assessmentScore;
+    }
+
+    public void setAssessmentScore(AssessmentScoreInfo assessmentScore) {
+        this.assessmentScore = assessmentScore;
+    }
+
+    public InterviewQuestion[] getQuestionList() {
+        return this.questionList;
+    }
+
+    public void setQuestionList(InterviewQuestion[] questionList) {
+        this.questionList = questionList;
+    }
+
+    public InterviewQuestion[] getCodeQuestionList() {
+        return this.codeQuestionList;
+    }
+
+    public void setCodeQuestionList(InterviewQuestion[] codeQuestionList) {
+        this.codeQuestionList = codeQuestionList;
+    }
+
     public IdNameObject getInterviewer() {
         return this.interviewer;
     }
 
     public void setInterviewer(IdNameObject interviewer) {
         this.interviewer = interviewer;
+    }
+
+    public AttachmentV2[] getImageList() {
+        return this.imageList;
+    }
+
+    public void setImageList(AttachmentV2[] imageList) {
+        this.imageList = imageList;
     }
 
     public InterviewDimensionAssessment[] getDimensionAssessmentList() {
@@ -236,10 +312,30 @@ public class InterviewRecord {
          */
         private InterviewScore interviewScore;
         /**
+         * 面评打分题分数
+         * <p> 示例值：
+         */
+        private AssessmentScoreInfo assessmentScore;
+        /**
+         * 面试题目
+         * <p> 示例值：
+         */
+        private InterviewQuestion[] questionList;
+        /**
+         * 在线编程题目
+         * <p> 示例值：
+         */
+        private InterviewQuestion[] codeQuestionList;
+        /**
          * 面试官信息
          * <p> 示例值：
          */
         private IdNameObject interviewer;
+        /**
+         * 面试评价图片
+         * <p> 示例值：
+         */
+        private AttachmentV2[] imageList;
         /**
          * 面试评价
          * <p> 示例值：
@@ -338,6 +434,45 @@ public class InterviewRecord {
 
 
         /**
+         * 面评打分题分数
+         * <p> 示例值：
+         *
+         * @param assessmentScore
+         * @return
+         */
+        public Builder assessmentScore(AssessmentScoreInfo assessmentScore) {
+            this.assessmentScore = assessmentScore;
+            return this;
+        }
+
+
+        /**
+         * 面试题目
+         * <p> 示例值：
+         *
+         * @param questionList
+         * @return
+         */
+        public Builder questionList(InterviewQuestion[] questionList) {
+            this.questionList = questionList;
+            return this;
+        }
+
+
+        /**
+         * 在线编程题目
+         * <p> 示例值：
+         *
+         * @param codeQuestionList
+         * @return
+         */
+        public Builder codeQuestionList(InterviewQuestion[] codeQuestionList) {
+            this.codeQuestionList = codeQuestionList;
+            return this;
+        }
+
+
+        /**
          * 面试官信息
          * <p> 示例值：
          *
@@ -346,6 +481,19 @@ public class InterviewRecord {
          */
         public Builder interviewer(IdNameObject interviewer) {
             this.interviewer = interviewer;
+            return this;
+        }
+
+
+        /**
+         * 面试评价图片
+         * <p> 示例值：
+         *
+         * @param imageList
+         * @return
+         */
+        public Builder imageList(AttachmentV2[] imageList) {
+            this.imageList = imageList;
             return this;
         }
 

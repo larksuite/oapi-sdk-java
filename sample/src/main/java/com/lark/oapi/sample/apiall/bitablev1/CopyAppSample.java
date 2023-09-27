@@ -20,6 +20,7 @@ public class CopyAppSample {
                         .name("一篇新的多维表格")
                         .folderToken("fldbco*****CIMltVc")
                         .withoutContent(false)
+                        .timeZone("Asia/Beijing")
                         .build())
                 .build();
 

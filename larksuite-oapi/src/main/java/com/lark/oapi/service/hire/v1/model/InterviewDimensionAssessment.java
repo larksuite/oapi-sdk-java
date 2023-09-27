@@ -29,6 +29,12 @@ public class InterviewDimensionAssessment {
     @SerializedName("name")
     private I18n name;
     /**
+     * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+     * <p> 示例值：100
+     */
+    @SerializedName("full_score")
+    private Integer fullScore;
+    /**
      * 当题目类型为描述题时，从此取值
      * <p> 示例值：这个候选人还不错
      */
@@ -53,6 +59,24 @@ public class InterviewDimensionAssessment {
     @SerializedName("dimension_score_list")
     private InterviewDimensionScore[] dimensionScoreList;
     /**
+     * 当维度评价方式为「打分题(填空)时」，从此取值
+     * <p> 示例值：10
+     */
+    @SerializedName("dimension_custom_score")
+    private Integer dimensionCustomScore;
+    /**
+     * 维度关联能力项
+     * <p> 示例值：
+     */
+    @SerializedName("ability_list")
+    private Ability[] abilityList;
+    /**
+     * 维度关联面试题
+     * <p> 示例值：
+     */
+    @SerializedName("question_list")
+    private InterviewQuestion[] questionList;
+    /**
      * 题目类型
      * <p> 示例值：1
      */
@@ -75,6 +99,11 @@ public class InterviewDimensionAssessment {
          */
         this.name = builder.name;
         /**
+         * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+         * <p> 示例值：100
+         */
+        this.fullScore = builder.fullScore;
+        /**
          * 当题目类型为描述题时，从此取值
          * <p> 示例值：这个候选人还不错
          */
@@ -94,6 +123,21 @@ public class InterviewDimensionAssessment {
          * <p> 示例值：
          */
         this.dimensionScoreList = builder.dimensionScoreList;
+        /**
+         * 当维度评价方式为「打分题(填空)时」，从此取值
+         * <p> 示例值：10
+         */
+        this.dimensionCustomScore = builder.dimensionCustomScore;
+        /**
+         * 维度关联能力项
+         * <p> 示例值：
+         */
+        this.abilityList = builder.abilityList;
+        /**
+         * 维度关联面试题
+         * <p> 示例值：
+         */
+        this.questionList = builder.questionList;
         /**
          * 题目类型
          * <p> 示例值：1
@@ -119,6 +163,14 @@ public class InterviewDimensionAssessment {
 
     public void setName(I18n name) {
         this.name = name;
+    }
+
+    public Integer getFullScore() {
+        return this.fullScore;
+    }
+
+    public void setFullScore(Integer fullScore) {
+        this.fullScore = fullScore;
     }
 
     public String getContent() {
@@ -153,6 +205,30 @@ public class InterviewDimensionAssessment {
         this.dimensionScoreList = dimensionScoreList;
     }
 
+    public Integer getDimensionCustomScore() {
+        return this.dimensionCustomScore;
+    }
+
+    public void setDimensionCustomScore(Integer dimensionCustomScore) {
+        this.dimensionCustomScore = dimensionCustomScore;
+    }
+
+    public Ability[] getAbilityList() {
+        return this.abilityList;
+    }
+
+    public void setAbilityList(Ability[] abilityList) {
+        this.abilityList = abilityList;
+    }
+
+    public InterviewQuestion[] getQuestionList() {
+        return this.questionList;
+    }
+
+    public void setQuestionList(InterviewQuestion[] questionList) {
+        this.questionList = questionList;
+    }
+
     public Integer getDimensionType() {
         return this.dimensionType;
     }
@@ -173,6 +249,11 @@ public class InterviewDimensionAssessment {
          */
         private I18n name;
         /**
+         * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+         * <p> 示例值：100
+         */
+        private Integer fullScore;
+        /**
          * 当题目类型为描述题时，从此取值
          * <p> 示例值：这个候选人还不错
          */
@@ -192,6 +273,21 @@ public class InterviewDimensionAssessment {
          * <p> 示例值：
          */
         private InterviewDimensionScore[] dimensionScoreList;
+        /**
+         * 当维度评价方式为「打分题(填空)时」，从此取值
+         * <p> 示例值：10
+         */
+        private Integer dimensionCustomScore;
+        /**
+         * 维度关联能力项
+         * <p> 示例值：
+         */
+        private Ability[] abilityList;
+        /**
+         * 维度关联面试题
+         * <p> 示例值：
+         */
+        private InterviewQuestion[] questionList;
         /**
          * 题目类型
          * <p> 示例值：1
@@ -220,6 +316,19 @@ public class InterviewDimensionAssessment {
          */
         public Builder name(I18n name) {
             this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用
+         * <p> 示例值：100
+         *
+         * @param fullScore
+         * @return
+         */
+        public Builder fullScore(Integer fullScore) {
+            this.fullScore = fullScore;
             return this;
         }
 
@@ -272,6 +381,45 @@ public class InterviewDimensionAssessment {
          */
         public Builder dimensionScoreList(InterviewDimensionScore[] dimensionScoreList) {
             this.dimensionScoreList = dimensionScoreList;
+            return this;
+        }
+
+
+        /**
+         * 当维度评价方式为「打分题(填空)时」，从此取值
+         * <p> 示例值：10
+         *
+         * @param dimensionCustomScore
+         * @return
+         */
+        public Builder dimensionCustomScore(Integer dimensionCustomScore) {
+            this.dimensionCustomScore = dimensionCustomScore;
+            return this;
+        }
+
+
+        /**
+         * 维度关联能力项
+         * <p> 示例值：
+         *
+         * @param abilityList
+         * @return
+         */
+        public Builder abilityList(Ability[] abilityList) {
+            this.abilityList = abilityList;
+            return this;
+        }
+
+
+        /**
+         * 维度关联面试题
+         * <p> 示例值：
+         *
+         * @param questionList
+         * @return
+         */
+        public Builder questionList(InterviewQuestion[] questionList) {
+            this.questionList = questionList;
             return this;
         }
 

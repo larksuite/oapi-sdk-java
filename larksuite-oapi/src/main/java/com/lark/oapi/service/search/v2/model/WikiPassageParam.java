@@ -28,6 +28,24 @@ public class WikiPassageParam {
      */
     @SerializedName("space_ids")
     private String[] spaceIds;
+    /**
+     * 在特定的wiki内搜索（仅限内部使用，有需求请用wiki_tokens）
+     * <p> 示例值：
+     */
+    @SerializedName("obj_ids")
+    private String[] objIds;
+    /**
+     * 在特定的wiki内搜索
+     * <p> 示例值：
+     */
+    @SerializedName("wiki_tokens")
+    private String[] wikiTokens;
+    /**
+     * 在特定的wiki节点范围内搜索
+     * <p> 示例值：
+     */
+    @SerializedName("node_tokens")
+    private String[] nodeTokens;
 
     // builder 开始
     public WikiPassageParam() {
@@ -44,6 +62,21 @@ public class WikiPassageParam {
          * <p> 示例值：
          */
         this.spaceIds = builder.spaceIds;
+        /**
+         * 在特定的wiki内搜索（仅限内部使用，有需求请用wiki_tokens）
+         * <p> 示例值：
+         */
+        this.objIds = builder.objIds;
+        /**
+         * 在特定的wiki内搜索
+         * <p> 示例值：
+         */
+        this.wikiTokens = builder.wikiTokens;
+        /**
+         * 在特定的wiki节点范围内搜索
+         * <p> 示例值：
+         */
+        this.nodeTokens = builder.nodeTokens;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +99,30 @@ public class WikiPassageParam {
         this.spaceIds = spaceIds;
     }
 
+    public String[] getObjIds() {
+        return this.objIds;
+    }
+
+    public void setObjIds(String[] objIds) {
+        this.objIds = objIds;
+    }
+
+    public String[] getWikiTokens() {
+        return this.wikiTokens;
+    }
+
+    public void setWikiTokens(String[] wikiTokens) {
+        this.wikiTokens = wikiTokens;
+    }
+
+    public String[] getNodeTokens() {
+        return this.nodeTokens;
+    }
+
+    public void setNodeTokens(String[] nodeTokens) {
+        this.nodeTokens = nodeTokens;
+    }
+
     public static class Builder {
         /**
          * 是否要搜索wiki
@@ -77,6 +134,21 @@ public class WikiPassageParam {
          * <p> 示例值：
          */
         private String[] spaceIds;
+        /**
+         * 在特定的wiki内搜索（仅限内部使用，有需求请用wiki_tokens）
+         * <p> 示例值：
+         */
+        private String[] objIds;
+        /**
+         * 在特定的wiki内搜索
+         * <p> 示例值：
+         */
+        private String[] wikiTokens;
+        /**
+         * 在特定的wiki节点范围内搜索
+         * <p> 示例值：
+         */
+        private String[] nodeTokens;
 
         /**
          * 是否要搜索wiki
@@ -100,6 +172,45 @@ public class WikiPassageParam {
          */
         public Builder spaceIds(String[] spaceIds) {
             this.spaceIds = spaceIds;
+            return this;
+        }
+
+
+        /**
+         * 在特定的wiki内搜索（仅限内部使用，有需求请用wiki_tokens）
+         * <p> 示例值：
+         *
+         * @param objIds
+         * @return
+         */
+        public Builder objIds(String[] objIds) {
+            this.objIds = objIds;
+            return this;
+        }
+
+
+        /**
+         * 在特定的wiki内搜索
+         * <p> 示例值：
+         *
+         * @param wikiTokens
+         * @return
+         */
+        public Builder wikiTokens(String[] wikiTokens) {
+            this.wikiTokens = wikiTokens;
+            return this;
+        }
+
+
+        /**
+         * 在特定的wiki节点范围内搜索
+         * <p> 示例值：
+         *
+         * @param nodeTokens
+         * @return
+         */
+        public Builder nodeTokens(String[] nodeTokens) {
+            this.nodeTokens = nodeTokens;
             return this;
         }
 

@@ -18,6 +18,7 @@ public class CreateAppSample {
                 .reqApp(ReqApp.newBuilder()
                         .name("一篇新的多维表格")
                         .folderToken("fldbcoh8O99CIMltVc")
+                        .timeZone("Asia/Macau")
                         .build())
                 .build();
 

@@ -74,7 +74,7 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     private Config config;
     private AcsService acs; // 智能门禁
-    private AdminService admin; // 管理后台-企业勋章
+    private AdminService admin; // 管理后台-数据报表
     private ApplicationService application; // 应用信息
     private ApprovalService approval; // 审批
     private AttendanceService attendance; // 打卡
@@ -136,7 +136,7 @@ public class Client {
     }
 
     /**
-     * 管理后台-企业勋章
+     * 管理后台-数据报表
      *
      * @return
      */

@@ -33,7 +33,7 @@ public class GetFileSubscriptionReq {
     @SerializedName("subscription_id")
     private String subscriptionId;
     @Body
-    private FileSubscription body;
+    private GetFileSubscriptionReqBody body;
 
     // builder 开始
     public GetFileSubscriptionReq() {
@@ -73,11 +73,11 @@ public class GetFileSubscriptionReq {
         this.subscriptionId = subscriptionId;
     }
 
-    public FileSubscription getFileSubscription() {
+    public GetFileSubscriptionReqBody getGetFileSubscriptionReqBody() {
         return this.body;
     }
 
-    public void setFileSubscription(FileSubscription body) {
+    public void setGetFileSubscriptionReqBody(GetFileSubscriptionReqBody body) {
         this.body = body;
     }
 
@@ -85,7 +85,7 @@ public class GetFileSubscriptionReq {
 
         private String fileToken; // 文档token
         private String subscriptionId; // 订阅关系ID
-        private FileSubscription body;
+        private GetFileSubscriptionReqBody body;
 
         /**
          * 文档token
@@ -111,7 +111,7 @@ public class GetFileSubscriptionReq {
             return this;
         }
 
-        public FileSubscription getFileSubscription() {
+        public GetFileSubscriptionReqBody getGetFileSubscriptionReqBody() {
             return this.body;
         }
 
@@ -121,7 +121,7 @@ public class GetFileSubscriptionReq {
          * @param body
          * @return
          */
-        public Builder fileSubscription(FileSubscription body) {
+        public Builder getFileSubscriptionReqBody(GetFileSubscriptionReqBody body) {
             this.body = body;
             return this;
         }

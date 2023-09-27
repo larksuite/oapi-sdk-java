@@ -748,7 +748,7 @@ public class ImSample {
         CreateMessageReq req = CreateMessageReq.newBuilder()
                 .receiveIdType(ReceiveIdTypeEnum.OPEN_ID.getValue())
                 .createMessageReqBody(CreateMessageReqBody.newBuilder()
-                        .receiveId("ou_c245b0a7dff2725cfa2fb104f8b48b9d")
+                        .receiveId("ou_a79a0f82add14976e3943f4deb17c3fa")
                         .msgType(MsgTypeEnum.MSG_TYPE_POST.getValue())
                         .content(postContent)
                         .build())

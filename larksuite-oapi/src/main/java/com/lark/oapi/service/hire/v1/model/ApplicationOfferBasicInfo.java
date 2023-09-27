@@ -89,6 +89,12 @@ public class ApplicationOfferBasicInfo {
     @SerializedName("contract_year")
     private Integer contractYear;
     /**
+     * 合同期（年/月）
+     * <p> 示例值：
+     */
+    @SerializedName("contract_period")
+    private ContractPeriodInfo contractPeriod;
+    /**
      * 雇员类型
      * <p> 示例值：
      */
@@ -190,6 +196,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：3
          */
         this.contractYear = builder.contractYear;
+        /**
+         * 合同期（年/月）
+         * <p> 示例值：
+         */
+        this.contractPeriod = builder.contractPeriod;
         /**
          * 雇员类型
          * <p> 示例值：
@@ -322,6 +333,14 @@ public class ApplicationOfferBasicInfo {
         this.contractYear = contractYear;
     }
 
+    public ContractPeriodInfo getContractPeriod() {
+        return this.contractPeriod;
+    }
+
+    public void setContractPeriod(ContractPeriodInfo contractPeriod) {
+        this.contractPeriod = contractPeriod;
+    }
+
     public BaseBilingualWithId getRecruitmentType() {
         return this.recruitmentType;
     }
@@ -431,6 +450,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：3
          */
         private Integer contractYear;
+        /**
+         * 合同期（年/月）
+         * <p> 示例值：
+         */
+        private ContractPeriodInfo contractPeriod;
         /**
          * 雇员类型
          * <p> 示例值：
@@ -614,6 +638,19 @@ public class ApplicationOfferBasicInfo {
          */
         public Builder contractYear(Integer contractYear) {
             this.contractYear = contractYear;
+            return this;
+        }
+
+
+        /**
+         * 合同期（年/月）
+         * <p> 示例值：
+         *
+         * @param contractPeriod
+         * @return
+         */
+        public Builder contractPeriod(ContractPeriodInfo contractPeriod) {
+            this.contractPeriod = contractPeriod;
             return this;
         }
 

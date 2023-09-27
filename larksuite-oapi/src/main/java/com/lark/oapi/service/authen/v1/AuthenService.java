@@ -30,11 +30,17 @@ import java.nio.charset.StandardCharsets;
 public class AuthenService {
     private static final Logger log = LoggerFactory.getLogger(AuthenService.class);
     private final AccessToken accessToken; // access_token
+    private final Authorize authorize; // authorize
+    private final OidcAccessToken oidcAccessToken; // oidc.access_token
+    private final OidcRefreshAccessToken oidcRefreshAccessToken; // oidc.refresh_access_token
     private final RefreshAccessToken refreshAccessToken; // refresh_access_token
     private final UserInfo userInfo; // user_info
 
     public AuthenService(Config config) {
         this.accessToken = new AccessToken(config);
+        this.authorize = new Authorize(config);
+        this.oidcAccessToken = new OidcAccessToken(config);
+        this.oidcRefreshAccessToken = new OidcRefreshAccessToken(config);
         this.refreshAccessToken = new RefreshAccessToken(config);
         this.userInfo = new UserInfo(config);
     }
@@ -46,6 +52,33 @@ public class AuthenService {
      */
     public AccessToken accessToken() {
         return accessToken;
+    }
+
+    /**
+     * authorize
+     *
+     * @return
+     */
+    public Authorize authorize() {
+        return authorize;
+    }
+
+    /**
+     * oidc.access_token
+     *
+     * @return
+     */
+    public OidcAccessToken oidcAccessToken() {
+        return oidcAccessToken;
+    }
+
+    /**
+     * oidc.refresh_access_token
+     *
+     * @return
+     */
+    public OidcRefreshAccessToken oidcRefreshAccessToken() {
+        return oidcRefreshAccessToken;
     }
 
     /**
@@ -127,6 +160,228 @@ public class AuthenService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/access_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class Authorize {
+        private final Config config;
+
+        public Authorize(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=authen&resource=authorize&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=authen&resource=authorize&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/GetAuthorizeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/GetAuthorizeSample.java</a> ;
+         */
+        public GetAuthorizeResp get(GetAuthorizeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/authen/v1/authorize"
+                    , Sets.newHashSet()
+                    , req);
+
+            // 反序列化
+            GetAuthorizeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAuthorizeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/authorize"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=authen&resource=authorize&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=authen&resource=authorize&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/GetAuthorizeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/GetAuthorizeSample.java</a> ;
+         */
+        public GetAuthorizeResp get(GetAuthorizeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/authen/v1/authorize"
+                    , Sets.newHashSet()
+                    , req);
+
+            // 反序列化
+            GetAuthorizeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAuthorizeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/authorize"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class OidcAccessToken {
+        private final Config config;
+
+        public OidcAccessToken(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.access_token&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.access_token&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcAccessTokenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcAccessTokenSample.java</a> ;
+         */
+        public CreateOidcAccessTokenResp create(CreateOidcAccessTokenReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/authen/v1/oidc/access_token"
+                    , Sets.newHashSet(AccessTokenType.App)
+                    , req);
+
+            // 反序列化
+            CreateOidcAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateOidcAccessTokenResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/oidc/access_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.access_token&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.access_token&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcAccessTokenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcAccessTokenSample.java</a> ;
+         */
+        public CreateOidcAccessTokenResp create(CreateOidcAccessTokenReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/authen/v1/oidc/access_token"
+                    , Sets.newHashSet(AccessTokenType.App)
+                    , req);
+
+            // 反序列化
+            CreateOidcAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateOidcAccessTokenResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/oidc/access_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class OidcRefreshAccessToken {
+        private final Config config;
+
+        public OidcRefreshAccessToken(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.refresh_access_token&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.refresh_access_token&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcRefreshAccessTokenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcRefreshAccessTokenSample.java</a> ;
+         */
+        public CreateOidcRefreshAccessTokenResp create(CreateOidcRefreshAccessTokenReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/authen/v1/oidc/refresh_access_token"
+                    , Sets.newHashSet(AccessTokenType.App)
+                    , req);
+
+            // 反序列化
+            CreateOidcRefreshAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateOidcRefreshAccessTokenResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/oidc/refresh_access_token"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.refresh_access_token&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=authen&resource=oidc.refresh_access_token&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcRefreshAccessTokenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/authenv1/CreateOidcRefreshAccessTokenSample.java</a> ;
+         */
+        public CreateOidcRefreshAccessTokenResp create(CreateOidcRefreshAccessTokenReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/authen/v1/oidc/refresh_access_token"
+                    , Sets.newHashSet(AccessTokenType.App)
+                    , req);
+
+            // 反序列化
+            CreateOidcRefreshAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateOidcRefreshAccessTokenResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/authen/v1/oidc/refresh_access_token"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

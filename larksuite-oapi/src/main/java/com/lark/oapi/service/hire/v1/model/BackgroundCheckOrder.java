@@ -111,7 +111,7 @@ public class BackgroundCheckOrder {
      * <p> 示例值：
      */
     @SerializedName("provider_info")
-    private IdNameObject providerInfo;
+    private ProviderIdNameObject providerInfo;
     /**
      * 自定义字段模板
      * <p> 示例值：
@@ -401,11 +401,11 @@ public class BackgroundCheckOrder {
         this.conclusion = conclusion;
     }
 
-    public IdNameObject getProviderInfo() {
+    public ProviderIdNameObject getProviderInfo() {
         return this.providerInfo;
     }
 
-    public void setProviderInfo(IdNameObject providerInfo) {
+    public void setProviderInfo(ProviderIdNameObject providerInfo) {
         this.providerInfo = providerInfo;
     }
 
@@ -545,7 +545,7 @@ public class BackgroundCheckOrder {
          * 供应商信息
          * <p> 示例值：
          */
-        private IdNameObject providerInfo;
+        private ProviderIdNameObject providerInfo;
         /**
          * 自定义字段模板
          * <p> 示例值：
@@ -784,7 +784,7 @@ public class BackgroundCheckOrder {
          * @param providerInfo
          * @return
          */
-        public Builder providerInfo(IdNameObject providerInfo) {
+        public Builder providerInfo(ProviderIdNameObject providerInfo) {
             this.providerInfo = providerInfo;
             return this;
         }

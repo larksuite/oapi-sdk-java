@@ -2,8 +2,8 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.FileSubscription;
 import com.lark.oapi.service.drive.v1.model.GetFileSubscriptionReq;
+import com.lark.oapi.service.drive.v1.model.GetFileSubscriptionReqBody;
 import com.lark.oapi.service.drive.v1.model.GetFileSubscriptionResp;
 
 // GET /open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id
@@ -17,10 +17,7 @@ public class GetFileSubscriptionSample {
         GetFileSubscriptionReq req = GetFileSubscriptionReq.newBuilder()
                 .fileToken("doxcnxxxxxxxxxxxxxxxxxxxxxx")
                 .subscriptionId("1234567890987654321")
-                .fileSubscription(FileSubscription.newBuilder()
-                        .subscriptionId("1234567890987654321")
-                        .subscriptionType("comment_update")
-                        .isSubcribe(true)
+                .getFileSubscriptionReqBody(GetFileSubscriptionReqBody.newBuilder()
                         .fileType("doc")
                         .build())
                 .build();

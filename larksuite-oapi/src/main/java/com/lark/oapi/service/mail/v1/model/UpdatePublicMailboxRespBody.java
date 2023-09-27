@@ -59,4 +59,5 @@ public class UpdatePublicMailboxRespBody {
         this.name = name;
     }
 
+
 }

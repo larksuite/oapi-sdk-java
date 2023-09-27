@@ -17,9 +17,9 @@ package com.lark.oapi.service.drive.v1.enums;
  * 文档类型
  */
 public enum GetFileSubscriptionFileTypeEnum {
-    DOC("doc"), // 文档
-    DOCX("docx"), // 文档2.0
-    WIKI("wiki"), // 知识库wiki
+    DOCS("doc"), // 旧版文档
+    UPGRADEDDOCS("docx"), // 新版文档
+    WIKI("wiki"), // 云空间
     ;
     private String value;
 

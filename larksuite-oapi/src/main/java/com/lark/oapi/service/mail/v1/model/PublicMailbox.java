@@ -34,6 +34,12 @@ public class PublicMailbox {
      */
     @SerializedName("name")
     private String name;
+    /**
+     * 数据驻留地
+     * <p> 示例值：cn
+     */
+    @SerializedName("geo")
+    private String geo;
 
     // builder 开始
     public PublicMailbox() {
@@ -55,6 +61,11 @@ public class PublicMailbox {
          * <p> 示例值：test public mailbox
          */
         this.name = builder.name;
+        /**
+         * 数据驻留地
+         * <p> 示例值：cn
+         */
+        this.geo = builder.geo;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class PublicMailbox {
         this.name = name;
     }
 
+    public String getGeo() {
+        return this.geo;
+    }
+
+    public void setGeo(String geo) {
+        this.geo = geo;
+    }
+
     public static class Builder {
         /**
          * 公共邮箱唯一标识
@@ -101,6 +120,11 @@ public class PublicMailbox {
          * <p> 示例值：test public mailbox
          */
         private String name;
+        /**
+         * 数据驻留地
+         * <p> 示例值：cn
+         */
+        private String geo;
 
         /**
          * 公共邮箱唯一标识
@@ -137,6 +161,19 @@ public class PublicMailbox {
          */
         public Builder name(String name) {
             this.name = name;
+            return this;
+        }
+
+
+        /**
+         * 数据驻留地
+         * <p> 示例值：cn
+         *
+         * @param geo
+         * @return
+         */
+        public Builder geo(String geo) {
+            this.geo = geo;
             return this;
         }
 

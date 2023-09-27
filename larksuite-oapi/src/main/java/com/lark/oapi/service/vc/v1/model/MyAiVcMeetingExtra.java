@@ -40,6 +40,12 @@ public class MyAiVcMeetingExtra {
      */
     @SerializedName("vc_app_version")
     private String vcAppVersion;
+    /**
+     * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+     * <p> 示例值：recording_status
+     */
+    @SerializedName("vc_feature_config")
+    private String vcFeatureConfig;
 
     // builder 开始
     public MyAiVcMeetingExtra() {
@@ -66,6 +72,11 @@ public class MyAiVcMeetingExtra {
          * <p> 示例值：7.0.0
          */
         this.vcAppVersion = builder.vcAppVersion;
+        /**
+         * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+         * <p> 示例值：recording_status
+         */
+        this.vcFeatureConfig = builder.vcFeatureConfig;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +115,14 @@ public class MyAiVcMeetingExtra {
         this.vcAppVersion = vcAppVersion;
     }
 
+    public String getVcFeatureConfig() {
+        return this.vcFeatureConfig;
+    }
+
+    public void setVcFeatureConfig(String vcFeatureConfig) {
+        this.vcFeatureConfig = vcFeatureConfig;
+    }
+
     public static class Builder {
         /**
          * 会议id
@@ -125,6 +144,11 @@ public class MyAiVcMeetingExtra {
          * <p> 示例值：7.0.0
          */
         private String vcAppVersion;
+        /**
+         * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+         * <p> 示例值：recording_status
+         */
+        private String vcFeatureConfig;
 
         /**
          * 会议id
@@ -174,6 +198,19 @@ public class MyAiVcMeetingExtra {
          */
         public Builder vcAppVersion(String vcAppVersion) {
             this.vcAppVersion = vcAppVersion;
+            return this;
+        }
+
+
+        /**
+         * 功能开关，用于一些功能服务端确认客户端是否可以执行。
+         * <p> 示例值：recording_status
+         *
+         * @param vcFeatureConfig
+         * @return
+         */
+        public Builder vcFeatureConfig(String vcFeatureConfig) {
+            this.vcFeatureConfig = vcFeatureConfig;
             return this;
         }
 

@@ -52,6 +52,12 @@ public class PatchDataSourceReqBody {
      */
     @SerializedName("i18n_description")
     private I18nMeta i18nDescription;
+    /**
+     * 修改connector的相关配置
+     * <p> 示例值：
+     */
+    @SerializedName("connector_param")
+    private ConnectorParam connectorParam;
 
     // builder 开始
     public PatchDataSourceReqBody() {
@@ -88,6 +94,11 @@ public class PatchDataSourceReqBody {
          * <p> 示例值：
          */
         this.i18nDescription = builder.i18nDescription;
+        /**
+         * 修改connector的相关配置
+         * <p> 示例值：
+         */
+        this.connectorParam = builder.connectorParam;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +153,14 @@ public class PatchDataSourceReqBody {
         this.i18nDescription = i18nDescription;
     }
 
+    public ConnectorParam getConnectorParam() {
+        return this.connectorParam;
+    }
+
+    public void setConnectorParam(ConnectorParam connectorParam) {
+        this.connectorParam = connectorParam;
+    }
+
     public static class Builder {
         /**
          * 数据源的展示名称
@@ -173,6 +192,11 @@ public class PatchDataSourceReqBody {
          * <p> 示例值：
          */
         private I18nMeta i18nDescription;
+        /**
+         * 修改connector的相关配置
+         * <p> 示例值：
+         */
+        private ConnectorParam connectorParam;
 
         /**
          * 数据源的展示名称
@@ -260,6 +284,19 @@ public class PatchDataSourceReqBody {
          */
         public Builder i18nDescription(I18nMeta i18nDescription) {
             this.i18nDescription = i18nDescription;
+            return this;
+        }
+
+
+        /**
+         * 修改connector的相关配置
+         * <p> 示例值：
+         *
+         * @param connectorParam
+         * @return
+         */
+        public Builder connectorParam(ConnectorParam connectorParam) {
+            this.connectorParam = connectorParam;
             return this;
         }
 
