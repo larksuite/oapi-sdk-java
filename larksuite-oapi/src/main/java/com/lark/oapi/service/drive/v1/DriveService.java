@@ -40,7 +40,7 @@ public class DriveService {
     private final FileVersion fileVersion; // 文档版本
     private final FileViewRecord fileViewRecord; // file.view_record
     private final ImportTask importTask; // 导入
-    private final Media media; // 素材
+    private final Media media; // 分片上传
     private final Meta meta; // meta
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置
@@ -145,7 +145,7 @@ public class DriveService {
     }
 
     /**
-     * 素材
+     * 分片上传
      *
      * @return
      */

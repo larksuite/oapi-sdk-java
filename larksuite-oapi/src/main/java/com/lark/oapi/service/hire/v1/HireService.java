@@ -47,6 +47,7 @@ public class HireService {
     private final JobProcess jobProcess; // 流程
     private final JobRequirement jobRequirement; // 招聘需求（灰度租户可见）
     private final JobRequirementSchema jobRequirementSchema; // job_requirement_schema
+    private final JobType jobType; // job_type
     private final Note note; // 备注
     private final Offer offer; // Offer
     private final OfferSchema offerSchema; // offer_schema
@@ -77,6 +78,7 @@ public class HireService {
         this.jobProcess = new JobProcess(config);
         this.jobRequirement = new JobRequirement(config);
         this.jobRequirementSchema = new JobRequirementSchema(config);
+        this.jobType = new JobType(config);
         this.note = new Note(config);
         this.offer = new Offer(config);
         this.offerSchema = new OfferSchema(config);
@@ -241,6 +243,15 @@ public class HireService {
      */
     public JobRequirementSchema jobRequirementSchema() {
         return jobRequirementSchema;
+    }
+
+    /**
+     * job_type
+     *
+     * @return
+     */
+    public JobType jobType() {
+        return jobType;
     }
 
     /**
@@ -2709,6 +2720,80 @@ public class HireService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/job_requirement_schemas"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class JobType {
+        private final Config config;
+
+        public JobType(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=job_type&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=job_type&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobTypeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobTypeSample.java</a> ;
+         */
+        public ListJobTypeResp list(ListJobTypeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/job_types"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobTypeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobTypeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/job_types"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=job_type&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=job_type&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobTypeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobTypeSample.java</a> ;
+         */
+        public ListJobTypeResp list(ListJobTypeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                    , "/open-apis/hire/v1/job_types"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ListJobTypeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobTypeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/job_types"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));

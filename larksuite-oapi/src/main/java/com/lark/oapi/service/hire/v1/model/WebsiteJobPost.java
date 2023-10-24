@@ -77,6 +77,18 @@ public class WebsiteJobPost {
     @SerializedName("job_type")
     private IdNameObject jobType;
     /**
+     * 最低职级
+     * <p> 示例值：
+     */
+    @SerializedName("min_job_level")
+    private IdNameObject minJobLevel;
+    /**
+     * 最高职级
+     * <p> 示例值：
+     */
+    @SerializedName("max_job_level")
+    private IdNameObject maxJobLevel;
+    /**
      * 职位地址
      * <p> 示例值：
      */
@@ -148,12 +160,6 @@ public class WebsiteJobPost {
      */
     @SerializedName("modify_time")
     private String modifyTime;
-    /**
-     * 发布时间
-     * <p> 示例值：333
-     */
-    @SerializedName("publish_time")
-    private String publishTime;
     /**
      * 自定义字段
      * <p> 示例值：
@@ -241,6 +247,16 @@ public class WebsiteJobPost {
          */
         this.jobType = builder.jobType;
         /**
+         * 最低职级
+         * <p> 示例值：
+         */
+        this.minJobLevel = builder.minJobLevel;
+        /**
+         * 最高职级
+         * <p> 示例值：
+         */
+        this.maxJobLevel = builder.maxJobLevel;
+        /**
          * 职位地址
          * <p> 示例值：
          */
@@ -300,11 +316,6 @@ public class WebsiteJobPost {
          * <p> 示例值：222
          */
         this.modifyTime = builder.modifyTime;
-        /**
-         * 发布时间
-         * <p> 示例值：333
-         */
-        this.publishTime = builder.publishTime;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -416,6 +427,22 @@ public class WebsiteJobPost {
         this.jobType = jobType;
     }
 
+    public IdNameObject getMinJobLevel() {
+        return this.minJobLevel;
+    }
+
+    public void setMinJobLevel(IdNameObject minJobLevel) {
+        this.minJobLevel = minJobLevel;
+    }
+
+    public IdNameObject getMaxJobLevel() {
+        return this.maxJobLevel;
+    }
+
+    public void setMaxJobLevel(IdNameObject maxJobLevel) {
+        this.maxJobLevel = maxJobLevel;
+    }
+
     public CommonAddress getAddress() {
         return this.address;
     }
@@ -512,14 +539,6 @@ public class WebsiteJobPost {
         this.modifyTime = modifyTime;
     }
 
-    public String getPublishTime() {
-        return this.publishTime;
-    }
-
-    public void setPublishTime(String publishTime) {
-        this.publishTime = publishTime;
-    }
-
     public WebsiteJobPostCustomizedData[] getCustomizedDataList() {
         return this.customizedDataList;
     }
@@ -612,6 +631,16 @@ public class WebsiteJobPost {
          */
         private IdNameObject jobType;
         /**
+         * 最低职级
+         * <p> 示例值：
+         */
+        private IdNameObject minJobLevel;
+        /**
+         * 最高职级
+         * <p> 示例值：
+         */
+        private IdNameObject maxJobLevel;
+        /**
          * 职位地址
          * <p> 示例值：
          */
@@ -671,11 +700,6 @@ public class WebsiteJobPost {
          * <p> 示例值：222
          */
         private String modifyTime;
-        /**
-         * 发布时间
-         * <p> 示例值：333
-         */
-        private String publishTime;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -833,6 +857,32 @@ public class WebsiteJobPost {
 
 
         /**
+         * 最低职级
+         * <p> 示例值：
+         *
+         * @param minJobLevel
+         * @return
+         */
+        public Builder minJobLevel(IdNameObject minJobLevel) {
+            this.minJobLevel = minJobLevel;
+            return this;
+        }
+
+
+        /**
+         * 最高职级
+         * <p> 示例值：
+         *
+         * @param maxJobLevel
+         * @return
+         */
+        public Builder maxJobLevel(IdNameObject maxJobLevel) {
+            this.maxJobLevel = maxJobLevel;
+            return this;
+        }
+
+
+        /**
          * 职位地址
          * <p> 示例值：
          *
@@ -984,19 +1034,6 @@ public class WebsiteJobPost {
          */
         public Builder modifyTime(String modifyTime) {
             this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 发布时间
-         * <p> 示例值：333
-         *
-         * @param publishTime
-         * @return
-         */
-        public Builder publishTime(String publishTime) {
-            this.publishTime = publishTime;
             return this;
         }
 

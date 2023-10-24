@@ -88,12 +88,6 @@ public class GetShiftRespBody {
      */
     @SerializedName("overtime_rule")
     private OvertimeRule[] overtimeRule;
-    /**
-     * 是否允许在非打卡时段申请打卡
-     * <p> 示例值：false
-     */
-    @SerializedName("allow_punch_approval")
-    private Boolean allowPunchApproval;
 
     public String getShiftId() {
         return this.shiftId;
@@ -189,14 +183,6 @@ public class GetShiftRespBody {
 
     public void setOvertimeRule(OvertimeRule[] overtimeRule) {
         this.overtimeRule = overtimeRule;
-    }
-
-    public Boolean getAllowPunchApproval() {
-        return this.allowPunchApproval;
-    }
-
-    public void setAllowPunchApproval(Boolean allowPunchApproval) {
-        this.allowPunchApproval = allowPunchApproval;
     }
 
 }

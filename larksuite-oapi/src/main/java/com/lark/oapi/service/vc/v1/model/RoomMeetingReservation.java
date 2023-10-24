@@ -41,6 +41,12 @@ public class RoomMeetingReservation {
     @SerializedName("reserver")
     private String reserver;
     /**
+     * 预定人ID
+     * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+     */
+    @SerializedName("reserver_user_id")
+    private String reserverUserId;
+    /**
      * 预定人所属部门
      * <p> 示例值：development
      */
@@ -145,6 +151,11 @@ public class RoomMeetingReservation {
          */
         this.reserver = builder.reserver;
         /**
+         * 预定人ID
+         * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+         */
+        this.reserverUserId = builder.reserverUserId;
+        /**
          * 预定人所属部门
          * <p> 示例值：development
          */
@@ -245,6 +256,14 @@ public class RoomMeetingReservation {
 
     public void setReserver(String reserver) {
         this.reserver = reserver;
+    }
+
+    public String getReserverUserId() {
+        return this.reserverUserId;
+    }
+
+    public void setReserverUserId(String reserverUserId) {
+        this.reserverUserId = reserverUserId;
     }
 
     public String getDepartmentOfReserver() {
@@ -373,6 +392,11 @@ public class RoomMeetingReservation {
          */
         private String reserver;
         /**
+         * 预定人ID
+         * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+         */
+        private String reserverUserId;
+        /**
          * 预定人所属部门
          * <p> 示例值：development
          */
@@ -486,6 +510,19 @@ public class RoomMeetingReservation {
          */
         public Builder reserver(String reserver) {
             this.reserver = reserver;
+            return this;
+        }
+
+
+        /**
+         * 预定人ID
+         * <p> 示例值：ou_1234567(UserID);cli_123123(BotID)
+         *
+         * @param reserverUserId
+         * @return
+         */
+        public Builder reserverUserId(String reserverUserId) {
+            this.reserverUserId = reserverUserId;
             return this;
         }
 

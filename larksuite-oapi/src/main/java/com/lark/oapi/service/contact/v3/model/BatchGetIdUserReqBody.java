@@ -28,6 +28,12 @@ public class BatchGetIdUserReqBody {
      */
     @SerializedName("mobiles")
     private String[] mobiles;
+    /**
+     * 查询结果包含离职员工，可查询离职用户的ID
+     * <p> 示例值：true
+     */
+    @SerializedName("include_resigned")
+    private Boolean includeResigned;
 
     // builder 开始
     public BatchGetIdUserReqBody() {
@@ -44,6 +50,11 @@ public class BatchGetIdUserReqBody {
          * <p> 示例值：13812345678
          */
         this.mobiles = builder.mobiles;
+        /**
+         * 查询结果包含离职员工，可查询离职用户的ID
+         * <p> 示例值：true
+         */
+        this.includeResigned = builder.includeResigned;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class BatchGetIdUserReqBody {
         this.mobiles = mobiles;
     }
 
+    public Boolean getIncludeResigned() {
+        return this.includeResigned;
+    }
+
+    public void setIncludeResigned(Boolean includeResigned) {
+        this.includeResigned = includeResigned;
+    }
+
     public static class Builder {
         /**
          * 要查询的用户邮箱，最多 50 条。;;注意，emails与mobiles相互独立，每条用户邮箱返回对应的用户ID。;;本接口返回的用户ID数量为emails数量与mobiles数量的和。
@@ -77,6 +96,11 @@ public class BatchGetIdUserReqBody {
          * <p> 示例值：13812345678
          */
         private String[] mobiles;
+        /**
+         * 查询结果包含离职员工，可查询离职用户的ID
+         * <p> 示例值：true
+         */
+        private Boolean includeResigned;
 
         /**
          * 要查询的用户邮箱，最多 50 条。;;注意，emails与mobiles相互独立，每条用户邮箱返回对应的用户ID。;;本接口返回的用户ID数量为emails数量与mobiles数量的和。
@@ -100,6 +124,19 @@ public class BatchGetIdUserReqBody {
          */
         public Builder mobiles(String[] mobiles) {
             this.mobiles = mobiles;
+            return this;
+        }
+
+
+        /**
+         * 查询结果包含离职员工，可查询离职用户的ID
+         * <p> 示例值：true
+         *
+         * @param includeResigned
+         * @return
+         */
+        public Builder includeResigned(Boolean includeResigned) {
+            this.includeResigned = includeResigned;
             return this;
         }
 

@@ -22,6 +22,12 @@ public class UserInfo {
      */
     @SerializedName("user_language")
     private String userLanguage;
+    /**
+     * 用户时区
+     * <p> 示例值：zh
+     */
+    @SerializedName("timezone")
+    private String timezone;
 
     // builder 开始
     public UserInfo() {
@@ -33,6 +39,11 @@ public class UserInfo {
          * <p> 示例值：English
          */
         this.userLanguage = builder.userLanguage;
+        /**
+         * 用户时区
+         * <p> 示例值：zh
+         */
+        this.timezone = builder.timezone;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +58,25 @@ public class UserInfo {
         this.userLanguage = userLanguage;
     }
 
+    public String getTimezone() {
+        return this.timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
+
     public static class Builder {
         /**
          * 用户使用语言类型
          * <p> 示例值：English
          */
         private String userLanguage;
+        /**
+         * 用户时区
+         * <p> 示例值：zh
+         */
+        private String timezone;
 
         /**
          * 用户使用语言类型
@@ -63,6 +87,19 @@ public class UserInfo {
          */
         public Builder userLanguage(String userLanguage) {
             this.userLanguage = userLanguage;
+            return this;
+        }
+
+
+        /**
+         * 用户时区
+         * <p> 示例值：zh
+         *
+         * @param timezone
+         * @return
+         */
+        public Builder timezone(String timezone) {
+            this.timezone = timezone;
             return this;
         }
 

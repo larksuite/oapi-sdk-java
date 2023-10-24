@@ -400,6 +400,12 @@ public class Group {
      */
     @SerializedName("bind_default_user_ids")
     private String[] bindDefaultUserIds;
+    /**
+     * 加班打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("overtime_clock_cfg")
+    private OvertimeClockCfg overtimeClockCfg;
 
     // builder 开始
     public Group() {
@@ -726,6 +732,11 @@ public class Group {
          * <p> 示例值：
          */
         this.bindDefaultUserIds = builder.bindDefaultUserIds;
+        /**
+         * 加班打卡规则
+         * <p> 示例值：
+         */
+        this.overtimeClockCfg = builder.overtimeClockCfg;
     }
 
     public static Builder newBuilder() {
@@ -1244,6 +1255,14 @@ public class Group {
         this.bindDefaultUserIds = bindDefaultUserIds;
     }
 
+    public OvertimeClockCfg getOvertimeClockCfg() {
+        return this.overtimeClockCfg;
+    }
+
+    public void setOvertimeClockCfg(OvertimeClockCfg overtimeClockCfg) {
+        this.overtimeClockCfg = overtimeClockCfg;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1565,6 +1584,11 @@ public class Group {
          * <p> 示例值：
          */
         private String[] bindDefaultUserIds;
+        /**
+         * 加班打卡规则
+         * <p> 示例值：
+         */
+        private OvertimeClockCfg overtimeClockCfg;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -2394,6 +2418,19 @@ public class Group {
          */
         public Builder bindDefaultUserIds(String[] bindDefaultUserIds) {
             this.bindDefaultUserIds = bindDefaultUserIds;
+            return this;
+        }
+
+
+        /**
+         * 加班打卡规则
+         * <p> 示例值：
+         *
+         * @param overtimeClockCfg
+         * @return
+         */
+        public Builder overtimeClockCfg(OvertimeClockCfg overtimeClockCfg) {
+            this.overtimeClockCfg = overtimeClockCfg;
             return this;
         }
 

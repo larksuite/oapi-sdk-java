@@ -88,12 +88,6 @@ public class Shift {
      */
     @SerializedName("overtime_rule")
     private OvertimeRule[] overtimeRule;
-    /**
-     * 是否允许在非打卡时段申请打卡
-     * <p> 示例值：false
-     */
-    @SerializedName("allow_punch_approval")
-    private Boolean allowPunchApproval;
 
     // builder 开始
     public Shift() {
@@ -160,11 +154,6 @@ public class Shift {
          * <p> 示例值：
          */
         this.overtimeRule = builder.overtimeRule;
-        /**
-         * 是否允许在非打卡时段申请打卡
-         * <p> 示例值：false
-         */
-        this.allowPunchApproval = builder.allowPunchApproval;
     }
 
     public static Builder newBuilder() {
@@ -267,14 +256,6 @@ public class Shift {
         this.overtimeRule = overtimeRule;
     }
 
-    public Boolean getAllowPunchApproval() {
-        return this.allowPunchApproval;
-    }
-
-    public void setAllowPunchApproval(Boolean allowPunchApproval) {
-        this.allowPunchApproval = allowPunchApproval;
-    }
-
     public static class Builder {
         /**
          * 班次 ID
@@ -336,11 +317,6 @@ public class Shift {
          * <p> 示例值：
          */
         private OvertimeRule[] overtimeRule;
-        /**
-         * 是否允许在非打卡时段申请打卡
-         * <p> 示例值：false
-         */
-        private Boolean allowPunchApproval;
 
         /**
          * 班次 ID
@@ -494,19 +470,6 @@ public class Shift {
          */
         public Builder overtimeRule(OvertimeRule[] overtimeRule) {
             this.overtimeRule = overtimeRule;
-            return this;
-        }
-
-
-        /**
-         * 是否允许在非打卡时段申请打卡
-         * <p> 示例值：false
-         *
-         * @param allowPunchApproval
-         * @return
-         */
-        public Builder allowPunchApproval(Boolean allowPunchApproval) {
-            this.allowPunchApproval = allowPunchApproval;
             return this;
         }
 

@@ -50,6 +50,7 @@ import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.hire.v1.HireService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
+import com.lark.oapi.service.lingo.v1.LingoService;
 import com.lark.oapi.service.mail.v1.MailService;
 import com.lark.oapi.service.mdm.v1.MdmService;
 import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
@@ -58,6 +59,7 @@ import com.lark.oapi.service.optical_char_recognition.v1.OpticalCharRecognitionS
 import com.lark.oapi.service.passport.v1.PassportService;
 import com.lark.oapi.service.personal_settings.v1.PersonalSettingsService;
 import com.lark.oapi.service.search.v2.SearchService;
+import com.lark.oapi.service.security_and_compliance.v1.SecurityAndComplianceService;
 import com.lark.oapi.service.sheets.v3.SheetsService;
 import com.lark.oapi.service.speech_to_text.v1.SpeechToTextService;
 import com.lark.oapi.service.task.v1.TaskService;
@@ -95,6 +97,7 @@ public class Client {
     private HireService hire; // 招聘
     private HumanAuthenticationService humanAuthentication; // 实名认证
     private ImService im; // 消息与群组
+    private LingoService lingo; //
     private MailService mail; // 邮箱
     private MdmService mdm; // 主数据
     private MeetingRoomService meetingRoom; //
@@ -103,6 +106,7 @@ public class Client {
     private PassportService passport; // 帐号
     private PersonalSettingsService personalSettings; // 个人设置
     private SearchService search; // 搜索
+    private SecurityAndComplianceService securityAndCompliance; //
     private SheetsService sheets; // 云文档-电子表格
     private SpeechToTextService speechToText; // AI能力
     private TaskService task; // 任务
@@ -319,6 +323,13 @@ public class Client {
     }
 
     /**
+     * @return
+     */
+    public LingoService lingo() {
+        return lingo;
+    }
+
+    /**
      * 邮箱
      *
      * @return
@@ -386,6 +397,13 @@ public class Client {
      */
     public SearchService search() {
         return search;
+    }
+
+    /**
+     * @return
+     */
+    public SecurityAndComplianceService securityAndCompliance() {
+        return securityAndCompliance;
     }
 
     /**
@@ -651,6 +669,7 @@ public class Client {
             client.hire = new HireService(config);
             client.humanAuthentication = new HumanAuthenticationService(config);
             client.im = new ImService(config);
+            client.lingo = new LingoService(config);
             client.mail = new MailService(config);
             client.mdm = new MdmService(config);
             client.meetingRoom = new MeetingRoomService(config);
@@ -659,6 +678,7 @@ public class Client {
             client.passport = new PassportService(config);
             client.personalSettings = new PersonalSettingsService(config);
             client.search = new SearchService(config);
+            client.securityAndCompliance = new SecurityAndComplianceService(config);
             client.sheets = new SheetsService(config);
             client.speechToText = new SpeechToTextService(config);
             client.task = new TaskService(config);

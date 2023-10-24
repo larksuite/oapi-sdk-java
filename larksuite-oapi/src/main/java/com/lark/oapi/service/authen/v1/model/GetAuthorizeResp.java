@@ -14,6 +14,7 @@
 package com.lark.oapi.service.authen.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class GetAuthorizeResp extends BaseResponse<GetAuthorizeRespBody> {
+public class GetAuthorizeResp extends BaseResponse<EmptyData> {
 }

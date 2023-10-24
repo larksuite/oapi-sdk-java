@@ -22,6 +22,12 @@ public class MyAiRoomCommonResult {
      */
     @SerializedName("room_reply")
     private String roomReply;
+    /**
+     * openapi 响应结果
+     * <p> 示例值：
+     */
+    @SerializedName("openapi_response")
+    private MyAiRoomOpenapiResponse openapiResponse;
 
     // builder 开始
     public MyAiRoomCommonResult() {
@@ -33,6 +39,11 @@ public class MyAiRoomCommonResult {
          * <p> 示例值：OK
          */
         this.roomReply = builder.roomReply;
+        /**
+         * openapi 响应结果
+         * <p> 示例值：
+         */
+        this.openapiResponse = builder.openapiResponse;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +58,25 @@ public class MyAiRoomCommonResult {
         this.roomReply = roomReply;
     }
 
+    public MyAiRoomOpenapiResponse getOpenapiResponse() {
+        return this.openapiResponse;
+    }
+
+    public void setOpenapiResponse(MyAiRoomOpenapiResponse openapiResponse) {
+        this.openapiResponse = openapiResponse;
+    }
+
     public static class Builder {
         /**
          * 通用回复
          * <p> 示例值：OK
          */
         private String roomReply;
+        /**
+         * openapi 响应结果
+         * <p> 示例值：
+         */
+        private MyAiRoomOpenapiResponse openapiResponse;
 
         /**
          * 通用回复
@@ -63,6 +87,19 @@ public class MyAiRoomCommonResult {
          */
         public Builder roomReply(String roomReply) {
             this.roomReply = roomReply;
+            return this;
+        }
+
+
+        /**
+         * openapi 响应结果
+         * <p> 示例值：
+         *
+         * @param openapiResponse
+         * @return
+         */
+        public Builder openapiResponse(MyAiRoomOpenapiResponse openapiResponse) {
+            this.openapiResponse = openapiResponse;
             return this;
         }
 

@@ -47,6 +47,12 @@ public class Application {
     @SerializedName("payment_type")
     private Integer paymentType;
     /**
+     * 应用创建来源(目前仅Base应用返回)
+     * <p> 示例值：base
+     */
+    @SerializedName("create_source")
+    private String createSource;
+    /**
      * 安全设置中的重定向 URL
      * <p> 示例值：
      */
@@ -149,6 +155,11 @@ public class Application {
          * <p> 示例值：0
          */
         this.paymentType = builder.paymentType;
+        /**
+         * 应用创建来源(目前仅Base应用返回)
+         * <p> 示例值：base
+         */
+        this.createSource = builder.createSource;
         /**
          * 安全设置中的重定向 URL
          * <p> 示例值：
@@ -253,6 +264,14 @@ public class Application {
 
     public void setPaymentType(Integer paymentType) {
         this.paymentType = paymentType;
+    }
+
+    public String getCreateSource() {
+        return this.createSource;
+    }
+
+    public void setCreateSource(String createSource) {
+        this.createSource = createSource;
     }
 
     public String[] getRedirectUrls() {
@@ -377,6 +396,11 @@ public class Application {
          * <p> 示例值：0
          */
         private Integer paymentType;
+        /**
+         * 应用创建来源(目前仅Base应用返回)
+         * <p> 示例值：base
+         */
+        private String createSource;
         /**
          * 安全设置中的重定向 URL
          * <p> 示例值：
@@ -535,6 +559,19 @@ public class Application {
          */
         public Builder paymentType(com.lark.oapi.service.application.v6.enums.ApplicationPaymentTypeEnum paymentType) {
             this.paymentType = paymentType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 应用创建来源(目前仅Base应用返回)
+         * <p> 示例值：base
+         *
+         * @param createSource
+         * @return
+         */
+        public Builder createSource(String createSource) {
+            this.createSource = createSource;
             return this;
         }
 

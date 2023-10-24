@@ -921,6 +921,21 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PreHireUpdatedV1(CorehrService.P2PreHireUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.pre_hire.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.pre_hire.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.pre_hire.updated_v1", handler);
+            return this;
+        }
+
 
         /**
          * <p> 多维表格字段变更,多维表格字段变更

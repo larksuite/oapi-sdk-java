@@ -35,6 +35,12 @@ public class Participant {
     @SerializedName("user_id")
     private String userId;
     /**
+     * 会议室ID
+     * <p> 示例值：omm_8efq90
+     */
+    @SerializedName("meeting_room_id")
+    private String meetingRoomId;
+    /**
      * 工号
      * <p> 示例值：202205789
      */
@@ -182,6 +188,11 @@ public class Participant {
          */
         this.userId = builder.userId;
         /**
+         * 会议室ID
+         * <p> 示例值：omm_8efq90
+         */
+        this.meetingRoomId = builder.meetingRoomId;
+        /**
          * 工号
          * <p> 示例值：202205789
          */
@@ -314,6 +325,14 @@ public class Participant {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getMeetingRoomId() {
+        return this.meetingRoomId;
+    }
+
+    public void setMeetingRoomId(String meetingRoomId) {
+        this.meetingRoomId = meetingRoomId;
     }
 
     public String getEmployeeId() {
@@ -501,6 +520,11 @@ public class Participant {
          */
         private String userId;
         /**
+         * 会议室ID
+         * <p> 示例值：omm_8efq90
+         */
+        private String meetingRoomId;
+        /**
          * 工号
          * <p> 示例值：202205789
          */
@@ -641,6 +665,19 @@ public class Participant {
          */
         public Builder userId(String userId) {
             this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 会议室ID
+         * <p> 示例值：omm_8efq90
+         *
+         * @param meetingRoomId
+         * @return
+         */
+        public Builder meetingRoomId(String meetingRoomId) {
+            this.meetingRoomId = meetingRoomId;
             return this;
         }
 

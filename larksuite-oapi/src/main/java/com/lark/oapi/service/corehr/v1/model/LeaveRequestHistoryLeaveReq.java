@@ -143,6 +143,13 @@ public class LeaveRequestHistoryLeaveReq {
     @Query
     @SerializedName("time_zone")
     private String timeZone;
+    /**
+     * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("data_source")
+    private Integer dataSource;
 
     // builder 开始
     public LeaveRequestHistoryLeaveReq() {
@@ -239,6 +246,11 @@ public class LeaveRequestHistoryLeaveReq {
          * <p> 示例值：Asia/Shanghai
          */
         this.timeZone = builder.timeZone;
+        /**
+         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+         * <p> 示例值：1
+         */
+        this.dataSource = builder.dataSource;
     }
 
     public static Builder newBuilder() {
@@ -389,6 +401,14 @@ public class LeaveRequestHistoryLeaveReq {
         this.timeZone = timeZone;
     }
 
+    public Integer getDataSource() {
+        return this.dataSource;
+    }
+
+    public void setDataSource(Integer dataSource) {
+        this.dataSource = dataSource;
+    }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大100
@@ -408,6 +428,7 @@ public class LeaveRequestHistoryLeaveReq {
         private Boolean returnDetail; // 是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
         private Integer leaveTermType; // 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
         private String timeZone; // 请假记录所在时区
+        private Integer dataSource; // 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
 
 
         /**
@@ -652,6 +673,19 @@ public class LeaveRequestHistoryLeaveReq {
          */
         public Builder timeZone(String timeZone) {
             this.timeZone = timeZone;
+            return this;
+        }
+
+
+        /**
+         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+         * <p> 示例值：1
+         *
+         * @param dataSource
+         * @return
+         */
+        public Builder dataSource(Integer dataSource) {
+            this.dataSource = dataSource;
             return this;
         }
 

@@ -48,6 +48,13 @@ public class TransferOwnerPermissionMemberReq {
     @SerializedName("stay_put")
     private Boolean stayPut;
     /**
+     * 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
+     * <p> 示例值：view
+     */
+    @Query
+    @SerializedName("old_owner_perm")
+    private String oldOwnerPerm;
+    /**
      * 文件的 token
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
@@ -82,6 +89,11 @@ public class TransferOwnerPermissionMemberReq {
          * <p> 示例值：false
          */
         this.stayPut = builder.stayPut;
+        /**
+         * 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
+         * <p> 示例值：view
+         */
+        this.oldOwnerPerm = builder.oldOwnerPerm;
         /**
          * 文件的 token
          * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
@@ -126,6 +138,14 @@ public class TransferOwnerPermissionMemberReq {
         this.stayPut = stayPut;
     }
 
+    public String getOldOwnerPerm() {
+        return this.oldOwnerPerm;
+    }
+
+    public void setOldOwnerPerm(String oldOwnerPerm) {
+        this.oldOwnerPerm = oldOwnerPerm;
+    }
+
     public String getToken() {
         return this.token;
     }
@@ -147,6 +167,7 @@ public class TransferOwnerPermissionMemberReq {
         private Boolean needNotification; // 是否需要通知新 Owner
         private Boolean removeOldOwner; // 转移后是否需要移除原 Owner 的权限
         private Boolean stayPut; // 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
+        private String oldOwnerPerm; // 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
         private String token; // 文件的 token
         private Owner body;
 
@@ -207,6 +228,18 @@ public class TransferOwnerPermissionMemberReq {
          */
         public Builder stayPut(Boolean stayPut) {
             this.stayPut = stayPut;
+            return this;
+        }
+
+        /**
+         * 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
+         * <p> 示例值：view
+         *
+         * @param oldOwnerPerm
+         * @return
+         */
+        public Builder oldOwnerPerm(String oldOwnerPerm) {
+            this.oldOwnerPerm = oldOwnerPerm;
             return this;
         }
 

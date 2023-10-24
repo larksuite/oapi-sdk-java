@@ -160,6 +160,12 @@ public class JobData {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 周工作时长v2
+     * <p> 示例值：37.5
+     */
+    @SerializedName("weekly_working_hours_v2")
+    private Double weeklyWorkingHoursV2;
 
     // builder 开始
     public JobData() {
@@ -286,6 +292,11 @@ public class JobData {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 周工作时长v2
+         * <p> 示例值：37.5
+         */
+        this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
     }
 
     public static Builder newBuilder() {
@@ -484,6 +495,14 @@ public class JobData {
         this.customFields = customFields;
     }
 
+    public Double getWeeklyWorkingHoursV2() {
+        return this.weeklyWorkingHoursV2;
+    }
+
+    public void setWeeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
+        this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+    }
+
     public static class Builder {
         /**
          * 任职信息 ID
@@ -605,6 +624,11 @@ public class JobData {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 周工作时长v2
+         * <p> 示例值：37.5
+         */
+        private Double weeklyWorkingHoursV2;
 
         /**
          * 任职信息 ID
@@ -914,6 +938,19 @@ public class JobData {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 周工作时长v2
+         * <p> 示例值：37.5
+         *
+         * @param weeklyWorkingHoursV2
+         * @return
+         */
+        public Builder weeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
+            this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
             return this;
         }
 

@@ -28,6 +28,24 @@ public class MyAiVcRoomRequestCommonParam {
      */
     @SerializedName("utc_offset")
     private String utcOffset;
+    /**
+     * 会议室 ID
+     * <p> 示例值：12345678
+     */
+    @SerializedName("room_id")
+    private String roomId;
+    /**
+     * 客户端版本
+     * <p> 示例值：0.0.0-alpha.0
+     */
+    @SerializedName("client_version")
+    private String clientVersion;
+    /**
+     * open api response 历史
+     * <p> 示例值：
+     */
+    @SerializedName("openapi_history")
+    private MyAiRoomOpenapiResponse openapiHistory;
 
     // builder 开始
     public MyAiVcRoomRequestCommonParam() {
@@ -44,6 +62,21 @@ public class MyAiVcRoomRequestCommonParam {
          * <p> 示例值：480
          */
         this.utcOffset = builder.utcOffset;
+        /**
+         * 会议室 ID
+         * <p> 示例值：12345678
+         */
+        this.roomId = builder.roomId;
+        /**
+         * 客户端版本
+         * <p> 示例值：0.0.0-alpha.0
+         */
+        this.clientVersion = builder.clientVersion;
+        /**
+         * open api response 历史
+         * <p> 示例值：
+         */
+        this.openapiHistory = builder.openapiHistory;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +99,30 @@ public class MyAiVcRoomRequestCommonParam {
         this.utcOffset = utcOffset;
     }
 
+    public String getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getClientVersion() {
+        return this.clientVersion;
+    }
+
+    public void setClientVersion(String clientVersion) {
+        this.clientVersion = clientVersion;
+    }
+
+    public MyAiRoomOpenapiResponse getOpenapiHistory() {
+        return this.openapiHistory;
+    }
+
+    public void setOpenapiHistory(MyAiRoomOpenapiResponse openapiHistory) {
+        this.openapiHistory = openapiHistory;
+    }
+
     public static class Builder {
         /**
          * 语言类型
@@ -77,6 +134,21 @@ public class MyAiVcRoomRequestCommonParam {
          * <p> 示例值：480
          */
         private String utcOffset;
+        /**
+         * 会议室 ID
+         * <p> 示例值：12345678
+         */
+        private String roomId;
+        /**
+         * 客户端版本
+         * <p> 示例值：0.0.0-alpha.0
+         */
+        private String clientVersion;
+        /**
+         * open api response 历史
+         * <p> 示例值：
+         */
+        private MyAiRoomOpenapiResponse openapiHistory;
 
         /**
          * 语言类型
@@ -100,6 +172,45 @@ public class MyAiVcRoomRequestCommonParam {
          */
         public Builder utcOffset(String utcOffset) {
             this.utcOffset = utcOffset;
+            return this;
+        }
+
+
+        /**
+         * 会议室 ID
+         * <p> 示例值：12345678
+         *
+         * @param roomId
+         * @return
+         */
+        public Builder roomId(String roomId) {
+            this.roomId = roomId;
+            return this;
+        }
+
+
+        /**
+         * 客户端版本
+         * <p> 示例值：0.0.0-alpha.0
+         *
+         * @param clientVersion
+         * @return
+         */
+        public Builder clientVersion(String clientVersion) {
+            this.clientVersion = clientVersion;
+            return this;
+        }
+
+
+        /**
+         * open api response 历史
+         * <p> 示例值：
+         *
+         * @param openapiHistory
+         * @return
+         */
+        public Builder openapiHistory(MyAiRoomOpenapiResponse openapiHistory) {
+            this.openapiHistory = openapiHistory;
             return this;
         }
 

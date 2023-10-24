@@ -36,7 +36,7 @@ public class CopyAppReqBody {
     private Boolean withoutContent;
     /**
      * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-     * <p> 示例值：Asia/Beijing
+     * <p> 示例值：Asia/Shanghai
      */
     @SerializedName("time_zone")
     private String timeZone;
@@ -63,7 +63,7 @@ public class CopyAppReqBody {
         this.withoutContent = builder.withoutContent;
         /**
          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Beijing
+         * <p> 示例值：Asia/Shanghai
          */
         this.timeZone = builder.timeZone;
     }
@@ -122,7 +122,7 @@ public class CopyAppReqBody {
         private Boolean withoutContent;
         /**
          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Beijing
+         * <p> 示例值：Asia/Shanghai
          */
         private String timeZone;
 
@@ -167,7 +167,7 @@ public class CopyAppReqBody {
 
         /**
          * 文档时区，说明见：https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf
-         * <p> 示例值：Asia/Beijing
+         * <p> 示例值：Asia/Shanghai
          *
          * @param timeZone
          * @return

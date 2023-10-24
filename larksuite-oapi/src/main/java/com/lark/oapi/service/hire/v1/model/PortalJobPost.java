@@ -77,6 +77,18 @@ public class PortalJobPost {
     @SerializedName("job_type")
     private IdNameObject jobType;
     /**
+     * 最低职级
+     * <p> 示例值：
+     */
+    @SerializedName("min_job_level")
+    private IdNameObject minJobLevel;
+    /**
+     * 最高职级
+     * <p> 示例值：
+     */
+    @SerializedName("max_job_level")
+    private IdNameObject maxJobLevel;
+    /**
      * 职位地址
      * <p> 示例值：
      */
@@ -228,6 +240,16 @@ public class PortalJobPost {
          * <p> 示例值：
          */
         this.jobType = builder.jobType;
+        /**
+         * 最低职级
+         * <p> 示例值：
+         */
+        this.minJobLevel = builder.minJobLevel;
+        /**
+         * 最高职级
+         * <p> 示例值：
+         */
+        this.maxJobLevel = builder.maxJobLevel;
         /**
          * 职位地址
          * <p> 示例值：
@@ -392,6 +414,22 @@ public class PortalJobPost {
 
     public void setJobType(IdNameObject jobType) {
         this.jobType = jobType;
+    }
+
+    public IdNameObject getMinJobLevel() {
+        return this.minJobLevel;
+    }
+
+    public void setMinJobLevel(IdNameObject minJobLevel) {
+        this.minJobLevel = minJobLevel;
+    }
+
+    public IdNameObject getMaxJobLevel() {
+        return this.maxJobLevel;
+    }
+
+    public void setMaxJobLevel(IdNameObject maxJobLevel) {
+        this.maxJobLevel = maxJobLevel;
     }
 
     public CommonAddress getAddress() {
@@ -573,6 +611,16 @@ public class PortalJobPost {
          * <p> 示例值：
          */
         private IdNameObject jobType;
+        /**
+         * 最低职级
+         * <p> 示例值：
+         */
+        private IdNameObject minJobLevel;
+        /**
+         * 最高职级
+         * <p> 示例值：
+         */
+        private IdNameObject maxJobLevel;
         /**
          * 职位地址
          * <p> 示例值：
@@ -780,6 +828,32 @@ public class PortalJobPost {
          */
         public Builder jobType(IdNameObject jobType) {
             this.jobType = jobType;
+            return this;
+        }
+
+
+        /**
+         * 最低职级
+         * <p> 示例值：
+         *
+         * @param minJobLevel
+         * @return
+         */
+        public Builder minJobLevel(IdNameObject minJobLevel) {
+            this.minJobLevel = minJobLevel;
+            return this;
+        }
+
+
+        /**
+         * 最高职级
+         * <p> 示例值：
+         *
+         * @param maxJobLevel
+         * @return
+         */
+        public Builder maxJobLevel(IdNameObject maxJobLevel) {
+            this.maxJobLevel = maxJobLevel;
             return this;
         }
 

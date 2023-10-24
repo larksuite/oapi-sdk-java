@@ -58,6 +58,12 @@ public class PatchDataSourceReqBody {
      */
     @SerializedName("connector_param")
     private ConnectorParam connectorParam;
+    /**
+     * 是否使用问答服务
+     * <p> 示例值：false
+     */
+    @SerializedName("enable_answer")
+    private Boolean enableAnswer;
 
     // builder 开始
     public PatchDataSourceReqBody() {
@@ -99,6 +105,11 @@ public class PatchDataSourceReqBody {
          * <p> 示例值：
          */
         this.connectorParam = builder.connectorParam;
+        /**
+         * 是否使用问答服务
+         * <p> 示例值：false
+         */
+        this.enableAnswer = builder.enableAnswer;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class PatchDataSourceReqBody {
         this.connectorParam = connectorParam;
     }
 
+    public Boolean getEnableAnswer() {
+        return this.enableAnswer;
+    }
+
+    public void setEnableAnswer(Boolean enableAnswer) {
+        this.enableAnswer = enableAnswer;
+    }
+
     public static class Builder {
         /**
          * 数据源的展示名称
@@ -197,6 +216,11 @@ public class PatchDataSourceReqBody {
          * <p> 示例值：
          */
         private ConnectorParam connectorParam;
+        /**
+         * 是否使用问答服务
+         * <p> 示例值：false
+         */
+        private Boolean enableAnswer;
 
         /**
          * 数据源的展示名称
@@ -297,6 +321,19 @@ public class PatchDataSourceReqBody {
          */
         public Builder connectorParam(ConnectorParam connectorParam) {
             this.connectorParam = connectorParam;
+            return this;
+        }
+
+
+        /**
+         * 是否使用问答服务
+         * <p> 示例值：false
+         *
+         * @param enableAnswer
+         * @return
+         */
+        public Builder enableAnswer(Boolean enableAnswer) {
+            this.enableAnswer = enableAnswer;
             return this;
         }
 

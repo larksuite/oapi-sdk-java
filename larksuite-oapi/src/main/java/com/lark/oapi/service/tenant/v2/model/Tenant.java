@@ -46,6 +46,12 @@ public class Tenant {
      */
     @SerializedName("avatar")
     private Avatar avatar;
+    /**
+     * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+     * <p> 示例值：newpoint.feishu-boe.cn
+     */
+    @SerializedName("domain")
+    private String domain;
 
     // builder 开始
     public Tenant() {
@@ -77,6 +83,11 @@ public class Tenant {
          * <p> 示例值：
          */
         this.avatar = builder.avatar;
+        /**
+         * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+         * <p> 示例值：newpoint.feishu-boe.cn
+         */
+        this.domain = builder.domain;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +134,14 @@ public class Tenant {
         this.avatar = avatar;
     }
 
+    public String getDomain() {
+        return this.domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
     public static class Builder {
         /**
          * 企业名称
@@ -149,6 +168,11 @@ public class Tenant {
          * <p> 示例值：
          */
         private Avatar avatar;
+        /**
+         * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+         * <p> 示例值：newpoint.feishu-boe.cn
+         */
+        private String domain;
 
         /**
          * 企业名称
@@ -223,6 +247,19 @@ public class Tenant {
          */
         public Builder avatar(Avatar avatar) {
             this.avatar = avatar;
+            return this;
+        }
+
+
+        /**
+         * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+         * <p> 示例值：newpoint.feishu-boe.cn
+         *
+         * @param domain
+         * @return
+         */
+        public Builder domain(String domain) {
+            this.domain = domain;
             return this;
         }
 

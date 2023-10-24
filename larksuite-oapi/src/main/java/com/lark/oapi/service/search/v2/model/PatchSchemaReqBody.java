@@ -22,6 +22,12 @@ public class PatchSchemaReqBody {
      */
     @SerializedName("display")
     private SchemaDisplay display;
+    /**
+     * 数据范式的属性定义
+     * <p> 示例值：
+     */
+    @SerializedName("properties")
+    private PatchSchemaProperty[] properties;
 
     // builder 开始
     public PatchSchemaReqBody() {
@@ -33,6 +39,11 @@ public class PatchSchemaReqBody {
          * <p> 示例值：
          */
         this.display = builder.display;
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         */
+        this.properties = builder.properties;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +58,25 @@ public class PatchSchemaReqBody {
         this.display = display;
     }
 
+    public PatchSchemaProperty[] getProperties() {
+        return this.properties;
+    }
+
+    public void setProperties(PatchSchemaProperty[] properties) {
+        this.properties = properties;
+    }
+
     public static class Builder {
         /**
          * 数据展示相关配置
          * <p> 示例值：
          */
         private SchemaDisplay display;
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         */
+        private PatchSchemaProperty[] properties;
 
         /**
          * 数据展示相关配置
@@ -63,6 +87,19 @@ public class PatchSchemaReqBody {
          */
         public Builder display(SchemaDisplay display) {
             this.display = display;
+            return this;
+        }
+
+
+        /**
+         * 数据范式的属性定义
+         * <p> 示例值：
+         *
+         * @param properties
+         * @return
+         */
+        public Builder properties(PatchSchemaProperty[] properties) {
+            this.properties = properties;
             return this;
         }
 

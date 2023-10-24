@@ -148,6 +148,12 @@ public class LeaveRequest {
      */
     @SerializedName("time_zone")
     private String timeZone;
+    /**
+     * 请假记录数据来源
+     * <p> 示例值：1
+     */
+    @SerializedName("data_source")
+    private Integer dataSource;
 
     // builder 开始
     public LeaveRequest() {
@@ -264,6 +270,11 @@ public class LeaveRequest {
          * <p> 示例值：Asia/Shanghai
          */
         this.timeZone = builder.timeZone;
+        /**
+         * 请假记录数据来源
+         * <p> 示例值：1
+         */
+        this.dataSource = builder.dataSource;
     }
 
     public static Builder newBuilder() {
@@ -446,6 +457,14 @@ public class LeaveRequest {
         this.timeZone = timeZone;
     }
 
+    public Integer getDataSource() {
+        return this.dataSource;
+    }
+
+    public void setDataSource(Integer dataSource) {
+        this.dataSource = dataSource;
+    }
+
     public static class Builder {
         /**
          * 请假记录ID
@@ -557,6 +576,11 @@ public class LeaveRequest {
          * <p> 示例值：Asia/Shanghai
          */
         private String timeZone;
+        /**
+         * 请假记录数据来源
+         * <p> 示例值：1
+         */
+        private Integer dataSource;
 
         /**
          * 请假记录ID
@@ -840,6 +864,19 @@ public class LeaveRequest {
          */
         public Builder timeZone(String timeZone) {
             this.timeZone = timeZone;
+            return this;
+        }
+
+
+        /**
+         * 请假记录数据来源
+         * <p> 示例值：1
+         *
+         * @param dataSource
+         * @return
+         */
+        public Builder dataSource(Integer dataSource) {
+            this.dataSource = dataSource;
             return this;
         }
 

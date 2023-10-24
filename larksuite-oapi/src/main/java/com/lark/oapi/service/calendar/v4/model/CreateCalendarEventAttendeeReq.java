@@ -42,6 +42,7 @@ public class CreateCalendarEventAttendeeReq {
     private String eventId;
     @Body
     private CreateCalendarEventAttendeeReqBody body;
+
     // builder 开始
     public CreateCalendarEventAttendeeReq() {
     }

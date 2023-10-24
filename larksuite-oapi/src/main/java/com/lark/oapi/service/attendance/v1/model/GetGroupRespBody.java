@@ -393,6 +393,12 @@ public class GetGroupRespBody {
      */
     @SerializedName("bind_default_user_ids")
     private String[] bindDefaultUserIds;
+    /**
+     * 加班打卡规则
+     * <p> 示例值：
+     */
+    @SerializedName("overtime_clock_cfg")
+    private OvertimeClockCfg overtimeClockCfg;
 
     public String getGroupId() {
         return this.groupId;
@@ -896,6 +902,14 @@ public class GetGroupRespBody {
 
     public void setBindDefaultUserIds(String[] bindDefaultUserIds) {
         this.bindDefaultUserIds = bindDefaultUserIds;
+    }
+
+    public OvertimeClockCfg getOvertimeClockCfg() {
+        return this.overtimeClockCfg;
+    }
+
+    public void setOvertimeClockCfg(OvertimeClockCfg overtimeClockCfg) {
+        this.overtimeClockCfg = overtimeClockCfg;
     }
 
 }

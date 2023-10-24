@@ -28,6 +28,12 @@ public class P2CalendarEventChangedV4Data {
      */
     @SerializedName("user_id_list")
     private UserId[] userIdList;
+    /**
+     * 发生变更的日程ID
+     * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+     */
+    @SerializedName("calendar_event_id")
+    private String calendarEventId;
 
     public String getCalendarId() {
         return this.calendarId;
@@ -43,6 +49,14 @@ public class P2CalendarEventChangedV4Data {
 
     public void setUserIdList(UserId[] userIdList) {
         this.userIdList = userIdList;
+    }
+
+    public String getCalendarEventId() {
+        return this.calendarEventId;
+    }
+
+    public void setCalendarEventId(String calendarEventId) {
+        this.calendarEventId = calendarEventId;
     }
 
 }

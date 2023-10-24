@@ -34,6 +34,12 @@ public class CommonSchemaOption {
      */
     @SerializedName("description")
     private Name description;
+    /**
+     * 是否启用
+     * <p> 示例值：true
+     */
+    @SerializedName("is_open")
+    private Boolean isOpen;
 
     // builder 开始
     public CommonSchemaOption() {
@@ -55,6 +61,11 @@ public class CommonSchemaOption {
          * <p> 示例值：
          */
         this.description = builder.description;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        this.isOpen = builder.isOpen;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class CommonSchemaOption {
         this.description = description;
     }
 
+    public Boolean getIsOpen() {
+        return this.isOpen;
+    }
+
+    public void setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
+    }
+
     public static class Builder {
         /**
          * 选项 api_name，即选项的唯一标识
@@ -101,6 +120,11 @@ public class CommonSchemaOption {
          * <p> 示例值：
          */
         private Name description;
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         */
+        private Boolean isOpen;
 
         /**
          * 选项 api_name，即选项的唯一标识
@@ -137,6 +161,19 @@ public class CommonSchemaOption {
          */
         public Builder description(Name description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 是否启用
+         * <p> 示例值：true
+         *
+         * @param isOpen
+         * @return
+         */
+        public Builder isOpen(Boolean isOpen) {
+            this.isOpen = isOpen;
             return this;
         }
 

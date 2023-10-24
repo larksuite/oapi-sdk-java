@@ -2,33 +2,33 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetResp;
+import com.lark.oapi.service.sheets.v3.model.*;
+import java.util.HashMap;
 
 // GET /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id
-public class GetSpreadsheetSheetSample {
+public class GetSpreadsheetSheetSample{
 
-    public static void main(String arg[]) throws Exception {
-        // 构建client
-        Client client = Client.newBuilder("appId", "appSecret").build();
+  public static void main(String arg[]) throws Exception {
+	  // 构建client
+	  Client client = Client.newBuilder("appId", "appSecret").build();
 
-        // 创建请求对象
-        GetSpreadsheetSheetReq req = GetSpreadsheetSheetReq.newBuilder()
-                .spreadsheetToken("shtxxxxxxxxxxxxxxx")
-                .sheetId("giDk9k")
-                .build();
+	  // 创建请求对象
+	  GetSpreadsheetSheetReq req = GetSpreadsheetSheetReq.newBuilder()
+			 .spreadsheetToken("shtxxxxxxxxxxxxxxx")
+			 .sheetId("giDk9k")
+			 .build();
 
-        // 发起请求
-        GetSpreadsheetSheetResp resp = client.sheets().spreadsheetSheet().get(req);
+	  // 发起请求
+	  GetSpreadsheetSheetResp resp = client.sheets().spreadsheetSheet().get(req);
 
-        // 处理服务端错误
-        if (!resp.success()) {
-            System.out.println(String.format("code:%s,msg:%s,reqId:%s"
-                    , resp.getCode(), resp.getMsg(), resp.getRequestId()));
-            return;
-        }
+	   // 处理服务端错误
+	   if (!resp.success()) {
+		 System.out.println(String.format("code:%s,msg:%s,reqId:%s"
+			  , resp.getCode(), resp.getMsg(), resp.getRequestId()));
+		 return;
+	   }
 
-        // 业务数据处理
-        System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
-    }
+	   // 业务数据处理
+	   System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
+  }
 }

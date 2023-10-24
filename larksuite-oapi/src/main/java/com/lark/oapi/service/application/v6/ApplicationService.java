@@ -30,6 +30,7 @@ import java.nio.charset.StandardCharsets;
 
 public class ApplicationService {
     private static final Logger log = LoggerFactory.getLogger(ApplicationService.class);
+    private final AppBadge appBadge; // 应用红点
     private final AppRecommendRule appRecommendRule; // 我的常用推荐规则
     private final Application application; // 应用
     private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
@@ -40,6 +41,7 @@ public class ApplicationService {
     private final Bot bot; // 事件
 
     public ApplicationService(Config config) {
+        this.appBadge = new AppBadge(config);
         this.appRecommendRule = new AppRecommendRule(config);
         this.application = new Application(config);
         this.applicationAppUsage = new ApplicationAppUsage(config);
@@ -48,6 +50,15 @@ public class ApplicationService {
         this.applicationFeedback = new ApplicationFeedback(config);
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
+    }
+
+    /**
+     * 应用红点
+     *
+     * @return
+     */
+    public AppBadge appBadge() {
+        return appBadge;
     }
 
     /**
@@ -120,6 +131,80 @@ public class ApplicationService {
      */
     public Bot bot() {
         return bot;
+    }
+
+    public static class AppBadge {
+        private final Config config;
+
+        public AppBadge(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 更新应用红点，更新应用红点信息，用于工作台场景
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/app_badge/set">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/app_badge/set</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/SetAppBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/SetAppBadgeSample.java</a> ;
+         */
+        public SetAppBadgeResp set(SetAppBadgeReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/application/v6/app_badge/set"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SetAppBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SetAppBadgeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/app_badge/set"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新应用红点，更新应用红点信息，用于工作台场景
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/app_badge/set">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/app_badge/set</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/SetAppBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/SetAppBadgeSample.java</a> ;
+         */
+        public SetAppBadgeResp set(SetAppBadgeReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/application/v6/app_badge/set"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            SetAppBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SetAppBadgeResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/application/v6/app_badge/set"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
     public static class AppRecommendRule {

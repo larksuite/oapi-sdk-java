@@ -76,6 +76,18 @@ public class SchemaProperty {
      */
     @SerializedName("filter_options")
     private SchemaFilterOptions filterOptions;
+    /**
+     * 问答产品设置，仅在datasource中enable_answer为true时生效
+     * <p> 示例值：
+     */
+    @SerializedName("answer_option")
+    private SchemaFieldAnswerOption answerOption;
+    /**
+     * 字段描述
+     * <p> 示例值：desc
+     */
+    @SerializedName("desc")
+    private String desc;
 
     // builder 开始
     public SchemaProperty() {
@@ -132,6 +144,16 @@ public class SchemaProperty {
          * <p> 示例值：
          */
         this.filterOptions = builder.filterOptions;
+        /**
+         * 问答产品设置，仅在datasource中enable_answer为true时生效
+         * <p> 示例值：
+         */
+        this.answerOption = builder.answerOption;
+        /**
+         * 字段描述
+         * <p> 示例值：desc
+         */
+        this.desc = builder.desc;
     }
 
     public static Builder newBuilder() {
@@ -218,6 +240,22 @@ public class SchemaProperty {
         this.filterOptions = filterOptions;
     }
 
+    public SchemaFieldAnswerOption getAnswerOption() {
+        return this.answerOption;
+    }
+
+    public void setAnswerOption(SchemaFieldAnswerOption answerOption) {
+        this.answerOption = answerOption;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public static class Builder {
         /**
          * 属性名
@@ -269,6 +307,16 @@ public class SchemaProperty {
          * <p> 示例值：
          */
         private SchemaFilterOptions filterOptions;
+        /**
+         * 问答产品设置，仅在datasource中enable_answer为true时生效
+         * <p> 示例值：
+         */
+        private SchemaFieldAnswerOption answerOption;
+        /**
+         * 字段描述
+         * <p> 示例值：desc
+         */
+        private String desc;
 
         /**
          * 属性名
@@ -408,6 +456,32 @@ public class SchemaProperty {
          */
         public Builder filterOptions(SchemaFilterOptions filterOptions) {
             this.filterOptions = filterOptions;
+            return this;
+        }
+
+
+        /**
+         * 问答产品设置，仅在datasource中enable_answer为true时生效
+         * <p> 示例值：
+         *
+         * @param answerOption
+         * @return
+         */
+        public Builder answerOption(SchemaFieldAnswerOption answerOption) {
+            this.answerOption = answerOption;
+            return this;
+        }
+
+
+        /**
+         * 字段描述
+         * <p> 示例值：desc
+         *
+         * @param desc
+         * @return
+         */
+        public Builder desc(String desc) {
+            this.desc = desc;
             return this;
         }
 
