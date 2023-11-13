@@ -43,4 +43,6 @@ public interface Constants {
     String GET_AUTHEN_ACCESS_TOKEN = "/open-apis/authen/v1/access_token";
     String REFRESH_AUTHEN_ACCESS_TOKEN = "/open-apis/authen/v1/refresh_access_token";
     String GET_AUTHEN_USER_INFO = "/open-apis/authen/v1/user_info";
+
+    String JS_SDK_TICKET_GET_URL_PATH = "/open-apis/jssdk/ticket/get";
 }
