@@ -37,8 +37,8 @@ public class MyAiAvPluginPresentInfo {
     /**
      * <p> 示例值：
      */
-    @SerializedName("card_varibales")
-    private MyAiAvPluginCardVaribales cardVaribales;
+    @SerializedName("card_variables")
+    private MyAiAvPluginCardVariables cardVariables;
     /**
      * callback info
      * <p> 示例值：callback info
@@ -70,7 +70,7 @@ public class MyAiAvPluginPresentInfo {
          *
          * <p> 示例值：
          */
-        this.cardVaribales = builder.cardVaribales;
+        this.cardVariables = builder.cardVariables;
         /**
          * callback info
          * <p> 示例值：callback info
@@ -106,12 +106,12 @@ public class MyAiAvPluginPresentInfo {
         this.body = body;
     }
 
-    public MyAiAvPluginCardVaribales getCardVaribales() {
-        return this.cardVaribales;
+    public MyAiAvPluginCardVariables getCardVariables() {
+        return this.cardVariables;
     }
 
-    public void setCardVaribales(MyAiAvPluginCardVaribales cardVaribales) {
-        this.cardVaribales = cardVaribales;
+    public void setCardVariables(MyAiAvPluginCardVariables cardVariables) {
+        this.cardVariables = cardVariables;
     }
 
     public String getCallbackInfo() {
@@ -141,7 +141,7 @@ public class MyAiAvPluginPresentInfo {
         /**
          * <p> 示例值：
          */
-        private MyAiAvPluginCardVaribales cardVaribales;
+        private MyAiAvPluginCardVariables cardVariables;
         /**
          * callback info
          * <p> 示例值：callback info
@@ -190,11 +190,11 @@ public class MyAiAvPluginPresentInfo {
         /**
          * <p> 示例值：
          *
-         * @param cardVaribales
+         * @param cardVariables
          * @return
          */
-        public Builder cardVaribales(MyAiAvPluginCardVaribales cardVaribales) {
-            this.cardVaribales = cardVaribales;
+        public Builder cardVariables(MyAiAvPluginCardVariables cardVariables) {
+            this.cardVariables = cardVariables;
             return this;
         }
 

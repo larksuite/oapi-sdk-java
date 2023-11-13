@@ -28,6 +28,12 @@ public class MyAiRoomOpenapiResponse {
      */
     @SerializedName("schedule_event_id")
     private String scheduleEventId;
+    /**
+     * 其他信息
+     * <p> 示例值：{}
+     */
+    @SerializedName("other_msg")
+    private String otherMsg;
 
     // builder 开始
     public MyAiRoomOpenapiResponse() {
@@ -44,6 +50,11 @@ public class MyAiRoomOpenapiResponse {
          * <p> 示例值：111111111
          */
         this.scheduleEventId = builder.scheduleEventId;
+        /**
+         * 其他信息
+         * <p> 示例值：{}
+         */
+        this.otherMsg = builder.otherMsg;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class MyAiRoomOpenapiResponse {
         this.scheduleEventId = scheduleEventId;
     }
 
+    public String getOtherMsg() {
+        return this.otherMsg;
+    }
+
+    public void setOtherMsg(String otherMsg) {
+        this.otherMsg = otherMsg;
+    }
+
     public static class Builder {
         /**
          * openapi 返回的意图类型，不同 tool 的不同值都不一样
@@ -77,6 +96,11 @@ public class MyAiRoomOpenapiResponse {
          * <p> 示例值：111111111
          */
         private String scheduleEventId;
+        /**
+         * 其他信息
+         * <p> 示例值：{}
+         */
+        private String otherMsg;
 
         /**
          * openapi 返回的意图类型，不同 tool 的不同值都不一样
@@ -100,6 +124,19 @@ public class MyAiRoomOpenapiResponse {
          */
         public Builder scheduleEventId(String scheduleEventId) {
             this.scheduleEventId = scheduleEventId;
+            return this;
+        }
+
+
+        /**
+         * 其他信息
+         * <p> 示例值：{}
+         *
+         * @param otherMsg
+         * @return
+         */
+        public Builder otherMsg(String otherMsg) {
+            this.otherMsg = otherMsg;
             return this;
         }
 

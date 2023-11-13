@@ -1031,6 +1031,72 @@ public class ContactService {
 
             return resp;
         }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_department_id&project=contact&resource=department&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_department_id&project=contact&resource=department&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateDepartmentIdDepartmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateDepartmentIdDepartmentSample.java</a> ;
+         */
+        public UpdateDepartmentIdDepartmentResp updateDepartmentId(UpdateDepartmentIdDepartmentReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/contact/v3/departments/:department_id/update_department_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateDepartmentIdDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateDepartmentIdDepartmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/departments/:department_id/update_department_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_department_id&project=contact&resource=department&version=v3">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_department_id&project=contact&resource=department&version=v3</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateDepartmentIdDepartmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/contactv3/UpdateDepartmentIdDepartmentSample.java</a> ;
+         */
+        public UpdateDepartmentIdDepartmentResp updateDepartmentId(UpdateDepartmentIdDepartmentReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/contact/v3/departments/:department_id/update_department_id"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateDepartmentIdDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateDepartmentIdDepartmentResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/contact/v3/departments/:department_id/update_department_id"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
     }
 
     public static class EmployeeTypeEnum {

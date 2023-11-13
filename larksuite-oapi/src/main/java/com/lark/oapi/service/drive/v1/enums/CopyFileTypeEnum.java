@@ -23,6 +23,7 @@ public enum CopyFileTypeEnum {
     BITABLE("bitable"), // 多维表格类型
     DOCX("docx"), // 新版云文档类型
     MINDNOTE("mindnote"), // 思维笔记类型
+    SLIDES("slides"), // 幻灯片类型
     ;
     private String value;
 

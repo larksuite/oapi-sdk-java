@@ -24,6 +24,7 @@ public enum MoveFileTypeEnum {
     SHEET("sheet"), // 电子表格类型
     MINDNOTE("mindnote"), // 思维笔记类型
     FOLDER("folder"), // 文件夹类型
+    SLIDES("slides"), // 幻灯片类型
     ;
     private String value;
 

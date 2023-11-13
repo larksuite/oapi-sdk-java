@@ -24,6 +24,8 @@ public enum MeetingEventUserUserTypeEnum {
     NEO_GUEST_USER(5), // neo单品游客用户
     PSTN_USER(6), // pstn用户
     SIP_USER(7), // sip用户
+    SHAREBOX_USER(8), // sharebox用户
+    OPEN_PLATFORM_APP(9), // 开放平台应用
     ;
     private Integer value;
 

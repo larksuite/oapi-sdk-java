@@ -43,7 +43,6 @@ public class DeleteCalendarEventMeetingChatReq {
     // builder 开始
     public DeleteCalendarEventMeetingChatReq() {
     }
-
     public DeleteCalendarEventMeetingChatReq(Builder builder) {
         /**
          * 会议群ID

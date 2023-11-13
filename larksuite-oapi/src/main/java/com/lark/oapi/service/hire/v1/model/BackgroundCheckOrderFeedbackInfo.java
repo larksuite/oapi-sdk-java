@@ -29,6 +29,12 @@ public class BackgroundCheckOrderFeedbackInfo {
     @SerializedName("attachment_url")
     private String attachmentUrl;
     /**
+     * 背调信息附件预览链接
+     * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+     */
+    @SerializedName("report_preview_url")
+    private String reportPreviewUrl;
+    /**
      * 背调结果：红灯、黄灯、绿灯
      * <p> 示例值：红灯
      */
@@ -69,6 +75,11 @@ public class BackgroundCheckOrderFeedbackInfo {
          */
         this.attachmentUrl = builder.attachmentUrl;
         /**
+         * 背调信息附件预览链接
+         * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+         */
+        this.reportPreviewUrl = builder.reportPreviewUrl;
+        /**
          * 背调结果：红灯、黄灯、绿灯
          * <p> 示例值：红灯
          */
@@ -108,6 +119,14 @@ public class BackgroundCheckOrderFeedbackInfo {
 
     public void setAttachmentUrl(String attachmentUrl) {
         this.attachmentUrl = attachmentUrl;
+    }
+
+    public String getReportPreviewUrl() {
+        return this.reportPreviewUrl;
+    }
+
+    public void setReportPreviewUrl(String reportPreviewUrl) {
+        this.reportPreviewUrl = reportPreviewUrl;
     }
 
     public String getResult() {
@@ -154,6 +173,11 @@ public class BackgroundCheckOrderFeedbackInfo {
          */
         private String attachmentUrl;
         /**
+         * 背调信息附件预览链接
+         * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+         */
+        private String reportPreviewUrl;
+        /**
          * 背调结果：红灯、黄灯、绿灯
          * <p> 示例值：红灯
          */
@@ -196,6 +220,19 @@ public class BackgroundCheckOrderFeedbackInfo {
          */
         public Builder attachmentUrl(String attachmentUrl) {
             this.attachmentUrl = attachmentUrl;
+            return this;
+        }
+
+
+        /**
+         * 背调信息附件预览链接
+         * <p> 示例值：https://feishucdn.com/preview/file/6930815272790114324/
+         *
+         * @param reportPreviewUrl
+         * @return
+         */
+        public Builder reportPreviewUrl(String reportPreviewUrl) {
+            this.reportPreviewUrl = reportPreviewUrl;
             return this;
         }
 

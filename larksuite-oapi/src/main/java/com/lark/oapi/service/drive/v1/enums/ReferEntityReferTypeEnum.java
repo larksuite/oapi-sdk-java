@@ -23,6 +23,7 @@ public enum ReferEntityReferTypeEnum {
     DOC("doc"), // doc文档类型
     SHEET("sheet"), // 电子表格类型
     MINDNOTE("mindnote"), // 思维笔记类型
+    SLIDES("slides"), // 幻灯片类型
     ;
     private String value;
 

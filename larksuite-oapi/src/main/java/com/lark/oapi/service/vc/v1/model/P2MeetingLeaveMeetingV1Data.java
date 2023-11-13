@@ -34,6 +34,12 @@ public class P2MeetingLeaveMeetingV1Data {
      */
     @SerializedName("leave_reason")
     private Integer leaveReason;
+    /**
+     * 离会人
+     * <p> 示例值：
+     */
+    @SerializedName("leave_user")
+    private MeetingEventUser leaveUser;
 
     public MeetingEventMeeting getMeeting() {
         return this.meeting;
@@ -57,6 +63,14 @@ public class P2MeetingLeaveMeetingV1Data {
 
     public void setLeaveReason(Integer leaveReason) {
         this.leaveReason = leaveReason;
+    }
+
+    public MeetingEventUser getLeaveUser() {
+        return this.leaveUser;
+    }
+
+    public void setLeaveUser(MeetingEventUser leaveUser) {
+        this.leaveUser = leaveUser;
     }
 
 }

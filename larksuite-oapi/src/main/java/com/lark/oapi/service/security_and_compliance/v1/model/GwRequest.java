@@ -36,7 +36,7 @@ public class GwRequest {
     private Param[] pathParams;
     /**
      * 请求经网关解析后的query参数
-     * <p> 示例值：{"docx_synced_block_host_token":["T7lCdrCcsrAH8oxmLfRbn4GecWf"],"docx_synced_block_host_type":["22"]}
+     * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
      */
     @SerializedName("query")
     private String query;
@@ -72,7 +72,7 @@ public class GwRequest {
     private String origin;
     /**
      * 请求头
-     * <p> 示例值：{"x-lgw-locale": "en-US", "x-lgw-app-version": ""}
+     * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
      */
     @SerializedName("header")
     private String header;
@@ -99,7 +99,7 @@ public class GwRequest {
         this.pathParams = builder.pathParams;
         /**
          * 请求经网关解析后的query参数
-         * <p> 示例值：{"docx_synced_block_host_token":["T7lCdrCcsrAH8oxmLfRbn4GecWf"],"docx_synced_block_host_type":["22"]}
+         * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
          */
         this.query = builder.query;
         /**
@@ -129,7 +129,7 @@ public class GwRequest {
         this.origin = builder.origin;
         /**
          * 请求头
-         * <p> 示例值：{"x-lgw-locale": "en-US", "x-lgw-app-version": ""}
+         * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
          */
         this.header = builder.header;
     }
@@ -236,7 +236,7 @@ public class GwRequest {
         private Param[] pathParams;
         /**
          * 请求经网关解析后的query参数
-         * <p> 示例值：{"docx_synced_block_host_token":["T7lCdrCcsrAH8oxmLfRbn4GecWf"],"docx_synced_block_host_type":["22"]}
+         * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
          */
         private String query;
         /**
@@ -266,7 +266,7 @@ public class GwRequest {
         private String origin;
         /**
          * 请求头
-         * <p> 示例值：{"x-lgw-locale": "en-US", "x-lgw-app-version": ""}
+         * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
          */
         private String header;
 
@@ -311,7 +311,7 @@ public class GwRequest {
 
         /**
          * 请求经网关解析后的query参数
-         * <p> 示例值：{"docx_synced_block_host_token":["T7lCdrCcsrAH8oxmLfRbn4GecWf"],"docx_synced_block_host_type":["22"]}
+         * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
          *
          * @param query
          * @return
@@ -389,7 +389,7 @@ public class GwRequest {
 
         /**
          * 请求头
-         * <p> 示例值：{"x-lgw-locale": "en-US", "x-lgw-app-version": ""}
+         * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
          *
          * @param header
          * @return

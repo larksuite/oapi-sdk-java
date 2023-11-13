@@ -28,6 +28,18 @@ public class Attachment {
      */
     @SerializedName("filename")
     private String filename;
+    /**
+     * 附件 id
+     * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     */
+    @SerializedName("id")
+    private String id;
+    /**
+     * 附件类型
+     * <p> 示例值：1
+     */
+    @SerializedName("attachment_type")
+    private Integer attachmentType;
 
     // builder 开始
     public Attachment() {
@@ -44,6 +56,16 @@ public class Attachment {
          * <p> 示例值：helloworld.txt
          */
         this.filename = builder.filename;
+        /**
+         * 附件 id
+         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+         */
+        this.id = builder.id;
+        /**
+         * 附件类型
+         * <p> 示例值：1
+         */
+        this.attachmentType = builder.attachmentType;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +88,22 @@ public class Attachment {
         this.filename = filename;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getAttachmentType() {
+        return this.attachmentType;
+    }
+
+    public void setAttachmentType(Integer attachmentType) {
+        this.attachmentType = attachmentType;
+    }
+
     public static class Builder {
         /**
          * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
@@ -77,6 +115,16 @@ public class Attachment {
          * <p> 示例值：helloworld.txt
          */
         private String filename;
+        /**
+         * 附件 id
+         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+         */
+        private String id;
+        /**
+         * 附件类型
+         * <p> 示例值：1
+         */
+        private Integer attachmentType;
 
         /**
          * 附件的正文，使用 base64url 编码（支持的文件最大 37MB）
@@ -100,6 +148,44 @@ public class Attachment {
          */
         public Builder filename(String filename) {
             this.filename = filename;
+            return this;
+        }
+
+
+        /**
+         * 附件 id
+         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 附件类型
+         * <p> 示例值：1
+         *
+         * @param attachmentType
+         * @return
+         */
+        public Builder attachmentType(Integer attachmentType) {
+            this.attachmentType = attachmentType;
+            return this;
+        }
+
+        /**
+         * 附件类型
+         * <p> 示例值：1
+         *
+         * @param attachmentType {@link com.lark.oapi.service.mail.v1.enums.AttachmentAttachmentTypeEnum}
+         * @return
+         */
+        public Builder attachmentType(com.lark.oapi.service.mail.v1.enums.AttachmentAttachmentTypeEnum attachmentType) {
+            this.attachmentType = attachmentType.getValue();
             return this;
         }
 

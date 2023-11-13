@@ -33,6 +33,13 @@ public class HireService {
     private final Application application; // 投递
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
+    private final EcoAccount ecoAccount; // 事件
+    private final EcoAccountCustomField ecoAccountCustomField; // 生态对接账号自定义字段
+    private final EcoBackgroundCheck ecoBackgroundCheck; // 背调订单
+    private final EcoBackgroundCheckCustomField ecoBackgroundCheckCustomField; // 背调自定义字段
+    private final EcoBackgroundCheckPackage ecoBackgroundCheckPackage; // 背调套餐和附加调查项
+    private final EcoExam ecoExam; // eco_exam
+    private final EcoExamPaper ecoExamPaper; // eco_exam_paper
     private final EhrImportTask ehrImportTask; // 导入 e-HR
     private final EhrImportTaskForInternshipOffer ehrImportTaskForInternshipOffer; // ehr_import_task_for_internship_offer
     private final Employee employee; // 入职
@@ -53,6 +60,7 @@ public class HireService {
     private final OfferSchema offerSchema; // offer_schema
     private final Questionnaire questionnaire; // 问卷（灰度租户可见）
     private final Referral referral; // 内推
+    private final ReferralAccount referralAccount; // referral_account
     private final ReferralWebsiteJobPost referralWebsiteJobPost; // referral_website.job_post
     private final RegistrationSchema registrationSchema; // registration_schema
     private final ResumeSource resumeSource; // 简历来源
@@ -64,6 +72,13 @@ public class HireService {
         this.application = new Application(config);
         this.applicationInterview = new ApplicationInterview(config);
         this.attachment = new Attachment(config);
+        this.ecoAccount = new EcoAccount(config);
+        this.ecoAccountCustomField = new EcoAccountCustomField(config);
+        this.ecoBackgroundCheck = new EcoBackgroundCheck(config);
+        this.ecoBackgroundCheckCustomField = new EcoBackgroundCheckCustomField(config);
+        this.ecoBackgroundCheckPackage = new EcoBackgroundCheckPackage(config);
+        this.ecoExam = new EcoExam(config);
+        this.ecoExamPaper = new EcoExamPaper(config);
         this.ehrImportTask = new EhrImportTask(config);
         this.ehrImportTaskForInternshipOffer = new EhrImportTaskForInternshipOffer(config);
         this.employee = new Employee(config);
@@ -84,6 +99,7 @@ public class HireService {
         this.offerSchema = new OfferSchema(config);
         this.questionnaire = new Questionnaire(config);
         this.referral = new Referral(config);
+        this.referralAccount = new ReferralAccount(config);
         this.referralWebsiteJobPost = new ReferralWebsiteJobPost(config);
         this.registrationSchema = new RegistrationSchema(config);
         this.resumeSource = new ResumeSource(config);
@@ -117,6 +133,69 @@ public class HireService {
      */
     public Attachment attachment() {
         return attachment;
+    }
+
+    /**
+     * 事件
+     *
+     * @return
+     */
+    public EcoAccount ecoAccount() {
+        return ecoAccount;
+    }
+
+    /**
+     * 生态对接账号自定义字段
+     *
+     * @return
+     */
+    public EcoAccountCustomField ecoAccountCustomField() {
+        return ecoAccountCustomField;
+    }
+
+    /**
+     * 背调订单
+     *
+     * @return
+     */
+    public EcoBackgroundCheck ecoBackgroundCheck() {
+        return ecoBackgroundCheck;
+    }
+
+    /**
+     * 背调自定义字段
+     *
+     * @return
+     */
+    public EcoBackgroundCheckCustomField ecoBackgroundCheckCustomField() {
+        return ecoBackgroundCheckCustomField;
+    }
+
+    /**
+     * 背调套餐和附加调查项
+     *
+     * @return
+     */
+    public EcoBackgroundCheckPackage ecoBackgroundCheckPackage() {
+        return ecoBackgroundCheckPackage;
+    }
+
+    /**
+     * eco_exam
+     *
+     * @return
+     */
+    public EcoExam ecoExam() {
+        return ecoExam;
+    }
+
+    /**
+     * eco_exam_paper
+     *
+     * @return
+     */
+    public EcoExamPaper ecoExamPaper() {
+        return ecoExamPaper;
     }
 
     /**
@@ -297,6 +376,15 @@ public class HireService {
      */
     public Referral referral() {
         return referral;
+    }
+
+    /**
+     * referral_account
+     *
+     * @return
+     */
+    public ReferralAccount referralAccount() {
+        return referralAccount;
     }
 
     /**
@@ -958,6 +1046,1184 @@ public class HireService {
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments/:attachment_id/preview"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class EcoAccount {
+        private final Config config;
+
+        public EcoAccount(Config config) {
+            this.config = config;
+        }
+    }
+
+    public static class EcoAccountCustomField {
+        private final Config config;
+
+        public EcoAccountCustomField(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 删除帐号自定义字段，删除用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。删除后，不影响已添加帐号对应的自定义字段的值。但在添加新帐号时，将不能再使用此自定义字段。删除不支持撤销，对应的 key 将无法再次复用。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoAccountCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoAccountCustomFieldSample.java</a> ;
+         */
+        public BatchDeleteEcoAccountCustomFieldResp batchDelete(BatchDeleteEcoAccountCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_account_custom_fields/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoAccountCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoAccountCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_account_custom_fields/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除帐号自定义字段，删除用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。删除后，不影响已添加帐号对应的自定义字段的值。但在添加新帐号时，将不能再使用此自定义字段。删除不支持撤销，对应的 key 将无法再次复用。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoAccountCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoAccountCustomFieldSample.java</a> ;
+         */
+        public BatchDeleteEcoAccountCustomFieldResp batchDelete(BatchDeleteEcoAccountCustomFieldReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_account_custom_fields/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoAccountCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoAccountCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_account_custom_fields/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新帐号自定义字段，更新用户在服务商处的身份标示字段（如用户在服务商处的租户 ID），此方法只会更新同一 scope 内 key 一致的自定义字段。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoAccountCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoAccountCustomFieldSample.java</a> ;
+         */
+        public BatchUpdateEcoAccountCustomFieldResp batchUpdate(BatchUpdateEcoAccountCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_account_custom_fields/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoAccountCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoAccountCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_account_custom_fields/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新帐号自定义字段，更新用户在服务商处的身份标示字段（如用户在服务商处的租户 ID），此方法只会更新同一 scope 内 key 一致的自定义字段。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoAccountCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoAccountCustomFieldSample.java</a> ;
+         */
+        public BatchUpdateEcoAccountCustomFieldResp batchUpdate(BatchUpdateEcoAccountCustomFieldReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_account_custom_fields/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoAccountCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoAccountCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_account_custom_fields/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建帐号自定义字段，定制用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。用户在飞书招聘后台添加帐号后，系统会推送「帐号绑定」事件给开发者，事件将携带用户填写的自定义字段信息，开发者可根据此信息识别飞书招聘用户在服务商处的身份信息，完成飞书招聘用户和服务商帐号的绑定，并以此来推送对应的套餐或试卷列表等。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoAccountCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoAccountCustomFieldSample.java</a> ;
+         */
+        public CreateEcoAccountCustomFieldResp create(CreateEcoAccountCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_account_custom_fields"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoAccountCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoAccountCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_account_custom_fields"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建帐号自定义字段，定制用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。用户在飞书招聘后台添加帐号后，系统会推送「帐号绑定」事件给开发者，事件将携带用户填写的自定义字段信息，开发者可根据此信息识别飞书招聘用户在服务商处的身份信息，完成飞书招聘用户和服务商帐号的绑定，并以此来推送对应的套餐或试卷列表等。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoAccountCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoAccountCustomFieldSample.java</a> ;
+         */
+        public CreateEcoAccountCustomFieldResp create(CreateEcoAccountCustomFieldReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_account_custom_fields"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoAccountCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoAccountCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_account_custom_fields"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class EcoBackgroundCheck {
+        private final Config config;
+
+        public EcoBackgroundCheck(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 终止背调订单，终止背调订单
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CancelEcoBackgroundCheckSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CancelEcoBackgroundCheckSample.java</a> ;
+         */
+        public CancelEcoBackgroundCheckResp cancel(CancelEcoBackgroundCheckReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_checks/cancel"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CancelEcoBackgroundCheckResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CancelEcoBackgroundCheckResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_checks/cancel"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 终止背调订单，终止背调订单
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CancelEcoBackgroundCheckSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CancelEcoBackgroundCheckSample.java</a> ;
+         */
+        public CancelEcoBackgroundCheckResp cancel(CancelEcoBackgroundCheckReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_checks/cancel"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CancelEcoBackgroundCheckResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CancelEcoBackgroundCheckResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_checks/cancel"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新背调进度，更新指定背调的进度信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateProgressEcoBackgroundCheckSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateProgressEcoBackgroundCheckSample.java</a> ;
+         */
+        public UpdateProgressEcoBackgroundCheckResp updateProgress(UpdateProgressEcoBackgroundCheckReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_checks/update_progress"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateProgressEcoBackgroundCheckResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateProgressEcoBackgroundCheckResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_checks/update_progress"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新背调进度，更新指定背调的进度信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateProgressEcoBackgroundCheckSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateProgressEcoBackgroundCheckSample.java</a> ;
+         */
+        public UpdateProgressEcoBackgroundCheckResp updateProgress(UpdateProgressEcoBackgroundCheckReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_checks/update_progress"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateProgressEcoBackgroundCheckResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateProgressEcoBackgroundCheckResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_checks/update_progress"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 回传背调的最终结果，回传背调的最终结果
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoBackgroundCheckSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoBackgroundCheckSample.java</a> ;
+         */
+        public UpdateResultEcoBackgroundCheckResp updateResult(UpdateResultEcoBackgroundCheckReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_checks/update_result"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateResultEcoBackgroundCheckResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateResultEcoBackgroundCheckResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_checks/update_result"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 回传背调的最终结果，回传背调的最终结果
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoBackgroundCheckSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoBackgroundCheckSample.java</a> ;
+         */
+        public UpdateResultEcoBackgroundCheckResp updateResult(UpdateResultEcoBackgroundCheckReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_checks/update_result"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateResultEcoBackgroundCheckResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateResultEcoBackgroundCheckResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_checks/update_result"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class EcoBackgroundCheckCustomField {
+        private final Config config;
+
+        public EcoBackgroundCheckCustomField(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 删除背调自定义字段，删除用户在发起背调时的自定义字段，删除不影响已创建的背调，删除后对应的自定义字段的 key 不能再复用。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckCustomFieldSample.java</a> ;
+         */
+        public BatchDeleteEcoBackgroundCheckCustomFieldResp batchDelete(BatchDeleteEcoBackgroundCheckCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除背调自定义字段，删除用户在发起背调时的自定义字段，删除不影响已创建的背调，删除后对应的自定义字段的 key 不能再复用。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckCustomFieldSample.java</a> ;
+         */
+        public BatchDeleteEcoBackgroundCheckCustomFieldResp batchDelete(BatchDeleteEcoBackgroundCheckCustomFieldReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新背调自定义字段，更新用户在发起背调时的自定义字段。更新操作不支持更新自定义字段类型，且将影响已发起的背调表单展示。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckCustomFieldSample.java</a> ;
+         */
+        public BatchUpdateEcoBackgroundCheckCustomFieldResp batchUpdate(BatchUpdateEcoBackgroundCheckCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新背调自定义字段，更新用户在发起背调时的自定义字段。更新操作不支持更新自定义字段类型，且将影响已发起的背调表单展示。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckCustomFieldSample.java</a> ;
+         */
+        public BatchUpdateEcoBackgroundCheckCustomFieldResp batchUpdate(BatchUpdateEcoBackgroundCheckCustomFieldReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建背调自定义字段，定制用户在发起背调时的自定义字段
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckCustomFieldSample.java</a> ;
+         */
+        public CreateEcoBackgroundCheckCustomFieldResp create(CreateEcoBackgroundCheckCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_custom_fields"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 创建背调自定义字段，定制用户在发起背调时的自定义字段
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckCustomFieldSample.java</a> ;
+         */
+        public CreateEcoBackgroundCheckCustomFieldResp create(CreateEcoBackgroundCheckCustomFieldReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_custom_fields"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoBackgroundCheckCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckCustomFieldResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_custom_fields"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class EcoBackgroundCheckPackage {
+        private final Config config;
+
+        public EcoBackgroundCheckPackage(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * 删除背调套餐和附加调查项，删除指定帐号的指定背调套餐和附加调查项信息，删除不会影响已创建的背调。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckPackageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckPackageSample.java</a> ;
+         */
+        public BatchDeleteEcoBackgroundCheckPackageResp batchDelete(BatchDeleteEcoBackgroundCheckPackageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckPackageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 删除背调套餐和附加调查项，删除指定帐号的指定背调套餐和附加调查项信息，删除不会影响已创建的背调。
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckPackageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoBackgroundCheckPackageSample.java</a> ;
+         */
+        public BatchDeleteEcoBackgroundCheckPackageResp batchDelete(BatchDeleteEcoBackgroundCheckPackageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoBackgroundCheckPackageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新背调套餐和附加调查项，更新指定帐号可用的背调套餐和附加调查项信息，更新将影响已发起背调的表单项展示
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckPackageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckPackageSample.java</a> ;
+         */
+        public BatchUpdateEcoBackgroundCheckPackageResp batchUpdate(BatchUpdateEcoBackgroundCheckPackageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_background_check_packages/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckPackageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 更新背调套餐和附加调查项，更新指定帐号可用的背调套餐和附加调查项信息，更新将影响已发起背调的表单项展示
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckPackageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoBackgroundCheckPackageSample.java</a> ;
+         */
+        public BatchUpdateEcoBackgroundCheckPackageResp batchUpdate(BatchUpdateEcoBackgroundCheckPackageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_background_check_packages/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoBackgroundCheckPackageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 推送背调套餐和附加调查项，定制指定帐号可用的背调套餐和附加调查项信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckPackageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckPackageSample.java</a> ;
+         */
+        public CreateEcoBackgroundCheckPackageResp create(CreateEcoBackgroundCheckPackageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_packages"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckPackageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * 推送背调套餐和附加调查项，定制指定帐号可用的背调套餐和附加调查项信息
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckPackageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoBackgroundCheckPackageSample.java</a> ;
+         */
+        public CreateEcoBackgroundCheckPackageResp create(CreateEcoBackgroundCheckPackageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_background_check_packages"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoBackgroundCheckPackageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoBackgroundCheckPackageResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_background_check_packages"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class EcoExam {
+        private final Config config;
+
+        public EcoExam(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=login_info&project=hire&resource=eco_exam&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=login_info&project=hire&resource=eco_exam&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/LoginInfoEcoExamSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/LoginInfoEcoExamSample.java</a> ;
+         */
+        public LoginInfoEcoExamResp loginInfo(LoginInfoEcoExamReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exams/:exam_id/login_info"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            LoginInfoEcoExamResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, LoginInfoEcoExamResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exams/:exam_id/login_info"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=login_info&project=hire&resource=eco_exam&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=login_info&project=hire&resource=eco_exam&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/LoginInfoEcoExamSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/LoginInfoEcoExamSample.java</a> ;
+         */
+        public LoginInfoEcoExamResp loginInfo(LoginInfoEcoExamReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exams/:exam_id/login_info"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            LoginInfoEcoExamResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, LoginInfoEcoExamResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exams/:exam_id/login_info"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_result&project=hire&resource=eco_exam&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_result&project=hire&resource=eco_exam&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoExamSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoExamSample.java</a> ;
+         */
+        public UpdateResultEcoExamResp updateResult(UpdateResultEcoExamReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exams/:exam_id/update_result"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateResultEcoExamResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateResultEcoExamResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exams/:exam_id/update_result"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_result&project=hire&resource=eco_exam&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update_result&project=hire&resource=eco_exam&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoExamSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateResultEcoExamSample.java</a> ;
+         */
+        public UpdateResultEcoExamResp updateResult(UpdateResultEcoExamReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exams/:exam_id/update_result"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            UpdateResultEcoExamResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateResultEcoExamResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exams/:exam_id/update_result"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
+    public static class EcoExamPaper {
+        private final Config config;
+
+        public EcoExamPaper(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=hire&resource=eco_exam_paper&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=hire&resource=eco_exam_paper&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoExamPaperSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoExamPaperSample.java</a> ;
+         */
+        public BatchDeleteEcoExamPaperResp batchDelete(BatchDeleteEcoExamPaperReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exam_papers/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoExamPaperResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoExamPaperResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exam_papers/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=hire&resource=eco_exam_paper&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=hire&resource=eco_exam_paper&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoExamPaperSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchDeleteEcoExamPaperSample.java</a> ;
+         */
+        public BatchDeleteEcoExamPaperResp batchDelete(BatchDeleteEcoExamPaperReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exam_papers/batch_delete"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchDeleteEcoExamPaperResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteEcoExamPaperResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exam_papers/batch_delete"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_update&project=hire&resource=eco_exam_paper&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_update&project=hire&resource=eco_exam_paper&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoExamPaperSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoExamPaperSample.java</a> ;
+         */
+        public BatchUpdateEcoExamPaperResp batchUpdate(BatchUpdateEcoExamPaperReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_exam_papers/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoExamPaperResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoExamPaperResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exam_papers/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_update&project=hire&resource=eco_exam_paper&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_update&project=hire&resource=eco_exam_paper&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoExamPaperSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/BatchUpdateEcoExamPaperSample.java</a> ;
+         */
+        public BatchUpdateEcoExamPaperResp batchUpdate(BatchUpdateEcoExamPaperReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                    , "/open-apis/hire/v1/eco_exam_papers/batch_update"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            BatchUpdateEcoExamPaperResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchUpdateEcoExamPaperResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exam_papers/batch_update"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=eco_exam_paper&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=eco_exam_paper&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoExamPaperSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoExamPaperSample.java</a> ;
+         */
+        public CreateEcoExamPaperResp create(CreateEcoExamPaperReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exam_papers"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoExamPaperResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoExamPaperResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exam_papers"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=eco_exam_paper&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=eco_exam_paper&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoExamPaperSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateEcoExamPaperSample.java</a> ;
+         */
+        public CreateEcoExamPaperResp create(CreateEcoExamPaperReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/eco_exam_papers"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateEcoExamPaperResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEcoExamPaperResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/eco_exam_papers"
                         , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                         httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                                 StandardCharsets.UTF_8)));
@@ -3705,6 +4971,278 @@ public class HireService {
         }
     }
 
+    public static class ReferralAccount {
+        private final Config config;
+
+        public ReferralAccount(Config config) {
+            this.config = config;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateReferralAccountSample.java</a> ;
+         */
+        public CreateReferralAccountResp create(CreateReferralAccountReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateReferralAccountSample.java</a> ;
+         */
+        public CreateReferralAccountResp create(CreateReferralAccountReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            CreateReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=deactivate&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=deactivate&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/DeactivateReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/DeactivateReferralAccountSample.java</a> ;
+         */
+        public DeactivateReferralAccountResp deactivate(DeactivateReferralAccountReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account/:referral_account_id/deactivate"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeactivateReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeactivateReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account/:referral_account_id/deactivate"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=deactivate&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=deactivate&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/DeactivateReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/DeactivateReferralAccountSample.java</a> ;
+         */
+        public DeactivateReferralAccountResp deactivate(DeactivateReferralAccountReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account/:referral_account_id/deactivate"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            DeactivateReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeactivateReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account/:referral_account_id/deactivate"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=reconciliation&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=reconciliation&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ReconciliationReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ReconciliationReferralAccountSample.java</a> ;
+         */
+        public ReconciliationReferralAccountResp reconciliation(ReconciliationReferralAccountReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account/reconciliation"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ReconciliationReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ReconciliationReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account/reconciliation"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=reconciliation&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=reconciliation&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ReconciliationReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ReconciliationReferralAccountSample.java</a> ;
+         */
+        public ReconciliationReferralAccountResp reconciliation(ReconciliationReferralAccountReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account/reconciliation"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            ReconciliationReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ReconciliationReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account/reconciliation"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/WithdrawReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/WithdrawReferralAccountSample.java</a> ;
+         */
+        public WithdrawReferralAccountResp withdraw(WithdrawReferralAccountReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account/:referral_account_id/withdraw"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            WithdrawReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, WithdrawReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account/:referral_account_id/withdraw"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        /**
+         * ，
+         * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw&project=hire&resource=referral_account&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw&project=hire&resource=referral_account&version=v1</a> ;
+         * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/WithdrawReferralAccountSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/WithdrawReferralAccountSample.java</a> ;
+         */
+        public WithdrawReferralAccountResp withdraw(WithdrawReferralAccountReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                    , "/open-apis/hire/v1/referral_account/:referral_account_id/withdraw"
+                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , req);
+
+            // 反序列化
+            WithdrawReferralAccountResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, WithdrawReferralAccountResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                        "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/referral_account/:referral_account_id/withdraw"
+                        , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                        httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                                StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+    }
+
     public static class ReferralWebsiteJobPost {
         private final Config config;
 
@@ -4352,6 +5890,34 @@ public class HireService {
         }
     }
 
+    public abstract static class P2EcoAccountCreatedV1Handler implements IEventHandler<P2EcoAccountCreatedV1> {
+        @Override
+        public P2EcoAccountCreatedV1 getEvent() {
+            return new P2EcoAccountCreatedV1();
+        }
+    }
+
+    public abstract static class P2EcoBackgroundCheckCanceledV1Handler implements IEventHandler<P2EcoBackgroundCheckCanceledV1> {
+        @Override
+        public P2EcoBackgroundCheckCanceledV1 getEvent() {
+            return new P2EcoBackgroundCheckCanceledV1();
+        }
+    }
+
+    public abstract static class P2EcoBackgroundCheckCreatedV1Handler implements IEventHandler<P2EcoBackgroundCheckCreatedV1> {
+        @Override
+        public P2EcoBackgroundCheckCreatedV1 getEvent() {
+            return new P2EcoBackgroundCheckCreatedV1();
+        }
+    }
+
+    public abstract static class P2EcoExamCreatedV1Handler implements IEventHandler<P2EcoExamCreatedV1> {
+        @Override
+        public P2EcoExamCreatedV1 getEvent() {
+            return new P2EcoExamCreatedV1();
+        }
+    }
+
     public abstract static class P2EhrImportTaskImportedV1Handler implements IEventHandler<P2EhrImportTaskImportedV1> {
         @Override
         public P2EhrImportTaskImportedV1 getEvent() {
@@ -4370,6 +5936,13 @@ public class HireService {
         @Override
         public P2OfferStatusChangedV1 getEvent() {
             return new P2OfferStatusChangedV1();
+        }
+    }
+
+    public abstract static class P2ReferralAccountAssetsUpdateV1Handler implements IEventHandler<P2ReferralAccountAssetsUpdateV1> {
+        @Override
+        public P2ReferralAccountAssetsUpdateV1 getEvent() {
+            return new P2ReferralAccountAssetsUpdateV1();
         }
     }
 }

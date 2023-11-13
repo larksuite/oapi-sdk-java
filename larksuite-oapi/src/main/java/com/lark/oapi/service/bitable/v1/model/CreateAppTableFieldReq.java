@@ -42,7 +42,6 @@ public class CreateAppTableFieldReq {
     private String tableId;
     @Body
     private AppTableField body;
-
     // builder 开始
     public CreateAppTableFieldReq() {
     }

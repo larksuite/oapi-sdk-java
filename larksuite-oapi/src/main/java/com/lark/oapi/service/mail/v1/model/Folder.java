@@ -40,6 +40,18 @@ public class Folder {
      */
     @SerializedName("folder_type")
     private Integer folderType;
+    /**
+     * 未读邮件数量
+     * <p> 示例值：3
+     */
+    @SerializedName("unread_message_count")
+    private Integer unreadMessageCount;
+    /**
+     * 未读会话数量
+     * <p> 示例值：4
+     */
+    @SerializedName("unread_thread_count")
+    private Integer unreadThreadCount;
 
     // builder 开始
     public Folder() {
@@ -66,6 +78,16 @@ public class Folder {
          * <p> 示例值：1
          */
         this.folderType = builder.folderType;
+        /**
+         * 未读邮件数量
+         * <p> 示例值：3
+         */
+        this.unreadMessageCount = builder.unreadMessageCount;
+        /**
+         * 未读会话数量
+         * <p> 示例值：4
+         */
+        this.unreadThreadCount = builder.unreadThreadCount;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class Folder {
         this.folderType = folderType;
     }
 
+    public Integer getUnreadMessageCount() {
+        return this.unreadMessageCount;
+    }
+
+    public void setUnreadMessageCount(Integer unreadMessageCount) {
+        this.unreadMessageCount = unreadMessageCount;
+    }
+
+    public Integer getUnreadThreadCount() {
+        return this.unreadThreadCount;
+    }
+
+    public void setUnreadThreadCount(Integer unreadThreadCount) {
+        this.unreadThreadCount = unreadThreadCount;
+    }
+
     public static class Builder {
         /**
          * folder id
@@ -125,6 +163,16 @@ public class Folder {
          * <p> 示例值：1
          */
         private Integer folderType;
+        /**
+         * 未读邮件数量
+         * <p> 示例值：3
+         */
+        private Integer unreadMessageCount;
+        /**
+         * 未读会话数量
+         * <p> 示例值：4
+         */
+        private Integer unreadThreadCount;
 
         /**
          * folder id
@@ -186,6 +234,32 @@ public class Folder {
          */
         public Builder folderType(com.lark.oapi.service.mail.v1.enums.FolderFolderTypeEnum folderType) {
             this.folderType = folderType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 未读邮件数量
+         * <p> 示例值：3
+         *
+         * @param unreadMessageCount
+         * @return
+         */
+        public Builder unreadMessageCount(Integer unreadMessageCount) {
+            this.unreadMessageCount = unreadMessageCount;
+            return this;
+        }
+
+
+        /**
+         * 未读会话数量
+         * <p> 示例值：4
+         *
+         * @param unreadThreadCount
+         * @return
+         */
+        public Builder unreadThreadCount(Integer unreadThreadCount) {
+            this.unreadThreadCount = unreadThreadCount;
             return this;
         }
 

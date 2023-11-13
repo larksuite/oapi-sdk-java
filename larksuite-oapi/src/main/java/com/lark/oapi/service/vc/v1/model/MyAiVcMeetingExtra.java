@@ -46,6 +46,12 @@ public class MyAiVcMeetingExtra {
      */
     @SerializedName("vc_feature_config")
     private String vcFeatureConfig;
+    /**
+     * 端上富文本额外信息
+     * <p> 示例值：json字符串
+     */
+    @SerializedName("quick_execute_param_rich_tag")
+    private String quickExecuteParamRichTag;
 
     // builder 开始
     public MyAiVcMeetingExtra() {
@@ -77,6 +83,11 @@ public class MyAiVcMeetingExtra {
          * <p> 示例值：recording_status
          */
         this.vcFeatureConfig = builder.vcFeatureConfig;
+        /**
+         * 端上富文本额外信息
+         * <p> 示例值：json字符串
+         */
+        this.quickExecuteParamRichTag = builder.quickExecuteParamRichTag;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +134,14 @@ public class MyAiVcMeetingExtra {
         this.vcFeatureConfig = vcFeatureConfig;
     }
 
+    public String getQuickExecuteParamRichTag() {
+        return this.quickExecuteParamRichTag;
+    }
+
+    public void setQuickExecuteParamRichTag(String quickExecuteParamRichTag) {
+        this.quickExecuteParamRichTag = quickExecuteParamRichTag;
+    }
+
     public static class Builder {
         /**
          * 会议id
@@ -149,6 +168,11 @@ public class MyAiVcMeetingExtra {
          * <p> 示例值：recording_status
          */
         private String vcFeatureConfig;
+        /**
+         * 端上富文本额外信息
+         * <p> 示例值：json字符串
+         */
+        private String quickExecuteParamRichTag;
 
         /**
          * 会议id
@@ -211,6 +235,19 @@ public class MyAiVcMeetingExtra {
          */
         public Builder vcFeatureConfig(String vcFeatureConfig) {
             this.vcFeatureConfig = vcFeatureConfig;
+            return this;
+        }
+
+
+        /**
+         * 端上富文本额外信息
+         * <p> 示例值：json字符串
+         *
+         * @param quickExecuteParamRichTag
+         * @return
+         */
+        public Builder quickExecuteParamRichTag(String quickExecuteParamRichTag) {
+            this.quickExecuteParamRichTag = quickExecuteParamRichTag;
             return this;
         }
 

@@ -682,6 +682,36 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ContractDeletedV1(CorehrService.P2ContractDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.contract.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.contract.deleted_v1");
+            }
+            eventType2EventHandler.put("corehr.contract.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ContractUpdatedV1(CorehrService.P2ContractUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.contract.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.contract.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.contract.updated_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 部门创建,飞书人事中「部门被创建」时将触发此事件。触发时间为部门实际生效时间，如在 2022-01-01 创建部门，部门生效时间设置为 2022-05-01，事件将在 2022-05-01 进行推送。
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created</a>
          *
@@ -1134,6 +1164,66 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> 帐号绑定,招聘管理员添加三方服务商帐号时，系统会推送事件给应用开发者，开发者可根据事件获取用户添加的帐号类型（背调 或 笔试）和 帐号自定义字段信息，并根据这些信息识别用户在服务商处的身份，完成三方服务商帐号 和 招聘帐号之间的绑定，并根据用户服务商身份推送对应的背调套餐或试卷列表。
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EcoAccountCreatedV1(HireService.P2EcoAccountCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.eco_account.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.eco_account.created_v1");
+            }
+            eventType2EventHandler.put("hire.eco_account.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 终止背调,用户在招聘系统终止背调后，系统会推送事件给对应的应用开发者。开发者可根据事件获取背调 ID，完成在三方服务商处的订单取消等后续操作。
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/canceled">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/canceled</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EcoBackgroundCheckCanceledV1(HireService.P2EcoBackgroundCheckCanceledV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.eco_background_check.canceled_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.eco_background_check.canceled_v1");
+            }
+            eventType2EventHandler.put("hire.eco_background_check.canceled_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> 创建背调,用户在招聘系统安排背调后，系统会推送事件给对应的应用开发者。开发者可根据事件获取候选人信息、委托人信息和自定义字段信息，并根据这些信息完成在三方服务商处的背调订单创建。
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EcoBackgroundCheckCreatedV1(HireService.P2EcoBackgroundCheckCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.eco_background_check.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.eco_background_check.created_v1");
+            }
+            eventType2EventHandler.put("hire.eco_background_check.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2EcoExamCreatedV1(HireService.P2EcoExamCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.eco_exam.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.eco_exam.created_v1");
+            }
+            eventType2EventHandler.put("hire.eco_exam.created_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> ,
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr</a>
          *
@@ -1175,6 +1265,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("hire.offer.status_changed_v1");
             }
             eventType2EventHandler.put("hire.offer.status_changed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ReferralAccountAssetsUpdateV1(HireService.P2ReferralAccountAssetsUpdateV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.referral_account.assets_update_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.referral_account.assets_update_v1");
+            }
+            eventType2EventHandler.put("hire.referral_account.assets_update_v1", handler);
             return this;
         }
 

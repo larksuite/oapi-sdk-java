@@ -28,6 +28,12 @@ public class EcoExamResultReport {
      */
     @SerializedName("url")
     private String url;
+    /**
+     * 作答完成时间(毫秒时间戳)
+     * <p> 示例值：1658676234053
+     */
+    @SerializedName("answer_time")
+    private String answerTime;
 
     // builder 开始
     public EcoExamResultReport() {
@@ -44,6 +50,11 @@ public class EcoExamResultReport {
          * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
          */
         this.url = builder.url;
+        /**
+         * 作答完成时间(毫秒时间戳)
+         * <p> 示例值：1658676234053
+         */
+        this.answerTime = builder.answerTime;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class EcoExamResultReport {
         this.url = url;
     }
 
+    public String getAnswerTime() {
+        return this.answerTime;
+    }
+
+    public void setAnswerTime(String answerTime) {
+        this.answerTime = answerTime;
+    }
+
     public static class Builder {
         /**
          * 报告名称
@@ -77,6 +96,11 @@ public class EcoExamResultReport {
          * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
          */
         private String url;
+        /**
+         * 作答完成时间(毫秒时间戳)
+         * <p> 示例值：1658676234053
+         */
+        private String answerTime;
 
         /**
          * 报告名称
@@ -100,6 +124,19 @@ public class EcoExamResultReport {
          */
         public Builder url(String url) {
             this.url = url;
+            return this;
+        }
+
+
+        /**
+         * 作答完成时间(毫秒时间戳)
+         * <p> 示例值：1658676234053
+         *
+         * @param answerTime
+         * @return
+         */
+        public Builder answerTime(String answerTime) {
+            this.answerTime = answerTime;
             return this;
         }
 

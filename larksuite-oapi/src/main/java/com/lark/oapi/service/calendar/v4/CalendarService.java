@@ -569,7 +569,7 @@ public class CalendarService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/calendar/v4/calendars/search"
-                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -601,7 +601,7 @@ public class CalendarService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/calendar/v4/calendars/search"
-                    , Sets.newHashSet(AccessTokenType.Tenant)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -1596,7 +1596,7 @@ public class CalendarService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化
@@ -1629,7 +1629,7 @@ public class CalendarService {
             // 发起请求
             RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                     , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
-                    , Sets.newHashSet(AccessTokenType.User)
+                    , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                     , req);
 
             // 反序列化

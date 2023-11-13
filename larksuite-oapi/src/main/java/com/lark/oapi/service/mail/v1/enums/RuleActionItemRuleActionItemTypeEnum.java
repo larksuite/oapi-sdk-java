@@ -19,7 +19,7 @@ package com.lark.oapi.service.mail.v1.enums;
 public enum RuleActionItemRuleActionItemTypeEnum {
     ARCHIVEMESSAGE(1), // 归档
     DELETEMESSAGE(2), // 删除邮件
-    MARKASREAD(3), // 标为为已读
+    MARKASREAD(3), // 标记为已读
     MARKASSPAM(4), // 移至垃圾邮件
     NEVERMARKASSPAM(5), // 不移至垃圾邮件
     APPLYLABEL(8), // 添加用户标签（暂不支持）

@@ -28,6 +28,30 @@ public class UserInfo {
      */
     @SerializedName("timezone")
     private String timezone;
+    /**
+     * 用户id
+     * <p> 示例值：22
+     */
+    @SerializedName("user_id")
+    private String userId;
+    /**
+     * 用户open id
+     * <p> 示例值：ou_abc
+     */
+    @SerializedName("user_open_id")
+    private String userOpenId;
+    /**
+     * 租户id
+     * <p> 示例值：22
+     */
+    @SerializedName("tenant_id")
+    private String tenantId;
+    /**
+     * 地区
+     * <p> 示例值：zh-cn
+     */
+    @SerializedName("locale")
+    private String locale;
 
     // builder 开始
     public UserInfo() {
@@ -44,6 +68,26 @@ public class UserInfo {
          * <p> 示例值：zh
          */
         this.timezone = builder.timezone;
+        /**
+         * 用户id
+         * <p> 示例值：22
+         */
+        this.userId = builder.userId;
+        /**
+         * 用户open id
+         * <p> 示例值：ou_abc
+         */
+        this.userOpenId = builder.userOpenId;
+        /**
+         * 租户id
+         * <p> 示例值：22
+         */
+        this.tenantId = builder.tenantId;
+        /**
+         * 地区
+         * <p> 示例值：zh-cn
+         */
+        this.locale = builder.locale;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +110,38 @@ public class UserInfo {
         this.timezone = timezone;
     }
 
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserOpenId() {
+        return this.userOpenId;
+    }
+
+    public void setUserOpenId(String userOpenId) {
+        this.userOpenId = userOpenId;
+    }
+
+    public String getTenantId() {
+        return this.tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
     public static class Builder {
         /**
          * 用户使用语言类型
@@ -77,6 +153,26 @@ public class UserInfo {
          * <p> 示例值：zh
          */
         private String timezone;
+        /**
+         * 用户id
+         * <p> 示例值：22
+         */
+        private String userId;
+        /**
+         * 用户open id
+         * <p> 示例值：ou_abc
+         */
+        private String userOpenId;
+        /**
+         * 租户id
+         * <p> 示例值：22
+         */
+        private String tenantId;
+        /**
+         * 地区
+         * <p> 示例值：zh-cn
+         */
+        private String locale;
 
         /**
          * 用户使用语言类型
@@ -100,6 +196,58 @@ public class UserInfo {
          */
         public Builder timezone(String timezone) {
             this.timezone = timezone;
+            return this;
+        }
+
+
+        /**
+         * 用户id
+         * <p> 示例值：22
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 用户open id
+         * <p> 示例值：ou_abc
+         *
+         * @param userOpenId
+         * @return
+         */
+        public Builder userOpenId(String userOpenId) {
+            this.userOpenId = userOpenId;
+            return this;
+        }
+
+
+        /**
+         * 租户id
+         * <p> 示例值：22
+         *
+         * @param tenantId
+         * @return
+         */
+        public Builder tenantId(String tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+
+
+        /**
+         * 地区
+         * <p> 示例值：zh-cn
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
             return this;
         }
 

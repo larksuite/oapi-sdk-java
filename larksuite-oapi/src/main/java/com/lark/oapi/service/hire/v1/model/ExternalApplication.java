@@ -77,6 +77,12 @@ public class ExternalApplication {
     @SerializedName("modify_time")
     private Integer modifyTime;
     /**
+     * 投递在外部系统创建时间
+     * <p> 示例值：1618500278644
+     */
+    @SerializedName("create_time")
+    private Integer createTime;
+    /**
      * 终止类型
      * <p> 示例值：health
      */
@@ -138,6 +144,11 @@ public class ExternalApplication {
          * <p> 示例值：1618500278645
          */
         this.modifyTime = builder.modifyTime;
+        /**
+         * 投递在外部系统创建时间
+         * <p> 示例值：1618500278644
+         */
+        this.createTime = builder.createTime;
         /**
          * 终止类型
          * <p> 示例值：health
@@ -229,6 +240,14 @@ public class ExternalApplication {
         this.modifyTime = modifyTime;
     }
 
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
     public String getTerminationType() {
         return this.terminationType;
     }
@@ -288,6 +307,11 @@ public class ExternalApplication {
          * <p> 示例值：1618500278645
          */
         private Integer modifyTime;
+        /**
+         * 投递在外部系统创建时间
+         * <p> 示例值：1618500278644
+         */
+        private Integer createTime;
         /**
          * 终止类型
          * <p> 示例值：health
@@ -420,6 +444,19 @@ public class ExternalApplication {
          */
         public Builder modifyTime(Integer modifyTime) {
             this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * 投递在外部系统创建时间
+         * <p> 示例值：1618500278644
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(Integer createTime) {
+            this.createTime = createTime;
             return this;
         }
 

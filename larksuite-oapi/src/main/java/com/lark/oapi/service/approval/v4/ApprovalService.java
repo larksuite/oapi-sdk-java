@@ -30,7 +30,7 @@ import java.nio.charset.StandardCharsets;
 
 public class ApprovalService {
     private static final Logger log = LoggerFactory.getLogger(ApprovalService.class);
-    private final Approval approval; // 原生审批定义
+    private final Approval approval; // 事件
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
@@ -49,7 +49,7 @@ public class ApprovalService {
     }
 
     /**
-     * 原生审批定义
+     * 事件
      *
      * @return
      */

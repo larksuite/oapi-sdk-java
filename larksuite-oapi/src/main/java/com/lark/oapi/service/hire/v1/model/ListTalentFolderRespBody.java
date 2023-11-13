@@ -33,7 +33,7 @@ public class ListTalentFolderRespBody {
      * <p> 示例值：
      */
     @SerializedName("items")
-    private TalentFolder[] items;
+    private TalentFolderForList[] items;
 
     public Boolean getHasMore() {
         return this.hasMore;
@@ -51,11 +51,11 @@ public class ListTalentFolderRespBody {
         this.pageToken = pageToken;
     }
 
-    public TalentFolder[] getItems() {
+    public TalentFolderForList[] getItems() {
         return this.items;
     }
 
-    public void setItems(TalentFolder[] items) {
+    public void setItems(TalentFolderForList[] items) {
         this.items = items;
     }
 

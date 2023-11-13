@@ -17,18 +17,60 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateFileSubscriptionRespBody {
     /**
-     * 本次增加的文档订阅信息
-     * <p> 示例值：{       "subscription_id": "1234567890987654321",       "subscription_type": "comment_update",       "is_subcribe": true,       "file_type": "doc" }
+     * 订阅关系ID
+     * <p> 示例值：1234567890987654321
      */
-    @SerializedName("subscription")
-    private FileSubscription subscription;
+    @SerializedName("subscription_id")
+    private String subscriptionId;
+    /**
+     * 订阅类型
+     * <p> 示例值：comment_update
+     */
+    @SerializedName("subscription_type")
+    private String subscriptionType;
+    /**
+     * 是否订阅
+     * <p> 示例值：true
+     */
+    @SerializedName("is_subcribe")
+    private Boolean isSubcribe;
+    /**
+     * 文档类型
+     * <p> 示例值：docx
+     */
+    @SerializedName("file_type")
+    private String fileType;
 
-    public FileSubscription getSubscription() {
-        return this.subscription;
+    public String getSubscriptionId() {
+        return this.subscriptionId;
     }
 
-    public void setSubscription(FileSubscription subscription) {
-        this.subscription = subscription;
+    public void setSubscriptionId(String subscriptionId) {
+        this.subscriptionId = subscriptionId;
+    }
+
+    public String getSubscriptionType() {
+        return this.subscriptionType;
+    }
+
+    public void setSubscriptionType(String subscriptionType) {
+        this.subscriptionType = subscriptionType;
+    }
+
+    public Boolean getIsSubcribe() {
+        return this.isSubcribe;
+    }
+
+    public void setIsSubcribe(Boolean isSubcribe) {
+        this.isSubcribe = isSubcribe;
+    }
+
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
 }

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class MyAiAvPluginContextSystemInfo {
     /**
      * 语言
-     * <p> 示例值：English
+     * <p> 示例值：zh
      */
     @SerializedName("lang")
     private String lang;
@@ -28,6 +28,24 @@ public class MyAiAvPluginContextSystemInfo {
      */
     @SerializedName("brand")
     private String brand;
+    /**
+     * 客户端语言
+     * <p> 示例值：zh_cn
+     */
+    @SerializedName("locale")
+    private String locale;
+    /**
+     * 会话ID
+     * <p> 示例值：7291019243332730998
+     */
+    @SerializedName("session_id")
+    private String sessionId;
+    /**
+     * app version
+     * <p> 示例值：7.4.0
+     */
+    @SerializedName("app_version")
+    private String appVersion;
 
     // builder 开始
     public MyAiAvPluginContextSystemInfo() {
@@ -36,7 +54,7 @@ public class MyAiAvPluginContextSystemInfo {
     public MyAiAvPluginContextSystemInfo(Builder builder) {
         /**
          * 语言
-         * <p> 示例值：English
+         * <p> 示例值：zh
          */
         this.lang = builder.lang;
         /**
@@ -44,6 +62,21 @@ public class MyAiAvPluginContextSystemInfo {
          * <p> 示例值：lark
          */
         this.brand = builder.brand;
+        /**
+         * 客户端语言
+         * <p> 示例值：zh_cn
+         */
+        this.locale = builder.locale;
+        /**
+         * 会话ID
+         * <p> 示例值：7291019243332730998
+         */
+        this.sessionId = builder.sessionId;
+        /**
+         * app version
+         * <p> 示例值：7.4.0
+         */
+        this.appVersion = builder.appVersion;
     }
 
     public static Builder newBuilder() {
@@ -66,10 +99,34 @@ public class MyAiAvPluginContextSystemInfo {
         this.brand = brand;
     }
 
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getSessionId() {
+        return this.sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public String getAppVersion() {
+        return this.appVersion;
+    }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
+    }
+
     public static class Builder {
         /**
          * 语言
-         * <p> 示例值：English
+         * <p> 示例值：zh
          */
         private String lang;
         /**
@@ -77,10 +134,25 @@ public class MyAiAvPluginContextSystemInfo {
          * <p> 示例值：lark
          */
         private String brand;
+        /**
+         * 客户端语言
+         * <p> 示例值：zh_cn
+         */
+        private String locale;
+        /**
+         * 会话ID
+         * <p> 示例值：7291019243332730998
+         */
+        private String sessionId;
+        /**
+         * app version
+         * <p> 示例值：7.4.0
+         */
+        private String appVersion;
 
         /**
          * 语言
-         * <p> 示例值：English
+         * <p> 示例值：zh
          *
          * @param lang
          * @return
@@ -100,6 +172,45 @@ public class MyAiAvPluginContextSystemInfo {
          */
         public Builder brand(String brand) {
             this.brand = brand;
+            return this;
+        }
+
+
+        /**
+         * 客户端语言
+         * <p> 示例值：zh_cn
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+
+        /**
+         * 会话ID
+         * <p> 示例值：7291019243332730998
+         *
+         * @param sessionId
+         * @return
+         */
+        public Builder sessionId(String sessionId) {
+            this.sessionId = sessionId;
+            return this;
+        }
+
+
+        /**
+         * app version
+         * <p> 示例值：7.4.0
+         *
+         * @param appVersion
+         * @return
+         */
+        public Builder appVersion(String appVersion) {
+            this.appVersion = appVersion;
             return this;
         }
 

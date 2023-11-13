@@ -28,6 +28,12 @@ public class EcoBackgroundCheckReportFile {
      */
     @SerializedName("report_url")
     private String reportUrl;
+    /**
+     * 报告地址类型；枚举值 1 或为空时为可下载的 pdf 链接，2 为预览型链接
+     * <p> 示例值：1
+     */
+    @SerializedName("report_url_type")
+    private Integer reportUrlType;
 
     // builder 开始
     public EcoBackgroundCheckReportFile() {
@@ -44,6 +50,11 @@ public class EcoBackgroundCheckReportFile {
          * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
          */
         this.reportUrl = builder.reportUrl;
+        /**
+         * 报告地址类型；枚举值 1 或为空时为可下载的 pdf 链接，2 为预览型链接
+         * <p> 示例值：1
+         */
+        this.reportUrlType = builder.reportUrlType;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class EcoBackgroundCheckReportFile {
         this.reportUrl = reportUrl;
     }
 
+    public Integer getReportUrlType() {
+        return this.reportUrlType;
+    }
+
+    public void setReportUrlType(Integer reportUrlType) {
+        this.reportUrlType = reportUrlType;
+    }
+
     public static class Builder {
         /**
          * 报告名称
@@ -77,6 +96,11 @@ public class EcoBackgroundCheckReportFile {
          * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
          */
         private String reportUrl;
+        /**
+         * 报告地址类型；枚举值 1 或为空时为可下载的 pdf 链接，2 为预览型链接
+         * <p> 示例值：1
+         */
+        private Integer reportUrlType;
 
         /**
          * 报告名称
@@ -100,6 +124,19 @@ public class EcoBackgroundCheckReportFile {
          */
         public Builder reportUrl(String reportUrl) {
             this.reportUrl = reportUrl;
+            return this;
+        }
+
+
+        /**
+         * 报告地址类型；枚举值 1 或为空时为可下载的 pdf 链接，2 为预览型链接
+         * <p> 示例值：1
+         *
+         * @param reportUrlType
+         * @return
+         */
+        public Builder reportUrlType(Integer reportUrlType) {
+            this.reportUrlType = reportUrlType;
             return this;
         }
 

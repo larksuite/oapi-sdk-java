@@ -35,6 +35,12 @@ public class JobData {
     @SerializedName("job_level_id")
     private String jobLevelId;
     /**
+     * 职等ID
+     * <p> 示例值：6890452208593372679
+     */
+    @SerializedName("job_grade_id")
+    private String jobGradeId;
+    /**
      * 人员类型 ID，枚举值及详细信息可通过【批量查询人员类型】接口查询获得
      * <p> 示例值：6890452208593372679
      */
@@ -108,7 +114,7 @@ public class JobData {
     private String jobFamilyId;
     /**
      * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-     * <p> 示例值：
+     * <p> 示例值：onboarding
      */
     @SerializedName("assignment_start_reason")
     private Enum assignmentStartReason;
@@ -188,6 +194,11 @@ public class JobData {
          */
         this.jobLevelId = builder.jobLevelId;
         /**
+         * 职等ID
+         * <p> 示例值：6890452208593372679
+         */
+        this.jobGradeId = builder.jobGradeId;
+        /**
          * 人员类型 ID，枚举值及详细信息可通过【批量查询人员类型】接口查询获得
          * <p> 示例值：6890452208593372679
          */
@@ -249,7 +260,7 @@ public class JobData {
         this.jobFamilyId = builder.jobFamilyId;
         /**
          * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-         * <p> 示例值：
+         * <p> 示例值：onboarding
          */
         this.assignmentStartReason = builder.assignmentStartReason;
         /**
@@ -325,6 +336,14 @@ public class JobData {
 
     public void setJobLevelId(String jobLevelId) {
         this.jobLevelId = jobLevelId;
+    }
+
+    public String getJobGradeId() {
+        return this.jobGradeId;
+    }
+
+    public void setJobGradeId(String jobGradeId) {
+        this.jobGradeId = jobGradeId;
     }
 
     public String getEmployeeTypeId() {
@@ -520,6 +539,11 @@ public class JobData {
          */
         private String jobLevelId;
         /**
+         * 职等ID
+         * <p> 示例值：6890452208593372679
+         */
+        private String jobGradeId;
+        /**
          * 人员类型 ID，枚举值及详细信息可通过【批量查询人员类型】接口查询获得
          * <p> 示例值：6890452208593372679
          */
@@ -581,7 +605,7 @@ public class JobData {
         private String jobFamilyId;
         /**
          * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-         * <p> 示例值：
+         * <p> 示例值：onboarding
          */
         private Enum assignmentStartReason;
         /**
@@ -665,6 +689,19 @@ public class JobData {
          */
         public Builder jobLevelId(String jobLevelId) {
             this.jobLevelId = jobLevelId;
+            return this;
+        }
+
+
+        /**
+         * 职等ID
+         * <p> 示例值：6890452208593372679
+         *
+         * @param jobGradeId
+         * @return
+         */
+        public Builder jobGradeId(String jobGradeId) {
+            this.jobGradeId = jobGradeId;
             return this;
         }
 
@@ -827,7 +864,7 @@ public class JobData {
 
         /**
          * 任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得
-         * <p> 示例值：
+         * <p> 示例值：onboarding
          *
          * @param assignmentStartReason
          * @return

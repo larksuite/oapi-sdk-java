@@ -6660,6 +6660,20 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2ContractDeletedV1Handler implements IEventHandler<P2ContractDeletedV1> {
+        @Override
+        public P2ContractDeletedV1 getEvent() {
+            return new P2ContractDeletedV1();
+        }
+    }
+
+    public abstract static class P2ContractUpdatedV1Handler implements IEventHandler<P2ContractUpdatedV1> {
+        @Override
+        public P2ContractUpdatedV1 getEvent() {
+            return new P2ContractUpdatedV1();
+        }
+    }
+
     public abstract static class P2DepartmentCreatedV1Handler implements IEventHandler<P2DepartmentCreatedV1> {
         @Override
         public P2DepartmentCreatedV1 getEvent() {

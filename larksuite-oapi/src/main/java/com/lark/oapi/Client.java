@@ -40,6 +40,7 @@ import com.lark.oapi.service.block.v2.BlockService;
 import com.lark.oapi.service.calendar.v4.CalendarService;
 import com.lark.oapi.service.contact.v3.ContactService;
 import com.lark.oapi.service.corehr.v1.CorehrService;
+import com.lark.oapi.service.document_ai.v1.DocumentAiService;
 import com.lark.oapi.service.docx.v1.DocxService;
 import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.ehr.v1.EhrService;
@@ -88,6 +89,7 @@ public class Client {
     private CalendarService calendar; // 日历
     private ContactService contact; // 通讯录
     private CorehrService corehr; // CoreHR
+    private DocumentAiService documentAi; //
     private DocxService docx; // 云文档-文档
     private DriveService drive; // 云文档-文件管理
     private EhrService ehr; // 智能人事
@@ -241,6 +243,13 @@ public class Client {
      */
     public CorehrService corehr() {
         return corehr;
+    }
+
+    /**
+     * @return
+     */
+    public DocumentAiService documentAi() {
+        return documentAi;
     }
 
     /**
@@ -660,6 +669,7 @@ public class Client {
             client.calendar = new CalendarService(config);
             client.contact = new ContactService(config);
             client.corehr = new CorehrService(config);
+            client.documentAi = new DocumentAiService(config);
             client.docx = new DocxService(config);
             client.drive = new DriveService(config);
             client.ehr = new EhrService(config);

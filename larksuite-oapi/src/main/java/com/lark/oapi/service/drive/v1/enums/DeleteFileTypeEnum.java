@@ -25,6 +25,7 @@ public enum DeleteFileTypeEnum {
     SHEET("sheet"), // 电子表格类型
     MINDNOTE("mindnote"), // 思维笔记类型
     SHORTCUT("shortcut"), // 快捷方式类型
+    SLIDES("slides"), // 幻灯片
     ;
     private String value;
 

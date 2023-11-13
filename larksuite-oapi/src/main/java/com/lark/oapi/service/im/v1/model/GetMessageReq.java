@@ -15,8 +15,16 @@ package com.lark.oapi.service.im.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class GetMessageReq {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 待获取消息内容的消息的ID
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
@@ -31,6 +39,11 @@ public class GetMessageReq {
 
     public GetMessageReq(Builder builder) {
         /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         */
+        this.userIdType = builder.userIdType;
+        /**
          * 待获取消息内容的消息的ID
          * <p> 示例值：om_dc13264520392913993dd051dba21dcf
          */
@@ -39,6 +52,14 @@ public class GetMessageReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public String getMessageId() {
@@ -50,8 +71,32 @@ public class GetMessageReq {
     }
 
     public static class Builder {
-
+        private String userIdType; // 此次调用中使用的用户ID的类型
         private String messageId; // 待获取消息内容的消息的ID
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：open_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetMessageUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.im.v1.enums.GetMessageUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
+            return this;
+        }
 
         /**
          * 待获取消息内容的消息的ID
