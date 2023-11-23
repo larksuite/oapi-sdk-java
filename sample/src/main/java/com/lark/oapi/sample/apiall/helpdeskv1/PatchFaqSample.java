@@ -23,7 +23,7 @@ public class PatchFaqSample {
                 .build();
 
         // 发起请求
-        PatchFaqResp resp = client.helpdesk().faq().patch(req);
+        PatchFaqResp resp = client.helpdesk().v1().faq().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

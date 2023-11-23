@@ -22,7 +22,7 @@ public class BatchDeleteEcoExamPaperSample {
                 .build();
 
         // 发起请求
-        BatchDeleteEcoExamPaperResp resp = client.hire().ecoExamPaper().batchDelete(req);
+        BatchDeleteEcoExamPaperResp resp = client.hire().v1().ecoExamPaper().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

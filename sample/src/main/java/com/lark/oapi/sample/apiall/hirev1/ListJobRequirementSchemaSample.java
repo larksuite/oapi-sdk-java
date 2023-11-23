@@ -19,7 +19,7 @@ public class ListJobRequirementSchemaSample {
                 .build();
 
         // 发起请求
-        ListJobRequirementSchemaResp resp = client.hire().jobRequirementSchema().list(req);
+        ListJobRequirementSchemaResp resp = client.hire().v1().jobRequirementSchema().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

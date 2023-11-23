@@ -22,7 +22,7 @@ public class UnsubscribeEventSample {
                 .build();
 
         // 发起请求
-        UnsubscribeEventResp resp = client.helpdesk().event().unsubscribe(req);
+        UnsubscribeEventResp resp = client.helpdesk().v1().event().unsubscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

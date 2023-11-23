@@ -32,7 +32,7 @@ public class UpdateConfigJobSample {
                 .build();
 
         // 发起请求
-        UpdateConfigJobResp resp = client.hire().job().updateConfig(req);
+        UpdateConfigJobResp resp = client.hire().v1().job().updateConfig(req);
 
         // 处理服务端错误
         if (!resp.success()) {

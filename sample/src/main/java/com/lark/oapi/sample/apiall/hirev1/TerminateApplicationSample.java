@@ -24,7 +24,7 @@ public class TerminateApplicationSample {
                 .build();
 
         // 发起请求
-        TerminateApplicationResp resp = client.hire().application().terminate(req);
+        TerminateApplicationResp resp = client.hire().v1().application().terminate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

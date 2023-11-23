@@ -21,11 +21,13 @@ public class ListFreebusySample {
                         .timeMax("2020-12-28T12:00:00+08:00")
                         .userId("ou_xxxxxxxxxx")
                         .roomId("omm_xxxxxxxxxx")
+                        .includeExternalCalendar(true)
+                        .onlyBusy(true)
                         .build())
                 .build();
 
         // 发起请求
-        ListFreebusyResp resp = client.calendar().freebusy().list(req);
+        ListFreebusyResp resp = client.calendar().v4().freebusy().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

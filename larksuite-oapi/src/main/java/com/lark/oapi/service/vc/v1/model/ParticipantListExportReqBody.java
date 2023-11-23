@@ -29,6 +29,12 @@ public class ParticipantListExportReqBody {
     @SerializedName("meeting_end_time")
     private String meetingEndTime;
     /**
+     * 会议状态（不传默认为已结束会议）
+     * <p> 示例值：2
+     */
+    @SerializedName("meeting_status")
+    private Integer meetingStatus;
+    /**
      * 9位会议号
      * <p> 示例值：123456789
      */
@@ -62,6 +68,11 @@ public class ParticipantListExportReqBody {
          * <p> 示例值：1655276858
          */
         this.meetingEndTime = builder.meetingEndTime;
+        /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         */
+        this.meetingStatus = builder.meetingStatus;
         /**
          * 9位会议号
          * <p> 示例值：123456789
@@ -97,6 +108,14 @@ public class ParticipantListExportReqBody {
 
     public void setMeetingEndTime(String meetingEndTime) {
         this.meetingEndTime = meetingEndTime;
+    }
+
+    public Integer getMeetingStatus() {
+        return this.meetingStatus;
+    }
+
+    public void setMeetingStatus(Integer meetingStatus) {
+        this.meetingStatus = meetingStatus;
     }
 
     public String getMeetingNo() {
@@ -135,6 +154,11 @@ public class ParticipantListExportReqBody {
          */
         private String meetingEndTime;
         /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         */
+        private Integer meetingStatus;
+        /**
          * 9位会议号
          * <p> 示例值：123456789
          */
@@ -172,6 +196,31 @@ public class ParticipantListExportReqBody {
          */
         public Builder meetingEndTime(String meetingEndTime) {
             this.meetingEndTime = meetingEndTime;
+            return this;
+        }
+
+
+        /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         *
+         * @param meetingStatus
+         * @return
+         */
+        public Builder meetingStatus(Integer meetingStatus) {
+            this.meetingStatus = meetingStatus;
+            return this;
+        }
+
+        /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         *
+         * @param meetingStatus {@link com.lark.oapi.service.vc.v1.enums.ParticipantListExportMeetingStatusTypeEnum}
+         * @return
+         */
+        public Builder meetingStatus(com.lark.oapi.service.vc.v1.enums.ParticipantListExportMeetingStatusTypeEnum meetingStatus) {
+            this.meetingStatus = meetingStatus.getValue();
             return this;
         }
 

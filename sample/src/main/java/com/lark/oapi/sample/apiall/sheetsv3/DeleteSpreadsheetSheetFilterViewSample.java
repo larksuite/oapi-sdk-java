@@ -20,7 +20,7 @@ public class DeleteSpreadsheetSheetFilterViewSample {
                 .build();
 
         // 发起请求
-        DeleteSpreadsheetSheetFilterViewResp resp = client.sheets().spreadsheetSheetFilterView().delete(req);
+        DeleteSpreadsheetSheetFilterViewResp resp = client.sheets().v3().spreadsheetSheetFilterView().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class CreateChatMenuTreeSample {
                 .build();
 
         // 发起请求
-        CreateChatMenuTreeResp resp = client.im().chatMenuTree().create(req);
+        CreateChatMenuTreeResp resp = client.im().v1().chatMenuTree().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

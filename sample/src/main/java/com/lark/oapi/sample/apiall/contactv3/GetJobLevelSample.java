@@ -18,7 +18,7 @@ public class GetJobLevelSample {
                 .build();
 
         // 发起请求
-        GetJobLevelResp resp = client.contact().jobLevel().get(req);
+        GetJobLevelResp resp = client.contact().v3().jobLevel().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

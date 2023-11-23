@@ -29,7 +29,7 @@ public class CreateCalendarEventAttendeeSample {
                 .build();
 
         // 发起请求
-        CreateCalendarEventAttendeeResp resp = client.calendar().calendarEventAttendee().create(req);
+        CreateCalendarEventAttendeeResp resp = client.calendar().v4().calendarEventAttendee().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

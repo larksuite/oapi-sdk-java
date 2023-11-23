@@ -29,7 +29,7 @@ public class PatchAppTableFormFieldSample {
                 .build();
 
         // 发起请求
-        PatchAppTableFormFieldResp resp = client.bitable().appTableFormField().patch(req);
+        PatchAppTableFormFieldResp resp = client.bitable().v1().appTableFormField().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

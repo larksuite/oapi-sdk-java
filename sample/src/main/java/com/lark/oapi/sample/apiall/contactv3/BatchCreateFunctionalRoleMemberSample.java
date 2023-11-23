@@ -23,7 +23,7 @@ public class BatchCreateFunctionalRoleMemberSample {
                 .build();
 
         // 发起请求
-        BatchCreateFunctionalRoleMemberResp resp = client.contact().functionalRoleMember().batchCreate(req);
+        BatchCreateFunctionalRoleMemberResp resp = client.contact().v3().functionalRoleMember().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

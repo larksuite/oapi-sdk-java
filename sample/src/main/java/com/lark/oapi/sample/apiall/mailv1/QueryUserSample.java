@@ -21,7 +21,7 @@ public class QueryUserSample {
                 .build();
 
         // 发起请求
-        QueryUserResp resp = client.mail().user().query(req);
+        QueryUserResp resp = client.mail().v1().user().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

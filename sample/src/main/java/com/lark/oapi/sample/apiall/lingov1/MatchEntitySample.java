@@ -22,7 +22,7 @@ public class MatchEntitySample {
                 .build();
 
         // 发起请求
-        MatchEntityResp resp = client.lingo().entity().match(req);
+        MatchEntityResp resp = client.lingo().v1().entity().match(req);
 
         // 处理服务端错误
         if (!resp.success()) {

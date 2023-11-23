@@ -24,7 +24,7 @@ public class ListFileCommentSample {
                 .build();
 
         // 发起请求
-        ListFileCommentResp resp = client.drive().fileComment().list(req);
+        ListFileCommentResp resp = client.drive().v1().fileComment().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

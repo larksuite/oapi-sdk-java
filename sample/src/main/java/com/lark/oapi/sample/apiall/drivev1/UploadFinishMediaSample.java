@@ -22,7 +22,7 @@ public class UploadFinishMediaSample {
                 .build();
 
         // 发起请求
-        UploadFinishMediaResp resp = client.drive().media().uploadFinish(req);
+        UploadFinishMediaResp resp = client.drive().v1().media().uploadFinish(req);
 
         // 处理服务端错误
         if (!resp.success()) {

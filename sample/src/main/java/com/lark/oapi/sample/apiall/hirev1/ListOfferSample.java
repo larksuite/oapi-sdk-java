@@ -18,10 +18,11 @@ public class ListOfferSample {
                 .pageSize(1)
                 .talentId("7096320678581242123")
                 .userIdType("user_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .build();
 
         // 发起请求
-        ListOfferResp resp = client.hire().offer().list(req);
+        ListOfferResp resp = client.hire().v1().offer().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

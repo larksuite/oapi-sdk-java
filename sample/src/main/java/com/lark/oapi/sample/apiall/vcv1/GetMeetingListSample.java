@@ -16,6 +16,7 @@ public class GetMeetingListSample {
         GetMeetingListReq req = GetMeetingListReq.newBuilder()
                 .startTime("1655276858")
                 .endTime("1655276858")
+                .meetingStatus(2)
                 .meetingNo("123456789")
                 .userId("ou_3ec3f6a28a0d08c45d895276e8e5e19b")
                 .roomId("omm_eada1d61a550955240c28757e7dec3af")
@@ -25,7 +26,7 @@ public class GetMeetingListSample {
                 .build();
 
         // 发起请求
-        GetMeetingListResp resp = client.vc().meetingList().get(req);
+        GetMeetingListResp resp = client.vc().v1().meetingList().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

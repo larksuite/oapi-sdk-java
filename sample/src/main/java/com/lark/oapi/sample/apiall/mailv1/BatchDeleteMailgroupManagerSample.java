@@ -24,7 +24,7 @@ public class BatchDeleteMailgroupManagerSample {
                 .build();
 
         // 发起请求
-        BatchDeleteMailgroupManagerResp resp = client.mail().mailgroupManager().batchDelete(req);
+        BatchDeleteMailgroupManagerResp resp = client.mail().v1().mailgroupManager().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

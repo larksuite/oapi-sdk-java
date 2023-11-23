@@ -23,7 +23,7 @@ public class UpdateMessageSample {
                 .build();
 
         // 发起请求
-        UpdateMessageResp resp = client.im().message().update(req);
+        UpdateMessageResp resp = client.im().v1().message().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

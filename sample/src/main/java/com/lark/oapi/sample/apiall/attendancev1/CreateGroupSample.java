@@ -25,7 +25,7 @@ public class CreateGroupSample {
                 .build();
 
         // 发起请求
-        CreateGroupResp resp = client.attendance().group().create(req);
+        CreateGroupResp resp = client.attendance().v1().group().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

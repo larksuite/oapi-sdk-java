@@ -19,7 +19,7 @@ public class DeleteExternalApplicationSample {
                 .build();
 
         // 发起请求
-        DeleteExternalApplicationResp resp = client.hire().externalApplication().delete(req);
+        DeleteExternalApplicationResp resp = client.hire().v1().externalApplication().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

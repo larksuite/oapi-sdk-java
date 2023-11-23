@@ -23,7 +23,7 @@ public class BatchUpdateEcoBackgroundCheckCustomFieldSample {
                 .build();
 
         // 发起请求
-        BatchUpdateEcoBackgroundCheckCustomFieldResp resp = client.hire().ecoBackgroundCheckCustomField().batchUpdate(req);
+        BatchUpdateEcoBackgroundCheckCustomFieldResp resp = client.hire().v1().ecoBackgroundCheckCustomField().batchUpdate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

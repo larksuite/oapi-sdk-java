@@ -18,7 +18,7 @@ public class DeleteFaqSample {
                 .build();
 
         // 发起请求
-        DeleteFaqResp resp = client.helpdesk().faq().delete(req);
+        DeleteFaqResp resp = client.helpdesk().v1().faq().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

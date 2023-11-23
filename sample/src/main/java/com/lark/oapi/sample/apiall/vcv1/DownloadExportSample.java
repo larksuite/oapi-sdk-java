@@ -18,7 +18,7 @@ public class DownloadExportSample {
                 .build();
 
         // 发起请求
-        DownloadExportResp resp = client.vc().export().download(req);
+        DownloadExportResp resp = client.vc().v1().export().download(req);
 
         // 处理服务端错误
         if (!resp.success()) {

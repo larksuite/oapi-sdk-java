@@ -20,7 +20,7 @@ public class ListJobFamilySample {
                 .build();
 
         // 发起请求
-        ListJobFamilyResp resp = client.contact().jobFamily().list(req);
+        ListJobFamilyResp resp = client.contact().v3().jobFamily().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

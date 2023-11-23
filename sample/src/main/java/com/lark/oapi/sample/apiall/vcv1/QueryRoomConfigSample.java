@@ -24,7 +24,7 @@ public class QueryRoomConfigSample {
                 .build();
 
         // 发起请求
-        QueryRoomConfigResp resp = client.vc().roomConfig().query(req);
+        QueryRoomConfigResp resp = client.vc().v1().roomConfig().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

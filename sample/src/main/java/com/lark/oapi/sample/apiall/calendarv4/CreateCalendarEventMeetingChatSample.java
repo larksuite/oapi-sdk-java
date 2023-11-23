@@ -19,7 +19,7 @@ public class CreateCalendarEventMeetingChatSample {
                 .build();
 
         // 发起请求
-        CreateCalendarEventMeetingChatResp resp = client.calendar().calendarEventMeetingChat().create(req);
+        CreateCalendarEventMeetingChatResp resp = client.calendar().v4().calendarEventMeetingChat().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

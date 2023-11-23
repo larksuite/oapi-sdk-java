@@ -20,7 +20,7 @@ public class ListPreHireSample {
                 .build();
 
         // 发起请求
-        ListPreHireResp resp = client.corehr().preHire().list(req);
+        ListPreHireResp resp = client.corehr().v1().preHire().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

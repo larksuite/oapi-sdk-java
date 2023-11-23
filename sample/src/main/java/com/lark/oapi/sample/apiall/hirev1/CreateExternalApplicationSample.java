@@ -29,7 +29,7 @@ public class CreateExternalApplicationSample {
                 .build();
 
         // 发起请求
-        CreateExternalApplicationResp resp = client.hire().externalApplication().create(req);
+        CreateExternalApplicationResp resp = client.hire().v1().externalApplication().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

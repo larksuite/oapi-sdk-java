@@ -17,10 +17,13 @@ public class GetEmployeeSample {
                 .employeeId("123")
                 .userIdType("open_id")
                 .departmentIdType("people_admin_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .build();
 
         // 发起请求
-        GetEmployeeResp resp = client.hire().employee().get(req);
+        GetEmployeeResp resp = client.hire().v1().employee().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

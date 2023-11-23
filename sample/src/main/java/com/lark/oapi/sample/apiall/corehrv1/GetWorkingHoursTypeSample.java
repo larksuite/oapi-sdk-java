@@ -18,7 +18,7 @@ public class GetWorkingHoursTypeSample {
                 .build();
 
         // 发起请求
-        GetWorkingHoursTypeResp resp = client.corehr().workingHoursType().get(req);
+        GetWorkingHoursTypeResp resp = client.corehr().v1().workingHoursType().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

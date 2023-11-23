@@ -304,6 +304,18 @@ public class TransferInfo {
      */
     @SerializedName("target_employment_change")
     private TranferEmploymentInfo targetEmploymentChange;
+    /**
+     * 原职等
+     * <p> 示例值：7289005963599693366
+     */
+    @SerializedName("original_job_grade")
+    private String originalJobGrade;
+    /**
+     * 新职等
+     * <p> 示例值：7289005963599693366
+     */
+    @SerializedName("target_job_grade")
+    private String targetJobGrade;
 
     // builder 开始
     public TransferInfo() {
@@ -550,6 +562,16 @@ public class TransferInfo {
          * <p> 示例值：
          */
         this.targetEmploymentChange = builder.targetEmploymentChange;
+        /**
+         * 原职等
+         * <p> 示例值：7289005963599693366
+         */
+        this.originalJobGrade = builder.originalJobGrade;
+        /**
+         * 新职等
+         * <p> 示例值：7289005963599693366
+         */
+        this.targetJobGrade = builder.targetJobGrade;
     }
 
     public static Builder newBuilder() {
@@ -940,6 +962,22 @@ public class TransferInfo {
         this.targetEmploymentChange = targetEmploymentChange;
     }
 
+    public String getOriginalJobGrade() {
+        return this.originalJobGrade;
+    }
+
+    public void setOriginalJobGrade(String originalJobGrade) {
+        this.originalJobGrade = originalJobGrade;
+    }
+
+    public String getTargetJobGrade() {
+        return this.targetJobGrade;
+    }
+
+    public void setTargetJobGrade(String targetJobGrade) {
+        this.targetJobGrade = targetJobGrade;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1181,6 +1219,16 @@ public class TransferInfo {
          * <p> 示例值：
          */
         private TranferEmploymentInfo targetEmploymentChange;
+        /**
+         * 原职等
+         * <p> 示例值：7289005963599693366
+         */
+        private String originalJobGrade;
+        /**
+         * 新职等
+         * <p> 示例值：7289005963599693366
+         */
+        private String targetJobGrade;
 
         /**
          * 备注
@@ -1802,6 +1850,32 @@ public class TransferInfo {
          */
         public Builder targetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
             this.targetEmploymentChange = targetEmploymentChange;
+            return this;
+        }
+
+
+        /**
+         * 原职等
+         * <p> 示例值：7289005963599693366
+         *
+         * @param originalJobGrade
+         * @return
+         */
+        public Builder originalJobGrade(String originalJobGrade) {
+            this.originalJobGrade = originalJobGrade;
+            return this;
+        }
+
+
+        /**
+         * 新职等
+         * <p> 示例值：7289005963599693366
+         *
+         * @param targetJobGrade
+         * @return
+         */
+        public Builder targetJobGrade(String targetJobGrade) {
+            this.targetJobGrade = targetJobGrade;
             return this;
         }
 

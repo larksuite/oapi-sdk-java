@@ -24,7 +24,7 @@ public class PatchFileSubscriptionSample {
                 .build();
 
         // 发起请求
-        PatchFileSubscriptionResp resp = client.drive().fileSubscription().patch(req);
+        PatchFileSubscriptionResp resp = client.drive().v1().fileSubscription().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class CreateAppTableFieldSample {
                 .build();
 
         // 发起请求
-        CreateAppTableFieldResp resp = client.bitable().appTableField().create(req);
+        CreateAppTableFieldResp resp = client.bitable().v1().appTableField().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

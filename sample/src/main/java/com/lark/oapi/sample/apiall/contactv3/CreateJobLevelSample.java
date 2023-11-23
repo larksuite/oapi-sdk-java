@@ -27,7 +27,7 @@ public class CreateJobLevelSample {
                 .build();
 
         // 发起请求
-        CreateJobLevelResp resp = client.contact().jobLevel().create(req);
+        CreateJobLevelResp resp = client.contact().v3().jobLevel().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

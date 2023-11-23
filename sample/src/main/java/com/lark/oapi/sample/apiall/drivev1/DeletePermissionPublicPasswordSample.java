@@ -19,7 +19,7 @@ public class DeletePermissionPublicPasswordSample {
                 .build();
 
         // 发起请求
-        DeletePermissionPublicPasswordResp resp = client.drive().permissionPublicPassword().delete(req);
+        DeletePermissionPublicPasswordResp resp = client.drive().v1().permissionPublicPassword().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

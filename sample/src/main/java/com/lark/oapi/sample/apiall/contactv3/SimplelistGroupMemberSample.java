@@ -22,7 +22,7 @@ public class SimplelistGroupMemberSample {
                 .build();
 
         // 发起请求
-        SimplelistGroupMemberResp resp = client.contact().groupMember().simplelist(req);
+        SimplelistGroupMemberResp resp = client.contact().v3().groupMember().simplelist(req);
 
         // 处理服务端错误
         if (!resp.success()) {

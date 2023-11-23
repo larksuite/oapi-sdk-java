@@ -24,7 +24,7 @@ public class CreateShortcutFileSample {
                 .build();
 
         // 发起请求
-        CreateShortcutFileResp resp = client.drive().file().createShortcut(req);
+        CreateShortcutFileResp resp = client.drive().v1().file().createShortcut(req);
 
         // 处理服务端错误
         if (!resp.success()) {

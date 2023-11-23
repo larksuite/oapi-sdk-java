@@ -29,7 +29,7 @@ public class CreateShiftSample {
                 .build();
 
         // 发起请求
-        CreateShiftResp resp = client.attendance().shift().create(req);
+        CreateShiftResp resp = client.attendance().v1().shift().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

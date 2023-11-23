@@ -19,7 +19,7 @@ public class GetMotoSample {
                 .build();
 
         // 发起请求
-        GetMotoResp resp = client.grayTestOpenSg().moto().get(req);
+        GetMotoResp resp = client.grayTestOpenSg().v1().moto().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

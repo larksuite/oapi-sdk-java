@@ -23,7 +23,7 @@ public class GetDocumentBlockChildrenSample {
                 .build();
 
         // 发起请求
-        GetDocumentBlockChildrenResp resp = client.docx().documentBlockChildren().get(req);
+        GetDocumentBlockChildrenResp resp = client.docx().v1().documentBlockChildren().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

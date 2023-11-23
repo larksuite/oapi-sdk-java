@@ -18,7 +18,7 @@ public class GetLocationSample {
                 .build();
 
         // 发起请求
-        GetLocationResp resp = client.corehr().location().get(req);
+        GetLocationResp resp = client.corehr().v1().location().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

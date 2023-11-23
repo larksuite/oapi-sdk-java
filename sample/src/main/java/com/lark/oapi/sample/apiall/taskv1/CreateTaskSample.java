@@ -31,7 +31,7 @@ public class CreateTaskSample {
                 .build();
 
         // 发起请求
-        CreateTaskResp resp = client.task().task().create(req);
+        CreateTaskResp resp = client.task().v1().task().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

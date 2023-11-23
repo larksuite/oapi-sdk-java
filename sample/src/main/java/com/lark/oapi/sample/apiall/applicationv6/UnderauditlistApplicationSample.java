@@ -21,7 +21,7 @@ public class UnderauditlistApplicationSample {
                 .build();
 
         // 发起请求
-        UnderauditlistApplicationResp resp = client.application().application().underauditlist(req);
+        UnderauditlistApplicationResp resp = client.application().v6().application().underauditlist(req);
 
         // 处理服务端错误
         if (!resp.success()) {

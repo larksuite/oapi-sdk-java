@@ -34,6 +34,12 @@ public class MyAiRoomOpenapiResponse {
      */
     @SerializedName("other_msg")
     private String otherMsg;
+    /**
+     * oapi 传递的消息，用于缓存
+     * <p> 示例值：{}
+     */
+    @SerializedName("oapi_msg")
+    private String oapiMsg;
 
     // builder 开始
     public MyAiRoomOpenapiResponse() {
@@ -55,6 +61,11 @@ public class MyAiRoomOpenapiResponse {
          * <p> 示例值：{}
          */
         this.otherMsg = builder.otherMsg;
+        /**
+         * oapi 传递的消息，用于缓存
+         * <p> 示例值：{}
+         */
+        this.oapiMsg = builder.oapiMsg;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class MyAiRoomOpenapiResponse {
         this.otherMsg = otherMsg;
     }
 
+    public String getOapiMsg() {
+        return this.oapiMsg;
+    }
+
+    public void setOapiMsg(String oapiMsg) {
+        this.oapiMsg = oapiMsg;
+    }
+
     public static class Builder {
         /**
          * openapi 返回的意图类型，不同 tool 的不同值都不一样
@@ -101,6 +120,11 @@ public class MyAiRoomOpenapiResponse {
          * <p> 示例值：{}
          */
         private String otherMsg;
+        /**
+         * oapi 传递的消息，用于缓存
+         * <p> 示例值：{}
+         */
+        private String oapiMsg;
 
         /**
          * openapi 返回的意图类型，不同 tool 的不同值都不一样
@@ -137,6 +161,19 @@ public class MyAiRoomOpenapiResponse {
          */
         public Builder otherMsg(String otherMsg) {
             this.otherMsg = otherMsg;
+            return this;
+        }
+
+
+        /**
+         * oapi 传递的消息，用于缓存
+         * <p> 示例值：{}
+         *
+         * @param oapiMsg
+         * @return
+         */
+        public Builder oapiMsg(String oapiMsg) {
+            this.oapiMsg = oapiMsg;
             return this;
         }
 

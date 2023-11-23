@@ -18,7 +18,7 @@ public class DeletePersonSample {
                 .build();
 
         // 发起请求
-        DeletePersonResp resp = client.corehr().person().delete(req);
+        DeletePersonResp resp = client.corehr().v1().person().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

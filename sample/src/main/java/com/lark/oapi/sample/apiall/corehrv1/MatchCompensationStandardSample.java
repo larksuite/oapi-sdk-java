@@ -33,7 +33,7 @@ public class MatchCompensationStandardSample {
                 .build();
 
         // 发起请求
-        MatchCompensationStandardResp resp = client.corehr().compensationStandard().match(req);
+        MatchCompensationStandardResp resp = client.corehr().v1().compensationStandard().match(req);
 
         // 处理服务端错误
         if (!resp.success()) {

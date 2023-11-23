@@ -18,7 +18,7 @@ public class GetMailgroupSample {
                 .build();
 
         // 发起请求
-        GetMailgroupResp resp = client.mail().mailgroup().get(req);
+        GetMailgroupResp resp = client.mail().v1().mailgroup().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

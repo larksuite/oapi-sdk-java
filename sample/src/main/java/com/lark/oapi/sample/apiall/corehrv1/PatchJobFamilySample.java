@@ -27,7 +27,7 @@ public class PatchJobFamilySample {
                 .build();
 
         // 发起请求
-        PatchJobFamilyResp resp = client.corehr().jobFamily().patch(req);
+        PatchJobFamilyResp resp = client.corehr().v1().jobFamily().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

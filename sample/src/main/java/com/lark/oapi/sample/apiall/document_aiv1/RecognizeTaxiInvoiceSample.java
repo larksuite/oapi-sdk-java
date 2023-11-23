@@ -24,7 +24,7 @@ public class RecognizeTaxiInvoiceSample {
                 .build();
 
         // 发起请求
-        RecognizeTaxiInvoiceResp resp = client.documentAi().taxiInvoice().recognize(req);
+        RecognizeTaxiInvoiceResp resp = client.documentAi().v1().taxiInvoice().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

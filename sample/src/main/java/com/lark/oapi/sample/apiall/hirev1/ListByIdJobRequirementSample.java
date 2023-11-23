@@ -17,13 +17,16 @@ public class ListByIdJobRequirementSample {
         ListByIdJobRequirementReq req = ListByIdJobRequirementReq.newBuilder()
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .listByIdJobRequirementReqBody(ListByIdJobRequirementReqBody.newBuilder()
                         .idList(new String[]{})
                         .build())
                 .build();
 
         // 发起请求
-        ListByIdJobRequirementResp resp = client.hire().jobRequirement().listById(req);
+        ListByIdJobRequirementResp resp = client.hire().v1().jobRequirement().listById(req);
 
         // 处理服务端错误
         if (!resp.success()) {

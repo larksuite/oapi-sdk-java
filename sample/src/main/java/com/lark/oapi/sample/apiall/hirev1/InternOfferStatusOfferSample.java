@@ -22,7 +22,7 @@ public class InternOfferStatusOfferSample {
                 .build();
 
         // 发起请求
-        InternOfferStatusOfferResp resp = client.hire().offer().internOfferStatus(req);
+        InternOfferStatusOfferResp resp = client.hire().v1().offer().internOfferStatus(req);
 
         // 处理服务端错误
         if (!resp.success()) {

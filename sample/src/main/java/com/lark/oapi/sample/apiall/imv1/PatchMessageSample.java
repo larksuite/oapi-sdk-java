@@ -22,7 +22,7 @@ public class PatchMessageSample {
                 .build();
 
         // 发起请求
-        PatchMessageResp resp = client.im().message().patch(req);
+        PatchMessageResp resp = client.im().v1().message().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class CreateReferralAccountSample {
                 .build();
 
         // 发起请求
-        CreateReferralAccountResp resp = client.hire().referralAccount().create(req);
+        CreateReferralAccountResp resp = client.hire().v1().referralAccount().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -406,6 +406,12 @@ public class Group {
      */
     @SerializedName("overtime_clock_cfg")
     private OvertimeClockCfg overtimeClockCfg;
+    /**
+     * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
+     * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
+     */
+    @SerializedName("new_calendar_id")
+    private String newCalendarId;
 
     // builder 开始
     public Group() {
@@ -737,6 +743,11 @@ public class Group {
          * <p> 示例值：
          */
         this.overtimeClockCfg = builder.overtimeClockCfg;
+        /**
+         * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
+         * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
+         */
+        this.newCalendarId = builder.newCalendarId;
     }
 
     public static Builder newBuilder() {
@@ -1263,6 +1274,14 @@ public class Group {
         this.overtimeClockCfg = overtimeClockCfg;
     }
 
+    public String getNewCalendarId() {
+        return this.newCalendarId;
+    }
+
+    public void setNewCalendarId(String newCalendarId) {
+        this.newCalendarId = newCalendarId;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1589,6 +1608,11 @@ public class Group {
          * <p> 示例值：
          */
         private OvertimeClockCfg overtimeClockCfg;
+        /**
+         * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
+         * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
+         */
+        private String newCalendarId;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -2431,6 +2455,19 @@ public class Group {
          */
         public Builder overtimeClockCfg(OvertimeClockCfg overtimeClockCfg) {
             this.overtimeClockCfg = overtimeClockCfg;
+            return this;
+        }
+
+
+        /**
+         * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
+         * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
+         *
+         * @param newCalendarId
+         * @return
+         */
+        public Builder newCalendarId(String newCalendarId) {
+            this.newCalendarId = newCalendarId;
             return this;
         }
 

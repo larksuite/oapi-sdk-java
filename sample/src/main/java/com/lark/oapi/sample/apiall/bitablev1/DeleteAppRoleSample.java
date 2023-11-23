@@ -19,7 +19,7 @@ public class DeleteAppRoleSample {
                 .build();
 
         // 发起请求
-        DeleteAppRoleResp resp = client.bitable().appRole().delete(req);
+        DeleteAppRoleResp resp = client.bitable().v1().appRole().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

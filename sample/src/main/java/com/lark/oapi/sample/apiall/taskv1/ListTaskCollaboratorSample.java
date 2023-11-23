@@ -21,7 +21,7 @@ public class ListTaskCollaboratorSample {
                 .build();
 
         // 发起请求
-        ListTaskCollaboratorResp resp = client.task().taskCollaborator().list(req);
+        ListTaskCollaboratorResp resp = client.task().v1().taskCollaborator().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

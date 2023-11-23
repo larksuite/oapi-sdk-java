@@ -22,7 +22,7 @@ public class PatchAgentSample {
                 .build();
 
         // 发起请求
-        PatchAgentResp resp = client.helpdesk().agent().patch(req);
+        PatchAgentResp resp = client.helpdesk().v1().agent().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

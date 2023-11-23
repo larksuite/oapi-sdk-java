@@ -18,7 +18,7 @@ public class GetSubdivisionSample {
                 .build();
 
         // 发起请求
-        GetSubdivisionResp resp = client.corehr().subdivision().get(req);
+        GetSubdivisionResp resp = client.corehr().v1().subdivision().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

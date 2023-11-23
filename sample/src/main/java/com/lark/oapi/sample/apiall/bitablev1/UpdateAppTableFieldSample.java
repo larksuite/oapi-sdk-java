@@ -26,7 +26,7 @@ public class UpdateAppTableFieldSample {
                 .build();
 
         // 发起请求
-        UpdateAppTableFieldResp resp = client.bitable().appTableField().update(req);
+        UpdateAppTableFieldResp resp = client.bitable().v1().appTableField().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

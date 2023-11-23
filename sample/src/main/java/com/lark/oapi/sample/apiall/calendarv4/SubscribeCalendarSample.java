@@ -18,7 +18,7 @@ public class SubscribeCalendarSample {
                 .build();
 
         // 发起请求
-        SubscribeCalendarResp resp = client.calendar().calendar().subscribe(req);
+        SubscribeCalendarResp resp = client.calendar().v4().calendar().subscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -35,7 +35,7 @@ public class CreateCalendarEventSample {
                 .build();
 
         // 发起请求
-        CreateCalendarEventResp resp = client.calendar().calendarEvent().create(req);
+        CreateCalendarEventResp resp = client.calendar().v4().calendarEvent().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

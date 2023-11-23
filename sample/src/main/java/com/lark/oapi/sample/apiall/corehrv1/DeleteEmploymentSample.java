@@ -19,7 +19,7 @@ public class DeleteEmploymentSample {
                 .build();
 
         // 发起请求
-        DeleteEmploymentResp resp = client.corehr().employment().delete(req);
+        DeleteEmploymentResp resp = client.corehr().v1().employment().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

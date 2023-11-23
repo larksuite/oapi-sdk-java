@@ -34,6 +34,12 @@ public class Agency {
      */
     @SerializedName("contactor_id")
     private String contactorId;
+    /**
+     * 供应商联系人名称
+     * <p> 示例值：
+     */
+    @SerializedName("contactor_name")
+    private I18n contactorName;
 
     // builder 开始
     public Agency() {
@@ -55,6 +61,11 @@ public class Agency {
          * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
          */
         this.contactorId = builder.contactorId;
+        /**
+         * 供应商联系人名称
+         * <p> 示例值：
+         */
+        this.contactorName = builder.contactorName;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class Agency {
         this.contactorId = contactorId;
     }
 
+    public I18n getContactorName() {
+        return this.contactorName;
+    }
+
+    public void setContactorName(I18n contactorName) {
+        this.contactorName = contactorName;
+    }
+
     public static class Builder {
         /**
          * 猎头供应商ID
@@ -101,6 +120,11 @@ public class Agency {
          * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
          */
         private String contactorId;
+        /**
+         * 供应商联系人名称
+         * <p> 示例值：
+         */
+        private I18n contactorName;
 
         /**
          * 猎头供应商ID
@@ -137,6 +161,19 @@ public class Agency {
          */
         public Builder contactorId(String contactorId) {
             this.contactorId = contactorId;
+            return this;
+        }
+
+
+        /**
+         * 供应商联系人名称
+         * <p> 示例值：
+         *
+         * @param contactorName
+         * @return
+         */
+        public Builder contactorName(I18n contactorName) {
+            this.contactorName = contactorName;
             return this;
         }
 

@@ -21,7 +21,7 @@ public class GetFileCommentSample {
                 .build();
 
         // 发起请求
-        GetFileCommentResp resp = client.drive().fileComment().get(req);
+        GetFileCommentResp resp = client.drive().v1().fileComment().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

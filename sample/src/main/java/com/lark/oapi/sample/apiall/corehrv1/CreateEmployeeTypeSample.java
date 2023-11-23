@@ -24,7 +24,7 @@ public class CreateEmployeeTypeSample {
                 .build();
 
         // 发起请求
-        CreateEmployeeTypeResp resp = client.corehr().employeeType().create(req);
+        CreateEmployeeTypeResp resp = client.corehr().v1().employeeType().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

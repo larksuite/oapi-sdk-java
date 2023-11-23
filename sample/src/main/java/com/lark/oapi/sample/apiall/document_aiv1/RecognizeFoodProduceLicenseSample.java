@@ -24,7 +24,7 @@ public class RecognizeFoodProduceLicenseSample {
                 .build();
 
         // 发起请求
-        RecognizeFoodProduceLicenseResp resp = client.documentAi().foodProduceLicense().recognize(req);
+        RecognizeFoodProduceLicenseResp resp = client.documentAi().v1().foodProduceLicense().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

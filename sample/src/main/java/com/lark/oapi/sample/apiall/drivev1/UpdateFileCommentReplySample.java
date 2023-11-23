@@ -27,7 +27,7 @@ public class UpdateFileCommentReplySample {
                 .build();
 
         // 发起请求
-        UpdateFileCommentReplyResp resp = client.drive().fileCommentReply().update(req);
+        UpdateFileCommentReplyResp resp = client.drive().v1().fileCommentReply().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

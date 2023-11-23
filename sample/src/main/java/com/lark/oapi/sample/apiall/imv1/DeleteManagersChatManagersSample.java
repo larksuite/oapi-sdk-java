@@ -23,7 +23,7 @@ public class DeleteManagersChatManagersSample {
                 .build();
 
         // 发起请求
-        DeleteManagersChatManagersResp resp = client.im().chatManagers().deleteManagers(req);
+        DeleteManagersChatManagersResp resp = client.im().v1().chatManagers().deleteManagers(req);
 
         // 处理服务端错误
         if (!resp.success()) {

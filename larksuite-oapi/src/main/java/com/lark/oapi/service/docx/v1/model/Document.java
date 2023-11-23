@@ -34,6 +34,12 @@ public class Document {
      */
     @SerializedName("title")
     private String title;
+    /**
+     * 文档展示设置
+     * <p> 示例值：
+     */
+    @SerializedName("display_setting")
+    private DocumentDisplaySetting displaySetting;
 
     // builder 开始
     public Document() {
@@ -55,6 +61,11 @@ public class Document {
          * <p> 示例值：undefined
          */
         this.title = builder.title;
+        /**
+         * 文档展示设置
+         * <p> 示例值：
+         */
+        this.displaySetting = builder.displaySetting;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class Document {
         this.title = title;
     }
 
+    public DocumentDisplaySetting getDisplaySetting() {
+        return this.displaySetting;
+    }
+
+    public void setDisplaySetting(DocumentDisplaySetting displaySetting) {
+        this.displaySetting = displaySetting;
+    }
+
     public static class Builder {
         /**
          * 文档唯一标识
@@ -101,6 +120,11 @@ public class Document {
          * <p> 示例值：undefined
          */
         private String title;
+        /**
+         * 文档展示设置
+         * <p> 示例值：
+         */
+        private DocumentDisplaySetting displaySetting;
 
         /**
          * 文档唯一标识
@@ -137,6 +161,19 @@ public class Document {
          */
         public Builder title(String title) {
             this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 文档展示设置
+         * <p> 示例值：
+         *
+         * @param displaySetting
+         * @return
+         */
+        public Builder displaySetting(DocumentDisplaySetting displaySetting) {
+            this.displaySetting = displaySetting;
             return this;
         }
 

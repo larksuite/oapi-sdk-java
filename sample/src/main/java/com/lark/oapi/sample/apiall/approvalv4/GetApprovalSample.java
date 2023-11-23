@@ -21,7 +21,7 @@ public class GetApprovalSample {
                 .build();
 
         // 发起请求
-        GetApprovalResp resp = client.approval().approval().get(req);
+        GetApprovalResp resp = client.approval().v4().approval().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

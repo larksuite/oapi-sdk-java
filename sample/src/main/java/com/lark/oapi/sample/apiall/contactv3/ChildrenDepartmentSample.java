@@ -23,7 +23,7 @@ public class ChildrenDepartmentSample {
                 .build();
 
         // 发起请求
-        ChildrenDepartmentResp resp = client.contact().department().children(req);
+        ChildrenDepartmentResp resp = client.contact().v3().department().children(req);
 
         // 处理服务端错误
         if (!resp.success()) {

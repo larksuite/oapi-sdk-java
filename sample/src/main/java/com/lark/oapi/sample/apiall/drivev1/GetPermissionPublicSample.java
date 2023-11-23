@@ -19,7 +19,7 @@ public class GetPermissionPublicSample {
                 .build();
 
         // 发起请求
-        GetPermissionPublicResp resp = client.drive().permissionPublic().get(req);
+        GetPermissionPublicResp resp = client.drive().v1().permissionPublic().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

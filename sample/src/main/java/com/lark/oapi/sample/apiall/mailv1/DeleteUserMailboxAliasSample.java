@@ -19,7 +19,7 @@ public class DeleteUserMailboxAliasSample {
                 .build();
 
         // 发起请求
-        DeleteUserMailboxAliasResp resp = client.mail().userMailboxAlias().delete(req);
+        DeleteUserMailboxAliasResp resp = client.mail().v1().userMailboxAlias().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class ClearPublicMailboxMemberSample {
                 .build();
 
         // 发起请求
-        ClearPublicMailboxMemberResp resp = client.mail().publicMailboxMember().clear(req);
+        ClearPublicMailboxMemberResp resp = client.mail().v1().publicMailboxMember().clear(req);
 
         // 处理服务端错误
         if (!resp.success()) {

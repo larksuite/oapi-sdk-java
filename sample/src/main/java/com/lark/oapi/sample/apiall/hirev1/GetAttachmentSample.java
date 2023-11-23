@@ -19,7 +19,7 @@ public class GetAttachmentSample {
                 .build();
 
         // 发起请求
-        GetAttachmentResp resp = client.hire().attachment().get(req);
+        GetAttachmentResp resp = client.hire().v1().attachment().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

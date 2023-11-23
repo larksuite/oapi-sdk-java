@@ -21,7 +21,7 @@ public class ListNoteSample {
                 .build();
 
         // 发起请求
-        ListNoteResp resp = client.hire().note().list(req);
+        ListNoteResp resp = client.hire().v1().note().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -24,7 +24,7 @@ public class DeleteSpaceMemberSample {
                 .build();
 
         // 发起请求
-        DeleteSpaceMemberResp resp = client.wiki().spaceMember().delete(req);
+        DeleteSpaceMemberResp resp = client.wiki().v2().spaceMember().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

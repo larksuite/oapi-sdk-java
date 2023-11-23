@@ -27,7 +27,7 @@ public class GetLeaveEmployExpireRecordSample {
                 .build();
 
         // 发起请求
-        GetLeaveEmployExpireRecordResp resp = client.attendance().leaveEmployExpireRecord().get(req);
+        GetLeaveEmployExpireRecordResp resp = client.attendance().v1().leaveEmployExpireRecord().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class PatchCalendarSample {
                 .build();
 
         // 发起请求
-        PatchCalendarResp resp = client.calendar().calendar().patch(req);
+        PatchCalendarResp resp = client.calendar().v4().calendar().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

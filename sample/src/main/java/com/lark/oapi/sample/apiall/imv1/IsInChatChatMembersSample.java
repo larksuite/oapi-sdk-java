@@ -18,7 +18,7 @@ public class IsInChatChatMembersSample {
                 .build();
 
         // 发起请求
-        IsInChatChatMembersResp resp = client.im().chatMembers().isInChat(req);
+        IsInChatChatMembersResp resp = client.im().v1().chatMembers().isInChat(req);
 
         // 处理服务端错误
         if (!resp.success()) {

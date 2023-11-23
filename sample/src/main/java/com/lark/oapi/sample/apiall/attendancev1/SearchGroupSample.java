@@ -21,7 +21,7 @@ public class SearchGroupSample {
                 .build();
 
         // 发起请求
-        SearchGroupResp resp = client.attendance().group().search(req);
+        SearchGroupResp resp = client.attendance().v1().group().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

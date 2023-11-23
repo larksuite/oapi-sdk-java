@@ -22,7 +22,7 @@ public class CreateOidcRefreshAccessTokenSample {
                 .build();
 
         // 发起请求
-        CreateOidcRefreshAccessTokenResp resp = client.authen().oidcRefreshAccessToken().create(req);
+        CreateOidcRefreshAccessTokenResp resp = client.authen().v1().oidcRefreshAccessToken().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

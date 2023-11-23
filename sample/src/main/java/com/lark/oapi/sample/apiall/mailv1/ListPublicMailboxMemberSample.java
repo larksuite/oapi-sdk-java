@@ -21,7 +21,7 @@ public class ListPublicMailboxMemberSample {
                 .build();
 
         // 发起请求
-        ListPublicMailboxMemberResp resp = client.mail().publicMailboxMember().list(req);
+        ListPublicMailboxMemberResp resp = client.mail().v1().publicMailboxMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

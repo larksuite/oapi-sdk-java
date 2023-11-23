@@ -24,7 +24,7 @@ public class CreateMailgroupSample {
                 .build();
 
         // 发起请求
-        CreateMailgroupResp resp = client.mail().mailgroup().create(req);
+        CreateMailgroupResp resp = client.mail().v1().mailgroup().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

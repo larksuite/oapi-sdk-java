@@ -29,7 +29,7 @@ public class CreateExternalApprovalSample {
                 .build();
 
         // 发起请求
-        CreateExternalApprovalResp resp = client.approval().externalApproval().create(req);
+        CreateExternalApprovalResp resp = client.approval().v4().externalApproval().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

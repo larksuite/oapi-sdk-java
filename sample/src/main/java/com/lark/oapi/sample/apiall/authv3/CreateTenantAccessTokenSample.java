@@ -22,7 +22,7 @@ public class CreateTenantAccessTokenSample {
                 .build();
 
         // 发起请求
-        CreateTenantAccessTokenResp resp = client.auth().tenantAccessToken().create(req);
+        CreateTenantAccessTokenResp resp = client.auth().v3().tenantAccessToken().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

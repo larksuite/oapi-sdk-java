@@ -27,7 +27,7 @@ public class ApproveTaskSample {
                 .build();
 
         // 发起请求
-        ApproveTaskResp resp = client.approval().task().approve(req);
+        ApproveTaskResp resp = client.approval().v4().task().approve(req);
 
         // 处理服务端错误
         if (!resp.success()) {

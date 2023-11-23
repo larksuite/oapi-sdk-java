@@ -25,7 +25,7 @@ public class PatchTaskSample {
                 .build();
 
         // 发起请求
-        PatchTaskResp resp = client.task().task().patch(req);
+        PatchTaskResp resp = client.task().v1().task().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

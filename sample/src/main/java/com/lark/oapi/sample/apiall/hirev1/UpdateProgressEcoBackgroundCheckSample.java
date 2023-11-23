@@ -27,7 +27,7 @@ public class UpdateProgressEcoBackgroundCheckSample {
                 .build();
 
         // 发起请求
-        UpdateProgressEcoBackgroundCheckResp resp = client.hire().ecoBackgroundCheck().updateProgress(req);
+        UpdateProgressEcoBackgroundCheckResp resp = client.hire().v1().ecoBackgroundCheck().updateProgress(req);
 
         // 处理服务端错误
         if (!resp.success()) {

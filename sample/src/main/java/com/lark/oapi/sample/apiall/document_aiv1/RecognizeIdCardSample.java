@@ -24,7 +24,7 @@ public class RecognizeIdCardSample {
                 .build();
 
         // 发起请求
-        RecognizeIdCardResp resp = client.documentAi().idCard().recognize(req);
+        RecognizeIdCardResp resp = client.documentAi().v1().idCard().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

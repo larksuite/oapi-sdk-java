@@ -24,7 +24,7 @@ public class BatchOpenSystemStatusSample {
                 .build();
 
         // 发起请求
-        BatchOpenSystemStatusResp resp = client.personalSettings().systemStatus().batchOpen(req);
+        BatchOpenSystemStatusResp resp = client.personalSettings().v1().systemStatus().batchOpen(req);
 
         // 处理服务端错误
         if (!resp.success()) {

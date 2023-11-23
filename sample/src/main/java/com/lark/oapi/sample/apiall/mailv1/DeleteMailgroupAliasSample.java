@@ -19,7 +19,7 @@ public class DeleteMailgroupAliasSample {
                 .build();
 
         // 发起请求
-        DeleteMailgroupAliasResp resp = client.mail().mailgroupAlias().delete(req);
+        DeleteMailgroupAliasResp resp = client.mail().v1().mailgroupAlias().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

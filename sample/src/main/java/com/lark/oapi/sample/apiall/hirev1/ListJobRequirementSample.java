@@ -23,10 +23,13 @@ public class ListJobRequirementSample {
                 .updateTimeEnd("1658980233000")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .build();
 
         // 发起请求
-        ListJobRequirementResp resp = client.hire().jobRequirement().list(req);
+        ListJobRequirementResp resp = client.hire().v1().jobRequirement().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

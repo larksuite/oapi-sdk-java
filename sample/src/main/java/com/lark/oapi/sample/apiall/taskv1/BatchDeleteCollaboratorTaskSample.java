@@ -23,7 +23,7 @@ public class BatchDeleteCollaboratorTaskSample {
                 .build();
 
         // 发起请求
-        BatchDeleteCollaboratorTaskResp resp = client.task().task().batchDeleteCollaborator(req);
+        BatchDeleteCollaboratorTaskResp resp = client.task().v1().task().batchDeleteCollaborator(req);
 
         // 处理服务端错误
         if (!resp.success()) {

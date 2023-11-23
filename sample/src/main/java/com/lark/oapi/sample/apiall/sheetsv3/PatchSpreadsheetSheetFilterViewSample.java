@@ -25,7 +25,7 @@ public class PatchSpreadsheetSheetFilterViewSample {
                 .build();
 
         // 发起请求
-        PatchSpreadsheetSheetFilterViewResp resp = client.sheets().spreadsheetSheetFilterView().patch(req);
+        PatchSpreadsheetSheetFilterViewResp resp = client.sheets().v3().spreadsheetSheetFilterView().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

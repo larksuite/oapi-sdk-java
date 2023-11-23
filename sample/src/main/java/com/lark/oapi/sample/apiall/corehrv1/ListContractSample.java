@@ -19,7 +19,7 @@ public class ListContractSample {
                 .build();
 
         // 发起请求
-        ListContractResp resp = client.corehr().contract().list(req);
+        ListContractResp resp = client.corehr().v1().contract().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

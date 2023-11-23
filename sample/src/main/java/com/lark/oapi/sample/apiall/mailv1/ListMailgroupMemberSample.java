@@ -22,7 +22,7 @@ public class ListMailgroupMemberSample {
                 .build();
 
         // 发起请求
-        ListMailgroupMemberResp resp = client.mail().mailgroupMember().list(req);
+        ListMailgroupMemberResp resp = client.mail().v1().mailgroupMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

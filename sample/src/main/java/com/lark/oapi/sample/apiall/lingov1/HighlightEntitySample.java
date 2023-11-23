@@ -21,7 +21,7 @@ public class HighlightEntitySample {
                 .build();
 
         // 发起请求
-        HighlightEntityResp resp = client.lingo().entity().highlight(req);
+        HighlightEntityResp resp = client.lingo().v1().entity().highlight(req);
 
         // 处理服务端错误
         if (!resp.success()) {

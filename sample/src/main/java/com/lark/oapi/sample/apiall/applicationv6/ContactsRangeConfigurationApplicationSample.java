@@ -22,7 +22,7 @@ public class ContactsRangeConfigurationApplicationSample {
                 .build();
 
         // 发起请求
-        ContactsRangeConfigurationApplicationResp resp = client.application().application().contactsRangeConfiguration(req);
+        ContactsRangeConfigurationApplicationResp resp = client.application().v6().application().contactsRangeConfiguration(req);
 
         // 处理服务端错误
         if (!resp.success()) {

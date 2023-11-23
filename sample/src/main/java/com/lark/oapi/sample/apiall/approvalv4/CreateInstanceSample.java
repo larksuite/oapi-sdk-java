@@ -35,7 +35,7 @@ public class CreateInstanceSample {
                 .build();
 
         // 发起请求
-        CreateInstanceResp resp = client.approval().instance().create(req);
+        CreateInstanceResp resp = client.approval().v4().instance().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

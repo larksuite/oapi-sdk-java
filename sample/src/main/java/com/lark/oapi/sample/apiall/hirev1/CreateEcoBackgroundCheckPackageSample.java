@@ -21,7 +21,7 @@ public class CreateEcoBackgroundCheckPackageSample {
                 .build();
 
         // 发起请求
-        CreateEcoBackgroundCheckPackageResp resp = client.hire().ecoBackgroundCheckPackage().create(req);
+        CreateEcoBackgroundCheckPackageResp resp = client.hire().v1().ecoBackgroundCheckPackage().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

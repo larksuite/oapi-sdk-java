@@ -21,7 +21,7 @@ public class GetMeetingSample {
                 .build();
 
         // 发起请求
-        GetMeetingResp resp = client.vc().meeting().get(req);
+        GetMeetingResp resp = client.vc().v1().meeting().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

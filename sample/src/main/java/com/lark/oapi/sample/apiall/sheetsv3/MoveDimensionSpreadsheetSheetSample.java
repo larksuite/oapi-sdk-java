@@ -25,7 +25,7 @@ public class MoveDimensionSpreadsheetSheetSample {
                 .build();
 
         // 发起请求
-        MoveDimensionSpreadsheetSheetResp resp = client.sheets().spreadsheetSheet().moveDimension(req);
+        MoveDimensionSpreadsheetSheetResp resp = client.sheets().v3().spreadsheetSheet().moveDimension(req);
 
         // 处理服务端错误
         if (!resp.success()) {

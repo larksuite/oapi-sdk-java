@@ -23,7 +23,7 @@ public class UpdateUserIdUserSample {
                 .build();
 
         // 发起请求
-        UpdateUserIdUserResp resp = client.contact().user().updateUserId(req);
+        UpdateUserIdUserResp resp = client.contact().v3().user().updateUserId(req);
 
         // 处理服务端错误
         if (!resp.success()) {

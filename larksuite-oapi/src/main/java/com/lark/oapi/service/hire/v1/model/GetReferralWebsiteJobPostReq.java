@@ -33,6 +33,13 @@ public class GetReferralWebsiteJobPostReq {
     @SerializedName("department_id_type")
     private String departmentIdType;
     /**
+     * 此次调用中使用的「职级 ID」的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("job_level_id_type")
+    private String jobLevelIdType;
+    /**
      * 职位广告 ID
      * <p> 示例值：6701528341100366094
      */
@@ -55,6 +62,11 @@ public class GetReferralWebsiteJobPostReq {
          * <p> 示例值：
          */
         this.departmentIdType = builder.departmentIdType;
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobLevelIdType = builder.jobLevelIdType;
         /**
          * 职位广告 ID
          * <p> 示例值：6701528341100366094
@@ -82,6 +94,14 @@ public class GetReferralWebsiteJobPostReq {
         this.departmentIdType = departmentIdType;
     }
 
+    public String getJobLevelIdType() {
+        return this.jobLevelIdType;
+    }
+
+    public void setJobLevelIdType(String jobLevelIdType) {
+        this.jobLevelIdType = jobLevelIdType;
+    }
+
     public String getJobPostId() {
         return this.jobPostId;
     }
@@ -93,6 +113,7 @@ public class GetReferralWebsiteJobPostReq {
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
         private String jobPostId; // 职位广告 ID
 
         /**
@@ -116,6 +137,18 @@ public class GetReferralWebsiteJobPostReq {
          */
         public Builder departmentIdType(String departmentIdType) {
             this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         *
+         * @param jobLevelIdType
+         * @return
+         */
+        public Builder jobLevelIdType(String jobLevelIdType) {
+            this.jobLevelIdType = jobLevelIdType;
             return this;
         }
 

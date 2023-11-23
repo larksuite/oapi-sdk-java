@@ -25,7 +25,7 @@ public class UpdateResultEcoBackgroundCheckSample {
                 .build();
 
         // 发起请求
-        UpdateResultEcoBackgroundCheckResp resp = client.hire().ecoBackgroundCheck().updateResult(req);
+        UpdateResultEcoBackgroundCheckResp resp = client.hire().v1().ecoBackgroundCheck().updateResult(req);
 
         // 处理服务端错误
         if (!resp.success()) {

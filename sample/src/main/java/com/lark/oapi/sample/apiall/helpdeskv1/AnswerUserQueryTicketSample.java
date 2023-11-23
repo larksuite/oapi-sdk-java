@@ -24,7 +24,7 @@ public class AnswerUserQueryTicketSample {
                 .build();
 
         // 发起请求
-        AnswerUserQueryTicketResp resp = client.helpdesk().ticket().answerUserQuery(req);
+        AnswerUserQueryTicketResp resp = client.helpdesk().v1().ticket().answerUserQuery(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -136,6 +136,18 @@ public class CalendarEvent {
      */
     @SerializedName("schemas")
     private Schema[] schemas;
+    /**
+     * 日程组织者信息
+     * <p> 示例值：
+     */
+    @SerializedName("event_organizer")
+    private EventOrganizer eventOrganizer;
+    /**
+     * 日程的app_link,跳转到具体的某个日程
+     * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
+     */
+    @SerializedName("app_link")
+    private String appLink;
 
     // builder 开始
     public CalendarEvent() {
@@ -242,6 +254,16 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         this.schemas = builder.schemas;
+        /**
+         * 日程组织者信息
+         * <p> 示例值：
+         */
+        this.eventOrganizer = builder.eventOrganizer;
+        /**
+         * 日程的app_link,跳转到具体的某个日程
+         * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
+         */
+        this.appLink = builder.appLink;
     }
 
     public static Builder newBuilder() {
@@ -408,6 +430,22 @@ public class CalendarEvent {
         this.schemas = schemas;
     }
 
+    public EventOrganizer getEventOrganizer() {
+        return this.eventOrganizer;
+    }
+
+    public void setEventOrganizer(EventOrganizer eventOrganizer) {
+        this.eventOrganizer = eventOrganizer;
+    }
+
+    public String getAppLink() {
+        return this.appLink;
+    }
+
+    public void setAppLink(String appLink) {
+        this.appLink = appLink;
+    }
+
     public static class Builder {
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -509,6 +547,16 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         private Schema[] schemas;
+        /**
+         * 日程组织者信息
+         * <p> 示例值：
+         */
+        private EventOrganizer eventOrganizer;
+        /**
+         * 日程的app_link,跳转到具体的某个日程
+         * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
+         */
+        private String appLink;
 
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -814,6 +862,32 @@ public class CalendarEvent {
          */
         public Builder schemas(Schema[] schemas) {
             this.schemas = schemas;
+            return this;
+        }
+
+
+        /**
+         * 日程组织者信息
+         * <p> 示例值：
+         *
+         * @param eventOrganizer
+         * @return
+         */
+        public Builder eventOrganizer(EventOrganizer eventOrganizer) {
+            this.eventOrganizer = eventOrganizer;
+            return this;
+        }
+
+
+        /**
+         * 日程的app_link,跳转到具体的某个日程
+         * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
+         *
+         * @param appLink
+         * @return
+         */
+        public Builder appLink(String appLink) {
+            this.appLink = appLink;
             return this;
         }
 

@@ -20,7 +20,7 @@ public class GetSpreadsheetSheetFloatImageSample {
                 .build();
 
         // 发起请求
-        GetSpreadsheetSheetFloatImageResp resp = client.sheets().spreadsheetSheetFloatImage().get(req);
+        GetSpreadsheetSheetFloatImageResp resp = client.sheets().v3().spreadsheetSheetFloatImage().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

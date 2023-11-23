@@ -234,6 +234,7 @@ public class CreateJobChangeReqBody {
             return this;
         }
 
+
         /**
          * 雇员id
          * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520

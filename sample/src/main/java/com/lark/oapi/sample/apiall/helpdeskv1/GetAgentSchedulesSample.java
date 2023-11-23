@@ -18,7 +18,7 @@ public class GetAgentSchedulesSample {
                 .build();
 
         // 发起请求
-        GetAgentSchedulesResp resp = client.helpdesk().agentSchedules().get(req);
+        GetAgentSchedulesResp resp = client.helpdesk().v1().agentSchedules().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

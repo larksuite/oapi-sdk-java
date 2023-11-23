@@ -18,7 +18,7 @@ public class DeleteJobDataSample {
                 .build();
 
         // 发起请求
-        DeleteJobDataResp resp = client.corehr().jobData().delete(req);
+        DeleteJobDataResp resp = client.corehr().v1().jobData().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

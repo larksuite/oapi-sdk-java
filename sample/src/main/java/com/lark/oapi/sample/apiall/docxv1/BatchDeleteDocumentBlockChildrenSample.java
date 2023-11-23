@@ -26,7 +26,7 @@ public class BatchDeleteDocumentBlockChildrenSample {
                 .build();
 
         // 发起请求
-        BatchDeleteDocumentBlockChildrenResp resp = client.docx().documentBlockChildren().batchDelete(req);
+        BatchDeleteDocumentBlockChildrenResp resp = client.docx().v1().documentBlockChildren().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

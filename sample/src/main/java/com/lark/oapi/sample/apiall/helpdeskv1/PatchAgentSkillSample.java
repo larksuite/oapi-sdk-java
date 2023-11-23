@@ -23,7 +23,7 @@ public class PatchAgentSkillSample {
                 .build();
 
         // 发起请求
-        PatchAgentSkillResp resp = client.helpdesk().agentSkill().patch(req);
+        PatchAgentSkillResp resp = client.helpdesk().v1().agentSkill().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

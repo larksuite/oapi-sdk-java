@@ -21,7 +21,7 @@ public class CreatePinSample {
                 .build();
 
         // 发起请求
-        CreatePinResp resp = client.im().pin().create(req);
+        CreatePinResp resp = client.im().v1().pin().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class SearchCustomWorkplaceAccessDataSample {
                 .build();
 
         // 发起请求
-        SearchCustomWorkplaceAccessDataResp resp = client.workplace().customWorkplaceAccessData().search(req);
+        SearchCustomWorkplaceAccessDataResp resp = client.workplace().v1().customWorkplaceAccessData().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

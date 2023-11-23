@@ -22,7 +22,7 @@ public class CancelSendNotificationSample {
                 .build();
 
         // 发起请求
-        CancelSendNotificationResp resp = client.helpdesk().notification().cancelSend(req);
+        CancelSendNotificationResp resp = client.helpdesk().v1().notification().cancelSend(req);
 
         // 处理服务端错误
         if (!resp.success()) {

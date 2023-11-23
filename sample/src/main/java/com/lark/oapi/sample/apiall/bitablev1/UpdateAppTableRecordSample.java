@@ -27,7 +27,7 @@ public class UpdateAppTableRecordSample {
                 .build();
 
         // 发起请求
-        UpdateAppTableRecordResp resp = client.bitable().appTableRecord().update(req);
+        UpdateAppTableRecordResp resp = client.bitable().v1().appTableRecord().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

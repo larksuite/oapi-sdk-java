@@ -22,7 +22,7 @@ public class BatchDeleteEcoAccountCustomFieldSample {
                 .build();
 
         // 发起请求
-        BatchDeleteEcoAccountCustomFieldResp resp = client.hire().ecoAccountCustomField().batchDelete(req);
+        BatchDeleteEcoAccountCustomFieldResp resp = client.hire().v1().ecoAccountCustomField().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

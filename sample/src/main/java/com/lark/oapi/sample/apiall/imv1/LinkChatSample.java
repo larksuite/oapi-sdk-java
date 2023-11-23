@@ -22,7 +22,7 @@ public class LinkChatSample {
                 .build();
 
         // 发起请求
-        LinkChatResp resp = client.im().chat().link(req);
+        LinkChatResp resp = client.im().v1().chat().link(req);
 
         // 处理服务端错误
         if (!resp.success()) {

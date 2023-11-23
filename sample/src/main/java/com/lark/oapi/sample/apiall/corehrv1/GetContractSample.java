@@ -18,7 +18,7 @@ public class GetContractSample {
                 .build();
 
         // 发起请求
-        GetContractResp resp = client.corehr().contract().get(req);
+        GetContractResp resp = client.corehr().v1().contract().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

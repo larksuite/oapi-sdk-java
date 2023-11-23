@@ -21,7 +21,7 @@ public class DeleteFileVersionSample {
                 .build();
 
         // 发起请求
-        DeleteFileVersionResp resp = client.drive().fileVersion().delete(req);
+        DeleteFileVersionResp resp = client.drive().v1().fileVersion().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

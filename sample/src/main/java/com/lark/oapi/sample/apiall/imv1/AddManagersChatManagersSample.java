@@ -23,7 +23,7 @@ public class AddManagersChatManagersSample {
                 .build();
 
         // 发起请求
-        AddManagersChatManagersResp resp = client.im().chatManagers().addManagers(req);
+        AddManagersChatManagersResp resp = client.im().v1().chatManagers().addManagers(req);
 
         // 处理服务端错误
         if (!resp.success()) {

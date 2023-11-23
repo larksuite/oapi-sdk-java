@@ -24,7 +24,7 @@ public class BatchCreateMailgroupManagerSample {
                 .build();
 
         // 发起请求
-        BatchCreateMailgroupManagerResp resp = client.mail().mailgroupManager().batchCreate(req);
+        BatchCreateMailgroupManagerResp resp = client.mail().v1().mailgroupManager().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -35,7 +35,7 @@ public class PatchCalendarEventSample {
                 .build();
 
         // 发起请求
-        PatchCalendarEventResp resp = client.calendar().calendarEvent().patch(req);
+        PatchCalendarEventResp resp = client.calendar().v4().calendarEvent().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

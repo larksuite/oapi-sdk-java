@@ -19,7 +19,7 @@ public class DeleteMailgroupPermissionMemberSample {
                 .build();
 
         // 发起请求
-        DeleteMailgroupPermissionMemberResp resp = client.mail().mailgroupPermissionMember().delete(req);
+        DeleteMailgroupPermissionMemberResp resp = client.mail().v1().mailgroupPermissionMember().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

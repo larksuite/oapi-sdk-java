@@ -21,7 +21,7 @@ public class GetChatMembersSample {
                 .build();
 
         // 发起请求
-        GetChatMembersResp resp = client.im().chatMembers().get(req);
+        GetChatMembersResp resp = client.im().v1().chatMembers().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

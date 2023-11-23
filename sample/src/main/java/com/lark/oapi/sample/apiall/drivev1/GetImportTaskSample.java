@@ -18,7 +18,7 @@ public class GetImportTaskSample {
                 .build();
 
         // 发起请求
-        GetImportTaskResp resp = client.drive().importTask().get(req);
+        GetImportTaskResp resp = client.drive().v1().importTask().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

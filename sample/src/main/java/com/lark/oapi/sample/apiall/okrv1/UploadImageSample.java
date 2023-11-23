@@ -26,7 +26,7 @@ public class UploadImageSample {
                 .build();
 
         // 发起请求
-        UploadImageResp resp = client.okr().image().upload(req);
+        UploadImageResp resp = client.okr().v1().image().upload(req);
 
         // 处理服务端错误
         if (!resp.success()) {

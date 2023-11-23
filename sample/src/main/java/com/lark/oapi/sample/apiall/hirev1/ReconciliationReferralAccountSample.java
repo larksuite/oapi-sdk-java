@@ -24,7 +24,7 @@ public class ReconciliationReferralAccountSample {
                 .build();
 
         // 发起请求
-        ReconciliationReferralAccountResp resp = client.hire().referralAccount().reconciliation(req);
+        ReconciliationReferralAccountResp resp = client.hire().v1().referralAccount().reconciliation(req);
 
         // 处理服务端错误
         if (!resp.success()) {

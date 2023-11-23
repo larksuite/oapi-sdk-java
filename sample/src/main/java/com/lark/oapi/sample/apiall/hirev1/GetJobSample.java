@@ -17,10 +17,12 @@ public class GetJobSample {
                 .jobId("6001")
                 .userIdType("user_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
                 .build();
 
         // 发起请求
-        GetJobResp resp = client.hire().job().get(req);
+        GetJobResp resp = client.hire().v1().job().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -29,7 +29,7 @@ public class UploadAllFileSample {
                 .build();
 
         // 发起请求
-        UploadAllFileResp resp = client.drive().file().uploadAll(req);
+        UploadAllFileResp resp = client.drive().v1().file().uploadAll(req);
 
         // 处理服务端错误
         if (!resp.success()) {

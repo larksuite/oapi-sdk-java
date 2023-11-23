@@ -112,6 +112,12 @@ public class UpdateBlockRequest {
      */
     @SerializedName("update_text")
     private UpdateTextRequest updateText;
+    /**
+     * 更新任务 Block 请求
+     * <p> 示例值：
+     */
+    @SerializedName("update_task")
+    private UpdateTaskRequest updateTask;
 
     // builder 开始
     public UpdateBlockRequest() {
@@ -198,6 +204,11 @@ public class UpdateBlockRequest {
          * <p> 示例值：
          */
         this.updateText = builder.updateText;
+        /**
+         * 更新任务 Block 请求
+         * <p> 示例值：
+         */
+        this.updateTask = builder.updateTask;
     }
 
     public static Builder newBuilder() {
@@ -332,6 +343,14 @@ public class UpdateBlockRequest {
         this.updateText = updateText;
     }
 
+    public UpdateTaskRequest getUpdateTask() {
+        return this.updateTask;
+    }
+
+    public void setUpdateTask(UpdateTaskRequest updateTask) {
+        this.updateTask = updateTask;
+    }
+
     public static class Builder {
         /**
          * 更新文本元素请求
@@ -413,6 +432,11 @@ public class UpdateBlockRequest {
          * <p> 示例值：
          */
         private UpdateTextRequest updateText;
+        /**
+         * 更新任务 Block 请求
+         * <p> 示例值：
+         */
+        private UpdateTaskRequest updateTask;
 
         /**
          * 更新文本元素请求
@@ -618,6 +642,19 @@ public class UpdateBlockRequest {
          */
         public Builder updateText(UpdateTextRequest updateText) {
             this.updateText = updateText;
+            return this;
+        }
+
+
+        /**
+         * 更新任务 Block 请求
+         * <p> 示例值：
+         *
+         * @param updateTask
+         * @return
+         */
+        public Builder updateTask(UpdateTaskRequest updateTask) {
+            this.updateTask = updateTask;
             return this;
         }
 

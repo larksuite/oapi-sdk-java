@@ -26,7 +26,7 @@ public class PatchAppTableViewSample {
                 .build();
 
         // 发起请求
-        PatchAppTableViewResp resp = client.bitable().appTableView().patch(req);
+        PatchAppTableViewResp resp = client.bitable().v1().appTableView().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

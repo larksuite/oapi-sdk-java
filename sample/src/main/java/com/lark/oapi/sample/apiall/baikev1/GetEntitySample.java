@@ -21,7 +21,7 @@ public class GetEntitySample {
                 .build();
 
         // 发起请求
-        GetEntityResp resp = client.baike().entity().get(req);
+        GetEntityResp resp = client.baike().v1().entity().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

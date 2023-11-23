@@ -25,7 +25,7 @@ public class UploadFileSample {
                 .build();
 
         // 发起请求
-        UploadFileResp resp = client.attendance().file().upload(req);
+        UploadFileResp resp = client.attendance().v1().file().upload(req);
 
         // 处理服务端错误
         if (!resp.success()) {

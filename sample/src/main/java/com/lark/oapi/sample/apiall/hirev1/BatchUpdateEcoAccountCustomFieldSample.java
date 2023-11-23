@@ -23,7 +23,7 @@ public class BatchUpdateEcoAccountCustomFieldSample {
                 .build();
 
         // 发起请求
-        BatchUpdateEcoAccountCustomFieldResp resp = client.hire().ecoAccountCustomField().batchUpdate(req);
+        BatchUpdateEcoAccountCustomFieldResp resp = client.hire().v1().ecoAccountCustomField().batchUpdate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

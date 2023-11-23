@@ -21,7 +21,7 @@ public class GetCalendarEventSample {
                 .build();
 
         // 发起请求
-        GetCalendarEventResp resp = client.calendar().calendarEvent().get(req);
+        GetCalendarEventResp resp = client.calendar().v4().calendarEvent().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

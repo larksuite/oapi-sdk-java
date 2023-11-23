@@ -27,7 +27,7 @@ public class CreateExternalInterviewAssessmentSample {
                 .build();
 
         // 发起请求
-        CreateExternalInterviewAssessmentResp resp = client.hire().externalInterviewAssessment().create(req);
+        CreateExternalInterviewAssessmentResp resp = client.hire().v1().externalInterviewAssessment().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

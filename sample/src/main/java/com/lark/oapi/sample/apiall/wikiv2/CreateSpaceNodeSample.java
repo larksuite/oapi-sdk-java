@@ -18,15 +18,15 @@ public class CreateSpaceNodeSample {
                 .spaceId("6704147935988285963")
                 .node(Node.newBuilder()
                         .objType("doc")
-                        .parentNodeToken("")
+                        .parentNodeToken("wikcnKQ1k3p******8Vabcef")
                         .nodeType("origin")
-                        .originNodeToken("")
-                        .title("")
+                        .originNodeToken("wikcnKQ1k3p******8Vabcef")
+                        .title("xxxx")
                         .build())
                 .build();
 
         // 发起请求
-        CreateSpaceNodeResp resp = client.wiki().spaceNode().create(req);
+        CreateSpaceNodeResp resp = client.wiki().v2().spaceNode().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class ListSpaceSample {
                 .build();
 
         // 发起请求
-        ListSpaceResp resp = client.wiki().space().list(req);
+        ListSpaceResp resp = client.wiki().v2().space().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

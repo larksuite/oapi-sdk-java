@@ -24,7 +24,7 @@ public class UploadPrepareFileSample {
                 .build();
 
         // 发起请求
-        UploadPrepareFileResp resp = client.drive().file().uploadPrepare(req);
+        UploadPrepareFileResp resp = client.drive().v1().file().uploadPrepare(req);
 
         // 处理服务端错误
         if (!resp.success()) {

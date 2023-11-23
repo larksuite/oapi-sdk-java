@@ -18,7 +18,7 @@ public class EndMeetingSample {
                 .build();
 
         // 发起请求
-        EndMeetingResp resp = client.vc().meeting().end(req);
+        EndMeetingResp resp = client.vc().v1().meeting().end(req);
 
         // 处理服务端错误
         if (!resp.success()) {

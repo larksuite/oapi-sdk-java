@@ -18,7 +18,7 @@ public class GetAccessRecordAccessPhotoSample {
                 .build();
 
         // 发起请求
-        GetAccessRecordAccessPhotoResp resp = client.acs().accessRecordAccessPhoto().get(req);
+        GetAccessRecordAccessPhotoResp resp = client.acs().v1().accessRecordAccessPhoto().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class BatchDepartmentSample {
                 .build();
 
         // 发起请求
-        BatchDepartmentResp resp = client.contact().department().batch(req);
+        BatchDepartmentResp resp = client.contact().v3().department().batch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

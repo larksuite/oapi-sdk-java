@@ -22,7 +22,7 @@ public class PatchApplicationFeedbackSample {
                 .build();
 
         // 发起请求
-        PatchApplicationFeedbackResp resp = client.application().applicationFeedback().patch(req);
+        PatchApplicationFeedbackResp resp = client.application().v6().applicationFeedback().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

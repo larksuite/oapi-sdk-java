@@ -19,7 +19,7 @@ public class ListSystemStatusSample {
                 .build();
 
         // 发起请求
-        ListSystemStatusResp resp = client.personalSettings().systemStatus().list(req);
+        ListSystemStatusResp resp = client.personalSettings().v1().systemStatus().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,10 +19,11 @@ public class ListReferralWebsiteJobPostSample {
                 .pageSize(10)
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
                 .build();
 
         // 发起请求
-        ListReferralWebsiteJobPostResp resp = client.hire().referralWebsiteJobPost().list(req);
+        ListReferralWebsiteJobPostResp resp = client.hire().v1().referralWebsiteJobPost().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

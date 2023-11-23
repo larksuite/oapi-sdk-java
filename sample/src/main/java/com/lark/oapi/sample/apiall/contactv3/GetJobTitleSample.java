@@ -18,7 +18,7 @@ public class GetJobTitleSample {
                 .build();
 
         // 发起请求
-        GetJobTitleResp resp = client.contact().jobTitle().get(req);
+        GetJobTitleResp resp = client.contact().v3().jobTitle().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

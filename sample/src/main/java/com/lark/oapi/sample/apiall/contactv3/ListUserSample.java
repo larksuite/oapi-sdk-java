@@ -22,7 +22,7 @@ public class ListUserSample {
                 .build();
 
         // 发起请求
-        ListUserResp resp = client.contact().user().list(req);
+        ListUserResp resp = client.contact().v3().user().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

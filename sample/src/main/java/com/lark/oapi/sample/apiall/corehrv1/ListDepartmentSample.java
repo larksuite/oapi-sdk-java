@@ -23,7 +23,7 @@ public class ListDepartmentSample {
                 .build();
 
         // 发起请求
-        ListDepartmentResp resp = client.corehr().department().list(req);
+        ListDepartmentResp resp = client.corehr().v1().department().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

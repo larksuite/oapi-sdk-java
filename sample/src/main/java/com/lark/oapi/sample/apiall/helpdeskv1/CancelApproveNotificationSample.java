@@ -18,7 +18,7 @@ public class CancelApproveNotificationSample {
                 .build();
 
         // 发起请求
-        CancelApproveNotificationResp resp = client.helpdesk().notification().cancelApprove(req);
+        CancelApproveNotificationResp resp = client.helpdesk().v1().notification().cancelApprove(req);
 
         // 处理服务端错误
         if (!resp.success()) {

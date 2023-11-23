@@ -27,7 +27,7 @@ public class QueryUserTaskSample {
                 .build();
 
         // 发起请求
-        QueryUserTaskResp resp = client.attendance().userTask().query(req);
+        QueryUserTaskResp resp = client.attendance().v1().userTask().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class CreateAppTableSample {
                 .build();
 
         // 发起请求
-        CreateAppTableResp resp = client.bitable().appTable().create(req);
+        CreateAppTableResp resp = client.bitable().v1().appTable().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

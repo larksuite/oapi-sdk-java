@@ -32,7 +32,7 @@ public class CreateMessageSample {
                 .build();
 
         // 发起请求
-        CreateMessageResp resp = client.search().message().create(req);
+        CreateMessageResp resp = client.search().v2().message().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

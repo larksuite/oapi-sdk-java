@@ -15,6 +15,9 @@ public class CreateOfferSample {
         CreateOfferReq req = CreateOfferReq.newBuilder()
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .offerInfo(OfferInfo.newBuilder()
                         .applicationId("7013552389293279532")
                         .schemaId("7013318077945596204")
@@ -26,7 +29,7 @@ public class CreateOfferSample {
                 .build();
 
         // 发起请求
-        CreateOfferResp resp = client.hire().offer().create(req);
+        CreateOfferResp resp = client.hire().v1().offer().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

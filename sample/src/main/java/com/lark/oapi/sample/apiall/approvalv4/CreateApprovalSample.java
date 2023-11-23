@@ -31,7 +31,7 @@ public class CreateApprovalSample {
                 .build();
 
         // 发起请求
-        CreateApprovalResp resp = client.approval().approval().create(req);
+        CreateApprovalResp resp = client.approval().v4().approval().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class DeleteChatMembersSample {
                 .build();
 
         // 发起请求
-        DeleteChatMembersResp resp = client.im().chatMembers().delete(req);
+        DeleteChatMembersResp resp = client.im().v1().chatMembers().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

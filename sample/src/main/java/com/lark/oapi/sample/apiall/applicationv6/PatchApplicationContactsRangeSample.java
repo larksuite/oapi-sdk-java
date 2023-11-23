@@ -27,7 +27,7 @@ public class PatchApplicationContactsRangeSample {
                 .build();
 
         // 发起请求
-        PatchApplicationContactsRangeResp resp = client.application().applicationContactsRange().patch(req);
+        PatchApplicationContactsRangeResp resp = client.application().v6().applicationContactsRange().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

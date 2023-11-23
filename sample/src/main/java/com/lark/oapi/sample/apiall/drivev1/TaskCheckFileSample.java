@@ -18,7 +18,7 @@ public class TaskCheckFileSample {
                 .build();
 
         // 发起请求
-        TaskCheckFileResp resp = client.drive().file().taskCheck(req);
+        TaskCheckFileResp resp = client.drive().v1().file().taskCheck(req);
 
         // 处理服务端错误
         if (!resp.success()) {

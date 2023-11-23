@@ -22,7 +22,7 @@ public class ListPinSample {
                 .build();
 
         // 发起请求
-        ListPinResp resp = client.im().pin().list(req);
+        ListPinResp resp = client.im().v1().pin().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

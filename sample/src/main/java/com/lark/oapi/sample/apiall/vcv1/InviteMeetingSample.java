@@ -24,7 +24,7 @@ public class InviteMeetingSample {
                 .build();
 
         // 发起请求
-        InviteMeetingResp resp = client.vc().meeting().invite(req);
+        InviteMeetingResp resp = client.vc().v1().meeting().invite(req);
 
         // 处理服务端错误
         if (!resp.success()) {

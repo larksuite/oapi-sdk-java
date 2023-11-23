@@ -18,7 +18,7 @@ public class DownloadFileSample {
                 .build();
 
         // 发起请求
-        DownloadFileResp resp = client.lingo().file().download(req);
+        DownloadFileResp resp = client.lingo().v1().file().download(req);
 
         // 处理服务端错误
         if (!resp.success()) {

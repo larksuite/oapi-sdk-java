@@ -22,7 +22,7 @@ public class CheckExternalInstanceSample {
                 .build();
 
         // 发起请求
-        CheckExternalInstanceResp resp = client.approval().externalInstance().check(req);
+        CheckExternalInstanceResp resp = client.approval().v4().externalInstance().check(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -25,7 +25,7 @@ public class SetHostMeetingSample {
                 .build();
 
         // 发起请求
-        SetHostMeetingResp resp = client.vc().meeting().setHost(req);
+        SetHostMeetingResp resp = client.vc().v1().meeting().setHost(req);
 
         // 处理服务端错误
         if (!resp.success()) {

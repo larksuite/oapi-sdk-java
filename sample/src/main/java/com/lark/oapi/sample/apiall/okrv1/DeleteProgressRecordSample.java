@@ -18,7 +18,7 @@ public class DeleteProgressRecordSample {
                 .build();
 
         // 发起请求
-        DeleteProgressRecordResp resp = client.okr().progressRecord().delete(req);
+        DeleteProgressRecordResp resp = client.okr().v1().progressRecord().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

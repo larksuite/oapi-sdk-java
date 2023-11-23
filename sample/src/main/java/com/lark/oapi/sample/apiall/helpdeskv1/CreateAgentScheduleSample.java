@@ -22,7 +22,7 @@ public class CreateAgentScheduleSample {
                 .build();
 
         // 发起请求
-        CreateAgentScheduleResp resp = client.helpdesk().agentSchedule().create(req);
+        CreateAgentScheduleResp resp = client.helpdesk().v1().agentSchedule().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

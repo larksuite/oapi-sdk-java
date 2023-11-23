@@ -25,7 +25,7 @@ public class UpdateTaskCommentSample {
                 .build();
 
         // 发起请求
-        UpdateTaskCommentResp resp = client.task().taskComment().update(req);
+        UpdateTaskCommentResp resp = client.task().v1().taskComment().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

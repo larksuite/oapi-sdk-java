@@ -19,7 +19,7 @@ public class GetSubscribeFileSample {
                 .build();
 
         // 发起请求
-        GetSubscribeFileResp resp = client.drive().file().getSubscribe(req);
+        GetSubscribeFileResp resp = client.drive().v1().file().getSubscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

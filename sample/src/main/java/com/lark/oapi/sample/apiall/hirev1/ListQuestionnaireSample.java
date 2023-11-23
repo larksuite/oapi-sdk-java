@@ -23,7 +23,7 @@ public class ListQuestionnaireSample {
                 .build();
 
         // 发起请求
-        ListQuestionnaireResp resp = client.hire().questionnaire().list(req);
+        ListQuestionnaireResp resp = client.hire().v1().questionnaire().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

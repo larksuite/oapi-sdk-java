@@ -21,7 +21,7 @@ public class DeleteInstanceCommentSample {
                 .build();
 
         // 发起请求
-        DeleteInstanceCommentResp resp = client.approval().instanceComment().delete(req);
+        DeleteInstanceCommentResp resp = client.approval().v4().instanceComment().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

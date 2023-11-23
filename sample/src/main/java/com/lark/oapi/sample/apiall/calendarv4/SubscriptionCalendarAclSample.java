@@ -18,7 +18,7 @@ public class SubscriptionCalendarAclSample {
                 .build();
 
         // 发起请求
-        SubscriptionCalendarAclResp resp = client.calendar().calendarAcl().subscription(req);
+        SubscriptionCalendarAclResp resp = client.calendar().v4().calendarAcl().subscription(req);
 
         // 处理服务端错误
         if (!resp.success()) {

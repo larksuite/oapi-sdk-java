@@ -22,7 +22,7 @@ public class CreateTaskReminderSample {
                 .build();
 
         // 发起请求
-        CreateTaskReminderResp resp = client.task().taskReminder().create(req);
+        CreateTaskReminderResp resp = client.task().v1().taskReminder().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

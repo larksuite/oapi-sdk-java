@@ -21,7 +21,7 @@ public class MgetRoomLevelSample {
                 .build();
 
         // 发起请求
-        MgetRoomLevelResp resp = client.vc().roomLevel().mget(req);
+        MgetRoomLevelResp resp = client.vc().v1().roomLevel().mget(req);
 
         // 处理服务端错误
         if (!resp.success()) {

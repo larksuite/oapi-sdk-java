@@ -21,7 +21,7 @@ public class BatchUpdateEcoBackgroundCheckPackageSample {
                 .build();
 
         // 发起请求
-        BatchUpdateEcoBackgroundCheckPackageResp resp = client.hire().ecoBackgroundCheckPackage().batchUpdate(req);
+        BatchUpdateEcoBackgroundCheckPackageResp resp = client.hire().v1().ecoBackgroundCheckPackage().batchUpdate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

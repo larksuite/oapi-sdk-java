@@ -23,7 +23,7 @@ public class QueryUserAllowedRemedysUserTaskRemedySample {
                 .build();
 
         // 发起请求
-        QueryUserAllowedRemedysUserTaskRemedyResp resp = client.attendance().userTaskRemedy().queryUserAllowedRemedys(req);
+        QueryUserAllowedRemedysUserTaskRemedyResp resp = client.attendance().v1().userTaskRemedy().queryUserAllowedRemedys(req);
 
         // 处理服务端错误
         if (!resp.success()) {

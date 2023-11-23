@@ -18,7 +18,7 @@ public class DeleteLeaveGrantingRecordSample {
                 .build();
 
         // 发起请求
-        DeleteLeaveGrantingRecordResp resp = client.corehr().leaveGrantingRecord().delete(req);
+        DeleteLeaveGrantingRecordResp resp = client.corehr().v1().leaveGrantingRecord().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

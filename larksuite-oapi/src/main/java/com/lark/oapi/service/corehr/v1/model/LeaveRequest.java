@@ -154,6 +154,30 @@ public class LeaveRequest {
      */
     @SerializedName("data_source")
     private Integer dataSource;
+    /**
+     * 请假申请流程ID
+     * <p> 示例值：
+     */
+    @SerializedName("leave_process_id")
+    private String[] leaveProcessId;
+    /**
+     * 请假更正流程ID
+     * <p> 示例值：
+     */
+    @SerializedName("leave_correct_process_id")
+    private String[] leaveCorrectProcessId;
+    /**
+     * 请假取消流程ID
+     * <p> 示例值：
+     */
+    @SerializedName("leave_cancel_process_id")
+    private String[] leaveCancelProcessId;
+    /**
+     * 请假返岗流程ID
+     * <p> 示例值：
+     */
+    @SerializedName("leave_return_process_id")
+    private String[] leaveReturnProcessId;
 
     // builder 开始
     public LeaveRequest() {
@@ -275,6 +299,26 @@ public class LeaveRequest {
          * <p> 示例值：1
          */
         this.dataSource = builder.dataSource;
+        /**
+         * 请假申请流程ID
+         * <p> 示例值：
+         */
+        this.leaveProcessId = builder.leaveProcessId;
+        /**
+         * 请假更正流程ID
+         * <p> 示例值：
+         */
+        this.leaveCorrectProcessId = builder.leaveCorrectProcessId;
+        /**
+         * 请假取消流程ID
+         * <p> 示例值：
+         */
+        this.leaveCancelProcessId = builder.leaveCancelProcessId;
+        /**
+         * 请假返岗流程ID
+         * <p> 示例值：
+         */
+        this.leaveReturnProcessId = builder.leaveReturnProcessId;
     }
 
     public static Builder newBuilder() {
@@ -465,6 +509,38 @@ public class LeaveRequest {
         this.dataSource = dataSource;
     }
 
+    public String[] getLeaveProcessId() {
+        return this.leaveProcessId;
+    }
+
+    public void setLeaveProcessId(String[] leaveProcessId) {
+        this.leaveProcessId = leaveProcessId;
+    }
+
+    public String[] getLeaveCorrectProcessId() {
+        return this.leaveCorrectProcessId;
+    }
+
+    public void setLeaveCorrectProcessId(String[] leaveCorrectProcessId) {
+        this.leaveCorrectProcessId = leaveCorrectProcessId;
+    }
+
+    public String[] getLeaveCancelProcessId() {
+        return this.leaveCancelProcessId;
+    }
+
+    public void setLeaveCancelProcessId(String[] leaveCancelProcessId) {
+        this.leaveCancelProcessId = leaveCancelProcessId;
+    }
+
+    public String[] getLeaveReturnProcessId() {
+        return this.leaveReturnProcessId;
+    }
+
+    public void setLeaveReturnProcessId(String[] leaveReturnProcessId) {
+        this.leaveReturnProcessId = leaveReturnProcessId;
+    }
+
     public static class Builder {
         /**
          * 请假记录ID
@@ -581,6 +657,26 @@ public class LeaveRequest {
          * <p> 示例值：1
          */
         private Integer dataSource;
+        /**
+         * 请假申请流程ID
+         * <p> 示例值：
+         */
+        private String[] leaveProcessId;
+        /**
+         * 请假更正流程ID
+         * <p> 示例值：
+         */
+        private String[] leaveCorrectProcessId;
+        /**
+         * 请假取消流程ID
+         * <p> 示例值：
+         */
+        private String[] leaveCancelProcessId;
+        /**
+         * 请假返岗流程ID
+         * <p> 示例值：
+         */
+        private String[] leaveReturnProcessId;
 
         /**
          * 请假记录ID
@@ -877,6 +973,58 @@ public class LeaveRequest {
          */
         public Builder dataSource(Integer dataSource) {
             this.dataSource = dataSource;
+            return this;
+        }
+
+
+        /**
+         * 请假申请流程ID
+         * <p> 示例值：
+         *
+         * @param leaveProcessId
+         * @return
+         */
+        public Builder leaveProcessId(String[] leaveProcessId) {
+            this.leaveProcessId = leaveProcessId;
+            return this;
+        }
+
+
+        /**
+         * 请假更正流程ID
+         * <p> 示例值：
+         *
+         * @param leaveCorrectProcessId
+         * @return
+         */
+        public Builder leaveCorrectProcessId(String[] leaveCorrectProcessId) {
+            this.leaveCorrectProcessId = leaveCorrectProcessId;
+            return this;
+        }
+
+
+        /**
+         * 请假取消流程ID
+         * <p> 示例值：
+         *
+         * @param leaveCancelProcessId
+         * @return
+         */
+        public Builder leaveCancelProcessId(String[] leaveCancelProcessId) {
+            this.leaveCancelProcessId = leaveCancelProcessId;
+            return this;
+        }
+
+
+        /**
+         * 请假返岗流程ID
+         * <p> 示例值：
+         *
+         * @param leaveReturnProcessId
+         * @return
+         */
+        public Builder leaveReturnProcessId(String[] leaveReturnProcessId) {
+            this.leaveReturnProcessId = leaveReturnProcessId;
             return this;
         }
 

@@ -24,7 +24,7 @@ public class QueryUserStatsViewSample {
                 .build();
 
         // 发起请求
-        QueryUserStatsViewResp resp = client.attendance().userStatsView().query(req);
+        QueryUserStatsViewResp resp = client.attendance().v1().userStatsView().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

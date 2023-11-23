@@ -23,7 +23,7 @@ public class BatchRemoveGroupMemberSample {
                 .build();
 
         // 发起请求
-        BatchRemoveGroupMemberResp resp = client.contact().groupMember().batchRemove(req);
+        BatchRemoveGroupMemberResp resp = client.contact().v3().groupMember().batchRemove(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class UpdateEntitySample {
                 .build();
 
         // 发起请求
-        UpdateEntityResp resp = client.baike().entity().update(req);
+        UpdateEntityResp resp = client.baike().v1().entity().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

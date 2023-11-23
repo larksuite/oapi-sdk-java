@@ -29,7 +29,7 @@ public class BatchDeleteCalendarEventAttendeeSample {
                 .build();
 
         // 发起请求
-        BatchDeleteCalendarEventAttendeeResp resp = client.calendar().calendarEventAttendee().batchDelete(req);
+        BatchDeleteCalendarEventAttendeeResp resp = client.calendar().v4().calendarEventAttendee().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class GetChatSample {
                 .build();
 
         // 发起请求
-        GetChatResp resp = client.im().chat().get(req);
+        GetChatResp resp = client.im().v1().chat().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

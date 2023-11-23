@@ -26,7 +26,7 @@ public class BatchUpdateDocumentBlockSample {
                 .build();
 
         // 发起请求
-        BatchUpdateDocumentBlockResp resp = client.docx().documentBlock().batchUpdate(req);
+        BatchUpdateDocumentBlockResp resp = client.docx().v1().documentBlock().batchUpdate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

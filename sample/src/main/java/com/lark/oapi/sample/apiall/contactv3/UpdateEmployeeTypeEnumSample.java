@@ -26,7 +26,7 @@ public class UpdateEmployeeTypeEnumSample {
                 .build();
 
         // 发起请求
-        UpdateEmployeeTypeEnumResp resp = client.contact().employeeTypeEnum().update(req);
+        UpdateEmployeeTypeEnumResp resp = client.contact().v3().employeeTypeEnum().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

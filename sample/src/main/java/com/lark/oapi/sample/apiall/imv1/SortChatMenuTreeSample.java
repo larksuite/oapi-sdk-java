@@ -22,7 +22,7 @@ public class SortChatMenuTreeSample {
                 .build();
 
         // 发起请求
-        SortChatMenuTreeResp resp = client.im().chatMenuTree().sort(req);
+        SortChatMenuTreeResp resp = client.im().v1().chatMenuTree().sort(req);
 
         // 处理服务端错误
         if (!resp.success()) {

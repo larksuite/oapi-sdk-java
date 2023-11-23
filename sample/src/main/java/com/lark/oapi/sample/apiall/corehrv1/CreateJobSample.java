@@ -30,7 +30,7 @@ public class CreateJobSample {
                 .build();
 
         // 发起请求
-        CreateJobResp resp = client.corehr().job().create(req);
+        CreateJobResp resp = client.corehr().v1().job().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

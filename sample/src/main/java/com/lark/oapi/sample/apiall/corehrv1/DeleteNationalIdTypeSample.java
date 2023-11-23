@@ -18,7 +18,7 @@ public class DeleteNationalIdTypeSample {
                 .build();
 
         // 发起请求
-        DeleteNationalIdTypeResp resp = client.corehr().nationalIdType().delete(req);
+        DeleteNationalIdTypeResp resp = client.corehr().v1().nationalIdType().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

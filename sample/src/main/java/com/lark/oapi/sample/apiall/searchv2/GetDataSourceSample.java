@@ -18,7 +18,7 @@ public class GetDataSourceSample {
                 .build();
 
         // 发起请求
-        GetDataSourceResp resp = client.search().dataSource().get(req);
+        GetDataSourceResp resp = client.search().v2().dataSource().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

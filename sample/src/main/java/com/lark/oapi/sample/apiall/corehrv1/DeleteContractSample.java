@@ -18,7 +18,7 @@ public class DeleteContractSample {
                 .build();
 
         // 发起请求
-        DeleteContractResp resp = client.corehr().contract().delete(req);
+        DeleteContractResp resp = client.corehr().v1().contract().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

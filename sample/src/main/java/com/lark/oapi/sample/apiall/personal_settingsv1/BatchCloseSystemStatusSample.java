@@ -23,7 +23,7 @@ public class BatchCloseSystemStatusSample {
                 .build();
 
         // 发起请求
-        BatchCloseSystemStatusResp resp = client.personalSettings().systemStatus().batchClose(req);
+        BatchCloseSystemStatusResp resp = client.personalSettings().v1().systemStatus().batchClose(req);
 
         // 处理服务端错误
         if (!resp.success()) {

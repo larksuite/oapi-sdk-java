@@ -20,7 +20,7 @@ public class ListUserMailboxAliasSample {
                 .build();
 
         // 发起请求
-        ListUserMailboxAliasResp resp = client.mail().userMailboxAlias().list(req);
+        ListUserMailboxAliasResp resp = client.mail().v1().userMailboxAlias().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

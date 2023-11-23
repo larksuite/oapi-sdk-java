@@ -15,6 +15,8 @@ public class CombinedCreateJobSample {
         CombinedCreateJobReq req = CombinedCreateJobReq.newBuilder()
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
                 .combinedJob(CombinedJob.newBuilder()
                         .code("R18")
                         .experience(1)
@@ -50,7 +52,7 @@ public class CombinedCreateJobSample {
                 .build();
 
         // 发起请求
-        CombinedCreateJobResp resp = client.hire().job().combinedCreate(req);
+        CombinedCreateJobResp resp = client.hire().v1().job().combinedCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

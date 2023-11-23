@@ -24,7 +24,7 @@ public class CreateChatMembersSample {
                 .build();
 
         // 发起请求
-        CreateChatMembersResp resp = client.im().chatMembers().create(req);
+        CreateChatMembersResp resp = client.im().v1().chatMembers().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

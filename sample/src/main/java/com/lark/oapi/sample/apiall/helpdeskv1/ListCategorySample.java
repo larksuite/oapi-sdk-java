@@ -20,7 +20,7 @@ public class ListCategorySample {
                 .build();
 
         // 发起请求
-        ListCategoryResp resp = client.helpdesk().category().list(req);
+        ListCategoryResp resp = client.helpdesk().v1().category().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

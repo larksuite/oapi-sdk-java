@@ -22,7 +22,7 @@ public class ExecuteSendNotificationSample {
                 .build();
 
         // 发起请求
-        ExecuteSendNotificationResp resp = client.helpdesk().notification().executeSend(req);
+        ExecuteSendNotificationResp resp = client.helpdesk().v1().notification().executeSend(req);
 
         // 处理服务端错误
         if (!resp.success()) {

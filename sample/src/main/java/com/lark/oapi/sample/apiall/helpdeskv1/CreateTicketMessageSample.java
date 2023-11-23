@@ -23,7 +23,7 @@ public class CreateTicketMessageSample {
                 .build();
 
         // 发起请求
-        CreateTicketMessageResp resp = client.helpdesk().ticketMessage().create(req);
+        CreateTicketMessageResp resp = client.helpdesk().v1().ticketMessage().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class DeleteCalendarEventMeetingChatSample {
                 .build();
 
         // 发起请求
-        DeleteCalendarEventMeetingChatResp resp = client.calendar().calendarEventMeetingChat().delete(req);
+        DeleteCalendarEventMeetingChatResp resp = client.calendar().v4().calendarEventMeetingChat().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

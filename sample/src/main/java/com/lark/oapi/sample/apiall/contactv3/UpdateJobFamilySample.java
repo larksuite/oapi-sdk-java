@@ -28,7 +28,7 @@ public class UpdateJobFamilySample {
                 .build();
 
         // 发起请求
-        UpdateJobFamilyResp resp = client.contact().jobFamily().update(req);
+        UpdateJobFamilyResp resp = client.contact().v3().jobFamily().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

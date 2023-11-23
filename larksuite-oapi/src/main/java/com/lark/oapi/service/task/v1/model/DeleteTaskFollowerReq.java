@@ -43,6 +43,7 @@ public class DeleteTaskFollowerReq {
     // builder 开始
     public DeleteTaskFollowerReq() {
     }
+
     public DeleteTaskFollowerReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型

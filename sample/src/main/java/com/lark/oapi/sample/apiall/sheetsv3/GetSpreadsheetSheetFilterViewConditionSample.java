@@ -21,7 +21,7 @@ public class GetSpreadsheetSheetFilterViewConditionSample {
                 .build();
 
         // 发起请求
-        GetSpreadsheetSheetFilterViewConditionResp resp = client.sheets().spreadsheetSheetFilterViewCondition().get(req);
+        GetSpreadsheetSheetFilterViewConditionResp resp = client.sheets().v3().spreadsheetSheetFilterViewCondition().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

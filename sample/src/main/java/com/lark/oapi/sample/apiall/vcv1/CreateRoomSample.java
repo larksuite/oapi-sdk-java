@@ -26,7 +26,7 @@ public class CreateRoomSample {
                 .build();
 
         // 发起请求
-        CreateRoomResp resp = client.vc().room().create(req);
+        CreateRoomResp resp = client.vc().v1().room().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

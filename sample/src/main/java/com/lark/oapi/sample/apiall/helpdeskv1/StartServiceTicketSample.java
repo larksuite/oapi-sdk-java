@@ -24,7 +24,7 @@ public class StartServiceTicketSample {
                 .build();
 
         // 发起请求
-        StartServiceTicketResp resp = client.helpdesk().ticket().startService(req);
+        StartServiceTicketResp resp = client.helpdesk().v1().ticket().startService(req);
 
         // 处理服务端错误
         if (!resp.success()) {

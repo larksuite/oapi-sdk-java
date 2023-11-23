@@ -30,7 +30,7 @@ public class PatchLeaveAccrualRecordSample {
                 .build();
 
         // 发起请求
-        PatchLeaveAccrualRecordResp resp = client.attendance().leaveAccrualRecord().patch(req);
+        PatchLeaveAccrualRecordResp resp = client.attendance().v1().leaveAccrualRecord().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

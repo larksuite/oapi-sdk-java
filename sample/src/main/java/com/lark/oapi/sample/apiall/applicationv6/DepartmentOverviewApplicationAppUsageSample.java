@@ -28,7 +28,7 @@ public class DepartmentOverviewApplicationAppUsageSample {
                 .build();
 
         // 发起请求
-        DepartmentOverviewApplicationAppUsageResp resp = client.application().applicationAppUsage().departmentOverview(req);
+        DepartmentOverviewApplicationAppUsageResp resp = client.application().v6().applicationAppUsage().departmentOverview(req);
 
         // 处理服务端错误
         if (!resp.success()) {

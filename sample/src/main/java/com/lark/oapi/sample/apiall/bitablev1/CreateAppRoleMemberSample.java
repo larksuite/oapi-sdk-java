@@ -24,7 +24,7 @@ public class CreateAppRoleMemberSample {
                 .build();
 
         // 发起请求
-        CreateAppRoleMemberResp resp = client.bitable().appRoleMember().create(req);
+        CreateAppRoleMemberResp resp = client.bitable().v1().appRoleMember().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

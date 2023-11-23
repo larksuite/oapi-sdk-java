@@ -22,7 +22,7 @@ public class ListAppTableViewSample {
                 .build();
 
         // 发起请求
-        ListAppTableViewResp resp = client.bitable().appTableView().list(req);
+        ListAppTableViewResp resp = client.bitable().v1().appTableView().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

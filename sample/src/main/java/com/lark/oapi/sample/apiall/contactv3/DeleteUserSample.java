@@ -31,7 +31,7 @@ public class DeleteUserSample {
                 .build();
 
         // 发起请求
-        DeleteUserResp resp = client.contact().user().delete(req);
+        DeleteUserResp resp = client.contact().v3().user().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

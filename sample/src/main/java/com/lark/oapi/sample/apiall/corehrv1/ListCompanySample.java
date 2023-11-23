@@ -19,7 +19,7 @@ public class ListCompanySample {
                 .build();
 
         // 发起请求
-        ListCompanyResp resp = client.corehr().company().list(req);
+        ListCompanyResp resp = client.corehr().v1().company().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

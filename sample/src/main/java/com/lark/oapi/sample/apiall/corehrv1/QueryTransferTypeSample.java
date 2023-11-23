@@ -19,7 +19,7 @@ public class QueryTransferTypeSample {
                 .build();
 
         // 发起请求
-        QueryTransferTypeResp resp = client.corehr().transferType().query(req);
+        QueryTransferTypeResp resp = client.corehr().v1().transferType().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

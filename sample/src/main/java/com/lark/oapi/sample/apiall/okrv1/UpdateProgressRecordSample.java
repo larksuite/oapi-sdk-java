@@ -24,7 +24,7 @@ public class UpdateProgressRecordSample {
                 .build();
 
         // 发起请求
-        UpdateProgressRecordResp resp = client.okr().progressRecord().update(req);
+        UpdateProgressRecordResp resp = client.okr().v1().progressRecord().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

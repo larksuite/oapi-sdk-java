@@ -23,7 +23,7 @@ public class BindDepartmentUnitSample {
                 .build();
 
         // 发起请求
-        BindDepartmentUnitResp resp = client.contact().unit().bindDepartment(req);
+        BindDepartmentUnitResp resp = client.contact().v3().unit().bindDepartment(req);
 
         // 处理服务端错误
         if (!resp.success()) {

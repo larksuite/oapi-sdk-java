@@ -24,7 +24,7 @@ public class RecognizeChinesePassportSample {
                 .build();
 
         // 发起请求
-        RecognizeChinesePassportResp resp = client.documentAi().chinesePassport().recognize(req);
+        RecognizeChinesePassportResp resp = client.documentAi().v1().chinesePassport().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

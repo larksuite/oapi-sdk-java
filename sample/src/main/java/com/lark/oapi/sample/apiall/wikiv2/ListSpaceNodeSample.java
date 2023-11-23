@@ -21,7 +21,7 @@ public class ListSpaceNodeSample {
                 .build();
 
         // 发起请求
-        ListSpaceNodeResp resp = client.wiki().spaceNode().list(req);
+        ListSpaceNodeResp resp = client.wiki().v2().spaceNode().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

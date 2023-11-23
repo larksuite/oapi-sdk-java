@@ -19,6 +19,9 @@ public class UpdateJobRequirementSample {
                 .jobRequirementId("623455234")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .jobRequirement(JobRequirement.newBuilder()
                         .name("test")
                         .displayProgress(1)
@@ -48,7 +51,7 @@ public class UpdateJobRequirementSample {
                 .build();
 
         // 发起请求
-        UpdateJobRequirementResp resp = client.hire().jobRequirement().update(req);
+        UpdateJobRequirementResp resp = client.hire().v1().jobRequirement().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

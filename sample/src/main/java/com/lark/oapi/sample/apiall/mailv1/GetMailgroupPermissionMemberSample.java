@@ -21,7 +21,7 @@ public class GetMailgroupPermissionMemberSample {
                 .build();
 
         // 发起请求
-        GetMailgroupPermissionMemberResp resp = client.mail().mailgroupPermissionMember().get(req);
+        GetMailgroupPermissionMemberResp resp = client.mail().v1().mailgroupPermissionMember().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

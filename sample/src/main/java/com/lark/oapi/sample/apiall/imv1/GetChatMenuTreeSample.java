@@ -18,7 +18,7 @@ public class GetChatMenuTreeSample {
                 .build();
 
         // 发起请求
-        GetChatMenuTreeResp resp = client.im().chatMenuTree().get(req);
+        GetChatMenuTreeResp resp = client.im().v1().chatMenuTree().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class GetScopeConfigSample {
                 .build();
 
         // 发起请求
-        GetScopeConfigResp resp = client.vc().scopeConfig().get(req);
+        GetScopeConfigResp resp = client.vc().v1().scopeConfig().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

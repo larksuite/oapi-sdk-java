@@ -42,7 +42,7 @@ public class CreateExternalInstanceSample {
                 .build();
 
         // 发起请求
-        CreateExternalInstanceResp resp = client.approval().externalInstance().create(req);
+        CreateExternalInstanceResp resp = client.approval().v4().externalInstance().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

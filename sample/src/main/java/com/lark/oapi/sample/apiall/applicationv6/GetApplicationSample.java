@@ -20,7 +20,7 @@ public class GetApplicationSample {
                 .build();
 
         // 发起请求
-        GetApplicationResp resp = client.application().application().get(req);
+        GetApplicationResp resp = client.application().v6().application().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

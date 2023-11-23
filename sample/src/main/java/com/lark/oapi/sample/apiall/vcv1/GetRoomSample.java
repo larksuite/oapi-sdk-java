@@ -19,7 +19,7 @@ public class GetRoomSample {
                 .build();
 
         // 发起请求
-        GetRoomResp resp = client.vc().room().get(req);
+        GetRoomResp resp = client.vc().v1().room().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

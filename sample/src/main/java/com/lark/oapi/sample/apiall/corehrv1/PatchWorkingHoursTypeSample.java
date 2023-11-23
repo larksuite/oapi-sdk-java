@@ -26,7 +26,7 @@ public class PatchWorkingHoursTypeSample {
                 .build();
 
         // 发起请求
-        PatchWorkingHoursTypeResp resp = client.corehr().workingHoursType().patch(req);
+        PatchWorkingHoursTypeResp resp = client.corehr().v1().workingHoursType().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

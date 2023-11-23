@@ -25,12 +25,19 @@ public class GetParticipantListReq {
     @SerializedName("meeting_start_time")
     private String meetingStartTime;
     /**
-     * 会议结束时间（unix时间，单位sec）
+     * 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
      * <p> 示例值：1655276858
      */
     @Query
     @SerializedName("meeting_end_time")
     private String meetingEndTime;
+    /**
+     * 会议状态（不传默认为已结束会议）
+     * <p> 示例值：2
+     */
+    @Query
+    @SerializedName("meeting_status")
+    private Integer meetingStatus;
     /**
      * 9位会议号
      * <p> 示例值：123456789
@@ -85,10 +92,15 @@ public class GetParticipantListReq {
          */
         this.meetingStartTime = builder.meetingStartTime;
         /**
-         * 会议结束时间（unix时间，单位sec）
+         * 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
          * <p> 示例值：1655276858
          */
         this.meetingEndTime = builder.meetingEndTime;
+        /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         */
+        this.meetingStatus = builder.meetingStatus;
         /**
          * 9位会议号
          * <p> 示例值：123456789
@@ -141,6 +153,14 @@ public class GetParticipantListReq {
         this.meetingEndTime = meetingEndTime;
     }
 
+    public Integer getMeetingStatus() {
+        return this.meetingStatus;
+    }
+
+    public void setMeetingStatus(Integer meetingStatus) {
+        this.meetingStatus = meetingStatus;
+    }
+
     public String getMeetingNo() {
         return this.meetingNo;
     }
@@ -191,7 +211,8 @@ public class GetParticipantListReq {
 
     public static class Builder {
         private String meetingStartTime; // 会议开始时间（需要精确到一分钟，unix时间，单位sec）
-        private String meetingEndTime; // 会议结束时间（unix时间，单位sec）
+        private String meetingEndTime; // 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
+        private Integer meetingStatus; // 会议状态（不传默认为已结束会议）
         private String meetingNo; // 9位会议号
         private String userId; // 按参会Lark用户筛选（最多一个筛选条件）
         private String roomId; // 按参会Rooms筛选（最多一个筛选条件）
@@ -214,7 +235,7 @@ public class GetParticipantListReq {
 
 
         /**
-         * 会议结束时间（unix时间，单位sec）
+         * 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
          * <p> 示例值：1655276858
          *
          * @param meetingEndTime
@@ -222,6 +243,31 @@ public class GetParticipantListReq {
          */
         public Builder meetingEndTime(String meetingEndTime) {
             this.meetingEndTime = meetingEndTime;
+            return this;
+        }
+
+
+        /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         *
+         * @param meetingStatus
+         * @return
+         */
+        public Builder meetingStatus(Integer meetingStatus) {
+            this.meetingStatus = meetingStatus;
+            return this;
+        }
+
+        /**
+         * 会议状态（不传默认为已结束会议）
+         * <p> 示例值：2
+         *
+         * @param meetingStatus {@link com.lark.oapi.service.vc.v1.enums.GetParticipantListMeetingStatusTypeEnum}
+         * @return
+         */
+        public Builder meetingStatus(com.lark.oapi.service.vc.v1.enums.GetParticipantListMeetingStatusTypeEnum meetingStatus) {
+            this.meetingStatus = meetingStatus.getValue();
             return this;
         }
 

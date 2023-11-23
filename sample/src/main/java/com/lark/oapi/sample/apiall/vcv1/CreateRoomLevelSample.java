@@ -23,7 +23,7 @@ public class CreateRoomLevelSample {
                 .build();
 
         // 发起请求
-        CreateRoomLevelResp resp = client.vc().roomLevel().create(req);
+        CreateRoomLevelResp resp = client.vc().v1().roomLevel().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

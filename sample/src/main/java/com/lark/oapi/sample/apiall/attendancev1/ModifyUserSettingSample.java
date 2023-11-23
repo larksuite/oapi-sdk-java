@@ -23,7 +23,7 @@ public class ModifyUserSettingSample {
                 .build();
 
         // 发起请求
-        ModifyUserSettingResp resp = client.attendance().userSetting().modify(req);
+        ModifyUserSettingResp resp = client.attendance().v1().userSetting().modify(req);
 
         // 处理服务端错误
         if (!resp.success()) {

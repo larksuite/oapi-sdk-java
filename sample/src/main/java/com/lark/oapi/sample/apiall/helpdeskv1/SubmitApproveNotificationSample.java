@@ -22,7 +22,7 @@ public class SubmitApproveNotificationSample {
                 .build();
 
         // 发起请求
-        SubmitApproveNotificationResp resp = client.helpdesk().notification().submitApprove(req);
+        SubmitApproveNotificationResp resp = client.helpdesk().v1().notification().submitApprove(req);
 
         // 处理服务端错误
         if (!resp.success()) {

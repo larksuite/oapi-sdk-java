@@ -22,7 +22,7 @@ public class PatchSpreadsheetSample {
                 .build();
 
         // 发起请求
-        PatchSpreadsheetResp resp = client.sheets().spreadsheet().patch(req);
+        PatchSpreadsheetResp resp = client.sheets().v3().spreadsheet().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

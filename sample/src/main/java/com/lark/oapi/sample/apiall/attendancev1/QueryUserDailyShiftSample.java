@@ -24,7 +24,7 @@ public class QueryUserDailyShiftSample {
                 .build();
 
         // 发起请求
-        QueryUserDailyShiftResp resp = client.attendance().userDailyShift().query(req);
+        QueryUserDailyShiftResp resp = client.attendance().v1().userDailyShift().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class CreateSchemaSample {
                 .build();
 
         // 发起请求
-        CreateSchemaResp resp = client.search().schema().create(req);
+        CreateSchemaResp resp = client.search().v2().schema().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

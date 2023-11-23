@@ -25,7 +25,7 @@ public class CreateJobLevelSample {
                 .build();
 
         // 发起请求
-        CreateJobLevelResp resp = client.corehr().jobLevel().create(req);
+        CreateJobLevelResp resp = client.corehr().v1().jobLevel().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

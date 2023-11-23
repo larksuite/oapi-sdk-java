@@ -18,7 +18,7 @@ public class DeleteWorkingHoursTypeSample {
                 .build();
 
         // 发起请求
-        DeleteWorkingHoursTypeResp resp = client.corehr().workingHoursType().delete(req);
+        DeleteWorkingHoursTypeResp resp = client.corehr().v1().workingHoursType().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

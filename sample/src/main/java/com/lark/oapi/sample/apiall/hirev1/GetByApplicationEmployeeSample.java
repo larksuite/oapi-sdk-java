@@ -17,10 +17,13 @@ public class GetByApplicationEmployeeSample {
                 .applicationId("123")
                 .userIdType("open_id")
                 .departmentIdType("people_admin_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .build();
 
         // 发起请求
-        GetByApplicationEmployeeResp resp = client.hire().employee().getByApplication(req);
+        GetByApplicationEmployeeResp resp = client.hire().v1().employee().getByApplication(req);
 
         // 处理服务端错误
         if (!resp.success()) {

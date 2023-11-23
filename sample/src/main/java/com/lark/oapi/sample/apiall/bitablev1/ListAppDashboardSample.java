@@ -20,7 +20,7 @@ public class ListAppDashboardSample {
                 .build();
 
         // 发起请求
-        ListAppDashboardResp resp = client.bitable().appDashboard().list(req);
+        ListAppDashboardResp resp = client.bitable().v1().appDashboard().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

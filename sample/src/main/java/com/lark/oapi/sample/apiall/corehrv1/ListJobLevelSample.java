@@ -19,7 +19,7 @@ public class ListJobLevelSample {
                 .build();
 
         // 发起请求
-        ListJobLevelResp resp = client.corehr().jobLevel().list(req);
+        ListJobLevelResp resp = client.corehr().v1().jobLevel().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

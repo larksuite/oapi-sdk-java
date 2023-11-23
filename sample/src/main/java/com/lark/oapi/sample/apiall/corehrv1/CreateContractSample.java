@@ -5,7 +5,6 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.corehr.v1.model.Enum;
 import com.lark.oapi.service.corehr.v1.model.*;
 
-
 // POST /open-apis/corehr/v1/contracts
 public class CreateContractSample {
 
@@ -32,7 +31,7 @@ public class CreateContractSample {
                 .build();
 
         // 发起请求
-        CreateContractResp resp = client.corehr().contract().create(req);
+        CreateContractResp resp = client.corehr().v1().contract().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

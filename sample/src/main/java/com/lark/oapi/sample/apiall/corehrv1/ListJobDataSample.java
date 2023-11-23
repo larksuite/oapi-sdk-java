@@ -26,7 +26,7 @@ public class ListJobDataSample {
                 .build();
 
         // 发起请求
-        ListJobDataResp resp = client.corehr().jobData().list(req);
+        ListJobDataResp resp = client.corehr().v1().jobData().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

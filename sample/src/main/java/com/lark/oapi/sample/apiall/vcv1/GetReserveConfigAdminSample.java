@@ -20,7 +20,7 @@ public class GetReserveConfigAdminSample {
                 .build();
 
         // 发起请求
-        GetReserveConfigAdminResp resp = client.vc().reserveConfigAdmin().get(req);
+        GetReserveConfigAdminResp resp = client.vc().v1().reserveConfigAdmin().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

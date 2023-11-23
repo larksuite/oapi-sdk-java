@@ -21,7 +21,7 @@ public class ListEntitySample {
                 .build();
 
         // 发起请求
-        ListEntityResp resp = client.baike().entity().list(req);
+        ListEntityResp resp = client.baike().v1().entity().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

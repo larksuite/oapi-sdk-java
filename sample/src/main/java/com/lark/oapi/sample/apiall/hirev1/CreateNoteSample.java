@@ -26,7 +26,7 @@ public class CreateNoteSample {
                 .build();
 
         // 发起请求
-        CreateNoteResp resp = client.hire().note().create(req);
+        CreateNoteResp resp = client.hire().v1().note().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class QueryUserTaskRemedySample {
                 .build();
 
         // 发起请求
-        QueryUserTaskRemedyResp resp = client.attendance().userTaskRemedy().query(req);
+        QueryUserTaskRemedyResp resp = client.attendance().v1().userTaskRemedy().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

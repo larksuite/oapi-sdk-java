@@ -19,7 +19,7 @@ public class DeletePublicMailboxAliasSample {
                 .build();
 
         // 发起请求
-        DeletePublicMailboxAliasResp resp = client.mail().publicMailboxAlias().delete(req);
+        DeletePublicMailboxAliasResp resp = client.mail().v1().publicMailboxAlias().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

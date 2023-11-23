@@ -19,7 +19,7 @@ public class DeleteDataSourceItemSample {
                 .build();
 
         // 发起请求
-        DeleteDataSourceItemResp resp = client.search().dataSourceItem().delete(req);
+        DeleteDataSourceItemResp resp = client.search().v2().dataSourceItem().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

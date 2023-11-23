@@ -27,7 +27,7 @@ public class SetAppBadgeSample {
                 .build();
 
         // 发起请求
-        SetAppBadgeResp resp = client.application().appBadge().set(req);
+        SetAppBadgeResp resp = client.application().v6().appBadge().set(req);
 
         // 处理服务端错误
         if (!resp.success()) {

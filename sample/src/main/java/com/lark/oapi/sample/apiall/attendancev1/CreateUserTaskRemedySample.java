@@ -28,7 +28,7 @@ public class CreateUserTaskRemedySample {
                 .build();
 
         // 发起请求
-        CreateUserTaskRemedyResp resp = client.attendance().userTaskRemedy().create(req);
+        CreateUserTaskRemedyResp resp = client.attendance().v1().userTaskRemedy().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

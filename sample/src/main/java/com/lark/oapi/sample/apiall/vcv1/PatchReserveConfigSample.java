@@ -24,7 +24,7 @@ public class PatchReserveConfigSample {
                 .build();
 
         // 发起请求
-        PatchReserveConfigResp resp = client.vc().reserveConfig().patch(req);
+        PatchReserveConfigResp resp = client.vc().v1().reserveConfig().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

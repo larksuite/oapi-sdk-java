@@ -22,7 +22,7 @@ public class MgetRoomSample {
                 .build();
 
         // 发起请求
-        MgetRoomResp resp = client.vc().room().mget(req);
+        MgetRoomResp resp = client.vc().v1().room().mget(req);
 
         // 处理服务端错误
         if (!resp.success()) {

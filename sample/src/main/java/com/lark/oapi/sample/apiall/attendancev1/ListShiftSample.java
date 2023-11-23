@@ -19,7 +19,7 @@ public class ListShiftSample {
                 .build();
 
         // 发起请求
-        ListShiftResp resp = client.attendance().shift().list(req);
+        ListShiftResp resp = client.attendance().v1().shift().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

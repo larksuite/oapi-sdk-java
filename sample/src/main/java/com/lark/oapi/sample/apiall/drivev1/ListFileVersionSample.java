@@ -22,7 +22,7 @@ public class ListFileVersionSample {
                 .build();
 
         // 发起请求
-        ListFileVersionResp resp = client.drive().fileVersion().list(req);
+        ListFileVersionResp resp = client.drive().v1().fileVersion().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

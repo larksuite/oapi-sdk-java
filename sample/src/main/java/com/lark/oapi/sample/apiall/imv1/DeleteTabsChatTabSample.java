@@ -22,7 +22,7 @@ public class DeleteTabsChatTabSample {
                 .build();
 
         // 发起请求
-        DeleteTabsChatTabResp resp = client.im().chatTab().deleteTabs(req);
+        DeleteTabsChatTabResp resp = client.im().v1().chatTab().deleteTabs(req);
 
         // 处理服务端错误
         if (!resp.success()) {

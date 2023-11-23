@@ -24,7 +24,7 @@ public class RecognizeBankCardSample {
                 .build();
 
         // 发起请求
-        RecognizeBankCardResp resp = client.documentAi().bankCard().recognize(req);
+        RecognizeBankCardResp resp = client.documentAi().v1().bankCard().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

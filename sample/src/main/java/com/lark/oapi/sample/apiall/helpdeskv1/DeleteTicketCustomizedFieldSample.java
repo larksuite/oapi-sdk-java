@@ -18,7 +18,7 @@ public class DeleteTicketCustomizedFieldSample {
                 .build();
 
         // 发起请求
-        DeleteTicketCustomizedFieldResp resp = client.helpdesk().ticketCustomizedField().delete(req);
+        DeleteTicketCustomizedFieldResp resp = client.helpdesk().v1().ticketCustomizedField().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

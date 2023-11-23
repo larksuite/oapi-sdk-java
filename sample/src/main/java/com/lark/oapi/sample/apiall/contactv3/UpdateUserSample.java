@@ -42,7 +42,7 @@ public class UpdateUserSample {
                 .build();
 
         // 发起请求
-        UpdateUserResp resp = client.contact().user().update(req);
+        UpdateUserResp resp = client.contact().v3().user().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

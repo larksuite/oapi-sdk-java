@@ -22,7 +22,7 @@ public class ListDocumentBlockSample {
                 .build();
 
         // 发起请求
-        ListDocumentBlockResp resp = client.docx().documentBlock().list(req);
+        ListDocumentBlockResp resp = client.docx().v1().documentBlock().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

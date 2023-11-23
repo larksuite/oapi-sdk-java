@@ -18,7 +18,7 @@ public class DeleteTaskSample {
                 .build();
 
         // 发起请求
-        DeleteTaskResp resp = client.task().task().delete(req);
+        DeleteTaskResp resp = client.task().v1().task().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

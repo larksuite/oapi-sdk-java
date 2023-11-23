@@ -15,10 +15,11 @@ public class GetApplicationSample {
         // 创建请求对象
         GetApplicationReq req = GetApplicationReq.newBuilder()
                 .applicationId("6949805467799537964")
+                .options(new String[]{})
                 .build();
 
         // 发起请求
-        GetApplicationResp resp = client.hire().application().get(req);
+        GetApplicationResp resp = client.hire().v1().application().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -32,6 +32,20 @@ public class CombinedCreateJobReq {
     @Query
     @SerializedName("department_id_type")
     private String departmentIdType;
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("job_level_id_type")
+    private String jobLevelIdType;
+    /**
+     * 此次调用中使用的「序列 ID」的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("job_family_id_type")
+    private String jobFamilyIdType;
     @Body
     private CombinedJob body;
 
@@ -50,6 +64,16 @@ public class CombinedCreateJobReq {
          * <p> 示例值：此次调用中使用的部门 ID 的类型
          */
         this.departmentIdType = builder.departmentIdType;
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobLevelIdType = builder.jobLevelIdType;
+        /**
+         * 此次调用中使用的「序列 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobFamilyIdType = builder.jobFamilyIdType;
         this.body = builder.body;
     }
 
@@ -73,6 +97,22 @@ public class CombinedCreateJobReq {
         this.departmentIdType = departmentIdType;
     }
 
+    public String getJobLevelIdType() {
+        return this.jobLevelIdType;
+    }
+
+    public void setJobLevelIdType(String jobLevelIdType) {
+        this.jobLevelIdType = jobLevelIdType;
+    }
+
+    public String getJobFamilyIdType() {
+        return this.jobFamilyIdType;
+    }
+
+    public void setJobFamilyIdType(String jobFamilyIdType) {
+        this.jobFamilyIdType = jobFamilyIdType;
+    }
+
     public CombinedJob getCombinedJob() {
         return this.body;
     }
@@ -84,6 +124,8 @@ public class CombinedCreateJobReq {
     public static class Builder {
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
+        private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
         private CombinedJob body;
 
         /**
@@ -107,6 +149,30 @@ public class CombinedCreateJobReq {
          */
         public Builder departmentIdType(String departmentIdType) {
             this.departmentIdType = departmentIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         *
+         * @param jobLevelIdType
+         * @return
+         */
+        public Builder jobLevelIdType(String jobLevelIdType) {
+            this.jobLevelIdType = jobLevelIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的「序列 ID」的类型
+         * <p> 示例值：
+         *
+         * @param jobFamilyIdType
+         * @return
+         */
+        public Builder jobFamilyIdType(String jobFamilyIdType) {
+            this.jobFamilyIdType = jobFamilyIdType;
             return this;
         }
 

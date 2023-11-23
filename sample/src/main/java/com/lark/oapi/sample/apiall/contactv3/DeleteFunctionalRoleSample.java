@@ -18,7 +18,7 @@ public class DeleteFunctionalRoleSample {
                 .build();
 
         // 发起请求
-        DeleteFunctionalRoleResp resp = client.contact().functionalRole().delete(req);
+        DeleteFunctionalRoleResp resp = client.contact().v3().functionalRole().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -28,7 +28,7 @@ public class AddSignInstanceSample {
                 .build();
 
         // 发起请求
-        AddSignInstanceResp resp = client.approval().instance().addSign(req);
+        AddSignInstanceResp resp = client.approval().v4().instance().addSign(req);
 
         // 处理服务端错误
         if (!resp.success()) {

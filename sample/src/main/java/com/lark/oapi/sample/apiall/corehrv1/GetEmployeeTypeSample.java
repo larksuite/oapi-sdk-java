@@ -18,7 +18,7 @@ public class GetEmployeeTypeSample {
                 .build();
 
         // 发起请求
-        GetEmployeeTypeResp resp = client.corehr().employeeType().get(req);
+        GetEmployeeTypeResp resp = client.corehr().v1().employeeType().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

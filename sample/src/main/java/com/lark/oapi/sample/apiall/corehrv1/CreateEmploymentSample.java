@@ -2,8 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.model.Enum;
+import com.lark.oapi.service.corehr.v1.model.*;
 
 // POST /open-apis/corehr/v1/employments
 public class CreateEmploymentSample {
@@ -34,7 +34,7 @@ public class CreateEmploymentSample {
                 .build();
 
         // 发起请求
-        CreateEmploymentResp resp = client.corehr().employment().create(req);
+        CreateEmploymentResp resp = client.corehr().v1().employment().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

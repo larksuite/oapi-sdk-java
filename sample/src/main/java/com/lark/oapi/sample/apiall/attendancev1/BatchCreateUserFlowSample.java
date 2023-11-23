@@ -23,7 +23,7 @@ public class BatchCreateUserFlowSample {
                 .build();
 
         // 发起请求
-        BatchCreateUserFlowResp resp = client.attendance().userFlow().batchCreate(req);
+        BatchCreateUserFlowResp resp = client.attendance().v1().userFlow().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -24,7 +24,7 @@ public class PatchEhrImportTaskSample {
                 .build();
 
         // 发起请求
-        PatchEhrImportTaskResp resp = client.hire().ehrImportTask().patch(req);
+        PatchEhrImportTaskResp resp = client.hire().v1().ehrImportTask().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

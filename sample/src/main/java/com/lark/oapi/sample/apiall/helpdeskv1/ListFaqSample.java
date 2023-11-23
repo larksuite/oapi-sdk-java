@@ -22,7 +22,7 @@ public class ListFaqSample {
                 .build();
 
         // 发起请求
-        ListFaqResp resp = client.helpdesk().faq().list(req);
+        ListFaqResp resp = client.helpdesk().v1().faq().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

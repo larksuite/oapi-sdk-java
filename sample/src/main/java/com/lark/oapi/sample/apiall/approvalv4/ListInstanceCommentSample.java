@@ -22,7 +22,7 @@ public class ListInstanceCommentSample {
                 .build();
 
         // 发起请求
-        ListInstanceCommentResp resp = client.approval().instanceComment().list(req);
+        ListInstanceCommentResp resp = client.approval().v4().instanceComment().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

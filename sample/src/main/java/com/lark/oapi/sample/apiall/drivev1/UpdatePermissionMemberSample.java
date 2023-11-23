@@ -26,7 +26,7 @@ public class UpdatePermissionMemberSample {
                 .build();
 
         // 发起请求
-        UpdatePermissionMemberResp resp = client.drive().permissionMember().update(req);
+        UpdatePermissionMemberResp resp = client.drive().v1().permissionMember().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

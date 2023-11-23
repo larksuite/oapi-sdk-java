@@ -21,7 +21,7 @@ public class BasicRecognizeImageSample {
                 .build();
 
         // 发起请求
-        BasicRecognizeImageResp resp = client.opticalCharRecognition().image().basicRecognize(req);
+        BasicRecognizeImageResp resp = client.opticalCharRecognition().v1().image().basicRecognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

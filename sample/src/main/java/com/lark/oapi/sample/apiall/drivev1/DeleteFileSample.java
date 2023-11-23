@@ -19,7 +19,7 @@ public class DeleteFileSample {
                 .build();
 
         // 发起请求
-        DeleteFileResp resp = client.drive().file().delete(req);
+        DeleteFileResp resp = client.drive().v1().file().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class MemberBelongGroupSample {
                 .build();
 
         // 发起请求
-        MemberBelongGroupResp resp = client.contact().group().memberBelong(req);
+        MemberBelongGroupResp resp = client.contact().v3().group().memberBelong(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -35,7 +35,7 @@ public class SearchTaskSample {
                 .build();
 
         // 发起请求
-        SearchTaskResp resp = client.approval().task().search(req);
+        SearchTaskResp resp = client.approval().v4().task().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

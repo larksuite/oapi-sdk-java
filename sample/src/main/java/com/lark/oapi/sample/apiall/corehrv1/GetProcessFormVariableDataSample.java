@@ -18,7 +18,7 @@ public class GetProcessFormVariableDataSample {
                 .build();
 
         // 发起请求
-        GetProcessFormVariableDataResp resp = client.corehr().processFormVariableData().get(req);
+        GetProcessFormVariableDataResp resp = client.corehr().v1().processFormVariableData().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

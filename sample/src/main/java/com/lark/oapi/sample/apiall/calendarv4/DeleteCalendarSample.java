@@ -18,7 +18,7 @@ public class DeleteCalendarSample {
                 .build();
 
         // 发起请求
-        DeleteCalendarResp resp = client.calendar().calendar().delete(req);
+        DeleteCalendarResp resp = client.calendar().v4().calendar().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -21,7 +21,7 @@ public class SearchWorkplaceAccessDataSample {
                 .build();
 
         // 发起请求
-        SearchWorkplaceAccessDataResp resp = client.workplace().workplaceAccessData().search(req);
+        SearchWorkplaceAccessDataResp resp = client.workplace().v1().workplaceAccessData().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

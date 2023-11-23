@@ -33,7 +33,7 @@ public class QueryInstanceSample {
                 .build();
 
         // 发起请求
-        QueryInstanceResp resp = client.approval().instance().query(req);
+        QueryInstanceResp resp = client.approval().v4().instance().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

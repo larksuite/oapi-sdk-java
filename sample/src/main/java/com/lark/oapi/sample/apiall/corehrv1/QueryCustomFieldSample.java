@@ -18,7 +18,7 @@ public class QueryCustomFieldSample {
                 .build();
 
         // 发起请求
-        QueryCustomFieldResp resp = client.corehr().customField().query(req);
+        QueryCustomFieldResp resp = client.corehr().v1().customField().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

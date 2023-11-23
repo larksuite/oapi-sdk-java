@@ -24,7 +24,7 @@ public class RecognizeVatInvoiceSample {
                 .build();
 
         // 发起请求
-        RecognizeVatInvoiceResp resp = client.documentAi().vatInvoice().recognize(req);
+        RecognizeVatInvoiceResp resp = client.documentAi().v1().vatInvoice().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

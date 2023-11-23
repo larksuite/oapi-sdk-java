@@ -27,7 +27,7 @@ public class CopyFileSample {
                 .build();
 
         // 发起请求
-        CopyFileResp resp = client.drive().file().copy(req);
+        CopyFileResp resp = client.drive().v1().file().copy(req);
 
         // 处理服务端错误
         if (!resp.success()) {

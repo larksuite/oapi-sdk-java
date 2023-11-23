@@ -20,7 +20,7 @@ public class DeleteCalendarEventSample {
                 .build();
 
         // 发起请求
-        DeleteCalendarEventResp resp = client.calendar().calendarEvent().delete(req);
+        DeleteCalendarEventResp resp = client.calendar().v4().calendarEvent().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

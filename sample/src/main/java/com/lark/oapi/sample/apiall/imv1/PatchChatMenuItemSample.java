@@ -25,7 +25,7 @@ public class PatchChatMenuItemSample {
                 .build();
 
         // 发起请求
-        PatchChatMenuItemResp resp = client.im().chatMenuItem().patch(req);
+        PatchChatMenuItemResp resp = client.im().v1().chatMenuItem().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

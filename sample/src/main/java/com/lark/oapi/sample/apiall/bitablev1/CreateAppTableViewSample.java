@@ -24,7 +24,7 @@ public class CreateAppTableViewSample {
                 .build();
 
         // 发起请求
-        CreateAppTableViewResp resp = client.bitable().appTableView().create(req);
+        CreateAppTableViewResp resp = client.bitable().v1().appTableView().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

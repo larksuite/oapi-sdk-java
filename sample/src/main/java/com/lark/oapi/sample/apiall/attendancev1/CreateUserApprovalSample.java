@@ -23,7 +23,7 @@ public class CreateUserApprovalSample {
                 .build();
 
         // 发起请求
-        CreateUserApprovalResp resp = client.attendance().userApproval().create(req);
+        CreateUserApprovalResp resp = client.attendance().v1().userApproval().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

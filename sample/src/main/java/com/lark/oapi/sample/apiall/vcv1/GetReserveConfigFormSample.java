@@ -20,7 +20,7 @@ public class GetReserveConfigFormSample {
                 .build();
 
         // 发起请求
-        GetReserveConfigFormResp resp = client.vc().reserveConfigForm().get(req);
+        GetReserveConfigFormResp resp = client.vc().v1().reserveConfigForm().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

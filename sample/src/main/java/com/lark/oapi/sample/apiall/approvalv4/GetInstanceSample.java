@@ -21,7 +21,7 @@ public class GetInstanceSample {
                 .build();
 
         // 发起请求
-        GetInstanceResp resp = client.approval().instance().get(req);
+        GetInstanceResp resp = client.approval().v4().instance().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

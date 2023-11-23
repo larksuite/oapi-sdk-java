@@ -22,7 +22,7 @@ public class ListFileViewRecordSample {
                 .build();
 
         // 发起请求
-        ListFileViewRecordResp resp = client.drive().fileViewRecord().list(req);
+        ListFileViewRecordResp resp = client.drive().v1().fileViewRecord().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

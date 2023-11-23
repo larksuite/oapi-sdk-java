@@ -25,7 +25,7 @@ public class OfferStatusOfferSample {
                 .build();
 
         // 发起请求
-        OfferStatusOfferResp resp = client.hire().offer().offerStatus(req);
+        OfferStatusOfferResp resp = client.hire().v1().offer().offerStatus(req);
 
         // 处理服务端错误
         if (!resp.success()) {

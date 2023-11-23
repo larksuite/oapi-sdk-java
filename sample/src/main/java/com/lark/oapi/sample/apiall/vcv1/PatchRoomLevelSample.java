@@ -24,7 +24,7 @@ public class PatchRoomLevelSample {
                 .build();
 
         // 发起请求
-        PatchRoomLevelResp resp = client.vc().roomLevel().patch(req);
+        PatchRoomLevelResp resp = client.vc().v1().roomLevel().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

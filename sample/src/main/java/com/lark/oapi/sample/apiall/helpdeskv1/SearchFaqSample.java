@@ -21,7 +21,7 @@ public class SearchFaqSample {
                 .build();
 
         // 发起请求
-        SearchFaqResp resp = client.helpdesk().faq().search(req);
+        SearchFaqResp resp = client.helpdesk().v1().faq().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

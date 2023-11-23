@@ -20,7 +20,7 @@ public class GetJobManagerSample {
                 .build();
 
         // 发起请求
-        GetJobManagerResp resp = client.hire().jobManager().get(req);
+        GetJobManagerResp resp = client.hire().v1().jobManager().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class UpdateTitleSpaceNodeSample {
                 .build();
 
         // 发起请求
-        UpdateTitleSpaceNodeResp resp = client.wiki().spaceNode().updateTitle(req);
+        UpdateTitleSpaceNodeResp resp = client.wiki().v2().spaceNode().updateTitle(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -24,7 +24,7 @@ public class RecognizeTrainInvoiceSample {
                 .build();
 
         // 发起请求
-        RecognizeTrainInvoiceResp resp = client.documentAi().trainInvoice().recognize(req);
+        RecognizeTrainInvoiceResp resp = client.documentAi().v1().trainInvoice().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

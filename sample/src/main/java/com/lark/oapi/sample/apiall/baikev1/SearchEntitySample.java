@@ -28,7 +28,7 @@ public class SearchEntitySample {
                 .build();
 
         // 发起请求
-        SearchEntityResp resp = client.baike().entity().search(req);
+        SearchEntityResp resp = client.baike().v1().entity().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

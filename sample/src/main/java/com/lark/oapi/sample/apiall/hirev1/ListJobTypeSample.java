@@ -19,7 +19,7 @@ public class ListJobTypeSample {
                 .build();
 
         // 发起请求
-        ListJobTypeResp resp = client.hire().jobType().list(req);
+        ListJobTypeResp resp = client.hire().v1().jobType().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class StopMeetingRecordingSample {
                 .build();
 
         // 发起请求
-        StopMeetingRecordingResp resp = client.vc().meetingRecording().stop(req);
+        StopMeetingRecordingResp resp = client.vc().v1().meetingRecording().stop(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -28,7 +28,7 @@ public class CreateDocumentBlockChildrenSample {
                 .build();
 
         // 发起请求
-        CreateDocumentBlockChildrenResp resp = client.docx().documentBlockChildren().create(req);
+        CreateDocumentBlockChildrenResp resp = client.docx().v1().documentBlockChildren().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

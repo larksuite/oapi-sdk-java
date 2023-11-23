@@ -25,7 +25,7 @@ public class CreateBadgeImageSample {
                 .build();
 
         // 发起请求
-        CreateBadgeImageResp resp = client.admin().badgeImage().create(req);
+        CreateBadgeImageResp resp = client.admin().v1().badgeImage().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

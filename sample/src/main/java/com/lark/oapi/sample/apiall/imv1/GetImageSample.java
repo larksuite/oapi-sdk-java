@@ -18,7 +18,7 @@ public class GetImageSample {
                 .build();
 
         // 发起请求
-        GetImageResp resp = client.im().image().get(req);
+        GetImageResp resp = client.im().v1().image().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

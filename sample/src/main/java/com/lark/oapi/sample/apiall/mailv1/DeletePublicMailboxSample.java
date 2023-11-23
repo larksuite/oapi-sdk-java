@@ -18,7 +18,7 @@ public class DeletePublicMailboxSample {
                 .build();
 
         // 发起请求
-        DeletePublicMailboxResp resp = client.mail().publicMailbox().delete(req);
+        DeletePublicMailboxResp resp = client.mail().v1().publicMailbox().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

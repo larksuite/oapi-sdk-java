@@ -28,7 +28,7 @@ public class PreviewInstanceSample {
                 .build();
 
         // 发起请求
-        PreviewInstanceResp resp = client.approval().instance().preview(req);
+        PreviewInstanceResp resp = client.approval().v4().instance().preview(req);
 
         // 处理服务端错误
         if (!resp.success()) {

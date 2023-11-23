@@ -24,6 +24,7 @@ public enum AuthPermissionMemberPermEnum {
     EXPORT("export"), // 导出
     COPY("copy"), // 拷贝
     PRINT("print"), // 打印
+    MANAGEPUBLIC("manage_public"), // 管理权限设置
     ;
     private String value;
 

@@ -39,7 +39,7 @@ public class CreateNotificationSample {
                 .build();
 
         // 发起请求
-        CreateNotificationResp resp = client.helpdesk().notification().create(req);
+        CreateNotificationResp resp = client.helpdesk().v1().notification().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

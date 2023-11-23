@@ -22,7 +22,7 @@ public class BatchDeletePublicMailboxMemberSample {
                 .build();
 
         // 发起请求
-        BatchDeletePublicMailboxMemberResp resp = client.mail().publicMailboxMember().batchDelete(req);
+        BatchDeletePublicMailboxMemberResp resp = client.mail().v1().publicMailboxMember().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

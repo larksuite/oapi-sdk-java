@@ -23,7 +23,7 @@ public class PatchNoteSample {
                 .build();
 
         // 发起请求
-        PatchNoteResp resp = client.hire().note().patch(req);
+        PatchNoteResp resp = client.hire().v1().note().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

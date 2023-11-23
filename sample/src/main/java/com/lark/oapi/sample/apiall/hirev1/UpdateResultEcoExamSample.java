@@ -23,7 +23,7 @@ public class UpdateResultEcoExamSample {
                 .build();
 
         // 发起请求
-        UpdateResultEcoExamResp resp = client.hire().ecoExam().updateResult(req);
+        UpdateResultEcoExamResp resp = client.hire().v1().ecoExam().updateResult(req);
 
         // 处理服务端错误
         if (!resp.success()) {

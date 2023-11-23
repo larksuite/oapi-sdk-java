@@ -2,8 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.model.Enum;
+import com.lark.oapi.service.corehr.v1.model.*;
 
 // PATCH /open-apis/corehr/v1/employments/:employment_id
 public class PatchEmploymentSample {
@@ -32,7 +32,7 @@ public class PatchEmploymentSample {
                 .build();
 
         // 发起请求
-        PatchEmploymentResp resp = client.corehr().employment().patch(req);
+        PatchEmploymentResp resp = client.corehr().v1().employment().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

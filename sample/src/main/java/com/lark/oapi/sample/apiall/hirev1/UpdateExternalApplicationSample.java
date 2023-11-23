@@ -30,7 +30,7 @@ public class UpdateExternalApplicationSample {
                 .build();
 
         // 发起请求
-        UpdateExternalApplicationResp resp = client.hire().externalApplication().update(req);
+        UpdateExternalApplicationResp resp = client.hire().v1().externalApplication().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class ListTabsChatTabSample {
                 .build();
 
         // 发起请求
-        ListTabsChatTabResp resp = client.im().chatTab().listTabs(req);
+        ListTabsChatTabResp resp = client.im().v1().chatTab().listTabs(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class DeleteMailgroupMemberSample {
                 .build();
 
         // 发起请求
-        DeleteMailgroupMemberResp resp = client.mail().mailgroupMember().delete(req);
+        DeleteMailgroupMemberResp resp = client.mail().v1().mailgroupMember().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

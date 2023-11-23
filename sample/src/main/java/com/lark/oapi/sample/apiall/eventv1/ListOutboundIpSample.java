@@ -19,7 +19,7 @@ public class ListOutboundIpSample {
                 .build();
 
         // 发起请求
-        ListOutboundIpResp resp = client.event().outboundIp().list(req);
+        ListOutboundIpResp resp = client.event().v1().outboundIp().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

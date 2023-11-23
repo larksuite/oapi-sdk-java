@@ -25,7 +25,7 @@ public class CreateMessageSample {
                 .build();
 
         // 发起请求
-        CreateMessageResp resp = client.im().message().create(req);
+        CreateMessageResp resp = client.im().v1().message().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

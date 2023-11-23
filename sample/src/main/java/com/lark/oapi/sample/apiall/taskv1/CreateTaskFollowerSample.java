@@ -24,7 +24,7 @@ public class CreateTaskFollowerSample {
                 .build();
 
         // 发起请求
-        CreateTaskFollowerResp resp = client.task().taskFollower().create(req);
+        CreateTaskFollowerResp resp = client.task().v1().taskFollower().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

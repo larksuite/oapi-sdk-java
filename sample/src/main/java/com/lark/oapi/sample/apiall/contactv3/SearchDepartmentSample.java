@@ -25,7 +25,7 @@ public class SearchDepartmentSample {
                 .build();
 
         // 发起请求
-        SearchDepartmentResp resp = client.contact().department().search(req);
+        SearchDepartmentResp resp = client.contact().v3().department().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

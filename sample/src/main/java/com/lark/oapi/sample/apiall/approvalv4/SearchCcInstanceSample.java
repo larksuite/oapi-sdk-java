@@ -33,7 +33,7 @@ public class SearchCcInstanceSample {
                 .build();
 
         // 发起请求
-        SearchCcInstanceResp resp = client.approval().instance().searchCc(req);
+        SearchCcInstanceResp resp = client.approval().v4().instance().searchCc(req);
 
         // 处理服务端错误
         if (!resp.success()) {

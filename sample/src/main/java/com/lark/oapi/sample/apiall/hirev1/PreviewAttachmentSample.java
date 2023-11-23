@@ -18,7 +18,7 @@ public class PreviewAttachmentSample {
                 .build();
 
         // 发起请求
-        PreviewAttachmentResp resp = client.hire().attachment().preview(req);
+        PreviewAttachmentResp resp = client.hire().v1().attachment().preview(req);
 
         // 处理服务端错误
         if (!resp.success()) {

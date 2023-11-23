@@ -20,7 +20,7 @@ public class ListUserSample {
                 .build();
 
         // 发起请求
-        ListUserResp resp = client.acs().user().list(req);
+        ListUserResp resp = client.acs().v1().user().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class ListBadgeSample {
                 .build();
 
         // 发起请求
-        ListBadgeResp resp = client.admin().badge().list(req);
+        ListBadgeResp resp = client.admin().v1().badge().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

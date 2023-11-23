@@ -22,7 +22,7 @@ public class QueryOffboardingSample {
                 .build();
 
         // 发起请求
-        QueryOffboardingResp resp = client.corehr().offboarding().query(req);
+        QueryOffboardingResp resp = client.corehr().v1().offboarding().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

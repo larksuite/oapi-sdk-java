@@ -25,7 +25,7 @@ public class UpdateMailgroupSample {
                 .build();
 
         // 发起请求
-        UpdateMailgroupResp resp = client.mail().mailgroup().update(req);
+        UpdateMailgroupResp resp = client.mail().v1().mailgroup().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

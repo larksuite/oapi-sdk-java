@@ -21,7 +21,7 @@ public class PatchSchemaSample {
                 .build();
 
         // 发起请求
-        PatchSchemaResp resp = client.search().schema().patch(req);
+        PatchSchemaResp resp = client.search().v2().schema().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

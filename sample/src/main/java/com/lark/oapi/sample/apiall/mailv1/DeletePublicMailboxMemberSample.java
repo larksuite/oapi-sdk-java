@@ -19,7 +19,7 @@ public class DeletePublicMailboxMemberSample {
                 .build();
 
         // 发起请求
-        DeletePublicMailboxMemberResp resp = client.mail().publicMailboxMember().delete(req);
+        DeletePublicMailboxMemberResp resp = client.mail().v1().publicMailboxMember().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

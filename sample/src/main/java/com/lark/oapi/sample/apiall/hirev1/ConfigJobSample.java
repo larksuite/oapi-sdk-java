@@ -19,7 +19,7 @@ public class ConfigJobSample {
                 .build();
 
         // 发起请求
-        ConfigJobResp resp = client.hire().job().config(req);
+        ConfigJobResp resp = client.hire().v1().job().config(req);
 
         // 处理服务端错误
         if (!resp.success()) {

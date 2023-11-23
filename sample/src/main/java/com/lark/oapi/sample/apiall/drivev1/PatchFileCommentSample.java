@@ -24,7 +24,7 @@ public class PatchFileCommentSample {
                 .build();
 
         // 发起请求
-        PatchFileCommentResp resp = client.drive().fileComment().patch(req);
+        PatchFileCommentResp resp = client.drive().v1().fileComment().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class CreatePublicMailboxAliasSample {
                 .build();
 
         // 发起请求
-        CreatePublicMailboxAliasResp resp = client.mail().publicMailboxAlias().create(req);
+        CreatePublicMailboxAliasResp resp = client.mail().v1().publicMailboxAlias().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

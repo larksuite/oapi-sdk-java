@@ -23,7 +23,7 @@ public class ListAlertSample {
                 .build();
 
         // 发起请求
-        ListAlertResp resp = client.vc().alert().list(req);
+        ListAlertResp resp = client.vc().v1().alert().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

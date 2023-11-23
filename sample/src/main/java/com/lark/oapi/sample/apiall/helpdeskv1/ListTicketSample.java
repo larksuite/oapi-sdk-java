@@ -34,7 +34,7 @@ public class ListTicketSample {
                 .build();
 
         // 发起请求
-        ListTicketResp resp = client.helpdesk().ticket().list(req);
+        ListTicketResp resp = client.helpdesk().v1().ticket().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

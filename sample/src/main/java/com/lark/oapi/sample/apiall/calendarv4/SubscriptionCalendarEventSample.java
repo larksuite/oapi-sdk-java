@@ -18,7 +18,7 @@ public class SubscriptionCalendarEventSample {
                 .build();
 
         // 发起请求
-        SubscriptionCalendarEventResp resp = client.calendar().calendarEvent().subscription(req);
+        SubscriptionCalendarEventResp resp = client.calendar().v4().calendarEvent().subscription(req);
 
         // 处理服务端错误
         if (!resp.success()) {

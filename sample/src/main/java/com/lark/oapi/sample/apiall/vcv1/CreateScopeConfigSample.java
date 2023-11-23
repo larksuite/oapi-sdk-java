@@ -25,7 +25,7 @@ public class CreateScopeConfigSample {
                 .build();
 
         // 发起请求
-        CreateScopeConfigResp resp = client.vc().scopeConfig().create(req);
+        CreateScopeConfigResp resp = client.vc().v1().scopeConfig().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

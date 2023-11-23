@@ -22,7 +22,7 @@ public class UnbindDepartmentChatDepartmentSample {
                 .build();
 
         // 发起请求
-        UnbindDepartmentChatDepartmentResp resp = client.contact().department().unbindDepartmentChat(req);
+        UnbindDepartmentChatDepartmentResp resp = client.contact().v3().department().unbindDepartmentChat(req);
 
         // 处理服务端错误
         if (!resp.success()) {

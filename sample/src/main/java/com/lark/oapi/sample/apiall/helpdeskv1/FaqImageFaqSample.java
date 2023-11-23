@@ -19,7 +19,7 @@ public class FaqImageFaqSample {
                 .build();
 
         // 发起请求
-        FaqImageFaqResp resp = client.helpdesk().faq().faqImage(req);
+        FaqImageFaqResp resp = client.helpdesk().v1().faq().faqImage(req);
 
         // 处理服务端错误
         if (!resp.success()) {

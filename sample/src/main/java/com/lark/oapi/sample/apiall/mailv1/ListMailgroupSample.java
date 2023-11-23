@@ -21,7 +21,7 @@ public class ListMailgroupSample {
                 .build();
 
         // 发起请求
-        ListMailgroupResp resp = client.mail().mailgroup().list(req);
+        ListMailgroupResp resp = client.mail().v1().mailgroup().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

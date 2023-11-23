@@ -19,7 +19,7 @@ public class GetExternalApprovalSample {
                 .build();
 
         // 发起请求
-        GetExternalApprovalResp resp = client.approval().externalApproval().get(req);
+        GetExternalApprovalResp resp = client.approval().v4().externalApproval().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -37,7 +37,7 @@ public class CreateChatSample {
                 .build();
 
         // 发起请求
-        CreateChatResp resp = client.im().chat().create(req);
+        CreateChatResp resp = client.im().v1().chat().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

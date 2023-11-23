@@ -18,7 +18,7 @@ public class GetExportSample {
                 .build();
 
         // 发起请求
-        GetExportResp resp = client.vc().export().get(req);
+        GetExportResp resp = client.vc().v1().export().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class CopyAppDashboardSample {
                 .build();
 
         // 发起请求
-        CopyAppDashboardResp resp = client.bitable().appDashboard().copy(req);
+        CopyAppDashboardResp resp = client.bitable().v1().appDashboard().copy(req);
 
         // 处理服务端错误
         if (!resp.success()) {

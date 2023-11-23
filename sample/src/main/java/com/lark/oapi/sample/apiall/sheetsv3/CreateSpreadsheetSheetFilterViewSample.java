@@ -25,7 +25,7 @@ public class CreateSpreadsheetSheetFilterViewSample {
                 .build();
 
         // 发起请求
-        CreateSpreadsheetSheetFilterViewResp resp = client.sheets().spreadsheetSheetFilterView().create(req);
+        CreateSpreadsheetSheetFilterViewResp resp = client.sheets().v3().spreadsheetSheetFilterView().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

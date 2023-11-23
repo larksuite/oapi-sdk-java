@@ -19,7 +19,7 @@ public class GetNodeSpaceSample {
                 .build();
 
         // 发起请求
-        GetNodeSpaceResp resp = client.wiki().space().getNode(req);
+        GetNodeSpaceResp resp = client.wiki().v2().space().getNode(req);
 
         // 处理服务端错误
         if (!resp.success()) {

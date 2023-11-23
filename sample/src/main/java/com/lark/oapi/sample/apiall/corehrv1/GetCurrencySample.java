@@ -18,7 +18,7 @@ public class GetCurrencySample {
                 .build();
 
         // 发起请求
-        GetCurrencyResp resp = client.corehr().currency().get(req);
+        GetCurrencyResp resp = client.corehr().v1().currency().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

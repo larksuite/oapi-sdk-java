@@ -23,7 +23,7 @@ public class CreateUnitSample {
                 .build();
 
         // 发起请求
-        CreateUnitResp resp = client.contact().unit().create(req);
+        CreateUnitResp resp = client.contact().v3().unit().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

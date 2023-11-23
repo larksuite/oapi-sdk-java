@@ -24,7 +24,7 @@ public class CreateApplicationSample {
                 .build();
 
         // 发起请求
-        CreateApplicationResp resp = client.hire().application().create(req);
+        CreateApplicationResp resp = client.hire().v1().application().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

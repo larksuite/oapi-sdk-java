@@ -23,7 +23,7 @@ public class ListFileSample {
                 .build();
 
         // 发起请求
-        ListFileResp resp = client.drive().file().list(req);
+        ListFileResp resp = client.drive().v1().file().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

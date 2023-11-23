@@ -18,7 +18,7 @@ public class UnsubscriptionCalendarEventSample {
                 .build();
 
         // 发起请求
-        UnsubscriptionCalendarEventResp resp = client.calendar().calendarEvent().unsubscription(req);
+        UnsubscriptionCalendarEventResp resp = client.calendar().v4().calendarEvent().unsubscription(req);
 
         // 处理服务端错误
         if (!resp.success()) {

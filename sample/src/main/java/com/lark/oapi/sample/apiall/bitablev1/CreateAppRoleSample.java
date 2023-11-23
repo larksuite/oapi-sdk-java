@@ -22,7 +22,7 @@ public class CreateAppRoleSample {
                 .build();
 
         // 发起请求
-        CreateAppRoleResp resp = client.bitable().appRole().create(req);
+        CreateAppRoleResp resp = client.bitable().v1().appRole().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

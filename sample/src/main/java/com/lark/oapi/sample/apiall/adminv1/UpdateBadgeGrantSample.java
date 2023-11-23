@@ -33,7 +33,7 @@ public class UpdateBadgeGrantSample {
                 .build();
 
         // 发起请求
-        UpdateBadgeGrantResp resp = client.admin().badgeGrant().update(req);
+        UpdateBadgeGrantResp resp = client.admin().v1().badgeGrant().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

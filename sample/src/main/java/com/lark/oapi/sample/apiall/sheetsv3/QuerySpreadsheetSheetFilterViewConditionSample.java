@@ -20,7 +20,7 @@ public class QuerySpreadsheetSheetFilterViewConditionSample {
                 .build();
 
         // 发起请求
-        QuerySpreadsheetSheetFilterViewConditionResp resp = client.sheets().spreadsheetSheetFilterViewCondition().query(req);
+        QuerySpreadsheetSheetFilterViewConditionResp resp = client.sheets().v3().spreadsheetSheetFilterViewCondition().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class ResurrectUserSample {
                 .build();
 
         // 发起请求
-        ResurrectUserResp resp = client.contact().user().resurrect(req);
+        ResurrectUserResp resp = client.contact().v3().user().resurrect(req);
 
         // 处理服务端错误
         if (!resp.success()) {

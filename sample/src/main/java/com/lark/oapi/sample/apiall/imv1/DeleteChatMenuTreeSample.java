@@ -22,7 +22,7 @@ public class DeleteChatMenuTreeSample {
                 .build();
 
         // 发起请求
-        DeleteChatMenuTreeResp resp = client.im().chatMenuTree().delete(req);
+        DeleteChatMenuTreeResp resp = client.im().v1().chatMenuTree().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

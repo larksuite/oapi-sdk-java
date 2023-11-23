@@ -31,7 +31,7 @@ public class CreateJobChangeSample {
                 .build();
 
         // 发起请求
-        CreateJobChangeResp resp = client.corehr().jobChange().create(req);
+        CreateJobChangeResp resp = client.corehr().v1().jobChange().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

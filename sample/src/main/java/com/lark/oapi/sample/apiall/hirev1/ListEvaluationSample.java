@@ -23,7 +23,7 @@ public class ListEvaluationSample {
                 .build();
 
         // 发起请求
-        ListEvaluationResp resp = client.hire().evaluation().list(req);
+        ListEvaluationResp resp = client.hire().v1().evaluation().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

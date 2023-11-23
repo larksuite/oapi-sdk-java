@@ -24,7 +24,7 @@ public class RecognizeTwMainlandTravelPermitSample {
                 .build();
 
         // 发起请求
-        RecognizeTwMainlandTravelPermitResp resp = client.documentAi().twMainlandTravelPermit().recognize(req);
+        RecognizeTwMainlandTravelPermitResp resp = client.documentAi().v1().twMainlandTravelPermit().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

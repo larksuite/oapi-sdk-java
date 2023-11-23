@@ -94,6 +94,12 @@ public class UserFlow {
      */
     @SerializedName("check_result")
     private String checkResult;
+    /**
+     * 用户导入的外部打卡记录ID
+     * <p> 示例值：record_123
+     */
+    @SerializedName("external_id")
+    private String externalId;
 
     // builder 开始
     public UserFlow() {
@@ -165,6 +171,11 @@ public class UserFlow {
          * <p> 示例值：Invalid
          */
         this.checkResult = builder.checkResult;
+        /**
+         * 用户导入的外部打卡记录ID
+         * <p> 示例值：record_123
+         */
+        this.externalId = builder.externalId;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +286,14 @@ public class UserFlow {
         this.checkResult = checkResult;
     }
 
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
     public static class Builder {
         /**
          * 用户 ID
@@ -341,6 +360,11 @@ public class UserFlow {
          * <p> 示例值：Invalid
          */
         private String checkResult;
+        /**
+         * 用户导入的外部打卡记录ID
+         * <p> 示例值：record_123
+         */
+        private String externalId;
 
         /**
          * 用户 ID
@@ -531,6 +555,19 @@ public class UserFlow {
          */
         public Builder checkResult(com.lark.oapi.service.attendance.v1.enums.UserFlowCheckResultEnum checkResult) {
             this.checkResult = checkResult.getValue();
+            return this;
+        }
+
+
+        /**
+         * 用户导入的外部打卡记录ID
+         * <p> 示例值：record_123
+         *
+         * @param externalId
+         * @return
+         */
+        public Builder externalId(String externalId) {
+            this.externalId = externalId;
             return this;
         }
 

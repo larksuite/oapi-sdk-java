@@ -21,7 +21,7 @@ public class GetChatModerationSample {
                 .build();
 
         // 发起请求
-        GetChatModerationResp resp = client.im().chatModeration().get(req);
+        GetChatModerationResp resp = client.im().v1().chatModeration().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

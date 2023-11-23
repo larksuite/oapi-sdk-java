@@ -18,7 +18,7 @@ public class GetBadgeSample {
                 .build();
 
         // 发起请求
-        GetBadgeResp resp = client.admin().badge().get(req);
+        GetBadgeResp resp = client.admin().v1().badge().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

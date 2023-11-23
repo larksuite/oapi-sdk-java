@@ -23,7 +23,7 @@ public class ProcessApprovalInfoSample {
                 .build();
 
         // 发起请求
-        ProcessApprovalInfoResp resp = client.attendance().approvalInfo().process(req);
+        ProcessApprovalInfoResp resp = client.attendance().v1().approvalInfo().process(req);
 
         // 处理服务端错误
         if (!resp.success()) {

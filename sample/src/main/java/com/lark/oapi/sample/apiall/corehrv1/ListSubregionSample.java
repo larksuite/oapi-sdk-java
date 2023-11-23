@@ -20,7 +20,7 @@ public class ListSubregionSample {
                 .build();
 
         // 发起请求
-        ListSubregionResp resp = client.corehr().subregion().list(req);
+        ListSubregionResp resp = client.corehr().v1().subregion().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

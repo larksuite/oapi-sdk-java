@@ -24,7 +24,7 @@ public class BatchCreateAppRoleMemberSample {
                 .build();
 
         // 发起请求
-        BatchCreateAppRoleMemberResp resp = client.bitable().appRoleMember().batchCreate(req);
+        BatchCreateAppRoleMemberResp resp = client.bitable().v1().appRoleMember().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

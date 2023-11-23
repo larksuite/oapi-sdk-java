@@ -22,7 +22,7 @@ public class StartMeetingRecordingSample {
                 .build();
 
         // 发起请求
-        StartMeetingRecordingResp resp = client.vc().meetingRecording().start(req);
+        StartMeetingRecordingResp resp = client.vc().v1().meetingRecording().start(req);
 
         // 处理服务端错误
         if (!resp.success()) {

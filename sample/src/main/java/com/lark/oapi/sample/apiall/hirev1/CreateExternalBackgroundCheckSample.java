@@ -25,7 +25,7 @@ public class CreateExternalBackgroundCheckSample {
                 .build();
 
         // 发起请求
-        CreateExternalBackgroundCheckResp resp = client.hire().externalBackgroundCheck().create(req);
+        CreateExternalBackgroundCheckResp resp = client.hire().v1().externalBackgroundCheck().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

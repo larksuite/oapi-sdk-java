@@ -19,7 +19,7 @@ public class ListGroupSample {
                 .build();
 
         // 发起请求
-        ListGroupResp resp = client.attendance().group().list(req);
+        ListGroupResp resp = client.attendance().v1().group().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

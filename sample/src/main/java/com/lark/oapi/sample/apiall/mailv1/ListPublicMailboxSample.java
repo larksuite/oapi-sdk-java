@@ -19,7 +19,7 @@ public class ListPublicMailboxSample {
                 .build();
 
         // 发起请求
-        ListPublicMailboxResp resp = client.mail().publicMailbox().list(req);
+        ListPublicMailboxResp resp = client.mail().v1().publicMailbox().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

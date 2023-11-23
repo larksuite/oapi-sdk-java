@@ -19,7 +19,7 @@ public class DeleteTaskReminderSample {
                 .build();
 
         // 发起请求
-        DeleteTaskReminderResp resp = client.task().taskReminder().delete(req);
+        DeleteTaskReminderResp resp = client.task().v1().taskReminder().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

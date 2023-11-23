@@ -22,7 +22,7 @@ public class QuerySessionSample {
                 .build();
 
         // 发起请求
-        QuerySessionResp resp = client.passport().session().query(req);
+        QuerySessionResp resp = client.passport().v1().session().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

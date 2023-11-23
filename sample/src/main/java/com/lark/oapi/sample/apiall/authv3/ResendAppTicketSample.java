@@ -22,7 +22,7 @@ public class ResendAppTicketSample {
                 .build();
 
         // 发起请求
-        ResendAppTicketResp resp = client.auth().appTicket().resend(req);
+        ResendAppTicketResp resp = client.auth().v3().appTicket().resend(req);
 
         // 处理服务端错误
         if (!resp.success()) {

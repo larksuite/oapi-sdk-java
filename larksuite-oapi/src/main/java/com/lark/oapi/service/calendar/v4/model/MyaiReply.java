@@ -46,6 +46,12 @@ public class MyaiReply {
      */
     @SerializedName("summary")
     private String summary;
+    /**
+     * 参与人实体列表
+     * <p> 示例值：
+     */
+    @SerializedName("participants")
+    private UserMeta[] participants;
 
     // builder 开始
     public MyaiReply() {
@@ -77,6 +83,11 @@ public class MyaiReply {
          * <p> 示例值：none
          */
         this.summary = builder.summary;
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         */
+        this.participants = builder.participants;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +134,14 @@ public class MyaiReply {
         this.summary = summary;
     }
 
+    public UserMeta[] getParticipants() {
+        return this.participants;
+    }
+
+    public void setParticipants(UserMeta[] participants) {
+        this.participants = participants;
+    }
+
     public static class Builder {
         /**
          * 返回给myai的自然语言描述
@@ -149,6 +168,11 @@ public class MyaiReply {
          * <p> 示例值：none
          */
         private String summary;
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         */
+        private UserMeta[] participants;
 
         /**
          * 返回给myai的自然语言描述
@@ -211,6 +235,19 @@ public class MyaiReply {
          */
         public Builder summary(String summary) {
             this.summary = summary;
+            return this;
+        }
+
+
+        /**
+         * 参与人实体列表
+         * <p> 示例值：
+         *
+         * @param participants
+         * @return
+         */
+        public Builder participants(UserMeta[] participants) {
+            this.participants = participants;
             return this;
         }
 

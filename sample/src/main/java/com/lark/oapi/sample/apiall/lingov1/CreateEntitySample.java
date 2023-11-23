@@ -27,7 +27,7 @@ public class CreateEntitySample {
                 .build();
 
         // 发起请求
-        CreateEntityResp resp = client.lingo().entity().create(req);
+        CreateEntityResp resp = client.lingo().v1().entity().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

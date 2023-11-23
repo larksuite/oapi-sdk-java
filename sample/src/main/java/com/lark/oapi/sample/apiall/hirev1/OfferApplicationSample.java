@@ -17,10 +17,13 @@ public class OfferApplicationSample {
                 .applicationId("6949805467799537964")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .build();
 
         // 发起请求
-        OfferApplicationResp resp = client.hire().application().offer(req);
+        OfferApplicationResp resp = client.hire().v1().application().offer(req);
 
         // 处理服务端错误
         if (!resp.success()) {

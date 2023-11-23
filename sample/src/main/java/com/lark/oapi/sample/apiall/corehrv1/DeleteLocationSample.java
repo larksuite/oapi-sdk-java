@@ -18,7 +18,7 @@ public class DeleteLocationSample {
                 .build();
 
         // 发起请求
-        DeleteLocationResp resp = client.corehr().location().delete(req);
+        DeleteLocationResp resp = client.corehr().v1().location().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

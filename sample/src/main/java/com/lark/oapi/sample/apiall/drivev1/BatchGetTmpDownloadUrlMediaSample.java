@@ -19,7 +19,7 @@ public class BatchGetTmpDownloadUrlMediaSample {
                 .build();
 
         // 发起请求
-        BatchGetTmpDownloadUrlMediaResp resp = client.drive().media().batchGetTmpDownloadUrl(req);
+        BatchGetTmpDownloadUrlMediaResp resp = client.drive().v1().media().batchGetTmpDownloadUrl(req);
 
         // 处理服务端错误
         if (!resp.success()) {

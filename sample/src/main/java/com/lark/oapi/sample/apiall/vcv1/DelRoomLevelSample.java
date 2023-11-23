@@ -22,7 +22,7 @@ public class DelRoomLevelSample {
                 .build();
 
         // 发起请求
-        DelRoomLevelResp resp = client.vc().roomLevel().del(req);
+        DelRoomLevelResp resp = client.vc().v1().roomLevel().del(req);
 
         // 处理服务端错误
         if (!resp.success()) {

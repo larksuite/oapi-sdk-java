@@ -22,7 +22,7 @@ public class BatchDeleteMailgroupMemberSample {
                 .build();
 
         // 发起请求
-        BatchDeleteMailgroupMemberResp resp = client.mail().mailgroupMember().batchDelete(req);
+        BatchDeleteMailgroupMemberResp resp = client.mail().v1().mailgroupMember().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class DeactivateReferralAccountSample {
                 .build();
 
         // 发起请求
-        DeactivateReferralAccountResp resp = client.hire().referralAccount().deactivate(req);
+        DeactivateReferralAccountResp resp = client.hire().v1().referralAccount().deactivate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

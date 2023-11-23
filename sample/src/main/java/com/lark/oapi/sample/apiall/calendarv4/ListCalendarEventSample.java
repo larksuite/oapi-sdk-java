@@ -21,10 +21,11 @@ public class ListCalendarEventSample {
                 .syncToken("ListCalendarsSyncToken_1632452910")
                 .startTime("1631777271")
                 .endTime("1631777271")
+                .userIdType("user_id")
                 .build();
 
         // 发起请求
-        ListCalendarEventResp resp = client.calendar().calendarEvent().list(req);
+        ListCalendarEventResp resp = client.calendar().v4().calendarEvent().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

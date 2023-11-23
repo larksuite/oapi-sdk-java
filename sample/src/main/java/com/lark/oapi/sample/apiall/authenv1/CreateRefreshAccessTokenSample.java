@@ -22,7 +22,7 @@ public class CreateRefreshAccessTokenSample {
                 .build();
 
         // 发起请求
-        CreateRefreshAccessTokenResp resp = client.authen().refreshAccessToken().create(req);
+        CreateRefreshAccessTokenResp resp = client.authen().v1().refreshAccessToken().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

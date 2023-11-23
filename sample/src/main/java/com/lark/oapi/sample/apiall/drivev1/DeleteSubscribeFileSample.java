@@ -19,7 +19,7 @@ public class DeleteSubscribeFileSample {
                 .build();
 
         // 发起请求
-        DeleteSubscribeFileResp resp = client.drive().file().deleteSubscribe(req);
+        DeleteSubscribeFileResp resp = client.drive().v1().file().deleteSubscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

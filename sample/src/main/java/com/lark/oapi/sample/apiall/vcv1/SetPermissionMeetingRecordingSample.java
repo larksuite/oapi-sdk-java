@@ -25,7 +25,7 @@ public class SetPermissionMeetingRecordingSample {
                 .build();
 
         // 发起请求
-        SetPermissionMeetingRecordingResp resp = client.vc().meetingRecording().setPermission(req);
+        SetPermissionMeetingRecordingResp resp = client.vc().v1().meetingRecording().setPermission(req);
 
         // 处理服务端错误
         if (!resp.success()) {

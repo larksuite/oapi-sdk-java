@@ -18,7 +18,7 @@ public class GetJobFamilySample {
                 .build();
 
         // 发起请求
-        GetJobFamilyResp resp = client.corehr().jobFamily().get(req);
+        GetJobFamilyResp resp = client.corehr().v1().jobFamily().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

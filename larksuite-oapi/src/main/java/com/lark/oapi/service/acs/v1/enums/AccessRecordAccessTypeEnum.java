@@ -17,7 +17,9 @@ package com.lark.oapi.service.acs.v1.enums;
  * 识别方式
  */
 public enum AccessRecordAccessTypeEnum {
-    FA("FA"), // 人脸识别方式
+    FACE("FA"), // 人脸识别方式
+    QRCODE("QRCode"), // 二维码识别方式
+    CARD("Card"), // 卡片识别方式
     ;
     private String value;
 

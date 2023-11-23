@@ -18,7 +18,7 @@ public class DeleteJobLevelSample {
                 .build();
 
         // 发起请求
-        DeleteJobLevelResp resp = client.corehr().jobLevel().delete(req);
+        DeleteJobLevelResp resp = client.corehr().v1().jobLevel().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

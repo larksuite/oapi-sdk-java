@@ -18,7 +18,7 @@ public class DeleteSchemaSample {
                 .build();
 
         // 发起请求
-        DeleteSchemaResp resp = client.search().schema().delete(req);
+        DeleteSchemaResp resp = client.search().v2().schema().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

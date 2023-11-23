@@ -21,7 +21,7 @@ public class ListRoomSample {
                 .build();
 
         // 发起请求
-        ListRoomResp resp = client.vc().room().list(req);
+        ListRoomResp resp = client.vc().v1().room().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

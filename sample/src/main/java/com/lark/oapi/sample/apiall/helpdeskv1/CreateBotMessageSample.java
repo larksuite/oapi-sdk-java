@@ -25,7 +25,7 @@ public class CreateBotMessageSample {
                 .build();
 
         // 发起请求
-        CreateBotMessageResp resp = client.helpdesk().botMessage().create(req);
+        CreateBotMessageResp resp = client.helpdesk().v1().botMessage().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

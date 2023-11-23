@@ -21,7 +21,7 @@ public class GetDocumentBlockSample {
                 .build();
 
         // 发起请求
-        GetDocumentBlockResp resp = client.docx().documentBlock().get(req);
+        GetDocumentBlockResp resp = client.docx().v1().documentBlock().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

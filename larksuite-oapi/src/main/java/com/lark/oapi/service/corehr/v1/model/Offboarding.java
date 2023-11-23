@@ -46,6 +46,12 @@ public class Offboarding {
      */
     @SerializedName("offboarding_checklist")
     private OffboardingChecklist offboardingChecklist;
+    /**
+     * 离职单据ID
+     * <p> 示例值：7298499290417251879
+     */
+    @SerializedName("offboarding_id")
+    private String offboardingId;
 
     // builder 开始
     public Offboarding() {
@@ -77,6 +83,11 @@ public class Offboarding {
          * <p> 示例值：
          */
         this.offboardingChecklist = builder.offboardingChecklist;
+        /**
+         * 离职单据ID
+         * <p> 示例值：7298499290417251879
+         */
+        this.offboardingId = builder.offboardingId;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +134,14 @@ public class Offboarding {
         this.offboardingChecklist = offboardingChecklist;
     }
 
+    public String getOffboardingId() {
+        return this.offboardingId;
+    }
+
+    public void setOffboardingId(String offboardingId) {
+        this.offboardingId = offboardingId;
+    }
+
     public static class Builder {
         /**
          * 离职发起类型，包括：
@@ -149,6 +168,11 @@ public class Offboarding {
          * <p> 示例值：
          */
         private OffboardingChecklist offboardingChecklist;
+        /**
+         * 离职单据ID
+         * <p> 示例值：7298499290417251879
+         */
+        private String offboardingId;
 
         /**
          * 离职发起类型，包括：
@@ -223,6 +247,19 @@ public class Offboarding {
          */
         public Builder offboardingChecklist(OffboardingChecklist offboardingChecklist) {
             this.offboardingChecklist = offboardingChecklist;
+            return this;
+        }
+
+
+        /**
+         * 离职单据ID
+         * <p> 示例值：7298499290417251879
+         *
+         * @param offboardingId
+         * @return
+         */
+        public Builder offboardingId(String offboardingId) {
+            this.offboardingId = offboardingId;
             return this;
         }
 

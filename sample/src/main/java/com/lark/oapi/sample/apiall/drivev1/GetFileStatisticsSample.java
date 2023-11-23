@@ -19,7 +19,7 @@ public class GetFileStatisticsSample {
                 .build();
 
         // 发起请求
-        GetFileStatisticsResp resp = client.drive().fileStatistics().get(req);
+        GetFileStatisticsResp resp = client.drive().v1().fileStatistics().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

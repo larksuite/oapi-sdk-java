@@ -18,7 +18,7 @@ public class GetRoomLevelSample {
                 .build();
 
         // 发起请求
-        GetRoomLevelResp resp = client.vc().roomLevel().get(req);
+        GetRoomLevelResp resp = client.vc().v1().roomLevel().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

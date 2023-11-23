@@ -22,7 +22,7 @@ public class CreateFolderFileSample {
                 .build();
 
         // 发起请求
-        CreateFolderFileResp resp = client.drive().file().createFolder(req);
+        CreateFolderFileResp resp = client.drive().v1().file().createFolder(req);
 
         // 处理服务端错误
         if (!resp.success()) {

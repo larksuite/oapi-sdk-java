@@ -19,7 +19,7 @@ public class GetByApplicationReferralSample {
                 .build();
 
         // 发起请求
-        GetByApplicationReferralResp resp = client.hire().referral().getByApplication(req);
+        GetByApplicationReferralResp resp = client.hire().v1().referral().getByApplication(req);
 
         // 处理服务端错误
         if (!resp.success()) {

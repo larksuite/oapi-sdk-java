@@ -25,7 +25,7 @@ public class BatchCreateMailgroupPermissionMemberSample {
                 .build();
 
         // 发起请求
-        BatchCreateMailgroupPermissionMemberResp resp = client.mail().mailgroupPermissionMember().batchCreate(req);
+        BatchCreateMailgroupPermissionMemberResp resp = client.mail().v1().mailgroupPermissionMember().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

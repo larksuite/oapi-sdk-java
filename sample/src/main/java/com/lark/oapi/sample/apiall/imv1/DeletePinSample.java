@@ -18,7 +18,7 @@ public class DeletePinSample {
                 .build();
 
         // 发起请求
-        DeletePinResp resp = client.im().pin().delete(req);
+        DeletePinResp resp = client.im().v1().pin().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

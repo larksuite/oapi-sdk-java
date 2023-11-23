@@ -25,7 +25,7 @@ public class CreateFileSubscriptionSample {
                 .build();
 
         // 发起请求
-        CreateFileSubscriptionResp resp = client.drive().fileSubscription().create(req);
+        CreateFileSubscriptionResp resp = client.drive().v1().fileSubscription().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

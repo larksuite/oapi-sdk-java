@@ -25,7 +25,7 @@ public class CreateMotoSample {
                 .build();
 
         // 发起请求
-        CreateMotoResp resp = client.grayTestOpenSg().moto().create(req);
+        CreateMotoResp resp = client.grayTestOpenSg().v1().moto().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

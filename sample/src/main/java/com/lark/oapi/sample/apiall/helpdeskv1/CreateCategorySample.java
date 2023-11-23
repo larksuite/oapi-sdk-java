@@ -23,7 +23,7 @@ public class CreateCategorySample {
                 .build();
 
         // 发起请求
-        CreateCategoryResp resp = client.helpdesk().category().create(req);
+        CreateCategoryResp resp = client.helpdesk().v1().category().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -45,6 +45,13 @@ public class ListOfferReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 此次调用中使用的「人员类型 ID」的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("employee_type_id_type")
+    private String employeeTypeIdType;
 
     // builder 开始
     public ListOfferReq() {
@@ -71,6 +78,11 @@ public class ListOfferReq {
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的「人员类型 ID」的类型
+         * <p> 示例值：
+         */
+        this.employeeTypeIdType = builder.employeeTypeIdType;
     }
 
     public static Builder newBuilder() {
@@ -109,11 +121,20 @@ public class ListOfferReq {
         this.userIdType = userIdType;
     }
 
+    public String getEmployeeTypeIdType() {
+        return this.employeeTypeIdType;
+    }
+
+    public void setEmployeeTypeIdType(String employeeTypeIdType) {
+        this.employeeTypeIdType = employeeTypeIdType;
+    }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private Integer pageSize; // 每页获取记录数量，最大100
         private String talentId; // 人才 ID
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private String employeeTypeIdType; // 此次调用中使用的「人员类型 ID」的类型
 
 
         /**
@@ -164,6 +185,19 @@ public class ListOfferReq {
          */
         public Builder userIdType(String userIdType) {
             this.userIdType = userIdType;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的「人员类型 ID」的类型
+         * <p> 示例值：
+         *
+         * @param employeeTypeIdType
+         * @return
+         */
+        public Builder employeeTypeIdType(String employeeTypeIdType) {
+            this.employeeTypeIdType = employeeTypeIdType;
             return this;
         }
 

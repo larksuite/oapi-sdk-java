@@ -20,7 +20,7 @@ public class DeleteSpreadsheetSheetFloatImageSample {
                 .build();
 
         // 发起请求
-        DeleteSpreadsheetSheetFloatImageResp resp = client.sheets().spreadsheetSheetFloatImage().delete(req);
+        DeleteSpreadsheetSheetFloatImageResp resp = client.sheets().v3().spreadsheetSheetFloatImage().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

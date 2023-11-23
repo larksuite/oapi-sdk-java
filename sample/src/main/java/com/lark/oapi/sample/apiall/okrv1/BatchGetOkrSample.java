@@ -20,7 +20,7 @@ public class BatchGetOkrSample {
                 .build();
 
         // 发起请求
-        BatchGetOkrResp resp = client.okr().okr().batchGet(req);
+        BatchGetOkrResp resp = client.okr().v1().okr().batchGet(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class DownloadMediaSample {
                 .build();
 
         // 发起请求
-        DownloadMediaResp resp = client.drive().media().download(req);
+        DownloadMediaResp resp = client.drive().v1().media().download(req);
 
         // 处理服务端错误
         if (!resp.success()) {

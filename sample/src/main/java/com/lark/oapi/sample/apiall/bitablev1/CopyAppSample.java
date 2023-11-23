@@ -25,7 +25,7 @@ public class CopyAppSample {
                 .build();
 
         // 发起请求
-        CopyAppResp resp = client.bitable().app().copy(req);
+        CopyAppResp resp = client.bitable().v1().app().copy(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -24,7 +24,7 @@ public class CreateSystemStatusSample {
                 .build();
 
         // 发起请求
-        CreateSystemStatusResp resp = client.personalSettings().systemStatus().create(req);
+        CreateSystemStatusResp resp = client.personalSettings().v1().systemStatus().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

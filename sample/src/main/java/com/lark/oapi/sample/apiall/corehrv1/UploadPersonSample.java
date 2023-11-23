@@ -25,7 +25,7 @@ public class UploadPersonSample {
                 .build();
 
         // 发起请求
-        UploadPersonResp resp = client.corehr().person().upload(req);
+        UploadPersonResp resp = client.corehr().v1().person().upload(req);
 
         // 处理服务端错误
         if (!resp.success()) {

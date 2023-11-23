@@ -16,6 +16,9 @@ public class PatchEmployeeSample {
                 .employeeId("123")
                 .userIdType("open_id")
                 .departmentIdType("people_admin_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .changeEmployeeStage(ChangeEmployeeStage.newBuilder()
                         .operation(1)
                         .conversionInfo(EmployeeConversionInfo.newBuilder().build())
@@ -24,7 +27,7 @@ public class PatchEmployeeSample {
                 .build();
 
         // 发起请求
-        PatchEmployeeResp resp = client.hire().employee().patch(req);
+        PatchEmployeeResp resp = client.hire().v1().employee().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

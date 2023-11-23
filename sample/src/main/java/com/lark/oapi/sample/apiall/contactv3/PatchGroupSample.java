@@ -25,7 +25,7 @@ public class PatchGroupSample {
                 .build();
 
         // 发起请求
-        PatchGroupResp resp = client.contact().group().patch(req);
+        PatchGroupResp resp = client.contact().v3().group().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

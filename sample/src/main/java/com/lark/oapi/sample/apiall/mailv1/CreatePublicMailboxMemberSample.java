@@ -24,7 +24,7 @@ public class CreatePublicMailboxMemberSample {
                 .build();
 
         // 发起请求
-        CreatePublicMailboxMemberResp resp = client.mail().publicMailboxMember().create(req);
+        CreatePublicMailboxMemberResp resp = client.mail().v1().publicMailboxMember().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

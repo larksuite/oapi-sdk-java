@@ -26,7 +26,7 @@ public class CcInstanceSample {
                 .build();
 
         // 发起请求
-        CcInstanceResp resp = client.approval().instance().cc(req);
+        CcInstanceResp resp = client.approval().v4().instance().cc(req);
 
         // 处理服务端错误
         if (!resp.success()) {

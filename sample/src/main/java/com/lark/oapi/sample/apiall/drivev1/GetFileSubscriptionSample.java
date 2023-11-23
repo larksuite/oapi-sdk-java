@@ -23,7 +23,7 @@ public class GetFileSubscriptionSample {
                 .build();
 
         // 发起请求
-        GetFileSubscriptionResp resp = client.drive().fileSubscription().get(req);
+        GetFileSubscriptionResp resp = client.drive().v1().fileSubscription().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

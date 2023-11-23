@@ -24,7 +24,7 @@ public class MoveSpaceNodeSample {
                 .build();
 
         // 发起请求
-        MoveSpaceNodeResp resp = client.wiki().spaceNode().move(req);
+        MoveSpaceNodeResp resp = client.wiki().v2().spaceNode().move(req);
 
         // 处理服务端错误
         if (!resp.success()) {

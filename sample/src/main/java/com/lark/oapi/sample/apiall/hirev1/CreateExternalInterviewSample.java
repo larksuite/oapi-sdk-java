@@ -23,7 +23,7 @@ public class CreateExternalInterviewSample {
                 .build();
 
         // 发起请求
-        CreateExternalInterviewResp resp = client.hire().externalInterview().create(req);
+        CreateExternalInterviewResp resp = client.hire().v1().externalInterview().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

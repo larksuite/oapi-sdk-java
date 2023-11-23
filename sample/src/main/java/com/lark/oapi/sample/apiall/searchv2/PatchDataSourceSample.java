@@ -27,7 +27,7 @@ public class PatchDataSourceSample {
                 .build();
 
         // 发起请求
-        PatchDataSourceResp resp = client.search().dataSource().patch(req);
+        PatchDataSourceResp resp = client.search().v2().dataSource().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

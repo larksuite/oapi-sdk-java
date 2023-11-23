@@ -23,6 +23,7 @@ public enum MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum {
     OBJTYPEMINDNOTE("mindnote"), // mindnote（思维导图）
     OBJTYPEDOCX("docx"), // docx
     OBJTYPEFILE("file"), // file (文件)
+    OBJTYPESLIDES("slides"), // slides（幻灯片）
     ;
     private String value;
 

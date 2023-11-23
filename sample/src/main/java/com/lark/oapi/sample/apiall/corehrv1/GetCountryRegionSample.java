@@ -18,7 +18,7 @@ public class GetCountryRegionSample {
                 .build();
 
         // 发起请求
-        GetCountryRegionResp resp = client.corehr().countryRegion().get(req);
+        GetCountryRegionResp resp = client.corehr().v1().countryRegion().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

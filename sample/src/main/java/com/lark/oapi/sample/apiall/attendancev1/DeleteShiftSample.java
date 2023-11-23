@@ -18,7 +18,7 @@ public class DeleteShiftSample {
                 .build();
 
         // 发起请求
-        DeleteShiftResp resp = client.attendance().shift().delete(req);
+        DeleteShiftResp resp = client.attendance().v1().shift().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

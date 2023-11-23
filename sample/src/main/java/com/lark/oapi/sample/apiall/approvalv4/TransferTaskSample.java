@@ -27,7 +27,7 @@ public class TransferTaskSample {
                 .build();
 
         // 发起请求
-        TransferTaskResp resp = client.approval().task().transfer(req);
+        TransferTaskResp resp = client.approval().v4().task().transfer(req);
 
         // 处理服务端错误
         if (!resp.success()) {

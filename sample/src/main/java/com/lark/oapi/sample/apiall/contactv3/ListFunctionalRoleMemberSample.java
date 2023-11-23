@@ -22,7 +22,7 @@ public class ListFunctionalRoleMemberSample {
                 .build();
 
         // 发起请求
-        ListFunctionalRoleMemberResp resp = client.contact().functionalRoleMember().list(req);
+        ListFunctionalRoleMemberResp resp = client.contact().v3().functionalRoleMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

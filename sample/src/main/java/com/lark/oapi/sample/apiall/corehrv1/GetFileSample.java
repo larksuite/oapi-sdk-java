@@ -18,7 +18,7 @@ public class GetFileSample {
                 .build();
 
         // 发起请求
-        GetFileResp resp = client.corehr().file().get(req);
+        GetFileResp resp = client.corehr().v1().file().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

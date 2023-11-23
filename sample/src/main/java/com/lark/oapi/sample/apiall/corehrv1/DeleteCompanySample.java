@@ -18,7 +18,7 @@ public class DeleteCompanySample {
                 .build();
 
         // 发起请求
-        DeleteCompanyResp resp = client.corehr().company().delete(req);
+        DeleteCompanyResp resp = client.corehr().v1().company().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

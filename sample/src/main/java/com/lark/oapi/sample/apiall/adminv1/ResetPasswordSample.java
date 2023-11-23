@@ -24,7 +24,7 @@ public class ResetPasswordSample {
                 .build();
 
         // 发起请求
-        ResetPasswordResp resp = client.admin().password().reset(req);
+        ResetPasswordResp resp = client.admin().v1().password().reset(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -61,6 +61,13 @@ public class ListCalendarEventReq {
     @SerializedName("end_time")
     private String endTime;
     /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_id_type")
+    private String userIdType;
+    /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
@@ -103,6 +110,11 @@ public class ListCalendarEventReq {
          * <p> 示例值：1631777271
          */
         this.endTime = builder.endTime;
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         */
+        this.userIdType = builder.userIdType;
         /**
          * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
          * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -162,6 +174,14 @@ public class ListCalendarEventReq {
         this.endTime = endTime;
     }
 
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
     public String getCalendarId() {
         return this.calendarId;
     }
@@ -177,6 +197,7 @@ public class ListCalendarEventReq {
         private String syncToken; // 上次请求Response返回的增量同步标记，分页请求未结束时为空
         private String startTime; // 日程开始Unix时间戳，单位为秒
         private String endTime; // 日程结束Unix时间戳，单位为秒
+        private String userIdType; // 此次调用中使用的用户ID的类型
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
 
         /**
@@ -248,6 +269,30 @@ public class ListCalendarEventReq {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的用户ID的类型
+         * <p> 示例值：
+         *
+         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
             return this;
         }
 

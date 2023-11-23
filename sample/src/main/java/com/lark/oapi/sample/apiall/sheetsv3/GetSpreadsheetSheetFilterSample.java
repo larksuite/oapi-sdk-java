@@ -19,7 +19,7 @@ public class GetSpreadsheetSheetFilterSample {
                 .build();
 
         // 发起请求
-        GetSpreadsheetSheetFilterResp resp = client.sheets().spreadsheetSheetFilter().get(req);
+        GetSpreadsheetSheetFilterResp resp = client.sheets().v3().spreadsheetSheetFilter().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

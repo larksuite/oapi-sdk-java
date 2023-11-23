@@ -19,7 +19,7 @@ public class ListWorkingHoursTypeSample {
                 .build();
 
         // 发起请求
-        ListWorkingHoursTypeResp resp = client.corehr().workingHoursType().list(req);
+        ListWorkingHoursTypeResp resp = client.corehr().v1().workingHoursType().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

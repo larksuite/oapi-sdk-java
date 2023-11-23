@@ -21,7 +21,7 @@ public class GetBadgeGrantSample {
                 .build();
 
         // 发起请求
-        GetBadgeGrantResp resp = client.admin().badgeGrant().get(req);
+        GetBadgeGrantResp resp = client.admin().v1().badgeGrant().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

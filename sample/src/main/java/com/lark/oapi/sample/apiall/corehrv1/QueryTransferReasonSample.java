@@ -19,7 +19,7 @@ public class QueryTransferReasonSample {
                 .build();
 
         // 发起请求
-        QueryTransferReasonResp resp = client.corehr().transferReason().query(req);
+        QueryTransferReasonResp resp = client.corehr().v1().transferReason().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

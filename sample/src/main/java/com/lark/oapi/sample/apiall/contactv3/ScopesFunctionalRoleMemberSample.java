@@ -25,7 +25,7 @@ public class ScopesFunctionalRoleMemberSample {
                 .build();
 
         // 发起请求
-        ScopesFunctionalRoleMemberResp resp = client.contact().functionalRoleMember().scopes(req);
+        ScopesFunctionalRoleMemberResp resp = client.contact().v3().functionalRoleMember().scopes(req);
 
         // 处理服务端错误
         if (!resp.success()) {

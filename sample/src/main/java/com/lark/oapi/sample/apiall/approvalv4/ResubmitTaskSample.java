@@ -27,7 +27,7 @@ public class ResubmitTaskSample {
                 .build();
 
         // 发起请求
-        ResubmitTaskResp resp = client.approval().task().resubmit(req);
+        ResubmitTaskResp resp = client.approval().v4().task().resubmit(req);
 
         // 处理服务端错误
         if (!resp.success()) {

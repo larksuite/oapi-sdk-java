@@ -23,7 +23,7 @@ public class CreateEcoExamPaperSample {
                 .build();
 
         // 发起请求
-        CreateEcoExamPaperResp resp = client.hire().ecoExamPaper().create(req);
+        CreateEcoExamPaperResp resp = client.hire().v1().ecoExamPaper().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class ListDataSourceSample {
                 .build();
 
         // 发起请求
-        ListDataSourceResp resp = client.search().dataSource().list(req);
+        ListDataSourceResp resp = client.search().v2().dataSource().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

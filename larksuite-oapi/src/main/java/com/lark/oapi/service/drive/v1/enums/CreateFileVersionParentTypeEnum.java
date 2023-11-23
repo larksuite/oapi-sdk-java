@@ -18,6 +18,7 @@ package com.lark.oapi.service.drive.v1.enums;
  */
 public enum CreateFileVersionParentTypeEnum {
     OBJTYPEDOCX("docx"), // 新版文档
+    OBJTYPESHEET("sheet"), // 电子表格
     ;
     private String value;
 

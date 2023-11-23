@@ -18,7 +18,7 @@ public class DeleteDataSourceSample {
                 .build();
 
         // 发起请求
-        DeleteDataSourceResp resp = client.search().dataSource().delete(req);
+        DeleteDataSourceResp resp = client.search().v2().dataSource().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

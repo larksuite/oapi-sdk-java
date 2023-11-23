@@ -31,7 +31,7 @@ public class PatchDepartmentSample {
                 .build();
 
         // 发起请求
-        PatchDepartmentResp resp = client.contact().department().patch(req);
+        PatchDepartmentResp resp = client.contact().v3().department().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

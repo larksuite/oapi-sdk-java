@@ -18,7 +18,7 @@ public class DeleteSystemStatusSample {
                 .build();
 
         // 发起请求
-        DeleteSystemStatusResp resp = client.personalSettings().systemStatus().delete(req);
+        DeleteSystemStatusResp resp = client.personalSettings().v1().systemStatus().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

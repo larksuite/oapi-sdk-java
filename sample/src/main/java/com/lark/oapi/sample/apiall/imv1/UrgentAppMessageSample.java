@@ -23,7 +23,7 @@ public class UrgentAppMessageSample {
                 .build();
 
         // 发起请求
-        UrgentAppMessageResp resp = client.im().message().urgentApp(req);
+        UrgentAppMessageResp resp = client.im().v1().message().urgentApp(req);
 
         // 处理服务端错误
         if (!resp.success()) {

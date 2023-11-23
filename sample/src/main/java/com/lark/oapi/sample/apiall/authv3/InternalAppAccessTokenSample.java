@@ -22,7 +22,7 @@ public class InternalAppAccessTokenSample {
                 .build();
 
         // 发起请求
-        InternalAppAccessTokenResp resp = client.auth().appAccessToken().internal(req);
+        InternalAppAccessTokenResp resp = client.auth().v3().appAccessToken().internal(req);
 
         // 处理服务端错误
         if (!resp.success()) {

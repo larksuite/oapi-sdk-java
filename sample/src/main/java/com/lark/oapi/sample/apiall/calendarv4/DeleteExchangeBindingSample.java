@@ -18,7 +18,7 @@ public class DeleteExchangeBindingSample {
                 .build();
 
         // 发起请求
-        DeleteExchangeBindingResp resp = client.calendar().exchangeBinding().delete(req);
+        DeleteExchangeBindingResp resp = client.calendar().v4().exchangeBinding().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

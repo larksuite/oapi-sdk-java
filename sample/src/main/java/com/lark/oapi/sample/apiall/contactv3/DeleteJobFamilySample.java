@@ -18,7 +18,7 @@ public class DeleteJobFamilySample {
                 .build();
 
         // 发起请求
-        DeleteJobFamilyResp resp = client.contact().jobFamily().delete(req);
+        DeleteJobFamilyResp resp = client.contact().v3().jobFamily().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class ListAgentScheduleSample {
                 .build();
 
         // 发起请求
-        ListAgentScheduleResp resp = client.helpdesk().agentSchedule().list(req);
+        ListAgentScheduleResp resp = client.helpdesk().v1().agentSchedule().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

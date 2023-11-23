@@ -20,7 +20,7 @@ public class GetAppTableFormSample {
                 .build();
 
         // 发起请求
-        GetAppTableFormResp resp = client.bitable().appTableForm().get(req);
+        GetAppTableFormResp resp = client.bitable().v1().appTableForm().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

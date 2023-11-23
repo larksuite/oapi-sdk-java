@@ -25,7 +25,7 @@ public class UpdateChatModerationSample {
                 .build();
 
         // 发起请求
-        UpdateChatModerationResp resp = client.im().chatModeration().update(req);
+        UpdateChatModerationResp resp = client.im().v1().chatModeration().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

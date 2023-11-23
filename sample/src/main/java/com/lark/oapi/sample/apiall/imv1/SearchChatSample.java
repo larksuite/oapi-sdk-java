@@ -21,7 +21,7 @@ public class SearchChatSample {
                 .build();
 
         // 发起请求
-        SearchChatResp resp = client.im().chat().search(req);
+        SearchChatResp resp = client.im().v1().chat().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

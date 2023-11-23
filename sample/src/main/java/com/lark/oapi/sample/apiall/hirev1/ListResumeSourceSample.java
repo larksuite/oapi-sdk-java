@@ -19,7 +19,7 @@ public class ListResumeSourceSample {
                 .build();
 
         // 发起请求
-        ListResumeSourceResp resp = client.hire().resumeSource().list(req);
+        ListResumeSourceResp resp = client.hire().v1().resumeSource().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

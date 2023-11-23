@@ -21,7 +21,7 @@ public class DetectTextSample {
                 .build();
 
         // 发起请求
-        DetectTextResp resp = client.translation().text().detect(req);
+        DetectTextResp resp = client.translation().v1().text().detect(req);
 
         // 处理服务端错误
         if (!resp.success()) {

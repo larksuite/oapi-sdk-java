@@ -23,7 +23,7 @@ public class CreateEcoAccountCustomFieldSample {
                 .build();
 
         // 发起请求
-        CreateEcoAccountCustomFieldResp resp = client.hire().ecoAccountCustomField().create(req);
+        CreateEcoAccountCustomFieldResp resp = client.hire().v1().ecoAccountCustomField().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

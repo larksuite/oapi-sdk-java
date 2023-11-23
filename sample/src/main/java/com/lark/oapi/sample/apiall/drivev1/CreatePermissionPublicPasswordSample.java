@@ -19,7 +19,7 @@ public class CreatePermissionPublicPasswordSample {
                 .build();
 
         // 发起请求
-        CreatePermissionPublicPasswordResp resp = client.drive().permissionPublicPassword().create(req);
+        CreatePermissionPublicPasswordResp resp = client.drive().v1().permissionPublicPassword().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

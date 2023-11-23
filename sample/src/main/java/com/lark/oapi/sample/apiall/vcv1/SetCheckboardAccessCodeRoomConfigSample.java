@@ -27,7 +27,7 @@ public class SetCheckboardAccessCodeRoomConfigSample {
                 .build();
 
         // 发起请求
-        SetCheckboardAccessCodeRoomConfigResp resp = client.vc().roomConfig().setCheckboardAccessCode(req);
+        SetCheckboardAccessCodeRoomConfigResp resp = client.vc().v1().roomConfig().setCheckboardAccessCode(req);
 
         // 处理服务端错误
         if (!resp.success()) {

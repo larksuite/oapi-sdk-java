@@ -22,7 +22,7 @@ public class FindByDepartmentUserSample {
                 .build();
 
         // 发起请求
-        FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req);
+        FindByDepartmentUserResp resp = client.contact().v3().user().findByDepartment(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -32,7 +32,7 @@ public class CreateFileVersionSample {
                 .build();
 
         // 发起请求
-        CreateFileVersionResp resp = client.drive().fileVersion().create(req);
+        CreateFileVersionResp resp = client.drive().v1().fileVersion().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

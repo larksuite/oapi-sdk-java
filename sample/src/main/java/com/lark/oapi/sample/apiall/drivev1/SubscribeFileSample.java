@@ -19,7 +19,7 @@ public class SubscribeFileSample {
                 .build();
 
         // 发起请求
-        SubscribeFileResp resp = client.drive().file().subscribe(req);
+        SubscribeFileResp resp = client.drive().v1().file().subscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

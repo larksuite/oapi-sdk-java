@@ -23,7 +23,7 @@ public class BatchDeleteFunctionalRoleMemberSample {
                 .build();
 
         // 发起请求
-        BatchDeleteFunctionalRoleMemberResp resp = client.contact().functionalRoleMember().batchDelete(req);
+        BatchDeleteFunctionalRoleMemberResp resp = client.contact().v3().functionalRoleMember().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

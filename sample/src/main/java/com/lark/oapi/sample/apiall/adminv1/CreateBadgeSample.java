@@ -27,7 +27,7 @@ public class CreateBadgeSample {
                 .build();
 
         // 发起请求
-        CreateBadgeResp resp = client.admin().badge().create(req);
+        CreateBadgeResp resp = client.admin().v1().badge().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

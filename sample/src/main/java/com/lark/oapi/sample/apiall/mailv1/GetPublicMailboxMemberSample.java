@@ -20,7 +20,7 @@ public class GetPublicMailboxMemberSample {
                 .build();
 
         // 发起请求
-        GetPublicMailboxMemberResp resp = client.mail().publicMailboxMember().get(req);
+        GetPublicMailboxMemberResp resp = client.mail().v1().publicMailboxMember().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

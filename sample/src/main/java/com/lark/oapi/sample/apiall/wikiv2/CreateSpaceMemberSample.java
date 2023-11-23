@@ -25,7 +25,7 @@ public class CreateSpaceMemberSample {
                 .build();
 
         // 发起请求
-        CreateSpaceMemberResp resp = client.wiki().spaceMember().create(req);
+        CreateSpaceMemberResp resp = client.wiki().v2().spaceMember().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

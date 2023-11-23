@@ -20,7 +20,7 @@ public class FileRecognizeSpeechSample {
                 .build();
 
         // 发起请求
-        FileRecognizeSpeechResp resp = client.speechToText().speech().fileRecognize(req);
+        FileRecognizeSpeechResp resp = client.speechToText().v1().speech().fileRecognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

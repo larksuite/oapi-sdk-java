@@ -20,7 +20,7 @@ public class GetUserFaceSample {
                 .build();
 
         // 发起请求
-        GetUserFaceResp resp = client.acs().userFace().get(req);
+        GetUserFaceResp resp = client.acs().v1().userFace().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class GetFaqSample {
                 .build();
 
         // 发起请求
-        GetFaqResp resp = client.helpdesk().faq().get(req);
+        GetFaqResp resp = client.helpdesk().v1().faq().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -32,7 +32,7 @@ public class SubmitOffboardingSample {
                 .build();
 
         // 发起请求
-        SubmitOffboardingResp resp = client.corehr().offboarding().submit(req);
+        SubmitOffboardingResp resp = client.corehr().v1().offboarding().submit(req);
 
         // 处理服务端错误
         if (!resp.success()) {

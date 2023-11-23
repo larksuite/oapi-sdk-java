@@ -28,7 +28,7 @@ public class UploadPartFileSample {
                 .build();
 
         // 发起请求
-        UploadPartFileResp resp = client.drive().file().uploadPart(req);
+        UploadPartFileResp resp = client.drive().v1().file().uploadPart(req);
 
         // 处理服务端错误
         if (!resp.success()) {

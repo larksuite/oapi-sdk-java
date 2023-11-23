@@ -29,7 +29,7 @@ public class CreateProgressRecordSample {
                 .build();
 
         // 发起请求
-        CreateProgressRecordResp resp = client.okr().progressRecord().create(req);
+        CreateProgressRecordResp resp = client.okr().v1().progressRecord().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

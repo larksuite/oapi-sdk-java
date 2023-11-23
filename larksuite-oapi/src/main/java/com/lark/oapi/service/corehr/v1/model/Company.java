@@ -88,6 +88,36 @@ public class Company {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 默认币种
+     * <p> 示例值：
+     */
+    @SerializedName("currency")
+    private Currency currency;
+    /**
+     * 电话
+     * <p> 示例值：
+     */
+    @SerializedName("phone")
+    private PhoneNumberAndAreaCode phone;
+    /**
+     * 传真
+     * <p> 示例值：
+     */
+    @SerializedName("fax")
+    private PhoneNumberAndAreaCode fax;
+    /**
+     * 注册地址
+     * <p> 示例值：
+     */
+    @SerializedName("registered_office_address")
+    private I18n[] registeredOfficeAddress;
+    /**
+     * 办公地址
+     * <p> 示例值：
+     */
+    @SerializedName("office_address")
+    private I18n[] officeAddress;
 
     // builder 开始
     public Company() {
@@ -154,6 +184,31 @@ public class Company {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 默认币种
+         * <p> 示例值：
+         */
+        this.currency = builder.currency;
+        /**
+         * 电话
+         * <p> 示例值：
+         */
+        this.phone = builder.phone;
+        /**
+         * 传真
+         * <p> 示例值：
+         */
+        this.fax = builder.fax;
+        /**
+         * 注册地址
+         * <p> 示例值：
+         */
+        this.registeredOfficeAddress = builder.registeredOfficeAddress;
+        /**
+         * 办公地址
+         * <p> 示例值：
+         */
+        this.officeAddress = builder.officeAddress;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +311,46 @@ public class Company {
         this.customFields = customFields;
     }
 
+    public Currency getCurrency() {
+        return this.currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    public PhoneNumberAndAreaCode getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(PhoneNumberAndAreaCode phone) {
+        this.phone = phone;
+    }
+
+    public PhoneNumberAndAreaCode getFax() {
+        return this.fax;
+    }
+
+    public void setFax(PhoneNumberAndAreaCode fax) {
+        this.fax = fax;
+    }
+
+    public I18n[] getRegisteredOfficeAddress() {
+        return this.registeredOfficeAddress;
+    }
+
+    public void setRegisteredOfficeAddress(I18n[] registeredOfficeAddress) {
+        this.registeredOfficeAddress = registeredOfficeAddress;
+    }
+
+    public I18n[] getOfficeAddress() {
+        return this.officeAddress;
+    }
+
+    public void setOfficeAddress(I18n[] officeAddress) {
+        this.officeAddress = officeAddress;
+    }
+
     public static class Builder {
         /**
          * 公司 ID
@@ -317,6 +412,31 @@ public class Company {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 默认币种
+         * <p> 示例值：
+         */
+        private Currency currency;
+        /**
+         * 电话
+         * <p> 示例值：
+         */
+        private PhoneNumberAndAreaCode phone;
+        /**
+         * 传真
+         * <p> 示例值：
+         */
+        private PhoneNumberAndAreaCode fax;
+        /**
+         * 注册地址
+         * <p> 示例值：
+         */
+        private I18n[] registeredOfficeAddress;
+        /**
+         * 办公地址
+         * <p> 示例值：
+         */
+        private I18n[] officeAddress;
 
         /**
          * 公司 ID
@@ -470,6 +590,71 @@ public class Company {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 默认币种
+         * <p> 示例值：
+         *
+         * @param currency
+         * @return
+         */
+        public Builder currency(Currency currency) {
+            this.currency = currency;
+            return this;
+        }
+
+
+        /**
+         * 电话
+         * <p> 示例值：
+         *
+         * @param phone
+         * @return
+         */
+        public Builder phone(PhoneNumberAndAreaCode phone) {
+            this.phone = phone;
+            return this;
+        }
+
+
+        /**
+         * 传真
+         * <p> 示例值：
+         *
+         * @param fax
+         * @return
+         */
+        public Builder fax(PhoneNumberAndAreaCode fax) {
+            this.fax = fax;
+            return this;
+        }
+
+
+        /**
+         * 注册地址
+         * <p> 示例值：
+         *
+         * @param registeredOfficeAddress
+         * @return
+         */
+        public Builder registeredOfficeAddress(I18n[] registeredOfficeAddress) {
+            this.registeredOfficeAddress = registeredOfficeAddress;
+            return this;
+        }
+
+
+        /**
+         * 办公地址
+         * <p> 示例值：
+         *
+         * @param officeAddress
+         * @return
+         */
+        public Builder officeAddress(I18n[] officeAddress) {
+            this.officeAddress = officeAddress;
             return this;
         }
 

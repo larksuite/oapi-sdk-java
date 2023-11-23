@@ -17,10 +17,11 @@ public class GetReferralWebsiteJobPostSample {
                 .jobPostId("6701528341100366094")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
                 .build();
 
         // 发起请求
-        GetReferralWebsiteJobPostResp resp = client.hire().referralWebsiteJobPost().get(req);
+        GetReferralWebsiteJobPostResp resp = client.hire().v1().referralWebsiteJobPost().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

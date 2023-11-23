@@ -18,7 +18,7 @@ public class DeleteGroupSample {
                 .build();
 
         // 发起请求
-        DeleteGroupResp resp = client.attendance().group().delete(req);
+        DeleteGroupResp resp = client.attendance().v1().group().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

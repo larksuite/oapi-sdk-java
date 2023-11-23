@@ -24,7 +24,7 @@ public class BatchQueryFileCommentSample {
                 .build();
 
         // 发起请求
-        BatchQueryFileCommentResp resp = client.drive().fileComment().batchQuery(req);
+        BatchQueryFileCommentResp resp = client.drive().v1().fileComment().batchQuery(req);
 
         // 处理服务端错误
         if (!resp.success()) {

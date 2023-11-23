@@ -22,7 +22,7 @@ public class GetTopUserReportSample {
                 .build();
 
         // 发起请求
-        GetTopUserReportResp resp = client.vc().report().getTopUser(req);
+        GetTopUserReportResp resp = client.vc().v1().report().getTopUser(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -25,7 +25,7 @@ public class UpdateSpreadsheetSheetFilterSample {
                 .build();
 
         // 发起请求
-        UpdateSpreadsheetSheetFilterResp resp = client.sheets().spreadsheetSheetFilter().update(req);
+        UpdateSpreadsheetSheetFilterResp resp = client.sheets().v3().spreadsheetSheetFilter().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,6 +18,9 @@ public class TransferOnboardApplicationSample {
                 .applicationId("7073372582620416300")
                 .userIdType("open_id")
                 .departmentIdType("people_admin_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .transferOnboardApplicationReqBody(TransferOnboardApplicationReqBody.newBuilder()
                         .actualOnboardTime(0)
                         .expectedConversionTime(0)
@@ -33,7 +36,7 @@ public class TransferOnboardApplicationSample {
                 .build();
 
         // 发起请求
-        TransferOnboardApplicationResp resp = client.hire().application().transferOnboard(req);
+        TransferOnboardApplicationResp resp = client.hire().v1().application().transferOnboard(req);
 
         // 处理服务端错误
         if (!resp.success()) {

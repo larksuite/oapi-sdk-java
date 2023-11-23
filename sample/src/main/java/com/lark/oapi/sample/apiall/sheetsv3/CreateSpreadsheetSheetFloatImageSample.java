@@ -29,7 +29,7 @@ public class CreateSpreadsheetSheetFloatImageSample {
                 .build();
 
         // 发起请求
-        CreateSpreadsheetSheetFloatImageResp resp = client.sheets().spreadsheetSheetFloatImage().create(req);
+        CreateSpreadsheetSheetFloatImageResp resp = client.sheets().v3().spreadsheetSheetFloatImage().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

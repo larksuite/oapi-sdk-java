@@ -19,7 +19,7 @@ public class GetExportTaskSample {
                 .build();
 
         // 发起请求
-        GetExportTaskResp resp = client.drive().exportTask().get(req);
+        GetExportTaskResp resp = client.drive().v1().exportTask().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class GetJobSample {
                 .build();
 
         // 发起请求
-        GetJobResp resp = client.corehr().job().get(req);
+        GetJobResp resp = client.corehr().v1().job().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

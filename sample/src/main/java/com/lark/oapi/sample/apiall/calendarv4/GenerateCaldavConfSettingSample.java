@@ -21,7 +21,7 @@ public class GenerateCaldavConfSettingSample {
                 .build();
 
         // 发起请求
-        GenerateCaldavConfSettingResp resp = client.calendar().setting().generateCaldavConf(req);
+        GenerateCaldavConfSettingResp resp = client.calendar().v4().setting().generateCaldavConf(req);
 
         // 处理服务端错误
         if (!resp.success()) {

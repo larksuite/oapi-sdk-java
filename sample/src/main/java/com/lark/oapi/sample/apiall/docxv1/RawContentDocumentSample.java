@@ -19,7 +19,7 @@ public class RawContentDocumentSample {
                 .build();
 
         // 发起请求
-        RawContentDocumentResp resp = client.docx().document().rawContent(req);
+        RawContentDocumentResp resp = client.docx().v1().document().rawContent(req);
 
         // 处理服务端错误
         if (!resp.success()) {

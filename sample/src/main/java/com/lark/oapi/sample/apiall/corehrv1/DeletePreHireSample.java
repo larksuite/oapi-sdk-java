@@ -18,7 +18,7 @@ public class DeletePreHireSample {
                 .build();
 
         // 发起请求
-        DeletePreHireResp resp = client.corehr().preHire().delete(req);
+        DeletePreHireResp resp = client.corehr().v1().preHire().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

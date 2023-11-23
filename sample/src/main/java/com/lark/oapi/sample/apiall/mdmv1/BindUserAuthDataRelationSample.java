@@ -25,7 +25,7 @@ public class BindUserAuthDataRelationSample {
                 .build();
 
         // 发起请求
-        BindUserAuthDataRelationResp resp = client.mdm().userAuthDataRelation().bind(req);
+        BindUserAuthDataRelationResp resp = client.mdm().v1().userAuthDataRelation().bind(req);
 
         // 处理服务端错误
         if (!resp.success()) {

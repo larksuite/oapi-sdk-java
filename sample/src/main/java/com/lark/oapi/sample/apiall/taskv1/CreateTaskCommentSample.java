@@ -26,7 +26,7 @@ public class CreateTaskCommentSample {
                 .build();
 
         // 发起请求
-        CreateTaskCommentResp resp = client.task().taskComment().create(req);
+        CreateTaskCommentResp resp = client.task().v1().taskComment().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

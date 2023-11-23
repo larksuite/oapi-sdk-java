@@ -36,7 +36,7 @@ public class LeaveRequestHistoryLeaveSample {
                 .build();
 
         // 发起请求
-        LeaveRequestHistoryLeaveResp resp = client.corehr().leave().leaveRequestHistory(req);
+        LeaveRequestHistoryLeaveResp resp = client.corehr().v1().leave().leaveRequestHistory(req);
 
         // 处理服务端错误
         if (!resp.success()) {

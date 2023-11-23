@@ -23,7 +23,7 @@ public class ListApplicationAppVersionSample {
                 .build();
 
         // 发起请求
-        ListApplicationAppVersionResp resp = client.application().applicationAppVersion().list(req);
+        ListApplicationAppVersionResp resp = client.application().v6().applicationAppVersion().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

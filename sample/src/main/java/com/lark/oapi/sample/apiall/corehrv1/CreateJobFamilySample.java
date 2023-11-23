@@ -26,7 +26,7 @@ public class CreateJobFamilySample {
                 .build();
 
         // 发起请求
-        CreateJobFamilyResp resp = client.corehr().jobFamily().create(req);
+        CreateJobFamilyResp resp = client.corehr().v1().jobFamily().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

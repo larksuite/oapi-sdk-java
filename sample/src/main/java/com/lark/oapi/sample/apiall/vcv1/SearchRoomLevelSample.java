@@ -18,7 +18,7 @@ public class SearchRoomLevelSample {
                 .build();
 
         // 发起请求
-        SearchRoomLevelResp resp = client.vc().roomLevel().search(req);
+        SearchRoomLevelResp resp = client.vc().v1().roomLevel().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

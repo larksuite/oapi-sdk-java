@@ -18,7 +18,7 @@ public class GetSchemaSample {
                 .build();
 
         // 发起请求
-        GetSchemaResp resp = client.search().schema().get(req);
+        GetSchemaResp resp = client.search().v2().schema().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

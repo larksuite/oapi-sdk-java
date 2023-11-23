@@ -21,7 +21,7 @@ public class ContactsRangeSuggestApplicationAppVersionSample {
                 .build();
 
         // 发起请求
-        ContactsRangeSuggestApplicationAppVersionResp resp = client.application().applicationAppVersion().contactsRangeSuggest(req);
+        ContactsRangeSuggestApplicationAppVersionResp resp = client.application().v6().applicationAppVersion().contactsRangeSuggest(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class ListByNoMeetingSample {
                 .build();
 
         // 发起请求
-        ListByNoMeetingResp resp = client.vc().meeting().listByNo(req);
+        ListByNoMeetingResp resp = client.vc().v1().meeting().listByNo(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class GetUserFlowSample {
                 .build();
 
         // 发起请求
-        GetUserFlowResp resp = client.attendance().userFlow().get(req);
+        GetUserFlowResp resp = client.attendance().v1().userFlow().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class ListBadgeGrantSample {
                 .build();
 
         // 发起请求
-        ListBadgeGrantResp resp = client.admin().badgeGrant().list(req);
+        ListBadgeGrantResp resp = client.admin().v1().badgeGrant().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

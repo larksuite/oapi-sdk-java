@@ -30,7 +30,7 @@ public class CreateInstanceCommentSample {
                 .build();
 
         // 发起请求
-        CreateInstanceCommentResp resp = client.approval().instanceComment().create(req);
+        CreateInstanceCommentResp resp = client.approval().v4().instanceComment().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

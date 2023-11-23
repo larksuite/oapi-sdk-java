@@ -19,7 +19,7 @@ public class ListObjectApiNameCustomFieldSample {
                 .build();
 
         // 发起请求
-        ListObjectApiNameCustomFieldResp resp = client.corehr().customField().listObjectApiName(req);
+        ListObjectApiNameCustomFieldResp resp = client.corehr().v1().customField().listObjectApiName(req);
 
         // 处理服务端错误
         if (!resp.success()) {

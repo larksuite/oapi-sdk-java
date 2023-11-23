@@ -18,7 +18,7 @@ public class ListPublicMailboxAliasSample {
                 .build();
 
         // 发起请求
-        ListPublicMailboxAliasResp resp = client.mail().publicMailboxAlias().list(req);
+        ListPublicMailboxAliasResp resp = client.mail().v1().publicMailboxAlias().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

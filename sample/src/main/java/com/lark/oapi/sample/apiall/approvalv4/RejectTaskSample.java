@@ -27,7 +27,7 @@ public class RejectTaskSample {
                 .build();
 
         // 发起请求
-        RejectTaskResp resp = client.approval().task().reject(req);
+        RejectTaskResp resp = client.approval().v4().task().reject(req);
 
         // 处理服务端错误
         if (!resp.success()) {

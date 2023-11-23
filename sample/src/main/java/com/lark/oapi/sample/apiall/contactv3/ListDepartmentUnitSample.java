@@ -21,7 +21,7 @@ public class ListDepartmentUnitSample {
                 .build();
 
         // 发起请求
-        ListDepartmentUnitResp resp = client.contact().unit().listDepartment(req);
+        ListDepartmentUnitResp resp = client.contact().v3().unit().listDepartment(req);
 
         // 处理服务端错误
         if (!resp.success()) {

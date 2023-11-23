@@ -25,7 +25,7 @@ public class CreateIdentitySample {
                 .build();
 
         // 发起请求
-        CreateIdentityResp resp = client.humanAuthentication().identity().create(req);
+        CreateIdentityResp resp = client.humanAuthentication().v1().identity().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -25,7 +25,7 @@ public class FindSpreadsheetSheetSample {
                 .build();
 
         // 发起请求
-        FindSpreadsheetSheetResp resp = client.sheets().spreadsheetSheet().find(req);
+        FindSpreadsheetSheetResp resp = client.sheets().v3().spreadsheetSheet().find(req);
 
         // 处理服务端错误
         if (!resp.success()) {

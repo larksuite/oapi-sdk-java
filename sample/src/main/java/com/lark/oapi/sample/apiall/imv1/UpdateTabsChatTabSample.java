@@ -23,7 +23,7 @@ public class UpdateTabsChatTabSample {
                 .build();
 
         // 发起请求
-        UpdateTabsChatTabResp resp = client.im().chatTab().updateTabs(req);
+        UpdateTabsChatTabResp resp = client.im().v1().chatTab().updateTabs(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class GetSpreadsheetSample {
                 .build();
 
         // 发起请求
-        GetSpreadsheetResp resp = client.sheets().spreadsheet().get(req);
+        GetSpreadsheetResp resp = client.sheets().v3().spreadsheet().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

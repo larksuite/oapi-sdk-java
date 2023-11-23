@@ -26,7 +26,7 @@ public class CheckWhiteBlackListApplicationVisibilitySample {
                 .build();
 
         // 发起请求
-        CheckWhiteBlackListApplicationVisibilityResp resp = client.application().applicationVisibility().checkWhiteBlackList(req);
+        CheckWhiteBlackListApplicationVisibilityResp resp = client.application().v6().applicationVisibility().checkWhiteBlackList(req);
 
         // 处理服务端错误
         if (!resp.success()) {

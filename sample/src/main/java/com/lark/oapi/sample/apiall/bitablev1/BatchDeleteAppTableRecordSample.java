@@ -23,7 +23,7 @@ public class BatchDeleteAppTableRecordSample {
                 .build();
 
         // 发起请求
-        BatchDeleteAppTableRecordResp resp = client.bitable().appTableRecord().batchDelete(req);
+        BatchDeleteAppTableRecordResp resp = client.bitable().v1().appTableRecord().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

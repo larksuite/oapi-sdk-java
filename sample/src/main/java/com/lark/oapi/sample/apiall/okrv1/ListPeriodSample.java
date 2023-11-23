@@ -19,7 +19,7 @@ public class ListPeriodSample {
                 .build();
 
         // 发起请求
-        ListPeriodResp resp = client.okr().period().list(req);
+        ListPeriodResp resp = client.okr().v1().period().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

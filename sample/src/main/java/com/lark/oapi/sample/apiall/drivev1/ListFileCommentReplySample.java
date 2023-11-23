@@ -23,7 +23,7 @@ public class ListFileCommentReplySample {
                 .build();
 
         // 发起请求
-        ListFileCommentReplyResp resp = client.drive().fileCommentReply().list(req);
+        ListFileCommentReplyResp resp = client.drive().v1().fileCommentReply().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

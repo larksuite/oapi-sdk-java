@@ -25,7 +25,7 @@ public class ListAdminUserStatSample {
                 .build();
 
         // 发起请求
-        ListAdminUserStatResp resp = client.admin().adminUserStat().list(req);
+        ListAdminUserStatResp resp = client.admin().v1().adminUserStat().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

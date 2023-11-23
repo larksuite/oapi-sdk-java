@@ -29,7 +29,7 @@ public class UpdateTicketSample {
                 .build();
 
         // 发起请求
-        UpdateTicketResp resp = client.helpdesk().ticket().update(req);
+        UpdateTicketResp resp = client.helpdesk().v1().ticket().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

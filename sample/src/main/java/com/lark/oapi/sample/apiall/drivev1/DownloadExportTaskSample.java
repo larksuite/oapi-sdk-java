@@ -18,7 +18,7 @@ public class DownloadExportTaskSample {
                 .build();
 
         // 发起请求
-        DownloadExportTaskResp resp = client.drive().exportTask().download(req);
+        DownloadExportTaskResp resp = client.drive().v1().exportTask().download(req);
 
         // 处理服务端错误
         if (!resp.success()) {

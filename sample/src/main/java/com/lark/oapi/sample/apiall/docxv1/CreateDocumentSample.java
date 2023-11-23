@@ -22,7 +22,7 @@ public class CreateDocumentSample {
                 .build();
 
         // 发起请求
-        CreateDocumentResp resp = client.docx().document().create(req);
+        CreateDocumentResp resp = client.docx().v1().document().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

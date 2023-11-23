@@ -36,7 +36,7 @@ public class UpdateChatSample {
                 .build();
 
         // 发起请求
-        UpdateChatResp resp = client.im().chat().update(req);
+        UpdateChatResp resp = client.im().v1().chat().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,6 +18,9 @@ public class CreateJobRequirementSample {
         CreateJobRequirementReq req = CreateJobRequirementReq.newBuilder()
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .jobRequirement(JobRequirement.newBuilder()
                         .shortCode("xx1")
                         .name("test")
@@ -48,7 +51,7 @@ public class CreateJobRequirementSample {
                 .build();
 
         // 发起请求
-        CreateJobRequirementResp resp = client.hire().jobRequirement().create(req);
+        CreateJobRequirementResp resp = client.hire().v1().jobRequirement().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

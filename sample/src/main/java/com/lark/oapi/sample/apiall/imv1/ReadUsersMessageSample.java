@@ -21,7 +21,7 @@ public class ReadUsersMessageSample {
                 .build();
 
         // 发起请求
-        ReadUsersMessageResp resp = client.im().message().readUsers(req);
+        ReadUsersMessageResp resp = client.im().v1().message().readUsers(req);
 
         // 处理服务端错误
         if (!resp.success()) {

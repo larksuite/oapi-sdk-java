@@ -18,7 +18,7 @@ public class ListMailgroupAliasSample {
                 .build();
 
         // 发起请求
-        ListMailgroupAliasResp resp = client.mail().mailgroupAlias().list(req);
+        ListMailgroupAliasResp resp = client.mail().v1().mailgroupAlias().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

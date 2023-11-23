@@ -27,7 +27,7 @@ public class CreateSpreadsheetSheetFilterViewConditionSample {
                 .build();
 
         // 发起请求
-        CreateSpreadsheetSheetFilterViewConditionResp resp = client.sheets().spreadsheetSheetFilterViewCondition().create(req);
+        CreateSpreadsheetSheetFilterViewConditionResp resp = client.sheets().v3().spreadsheetSheetFilterViewCondition().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

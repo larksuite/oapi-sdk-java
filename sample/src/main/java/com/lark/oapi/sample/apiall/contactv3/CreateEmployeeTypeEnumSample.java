@@ -25,7 +25,7 @@ public class CreateEmployeeTypeEnumSample {
                 .build();
 
         // 发起请求
-        CreateEmployeeTypeEnumResp resp = client.contact().employeeTypeEnum().create(req);
+        CreateEmployeeTypeEnumResp resp = client.contact().v3().employeeTypeEnum().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

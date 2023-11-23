@@ -20,7 +20,7 @@ public class StreamRecognizeSpeechSample {
                 .build();
 
         // 发起请求
-        StreamRecognizeSpeechResp resp = client.speechToText().speech().streamRecognize(req);
+        StreamRecognizeSpeechResp resp = client.speechToText().v1().speech().streamRecognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

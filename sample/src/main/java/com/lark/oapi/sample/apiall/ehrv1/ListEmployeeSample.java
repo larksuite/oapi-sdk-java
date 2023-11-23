@@ -26,7 +26,7 @@ public class ListEmployeeSample {
                 .build();
 
         // 发起请求
-        ListEmployeeResp resp = client.ehr().employee().list(req);
+        ListEmployeeResp resp = client.ehr().v1().employee().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

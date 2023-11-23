@@ -399,6 +399,12 @@ public class GetGroupRespBody {
      */
     @SerializedName("overtime_clock_cfg")
     private OvertimeClockCfg overtimeClockCfg;
+    /**
+     * 节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）
+     * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
+     */
+    @SerializedName("new_calendar_id")
+    private String newCalendarId;
 
     public String getGroupId() {
         return this.groupId;
@@ -910,6 +916,14 @@ public class GetGroupRespBody {
 
     public void setOvertimeClockCfg(OvertimeClockCfg overtimeClockCfg) {
         this.overtimeClockCfg = overtimeClockCfg;
+    }
+
+    public String getNewCalendarId() {
+        return this.newCalendarId;
+    }
+
+    public void setNewCalendarId(String newCalendarId) {
+        this.newCalendarId = newCalendarId;
     }
 
 }

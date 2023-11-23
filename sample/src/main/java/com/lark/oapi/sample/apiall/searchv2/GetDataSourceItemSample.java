@@ -19,7 +19,7 @@ public class GetDataSourceItemSample {
                 .build();
 
         // 发起请求
-        GetDataSourceItemResp resp = client.search().dataSourceItem().get(req);
+        GetDataSourceItemResp resp = client.search().v2().dataSourceItem().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

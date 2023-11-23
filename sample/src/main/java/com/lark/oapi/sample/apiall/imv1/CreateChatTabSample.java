@@ -23,7 +23,7 @@ public class CreateChatTabSample {
                 .build();
 
         // 发起请求
-        CreateChatTabResp resp = client.im().chatTab().create(req);
+        CreateChatTabResp resp = client.im().v1().chatTab().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class SearchCalendarSample {
                 .build();
 
         // 发起请求
-        SearchCalendarResp resp = client.calendar().calendar().search(req);
+        SearchCalendarResp resp = client.calendar().v4().calendar().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

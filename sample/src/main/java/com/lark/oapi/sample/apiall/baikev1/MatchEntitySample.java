@@ -21,7 +21,7 @@ public class MatchEntitySample {
                 .build();
 
         // 发起请求
-        MatchEntityResp resp = client.baike().entity().match(req);
+        MatchEntityResp resp = client.baike().v1().entity().match(req);
 
         // 处理服务端错误
         if (!resp.success()) {

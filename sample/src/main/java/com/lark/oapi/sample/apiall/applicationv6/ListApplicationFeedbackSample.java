@@ -25,7 +25,7 @@ public class ListApplicationFeedbackSample {
                 .build();
 
         // 发起请求
-        ListApplicationFeedbackResp resp = client.application().applicationFeedback().list(req);
+        ListApplicationFeedbackResp resp = client.application().v6().applicationFeedback().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

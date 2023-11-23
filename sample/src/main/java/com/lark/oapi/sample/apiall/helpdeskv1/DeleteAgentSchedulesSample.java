@@ -18,7 +18,7 @@ public class DeleteAgentSchedulesSample {
                 .build();
 
         // 发起请求
-        DeleteAgentSchedulesResp resp = client.helpdesk().agentSchedules().delete(req);
+        DeleteAgentSchedulesResp resp = client.helpdesk().v1().agentSchedules().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

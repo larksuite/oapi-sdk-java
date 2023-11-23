@@ -64,6 +64,24 @@ public class EventCard {
      */
     @SerializedName("duration")
     private String duration;
+    /**
+     * 是否需要生成会议纪要
+     * <p> 示例值：true
+     */
+    @SerializedName("need_meeting_notes")
+    private String needMeetingNotes;
+    /**
+     * 上下文信息 schema 版本
+     * <p> 示例值：v1
+     */
+    @SerializedName("scenario_context_schema_version")
+    private String scenarioContextSchemaVersion;
+    /**
+     * 上下文信息
+     * <p> 示例值：
+     */
+    @SerializedName("scenario_context")
+    private CalendarUnderstandScenarioContext scenarioContext;
 
     // builder 开始
     public EventCard() {
@@ -110,6 +128,21 @@ public class EventCard {
          * <p> 示例值：1小时30分钟
          */
         this.duration = builder.duration;
+        /**
+         * 是否需要生成会议纪要
+         * <p> 示例值：true
+         */
+        this.needMeetingNotes = builder.needMeetingNotes;
+        /**
+         * 上下文信息 schema 版本
+         * <p> 示例值：v1
+         */
+        this.scenarioContextSchemaVersion = builder.scenarioContextSchemaVersion;
+        /**
+         * 上下文信息
+         * <p> 示例值：
+         */
+        this.scenarioContext = builder.scenarioContext;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +213,30 @@ public class EventCard {
         this.duration = duration;
     }
 
+    public String getNeedMeetingNotes() {
+        return this.needMeetingNotes;
+    }
+
+    public void setNeedMeetingNotes(String needMeetingNotes) {
+        this.needMeetingNotes = needMeetingNotes;
+    }
+
+    public String getScenarioContextSchemaVersion() {
+        return this.scenarioContextSchemaVersion;
+    }
+
+    public void setScenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
+        this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
+    }
+
+    public CalendarUnderstandScenarioContext getScenarioContext() {
+        return this.scenarioContext;
+    }
+
+    public void setScenarioContext(CalendarUnderstandScenarioContext scenarioContext) {
+        this.scenarioContext = scenarioContext;
+    }
+
     public static class Builder {
         /**
          * 日程主题
@@ -221,6 +278,21 @@ public class EventCard {
          * <p> 示例值：1小时30分钟
          */
         private String duration;
+        /**
+         * 是否需要生成会议纪要
+         * <p> 示例值：true
+         */
+        private String needMeetingNotes;
+        /**
+         * 上下文信息 schema 版本
+         * <p> 示例值：v1
+         */
+        private String scenarioContextSchemaVersion;
+        /**
+         * 上下文信息
+         * <p> 示例值：
+         */
+        private CalendarUnderstandScenarioContext scenarioContext;
 
         /**
          * 日程主题
@@ -322,6 +394,45 @@ public class EventCard {
          */
         public Builder duration(String duration) {
             this.duration = duration;
+            return this;
+        }
+
+
+        /**
+         * 是否需要生成会议纪要
+         * <p> 示例值：true
+         *
+         * @param needMeetingNotes
+         * @return
+         */
+        public Builder needMeetingNotes(String needMeetingNotes) {
+            this.needMeetingNotes = needMeetingNotes;
+            return this;
+        }
+
+
+        /**
+         * 上下文信息 schema 版本
+         * <p> 示例值：v1
+         *
+         * @param scenarioContextSchemaVersion
+         * @return
+         */
+        public Builder scenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
+            this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
+            return this;
+        }
+
+
+        /**
+         * 上下文信息
+         * <p> 示例值：
+         *
+         * @param scenarioContext
+         * @return
+         */
+        public Builder scenarioContext(CalendarUnderstandScenarioContext scenarioContext) {
+            this.scenarioContext = scenarioContext;
             return this;
         }
 

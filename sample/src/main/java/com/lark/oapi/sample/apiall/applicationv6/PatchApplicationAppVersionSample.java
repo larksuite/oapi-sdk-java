@@ -26,7 +26,7 @@ public class PatchApplicationAppVersionSample {
                 .build();
 
         // 发起请求
-        PatchApplicationAppVersionResp resp = client.application().applicationAppVersion().patch(req);
+        PatchApplicationAppVersionResp resp = client.application().v6().applicationAppVersion().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

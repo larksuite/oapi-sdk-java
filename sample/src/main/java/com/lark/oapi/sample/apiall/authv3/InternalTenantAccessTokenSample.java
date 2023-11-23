@@ -22,7 +22,7 @@ public class InternalTenantAccessTokenSample {
                 .build();
 
         // 发起请求
-        InternalTenantAccessTokenResp resp = client.auth().tenantAccessToken().internal(req);
+        InternalTenantAccessTokenResp resp = client.auth().v3().tenantAccessToken().internal(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class GetByParamCustomFieldSample {
                 .build();
 
         // 发起请求
-        GetByParamCustomFieldResp resp = client.corehr().customField().getByParam(req);
+        GetByParamCustomFieldResp resp = client.corehr().v1().customField().getByParam(req);
 
         // 处理服务端错误
         if (!resp.success()) {

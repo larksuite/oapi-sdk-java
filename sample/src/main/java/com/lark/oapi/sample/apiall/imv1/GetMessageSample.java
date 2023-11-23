@@ -19,7 +19,7 @@ public class GetMessageSample {
                 .build();
 
         // 发起请求
-        GetMessageResp resp = client.im().message().get(req);
+        GetMessageResp resp = client.im().v1().message().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

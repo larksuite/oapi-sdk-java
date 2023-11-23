@@ -20,7 +20,7 @@ public class DeleteTaskCollaboratorSample {
                 .build();
 
         // 发起请求
-        DeleteTaskCollaboratorResp resp = client.task().taskCollaborator().delete(req);
+        DeleteTaskCollaboratorResp resp = client.task().v1().taskCollaborator().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

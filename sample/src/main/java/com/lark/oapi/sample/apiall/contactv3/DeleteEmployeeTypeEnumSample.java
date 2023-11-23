@@ -18,7 +18,7 @@ public class DeleteEmployeeTypeEnumSample {
                 .build();
 
         // 发起请求
-        DeleteEmployeeTypeEnumResp resp = client.contact().employeeTypeEnum().delete(req);
+        DeleteEmployeeTypeEnumResp resp = client.contact().v3().employeeTypeEnum().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

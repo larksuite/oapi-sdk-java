@@ -19,7 +19,7 @@ public class GetNoteSample {
                 .build();
 
         // 发起请求
-        GetNoteResp resp = client.hire().note().get(req);
+        GetNoteResp resp = client.hire().v1().note().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

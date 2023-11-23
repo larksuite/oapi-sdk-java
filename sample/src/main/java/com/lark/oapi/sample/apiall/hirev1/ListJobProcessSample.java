@@ -19,7 +19,7 @@ public class ListJobProcessSample {
                 .build();
 
         // 发起请求
-        ListJobProcessResp resp = client.hire().jobProcess().list(req);
+        ListJobProcessResp resp = client.hire().v1().jobProcess().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

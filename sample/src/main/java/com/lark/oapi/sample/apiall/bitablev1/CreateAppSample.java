@@ -23,7 +23,7 @@ public class CreateAppSample {
                 .build();
 
         // 发起请求
-        CreateAppResp resp = client.bitable().app().create(req);
+        CreateAppResp resp = client.bitable().v1().app().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

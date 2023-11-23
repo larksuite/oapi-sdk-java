@@ -25,7 +25,7 @@ public class MoveDocsToWikiSpaceNodeSample {
                 .build();
 
         // 发起请求
-        MoveDocsToWikiSpaceNodeResp resp = client.wiki().spaceNode().moveDocsToWiki(req);
+        MoveDocsToWikiSpaceNodeResp resp = client.wiki().v2().spaceNode().moveDocsToWiki(req);
 
         // 处理服务端错误
         if (!resp.success()) {

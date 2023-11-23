@@ -32,7 +32,7 @@ public class CreateBadgeGrantSample {
                 .build();
 
         // 发起请求
-        CreateBadgeGrantResp resp = client.admin().badgeGrant().create(req);
+        CreateBadgeGrantResp resp = client.admin().v1().badgeGrant().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

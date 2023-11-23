@@ -20,7 +20,7 @@ public class GetMessageResourceSample {
                 .build();
 
         // 发起请求
-        GetMessageResourceResp resp = client.im().messageResource().get(req);
+        GetMessageResourceResp resp = client.im().v1().messageResource().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

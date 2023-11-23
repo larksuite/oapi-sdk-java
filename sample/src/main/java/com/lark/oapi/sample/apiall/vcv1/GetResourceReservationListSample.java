@@ -25,7 +25,7 @@ public class GetResourceReservationListSample {
                 .build();
 
         // 发起请求
-        GetResourceReservationListResp resp = client.vc().resourceReservationList().get(req);
+        GetResourceReservationListResp resp = client.vc().v1().resourceReservationList().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

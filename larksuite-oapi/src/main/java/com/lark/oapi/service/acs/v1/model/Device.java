@@ -34,6 +34,12 @@ public class Device {
      */
     @SerializedName("device_sn")
     private String deviceSn;
+    /**
+     * 设备属性
+     * <p> 示例值：
+     */
+    @SerializedName("property")
+    private Property property;
 
     // builder 开始
     public Device() {
@@ -55,6 +61,11 @@ public class Device {
          * <p> 示例值：3X811621174000240
          */
         this.deviceSn = builder.deviceSn;
+        /**
+         * 设备属性
+         * <p> 示例值：
+         */
+        this.property = builder.property;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class Device {
         this.deviceSn = deviceSn;
     }
 
+    public Property getProperty() {
+        return this.property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+
     public static class Builder {
         /**
          * 门禁设备 ID
@@ -101,6 +120,11 @@ public class Device {
          * <p> 示例值：3X811621174000240
          */
         private String deviceSn;
+        /**
+         * 设备属性
+         * <p> 示例值：
+         */
+        private Property property;
 
         /**
          * 门禁设备 ID
@@ -137,6 +161,19 @@ public class Device {
          */
         public Builder deviceSn(String deviceSn) {
             this.deviceSn = deviceSn;
+            return this;
+        }
+
+
+        /**
+         * 设备属性
+         * <p> 示例值：
+         *
+         * @param property
+         * @return
+         */
+        public Builder property(Property property) {
+            this.property = property;
             return this;
         }
 

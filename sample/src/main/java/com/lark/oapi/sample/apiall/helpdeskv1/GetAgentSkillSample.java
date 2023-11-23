@@ -18,7 +18,7 @@ public class GetAgentSkillSample {
                 .build();
 
         // 发起请求
-        GetAgentSkillResp resp = client.helpdesk().agentSkill().get(req);
+        GetAgentSkillResp resp = client.helpdesk().v1().agentSkill().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -25,7 +25,7 @@ public class QueryUserFlowSample {
                 .build();
 
         // 发起请求
-        QueryUserFlowResp resp = client.attendance().userFlow().query(req);
+        QueryUserFlowResp resp = client.attendance().v1().userFlow().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

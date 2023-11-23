@@ -21,7 +21,7 @@ public class GetFunctionalRoleMemberSample {
                 .build();
 
         // 发起请求
-        GetFunctionalRoleMemberResp resp = client.contact().functionalRoleMember().get(req);
+        GetFunctionalRoleMemberResp resp = client.contact().v3().functionalRoleMember().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

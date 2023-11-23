@@ -27,7 +27,7 @@ public class UpdateDraftSample {
                 .build();
 
         // 发起请求
-        UpdateDraftResp resp = client.lingo().draft().update(req);
+        UpdateDraftResp resp = client.lingo().v1().draft().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

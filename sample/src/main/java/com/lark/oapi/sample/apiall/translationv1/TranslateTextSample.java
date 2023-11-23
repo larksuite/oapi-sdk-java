@@ -25,7 +25,7 @@ public class TranslateTextSample {
                 .build();
 
         // 发起请求
-        TranslateTextResp resp = client.translation().text().translate(req);
+        TranslateTextResp resp = client.translation().v1().text().translate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

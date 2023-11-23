@@ -19,7 +19,7 @@ public class GetNotificationSample {
                 .build();
 
         // 发起请求
-        GetNotificationResp resp = client.helpdesk().notification().get(req);
+        GetNotificationResp resp = client.helpdesk().v1().notification().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

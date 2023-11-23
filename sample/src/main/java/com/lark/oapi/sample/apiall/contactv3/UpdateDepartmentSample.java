@@ -30,7 +30,7 @@ public class UpdateDepartmentSample {
                 .build();
 
         // 发起请求
-        UpdateDepartmentResp resp = client.contact().department().update(req);
+        UpdateDepartmentResp resp = client.contact().v3().department().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

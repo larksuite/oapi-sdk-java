@@ -18,7 +18,7 @@ public class UnsubscribeApprovalSample {
                 .build();
 
         // 发起请求
-        UnsubscribeApprovalResp resp = client.approval().approval().unsubscribe(req);
+        UnsubscribeApprovalResp resp = client.approval().v4().approval().unsubscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

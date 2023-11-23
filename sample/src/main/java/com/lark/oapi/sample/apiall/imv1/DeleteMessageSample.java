@@ -18,7 +18,7 @@ public class DeleteMessageSample {
                 .build();
 
         // 发起请求
-        DeleteMessageResp resp = client.im().message().delete(req);
+        DeleteMessageResp resp = client.im().v1().message().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

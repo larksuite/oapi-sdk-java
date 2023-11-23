@@ -19,7 +19,7 @@ public class ListEmployeeTypeEnumSample {
                 .build();
 
         // 发起请求
-        ListEmployeeTypeEnumResp resp = client.contact().employeeTypeEnum().list(req);
+        ListEmployeeTypeEnumResp resp = client.contact().v3().employeeTypeEnum().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

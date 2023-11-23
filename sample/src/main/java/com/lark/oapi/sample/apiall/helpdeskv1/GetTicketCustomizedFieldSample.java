@@ -18,7 +18,7 @@ public class GetTicketCustomizedFieldSample {
                 .build();
 
         // 发起请求
-        GetTicketCustomizedFieldResp resp = client.helpdesk().ticketCustomizedField().get(req);
+        GetTicketCustomizedFieldResp resp = client.helpdesk().v1().ticketCustomizedField().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -24,7 +24,7 @@ public class RecognizeBusinessCardSample {
                 .build();
 
         // 发起请求
-        RecognizeBusinessCardResp resp = client.documentAi().businessCard().recognize(req);
+        RecognizeBusinessCardResp resp = client.documentAi().v1().businessCard().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class DeleteTaskFollowerSample {
                 .build();
 
         // 发起请求
-        DeleteTaskFollowerResp resp = client.task().taskFollower().delete(req);
+        DeleteTaskFollowerResp resp = client.task().v1().taskFollower().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

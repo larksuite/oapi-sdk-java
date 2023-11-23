@@ -18,7 +18,7 @@ public class DeleteTimeoffEventSample {
                 .build();
 
         // 发起请求
-        DeleteTimeoffEventResp resp = client.calendar().timeoffEvent().delete(req);
+        DeleteTimeoffEventResp resp = client.calendar().v4().timeoffEvent().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

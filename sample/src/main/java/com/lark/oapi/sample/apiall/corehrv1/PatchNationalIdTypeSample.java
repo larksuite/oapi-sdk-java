@@ -2,8 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.model.Enum;
+import com.lark.oapi.service.corehr.v1.model.*;
 
 // PATCH /open-apis/corehr/v1/national_id_types/:national_id_type_id
 public class PatchNationalIdTypeSample {
@@ -29,7 +29,7 @@ public class PatchNationalIdTypeSample {
                 .build();
 
         // 发起请求
-        PatchNationalIdTypeResp resp = client.corehr().nationalIdType().patch(req);
+        PatchNationalIdTypeResp resp = client.corehr().v1().nationalIdType().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

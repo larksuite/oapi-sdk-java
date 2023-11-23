@@ -23,7 +23,7 @@ public class CreateEcoBackgroundCheckCustomFieldSample {
                 .build();
 
         // 发起请求
-        CreateEcoBackgroundCheckCustomFieldResp resp = client.hire().ecoBackgroundCheckCustomField().create(req);
+        CreateEcoBackgroundCheckCustomFieldResp resp = client.hire().v1().ecoBackgroundCheckCustomField().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

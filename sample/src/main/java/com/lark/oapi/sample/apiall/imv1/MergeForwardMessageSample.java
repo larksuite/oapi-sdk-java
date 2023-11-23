@@ -24,7 +24,7 @@ public class MergeForwardMessageSample {
                 .build();
 
         // 发起请求
-        MergeForwardMessageResp resp = client.im().message().mergeForward(req);
+        MergeForwardMessageResp resp = client.im().v1().message().mergeForward(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class FieldExtractionContractSample {
                 .build();
 
         // 发起请求
-        FieldExtractionContractResp resp = client.documentAi().contract().fieldExtraction(req);
+        FieldExtractionContractResp resp = client.documentAi().v1().contract().fieldExtraction(req);
 
         // 处理服务端错误
         if (!resp.success()) {

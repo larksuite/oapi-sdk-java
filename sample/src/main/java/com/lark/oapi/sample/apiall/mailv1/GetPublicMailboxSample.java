@@ -18,7 +18,7 @@ public class GetPublicMailboxSample {
                 .build();
 
         // 发起请求
-        GetPublicMailboxResp resp = client.mail().publicMailbox().get(req);
+        GetPublicMailboxResp resp = client.mail().v1().publicMailbox().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

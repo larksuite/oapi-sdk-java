@@ -22,7 +22,7 @@ public class SubscribeEventSample {
                 .build();
 
         // 发起请求
-        SubscribeEventResp resp = client.helpdesk().event().subscribe(req);
+        SubscribeEventResp resp = client.helpdesk().v1().event().subscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

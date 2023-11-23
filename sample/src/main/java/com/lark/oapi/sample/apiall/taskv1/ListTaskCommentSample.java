@@ -22,7 +22,7 @@ public class ListTaskCommentSample {
                 .build();
 
         // 发起请求
-        ListTaskCommentResp resp = client.task().taskComment().list(req);
+        ListTaskCommentResp resp = client.task().v1().taskComment().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

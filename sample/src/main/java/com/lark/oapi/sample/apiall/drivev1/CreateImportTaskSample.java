@@ -26,7 +26,7 @@ public class CreateImportTaskSample {
                 .build();
 
         // 发起请求
-        CreateImportTaskResp resp = client.drive().importTask().create(req);
+        CreateImportTaskResp resp = client.drive().v1().importTask().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

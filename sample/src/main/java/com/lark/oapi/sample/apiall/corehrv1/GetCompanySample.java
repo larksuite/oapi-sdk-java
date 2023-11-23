@@ -18,7 +18,7 @@ public class GetCompanySample {
                 .build();
 
         // 发起请求
-        GetCompanyResp resp = client.corehr().company().get(req);
+        GetCompanyResp resp = client.corehr().v1().company().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class UnbindDepartmentUnitSample {
                 .build();
 
         // 发起请求
-        UnbindDepartmentUnitResp resp = client.contact().unit().unbindDepartment(req);
+        UnbindDepartmentUnitResp resp = client.contact().v3().unit().unbindDepartment(req);
 
         // 处理服务端错误
         if (!resp.success()) {

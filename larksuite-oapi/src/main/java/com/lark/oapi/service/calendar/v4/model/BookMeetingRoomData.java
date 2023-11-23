@@ -34,6 +34,12 @@ public class BookMeetingRoomData {
      */
     @SerializedName("rooms")
     private RoomMeta[] rooms;
+    /**
+     * 重复性日程规则
+     * <p> 示例值：none
+     */
+    @SerializedName("recurrence_rule")
+    private String recurrenceRule;
 
     // builder 开始
     public BookMeetingRoomData() {
@@ -55,6 +61,11 @@ public class BookMeetingRoomData {
          * <p> 示例值：
          */
         this.rooms = builder.rooms;
+        /**
+         * 重复性日程规则
+         * <p> 示例值：none
+         */
+        this.recurrenceRule = builder.recurrenceRule;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class BookMeetingRoomData {
         this.rooms = rooms;
     }
 
+    public String getRecurrenceRule() {
+        return this.recurrenceRule;
+    }
+
+    public void setRecurrenceRule(String recurrenceRule) {
+        this.recurrenceRule = recurrenceRule;
+    }
+
     public static class Builder {
         /**
          * 会议室ID
@@ -101,6 +120,11 @@ public class BookMeetingRoomData {
          * <p> 示例值：
          */
         private RoomMeta[] rooms;
+        /**
+         * 重复性日程规则
+         * <p> 示例值：none
+         */
+        private String recurrenceRule;
 
         /**
          * 会议室ID
@@ -137,6 +161,19 @@ public class BookMeetingRoomData {
          */
         public Builder rooms(RoomMeta[] rooms) {
             this.rooms = rooms;
+            return this;
+        }
+
+
+        /**
+         * 重复性日程规则
+         * <p> 示例值：none
+         *
+         * @param recurrenceRule
+         * @return
+         */
+        public Builder recurrenceRule(String recurrenceRule) {
+            this.recurrenceRule = recurrenceRule;
             return this;
         }
 

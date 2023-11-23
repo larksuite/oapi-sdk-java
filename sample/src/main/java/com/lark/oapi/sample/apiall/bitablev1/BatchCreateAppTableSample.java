@@ -24,7 +24,7 @@ public class BatchCreateAppTableSample {
                 .build();
 
         // 发起请求
-        BatchCreateAppTableResp resp = client.bitable().appTable().batchCreate(req);
+        BatchCreateAppTableResp resp = client.bitable().v1().appTable().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

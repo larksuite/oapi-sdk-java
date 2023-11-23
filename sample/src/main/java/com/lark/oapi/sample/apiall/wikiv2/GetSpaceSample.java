@@ -18,7 +18,7 @@ public class GetSpaceSample {
                 .build();
 
         // 发起请求
-        GetSpaceResp resp = client.wiki().space().get(req);
+        GetSpaceResp resp = client.wiki().v2().space().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

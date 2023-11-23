@@ -24,7 +24,7 @@ public class BatchGetIdUserSample {
                 .build();
 
         // 发起请求
-        BatchGetIdUserResp resp = client.contact().user().batchGetId(req);
+        BatchGetIdUserResp resp = client.contact().v3().user().batchGetId(req);
 
         // 处理服务端错误
         if (!resp.success()) {

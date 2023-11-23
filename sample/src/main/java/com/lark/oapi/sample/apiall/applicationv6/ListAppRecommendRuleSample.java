@@ -20,7 +20,7 @@ public class ListAppRecommendRuleSample {
                 .build();
 
         // 发起请求
-        ListAppRecommendRuleResp resp = client.application().appRecommendRule().list(req);
+        ListAppRecommendRuleResp resp = client.application().v6().appRecommendRule().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

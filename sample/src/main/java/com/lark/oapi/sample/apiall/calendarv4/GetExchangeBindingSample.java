@@ -19,7 +19,7 @@ public class GetExchangeBindingSample {
                 .build();
 
         // 发起请求
-        GetExchangeBindingResp resp = client.calendar().exchangeBinding().get(req);
+        GetExchangeBindingResp resp = client.calendar().v4().exchangeBinding().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

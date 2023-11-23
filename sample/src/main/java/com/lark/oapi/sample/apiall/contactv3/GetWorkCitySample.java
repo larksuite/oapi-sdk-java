@@ -18,7 +18,7 @@ public class GetWorkCitySample {
                 .build();
 
         // 发起请求
-        GetWorkCityResp resp = client.contact().workCity().get(req);
+        GetWorkCityResp resp = client.contact().v3().workCity().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

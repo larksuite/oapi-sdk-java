@@ -29,7 +29,7 @@ public class QueryUserStatsDataSample {
                 .build();
 
         // 发起请求
-        QueryUserStatsDataResp resp = client.attendance().userStatsData().query(req);
+        QueryUserStatsDataResp resp = client.attendance().v1().userStatsData().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

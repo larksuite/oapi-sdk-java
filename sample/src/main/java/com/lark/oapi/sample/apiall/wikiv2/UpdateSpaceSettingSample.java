@@ -24,7 +24,7 @@ public class UpdateSpaceSettingSample {
                 .build();
 
         // 发起请求
-        UpdateSpaceSettingResp resp = client.wiki().spaceSetting().update(req);
+        UpdateSpaceSettingResp resp = client.wiki().v2().spaceSetting().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

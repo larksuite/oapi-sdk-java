@@ -20,7 +20,7 @@ public class GetActiveMeetingReserveSample {
                 .build();
 
         // 发起请求
-        GetActiveMeetingReserveResp resp = client.vc().reserve().getActiveMeeting(req);
+        GetActiveMeetingReserveResp resp = client.vc().v1().reserve().getActiveMeeting(req);
 
         // 处理服务端错误
         if (!resp.success()) {

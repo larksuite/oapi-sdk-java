@@ -21,7 +21,7 @@ public class ExtractEntitySample {
                 .build();
 
         // 发起请求
-        ExtractEntityResp resp = client.baike().entity().extract(req);
+        ExtractEntityResp resp = client.baike().v1().entity().extract(req);
 
         // 处理服务端错误
         if (!resp.success()) {

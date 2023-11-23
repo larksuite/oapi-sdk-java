@@ -28,7 +28,7 @@ public class TransferOwnerPermissionMemberSample {
                 .build();
 
         // 发起请求
-        TransferOwnerPermissionMemberResp resp = client.drive().permissionMember().transferOwner(req);
+        TransferOwnerPermissionMemberResp resp = client.drive().v1().permissionMember().transferOwner(req);
 
         // 处理服务端错误
         if (!resp.success()) {

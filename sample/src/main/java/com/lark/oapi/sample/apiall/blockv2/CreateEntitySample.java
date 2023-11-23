@@ -32,7 +32,7 @@ public class CreateEntitySample {
                 .build();
 
         // 发起请求
-        CreateEntityResp resp = client.block().entity().create(req);
+        CreateEntityResp resp = client.block().v2().entity().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

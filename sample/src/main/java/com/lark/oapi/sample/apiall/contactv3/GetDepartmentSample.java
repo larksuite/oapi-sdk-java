@@ -20,7 +20,7 @@ public class GetDepartmentSample {
                 .build();
 
         // 发起请求
-        GetDepartmentResp resp = client.contact().department().get(req);
+        GetDepartmentResp resp = client.contact().v3().department().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

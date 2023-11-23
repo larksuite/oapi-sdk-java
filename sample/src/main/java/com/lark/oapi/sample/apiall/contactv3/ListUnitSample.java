@@ -19,7 +19,7 @@ public class ListUnitSample {
                 .build();
 
         // 发起请求
-        ListUnitResp resp = client.contact().unit().list(req);
+        ListUnitResp resp = client.contact().v3().unit().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

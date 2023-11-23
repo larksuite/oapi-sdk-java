@@ -18,7 +18,7 @@ public class ReadUserBatchMessageSample {
                 .build();
 
         // 发起请求
-        ReadUserBatchMessageResp resp = client.im().batchMessage().readUser(req);
+        ReadUserBatchMessageResp resp = client.im().v1().batchMessage().readUser(req);
 
         // 处理服务端错误
         if (!resp.success()) {

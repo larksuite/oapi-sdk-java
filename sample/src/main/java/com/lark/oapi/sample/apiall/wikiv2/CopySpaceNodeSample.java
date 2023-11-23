@@ -25,7 +25,7 @@ public class CopySpaceNodeSample {
                 .build();
 
         // 发起请求
-        CopySpaceNodeResp resp = client.wiki().spaceNode().copy(req);
+        CopySpaceNodeResp resp = client.wiki().v2().spaceNode().copy(req);
 
         // 处理服务端错误
         if (!resp.success()) {

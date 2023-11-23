@@ -20,7 +20,7 @@ public class ListSubdivisionSample {
                 .build();
 
         // 发起请求
-        ListSubdivisionResp resp = client.corehr().subdivision().list(req);
+        ListSubdivisionResp resp = client.corehr().v1().subdivision().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

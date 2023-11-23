@@ -23,7 +23,7 @@ public class UpdateAppRoleSample {
                 .build();
 
         // 发起请求
-        UpdateAppRoleResp resp = client.bitable().appRole().update(req);
+        UpdateAppRoleResp resp = client.bitable().v1().appRole().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

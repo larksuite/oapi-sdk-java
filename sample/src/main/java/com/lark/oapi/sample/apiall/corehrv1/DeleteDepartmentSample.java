@@ -18,7 +18,7 @@ public class DeleteDepartmentSample {
                 .build();
 
         // 发起请求
-        DeleteDepartmentResp resp = client.corehr().department().delete(req);
+        DeleteDepartmentResp resp = client.corehr().v1().department().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

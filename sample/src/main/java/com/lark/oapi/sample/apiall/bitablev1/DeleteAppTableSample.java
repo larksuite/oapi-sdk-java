@@ -19,7 +19,7 @@ public class DeleteAppTableSample {
                 .build();
 
         // 发起请求
-        DeleteAppTableResp resp = client.bitable().appTable().delete(req);
+        DeleteAppTableResp resp = client.bitable().v1().appTable().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

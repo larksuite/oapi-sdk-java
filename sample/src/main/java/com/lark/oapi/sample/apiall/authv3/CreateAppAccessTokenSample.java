@@ -23,7 +23,7 @@ public class CreateAppAccessTokenSample {
                 .build();
 
         // 发起请求
-        CreateAppAccessTokenResp resp = client.auth().appAccessToken().create(req);
+        CreateAppAccessTokenResp resp = client.auth().v3().appAccessToken().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

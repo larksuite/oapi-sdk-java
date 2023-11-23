@@ -25,7 +25,7 @@ public class GetAppTableRecordSample {
                 .build();
 
         // 发起请求
-        GetAppTableRecordResp resp = client.bitable().appTableRecord().get(req);
+        GetAppTableRecordResp resp = client.bitable().v1().appTableRecord().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

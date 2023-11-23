@@ -24,7 +24,7 @@ public class CreateAgentSkillSample {
                 .build();
 
         // 发起请求
-        CreateAgentSkillResp resp = client.helpdesk().agentSkill().create(req);
+        CreateAgentSkillResp resp = client.helpdesk().v1().agentSkill().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

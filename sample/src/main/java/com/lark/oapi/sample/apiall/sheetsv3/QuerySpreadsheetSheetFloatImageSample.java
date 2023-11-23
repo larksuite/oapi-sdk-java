@@ -19,7 +19,7 @@ public class QuerySpreadsheetSheetFloatImageSample {
                 .build();
 
         // 发起请求
-        QuerySpreadsheetSheetFloatImageResp resp = client.sheets().spreadsheetSheetFloatImage().query(req);
+        QuerySpreadsheetSheetFloatImageResp resp = client.sheets().v3().spreadsheetSheetFloatImage().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

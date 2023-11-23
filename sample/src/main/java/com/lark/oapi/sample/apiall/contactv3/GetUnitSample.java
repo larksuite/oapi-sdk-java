@@ -18,7 +18,7 @@ public class GetUnitSample {
                 .build();
 
         // 发起请求
-        GetUnitResp resp = client.contact().unit().get(req);
+        GetUnitResp resp = client.contact().v3().unit().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

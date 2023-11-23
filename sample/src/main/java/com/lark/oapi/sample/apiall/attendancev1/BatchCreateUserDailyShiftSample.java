@@ -24,7 +24,7 @@ public class BatchCreateUserDailyShiftSample {
                 .build();
 
         // 发起请求
-        BatchCreateUserDailyShiftResp resp = client.attendance().userDailyShift().batchCreate(req);
+        BatchCreateUserDailyShiftResp resp = client.attendance().v1().userDailyShift().batchCreate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

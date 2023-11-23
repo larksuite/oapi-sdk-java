@@ -23,7 +23,7 @@ public class CreateMessageReactionSample {
                 .build();
 
         // 发起请求
-        CreateMessageReactionResp resp = client.im().messageReaction().create(req);
+        CreateMessageReactionResp resp = client.im().v1().messageReaction().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

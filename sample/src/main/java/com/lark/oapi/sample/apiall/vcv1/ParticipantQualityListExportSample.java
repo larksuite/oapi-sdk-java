@@ -27,7 +27,7 @@ public class ParticipantQualityListExportSample {
                 .build();
 
         // 发起请求
-        ParticipantQualityListExportResp resp = client.vc().export().participantQualityList(req);
+        ParticipantQualityListExportResp resp = client.vc().v1().export().participantQualityList(req);
 
         // 处理服务端错误
         if (!resp.success()) {

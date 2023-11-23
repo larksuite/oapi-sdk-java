@@ -31,7 +31,7 @@ public class PatchJobSample {
                 .build();
 
         // 发起请求
-        PatchJobResp resp = client.corehr().job().patch(req);
+        PatchJobResp resp = client.corehr().v1().job().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -21,7 +21,7 @@ public class CancelEcoBackgroundCheckSample {
                 .build();
 
         // 发起请求
-        CancelEcoBackgroundCheckResp resp = client.hire().ecoBackgroundCheck().cancel(req);
+        CancelEcoBackgroundCheckResp resp = client.hire().v1().ecoBackgroundCheck().cancel(req);
 
         // 处理服务端错误
         if (!resp.success()) {

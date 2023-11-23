@@ -18,7 +18,7 @@ public class GetTicketSample {
                 .build();
 
         // 发起请求
-        GetTicketResp resp = client.helpdesk().ticket().get(req);
+        GetTicketResp resp = client.helpdesk().v1().ticket().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

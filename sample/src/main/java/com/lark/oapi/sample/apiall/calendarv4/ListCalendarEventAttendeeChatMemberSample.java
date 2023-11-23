@@ -23,7 +23,7 @@ public class ListCalendarEventAttendeeChatMemberSample {
                 .build();
 
         // 发起请求
-        ListCalendarEventAttendeeChatMemberResp resp = client.calendar().calendarEventAttendeeChatMember().list(req);
+        ListCalendarEventAttendeeChatMemberResp resp = client.calendar().v4().calendarEventAttendeeChatMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

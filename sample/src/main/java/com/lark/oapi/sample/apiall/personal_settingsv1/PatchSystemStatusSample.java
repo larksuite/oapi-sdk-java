@@ -24,7 +24,7 @@ public class PatchSystemStatusSample {
                 .build();
 
         // 发起请求
-        PatchSystemStatusResp resp = client.personalSettings().systemStatus().patch(req);
+        PatchSystemStatusResp resp = client.personalSettings().v1().systemStatus().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

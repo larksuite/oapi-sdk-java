@@ -24,7 +24,7 @@ public class ReplyMessageSample {
                 .build();
 
         // 发起请求
-        ReplyMessageResp resp = client.im().message().reply(req);
+        ReplyMessageResp resp = client.im().v1().message().reply(req);
 
         // 处理服务端错误
         if (!resp.success()) {

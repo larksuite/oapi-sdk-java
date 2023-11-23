@@ -20,7 +20,7 @@ public class GetReserveConfigDisableInformSample {
                 .build();
 
         // 发起请求
-        GetReserveConfigDisableInformResp resp = client.vc().reserveConfigDisableInform().get(req);
+        GetReserveConfigDisableInformResp resp = client.vc().v1().reserveConfigDisableInform().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -28,7 +28,7 @@ public class CreateDraftSample {
                 .build();
 
         // 发起请求
-        CreateDraftResp resp = client.lingo().draft().create(req);
+        CreateDraftResp resp = client.lingo().v1().draft().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

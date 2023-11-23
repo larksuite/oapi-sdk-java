@@ -19,7 +19,7 @@ public class DeleteTaskCommentSample {
                 .build();
 
         // 发起请求
-        DeleteTaskCommentResp resp = client.task().taskComment().delete(req);
+        DeleteTaskCommentResp resp = client.task().v1().taskComment().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

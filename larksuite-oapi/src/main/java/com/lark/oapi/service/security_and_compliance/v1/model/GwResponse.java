@@ -24,7 +24,7 @@ public class GwResponse {
     private Integer statusCode;
     /**
      * 返回头
-     * <p> 示例值：{"Vary": "gzip"}
+     * <p> 示例值：{\"Vary\": [\"gzip\"]}
      */
     @SerializedName("header")
     private String header;
@@ -41,7 +41,7 @@ public class GwResponse {
         this.statusCode = builder.statusCode;
         /**
          * 返回头
-         * <p> 示例值：{"Vary": "gzip"}
+         * <p> 示例值：{\"Vary\": [\"gzip\"]}
          */
         this.header = builder.header;
     }
@@ -74,7 +74,7 @@ public class GwResponse {
         private Integer statusCode;
         /**
          * 返回头
-         * <p> 示例值：{"Vary": "gzip"}
+         * <p> 示例值：{\"Vary\": [\"gzip\"]}
          */
         private String header;
 
@@ -93,7 +93,7 @@ public class GwResponse {
 
         /**
          * 返回头
-         * <p> 示例值：{"Vary": "gzip"}
+         * <p> 示例值：{\"Vary\": [\"gzip\"]}
          *
          * @param header
          * @return

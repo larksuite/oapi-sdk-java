@@ -20,7 +20,7 @@ public class ListRegistrationSchemaSample {
                 .build();
 
         // 发起请求
-        ListRegistrationSchemaResp resp = client.hire().registrationSchema().list(req);
+        ListRegistrationSchemaResp resp = client.hire().v1().registrationSchema().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

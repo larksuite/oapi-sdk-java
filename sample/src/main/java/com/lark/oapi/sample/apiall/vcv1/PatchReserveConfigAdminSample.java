@@ -25,7 +25,7 @@ public class PatchReserveConfigAdminSample {
                 .build();
 
         // 发起请求
-        PatchReserveConfigAdminResp resp = client.vc().reserveConfigAdmin().patch(req);
+        PatchReserveConfigAdminResp resp = client.vc().v1().reserveConfigAdmin().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

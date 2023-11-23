@@ -21,7 +21,7 @@ public class ListScopeSample {
                 .build();
 
         // 发起请求
-        ListScopeResp resp = client.contact().scope().list(req);
+        ListScopeResp resp = client.contact().v3().scope().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

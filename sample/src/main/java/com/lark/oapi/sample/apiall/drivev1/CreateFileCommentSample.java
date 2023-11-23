@@ -36,7 +36,7 @@ public class CreateFileCommentSample {
                 .build();
 
         // 发起请求
-        CreateFileCommentResp resp = client.drive().fileComment().create(req);
+        CreateFileCommentResp resp = client.drive().v1().fileComment().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

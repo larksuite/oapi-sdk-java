@@ -25,7 +25,7 @@ public class BatchGetIdTalentSample {
                 .build();
 
         // 发起请求
-        BatchGetIdTalentResp resp = client.hire().talent().batchGetId(req);
+        BatchGetIdTalentResp resp = client.hire().v1().talent().batchGetId(req);
 
         // 处理服务端错误
         if (!resp.success()) {

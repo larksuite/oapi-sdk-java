@@ -22,7 +22,7 @@ public class ListTicketMessageSample {
                 .build();
 
         // 发起请求
-        ListTicketMessageResp resp = client.helpdesk().ticketMessage().list(req);
+        ListTicketMessageResp resp = client.helpdesk().v1().ticketMessage().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

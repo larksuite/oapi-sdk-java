@@ -46,7 +46,7 @@ public class PatchUserSample {
                 .build();
 
         // 发起请求
-        PatchUserResp resp = client.contact().user().patch(req);
+        PatchUserResp resp = client.contact().v3().user().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class GetPreHireSample {
                 .build();
 
         // 发起请求
-        GetPreHireResp resp = client.corehr().preHire().get(req);
+        GetPreHireResp resp = client.corehr().v1().preHire().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

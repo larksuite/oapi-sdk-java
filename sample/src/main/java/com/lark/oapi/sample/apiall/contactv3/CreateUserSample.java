@@ -47,7 +47,7 @@ public class CreateUserSample {
                 .build();
 
         // 发起请求
-        CreateUserResp resp = client.contact().user().create(req);
+        CreateUserResp resp = client.contact().v3().user().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

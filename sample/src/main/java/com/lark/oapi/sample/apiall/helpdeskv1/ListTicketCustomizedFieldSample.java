@@ -23,7 +23,7 @@ public class ListTicketCustomizedFieldSample {
                 .build();
 
         // 发起请求
-        ListTicketCustomizedFieldResp resp = client.helpdesk().ticketCustomizedField().list(req);
+        ListTicketCustomizedFieldResp resp = client.helpdesk().v1().ticketCustomizedField().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

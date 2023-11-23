@@ -22,7 +22,7 @@ public class PatchUnitSample {
                 .build();
 
         // 发起请求
-        PatchUnitResp resp = client.contact().unit().patch(req);
+        PatchUnitResp resp = client.contact().v3().unit().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

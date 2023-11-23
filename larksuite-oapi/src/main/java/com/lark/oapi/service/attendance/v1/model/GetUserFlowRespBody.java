@@ -48,7 +48,7 @@ public class GetUserFlowRespBody {
     private String comment;
     /**
      * 打卡记录ID
-     * <p> 示例值：6709359313699356941
+     * <p> 示例值：考勤内部的打卡记录ID, 6709359313699356941（导入时此参数无效）
      */
     @SerializedName("record_id")
     private String recordId;
@@ -94,6 +94,12 @@ public class GetUserFlowRespBody {
      */
     @SerializedName("check_result")
     private String checkResult;
+    /**
+     * 用户导入的外部打卡记录ID
+     * <p> 示例值：record_123
+     */
+    @SerializedName("external_id")
+    private String externalId;
 
     public String getUserId() {
         return this.userId;
@@ -199,6 +205,14 @@ public class GetUserFlowRespBody {
 
     public void setCheckResult(String checkResult) {
         this.checkResult = checkResult;
+    }
+
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
 }

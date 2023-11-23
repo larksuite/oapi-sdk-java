@@ -20,7 +20,7 @@ public class RemoveInstanceCommentSample {
                 .build();
 
         // 发起请求
-        RemoveInstanceCommentResp resp = client.approval().instanceComment().remove(req);
+        RemoveInstanceCommentResp resp = client.approval().v4().instanceComment().remove(req);
 
         // 处理服务端错误
         if (!resp.success()) {

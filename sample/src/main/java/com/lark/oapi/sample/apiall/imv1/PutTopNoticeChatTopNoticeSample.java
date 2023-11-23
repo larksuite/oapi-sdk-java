@@ -23,7 +23,7 @@ public class PutTopNoticeChatTopNoticeSample {
                 .build();
 
         // 发起请求
-        PutTopNoticeChatTopNoticeResp resp = client.im().chatTopNotice().putTopNotice(req);
+        PutTopNoticeChatTopNoticeResp resp = client.im().v1().chatTopNotice().putTopNotice(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class DeleteEmployeeTypeSample {
                 .build();
 
         // 发起请求
-        DeleteEmployeeTypeResp resp = client.corehr().employeeType().delete(req);
+        DeleteEmployeeTypeResp resp = client.corehr().v1().employeeType().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

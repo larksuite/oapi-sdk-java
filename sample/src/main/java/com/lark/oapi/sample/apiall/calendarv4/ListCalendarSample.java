@@ -20,7 +20,7 @@ public class ListCalendarSample {
                 .build();
 
         // 发起请求
-        ListCalendarResp resp = client.calendar().calendar().list(req);
+        ListCalendarResp resp = client.calendar().v4().calendar().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

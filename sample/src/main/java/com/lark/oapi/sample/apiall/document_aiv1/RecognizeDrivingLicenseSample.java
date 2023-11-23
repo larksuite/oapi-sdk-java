@@ -24,7 +24,7 @@ public class RecognizeDrivingLicenseSample {
                 .build();
 
         // 发起请求
-        RecognizeDrivingLicenseResp resp = client.documentAi().drivingLicense().recognize(req);
+        RecognizeDrivingLicenseResp resp = client.documentAi().v1().drivingLicense().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

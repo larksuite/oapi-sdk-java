@@ -24,7 +24,7 @@ public class CreateExchangeBindingSample {
                 .build();
 
         // 发起请求
-        CreateExchangeBindingResp resp = client.calendar().exchangeBinding().create(req);
+        CreateExchangeBindingResp resp = client.calendar().v4().exchangeBinding().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

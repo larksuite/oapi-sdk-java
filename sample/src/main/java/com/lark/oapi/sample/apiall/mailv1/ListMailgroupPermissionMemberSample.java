@@ -22,7 +22,7 @@ public class ListMailgroupPermissionMemberSample {
                 .build();
 
         // 发起请求
-        ListMailgroupPermissionMemberResp resp = client.mail().mailgroupPermissionMember().list(req);
+        ListMailgroupPermissionMemberResp resp = client.mail().v1().mailgroupPermissionMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

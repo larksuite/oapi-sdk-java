@@ -23,7 +23,7 @@ public class ListUserOkrSample {
                 .build();
 
         // 发起请求
-        ListUserOkrResp resp = client.okr().userOkr().list(req);
+        ListUserOkrResp resp = client.okr().v1().userOkr().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

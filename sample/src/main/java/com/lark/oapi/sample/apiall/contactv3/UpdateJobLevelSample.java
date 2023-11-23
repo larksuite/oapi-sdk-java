@@ -28,7 +28,7 @@ public class UpdateJobLevelSample {
                 .build();
 
         // 发起请求
-        UpdateJobLevelResp resp = client.contact().jobLevel().update(req);
+        UpdateJobLevelResp resp = client.contact().v3().jobLevel().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

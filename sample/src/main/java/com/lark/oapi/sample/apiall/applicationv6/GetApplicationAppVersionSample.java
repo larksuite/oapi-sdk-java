@@ -21,7 +21,7 @@ public class GetApplicationAppVersionSample {
                 .build();
 
         // 发起请求
-        GetApplicationAppVersionResp resp = client.application().applicationAppVersion().get(req);
+        GetApplicationAppVersionResp resp = client.application().v6().applicationAppVersion().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

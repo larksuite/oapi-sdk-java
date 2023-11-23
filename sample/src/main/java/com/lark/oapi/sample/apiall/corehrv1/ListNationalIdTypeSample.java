@@ -22,7 +22,7 @@ public class ListNationalIdTypeSample {
                 .build();
 
         // 发起请求
-        ListNationalIdTypeResp resp = client.corehr().nationalIdType().list(req);
+        ListNationalIdTypeResp resp = client.corehr().v1().nationalIdType().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

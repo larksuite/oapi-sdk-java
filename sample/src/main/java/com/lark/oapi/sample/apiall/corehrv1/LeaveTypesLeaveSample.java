@@ -21,7 +21,7 @@ public class LeaveTypesLeaveSample {
                 .build();
 
         // 发起请求
-        LeaveTypesLeaveResp resp = client.corehr().leave().leaveTypes(req);
+        LeaveTypesLeaveResp resp = client.corehr().v1().leave().leaveTypes(req);
 
         // 处理服务端错误
         if (!resp.success()) {

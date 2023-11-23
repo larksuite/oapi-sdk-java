@@ -24,7 +24,7 @@ public class ListMessageSample {
                 .build();
 
         // 发起请求
-        ListMessageResp resp = client.im().message().list(req);
+        ListMessageResp resp = client.im().v1().message().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

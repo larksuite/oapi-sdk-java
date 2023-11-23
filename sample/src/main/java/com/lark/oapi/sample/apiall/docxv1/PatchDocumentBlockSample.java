@@ -34,11 +34,12 @@ public class PatchDocumentBlockSample {
                         .replaceImage(ReplaceImageRequest.newBuilder().build())
                         .replaceFile(ReplaceFileRequest.newBuilder().build())
                         .updateText(UpdateTextRequest.newBuilder().build())
+                        .updateTask(UpdateTaskRequest.newBuilder().build())
                         .build())
                 .build();
 
         // 发起请求
-        PatchDocumentBlockResp resp = client.docx().documentBlock().patch(req);
+        PatchDocumentBlockResp resp = client.docx().v1().documentBlock().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

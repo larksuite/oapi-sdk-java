@@ -27,7 +27,7 @@ public class UpdateSpreadsheetSheetFilterViewConditionSample {
                 .build();
 
         // 发起请求
-        UpdateSpreadsheetSheetFilterViewConditionResp resp = client.sheets().spreadsheetSheetFilterViewCondition().update(req);
+        UpdateSpreadsheetSheetFilterViewConditionResp resp = client.sheets().v3().spreadsheetSheetFilterViewCondition().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

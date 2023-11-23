@@ -15,8 +15,16 @@ package com.lark.oapi.service.hire.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class GetApplicationReq {
+    /**
+     * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("options")
+    private String[] options;
     /**
      * 投递 ID
      * <p> 示例值：6949805467799537964
@@ -31,6 +39,11 @@ public class GetApplicationReq {
 
     public GetApplicationReq(Builder builder) {
         /**
+         * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
+         * <p> 示例值：
+         */
+        this.options = builder.options;
+        /**
          * 投递 ID
          * <p> 示例值：6949805467799537964
          */
@@ -39,6 +52,14 @@ public class GetApplicationReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String[] getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(String[] options) {
+        this.options = options;
     }
 
     public String getApplicationId() {
@@ -50,8 +71,20 @@ public class GetApplicationReq {
     }
 
     public static class Builder {
-
+        private String[] options; // 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
         private String applicationId; // 投递 ID
+
+        /**
+         * 请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。
+         * <p> 示例值：
+         *
+         * @param options
+         * @return
+         */
+        public Builder options(String[] options) {
+            this.options = options;
+            return this;
+        }
 
         /**
          * 投递 ID

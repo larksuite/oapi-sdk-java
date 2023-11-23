@@ -26,7 +26,7 @@ public class OverviewApplicationAppUsageSample {
                 .build();
 
         // 发起请求
-        OverviewApplicationAppUsageResp resp = client.application().applicationAppUsage().overview(req);
+        OverviewApplicationAppUsageResp resp = client.application().v6().applicationAppUsage().overview(req);
 
         // 处理服务端错误
         if (!resp.success()) {

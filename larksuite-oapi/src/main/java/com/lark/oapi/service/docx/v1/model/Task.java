@@ -18,10 +18,16 @@ import com.google.gson.annotations.SerializedName;
 public class Task {
     /**
      * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
-     * <p> 示例值：
+     * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
      */
     @SerializedName("task_id")
     private String taskId;
+    /**
+     * 折叠状态
+     * <p> 示例值：false
+     */
+    @SerializedName("folded")
+    private Boolean folded;
 
     // builder 开始
     public Task() {
@@ -30,9 +36,14 @@ public class Task {
     public Task(Builder builder) {
         /**
          * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
-         * <p> 示例值：
+         * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
          */
         this.taskId = builder.taskId;
+        /**
+         * 折叠状态
+         * <p> 示例值：false
+         */
+        this.folded = builder.folded;
     }
 
     public static Builder newBuilder() {
@@ -47,22 +58,48 @@ public class Task {
         this.taskId = taskId;
     }
 
+    public Boolean getFolded() {
+        return this.folded;
+    }
+
+    public void setFolded(Boolean folded) {
+        this.folded = folded;
+    }
+
     public static class Builder {
         /**
          * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
-         * <p> 示例值：
+         * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
          */
         private String taskId;
+        /**
+         * 折叠状态
+         * <p> 示例值：false
+         */
+        private Boolean folded;
 
         /**
          * 任务 ID，查询具体任务详情见[获取任务详情;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)
-         * <p> 示例值：
+         * <p> 示例值：ba5040f4-8116-4042-ab3c-254e5cfe3ce7
          *
          * @param taskId
          * @return
          */
         public Builder taskId(String taskId) {
             this.taskId = taskId;
+            return this;
+        }
+
+
+        /**
+         * 折叠状态
+         * <p> 示例值：false
+         *
+         * @param folded
+         * @return
+         */
+        public Builder folded(Boolean folded) {
+            this.folded = folded;
             return this;
         }
 

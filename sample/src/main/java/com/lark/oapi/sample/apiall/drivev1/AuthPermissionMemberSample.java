@@ -20,7 +20,7 @@ public class AuthPermissionMemberSample {
                 .build();
 
         // 发起请求
-        AuthPermissionMemberResp resp = client.drive().permissionMember().auth(req);
+        AuthPermissionMemberResp resp = client.drive().v1().permissionMember().auth(req);
 
         // 处理服务端错误
         if (!resp.success()) {

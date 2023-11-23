@@ -21,7 +21,7 @@ public class ListTaskFollowerSample {
                 .build();
 
         // 发起请求
-        ListTaskFollowerResp resp = client.task().taskFollower().list(req);
+        ListTaskFollowerResp resp = client.task().v1().taskFollower().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

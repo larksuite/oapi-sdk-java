@@ -20,7 +20,7 @@ public class ListAppRoleSample {
                 .build();
 
         // 发起请求
-        ListAppRoleResp resp = client.bitable().appRole().list(req);
+        ListAppRoleResp resp = client.bitable().v1().appRole().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

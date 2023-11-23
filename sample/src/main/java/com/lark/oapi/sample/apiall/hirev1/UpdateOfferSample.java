@@ -16,6 +16,9 @@ public class UpdateOfferSample {
                 .offerId("7016605170635213100")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .offerInfo(OfferInfo.newBuilder()
                         .schemaId("7013318077945596204")
                         .basicInfo(OfferBasicInfo.newBuilder().build())
@@ -25,7 +28,7 @@ public class UpdateOfferSample {
                 .build();
 
         // 发起请求
-        UpdateOfferResp resp = client.hire().offer().update(req);
+        UpdateOfferResp resp = client.hire().v1().offer().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

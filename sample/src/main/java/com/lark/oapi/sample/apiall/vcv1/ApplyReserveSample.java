@@ -25,7 +25,7 @@ public class ApplyReserveSample {
                 .build();
 
         // 发起请求
-        ApplyReserveResp resp = client.vc().reserve().apply(req);
+        ApplyReserveResp resp = client.vc().v1().reserve().apply(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class TicketImageTicketSample {
                 .build();
 
         // 发起请求
-        TicketImageTicketResp resp = client.helpdesk().ticket().ticketImage(req);
+        TicketImageTicketResp resp = client.helpdesk().v1().ticket().ticketImage(req);
 
         // 处理服务端错误
         if (!resp.success()) {

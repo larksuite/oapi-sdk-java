@@ -25,7 +25,7 @@ public class CreateImageSample {
                 .build();
 
         // 发起请求
-        CreateImageResp resp = client.im().image().create(req);
+        CreateImageResp resp = client.im().v1().image().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

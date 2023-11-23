@@ -27,7 +27,7 @@ public class CreateFileSample {
                 .build();
 
         // 发起请求
-        CreateFileResp resp = client.im().file().create(req);
+        CreateFileResp resp = client.im().v1().file().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class GetSubregionSample {
                 .build();
 
         // 发起请求
-        GetSubregionResp resp = client.corehr().subregion().get(req);
+        GetSubregionResp resp = client.corehr().v1().subregion().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

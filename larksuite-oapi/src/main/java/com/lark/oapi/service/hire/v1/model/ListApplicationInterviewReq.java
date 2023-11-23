@@ -40,6 +40,13 @@ public class ListApplicationInterviewReq {
     @SerializedName("user_id_type")
     private String userIdType;
     /**
+     * 此次调用中使用的「职级 ID」的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("job_level_id_type")
+    private String jobLevelIdType;
+    /**
      * 投递 ID
      * <p> 示例值：6960663240925956555
      */
@@ -67,6 +74,11 @@ public class ListApplicationInterviewReq {
          * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobLevelIdType = builder.jobLevelIdType;
         /**
          * 投递 ID
          * <p> 示例值：6960663240925956555
@@ -102,6 +114,14 @@ public class ListApplicationInterviewReq {
         this.userIdType = userIdType;
     }
 
+    public String getJobLevelIdType() {
+        return this.jobLevelIdType;
+    }
+
+    public void setJobLevelIdType(String jobLevelIdType) {
+        this.jobLevelIdType = jobLevelIdType;
+    }
+
     public String getApplicationId() {
         return this.applicationId;
     }
@@ -114,6 +134,7 @@ public class ListApplicationInterviewReq {
         private Integer pageSize; // 分页大小，不能超过 50
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 此次调用中使用的用户ID的类型
+        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
         private String applicationId; // 投递 ID
 
         /**
@@ -149,6 +170,18 @@ public class ListApplicationInterviewReq {
          */
         public Builder userIdType(String userIdType) {
             this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         *
+         * @param jobLevelIdType
+         * @return
+         */
+        public Builder jobLevelIdType(String jobLevelIdType) {
+            this.jobLevelIdType = jobLevelIdType;
             return this;
         }
 

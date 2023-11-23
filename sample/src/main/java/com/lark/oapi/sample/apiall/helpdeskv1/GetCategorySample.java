@@ -18,7 +18,7 @@ public class GetCategorySample {
                 .build();
 
         // 发起请求
-        GetCategoryResp resp = client.helpdesk().category().get(req);
+        GetCategoryResp resp = client.helpdesk().v1().category().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

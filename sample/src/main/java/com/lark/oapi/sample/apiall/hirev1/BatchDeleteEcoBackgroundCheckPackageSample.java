@@ -23,7 +23,7 @@ public class BatchDeleteEcoBackgroundCheckPackageSample {
                 .build();
 
         // 发起请求
-        BatchDeleteEcoBackgroundCheckPackageResp resp = client.hire().ecoBackgroundCheckPackage().batchDelete(req);
+        BatchDeleteEcoBackgroundCheckPackageResp resp = client.hire().v1().ecoBackgroundCheckPackage().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

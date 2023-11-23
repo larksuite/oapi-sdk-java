@@ -19,7 +19,7 @@ public class GetTaskSample {
                 .build();
 
         // 发起请求
-        GetTaskResp resp = client.wiki().task().get(req);
+        GetTaskResp resp = client.wiki().v2().task().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

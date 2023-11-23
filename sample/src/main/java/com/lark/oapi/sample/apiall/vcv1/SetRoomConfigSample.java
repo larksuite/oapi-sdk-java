@@ -29,7 +29,7 @@ public class SetRoomConfigSample {
                 .build();
 
         // 发起请求
-        SetRoomConfigResp resp = client.vc().roomConfig().set(req);
+        SetRoomConfigResp resp = client.vc().v1().roomConfig().set(req);
 
         // 处理服务端错误
         if (!resp.success()) {

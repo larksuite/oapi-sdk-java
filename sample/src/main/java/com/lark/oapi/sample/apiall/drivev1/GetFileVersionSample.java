@@ -21,7 +21,7 @@ public class GetFileVersionSample {
                 .build();
 
         // 发起请求
-        GetFileVersionResp resp = client.drive().fileVersion().get(req);
+        GetFileVersionResp resp = client.drive().v1().fileVersion().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

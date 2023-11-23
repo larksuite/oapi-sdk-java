@@ -26,7 +26,7 @@ public class CreateGroupSample {
                 .build();
 
         // 发起请求
-        CreateGroupResp resp = client.contact().group().create(req);
+        CreateGroupResp resp = client.contact().v3().group().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

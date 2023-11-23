@@ -22,7 +22,7 @@ public class UpdateFunctionalRoleSample {
                 .build();
 
         // 发起请求
-        UpdateFunctionalRoleResp resp = client.contact().functionalRole().update(req);
+        UpdateFunctionalRoleResp resp = client.contact().v3().functionalRole().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

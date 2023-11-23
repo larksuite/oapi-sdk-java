@@ -19,7 +19,7 @@ public class GetDailyReportSample {
                 .build();
 
         // 发起请求
-        GetDailyReportResp resp = client.vc().report().getDaily(req);
+        GetDailyReportResp resp = client.vc().v1().report().getDaily(req);
 
         // 处理服务端错误
         if (!resp.success()) {

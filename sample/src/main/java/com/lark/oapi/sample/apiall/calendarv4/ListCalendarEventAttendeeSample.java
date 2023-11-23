@@ -23,7 +23,7 @@ public class ListCalendarEventAttendeeSample {
                 .build();
 
         // 发起请求
-        ListCalendarEventAttendeeResp resp = client.calendar().calendarEventAttendee().list(req);
+        ListCalendarEventAttendeeResp resp = client.calendar().v4().calendarEventAttendee().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

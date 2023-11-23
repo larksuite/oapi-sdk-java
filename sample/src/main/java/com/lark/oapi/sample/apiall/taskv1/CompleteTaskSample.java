@@ -18,7 +18,7 @@ public class CompleteTaskSample {
                 .build();
 
         // 发起请求
-        CompleteTaskResp resp = client.task().task().complete(req);
+        CompleteTaskResp resp = client.task().v1().task().complete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

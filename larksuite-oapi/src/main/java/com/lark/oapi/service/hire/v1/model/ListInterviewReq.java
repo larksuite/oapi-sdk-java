@@ -60,6 +60,13 @@ public class ListInterviewReq {
     @SerializedName("end_time")
     private String endTime;
     /**
+     * 此次调用中使用的「职级 ID」的类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("job_level_id_type")
+    private String jobLevelIdType;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -102,6 +109,11 @@ public class ListInterviewReq {
          * <p> 示例值：1610489908000
          */
         this.endTime = builder.endTime;
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         */
+        this.jobLevelIdType = builder.jobLevelIdType;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -161,6 +173,14 @@ public class ListInterviewReq {
         this.endTime = endTime;
     }
 
+    public String getJobLevelIdType() {
+        return this.jobLevelIdType;
+    }
+
+    public void setJobLevelIdType(String jobLevelIdType) {
+        this.jobLevelIdType = jobLevelIdType;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -176,6 +196,7 @@ public class ListInterviewReq {
         private String interviewId; // 面试 ID
         private String startTime; // 最早开始时间，格式为时间戳
         private String endTime; // 最晚开始时间，格式为时间戳
+        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
         private String userIdType; // 此次调用中使用的用户ID的类型
 
 
@@ -253,6 +274,19 @@ public class ListInterviewReq {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 此次调用中使用的「职级 ID」的类型
+         * <p> 示例值：
+         *
+         * @param jobLevelIdType
+         * @return
+         */
+        public Builder jobLevelIdType(String jobLevelIdType) {
+            this.jobLevelIdType = jobLevelIdType;
             return this;
         }
 

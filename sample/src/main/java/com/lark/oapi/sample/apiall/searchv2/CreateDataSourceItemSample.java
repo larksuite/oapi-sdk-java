@@ -24,7 +24,7 @@ public class CreateDataSourceItemSample {
                 .build();
 
         // 发起请求
-        CreateDataSourceItemResp resp = client.search().dataSourceItem().create(req);
+        CreateDataSourceItemResp resp = client.search().v2().dataSourceItem().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

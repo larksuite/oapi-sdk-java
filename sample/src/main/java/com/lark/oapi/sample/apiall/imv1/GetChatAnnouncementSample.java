@@ -19,7 +19,7 @@ public class GetChatAnnouncementSample {
                 .build();
 
         // 发起请求
-        GetChatAnnouncementResp resp = client.im().chatAnnouncement().get(req);
+        GetChatAnnouncementResp resp = client.im().v1().chatAnnouncement().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

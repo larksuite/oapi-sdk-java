@@ -23,7 +23,7 @@ public class PatchApplicationSample {
                 .build();
 
         // 发起请求
-        PatchApplicationResp resp = client.application().application().patch(req);
+        PatchApplicationResp resp = client.application().v6().application().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class CreateMailgroupAliasSample {
                 .build();
 
         // 发起请求
-        CreateMailgroupAliasResp resp = client.mail().mailgroupAlias().create(req);
+        CreateMailgroupAliasResp resp = client.mail().v1().mailgroupAlias().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class DeleteRoomSample {
                 .build();
 
         // 发起请求
-        DeleteRoomResp resp = client.vc().room().delete(req);
+        DeleteRoomResp resp = client.vc().v1().room().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class GetAttachmentSample {
                 .build();
 
         // 发起请求
-        GetAttachmentResp resp = client.ehr().attachment().get(req);
+        GetAttachmentResp resp = client.ehr().v1().attachment().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

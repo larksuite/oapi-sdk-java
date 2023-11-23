@@ -27,7 +27,7 @@ public class CreateTimeoffEventSample {
                 .build();
 
         // 发起请求
-        CreateTimeoffEventResp resp = client.calendar().timeoffEvent().create(req);
+        CreateTimeoffEventResp resp = client.calendar().v4().timeoffEvent().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

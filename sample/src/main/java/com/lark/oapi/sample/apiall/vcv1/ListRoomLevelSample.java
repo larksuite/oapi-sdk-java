@@ -20,7 +20,7 @@ public class ListRoomLevelSample {
                 .build();
 
         // 发起请求
-        ListRoomLevelResp resp = client.vc().roomLevel().list(req);
+        ListRoomLevelResp resp = client.vc().v1().roomLevel().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -29,7 +29,7 @@ public class ListAppTableRecordSample {
                 .build();
 
         // 发起请求
-        ListAppTableRecordResp resp = client.bitable().appTableRecord().list(req);
+        ListAppTableRecordResp resp = client.bitable().v1().appTableRecord().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

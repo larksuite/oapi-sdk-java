@@ -24,7 +24,7 @@ public class KickoutMeetingSample {
                 .build();
 
         // 发起请求
-        KickoutMeetingResp resp = client.vc().meeting().kickout(req);
+        KickoutMeetingResp resp = client.vc().v1().meeting().kickout(req);
 
         // 处理服务端错误
         if (!resp.success()) {

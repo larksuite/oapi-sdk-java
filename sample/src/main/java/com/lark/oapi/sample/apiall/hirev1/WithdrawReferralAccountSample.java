@@ -23,7 +23,7 @@ public class WithdrawReferralAccountSample {
                 .build();
 
         // 发起请求
-        WithdrawReferralAccountResp resp = client.hire().referralAccount().withdraw(req);
+        WithdrawReferralAccountResp resp = client.hire().v1().referralAccount().withdraw(req);
 
         // 处理服务端错误
         if (!resp.success()) {

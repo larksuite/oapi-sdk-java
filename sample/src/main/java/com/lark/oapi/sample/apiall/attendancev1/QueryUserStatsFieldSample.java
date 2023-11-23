@@ -25,7 +25,7 @@ public class QueryUserStatsFieldSample {
                 .build();
 
         // 发起请求
-        QueryUserStatsFieldResp resp = client.attendance().userStatsField().query(req);
+        QueryUserStatsFieldResp resp = client.attendance().v1().userStatsField().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

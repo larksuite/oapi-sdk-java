@@ -23,7 +23,7 @@ public class ListAppTableFieldSample {
                 .build();
 
         // 发起请求
-        ListAppTableFieldResp resp = client.bitable().appTableField().list(req);
+        ListAppTableFieldResp resp = client.bitable().v1().appTableField().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

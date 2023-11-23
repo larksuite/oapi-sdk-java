@@ -21,7 +21,7 @@ public class DeletePermissionMemberSample {
                 .build();
 
         // 发起请求
-        DeletePermissionMemberResp resp = client.drive().permissionMember().delete(req);
+        DeletePermissionMemberResp resp = client.drive().v1().permissionMember().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

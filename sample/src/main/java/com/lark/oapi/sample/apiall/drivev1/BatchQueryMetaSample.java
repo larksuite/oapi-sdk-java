@@ -24,7 +24,7 @@ public class BatchQueryMetaSample {
                 .build();
 
         // 发起请求
-        BatchQueryMetaResp resp = client.drive().meta().batchQuery(req);
+        BatchQueryMetaResp resp = client.drive().v1().meta().batchQuery(req);
 
         // 处理服务端错误
         if (!resp.success()) {

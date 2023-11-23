@@ -19,7 +19,7 @@ public class QuerySpreadsheetSheetFilterViewSample {
                 .build();
 
         // 发起请求
-        QuerySpreadsheetSheetFilterViewResp resp = client.sheets().spreadsheetSheetFilterView().query(req);
+        QuerySpreadsheetSheetFilterViewResp resp = client.sheets().v3().spreadsheetSheetFilterView().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

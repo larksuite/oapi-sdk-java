@@ -17,10 +17,13 @@ public class GetOfferSample {
                 .offerId("1111111")
                 .userIdType("user_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
+                .employeeTypeIdType("people_admin_employee_type_id")
                 .build();
 
         // 发起请求
-        GetOfferResp resp = client.hire().offer().get(req);
+        GetOfferResp resp = client.hire().v1().offer().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

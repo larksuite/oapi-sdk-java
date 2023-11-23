@@ -25,7 +25,7 @@ public class LoginInfoEcoExamSample {
                 .build();
 
         // 发起请求
-        LoginInfoEcoExamResp resp = client.hire().ecoExam().loginInfo(req);
+        LoginInfoEcoExamResp resp = client.hire().v1().ecoExam().loginInfo(req);
 
         // 处理服务端错误
         if (!resp.success()) {

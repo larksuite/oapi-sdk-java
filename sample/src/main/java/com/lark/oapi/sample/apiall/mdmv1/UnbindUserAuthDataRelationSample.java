@@ -25,7 +25,7 @@ public class UnbindUserAuthDataRelationSample {
                 .build();
 
         // 发起请求
-        UnbindUserAuthDataRelationResp resp = client.mdm().userAuthDataRelation().unbind(req);
+        UnbindUserAuthDataRelationResp resp = client.mdm().v1().userAuthDataRelation().unbind(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -19,7 +19,7 @@ public class ListWorkCitySample {
                 .build();
 
         // 发起请求
-        ListWorkCityResp resp = client.contact().workCity().list(req);
+        ListWorkCityResp resp = client.contact().v3().workCity().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

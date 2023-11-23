@@ -20,7 +20,7 @@ public class DeleteAppTableRecordSample {
                 .build();
 
         // 发起请求
-        DeleteAppTableRecordResp resp = client.bitable().appTableRecord().delete(req);
+        DeleteAppTableRecordResp resp = client.bitable().v1().appTableRecord().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

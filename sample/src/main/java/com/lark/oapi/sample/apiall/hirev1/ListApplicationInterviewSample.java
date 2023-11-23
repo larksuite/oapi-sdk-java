@@ -18,10 +18,11 @@ public class ListApplicationInterviewSample {
                 .pageSize(10)
                 .pageToken("xx")
                 .userIdType("open_id")
+                .jobLevelIdType("people_admin_job_level_id")
                 .build();
 
         // 发起请求
-        ListApplicationInterviewResp resp = client.hire().applicationInterview().list(req);
+        ListApplicationInterviewResp resp = client.hire().v1().applicationInterview().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

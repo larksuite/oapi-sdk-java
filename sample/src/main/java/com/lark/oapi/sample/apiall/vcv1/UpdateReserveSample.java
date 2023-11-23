@@ -25,7 +25,7 @@ public class UpdateReserveSample {
                 .build();
 
         // 发起请求
-        UpdateReserveResp resp = client.vc().reserve().update(req);
+        UpdateReserveResp resp = client.vc().v1().reserve().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

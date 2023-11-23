@@ -18,7 +18,7 @@ public class GetShiftSample {
                 .build();
 
         // 发起请求
-        GetShiftResp resp = client.attendance().shift().get(req);
+        GetShiftResp resp = client.attendance().v1().shift().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

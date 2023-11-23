@@ -18,7 +18,7 @@ public class GetMeetingRecordingSample {
                 .build();
 
         // 发起请求
-        GetMeetingRecordingResp resp = client.vc().meetingRecording().get(req);
+        GetMeetingRecordingResp resp = client.vc().v1().meetingRecording().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

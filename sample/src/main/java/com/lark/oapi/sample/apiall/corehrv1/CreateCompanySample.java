@@ -2,8 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.model.Enum;
+import com.lark.oapi.service.corehr.v1.model.*;
 
 // POST /open-apis/corehr/v1/companies
 public class CreateCompanySample {
@@ -27,11 +27,14 @@ public class CreateCompanySample {
                         .branchCompany(true)
                         .primaryManager(new I18n[]{})
                         .customFields(new ObjectFieldData[]{})
+                        .currency(Currency.newBuilder().build())
+                        .phone(PhoneNumberAndAreaCode.newBuilder().build())
+                        .fax(PhoneNumberAndAreaCode.newBuilder().build())
                         .build())
                 .build();
 
         // 发起请求
-        CreateCompanyResp resp = client.corehr().company().create(req);
+        CreateCompanyResp resp = client.corehr().v1().company().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

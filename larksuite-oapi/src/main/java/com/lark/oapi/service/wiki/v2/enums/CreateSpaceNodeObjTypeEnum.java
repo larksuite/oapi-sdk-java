@@ -23,6 +23,7 @@ public enum CreateSpaceNodeObjTypeEnum {
     OBJTYPEBITABLE("bitable"), // 多维表格
     OBJTYPEFILE("file"), // 文件
     OBJTYPEDOCX("docx"), // 新版文档
+    OBJTYPESLIDES("slides"), // 幻灯片
     ;
     private String value;
 

@@ -23,7 +23,7 @@ public class PatchAppTableSample {
                 .build();
 
         // 发起请求
-        PatchAppTableResp resp = client.bitable().appTable().patch(req);
+        PatchAppTableResp resp = client.bitable().v1().appTable().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

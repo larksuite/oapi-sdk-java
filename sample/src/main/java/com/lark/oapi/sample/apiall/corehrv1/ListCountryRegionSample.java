@@ -19,7 +19,7 @@ public class ListCountryRegionSample {
                 .build();
 
         // 发起请求
-        ListCountryRegionResp resp = client.corehr().countryRegion().list(req);
+        ListCountryRegionResp resp = client.corehr().v1().countryRegion().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

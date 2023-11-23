@@ -18,7 +18,7 @@ public class GetOfferSchemaSample {
                 .build();
 
         // 发起请求
-        GetOfferSchemaResp resp = client.hire().offerSchema().get(req);
+        GetOfferSchemaResp resp = client.hire().v1().offerSchema().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

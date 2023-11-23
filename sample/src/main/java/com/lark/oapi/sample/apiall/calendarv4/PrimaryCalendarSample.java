@@ -18,7 +18,7 @@ public class PrimaryCalendarSample {
                 .build();
 
         // 发起请求
-        PrimaryCalendarResp resp = client.calendar().calendar().primary(req);
+        PrimaryCalendarResp resp = client.calendar().v4().calendar().primary(req);
 
         // 处理服务端错误
         if (!resp.success()) {

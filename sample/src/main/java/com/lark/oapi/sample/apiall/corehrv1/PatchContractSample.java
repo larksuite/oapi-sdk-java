@@ -2,12 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.Contract;
-import com.lark.oapi.service.corehr.v1.model.ObjectFieldData;
-import com.lark.oapi.service.corehr.v1.model.PatchContractReq;
-import com.lark.oapi.service.corehr.v1.model.PatchContractResp;
 import com.lark.oapi.service.corehr.v1.model.Enum;
-
+import com.lark.oapi.service.corehr.v1.model.*;
 
 // PATCH /open-apis/corehr/v1/contracts/:contract_id
 public class PatchContractSample {
@@ -36,7 +32,7 @@ public class PatchContractSample {
                 .build();
 
         // 发起请求
-        PatchContractResp resp = client.corehr().contract().patch(req);
+        PatchContractResp resp = client.corehr().v1().contract().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

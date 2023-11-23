@@ -26,7 +26,7 @@ public class PatchJobLevelSample {
                 .build();
 
         // 发起请求
-        PatchJobLevelResp resp = client.corehr().jobLevel().patch(req);
+        PatchJobLevelResp resp = client.corehr().v1().jobLevel().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -28,7 +28,7 @@ public class UploadPartMediaSample {
                 .build();
 
         // 发起请求
-        UploadPartMediaResp resp = client.drive().media().uploadPart(req);
+        UploadPartMediaResp resp = client.drive().v1().media().uploadPart(req);
 
         // 处理服务端错误
         if (!resp.success()) {

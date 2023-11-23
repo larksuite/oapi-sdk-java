@@ -19,7 +19,7 @@ public class ListLocationSample {
                 .build();
 
         // 发起请求
-        ListLocationResp resp = client.corehr().location().list(req);
+        ListLocationResp resp = client.corehr().v1().location().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

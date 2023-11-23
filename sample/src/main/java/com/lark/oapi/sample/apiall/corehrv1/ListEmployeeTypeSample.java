@@ -19,7 +19,7 @@ public class ListEmployeeTypeSample {
                 .build();
 
         // 发起请求
-        ListEmployeeTypeResp resp = client.corehr().employeeType().list(req);
+        ListEmployeeTypeResp resp = client.corehr().v1().employeeType().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

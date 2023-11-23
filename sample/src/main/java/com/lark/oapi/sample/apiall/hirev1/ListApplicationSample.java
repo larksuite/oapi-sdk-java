@@ -26,7 +26,7 @@ public class ListApplicationSample {
                 .build();
 
         // 发起请求
-        ListApplicationResp resp = client.hire().application().list(req);
+        ListApplicationResp resp = client.hire().v1().application().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

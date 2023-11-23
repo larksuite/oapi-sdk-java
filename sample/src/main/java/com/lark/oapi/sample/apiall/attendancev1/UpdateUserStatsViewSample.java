@@ -24,7 +24,7 @@ public class UpdateUserStatsViewSample {
                 .build();
 
         // 发起请求
-        UpdateUserStatsViewResp resp = client.attendance().userStatsView().update(req);
+        UpdateUserStatsViewResp resp = client.attendance().v1().userStatsView().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

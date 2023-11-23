@@ -23,7 +23,7 @@ public class MoveFileSample {
                 .build();
 
         // 发起请求
-        MoveFileResp resp = client.drive().file().move(req);
+        MoveFileResp resp = client.drive().v1().file().move(req);
 
         // 处理服务端错误
         if (!resp.success()) {

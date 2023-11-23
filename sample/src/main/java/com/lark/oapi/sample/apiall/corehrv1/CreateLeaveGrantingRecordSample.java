@@ -30,7 +30,7 @@ public class CreateLeaveGrantingRecordSample {
                 .build();
 
         // 发起请求
-        CreateLeaveGrantingRecordResp resp = client.corehr().leaveGrantingRecord().create(req);
+        CreateLeaveGrantingRecordResp resp = client.corehr().v1().leaveGrantingRecord().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

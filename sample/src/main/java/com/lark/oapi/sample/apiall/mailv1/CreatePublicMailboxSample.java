@@ -23,7 +23,7 @@ public class CreatePublicMailboxSample {
                 .build();
 
         // 发起请求
-        CreatePublicMailboxResp resp = client.mail().publicMailbox().create(req);
+        CreatePublicMailboxResp resp = client.mail().v1().publicMailbox().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

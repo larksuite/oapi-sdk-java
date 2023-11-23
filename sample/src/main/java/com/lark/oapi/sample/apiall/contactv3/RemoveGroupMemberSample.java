@@ -24,7 +24,7 @@ public class RemoveGroupMemberSample {
                 .build();
 
         // 发起请求
-        RemoveGroupMemberResp resp = client.contact().groupMember().remove(req);
+        RemoveGroupMemberResp resp = client.contact().v3().groupMember().remove(req);
 
         // 处理服务端错误
         if (!resp.success()) {

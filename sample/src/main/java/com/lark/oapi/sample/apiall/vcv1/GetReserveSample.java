@@ -19,7 +19,7 @@ public class GetReserveSample {
                 .build();
 
         // 发起请求
-        GetReserveResp resp = client.vc().reserve().get(req);
+        GetReserveResp resp = client.vc().v1().reserve().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

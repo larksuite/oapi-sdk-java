@@ -25,7 +25,7 @@ public class BatchUpdateAppTableRecordSample {
                 .build();
 
         // 发起请求
-        BatchUpdateAppTableRecordResp resp = client.bitable().appTableRecord().batchUpdate(req);
+        BatchUpdateAppTableRecordResp resp = client.bitable().v1().appTableRecord().batchUpdate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

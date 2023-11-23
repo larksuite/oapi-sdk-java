@@ -24,7 +24,7 @@ public class ListAdminDeptStatSample {
                 .build();
 
         // 发起请求
-        ListAdminDeptStatResp resp = client.admin().adminDeptStat().list(req);
+        ListAdminDeptStatResp resp = client.admin().v1().adminDeptStat().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -26,7 +26,7 @@ public class ReplaceSpreadsheetSheetSample {
                 .build();
 
         // 发起请求
-        ReplaceSpreadsheetSheetResp resp = client.sheets().spreadsheetSheet().replace(req);
+        ReplaceSpreadsheetSheetResp resp = client.sheets().v3().spreadsheetSheet().replace(req);
 
         // 处理服务端错误
         if (!resp.success()) {

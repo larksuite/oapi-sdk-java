@@ -20,7 +20,7 @@ public class GetTaskCommentSample {
                 .build();
 
         // 发起请求
-        GetTaskCommentResp resp = client.task().taskComment().get(req);
+        GetTaskCommentResp resp = client.task().v1().taskComment().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

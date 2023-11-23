@@ -18,7 +18,7 @@ public class UncompleteTaskSample {
                 .build();
 
         // 发起请求
-        UncompleteTaskResp resp = client.task().task().uncomplete(req);
+        UncompleteTaskResp resp = client.task().v1().task().uncomplete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

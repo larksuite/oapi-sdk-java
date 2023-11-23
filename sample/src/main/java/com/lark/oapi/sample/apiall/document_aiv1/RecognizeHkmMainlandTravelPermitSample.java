@@ -24,7 +24,7 @@ public class RecognizeHkmMainlandTravelPermitSample {
                 .build();
 
         // 发起请求
-        RecognizeHkmMainlandTravelPermitResp resp = client.documentAi().hkmMainlandTravelPermit().recognize(req);
+        RecognizeHkmMainlandTravelPermitResp resp = client.documentAi().v1().hkmMainlandTravelPermit().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

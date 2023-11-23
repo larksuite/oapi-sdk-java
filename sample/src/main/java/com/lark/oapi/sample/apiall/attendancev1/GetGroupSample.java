@@ -20,7 +20,7 @@ public class GetGroupSample {
                 .build();
 
         // 发起请求
-        GetGroupResp resp = client.attendance().group().get(req);
+        GetGroupResp resp = client.attendance().v1().group().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

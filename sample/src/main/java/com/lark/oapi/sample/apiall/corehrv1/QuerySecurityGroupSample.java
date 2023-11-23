@@ -23,7 +23,7 @@ public class QuerySecurityGroupSample {
                 .build();
 
         // 发起请求
-        QuerySecurityGroupResp resp = client.corehr().securityGroup().query(req);
+        QuerySecurityGroupResp resp = client.corehr().v1().securityGroup().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class CreateSpaceSample {
                 .build();
 
         // 发起请求
-        CreateSpaceResp resp = client.wiki().space().create(req);
+        CreateSpaceResp resp = client.wiki().v2().space().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

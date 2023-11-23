@@ -20,7 +20,7 @@ public class ListClassificationSample {
                 .build();
 
         // 发起请求
-        ListClassificationResp resp = client.lingo().classification().list(req);
+        ListClassificationResp resp = client.lingo().v1().classification().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

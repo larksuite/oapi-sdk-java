@@ -25,7 +25,7 @@ public class CreateWorkingHoursTypeSample {
                 .build();
 
         // 发起请求
-        CreateWorkingHoursTypeResp resp = client.corehr().workingHoursType().create(req);
+        CreateWorkingHoursTypeResp resp = client.corehr().v1().workingHoursType().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

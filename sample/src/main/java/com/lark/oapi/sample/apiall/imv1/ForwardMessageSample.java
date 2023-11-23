@@ -24,7 +24,7 @@ public class ForwardMessageSample {
                 .build();
 
         // 发起请求
-        ForwardMessageResp resp = client.im().message().forward(req);
+        ForwardMessageResp resp = client.im().v1().message().forward(req);
 
         // 处理服务端错误
         if (!resp.success()) {

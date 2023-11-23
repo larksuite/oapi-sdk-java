@@ -130,6 +130,12 @@ public class ApplicationOfferBasicInfo {
      */
     @SerializedName("customize_info_list")
     private ApplicationOfferCustomValue[] customizeInfoList;
+    /**
+     * 人事侧的办公地点与地址（目前仅字节可用)
+     * <p> 示例值：
+     */
+    @SerializedName("work_location_address_info")
+    private MasterLocationAddressInfo workLocationAddressInfo;
 
     // builder 开始
     public ApplicationOfferBasicInfo() {
@@ -231,6 +237,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：
          */
         this.customizeInfoList = builder.customizeInfoList;
+        /**
+         * 人事侧的办公地点与地址（目前仅字节可用)
+         * <p> 示例值：
+         */
+        this.workLocationAddressInfo = builder.workLocationAddressInfo;
     }
 
     public static Builder newBuilder() {
@@ -389,6 +400,14 @@ public class ApplicationOfferBasicInfo {
         this.customizeInfoList = customizeInfoList;
     }
 
+    public MasterLocationAddressInfo getWorkLocationAddressInfo() {
+        return this.workLocationAddressInfo;
+    }
+
+    public void setWorkLocationAddressInfo(MasterLocationAddressInfo workLocationAddressInfo) {
+        this.workLocationAddressInfo = workLocationAddressInfo;
+    }
+
     public static class Builder {
         /**
          * Offer 类型
@@ -485,6 +504,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：
          */
         private ApplicationOfferCustomValue[] customizeInfoList;
+        /**
+         * 人事侧的办公地点与地址（目前仅字节可用)
+         * <p> 示例值：
+         */
+        private MasterLocationAddressInfo workLocationAddressInfo;
 
         /**
          * Offer 类型
@@ -729,6 +753,19 @@ public class ApplicationOfferBasicInfo {
          */
         public Builder customizeInfoList(ApplicationOfferCustomValue[] customizeInfoList) {
             this.customizeInfoList = customizeInfoList;
+            return this;
+        }
+
+
+        /**
+         * 人事侧的办公地点与地址（目前仅字节可用)
+         * <p> 示例值：
+         *
+         * @param workLocationAddressInfo
+         * @return
+         */
+        public Builder workLocationAddressInfo(MasterLocationAddressInfo workLocationAddressInfo) {
+            this.workLocationAddressInfo = workLocationAddressInfo;
             return this;
         }
 

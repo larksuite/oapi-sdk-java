@@ -26,7 +26,7 @@ public class SpecifiedRollbackInstanceSample {
                 .build();
 
         // 发起请求
-        SpecifiedRollbackInstanceResp resp = client.approval().instance().specifiedRollback(req);
+        SpecifiedRollbackInstanceResp resp = client.approval().v4().instance().specifiedRollback(req);
 
         // 处理服务端错误
         if (!resp.success()) {

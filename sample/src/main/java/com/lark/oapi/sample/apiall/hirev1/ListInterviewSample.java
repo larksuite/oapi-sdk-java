@@ -20,11 +20,12 @@ public class ListInterviewSample {
                 .interviewId("6888217964693309704")
                 .startTime("1609489908000")
                 .endTime("1610489908000")
+                .jobLevelIdType("people_admin_job_level_id")
                 .userIdType("user_id")
                 .build();
 
         // 发起请求
-        ListInterviewResp resp = client.hire().interview().list(req);
+        ListInterviewResp resp = client.hire().v1().interview().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

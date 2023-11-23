@@ -23,7 +23,7 @@ public class LeaveBalancesLeaveSample {
                 .build();
 
         // 发起请求
-        LeaveBalancesLeaveResp resp = client.corehr().leave().leaveBalances(req);
+        LeaveBalancesLeaveResp resp = client.corehr().v1().leave().leaveBalances(req);
 
         // 处理服务端错误
         if (!resp.success()) {

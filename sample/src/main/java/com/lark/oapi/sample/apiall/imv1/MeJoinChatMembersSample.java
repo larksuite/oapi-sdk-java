@@ -18,7 +18,7 @@ public class MeJoinChatMembersSample {
                 .build();
 
         // 发起请求
-        MeJoinChatMembersResp resp = client.im().chatMembers().meJoin(req);
+        MeJoinChatMembersResp resp = client.im().v1().chatMembers().meJoin(req);
 
         // 处理服务端错误
         if (!resp.success()) {

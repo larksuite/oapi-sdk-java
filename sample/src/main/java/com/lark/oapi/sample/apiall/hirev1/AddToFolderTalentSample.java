@@ -22,7 +22,7 @@ public class AddToFolderTalentSample {
                 .build();
 
         // 发起请求
-        AddToFolderTalentResp resp = client.hire().talent().addToFolder(req);
+        AddToFolderTalentResp resp = client.hire().v1().talent().addToFolder(req);
 
         // 处理服务端错误
         if (!resp.success()) {

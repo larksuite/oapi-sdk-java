@@ -40,7 +40,7 @@ public class PatchNotificationSample {
                 .build();
 
         // 发起请求
-        PatchNotificationResp resp = client.helpdesk().notification().patch(req);
+        PatchNotificationResp resp = client.helpdesk().v1().notification().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

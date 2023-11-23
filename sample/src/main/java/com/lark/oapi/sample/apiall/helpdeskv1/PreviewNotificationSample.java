@@ -18,7 +18,7 @@ public class PreviewNotificationSample {
                 .build();
 
         // 发起请求
-        PreviewNotificationResp resp = client.helpdesk().notification().preview(req);
+        PreviewNotificationResp resp = client.helpdesk().v1().notification().preview(req);
 
         // 处理服务端错误
         if (!resp.success()) {

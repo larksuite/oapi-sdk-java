@@ -19,7 +19,7 @@ public class DeleteBadgeGrantSample {
                 .build();
 
         // 发起请求
-        DeleteBadgeGrantResp resp = client.admin().badgeGrant().delete(req);
+        DeleteBadgeGrantResp resp = client.admin().v1().badgeGrant().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

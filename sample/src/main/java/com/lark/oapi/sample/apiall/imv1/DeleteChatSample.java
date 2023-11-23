@@ -18,7 +18,7 @@ public class DeleteChatSample {
                 .build();
 
         // 发起请求
-        DeleteChatResp resp = client.im().chat().delete(req);
+        DeleteChatResp resp = client.im().v1().chat().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

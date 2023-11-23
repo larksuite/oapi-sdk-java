@@ -22,7 +22,7 @@ public class ParentDepartmentSample {
                 .build();
 
         // 发起请求
-        ParentDepartmentResp resp = client.contact().department().parent(req);
+        ParentDepartmentResp resp = client.contact().v3().department().parent(req);
 
         // 处理服务端错误
         if (!resp.success()) {

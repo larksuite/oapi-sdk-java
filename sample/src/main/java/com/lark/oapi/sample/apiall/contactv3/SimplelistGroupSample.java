@@ -20,7 +20,7 @@ public class SimplelistGroupSample {
                 .build();
 
         // 发起请求
-        SimplelistGroupResp resp = client.contact().group().simplelist(req);
+        SimplelistGroupResp resp = client.contact().v3().group().simplelist(req);
 
         // 处理服务端错误
         if (!resp.success()) {

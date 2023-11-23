@@ -28,7 +28,7 @@ public class QueryUserApprovalSample {
                 .build();
 
         // 发起请求
-        QueryUserApprovalResp resp = client.attendance().userApproval().query(req);
+        QueryUserApprovalResp resp = client.attendance().v1().userApproval().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class BatchAddGroupMemberSample {
                 .build();
 
         // 发起请求
-        BatchAddGroupMemberResp resp = client.contact().groupMember().batchAdd(req);
+        BatchAddGroupMemberResp resp = client.contact().v3().groupMember().batchAdd(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class DeleteJobRequirementSample {
                 .build();
 
         // 发起请求
-        DeleteJobRequirementResp resp = client.hire().jobRequirement().delete(req);
+        DeleteJobRequirementResp resp = client.hire().v1().jobRequirement().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -21,7 +21,7 @@ public class CreateFunctionalRoleSample {
                 .build();
 
         // 发起请求
-        CreateFunctionalRoleResp resp = client.contact().functionalRole().create(req);
+        CreateFunctionalRoleResp resp = client.contact().v3().functionalRole().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

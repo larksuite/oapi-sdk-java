@@ -20,7 +20,7 @@ public class GetAppTableViewSample {
                 .build();
 
         // 发起请求
-        GetAppTableViewResp resp = client.bitable().appTableView().get(req);
+        GetAppTableViewResp resp = client.bitable().v1().appTableView().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

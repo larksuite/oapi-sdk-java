@@ -24,7 +24,7 @@ public class RecognizeBusinessLicenseSample {
                 .build();
 
         // 发起请求
-        RecognizeBusinessLicenseResp resp = client.documentAi().businessLicense().recognize(req);
+        RecognizeBusinessLicenseResp resp = client.documentAi().v1().businessLicense().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

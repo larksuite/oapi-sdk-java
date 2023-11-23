@@ -24,7 +24,7 @@ public class AddGroupMemberSample {
                 .build();
 
         // 发起请求
-        AddGroupMemberResp resp = client.contact().groupMember().add(req);
+        AddGroupMemberResp resp = client.contact().v3().groupMember().add(req);
 
         // 处理服务端错误
         if (!resp.success()) {

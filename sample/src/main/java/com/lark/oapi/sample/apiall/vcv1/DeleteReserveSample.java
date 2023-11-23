@@ -18,7 +18,7 @@ public class DeleteReserveSample {
                 .build();
 
         // 发起请求
-        DeleteReserveResp resp = client.vc().reserve().delete(req);
+        DeleteReserveResp resp = client.vc().v1().reserve().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

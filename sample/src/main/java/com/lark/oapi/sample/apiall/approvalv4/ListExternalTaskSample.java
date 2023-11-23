@@ -26,7 +26,7 @@ public class ListExternalTaskSample {
                 .build();
 
         // 发起请求
-        ListExternalTaskResp resp = client.approval().externalTask().list(req);
+        ListExternalTaskResp resp = client.approval().v4().externalTask().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

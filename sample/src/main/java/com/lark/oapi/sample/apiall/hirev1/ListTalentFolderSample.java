@@ -20,7 +20,7 @@ public class ListTalentFolderSample {
                 .build();
 
         // 发起请求
-        ListTalentFolderResp resp = client.hire().talentFolder().list(req);
+        ListTalentFolderResp resp = client.hire().v1().talentFolder().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

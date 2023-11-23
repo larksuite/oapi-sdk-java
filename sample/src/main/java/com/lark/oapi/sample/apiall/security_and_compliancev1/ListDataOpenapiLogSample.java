@@ -26,7 +26,7 @@ public class ListDataOpenapiLogSample {
                 .build();
 
         // 发起请求
-        ListDataOpenapiLogResp resp = client.securityAndCompliance().openapiLog().listData(req);
+        ListDataOpenapiLogResp resp = client.securityAndCompliance().v1().openapiLog().listData(req);
 
         // 处理服务端错误
         if (!resp.success()) {

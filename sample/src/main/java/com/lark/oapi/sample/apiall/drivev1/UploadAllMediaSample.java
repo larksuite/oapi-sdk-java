@@ -30,7 +30,7 @@ public class UploadAllMediaSample {
                 .build();
 
         // 发起请求
-        UploadAllMediaResp resp = client.drive().media().uploadAll(req);
+        UploadAllMediaResp resp = client.drive().v1().media().uploadAll(req);
 
         // 处理服务端错误
         if (!resp.success()) {

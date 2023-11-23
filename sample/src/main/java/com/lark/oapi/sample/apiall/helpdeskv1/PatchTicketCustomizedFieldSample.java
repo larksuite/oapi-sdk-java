@@ -26,7 +26,7 @@ public class PatchTicketCustomizedFieldSample {
                 .build();
 
         // 发起请求
-        PatchTicketCustomizedFieldResp resp = client.helpdesk().ticketCustomizedField().patch(req);
+        PatchTicketCustomizedFieldResp resp = client.helpdesk().v1().ticketCustomizedField().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -21,7 +21,7 @@ public class BatchDeleteEcoBackgroundCheckCustomFieldSample {
                 .build();
 
         // 发起请求
-        BatchDeleteEcoBackgroundCheckCustomFieldResp resp = client.hire().ecoBackgroundCheckCustomField().batchDelete(req);
+        BatchDeleteEcoBackgroundCheckCustomFieldResp resp = client.hire().v1().ecoBackgroundCheckCustomField().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -28,19 +28,19 @@ import com.lark.oapi.event.exception.HandlerNotFoundException;
 import com.lark.oapi.event.model.BaseEvent;
 import com.lark.oapi.event.model.BaseEventV2;
 import com.lark.oapi.event.model.Fuzzy;
-import com.lark.oapi.service.acs.v1.AcsService;
-import com.lark.oapi.service.application.v6.ApplicationService;
-import com.lark.oapi.service.approval.v4.ApprovalService;
-import com.lark.oapi.service.calendar.v4.CalendarService;
-import com.lark.oapi.service.contact.v3.ContactService;
-import com.lark.oapi.service.corehr.v1.CorehrService;
-import com.lark.oapi.service.drive.v1.DriveService;
-import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
-import com.lark.oapi.service.hire.v1.HireService;
-import com.lark.oapi.service.im.v1.ImService;
-import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
-import com.lark.oapi.service.task.v1.TaskService;
-import com.lark.oapi.service.vc.v1.VcService;
+import com.lark.oapi.service.acs.AcsService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.approval.ApprovalService;
+import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.contact.ContactService;
+import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.drive.DriveService;
+import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.hire.HireService;
+import com.lark.oapi.service.im.ImService;
+import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.task.TaskService;
+import com.lark.oapi.service.vc.VcService;
 import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -832,6 +832,51 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobCreatedV1(CorehrService.P2JobCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job.created_v1");
+            }
+            eventType2EventHandler.put("corehr.job.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobDeletedV1(CorehrService.P2JobDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job.deleted_v1");
+            }
+            eventType2EventHandler.put("corehr.job.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobUpdatedV1(CorehrService.P2JobUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.job.updated_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 异动状态变更事件,在异动发起审批和产生审批结果时触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated</a>
          *
@@ -963,6 +1008,66 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("corehr.pre_hire.updated_v1");
             }
             eventType2EventHandler.put("corehr.pre_hire.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ProbationUpdatedV2(CorehrService.P2ProbationUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.probation.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.probation.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.probation.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ProcessUpdatedV2(CorehrService.P2ProcessUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.process.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.process.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.process.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ProcessApproverUpdatedV2(CorehrService.P2ProcessApproverUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.process.approver.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.process.approver.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.process.approver.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ProcessCcUpdatedV2(CorehrService.P2ProcessCcUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.process.cc.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.process.cc.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.process.cc.updated_v2", handler);
             return this;
         }
 

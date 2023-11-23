@@ -20,7 +20,7 @@ public class ReserveScopeReserveConfigSample {
                 .build();
 
         // 发起请求
-        ReserveScopeReserveConfigResp resp = client.vc().reserveConfig().reserveScope(req);
+        ReserveScopeReserveConfigResp resp = client.vc().v1().reserveConfig().reserveScope(req);
 
         // 处理服务端错误
         if (!resp.success()) {

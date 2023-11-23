@@ -23,7 +23,7 @@ public class UpdateDepartmentIdDepartmentSample {
                 .build();
 
         // 发起请求
-        UpdateDepartmentIdDepartmentResp resp = client.contact().department().updateDepartmentId(req);
+        UpdateDepartmentIdDepartmentResp resp = client.contact().v3().department().updateDepartmentId(req);
 
         // 处理服务端错误
         if (!resp.success()) {

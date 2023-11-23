@@ -19,7 +19,7 @@ public class ListCustomAttrSample {
                 .build();
 
         // 发起请求
-        ListCustomAttrResp resp = client.contact().customAttr().list(req);
+        ListCustomAttrResp resp = client.contact().v3().customAttr().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

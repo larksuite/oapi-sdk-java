@@ -42,6 +42,7 @@ public class PatchCalendarEventReq {
     private String eventId;
     @Body
     private CalendarEvent body;
+
     // builder 开始
     public PatchCalendarEventReq() {
     }

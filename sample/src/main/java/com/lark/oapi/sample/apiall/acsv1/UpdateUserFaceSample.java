@@ -27,7 +27,7 @@ public class UpdateUserFaceSample {
                 .build();
 
         // 发起请求
-        UpdateUserFaceResp resp = client.acs().userFace().update(req);
+        UpdateUserFaceResp resp = client.acs().v1().userFace().update(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -304,6 +304,12 @@ public class Block {
      */
     @SerializedName("wiki_catalog")
     private WikiCatalog wikiCatalog;
+    /**
+     * 画板 Block
+     * <p> 示例值：
+     */
+    @SerializedName("board")
+    private Board board;
 
     // builder 开始
     public Block() {
@@ -550,6 +556,11 @@ public class Block {
          * <p> 示例值：
          */
         this.wikiCatalog = builder.wikiCatalog;
+        /**
+         * 画板 Block
+         * <p> 示例值：
+         */
+        this.board = builder.board;
     }
 
     public static Builder newBuilder() {
@@ -940,6 +951,14 @@ public class Block {
         this.wikiCatalog = wikiCatalog;
     }
 
+    public Board getBoard() {
+        return this.board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1181,6 +1200,11 @@ public class Block {
          * <p> 示例值：
          */
         private WikiCatalog wikiCatalog;
+        /**
+         * 画板 Block
+         * <p> 示例值：
+         */
+        private Board board;
 
         /**
          * Block 唯一标识
@@ -1814,6 +1838,19 @@ public class Block {
          */
         public Builder wikiCatalog(WikiCatalog wikiCatalog) {
             this.wikiCatalog = wikiCatalog;
+            return this;
+        }
+
+
+        /**
+         * 画板 Block
+         * <p> 示例值：
+         *
+         * @param board
+         * @return
+         */
+        public Builder board(Board board) {
+            this.board = board;
             return this;
         }
 

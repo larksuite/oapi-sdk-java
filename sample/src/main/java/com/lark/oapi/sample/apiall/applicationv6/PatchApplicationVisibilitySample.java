@@ -29,7 +29,7 @@ public class PatchApplicationVisibilitySample {
                 .build();
 
         // 发起请求
-        PatchApplicationVisibilityResp resp = client.application().applicationVisibility().patch(req);
+        PatchApplicationVisibilityResp resp = client.application().v6().applicationVisibility().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

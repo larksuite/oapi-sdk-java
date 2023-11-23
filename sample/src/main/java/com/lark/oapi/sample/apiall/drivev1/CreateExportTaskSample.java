@@ -24,7 +24,7 @@ public class CreateExportTaskSample {
                 .build();
 
         // 发起请求
-        CreateExportTaskResp resp = client.drive().exportTask().create(req);
+        CreateExportTaskResp resp = client.drive().v1().exportTask().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

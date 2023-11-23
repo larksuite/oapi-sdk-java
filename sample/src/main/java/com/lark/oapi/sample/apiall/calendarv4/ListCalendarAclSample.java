@@ -21,7 +21,7 @@ public class ListCalendarAclSample {
                 .build();
 
         // 发起请求
-        ListCalendarAclResp resp = client.calendar().calendarAcl().list(req);
+        ListCalendarAclResp resp = client.calendar().v4().calendarAcl().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class DeleteAppTableFieldSample {
                 .build();
 
         // 发起请求
-        DeleteAppTableFieldResp resp = client.bitable().appTableField().delete(req);
+        DeleteAppTableFieldResp resp = client.bitable().v1().appTableField().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

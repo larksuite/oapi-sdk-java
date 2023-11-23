@@ -20,7 +20,7 @@ public class ListMotoSample {
                 .build();
 
         // 发起请求
-        ListMotoResp resp = client.grayTestOpenSg().moto().list(req);
+        ListMotoResp resp = client.grayTestOpenSg().v1().moto().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -24,7 +24,7 @@ public class BatchDeleteAppRoleMemberSample {
                 .build();
 
         // 发起请求
-        BatchDeleteAppRoleMemberResp resp = client.bitable().appRoleMember().batchDelete(req);
+        BatchDeleteAppRoleMemberResp resp = client.bitable().v1().appRoleMember().batchDelete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

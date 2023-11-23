@@ -18,7 +18,7 @@ public class SubscribeApprovalSample {
                 .build();
 
         // 发起请求
-        SubscribeApprovalResp resp = client.approval().approval().subscribe(req);
+        SubscribeApprovalResp resp = client.approval().v4().approval().subscribe(req);
 
         // 处理服务端错误
         if (!resp.success()) {

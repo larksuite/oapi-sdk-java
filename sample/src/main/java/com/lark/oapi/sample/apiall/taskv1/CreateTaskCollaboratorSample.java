@@ -24,7 +24,7 @@ public class CreateTaskCollaboratorSample {
                 .build();
 
         // 发起请求
-        CreateTaskCollaboratorResp resp = client.task().taskCollaborator().create(req);
+        CreateTaskCollaboratorResp resp = client.task().v1().taskCollaborator().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

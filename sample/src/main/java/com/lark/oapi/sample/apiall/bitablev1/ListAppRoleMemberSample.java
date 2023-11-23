@@ -21,7 +21,7 @@ public class ListAppRoleMemberSample {
                 .build();
 
         // 发起请求
-        ListAppRoleMemberResp resp = client.bitable().appRoleMember().list(req);
+        ListAppRoleMemberResp resp = client.bitable().v1().appRoleMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

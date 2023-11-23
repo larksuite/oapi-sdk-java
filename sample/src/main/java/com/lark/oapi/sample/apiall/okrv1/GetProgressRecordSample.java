@@ -19,7 +19,7 @@ public class GetProgressRecordSample {
                 .build();
 
         // 发起请求
-        GetProgressRecordResp resp = client.okr().progressRecord().get(req);
+        GetProgressRecordResp resp = client.okr().v1().progressRecord().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

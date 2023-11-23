@@ -32,6 +32,13 @@ public class GetMeetingListReq {
     @SerializedName("end_time")
     private String endTime;
     /**
+     * 会议状态
+     * <p> 示例值：2
+     */
+    @Query
+    @SerializedName("meeting_status")
+    private Integer meetingStatus;
+    /**
      * 按9位会议号筛选（最多一个筛选条件）
      * <p> 示例值：123456789
      */
@@ -90,6 +97,11 @@ public class GetMeetingListReq {
          */
         this.endTime = builder.endTime;
         /**
+         * 会议状态
+         * <p> 示例值：2
+         */
+        this.meetingStatus = builder.meetingStatus;
+        /**
          * 按9位会议号筛选（最多一个筛选条件）
          * <p> 示例值：123456789
          */
@@ -139,6 +151,14 @@ public class GetMeetingListReq {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getMeetingStatus() {
+        return this.meetingStatus;
+    }
+
+    public void setMeetingStatus(Integer meetingStatus) {
+        this.meetingStatus = meetingStatus;
     }
 
     public String getMeetingNo() {
@@ -192,6 +212,7 @@ public class GetMeetingListReq {
     public static class Builder {
         private String startTime; // 查询开始时间（unix时间，单位sec）
         private String endTime; // 查询结束时间（unix时间，单位sec）
+        private Integer meetingStatus; // 会议状态
         private String meetingNo; // 按9位会议号筛选（最多一个筛选条件）
         private String userId; // 按参会Lark用户筛选（最多一个筛选条件）
         private String roomId; // 按参会Rooms筛选（最多一个筛选条件）
@@ -222,6 +243,31 @@ public class GetMeetingListReq {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 会议状态
+         * <p> 示例值：2
+         *
+         * @param meetingStatus
+         * @return
+         */
+        public Builder meetingStatus(Integer meetingStatus) {
+            this.meetingStatus = meetingStatus;
+            return this;
+        }
+
+        /**
+         * 会议状态
+         * <p> 示例值：2
+         *
+         * @param meetingStatus {@link com.lark.oapi.service.vc.v1.enums.GetMeetingListMeetingStatusTypeEnum}
+         * @return
+         */
+        public Builder meetingStatus(com.lark.oapi.service.vc.v1.enums.GetMeetingListMeetingStatusTypeEnum meetingStatus) {
+            this.meetingStatus = meetingStatus.getValue();
             return this;
         }
 

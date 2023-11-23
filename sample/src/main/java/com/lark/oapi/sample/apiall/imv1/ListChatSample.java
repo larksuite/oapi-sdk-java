@@ -21,7 +21,7 @@ public class ListChatSample {
                 .build();
 
         // 发起请求
-        ListChatResp resp = client.im().chat().list(req);
+        ListChatResp resp = client.im().v1().chat().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

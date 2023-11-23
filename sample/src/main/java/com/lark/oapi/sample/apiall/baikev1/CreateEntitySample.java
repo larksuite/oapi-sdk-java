@@ -25,7 +25,7 @@ public class CreateEntitySample {
                 .build();
 
         // 发起请求
-        CreateEntityResp resp = client.baike().entity().create(req);
+        CreateEntityResp resp = client.baike().v1().entity().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

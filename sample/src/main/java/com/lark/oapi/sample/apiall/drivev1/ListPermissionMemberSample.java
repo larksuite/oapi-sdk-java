@@ -20,7 +20,7 @@ public class ListPermissionMemberSample {
                 .build();
 
         // 发起请求
-        ListPermissionMemberResp resp = client.drive().permissionMember().list(req);
+        ListPermissionMemberResp resp = client.drive().v1().permissionMember().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

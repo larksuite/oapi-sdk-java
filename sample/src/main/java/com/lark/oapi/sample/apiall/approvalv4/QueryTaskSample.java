@@ -22,7 +22,7 @@ public class QueryTaskSample {
                 .build();
 
         // 发起请求
-        QueryTaskResp resp = client.approval().task().query(req);
+        QueryTaskResp resp = client.approval().v4().task().query(req);
 
         // 处理服务端错误
         if (!resp.success()) {

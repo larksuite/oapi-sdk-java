@@ -22,7 +22,7 @@ public class ListMessageReactionSample {
                 .build();
 
         // 发起请求
-        ListMessageReactionResp resp = client.im().messageReaction().list(req);
+        ListMessageReactionResp resp = client.im().v1().messageReaction().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -22,7 +22,7 @@ public class CreateSpreadsheetSample {
                 .build();
 
         // 发起请求
-        CreateSpreadsheetResp resp = client.sheets().spreadsheet().create(req);
+        CreateSpreadsheetResp resp = client.sheets().v3().spreadsheet().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

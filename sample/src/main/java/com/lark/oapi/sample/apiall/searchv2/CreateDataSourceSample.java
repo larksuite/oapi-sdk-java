@@ -31,7 +31,7 @@ public class CreateDataSourceSample {
                 .build();
 
         // 发起请求
-        CreateDataSourceResp resp = client.search().dataSource().create(req);
+        CreateDataSourceResp resp = client.search().v2().dataSource().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

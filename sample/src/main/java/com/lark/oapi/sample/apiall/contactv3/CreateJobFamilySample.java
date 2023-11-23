@@ -27,7 +27,7 @@ public class CreateJobFamilySample {
                 .build();
 
         // 发起请求
-        CreateJobFamilyResp resp = client.contact().jobFamily().create(req);
+        CreateJobFamilyResp resp = client.contact().v3().jobFamily().create(req);
 
         // 处理服务端错误
         if (!resp.success()) {

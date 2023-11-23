@@ -33,7 +33,7 @@ public class SearchOffboardingSample {
                 .build();
 
         // 发起请求
-        SearchOffboardingResp resp = client.corehr().offboarding().search(req);
+        SearchOffboardingResp resp = client.corehr().v1().offboarding().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

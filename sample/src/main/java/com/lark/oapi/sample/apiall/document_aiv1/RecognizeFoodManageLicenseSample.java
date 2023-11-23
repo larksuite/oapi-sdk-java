@@ -24,7 +24,7 @@ public class RecognizeFoodManageLicenseSample {
                 .build();
 
         // 发起请求
-        RecognizeFoodManageLicenseResp resp = client.documentAi().foodManageLicense().recognize(req);
+        RecognizeFoodManageLicenseResp resp = client.documentAi().v1().foodManageLicense().recognize(req);
 
         // 处理服务端错误
         if (!resp.success()) {

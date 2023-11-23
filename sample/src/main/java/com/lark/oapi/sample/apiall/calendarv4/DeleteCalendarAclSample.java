@@ -19,7 +19,7 @@ public class DeleteCalendarAclSample {
                 .build();
 
         // 发起请求
-        DeleteCalendarAclResp resp = client.calendar().calendarAcl().delete(req);
+        DeleteCalendarAclResp resp = client.calendar().v4().calendarAcl().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -16,6 +16,8 @@ public class CombinedUpdateJobSample {
                 .jobId("6960663240925956660")
                 .userIdType("open_id")
                 .departmentIdType("open_department_id")
+                .jobLevelIdType("people_admin_job_level_id")
+                .jobFamilyIdType("people_admin_job_category_id")
                 .combinedJob(CombinedJob.newBuilder()
                         .id("6960663240925956576")
                         .experience(1)
@@ -47,7 +49,7 @@ public class CombinedUpdateJobSample {
                 .build();
 
         // 发起请求
-        CombinedUpdateJobResp resp = client.hire().job().combinedUpdate(req);
+        CombinedUpdateJobResp resp = client.hire().v1().job().combinedUpdate(req);
 
         // 处理服务端错误
         if (!resp.success()) {

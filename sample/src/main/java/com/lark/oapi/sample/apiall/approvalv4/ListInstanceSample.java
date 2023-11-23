@@ -22,7 +22,7 @@ public class ListInstanceSample {
                 .build();
 
         // 发起请求
-        ListInstanceResp resp = client.approval().instance().list(req);
+        ListInstanceResp resp = client.approval().v4().instance().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class GetNationalIdTypeSample {
                 .build();
 
         // 发起请求
-        GetNationalIdTypeResp resp = client.corehr().nationalIdType().get(req);
+        GetNationalIdTypeResp resp = client.corehr().v1().nationalIdType().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -40,6 +40,18 @@ public class ListFreebusyReqBody {
      */
     @SerializedName("room_id")
     private String roomId;
+    /**
+     * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+     * <p> 示例值：true
+     */
+    @SerializedName("include_external_calendar")
+    private Boolean includeExternalCalendar;
+    /**
+     * 是否包含标记为空闲的日程，不传默认为true，即包含。
+     * <p> 示例值：true
+     */
+    @SerializedName("only_busy")
+    private Boolean onlyBusy;
 
     // builder 开始
     public ListFreebusyReqBody() {
@@ -66,6 +78,16 @@ public class ListFreebusyReqBody {
          * <p> 示例值：omm_xxxxxxxxxx
          */
         this.roomId = builder.roomId;
+        /**
+         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
+        this.includeExternalCalendar = builder.includeExternalCalendar;
+        /**
+         * 是否包含标记为空闲的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
+        this.onlyBusy = builder.onlyBusy;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class ListFreebusyReqBody {
         this.roomId = roomId;
     }
 
+    public Boolean getIncludeExternalCalendar() {
+        return this.includeExternalCalendar;
+    }
+
+    public void setIncludeExternalCalendar(Boolean includeExternalCalendar) {
+        this.includeExternalCalendar = includeExternalCalendar;
+    }
+
+    public Boolean getOnlyBusy() {
+        return this.onlyBusy;
+    }
+
+    public void setOnlyBusy(Boolean onlyBusy) {
+        this.onlyBusy = onlyBusy;
+    }
+
     public static class Builder {
         /**
          * 查询时段开始时间，需要url编码
@@ -125,6 +163,16 @@ public class ListFreebusyReqBody {
          * <p> 示例值：omm_xxxxxxxxxx
          */
         private String roomId;
+        /**
+         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
+        private Boolean includeExternalCalendar;
+        /**
+         * 是否包含标记为空闲的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         */
+        private Boolean onlyBusy;
 
         /**
          * 查询时段开始时间，需要url编码
@@ -174,6 +222,32 @@ public class ListFreebusyReqBody {
          */
         public Builder roomId(String roomId) {
             this.roomId = roomId;
+            return this;
+        }
+
+
+        /**
+         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         *
+         * @param includeExternalCalendar
+         * @return
+         */
+        public Builder includeExternalCalendar(Boolean includeExternalCalendar) {
+            this.includeExternalCalendar = includeExternalCalendar;
+            return this;
+        }
+
+
+        /**
+         * 是否包含标记为空闲的日程，不传默认为true，即包含。
+         * <p> 示例值：true
+         *
+         * @param onlyBusy
+         * @return
+         */
+        public Builder onlyBusy(Boolean onlyBusy) {
+            this.onlyBusy = onlyBusy;
             return this;
         }
 

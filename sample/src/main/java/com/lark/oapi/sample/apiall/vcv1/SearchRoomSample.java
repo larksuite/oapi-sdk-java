@@ -27,7 +27,7 @@ public class SearchRoomSample {
                 .build();
 
         // 发起请求
-        SearchRoomResp resp = client.vc().room().search(req);
+        SearchRoomResp resp = client.vc().v1().room().search(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -23,7 +23,7 @@ public class PatchAgentSchedulesSample {
                 .build();
 
         // 发起请求
-        PatchAgentSchedulesResp resp = client.helpdesk().agentSchedules().patch(req);
+        PatchAgentSchedulesResp resp = client.helpdesk().v1().agentSchedules().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -20,7 +20,7 @@ public class BatchUserSample {
                 .build();
 
         // 发起请求
-        BatchUserResp resp = client.contact().user().batch(req);
+        BatchUserResp resp = client.contact().v3().user().batch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

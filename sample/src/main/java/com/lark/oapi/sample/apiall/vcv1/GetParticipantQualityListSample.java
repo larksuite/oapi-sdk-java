@@ -26,7 +26,7 @@ public class GetParticipantQualityListSample {
                 .build();
 
         // 发起请求
-        GetParticipantQualityListResp resp = client.vc().participantQualityList().get(req);
+        GetParticipantQualityListResp resp = client.vc().v1().participantQualityList().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

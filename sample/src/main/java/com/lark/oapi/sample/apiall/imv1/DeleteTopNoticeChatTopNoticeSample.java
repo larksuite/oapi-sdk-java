@@ -18,7 +18,7 @@ public class DeleteTopNoticeChatTopNoticeSample {
                 .build();
 
         // 发起请求
-        DeleteTopNoticeChatTopNoticeResp resp = client.im().chatTopNotice().deleteTopNotice(req);
+        DeleteTopNoticeChatTopNoticeResp resp = client.im().v1().chatTopNotice().deleteTopNotice(req);
 
         // 处理服务端错误
         if (!resp.success()) {

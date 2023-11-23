@@ -19,7 +19,7 @@ public class ListJobTitleSample {
                 .build();
 
         // 发起请求
-        ListJobTitleResp resp = client.contact().jobTitle().list(req);
+        ListJobTitleResp resp = client.contact().v3().jobTitle().list(req);
 
         // 处理服务端错误
         if (!resp.success()) {

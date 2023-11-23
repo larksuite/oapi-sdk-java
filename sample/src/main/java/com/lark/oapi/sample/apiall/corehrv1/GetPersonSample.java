@@ -19,7 +19,7 @@ public class GetPersonSample {
                 .build();
 
         // 发起请求
-        GetPersonResp resp = client.corehr().person().get(req);
+        GetPersonResp resp = client.corehr().v1().person().get(req);
 
         // 处理服务端错误
         if (!resp.success()) {

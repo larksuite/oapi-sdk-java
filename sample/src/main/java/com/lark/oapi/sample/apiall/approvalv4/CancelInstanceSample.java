@@ -24,7 +24,7 @@ public class CancelInstanceSample {
                 .build();
 
         // 发起请求
-        CancelInstanceResp resp = client.approval().instance().cancel(req);
+        CancelInstanceResp resp = client.approval().v4().instance().cancel(req);
 
         // 处理服务端错误
         if (!resp.success()) {

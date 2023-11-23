@@ -25,7 +25,7 @@ public class PatchMailgroupSample {
                 .build();
 
         // 发起请求
-        PatchMailgroupResp resp = client.mail().mailgroup().patch(req);
+        PatchMailgroupResp resp = client.mail().v1().mailgroup().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {

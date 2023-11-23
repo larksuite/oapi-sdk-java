@@ -21,7 +21,7 @@ public class DeleteSpreadsheetSheetFilterViewConditionSample {
                 .build();
 
         // 发起请求
-        DeleteSpreadsheetSheetFilterViewConditionResp resp = client.sheets().spreadsheetSheetFilterViewCondition().delete(req);
+        DeleteSpreadsheetSheetFilterViewConditionResp resp = client.sheets().v3().spreadsheetSheetFilterViewCondition().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

@@ -18,7 +18,7 @@ public class DeleteCategorySample {
                 .build();
 
         // 发起请求
-        DeleteCategoryResp resp = client.helpdesk().category().delete(req);
+        DeleteCategoryResp resp = client.helpdesk().v1().category().delete(req);
 
         // 处理服务端错误
         if (!resp.success()) {

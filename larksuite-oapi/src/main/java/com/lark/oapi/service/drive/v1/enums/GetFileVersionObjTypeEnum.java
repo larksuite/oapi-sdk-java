@@ -18,6 +18,7 @@ package com.lark.oapi.service.drive.v1.enums;
  */
 public enum GetFileVersionObjTypeEnum {
     DOCX("docx"), // 新版文档
+    SHEET("sheet"), // 电子表格
     ;
     private String value;
 

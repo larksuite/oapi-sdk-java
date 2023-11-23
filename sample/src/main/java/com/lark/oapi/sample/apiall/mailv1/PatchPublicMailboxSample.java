@@ -23,7 +23,7 @@ public class PatchPublicMailboxSample {
                 .build();
 
         // 发起请求
-        PatchPublicMailboxResp resp = client.mail().publicMailbox().patch(req);
+        PatchPublicMailboxResp resp = client.mail().v1().publicMailbox().patch(req);
 
         // 处理服务端错误
         if (!resp.success()) {
