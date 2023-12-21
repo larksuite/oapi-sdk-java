@@ -32,6 +32,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.service.drive.v1.model.DownloadFileReq;
 import com.lark.oapi.service.drive.v1.model.DownloadFileResp;
+import com.lark.oapi.service.ext.enums.*;
 import com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum;
 import com.lark.oapi.service.im.v1.enums.CreateImageImageTypeEnum;
 import com.lark.oapi.service.im.v1.enums.MsgTypeEnum;
@@ -356,11 +357,40 @@ public class ImSample {
                         .build())
                 .build();
 
+        MessageCardLayoutColumn layoutLeftColumn = MessageCardLayoutColumn.newBuilder()
+            .width(MessageCardColumnWidthEnum.WEIGHTED)
+            .weight(2)
+            .verticalAlign(MessageCardColumnVerticalAlignEnum.CENTER)
+            .columns(new MessageCardElement[]{
+                MessageCardLayoutMarkdown.newBuilder()
+                    .textAlign(MessageCardLayoutTextAlignEnum.CENTER)
+                    .content("多列布局左侧")
+                    .build()
+            })
+            .build();
+        MessageCardLayoutColumn layoutRightColumn = MessageCardLayoutColumn.newBuilder()
+            .width(MessageCardColumnWidthEnum.WEIGHTED)
+            .weight(1)
+            .verticalAlign(MessageCardColumnVerticalAlignEnum.CENTER)
+            .columns(new MessageCardElement[]{
+                MessageCardLayoutMarkdown.newBuilder()
+                    .textAlign(MessageCardLayoutTextAlignEnum.CENTER)
+                    .content("多列布局右侧")
+                    .build()
+            })
+            .build();
+        MessageCardLayout messageCardLayout = MessageCardLayout.newBuilder()
+            .flexMode(MessageCardLayoutFlexModeEnum.NONE)
+            .backgroundStyle(MessageCardBackgroundStyleEnum.GREY)
+            .horizontalSpacing(MessageCardHorizontalSpacingEnum.DEFAULT)
+            .columns(new MessageCardLayoutColumn[]{layoutLeftColumn, layoutRightColumn})
+            .build();
+
         MessageCard card = MessageCard.newBuilder()
                 .cardLink(cardURL)
                 .config(config)
                 .header(header)
-                .elements(new MessageCardElement[]{div1, note, image, cardAction, hr, div2})
+                .elements(new MessageCardElement[]{div1, note, image, cardAction, hr, div2, messageCardLayout})
                 .build();
 
         // 使用Builder模式构建请求对象
