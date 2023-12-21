@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.card.model.IMessageCardActionElement;
 import com.lark.oapi.card.model.IMessageCardElement;
 import com.lark.oapi.card.model.MessageCardElement;
-import com.lark.oapi.service.ext.enums.MessageCardBackgroundStyleEnum;
-import com.lark.oapi.service.ext.enums.MessageCardHorizontalSpacingEnum;
-import com.lark.oapi.service.ext.enums.MessageCardLayoutFlexModeEnum;
+import com.lark.oapi.service.im.v1.enums.ext.MessageCardBackgroundStyleEnum;
+import com.lark.oapi.service.im.v1.enums.ext.MessageCardHorizontalSpacingEnum;
+import com.lark.oapi.service.im.v1.enums.ext.MessageCardLayoutFlexModeEnum;
 
 /**
  * 消息卡片多列布局

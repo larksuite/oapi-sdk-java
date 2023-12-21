@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.card.model.IMessageCardElement;
 import com.lark.oapi.card.model.MessageCardElement;
 import com.lark.oapi.card.model.MessageCardURL;
-import com.lark.oapi.service.ext.enums.MessageCardLayoutTextAlignEnum;
+import com.lark.oapi.service.im.v1.enums.ext.MessageCardLayoutTextAlignEnum;
 
 import java.util.HashMap;
 import java.util.Map;

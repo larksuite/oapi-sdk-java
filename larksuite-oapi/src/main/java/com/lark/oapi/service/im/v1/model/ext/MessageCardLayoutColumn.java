@@ -3,8 +3,8 @@ package com.lark.oapi.service.im.v1.model.ext;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.card.model.IMessageCardElement;
 import com.lark.oapi.card.model.MessageCardElement;
-import com.lark.oapi.service.ext.enums.MessageCardColumnVerticalAlignEnum;
-import com.lark.oapi.service.ext.enums.MessageCardColumnWidthEnum;
+import com.lark.oapi.service.im.v1.enums.ext.MessageCardColumnVerticalAlignEnum;
+import com.lark.oapi.service.im.v1.enums.ext.MessageCardColumnWidthEnum;
 
 /**
  * 消息卡片多列布局子容器
@@ -26,6 +26,7 @@ public class MessageCardLayoutColumn extends MessageCardElement implements IMess
     public MessageCardLayoutColumn() {
         this.tag = "column";
     }
+
     public MessageCardLayoutColumn(Builder builder) {
         this.tag = "column";
         this.width = builder.width;

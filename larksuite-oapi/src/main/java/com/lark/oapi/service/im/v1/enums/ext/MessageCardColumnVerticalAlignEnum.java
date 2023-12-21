@@ -1,4 +1,4 @@
-package com.lark.oapi.service.ext.enums;
+package com.lark.oapi.service.im.v1.enums.ext;
 
 /**
  * 列内成员垂直对齐方式

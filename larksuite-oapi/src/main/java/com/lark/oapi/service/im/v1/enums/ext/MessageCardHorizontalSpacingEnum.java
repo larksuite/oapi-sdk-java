@@ -1,4 +1,4 @@
-package com.lark.oapi.service.ext.enums;
+package com.lark.oapi.service.im.v1.enums.ext;
 
 /**
  * 列集内，每列与上一列的左右间距
