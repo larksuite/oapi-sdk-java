@@ -164,6 +164,41 @@ public class EventDispatcher implements IHandler {
         return resp;
     }
 
+    public void doWithoutValidation(byte[] payload) throws Throwable {
+        String pl = new String(payload, StandardCharsets.UTF_8);
+
+        Fuzzy fuzzy = Jsons.DEFAULT.fromJson(pl, Fuzzy.class);
+        String eventType = "";
+        if (fuzzy.getEvent() != null) {
+            eventType = fuzzy.getEvent().getType();
+        }
+        if (fuzzy.getHeader() != null) {
+            eventType = fuzzy.getHeader().getEventType();
+        }
+
+        IEventHandler handler = eventType2EventHandler.get(eventType);
+        if (handler == null) {
+            throw new HandlerNotFoundException(eventType);
+        }
+
+        EventReq req = new EventReq();
+        req.setBody(payload);
+        Object eventMsg = handler.getEvent();
+        if (handler instanceof CustomEventHandler) {
+            eventMsg = req;
+        } else {
+            eventMsg = Jsons.DEFAULT.fromJson(pl, eventMsg.getClass());
+        }
+
+        if (eventMsg instanceof BaseEventV2) {
+            ((BaseEventV2) eventMsg).setEventReq(req);
+        } else if (eventMsg instanceof BaseEvent) {
+            ((BaseEvent) eventMsg).setEventReq(req);
+        }
+
+        handler.handle(eventMsg);
+    }
+
     public EventResp handle(EventReq eventReq) throws Throwable {
         EventResp eventResp = new EventResp();
         eventResp.setStatusCode(200);

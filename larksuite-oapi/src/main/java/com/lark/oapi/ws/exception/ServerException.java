@@ -15,6 +15,6 @@ public class ServerException extends RuntimeException {
 
     @Override
     public String toString() {
-        return String.format("%d: %s", this.code, getMessage());
+        return String.format("ServerException: %d: %s", this.code, getMessage());
     }
 }

@@ -15,6 +15,6 @@ public class ClientException extends RuntimeException{
 
     @Override
     public String toString() {
-        return String.format("%d: %s", this.code, getMessage());
+        return String.format("ClientException: %d: %s", this.code, getMessage());
     }
 }
