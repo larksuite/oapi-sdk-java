@@ -15,8 +15,7 @@ public class Sample {
             .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
                 @Override
                 public void handle(P2MessageReceiveV1 event) throws Exception {
-                    Thread.sleep(2000);
-                    System.out.printf("[ onP2MessageReceiveV1 access ], data: %s\n", Jsons.DEFAULT.toJson(event));
+                    System.out.printf("[ onP2MessageReceiveV1 access ], data: %s\n", Jsons.DEFAULT.toJson(event.getEvent()));
                 }
             })
             .onCustomizedEvent("message", new CustomEventHandler() {
