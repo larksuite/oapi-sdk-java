@@ -12,7 +12,9 @@
 
 package com.lark.oapi.sample.event;
 
+import com.lark.oapi.core.request.EventReq;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.event.CustomEventHandler;
 import com.lark.oapi.event.EventDispatcher;
 import com.lark.oapi.sdk.servlet.ext.ServletAdapter;
 import com.lark.oapi.service.application.ApplicationService.P1AppOpenV6Handler;
@@ -27,8 +29,14 @@ import com.lark.oapi.service.approval.ApprovalService.*;
 import com.lark.oapi.service.approval.v4.model.*;
 import com.lark.oapi.service.contact.ContactService.*;
 import com.lark.oapi.service.contact.v3.model.*;
-import com.lark.oapi.service.im.ImService.*;
-import com.lark.oapi.service.im.v1.model.*;
+import com.lark.oapi.service.im.ImService.P1MessageReadV1Handler;
+import com.lark.oapi.service.im.ImService.P1P2PChatCreatedV1Handler;
+import com.lark.oapi.service.im.ImService.P2MessageReadV1Handler;
+import com.lark.oapi.service.im.ImService.P2MessageReceiveV1Handler;
+import com.lark.oapi.service.im.v1.model.P1MessageReadV1;
+import com.lark.oapi.service.im.v1.model.P1P2PChatCreatedV1;
+import com.lark.oapi.service.im.v1.model.P2MessageReadV1;
+import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.lark.oapi.service.meeting_room.MeetingRoomService.P1ThirdPartyMeetingRoomChangedV1Handler;
 import com.lark.oapi.service.meeting_room.v1.model.P1ThirdPartyMeetingRoomChangedV1;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,12 +74,6 @@ public class EventController {
             }).onP1MessageReadV1(new P1MessageReadV1Handler() {
                 @Override
                 public void handle(P1MessageReadV1 event) {
-                    System.out.println(Jsons.DEFAULT.toJson(event));
-                    System.out.println(event.getRequestId());
-                }
-            }).onP1MessageReceivedV1(new P1MessageReceivedV1Handler() {
-                @Override
-                public void handle(P1MessageReceivedV1 event) throws Exception {
                     System.out.println(Jsons.DEFAULT.toJson(event));
                     System.out.println(event.getRequestId());
                 }
@@ -170,6 +172,12 @@ public class EventController {
                 public void handle(P1AppUninstalledV6 event) throws Exception {
                     System.out.println(Jsons.DEFAULT.toJson(event));
                     System.out.println(event.getRequestId());
+                }
+            }).onCustomizedEvent("message", new CustomEventHandler() {
+                @Override
+                public void handle(EventReq event) {
+                    System.out.println("body:" + new String(event.getBody()));
+                    System.out.println("plain:" + event.getPlain());
                 }
             })
             .build();

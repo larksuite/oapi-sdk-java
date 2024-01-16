@@ -20,10 +20,18 @@ import java.util.List;
 import java.util.Map;
 
 public class EventReq {
-
+    private String plain; // body解密后的json-string
     private byte[] body;
     private String httpPath;
     private Map<String, List<String>> headers = new HashMap();
+
+    public String getPlain() {
+        return plain;
+    }
+
+    public void setPlain(String plain) {
+        this.plain = plain;
+    }
 
     public String getHttpPath() {
         return httpPath;

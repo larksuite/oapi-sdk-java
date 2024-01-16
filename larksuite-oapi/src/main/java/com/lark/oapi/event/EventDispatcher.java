@@ -126,6 +126,8 @@ public class EventDispatcher implements IHandler {
         resp.setStatusCode(200);
         resp.setContentType(Constants.JSON_CONTENT_TYPE);
 
+        req.setPlain(plainEventJsonStr);
+
         // 使用challenge进行鉴权
         if (Constants.URL_VERIFICATION.equals(reqType)) {
             if (!verificationToken.equals(token)) {
