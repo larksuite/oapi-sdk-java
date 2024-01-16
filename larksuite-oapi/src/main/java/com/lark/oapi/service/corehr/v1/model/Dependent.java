@@ -47,6 +47,12 @@ public class Dependent {
     @SerializedName("nationality_id")
     private String nationalityId;
     /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     * <p> 示例值：7075702734054164012
+     */
+    @SerializedName("nationality_id_v2")
+    private String nationalityIdV2;
+    /**
      * 证件号码
      * <p> 示例值：
      */
@@ -143,6 +149,11 @@ public class Dependent {
          * <p> 示例值：123456
          */
         this.nationalityId = builder.nationalityId;
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702734054164012
+         */
+        this.nationalityIdV2 = builder.nationalityIdV2;
         /**
          * 证件号码
          * <p> 示例值：
@@ -242,6 +253,14 @@ public class Dependent {
 
     public void setNationalityId(String nationalityId) {
         this.nationalityId = nationalityId;
+    }
+
+    public String getNationalityIdV2() {
+        return this.nationalityIdV2;
+    }
+
+    public void setNationalityIdV2(String nationalityIdV2) {
+        this.nationalityIdV2 = nationalityIdV2;
     }
 
     public NationalId[] getNationalIdList() {
@@ -359,6 +378,11 @@ public class Dependent {
          */
         private String nationalityId;
         /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702734054164012
+         */
+        private String nationalityIdV2;
+        /**
          * 证件号码
          * <p> 示例值：
          */
@@ -475,6 +499,19 @@ public class Dependent {
          */
         public Builder nationalityId(String nationalityId) {
             this.nationalityId = nationalityId;
+            return this;
+        }
+
+
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：7075702734054164012
+         *
+         * @param nationalityIdV2
+         * @return
+         */
+        public Builder nationalityIdV2(String nationalityIdV2) {
+            this.nationalityIdV2 = nationalityIdV2;
             return this;
         }
 

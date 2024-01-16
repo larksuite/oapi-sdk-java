@@ -100,6 +100,12 @@ public class ChatChange {
      */
     @SerializedName("restricted_mode_setting")
     private RestrictedModeSetting restrictedModeSetting;
+    /**
+     * 群消息模式
+     * <p> 示例值：chat
+     */
+    @SerializedName("group_message_type")
+    private String groupMessageType;
 
     // builder 开始
     public ChatChange() {
@@ -176,6 +182,11 @@ public class ChatChange {
          * <p> 示例值：
          */
         this.restrictedModeSetting = builder.restrictedModeSetting;
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         */
+        this.groupMessageType = builder.groupMessageType;
     }
 
     public static Builder newBuilder() {
@@ -294,6 +305,14 @@ public class ChatChange {
         this.restrictedModeSetting = restrictedModeSetting;
     }
 
+    public String getGroupMessageType() {
+        return this.groupMessageType;
+    }
+
+    public void setGroupMessageType(String groupMessageType) {
+        this.groupMessageType = groupMessageType;
+    }
+
     public static class Builder {
         /**
          * 群头像
@@ -365,6 +384,11 @@ public class ChatChange {
          * <p> 示例值：
          */
         private RestrictedModeSetting restrictedModeSetting;
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         */
+        private String groupMessageType;
 
         /**
          * 群头像
@@ -544,6 +568,19 @@ public class ChatChange {
          */
         public Builder restrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
             this.restrictedModeSetting = restrictedModeSetting;
+            return this;
+        }
+
+
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         *
+         * @param groupMessageType
+         * @return
+         */
+        public Builder groupMessageType(String groupMessageType) {
+            this.groupMessageType = groupMessageType;
             return this;
         }
 

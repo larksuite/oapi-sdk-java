@@ -21,6 +21,7 @@ public class OkrService {
     private final Image image; // 图片
     private final Okr okr; // OKR
     private final Period period; // OKR周期
+    private final PeriodRule periodRule; // 周期规则
     private final ProgressRecord progressRecord; // OKR进展记录
     private final UserOkr userOkr; // 用户OKR
 
@@ -29,6 +30,7 @@ public class OkrService {
         this.image = new Image(config);
         this.okr = new Okr(config);
         this.period = new Period(config);
+        this.periodRule = new PeriodRule(config);
         this.progressRecord = new ProgressRecord(config);
         this.userOkr = new UserOkr(config);
     }
@@ -47,6 +49,10 @@ public class OkrService {
 
     public Period period() {
         return period;
+    }
+
+    public PeriodRule periodRule() {
+        return periodRule;
     }
 
     public ProgressRecord progressRecord() {

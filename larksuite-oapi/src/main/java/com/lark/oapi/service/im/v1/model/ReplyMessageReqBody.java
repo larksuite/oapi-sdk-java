@@ -29,6 +29,12 @@ public class ReplyMessageReqBody {
     @SerializedName("msg_type")
     private String msgType;
     /**
+     * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+     * <p> 示例值：false
+     */
+    @SerializedName("reply_in_thread")
+    private Boolean replyInThread;
+    /**
      * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
      * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
      */
@@ -50,6 +56,11 @@ public class ReplyMessageReqBody {
          * <p> 示例值：text
          */
         this.msgType = builder.msgType;
+        /**
+         * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+         * <p> 示例值：false
+         */
+        this.replyInThread = builder.replyInThread;
         /**
          * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
          * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
@@ -77,6 +88,14 @@ public class ReplyMessageReqBody {
         this.msgType = msgType;
     }
 
+    public Boolean getReplyInThread() {
+        return this.replyInThread;
+    }
+
+    public void setReplyInThread(Boolean replyInThread) {
+        this.replyInThread = replyInThread;
+    }
+
     public String getUuid() {
         return this.uuid;
     }
@@ -96,6 +115,11 @@ public class ReplyMessageReqBody {
          * <p> 示例值：text
          */
         private String msgType;
+        /**
+         * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+         * <p> 示例值：false
+         */
+        private Boolean replyInThread;
         /**
          * 由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
          * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
@@ -124,6 +148,19 @@ public class ReplyMessageReqBody {
          */
         public Builder msgType(String msgType) {
             this.msgType = msgType;
+            return this;
+        }
+
+
+        /**
+         * 是否以话题形式回复；若群聊已经是话题模式，则自动回复该条消息所在的话题
+         * <p> 示例值：false
+         *
+         * @param replyInThread
+         * @return
+         */
+        public Builder replyInThread(Boolean replyInThread) {
+            this.replyInThread = replyInThread;
             return this;
         }
 

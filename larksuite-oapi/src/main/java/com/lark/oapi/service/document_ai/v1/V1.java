@@ -25,12 +25,14 @@ public class V1 {
     private final DrivingLicense drivingLicense; // driving_license
     private final FoodManageLicense foodManageLicense; // food_manage_license
     private final FoodProduceLicense foodProduceLicense; // food_produce_license
+    private final HealthCertificate healthCertificate; // health_certificate
     private final HkmMainlandTravelPermit hkmMainlandTravelPermit; // hkm_mainland_travel_permit
     private final IdCard idCard; // id_card
     private final TaxiInvoice taxiInvoice; // taxi_invoice
     private final TrainInvoice trainInvoice; // train_invoice
     private final TwMainlandTravelPermit twMainlandTravelPermit; // tw_mainland_travel_permit
     private final VatInvoice vatInvoice; // vat_invoice
+    private final VehicleInvoice vehicleInvoice; // vehicle_invoice
     private final VehicleLicense vehicleLicense; // vehicle_license
 
     public V1(Config config) {
@@ -42,12 +44,14 @@ public class V1 {
         this.drivingLicense = new DrivingLicense(config);
         this.foodManageLicense = new FoodManageLicense(config);
         this.foodProduceLicense = new FoodProduceLicense(config);
+        this.healthCertificate = new HealthCertificate(config);
         this.hkmMainlandTravelPermit = new HkmMainlandTravelPermit(config);
         this.idCard = new IdCard(config);
         this.taxiInvoice = new TaxiInvoice(config);
         this.trainInvoice = new TrainInvoice(config);
         this.twMainlandTravelPermit = new TwMainlandTravelPermit(config);
         this.vatInvoice = new VatInvoice(config);
+        this.vehicleInvoice = new VehicleInvoice(config);
         this.vehicleLicense = new VehicleLicense(config);
     }
 
@@ -83,6 +87,10 @@ public class V1 {
         return foodProduceLicense;
     }
 
+    public HealthCertificate healthCertificate() {
+        return healthCertificate;
+    }
+
     public HkmMainlandTravelPermit hkmMainlandTravelPermit() {
         return hkmMainlandTravelPermit;
     }
@@ -105,6 +113,10 @@ public class V1 {
 
     public VatInvoice vatInvoice() {
         return vatInvoice;
+    }
+
+    public VehicleInvoice vehicleInvoice() {
+        return vehicleInvoice;
     }
 
     public VehicleLicense vehicleLicense() {

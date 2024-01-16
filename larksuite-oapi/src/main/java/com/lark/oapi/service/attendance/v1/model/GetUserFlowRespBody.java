@@ -89,6 +89,12 @@ public class GetUserFlowRespBody {
     @SerializedName("photo_urls")
     private String[] photoUrls;
     /**
+     * 打卡设备ID
+     * <p> 示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d
+     */
+    @SerializedName("device_id")
+    private String deviceId;
+    /**
      * 打卡结果
      * <p> 示例值：Invalid
      */
@@ -198,6 +204,13 @@ public class GetUserFlowRespBody {
         this.photoUrls = photoUrls;
     }
 
+    public String getDeviceId() {
+        return this.deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 
     public String getCheckResult() {
         return this.checkResult;

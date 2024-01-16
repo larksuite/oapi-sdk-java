@@ -575,6 +575,18 @@ public class Application {
             return this;
         }
 
+        /**
+         * 应用创建来源(目前仅Base应用返回)
+         * <p> 示例值：base
+         *
+         * @param createSource {@link com.lark.oapi.service.application.v6.enums.ApplicationCreateSourceEnum}
+         * @return
+         */
+        public Builder createSource(com.lark.oapi.service.application.v6.enums.ApplicationCreateSourceEnum createSource) {
+            this.createSource = createSource.getValue();
+            return this;
+        }
+
 
         /**
          * 安全设置中的重定向 URL

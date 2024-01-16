@@ -20,15 +20,19 @@ public class V1 {
     private final AccessRecord accessRecord; // 门禁记录
     private final AccessRecordAccessPhoto accessRecordAccessPhoto; // access_record.access_photo
     private final Device device; // 门禁设备
+    private final RuleExternal ruleExternal; // rule_external
     private final User user; // 用户管理
     private final UserFace userFace; // user.face
+    private final Visitor visitor; // visitor
 
     public V1(Config config) {
         this.accessRecord = new AccessRecord(config);
         this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
         this.device = new Device(config);
+        this.ruleExternal = new RuleExternal(config);
         this.user = new User(config);
         this.userFace = new UserFace(config);
+        this.visitor = new Visitor(config);
     }
 
     public AccessRecord accessRecord() {
@@ -43,11 +47,19 @@ public class V1 {
         return device;
     }
 
+    public RuleExternal ruleExternal() {
+        return ruleExternal;
+    }
+
     public User user() {
         return user;
     }
 
     public UserFace userFace() {
         return userFace;
+    }
+
+    public Visitor visitor() {
+        return visitor;
     }
 }

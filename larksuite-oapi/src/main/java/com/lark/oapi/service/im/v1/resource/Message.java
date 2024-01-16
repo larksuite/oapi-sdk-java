@@ -253,7 +253,7 @@ public class Message {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/im/v1/messages/:message_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -286,7 +286,7 @@ public class Message {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/im/v1/messages/:message_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
                 , req);
 
         // 反序列化

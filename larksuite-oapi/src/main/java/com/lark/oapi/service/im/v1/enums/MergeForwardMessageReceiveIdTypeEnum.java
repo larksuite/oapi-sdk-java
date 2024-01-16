@@ -22,6 +22,7 @@ public enum MergeForwardMessageReceiveIdTypeEnum {
     UNION_ID("union_id"), // 标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。
     EMAIL("email"), // 以用户的真实邮箱来标识用户。
     CHAT_ID("chat_id"), // 以群ID来标识群聊。
+    THREAD_ID("thread_id"), // 以话题ID来标识话题。
     ;
     private String value;
 

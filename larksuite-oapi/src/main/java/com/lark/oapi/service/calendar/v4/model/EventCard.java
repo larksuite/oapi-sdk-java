@@ -82,6 +82,12 @@ public class EventCard {
      */
     @SerializedName("scenario_context")
     private CalendarUnderstandScenarioContext scenarioContext;
+    /**
+     * 日程的uid_originTime
+     * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+     */
+    @SerializedName("event_id")
+    private String eventId;
 
     // builder 开始
     public EventCard() {
@@ -143,6 +149,11 @@ public class EventCard {
          * <p> 示例值：
          */
         this.scenarioContext = builder.scenarioContext;
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
+        this.eventId = builder.eventId;
     }
 
     public static Builder newBuilder() {
@@ -237,6 +248,14 @@ public class EventCard {
         this.scenarioContext = scenarioContext;
     }
 
+    public String getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
     public static class Builder {
         /**
          * 日程主题
@@ -293,6 +312,11 @@ public class EventCard {
          * <p> 示例值：
          */
         private CalendarUnderstandScenarioContext scenarioContext;
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
+        private String eventId;
 
         /**
          * 日程主题
@@ -433,6 +457,19 @@ public class EventCard {
          */
         public Builder scenarioContext(CalendarUnderstandScenarioContext scenarioContext) {
             this.scenarioContext = scenarioContext;
+            return this;
+        }
+
+
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         *
+         * @param eventId
+         * @return
+         */
+        public Builder eventId(String eventId) {
+            this.eventId = eventId;
             return this;
         }
 

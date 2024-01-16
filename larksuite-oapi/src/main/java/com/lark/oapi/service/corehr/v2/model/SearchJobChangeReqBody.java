@@ -34,6 +34,18 @@ public class SearchJobChangeReqBody {
      */
     @SerializedName("statuses")
     private String[] statuses;
+    /**
+     * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+     * <p> 示例值：2022-01-01
+     */
+    @SerializedName("effective_date_start")
+    private String effectiveDateStart;
+    /**
+     * 异动生效日期 - 搜索范围结束
+     * <p> 示例值：2022-01-01
+     */
+    @SerializedName("effective_date_end")
+    private String effectiveDateEnd;
 
     // builder 开始
     public SearchJobChangeReqBody() {
@@ -55,6 +67,16 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：Approved
          */
         this.statuses = builder.statuses;
+        /**
+         * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2022-01-01
+         */
+        this.effectiveDateStart = builder.effectiveDateStart;
+        /**
+         * 异动生效日期 - 搜索范围结束
+         * <p> 示例值：2022-01-01
+         */
+        this.effectiveDateEnd = builder.effectiveDateEnd;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +107,22 @@ public class SearchJobChangeReqBody {
         this.statuses = statuses;
     }
 
+    public String getEffectiveDateStart() {
+        return this.effectiveDateStart;
+    }
+
+    public void setEffectiveDateStart(String effectiveDateStart) {
+        this.effectiveDateStart = effectiveDateStart;
+    }
+
+    public String getEffectiveDateEnd() {
+        return this.effectiveDateEnd;
+    }
+
+    public void setEffectiveDateEnd(String effectiveDateEnd) {
+        this.effectiveDateEnd = effectiveDateEnd;
+    }
+
     public static class Builder {
         /**
          * 雇员 ID 列表
@@ -101,6 +139,16 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：Approved
          */
         private String[] statuses;
+        /**
+         * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2022-01-01
+         */
+        private String effectiveDateStart;
+        /**
+         * 异动生效日期 - 搜索范围结束
+         * <p> 示例值：2022-01-01
+         */
+        private String effectiveDateEnd;
 
         /**
          * 雇员 ID 列表
@@ -137,6 +185,32 @@ public class SearchJobChangeReqBody {
          */
         public Builder statuses(String[] statuses) {
             this.statuses = statuses;
+            return this;
+        }
+
+
+        /**
+         * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2022-01-01
+         *
+         * @param effectiveDateStart
+         * @return
+         */
+        public Builder effectiveDateStart(String effectiveDateStart) {
+            this.effectiveDateStart = effectiveDateStart;
+            return this;
+        }
+
+
+        /**
+         * 异动生效日期 - 搜索范围结束
+         * <p> 示例值：2022-01-01
+         *
+         * @param effectiveDateEnd
+         * @return
+         */
+        public Builder effectiveDateEnd(String effectiveDateEnd) {
+            this.effectiveDateEnd = effectiveDateEnd;
             return this;
         }
 

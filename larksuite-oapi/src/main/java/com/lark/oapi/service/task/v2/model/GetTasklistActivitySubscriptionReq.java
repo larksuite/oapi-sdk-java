@@ -43,7 +43,6 @@ public class GetTasklistActivitySubscriptionReq {
     // builder 开始
     public GetTasklistActivitySubscriptionReq() {
     }
-
     public GetTasklistActivitySubscriptionReq(Builder builder) {
         /**
          * 用户ID类型

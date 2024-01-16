@@ -26,6 +26,20 @@ public class GetCalendarEventReq {
     @SerializedName("need_meeting_settings")
     private Boolean needMeetingSettings;
     /**
+     * 是否需要返回参与人信息
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("need_attendee")
+    private Boolean needAttendee;
+    /**
+     * 返回的最大参与人数量
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("max_attendee_num")
+    private Integer maxAttendeeNum;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -58,6 +72,16 @@ public class GetCalendarEventReq {
          */
         this.needMeetingSettings = builder.needMeetingSettings;
         /**
+         * 是否需要返回参与人信息
+         * <p> 示例值：false
+         */
+        this.needAttendee = builder.needAttendee;
+        /**
+         * 返回的最大参与人数量
+         * <p> 示例值：false
+         */
+        this.maxAttendeeNum = builder.maxAttendeeNum;
+        /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          */
@@ -86,6 +110,22 @@ public class GetCalendarEventReq {
         this.needMeetingSettings = needMeetingSettings;
     }
 
+    public Boolean getNeedAttendee() {
+        return this.needAttendee;
+    }
+
+    public void setNeedAttendee(Boolean needAttendee) {
+        this.needAttendee = needAttendee;
+    }
+
+    public Integer getMaxAttendeeNum() {
+        return this.maxAttendeeNum;
+    }
+
+    public void setMaxAttendeeNum(Integer maxAttendeeNum) {
+        this.maxAttendeeNum = maxAttendeeNum;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -112,6 +152,8 @@ public class GetCalendarEventReq {
 
     public static class Builder {
         private Boolean needMeetingSettings; // 是否需要返回会前设置
+        private Boolean needAttendee; // 是否需要返回参与人信息
+        private Integer maxAttendeeNum; // 返回的最大参与人数量
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -125,6 +167,30 @@ public class GetCalendarEventReq {
          */
         public Builder needMeetingSettings(Boolean needMeetingSettings) {
             this.needMeetingSettings = needMeetingSettings;
+            return this;
+        }
+
+        /**
+         * 是否需要返回参与人信息
+         * <p> 示例值：false
+         *
+         * @param needAttendee
+         * @return
+         */
+        public Builder needAttendee(Boolean needAttendee) {
+            this.needAttendee = needAttendee;
+            return this;
+        }
+
+        /**
+         * 返回的最大参与人数量
+         * <p> 示例值：false
+         *
+         * @param maxAttendeeNum
+         * @return
+         */
+        public Builder maxAttendeeNum(Integer maxAttendeeNum) {
+            this.maxAttendeeNum = maxAttendeeNum;
             return this;
         }
 

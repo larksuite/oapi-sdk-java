@@ -28,6 +28,12 @@ public class UserAnnualReport {
      */
     @SerializedName("year_2022")
     private UserReport2022 year2022;
+    /**
+     * 2023用户年度报告
+     * <p> 示例值：
+     */
+    @SerializedName("year_2023")
+    private UserReport2023 year2023;
 
     // builder 开始
     public UserAnnualReport() {
@@ -44,6 +50,11 @@ public class UserAnnualReport {
          * <p> 示例值：
          */
         this.year2022 = builder.year2022;
+        /**
+         * 2023用户年度报告
+         * <p> 示例值：
+         */
+        this.year2023 = builder.year2023;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class UserAnnualReport {
         this.year2022 = year2022;
     }
 
+    public UserReport2023 getYear2023() {
+        return this.year2023;
+    }
+
+    public void setYear2023(UserReport2023 year2023) {
+        this.year2023 = year2023;
+    }
+
     public static class Builder {
         /**
          * 2021用户年度报告
@@ -77,6 +96,11 @@ public class UserAnnualReport {
          * <p> 示例值：
          */
         private UserReport2022 year2022;
+        /**
+         * 2023用户年度报告
+         * <p> 示例值：
+         */
+        private UserReport2023 year2023;
 
         /**
          * 2021用户年度报告
@@ -100,6 +124,19 @@ public class UserAnnualReport {
          */
         public Builder year2022(UserReport2022 year2022) {
             this.year2022 = year2022;
+            return this;
+        }
+
+
+        /**
+         * 2023用户年度报告
+         * <p> 示例值：
+         *
+         * @param year2023
+         * @return
+         */
+        public Builder year2023(UserReport2023 year2023) {
+            this.year2023 = year2023;
             return this;
         }
 

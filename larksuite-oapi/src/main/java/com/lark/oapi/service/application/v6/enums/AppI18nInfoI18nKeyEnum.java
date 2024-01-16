@@ -20,6 +20,19 @@ public enum AppI18nInfoI18nKeyEnum {
     ZH_CN("zh_cn"), // 中文
     EN_US("en_us"), // 英文
     JA_JP("ja_jp"), // 日文
+    ZH_HK("zh_hk"), // 繁体中文(中国香港)
+    ZH_TW("zh_tw"), // 繁体中文(中国台湾)
+    ID_ID("id_id"), // 印度尼西亚语
+    MS_MY("ms_my"), // 马来语
+    DE_DE("de_de"), // 德语
+    ES_ES("es_es"), // 西班牙语
+    FR_FR("fr_fr"), // 法语
+    IT_IT("it_it"), // 意大利语
+    PT_BR("pt_br"), // 葡萄牙语(巴西)
+    VI_VN("vi_vn"), // 越南语
+    RU_RU("ru_ru"), // 俄语
+    TH_TH("th_th"), // 泰语
+    KO_KR("ko_kr"), // 韩语
     ;
     private String value;
 

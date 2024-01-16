@@ -18,9 +18,19 @@ import com.lark.oapi.service.corehr.v2.resource.*;
 import com.lark.oapi.service.corehr.v2.resource.Process;
 
 public class V2 {
+    private final BasicInfoBank basicInfoBank; // basic_info.bank
+    private final BasicInfoBankBranch basicInfoBankBranch; // basic_info.bank_branch
+    private final BasicInfoCity basicInfoCity; // basic_info.city
+    private final BasicInfoCountryRegion basicInfoCountryRegion; // basic_info.country_region
+    private final BasicInfoCountryRegionSubdivision basicInfoCountryRegionSubdivision; // basic_info.country_region_subdivision
+    private final BasicInfoCurrency basicInfoCurrency; // basic_info.currency
+    private final BasicInfoDistrict basicInfoDistrict; // basic_info.district
+    private final BasicInfoNationality basicInfoNationality; // basic_info.nationality
     private final Bp bp; // bp
     private final Company company; // company
     private final Contract contract; // contract
+    private final CostCenter costCenter; // cost_center
+    private final CostCenterVersion costCenterVersion; // cost_center.version
     private final Department department; // department
     private final Employee employee; // employee
     private final EmployeesBp employeesBp; // employees.bp
@@ -39,9 +49,19 @@ public class V2 {
     private final ProcessCc processCc; // process.cc
 
     public V2(Config config) {
+        this.basicInfoBank = new BasicInfoBank(config);
+        this.basicInfoBankBranch = new BasicInfoBankBranch(config);
+        this.basicInfoCity = new BasicInfoCity(config);
+        this.basicInfoCountryRegion = new BasicInfoCountryRegion(config);
+        this.basicInfoCountryRegionSubdivision = new BasicInfoCountryRegionSubdivision(config);
+        this.basicInfoCurrency = new BasicInfoCurrency(config);
+        this.basicInfoDistrict = new BasicInfoDistrict(config);
+        this.basicInfoNationality = new BasicInfoNationality(config);
         this.bp = new Bp(config);
         this.company = new Company(config);
         this.contract = new Contract(config);
+        this.costCenter = new CostCenter(config);
+        this.costCenterVersion = new CostCenterVersion(config);
         this.department = new Department(config);
         this.employee = new Employee(config);
         this.employeesBp = new EmployeesBp(config);
@@ -60,6 +80,38 @@ public class V2 {
         this.processCc = new ProcessCc(config);
     }
 
+    public BasicInfoBank basicInfoBank() {
+        return basicInfoBank;
+    }
+
+    public BasicInfoBankBranch basicInfoBankBranch() {
+        return basicInfoBankBranch;
+    }
+
+    public BasicInfoCity basicInfoCity() {
+        return basicInfoCity;
+    }
+
+    public BasicInfoCountryRegion basicInfoCountryRegion() {
+        return basicInfoCountryRegion;
+    }
+
+    public BasicInfoCountryRegionSubdivision basicInfoCountryRegionSubdivision() {
+        return basicInfoCountryRegionSubdivision;
+    }
+
+    public BasicInfoCurrency basicInfoCurrency() {
+        return basicInfoCurrency;
+    }
+
+    public BasicInfoDistrict basicInfoDistrict() {
+        return basicInfoDistrict;
+    }
+
+    public BasicInfoNationality basicInfoNationality() {
+        return basicInfoNationality;
+    }
+
     public Bp bp() {
         return bp;
     }
@@ -70,6 +122,14 @@ public class V2 {
 
     public Contract contract() {
         return contract;
+    }
+
+    public CostCenter costCenter() {
+        return costCenter;
+    }
+
+    public CostCenterVersion costCenterVersion() {
+        return costCenterVersion;
     }
 
     public Department department() {

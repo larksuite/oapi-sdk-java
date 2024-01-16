@@ -35,7 +35,7 @@ public class MyaiReply {
     @SerializedName("end_time")
     private String endTime;
     /**
-     * 日历实体列表
+     * 会议室实体列表
      * <p> 示例值：
      */
     @SerializedName("rooms")
@@ -52,6 +52,18 @@ public class MyaiReply {
      */
     @SerializedName("participants")
     private UserMeta[] participants;
+    /**
+     * 日程的uid_originTime
+     * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+     */
+    @SerializedName("event_id")
+    private String eventId;
+    /**
+     * 日程的重复性规则
+     * <p> 示例值：FREQ=DAILY;INTERVAL=1
+     */
+    @SerializedName("recurrence_rule")
+    private String recurrenceRule;
 
     // builder 开始
     public MyaiReply() {
@@ -74,7 +86,7 @@ public class MyaiReply {
          */
         this.endTime = builder.endTime;
         /**
-         * 日历实体列表
+         * 会议室实体列表
          * <p> 示例值：
          */
         this.rooms = builder.rooms;
@@ -88,6 +100,16 @@ public class MyaiReply {
          * <p> 示例值：
          */
         this.participants = builder.participants;
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
+        this.eventId = builder.eventId;
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         */
+        this.recurrenceRule = builder.recurrenceRule;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +164,22 @@ public class MyaiReply {
         this.participants = participants;
     }
 
+    public String getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getRecurrenceRule() {
+        return this.recurrenceRule;
+    }
+
+    public void setRecurrenceRule(String recurrenceRule) {
+        this.recurrenceRule = recurrenceRule;
+    }
+
     public static class Builder {
         /**
          * 返回给myai的自然语言描述
@@ -159,7 +197,7 @@ public class MyaiReply {
          */
         private String endTime;
         /**
-         * 日历实体列表
+         * 会议室实体列表
          * <p> 示例值：
          */
         private RoomMeta[] rooms;
@@ -173,6 +211,16 @@ public class MyaiReply {
          * <p> 示例值：
          */
         private UserMeta[] participants;
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         */
+        private String eventId;
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         */
+        private String recurrenceRule;
 
         /**
          * 返回给myai的自然语言描述
@@ -214,7 +262,7 @@ public class MyaiReply {
 
 
         /**
-         * 日历实体列表
+         * 会议室实体列表
          * <p> 示例值：
          *
          * @param rooms
@@ -248,6 +296,32 @@ public class MyaiReply {
          */
         public Builder participants(UserMeta[] participants) {
             this.participants = participants;
+            return this;
+        }
+
+
+        /**
+         * 日程的uid_originTime
+         * <p> 示例值：11dd1004-7cfb-4ad2-89a0-aa3c82f34dda_0
+         *
+         * @param eventId
+         * @return
+         */
+        public Builder eventId(String eventId) {
+            this.eventId = eventId;
+            return this;
+        }
+
+
+        /**
+         * 日程的重复性规则
+         * <p> 示例值：FREQ=DAILY;INTERVAL=1
+         *
+         * @param recurrenceRule
+         * @return
+         */
+        public Builder recurrenceRule(String recurrenceRule) {
+            this.recurrenceRule = recurrenceRule;
             return this;
         }
 

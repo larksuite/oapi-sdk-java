@@ -20,6 +20,7 @@ public enum CreateMigrationEntityLocationEnum {
     CN("CN"), // 中国
     SG("SG"), // 新加坡
     JP("JP"), // 日本
+    VA("VA"), // 美国
     ;
     private String value;
 

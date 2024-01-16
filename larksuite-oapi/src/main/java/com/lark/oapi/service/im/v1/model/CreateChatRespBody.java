@@ -95,6 +95,12 @@ public class CreateChatRespBody {
     @SerializedName("edit_permission")
     private String editPermission;
     /**
+     * 群消息模式
+     * <p> 示例值：chat
+     */
+    @SerializedName("group_message_type")
+    private String groupMessageType;
+    /**
      * 群模式;;**可选值有**：;- `group`：群组
      * <p> 示例值：group
      */
@@ -257,6 +263,14 @@ public class CreateChatRespBody {
 
     public void setEditPermission(String editPermission) {
         this.editPermission = editPermission;
+    }
+
+    public String getGroupMessageType() {
+        return this.groupMessageType;
+    }
+
+    public void setGroupMessageType(String groupMessageType) {
+        this.groupMessageType = groupMessageType;
     }
 
     public String getChatMode() {

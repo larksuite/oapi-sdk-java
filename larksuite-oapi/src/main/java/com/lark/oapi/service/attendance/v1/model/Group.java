@@ -83,6 +83,12 @@ public class Group {
     @SerializedName("out_punch_need_approval")
     private Boolean outPunchNeedApproval;
     /**
+     * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
+     * <p> 示例值：true
+     */
+    @SerializedName("out_punch_need_post_approval")
+    private Boolean outPunchNeedPostApproval;
+    /**
      * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
      */
@@ -100,6 +106,18 @@ public class Group {
      */
     @SerializedName("out_punch_allowed_hide_addr")
     private Boolean outPunchAllowedHideAddr;
+    /**
+     * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
+     * <p> 示例值：true
+     */
+    @SerializedName("out_punch_allowed_adjust_addr")
+    private Boolean outPunchAllowedAdjustAddr;
+    /**
+     * 微调范围，默认为 50 米
+     * <p> 示例值：50
+     */
+    @SerializedName("adjust_range")
+    private Integer adjustRange;
     /**
      * 是否允许 PC 端打卡
      * <p> 示例值：true
@@ -412,6 +430,12 @@ public class Group {
      */
     @SerializedName("new_calendar_id")
     private String newCalendarId;
+    /**
+     * 定位不准时是否允许申请打卡
+     * <p> 示例值：true
+     */
+    @SerializedName("allow_apply_punch")
+    private Boolean allowApplyPunch;
 
     // builder 开始
     public Group() {
@@ -474,6 +498,11 @@ public class Group {
          */
         this.outPunchNeedApproval = builder.outPunchNeedApproval;
         /**
+         * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.outPunchNeedPostApproval = builder.outPunchNeedPostApproval;
+        /**
          * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
          * <p> 示例值：true
          */
@@ -488,6 +517,16 @@ public class Group {
          * <p> 示例值：true
          */
         this.outPunchAllowedHideAddr = builder.outPunchAllowedHideAddr;
+        /**
+         * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        this.outPunchAllowedAdjustAddr = builder.outPunchAllowedAdjustAddr;
+        /**
+         * 微调范围，默认为 50 米
+         * <p> 示例值：50
+         */
+        this.adjustRange = builder.adjustRange;
         /**
          * 是否允许 PC 端打卡
          * <p> 示例值：true
@@ -748,6 +787,11 @@ public class Group {
          * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
          */
         this.newCalendarId = builder.newCalendarId;
+        /**
+         * 定位不准时是否允许申请打卡
+         * <p> 示例值：true
+         */
+        this.allowApplyPunch = builder.allowApplyPunch;
     }
 
     public static Builder newBuilder() {
@@ -842,6 +886,14 @@ public class Group {
         this.outPunchNeedApproval = outPunchNeedApproval;
     }
 
+    public Boolean getOutPunchNeedPostApproval() {
+        return this.outPunchNeedPostApproval;
+    }
+
+    public void setOutPunchNeedPostApproval(Boolean outPunchNeedPostApproval) {
+        this.outPunchNeedPostApproval = outPunchNeedPostApproval;
+    }
+
     public Boolean getOutPunchNeedRemark() {
         return this.outPunchNeedRemark;
     }
@@ -864,6 +916,22 @@ public class Group {
 
     public void setOutPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
         this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
+    }
+
+    public Boolean getOutPunchAllowedAdjustAddr() {
+        return this.outPunchAllowedAdjustAddr;
+    }
+
+    public void setOutPunchAllowedAdjustAddr(Boolean outPunchAllowedAdjustAddr) {
+        this.outPunchAllowedAdjustAddr = outPunchAllowedAdjustAddr;
+    }
+
+    public Integer getAdjustRange() {
+        return this.adjustRange;
+    }
+
+    public void setAdjustRange(Integer adjustRange) {
+        this.adjustRange = adjustRange;
     }
 
     public Boolean getAllowPcPunch() {
@@ -1282,6 +1350,14 @@ public class Group {
         this.newCalendarId = newCalendarId;
     }
 
+    public Boolean getAllowApplyPunch() {
+        return this.allowApplyPunch;
+    }
+
+    public void setAllowApplyPunch(Boolean allowApplyPunch) {
+        this.allowApplyPunch = allowApplyPunch;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1339,6 +1415,11 @@ public class Group {
          */
         private Boolean outPunchNeedApproval;
         /**
+         * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean outPunchNeedPostApproval;
+        /**
          * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
          * <p> 示例值：true
          */
@@ -1353,6 +1434,16 @@ public class Group {
          * <p> 示例值：true
          */
         private Boolean outPunchAllowedHideAddr;
+        /**
+         * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         */
+        private Boolean outPunchAllowedAdjustAddr;
+        /**
+         * 微调范围，默认为 50 米
+         * <p> 示例值：50
+         */
+        private Integer adjustRange;
         /**
          * 是否允许 PC 端打卡
          * <p> 示例值：true
@@ -1613,6 +1704,11 @@ public class Group {
          * <p> 示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252
          */
         private String newCalendarId;
+        /**
+         * 定位不准时是否允许申请打卡
+         * <p> 示例值：true
+         */
+        private Boolean allowApplyPunch;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1758,6 +1854,19 @@ public class Group {
 
 
         /**
+         * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param outPunchNeedPostApproval
+         * @return
+         */
+        public Builder outPunchNeedPostApproval(Boolean outPunchNeedPostApproval) {
+            this.outPunchNeedPostApproval = outPunchNeedPostApproval;
+            return this;
+        }
+
+
+        /**
          * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
          * <p> 示例值：true
          *
@@ -1792,6 +1901,32 @@ public class Group {
          */
         public Builder outPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
             this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
+            return this;
+        }
+
+
+        /**
+         * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
+         * <p> 示例值：true
+         *
+         * @param outPunchAllowedAdjustAddr
+         * @return
+         */
+        public Builder outPunchAllowedAdjustAddr(Boolean outPunchAllowedAdjustAddr) {
+            this.outPunchAllowedAdjustAddr = outPunchAllowedAdjustAddr;
+            return this;
+        }
+
+
+        /**
+         * 微调范围，默认为 50 米
+         * <p> 示例值：50
+         *
+         * @param adjustRange
+         * @return
+         */
+        public Builder adjustRange(Integer adjustRange) {
+            this.adjustRange = adjustRange;
             return this;
         }
 
@@ -2468,6 +2603,19 @@ public class Group {
          */
         public Builder newCalendarId(String newCalendarId) {
             this.newCalendarId = newCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 定位不准时是否允许申请打卡
+         * <p> 示例值：true
+         *
+         * @param allowApplyPunch
+         * @return
+         */
+        public Builder allowApplyPunch(Boolean allowApplyPunch) {
+            this.allowApplyPunch = allowApplyPunch;
             return this;
         }
 

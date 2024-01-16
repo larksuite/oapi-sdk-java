@@ -45,7 +45,7 @@ public class AppTableViewPropertyFilterInfoCondition {
      * <p> 示例值：3
      */
     @SerializedName("field_type")
-    private String fieldType;
+    private Integer fieldType;
 
     // builder 开始
     public AppTableViewPropertyFilterInfoCondition() {
@@ -115,11 +115,11 @@ public class AppTableViewPropertyFilterInfoCondition {
         this.conditionId = conditionId;
     }
 
-    public String getFieldType() {
+    public Integer getFieldType() {
         return this.fieldType;
     }
 
-    public void setFieldType(String fieldType) {
+    public void setFieldType(Integer fieldType) {
         this.fieldType = fieldType;
     }
 
@@ -148,7 +148,7 @@ public class AppTableViewPropertyFilterInfoCondition {
          * 用于过滤的字段类型
          * <p> 示例值：3
          */
-        private String fieldType;
+        private Integer fieldType;
 
         /**
          * 用于过滤的字段唯一ID
@@ -221,7 +221,7 @@ public class AppTableViewPropertyFilterInfoCondition {
          * @param fieldType
          * @return
          */
-        public Builder fieldType(String fieldType) {
+        public Builder fieldType(Integer fieldType) {
             this.fieldType = fieldType;
             return this;
         }

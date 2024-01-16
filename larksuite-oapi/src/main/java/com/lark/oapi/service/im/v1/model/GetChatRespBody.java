@@ -89,6 +89,12 @@ public class GetChatRespBody {
     @SerializedName("bot_manager_id_list")
     private String[] botManagerIdList;
     /**
+     * 群消息模式
+     * <p> 示例值：chat
+     */
+    @SerializedName("group_message_type")
+    private String groupMessageType;
+    /**
      * 群模式;;**可选值有**：;- `group`：群组;- `topic`: 话题;- `p2p`: 单聊
      * <p> 示例值：group
      */
@@ -267,6 +273,14 @@ public class GetChatRespBody {
 
     public void setBotManagerIdList(String[] botManagerIdList) {
         this.botManagerIdList = botManagerIdList;
+    }
+
+    public String getGroupMessageType() {
+        return this.groupMessageType;
+    }
+
+    public void setGroupMessageType(String groupMessageType) {
+        this.groupMessageType = groupMessageType;
     }
 
     public String getChatMode() {

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Instance {
     /**
      * 日程实例ID
-     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_1602504000
      */
     @SerializedName("event_id")
     private String eventId;
@@ -48,7 +48,7 @@ public class Instance {
     private TimeInfo endTime;
     /**
      * 日程状态
-     * <p> 示例值：
+     * <p> 示例值：confirmed
      */
     @SerializedName("status")
     private String status;
@@ -64,6 +64,66 @@ public class Instance {
      */
     @SerializedName("app_link")
     private String appLink;
+    /**
+     * 日程组织者日历ID
+     * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+     */
+    @SerializedName("organizer_calendar_id")
+    private String organizerCalendarId;
+    /**
+     * 视频会议信息，仅当日程至少有一位attendee时生效
+     * <p> 示例值：
+     */
+    @SerializedName("vchat")
+    private Vchat vchat;
+    /**
+     * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+     * <p> 示例值：
+     */
+    @SerializedName("visibility")
+    private String visibility;
+    /**
+     * 参与人权限
+     * <p> 示例值：
+     */
+    @SerializedName("attendee_ability")
+    private String attendeeAbility;
+    /**
+     * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+     * <p> 示例值：
+     */
+    @SerializedName("free_busy_status")
+    private String freeBusyStatus;
+    /**
+     * 日程地点
+     * <p> 示例值：
+     */
+    @SerializedName("location")
+    private EventLocation location;
+    /**
+     * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+     * <p> 示例值：0
+     */
+    @SerializedName("color")
+    private Integer color;
+    /**
+     * 例外日程的原重复日程的event_id
+     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+     */
+    @SerializedName("recurring_event_id")
+    private String recurringEventId;
+    /**
+     * 日程组织者信息
+     * <p> 示例值：
+     */
+    @SerializedName("event_organizer")
+    private EventOrganizer eventOrganizer;
+    /**
+     * 日程参与人信息
+     * <p> 示例值：
+     */
+    @SerializedName("attendees")
+    private CalendarEventAttendee[] attendees;
 
     // builder 开始
     public Instance() {
@@ -72,7 +132,7 @@ public class Instance {
     public Instance(Builder builder) {
         /**
          * 日程实例ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_1602504000
          */
         this.eventId = builder.eventId;
         /**
@@ -97,7 +157,7 @@ public class Instance {
         this.endTime = builder.endTime;
         /**
          * 日程状态
-         * <p> 示例值：
+         * <p> 示例值：confirmed
          */
         this.status = builder.status;
         /**
@@ -110,6 +170,56 @@ public class Instance {
          * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
          */
         this.appLink = builder.appLink;
+        /**
+         * 日程组织者日历ID
+         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+         */
+        this.organizerCalendarId = builder.organizerCalendarId;
+        /**
+         * 视频会议信息，仅当日程至少有一位attendee时生效
+         * <p> 示例值：
+         */
+        this.vchat = builder.vchat;
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        this.visibility = builder.visibility;
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         */
+        this.attendeeAbility = builder.attendeeAbility;
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        this.freeBusyStatus = builder.freeBusyStatus;
+        /**
+         * 日程地点
+         * <p> 示例值：
+         */
+        this.location = builder.location;
+        /**
+         * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+         * <p> 示例值：0
+         */
+        this.color = builder.color;
+        /**
+         * 例外日程的原重复日程的event_id
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+         */
+        this.recurringEventId = builder.recurringEventId;
+        /**
+         * 日程组织者信息
+         * <p> 示例值：
+         */
+        this.eventOrganizer = builder.eventOrganizer;
+        /**
+         * 日程参与人信息
+         * <p> 示例值：
+         */
+        this.attendees = builder.attendees;
     }
 
     public static Builder newBuilder() {
@@ -180,10 +290,90 @@ public class Instance {
         this.appLink = appLink;
     }
 
+    public String getOrganizerCalendarId() {
+        return this.organizerCalendarId;
+    }
+
+    public void setOrganizerCalendarId(String organizerCalendarId) {
+        this.organizerCalendarId = organizerCalendarId;
+    }
+
+    public Vchat getVchat() {
+        return this.vchat;
+    }
+
+    public void setVchat(Vchat vchat) {
+        this.vchat = vchat;
+    }
+
+    public String getVisibility() {
+        return this.visibility;
+    }
+
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
+    }
+
+    public String getAttendeeAbility() {
+        return this.attendeeAbility;
+    }
+
+    public void setAttendeeAbility(String attendeeAbility) {
+        this.attendeeAbility = attendeeAbility;
+    }
+
+    public String getFreeBusyStatus() {
+        return this.freeBusyStatus;
+    }
+
+    public void setFreeBusyStatus(String freeBusyStatus) {
+        this.freeBusyStatus = freeBusyStatus;
+    }
+
+    public EventLocation getLocation() {
+        return this.location;
+    }
+
+    public void setLocation(EventLocation location) {
+        this.location = location;
+    }
+
+    public Integer getColor() {
+        return this.color;
+    }
+
+    public void setColor(Integer color) {
+        this.color = color;
+    }
+
+    public String getRecurringEventId() {
+        return this.recurringEventId;
+    }
+
+    public void setRecurringEventId(String recurringEventId) {
+        this.recurringEventId = recurringEventId;
+    }
+
+    public EventOrganizer getEventOrganizer() {
+        return this.eventOrganizer;
+    }
+
+    public void setEventOrganizer(EventOrganizer eventOrganizer) {
+        this.eventOrganizer = eventOrganizer;
+    }
+
+    public CalendarEventAttendee[] getAttendees() {
+        return this.attendees;
+    }
+
+    public void setAttendees(CalendarEventAttendee[] attendees) {
+        this.attendees = attendees;
+    }
+
     public static class Builder {
         /**
          * 日程实例ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_1602504000
          */
         private String eventId;
         /**
@@ -208,7 +398,7 @@ public class Instance {
         private TimeInfo endTime;
         /**
          * 日程状态
-         * <p> 示例值：
+         * <p> 示例值：confirmed
          */
         private String status;
         /**
@@ -221,10 +411,60 @@ public class Instance {
          * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
          */
         private String appLink;
+        /**
+         * 日程组织者日历ID
+         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+         */
+        private String organizerCalendarId;
+        /**
+         * 视频会议信息，仅当日程至少有一位attendee时生效
+         * <p> 示例值：
+         */
+        private Vchat vchat;
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        private String visibility;
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         */
+        private String attendeeAbility;
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         */
+        private String freeBusyStatus;
+        /**
+         * 日程地点
+         * <p> 示例值：
+         */
+        private EventLocation location;
+        /**
+         * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+         * <p> 示例值：0
+         */
+        private Integer color;
+        /**
+         * 例外日程的原重复日程的event_id
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+         */
+        private String recurringEventId;
+        /**
+         * 日程组织者信息
+         * <p> 示例值：
+         */
+        private EventOrganizer eventOrganizer;
+        /**
+         * 日程参与人信息
+         * <p> 示例值：
+         */
+        private CalendarEventAttendee[] attendees;
 
         /**
          * 日程实例ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_1602504000
          *
          * @param eventId
          * @return
@@ -289,7 +529,7 @@ public class Instance {
 
         /**
          * 日程状态
-         * <p> 示例值：
+         * <p> 示例值：confirmed
          *
          * @param status
          * @return
@@ -301,7 +541,7 @@ public class Instance {
 
         /**
          * 日程状态
-         * <p> 示例值：
+         * <p> 示例值：confirmed
          *
          * @param status {@link com.lark.oapi.service.calendar.v4.enums.InstanceEventStatusEnum}
          * @return
@@ -334,6 +574,172 @@ public class Instance {
          */
         public Builder appLink(String appLink) {
             this.appLink = appLink;
+            return this;
+        }
+
+
+        /**
+         * 日程组织者日历ID
+         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+         *
+         * @param organizerCalendarId
+         * @return
+         */
+        public Builder organizerCalendarId(String organizerCalendarId) {
+            this.organizerCalendarId = organizerCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 视频会议信息，仅当日程至少有一位attendee时生效
+         * <p> 示例值：
+         *
+         * @param vchat
+         * @return
+         */
+        public Builder vchat(Vchat vchat) {
+            this.vchat = vchat;
+            return this;
+        }
+
+
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param visibility
+         * @return
+         */
+        public Builder visibility(String visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+        /**
+         * 日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param visibility {@link com.lark.oapi.service.calendar.v4.enums.InstanceEventVisibilityEnum}
+         * @return
+         */
+        public Builder visibility(com.lark.oapi.service.calendar.v4.enums.InstanceEventVisibilityEnum visibility) {
+            this.visibility = visibility.getValue();
+            return this;
+        }
+
+
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         *
+         * @param attendeeAbility
+         * @return
+         */
+        public Builder attendeeAbility(String attendeeAbility) {
+            this.attendeeAbility = attendeeAbility;
+            return this;
+        }
+
+        /**
+         * 参与人权限
+         * <p> 示例值：
+         *
+         * @param attendeeAbility {@link com.lark.oapi.service.calendar.v4.enums.InstanceEventAttendeeAbilityEnum}
+         * @return
+         */
+        public Builder attendeeAbility(com.lark.oapi.service.calendar.v4.enums.InstanceEventAttendeeAbilityEnum attendeeAbility) {
+            this.attendeeAbility = attendeeAbility.getValue();
+            return this;
+        }
+
+
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param freeBusyStatus
+         * @return
+         */
+        public Builder freeBusyStatus(String freeBusyStatus) {
+            this.freeBusyStatus = freeBusyStatus;
+            return this;
+        }
+
+        /**
+         * 日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效
+         * <p> 示例值：
+         *
+         * @param freeBusyStatus {@link com.lark.oapi.service.calendar.v4.enums.InstanceEventFreeBusyStatusEnum}
+         * @return
+         */
+        public Builder freeBusyStatus(com.lark.oapi.service.calendar.v4.enums.InstanceEventFreeBusyStatusEnum freeBusyStatus) {
+            this.freeBusyStatus = freeBusyStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 日程地点
+         * <p> 示例值：
+         *
+         * @param location
+         * @return
+         */
+        public Builder location(EventLocation location) {
+            this.location = location;
+            return this;
+        }
+
+
+        /**
+         * 日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。
+         * <p> 示例值：0
+         *
+         * @param color
+         * @return
+         */
+        public Builder color(Integer color) {
+            this.color = color;
+            return this;
+        }
+
+
+        /**
+         * 例外日程的原重复日程的event_id
+         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+         *
+         * @param recurringEventId
+         * @return
+         */
+        public Builder recurringEventId(String recurringEventId) {
+            this.recurringEventId = recurringEventId;
+            return this;
+        }
+
+
+        /**
+         * 日程组织者信息
+         * <p> 示例值：
+         *
+         * @param eventOrganizer
+         * @return
+         */
+        public Builder eventOrganizer(EventOrganizer eventOrganizer) {
+            this.eventOrganizer = eventOrganizer;
+            return this;
+        }
+
+
+        /**
+         * 日程参与人信息
+         * <p> 示例值：
+         *
+         * @param attendees
+         * @return
+         */
+        public Builder attendees(CalendarEventAttendee[] attendees) {
+            this.attendees = attendees;
             return this;
         }
 

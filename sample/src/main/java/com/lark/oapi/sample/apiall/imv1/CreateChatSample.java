@@ -24,6 +24,7 @@ public class CreateChatSample {
                         .ownerId("4d7a3c6g")
                         .userIdList(new String[]{})
                         .botIdList(new String[]{})
+                        .groupMessageType("chat")
                         .chatMode("group")
                         .chatType("private")
                         .joinMessageVisibility("all_members")

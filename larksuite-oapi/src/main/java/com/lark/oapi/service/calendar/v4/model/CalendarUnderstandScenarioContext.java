@@ -34,6 +34,12 @@ public class CalendarUnderstandScenarioContext {
      */
     @SerializedName("extra")
     private CalendarUnderstandExtra extra;
+    /**
+     * 系统信息
+     * <p> 示例值：
+     */
+    @SerializedName("system_info")
+    private SystemInfo systemInfo;
 
     // builder 开始
     public CalendarUnderstandScenarioContext() {
@@ -55,6 +61,11 @@ public class CalendarUnderstandScenarioContext {
          * <p> 示例值：
          */
         this.extra = builder.extra;
+        /**
+         * 系统信息
+         * <p> 示例值：
+         */
+        this.systemInfo = builder.systemInfo;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class CalendarUnderstandScenarioContext {
         this.extra = extra;
     }
 
+    public SystemInfo getSystemInfo() {
+        return this.systemInfo;
+    }
+
+    public void setSystemInfo(SystemInfo systemInfo) {
+        this.systemInfo = systemInfo;
+    }
+
     public static class Builder {
         /**
          * 会话所处的业务场景
@@ -101,6 +120,11 @@ public class CalendarUnderstandScenarioContext {
          * <p> 示例值：
          */
         private CalendarUnderstandExtra extra;
+        /**
+         * 系统信息
+         * <p> 示例值：
+         */
+        private SystemInfo systemInfo;
 
         /**
          * 会话所处的业务场景
@@ -137,6 +161,19 @@ public class CalendarUnderstandScenarioContext {
          */
         public Builder extra(CalendarUnderstandExtra extra) {
             this.extra = extra;
+            return this;
+        }
+
+
+        /**
+         * 系统信息
+         * <p> 示例值：
+         *
+         * @param systemInfo
+         * @return
+         */
+        public Builder systemInfo(SystemInfo systemInfo) {
+            this.systemInfo = systemInfo;
             return this;
         }
 

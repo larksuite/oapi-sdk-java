@@ -172,6 +172,12 @@ public class DlpExecuteLog {
      */
     @SerializedName("hit_policies")
     private DlpHitPolicy[] hitPolicies;
+    /**
+     * 文件token
+     * <p> 示例值：token-aaddtken
+     */
+    @SerializedName("file_token")
+    private String fileToken;
 
     // builder 开始
     public DlpExecuteLog() {
@@ -308,6 +314,11 @@ public class DlpExecuteLog {
          * <p> 示例值：
          */
         this.hitPolicies = builder.hitPolicies;
+        /**
+         * 文件token
+         * <p> 示例值：token-aaddtken
+         */
+        this.fileToken = builder.fileToken;
     }
 
     public static Builder newBuilder() {
@@ -522,6 +533,14 @@ public class DlpExecuteLog {
         this.hitPolicies = hitPolicies;
     }
 
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
     public static class Builder {
         /**
          * 应用业务线
@@ -653,6 +672,11 @@ public class DlpExecuteLog {
          * <p> 示例值：
          */
         private DlpHitPolicy[] hitPolicies;
+        /**
+         * 文件token
+         * <p> 示例值：token-aaddtken
+         */
+        private String fileToken;
 
         /**
          * 应用业务线
@@ -988,6 +1012,19 @@ public class DlpExecuteLog {
          */
         public Builder hitPolicies(DlpHitPolicy[] hitPolicies) {
             this.hitPolicies = hitPolicies;
+            return this;
+        }
+
+
+        /**
+         * 文件token
+         * <p> 示例值：token-aaddtken
+         *
+         * @param fileToken
+         * @return
+         */
+        public Builder fileToken(String fileToken) {
+            this.fileToken = fileToken;
             return this;
         }
 

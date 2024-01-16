@@ -107,17 +107,29 @@ public class Company {
     @SerializedName("fax")
     private PhoneNumberAndAreaCode fax;
     /**
-     * 注册地址
+     * 完整注册地址
      * <p> 示例值：
      */
     @SerializedName("registered_office_address")
     private I18n[] registeredOfficeAddress;
     /**
-     * 办公地址
+     * 完整办公地址
      * <p> 示例值：
      */
     @SerializedName("office_address")
     private I18n[] officeAddress;
+    /**
+     * 注册地址详细信息
+     * <p> 示例值：
+     */
+    @SerializedName("registered_office_address_info")
+    private Address registeredOfficeAddressInfo;
+    /**
+     * 办公地址详细信息
+     * <p> 示例值：
+     */
+    @SerializedName("office_address_info")
+    private Address officeAddressInfo;
 
     // builder 开始
     public Company() {
@@ -200,15 +212,25 @@ public class Company {
          */
         this.fax = builder.fax;
         /**
-         * 注册地址
+         * 完整注册地址
          * <p> 示例值：
          */
         this.registeredOfficeAddress = builder.registeredOfficeAddress;
         /**
-         * 办公地址
+         * 完整办公地址
          * <p> 示例值：
          */
         this.officeAddress = builder.officeAddress;
+        /**
+         * 注册地址详细信息
+         * <p> 示例值：
+         */
+        this.registeredOfficeAddressInfo = builder.registeredOfficeAddressInfo;
+        /**
+         * 办公地址详细信息
+         * <p> 示例值：
+         */
+        this.officeAddressInfo = builder.officeAddressInfo;
     }
 
     public static Builder newBuilder() {
@@ -351,6 +373,22 @@ public class Company {
         this.officeAddress = officeAddress;
     }
 
+    public Address getRegisteredOfficeAddressInfo() {
+        return this.registeredOfficeAddressInfo;
+    }
+
+    public void setRegisteredOfficeAddressInfo(Address registeredOfficeAddressInfo) {
+        this.registeredOfficeAddressInfo = registeredOfficeAddressInfo;
+    }
+
+    public Address getOfficeAddressInfo() {
+        return this.officeAddressInfo;
+    }
+
+    public void setOfficeAddressInfo(Address officeAddressInfo) {
+        this.officeAddressInfo = officeAddressInfo;
+    }
+
     public static class Builder {
         /**
          * 公司 ID
@@ -428,15 +466,25 @@ public class Company {
          */
         private PhoneNumberAndAreaCode fax;
         /**
-         * 注册地址
+         * 完整注册地址
          * <p> 示例值：
          */
         private I18n[] registeredOfficeAddress;
         /**
-         * 办公地址
+         * 完整办公地址
          * <p> 示例值：
          */
         private I18n[] officeAddress;
+        /**
+         * 注册地址详细信息
+         * <p> 示例值：
+         */
+        private Address registeredOfficeAddressInfo;
+        /**
+         * 办公地址详细信息
+         * <p> 示例值：
+         */
+        private Address officeAddressInfo;
 
         /**
          * 公司 ID
@@ -634,7 +682,7 @@ public class Company {
 
 
         /**
-         * 注册地址
+         * 完整注册地址
          * <p> 示例值：
          *
          * @param registeredOfficeAddress
@@ -647,7 +695,7 @@ public class Company {
 
 
         /**
-         * 办公地址
+         * 完整办公地址
          * <p> 示例值：
          *
          * @param officeAddress
@@ -655,6 +703,32 @@ public class Company {
          */
         public Builder officeAddress(I18n[] officeAddress) {
             this.officeAddress = officeAddress;
+            return this;
+        }
+
+
+        /**
+         * 注册地址详细信息
+         * <p> 示例值：
+         *
+         * @param registeredOfficeAddressInfo
+         * @return
+         */
+        public Builder registeredOfficeAddressInfo(Address registeredOfficeAddressInfo) {
+            this.registeredOfficeAddressInfo = registeredOfficeAddressInfo;
+            return this;
+        }
+
+
+        /**
+         * 办公地址详细信息
+         * <p> 示例值：
+         *
+         * @param officeAddressInfo
+         * @return
+         */
+        public Builder officeAddressInfo(Address officeAddressInfo) {
+            this.officeAddressInfo = officeAddressInfo;
             return this;
         }
 

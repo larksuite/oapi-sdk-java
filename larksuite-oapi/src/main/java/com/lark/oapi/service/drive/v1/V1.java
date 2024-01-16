@@ -18,7 +18,7 @@ import com.lark.oapi.service.drive.v1.resource.*;
 
 public class V1 {
     private final ExportTask exportTask; // 导出
-    private final File file; // 文件夹
+    private final File file; // 文件
     private final FileComment fileComment; // 评论
     private final FileCommentReply fileCommentReply; // 评论
     private final FileStatistics fileStatistics; // file.statistics

@@ -23,8 +23,8 @@ public class UpdateMessageReqBody {
     @SerializedName("msg_type")
     private String msgType;
     /**
-     * 消息内容 JSON 格式
-     * <p> 示例值："{\"text\":\"Tom  test content\"}"
+     * 消息内容，JSON 格式
+     * <p> 示例值：{"text":"test content"}
      */
     @SerializedName("content")
     private String content;
@@ -40,8 +40,8 @@ public class UpdateMessageReqBody {
          */
         this.msgType = builder.msgType;
         /**
-         * 消息内容 JSON 格式
-         * <p> 示例值："{\"text\":\"Tom  test content\"}"
+         * 消息内容，JSON 格式
+         * <p> 示例值：{"text":"test content"}
          */
         this.content = builder.content;
     }
@@ -73,8 +73,8 @@ public class UpdateMessageReqBody {
          */
         private String msgType;
         /**
-         * 消息内容 JSON 格式
-         * <p> 示例值："{\"text\":\"Tom  test content\"}"
+         * 消息内容，JSON 格式
+         * <p> 示例值：{"text":"test content"}
          */
         private String content;
 
@@ -92,8 +92,8 @@ public class UpdateMessageReqBody {
 
 
         /**
-         * 消息内容 JSON 格式
-         * <p> 示例值："{\"text\":\"Tom  test content\"}"
+         * 消息内容，JSON 格式
+         * <p> 示例值：{"text":"test content"}
          *
          * @param content
          * @return

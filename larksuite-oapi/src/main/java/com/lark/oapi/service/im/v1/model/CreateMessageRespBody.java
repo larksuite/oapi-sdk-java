@@ -35,6 +35,12 @@ public class CreateMessageRespBody {
     @SerializedName("parent_id")
     private String parentId;
     /**
+     * 消息所属的话题 ID
+     * <p> 示例值：omt_d4be107c616a
+     */
+    @SerializedName("thread_id")
+    private String threadId;
+    /**
      * 消息类型 text post card image等等
      * <p> 示例值：card
      */
@@ -117,6 +123,14 @@ public class CreateMessageRespBody {
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public void setThreadId(String threadId) {
+        this.threadId = threadId;
     }
 
     public String getMsgType() {

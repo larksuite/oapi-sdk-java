@@ -23,6 +23,8 @@ public class SearchJobChangeSample {
                         .employmentIds(new String[]{})
                         .jobChangeIds(new String[]{})
                         .statuses(new String[]{})
+                        .effectiveDateStart("2022-01-01")
+                        .effectiveDateEnd("2022-01-01")
                         .build())
                 .build();
 

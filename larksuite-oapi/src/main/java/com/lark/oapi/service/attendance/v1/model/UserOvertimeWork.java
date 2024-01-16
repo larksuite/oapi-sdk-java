@@ -58,6 +58,12 @@ public class UserOvertimeWork {
      */
     @SerializedName("end_time")
     private String endTime;
+    /**
+     * 加班事由
+     * <p> 示例值：推进项目进度
+     */
+    @SerializedName("reason")
+    private String reason;
 
     // builder 开始
     public UserOvertimeWork() {
@@ -99,6 +105,11 @@ public class UserOvertimeWork {
          * <p> 示例值：2021-01-10 13:00:00
          */
         this.endTime = builder.endTime;
+        /**
+         * 加班事由
+         * <p> 示例值：推进项目进度
+         */
+        this.reason = builder.reason;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class UserOvertimeWork {
         this.endTime = endTime;
     }
 
+    public String getReason() {
+        return this.reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
     public static class Builder {
         /**
          * 审批实例 ID
@@ -197,6 +216,11 @@ public class UserOvertimeWork {
          * <p> 示例值：2021-01-10 13:00:00
          */
         private String endTime;
+        /**
+         * 加班事由
+         * <p> 示例值：推进项目进度
+         */
+        private String reason;
 
         /**
          * 审批实例 ID
@@ -321,6 +345,19 @@ public class UserOvertimeWork {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 加班事由
+         * <p> 示例值：推进项目进度
+         *
+         * @param reason
+         * @return
+         */
+        public Builder reason(String reason) {
+            this.reason = reason;
             return this;
         }
 

@@ -26,8 +26,8 @@ public class TalentCustomizedAttachment {
      * 附件名称
      * <p> 示例值：1.13测试1的面试记录.pdf
      */
-    @SerializedName("file_name")
-    private String fileName;
+    @SerializedName("name")
+    private String name;
     /**
      * 附件类型
      * <p> 示例值：application/pdf
@@ -55,7 +55,7 @@ public class TalentCustomizedAttachment {
          * 附件名称
          * <p> 示例值：1.13测试1的面试记录.pdf
          */
-        this.fileName = builder.fileName;
+        this.name = builder.name;
         /**
          * 附件类型
          * <p> 示例值：application/pdf
@@ -80,12 +80,12 @@ public class TalentCustomizedAttachment {
         this.fileId = fileId;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    public String getName() {
+        return this.name;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContentType() {
@@ -114,7 +114,7 @@ public class TalentCustomizedAttachment {
          * 附件名称
          * <p> 示例值：1.13测试1的面试记录.pdf
          */
-        private String fileName;
+        private String name;
         /**
          * 附件类型
          * <p> 示例值：application/pdf
@@ -143,11 +143,11 @@ public class TalentCustomizedAttachment {
          * 附件名称
          * <p> 示例值：1.13测试1的面试记录.pdf
          *
-         * @param fileName
+         * @param name
          * @return
          */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
+        public Builder name(String name) {
+            this.name = name;
             return this;
         }
 

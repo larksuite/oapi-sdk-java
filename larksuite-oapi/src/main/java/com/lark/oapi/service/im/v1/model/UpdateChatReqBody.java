@@ -101,6 +101,12 @@ public class UpdateChatReqBody {
     @SerializedName("chat_type")
     private String chatType;
     /**
+     * 群消息模式
+     * <p> 示例值：chat
+     */
+    @SerializedName("group_message_type")
+    private String groupMessageType;
+    /**
      * 谁可以加急
      * <p> 示例值：all_members
      */
@@ -188,6 +194,11 @@ public class UpdateChatReqBody {
          * <p> 示例值：private
          */
         this.chatType = builder.chatType;
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         */
+        this.groupMessageType = builder.groupMessageType;
         /**
          * 谁可以加急
          * <p> 示例值：all_members
@@ -316,6 +327,14 @@ public class UpdateChatReqBody {
         this.chatType = chatType;
     }
 
+    public String getGroupMessageType() {
+        return this.groupMessageType;
+    }
+
+    public void setGroupMessageType(String groupMessageType) {
+        this.groupMessageType = groupMessageType;
+    }
+
     public String getUrgentSetting() {
         return this.urgentSetting;
     }
@@ -403,6 +422,11 @@ public class UpdateChatReqBody {
          * <p> 示例值：private
          */
         private String chatType;
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         */
+        private String groupMessageType;
         /**
          * 谁可以加急
          * <p> 示例值：all_members
@@ -592,6 +616,31 @@ public class UpdateChatReqBody {
          */
         public Builder chatType(String chatType) {
             this.chatType = chatType;
+            return this;
+        }
+
+
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         *
+         * @param groupMessageType
+         * @return
+         */
+        public Builder groupMessageType(String groupMessageType) {
+            this.groupMessageType = groupMessageType;
+            return this;
+        }
+
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         *
+         * @param groupMessageType {@link com.lark.oapi.service.im.v1.enums.UpdateChatGroupMessageTypeEnum}
+         * @return
+         */
+        public Builder groupMessageType(com.lark.oapi.service.im.v1.enums.UpdateChatGroupMessageTypeEnum groupMessageType) {
+            this.groupMessageType = groupMessageType.getValue();
             return this;
         }
 

@@ -40,6 +40,12 @@ public class UserExternal {
      */
     @SerializedName("phone_num")
     private String phoneNum;
+    /**
+     * 部门id
+     * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+     */
+    @SerializedName("department_id")
+    private String departmentId;
 
     // builder 开始
     public UserExternal() {
@@ -66,6 +72,11 @@ public class UserExternal {
          * <p> 示例值：1357890001
          */
         this.phoneNum = builder.phoneNum;
+        /**
+         * 部门id
+         * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+         */
+        this.departmentId = builder.departmentId;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +115,14 @@ public class UserExternal {
         this.phoneNum = phoneNum;
     }
 
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
     public static class Builder {
         /**
          * 用户类型
@@ -125,6 +144,11 @@ public class UserExternal {
          * <p> 示例值：1357890001
          */
         private String phoneNum;
+        /**
+         * 部门id
+         * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+         */
+        private String departmentId;
 
         /**
          * 用户类型
@@ -186,6 +210,19 @@ public class UserExternal {
          */
         public Builder phoneNum(String phoneNum) {
             this.phoneNum = phoneNum;
+            return this;
+        }
+
+
+        /**
+         * 部门id
+         * <p> 示例值：od-f7d44ab733f7602f5cc5194735fd9aaf
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
             return this;
         }
 

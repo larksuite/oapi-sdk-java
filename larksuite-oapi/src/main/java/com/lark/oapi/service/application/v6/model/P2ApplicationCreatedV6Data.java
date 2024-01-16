@@ -58,6 +58,12 @@ public class P2ApplicationCreatedV6Data {
      */
     @SerializedName("primary_language")
     private String primaryLanguage;
+    /**
+     * 应用创建来源
+     * <p> 示例值：developer_console
+     */
+    @SerializedName("create_source")
+    private String createSource;
 
     public UserId getOperatorId() {
         return this.operatorId;
@@ -113,6 +119,14 @@ public class P2ApplicationCreatedV6Data {
 
     public void setPrimaryLanguage(String primaryLanguage) {
         this.primaryLanguage = primaryLanguage;
+    }
+
+    public String getCreateSource() {
+        return this.createSource;
+    }
+
+    public void setCreateSource(String createSource) {
+        this.createSource = createSource;
     }
 
 }

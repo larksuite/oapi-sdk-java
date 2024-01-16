@@ -77,11 +77,17 @@ public class GetGroupRespBody {
     @SerializedName("allow_out_punch")
     private Boolean allowOutPunch;
     /**
-     * 外勤打卡需审批（需要允许外勤打卡才能设置生效）
+     * 外勤打卡需审批，先审批后打卡（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
      */
     @SerializedName("out_punch_need_approval")
     private Boolean outPunchNeedApproval;
+    /**
+     * 外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）
+     * <p> 示例值：true
+     */
+    @SerializedName("out_punch_need_post_approval")
+    private Boolean outPunchNeedPostApproval;
     /**
      * 外勤打卡需填写备注（需要允许外勤打卡才能设置生效）
      * <p> 示例值：true
@@ -100,6 +106,18 @@ public class GetGroupRespBody {
      */
     @SerializedName("out_punch_allowed_hide_addr")
     private Boolean outPunchAllowedHideAddr;
+    /**
+     * 外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）
+     * <p> 示例值：true
+     */
+    @SerializedName("out_punch_allowed_adjust_addr")
+    private Boolean outPunchAllowedAdjustAddr;
+    /**
+     * 微调范围，默认为 50 米
+     * <p> 示例值：50
+     */
+    @SerializedName("adjust_range")
+    private Integer adjustRange;
     /**
      * 是否允许pc打卡
      * <p> 示例值：true
@@ -405,6 +423,12 @@ public class GetGroupRespBody {
      */
     @SerializedName("new_calendar_id")
     private String newCalendarId;
+    /**
+     * 定位不准时是否允许申请打卡
+     * <p> 示例值：true
+     */
+    @SerializedName("allow_apply_punch")
+    private Boolean allowApplyPunch;
 
     public String getGroupId() {
         return this.groupId;
@@ -494,6 +518,14 @@ public class GetGroupRespBody {
         this.outPunchNeedApproval = outPunchNeedApproval;
     }
 
+    public Boolean getOutPunchNeedPostApproval() {
+        return this.outPunchNeedPostApproval;
+    }
+
+    public void setOutPunchNeedPostApproval(Boolean outPunchNeedPostApproval) {
+        this.outPunchNeedPostApproval = outPunchNeedPostApproval;
+    }
+
     public Boolean getOutPunchNeedRemark() {
         return this.outPunchNeedRemark;
     }
@@ -516,6 +548,22 @@ public class GetGroupRespBody {
 
     public void setOutPunchAllowedHideAddr(Boolean outPunchAllowedHideAddr) {
         this.outPunchAllowedHideAddr = outPunchAllowedHideAddr;
+    }
+
+    public Boolean getOutPunchAllowedAdjustAddr() {
+        return this.outPunchAllowedAdjustAddr;
+    }
+
+    public void setOutPunchAllowedAdjustAddr(Boolean outPunchAllowedAdjustAddr) {
+        this.outPunchAllowedAdjustAddr = outPunchAllowedAdjustAddr;
+    }
+
+    public Integer getAdjustRange() {
+        return this.adjustRange;
+    }
+
+    public void setAdjustRange(Integer adjustRange) {
+        this.adjustRange = adjustRange;
     }
 
     public Boolean getAllowPcPunch() {
@@ -924,6 +972,14 @@ public class GetGroupRespBody {
 
     public void setNewCalendarId(String newCalendarId) {
         this.newCalendarId = newCalendarId;
+    }
+
+    public Boolean getAllowApplyPunch() {
+        return this.allowApplyPunch;
+    }
+
+    public void setAllowApplyPunch(Boolean allowApplyPunch) {
+        this.allowApplyPunch = allowApplyPunch;
     }
 
 }

@@ -19,6 +19,7 @@ public class CreatePersonSample {
                         .nameList(new PersonName[]{})
                         .gender(Enum.newBuilder().build())
                         .dateOfBirth("2020-01-01")
+                        .nationalityIdV2("6862995757234914821")
                         .race(Enum.newBuilder().build())
                         .maritalStatus(Enum.newBuilder().build())
                         .phoneList(new Phone[]{})

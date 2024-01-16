@@ -70,6 +70,12 @@ public class Rule {
      */
     @SerializedName("opening_time")
     private OpeningTimeExternal openingTime;
+    /**
+     * 是否为临时权限组
+     * <p> 示例值：false
+     */
+    @SerializedName("is_temp")
+    private Boolean isTemp;
 
     // builder 开始
     public Rule() {
@@ -121,6 +127,11 @@ public class Rule {
          * <p> 示例值：
          */
         this.openingTime = builder.openingTime;
+        /**
+         * 是否为临时权限组
+         * <p> 示例值：false
+         */
+        this.isTemp = builder.isTemp;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +210,14 @@ public class Rule {
         this.openingTime = openingTime;
     }
 
+    public Boolean getIsTemp() {
+        return this.isTemp;
+    }
+
+    public void setIsTemp(Boolean isTemp) {
+        this.isTemp = isTemp;
+    }
+
     public static class Builder {
         /**
          * 权限组id
@@ -245,6 +264,11 @@ public class Rule {
          * <p> 示例值：
          */
         private OpeningTimeExternal openingTime;
+        /**
+         * 是否为临时权限组
+         * <p> 示例值：false
+         */
+        private Boolean isTemp;
 
         /**
          * 权限组id
@@ -359,6 +383,19 @@ public class Rule {
          */
         public Builder openingTime(OpeningTimeExternal openingTime) {
             this.openingTime = openingTime;
+            return this;
+        }
+
+
+        /**
+         * 是否为临时权限组
+         * <p> 示例值：false
+         *
+         * @param isTemp
+         * @return
+         */
+        public Builder isTemp(Boolean isTemp) {
+            this.isTemp = isTemp;
             return this;
         }
 

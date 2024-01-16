@@ -358,33 +358,33 @@ public class ImSample {
                 .build();
 
         MessageCardLayoutColumn layoutLeftColumn = MessageCardLayoutColumn.newBuilder()
-            .width(MessageCardColumnWidthEnum.WEIGHTED)
-            .weight(2)
-            .verticalAlign(MessageCardColumnVerticalAlignEnum.CENTER)
-            .columns(new MessageCardElement[]{
-                MessageCardLayoutMarkdown.newBuilder()
-                    .textAlign(MessageCardLayoutTextAlignEnum.CENTER)
-                    .content("多列布局左侧")
-                    .build()
-            })
-            .build();
+                .width(MessageCardColumnWidthEnum.WEIGHTED)
+                .weight(2)
+                .verticalAlign(MessageCardColumnVerticalAlignEnum.CENTER)
+                .columns(new MessageCardElement[]{
+                        MessageCardLayoutMarkdown.newBuilder()
+                                .textAlign(MessageCardLayoutTextAlignEnum.CENTER)
+                                .content("多列布局左侧")
+                                .build()
+                })
+                .build();
         MessageCardLayoutColumn layoutRightColumn = MessageCardLayoutColumn.newBuilder()
-            .width(MessageCardColumnWidthEnum.WEIGHTED)
-            .weight(1)
-            .verticalAlign(MessageCardColumnVerticalAlignEnum.CENTER)
-            .columns(new MessageCardElement[]{
-                MessageCardLayoutMarkdown.newBuilder()
-                    .textAlign(MessageCardLayoutTextAlignEnum.CENTER)
-                    .content("多列布局右侧")
-                    .build()
-            })
-            .build();
+                .width(MessageCardColumnWidthEnum.WEIGHTED)
+                .weight(1)
+                .verticalAlign(MessageCardColumnVerticalAlignEnum.CENTER)
+                .columns(new MessageCardElement[]{
+                        MessageCardLayoutMarkdown.newBuilder()
+                                .textAlign(MessageCardLayoutTextAlignEnum.CENTER)
+                                .content("多列布局右侧")
+                                .build()
+                })
+                .build();
         MessageCardLayout messageCardLayout = MessageCardLayout.newBuilder()
-            .flexMode(MessageCardLayoutFlexModeEnum.NONE)
-            .backgroundStyle(MessageCardBackgroundStyleEnum.GREY)
-            .horizontalSpacing(MessageCardHorizontalSpacingEnum.DEFAULT)
-            .columns(new MessageCardLayoutColumn[]{layoutLeftColumn, layoutRightColumn})
-            .build();
+                .flexMode(MessageCardLayoutFlexModeEnum.NONE)
+                .backgroundStyle(MessageCardBackgroundStyleEnum.GREY)
+                .horizontalSpacing(MessageCardHorizontalSpacingEnum.DEFAULT)
+                .columns(new MessageCardLayoutColumn[]{layoutLeftColumn, layoutRightColumn})
+                .build();
 
         MessageCard card = MessageCard.newBuilder()
                 .cardLink(cardURL)

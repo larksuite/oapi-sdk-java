@@ -53,6 +53,12 @@ public class EventMessage {
     @SerializedName("chat_id")
     private String chatId;
     /**
+     * 消息所属的话题 ID
+     * <p> 示例值：omt_d4be107c616
+     */
+    @SerializedName("thread_id")
+    private String threadId;
+    /**
      * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
      * <p> 示例值：group
      */
@@ -118,6 +124,11 @@ public class EventMessage {
          * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
          */
         this.chatId = builder.chatId;
+        /**
+         * 消息所属的话题 ID
+         * <p> 示例值：omt_d4be107c616
+         */
+        this.threadId = builder.threadId;
         /**
          * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
          * <p> 示例值：group
@@ -197,6 +208,14 @@ public class EventMessage {
         this.chatId = chatId;
     }
 
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public void setThreadId(String threadId) {
+        this.threadId = threadId;
+    }
+
     public String getChatType() {
         return this.chatType;
     }
@@ -268,6 +287,11 @@ public class EventMessage {
          * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
          */
         private String chatId;
+        /**
+         * 消息所属的话题 ID
+         * <p> 示例值：omt_d4be107c616
+         */
+        private String threadId;
         /**
          * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
          * <p> 示例值：group
@@ -368,6 +392,19 @@ public class EventMessage {
          */
         public Builder chatId(String chatId) {
             this.chatId = chatId;
+            return this;
+        }
+
+
+        /**
+         * 消息所属的话题 ID
+         * <p> 示例值：omt_d4be107c616
+         *
+         * @param threadId
+         * @return
+         */
+        public Builder threadId(String threadId) {
+            this.threadId = threadId;
             return this;
         }
 

@@ -148,6 +148,18 @@ public class CalendarEvent {
      */
     @SerializedName("app_link")
     private String appLink;
+    /**
+     * 日程参与人信息
+     * <p> 示例值：
+     */
+    @SerializedName("attendees")
+    private CalendarEventAttendee[] attendees;
+    /**
+     * 是否有更多的参与人
+     * <p> 示例值：
+     */
+    @SerializedName("has_more_attendee")
+    private Boolean hasMoreAttendee;
 
     // builder 开始
     public CalendarEvent() {
@@ -264,6 +276,16 @@ public class CalendarEvent {
          * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
          */
         this.appLink = builder.appLink;
+        /**
+         * 日程参与人信息
+         * <p> 示例值：
+         */
+        this.attendees = builder.attendees;
+        /**
+         * 是否有更多的参与人
+         * <p> 示例值：
+         */
+        this.hasMoreAttendee = builder.hasMoreAttendee;
     }
 
     public static Builder newBuilder() {
@@ -446,6 +468,22 @@ public class CalendarEvent {
         this.appLink = appLink;
     }
 
+    public CalendarEventAttendee[] getAttendees() {
+        return this.attendees;
+    }
+
+    public void setAttendees(CalendarEventAttendee[] attendees) {
+        this.attendees = attendees;
+    }
+
+    public Boolean getHasMoreAttendee() {
+        return this.hasMoreAttendee;
+    }
+
+    public void setHasMoreAttendee(Boolean hasMoreAttendee) {
+        this.hasMoreAttendee = hasMoreAttendee;
+    }
+
     public static class Builder {
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -557,6 +595,16 @@ public class CalendarEvent {
          * <p> 示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000
          */
         private String appLink;
+        /**
+         * 日程参与人信息
+         * <p> 示例值：
+         */
+        private CalendarEventAttendee[] attendees;
+        /**
+         * 是否有更多的参与人
+         * <p> 示例值：
+         */
+        private Boolean hasMoreAttendee;
 
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -888,6 +936,32 @@ public class CalendarEvent {
          */
         public Builder appLink(String appLink) {
             this.appLink = appLink;
+            return this;
+        }
+
+
+        /**
+         * 日程参与人信息
+         * <p> 示例值：
+         *
+         * @param attendees
+         * @return
+         */
+        public Builder attendees(CalendarEventAttendee[] attendees) {
+            this.attendees = attendees;
+            return this;
+        }
+
+
+        /**
+         * 是否有更多的参与人
+         * <p> 示例值：
+         *
+         * @param hasMoreAttendee
+         * @return
+         */
+        public Builder hasMoreAttendee(Boolean hasMoreAttendee) {
+            this.hasMoreAttendee = hasMoreAttendee;
             return this;
         }
 

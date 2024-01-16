@@ -59,6 +59,12 @@ public class CreateChatReqBody {
     @SerializedName("bot_id_list")
     private String[] botIdList;
     /**
+     * 群消息模式
+     * <p> 示例值：chat
+     */
+    @SerializedName("group_message_type")
+    private String groupMessageType;
+    /**
      * 群模式;;**可选值有**：;- `group`：群组
      * <p> 示例值：group
      */
@@ -153,6 +159,11 @@ public class CreateChatReqBody {
          * <p> 示例值：["cli_a10fbf7e94b8d01d"]
          */
         this.botIdList = builder.botIdList;
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         */
+        this.groupMessageType = builder.groupMessageType;
         /**
          * 群模式;;**可选值有**：;- `group`：群组
          * <p> 示例值：group
@@ -258,6 +269,14 @@ public class CreateChatReqBody {
 
     public void setBotIdList(String[] botIdList) {
         this.botIdList = botIdList;
+    }
+
+    public String getGroupMessageType() {
+        return this.groupMessageType;
+    }
+
+    public void setGroupMessageType(String groupMessageType) {
+        this.groupMessageType = groupMessageType;
     }
 
     public String getChatMode() {
@@ -368,6 +387,11 @@ public class CreateChatReqBody {
          * <p> 示例值：["cli_a10fbf7e94b8d01d"]
          */
         private String[] botIdList;
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         */
+        private String groupMessageType;
         /**
          * 群模式;;**可选值有**：;- `group`：群组
          * <p> 示例值：group
@@ -501,6 +525,31 @@ public class CreateChatReqBody {
          */
         public Builder botIdList(String[] botIdList) {
             this.botIdList = botIdList;
+            return this;
+        }
+
+
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         *
+         * @param groupMessageType
+         * @return
+         */
+        public Builder groupMessageType(String groupMessageType) {
+            this.groupMessageType = groupMessageType;
+            return this;
+        }
+
+        /**
+         * 群消息模式
+         * <p> 示例值：chat
+         *
+         * @param groupMessageType {@link com.lark.oapi.service.im.v1.enums.CreateChatGroupMessageTypeEnum}
+         * @return
+         */
+        public Builder groupMessageType(com.lark.oapi.service.im.v1.enums.CreateChatGroupMessageTypeEnum groupMessageType) {
+            this.groupMessageType = groupMessageType.getValue();
             return this;
         }
 

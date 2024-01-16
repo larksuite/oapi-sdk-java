@@ -41,6 +41,18 @@ public class BankAccount {
     @SerializedName("branch_name")
     private String branchName;
     /**
+     * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+     * <p> 示例值：MDBH00000001
+     */
+    @SerializedName("bank_id_v2")
+    private String bankIdV2;
+    /**
+     * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+     * <p> 示例值：MDBK00000017
+     */
+    @SerializedName("branch_id_v2")
+    private String branchIdV2;
+    /**
      * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
      * <p> 示例值：12
      */
@@ -102,6 +114,16 @@ public class BankAccount {
          * <p> 示例值：中国农业银行支行
          */
         this.branchName = builder.branchName;
+        /**
+         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+         * <p> 示例值：MDBH00000001
+         */
+        this.bankIdV2 = builder.bankIdV2;
+        /**
+         * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+         * <p> 示例值：MDBK00000017
+         */
+        this.branchIdV2 = builder.branchIdV2;
         /**
          * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
          * <p> 示例值：12
@@ -168,6 +190,22 @@ public class BankAccount {
 
     public void setBranchName(String branchName) {
         this.branchName = branchName;
+    }
+
+    public String getBankIdV2() {
+        return this.bankIdV2;
+    }
+
+    public void setBankIdV2(String bankIdV2) {
+        this.bankIdV2 = bankIdV2;
+    }
+
+    public String getBranchIdV2() {
+        return this.branchIdV2;
+    }
+
+    public void setBranchIdV2(String branchIdV2) {
+        this.branchIdV2 = branchIdV2;
     }
 
     public String getCountryRegionId() {
@@ -239,6 +277,16 @@ public class BankAccount {
          * <p> 示例值：中国农业银行支行
          */
         private String branchName;
+        /**
+         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+         * <p> 示例值：MDBH00000001
+         */
+        private String bankIdV2;
+        /**
+         * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+         * <p> 示例值：MDBK00000017
+         */
+        private String branchIdV2;
         /**
          * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
          * <p> 示例值：12
@@ -318,6 +366,32 @@ public class BankAccount {
          */
         public Builder branchName(String branchName) {
             this.branchName = branchName;
+            return this;
+        }
+
+
+        /**
+         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+         * <p> 示例值：MDBH00000001
+         *
+         * @param bankIdV2
+         * @return
+         */
+        public Builder bankIdV2(String bankIdV2) {
+            this.bankIdV2 = bankIdV2;
+            return this;
+        }
+
+
+        /**
+         * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+         * <p> 示例值：MDBK00000017
+         *
+         * @param branchIdV2
+         * @return
+         */
+        public Builder branchIdV2(String branchIdV2) {
+            this.branchIdV2 = branchIdV2;
             return this;
         }
 

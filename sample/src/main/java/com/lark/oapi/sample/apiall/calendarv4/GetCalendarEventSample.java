@@ -17,6 +17,8 @@ public class GetCalendarEventSample {
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .eventId("xxxxxxxxx_0")
                 .needMeetingSettings(false)
+                .needAttendee(false)
+                .maxAttendeeNum(10)
                 .userIdType("user_id")
                 .build();
 

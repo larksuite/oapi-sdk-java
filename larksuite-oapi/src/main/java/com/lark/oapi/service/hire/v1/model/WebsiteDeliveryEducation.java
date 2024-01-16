@@ -29,6 +29,12 @@ public class WebsiteDeliveryEducation {
     @SerializedName("end_time")
     private Integer endTime;
     /**
+     * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+     * <p> 示例值：1618500278663
+     */
+    @SerializedName("end_time_v2")
+    private Integer endTimeV2;
+    /**
      * 专业
      * <p> 示例值：汉语言文学
      */
@@ -81,6 +87,11 @@ public class WebsiteDeliveryEducation {
          */
         this.endTime = builder.endTime;
         /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1618500278663
+         */
+        this.endTimeV2 = builder.endTimeV2;
+        /**
          * 专业
          * <p> 示例值：汉语言文学
          */
@@ -130,6 +141,14 @@ public class WebsiteDeliveryEducation {
 
     public void setEndTime(Integer endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getEndTimeV2() {
+        return this.endTimeV2;
+    }
+
+    public void setEndTimeV2(Integer endTimeV2) {
+        this.endTimeV2 = endTimeV2;
     }
 
     public String getFieldOfStudy() {
@@ -192,6 +211,11 @@ public class WebsiteDeliveryEducation {
          */
         private Integer endTime;
         /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1618500278663
+         */
+        private Integer endTimeV2;
+        /**
          * 专业
          * <p> 示例值：汉语言文学
          */
@@ -244,6 +268,19 @@ public class WebsiteDeliveryEducation {
          */
         public Builder endTime(Integer endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1618500278663
+         *
+         * @param endTimeV2
+         * @return
+         */
+        public Builder endTimeV2(Integer endTimeV2) {
+            this.endTimeV2 = endTimeV2;
             return this;
         }
 

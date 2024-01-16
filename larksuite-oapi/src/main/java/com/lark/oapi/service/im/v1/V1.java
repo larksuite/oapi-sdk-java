@@ -15,6 +15,7 @@ package com.lark.oapi.service.im.v1;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.service.im.v1.resource.*;
+import com.lark.oapi.service.im.v1.resource.Thread;
 
 public class V1 {
     private final BatchMessage batchMessage; // 消息 - 批量消息
@@ -35,6 +36,7 @@ public class V1 {
     private final MessageReaction messageReaction; // 消息 - 表情回复
     private final MessageResource messageResource; // message.resource
     private final Pin pin; // 消息 - Pin
+    private final Thread thread; // thread
 
     public V1(Config config) {
         this.batchMessage = new BatchMessage(config);
@@ -55,6 +57,7 @@ public class V1 {
         this.messageReaction = new MessageReaction(config);
         this.messageResource = new MessageResource(config);
         this.pin = new Pin(config);
+        this.thread = new Thread(config);
     }
 
     public BatchMessage batchMessage() {
@@ -127,5 +130,9 @@ public class V1 {
 
     public Pin pin() {
         return pin;
+    }
+
+    public Thread thread() {
+        return thread;
     }
 }

@@ -35,6 +35,12 @@ public class Message {
     @SerializedName("parent_id")
     private String parentId;
     /**
+     * 消息所属的话题 ID
+     * <p> 示例值：omt_d4be107c616a
+     */
+    @SerializedName("thread_id")
+    private String threadId;
+    /**
      * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
      * <p> 示例值：card
      */
@@ -116,6 +122,11 @@ public class Message {
          */
         this.parentId = builder.parentId;
         /**
+         * 消息所属的话题 ID
+         * <p> 示例值：omt_d4be107c616a
+         */
+        this.threadId = builder.threadId;
+        /**
          * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
          * <p> 示例值：card
          */
@@ -193,6 +204,14 @@ public class Message {
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public void setThreadId(String threadId) {
+        this.threadId = threadId;
     }
 
     public String getMsgType() {
@@ -292,6 +311,11 @@ public class Message {
          */
         private String parentId;
         /**
+         * 消息所属的话题 ID
+         * <p> 示例值：omt_d4be107c616a
+         */
+        private String threadId;
+        /**
          * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
          * <p> 示例值：card
          */
@@ -377,6 +401,19 @@ public class Message {
          */
         public Builder parentId(String parentId) {
             this.parentId = parentId;
+            return this;
+        }
+
+
+        /**
+         * 消息所属的话题 ID
+         * <p> 示例值：omt_d4be107c616a
+         *
+         * @param threadId
+         * @return
+         */
+        public Builder threadId(String threadId) {
+            this.threadId = threadId;
             return this;
         }
 

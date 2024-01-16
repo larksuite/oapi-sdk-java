@@ -34,6 +34,12 @@ public class OnboardingTask {
      */
     @SerializedName("operator_id")
     private String operatorId;
+    /**
+     * 任务code
+     * <p> 示例值：task_11
+     */
+    @SerializedName("task_code")
+    private String taskCode;
 
     // builder 开始
     public OnboardingTask() {
@@ -55,6 +61,11 @@ public class OnboardingTask {
          * <p> 示例值：7032210902531327521
          */
         this.operatorId = builder.operatorId;
+        /**
+         * 任务code
+         * <p> 示例值：task_11
+         */
+        this.taskCode = builder.taskCode;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class OnboardingTask {
         this.operatorId = operatorId;
     }
 
+    public String getTaskCode() {
+        return this.taskCode;
+    }
+
+    public void setTaskCode(String taskCode) {
+        this.taskCode = taskCode;
+    }
+
     public static class Builder {
         /**
          * 任务名称
@@ -101,6 +120,11 @@ public class OnboardingTask {
          * <p> 示例值：7032210902531327521
          */
         private String operatorId;
+        /**
+         * 任务code
+         * <p> 示例值：task_11
+         */
+        private String taskCode;
 
         /**
          * 任务名称
@@ -149,6 +173,19 @@ public class OnboardingTask {
          */
         public Builder operatorId(String operatorId) {
             this.operatorId = operatorId;
+            return this;
+        }
+
+
+        /**
+         * 任务code
+         * <p> 示例值：task_11
+         *
+         * @param taskCode
+         * @return
+         */
+        public Builder taskCode(String taskCode) {
+            this.taskCode = taskCode;
             return this;
         }
 
