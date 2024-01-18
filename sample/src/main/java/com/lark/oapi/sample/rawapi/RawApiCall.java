@@ -12,6 +12,7 @@
 
 package com.lark.oapi.sample.rawapi;
 
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.request.RequestOptions;
@@ -25,6 +26,7 @@ import com.lark.oapi.service.ext.model.CreateFileResp;
 import com.lark.oapi.service.im.v1.enums.MsgTypeEnum;
 import com.lark.oapi.service.im.v1.model.ext.MessageText;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,6 +65,50 @@ public class RawApiCall {
         System.out.println(Jsons.DEFAULT.toJson(resp.getHeaders()));
         System.out.println(new String(resp.getBody()));
         System.out.println(resp.getRequestID());
+    }
+
+    public static class Image {
+        @SerializedName("image_type")
+        private String imageType;
+        @SerializedName("image")
+        private File image;
+
+        public String getImageType() {
+            return imageType;
+        }
+
+        public void setImageType(String imageType) {
+            this.imageType = imageType;
+        }
+
+        public File getImage() {
+            return image;
+        }
+
+        public void setImage(File image) {
+            this.image = image;
+        }
+    }
+
+    public static void uploadImage() throws Exception {
+        String appId = System.getenv().get("APP_ID");
+        String appSecret = System.getenv().get("APP_SECRET");
+        Client client = Client.newBuilder(appId, appSecret).build();
+
+        File file = new File("/Users/bytedance/Desktop/test.PNG");
+
+        Image body = new Image();
+        body.setImageType("message");
+        body.setImage(file);
+
+        RequestOptions opt = RequestOptions.newBuilder().supportUpload().build();
+        RawResponse resp = client.post(
+                "https://open.feishu.cn/open-apis/im/v1/images"
+                , body
+                , AccessTokenType.Tenant
+                , opt);
+
+        System.out.println(new String(resp.getBody()));
     }
 
 
@@ -122,6 +168,6 @@ public class RawApiCall {
     }
 
     public static void main(String arg[]) throws Exception {
-        sendMsg();
+        uploadImage();
     }
 }
