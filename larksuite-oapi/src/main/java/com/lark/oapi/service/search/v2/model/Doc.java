@@ -24,7 +24,7 @@ public class Doc {
     private String docId;
     /**
      * 文档对应filter_schema的值
-     * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+     * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
      */
     @SerializedName("filter_data")
     private String filterData;
@@ -47,7 +47,7 @@ public class Doc {
         this.docId = builder.docId;
         /**
          * 文档对应filter_schema的值
-         * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
          */
         this.filterData = builder.filterData;
         /**
@@ -93,7 +93,7 @@ public class Doc {
         private String docId;
         /**
          * 文档对应filter_schema的值
-         * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
          */
         private String filterData;
         /**
@@ -117,7 +117,7 @@ public class Doc {
 
         /**
          * 文档对应filter_schema的值
-         * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
          *
          * @param filterData
          * @return

@@ -88,6 +88,24 @@ public class Alert {
      */
     @SerializedName("process_status")
     private Integer processStatus;
+    /**
+     * 告警规则ID
+     * <p> 示例值：100
+     */
+    @SerializedName("alert_rule_id")
+    private String alertRuleId;
+    /**
+     * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+     */
+    @SerializedName("monitor_target_room_id")
+    private String monitorTargetRoomId;
+    /**
+     * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+     * <p> 示例值：52:60:19:9c:97:21
+     */
+    @SerializedName("monitor_target_room_mac")
+    private String monitorTargetRoomMac;
 
     // builder 开始
     public Alert() {
@@ -154,6 +172,21 @@ public class Alert {
          * <p> 示例值：2
          */
         this.processStatus = builder.processStatus;
+        /**
+         * 告警规则ID
+         * <p> 示例值：100
+         */
+        this.alertRuleId = builder.alertRuleId;
+        /**
+         * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+         */
+        this.monitorTargetRoomId = builder.monitorTargetRoomId;
+        /**
+         * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+         * <p> 示例值：52:60:19:9c:97:21
+         */
+        this.monitorTargetRoomMac = builder.monitorTargetRoomMac;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +289,30 @@ public class Alert {
         this.processStatus = processStatus;
     }
 
+    public String getAlertRuleId() {
+        return this.alertRuleId;
+    }
+
+    public void setAlertRuleId(String alertRuleId) {
+        this.alertRuleId = alertRuleId;
+    }
+
+    public String getMonitorTargetRoomId() {
+        return this.monitorTargetRoomId;
+    }
+
+    public void setMonitorTargetRoomId(String monitorTargetRoomId) {
+        this.monitorTargetRoomId = monitorTargetRoomId;
+    }
+
+    public String getMonitorTargetRoomMac() {
+        return this.monitorTargetRoomMac;
+    }
+
+    public void setMonitorTargetRoomMac(String monitorTargetRoomMac) {
+        this.monitorTargetRoomMac = monitorTargetRoomMac;
+    }
+
     public static class Builder {
         /**
          * 告警ID
@@ -317,6 +374,21 @@ public class Alert {
          * <p> 示例值：2
          */
         private Integer processStatus;
+        /**
+         * 告警规则ID
+         * <p> 示例值：100
+         */
+        private String alertRuleId;
+        /**
+         * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+         */
+        private String monitorTargetRoomId;
+        /**
+         * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+         * <p> 示例值：52:60:19:9c:97:21
+         */
+        private String monitorTargetRoomMac;
 
         /**
          * 告警ID
@@ -506,6 +578,45 @@ public class Alert {
          */
         public Builder processStatus(com.lark.oapi.service.vc.v1.enums.AlertProcessStatusEnum processStatus) {
             this.processStatus = processStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * 告警规则ID
+         * <p> 示例值：100
+         *
+         * @param alertRuleId
+         * @return
+         */
+        public Builder alertRuleId(String alertRuleId) {
+            this.alertRuleId = alertRuleId;
+            return this;
+        }
+
+
+        /**
+         * 触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息
+         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+         *
+         * @param monitorTargetRoomId
+         * @return
+         */
+        public Builder monitorTargetRoomId(String monitorTargetRoomId) {
+            this.monitorTargetRoomId = monitorTargetRoomId;
+            return this;
+        }
+
+
+        /**
+         * 触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息
+         * <p> 示例值：52:60:19:9c:97:21
+         *
+         * @param monitorTargetRoomMac
+         * @return
+         */
+        public Builder monitorTargetRoomMac(String monitorTargetRoomMac) {
+            this.monitorTargetRoomMac = monitorTargetRoomMac;
             return this;
         }
 

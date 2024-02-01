@@ -31,6 +31,13 @@ public class ListSpaceReq {
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+     * <p> 示例值：zh
+     */
+    @Query
+    @SerializedName("lang")
+    private String lang;
 
     // builder 开始
     public ListSpaceReq() {
@@ -47,6 +54,11 @@ public class ListSpaceReq {
          * <p> 示例值：1565676577122621
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+         * <p> 示例值：zh
+         */
+        this.lang = builder.lang;
     }
 
     public static Builder newBuilder() {
@@ -69,9 +81,18 @@ public class ListSpaceReq {
         this.pageToken = pageToken;
     }
 
+    public String getLang() {
+        return this.lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private String lang; // 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
 
 
         /**
@@ -96,6 +117,31 @@ public class ListSpaceReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+         * <p> 示例值：zh
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
+
+        /**
+         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+         * <p> 示例值：zh
+         *
+         * @param lang {@link com.lark.oapi.service.wiki.v2.enums.ListSpaceShowLanguageEnum}
+         * @return
+         */
+        public Builder lang(com.lark.oapi.service.wiki.v2.enums.ListSpaceShowLanguageEnum lang) {
+            this.lang = lang.getValue();
             return this;
         }
 

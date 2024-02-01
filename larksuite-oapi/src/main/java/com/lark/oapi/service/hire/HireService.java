@@ -280,6 +280,13 @@ public class HireService {
         return talentObject;
     }
 
+    public abstract static class P2ApplicationDeletedV1Handler implements IEventHandler<P2ApplicationDeletedV1> {
+        @Override
+        public P2ApplicationDeletedV1 getEvent() {
+            return new P2ApplicationDeletedV1();
+        }
+    }
+
     public abstract static class P2ApplicationStageChangedV1Handler implements IEventHandler<P2ApplicationStageChangedV1> {
         @Override
         public P2ApplicationStageChangedV1 getEvent() {

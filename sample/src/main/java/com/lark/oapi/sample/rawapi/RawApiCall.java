@@ -67,29 +67,6 @@ public class RawApiCall {
         System.out.println(resp.getRequestID());
     }
 
-    public static class Image {
-        @SerializedName("image_type")
-        private String imageType;
-        @SerializedName("image")
-        private File image;
-
-        public String getImageType() {
-            return imageType;
-        }
-
-        public void setImageType(String imageType) {
-            this.imageType = imageType;
-        }
-
-        public File getImage() {
-            return image;
-        }
-
-        public void setImage(File image) {
-            this.image = image;
-        }
-    }
-
     public static void uploadImage() throws Exception {
         String appId = System.getenv().get("APP_ID");
         String appSecret = System.getenv().get("APP_SECRET");
@@ -110,7 +87,6 @@ public class RawApiCall {
 
         System.out.println(new String(resp.getBody()));
     }
-
 
     public static void getTenantToken() throws Exception {
         String appId = System.getenv().get("APP_ID");
@@ -169,5 +145,28 @@ public class RawApiCall {
 
     public static void main(String arg[]) throws Exception {
         uploadImage();
+    }
+
+    public static class Image {
+        @SerializedName("image_type")
+        private String imageType;
+        @SerializedName("image")
+        private File image;
+
+        public String getImageType() {
+            return imageType;
+        }
+
+        public void setImageType(String imageType) {
+            this.imageType = imageType;
+        }
+
+        public File getImage() {
+            return image;
+        }
+
+        public void setImage(File image) {
+            this.image = image;
+        }
     }
 }

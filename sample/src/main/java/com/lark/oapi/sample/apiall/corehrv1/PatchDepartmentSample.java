@@ -27,6 +27,7 @@ public class PatchDepartmentSample {
                         .effectiveTime("2020-05-01 00:00:00")
                         .customFields(new ObjectFieldData[]{})
                         .costCenterId("7142384817131652652")
+                        .staffingModel(Enum.newBuilder().build())
                         .build())
                 .build();
 

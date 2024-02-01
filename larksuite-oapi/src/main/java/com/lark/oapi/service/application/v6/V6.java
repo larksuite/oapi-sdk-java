@@ -24,6 +24,7 @@ public class V6 {
     private final ApplicationAppVersion applicationAppVersion; // 事件
     private final ApplicationContactsRange applicationContactsRange; // application.contacts_range
     private final ApplicationFeedback applicationFeedback; // 应用反馈
+    private final ApplicationManagement applicationManagement; // application.management
     private final ApplicationVisibility applicationVisibility; // 事件
     private final Bot bot; // 事件
 
@@ -35,6 +36,7 @@ public class V6 {
         this.applicationAppVersion = new ApplicationAppVersion(config);
         this.applicationContactsRange = new ApplicationContactsRange(config);
         this.applicationFeedback = new ApplicationFeedback(config);
+        this.applicationManagement = new ApplicationManagement(config);
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
     }
@@ -65,6 +67,10 @@ public class V6 {
 
     public ApplicationFeedback applicationFeedback() {
         return applicationFeedback;
+    }
+
+    public ApplicationManagement applicationManagement() {
+        return applicationManagement;
     }
 
     public ApplicationVisibility applicationVisibility() {

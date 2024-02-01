@@ -160,6 +160,36 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("weekly_working_hours_v2")
     private Double weeklyWorkingHoursV2;
+    /**
+     * 办公地址
+     * <p> 示例值：
+     */
+    @SerializedName("office_address")
+    private Address officeAddress;
+    /**
+     * 工作日历
+     * <p> 示例值：6977973225846343173
+     */
+    @SerializedName("working_calendar_id")
+    private String workingCalendarId;
+    /**
+     * 更新时间
+     * <p> 示例值：2023-01-10 10:29
+     */
+    @SerializedName("updated_at")
+    private String updatedAt;
+    /**
+     * 是否疑似重聘
+     * <p> 示例值：false
+     */
+    @SerializedName("suspected_rehiring")
+    private Boolean suspectedRehiring;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private CustomFieldData[] customFields;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -286,6 +316,31 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：8.5
          */
         this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
+        /**
+         * 办公地址
+         * <p> 示例值：
+         */
+        this.officeAddress = builder.officeAddress;
+        /**
+         * 工作日历
+         * <p> 示例值：6977973225846343173
+         */
+        this.workingCalendarId = builder.workingCalendarId;
+        /**
+         * 更新时间
+         * <p> 示例值：2023-01-10 10:29
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 是否疑似重聘
+         * <p> 示例值：false
+         */
+        this.suspectedRehiring = builder.suspectedRehiring;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -484,6 +539,46 @@ public class PreHireEmploymentInfo {
         this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
     }
 
+    public Address getOfficeAddress() {
+        return this.officeAddress;
+    }
+
+    public void setOfficeAddress(Address officeAddress) {
+        this.officeAddress = officeAddress;
+    }
+
+    public String getWorkingCalendarId() {
+        return this.workingCalendarId;
+    }
+
+    public void setWorkingCalendarId(String workingCalendarId) {
+        this.workingCalendarId = workingCalendarId;
+    }
+
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Boolean getSuspectedRehiring() {
+        return this.suspectedRehiring;
+    }
+
+    public void setSuspectedRehiring(Boolean suspectedRehiring) {
+        this.suspectedRehiring = suspectedRehiring;
+    }
+
+    public CustomFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(CustomFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -605,6 +700,31 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：8.5
          */
         private Double weeklyWorkingHoursV2;
+        /**
+         * 办公地址
+         * <p> 示例值：
+         */
+        private Address officeAddress;
+        /**
+         * 工作日历
+         * <p> 示例值：6977973225846343173
+         */
+        private String workingCalendarId;
+        /**
+         * 更新时间
+         * <p> 示例值：2023-01-10 10:29
+         */
+        private String updatedAt;
+        /**
+         * 是否疑似重聘
+         * <p> 示例值：false
+         */
+        private Boolean suspectedRehiring;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private CustomFieldData[] customFields;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -926,6 +1046,71 @@ public class PreHireEmploymentInfo {
          */
         public Builder weeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
             this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+            return this;
+        }
+
+
+        /**
+         * 办公地址
+         * <p> 示例值：
+         *
+         * @param officeAddress
+         * @return
+         */
+        public Builder officeAddress(Address officeAddress) {
+            this.officeAddress = officeAddress;
+            return this;
+        }
+
+
+        /**
+         * 工作日历
+         * <p> 示例值：6977973225846343173
+         *
+         * @param workingCalendarId
+         * @return
+         */
+        public Builder workingCalendarId(String workingCalendarId) {
+            this.workingCalendarId = workingCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：2023-01-10 10:29
+         *
+         * @param updatedAt
+         * @return
+         */
+        public Builder updatedAt(String updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+
+        /**
+         * 是否疑似重聘
+         * <p> 示例值：false
+         *
+         * @param suspectedRehiring
+         * @return
+         */
+        public Builder suspectedRehiring(Boolean suspectedRehiring) {
+            this.suspectedRehiring = suspectedRehiring;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(CustomFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

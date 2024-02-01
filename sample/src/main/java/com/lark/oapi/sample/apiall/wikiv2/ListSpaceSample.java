@@ -14,8 +14,9 @@ public class ListSpaceSample {
 
         // 创建请求对象
         ListSpaceReq req = ListSpaceReq.newBuilder()
-                .pageSize(10)
+                .pageSize(20)
                 .pageToken("1565676577122621")
+                .lang("en")
                 .build();
 
         // 发起请求

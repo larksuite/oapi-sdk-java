@@ -17,14 +17,17 @@ import com.lark.oapi.card.model.CardAction;
 import com.lark.oapi.card.model.CustomResponse;
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.IHandler;
+import com.lark.oapi.core.exception.DecryptException;
 import com.lark.oapi.core.exception.IllegalHttpStatusCodeException;
 import com.lark.oapi.core.exception.IncorrectChallengeException;
 import com.lark.oapi.core.exception.IncorrectSignatureException;
 import com.lark.oapi.core.request.EventReq;
 import com.lark.oapi.core.response.EventResp;
+import com.lark.oapi.core.utils.Decryptor;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.event.IEventHandler;
+import com.lark.oapi.event.model.Fuzzy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,9 +119,12 @@ public class CardActionHandler implements IHandler {
         eventResp.setStatusCode(200);
         eventResp.setContentType(Constants.CONTENT_TYPE);
         try {
+            // 消息解密
+            String plain = decrypt(eventReq.getBody());
+
             // 反序列化
             CardAction cardAction = Jsons.DEFAULT.fromJson(
-                    new String(eventReq.getBody(), StandardCharsets.UTF_8), CardAction.class);
+                    plain, CardAction.class);
             cardAction.setEventReq(eventReq);
 
             // auth by challenge
@@ -162,6 +168,22 @@ public class CardActionHandler implements IHandler {
         }
 
         return eventResp;
+    }
+
+    public String decrypt(byte[] bs) {
+        String plain;
+        String text = new String(bs, StandardCharsets.UTF_8);
+        Fuzzy fuzzy = Jsons.DEFAULT.fromJson(text, Fuzzy.class);
+        if (fuzzy != null && Strings.isNotEmpty(fuzzy.getEncrypt())) {
+            if (Strings.isEmpty(encryptKey)) {
+                throw new DecryptException("encrypt_key not found");
+            }
+            plain = new Decryptor(encryptKey).decrypt(fuzzy.getEncrypt());
+        } else {
+            plain = text;
+        }
+
+        return plain;
     }
 
     public interface ICardHandler {

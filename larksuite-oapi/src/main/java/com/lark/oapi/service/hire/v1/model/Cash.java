@@ -27,7 +27,7 @@ public class Cash {
      * <p> 示例值：100
      */
     @SerializedName("amount")
-    private Integer amount;
+    private Double amount;
 
     // builder 开始
     public Cash() {
@@ -58,11 +58,11 @@ public class Cash {
         this.currencyType = currencyType;
     }
 
-    public Integer getAmount() {
+    public Double getAmount() {
         return this.amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -76,7 +76,7 @@ public class Cash {
          * 数额
          * <p> 示例值：100
          */
-        private Integer amount;
+        private Double amount;
 
         /**
          * 币种
@@ -98,7 +98,7 @@ public class Cash {
          * @param amount
          * @return
          */
-        public Builder amount(Integer amount) {
+        public Builder amount(Double amount) {
             this.amount = amount;
             return this;
         }

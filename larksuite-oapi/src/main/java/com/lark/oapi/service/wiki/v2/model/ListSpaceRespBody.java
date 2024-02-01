@@ -23,12 +23,14 @@ public class ListSpaceRespBody {
     @SerializedName("items")
     private Space[] items;
     /**
-     * <p> 示例值：
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     * <p> 示例值：1565676577122621
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * <p> 示例值：
+     * 是否还有更多项
+     * <p> 示例值：true
      */
     @SerializedName("has_more")
     private Boolean hasMore;

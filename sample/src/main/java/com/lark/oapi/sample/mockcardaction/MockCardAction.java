@@ -59,7 +59,7 @@ public class MockCardAction {
                 , bodyStr.getBytes(StandardCharsets.UTF_8));
 
         // http req builder
-        Request.Builder builder = new Request.Builder().url("http://127.0.0.1:9999/webhook/card")
+        Request.Builder builder = new Request.Builder().url("http://127.0.0.1:7777/webhook/card")
                 .method("POST", requestBody);
 
         // header
@@ -103,7 +103,7 @@ public class MockCardAction {
                 , bodyStr.getBytes(StandardCharsets.UTF_8));
 
         // http req builder
-        Request.Builder builder = new Request.Builder().url("http://127.0.0.1:9999/webhook/card")
+        Request.Builder builder = new Request.Builder().url("http://127.0.0.1:7777/webhook/card")
                 .method("POST", requestBody);
 
         // header

@@ -54,6 +54,7 @@ public class BonusAmount {
          */
         private Integer pointBonus;
 
+
         /**
          * 积分奖励
          * <p> 示例值：100

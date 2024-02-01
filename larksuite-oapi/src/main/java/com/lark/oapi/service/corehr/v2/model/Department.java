@@ -112,6 +112,12 @@ public class Department {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 是否使用职务
+     * <p> 示例值：
+     */
+    @SerializedName("staffing_model")
+    private Enum staffingModel;
 
     // builder 开始
     public Department() {
@@ -198,6 +204,11 @@ public class Department {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         */
+        this.staffingModel = builder.staffingModel;
     }
 
     public static Builder newBuilder() {
@@ -332,6 +343,14 @@ public class Department {
         this.customFields = customFields;
     }
 
+    public Enum getStaffingModel() {
+        return this.staffingModel;
+    }
+
+    public void setStaffingModel(Enum staffingModel) {
+        this.staffingModel = staffingModel;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
@@ -413,6 +432,11 @@ public class Department {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         */
+        private Enum staffingModel;
 
         /**
          * 部门 ID
@@ -618,6 +642,19 @@ public class Department {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         *
+         * @param staffingModel
+         * @return
+         */
+        public Builder staffingModel(Enum staffingModel) {
+            this.staffingModel = staffingModel;
             return this;
         }
 

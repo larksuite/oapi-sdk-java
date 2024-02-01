@@ -52,6 +52,12 @@ public class OvertimeApplyDetail {
      */
     @SerializedName("is_time_bank")
     private Boolean isTimeBank;
+    /**
+     * 添加更新数据时间
+     * <p> 示例值：2023-12-31 12:00:00
+     */
+    @SerializedName("update_time")
+    private String updateTime;
 
     // builder 开始
     public OvertimeApplyDetail() {
@@ -88,6 +94,11 @@ public class OvertimeApplyDetail {
          * <p> 示例值：false
          */
         this.isTimeBank = builder.isTimeBank;
+        /**
+         * 添加更新数据时间
+         * <p> 示例值：2023-12-31 12:00:00
+         */
+        this.updateTime = builder.updateTime;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +153,14 @@ public class OvertimeApplyDetail {
         this.isTimeBank = isTimeBank;
     }
 
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public static class Builder {
         /**
          * 加班明细用户ID(根据date_type_id)
@@ -173,6 +192,11 @@ public class OvertimeApplyDetail {
          * <p> 示例值：false
          */
         private Boolean isTimeBank;
+        /**
+         * 添加更新数据时间
+         * <p> 示例值：2023-12-31 12:00:00
+         */
+        private String updateTime;
 
         /**
          * 加班明细用户ID(根据date_type_id)
@@ -272,6 +296,19 @@ public class OvertimeApplyDetail {
          */
         public Builder isTimeBank(Boolean isTimeBank) {
             this.isTimeBank = isTimeBank;
+            return this;
+        }
+
+
+        /**
+         * 添加更新数据时间
+         * <p> 示例值：2023-12-31 12:00:00
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
 

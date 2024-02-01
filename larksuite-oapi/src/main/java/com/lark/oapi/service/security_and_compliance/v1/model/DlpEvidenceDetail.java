@@ -58,6 +58,12 @@ public class DlpEvidenceDetail {
      */
     @SerializedName("trigger_snippets")
     private DlpPolicyHitProof[] triggerSnippets;
+    /**
+     * 命中密级标签
+     * <p> 示例值：
+     */
+    @SerializedName("secure_label_hits")
+    private String[] secureLabelHits;
 
     // builder 开始
     public DlpEvidenceDetail() {
@@ -99,6 +105,11 @@ public class DlpEvidenceDetail {
          * <p> 示例值：
          */
         this.triggerSnippets = builder.triggerSnippets;
+        /**
+         * 命中密级标签
+         * <p> 示例值：
+         */
+        this.secureLabelHits = builder.secureLabelHits;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +172,14 @@ public class DlpEvidenceDetail {
         this.triggerSnippets = triggerSnippets;
     }
 
+    public String[] getSecureLabelHits() {
+        return this.secureLabelHits;
+    }
+
+    public void setSecureLabelHits(String[] secureLabelHits) {
+        this.secureLabelHits = secureLabelHits;
+    }
+
     public static class Builder {
         /**
          * 命中关键词
@@ -197,6 +216,11 @@ public class DlpEvidenceDetail {
          * <p> 示例值：
          */
         private DlpPolicyHitProof[] triggerSnippets;
+        /**
+         * 命中密级标签
+         * <p> 示例值：
+         */
+        private String[] secureLabelHits;
 
         /**
          * 命中关键词
@@ -285,6 +309,19 @@ public class DlpEvidenceDetail {
          */
         public Builder triggerSnippets(DlpPolicyHitProof[] triggerSnippets) {
             this.triggerSnippets = triggerSnippets;
+            return this;
+        }
+
+
+        /**
+         * 命中密级标签
+         * <p> 示例值：
+         *
+         * @param secureLabelHits
+         * @return
+         */
+        public Builder secureLabelHits(String[] secureLabelHits) {
+            this.secureLabelHits = secureLabelHits;
             return this;
         }
 

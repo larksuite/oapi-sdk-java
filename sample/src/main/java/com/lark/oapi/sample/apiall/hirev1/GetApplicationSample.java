@@ -15,6 +15,7 @@ public class GetApplicationSample {
         // 创建请求对象
         GetApplicationReq req = GetApplicationReq.newBuilder()
                 .applicationId("6949805467799537964")
+                .userIdType("user_id")
                 .options(new String[]{})
                 .build();
 

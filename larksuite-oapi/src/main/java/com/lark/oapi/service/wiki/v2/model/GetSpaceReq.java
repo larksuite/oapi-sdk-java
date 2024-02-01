@@ -15,8 +15,16 @@ package com.lark.oapi.service.wiki.v2.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class GetSpaceReq {
+    /**
+     * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+     * <p> 示例值：zh
+     */
+    @Query
+    @SerializedName("lang")
+    private String lang;
     /**
      * 知识空间id
      * <p> 示例值：6870403571079249922
@@ -31,6 +39,11 @@ public class GetSpaceReq {
 
     public GetSpaceReq(Builder builder) {
         /**
+         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+         * <p> 示例值：zh
+         */
+        this.lang = builder.lang;
+        /**
          * 知识空间id
          * <p> 示例值：6870403571079249922
          */
@@ -39,6 +52,14 @@ public class GetSpaceReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getLang() {
+        return this.lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 
     public String getSpaceId() {
@@ -50,8 +71,32 @@ public class GetSpaceReq {
     }
 
     public static class Builder {
-
+        private String lang; // 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
         private String spaceId; // 知识空间id
+
+        /**
+         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+         * <p> 示例值：zh
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
+
+        /**
+         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
+         * <p> 示例值：zh
+         *
+         * @param lang {@link com.lark.oapi.service.wiki.v2.enums.GetSpaceShowLanguageEnum}
+         * @return
+         */
+        public Builder lang(com.lark.oapi.service.wiki.v2.enums.GetSpaceShowLanguageEnum lang) {
+            this.lang = lang.getValue();
+            return this;
+        }
 
         /**
          * 知识空间id

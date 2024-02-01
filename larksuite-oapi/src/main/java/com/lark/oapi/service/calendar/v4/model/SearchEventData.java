@@ -22,6 +22,12 @@ public class SearchEventData {
      */
     @SerializedName("events")
     private EventBriefInfoAi[] events;
+    /**
+     * 返回给prompt展示内容
+     * <p> 示例值：帮我展示卡片消息
+     */
+    @SerializedName("msg")
+    private String msg;
 
     // builder 开始
     public SearchEventData() {
@@ -33,6 +39,11 @@ public class SearchEventData {
          * <p> 示例值：
          */
         this.events = builder.events;
+        /**
+         * 返回给prompt展示内容
+         * <p> 示例值：帮我展示卡片消息
+         */
+        this.msg = builder.msg;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +58,25 @@ public class SearchEventData {
         this.events = events;
     }
 
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
     public static class Builder {
         /**
          * 日程列表
          * <p> 示例值：
          */
         private EventBriefInfoAi[] events;
+        /**
+         * 返回给prompt展示内容
+         * <p> 示例值：帮我展示卡片消息
+         */
+        private String msg;
 
         /**
          * 日程列表
@@ -63,6 +87,19 @@ public class SearchEventData {
          */
         public Builder events(EventBriefInfoAi[] events) {
             this.events = events;
+            return this;
+        }
+
+
+        /**
+         * 返回给prompt展示内容
+         * <p> 示例值：帮我展示卡片消息
+         *
+         * @param msg
+         * @return
+         */
+        public Builder msg(String msg) {
+            this.msg = msg;
             return this;
         }
 

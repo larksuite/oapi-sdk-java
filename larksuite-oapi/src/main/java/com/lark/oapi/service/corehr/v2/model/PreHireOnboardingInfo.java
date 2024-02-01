@@ -69,13 +69,25 @@ public class PreHireOnboardingInfo {
      * <p> 示例值：
      */
     @SerializedName("onboarding_status")
-    private Boolean onboardingStatus;
+    private String onboardingStatus;
     /**
      * 入职任务列表
      * <p> 示例值：
      */
     @SerializedName("onboarding_task_list")
     private OnboardingTask[] onboardingTaskList;
+    /**
+     * 入职地址
+     * <p> 示例值：
+     */
+    @SerializedName("onboarding_address")
+    private Address onboardingAddress;
+    /**
+     * 入职流程
+     * <p> 示例值：
+     */
+    @SerializedName("flow_name")
+    private I18n[] flowName;
 
     // builder 开始
     public PreHireOnboardingInfo() {
@@ -132,6 +144,16 @@ public class PreHireOnboardingInfo {
          * <p> 示例值：
          */
         this.onboardingTaskList = builder.onboardingTaskList;
+        /**
+         * 入职地址
+         * <p> 示例值：
+         */
+        this.onboardingAddress = builder.onboardingAddress;
+        /**
+         * 入职流程
+         * <p> 示例值：
+         */
+        this.flowName = builder.flowName;
     }
 
     public static Builder newBuilder() {
@@ -202,11 +224,11 @@ public class PreHireOnboardingInfo {
         this.companySponsoredVisa = companySponsoredVisa;
     }
 
-    public Boolean getOnboardingStatus() {
+    public String getOnboardingStatus() {
         return this.onboardingStatus;
     }
 
-    public void setOnboardingStatus(Boolean onboardingStatus) {
+    public void setOnboardingStatus(String onboardingStatus) {
         this.onboardingStatus = onboardingStatus;
     }
 
@@ -216,6 +238,22 @@ public class PreHireOnboardingInfo {
 
     public void setOnboardingTaskList(OnboardingTask[] onboardingTaskList) {
         this.onboardingTaskList = onboardingTaskList;
+    }
+
+    public Address getOnboardingAddress() {
+        return this.onboardingAddress;
+    }
+
+    public void setOnboardingAddress(Address onboardingAddress) {
+        this.onboardingAddress = onboardingAddress;
+    }
+
+    public I18n[] getFlowName() {
+        return this.flowName;
+    }
+
+    public void setFlowName(I18n[] flowName) {
+        this.flowName = flowName;
     }
 
     public static class Builder {
@@ -263,12 +301,22 @@ public class PreHireOnboardingInfo {
          * -| 入职状态
          * <p> 示例值：
          */
-        private Boolean onboardingStatus;
+        private String onboardingStatus;
         /**
          * 入职任务列表
          * <p> 示例值：
          */
         private OnboardingTask[] onboardingTaskList;
+        /**
+         * 入职地址
+         * <p> 示例值：
+         */
+        private Address onboardingAddress;
+        /**
+         * 入职流程
+         * <p> 示例值：
+         */
+        private I18n[] flowName;
 
         /**
          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
@@ -381,7 +429,7 @@ public class PreHireOnboardingInfo {
          * @param onboardingStatus
          * @return
          */
-        public Builder onboardingStatus(Boolean onboardingStatus) {
+        public Builder onboardingStatus(String onboardingStatus) {
             this.onboardingStatus = onboardingStatus;
             return this;
         }
@@ -396,6 +444,32 @@ public class PreHireOnboardingInfo {
          */
         public Builder onboardingTaskList(OnboardingTask[] onboardingTaskList) {
             this.onboardingTaskList = onboardingTaskList;
+            return this;
+        }
+
+
+        /**
+         * 入职地址
+         * <p> 示例值：
+         *
+         * @param onboardingAddress
+         * @return
+         */
+        public Builder onboardingAddress(Address onboardingAddress) {
+            this.onboardingAddress = onboardingAddress;
+            return this;
+        }
+
+
+        /**
+         * 入职流程
+         * <p> 示例值：
+         *
+         * @param flowName
+         * @return
+         */
+        public Builder flowName(I18n[] flowName) {
+            this.flowName = flowName;
             return this;
         }
 

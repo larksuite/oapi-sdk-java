@@ -118,6 +118,12 @@ public class Application {
      */
     @SerializedName("application_preferred_city_list")
     private CodeNameObject[] applicationPreferredCityList;
+    /**
+     * 投递创建人 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+     * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+     */
+    @SerializedName("creator_id")
+    private String creatorId;
 
     // builder 开始
     public Application() {
@@ -209,6 +215,11 @@ public class Application {
          * <p> 示例值：
          */
         this.applicationPreferredCityList = builder.applicationPreferredCityList;
+        /**
+         * 投递创建人 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+         */
+        this.creatorId = builder.creatorId;
     }
 
     public static Builder newBuilder() {
@@ -351,6 +362,14 @@ public class Application {
         this.applicationPreferredCityList = applicationPreferredCityList;
     }
 
+    public String getCreatorId() {
+        return this.creatorId;
+    }
+
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
+
     public static class Builder {
         /**
          * 投递id
@@ -437,6 +456,11 @@ public class Application {
          * <p> 示例值：
          */
         private CodeNameObject[] applicationPreferredCityList;
+        /**
+         * 投递创建人 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+         */
+        private String creatorId;
 
         /**
          * 投递id
@@ -655,6 +679,19 @@ public class Application {
          */
         public Builder applicationPreferredCityList(CodeNameObject[] applicationPreferredCityList) {
             this.applicationPreferredCityList = applicationPreferredCityList;
+            return this;
+        }
+
+
+        /**
+         * 投递创建人 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+         *
+         * @param creatorId
+         * @return
+         */
+        public Builder creatorId(String creatorId) {
+            this.creatorId = creatorId;
             return this;
         }
 

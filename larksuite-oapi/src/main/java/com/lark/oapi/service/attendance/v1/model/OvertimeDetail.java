@@ -82,6 +82,24 @@ public class OvertimeDetail {
      */
     @SerializedName("date")
     private String date;
+    /**
+     * 数据更新时间
+     * <p> 示例值：2023-12-31
+     */
+    @SerializedName("update_time")
+    private String updateTime;
+    /**
+     * 是否是综合工时产生的加班明细
+     * <p> 示例值：false
+     */
+    @SerializedName("is_time_bank")
+    private Boolean isTimeBank;
+    /**
+     * 加班明细对应的审批单ID，如果为空代表改加班明细不是审批转入的
+     * <p> 示例值：1234
+     */
+    @SerializedName("instance_id")
+    private String instanceId;
 
     // builder 开始
     public OvertimeDetail() {
@@ -143,6 +161,21 @@ public class OvertimeDetail {
          * <p> 示例值：2006-01-02
          */
         this.date = builder.date;
+        /**
+         * 数据更新时间
+         * <p> 示例值：2023-12-31
+         */
+        this.updateTime = builder.updateTime;
+        /**
+         * 是否是综合工时产生的加班明细
+         * <p> 示例值：false
+         */
+        this.isTimeBank = builder.isTimeBank;
+        /**
+         * 加班明细对应的审批单ID，如果为空代表改加班明细不是审批转入的
+         * <p> 示例值：1234
+         */
+        this.instanceId = builder.instanceId;
     }
 
     public static Builder newBuilder() {
@@ -237,6 +270,30 @@ public class OvertimeDetail {
         this.date = date;
     }
 
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Boolean getIsTimeBank() {
+        return this.isTimeBank;
+    }
+
+    public void setIsTimeBank(Boolean isTimeBank) {
+        this.isTimeBank = isTimeBank;
+    }
+
+    public String getInstanceId() {
+        return this.instanceId;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
+
     public static class Builder {
         /**
          * 加班明细ID
@@ -293,6 +350,21 @@ public class OvertimeDetail {
          * <p> 示例值：2006-01-02
          */
         private String date;
+        /**
+         * 数据更新时间
+         * <p> 示例值：2023-12-31
+         */
+        private String updateTime;
+        /**
+         * 是否是综合工时产生的加班明细
+         * <p> 示例值：false
+         */
+        private Boolean isTimeBank;
+        /**
+         * 加班明细对应的审批单ID，如果为空代表改加班明细不是审批转入的
+         * <p> 示例值：1234
+         */
+        private String instanceId;
 
         /**
          * 加班明细ID
@@ -469,6 +541,45 @@ public class OvertimeDetail {
          */
         public Builder date(String date) {
             this.date = date;
+            return this;
+        }
+
+
+        /**
+         * 数据更新时间
+         * <p> 示例值：2023-12-31
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 是否是综合工时产生的加班明细
+         * <p> 示例值：false
+         *
+         * @param isTimeBank
+         * @return
+         */
+        public Builder isTimeBank(Boolean isTimeBank) {
+            this.isTimeBank = isTimeBank;
+            return this;
+        }
+
+
+        /**
+         * 加班明细对应的审批单ID，如果为空代表改加班明细不是审批转入的
+         * <p> 示例值：1234
+         *
+         * @param instanceId
+         * @return
+         */
+        public Builder instanceId(String instanceId) {
+            this.instanceId = instanceId;
             return this;
         }
 

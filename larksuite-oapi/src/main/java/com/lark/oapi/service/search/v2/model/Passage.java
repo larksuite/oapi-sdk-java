@@ -54,7 +54,7 @@ public class Passage {
     private Double score;
     /**
      * 其他source相关的字段
-     * <p> 示例值：{"obj_id":7263345601809530881}
+     * <p> 示例值：{\"obj_id\":7263345601809530881}
      */
     @SerializedName("extra")
     private String extra;
@@ -96,7 +96,7 @@ public class Passage {
         this.score = builder.score;
         /**
          * 其他source相关的字段
-         * <p> 示例值：{"obj_id":7263345601809530881}
+         * <p> 示例值：{\"obj_id\":7263345601809530881}
          */
         this.extra = builder.extra;
     }
@@ -194,7 +194,7 @@ public class Passage {
         private Double score;
         /**
          * 其他source相关的字段
-         * <p> 示例值：{"obj_id":7263345601809530881}
+         * <p> 示例值：{\"obj_id\":7263345601809530881}
          */
         private String extra;
 
@@ -290,7 +290,7 @@ public class Passage {
 
         /**
          * 其他source相关的字段
-         * <p> 示例值：{"obj_id":7263345601809530881}
+         * <p> 示例值：{\"obj_id\":7263345601809530881}
          *
          * @param extra
          * @return

@@ -15,6 +15,7 @@ public class GetSpaceSample {
         // 创建请求对象
         GetSpaceReq req = GetSpaceReq.newBuilder()
                 .spaceId("6870403571079249922")
+                .lang("en")
                 .build();
 
         // 发起请求

@@ -48,7 +48,7 @@ public class Chunk {
     private String content;
     /**
      * 数据集对应filter_shema的值
-     * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+     * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
      */
     @SerializedName("filter_data")
     private String filterData;
@@ -103,7 +103,7 @@ public class Chunk {
         this.content = builder.content;
         /**
          * 数据集对应filter_shema的值
-         * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
          */
         this.filterData = builder.filterData;
         /**
@@ -227,7 +227,7 @@ public class Chunk {
         private String content;
         /**
          * 数据集对应filter_shema的值
-         * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
          */
         private String filterData;
         /**
@@ -313,7 +313,7 @@ public class Chunk {
 
         /**
          * 数据集对应filter_shema的值
-         * <p> 示例值：{"domains": ["domain1"],"versions": ["v1"]}
+         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
          *
          * @param filterData
          * @return

@@ -40,6 +40,18 @@ public class MyAiPresent {
      */
     @SerializedName("callback_info")
     private String callbackInfo;
+    /**
+     * template ID
+     * <p> 示例值：default
+     */
+    @SerializedName("card_template_id")
+    private String cardTemplateId;
+    /**
+     * 卡片变量
+     * <p> 示例值：
+     */
+    @SerializedName("card_variables")
+    private MyAiPresentCardVariables cardVariables;
 
     // builder 开始
     public MyAiPresent() {
@@ -66,6 +78,16 @@ public class MyAiPresent {
          * <p> 示例值："{\"session_id\":\"11111\"}"
          */
         this.callbackInfo = builder.callbackInfo;
+        /**
+         * template ID
+         * <p> 示例值：default
+         */
+        this.cardTemplateId = builder.cardTemplateId;
+        /**
+         * 卡片变量
+         * <p> 示例值：
+         */
+        this.cardVariables = builder.cardVariables;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +126,22 @@ public class MyAiPresent {
         this.callbackInfo = callbackInfo;
     }
 
+    public String getCardTemplateId() {
+        return this.cardTemplateId;
+    }
+
+    public void setCardTemplateId(String cardTemplateId) {
+        this.cardTemplateId = cardTemplateId;
+    }
+
+    public MyAiPresentCardVariables getCardVariables() {
+        return this.cardVariables;
+    }
+
+    public void setCardVariables(MyAiPresentCardVariables cardVariables) {
+        this.cardVariables = cardVariables;
+    }
+
     public static class Builder {
         /**
          * present type
@@ -125,6 +163,16 @@ public class MyAiPresent {
          * <p> 示例值："{\"session_id\":\"11111\"}"
          */
         private String callbackInfo;
+        /**
+         * template ID
+         * <p> 示例值：default
+         */
+        private String cardTemplateId;
+        /**
+         * 卡片变量
+         * <p> 示例值：
+         */
+        private MyAiPresentCardVariables cardVariables;
 
         /**
          * present type
@@ -174,6 +222,32 @@ public class MyAiPresent {
          */
         public Builder callbackInfo(String callbackInfo) {
             this.callbackInfo = callbackInfo;
+            return this;
+        }
+
+
+        /**
+         * template ID
+         * <p> 示例值：default
+         *
+         * @param cardTemplateId
+         * @return
+         */
+        public Builder cardTemplateId(String cardTemplateId) {
+            this.cardTemplateId = cardTemplateId;
+            return this;
+        }
+
+
+        /**
+         * 卡片变量
+         * <p> 示例值：
+         *
+         * @param cardVariables
+         * @return
+         */
+        public Builder cardVariables(MyAiPresentCardVariables cardVariables) {
+            this.cardVariables = cardVariables;
             return this;
         }
 

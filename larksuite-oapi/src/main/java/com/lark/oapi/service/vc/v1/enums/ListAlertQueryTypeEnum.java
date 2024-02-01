@@ -19,6 +19,7 @@ package com.lark.oapi.service.vc.v1.enums;
 public enum ListAlertQueryTypeEnum {
     ROOM(1), // 会议室
     ERC(2), // erc
+    SIP(3), // SIP会议室系统
     ;
     private Integer value;
 

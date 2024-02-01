@@ -1256,6 +1256,21 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> 删除投递,删除投递
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/events/deleted">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/events/deleted</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ApplicationDeletedV1(HireService.P2ApplicationDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.application.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.application.deleted_v1");
+            }
+            eventType2EventHandler.put("hire.application.deleted_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> ,
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/application-stage-changed">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/application-stage-changed</a>
          *

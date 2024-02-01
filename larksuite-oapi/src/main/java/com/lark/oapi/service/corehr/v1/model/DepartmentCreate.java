@@ -70,6 +70,12 @@ public class DepartmentCreate {
      */
     @SerializedName("cost_center_id")
     private String costCenterId;
+    /**
+     * 是否使用职务
+     * <p> 示例值：
+     */
+    @SerializedName("staffing_model")
+    private Enum staffingModel;
 
     // builder 开始
     public DepartmentCreate() {
@@ -121,6 +127,11 @@ public class DepartmentCreate {
          * <p> 示例值：7142384817131652652
          */
         this.costCenterId = builder.costCenterId;
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         */
+        this.staffingModel = builder.staffingModel;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +210,14 @@ public class DepartmentCreate {
         this.costCenterId = costCenterId;
     }
 
+    public Enum getStaffingModel() {
+        return this.staffingModel;
+    }
+
+    public void setStaffingModel(Enum staffingModel) {
+        this.staffingModel = staffingModel;
+    }
+
     public static class Builder {
         /**
          * 实体在CoreHR内部的唯一键
@@ -245,6 +264,11 @@ public class DepartmentCreate {
          * <p> 示例值：7142384817131652652
          */
         private String costCenterId;
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         */
+        private Enum staffingModel;
 
         /**
          * 实体在CoreHR内部的唯一键
@@ -359,6 +383,19 @@ public class DepartmentCreate {
          */
         public Builder costCenterId(String costCenterId) {
             this.costCenterId = costCenterId;
+            return this;
+        }
+
+
+        /**
+         * 是否使用职务
+         * <p> 示例值：
+         *
+         * @param staffingModel
+         * @return
+         */
+        public Builder staffingModel(Enum staffingModel) {
+            this.staffingModel = staffingModel;
             return this;
         }
 

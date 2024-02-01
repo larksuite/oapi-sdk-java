@@ -52,6 +52,18 @@ public class EmergencyContact {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 联系地址
+     * <p> 示例值：
+     */
+    @SerializedName("address")
+    private Address address;
+    /**
+     * 邮箱
+     * <p> 示例值：
+     */
+    @SerializedName("email")
+    private Email email;
 
     // builder 开始
     public EmergencyContact() {
@@ -88,6 +100,16 @@ public class EmergencyContact {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 联系地址
+         * <p> 示例值：
+         */
+        this.address = builder.address;
+        /**
+         * 邮箱
+         * <p> 示例值：
+         */
+        this.email = builder.email;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +164,22 @@ public class EmergencyContact {
         this.customFields = customFields;
     }
 
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Email getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
     public static class Builder {
         /**
          * 姓名
@@ -173,6 +211,16 @@ public class EmergencyContact {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 联系地址
+         * <p> 示例值：
+         */
+        private Address address;
+        /**
+         * 邮箱
+         * <p> 示例值：
+         */
+        private Email email;
 
         /**
          * 姓名
@@ -248,6 +296,32 @@ public class EmergencyContact {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 联系地址
+         * <p> 示例值：
+         *
+         * @param address
+         * @return
+         */
+        public Builder address(Address address) {
+            this.address = address;
+            return this;
+        }
+
+
+        /**
+         * 邮箱
+         * <p> 示例值：
+         *
+         * @param email
+         * @return
+         */
+        public Builder email(Email email) {
+            this.email = email;
             return this;
         }
 
