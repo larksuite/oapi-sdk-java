@@ -17,9 +17,9 @@ package com.lark.oapi.service.approval.v4.enums;
  * 审批实例状态
  */
 public enum InstanceSearchNodeStatusEnum {
-    REJECT("reject"), // 拒绝
+    REJECT("rejected"), // 拒绝
     PENDING("pending"), // 审批中
-    RECALL("recall"), // 撤回
+    RECALL("canceled"), // 撤回
     DELETED("deleted"), // 已删除
     APPROVED("approved"), // 通过
     ;

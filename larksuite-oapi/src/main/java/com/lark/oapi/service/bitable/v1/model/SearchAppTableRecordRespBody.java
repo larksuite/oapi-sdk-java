@@ -21,7 +21,7 @@ public class SearchAppTableRecordRespBody {
      * <p> 示例值：
      */
     @SerializedName("items")
-    private AppTableRecord items;
+    private AppTableRecord[] items;
     /**
      * 是否有下一页数据
      * <p> 示例值：true
@@ -41,11 +41,11 @@ public class SearchAppTableRecordRespBody {
     @SerializedName("total")
     private Integer total;
 
-    public AppTableRecord getItems() {
+    public AppTableRecord[] getItems() {
         return this.items;
     }
 
-    public void setItems(AppTableRecord items) {
+    public void setItems(AppTableRecord[] items) {
         this.items = items;
     }
 

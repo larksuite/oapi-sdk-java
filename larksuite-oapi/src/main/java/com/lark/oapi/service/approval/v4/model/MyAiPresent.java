@@ -52,6 +52,24 @@ public class MyAiPresent {
      */
     @SerializedName("card_variables")
     private MyAiPresentCardVariables cardVariables;
+    /**
+     * interactable
+     * <p> 示例值：true false
+     */
+    @SerializedName("interactable")
+    private Boolean interactable;
+    /**
+     * operation_type
+     * <p> 示例值：operation_type
+     */
+    @SerializedName("operation_type")
+    private String operationType;
+    /**
+     * operation_url
+     * <p> 示例值：https://open-boe.feichu.com
+     */
+    @SerializedName("operation_url")
+    private String operationUrl;
 
     // builder 开始
     public MyAiPresent() {
@@ -88,6 +106,21 @@ public class MyAiPresent {
          * <p> 示例值：
          */
         this.cardVariables = builder.cardVariables;
+        /**
+         * interactable
+         * <p> 示例值：true false
+         */
+        this.interactable = builder.interactable;
+        /**
+         * operation_type
+         * <p> 示例值：operation_type
+         */
+        this.operationType = builder.operationType;
+        /**
+         * operation_url
+         * <p> 示例值：https://open-boe.feichu.com
+         */
+        this.operationUrl = builder.operationUrl;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +175,30 @@ public class MyAiPresent {
         this.cardVariables = cardVariables;
     }
 
+    public Boolean getInteractable() {
+        return this.interactable;
+    }
+
+    public void setInteractable(Boolean interactable) {
+        this.interactable = interactable;
+    }
+
+    public String getOperationType() {
+        return this.operationType;
+    }
+
+    public void setOperationType(String operationType) {
+        this.operationType = operationType;
+    }
+
+    public String getOperationUrl() {
+        return this.operationUrl;
+    }
+
+    public void setOperationUrl(String operationUrl) {
+        this.operationUrl = operationUrl;
+    }
+
     public static class Builder {
         /**
          * present type
@@ -173,6 +230,21 @@ public class MyAiPresent {
          * <p> 示例值：
          */
         private MyAiPresentCardVariables cardVariables;
+        /**
+         * interactable
+         * <p> 示例值：true false
+         */
+        private Boolean interactable;
+        /**
+         * operation_type
+         * <p> 示例值：operation_type
+         */
+        private String operationType;
+        /**
+         * operation_url
+         * <p> 示例值：https://open-boe.feichu.com
+         */
+        private String operationUrl;
 
         /**
          * present type
@@ -248,6 +320,45 @@ public class MyAiPresent {
          */
         public Builder cardVariables(MyAiPresentCardVariables cardVariables) {
             this.cardVariables = cardVariables;
+            return this;
+        }
+
+
+        /**
+         * interactable
+         * <p> 示例值：true false
+         *
+         * @param interactable
+         * @return
+         */
+        public Builder interactable(Boolean interactable) {
+            this.interactable = interactable;
+            return this;
+        }
+
+
+        /**
+         * operation_type
+         * <p> 示例值：operation_type
+         *
+         * @param operationType
+         * @return
+         */
+        public Builder operationType(String operationType) {
+            this.operationType = operationType;
+            return this;
+        }
+
+
+        /**
+         * operation_url
+         * <p> 示例值：https://open-boe.feichu.com
+         *
+         * @param operationUrl
+         * @return
+         */
+        public Builder operationUrl(String operationUrl) {
+            this.operationUrl = operationUrl;
             return this;
         }
 

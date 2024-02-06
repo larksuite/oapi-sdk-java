@@ -11,25 +11,17 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.drive.v1.enums;
+package com.lark.oapi.service.mail.v1.enums;
 
 /**
- * 文件类型
+ * 行为类型
  */
-public enum RequestDocDocTypeEnum {
-    DOC("doc"), // 飞书文档
-    SHEET("sheet"), // 飞书电子表格
-    BITABLE("bitable"), // 飞书多维表格
-    MINDNOTE("mindnote"), // 飞书思维笔记
-    FILE("file"), // 飞书文件
-    WIKI("wiki"), // 飞书wiki
-    DOCX("docx"), // 飞书新版文档
-    FOLDER("folder"), // 飞书文件夹
-    SYNCEDBLOCK("synced_block"), // 文档同步块
+public enum EventLogEventTypeEnum {
+    AUTO_FORWARD("1"), // 自动转发
     ;
     private String value;
 
-    RequestDocDocTypeEnum(String value) {
+    EventLogEventTypeEnum(String value) {
         this.value = value;
     }
 
