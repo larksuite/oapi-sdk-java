@@ -27,6 +27,13 @@ public class PatchPersonReq {
     @SerializedName("client_token")
     private String clientToken;
     /**
+     * 根据no_need_query判断更新后是否做查询请求并返回个人信息
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("no_need_query")
+    private Boolean noNeedQuery;
+    /**
      * person的ID
      * <p> 示例值：12454646
      */
@@ -47,6 +54,11 @@ public class PatchPersonReq {
          */
         this.clientToken = builder.clientToken;
         /**
+         * 根据no_need_query判断更新后是否做查询请求并返回个人信息
+         * <p> 示例值：false
+         */
+        this.noNeedQuery = builder.noNeedQuery;
+        /**
          * person的ID
          * <p> 示例值：12454646
          */
@@ -64,6 +76,14 @@ public class PatchPersonReq {
 
     public void setClientToken(String clientToken) {
         this.clientToken = clientToken;
+    }
+
+    public Boolean getNoNeedQuery() {
+        return this.noNeedQuery;
+    }
+
+    public void setNoNeedQuery(Boolean noNeedQuery) {
+        this.noNeedQuery = noNeedQuery;
     }
 
     public String getPersonId() {
@@ -84,6 +104,7 @@ public class PatchPersonReq {
 
     public static class Builder {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+        private Boolean noNeedQuery; // 根据no_need_query判断更新后是否做查询请求并返回个人信息
         private String personId; // person的ID
         private PersonInfo body;
 
@@ -96,6 +117,18 @@ public class PatchPersonReq {
          */
         public Builder clientToken(String clientToken) {
             this.clientToken = clientToken;
+            return this;
+        }
+
+        /**
+         * 根据no_need_query判断更新后是否做查询请求并返回个人信息
+         * <p> 示例值：false
+         *
+         * @param noNeedQuery
+         * @return
+         */
+        public Builder noNeedQuery(Boolean noNeedQuery) {
+            this.noNeedQuery = noNeedQuery;
             return this;
         }
 

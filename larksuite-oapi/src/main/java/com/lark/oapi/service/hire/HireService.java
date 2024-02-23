@@ -49,7 +49,7 @@ import com.lark.oapi.service.hire.v1.resource.*;
 
 public class HireService {
     private final V1 v1;
-    private final Application application; // 投递
+    private final Application application; // 入职
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
     private final EcoAccount ecoAccount; // 事件

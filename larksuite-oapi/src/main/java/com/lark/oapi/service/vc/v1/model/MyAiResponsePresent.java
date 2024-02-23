@@ -40,6 +40,24 @@ public class MyAiResponsePresent {
      */
     @SerializedName("operation_type")
     private String operationType;
+    /**
+     * 卡片后续链路交互的请求地址
+     * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+     */
+    @SerializedName("operation_url")
+    private String operationUrl;
+    /**
+     * 透传数据上屏后,回调业务方的url;支持Open API 与 rpc 两种方式。由业务方提供。
+     * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/callback
+     */
+    @SerializedName("callback_url")
+    private String callbackUrl;
+    /**
+     * 回调信息
+     * <p> 示例值：call back raw data
+     */
+    @SerializedName("callback_info")
+    private String callbackInfo;
 
     // builder 开始
     public MyAiResponsePresent() {
@@ -66,6 +84,21 @@ public class MyAiResponsePresent {
          * <p> 示例值：update
          */
         this.operationType = builder.operationType;
+        /**
+         * 卡片后续链路交互的请求地址
+         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+         */
+        this.operationUrl = builder.operationUrl;
+        /**
+         * 透传数据上屏后,回调业务方的url;支持Open API 与 rpc 两种方式。由业务方提供。
+         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/callback
+         */
+        this.callbackUrl = builder.callbackUrl;
+        /**
+         * 回调信息
+         * <p> 示例值：call back raw data
+         */
+        this.callbackInfo = builder.callbackInfo;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +137,30 @@ public class MyAiResponsePresent {
         this.operationType = operationType;
     }
 
+    public String getOperationUrl() {
+        return this.operationUrl;
+    }
+
+    public void setOperationUrl(String operationUrl) {
+        this.operationUrl = operationUrl;
+    }
+
+    public String getCallbackUrl() {
+        return this.callbackUrl;
+    }
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
+    }
+
+    public String getCallbackInfo() {
+        return this.callbackInfo;
+    }
+
+    public void setCallbackInfo(String callbackInfo) {
+        this.callbackInfo = callbackInfo;
+    }
+
     public static class Builder {
         /**
          * 类型
@@ -125,6 +182,21 @@ public class MyAiResponsePresent {
          * <p> 示例值：update
          */
         private String operationType;
+        /**
+         * 卡片后续链路交互的请求地址
+         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+         */
+        private String operationUrl;
+        /**
+         * 透传数据上屏后,回调业务方的url;支持Open API 与 rpc 两种方式。由业务方提供。
+         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/callback
+         */
+        private String callbackUrl;
+        /**
+         * 回调信息
+         * <p> 示例值：call back raw data
+         */
+        private String callbackInfo;
 
         /**
          * 类型
@@ -174,6 +246,45 @@ public class MyAiResponsePresent {
          */
         public Builder operationType(String operationType) {
             this.operationType = operationType;
+            return this;
+        }
+
+
+        /**
+         * 卡片后续链路交互的请求地址
+         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+         *
+         * @param operationUrl
+         * @return
+         */
+        public Builder operationUrl(String operationUrl) {
+            this.operationUrl = operationUrl;
+            return this;
+        }
+
+
+        /**
+         * 透传数据上屏后,回调业务方的url;支持Open API 与 rpc 两种方式。由业务方提供。
+         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/callback
+         *
+         * @param callbackUrl
+         * @return
+         */
+        public Builder callbackUrl(String callbackUrl) {
+            this.callbackUrl = callbackUrl;
+            return this;
+        }
+
+
+        /**
+         * 回调信息
+         * <p> 示例值：call back raw data
+         *
+         * @param callbackInfo
+         * @return
+         */
+        public Builder callbackInfo(String callbackInfo) {
+            this.callbackInfo = callbackInfo;
             return this;
         }
 

@@ -1,7 +1,8 @@
 package com.lark.oapi.ws.exception;
 
-public class HeaderNotFoundException extends RuntimeException{
+public class HeaderNotFoundException extends RuntimeException {
     private String key;
+
     public HeaderNotFoundException(String key) {
         this.key = key;
     }

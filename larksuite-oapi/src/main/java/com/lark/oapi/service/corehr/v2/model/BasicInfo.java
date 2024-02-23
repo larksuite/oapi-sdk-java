@@ -71,6 +71,18 @@ public class BasicInfo {
     @SerializedName("nationality_id")
     private String nationalityId;
     /**
+     * 其他国籍
+     * <p> 示例值：[6862995757234914824]
+     */
+    @SerializedName("additional_nationality_id_list")
+    private String[] additionalNationalityIdList;
+    /**
+     * 公民身份
+     * <p> 示例值：[6862995757234914824]
+     */
+    @SerializedName("citizenship_status_id_list")
+    private String[] citizenshipStatusIdList;
+    /**
      * 家庭地址
      * <p> 示例值：home addr
      */
@@ -133,6 +145,16 @@ public class BasicInfo {
          * <p> 示例值：6862995757234914824
          */
         this.nationalityId = builder.nationalityId;
+        /**
+         * 其他国籍
+         * <p> 示例值：[6862995757234914824]
+         */
+        this.additionalNationalityIdList = builder.additionalNationalityIdList;
+        /**
+         * 公民身份
+         * <p> 示例值：[6862995757234914824]
+         */
+        this.citizenshipStatusIdList = builder.citizenshipStatusIdList;
         /**
          * 家庭地址
          * <p> 示例值：home addr
@@ -221,6 +243,22 @@ public class BasicInfo {
         this.nationalityId = nationalityId;
     }
 
+    public String[] getAdditionalNationalityIdList() {
+        return this.additionalNationalityIdList;
+    }
+
+    public void setAdditionalNationalityIdList(String[] additionalNationalityIdList) {
+        this.additionalNationalityIdList = additionalNationalityIdList;
+    }
+
+    public String[] getCitizenshipStatusIdList() {
+        return this.citizenshipStatusIdList;
+    }
+
+    public void setCitizenshipStatusIdList(String[] citizenshipStatusIdList) {
+        this.citizenshipStatusIdList = citizenshipStatusIdList;
+    }
+
     public String getHomeAddress() {
         return this.homeAddress;
     }
@@ -283,6 +321,16 @@ public class BasicInfo {
          * <p> 示例值：6862995757234914824
          */
         private String nationalityId;
+        /**
+         * 其他国籍
+         * <p> 示例值：[6862995757234914824]
+         */
+        private String[] additionalNationalityIdList;
+        /**
+         * 公民身份
+         * <p> 示例值：[6862995757234914824]
+         */
+        private String[] citizenshipStatusIdList;
         /**
          * 家庭地址
          * <p> 示例值：home addr
@@ -407,6 +455,32 @@ public class BasicInfo {
          */
         public Builder nationalityId(String nationalityId) {
             this.nationalityId = nationalityId;
+            return this;
+        }
+
+
+        /**
+         * 其他国籍
+         * <p> 示例值：[6862995757234914824]
+         *
+         * @param additionalNationalityIdList
+         * @return
+         */
+        public Builder additionalNationalityIdList(String[] additionalNationalityIdList) {
+            this.additionalNationalityIdList = additionalNationalityIdList;
+            return this;
+        }
+
+
+        /**
+         * 公民身份
+         * <p> 示例值：[6862995757234914824]
+         *
+         * @param citizenshipStatusIdList
+         * @return
+         */
+        public Builder citizenshipStatusIdList(String[] citizenshipStatusIdList) {
+            this.citizenshipStatusIdList = citizenshipStatusIdList;
             return this;
         }
 

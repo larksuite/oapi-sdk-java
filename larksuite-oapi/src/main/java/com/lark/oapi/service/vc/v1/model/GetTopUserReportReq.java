@@ -46,6 +46,13 @@ public class GetTopUserReportReq {
     @SerializedName("order_by")
     private Integer orderBy;
     /**
+     * 数据驻留地
+     * <p> 示例值：0
+     */
+    @Query
+    @SerializedName("unit")
+    private Integer unit;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -78,6 +85,11 @@ public class GetTopUserReportReq {
          * <p> 示例值：1
          */
         this.orderBy = builder.orderBy;
+        /**
+         * 数据驻留地
+         * <p> 示例值：0
+         */
+        this.unit = builder.unit;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -121,6 +133,14 @@ public class GetTopUserReportReq {
         this.orderBy = orderBy;
     }
 
+    public Integer getUnit() {
+        return this.unit;
+    }
+
+    public void setUnit(Integer unit) {
+        this.unit = unit;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -134,6 +154,7 @@ public class GetTopUserReportReq {
         private String endTime; // 结束时间（unix时间，单位sec）
         private Integer limit; // 取前多少位
         private Integer orderBy; // 排序依据（降序）
+        private Integer unit; // 数据驻留地
         private String userIdType; // 此次调用中使用的用户ID的类型
 
 
@@ -197,6 +218,31 @@ public class GetTopUserReportReq {
          */
         public Builder orderBy(com.lark.oapi.service.vc.v1.enums.GetTopUserReportTopUserOrderByEnum orderBy) {
             this.orderBy = orderBy.getValue();
+            return this;
+        }
+
+
+        /**
+         * 数据驻留地
+         * <p> 示例值：0
+         *
+         * @param unit
+         * @return
+         */
+        public Builder unit(Integer unit) {
+            this.unit = unit;
+            return this;
+        }
+
+        /**
+         * 数据驻留地
+         * <p> 示例值：0
+         *
+         * @param unit {@link com.lark.oapi.service.vc.v1.enums.GetTopUserReportUnitTypeEnum}
+         * @return
+         */
+        public Builder unit(com.lark.oapi.service.vc.v1.enums.GetTopUserReportUnitTypeEnum unit) {
+            this.unit = unit.getValue();
             return this;
         }
 

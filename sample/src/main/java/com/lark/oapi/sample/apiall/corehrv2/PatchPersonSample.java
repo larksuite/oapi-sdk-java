@@ -16,6 +16,7 @@ public class PatchPersonSample {
         PatchPersonReq req = PatchPersonReq.newBuilder()
                 .personId("12454646")
                 .clientToken("12454646")
+                .noNeedQuery(false)
                 .personInfo(PersonInfo.newBuilder()
                         .nameList(new PersonName[]{})
                         .gender(Enum.newBuilder().build())

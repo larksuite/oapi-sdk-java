@@ -1,6 +1,6 @@
 package com.lark.oapi.ws.exception;
 
-public class ClientException extends RuntimeException{
+public class ClientException extends RuntimeException {
     private int code;
 
     public ClientException(int code, String message) {

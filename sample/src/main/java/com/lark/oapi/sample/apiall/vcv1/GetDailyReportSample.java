@@ -16,6 +16,7 @@ public class GetDailyReportSample {
         GetDailyReportReq req = GetDailyReportReq.newBuilder()
                 .startTime("1608888867")
                 .endTime("1608888966")
+                .unit(0)
                 .build();
 
         // 发起请求

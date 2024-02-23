@@ -31,6 +31,13 @@ public class GetDailyReportReq {
     @Query
     @SerializedName("end_time")
     private String endTime;
+    /**
+     * 数据驻留地
+     * <p> 示例值：0
+     */
+    @Query
+    @SerializedName("unit")
+    private Integer unit;
 
     // builder 开始
     public GetDailyReportReq() {
@@ -47,6 +54,11 @@ public class GetDailyReportReq {
          * <p> 示例值：1608888966
          */
         this.endTime = builder.endTime;
+        /**
+         * 数据驻留地
+         * <p> 示例值：0
+         */
+        this.unit = builder.unit;
     }
 
     public static Builder newBuilder() {
@@ -69,9 +81,18 @@ public class GetDailyReportReq {
         this.endTime = endTime;
     }
 
+    public Integer getUnit() {
+        return this.unit;
+    }
+
+    public void setUnit(Integer unit) {
+        this.unit = unit;
+    }
+
     public static class Builder {
         private String startTime; // 开始时间（unix时间，单位sec）
         private String endTime; // 结束时间（unix时间，单位sec）
+        private Integer unit; // 数据驻留地
 
 
         /**
@@ -96,6 +117,31 @@ public class GetDailyReportReq {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 数据驻留地
+         * <p> 示例值：0
+         *
+         * @param unit
+         * @return
+         */
+        public Builder unit(Integer unit) {
+            this.unit = unit;
+            return this;
+        }
+
+        /**
+         * 数据驻留地
+         * <p> 示例值：0
+         *
+         * @param unit {@link com.lark.oapi.service.vc.v1.enums.GetDailyReportUnitTypeEnum}
+         * @return
+         */
+        public Builder unit(com.lark.oapi.service.vc.v1.enums.GetDailyReportUnitTypeEnum unit) {
+            this.unit = unit.getValue();
             return this;
         }
 

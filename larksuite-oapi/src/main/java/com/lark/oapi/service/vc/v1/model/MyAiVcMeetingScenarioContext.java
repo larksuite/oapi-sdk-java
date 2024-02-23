@@ -46,6 +46,12 @@ public class MyAiVcMeetingScenarioContext {
      */
     @SerializedName("extra")
     private MyAiVcMeetingExtra extra;
+    /**
+     * system info
+     * <p> 示例值：
+     */
+    @SerializedName("system_info")
+    private MyAiAvPluginContextSystemInfo systemInfo;
 
     // builder 开始
     public MyAiVcMeetingScenarioContext() {
@@ -77,6 +83,11 @@ public class MyAiVcMeetingScenarioContext {
          * <p> 示例值：
          */
         this.extra = builder.extra;
+        /**
+         * system info
+         * <p> 示例值：
+         */
+        this.systemInfo = builder.systemInfo;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +134,14 @@ public class MyAiVcMeetingScenarioContext {
         this.extra = extra;
     }
 
+    public MyAiAvPluginContextSystemInfo getSystemInfo() {
+        return this.systemInfo;
+    }
+
+    public void setSystemInfo(MyAiAvPluginContextSystemInfo systemInfo) {
+        this.systemInfo = systemInfo;
+    }
+
     public static class Builder {
         /**
          * 会话选择的插件列表
@@ -149,6 +168,11 @@ public class MyAiVcMeetingScenarioContext {
          * <p> 示例值：
          */
         private MyAiVcMeetingExtra extra;
+        /**
+         * system info
+         * <p> 示例值：
+         */
+        private MyAiAvPluginContextSystemInfo systemInfo;
 
         /**
          * 会话选择的插件列表
@@ -235,6 +259,19 @@ public class MyAiVcMeetingScenarioContext {
          */
         public Builder extra(MyAiVcMeetingExtra extra) {
             this.extra = extra;
+            return this;
+        }
+
+
+        /**
+         * system info
+         * <p> 示例值：
+         *
+         * @param systemInfo
+         * @return
+         */
+        public Builder systemInfo(MyAiAvPluginContextSystemInfo systemInfo) {
+            this.systemInfo = systemInfo;
             return this;
         }
 

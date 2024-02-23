@@ -11,10 +11,6 @@ public enum FrameType {
         this.code = code;
     }
 
-    public int getCode() {
-        return code;
-    }
-
     public static FrameType of(int code) {
         for (FrameType type : FrameType.values()) {
             if (type.getCode() == code) {
@@ -22,5 +18,9 @@ public enum FrameType {
             }
         }
         throw new IllegalArgumentException("No FrameType code of " + code);
+    }
+
+    public int getCode() {
+        return code;
     }
 }

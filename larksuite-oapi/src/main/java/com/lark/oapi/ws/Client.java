@@ -33,14 +33,15 @@ import static com.lark.oapi.ws.Constant.*;
 
 public class Client {
     private static final Logger log = LoggerFactory.getLogger(Client.class);
-
+    protected final ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2 + 1);
+    protected Boolean autoReconnect;
+    protected WebSocket conn;
+    protected String connUrl;
+    protected volatile Boolean isReconnecting;
     private String appId;
     private String appSecret;
     private EventDispatcher eventHandler;
-    protected Boolean autoReconnect;
     private String domain;
-    protected WebSocket conn;
-    protected String connUrl;
     private String serviceId;
     private String connId;
     private Integer reconnectNonce;
@@ -48,9 +49,7 @@ public class Client {
     private Integer reconnectInterval;
     private Integer pingInterval;
     private OkHttpClient httpClient;
-    protected volatile Boolean isReconnecting;
     private Cache<String, byte[][]> cache;
-    protected final ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2 + 1);
 
 
     private Client(Builder builder) {
@@ -66,38 +65,6 @@ public class Client {
         this.httpClient = new OkHttpClient();
         this.isReconnecting = false;
         this.cache = CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES).build();
-    }
-
-    public static class Builder {
-        private String appId;
-        private String appSecret;
-        private EventDispatcher eventHandler;
-        private Boolean autoReconnect;
-        private String domain;
-
-        public Builder(String appId, String appSecret) {
-            this.appId = appId;
-            this.appSecret = appSecret;
-        }
-
-        public Builder eventHandler(EventDispatcher eventHandler) {
-            this.eventHandler = eventHandler;
-            return this;
-        }
-
-        public Builder autoReconnect(Boolean autoReconnect) {
-            this.autoReconnect = autoReconnect;
-            return this;
-        }
-
-        public Builder domain(String domain) {
-            this.domain = domain;
-            return this;
-        }
-
-        public Client build() {
-            return new Client(this);
-        }
     }
 
     public void start() {
@@ -244,7 +211,6 @@ public class Client {
 
         return data.getUrl();
     }
-
 
     private synchronized void connect() throws IOException {
         if (this.conn != null) {
@@ -405,7 +371,6 @@ public class Client {
                 .orElseThrow(() -> new HeaderNotFoundException(key));
     }
 
-
     protected String fmtLog(String format, Object... args) {
         String log = String.format(format, args);
 
@@ -433,6 +398,38 @@ public class Client {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException ignored) {
+        }
+    }
+
+    public static class Builder {
+        private String appId;
+        private String appSecret;
+        private EventDispatcher eventHandler;
+        private Boolean autoReconnect;
+        private String domain;
+
+        public Builder(String appId, String appSecret) {
+            this.appId = appId;
+            this.appSecret = appSecret;
+        }
+
+        public Builder eventHandler(EventDispatcher eventHandler) {
+            this.eventHandler = eventHandler;
+            return this;
+        }
+
+        public Builder autoReconnect(Boolean autoReconnect) {
+            this.autoReconnect = autoReconnect;
+            return this;
+        }
+
+        public Builder domain(String domain) {
+            this.domain = domain;
+            return this;
+        }
+
+        public Client build() {
+            return new Client(this);
         }
     }
 }

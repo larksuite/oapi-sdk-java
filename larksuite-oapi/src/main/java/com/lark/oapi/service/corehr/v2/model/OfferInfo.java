@@ -89,6 +89,18 @@ public class OfferInfo {
     @SerializedName("contract_end_date")
     private String contractEndDate;
     /**
+     * 合同期限时长
+     * <p> 示例值：3
+     */
+    @SerializedName("duration_period")
+    private Double durationPeriod;
+    /**
+     * 合同期限单位
+     * <p> 示例值：年
+     */
+    @SerializedName("duration_unit")
+    private String durationUnit;
+    /**
      * 入职日期
      * <p> 示例值：2022-10-08
      */
@@ -256,6 +268,16 @@ public class OfferInfo {
          * <p> 示例值：2025-10-07
          */
         this.contractEndDate = builder.contractEndDate;
+        /**
+         * 合同期限时长
+         * <p> 示例值：3
+         */
+        this.durationPeriod = builder.durationPeriod;
+        /**
+         * 合同期限单位
+         * <p> 示例值：年
+         */
+        this.durationUnit = builder.durationUnit;
         /**
          * 入职日期
          * <p> 示例值：2022-10-08
@@ -441,6 +463,22 @@ public class OfferInfo {
 
     public void setContractEndDate(String contractEndDate) {
         this.contractEndDate = contractEndDate;
+    }
+
+    public Double getDurationPeriod() {
+        return this.durationPeriod;
+    }
+
+    public void setDurationPeriod(Double durationPeriod) {
+        this.durationPeriod = durationPeriod;
+    }
+
+    public String getDurationUnit() {
+        return this.durationUnit;
+    }
+
+    public void setDurationUnit(String durationUnit) {
+        this.durationUnit = durationUnit;
     }
 
     public String getOnboardingDate() {
@@ -640,6 +678,16 @@ public class OfferInfo {
          * <p> 示例值：2025-10-07
          */
         private String contractEndDate;
+        /**
+         * 合同期限时长
+         * <p> 示例值：3
+         */
+        private Double durationPeriod;
+        /**
+         * 合同期限单位
+         * <p> 示例值：年
+         */
+        private String durationUnit;
         /**
          * 入职日期
          * <p> 示例值：2022-10-08
@@ -878,6 +926,32 @@ public class OfferInfo {
          */
         public Builder contractEndDate(String contractEndDate) {
             this.contractEndDate = contractEndDate;
+            return this;
+        }
+
+
+        /**
+         * 合同期限时长
+         * <p> 示例值：3
+         *
+         * @param durationPeriod
+         * @return
+         */
+        public Builder durationPeriod(Double durationPeriod) {
+            this.durationPeriod = durationPeriod;
+            return this;
+        }
+
+
+        /**
+         * 合同期限单位
+         * <p> 示例值：年
+         *
+         * @param durationUnit
+         * @return
+         */
+        public Builder durationUnit(String durationUnit) {
+            this.durationUnit = durationUnit;
             return this;
         }
 

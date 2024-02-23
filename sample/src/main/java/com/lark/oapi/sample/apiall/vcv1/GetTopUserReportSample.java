@@ -18,6 +18,7 @@ public class GetTopUserReportSample {
                 .endTime("1608889966")
                 .limit(10)
                 .orderBy(1)
+                .unit(0)
                 .userIdType("user_id")
                 .build();
 

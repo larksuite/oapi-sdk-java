@@ -4,17 +4,12 @@ public enum MessageType {
     EVENT("event"),
     CARD("card"),
     PING("ping"),
-    PONG("pong")
-    ;
+    PONG("pong");
 
     private String name;
 
     MessageType(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public static MessageType of(String name) {
@@ -24,5 +19,9 @@ public enum MessageType {
             }
         }
         throw new IllegalArgumentException("No MessageType name of " + name);
+    }
+
+    public String getName() {
+        return name;
     }
 }

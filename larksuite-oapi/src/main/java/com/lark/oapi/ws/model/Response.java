@@ -10,7 +10,8 @@ public class Response {
     private Map<String, String> headers;
     private byte[] data;
 
-    public Response() {}
+    public Response() {
+    }
 
     public Response(int statusCode) {
         this.statusCode = statusCode;
