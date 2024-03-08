@@ -59,6 +59,10 @@ public enum BlockBlockTypeEnum {
     JIRAISSUE(41), // Jira Issue
     WIKICATALOG(42), // Wiki 子目录 Block
     BOARD(43), // 画板 Block
+    AGENDA(44), // 议程 Block
+    AGENDAITEM(45), // 议程项 Block
+    AGENDAITEMTITLE(46), // 议程项标题 Block
+    AGENDAITEMCONTENT(47), // 议程项内容 Block
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchJobChangeReqBody {
     /**
@@ -35,7 +48,7 @@ public class SearchJobChangeReqBody {
     @SerializedName("statuses")
     private String[] statuses;
     /**
-     * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+     * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
      * <p> 示例值：2022-01-01
      */
     @SerializedName("effective_date_start")
@@ -46,6 +59,18 @@ public class SearchJobChangeReqBody {
      */
     @SerializedName("effective_date_end")
     private String effectiveDateEnd;
+    /**
+     * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
+     * <p> 示例值：1704084635000
+     */
+    @SerializedName("updated_time_start")
+    private String updatedTimeStart;
+    /**
+     * 异动更新时间 - 搜索范围结束
+     * <p> 示例值：1704084635000
+     */
+    @SerializedName("updated_time_end")
+    private String updatedTimeEnd;
 
     // builder 开始
     public SearchJobChangeReqBody() {
@@ -68,7 +93,7 @@ public class SearchJobChangeReqBody {
          */
         this.statuses = builder.statuses;
         /**
-         * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+         * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-01-01
          */
         this.effectiveDateStart = builder.effectiveDateStart;
@@ -77,6 +102,16 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：2022-01-01
          */
         this.effectiveDateEnd = builder.effectiveDateEnd;
+        /**
+         * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：1704084635000
+         */
+        this.updatedTimeStart = builder.updatedTimeStart;
+        /**
+         * 异动更新时间 - 搜索范围结束
+         * <p> 示例值：1704084635000
+         */
+        this.updatedTimeEnd = builder.updatedTimeEnd;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +158,22 @@ public class SearchJobChangeReqBody {
         this.effectiveDateEnd = effectiveDateEnd;
     }
 
+    public String getUpdatedTimeStart() {
+        return this.updatedTimeStart;
+    }
+
+    public void setUpdatedTimeStart(String updatedTimeStart) {
+        this.updatedTimeStart = updatedTimeStart;
+    }
+
+    public String getUpdatedTimeEnd() {
+        return this.updatedTimeEnd;
+    }
+
+    public void setUpdatedTimeEnd(String updatedTimeEnd) {
+        this.updatedTimeEnd = updatedTimeEnd;
+    }
+
     public static class Builder {
         /**
          * 雇员 ID 列表
@@ -140,7 +191,7 @@ public class SearchJobChangeReqBody {
          */
         private String[] statuses;
         /**
-         * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+         * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-01-01
          */
         private String effectiveDateStart;
@@ -149,6 +200,16 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：2022-01-01
          */
         private String effectiveDateEnd;
+        /**
+         * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：1704084635000
+         */
+        private String updatedTimeStart;
+        /**
+         * 异动更新时间 - 搜索范围结束
+         * <p> 示例值：1704084635000
+         */
+        private String updatedTimeEnd;
 
         /**
          * 雇员 ID 列表
@@ -190,7 +251,7 @@ public class SearchJobChangeReqBody {
 
 
         /**
-         * 异动生效日期-搜索范围开始，需要与搜索范围结束一同使用
+         * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2022-01-01
          *
          * @param effectiveDateStart
@@ -211,6 +272,32 @@ public class SearchJobChangeReqBody {
          */
         public Builder effectiveDateEnd(String effectiveDateEnd) {
             this.effectiveDateEnd = effectiveDateEnd;
+            return this;
+        }
+
+
+        /**
+         * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：1704084635000
+         *
+         * @param updatedTimeStart
+         * @return
+         */
+        public Builder updatedTimeStart(String updatedTimeStart) {
+            this.updatedTimeStart = updatedTimeStart;
+            return this;
+        }
+
+
+        /**
+         * 异动更新时间 - 搜索范围结束
+         * <p> 示例值：1704084635000
+         *
+         * @param updatedTimeEnd
+         * @return
+         */
+        public Builder updatedTimeEnd(String updatedTimeEnd) {
+            this.updatedTimeEnd = updatedTimeEnd;
             return this;
         }
 

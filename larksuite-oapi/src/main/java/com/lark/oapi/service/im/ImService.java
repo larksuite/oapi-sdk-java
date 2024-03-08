@@ -25,6 +25,7 @@ import com.lark.oapi.service.im.v1.resource.ChatMemberUser;
 import com.lark.oapi.service.im.v1.resource.ChatMembers;
 import com.lark.oapi.service.im.v1.resource.ChatMenuItem;
 import com.lark.oapi.service.im.v1.resource.ChatMenuTree;
+import com.lark.oapi.service.im.v1.resource.ChatModeration;
 import com.lark.oapi.service.im.v1.resource.ChatTab;
 import com.lark.oapi.service.im.v1.resource.ChatTopNotice;
 import com.lark.oapi.service.im.v1.resource.File;
@@ -34,7 +35,6 @@ import com.lark.oapi.service.im.v1.resource.MessageReaction;
 import com.lark.oapi.service.im.v1.resource.MessageResource;
 import com.lark.oapi.service.im.v1.resource.Pin;
 import com.lark.oapi.service.im.v1.resource.Thread;
-import com.lark.oapi.service.im.v1.resource.*;
 
 public class ImService {
     private final V1 v1;
@@ -52,7 +52,7 @@ public class ImService {
     private final ChatTopNotice chatTopNotice; // chat.top_notice
     private final File file; // 消息 - 文件信息
     private final Image image; // 消息 - 图片信息
-    private final Message message; // 消息加急
+    private final Message message; // 消息
     private final MessageReaction messageReaction; // 消息 - 表情回复
     private final MessageResource messageResource; // message.resource
     private final Pin pin; // 消息 - Pin

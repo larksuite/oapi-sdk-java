@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveEmployExpireRecord {
     /**
@@ -88,6 +101,12 @@ public class LeaveEmployExpireRecord {
      */
     @SerializedName("leave_sub_type_id")
     private String leaveSubTypeId;
+    /**
+     * 是否参与清算
+     * <p> 示例值：1
+     */
+    @SerializedName("section_type")
+    private Integer sectionType;
 
     // builder 开始
     public LeaveEmployExpireRecord() {
@@ -154,6 +173,11 @@ public class LeaveEmployExpireRecord {
          * <p> 示例值：1
          */
         this.leaveSubTypeId = builder.leaveSubTypeId;
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         */
+        this.sectionType = builder.sectionType;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +280,14 @@ public class LeaveEmployExpireRecord {
         this.leaveSubTypeId = leaveSubTypeId;
     }
 
+    public Integer getSectionType() {
+        return this.sectionType;
+    }
+
+    public void setSectionType(Integer sectionType) {
+        this.sectionType = sectionType;
+    }
+
     public static class Builder {
         /**
          * record id
@@ -317,6 +349,11 @@ public class LeaveEmployExpireRecord {
          * <p> 示例值：1
          */
         private String leaveSubTypeId;
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         */
+        private Integer sectionType;
 
         /**
          * record id
@@ -482,6 +519,19 @@ public class LeaveEmployExpireRecord {
          */
         public Builder leaveSubTypeId(String leaveSubTypeId) {
             this.leaveSubTypeId = leaveSubTypeId;
+            return this;
+        }
+
+
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         *
+         * @param sectionType
+         * @return
+         */
+        public Builder sectionType(Integer sectionType) {
+            this.sectionType = sectionType;
             return this;
         }
 

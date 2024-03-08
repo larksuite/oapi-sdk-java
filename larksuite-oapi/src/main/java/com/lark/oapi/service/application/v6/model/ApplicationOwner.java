@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.application.v6.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationOwner {
     /**
@@ -52,6 +65,12 @@ public class ApplicationOwner {
      */
     @SerializedName("phone")
     private String phone;
+    /**
+     * 客服账号，仅当商店应用配置了这种联系方式时才会返回
+     * <p> 示例值：feishu@bytedance.com
+     */
+    @SerializedName("customer_service_account")
+    private String customerServiceAccount;
 
     // builder 开始
     public ApplicationOwner() {
@@ -88,6 +107,11 @@ public class ApplicationOwner {
          * <p> 示例值：1234534234234
          */
         this.phone = builder.phone;
+        /**
+         * 客服账号，仅当商店应用配置了这种联系方式时才会返回
+         * <p> 示例值：feishu@bytedance.com
+         */
+        this.customerServiceAccount = builder.customerServiceAccount;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +166,14 @@ public class ApplicationOwner {
         this.phone = phone;
     }
 
+    public String getCustomerServiceAccount() {
+        return this.customerServiceAccount;
+    }
+
+    public void setCustomerServiceAccount(String customerServiceAccount) {
+        this.customerServiceAccount = customerServiceAccount;
+    }
+
     public static class Builder {
         /**
          * 应用所有者类型
@@ -173,6 +205,11 @@ public class ApplicationOwner {
          * <p> 示例值：1234534234234
          */
         private String phone;
+        /**
+         * 客服账号，仅当商店应用配置了这种联系方式时才会返回
+         * <p> 示例值：feishu@bytedance.com
+         */
+        private String customerServiceAccount;
 
         /**
          * 应用所有者类型
@@ -260,6 +297,19 @@ public class ApplicationOwner {
          */
         public Builder phone(String phone) {
             this.phone = phone;
+            return this;
+        }
+
+
+        /**
+         * 客服账号，仅当商店应用配置了这种联系方式时才会返回
+         * <p> 示例值：feishu@bytedance.com
+         *
+         * @param customerServiceAccount
+         * @return
+         */
+        public Builder customerServiceAccount(String customerServiceAccount) {
+            this.customerServiceAccount = customerServiceAccount;
             return this;
         }
 

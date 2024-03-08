@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Shift {
     /**
@@ -88,6 +101,18 @@ public class Shift {
      */
     @SerializedName("overtime_rule")
     private OvertimeRule[] overtimeRule;
+    /**
+     * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
+     * <p> 示例值：60
+     */
+    @SerializedName("day_type")
+    private Integer dayType;
+    /**
+     * 班外休息规则
+     * <p> 示例值：
+     */
+    @SerializedName("overtime_rest_time_rule")
+    private RestRule[] overtimeRestTimeRule;
 
     // builder 开始
     public Shift() {
@@ -154,6 +179,16 @@ public class Shift {
          * <p> 示例值：
          */
         this.overtimeRule = builder.overtimeRule;
+        /**
+         * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
+         * <p> 示例值：60
+         */
+        this.dayType = builder.dayType;
+        /**
+         * 班外休息规则
+         * <p> 示例值：
+         */
+        this.overtimeRestTimeRule = builder.overtimeRestTimeRule;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +291,22 @@ public class Shift {
         this.overtimeRule = overtimeRule;
     }
 
+    public Integer getDayType() {
+        return this.dayType;
+    }
+
+    public void setDayType(Integer dayType) {
+        this.dayType = dayType;
+    }
+
+    public RestRule[] getOvertimeRestTimeRule() {
+        return this.overtimeRestTimeRule;
+    }
+
+    public void setOvertimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
+        this.overtimeRestTimeRule = overtimeRestTimeRule;
+    }
+
     public static class Builder {
         /**
          * 班次 ID
@@ -317,6 +368,16 @@ public class Shift {
          * <p> 示例值：
          */
         private OvertimeRule[] overtimeRule;
+        /**
+         * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
+         * <p> 示例值：60
+         */
+        private Integer dayType;
+        /**
+         * 班外休息规则
+         * <p> 示例值：
+         */
+        private RestRule[] overtimeRestTimeRule;
 
         /**
          * 班次 ID
@@ -470,6 +531,32 @@ public class Shift {
          */
         public Builder overtimeRule(OvertimeRule[] overtimeRule) {
             this.overtimeRule = overtimeRule;
+            return this;
+        }
+
+
+        /**
+         * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
+         * <p> 示例值：60
+         *
+         * @param dayType
+         * @return
+         */
+        public Builder dayType(Integer dayType) {
+            this.dayType = dayType;
+            return this;
+        }
+
+
+        /**
+         * 班外休息规则
+         * <p> 示例值：
+         *
+         * @param overtimeRestTimeRule
+         * @return
+         */
+        public Builder overtimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
+            this.overtimeRestTimeRule = overtimeRestTimeRule;
             return this;
         }
 

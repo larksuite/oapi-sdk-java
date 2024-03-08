@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.application.v6.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationAppVersion {
     /**
@@ -112,6 +125,12 @@ public class ApplicationAppVersion {
      */
     @SerializedName("remark")
     private AppVersionRemark remark;
+    /**
+     * 应用已订阅事件详情列表
+     * <p> 示例值：
+     */
+    @SerializedName("event_infos")
+    private Event[] eventInfos;
 
     // builder 开始
     public ApplicationAppVersion() {
@@ -198,6 +217,11 @@ public class ApplicationAppVersion {
          * <p> 示例值：
          */
         this.remark = builder.remark;
+        /**
+         * 应用已订阅事件详情列表
+         * <p> 示例值：
+         */
+        this.eventInfos = builder.eventInfos;
     }
 
     public static Builder newBuilder() {
@@ -332,6 +356,14 @@ public class ApplicationAppVersion {
         this.remark = remark;
     }
 
+    public Event[] getEventInfos() {
+        return this.eventInfos;
+    }
+
+    public void setEventInfos(Event[] eventInfos) {
+        this.eventInfos = eventInfos;
+    }
+
     public static class Builder {
         /**
          * 应用 id
@@ -413,6 +445,11 @@ public class ApplicationAppVersion {
          * <p> 示例值：
          */
         private AppVersionRemark remark;
+        /**
+         * 应用已订阅事件详情列表
+         * <p> 示例值：
+         */
+        private Event[] eventInfos;
 
         /**
          * 应用 id
@@ -630,6 +667,19 @@ public class ApplicationAppVersion {
          */
         public Builder remark(AppVersionRemark remark) {
             this.remark = remark;
+            return this;
+        }
+
+
+        /**
+         * 应用已订阅事件详情列表
+         * <p> 示例值：
+         *
+         * @param eventInfos
+         * @return
+         */
+        public Builder eventInfos(Event[] eventInfos) {
+            this.eventInfos = eventInfos;
             return this;
         }
 

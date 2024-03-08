@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Block {
     /**
@@ -310,6 +323,30 @@ public class Block {
      */
     @SerializedName("board")
     private Board board;
+    /**
+     * 议程 Block
+     * <p> 示例值：
+     */
+    @SerializedName("agenda")
+    private Agenda agenda;
+    /**
+     * 议程项 Block
+     * <p> 示例值：
+     */
+    @SerializedName("agenda_item")
+    private AgendaItem agendaItem;
+    /**
+     * 议程项标题 Block
+     * <p> 示例值：
+     */
+    @SerializedName("agenda_item_title")
+    private AgendaItemTitle agendaItemTitle;
+    /**
+     * 议程项内容 Block
+     * <p> 示例值：
+     */
+    @SerializedName("agenda_item_content")
+    private AgendaItemContent agendaItemContent;
 
     // builder 开始
     public Block() {
@@ -561,6 +598,26 @@ public class Block {
          * <p> 示例值：
          */
         this.board = builder.board;
+        /**
+         * 议程 Block
+         * <p> 示例值：
+         */
+        this.agenda = builder.agenda;
+        /**
+         * 议程项 Block
+         * <p> 示例值：
+         */
+        this.agendaItem = builder.agendaItem;
+        /**
+         * 议程项标题 Block
+         * <p> 示例值：
+         */
+        this.agendaItemTitle = builder.agendaItemTitle;
+        /**
+         * 议程项内容 Block
+         * <p> 示例值：
+         */
+        this.agendaItemContent = builder.agendaItemContent;
     }
 
     public static Builder newBuilder() {
@@ -959,6 +1016,38 @@ public class Block {
         this.board = board;
     }
 
+    public Agenda getAgenda() {
+        return this.agenda;
+    }
+
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
+
+    public AgendaItem getAgendaItem() {
+        return this.agendaItem;
+    }
+
+    public void setAgendaItem(AgendaItem agendaItem) {
+        this.agendaItem = agendaItem;
+    }
+
+    public AgendaItemTitle getAgendaItemTitle() {
+        return this.agendaItemTitle;
+    }
+
+    public void setAgendaItemTitle(AgendaItemTitle agendaItemTitle) {
+        this.agendaItemTitle = agendaItemTitle;
+    }
+
+    public AgendaItemContent getAgendaItemContent() {
+        return this.agendaItemContent;
+    }
+
+    public void setAgendaItemContent(AgendaItemContent agendaItemContent) {
+        this.agendaItemContent = agendaItemContent;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1205,6 +1294,26 @@ public class Block {
          * <p> 示例值：
          */
         private Board board;
+        /**
+         * 议程 Block
+         * <p> 示例值：
+         */
+        private Agenda agenda;
+        /**
+         * 议程项 Block
+         * <p> 示例值：
+         */
+        private AgendaItem agendaItem;
+        /**
+         * 议程项标题 Block
+         * <p> 示例值：
+         */
+        private AgendaItemTitle agendaItemTitle;
+        /**
+         * 议程项内容 Block
+         * <p> 示例值：
+         */
+        private AgendaItemContent agendaItemContent;
 
         /**
          * Block 唯一标识
@@ -1851,6 +1960,58 @@ public class Block {
          */
         public Builder board(Board board) {
             this.board = board;
+            return this;
+        }
+
+
+        /**
+         * 议程 Block
+         * <p> 示例值：
+         *
+         * @param agenda
+         * @return
+         */
+        public Builder agenda(Agenda agenda) {
+            this.agenda = agenda;
+            return this;
+        }
+
+
+        /**
+         * 议程项 Block
+         * <p> 示例值：
+         *
+         * @param agendaItem
+         * @return
+         */
+        public Builder agendaItem(AgendaItem agendaItem) {
+            this.agendaItem = agendaItem;
+            return this;
+        }
+
+
+        /**
+         * 议程项标题 Block
+         * <p> 示例值：
+         *
+         * @param agendaItemTitle
+         * @return
+         */
+        public Builder agendaItemTitle(AgendaItemTitle agendaItemTitle) {
+            this.agendaItemTitle = agendaItemTitle;
+            return this;
+        }
+
+
+        /**
+         * 议程项内容 Block
+         * <p> 示例值：
+         *
+         * @param agendaItemContent
+         * @return
+         */
+        public Builder agendaItemContent(AgendaItemContent agendaItemContent) {
+            this.agendaItemContent = agendaItemContent;
             return this;
         }
 

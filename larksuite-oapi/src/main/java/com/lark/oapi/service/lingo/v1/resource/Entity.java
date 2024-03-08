@@ -13,19 +13,30 @@
 
 package com.lark.oapi.service.lingo.v1.resource;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.lingo.v1.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+
+import java.io.ByteArrayOutputStream;
+
+import com.lark.oapi.service.lingo.v1.model.*;
+
+import java.io.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Entity {
     private static final Logger log = LoggerFactory.getLogger(Entity.class);
@@ -116,7 +127,7 @@ public class Entity {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
                 , "/open-apis/lingo/v1/entities/:entity_id"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -148,7 +159,7 @@ public class Entity {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
                 , "/open-apis/lingo/v1/entities/:entity_id"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

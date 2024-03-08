@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.application.v6.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Application {
     /**
@@ -124,6 +137,18 @@ public class Application {
      */
     @SerializedName("owner")
     private ApplicationOwner owner;
+    /**
+     * 移动端默认能力
+     * <p> 示例值：gadget
+     */
+    @SerializedName("mobile_default_ability")
+    private String mobileDefaultAbility;
+    /**
+     * PC端默认能力
+     * <p> 示例值：gadget
+     */
+    @SerializedName("pc_default_ability")
+    private String pcDefaultAbility;
 
     // builder 开始
     public Application() {
@@ -220,6 +245,16 @@ public class Application {
          * <p> 示例值：
          */
         this.owner = builder.owner;
+        /**
+         * 移动端默认能力
+         * <p> 示例值：gadget
+         */
+        this.mobileDefaultAbility = builder.mobileDefaultAbility;
+        /**
+         * PC端默认能力
+         * <p> 示例值：gadget
+         */
+        this.pcDefaultAbility = builder.pcDefaultAbility;
     }
 
     public static Builder newBuilder() {
@@ -370,6 +405,22 @@ public class Application {
         this.owner = owner;
     }
 
+    public String getMobileDefaultAbility() {
+        return this.mobileDefaultAbility;
+    }
+
+    public void setMobileDefaultAbility(String mobileDefaultAbility) {
+        this.mobileDefaultAbility = mobileDefaultAbility;
+    }
+
+    public String getPcDefaultAbility() {
+        return this.pcDefaultAbility;
+    }
+
+    public void setPcDefaultAbility(String pcDefaultAbility) {
+        this.pcDefaultAbility = pcDefaultAbility;
+    }
+
     public static class Builder {
         /**
          * 应用的 app_id
@@ -461,6 +512,16 @@ public class Application {
          * <p> 示例值：
          */
         private ApplicationOwner owner;
+        /**
+         * 移动端默认能力
+         * <p> 示例值：gadget
+         */
+        private String mobileDefaultAbility;
+        /**
+         * PC端默认能力
+         * <p> 示例值：gadget
+         */
+        private String pcDefaultAbility;
 
         /**
          * 应用的 app_id
@@ -752,6 +813,56 @@ public class Application {
          */
         public Builder owner(ApplicationOwner owner) {
             this.owner = owner;
+            return this;
+        }
+
+
+        /**
+         * 移动端默认能力
+         * <p> 示例值：gadget
+         *
+         * @param mobileDefaultAbility
+         * @return
+         */
+        public Builder mobileDefaultAbility(String mobileDefaultAbility) {
+            this.mobileDefaultAbility = mobileDefaultAbility;
+            return this;
+        }
+
+        /**
+         * 移动端默认能力
+         * <p> 示例值：gadget
+         *
+         * @param mobileDefaultAbility {@link com.lark.oapi.service.application.v6.enums.ApplicationMobileDefaultAbilityEnum}
+         * @return
+         */
+        public Builder mobileDefaultAbility(com.lark.oapi.service.application.v6.enums.ApplicationMobileDefaultAbilityEnum mobileDefaultAbility) {
+            this.mobileDefaultAbility = mobileDefaultAbility.getValue();
+            return this;
+        }
+
+
+        /**
+         * PC端默认能力
+         * <p> 示例值：gadget
+         *
+         * @param pcDefaultAbility
+         * @return
+         */
+        public Builder pcDefaultAbility(String pcDefaultAbility) {
+            this.pcDefaultAbility = pcDefaultAbility;
+            return this;
+        }
+
+        /**
+         * PC端默认能力
+         * <p> 示例值：gadget
+         *
+         * @param pcDefaultAbility {@link com.lark.oapi.service.application.v6.enums.ApplicationPcDefaultAbilityEnum}
+         * @return
+         */
+        public Builder pcDefaultAbility(com.lark.oapi.service.application.v6.enums.ApplicationPcDefaultAbilityEnum pcDefaultAbility) {
+            this.pcDefaultAbility = pcDefaultAbility.getValue();
             return this;
         }
 

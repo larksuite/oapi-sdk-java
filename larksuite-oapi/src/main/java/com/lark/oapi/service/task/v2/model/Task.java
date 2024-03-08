@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.task.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Task {
     /**
@@ -178,6 +191,12 @@ public class Task {
      */
     @SerializedName("dependencies")
     private TaskDependency[] dependencies;
+    /**
+     * 任务执行者相关信息，如会签任务各执行者完成时间等
+     * <p> 示例值：
+     */
+    @SerializedName("assignee_related")
+    private TaskAssignee[] assigneeRelated;
 
     // builder 开始
     public Task() {
@@ -319,6 +338,11 @@ public class Task {
          * <p> 示例值：
          */
         this.dependencies = builder.dependencies;
+        /**
+         * 任务执行者相关信息，如会签任务各执行者完成时间等
+         * <p> 示例值：
+         */
+        this.assigneeRelated = builder.assigneeRelated;
     }
 
     public static Builder newBuilder() {
@@ -541,6 +565,14 @@ public class Task {
         this.dependencies = dependencies;
     }
 
+    public TaskAssignee[] getAssigneeRelated() {
+        return this.assigneeRelated;
+    }
+
+    public void setAssigneeRelated(TaskAssignee[] assigneeRelated) {
+        this.assigneeRelated = assigneeRelated;
+    }
+
     public static class Builder {
         /**
          * 任务guid，任务的唯一ID
@@ -677,6 +709,11 @@ public class Task {
          * <p> 示例值：
          */
         private TaskDependency[] dependencies;
+        /**
+         * 任务执行者相关信息，如会签任务各执行者完成时间等
+         * <p> 示例值：
+         */
+        private TaskAssignee[] assigneeRelated;
 
         /**
          * 任务guid，任务的唯一ID
@@ -1037,6 +1074,19 @@ public class Task {
          */
         public Builder dependencies(TaskDependency[] dependencies) {
             this.dependencies = dependencies;
+            return this;
+        }
+
+
+        /**
+         * 任务执行者相关信息，如会签任务各执行者完成时间等
+         * <p> 示例值：
+         *
+         * @param assigneeRelated
+         * @return
+         */
+        public Builder assigneeRelated(TaskAssignee[] assigneeRelated) {
+            this.assigneeRelated = assigneeRelated;
             return this;
         }
 

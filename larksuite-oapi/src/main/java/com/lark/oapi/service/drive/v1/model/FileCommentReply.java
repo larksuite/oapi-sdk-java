@@ -13,9 +13,28 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class FileCommentReply {
+    /**
+     * 回复内容
+     * <p> 示例值：
+     */
+    @SerializedName("content")
+    private ReplyContent content;
     /**
      * 回复ID
      * <p> 示例值：6916106822734512356
@@ -41,12 +60,6 @@ public class FileCommentReply {
     @SerializedName("update_time")
     private Integer updateTime;
     /**
-     * 回复内容
-     * <p> 示例值：
-     */
-    @SerializedName("content")
-    private ReplyContent content;
-    /**
      * 回复的其他内容，图片token等
      * <p> 示例值：
      */
@@ -58,6 +71,11 @@ public class FileCommentReply {
     }
 
     public FileCommentReply(Builder builder) {
+        /**
+         * 回复内容
+         * <p> 示例值：
+         */
+        this.content = builder.content;
         /**
          * 回复ID
          * <p> 示例值：6916106822734512356
@@ -79,11 +97,6 @@ public class FileCommentReply {
          */
         this.updateTime = builder.updateTime;
         /**
-         * 回复内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
          * 回复的其他内容，图片token等
          * <p> 示例值：
          */
@@ -92,6 +105,14 @@ public class FileCommentReply {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public ReplyContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(ReplyContent content) {
+        this.content = content;
     }
 
     public String getReplyId() {
@@ -126,14 +147,6 @@ public class FileCommentReply {
         this.updateTime = updateTime;
     }
 
-    public ReplyContent getContent() {
-        return this.content;
-    }
-
-    public void setContent(ReplyContent content) {
-        this.content = content;
-    }
-
     public ReplyExtra getExtra() {
         return this.extra;
     }
@@ -143,6 +156,11 @@ public class FileCommentReply {
     }
 
     public static class Builder {
+        /**
+         * 回复内容
+         * <p> 示例值：
+         */
+        private ReplyContent content;
         /**
          * 回复ID
          * <p> 示例值：6916106822734512356
@@ -164,15 +182,23 @@ public class FileCommentReply {
          */
         private Integer updateTime;
         /**
-         * 回复内容
-         * <p> 示例值：
-         */
-        private ReplyContent content;
-        /**
          * 回复的其他内容，图片token等
          * <p> 示例值：
          */
         private ReplyExtra extra;
+
+        /**
+         * 回复内容
+         * <p> 示例值：
+         *
+         * @param content
+         * @return
+         */
+        public Builder content(ReplyContent content) {
+            this.content = content;
+            return this;
+        }
+
 
         /**
          * 回复ID
@@ -222,19 +248,6 @@ public class FileCommentReply {
          */
         public Builder updateTime(Integer updateTime) {
             this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 回复内容
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(ReplyContent content) {
-            this.content = content;
             return this;
         }
 

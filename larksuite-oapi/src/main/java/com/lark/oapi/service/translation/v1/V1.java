@@ -14,7 +14,7 @@
 package com.lark.oapi.service.translation.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.translation.v1.resource.Text;
+import com.lark.oapi.service.translation.v1.resource.*;
 
 public class V1 {
     private final Text text; // 文本

@@ -70,6 +70,7 @@ public final class Pbbp2 {
     getDescriptor() {
         return descriptor;
     }
+
     public interface HeaderOrBuilder extends
             // @@protoc_insertion_point(interface_extends:pbbp2.Header)
             com.google.protobuf.MessageOrBuilder {
@@ -352,6 +353,7 @@ public final class Pbbp2 {
         private volatile Object key_;
         private volatile Object value_;
         private byte memoizedIsInitialized = -1;
+
         // Use Header.newBuilder() to construct.
         private Header(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
@@ -1210,6 +1212,7 @@ public final class Pbbp2 {
             payload_ = com.google.protobuf.ByteString.EMPTY;
             logIDNew_ = "";
         }
+
         private Frame(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)

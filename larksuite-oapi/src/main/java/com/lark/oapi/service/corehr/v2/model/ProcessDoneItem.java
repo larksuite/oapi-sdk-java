@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessDoneItem {
     /**
@@ -70,6 +83,12 @@ public class ProcessDoneItem {
      */
     @SerializedName("complete_time")
     private String completeTime;
+    /**
+     * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+     * <p> 示例值：approval_d25b5eddfef
+     */
+    @SerializedName("node_definition_id")
+    private String nodeDefinitionId;
 
     // builder 开始
     public ProcessDoneItem() {
@@ -121,6 +140,11 @@ public class ProcessDoneItem {
          * <p> 示例值：1694769814036
          */
         this.completeTime = builder.completeTime;
+        /**
+         * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+         * <p> 示例值：approval_d25b5eddfef
+         */
+        this.nodeDefinitionId = builder.nodeDefinitionId;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +223,14 @@ public class ProcessDoneItem {
         this.completeTime = completeTime;
     }
 
+    public String getNodeDefinitionId() {
+        return this.nodeDefinitionId;
+    }
+
+    public void setNodeDefinitionId(String nodeDefinitionId) {
+        this.nodeDefinitionId = nodeDefinitionId;
+    }
+
     public static class Builder {
         /**
          * 单据ID
@@ -245,6 +277,11 @@ public class ProcessDoneItem {
          * <p> 示例值：1694769814036
          */
         private String completeTime;
+        /**
+         * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+         * <p> 示例值：approval_d25b5eddfef
+         */
+        private String nodeDefinitionId;
 
         /**
          * 单据ID
@@ -383,6 +420,19 @@ public class ProcessDoneItem {
          */
         public Builder completeTime(String completeTime) {
             this.completeTime = completeTime;
+            return this;
+        }
+
+
+        /**
+         * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+         * <p> 示例值：approval_d25b5eddfef
+         *
+         * @param nodeDefinitionId
+         * @return
+         */
+        public Builder nodeDefinitionId(String nodeDefinitionId) {
+            this.nodeDefinitionId = nodeDefinitionId;
             return this;
         }
 

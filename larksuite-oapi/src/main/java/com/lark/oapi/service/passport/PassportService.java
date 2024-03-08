@@ -13,7 +13,9 @@
 package com.lark.oapi.service.passport;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.passport.v1.V1;
+import com.lark.oapi.service.passport.v1.model.*;
 import com.lark.oapi.service.passport.v1.resource.Session;
 
 public class PassportService {

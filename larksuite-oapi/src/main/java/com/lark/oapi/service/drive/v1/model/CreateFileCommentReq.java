@@ -13,10 +13,19 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFileCommentReq {
     /**
@@ -27,7 +36,7 @@ public class CreateFileCommentReq {
     @SerializedName("file_type")
     private String fileType;
     /**
-     * 此次调用中使用的用户ID的类型
+     * 此次调用中使用的用户 ID 的类型
      * <p> 示例值：
      */
     @Query
@@ -54,7 +63,7 @@ public class CreateFileCommentReq {
          */
         this.fileType = builder.fileType;
         /**
-         * 此次调用中使用的用户ID的类型
+         * 此次调用中使用的用户 ID 的类型
          * <p> 示例值：
          */
         this.userIdType = builder.userIdType;
@@ -104,7 +113,7 @@ public class CreateFileCommentReq {
 
     public static class Builder {
         private String fileType; // 文档类型
-        private String userIdType; // 此次调用中使用的用户ID的类型
+        private String userIdType; // 此次调用中使用的用户 ID 的类型
         private String fileToken; // 文档token
         private FileComment body;
 
@@ -133,7 +142,7 @@ public class CreateFileCommentReq {
         }
 
         /**
-         * 此次调用中使用的用户ID的类型
+         * 此次调用中使用的用户 ID 的类型
          * <p> 示例值：
          *
          * @param userIdType
@@ -145,7 +154,7 @@ public class CreateFileCommentReq {
         }
 
         /**
-         * 此次调用中使用的用户ID的类型
+         * 此次调用中使用的用户 ID 的类型
          * <p> 示例值：
          *
          * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.CreateFileCommentUserIdTypeEnum}

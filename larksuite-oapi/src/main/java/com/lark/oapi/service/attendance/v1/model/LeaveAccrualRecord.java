@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveAccrualRecord {
     /**
@@ -94,6 +107,12 @@ public class LeaveAccrualRecord {
      */
     @SerializedName("updated_by")
     private String updatedBy;
+    /**
+     * 是否参与折算
+     * <p> 示例值：1
+     */
+    @SerializedName("section_type")
+    private Integer sectionType;
 
     // builder 开始
     public LeaveAccrualRecord() {
@@ -165,6 +184,11 @@ public class LeaveAccrualRecord {
          * <p> 示例值：1
          */
         this.updatedBy = builder.updatedBy;
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         */
+        this.sectionType = builder.sectionType;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +299,14 @@ public class LeaveAccrualRecord {
         this.updatedBy = updatedBy;
     }
 
+    public Integer getSectionType() {
+        return this.sectionType;
+    }
+
+    public void setSectionType(Integer sectionType) {
+        this.sectionType = sectionType;
+    }
+
     public static class Builder {
         /**
          * 授予记录唯一ID
@@ -341,6 +373,11 @@ public class LeaveAccrualRecord {
          * <p> 示例值：1
          */
         private String updatedBy;
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         */
+        private Integer sectionType;
 
         /**
          * 授予记录唯一ID
@@ -507,6 +544,19 @@ public class LeaveAccrualRecord {
          */
         public Builder updatedBy(String updatedBy) {
             this.updatedBy = updatedBy;
+            return this;
+        }
+
+
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         *
+         * @param sectionType
+         * @return
+         */
+        public Builder sectionType(Integer sectionType) {
+            this.sectionType = sectionType;
             return this;
         }
 

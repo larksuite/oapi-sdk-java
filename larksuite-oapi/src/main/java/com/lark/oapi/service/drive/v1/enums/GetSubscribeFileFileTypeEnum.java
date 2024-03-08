@@ -22,6 +22,7 @@ public enum GetSubscribeFileFileTypeEnum {
     SHEET("sheet"), // 表格
     BITABLE("bitable"), // 多维表格
     FILE("file"), // 文件
+    FOLDER("folder"), // 文件夹
     ;
     private String value;
 

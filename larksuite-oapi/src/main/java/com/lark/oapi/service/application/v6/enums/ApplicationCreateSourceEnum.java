@@ -21,6 +21,8 @@ public enum ApplicationCreateSourceEnum {
     BASE("base"), // 多维表格自动化流程创建的应用
     APP_ENGINE("app_engine"), // 飞书应用引擎
     BOT_BUILDER("bot_builder"), // 机器人助手
+    AILY("aily"), // aily(智能伙伴搭建平台)
+    UNKNOWN("unknown"), // 未知来源
     ;
     private String value;
 

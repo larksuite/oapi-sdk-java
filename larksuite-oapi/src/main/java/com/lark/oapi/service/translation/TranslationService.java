@@ -13,7 +13,9 @@
 package com.lark.oapi.service.translation;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.translation.v1.V1;
+import com.lark.oapi.service.translation.v1.model.*;
 import com.lark.oapi.service.translation.v1.resource.Text;
 
 public class TranslationService {

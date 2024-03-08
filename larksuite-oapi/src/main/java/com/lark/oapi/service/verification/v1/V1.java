@@ -14,7 +14,7 @@
 package com.lark.oapi.service.verification.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.verification.v1.resource.Verification;
+import com.lark.oapi.service.verification.v1.resource.*;
 
 public class V1 {
     private final Verification verification; // 认证信息

@@ -20,6 +20,7 @@ public enum PatchUserGenderTypeEnum {
     UNKOWN(0), // 保密
     MALE(1), // 男
     FEMALE(2), // 女
+    OTHERS(3), // 其他
     ;
     private Integer value;
 

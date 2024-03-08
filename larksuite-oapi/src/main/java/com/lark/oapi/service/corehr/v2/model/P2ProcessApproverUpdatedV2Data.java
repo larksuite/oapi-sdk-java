@@ -13,7 +13,19 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessApproverUpdatedV2Data {
     /**
@@ -40,6 +52,12 @@ public class P2ProcessApproverUpdatedV2Data {
      */
     @SerializedName("status")
     private Integer status;
+    /**
+     * 业务类型
+     * <p> 示例值：renewal_record
+     */
+    @SerializedName("biz_type")
+    private String bizType;
 
     public String getProcessId() {
         return this.processId;
@@ -71,6 +89,14 @@ public class P2ProcessApproverUpdatedV2Data {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getBizType() {
+        return this.bizType;
+    }
+
+    public void setBizType(String bizType) {
+        this.bizType = bizType;
     }
 
 }

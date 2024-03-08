@@ -13,8 +13,16 @@
 package com.lark.oapi.service.admin;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.admin.v1.V1;
-import com.lark.oapi.service.admin.v1.resource.*;
+import com.lark.oapi.service.admin.v1.model.*;
+import com.lark.oapi.service.admin.v1.resource.AdminDeptStat;
+import com.lark.oapi.service.admin.v1.resource.AdminUserStat;
+import com.lark.oapi.service.admin.v1.resource.AuditInfo;
+import com.lark.oapi.service.admin.v1.resource.Badge;
+import com.lark.oapi.service.admin.v1.resource.BadgeGrant;
+import com.lark.oapi.service.admin.v1.resource.BadgeImage;
+import com.lark.oapi.service.admin.v1.resource.Password;
 
 public class AdminService {
     private final V1 v1;

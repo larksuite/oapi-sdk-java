@@ -19,10 +19,10 @@ import com.lark.oapi.service.approval.v4.model.*;
 import com.lark.oapi.service.approval.v4.resource.Approval;
 import com.lark.oapi.service.approval.v4.resource.ExternalApproval;
 import com.lark.oapi.service.approval.v4.resource.ExternalInstance;
+import com.lark.oapi.service.approval.v4.resource.ExternalTask;
 import com.lark.oapi.service.approval.v4.resource.Instance;
 import com.lark.oapi.service.approval.v4.resource.InstanceComment;
 import com.lark.oapi.service.approval.v4.resource.Task;
-import com.lark.oapi.service.approval.v4.resource.*;
 
 public class ApprovalService {
     private final V4 v4;

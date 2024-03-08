@@ -13,30 +13,42 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFileCommentRespBody {
     /**
-     * 评论ID
-     * <p> 示例值：
+     * 评论 ID
+     * <p> 示例值：69161068xxxxx512356
      */
     @SerializedName("comment_id")
     private String commentId;
     /**
-     * 用户ID
+     * 用户 ID
      * <p> 示例值：
      */
     @SerializedName("user_id")
     private String userId;
     /**
      * 创建时间
-     * <p> 示例值：
+     * <p> 示例值：1610281603
      */
     @SerializedName("create_time")
     private Integer createTime;
     /**
      * 更新时间
-     * <p> 示例值：
+     * <p> 示例值：1610281603
      */
     @SerializedName("update_time")
     private Integer updateTime;
@@ -48,12 +60,12 @@ public class CreateFileCommentRespBody {
     private Boolean isSolved;
     /**
      * 解决评论时间
-     * <p> 示例值：
+     * <p> 示例值：1610281603
      */
     @SerializedName("solved_time")
     private Integer solvedTime;
     /**
-     * 解决评论者的用户ID
+     * 解决评论者的用户 ID
      * <p> 示例值：
      */
     @SerializedName("solver_user_id")
@@ -66,7 +78,7 @@ public class CreateFileCommentRespBody {
     private Boolean hasMore;
     /**
      * 回复分页标记
-     * <p> 示例值：
+     * <p> 示例值：6916106822734512356
      */
     @SerializedName("page_token")
     private String pageToken;
@@ -77,8 +89,8 @@ public class CreateFileCommentRespBody {
     @SerializedName("is_whole")
     private Boolean isWhole;
     /**
-     * 如果是局部评论，引用字段
-     * <p> 示例值：
+     * 局部评论的引用字段
+     * <p> 示例值：hello
      */
     @SerializedName("quote")
     private String quote;

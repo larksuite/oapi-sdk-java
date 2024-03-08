@@ -13,9 +13,19 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscribeFileReq {
     /**
@@ -25,6 +35,13 @@ public class SubscribeFileReq {
     @Query
     @SerializedName("file_type")
     private String fileType;
+    /**
+     * 事件类型
+     * <p> 示例值：file.created_in_folder_v1
+     */
+    @Query
+    @SerializedName("event_type")
+    private String eventType;
     /**
      * 文档token
      * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
@@ -44,6 +61,11 @@ public class SubscribeFileReq {
          */
         this.fileType = builder.fileType;
         /**
+         * 事件类型
+         * <p> 示例值：file.created_in_folder_v1
+         */
+        this.eventType = builder.eventType;
+        /**
          * 文档token
          * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
          */
@@ -62,6 +84,14 @@ public class SubscribeFileReq {
         this.fileType = fileType;
     }
 
+    public String getEventType() {
+        return this.eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
     public String getFileToken() {
         return this.fileToken;
     }
@@ -72,6 +102,7 @@ public class SubscribeFileReq {
 
     public static class Builder {
         private String fileType; // 文档类型
+        private String eventType; // 事件类型
         private String fileToken; // 文档token
 
         /**
@@ -95,6 +126,18 @@ public class SubscribeFileReq {
          */
         public Builder fileType(com.lark.oapi.service.drive.v1.enums.SubscribeFileFileTypeEnum fileType) {
             this.fileType = fileType.getValue();
+            return this;
+        }
+
+        /**
+         * 事件类型
+         * <p> 示例值：file.created_in_folder_v1
+         *
+         * @param eventType
+         * @return
+         */
+        public Builder eventType(String eventType) {
+            this.eventType = eventType;
             return this;
         }
 

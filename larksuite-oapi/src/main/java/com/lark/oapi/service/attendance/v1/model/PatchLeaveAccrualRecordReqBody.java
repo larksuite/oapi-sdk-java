@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchLeaveAccrualRecordReqBody {
     /**
@@ -58,6 +71,12 @@ public class PatchLeaveAccrualRecordReqBody {
      */
     @SerializedName("quantity")
     private String quantity;
+    /**
+     * 是否参与清算
+     * <p> 示例值：1
+     */
+    @SerializedName("section_type")
+    private Integer sectionType;
 
     // builder 开始
     public PatchLeaveAccrualRecordReqBody() {
@@ -99,6 +118,11 @@ public class PatchLeaveAccrualRecordReqBody {
          * <p> 示例值：1
          */
         this.quantity = builder.quantity;
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         */
+        this.sectionType = builder.sectionType;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +185,14 @@ public class PatchLeaveAccrualRecordReqBody {
         this.quantity = quantity;
     }
 
+    public Integer getSectionType() {
+        return this.sectionType;
+    }
+
+    public void setSectionType(Integer sectionType) {
+        this.sectionType = sectionType;
+    }
+
     public static class Builder {
         /**
          * 授予记录的唯一ID
@@ -197,6 +229,11 @@ public class PatchLeaveAccrualRecordReqBody {
          * <p> 示例值：1
          */
         private String quantity;
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         */
+        private Integer sectionType;
 
         /**
          * 授予记录的唯一ID
@@ -285,6 +322,19 @@ public class PatchLeaveAccrualRecordReqBody {
          */
         public Builder quantity(String quantity) {
             this.quantity = quantity;
+            return this;
+        }
+
+
+        /**
+         * 是否参与清算
+         * <p> 示例值：1
+         *
+         * @param sectionType
+         * @return
+         */
+        public Builder sectionType(Integer sectionType) {
+            this.sectionType = sectionType;
             return this;
         }
 

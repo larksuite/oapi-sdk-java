@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.application.v6.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationEventOwner {
     /**
@@ -46,6 +59,18 @@ public class ApplicationEventOwner {
      */
     @SerializedName("phone")
     private String phone;
+    /**
+     * 应用所有者用户ID
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
+    @SerializedName("owner_id")
+    private UserId ownerId;
+    /**
+     * 客服账号
+     * <p> 示例值：feishu@bytedance.com
+     */
+    @SerializedName("customer_service_account")
+    private String customerServiceAccount;
 
     // builder 开始
     public ApplicationEventOwner() {
@@ -77,6 +102,16 @@ public class ApplicationEventOwner {
          * <p> 示例值：
          */
         this.phone = builder.phone;
+        /**
+         * 应用所有者用户ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         */
+        this.ownerId = builder.ownerId;
+        /**
+         * 客服账号
+         * <p> 示例值：feishu@bytedance.com
+         */
+        this.customerServiceAccount = builder.customerServiceAccount;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +158,22 @@ public class ApplicationEventOwner {
         this.phone = phone;
     }
 
+    public UserId getOwnerId() {
+        return this.ownerId;
+    }
+
+    public void setOwnerId(UserId ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public String getCustomerServiceAccount() {
+        return this.customerServiceAccount;
+    }
+
+    public void setCustomerServiceAccount(String customerServiceAccount) {
+        this.customerServiceAccount = customerServiceAccount;
+    }
+
     public static class Builder {
         /**
          * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
@@ -149,6 +200,16 @@ public class ApplicationEventOwner {
          * <p> 示例值：
          */
         private String phone;
+        /**
+         * 应用所有者用户ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         */
+        private UserId ownerId;
+        /**
+         * 客服账号
+         * <p> 示例值：feishu@bytedance.com
+         */
+        private String customerServiceAccount;
 
         /**
          * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
@@ -211,6 +272,32 @@ public class ApplicationEventOwner {
          */
         public Builder phone(String phone) {
             this.phone = phone;
+            return this;
+        }
+
+
+        /**
+         * 应用所有者用户ID
+         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+         *
+         * @param ownerId
+         * @return
+         */
+        public Builder ownerId(UserId ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+
+
+        /**
+         * 客服账号
+         * <p> 示例值：feishu@bytedance.com
+         *
+         * @param customerServiceAccount
+         * @return
+         */
+        public Builder customerServiceAccount(String customerServiceAccount) {
+            this.customerServiceAccount = customerServiceAccount;
             return this;
         }
 

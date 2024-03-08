@@ -14,7 +14,7 @@
 package com.lark.oapi.service.gray_test_open_sg.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.gray_test_open_sg.v1.resource.Moto;
+import com.lark.oapi.service.gray_test_open_sg.v1.resource.*;
 
 public class V1 {
     private final Moto moto; // moto

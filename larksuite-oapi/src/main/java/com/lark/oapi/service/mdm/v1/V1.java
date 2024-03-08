@@ -14,7 +14,7 @@
 package com.lark.oapi.service.mdm.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.mdm.v1.resource.UserAuthDataRelation;
+import com.lark.oapi.service.mdm.v1.resource.*;
 
 public class V1 {
     private final UserAuthDataRelation userAuthDataRelation; // 数据维度

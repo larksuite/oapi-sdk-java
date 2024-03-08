@@ -13,8 +13,15 @@
 package com.lark.oapi.service.okr;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.okr.v1.V1;
-import com.lark.oapi.service.okr.v1.resource.*;
+import com.lark.oapi.service.okr.v1.model.*;
+import com.lark.oapi.service.okr.v1.resource.Image;
+import com.lark.oapi.service.okr.v1.resource.Okr;
+import com.lark.oapi.service.okr.v1.resource.Period;
+import com.lark.oapi.service.okr.v1.resource.PeriodRule;
+import com.lark.oapi.service.okr.v1.resource.ProgressRecord;
+import com.lark.oapi.service.okr.v1.resource.UserOkr;
 
 public class OkrService {
     private final V1 v1;

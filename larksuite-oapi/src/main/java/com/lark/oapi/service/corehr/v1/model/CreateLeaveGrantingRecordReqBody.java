@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateLeaveGrantingRecordReqBody {
     /**
@@ -52,6 +65,12 @@ public class CreateLeaveGrantingRecordReqBody {
      */
     @SerializedName("expiration_date")
     private String expirationDate;
+    /**
+     * 是否参与折算
+     * <p> 示例值：1
+     */
+    @SerializedName("section_type")
+    private Integer sectionType;
     /**
      * 授予原因
      * <p> 示例值：
@@ -100,6 +119,11 @@ public class CreateLeaveGrantingRecordReqBody {
          * <p> 示例值：2022-01-01
          */
         this.expirationDate = builder.expirationDate;
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         */
+        this.sectionType = builder.sectionType;
         /**
          * 授予原因
          * <p> 示例值：
@@ -164,6 +188,14 @@ public class CreateLeaveGrantingRecordReqBody {
         this.expirationDate = expirationDate;
     }
 
+    public Integer getSectionType() {
+        return this.sectionType;
+    }
+
+    public void setSectionType(Integer sectionType) {
+        this.sectionType = sectionType;
+    }
+
     public I18n[] getReason() {
         return this.reason;
     }
@@ -211,6 +243,11 @@ public class CreateLeaveGrantingRecordReqBody {
          * <p> 示例值：2022-01-01
          */
         private String expirationDate;
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         */
+        private Integer sectionType;
         /**
          * 授予原因
          * <p> 示例值：
@@ -296,6 +333,19 @@ public class CreateLeaveGrantingRecordReqBody {
          */
         public Builder expirationDate(String expirationDate) {
             this.expirationDate = expirationDate;
+            return this;
+        }
+
+
+        /**
+         * 是否参与折算
+         * <p> 示例值：1
+         *
+         * @param sectionType
+         * @return
+         */
+        public Builder sectionType(Integer sectionType) {
+            this.sectionType = sectionType;
             return this;
         }
 

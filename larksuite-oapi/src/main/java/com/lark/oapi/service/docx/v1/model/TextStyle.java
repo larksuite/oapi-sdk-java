@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class TextStyle {
     /**
@@ -46,6 +59,18 @@ public class TextStyle {
      */
     @SerializedName("wrap")
     private Boolean wrap;
+    /**
+     * 块背景色
+     * <p> 示例值：LightGrayBackground
+     */
+    @SerializedName("background_color")
+    private String backgroundColor;
+    /**
+     * 首行缩进级别
+     * <p> 示例值：NoIndent
+     */
+    @SerializedName("indentation_level")
+    private String indentationLevel;
 
     // builder 开始
     public TextStyle() {
@@ -77,6 +102,16 @@ public class TextStyle {
          * <p> 示例值：true
          */
         this.wrap = builder.wrap;
+        /**
+         * 块背景色
+         * <p> 示例值：LightGrayBackground
+         */
+        this.backgroundColor = builder.backgroundColor;
+        /**
+         * 首行缩进级别
+         * <p> 示例值：NoIndent
+         */
+        this.indentationLevel = builder.indentationLevel;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +158,22 @@ public class TextStyle {
         this.wrap = wrap;
     }
 
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public String getIndentationLevel() {
+        return this.indentationLevel;
+    }
+
+    public void setIndentationLevel(String indentationLevel) {
+        this.indentationLevel = indentationLevel;
+    }
+
     public static class Builder {
         /**
          * 对齐方式
@@ -149,6 +200,16 @@ public class TextStyle {
          * <p> 示例值：true
          */
         private Boolean wrap;
+        /**
+         * 块背景色
+         * <p> 示例值：LightGrayBackground
+         */
+        private String backgroundColor;
+        /**
+         * 首行缩进级别
+         * <p> 示例值：NoIndent
+         */
+        private String indentationLevel;
 
         /**
          * 对齐方式
@@ -235,6 +296,56 @@ public class TextStyle {
          */
         public Builder wrap(Boolean wrap) {
             this.wrap = wrap;
+            return this;
+        }
+
+
+        /**
+         * 块背景色
+         * <p> 示例值：LightGrayBackground
+         *
+         * @param backgroundColor
+         * @return
+         */
+        public Builder backgroundColor(String backgroundColor) {
+            this.backgroundColor = backgroundColor;
+            return this;
+        }
+
+        /**
+         * 块背景色
+         * <p> 示例值：LightGrayBackground
+         *
+         * @param backgroundColor {@link com.lark.oapi.service.docx.v1.enums.TextStyleTextBackgroundColorEnum}
+         * @return
+         */
+        public Builder backgroundColor(com.lark.oapi.service.docx.v1.enums.TextStyleTextBackgroundColorEnum backgroundColor) {
+            this.backgroundColor = backgroundColor.getValue();
+            return this;
+        }
+
+
+        /**
+         * 首行缩进级别
+         * <p> 示例值：NoIndent
+         *
+         * @param indentationLevel
+         * @return
+         */
+        public Builder indentationLevel(String indentationLevel) {
+            this.indentationLevel = indentationLevel;
+            return this;
+        }
+
+        /**
+         * 首行缩进级别
+         * <p> 示例值：NoIndent
+         *
+         * @param indentationLevel {@link com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum}
+         * @return
+         */
+        public Builder indentationLevel(com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum indentationLevel) {
+            this.indentationLevel = indentationLevel.getValue();
             return this;
         }
 

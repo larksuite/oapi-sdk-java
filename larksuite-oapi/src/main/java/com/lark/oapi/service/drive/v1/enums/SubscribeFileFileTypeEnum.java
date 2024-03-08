@@ -21,6 +21,7 @@ public enum SubscribeFileFileTypeEnum {
     DOCX("docx"), // docx文档
     SHEET("sheet"), // 表格
     BITABLE("bitable"), // 多维表格
+    FOLDER("folder"), // 文件夹
     ;
     private String value;
 

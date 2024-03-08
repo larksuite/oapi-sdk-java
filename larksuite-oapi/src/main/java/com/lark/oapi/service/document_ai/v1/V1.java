@@ -28,6 +28,7 @@ public class V1 {
     private final HealthCertificate healthCertificate; // health_certificate
     private final HkmMainlandTravelPermit hkmMainlandTravelPermit; // hkm_mainland_travel_permit
     private final IdCard idCard; // id_card
+    private final Resume resume; // resume
     private final TaxiInvoice taxiInvoice; // taxi_invoice
     private final TrainInvoice trainInvoice; // train_invoice
     private final TwMainlandTravelPermit twMainlandTravelPermit; // tw_mainland_travel_permit
@@ -47,6 +48,7 @@ public class V1 {
         this.healthCertificate = new HealthCertificate(config);
         this.hkmMainlandTravelPermit = new HkmMainlandTravelPermit(config);
         this.idCard = new IdCard(config);
+        this.resume = new Resume(config);
         this.taxiInvoice = new TaxiInvoice(config);
         this.trainInvoice = new TrainInvoice(config);
         this.twMainlandTravelPermit = new TwMainlandTravelPermit(config);
@@ -97,6 +99,10 @@ public class V1 {
 
     public IdCard idCard() {
         return idCard;
+    }
+
+    public Resume resume() {
+        return resume;
     }
 
     public TaxiInvoice taxiInvoice() {
