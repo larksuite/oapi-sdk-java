@@ -24,6 +24,8 @@ public class UpdateExternalApplicationSample{
 				 .talentId("6960663240925956459")
 				 .terminationReason("不合适")
 				 .deliveryType(1)
+				 .modifyTime(1618500278)
+				 .createTime(1618500278)
 				 .terminationType("health")
 				  .build())
 			 .build();

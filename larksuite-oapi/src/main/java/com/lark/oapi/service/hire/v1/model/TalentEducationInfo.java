@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentEducationInfo {
     /**
@@ -64,6 +52,12 @@ public class TalentEducationInfo {
      */
     @SerializedName("end_time")
     private String endTime;
+    /**
+     * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+     * <p> 示例值：1687180087000
+     */
+    @SerializedName("end_time_v2")
+    private String endTimeV2;
     /**
      * 学历类型
      * <p> 示例值：1
@@ -124,6 +118,11 @@ public class TalentEducationInfo {
          * <p> 示例值：1994-01
          */
         this.endTime = builder.endTime;
+        /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1687180087000
+         */
+        this.endTimeV2 = builder.endTimeV2;
         /**
          * 学历类型
          * <p> 示例值：1
@@ -198,6 +197,14 @@ public class TalentEducationInfo {
         this.endTime = endTime;
     }
 
+    public String getEndTimeV2() {
+        return this.endTimeV2;
+    }
+
+    public void setEndTimeV2(String endTimeV2) {
+        this.endTimeV2 = endTimeV2;
+    }
+
     public Integer getEducationType() {
         return this.educationType;
     }
@@ -261,6 +268,11 @@ public class TalentEducationInfo {
          * <p> 示例值：1994-01
          */
         private String endTime;
+        /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1687180087000
+         */
+        private String endTimeV2;
         /**
          * 学历类型
          * <p> 示例值：1
@@ -356,6 +368,19 @@ public class TalentEducationInfo {
          */
         public Builder endTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
+         * <p> 示例值：1687180087000
+         *
+         * @param endTimeV2
+         * @return
+         */
+        public Builder endTimeV2(String endTimeV2) {
+            this.endTimeV2 = endTimeV2;
             return this;
         }
 

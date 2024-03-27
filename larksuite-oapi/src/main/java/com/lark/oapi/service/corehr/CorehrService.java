@@ -16,9 +16,7 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.corehr.v1.V1;
 import com.lark.oapi.service.corehr.v1.model.*;
-import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
 import com.lark.oapi.service.corehr.v1.resource.Company;
-import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
 import com.lark.oapi.service.corehr.v1.resource.Contract;
 import com.lark.oapi.service.corehr.v1.resource.CountryRegion;
 import com.lark.oapi.service.corehr.v1.resource.Currency;
@@ -32,21 +30,19 @@ import com.lark.oapi.service.corehr.v1.resource.JobChange;
 import com.lark.oapi.service.corehr.v1.resource.JobData;
 import com.lark.oapi.service.corehr.v1.resource.JobFamily;
 import com.lark.oapi.service.corehr.v1.resource.JobLevel;
-import com.lark.oapi.service.corehr.v1.resource.Leave;
 import com.lark.oapi.service.corehr.v1.resource.LeaveGrantingRecord;
 import com.lark.oapi.service.corehr.v1.resource.Location;
 import com.lark.oapi.service.corehr.v1.resource.NationalIdType;
 import com.lark.oapi.service.corehr.v1.resource.Offboarding;
-import com.lark.oapi.service.corehr.v1.resource.OrgRoleAuthorization;
 import com.lark.oapi.service.corehr.v1.resource.Person;
 import com.lark.oapi.service.corehr.v1.resource.PreHire;
-import com.lark.oapi.service.corehr.v1.resource.ProcessFormVariableData;
 import com.lark.oapi.service.corehr.v1.resource.SecurityGroup;
 import com.lark.oapi.service.corehr.v1.resource.Subdivision;
 import com.lark.oapi.service.corehr.v1.resource.Subregion;
 import com.lark.oapi.service.corehr.v1.resource.TransferReason;
 import com.lark.oapi.service.corehr.v1.resource.TransferType;
 import com.lark.oapi.service.corehr.v1.resource.WorkingHoursType;
+import com.lark.oapi.service.corehr.v1.resource.*;
 import com.lark.oapi.service.corehr.v2.V2;
 import com.lark.oapi.service.corehr.v2.model.*;
 
@@ -439,6 +435,13 @@ public class CorehrService {
         @Override
         public P2ProcessCcUpdatedV2 getEvent() {
             return new P2ProcessCcUpdatedV2();
+        }
+    }
+
+    public abstract static class P2ProcessNodeUpdatedV2Handler implements IEventHandler<P2ProcessNodeUpdatedV2> {
+        @Override
+        public P2ProcessNodeUpdatedV2 getEvent() {
+            return new P2ProcessNodeUpdatedV2();
         }
     }
 }

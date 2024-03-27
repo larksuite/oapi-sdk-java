@@ -13,9 +13,7 @@
 package com.lark.oapi.service.human_authentication;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.human_authentication.v1.V1;
-import com.lark.oapi.service.human_authentication.v1.model.*;
 import com.lark.oapi.service.human_authentication.v1.resource.Identity;
 
 public class HumanAuthenticationService {

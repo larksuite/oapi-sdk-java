@@ -29,7 +29,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class GetFileVersionRespBody {
     /**
-     * 版本文档标题
+     * 版本文档标题，最大长度 1024 个Unicode 码点。通常情况下，一个英文或中文字符对应一个码点，但是某些特殊符号可能会对应多个码点。例如，家庭组合「👨‍👩‍👧」这个表情符号对应5个码点。
      * <p> 示例值：文档标题
      */
     @SerializedName("name")

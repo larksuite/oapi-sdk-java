@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Employee {
     /**
@@ -72,6 +59,12 @@ public class Employee {
     @SerializedName("job_level_id")
     private String jobLevelId;
     /**
+     * 职级
+     * <p> 示例值：
+     */
+    @SerializedName("job_level")
+    private JobLevel jobLevel;
+    /**
      * 职等 ID
      * <p> 示例值：6893014062142064135
      */
@@ -90,11 +83,23 @@ public class Employee {
     @SerializedName("job_family_id")
     private String jobFamilyId;
     /**
+     * 序列
+     * <p> 示例值：
+     */
+    @SerializedName("job_family")
+    private JobFamily jobFamily;
+    /**
      * 职务 ID，详细信息可通过【查询单个职务】接口获得
      * <p> 示例值：6893014062142064135
      */
     @SerializedName("job_id")
     private String jobId;
+    /**
+     * 职务
+     * <p> 示例值：
+     */
+    @SerializedName("job")
+    private Job job;
     /**
      * 所属公司 ID，详细信息可通过【查询单个公司】接口获得
      * <p> 示例值：6893014062142064135
@@ -335,6 +340,24 @@ public class Employee {
      */
     @SerializedName("time_zone")
     private String timeZone;
+    /**
+     * 任职公司
+     * <p> 示例值：7174374910734141112
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
+    /**
+     * 薪资类型
+     * <p> 示例值：
+     */
+    @SerializedName("compensation_type")
+    private Enum compensationType;
+    /**
+     * 排班类型
+     * <p> 示例值：
+     */
+    @SerializedName("work_shift")
+    private Enum workShift;
 
     // builder 开始
     public Employee() {
@@ -377,6 +400,11 @@ public class Employee {
          */
         this.jobLevelId = builder.jobLevelId;
         /**
+         * 职级
+         * <p> 示例值：
+         */
+        this.jobLevel = builder.jobLevel;
+        /**
          * 职等 ID
          * <p> 示例值：6893014062142064135
          */
@@ -392,10 +420,20 @@ public class Employee {
          */
         this.jobFamilyId = builder.jobFamilyId;
         /**
+         * 序列
+         * <p> 示例值：
+         */
+        this.jobFamily = builder.jobFamily;
+        /**
          * 职务 ID，详细信息可通过【查询单个职务】接口获得
          * <p> 示例值：6893014062142064135
          */
         this.jobId = builder.jobId;
+        /**
+         * 职务
+         * <p> 示例值：
+         */
+        this.job = builder.job;
         /**
          * 所属公司 ID，详细信息可通过【查询单个公司】接口获得
          * <p> 示例值：6893014062142064135
@@ -596,6 +634,21 @@ public class Employee {
          * <p> 示例值：Asia/Shanghai
          */
         this.timeZone = builder.timeZone;
+        /**
+         * 任职公司
+         * <p> 示例值：7174374910734141112
+         */
+        this.serviceCompany = builder.serviceCompany;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 排班类型
+         * <p> 示例值：
+         */
+        this.workShift = builder.workShift;
     }
 
     public static Builder newBuilder() {
@@ -658,6 +711,14 @@ public class Employee {
         this.jobLevelId = jobLevelId;
     }
 
+    public JobLevel getJobLevel() {
+        return this.jobLevel;
+    }
+
+    public void setJobLevel(JobLevel jobLevel) {
+        this.jobLevel = jobLevel;
+    }
+
     public String getJobGradeId() {
         return this.jobGradeId;
     }
@@ -682,12 +743,28 @@ public class Employee {
         this.jobFamilyId = jobFamilyId;
     }
 
+    public JobFamily getJobFamily() {
+        return this.jobFamily;
+    }
+
+    public void setJobFamily(JobFamily jobFamily) {
+        this.jobFamily = jobFamily;
+    }
+
     public String getJobId() {
         return this.jobId;
     }
 
     public void setJobId(String jobId) {
         this.jobId = jobId;
+    }
+
+    public Job getJob() {
+        return this.job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
     }
 
     public String getCompanyId() {
@@ -1010,6 +1087,30 @@ public class Employee {
         this.timeZone = timeZone;
     }
 
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
+    }
+
+    public Enum getCompensationType() {
+        return this.compensationType;
+    }
+
+    public void setCompensationType(Enum compensationType) {
+        this.compensationType = compensationType;
+    }
+
+    public Enum getWorkShift() {
+        return this.workShift;
+    }
+
+    public void setWorkShift(Enum workShift) {
+        this.workShift = workShift;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID
@@ -1047,6 +1148,11 @@ public class Employee {
          */
         private String jobLevelId;
         /**
+         * 职级
+         * <p> 示例值：
+         */
+        private JobLevel jobLevel;
+        /**
          * 职等 ID
          * <p> 示例值：6893014062142064135
          */
@@ -1062,10 +1168,20 @@ public class Employee {
          */
         private String jobFamilyId;
         /**
+         * 序列
+         * <p> 示例值：
+         */
+        private JobFamily jobFamily;
+        /**
          * 职务 ID，详细信息可通过【查询单个职务】接口获得
          * <p> 示例值：6893014062142064135
          */
         private String jobId;
+        /**
+         * 职务
+         * <p> 示例值：
+         */
+        private Job job;
         /**
          * 所属公司 ID，详细信息可通过【查询单个公司】接口获得
          * <p> 示例值：6893014062142064135
@@ -1266,6 +1382,21 @@ public class Employee {
          * <p> 示例值：Asia/Shanghai
          */
         private String timeZone;
+        /**
+         * 任职公司
+         * <p> 示例值：7174374910734141112
+         */
+        private String serviceCompany;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        private Enum compensationType;
+        /**
+         * 排班类型
+         * <p> 示例值：
+         */
+        private Enum workShift;
 
         /**
          * 雇佣 ID
@@ -1359,6 +1490,19 @@ public class Employee {
 
 
         /**
+         * 职级
+         * <p> 示例值：
+         *
+         * @param jobLevel
+         * @return
+         */
+        public Builder jobLevel(JobLevel jobLevel) {
+            this.jobLevel = jobLevel;
+            return this;
+        }
+
+
+        /**
          * 职等 ID
          * <p> 示例值：6893014062142064135
          *
@@ -1398,6 +1542,19 @@ public class Employee {
 
 
         /**
+         * 序列
+         * <p> 示例值：
+         *
+         * @param jobFamily
+         * @return
+         */
+        public Builder jobFamily(JobFamily jobFamily) {
+            this.jobFamily = jobFamily;
+            return this;
+        }
+
+
+        /**
          * 职务 ID，详细信息可通过【查询单个职务】接口获得
          * <p> 示例值：6893014062142064135
          *
@@ -1406,6 +1563,19 @@ public class Employee {
          */
         public Builder jobId(String jobId) {
             this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 职务
+         * <p> 示例值：
+         *
+         * @param job
+         * @return
+         */
+        public Builder job(Job job) {
+            this.job = job;
             return this;
         }
 
@@ -1926,6 +2096,45 @@ public class Employee {
          */
         public Builder timeZone(String timeZone) {
             this.timeZone = timeZone;
+            return this;
+        }
+
+
+        /**
+         * 任职公司
+         * <p> 示例值：7174374910734141112
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
+            return this;
+        }
+
+
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         *
+         * @param compensationType
+         * @return
+         */
+        public Builder compensationType(Enum compensationType) {
+            this.compensationType = compensationType;
+            return this;
+        }
+
+
+        /**
+         * 排班类型
+         * <p> 示例值：
+         *
+         * @param workShift
+         * @return
+         */
+        public Builder workShift(Enum workShift) {
+            this.workShift = workShift;
             return this;
         }
 

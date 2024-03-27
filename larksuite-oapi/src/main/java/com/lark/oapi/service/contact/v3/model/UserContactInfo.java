@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserContactInfo {
     /**
@@ -47,6 +34,12 @@ public class UserContactInfo {
      */
     @SerializedName("email")
     private String email;
+    /**
+     * 用户状态
+     * <p> 示例值：
+     */
+    @SerializedName("status")
+    private UserStatus status;
 
     // builder 开始
     public UserContactInfo() {
@@ -68,6 +61,11 @@ public class UserContactInfo {
          * <p> 示例值：lisi@z.com
          */
         this.email = builder.email;
+        /**
+         * 用户状态
+         * <p> 示例值：
+         */
+        this.status = builder.status;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +96,14 @@ public class UserContactInfo {
         this.email = email;
     }
 
+    public UserStatus getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
+    }
+
     public static class Builder {
         /**
          * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
@@ -114,6 +120,11 @@ public class UserContactInfo {
          * <p> 示例值：lisi@z.com
          */
         private String email;
+        /**
+         * 用户状态
+         * <p> 示例值：
+         */
+        private UserStatus status;
 
         /**
          * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
@@ -150,6 +161,19 @@ public class UserContactInfo {
          */
         public Builder email(String email) {
             this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 用户状态
+         * <p> 示例值：
+         *
+         * @param status
+         * @return
+         */
+        public Builder status(UserStatus status) {
+            this.status = status;
             return this;
         }
 

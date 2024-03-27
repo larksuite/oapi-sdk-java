@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateProgressEcoBackgroundCheckReqBody {
     /**
@@ -58,6 +46,12 @@ public class UpdateProgressEcoBackgroundCheckReqBody {
      */
     @SerializedName("stage_time")
     private String stageTime;
+    /**
+     * 阶段性背调结果
+     * <p> 示例值：通过
+     */
+    @SerializedName("result")
+    private String result;
     /**
      * 报告列表
      * <p> 示例值：
@@ -95,6 +89,11 @@ public class UpdateProgressEcoBackgroundCheckReqBody {
          * <p> 示例值：1660123456789
          */
         this.stageTime = builder.stageTime;
+        /**
+         * 阶段性背调结果
+         * <p> 示例值：通过
+         */
+        this.result = builder.result;
         /**
          * 报告列表
          * <p> 示例值：
@@ -146,6 +145,14 @@ public class UpdateProgressEcoBackgroundCheckReqBody {
         this.stageTime = stageTime;
     }
 
+    public String getResult() {
+        return this.result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     public EcoBackgroundCheckReportFile[] getReportFileList() {
         return this.reportFileList;
     }
@@ -180,6 +187,11 @@ public class UpdateProgressEcoBackgroundCheckReqBody {
          * <p> 示例值：1660123456789
          */
         private String stageTime;
+        /**
+         * 阶段性背调结果
+         * <p> 示例值：通过
+         */
+        private String result;
         /**
          * 报告列表
          * <p> 示例值：
@@ -247,6 +259,19 @@ public class UpdateProgressEcoBackgroundCheckReqBody {
          */
         public Builder stageTime(String stageTime) {
             this.stageTime = stageTime;
+            return this;
+        }
+
+
+        /**
+         * 阶段性背调结果
+         * <p> 示例值：通过
+         *
+         * @param result
+         * @return
+         */
+        public Builder result(String result) {
+            this.result = result;
             return this;
         }
 

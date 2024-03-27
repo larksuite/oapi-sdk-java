@@ -13,14 +13,8 @@
 package com.lark.oapi.service.lingo;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.lingo.v1.V1;
-import com.lark.oapi.service.lingo.v1.model.*;
-import com.lark.oapi.service.lingo.v1.resource.Classification;
-import com.lark.oapi.service.lingo.v1.resource.Draft;
-import com.lark.oapi.service.lingo.v1.resource.Entity;
-import com.lark.oapi.service.lingo.v1.resource.File;
-import com.lark.oapi.service.lingo.v1.resource.Repo;
+import com.lark.oapi.service.lingo.v1.resource.*;
 
 public class LingoService {
     private final V1 v1;

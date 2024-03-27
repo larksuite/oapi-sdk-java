@@ -22,6 +22,9 @@ public enum DeletePermissionMemberMemberTypeEnum {
     OPENCHATID("openchat"), // 开放平台群ID
     OPENDEPARTMENTID("opendepartmentid"), // 开放平台部门ID
     USERID("userid"), // 自定义用户ID
+    UNIONID("unionid"), // 开放平台UnionID
+    GROUPID("groupid"), // 自定义用户组ID
+    WIKISPACEID("wikispaceid"), // 知识空间的唯一标识
     ;
     private String value;
 

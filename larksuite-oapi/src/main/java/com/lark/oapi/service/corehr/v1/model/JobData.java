@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobData {
     /**
@@ -174,17 +161,29 @@ public class JobData {
     @SerializedName("cost_center_rate")
     private SupportCostCenterItem[] costCenterRate;
     /**
-     * 自定义字段
-     * <p> 示例值：
-     */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
-    /**
      * 周工作时长v2
      * <p> 示例值：37.5
      */
     @SerializedName("weekly_working_hours_v2")
     private Double weeklyWorkingHoursV2;
+    /**
+     * 排班类型
+     * <p> 示例值：
+     */
+    @SerializedName("work_shift")
+    private Enum workShift;
+    /**
+     * 薪资类型
+     * <p> 示例值：
+     */
+    @SerializedName("compensation_type")
+    private Enum compensationType;
+    /**
+     * 任职公司
+     * <p> 示例值：6890452208593372680
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
 
     // builder 开始
     public JobData() {
@@ -312,15 +311,25 @@ public class JobData {
          */
         this.costCenterRate = builder.costCenterRate;
         /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
          * 周工作时长v2
          * <p> 示例值：37.5
          */
         this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
+        /**
+         * 排班类型
+         * <p> 示例值：
+         */
+        this.workShift = builder.workShift;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 任职公司
+         * <p> 示例值：6890452208593372680
+         */
+        this.serviceCompany = builder.serviceCompany;
     }
 
     public static Builder newBuilder() {
@@ -519,20 +528,36 @@ public class JobData {
         this.costCenterRate = costCenterRate;
     }
 
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
     public Double getWeeklyWorkingHoursV2() {
         return this.weeklyWorkingHoursV2;
     }
 
     public void setWeeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
         this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+    }
+
+    public Enum getWorkShift() {
+        return this.workShift;
+    }
+
+    public void setWorkShift(Enum workShift) {
+        this.workShift = workShift;
+    }
+
+    public Enum getCompensationType() {
+        return this.compensationType;
+    }
+
+    public void setCompensationType(Enum compensationType) {
+        this.compensationType = compensationType;
+    }
+
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
     }
 
     public static class Builder {
@@ -657,15 +682,25 @@ public class JobData {
          */
         private SupportCostCenterItem[] costCenterRate;
         /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
          * 周工作时长v2
          * <p> 示例值：37.5
          */
         private Double weeklyWorkingHoursV2;
+        /**
+         * 排班类型
+         * <p> 示例值：
+         */
+        private Enum workShift;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        private Enum compensationType;
+        /**
+         * 任职公司
+         * <p> 示例值：6890452208593372680
+         */
+        private String serviceCompany;
 
         /**
          * 任职信息 ID
@@ -980,19 +1015,6 @@ public class JobData {
 
 
         /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
          * 周工作时长v2
          * <p> 示例值：37.5
          *
@@ -1001,6 +1023,45 @@ public class JobData {
          */
         public Builder weeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
             this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+            return this;
+        }
+
+
+        /**
+         * 排班类型
+         * <p> 示例值：
+         *
+         * @param workShift
+         * @return
+         */
+        public Builder workShift(Enum workShift) {
+            this.workShift = workShift;
+            return this;
+        }
+
+
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         *
+         * @param compensationType
+         * @return
+         */
+        public Builder compensationType(Enum compensationType) {
+            this.compensationType = compensationType;
+            return this;
+        }
+
+
+        /**
+         * 任职公司
+         * <p> 示例值：6890452208593372680
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
             return this;
         }
 

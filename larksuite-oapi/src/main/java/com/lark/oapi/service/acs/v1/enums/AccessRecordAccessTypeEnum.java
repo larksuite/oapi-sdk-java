@@ -20,6 +20,7 @@ public enum AccessRecordAccessTypeEnum {
     FACE("FA"), // 人脸识别方式
     QRCODE("QRCode"), // 二维码识别方式
     CARD("Card"), // 卡片识别方式
+    FP("Fp"), // 指纹识别方式
     ;
     private String value;
 

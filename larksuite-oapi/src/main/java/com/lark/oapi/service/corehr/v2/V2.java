@@ -47,6 +47,7 @@ public class V2 {
     private final Process process; // process
     private final ProcessApprover processApprover; // process.approver
     private final ProcessCc processCc; // process.cc
+    private final ProcessNode processNode; // process.node
 
     public V2(Config config) {
         this.basicInfoBank = new BasicInfoBank(config);
@@ -78,6 +79,7 @@ public class V2 {
         this.process = new Process(config);
         this.processApprover = new ProcessApprover(config);
         this.processCc = new ProcessCc(config);
+        this.processNode = new ProcessNode(config);
     }
 
     public BasicInfoBank basicInfoBank() {
@@ -194,5 +196,9 @@ public class V2 {
 
     public ProcessCc processCc() {
         return processCc;
+    }
+
+    public ProcessNode processNode() {
+        return processNode;
     }
 }

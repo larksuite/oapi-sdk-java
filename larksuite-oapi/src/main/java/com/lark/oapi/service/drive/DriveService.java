@@ -22,16 +22,14 @@ import com.lark.oapi.service.drive.v1.resource.FileComment;
 import com.lark.oapi.service.drive.v1.resource.FileCommentReply;
 import com.lark.oapi.service.drive.v1.resource.FileStatistics;
 import com.lark.oapi.service.drive.v1.resource.FileSubscription;
-import com.lark.oapi.service.drive.v1.resource.FileVersion;
 import com.lark.oapi.service.drive.v1.resource.FileViewRecord;
 import com.lark.oapi.service.drive.v1.resource.ImportTask;
 import com.lark.oapi.service.drive.v1.resource.Media;
 import com.lark.oapi.service.drive.v1.resource.Meta;
-import com.lark.oapi.service.drive.v1.resource.PermissionMember;
 import com.lark.oapi.service.drive.v1.resource.PermissionPublic;
 import com.lark.oapi.service.drive.v1.resource.PermissionPublicPassword;
+import com.lark.oapi.service.drive.v1.resource.*;
 import com.lark.oapi.service.drive.v2.V2;
-import com.lark.oapi.service.drive.v2.model.*;
 
 public class DriveService {
     private final V1 v1;
@@ -44,7 +42,7 @@ public class DriveService {
     private final FileVersion fileVersion; // 文档版本
     private final FileViewRecord fileViewRecord; // file.view_record
     private final ImportTask importTask; // 导入
-    private final Media media; // 素材
+    private final Media media; // 分片上传
     private final Meta meta; // meta
     private final PermissionMember permissionMember; // 成员
     private final PermissionPublic permissionPublic; // 设置

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TransferInfo {
     /**
@@ -329,6 +316,30 @@ public class TransferInfo {
      */
     @SerializedName("target_job_grade")
     private String targetJobGrade;
+    /**
+     * 原薪资类型
+     * <p> 示例值：hourly
+     */
+    @SerializedName("original_compensation_type")
+    private String originalCompensationType;
+    /**
+     * 新薪资类型
+     * <p> 示例值：salary
+     */
+    @SerializedName("target_compensation_type")
+    private String targetCompensationType;
+    /**
+     * 原任职公司
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("original_service_company")
+    private String originalServiceCompany;
+    /**
+     * 新任职公司
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("target_service_company")
+    private String targetServiceCompany;
 
     // builder 开始
     public TransferInfo() {
@@ -585,6 +596,26 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693366
          */
         this.targetJobGrade = builder.targetJobGrade;
+        /**
+         * 原薪资类型
+         * <p> 示例值：hourly
+         */
+        this.originalCompensationType = builder.originalCompensationType;
+        /**
+         * 新薪资类型
+         * <p> 示例值：salary
+         */
+        this.targetCompensationType = builder.targetCompensationType;
+        /**
+         * 原任职公司
+         * <p> 示例值：7289005963599693367
+         */
+        this.originalServiceCompany = builder.originalServiceCompany;
+        /**
+         * 新任职公司
+         * <p> 示例值：7289005963599693367
+         */
+        this.targetServiceCompany = builder.targetServiceCompany;
     }
 
     public static Builder newBuilder() {
@@ -991,6 +1022,38 @@ public class TransferInfo {
         this.targetJobGrade = targetJobGrade;
     }
 
+    public String getOriginalCompensationType() {
+        return this.originalCompensationType;
+    }
+
+    public void setOriginalCompensationType(String originalCompensationType) {
+        this.originalCompensationType = originalCompensationType;
+    }
+
+    public String getTargetCompensationType() {
+        return this.targetCompensationType;
+    }
+
+    public void setTargetCompensationType(String targetCompensationType) {
+        this.targetCompensationType = targetCompensationType;
+    }
+
+    public String getOriginalServiceCompany() {
+        return this.originalServiceCompany;
+    }
+
+    public void setOriginalServiceCompany(String originalServiceCompany) {
+        this.originalServiceCompany = originalServiceCompany;
+    }
+
+    public String getTargetServiceCompany() {
+        return this.targetServiceCompany;
+    }
+
+    public void setTargetServiceCompany(String targetServiceCompany) {
+        this.targetServiceCompany = targetServiceCompany;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1242,6 +1305,26 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693366
          */
         private String targetJobGrade;
+        /**
+         * 原薪资类型
+         * <p> 示例值：hourly
+         */
+        private String originalCompensationType;
+        /**
+         * 新薪资类型
+         * <p> 示例值：salary
+         */
+        private String targetCompensationType;
+        /**
+         * 原任职公司
+         * <p> 示例值：7289005963599693367
+         */
+        private String originalServiceCompany;
+        /**
+         * 新任职公司
+         * <p> 示例值：7289005963599693367
+         */
+        private String targetServiceCompany;
 
         /**
          * 备注
@@ -1889,6 +1972,58 @@ public class TransferInfo {
          */
         public Builder targetJobGrade(String targetJobGrade) {
             this.targetJobGrade = targetJobGrade;
+            return this;
+        }
+
+
+        /**
+         * 原薪资类型
+         * <p> 示例值：hourly
+         *
+         * @param originalCompensationType
+         * @return
+         */
+        public Builder originalCompensationType(String originalCompensationType) {
+            this.originalCompensationType = originalCompensationType;
+            return this;
+        }
+
+
+        /**
+         * 新薪资类型
+         * <p> 示例值：salary
+         *
+         * @param targetCompensationType
+         * @return
+         */
+        public Builder targetCompensationType(String targetCompensationType) {
+            this.targetCompensationType = targetCompensationType;
+            return this;
+        }
+
+
+        /**
+         * 原任职公司
+         * <p> 示例值：7289005963599693367
+         *
+         * @param originalServiceCompany
+         * @return
+         */
+        public Builder originalServiceCompany(String originalServiceCompany) {
+            this.originalServiceCompany = originalServiceCompany;
+            return this;
+        }
+
+
+        /**
+         * 新任职公司
+         * <p> 示例值：7289005963599693367
+         *
+         * @param targetServiceCompany
+         * @return
+         */
+        public Builder targetServiceCompany(String targetServiceCompany) {
+            this.targetServiceCompany = targetServiceCompany;
             return this;
         }
 

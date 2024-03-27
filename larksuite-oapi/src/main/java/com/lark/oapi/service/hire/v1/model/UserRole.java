@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserRole {
     /**
@@ -46,6 +34,24 @@ public class UserRole {
      */
     @SerializedName("modify_time")
     private String modifyTime;
+    /**
+     * 角色名称
+     * <p> 示例值：
+     */
+    @SerializedName("role_name")
+    private I18n roleName;
+    /**
+     * 角色描述
+     * <p> 示例值：
+     */
+    @SerializedName("role_description")
+    private I18n roleDescription;
+    /**
+     * 业务管理范围
+     * <p> 示例值：
+     */
+    @SerializedName("business_management_scopes")
+    private UserBusinessManagementScope businessManagementScopes;
 
     // builder 开始
     public UserRole() {
@@ -67,6 +73,21 @@ public class UserRole {
          * <p> 示例值：1618500278663
          */
         this.modifyTime = builder.modifyTime;
+        /**
+         * 角色名称
+         * <p> 示例值：
+         */
+        this.roleName = builder.roleName;
+        /**
+         * 角色描述
+         * <p> 示例值：
+         */
+        this.roleDescription = builder.roleDescription;
+        /**
+         * 业务管理范围
+         * <p> 示例值：
+         */
+        this.businessManagementScopes = builder.businessManagementScopes;
     }
 
     public static Builder newBuilder() {
@@ -97,6 +118,30 @@ public class UserRole {
         this.modifyTime = modifyTime;
     }
 
+    public I18n getRoleName() {
+        return this.roleName;
+    }
+
+    public void setRoleName(I18n roleName) {
+        this.roleName = roleName;
+    }
+
+    public I18n getRoleDescription() {
+        return this.roleDescription;
+    }
+
+    public void setRoleDescription(I18n roleDescription) {
+        this.roleDescription = roleDescription;
+    }
+
+    public UserBusinessManagementScope getBusinessManagementScopes() {
+        return this.businessManagementScopes;
+    }
+
+    public void setBusinessManagementScopes(UserBusinessManagementScope businessManagementScopes) {
+        this.businessManagementScopes = businessManagementScopes;
+    }
+
     public static class Builder {
         /**
          * 用户 ID
@@ -113,6 +158,21 @@ public class UserRole {
          * <p> 示例值：1618500278663
          */
         private String modifyTime;
+        /**
+         * 角色名称
+         * <p> 示例值：
+         */
+        private I18n roleName;
+        /**
+         * 角色描述
+         * <p> 示例值：
+         */
+        private I18n roleDescription;
+        /**
+         * 业务管理范围
+         * <p> 示例值：
+         */
+        private UserBusinessManagementScope businessManagementScopes;
 
         /**
          * 用户 ID
@@ -149,6 +209,45 @@ public class UserRole {
          */
         public Builder modifyTime(String modifyTime) {
             this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * 角色名称
+         * <p> 示例值：
+         *
+         * @param roleName
+         * @return
+         */
+        public Builder roleName(I18n roleName) {
+            this.roleName = roleName;
+            return this;
+        }
+
+
+        /**
+         * 角色描述
+         * <p> 示例值：
+         *
+         * @param roleDescription
+         * @return
+         */
+        public Builder roleDescription(I18n roleDescription) {
+            this.roleDescription = roleDescription;
+            return this;
+        }
+
+
+        /**
+         * 业务管理范围
+         * <p> 示例值：
+         *
+         * @param businessManagementScopes
+         * @return
+         */
+        public Builder businessManagementScopes(UserBusinessManagementScope businessManagementScopes) {
+            this.businessManagementScopes = businessManagementScopes;
             return this;
         }
 

@@ -13,9 +13,7 @@
 package com.lark.oapi.service.workplace;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.workplace.v1.V1;
-import com.lark.oapi.service.workplace.v1.model.*;
 import com.lark.oapi.service.workplace.v1.resource.CustomWorkplaceAccessData;
 import com.lark.oapi.service.workplace.v1.resource.WorkplaceAccessData;
 import com.lark.oapi.service.workplace.v1.resource.WorkplaceBlockAccessData;

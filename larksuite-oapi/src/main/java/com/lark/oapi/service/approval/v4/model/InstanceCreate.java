@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceCreate {
     /**
@@ -131,6 +118,12 @@ public class InstanceCreate {
      */
     @SerializedName("title_display_method")
     private Integer titleDisplayMethod;
+    /**
+     * 自动通过节点ID
+     * <p> 示例值：
+     */
+    @SerializedName("node_auto_approval_list")
+    private NodeAutoApproval[] nodeAutoApprovalList;
 
     // builder 开始
     public InstanceCreate() {
@@ -222,6 +215,11 @@ public class InstanceCreate {
          * <p> 示例值：0
          */
         this.titleDisplayMethod = builder.titleDisplayMethod;
+        /**
+         * 自动通过节点ID
+         * <p> 示例值：
+         */
+        this.nodeAutoApprovalList = builder.nodeAutoApprovalList;
     }
 
     public static Builder newBuilder() {
@@ -364,6 +362,14 @@ public class InstanceCreate {
         this.titleDisplayMethod = titleDisplayMethod;
     }
 
+    public NodeAutoApproval[] getNodeAutoApprovalList() {
+        return this.nodeAutoApprovalList;
+    }
+
+    public void setNodeAutoApprovalList(NodeAutoApproval[] nodeAutoApprovalList) {
+        this.nodeAutoApprovalList = nodeAutoApprovalList;
+    }
+
     public static class Builder {
         /**
          * 审批定义 code
@@ -450,6 +456,11 @@ public class InstanceCreate {
          * <p> 示例值：0
          */
         private Integer titleDisplayMethod;
+        /**
+         * 自动通过节点ID
+         * <p> 示例值：
+         */
+        private NodeAutoApproval[] nodeAutoApprovalList;
 
         /**
          * 审批定义 code
@@ -680,6 +691,19 @@ public class InstanceCreate {
          */
         public Builder titleDisplayMethod(com.lark.oapi.service.approval.v4.enums.InstanceCreateTitleDisplayMethodEnum titleDisplayMethod) {
             this.titleDisplayMethod = titleDisplayMethod.getValue();
+            return this;
+        }
+
+
+        /**
+         * 自动通过节点ID
+         * <p> 示例值：
+         *
+         * @param nodeAutoApprovalList
+         * @return
+         */
+        public Builder nodeAutoApprovalList(NodeAutoApproval[] nodeAutoApprovalList) {
+            this.nodeAutoApprovalList = nodeAutoApprovalList;
             return this;
         }
 

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicInfo {
     /**
@@ -107,6 +94,12 @@ public class BasicInfo {
      */
     @SerializedName("worker_id")
     private String workerId;
+    /**
+     * 数据驻留地
+     * <p> 示例值：cn
+     */
+    @SerializedName("user_geo")
+    private String userGeo;
 
     // builder 开始
     public BasicInfo() {
@@ -178,6 +171,11 @@ public class BasicInfo {
          * <p> 示例值：6862995757234914824
          */
         this.workerId = builder.workerId;
+        /**
+         * 数据驻留地
+         * <p> 示例值：cn
+         */
+        this.userGeo = builder.userGeo;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +286,14 @@ public class BasicInfo {
         this.workerId = workerId;
     }
 
+    public String getUserGeo() {
+        return this.userGeo;
+    }
+
+    public void setUserGeo(String userGeo) {
+        this.userGeo = userGeo;
+    }
+
     public static class Builder {
         /**
          * 描述
@@ -354,6 +360,11 @@ public class BasicInfo {
          * <p> 示例值：6862995757234914824
          */
         private String workerId;
+        /**
+         * 数据驻留地
+         * <p> 示例值：cn
+         */
+        private String userGeo;
 
         /**
          * 描述
@@ -520,6 +531,19 @@ public class BasicInfo {
          */
         public Builder workerId(String workerId) {
             this.workerId = workerId;
+            return this;
+        }
+
+
+        /**
+         * 数据驻留地
+         * <p> 示例值：cn
+         *
+         * @param userGeo
+         * @return
+         */
+        public Builder userGeo(String userGeo) {
+            this.userGeo = userGeo;
             return this;
         }
 

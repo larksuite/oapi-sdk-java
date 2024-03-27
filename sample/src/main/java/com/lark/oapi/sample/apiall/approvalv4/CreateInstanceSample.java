@@ -32,6 +32,7 @@ public class CreateInstanceSample{
 				 .i18nResources(new I18nResource[]{})
 				 .title("@i18n@1")
 				 .titleDisplayMethod(0)
+				 .nodeAutoApprovalList(new NodeAutoApproval[]{})
 				  .build())
 			 .build();
 

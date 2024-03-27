@@ -13,14 +13,8 @@
 package com.lark.oapi.service.wiki;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.wiki.v2.V2;
-import com.lark.oapi.service.wiki.v2.model.*;
-import com.lark.oapi.service.wiki.v2.resource.Space;
-import com.lark.oapi.service.wiki.v2.resource.SpaceMember;
-import com.lark.oapi.service.wiki.v2.resource.SpaceNode;
-import com.lark.oapi.service.wiki.v2.resource.SpaceSetting;
-import com.lark.oapi.service.wiki.v2.resource.Task;
+import com.lark.oapi.service.wiki.v2.resource.*;
 
 public class WikiService {
     private final V2 v2;

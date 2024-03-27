@@ -18,15 +18,7 @@ public class CreateFileVersionSample{
 			 .userIdType("user_id")
 			.version(Version.newBuilder()
 				 .name("文档标题")
-				 .version("version1")
-				 .parentToken("doxcnMycg4ryxQofSeoKkJuXYOb")
-				 .ownerId("694699009591869450")
-				 .creatorId("694699009591869451")
-				 .createTime("1660708537")
-				 .updateTime("1660708537")
-				 .status("0，1，2")
 				 .objType("docx")
-				 .parentType("docx")
 				  .build())
 			 .build();
 

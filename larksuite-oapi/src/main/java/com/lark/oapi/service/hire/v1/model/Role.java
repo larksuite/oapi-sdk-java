@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Role {
     /**
@@ -46,6 +34,12 @@ public class Role {
      */
     @SerializedName("description")
     private I18n description;
+    /**
+     * 适用范围
+     * <p> 示例值：1
+     */
+    @SerializedName("scope_of_application")
+    private Integer scopeOfApplication;
 
     // builder 开始
     public Role() {
@@ -67,6 +61,11 @@ public class Role {
          * <p> 示例值：
          */
         this.description = builder.description;
+        /**
+         * 适用范围
+         * <p> 示例值：1
+         */
+        this.scopeOfApplication = builder.scopeOfApplication;
     }
 
     public static Builder newBuilder() {
@@ -97,6 +96,14 @@ public class Role {
         this.description = description;
     }
 
+    public Integer getScopeOfApplication() {
+        return this.scopeOfApplication;
+    }
+
+    public void setScopeOfApplication(Integer scopeOfApplication) {
+        this.scopeOfApplication = scopeOfApplication;
+    }
+
     public static class Builder {
         /**
          * 角色 ID
@@ -113,6 +120,11 @@ public class Role {
          * <p> 示例值：
          */
         private I18n description;
+        /**
+         * 适用范围
+         * <p> 示例值：1
+         */
+        private Integer scopeOfApplication;
 
         /**
          * 角色 ID
@@ -149,6 +161,19 @@ public class Role {
          */
         public Builder description(I18n description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 适用范围
+         * <p> 示例值：1
+         *
+         * @param scopeOfApplication
+         * @return
+         */
+        public Builder scopeOfApplication(Integer scopeOfApplication) {
+            this.scopeOfApplication = scopeOfApplication;
             return this;
         }
 

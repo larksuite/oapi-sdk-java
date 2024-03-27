@@ -17,23 +17,15 @@ import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.vc.v1.V1;
 import com.lark.oapi.service.vc.v1.model.*;
 import com.lark.oapi.service.vc.v1.resource.Alert;
-import com.lark.oapi.service.vc.v1.resource.Export;
 import com.lark.oapi.service.vc.v1.resource.Meeting;
 import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
-import com.lark.oapi.service.vc.v1.resource.MeetingList;
-import com.lark.oapi.service.vc.v1.resource.ParticipantList;
-import com.lark.oapi.service.vc.v1.resource.ParticipantQualityList;
 import com.lark.oapi.service.vc.v1.resource.Report;
 import com.lark.oapi.service.vc.v1.resource.Reserve;
-import com.lark.oapi.service.vc.v1.resource.ReserveConfig;
-import com.lark.oapi.service.vc.v1.resource.ReserveConfigAdmin;
-import com.lark.oapi.service.vc.v1.resource.ReserveConfigDisableInform;
-import com.lark.oapi.service.vc.v1.resource.ReserveConfigForm;
-import com.lark.oapi.service.vc.v1.resource.ResourceReservationList;
 import com.lark.oapi.service.vc.v1.resource.Room;
 import com.lark.oapi.service.vc.v1.resource.RoomConfig;
 import com.lark.oapi.service.vc.v1.resource.RoomLevel;
 import com.lark.oapi.service.vc.v1.resource.ScopeConfig;
+import com.lark.oapi.service.vc.v1.resource.*;
 
 public class VcService {
     private final V1 v1;

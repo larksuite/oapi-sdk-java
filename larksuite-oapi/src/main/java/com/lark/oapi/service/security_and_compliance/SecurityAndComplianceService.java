@@ -13,9 +13,7 @@
 package com.lark.oapi.service.security_and_compliance;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.security_and_compliance.v1.V1;
-import com.lark.oapi.service.security_and_compliance.v1.model.*;
 import com.lark.oapi.service.security_and_compliance.v1.resource.OpenapiLog;
 
 public class SecurityAndComplianceService {

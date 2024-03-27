@@ -13,9 +13,7 @@
 package com.lark.oapi.service.mdm;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.mdm.v1.V1;
-import com.lark.oapi.service.mdm.v1.model.*;
 import com.lark.oapi.service.mdm.v1.resource.UserAuthDataRelation;
 
 public class MdmService {

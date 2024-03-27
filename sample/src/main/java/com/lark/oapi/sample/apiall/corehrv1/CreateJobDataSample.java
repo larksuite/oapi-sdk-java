@@ -39,7 +39,9 @@ public class CreateJobDataSample{
 				 .dottedLineManagerIdList(new String[]{})
 				 .secondDirectManagerId("6890452208593372679")
 				 .costCenterRate(new SupportCostCenterItem[]{})
-				 .customFields(new ObjectFieldData[]{})
+				 .workShift(Enum.newBuilder().build())
+				 .compensationType(Enum.newBuilder().build())
+				 .serviceCompany("6890452208593372680")
 				  .build())
 			 .build();
 

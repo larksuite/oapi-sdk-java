@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocPassageParam {
     /**
@@ -53,6 +40,12 @@ public class DocPassageParam {
      */
     @SerializedName("obj_ids")
     private String[] objIds;
+    /**
+     * 禁用搜索外链文档功能
+     * <p> 示例值：false
+     */
+    @SerializedName("disable_search_link")
+    private Boolean disableSearchLink;
 
     // builder 开始
     public DocPassageParam() {
@@ -79,6 +72,11 @@ public class DocPassageParam {
          * <p> 示例值：
          */
         this.objIds = builder.objIds;
+        /**
+         * 禁用搜索外链文档功能
+         * <p> 示例值：false
+         */
+        this.disableSearchLink = builder.disableSearchLink;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +115,14 @@ public class DocPassageParam {
         this.objIds = objIds;
     }
 
+    public Boolean getDisableSearchLink() {
+        return this.disableSearchLink;
+    }
+
+    public void setDisableSearchLink(Boolean disableSearchLink) {
+        this.disableSearchLink = disableSearchLink;
+    }
+
     public static class Builder {
         /**
          * 是否要搜索doc
@@ -138,6 +144,11 @@ public class DocPassageParam {
          * <p> 示例值：
          */
         private String[] objIds;
+        /**
+         * 禁用搜索外链文档功能
+         * <p> 示例值：false
+         */
+        private Boolean disableSearchLink;
 
         /**
          * 是否要搜索doc
@@ -187,6 +198,19 @@ public class DocPassageParam {
          */
         public Builder objIds(String[] objIds) {
             this.objIds = objIds;
+            return this;
+        }
+
+
+        /**
+         * 禁用搜索外链文档功能
+         * <p> 示例值：false
+         *
+         * @param disableSearchLink
+         * @return
+         */
+        public Builder disableSearchLink(Boolean disableSearchLink) {
+            this.disableSearchLink = disableSearchLink;
             return this;
         }
 

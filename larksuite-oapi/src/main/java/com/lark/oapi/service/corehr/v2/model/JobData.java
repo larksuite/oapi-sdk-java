@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobData {
     /**
@@ -168,11 +155,23 @@ public class JobData {
     @SerializedName("cost_center_rates")
     private JobDataCostCenter[] costCenterRates;
     /**
-     * 自定义字段
+     * 排班类型
      * <p> 示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
+    @SerializedName("work_shift")
+    private Enum workShift;
+    /**
+     * 薪资类型
+     * <p> 示例值：
+     */
+    @SerializedName("compensation_type")
+    private Enum compensationType;
+    /**
+     * 任职公司
+     * <p> 示例值：6890452208593372680
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
 
     // builder 开始
     public JobData() {
@@ -295,10 +294,20 @@ public class JobData {
          */
         this.costCenterRates = builder.costCenterRates;
         /**
-         * 自定义字段
+         * 排班类型
          * <p> 示例值：
          */
-        this.customFields = builder.customFields;
+        this.workShift = builder.workShift;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 任职公司
+         * <p> 示例值：6890452208593372680
+         */
+        this.serviceCompany = builder.serviceCompany;
     }
 
     public static Builder newBuilder() {
@@ -489,12 +498,28 @@ public class JobData {
         this.costCenterRates = costCenterRates;
     }
 
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
+    public Enum getWorkShift() {
+        return this.workShift;
     }
 
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
+    public void setWorkShift(Enum workShift) {
+        this.workShift = workShift;
+    }
+
+    public Enum getCompensationType() {
+        return this.compensationType;
+    }
+
+    public void setCompensationType(Enum compensationType) {
+        this.compensationType = compensationType;
+    }
+
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
     }
 
     public static class Builder {
@@ -614,10 +639,20 @@ public class JobData {
          */
         private JobDataCostCenter[] costCenterRates;
         /**
-         * 自定义字段
+         * 排班类型
          * <p> 示例值：
          */
-        private CustomFieldData[] customFields;
+        private Enum workShift;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        private Enum compensationType;
+        /**
+         * 任职公司
+         * <p> 示例值：6890452208593372680
+         */
+        private String serviceCompany;
 
         /**
          * 任职信息 ID
@@ -919,14 +954,40 @@ public class JobData {
 
 
         /**
-         * 自定义字段
+         * 排班类型
          * <p> 示例值：
          *
-         * @param customFields
+         * @param workShift
          * @return
          */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
+        public Builder workShift(Enum workShift) {
+            this.workShift = workShift;
+            return this;
+        }
+
+
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         *
+         * @param compensationType
+         * @return
+         */
+        public Builder compensationType(Enum compensationType) {
+            this.compensationType = compensationType;
+            return this;
+        }
+
+
+        /**
+         * 任职公司
+         * <p> 示例值：6890452208593372680
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
             return this;
         }
 

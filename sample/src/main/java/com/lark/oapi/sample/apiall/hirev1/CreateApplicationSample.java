@@ -14,9 +14,11 @@ public class CreateApplicationSample{
 
 	  // 创建请求对象
 	  CreateApplicationReq req = CreateApplicationReq.newBuilder()
+			 .userIdType("user_id")
 			.createApplicationReqBody(CreateApplicationReqBody.newBuilder()
 				 .talentId("12312312312")
 				 .jobId("12312312312")
+				 .userId("6930815272790114324")
 				 .resumeSourceId("7115289562569591070")
 				 .applicationPreferredCityCodeList(new String[]{})
 				  .build())

@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateApplicationReqBody {
     /**
@@ -40,6 +28,12 @@ public class CreateApplicationReqBody {
      */
     @SerializedName("job_id")
     private String jobId;
+    /**
+     * 人员ID
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("user_id")
+    private String userId;
     /**
      * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
      * <p> 示例值：7115289562569591070
@@ -68,6 +62,11 @@ public class CreateApplicationReqBody {
          * <p> 示例值：12312312312
          */
         this.jobId = builder.jobId;
+        /**
+         * 人员ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.userId = builder.userId;
         /**
          * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
          * <p> 示例值：7115289562569591070
@@ -100,6 +99,14 @@ public class CreateApplicationReqBody {
         this.jobId = jobId;
     }
 
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getResumeSourceId() {
         return this.resumeSourceId;
     }
@@ -127,6 +134,11 @@ public class CreateApplicationReqBody {
          * <p> 示例值：12312312312
          */
         private String jobId;
+        /**
+         * 人员ID
+         * <p> 示例值：6930815272790114324
+         */
+        private String userId;
         /**
          * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
          * <p> 示例值：7115289562569591070
@@ -160,6 +172,19 @@ public class CreateApplicationReqBody {
          */
         public Builder jobId(String jobId) {
             this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 人员ID
+         * <p> 示例值：6930815272790114324
+         *
+         * @param userId
+         * @return
+         */
+        public Builder userId(String userId) {
+            this.userId = userId;
             return this;
         }
 

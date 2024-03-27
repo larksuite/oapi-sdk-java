@@ -18,6 +18,8 @@ public class CreateExternalInterviewSample{
 				 .externalId("123")
 				 .externalApplicationId("6960663240925956437")
 				 .participateStatus(1)
+				 .beginTime(1618500278)
+				 .endTime(1618500278)
 				  .build())
 			 .build();
 

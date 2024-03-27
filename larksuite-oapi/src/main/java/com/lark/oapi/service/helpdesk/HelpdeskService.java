@@ -15,20 +15,11 @@ package com.lark.oapi.service.helpdesk;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.helpdesk.v1.V1;
-import com.lark.oapi.service.helpdesk.v1.model.*;
-import com.lark.oapi.service.helpdesk.v1.resource.Agent;
-import com.lark.oapi.service.helpdesk.v1.resource.AgentSchedules;
-import com.lark.oapi.service.helpdesk.v1.resource.AgentSchedule;
-import com.lark.oapi.service.helpdesk.v1.resource.AgentSkill;
-import com.lark.oapi.service.helpdesk.v1.resource.AgentSkillRule;
-import com.lark.oapi.service.helpdesk.v1.resource.BotMessage;
-import com.lark.oapi.service.helpdesk.v1.resource.Category;
-import com.lark.oapi.service.helpdesk.v1.resource.Event;
-import com.lark.oapi.service.helpdesk.v1.resource.Faq;
-import com.lark.oapi.service.helpdesk.v1.resource.Notification;
-import com.lark.oapi.service.helpdesk.v1.resource.Ticket;
-import com.lark.oapi.service.helpdesk.v1.resource.TicketMessage;
-import com.lark.oapi.service.helpdesk.v1.resource.TicketCustomizedField;
+import com.lark.oapi.service.helpdesk.v1.model.P2NotificationApproveV1;
+import com.lark.oapi.service.helpdesk.v1.model.P2TicketCreatedV1;
+import com.lark.oapi.service.helpdesk.v1.model.P2TicketMessageCreatedV1;
+import com.lark.oapi.service.helpdesk.v1.model.P2TicketUpdatedV1;
+import com.lark.oapi.service.helpdesk.v1.resource.*;
 
 public class HelpdeskService {
     private final V1 v1;

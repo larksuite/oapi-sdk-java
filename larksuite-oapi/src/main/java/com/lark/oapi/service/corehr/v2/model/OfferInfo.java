@@ -215,6 +215,24 @@ public class OfferInfo {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 任职公司
+     * <p> 示例值：6738317738688661772
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
+    /**
+     * 排班
+     * <p> 示例值：work_shift
+     */
+    @SerializedName("work_shift")
+    private String workShift;
+    /**
+     * 薪资类型
+     * <p> 示例值：hourly
+     */
+    @SerializedName("compensation_type")
+    private String compensationType;
 
     // builder 开始
     public OfferInfo() {
@@ -376,6 +394,21 @@ public class OfferInfo {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         */
+        this.serviceCompany = builder.serviceCompany;
+        /**
+         * 排班
+         * <p> 示例值：work_shift
+         */
+        this.workShift = builder.workShift;
+        /**
+         * 薪资类型
+         * <p> 示例值：hourly
+         */
+        this.compensationType = builder.compensationType;
     }
 
     public static Builder newBuilder() {
@@ -630,6 +663,30 @@ public class OfferInfo {
         this.customFields = customFields;
     }
 
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
+    }
+
+    public String getWorkShift() {
+        return this.workShift;
+    }
+
+    public void setWorkShift(String workShift) {
+        this.workShift = workShift;
+    }
+
+    public String getCompensationType() {
+        return this.compensationType;
+    }
+
+    public void setCompensationType(String compensationType) {
+        this.compensationType = compensationType;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -786,6 +843,21 @@ public class OfferInfo {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         */
+        private String serviceCompany;
+        /**
+         * 排班
+         * <p> 示例值：work_shift
+         */
+        private String workShift;
+        /**
+         * 薪资类型
+         * <p> 示例值：hourly
+         */
+        private String compensationType;
 
         /**
          * Offer id
@@ -1186,6 +1258,45 @@ public class OfferInfo {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
+            return this;
+        }
+
+
+        /**
+         * 排班
+         * <p> 示例值：work_shift
+         *
+         * @param workShift
+         * @return
+         */
+        public Builder workShift(String workShift) {
+            this.workShift = workShift;
+            return this;
+        }
+
+
+        /**
+         * 薪资类型
+         * <p> 示例值：hourly
+         *
+         * @param compensationType
+         * @return
+         */
+        public Builder compensationType(String compensationType) {
+            this.compensationType = compensationType;
             return this;
         }
 

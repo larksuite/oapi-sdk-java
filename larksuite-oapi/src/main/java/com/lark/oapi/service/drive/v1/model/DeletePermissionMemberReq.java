@@ -13,19 +13,10 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeletePermissionMemberReq {
     /**
@@ -56,6 +47,8 @@ public class DeletePermissionMemberReq {
     @Path
     @SerializedName("member_id")
     private String memberId;
+    @Body
+    private DeletePermissionMemberReqBody body;
 
     // builder 开始
     public DeletePermissionMemberReq() {
@@ -82,6 +75,7 @@ public class DeletePermissionMemberReq {
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
          */
         this.memberId = builder.memberId;
+        this.body = builder.body;
     }
 
     public static Builder newBuilder() {
@@ -120,11 +114,20 @@ public class DeletePermissionMemberReq {
         this.memberId = memberId;
     }
 
+    public DeletePermissionMemberReqBody getDeletePermissionMemberReqBody() {
+        return this.body;
+    }
+
+    public void setDeletePermissionMemberReqBody(DeletePermissionMemberReqBody body) {
+        this.body = body;
+    }
+
     public static class Builder {
         private String type; // 文件类型，需要与文件的 token 相匹配
         private String memberType; // 协作者 ID 类型，与协作者 ID 需要对应
         private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
         private String memberId; // 协作者 ID，与协作者 ID 类型需要对应
+        private DeletePermissionMemberReqBody body;
 
         /**
          * 文件类型，需要与文件的 token 相匹配
@@ -186,7 +189,6 @@ public class DeletePermissionMemberReq {
             return this;
         }
 
-
         /**
          * 协作者 ID，与协作者 ID 类型需要对应
          * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
@@ -196,6 +198,21 @@ public class DeletePermissionMemberReq {
          */
         public Builder memberId(String memberId) {
             this.memberId = memberId;
+            return this;
+        }
+
+        public DeletePermissionMemberReqBody getDeletePermissionMemberReqBody() {
+            return this.body;
+        }
+
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder deletePermissionMemberReqBody(DeletePermissionMemberReqBody body) {
+            this.body = body;
             return this;
         }
 

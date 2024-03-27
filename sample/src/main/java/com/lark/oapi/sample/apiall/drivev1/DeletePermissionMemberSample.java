@@ -18,6 +18,9 @@ public class DeletePermissionMemberSample{
 			 .memberId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
 			 .type("doc")
 			 .memberType("openid")
+			.deletePermissionMemberReqBody(DeletePermissionMemberReqBody.newBuilder()
+				 .type("user")
+				  .build())
 			 .build();
 
 	  // 发起请求

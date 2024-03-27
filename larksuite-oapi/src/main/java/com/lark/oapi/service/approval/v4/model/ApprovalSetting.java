@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalSetting {
     /**
@@ -53,6 +40,30 @@ public class ApprovalSetting {
      */
     @SerializedName("quick_approval_option")
     private Integer quickApprovalOption;
+    /**
+     * 流程关闭超时配置，传true就是关闭超时配置
+     * <p> 示例值：true
+     */
+    @SerializedName("overtime_disable")
+    private Boolean overtimeDisable;
+    /**
+     * 单据未处理超时时间，单位天
+     * <p> 示例值：0
+     */
+    @SerializedName("overtime_notice_time")
+    private Integer overtimeNoticeTime;
+    /**
+     * 单据已超时后，自动关闭时间，单位天
+     * <p> 示例值：0
+     */
+    @SerializedName("overtime_close_time")
+    private Integer overtimeCloseTime;
+    /**
+     * 单据自动关闭后，可恢复时间，单位天
+     * <p> 示例值：0
+     */
+    @SerializedName("overtime_recover_time")
+    private Integer overtimeRecoverTime;
 
     // builder 开始
     public ApprovalSetting() {
@@ -79,6 +90,26 @@ public class ApprovalSetting {
          * <p> 示例值：1
          */
         this.quickApprovalOption = builder.quickApprovalOption;
+        /**
+         * 流程关闭超时配置，传true就是关闭超时配置
+         * <p> 示例值：true
+         */
+        this.overtimeDisable = builder.overtimeDisable;
+        /**
+         * 单据未处理超时时间，单位天
+         * <p> 示例值：0
+         */
+        this.overtimeNoticeTime = builder.overtimeNoticeTime;
+        /**
+         * 单据已超时后，自动关闭时间，单位天
+         * <p> 示例值：0
+         */
+        this.overtimeCloseTime = builder.overtimeCloseTime;
+        /**
+         * 单据自动关闭后，可恢复时间，单位天
+         * <p> 示例值：0
+         */
+        this.overtimeRecoverTime = builder.overtimeRecoverTime;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +148,38 @@ public class ApprovalSetting {
         this.quickApprovalOption = quickApprovalOption;
     }
 
+    public Boolean getOvertimeDisable() {
+        return this.overtimeDisable;
+    }
+
+    public void setOvertimeDisable(Boolean overtimeDisable) {
+        this.overtimeDisable = overtimeDisable;
+    }
+
+    public Integer getOvertimeNoticeTime() {
+        return this.overtimeNoticeTime;
+    }
+
+    public void setOvertimeNoticeTime(Integer overtimeNoticeTime) {
+        this.overtimeNoticeTime = overtimeNoticeTime;
+    }
+
+    public Integer getOvertimeCloseTime() {
+        return this.overtimeCloseTime;
+    }
+
+    public void setOvertimeCloseTime(Integer overtimeCloseTime) {
+        this.overtimeCloseTime = overtimeCloseTime;
+    }
+
+    public Integer getOvertimeRecoverTime() {
+        return this.overtimeRecoverTime;
+    }
+
+    public void setOvertimeRecoverTime(Integer overtimeRecoverTime) {
+        this.overtimeRecoverTime = overtimeRecoverTime;
+    }
+
     public static class Builder {
         /**
          * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
@@ -138,6 +201,26 @@ public class ApprovalSetting {
          * <p> 示例值：1
          */
         private Integer quickApprovalOption;
+        /**
+         * 流程关闭超时配置，传true就是关闭超时配置
+         * <p> 示例值：true
+         */
+        private Boolean overtimeDisable;
+        /**
+         * 单据未处理超时时间，单位天
+         * <p> 示例值：0
+         */
+        private Integer overtimeNoticeTime;
+        /**
+         * 单据已超时后，自动关闭时间，单位天
+         * <p> 示例值：0
+         */
+        private Integer overtimeCloseTime;
+        /**
+         * 单据自动关闭后，可恢复时间，单位天
+         * <p> 示例值：0
+         */
+        private Integer overtimeRecoverTime;
 
         /**
          * 审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回
@@ -211,6 +294,58 @@ public class ApprovalSetting {
          */
         public Builder quickApprovalOption(com.lark.oapi.service.approval.v4.enums.ApprovalSettingQuickApprovalOptionEnum quickApprovalOption) {
             this.quickApprovalOption = quickApprovalOption.getValue();
+            return this;
+        }
+
+
+        /**
+         * 流程关闭超时配置，传true就是关闭超时配置
+         * <p> 示例值：true
+         *
+         * @param overtimeDisable
+         * @return
+         */
+        public Builder overtimeDisable(Boolean overtimeDisable) {
+            this.overtimeDisable = overtimeDisable;
+            return this;
+        }
+
+
+        /**
+         * 单据未处理超时时间，单位天
+         * <p> 示例值：0
+         *
+         * @param overtimeNoticeTime
+         * @return
+         */
+        public Builder overtimeNoticeTime(Integer overtimeNoticeTime) {
+            this.overtimeNoticeTime = overtimeNoticeTime;
+            return this;
+        }
+
+
+        /**
+         * 单据已超时后，自动关闭时间，单位天
+         * <p> 示例值：0
+         *
+         * @param overtimeCloseTime
+         * @return
+         */
+        public Builder overtimeCloseTime(Integer overtimeCloseTime) {
+            this.overtimeCloseTime = overtimeCloseTime;
+            return this;
+        }
+
+
+        /**
+         * 单据自动关闭后，可恢复时间，单位天
+         * <p> 示例值：0
+         *
+         * @param overtimeRecoverTime
+         * @return
+         */
+        public Builder overtimeRecoverTime(Integer overtimeRecoverTime) {
+            this.overtimeRecoverTime = overtimeRecoverTime;
             return this;
         }
 

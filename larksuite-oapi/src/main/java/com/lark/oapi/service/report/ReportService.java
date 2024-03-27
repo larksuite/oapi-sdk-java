@@ -13,9 +13,7 @@
 package com.lark.oapi.service.report;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.report.v1.V1;
-import com.lark.oapi.service.report.v1.model.*;
 
 public class ReportService {
     private final V1 v1;

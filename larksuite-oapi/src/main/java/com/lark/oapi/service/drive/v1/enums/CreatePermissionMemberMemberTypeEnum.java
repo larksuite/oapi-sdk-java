@@ -18,10 +18,13 @@ package com.lark.oapi.service.drive.v1.enums;
  */
 public enum CreatePermissionMemberMemberTypeEnum {
     EMAIL("email"), // 飞书邮箱
-    OPEN_ID("openid"), // 开放平台ID
+    OPEN_ID("openid"), // 开放平台OpenID
+    UNION_ID("unionid"), // 开放平台UnionID
     OPEN_CHAT("openchat"), // 开放平台群组ID
     OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门ID
     USER_ID("userid"), // 用户自定义ID
+    GROUP_ID("groupid"), // 自定义用户组ID
+    WIKI_SPACE_ID("wikispaceid"), // 知识空间的唯一标识
     ;
     private String value;
 

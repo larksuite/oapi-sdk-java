@@ -21,11 +21,10 @@ import com.lark.oapi.service.application.v6.resource.AppRecommendRule;
 import com.lark.oapi.service.application.v6.resource.Application;
 import com.lark.oapi.service.application.v6.resource.ApplicationAppUsage;
 import com.lark.oapi.service.application.v6.resource.ApplicationAppVersion;
-import com.lark.oapi.service.application.v6.resource.ApplicationContactsRange;
 import com.lark.oapi.service.application.v6.resource.ApplicationFeedback;
-import com.lark.oapi.service.application.v6.resource.ApplicationManagement;
 import com.lark.oapi.service.application.v6.resource.ApplicationVisibility;
 import com.lark.oapi.service.application.v6.resource.Bot;
+import com.lark.oapi.service.application.v6.resource.*;
 
 public class ApplicationService {
     private final V6 v6;

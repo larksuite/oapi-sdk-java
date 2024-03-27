@@ -14,7 +14,7 @@
 package com.lark.oapi.service.meeting_room.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.meeting_room.v1.resource.*;
+import com.lark.oapi.service.meeting_room.v1.resource.MeetingRoom;
 
 public class V1 {
     private final MeetingRoom meetingRoom; // 事件

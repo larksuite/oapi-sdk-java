@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BaseMember {
     /**
@@ -47,6 +34,12 @@ public class BaseMember {
      */
     @SerializedName("perm")
     private String perm;
+    /**
+     * 协作者类型
+     * <p> 示例值：user
+     */
+    @SerializedName("type")
+    private String type;
 
     // builder 开始
     public BaseMember() {
@@ -68,6 +61,11 @@ public class BaseMember {
          * <p> 示例值：view
          */
         this.perm = builder.perm;
+        /**
+         * 协作者类型
+         * <p> 示例值：user
+         */
+        this.type = builder.type;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +96,14 @@ public class BaseMember {
         this.perm = perm;
     }
 
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public static class Builder {
         /**
          * 协作者 ID 类型，与协作者 ID 需要对应
@@ -114,6 +120,11 @@ public class BaseMember {
          * <p> 示例值：view
          */
         private String perm;
+        /**
+         * 协作者类型
+         * <p> 示例值：user
+         */
+        private String type;
 
         /**
          * 协作者 ID 类型，与协作者 ID 需要对应
@@ -174,6 +185,31 @@ public class BaseMember {
          */
         public Builder perm(com.lark.oapi.service.drive.v1.enums.BaseMemberPermEnum perm) {
             this.perm = perm.getValue();
+            return this;
+        }
+
+
+        /**
+         * 协作者类型
+         * <p> 示例值：user
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 协作者类型
+         * <p> 示例值：user
+         *
+         * @param type {@link com.lark.oapi.service.drive.v1.enums.BaseMemberTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.drive.v1.enums.BaseMemberTypeEnum type) {
+            this.type = type.getValue();
             return this;
         }
 

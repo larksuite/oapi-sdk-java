@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Employment {
     /**
@@ -205,10 +192,28 @@ public class Employment {
     private Enum rehire;
     /**
      * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
-     * <p> 示例值：7164286667866966659
+     * <p> 示例值：7174374910734141111
      */
     @SerializedName("rehire_employment_id")
     private String rehireEmploymentId;
+    /**
+     * 任职公司
+     * <p> 示例值：7174374910734141112
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
+    /**
+     * 薪资类型
+     * <p> 示例值：
+     */
+    @SerializedName("compensation_type")
+    private Enum compensationType;
+    /**
+     * 排班类型
+     * <p> 示例值：
+     */
+    @SerializedName("work_shift")
+    private Enum workShift;
 
     // builder 开始
     public Employment() {
@@ -362,9 +367,24 @@ public class Employment {
         this.rehire = builder.rehire;
         /**
          * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
-         * <p> 示例值：7164286667866966659
+         * <p> 示例值：7174374910734141111
          */
         this.rehireEmploymentId = builder.rehireEmploymentId;
+        /**
+         * 任职公司
+         * <p> 示例值：7174374910734141112
+         */
+        this.serviceCompany = builder.serviceCompany;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 排班类型
+         * <p> 示例值：
+         */
+        this.workShift = builder.workShift;
     }
 
     public static Builder newBuilder() {
@@ -611,6 +631,30 @@ public class Employment {
         this.rehireEmploymentId = rehireEmploymentId;
     }
 
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
+    }
+
+    public Enum getCompensationType() {
+        return this.compensationType;
+    }
+
+    public void setCompensationType(Enum compensationType) {
+        this.compensationType = compensationType;
+    }
+
+    public Enum getWorkShift() {
+        return this.workShift;
+    }
+
+    public void setWorkShift(Enum workShift) {
+        this.workShift = workShift;
+    }
+
     public static class Builder {
         /**
          * 待入职ID
@@ -759,9 +803,24 @@ public class Employment {
         private Enum rehire;
         /**
          * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
-         * <p> 示例值：7164286667866966659
+         * <p> 示例值：7174374910734141111
          */
         private String rehireEmploymentId;
+        /**
+         * 任职公司
+         * <p> 示例值：7174374910734141112
+         */
+        private String serviceCompany;
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         */
+        private Enum compensationType;
+        /**
+         * 排班类型
+         * <p> 示例值：
+         */
+        private Enum workShift;
 
         /**
          * 待入职ID
@@ -1142,13 +1201,52 @@ public class Employment {
 
         /**
          * 历史雇佣信息 ID，可以通过【查询单个雇佣信息】查询详细信息
-         * <p> 示例值：7164286667866966659
+         * <p> 示例值：7174374910734141111
          *
          * @param rehireEmploymentId
          * @return
          */
         public Builder rehireEmploymentId(String rehireEmploymentId) {
             this.rehireEmploymentId = rehireEmploymentId;
+            return this;
+        }
+
+
+        /**
+         * 任职公司
+         * <p> 示例值：7174374910734141112
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
+            return this;
+        }
+
+
+        /**
+         * 薪资类型
+         * <p> 示例值：
+         *
+         * @param compensationType
+         * @return
+         */
+        public Builder compensationType(Enum compensationType) {
+            this.compensationType = compensationType;
+            return this;
+        }
+
+
+        /**
+         * 排班类型
+         * <p> 示例值：
+         *
+         * @param workShift
+         * @return
+         */
+        public Builder workShift(Enum workShift) {
+            this.workShift = workShift;
             return this;
         }
 
