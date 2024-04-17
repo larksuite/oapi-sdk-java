@@ -58,6 +58,24 @@ public class Name {
      */
     @SerializedName("local_primary")
     private String localPrimary;
+    /**
+     * 国家 / 地区
+     * <p> 示例值：6862995757234914824
+     */
+    @SerializedName("country_region_id")
+    private String countryRegionId;
+    /**
+     * 本地文字的自定义姓名
+     * <p> 示例值：李一一
+     */
+    @SerializedName("custom_local_name")
+    private String customLocalName;
+    /**
+     * 西方文字的自定义姓名
+     * <p> 示例值：YiyiLi
+     */
+    @SerializedName("custom_western_name")
+    private String customWesternName;
 
     // builder 开始
     public Name() {
@@ -99,6 +117,21 @@ public class Name {
          * <p> 示例值：李
          */
         this.localPrimary = builder.localPrimary;
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995757234914824
+         */
+        this.countryRegionId = builder.countryRegionId;
+        /**
+         * 本地文字的自定义姓名
+         * <p> 示例值：李一一
+         */
+        this.customLocalName = builder.customLocalName;
+        /**
+         * 西方文字的自定义姓名
+         * <p> 示例值：YiyiLi
+         */
+        this.customWesternName = builder.customWesternName;
     }
 
     public static Builder newBuilder() {
@@ -161,6 +194,30 @@ public class Name {
         this.localPrimary = localPrimary;
     }
 
+    public String getCountryRegionId() {
+        return this.countryRegionId;
+    }
+
+    public void setCountryRegionId(String countryRegionId) {
+        this.countryRegionId = countryRegionId;
+    }
+
+    public String getCustomLocalName() {
+        return this.customLocalName;
+    }
+
+    public void setCustomLocalName(String customLocalName) {
+        this.customLocalName = customLocalName;
+    }
+
+    public String getCustomWesternName() {
+        return this.customWesternName;
+    }
+
+    public void setCustomWesternName(String customWesternName) {
+        this.customWesternName = customWesternName;
+    }
+
     public static class Builder {
         /**
          * 全名
@@ -197,6 +254,21 @@ public class Name {
          * <p> 示例值：李
          */
         private String localPrimary;
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995757234914824
+         */
+        private String countryRegionId;
+        /**
+         * 本地文字的自定义姓名
+         * <p> 示例值：李一一
+         */
+        private String customLocalName;
+        /**
+         * 西方文字的自定义姓名
+         * <p> 示例值：YiyiLi
+         */
+        private String customWesternName;
 
         /**
          * 全名
@@ -285,6 +357,45 @@ public class Name {
          */
         public Builder localPrimary(String localPrimary) {
             this.localPrimary = localPrimary;
+            return this;
+        }
+
+
+        /**
+         * 国家 / 地区
+         * <p> 示例值：6862995757234914824
+         *
+         * @param countryRegionId
+         * @return
+         */
+        public Builder countryRegionId(String countryRegionId) {
+            this.countryRegionId = countryRegionId;
+            return this;
+        }
+
+
+        /**
+         * 本地文字的自定义姓名
+         * <p> 示例值：李一一
+         *
+         * @param customLocalName
+         * @return
+         */
+        public Builder customLocalName(String customLocalName) {
+            this.customLocalName = customLocalName;
+            return this;
+        }
+
+
+        /**
+         * 西方文字的自定义姓名
+         * <p> 示例值：YiyiLi
+         *
+         * @param customWesternName
+         * @return
+         */
+        public Builder customWesternName(String customWesternName) {
+            this.customWesternName = customWesternName;
             return this;
         }
 

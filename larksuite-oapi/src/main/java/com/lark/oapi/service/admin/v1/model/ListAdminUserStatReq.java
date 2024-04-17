@@ -73,6 +73,13 @@ public class ListAdminUserStatReq {
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 跨域访问的geo
+     * <p> 示例值：cn
+     */
+    @Query
+    @SerializedName("target_geo")
+    private String targetGeo;
 
     // builder 开始
     public ListAdminUserStatReq() {
@@ -119,6 +126,11 @@ public class ListAdminUserStatReq {
          * <p> 示例值：2
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 跨域访问的geo
+         * <p> 示例值：cn
+         */
+        this.targetGeo = builder.targetGeo;
     }
 
     public static Builder newBuilder() {
@@ -189,6 +201,14 @@ public class ListAdminUserStatReq {
         this.pageToken = pageToken;
     }
 
+    public String getTargetGeo() {
+        return this.targetGeo;
+    }
+
+    public void setTargetGeo(String targetGeo) {
+        this.targetGeo = targetGeo;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String departmentIdType; // 部门ID类型
@@ -198,6 +218,7 @@ public class ListAdminUserStatReq {
         private String userId; // 用户的open_id，user_id或者union_id，取决于user_id_type
         private Integer pageSize; // 分页大小，默认是10
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；当返回的has_more为true时，会返回新的page_token，再次调用接口，传入这个page_token，将获得下一页数据
+        private String targetGeo; // 跨域访问的geo
 
 
         /**
@@ -324,6 +345,19 @@ public class ListAdminUserStatReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 跨域访问的geo
+         * <p> 示例值：cn
+         *
+         * @param targetGeo
+         * @return
+         */
+        public Builder targetGeo(String targetGeo) {
+            this.targetGeo = targetGeo;
             return this;
         }
 

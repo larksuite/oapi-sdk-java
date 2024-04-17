@@ -53,6 +53,12 @@ public class BasicInfo {
     @SerializedName("personal_id_number")
     private String personalIdNumber;
     /**
+     * 证件类型
+     * <p> 示例值：6862995757234914823
+     */
+    @SerializedName("personal_id_type")
+    private String personalIdType;
+    /**
      * 参加工作日期
      * <p> 示例值：2100-09-09
      */
@@ -100,6 +106,12 @@ public class BasicInfo {
      */
     @SerializedName("user_geo")
     private String userGeo;
+    /**
+     * 法定姓名
+     * <p> 示例值：
+     */
+    @SerializedName("legal_name")
+    private Name legalName;
 
     // builder 开始
     public BasicInfo() {
@@ -136,6 +148,11 @@ public class BasicInfo {
          * <p> 示例值：31123127
          */
         this.personalIdNumber = builder.personalIdNumber;
+        /**
+         * 证件类型
+         * <p> 示例值：6862995757234914823
+         */
+        this.personalIdType = builder.personalIdType;
         /**
          * 参加工作日期
          * <p> 示例值：2100-09-09
@@ -176,6 +193,11 @@ public class BasicInfo {
          * <p> 示例值：cn
          */
         this.userGeo = builder.userGeo;
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         */
+        this.legalName = builder.legalName;
     }
 
     public static Builder newBuilder() {
@@ -228,6 +250,14 @@ public class BasicInfo {
 
     public void setPersonalIdNumber(String personalIdNumber) {
         this.personalIdNumber = personalIdNumber;
+    }
+
+    public String getPersonalIdType() {
+        return this.personalIdType;
+    }
+
+    public void setPersonalIdType(String personalIdType) {
+        this.personalIdType = personalIdType;
     }
 
     public String getDateEnteredWorkforce() {
@@ -294,6 +324,14 @@ public class BasicInfo {
         this.userGeo = userGeo;
     }
 
+    public Name getLegalName() {
+        return this.legalName;
+    }
+
+    public void setLegalName(Name legalName) {
+        this.legalName = legalName;
+    }
+
     public static class Builder {
         /**
          * 描述
@@ -325,6 +363,11 @@ public class BasicInfo {
          * <p> 示例值：31123127
          */
         private String personalIdNumber;
+        /**
+         * 证件类型
+         * <p> 示例值：6862995757234914823
+         */
+        private String personalIdType;
         /**
          * 参加工作日期
          * <p> 示例值：2100-09-09
@@ -365,6 +408,11 @@ public class BasicInfo {
          * <p> 示例值：cn
          */
         private String userGeo;
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         */
+        private Name legalName;
 
         /**
          * 描述
@@ -440,6 +488,19 @@ public class BasicInfo {
          */
         public Builder personalIdNumber(String personalIdNumber) {
             this.personalIdNumber = personalIdNumber;
+            return this;
+        }
+
+
+        /**
+         * 证件类型
+         * <p> 示例值：6862995757234914823
+         *
+         * @param personalIdType
+         * @return
+         */
+        public Builder personalIdType(String personalIdType) {
+            this.personalIdType = personalIdType;
             return this;
         }
 
@@ -544,6 +605,19 @@ public class BasicInfo {
          */
         public Builder userGeo(String userGeo) {
             this.userGeo = userGeo;
+            return this;
+        }
+
+
+        /**
+         * 法定姓名
+         * <p> 示例值：
+         *
+         * @param legalName
+         * @return
+         */
+        public Builder legalName(Name legalName) {
+            this.legalName = legalName;
             return this;
         }
 

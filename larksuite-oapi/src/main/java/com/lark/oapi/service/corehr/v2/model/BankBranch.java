@@ -52,6 +52,36 @@ public class BankBranch {
      */
     @SerializedName("status")
     private Integer status;
+    /**
+     * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
+     * <p> 示例值：123456
+     */
+    @SerializedName("bank_branch_code")
+    private String bankBranchCode;
+    /**
+     * 注册地址
+     * <p> 示例值：北京市朝阳区
+     */
+    @SerializedName("register_place")
+    private String registerPlace;
+    /**
+     * 银行地址
+     * <p> 示例值：北京市朝阳区
+     */
+    @SerializedName("bank_address")
+    private String bankAddress;
+    /**
+     * 创建时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("create_time")
+    private String createTime;
+    /**
+     * 更新时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("update_time")
+    private String updateTime;
 
     // builder 开始
     public BankBranch() {
@@ -88,6 +118,31 @@ public class BankBranch {
          * <p> 示例值：1
          */
         this.status = builder.status;
+        /**
+         * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
+         * <p> 示例值：123456
+         */
+        this.bankBranchCode = builder.bankBranchCode;
+        /**
+         * 注册地址
+         * <p> 示例值：北京市朝阳区
+         */
+        this.registerPlace = builder.registerPlace;
+        /**
+         * 银行地址
+         * <p> 示例值：北京市朝阳区
+         */
+        this.bankAddress = builder.bankAddress;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.updateTime = builder.updateTime;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +197,46 @@ public class BankBranch {
         this.status = status;
     }
 
+    public String getBankBranchCode() {
+        return this.bankBranchCode;
+    }
+
+    public void setBankBranchCode(String bankBranchCode) {
+        this.bankBranchCode = bankBranchCode;
+    }
+
+    public String getRegisterPlace() {
+        return this.registerPlace;
+    }
+
+    public void setRegisterPlace(String registerPlace) {
+        this.registerPlace = registerPlace;
+    }
+
+    public String getBankAddress() {
+        return this.bankAddress;
+    }
+
+    public void setBankAddress(String bankAddress) {
+        this.bankAddress = bankAddress;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public static class Builder {
         /**
          * 支行 ID
@@ -173,6 +268,31 @@ public class BankBranch {
          * <p> 示例值：1
          */
         private Integer status;
+        /**
+         * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
+         * <p> 示例值：123456
+         */
+        private String bankBranchCode;
+        /**
+         * 注册地址
+         * <p> 示例值：北京市朝阳区
+         */
+        private String registerPlace;
+        /**
+         * 银行地址
+         * <p> 示例值：北京市朝阳区
+         */
+        private String bankAddress;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String updateTime;
 
         /**
          * 支行 ID
@@ -260,6 +380,71 @@ public class BankBranch {
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.BankBranchBasicDataObjStatusEnum status) {
             this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
+         * <p> 示例值：123456
+         *
+         * @param bankBranchCode
+         * @return
+         */
+        public Builder bankBranchCode(String bankBranchCode) {
+            this.bankBranchCode = bankBranchCode;
+            return this;
+        }
+
+
+        /**
+         * 注册地址
+         * <p> 示例值：北京市朝阳区
+         *
+         * @param registerPlace
+         * @return
+         */
+        public Builder registerPlace(String registerPlace) {
+            this.registerPlace = registerPlace;
+            return this;
+        }
+
+
+        /**
+         * 银行地址
+         * <p> 示例值：北京市朝阳区
+         *
+         * @param bankAddress
+         * @return
+         */
+        public Builder bankAddress(String bankAddress) {
+            this.bankAddress = bankAddress;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
 

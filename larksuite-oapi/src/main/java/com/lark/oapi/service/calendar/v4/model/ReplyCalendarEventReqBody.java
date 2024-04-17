@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReplyCalendarEventReqBody {
     /**
-     * rsvp状态
+     * rsvp-日程状态
      * <p> 示例值：accept
      */
     @SerializedName("rsvp_status")
@@ -29,7 +29,7 @@ public class ReplyCalendarEventReqBody {
 
     public ReplyCalendarEventReqBody(Builder builder) {
         /**
-         * rsvp状态
+         * rsvp-日程状态
          * <p> 示例值：accept
          */
         this.rsvpStatus = builder.rsvpStatus;
@@ -49,13 +49,13 @@ public class ReplyCalendarEventReqBody {
 
     public static class Builder {
         /**
-         * rsvp状态
+         * rsvp-日程状态
          * <p> 示例值：accept
          */
         private String rsvpStatus;
 
         /**
-         * rsvp状态
+         * rsvp-日程状态
          * <p> 示例值：accept
          *
          * @param rsvpStatus
@@ -67,7 +67,7 @@ public class ReplyCalendarEventReqBody {
         }
 
         /**
-         * rsvp状态
+         * rsvp-日程状态
          * <p> 示例值：accept
          *
          * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.ReplyCalendarEventRsvpStatusEnum}

@@ -178,6 +178,24 @@ public class GetChatRespBody {
      */
     @SerializedName("video_conference_setting")
     private String videoConferenceSetting;
+    /**
+     * 谁可以管理置顶
+     * <p> 示例值：all_members
+     */
+    @SerializedName("pin_manage_setting")
+    private String pinManageSetting;
+    /**
+     * 隐藏群成员人数设置
+     * <p> 示例值：all_members
+     */
+    @SerializedName("hide_member_count_setting")
+    private String hideMemberCountSetting;
+    /**
+     * 群状态
+     * <p> 示例值：normal
+     */
+    @SerializedName("chat_status")
+    private String chatStatus;
 
     public String getAvatar() {
         return this.avatar;
@@ -394,6 +412,30 @@ public class GetChatRespBody {
 
     public void setVideoConferenceSetting(String videoConferenceSetting) {
         this.videoConferenceSetting = videoConferenceSetting;
+    }
+
+    public String getPinManageSetting() {
+        return this.pinManageSetting;
+    }
+
+    public void setPinManageSetting(String pinManageSetting) {
+        this.pinManageSetting = pinManageSetting;
+    }
+
+    public String getHideMemberCountSetting() {
+        return this.hideMemberCountSetting;
+    }
+
+    public void setHideMemberCountSetting(String hideMemberCountSetting) {
+        this.hideMemberCountSetting = hideMemberCountSetting;
+    }
+
+    public String getChatStatus() {
+        return this.chatStatus;
+    }
+
+    public void setChatStatus(String chatStatus) {
+        this.chatStatus = chatStatus;
     }
 
 }

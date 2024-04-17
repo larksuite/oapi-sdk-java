@@ -29,6 +29,12 @@ public class Reserve {
     @SerializedName("meeting_no")
     private String meetingNo;
     /**
+     * 会议密码
+     * <p> 示例值：971024
+     */
+    @SerializedName("password")
+    private String password;
+    /**
      * 会议链接（飞书用户可通过点击会议链接快捷入会）
      * <p> 示例值：https://vc.feishu.cn/j/337736498
      */
@@ -87,6 +93,11 @@ public class Reserve {
          */
         this.meetingNo = builder.meetingNo;
         /**
+         * 会议密码
+         * <p> 示例值：971024
+         */
+        this.password = builder.password;
+        /**
          * 会议链接（飞书用户可通过点击会议链接快捷入会）
          * <p> 示例值：https://vc.feishu.cn/j/337736498
          */
@@ -141,6 +152,14 @@ public class Reserve {
 
     public void setMeetingNo(String meetingNo) {
         this.meetingNo = meetingNo;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUrl() {
@@ -211,6 +230,11 @@ public class Reserve {
          */
         private String meetingNo;
         /**
+         * 会议密码
+         * <p> 示例值：971024
+         */
+        private String password;
+        /**
          * 会议链接（飞书用户可通过点击会议链接快捷入会）
          * <p> 示例值：https://vc.feishu.cn/j/337736498
          */
@@ -268,6 +292,19 @@ public class Reserve {
          */
         public Builder meetingNo(String meetingNo) {
             this.meetingNo = meetingNo;
+            return this;
+        }
+
+
+        /**
+         * 会议密码
+         * <p> 示例值：971024
+         *
+         * @param password
+         * @return
+         */
+        public Builder password(String password) {
+            this.password = password;
             return this;
         }
 

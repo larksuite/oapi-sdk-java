@@ -29,6 +29,12 @@ public class MeetingInfo {
     @SerializedName("meeting_topic")
     private String meetingTopic;
     /**
+     * 会议类型
+     * <p> 示例值：1
+     */
+    @SerializedName("meeting_type")
+    private Integer meetingType;
+    /**
      * 组织者
      * <p> 示例值：kehan
      */
@@ -89,6 +95,12 @@ public class MeetingInfo {
     @SerializedName("number_of_participants")
     private String numberOfParticipants;
     /**
+     * 累计入会设备数
+     * <p> 示例值：1
+     */
+    @SerializedName("number_of_devices")
+    private String numberOfDevices;
+    /**
      * 音频
      * <p> 示例值：true
      */
@@ -118,6 +130,18 @@ public class MeetingInfo {
      */
     @SerializedName("telephone")
     private Boolean telephone;
+    /**
+     * 关联会议室列表
+     * <p> 示例值：
+     */
+    @SerializedName("reserved_rooms")
+    private ReservedRoom[] reservedRooms;
+    /**
+     * 是否有关联文档和纪要
+     * <p> 示例值：false
+     */
+    @SerializedName("has_related_document")
+    private Boolean hasRelatedDocument;
 
     // builder 开始
     public MeetingInfo() {
@@ -134,6 +158,11 @@ public class MeetingInfo {
          * <p> 示例值：讨论会
          */
         this.meetingTopic = builder.meetingTopic;
+        /**
+         * 会议类型
+         * <p> 示例值：1
+         */
+        this.meetingType = builder.meetingType;
         /**
          * 组织者
          * <p> 示例值：kehan
@@ -185,6 +214,11 @@ public class MeetingInfo {
          */
         this.numberOfParticipants = builder.numberOfParticipants;
         /**
+         * 累计入会设备数
+         * <p> 示例值：1
+         */
+        this.numberOfDevices = builder.numberOfDevices;
+        /**
          * 音频
          * <p> 示例值：true
          */
@@ -209,6 +243,16 @@ public class MeetingInfo {
          * <p> 示例值：false
          */
         this.telephone = builder.telephone;
+        /**
+         * 关联会议室列表
+         * <p> 示例值：
+         */
+        this.reservedRooms = builder.reservedRooms;
+        /**
+         * 是否有关联文档和纪要
+         * <p> 示例值：false
+         */
+        this.hasRelatedDocument = builder.hasRelatedDocument;
     }
 
     public static Builder newBuilder() {
@@ -229,6 +273,14 @@ public class MeetingInfo {
 
     public void setMeetingTopic(String meetingTopic) {
         this.meetingTopic = meetingTopic;
+    }
+
+    public Integer getMeetingType() {
+        return this.meetingType;
+    }
+
+    public void setMeetingType(Integer meetingType) {
+        this.meetingType = meetingType;
     }
 
     public String getOrganizer() {
@@ -311,6 +363,14 @@ public class MeetingInfo {
         this.numberOfParticipants = numberOfParticipants;
     }
 
+    public String getNumberOfDevices() {
+        return this.numberOfDevices;
+    }
+
+    public void setNumberOfDevices(String numberOfDevices) {
+        this.numberOfDevices = numberOfDevices;
+    }
+
     public Boolean getAudio() {
         return this.audio;
     }
@@ -351,6 +411,22 @@ public class MeetingInfo {
         this.telephone = telephone;
     }
 
+    public ReservedRoom[] getReservedRooms() {
+        return this.reservedRooms;
+    }
+
+    public void setReservedRooms(ReservedRoom[] reservedRooms) {
+        this.reservedRooms = reservedRooms;
+    }
+
+    public Boolean getHasRelatedDocument() {
+        return this.hasRelatedDocument;
+    }
+
+    public void setHasRelatedDocument(Boolean hasRelatedDocument) {
+        this.hasRelatedDocument = hasRelatedDocument;
+    }
+
     public static class Builder {
         /**
          * 9位会议号
@@ -362,6 +438,11 @@ public class MeetingInfo {
          * <p> 示例值：讨论会
          */
         private String meetingTopic;
+        /**
+         * 会议类型
+         * <p> 示例值：1
+         */
+        private Integer meetingType;
         /**
          * 组织者
          * <p> 示例值：kehan
@@ -413,6 +494,11 @@ public class MeetingInfo {
          */
         private String numberOfParticipants;
         /**
+         * 累计入会设备数
+         * <p> 示例值：1
+         */
+        private String numberOfDevices;
+        /**
          * 音频
          * <p> 示例值：true
          */
@@ -437,6 +523,16 @@ public class MeetingInfo {
          * <p> 示例值：false
          */
         private Boolean telephone;
+        /**
+         * 关联会议室列表
+         * <p> 示例值：
+         */
+        private ReservedRoom[] reservedRooms;
+        /**
+         * 是否有关联文档和纪要
+         * <p> 示例值：false
+         */
+        private Boolean hasRelatedDocument;
 
         /**
          * 9位会议号
@@ -460,6 +556,31 @@ public class MeetingInfo {
          */
         public Builder meetingTopic(String meetingTopic) {
             this.meetingTopic = meetingTopic;
+            return this;
+        }
+
+
+        /**
+         * 会议类型
+         * <p> 示例值：1
+         *
+         * @param meetingType
+         * @return
+         */
+        public Builder meetingType(Integer meetingType) {
+            this.meetingType = meetingType;
+            return this;
+        }
+
+        /**
+         * 会议类型
+         * <p> 示例值：1
+         *
+         * @param meetingType {@link com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingTypeEnum}
+         * @return
+         */
+        public Builder meetingType(com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingTypeEnum meetingType) {
+            this.meetingType = meetingType.getValue();
             return this;
         }
 
@@ -595,6 +716,19 @@ public class MeetingInfo {
 
 
         /**
+         * 累计入会设备数
+         * <p> 示例值：1
+         *
+         * @param numberOfDevices
+         * @return
+         */
+        public Builder numberOfDevices(String numberOfDevices) {
+            this.numberOfDevices = numberOfDevices;
+            return this;
+        }
+
+
+        /**
          * 音频
          * <p> 示例值：true
          *
@@ -655,6 +789,32 @@ public class MeetingInfo {
          */
         public Builder telephone(Boolean telephone) {
             this.telephone = telephone;
+            return this;
+        }
+
+
+        /**
+         * 关联会议室列表
+         * <p> 示例值：
+         *
+         * @param reservedRooms
+         * @return
+         */
+        public Builder reservedRooms(ReservedRoom[] reservedRooms) {
+            this.reservedRooms = reservedRooms;
+            return this;
+        }
+
+
+        /**
+         * 是否有关联文档和纪要
+         * <p> 示例值：false
+         *
+         * @param hasRelatedDocument
+         * @return
+         */
+        public Builder hasRelatedDocument(Boolean hasRelatedDocument) {
+            this.hasRelatedDocument = hasRelatedDocument;
             return this;
         }
 

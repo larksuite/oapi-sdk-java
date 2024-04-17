@@ -23,31 +23,31 @@ public class FormVariableValueInfo {
     @SerializedName("text_value")
     private FormFieldVariableStringValue textValue;
     /**
-     * 数值变量对象
+     * 数值变量对象（这里的value必须传入一个合法的数字，常见非法值："" 和 null）
      * <p> 示例值：
      */
     @SerializedName("number_value")
     private FormFieldVariableStringValue numberValue;
     /**
-     * 日期变量对象
+     * 日期变量对象（这里的value为从1970年1月1日（UTC/GMT的午夜）开始所经过的天数）
      * <p> 示例值：
      */
     @SerializedName("date_value")
     private FormFieldVariableNumberValue dateValue;
     /**
-     * 员工变量对象
+     * 员工变量对象（值传入employmentID）
      * <p> 示例值：
      */
     @SerializedName("employment_value")
     private FormFieldVariableStringValue employmentValue;
     /**
-     * 日期时间变量对象
+     * 日期时间变量对象（从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。）
      * <p> 示例值：
      */
     @SerializedName("date_time_value")
     private FormFieldVariableNumberValue dateTimeValue;
     /**
-     * 枚举变量对象
+     * 枚举变量对象（客户需要传入 枚举的枚举项key作为enum_value.value的值）
      * <p> 示例值：
      */
     @SerializedName("enum_value")
@@ -65,19 +65,19 @@ public class FormVariableValueInfo {
     @SerializedName("bool_value")
     private FormFieldVariableBoolValue boolValue;
     /**
-     * 部门变量对象
+     * 部门变量对象（值传入departmentID）
      * <p> 示例值：
      */
     @SerializedName("department_value")
     private FormFieldVariableStringValue departmentValue;
     /**
-     * i18n变量对象
+     * i18n变量对象（中英文为可选，但不能出现中英文均为空的数据。）
      * <p> 示例值：
      */
     @SerializedName("i18n_value")
     private FormFieldVariableI18nValue i18nValue;
     /**
-     * 对象变量
+     * 对象变量（对于所有引用wukong数据的Value，object_value.value中传入wukong中的wkID。）
      * <p> 示例值：
      */
     @SerializedName("object_value")
@@ -94,27 +94,27 @@ public class FormVariableValueInfo {
          */
         this.textValue = builder.textValue;
         /**
-         * 数值变量对象
+         * 数值变量对象（这里的value必须传入一个合法的数字，常见非法值："" 和 null）
          * <p> 示例值：
          */
         this.numberValue = builder.numberValue;
         /**
-         * 日期变量对象
+         * 日期变量对象（这里的value为从1970年1月1日（UTC/GMT的午夜）开始所经过的天数）
          * <p> 示例值：
          */
         this.dateValue = builder.dateValue;
         /**
-         * 员工变量对象
+         * 员工变量对象（值传入employmentID）
          * <p> 示例值：
          */
         this.employmentValue = builder.employmentValue;
         /**
-         * 日期时间变量对象
+         * 日期时间变量对象（从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。）
          * <p> 示例值：
          */
         this.dateTimeValue = builder.dateTimeValue;
         /**
-         * 枚举变量对象
+         * 枚举变量对象（客户需要传入 枚举的枚举项key作为enum_value.value的值）
          * <p> 示例值：
          */
         this.enumValue = builder.enumValue;
@@ -129,17 +129,17 @@ public class FormVariableValueInfo {
          */
         this.boolValue = builder.boolValue;
         /**
-         * 部门变量对象
+         * 部门变量对象（值传入departmentID）
          * <p> 示例值：
          */
         this.departmentValue = builder.departmentValue;
         /**
-         * i18n变量对象
+         * i18n变量对象（中英文为可选，但不能出现中英文均为空的数据。）
          * <p> 示例值：
          */
         this.i18nValue = builder.i18nValue;
         /**
-         * 对象变量
+         * 对象变量（对于所有引用wukong数据的Value，object_value.value中传入wukong中的wkID。）
          * <p> 示例值：
          */
         this.objectValue = builder.objectValue;
@@ -244,27 +244,27 @@ public class FormVariableValueInfo {
          */
         private FormFieldVariableStringValue textValue;
         /**
-         * 数值变量对象
+         * 数值变量对象（这里的value必须传入一个合法的数字，常见非法值："" 和 null）
          * <p> 示例值：
          */
         private FormFieldVariableStringValue numberValue;
         /**
-         * 日期变量对象
+         * 日期变量对象（这里的value为从1970年1月1日（UTC/GMT的午夜）开始所经过的天数）
          * <p> 示例值：
          */
         private FormFieldVariableNumberValue dateValue;
         /**
-         * 员工变量对象
+         * 员工变量对象（值传入employmentID）
          * <p> 示例值：
          */
         private FormFieldVariableStringValue employmentValue;
         /**
-         * 日期时间变量对象
+         * 日期时间变量对象（从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。）
          * <p> 示例值：
          */
         private FormFieldVariableNumberValue dateTimeValue;
         /**
-         * 枚举变量对象
+         * 枚举变量对象（客户需要传入 枚举的枚举项key作为enum_value.value的值）
          * <p> 示例值：
          */
         private FormFieldVariableStringValue enumValue;
@@ -279,17 +279,17 @@ public class FormVariableValueInfo {
          */
         private FormFieldVariableBoolValue boolValue;
         /**
-         * 部门变量对象
+         * 部门变量对象（值传入departmentID）
          * <p> 示例值：
          */
         private FormFieldVariableStringValue departmentValue;
         /**
-         * i18n变量对象
+         * i18n变量对象（中英文为可选，但不能出现中英文均为空的数据。）
          * <p> 示例值：
          */
         private FormFieldVariableI18nValue i18nValue;
         /**
-         * 对象变量
+         * 对象变量（对于所有引用wukong数据的Value，object_value.value中传入wukong中的wkID。）
          * <p> 示例值：
          */
         private FormFieldVariableStringValue objectValue;
@@ -308,7 +308,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 数值变量对象
+         * 数值变量对象（这里的value必须传入一个合法的数字，常见非法值："" 和 null）
          * <p> 示例值：
          *
          * @param numberValue
@@ -321,7 +321,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 日期变量对象
+         * 日期变量对象（这里的value为从1970年1月1日（UTC/GMT的午夜）开始所经过的天数）
          * <p> 示例值：
          *
          * @param dateValue
@@ -334,7 +334,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 员工变量对象
+         * 员工变量对象（值传入employmentID）
          * <p> 示例值：
          *
          * @param employmentValue
@@ -347,7 +347,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 日期时间变量对象
+         * 日期时间变量对象（从1970年1月1日（UTC/GMT的午夜）开始所经过的毫秒数。）
          * <p> 示例值：
          *
          * @param dateTimeValue
@@ -360,7 +360,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 枚举变量对象
+         * 枚举变量对象（客户需要传入 枚举的枚举项key作为enum_value.value的值）
          * <p> 示例值：
          *
          * @param enumValue
@@ -399,7 +399,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 部门变量对象
+         * 部门变量对象（值传入departmentID）
          * <p> 示例值：
          *
          * @param departmentValue
@@ -412,7 +412,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * i18n变量对象
+         * i18n变量对象（中英文为可选，但不能出现中英文均为空的数据。）
          * <p> 示例值：
          *
          * @param i18nValue
@@ -425,7 +425,7 @@ public class FormVariableValueInfo {
 
 
         /**
-         * 对象变量
+         * 对象变量（对于所有引用wukong数据的Value，object_value.value中传入wukong中的wkID。）
          * <p> 示例值：
          *
          * @param objectValue

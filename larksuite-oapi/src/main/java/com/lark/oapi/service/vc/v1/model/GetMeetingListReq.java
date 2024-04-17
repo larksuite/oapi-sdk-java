@@ -60,6 +60,13 @@ public class GetMeetingListReq {
     @SerializedName("room_id")
     private String roomId;
     /**
+     * 按会议类型筛选（最多一个筛选条件）
+     * <p> 示例值：2
+     */
+    @Query
+    @SerializedName("meeting_type")
+    private Integer meetingType;
+    /**
      * 分页尺寸大小
      * <p> 示例值：20
      */
@@ -116,6 +123,11 @@ public class GetMeetingListReq {
          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
          */
         this.roomId = builder.roomId;
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         */
+        this.meetingType = builder.meetingType;
         /**
          * 分页尺寸大小
          * <p> 示例值：20
@@ -185,6 +197,14 @@ public class GetMeetingListReq {
         this.roomId = roomId;
     }
 
+    public Integer getMeetingType() {
+        return this.meetingType;
+    }
+
+    public void setMeetingType(Integer meetingType) {
+        this.meetingType = meetingType;
+    }
+
     public Integer getPageSize() {
         return this.pageSize;
     }
@@ -216,6 +236,7 @@ public class GetMeetingListReq {
         private String meetingNo; // 按9位会议号筛选（最多一个筛选条件）
         private String userId; // 按参会Lark用户筛选（最多一个筛选条件）
         private String roomId; // 按参会Rooms筛选（最多一个筛选条件）
+        private Integer meetingType; // 按会议类型筛选（最多一个筛选条件）
         private Integer pageSize; // 分页尺寸大小
         private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
         private String userIdType; // 此次调用中使用的用户ID的类型
@@ -307,6 +328,31 @@ public class GetMeetingListReq {
          */
         public Builder roomId(String roomId) {
             this.roomId = roomId;
+            return this;
+        }
+
+
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         *
+         * @param meetingType
+         * @return
+         */
+        public Builder meetingType(Integer meetingType) {
+            this.meetingType = meetingType;
+            return this;
+        }
+
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         *
+         * @param meetingType {@link com.lark.oapi.service.vc.v1.enums.GetMeetingListMeetingTypeEnum}
+         * @return
+         */
+        public Builder meetingType(com.lark.oapi.service.vc.v1.enums.GetMeetingListMeetingTypeEnum meetingType) {
+            this.meetingType = meetingType.getValue();
             return this;
         }
 

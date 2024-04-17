@@ -34,6 +34,12 @@ public class IdCard {
      */
     @SerializedName("conners")
     private Integer[] conners;
+    /**
+     * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+     * <p> 示例值：
+     */
+    @SerializedName("face_conners")
+    private Integer[] faceConners;
 
     // builder 开始
     public IdCard() {
@@ -55,6 +61,11 @@ public class IdCard {
          * <p> 示例值：
          */
         this.conners = builder.conners;
+        /**
+         * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         */
+        this.faceConners = builder.faceConners;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +96,14 @@ public class IdCard {
         this.conners = conners;
     }
 
+    public Integer[] getFaceConners() {
+        return this.faceConners;
+    }
+
+    public void setFaceConners(Integer[] faceConners) {
+        this.faceConners = faceConners;
+    }
+
     public static class Builder {
         /**
          * 识别的实体列表
@@ -101,6 +120,11 @@ public class IdCard {
          * <p> 示例值：
          */
         private Integer[] conners;
+        /**
+         * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         */
+        private Integer[] faceConners;
 
         /**
          * 识别的实体列表
@@ -137,6 +161,19 @@ public class IdCard {
          */
         public Builder conners(Integer[] conners) {
             this.conners = conners;
+            return this;
+        }
+
+
+        /**
+         * 人像四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]
+         * <p> 示例值：
+         *
+         * @param faceConners
+         * @return
+         */
+        public Builder faceConners(Integer[] faceConners) {
+            this.faceConners = faceConners;
             return this;
         }
 

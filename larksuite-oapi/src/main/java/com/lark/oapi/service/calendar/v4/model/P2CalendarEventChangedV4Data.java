@@ -34,6 +34,18 @@ public class P2CalendarEventChangedV4Data {
      */
     @SerializedName("calendar_event_id")
     private String calendarEventId;
+    /**
+     * 变更类型
+     * <p> 示例值：create
+     */
+    @SerializedName("change_type")
+    private String changeType;
+    /**
+     * RSVP变更详情
+     * <p> 示例值：
+     */
+    @SerializedName("rsvp_infos")
+    private OpenEventRsvpInfo[] rsvpInfos;
 
     public String getCalendarId() {
         return this.calendarId;
@@ -57,6 +69,22 @@ public class P2CalendarEventChangedV4Data {
 
     public void setCalendarEventId(String calendarEventId) {
         this.calendarEventId = calendarEventId;
+    }
+
+    public String getChangeType() {
+        return this.changeType;
+    }
+
+    public void setChangeType(String changeType) {
+        this.changeType = changeType;
+    }
+
+    public OpenEventRsvpInfo[] getRsvpInfos() {
+        return this.rsvpInfos;
+    }
+
+    public void setRsvpInfos(OpenEventRsvpInfo[] rsvpInfos) {
+        this.rsvpInfos = rsvpInfos;
     }
 
 }

@@ -22,6 +22,18 @@ public class SystemInfo {
      */
     @SerializedName("session_id")
     private String sessionId;
+    /**
+     * 用户问题的语种
+     * <p> 示例值：zh
+     */
+    @SerializedName("lang")
+    private String lang;
+    /**
+     * 请求客户端的语种类
+     * <p> 示例值：en_us
+     */
+    @SerializedName("locale")
+    private String locale;
 
     // builder 开始
     public SystemInfo() {
@@ -33,6 +45,16 @@ public class SystemInfo {
          * <p> 示例值：56786545678765456785345678
          */
         this.sessionId = builder.sessionId;
+        /**
+         * 用户问题的语种
+         * <p> 示例值：zh
+         */
+        this.lang = builder.lang;
+        /**
+         * 请求客户端的语种类
+         * <p> 示例值：en_us
+         */
+        this.locale = builder.locale;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +69,38 @@ public class SystemInfo {
         this.sessionId = sessionId;
     }
 
+    public String getLang() {
+        return this.lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
     public static class Builder {
         /**
          * session_id
          * <p> 示例值：56786545678765456785345678
          */
         private String sessionId;
+        /**
+         * 用户问题的语种
+         * <p> 示例值：zh
+         */
+        private String lang;
+        /**
+         * 请求客户端的语种类
+         * <p> 示例值：en_us
+         */
+        private String locale;
 
         /**
          * session_id
@@ -63,6 +111,32 @@ public class SystemInfo {
          */
         public Builder sessionId(String sessionId) {
             this.sessionId = sessionId;
+            return this;
+        }
+
+
+        /**
+         * 用户问题的语种
+         * <p> 示例值：zh
+         *
+         * @param lang
+         * @return
+         */
+        public Builder lang(String lang) {
+            this.lang = lang;
+            return this;
+        }
+
+
+        /**
+         * 请求客户端的语种类
+         * <p> 示例值：en_us
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
             return this;
         }
 

@@ -53,6 +53,24 @@ public class TransferInfo {
     @SerializedName("target_department")
     private String targetDepartment;
     /**
+     * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+     * <p> 示例值：6966236933198579208
+     */
+    @SerializedName("target_draft_department")
+    private String targetDraftDepartment;
+    /**
+     * 原部门全路径
+     * <p> 示例值：
+     */
+    @SerializedName("original_department_id_path")
+    private OrgdraftDepartmentId[] originalDepartmentIdPath;
+    /**
+     * 新部门全路径
+     * <p> 示例值：
+     */
+    @SerializedName("target_department_id_path")
+    private OrgdraftDepartmentId[] targetDepartmentIdPath;
+    /**
      * 原工作地点
      * <p> 示例值：6967271100992587295
      */
@@ -377,6 +395,21 @@ public class TransferInfo {
          */
         this.targetDepartment = builder.targetDepartment;
         /**
+         * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         */
+        this.targetDraftDepartment = builder.targetDraftDepartment;
+        /**
+         * 原部门全路径
+         * <p> 示例值：
+         */
+        this.originalDepartmentIdPath = builder.originalDepartmentIdPath;
+        /**
+         * 新部门全路径
+         * <p> 示例值：
+         */
+        this.targetDepartmentIdPath = builder.targetDepartmentIdPath;
+        /**
          * 原工作地点
          * <p> 示例值：6967271100992587295
          */
@@ -668,6 +701,30 @@ public class TransferInfo {
 
     public void setTargetDepartment(String targetDepartment) {
         this.targetDepartment = targetDepartment;
+    }
+
+    public String getTargetDraftDepartment() {
+        return this.targetDraftDepartment;
+    }
+
+    public void setTargetDraftDepartment(String targetDraftDepartment) {
+        this.targetDraftDepartment = targetDraftDepartment;
+    }
+
+    public OrgdraftDepartmentId[] getOriginalDepartmentIdPath() {
+        return this.originalDepartmentIdPath;
+    }
+
+    public void setOriginalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
+        this.originalDepartmentIdPath = originalDepartmentIdPath;
+    }
+
+    public OrgdraftDepartmentId[] getTargetDepartmentIdPath() {
+        return this.targetDepartmentIdPath;
+    }
+
+    public void setTargetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
+        this.targetDepartmentIdPath = targetDepartmentIdPath;
     }
 
     public String getOriginalWorkLocation() {
@@ -1086,6 +1143,21 @@ public class TransferInfo {
          */
         private String targetDepartment;
         /**
+         * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         */
+        private String targetDraftDepartment;
+        /**
+         * 原部门全路径
+         * <p> 示例值：
+         */
+        private OrgdraftDepartmentId[] originalDepartmentIdPath;
+        /**
+         * 新部门全路径
+         * <p> 示例值：
+         */
+        private OrgdraftDepartmentId[] targetDepartmentIdPath;
+        /**
          * 原工作地点
          * <p> 示例值：6967271100992587295
          */
@@ -1400,6 +1472,45 @@ public class TransferInfo {
          */
         public Builder targetDepartment(String targetDepartment) {
             this.targetDepartment = targetDepartment;
+            return this;
+        }
+
+
+        /**
+         * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         *
+         * @param targetDraftDepartment
+         * @return
+         */
+        public Builder targetDraftDepartment(String targetDraftDepartment) {
+            this.targetDraftDepartment = targetDraftDepartment;
+            return this;
+        }
+
+
+        /**
+         * 原部门全路径
+         * <p> 示例值：
+         *
+         * @param originalDepartmentIdPath
+         * @return
+         */
+        public Builder originalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
+            this.originalDepartmentIdPath = originalDepartmentIdPath;
+            return this;
+        }
+
+
+        /**
+         * 新部门全路径
+         * <p> 示例值：
+         *
+         * @param targetDepartmentIdPath
+         * @return
+         */
+        public Builder targetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
+            this.targetDepartmentIdPath = targetDepartmentIdPath;
             return this;
         }
 

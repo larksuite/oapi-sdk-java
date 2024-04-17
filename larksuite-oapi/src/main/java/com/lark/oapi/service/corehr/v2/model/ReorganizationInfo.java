@@ -125,6 +125,24 @@ public class ReorganizationInfo {
     @SerializedName("target_parent_department_id")
     private String targetParentDepartmentId;
     /**
+     * 调整后上级部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+     * <p> 示例值：6966236933198579208
+     */
+    @SerializedName("draft_target_parent_department_id")
+    private String draftTargetParentDepartmentId;
+    /**
+     * 原部门全路径
+     * <p> 示例值：
+     */
+    @SerializedName("original_department_id_path")
+    private OrgdraftDepartmentId[] originalDepartmentIdPath;
+    /**
+     * 调整后部门全路径
+     * <p> 示例值：
+     */
+    @SerializedName("target_department_id_path")
+    private OrgdraftDepartmentId[] targetDepartmentIdPath;
+    /**
      * 自定义字段
      * <p> 示例值：
      */
@@ -226,6 +244,21 @@ public class ReorganizationInfo {
          * <p> 示例值：6974659700705068581
          */
         this.targetParentDepartmentId = builder.targetParentDepartmentId;
+        /**
+         * 调整后上级部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         */
+        this.draftTargetParentDepartmentId = builder.draftTargetParentDepartmentId;
+        /**
+         * 原部门全路径
+         * <p> 示例值：
+         */
+        this.originalDepartmentIdPath = builder.originalDepartmentIdPath;
+        /**
+         * 调整后部门全路径
+         * <p> 示例值：
+         */
+        this.targetDepartmentIdPath = builder.targetDepartmentIdPath;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -381,6 +414,30 @@ public class ReorganizationInfo {
         this.targetParentDepartmentId = targetParentDepartmentId;
     }
 
+    public String getDraftTargetParentDepartmentId() {
+        return this.draftTargetParentDepartmentId;
+    }
+
+    public void setDraftTargetParentDepartmentId(String draftTargetParentDepartmentId) {
+        this.draftTargetParentDepartmentId = draftTargetParentDepartmentId;
+    }
+
+    public OrgdraftDepartmentId[] getOriginalDepartmentIdPath() {
+        return this.originalDepartmentIdPath;
+    }
+
+    public void setOriginalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
+        this.originalDepartmentIdPath = originalDepartmentIdPath;
+    }
+
+    public OrgdraftDepartmentId[] getTargetDepartmentIdPath() {
+        return this.targetDepartmentIdPath;
+    }
+
+    public void setTargetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
+        this.targetDepartmentIdPath = targetDepartmentIdPath;
+    }
+
     public ChangeFieldPair[] getCustomFields() {
         return this.customFields;
     }
@@ -480,6 +537,21 @@ public class ReorganizationInfo {
          * <p> 示例值：6974659700705068581
          */
         private String targetParentDepartmentId;
+        /**
+         * 调整后上级部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         */
+        private String draftTargetParentDepartmentId;
+        /**
+         * 原部门全路径
+         * <p> 示例值：
+         */
+        private OrgdraftDepartmentId[] originalDepartmentIdPath;
+        /**
+         * 调整后部门全路径
+         * <p> 示例值：
+         */
+        private OrgdraftDepartmentId[] targetDepartmentIdPath;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -716,6 +788,45 @@ public class ReorganizationInfo {
          */
         public Builder targetParentDepartmentId(String targetParentDepartmentId) {
             this.targetParentDepartmentId = targetParentDepartmentId;
+            return this;
+        }
+
+
+        /**
+         * 调整后上级部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         *
+         * @param draftTargetParentDepartmentId
+         * @return
+         */
+        public Builder draftTargetParentDepartmentId(String draftTargetParentDepartmentId) {
+            this.draftTargetParentDepartmentId = draftTargetParentDepartmentId;
+            return this;
+        }
+
+
+        /**
+         * 原部门全路径
+         * <p> 示例值：
+         *
+         * @param originalDepartmentIdPath
+         * @return
+         */
+        public Builder originalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
+            this.originalDepartmentIdPath = originalDepartmentIdPath;
+            return this;
+        }
+
+
+        /**
+         * 调整后部门全路径
+         * <p> 示例值：
+         *
+         * @param targetDepartmentIdPath
+         * @return
+         */
+        public Builder targetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
+            this.targetDepartmentIdPath = targetDepartmentIdPath;
             return this;
         }
 

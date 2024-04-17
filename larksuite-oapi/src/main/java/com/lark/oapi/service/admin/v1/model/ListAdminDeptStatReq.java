@@ -66,6 +66,13 @@ public class ListAdminDeptStatReq {
     @Query
     @SerializedName("page_token")
     private String pageToken;
+    /**
+     * 跨域访问的geo
+     * <p> 示例值：cn
+     */
+    @Query
+    @SerializedName("target_geo")
+    private String targetGeo;
 
     // builder 开始
     public ListAdminDeptStatReq() {
@@ -107,6 +114,11 @@ public class ListAdminDeptStatReq {
          * <p> 示例值：2
          */
         this.pageToken = builder.pageToken;
+        /**
+         * 跨域访问的geo
+         * <p> 示例值：cn
+         */
+        this.targetGeo = builder.targetGeo;
     }
 
     public static Builder newBuilder() {
@@ -169,6 +181,14 @@ public class ListAdminDeptStatReq {
         this.pageToken = pageToken;
     }
 
+    public String getTargetGeo() {
+        return this.targetGeo;
+    }
+
+    public void setTargetGeo(String targetGeo) {
+        this.targetGeo = targetGeo;
+    }
+
     public static class Builder {
         private String departmentIdType; // 部门ID类型
         private String startDate; // 起始日期（包含），格式是YYYY-mm-dd
@@ -177,6 +197,7 @@ public class ListAdminDeptStatReq {
         private Boolean containsChildDept; // 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
         private Integer pageSize; // 分页大小，默认是10
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；当返回的has_more为true时，会返回新的page_token，再次调用接口，传入这个page_token，将获得下一页数据
+        private String targetGeo; // 跨域访问的geo
 
 
         /**
@@ -278,6 +299,19 @@ public class ListAdminDeptStatReq {
          */
         public Builder pageToken(String pageToken) {
             this.pageToken = pageToken;
+            return this;
+        }
+
+
+        /**
+         * 跨域访问的geo
+         * <p> 示例值：cn
+         *
+         * @param targetGeo
+         * @return
+         */
+        public Builder targetGeo(String targetGeo) {
+            this.targetGeo = targetGeo;
             return this;
         }
 

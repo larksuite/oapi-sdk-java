@@ -50,7 +50,7 @@ public class Entity {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/lingo/v1/entities"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -82,7 +82,7 @@ public class Entity {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/lingo/v1/entities"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -512,7 +512,7 @@ public class Entity {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
                 , "/open-apis/lingo/v1/entities/:entity_id"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -544,7 +544,7 @@ public class Entity {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
                 , "/open-apis/lingo/v1/entities/:entity_id"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

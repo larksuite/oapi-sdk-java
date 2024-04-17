@@ -29,6 +29,12 @@ public class MeetingSettings {
     @SerializedName("join_meeting_permission")
     private String joinMeetingPermission;
     /**
+     * 设置会议密码，仅支持 4-9 位数字
+     * <p> 示例值：971024
+     */
+    @SerializedName("password")
+    private String password;
+    /**
      * 指定主持人
      * <p> 示例值：
      */
@@ -69,6 +75,11 @@ public class MeetingSettings {
          */
         this.joinMeetingPermission = builder.joinMeetingPermission;
         /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         */
+        this.password = builder.password;
+        /**
          * 指定主持人
          * <p> 示例值：
          */
@@ -108,6 +119,14 @@ public class MeetingSettings {
 
     public void setJoinMeetingPermission(String joinMeetingPermission) {
         this.joinMeetingPermission = joinMeetingPermission;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String[] getAssignHosts() {
@@ -153,6 +172,11 @@ public class MeetingSettings {
          * <p> 示例值：
          */
         private String joinMeetingPermission;
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         */
+        private String password;
         /**
          * 指定主持人
          * <p> 示例值：
@@ -208,6 +232,19 @@ public class MeetingSettings {
          */
         public Builder joinMeetingPermission(com.lark.oapi.service.calendar.v4.enums.MeetingSettingsJoinMeetingPermissionTypeEnum joinMeetingPermission) {
             this.joinMeetingPermission = joinMeetingPermission.getValue();
+            return this;
+        }
+
+
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         *
+         * @param password
+         * @return
+         */
+        public Builder password(String password) {
+            this.password = password;
             return this;
         }
 

@@ -41,6 +41,12 @@ public class Meeting {
     @SerializedName("meeting_no")
     private String meetingNo;
     /**
+     * 会议密码
+     * <p> 示例值：971024
+     */
+    @SerializedName("password")
+    private String password;
+    /**
      * 会议创建时间（unix时间，单位sec）
      * <p> 示例值：1608885566
      */
@@ -120,6 +126,11 @@ public class Meeting {
          * <p> 示例值：123456789
          */
         this.meetingNo = builder.meetingNo;
+        /**
+         * 会议密码
+         * <p> 示例值：971024
+         */
+        this.password = builder.password;
         /**
          * 会议创建时间（unix时间，单位sec）
          * <p> 示例值：1608885566
@@ -201,6 +212,14 @@ public class Meeting {
 
     public void setMeetingNo(String meetingNo) {
         this.meetingNo = meetingNo;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCreateTime() {
@@ -297,6 +316,11 @@ public class Meeting {
          */
         private String meetingNo;
         /**
+         * 会议密码
+         * <p> 示例值：971024
+         */
+        private String password;
+        /**
          * 会议创建时间（unix时间，单位sec）
          * <p> 示例值：1608885566
          */
@@ -390,6 +414,19 @@ public class Meeting {
          */
         public Builder meetingNo(String meetingNo) {
             this.meetingNo = meetingNo;
+            return this;
+        }
+
+
+        /**
+         * 会议密码
+         * <p> 示例值：971024
+         *
+         * @param password
+         * @return
+         */
+        public Builder password(String password) {
+            this.password = password;
             return this;
         }
 

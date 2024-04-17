@@ -14,8 +14,8 @@
 package com.lark.oapi.service.im.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.im.v1.resource.*;
 import com.lark.oapi.service.im.v1.resource.Thread;
+import com.lark.oapi.service.im.v1.resource.*;
 
 public class V1 {
     private final BatchMessage batchMessage; // 消息 - 批量消息

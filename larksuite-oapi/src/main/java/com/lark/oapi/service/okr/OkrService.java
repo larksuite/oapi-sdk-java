@@ -23,6 +23,7 @@ public class OkrService {
     private final Period period; // OKR周期
     private final PeriodRule periodRule; // 周期规则
     private final ProgressRecord progressRecord; // OKR进展记录
+    private final Review review; // 复盘（灰度租户可见）
     private final UserOkr userOkr; // 用户OKR
 
     public OkrService(Config config) {
@@ -32,6 +33,7 @@ public class OkrService {
         this.period = new Period(config);
         this.periodRule = new PeriodRule(config);
         this.progressRecord = new ProgressRecord(config);
+        this.review = new Review(config);
         this.userOkr = new UserOkr(config);
     }
 
@@ -57,6 +59,10 @@ public class OkrService {
 
     public ProgressRecord progressRecord() {
         return progressRecord;
+    }
+
+    public Review review() {
+        return review;
     }
 
     public UserOkr userOkr() {

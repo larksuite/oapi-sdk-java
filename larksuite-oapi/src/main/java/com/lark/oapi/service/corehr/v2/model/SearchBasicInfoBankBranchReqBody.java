@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchBasicInfoBankBranchReqBody {
     /**
-     * 银行 ID 列表，与「支行 ID 列表」、「支行名称列表」至少填写一项
+     * 银行 ID 列表
      * <p> 示例值：
      */
     @SerializedName("bank_id_list")
@@ -40,6 +40,18 @@ public class SearchBasicInfoBankBranchReqBody {
      */
     @SerializedName("status_list")
     private Integer[] statusList;
+    /**
+     * 最早更新时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("update_start_time")
+    private String updateStartTime;
+    /**
+     * 最晚更新时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("update_end_time")
+    private String updateEndTime;
 
     // builder 开始
     public SearchBasicInfoBankBranchReqBody() {
@@ -47,7 +59,7 @@ public class SearchBasicInfoBankBranchReqBody {
 
     public SearchBasicInfoBankBranchReqBody(Builder builder) {
         /**
-         * 银行 ID 列表，与「支行 ID 列表」、「支行名称列表」至少填写一项
+         * 银行 ID 列表
          * <p> 示例值：
          */
         this.bankIdList = builder.bankIdList;
@@ -66,6 +78,16 @@ public class SearchBasicInfoBankBranchReqBody {
          * <p> 示例值：
          */
         this.statusList = builder.statusList;
+        /**
+         * 最早更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.updateStartTime = builder.updateStartTime;
+        /**
+         * 最晚更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.updateEndTime = builder.updateEndTime;
     }
 
     public static Builder newBuilder() {
@@ -104,9 +126,25 @@ public class SearchBasicInfoBankBranchReqBody {
         this.statusList = statusList;
     }
 
+    public String getUpdateStartTime() {
+        return this.updateStartTime;
+    }
+
+    public void setUpdateStartTime(String updateStartTime) {
+        this.updateStartTime = updateStartTime;
+    }
+
+    public String getUpdateEndTime() {
+        return this.updateEndTime;
+    }
+
+    public void setUpdateEndTime(String updateEndTime) {
+        this.updateEndTime = updateEndTime;
+    }
+
     public static class Builder {
         /**
-         * 银行 ID 列表，与「支行 ID 列表」、「支行名称列表」至少填写一项
+         * 银行 ID 列表
          * <p> 示例值：
          */
         private String[] bankIdList;
@@ -125,9 +163,19 @@ public class SearchBasicInfoBankBranchReqBody {
          * <p> 示例值：
          */
         private Integer[] statusList;
+        /**
+         * 最早更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String updateStartTime;
+        /**
+         * 最晚更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String updateEndTime;
 
         /**
-         * 银行 ID 列表，与「支行 ID 列表」、「支行名称列表」至少填写一项
+         * 银行 ID 列表
          * <p> 示例值：
          *
          * @param bankIdList
@@ -174,6 +222,32 @@ public class SearchBasicInfoBankBranchReqBody {
          */
         public Builder statusList(Integer[] statusList) {
             this.statusList = statusList;
+            return this;
+        }
+
+
+        /**
+         * 最早更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param updateStartTime
+         * @return
+         */
+        public Builder updateStartTime(String updateStartTime) {
+            this.updateStartTime = updateStartTime;
+            return this;
+        }
+
+
+        /**
+         * 最晚更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param updateEndTime
+         * @return
+         */
+        public Builder updateEndTime(String updateEndTime) {
+            this.updateEndTime = updateEndTime;
             return this;
         }
 

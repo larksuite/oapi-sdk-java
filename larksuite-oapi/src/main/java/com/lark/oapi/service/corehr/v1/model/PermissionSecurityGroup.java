@@ -28,6 +28,12 @@ public class PermissionSecurityGroup {
      */
     @SerializedName("rule_type")
     private Integer ruleType;
+    /**
+     * 规则
+     * <p> 示例值：
+     */
+    @SerializedName("expression")
+    private FilterExpression expression;
 
     // builder 开始
     public PermissionSecurityGroup() {
@@ -44,6 +50,11 @@ public class PermissionSecurityGroup {
          * <p> 示例值：1
          */
         this.ruleType = builder.ruleType;
+        /**
+         * 规则
+         * <p> 示例值：
+         */
+        this.expression = builder.expression;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +77,14 @@ public class PermissionSecurityGroup {
         this.ruleType = ruleType;
     }
 
+    public FilterExpression getExpression() {
+        return this.expression;
+    }
+
+    public void setExpression(FilterExpression expression) {
+        this.expression = expression;
+    }
+
     public static class Builder {
         /**
          * 管理维度
@@ -77,6 +96,11 @@ public class PermissionSecurityGroup {
          * <p> 示例值：1
          */
         private Integer ruleType;
+        /**
+         * 规则
+         * <p> 示例值：
+         */
+        private FilterExpression expression;
 
         /**
          * 管理维度
@@ -100,6 +124,19 @@ public class PermissionSecurityGroup {
          */
         public Builder ruleType(Integer ruleType) {
             this.ruleType = ruleType;
+            return this;
+        }
+
+
+        /**
+         * 规则
+         * <p> 示例值：
+         *
+         * @param expression
+         * @return
+         */
+        public Builder expression(FilterExpression expression) {
+            this.expression = expression;
             return this;
         }
 

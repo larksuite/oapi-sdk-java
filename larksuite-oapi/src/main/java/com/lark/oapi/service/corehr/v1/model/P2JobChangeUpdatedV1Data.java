@@ -47,6 +47,12 @@ public class P2JobChangeUpdatedV1Data {
     @SerializedName("transfer_type_unique_identifier")
     private String transferTypeUniqueIdentifier;
     /**
+     * 异动原因唯一标识
+     * <p> 示例值：internal_transfer
+     */
+    @SerializedName("transfer_reason_unique_identifier")
+    private String transferReasonUniqueIdentifier;
+    /**
      * 异动发起后的审批流程 id，如果是直接异动，则无需要审批流程id
      * <p> 示例值：7090409013925398060
      */
@@ -109,6 +115,14 @@ public class P2JobChangeUpdatedV1Data {
 
     public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
         this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+    }
+
+    public String getTransferReasonUniqueIdentifier() {
+        return this.transferReasonUniqueIdentifier;
+    }
+
+    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
     }
 
     public String getProcessId() {

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SecurityGroup {
     /**
@@ -65,6 +52,12 @@ public class SecurityGroup {
      */
     @SerializedName("update_time")
     private String updateTime;
+    /**
+     * 组织管理维度
+     * <p> 示例值：
+     */
+    @SerializedName("org_truncation")
+    private OrgTruncation[] orgTruncation;
 
     // builder 开始
     public SecurityGroup() {
@@ -101,6 +94,11 @@ public class SecurityGroup {
          * <p> 示例值：1
          */
         this.updateTime = builder.updateTime;
+        /**
+         * 组织管理维度
+         * <p> 示例值：
+         */
+        this.orgTruncation = builder.orgTruncation;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +153,14 @@ public class SecurityGroup {
         this.updateTime = updateTime;
     }
 
+    public OrgTruncation[] getOrgTruncation() {
+        return this.orgTruncation;
+    }
+
+    public void setOrgTruncation(OrgTruncation[] orgTruncation) {
+        this.orgTruncation = orgTruncation;
+    }
+
     public static class Builder {
         /**
          * 角色ID
@@ -186,6 +192,11 @@ public class SecurityGroup {
          * <p> 示例值：1
          */
         private String updateTime;
+        /**
+         * 组织管理维度
+         * <p> 示例值：
+         */
+        private OrgTruncation[] orgTruncation;
 
         /**
          * 角色ID
@@ -261,6 +272,19 @@ public class SecurityGroup {
          */
         public Builder updateTime(String updateTime) {
             this.updateTime = updateTime;
+            return this;
+        }
+
+
+        /**
+         * 组织管理维度
+         * <p> 示例值：
+         *
+         * @param orgTruncation
+         * @return
+         */
+        public Builder orgTruncation(OrgTruncation[] orgTruncation) {
+            this.orgTruncation = orgTruncation;
             return this;
         }
 

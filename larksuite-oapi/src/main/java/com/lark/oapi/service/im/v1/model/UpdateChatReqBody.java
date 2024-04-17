@@ -118,6 +118,18 @@ public class UpdateChatReqBody {
      */
     @SerializedName("video_conference_setting")
     private String videoConferenceSetting;
+    /**
+     * 谁可以管理置顶
+     * <p> 示例值：all_members
+     */
+    @SerializedName("pin_manage_setting")
+    private String pinManageSetting;
+    /**
+     * 隐藏群成员人数设置
+     * <p> 示例值：all_members
+     */
+    @SerializedName("hide_member_count_setting")
+    private String hideMemberCountSetting;
 
     // builder 开始
     public UpdateChatReqBody() {
@@ -209,6 +221,16 @@ public class UpdateChatReqBody {
          * <p> 示例值：all_members
          */
         this.videoConferenceSetting = builder.videoConferenceSetting;
+        /**
+         * 谁可以管理置顶
+         * <p> 示例值：all_members
+         */
+        this.pinManageSetting = builder.pinManageSetting;
+        /**
+         * 隐藏群成员人数设置
+         * <p> 示例值：all_members
+         */
+        this.hideMemberCountSetting = builder.hideMemberCountSetting;
     }
 
     public static Builder newBuilder() {
@@ -351,6 +373,22 @@ public class UpdateChatReqBody {
         this.videoConferenceSetting = videoConferenceSetting;
     }
 
+    public String getPinManageSetting() {
+        return this.pinManageSetting;
+    }
+
+    public void setPinManageSetting(String pinManageSetting) {
+        this.pinManageSetting = pinManageSetting;
+    }
+
+    public String getHideMemberCountSetting() {
+        return this.hideMemberCountSetting;
+    }
+
+    public void setHideMemberCountSetting(String hideMemberCountSetting) {
+        this.hideMemberCountSetting = hideMemberCountSetting;
+    }
+
     public static class Builder {
         /**
          * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
@@ -437,6 +475,16 @@ public class UpdateChatReqBody {
          * <p> 示例值：all_members
          */
         private String videoConferenceSetting;
+        /**
+         * 谁可以管理置顶
+         * <p> 示例值：all_members
+         */
+        private String pinManageSetting;
+        /**
+         * 隐藏群成员人数设置
+         * <p> 示例值：all_members
+         */
+        private String hideMemberCountSetting;
 
         /**
          * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
@@ -691,6 +739,56 @@ public class UpdateChatReqBody {
          */
         public Builder videoConferenceSetting(com.lark.oapi.service.im.v1.enums.UpdateChatVideoConferenceSettingTypeEnum videoConferenceSetting) {
             this.videoConferenceSetting = videoConferenceSetting.getValue();
+            return this;
+        }
+
+
+        /**
+         * 谁可以管理置顶
+         * <p> 示例值：all_members
+         *
+         * @param pinManageSetting
+         * @return
+         */
+        public Builder pinManageSetting(String pinManageSetting) {
+            this.pinManageSetting = pinManageSetting;
+            return this;
+        }
+
+        /**
+         * 谁可以管理置顶
+         * <p> 示例值：all_members
+         *
+         * @param pinManageSetting {@link com.lark.oapi.service.im.v1.enums.UpdateChatPinManageSettingTypeEnum}
+         * @return
+         */
+        public Builder pinManageSetting(com.lark.oapi.service.im.v1.enums.UpdateChatPinManageSettingTypeEnum pinManageSetting) {
+            this.pinManageSetting = pinManageSetting.getValue();
+            return this;
+        }
+
+
+        /**
+         * 隐藏群成员人数设置
+         * <p> 示例值：all_members
+         *
+         * @param hideMemberCountSetting
+         * @return
+         */
+        public Builder hideMemberCountSetting(String hideMemberCountSetting) {
+            this.hideMemberCountSetting = hideMemberCountSetting;
+            return this;
+        }
+
+        /**
+         * 隐藏群成员人数设置
+         * <p> 示例值：all_members
+         *
+         * @param hideMemberCountSetting {@link com.lark.oapi.service.im.v1.enums.UpdateChatHideMemberCountSettingTypeEnum}
+         * @return
+         */
+        public Builder hideMemberCountSetting(com.lark.oapi.service.im.v1.enums.UpdateChatHideMemberCountSettingTypeEnum hideMemberCountSetting) {
+            this.hideMemberCountSetting = hideMemberCountSetting.getValue();
             return this;
         }
 

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferInfo {
     /**
@@ -233,6 +220,24 @@ public class OfferInfo {
      */
     @SerializedName("compensation_type")
     private String compensationType;
+    /**
+     * 工作地点id
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("work_location_id")
+    private String workLocationId;
+    /**
+     * 入职地址id
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("onboarding_address_id")
+    private String onboardingAddressId;
+    /**
+     * 办公地址id
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("office_address_id")
+    private String officeAddressId;
 
     // builder 开始
     public OfferInfo() {
@@ -409,6 +414,21 @@ public class OfferInfo {
          * <p> 示例值：hourly
          */
         this.compensationType = builder.compensationType;
+        /**
+         * 工作地点id
+         * <p> 示例值：6977976687350924833
+         */
+        this.workLocationId = builder.workLocationId;
+        /**
+         * 入职地址id
+         * <p> 示例值：6977976687350924833
+         */
+        this.onboardingAddressId = builder.onboardingAddressId;
+        /**
+         * 办公地址id
+         * <p> 示例值：6977976687350924833
+         */
+        this.officeAddressId = builder.officeAddressId;
     }
 
     public static Builder newBuilder() {
@@ -687,6 +707,30 @@ public class OfferInfo {
         this.compensationType = compensationType;
     }
 
+    public String getWorkLocationId() {
+        return this.workLocationId;
+    }
+
+    public void setWorkLocationId(String workLocationId) {
+        this.workLocationId = workLocationId;
+    }
+
+    public String getOnboardingAddressId() {
+        return this.onboardingAddressId;
+    }
+
+    public void setOnboardingAddressId(String onboardingAddressId) {
+        this.onboardingAddressId = onboardingAddressId;
+    }
+
+    public String getOfficeAddressId() {
+        return this.officeAddressId;
+    }
+
+    public void setOfficeAddressId(String officeAddressId) {
+        this.officeAddressId = officeAddressId;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -858,6 +902,21 @@ public class OfferInfo {
          * <p> 示例值：hourly
          */
         private String compensationType;
+        /**
+         * 工作地点id
+         * <p> 示例值：6977976687350924833
+         */
+        private String workLocationId;
+        /**
+         * 入职地址id
+         * <p> 示例值：6977976687350924833
+         */
+        private String onboardingAddressId;
+        /**
+         * 办公地址id
+         * <p> 示例值：6977976687350924833
+         */
+        private String officeAddressId;
 
         /**
          * Offer id
@@ -1297,6 +1356,45 @@ public class OfferInfo {
          */
         public Builder compensationType(String compensationType) {
             this.compensationType = compensationType;
+            return this;
+        }
+
+
+        /**
+         * 工作地点id
+         * <p> 示例值：6977976687350924833
+         *
+         * @param workLocationId
+         * @return
+         */
+        public Builder workLocationId(String workLocationId) {
+            this.workLocationId = workLocationId;
+            return this;
+        }
+
+
+        /**
+         * 入职地址id
+         * <p> 示例值：6977976687350924833
+         *
+         * @param onboardingAddressId
+         * @return
+         */
+        public Builder onboardingAddressId(String onboardingAddressId) {
+            this.onboardingAddressId = onboardingAddressId;
+            return this;
+        }
+
+
+        /**
+         * 办公地址id
+         * <p> 示例值：6977976687350924833
+         *
+         * @param officeAddressId
+         * @return
+         */
+        public Builder officeAddressId(String officeAddressId) {
+            this.officeAddressId = officeAddressId;
             return this;
         }
 

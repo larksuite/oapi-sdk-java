@@ -70,6 +70,24 @@ public class MeetingEventMeeting {
      */
     @SerializedName("calendar_event_id")
     private String calendarEventId;
+    /**
+     * 会议子类型
+     * <p> 示例值：1
+     */
+    @SerializedName("meeting_sub_type")
+    private Integer meetingSubType;
+    /**
+     * 会议安全设置
+     * <p> 示例值：
+     */
+    @SerializedName("security_setting")
+    private MeetingSecuritySetting securitySetting;
+    /**
+     * 研讨会相关设置
+     * <p> 示例值：
+     */
+    @SerializedName("webinar_setting")
+    private MeetingWebinarSetting webinarSetting;
 
     // builder 开始
     public MeetingEventMeeting() {
@@ -121,6 +139,21 @@ public class MeetingEventMeeting {
          * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
          */
         this.calendarEventId = builder.calendarEventId;
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         */
+        this.meetingSubType = builder.meetingSubType;
+        /**
+         * 会议安全设置
+         * <p> 示例值：
+         */
+        this.securitySetting = builder.securitySetting;
+        /**
+         * 研讨会相关设置
+         * <p> 示例值：
+         */
+        this.webinarSetting = builder.webinarSetting;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +232,30 @@ public class MeetingEventMeeting {
         this.calendarEventId = calendarEventId;
     }
 
+    public Integer getMeetingSubType() {
+        return this.meetingSubType;
+    }
+
+    public void setMeetingSubType(Integer meetingSubType) {
+        this.meetingSubType = meetingSubType;
+    }
+
+    public MeetingSecuritySetting getSecuritySetting() {
+        return this.securitySetting;
+    }
+
+    public void setSecuritySetting(MeetingSecuritySetting securitySetting) {
+        this.securitySetting = securitySetting;
+    }
+
+    public MeetingWebinarSetting getWebinarSetting() {
+        return this.webinarSetting;
+    }
+
+    public void setWebinarSetting(MeetingWebinarSetting webinarSetting) {
+        this.webinarSetting = webinarSetting;
+    }
+
     public static class Builder {
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
@@ -245,6 +302,21 @@ public class MeetingEventMeeting {
          * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
          */
         private String calendarEventId;
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         */
+        private Integer meetingSubType;
+        /**
+         * 会议安全设置
+         * <p> 示例值：
+         */
+        private MeetingSecuritySetting securitySetting;
+        /**
+         * 研讨会相关设置
+         * <p> 示例值：
+         */
+        private MeetingWebinarSetting webinarSetting;
 
         /**
          * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
@@ -371,6 +443,57 @@ public class MeetingEventMeeting {
          */
         public Builder calendarEventId(String calendarEventId) {
             this.calendarEventId = calendarEventId;
+            return this;
+        }
+
+
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         *
+         * @param meetingSubType
+         * @return
+         */
+        public Builder meetingSubType(Integer meetingSubType) {
+            this.meetingSubType = meetingSubType;
+            return this;
+        }
+
+        /**
+         * 会议子类型
+         * <p> 示例值：1
+         *
+         * @param meetingSubType {@link com.lark.oapi.service.vc.v1.enums.MeetingEventMeetingMeetingSubTypeEnum}
+         * @return
+         */
+        public Builder meetingSubType(com.lark.oapi.service.vc.v1.enums.MeetingEventMeetingMeetingSubTypeEnum meetingSubType) {
+            this.meetingSubType = meetingSubType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 会议安全设置
+         * <p> 示例值：
+         *
+         * @param securitySetting
+         * @return
+         */
+        public Builder securitySetting(MeetingSecuritySetting securitySetting) {
+            this.securitySetting = securitySetting;
+            return this;
+        }
+
+
+        /**
+         * 研讨会相关设置
+         * <p> 示例值：
+         *
+         * @param webinarSetting
+         * @return
+         */
+        public Builder webinarSetting(MeetingWebinarSetting webinarSetting) {
+            this.webinarSetting = webinarSetting;
             return this;
         }
 

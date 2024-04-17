@@ -118,6 +118,12 @@ public class AuditInfo {
      */
     @SerializedName("audit_detail")
     private AuditDetail auditDetail;
+    /**
+     * 操作人企业编号
+     * <p> 示例值：F2823442
+     */
+    @SerializedName("operator_tenant")
+    private String operatorTenant;
 
     // builder 开始
     public AuditInfo() {
@@ -209,6 +215,11 @@ public class AuditInfo {
          * <p> 示例值：
          */
         this.auditDetail = builder.auditDetail;
+        /**
+         * 操作人企业编号
+         * <p> 示例值：F2823442
+         */
+        this.operatorTenant = builder.operatorTenant;
     }
 
     public static Builder newBuilder() {
@@ -351,6 +362,14 @@ public class AuditInfo {
         this.auditDetail = auditDetail;
     }
 
+    public String getOperatorTenant() {
+        return this.operatorTenant;
+    }
+
+    public void setOperatorTenant(String operatorTenant) {
+        this.operatorTenant = operatorTenant;
+    }
+
     public static class Builder {
         /**
          * 事件id
@@ -437,6 +456,11 @@ public class AuditInfo {
          * <p> 示例值：
          */
         private AuditDetail auditDetail;
+        /**
+         * 操作人企业编号
+         * <p> 示例值：F2823442
+         */
+        private String operatorTenant;
 
         /**
          * 事件id
@@ -667,6 +691,19 @@ public class AuditInfo {
          */
         public Builder auditDetail(AuditDetail auditDetail) {
             this.auditDetail = auditDetail;
+            return this;
+        }
+
+
+        /**
+         * 操作人企业编号
+         * <p> 示例值：F2823442
+         *
+         * @param operatorTenant
+         * @return
+         */
+        public Builder operatorTenant(String operatorTenant) {
+            this.operatorTenant = operatorTenant;
             return this;
         }
 

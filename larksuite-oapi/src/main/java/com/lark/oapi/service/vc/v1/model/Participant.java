@@ -166,6 +166,12 @@ public class Participant {
      */
     @SerializedName("leave_reason")
     private String leaveReason;
+    /**
+     * 日程响应状态
+     * <p> 示例值：
+     */
+    @SerializedName("accept_status")
+    private Integer acceptStatus;
 
     // builder 开始
     public Participant() {
@@ -297,6 +303,11 @@ public class Participant {
          * <p> 示例值：主持人结束会议
          */
         this.leaveReason = builder.leaveReason;
+        /**
+         * 日程响应状态
+         * <p> 示例值：
+         */
+        this.acceptStatus = builder.acceptStatus;
     }
 
     public static Builder newBuilder() {
@@ -503,6 +514,14 @@ public class Participant {
         this.leaveReason = leaveReason;
     }
 
+    public Integer getAcceptStatus() {
+        return this.acceptStatus;
+    }
+
+    public void setAcceptStatus(Integer acceptStatus) {
+        this.acceptStatus = acceptStatus;
+    }
+
     public static class Builder {
         /**
          * 参会者
@@ -629,6 +648,11 @@ public class Participant {
          * <p> 示例值：主持人结束会议
          */
         private String leaveReason;
+        /**
+         * 日程响应状态
+         * <p> 示例值：
+         */
+        private Integer acceptStatus;
 
         /**
          * 参会者
@@ -951,6 +975,31 @@ public class Participant {
          */
         public Builder leaveReason(String leaveReason) {
             this.leaveReason = leaveReason;
+            return this;
+        }
+
+
+        /**
+         * 日程响应状态
+         * <p> 示例值：
+         *
+         * @param acceptStatus
+         * @return
+         */
+        public Builder acceptStatus(Integer acceptStatus) {
+            this.acceptStatus = acceptStatus;
+            return this;
+        }
+
+        /**
+         * 日程响应状态
+         * <p> 示例值：
+         *
+         * @param acceptStatus {@link com.lark.oapi.service.vc.v1.enums.ParticipantAcceptStatusEnum}
+         * @return
+         */
+        public Builder acceptStatus(com.lark.oapi.service.vc.v1.enums.ParticipantAcceptStatusEnum acceptStatus) {
+            this.acceptStatus = acceptStatus.getValue();
             return this;
         }
 

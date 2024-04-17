@@ -29,6 +29,12 @@ public class DepartmentChange {
     @SerializedName("department_id")
     private String departmentId;
     /**
+     * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+     * <p> 示例值：6966236933198579208
+     */
+    @SerializedName("draft_department_id")
+    private String draftDepartmentId;
+    /**
      * 调整类型
      * <p> 示例值：Create
      */
@@ -56,6 +62,11 @@ public class DepartmentChange {
          * <p> 示例值：6966236933198579208
          */
         this.departmentId = builder.departmentId;
+        /**
+         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         */
+        this.draftDepartmentId = builder.draftDepartmentId;
         /**
          * 调整类型
          * <p> 示例值：Create
@@ -88,6 +99,14 @@ public class DepartmentChange {
         this.departmentId = departmentId;
     }
 
+    public String getDraftDepartmentId() {
+        return this.draftDepartmentId;
+    }
+
+    public void setDraftDepartmentId(String draftDepartmentId) {
+        this.draftDepartmentId = draftDepartmentId;
+    }
+
     public String getDepartmentChangeType() {
         return this.departmentChangeType;
     }
@@ -115,6 +134,11 @@ public class DepartmentChange {
          * <p> 示例值：6966236933198579208
          */
         private String departmentId;
+        /**
+         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         */
+        private String draftDepartmentId;
         /**
          * 调整类型
          * <p> 示例值：Create
@@ -148,6 +172,19 @@ public class DepartmentChange {
          */
         public Builder departmentId(String departmentId) {
             this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
+         * <p> 示例值：6966236933198579208
+         *
+         * @param draftDepartmentId
+         * @return
+         */
+        public Builder draftDepartmentId(String draftDepartmentId) {
+            this.draftDepartmentId = draftDepartmentId;
             return this;
         }
 

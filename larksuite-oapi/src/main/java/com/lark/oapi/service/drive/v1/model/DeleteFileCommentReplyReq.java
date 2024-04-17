@@ -46,9 +46,11 @@ public class DeleteFileCommentReplyReq {
     @Path
     @SerializedName("reply_id")
     private String replyId;
+
     // builder 开始
     public DeleteFileCommentReplyReq() {
     }
+
     public DeleteFileCommentReplyReq(Builder builder) {
         /**
          * 文档类型

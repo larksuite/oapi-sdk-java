@@ -34,6 +34,18 @@ public class DialogSearchRequest {
      */
     @SerializedName("scenario_context")
     private ScenarioContext scenarioContext;
+    /**
+     * agent类型
+     * <p> 示例值：1
+     */
+    @SerializedName("agent_type")
+    private Integer agentType;
+    /**
+     * 返回结果的数据类型
+     * <p> 示例值：1
+     */
+    @SerializedName("response_type")
+    private Integer responseType;
 
     // builder 开始
     public DialogSearchRequest() {
@@ -55,6 +67,16 @@ public class DialogSearchRequest {
          * <p> 示例值：
          */
         this.scenarioContext = builder.scenarioContext;
+        /**
+         * agent类型
+         * <p> 示例值：1
+         */
+        this.agentType = builder.agentType;
+        /**
+         * 返回结果的数据类型
+         * <p> 示例值：1
+         */
+        this.responseType = builder.responseType;
     }
 
     public static Builder newBuilder() {
@@ -85,6 +107,22 @@ public class DialogSearchRequest {
         this.scenarioContext = scenarioContext;
     }
 
+    public Integer getAgentType() {
+        return this.agentType;
+    }
+
+    public void setAgentType(Integer agentType) {
+        this.agentType = agentType;
+    }
+
+    public Integer getResponseType() {
+        return this.responseType;
+    }
+
+    public void setResponseType(Integer responseType) {
+        this.responseType = responseType;
+    }
+
     public static class Builder {
         /**
          * 用户问题
@@ -101,6 +139,16 @@ public class DialogSearchRequest {
          * <p> 示例值：
          */
         private ScenarioContext scenarioContext;
+        /**
+         * agent类型
+         * <p> 示例值：1
+         */
+        private Integer agentType;
+        /**
+         * 返回结果的数据类型
+         * <p> 示例值：1
+         */
+        private Integer responseType;
 
         /**
          * 用户问题
@@ -137,6 +185,56 @@ public class DialogSearchRequest {
          */
         public Builder scenarioContext(ScenarioContext scenarioContext) {
             this.scenarioContext = scenarioContext;
+            return this;
+        }
+
+
+        /**
+         * agent类型
+         * <p> 示例值：1
+         *
+         * @param agentType
+         * @return
+         */
+        public Builder agentType(Integer agentType) {
+            this.agentType = agentType;
+            return this;
+        }
+
+        /**
+         * agent类型
+         * <p> 示例值：1
+         *
+         * @param agentType {@link com.lark.oapi.service.search.v2.enums.DialogSearchRequestAgentTypeEnum}
+         * @return
+         */
+        public Builder agentType(com.lark.oapi.service.search.v2.enums.DialogSearchRequestAgentTypeEnum agentType) {
+            this.agentType = agentType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 返回结果的数据类型
+         * <p> 示例值：1
+         *
+         * @param responseType
+         * @return
+         */
+        public Builder responseType(Integer responseType) {
+            this.responseType = responseType;
+            return this;
+        }
+
+        /**
+         * 返回结果的数据类型
+         * <p> 示例值：1
+         *
+         * @param responseType {@link com.lark.oapi.service.search.v2.enums.DialogSearchRequestResponseTypeEnum}
+         * @return
+         */
+        public Builder responseType(com.lark.oapi.service.search.v2.enums.DialogSearchRequestResponseTypeEnum responseType) {
+            this.responseType = responseType.getValue();
             return this;
         }
 

@@ -88,6 +88,12 @@ public class FormFieldVariableListObject {
      */
     @SerializedName("object_value")
     private FormFieldVariableObjectValue objectValue;
+    /**
+     * 记录对象
+     * <p> 示例值：
+     */
+    @SerializedName("record_value")
+    private FormFieldVariableRecordValue recordValue;
 
     // builder 开始
     public FormFieldVariableListObject() {
@@ -154,6 +160,11 @@ public class FormFieldVariableListObject {
          * <p> 示例值：
          */
         this.objectValue = builder.objectValue;
+        /**
+         * 记录对象
+         * <p> 示例值：
+         */
+        this.recordValue = builder.recordValue;
     }
 
     public static Builder newBuilder() {
@@ -256,6 +267,14 @@ public class FormFieldVariableListObject {
         this.objectValue = objectValue;
     }
 
+    public FormFieldVariableRecordValue getRecordValue() {
+        return this.recordValue;
+    }
+
+    public void setRecordValue(FormFieldVariableRecordValue recordValue) {
+        this.recordValue = recordValue;
+    }
+
     public static class Builder {
         /**
          * 文本变量对象
@@ -317,6 +336,11 @@ public class FormFieldVariableListObject {
          * <p> 示例值：
          */
         private FormFieldVariableObjectValue objectValue;
+        /**
+         * 记录对象
+         * <p> 示例值：
+         */
+        private FormFieldVariableRecordValue recordValue;
 
         /**
          * 文本变量对象
@@ -470,6 +494,19 @@ public class FormFieldVariableListObject {
          */
         public Builder objectValue(FormFieldVariableObjectValue objectValue) {
             this.objectValue = objectValue;
+            return this;
+        }
+
+
+        /**
+         * 记录对象
+         * <p> 示例值：
+         *
+         * @param recordValue
+         * @return
+         */
+        public Builder recordValue(FormFieldVariableRecordValue recordValue) {
+            this.recordValue = recordValue;
             return this;
         }
 

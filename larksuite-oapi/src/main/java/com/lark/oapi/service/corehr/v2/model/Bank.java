@@ -46,6 +46,18 @@ public class Bank {
      */
     @SerializedName("status")
     private Integer status;
+    /**
+     * 创建时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("create_time")
+    private String createTime;
+    /**
+     * 更新时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("update_time")
+    private String updateTime;
 
     // builder 开始
     public Bank() {
@@ -77,6 +89,16 @@ public class Bank {
          * <p> 示例值：1
          */
         this.status = builder.status;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.updateTime = builder.updateTime;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +145,22 @@ public class Bank {
         this.status = status;
     }
 
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public static class Builder {
         /**
          * 银行 ID
@@ -149,6 +187,16 @@ public class Bank {
          * <p> 示例值：1
          */
         private Integer status;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String createTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String updateTime;
 
         /**
          * 银行 ID
@@ -223,6 +271,32 @@ public class Bank {
          */
         public Builder status(com.lark.oapi.service.corehr.v2.enums.BankBasicDataObjStatusEnum status) {
             this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
 

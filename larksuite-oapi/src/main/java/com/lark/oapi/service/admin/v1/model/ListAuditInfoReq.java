@@ -80,6 +80,13 @@ public class ListAuditInfoReq {
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 用户类型
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("user_type")
+    private Integer userType;
 
     // builder 开始
     public ListAuditInfoReq() {
@@ -131,6 +138,11 @@ public class ListAuditInfoReq {
          * <p> 示例值：20
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 用户类型
+         * <p> 示例值：
+         */
+        this.userType = builder.userType;
     }
 
     public static Builder newBuilder() {
@@ -209,6 +221,14 @@ public class ListAuditInfoReq {
         this.pageSize = pageSize;
     }
 
+    public Integer getUserType() {
+        return this.userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Integer latest; // 起始时间戳
@@ -219,6 +239,7 @@ public class ListAuditInfoReq {
         private Integer eventModule; // 模块
         private String pageToken; // 下一页分页的token
         private Integer pageSize; // 分页参数
+        private Integer userType; // 用户类型
 
 
         /**
@@ -358,6 +379,31 @@ public class ListAuditInfoReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 用户类型
+         * <p> 示例值：
+         *
+         * @param userType
+         * @return
+         */
+        public Builder userType(Integer userType) {
+            this.userType = userType;
+            return this;
+        }
+
+        /**
+         * 用户类型
+         * <p> 示例值：
+         *
+         * @param userType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum}
+         * @return
+         */
+        public Builder userType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum userType) {
+            this.userType = userType.getValue();
             return this;
         }
 

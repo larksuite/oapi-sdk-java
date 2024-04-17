@@ -64,6 +64,12 @@ public class ListChat {
      */
     @SerializedName("tenant_key")
     private String tenantKey;
+    /**
+     * 群状态
+     * <p> 示例值：normal
+     */
+    @SerializedName("chat_status")
+    private String chatStatus;
 
     // builder 开始
     public ListChat() {
@@ -110,6 +116,11 @@ public class ListChat {
          * <p> 示例值：736588c9260f175e
          */
         this.tenantKey = builder.tenantKey;
+        /**
+         * 群状态
+         * <p> 示例值：normal
+         */
+        this.chatStatus = builder.chatStatus;
     }
 
     public static Builder newBuilder() {
@@ -180,6 +191,14 @@ public class ListChat {
         this.tenantKey = tenantKey;
     }
 
+    public String getChatStatus() {
+        return this.chatStatus;
+    }
+
+    public void setChatStatus(String chatStatus) {
+        this.chatStatus = chatStatus;
+    }
+
     public static class Builder {
         /**
          * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
@@ -221,6 +240,11 @@ public class ListChat {
          * <p> 示例值：736588c9260f175e
          */
         private String tenantKey;
+        /**
+         * 群状态
+         * <p> 示例值：normal
+         */
+        private String chatStatus;
 
         /**
          * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
@@ -322,6 +346,31 @@ public class ListChat {
          */
         public Builder tenantKey(String tenantKey) {
             this.tenantKey = tenantKey;
+            return this;
+        }
+
+
+        /**
+         * 群状态
+         * <p> 示例值：normal
+         *
+         * @param chatStatus
+         * @return
+         */
+        public Builder chatStatus(String chatStatus) {
+            this.chatStatus = chatStatus;
+            return this;
+        }
+
+        /**
+         * 群状态
+         * <p> 示例值：normal
+         *
+         * @param chatStatus {@link com.lark.oapi.service.im.v1.enums.ListChatChatStatusTypeEnum}
+         * @return
+         */
+        public Builder chatStatus(com.lark.oapi.service.im.v1.enums.ListChatChatStatusTypeEnum chatStatus) {
+            this.chatStatus = chatStatus.getValue();
             return this;
         }
 

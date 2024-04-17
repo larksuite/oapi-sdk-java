@@ -52,6 +52,12 @@ public class ReserveMeetingSetting {
      */
     @SerializedName("assign_host_list")
     private ReserveAssignHost[] assignHostList;
+    /**
+     * 设置会议密码，仅支持 4-9 位数字
+     * <p> 示例值：971024
+     */
+    @SerializedName("password")
+    private String password;
 
     // builder 开始
     public ReserveMeetingSetting() {
@@ -88,6 +94,11 @@ public class ReserveMeetingSetting {
          * <p> 示例值：
          */
         this.assignHostList = builder.assignHostList;
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         */
+        this.password = builder.password;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +153,14 @@ public class ReserveMeetingSetting {
         this.assignHostList = assignHostList;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public static class Builder {
         /**
          * 会议主题
@@ -173,6 +192,11 @@ public class ReserveMeetingSetting {
          * <p> 示例值：
          */
         private ReserveAssignHost[] assignHostList;
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         */
+        private String password;
 
         /**
          * 会议主题
@@ -260,6 +284,19 @@ public class ReserveMeetingSetting {
          */
         public Builder assignHostList(ReserveAssignHost[] assignHostList) {
             this.assignHostList = assignHostList;
+            return this;
+        }
+
+
+        /**
+         * 设置会议密码，仅支持 4-9 位数字
+         * <p> 示例值：971024
+         *
+         * @param password
+         * @return
+         */
+        public Builder password(String password) {
+            this.password = password;
             return this;
         }
 

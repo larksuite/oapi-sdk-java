@@ -35,6 +35,7 @@ import com.lark.oapi.service.im.v1.resource.MessageResource;
 import com.lark.oapi.service.im.v1.resource.Pin;
 import com.lark.oapi.service.im.v1.resource.Thread;
 import com.lark.oapi.service.im.v1.resource.*;
+import com.lark.oapi.service.im.v2.V2;
 
 public class ImService {
     private final V1 v1;
@@ -57,6 +58,7 @@ public class ImService {
     private final MessageResource messageResource; // message.resource
     private final Pin pin; // 消息 - Pin
     private final Thread thread; // thread
+    private final V2 v2;
 
     public ImService(Config config) {
         this.v1 = new V1(config);
@@ -79,6 +81,7 @@ public class ImService {
         this.messageResource = new MessageResource(config);
         this.pin = new Pin(config);
         this.thread = new Thread(config);
+        this.v2 = new V2(config);
     }
 
     public V1 v1() {
@@ -159,6 +162,10 @@ public class ImService {
 
     public Thread thread() {
         return thread;
+    }
+
+    public V2 v2() {
+        return v2;
     }
 
     public abstract static class P2ChatDisbandedV1Handler implements IEventHandler<P2ChatDisbandedV1> {
@@ -252,7 +259,6 @@ public class ImService {
             return new P1MessageReadV1();
         }
     }
-
 
     public abstract static class P1MessageReceivedV1Handler implements IEventHandler<P1MessageReceivedV1> {
         @Override

@@ -14,8 +14,8 @@
 package com.lark.oapi.service.corehr.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.corehr.v2.resource.*;
 import com.lark.oapi.service.corehr.v2.resource.Process;
+import com.lark.oapi.service.corehr.v2.resource.*;
 
 public class V2 {
     private final BasicInfoBank basicInfoBank; // basic_info.bank

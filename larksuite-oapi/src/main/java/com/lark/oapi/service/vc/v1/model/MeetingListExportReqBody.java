@@ -52,6 +52,12 @@ public class MeetingListExportReqBody {
      */
     @SerializedName("room_id")
     private String roomId;
+    /**
+     * 按会议类型筛选（最多一个筛选条件）
+     * <p> 示例值：2
+     */
+    @SerializedName("meeting_type")
+    private Integer meetingType;
 
     // builder 开始
     public MeetingListExportReqBody() {
@@ -88,6 +94,11 @@ public class MeetingListExportReqBody {
          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
          */
         this.roomId = builder.roomId;
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         */
+        this.meetingType = builder.meetingType;
     }
 
     public static Builder newBuilder() {
@@ -142,6 +153,14 @@ public class MeetingListExportReqBody {
         this.roomId = roomId;
     }
 
+    public Integer getMeetingType() {
+        return this.meetingType;
+    }
+
+    public void setMeetingType(Integer meetingType) {
+        this.meetingType = meetingType;
+    }
+
     public static class Builder {
         /**
          * 查询开始时间（unix时间，单位sec）
@@ -173,6 +192,11 @@ public class MeetingListExportReqBody {
          * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
          */
         private String roomId;
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         */
+        private Integer meetingType;
 
         /**
          * 查询开始时间（unix时间，单位sec）
@@ -260,6 +284,31 @@ public class MeetingListExportReqBody {
          */
         public Builder roomId(String roomId) {
             this.roomId = roomId;
+            return this;
+        }
+
+
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         *
+         * @param meetingType
+         * @return
+         */
+        public Builder meetingType(Integer meetingType) {
+            this.meetingType = meetingType;
+            return this;
+        }
+
+        /**
+         * 按会议类型筛选（最多一个筛选条件）
+         * <p> 示例值：2
+         *
+         * @param meetingType {@link com.lark.oapi.service.vc.v1.enums.MeetingListExportMeetingTypeEnum}
+         * @return
+         */
+        public Builder meetingType(com.lark.oapi.service.vc.v1.enums.MeetingListExportMeetingTypeEnum meetingType) {
+            this.meetingType = meetingType.getValue();
             return this;
         }
 

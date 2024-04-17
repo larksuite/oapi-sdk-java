@@ -14,7 +14,7 @@
 package com.lark.oapi.service.calendar.v4.enums;
 
 /**
- * rsvp状态
+ * rsvp-日程状态
  */
 public enum ReplyCalendarEventRsvpStatusEnum {
     ACCEPT("accept"), // 接受

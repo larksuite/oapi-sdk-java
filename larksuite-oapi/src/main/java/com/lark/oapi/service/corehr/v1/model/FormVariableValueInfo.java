@@ -94,6 +94,12 @@ public class FormVariableValueInfo {
      */
     @SerializedName("list_value")
     private FormFieldVariableListValue listValue;
+    /**
+     * 记录对象
+     * <p> 示例值：
+     */
+    @SerializedName("record_value")
+    private FormFieldVariableRecordValue recordValue;
 
     // builder 开始
     public FormVariableValueInfo() {
@@ -165,6 +171,11 @@ public class FormVariableValueInfo {
          * <p> 示例值：
          */
         this.listValue = builder.listValue;
+        /**
+         * 记录对象
+         * <p> 示例值：
+         */
+        this.recordValue = builder.recordValue;
     }
 
     public static Builder newBuilder() {
@@ -275,6 +286,14 @@ public class FormVariableValueInfo {
         this.listValue = listValue;
     }
 
+    public FormFieldVariableRecordValue getRecordValue() {
+        return this.recordValue;
+    }
+
+    public void setRecordValue(FormFieldVariableRecordValue recordValue) {
+        this.recordValue = recordValue;
+    }
+
     public static class Builder {
         /**
          * 文本变量对象
@@ -341,6 +360,11 @@ public class FormVariableValueInfo {
          * <p> 示例值：
          */
         private FormFieldVariableListValue listValue;
+        /**
+         * 记录对象
+         * <p> 示例值：
+         */
+        private FormFieldVariableRecordValue recordValue;
 
         /**
          * 文本变量对象
@@ -507,6 +531,19 @@ public class FormVariableValueInfo {
          */
         public Builder listValue(FormFieldVariableListValue listValue) {
             this.listValue = listValue;
+            return this;
+        }
+
+
+        /**
+         * 记录对象
+         * <p> 示例值：
+         *
+         * @param recordValue
+         * @return
+         */
+        public Builder recordValue(FormFieldVariableRecordValue recordValue) {
+            this.recordValue = recordValue;
             return this;
         }
 

@@ -42,6 +42,7 @@ public class PatchCostCenterVersionReq {
     private String versionId;
     @Body
     private PatchCostCenterVersionReqBody body;
+
     // builder 开始
     public PatchCostCenterVersionReq() {
     }

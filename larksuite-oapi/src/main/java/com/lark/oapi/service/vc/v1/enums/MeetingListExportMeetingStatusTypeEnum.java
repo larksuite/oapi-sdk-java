@@ -19,6 +19,7 @@ package com.lark.oapi.service.vc.v1.enums;
 public enum MeetingListExportMeetingStatusTypeEnum {
     ONGOING(1), // 进行中
     PAST(2), // 已结束
+    FUTURE(3), // 待召开
     ;
     private Integer value;
 

@@ -42,6 +42,7 @@ public class BatchUpdateAppTableRecordReq {
     private String tableId;
     @Body
     private BatchUpdateAppTableRecordReqBody body;
+
     // builder 开始
     public BatchUpdateAppTableRecordReq() {
     }
