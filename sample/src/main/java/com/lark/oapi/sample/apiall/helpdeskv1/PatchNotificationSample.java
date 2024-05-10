@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.*;
 
+import java.util.HashMap;
+
 // PATCH /open-apis/helpdesk/v1/notifications/:notification_id
 public class PatchNotificationSample {
 

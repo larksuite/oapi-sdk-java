@@ -16,7 +16,10 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.corehr.v1.V1;
 import com.lark.oapi.service.corehr.v1.model.*;
+import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
+import com.lark.oapi.service.corehr.v1.resource.CommonDataId;
 import com.lark.oapi.service.corehr.v1.resource.Company;
+import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
 import com.lark.oapi.service.corehr.v1.resource.Contract;
 import com.lark.oapi.service.corehr.v1.resource.CountryRegion;
 import com.lark.oapi.service.corehr.v1.resource.Currency;
@@ -30,25 +33,28 @@ import com.lark.oapi.service.corehr.v1.resource.JobChange;
 import com.lark.oapi.service.corehr.v1.resource.JobData;
 import com.lark.oapi.service.corehr.v1.resource.JobFamily;
 import com.lark.oapi.service.corehr.v1.resource.JobLevel;
+import com.lark.oapi.service.corehr.v1.resource.Leave;
 import com.lark.oapi.service.corehr.v1.resource.LeaveGrantingRecord;
 import com.lark.oapi.service.corehr.v1.resource.Location;
 import com.lark.oapi.service.corehr.v1.resource.NationalIdType;
 import com.lark.oapi.service.corehr.v1.resource.Offboarding;
+import com.lark.oapi.service.corehr.v1.resource.OrgRoleAuthorization;
 import com.lark.oapi.service.corehr.v1.resource.Person;
 import com.lark.oapi.service.corehr.v1.resource.PreHire;
+import com.lark.oapi.service.corehr.v1.resource.ProcessFormVariableData;
 import com.lark.oapi.service.corehr.v1.resource.SecurityGroup;
 import com.lark.oapi.service.corehr.v1.resource.Subdivision;
 import com.lark.oapi.service.corehr.v1.resource.Subregion;
 import com.lark.oapi.service.corehr.v1.resource.TransferReason;
 import com.lark.oapi.service.corehr.v1.resource.TransferType;
 import com.lark.oapi.service.corehr.v1.resource.WorkingHoursType;
-import com.lark.oapi.service.corehr.v1.resource.*;
 import com.lark.oapi.service.corehr.v2.V2;
 import com.lark.oapi.service.corehr.v2.model.*;
 
 public class CorehrService {
     private final V1 v1;
     private final AssignedUser assignedUser; // assigned_user
+    private final CommonDataId commonDataId; // common_data.id
     private final Company company; // 公司
     private final CompensationStandard compensationStandard; // compensation_standard
     private final Contract contract; // 合同
@@ -84,6 +90,7 @@ public class CorehrService {
     public CorehrService(Config config) {
         this.v1 = new V1(config);
         this.assignedUser = new AssignedUser(config);
+        this.commonDataId = new CommonDataId(config);
         this.company = new Company(config);
         this.compensationStandard = new CompensationStandard(config);
         this.contract = new Contract(config);
@@ -123,6 +130,10 @@ public class CorehrService {
 
     public AssignedUser assignedUser() {
         return assignedUser;
+    }
+
+    public CommonDataId commonDataId() {
+        return commonDataId;
     }
 
     public Company company() {

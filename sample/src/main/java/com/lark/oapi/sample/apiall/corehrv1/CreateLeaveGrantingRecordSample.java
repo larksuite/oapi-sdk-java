@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.CreateLeaveGrantingRecordReq;
-import com.lark.oapi.service.corehr.v1.model.CreateLeaveGrantingRecordReqBody;
-import com.lark.oapi.service.corehr.v1.model.CreateLeaveGrantingRecordResp;
-import com.lark.oapi.service.corehr.v1.model.I18n;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // POST /open-apis/corehr/v1/leave_granting_records
 public class CreateLeaveGrantingRecordSample {

@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.CreateImageReq;
-import com.lark.oapi.service.im.v1.model.CreateImageReqBody;
-import com.lark.oapi.service.im.v1.model.CreateImageResp;
+import com.lark.oapi.service.im.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/im/v1/images
 public class CreateImageSample {

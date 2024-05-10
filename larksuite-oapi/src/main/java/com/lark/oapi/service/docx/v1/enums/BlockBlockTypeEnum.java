@@ -63,6 +63,7 @@ public enum BlockBlockTypeEnum {
     AGENDAITEM(45), // 议程项 Block
     AGENDAITEMTITLE(46), // 议程项标题 Block
     AGENDAITEMCONTENT(47), // 议程项内容 Block
+    LINKPREVIEW(48), // 链接预览 Block
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

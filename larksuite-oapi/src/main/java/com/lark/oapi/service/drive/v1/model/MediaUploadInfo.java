@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class MediaUploadInfo {
     /**
@@ -29,17 +42,17 @@ public class MediaUploadInfo {
     @SerializedName("parent_type")
     private String parentType;
     /**
-     * 上传点的标识符
-     * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
-     */
-    @SerializedName("parent_node")
-    private String parentNode;
-    /**
      * 文件大小
      * <p> 示例值：1024
      */
     @SerializedName("size")
     private Integer size;
+    /**
+     * 上传点的标识符
+     * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+     */
+    @SerializedName("parent_node")
+    private String parentNode;
     /**
      * 扩展信息(可选)
      * <p> 示例值：{\"test\":\"test\"}
@@ -63,15 +76,15 @@ public class MediaUploadInfo {
          */
         this.parentType = builder.parentType;
         /**
-         * 上传点的标识符
-         * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
-         */
-        this.parentNode = builder.parentNode;
-        /**
          * 文件大小
          * <p> 示例值：1024
          */
         this.size = builder.size;
+        /**
+         * 上传点的标识符
+         * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+         */
+        this.parentNode = builder.parentNode;
         /**
          * 扩展信息(可选)
          * <p> 示例值：{\"test\":\"test\"}
@@ -99,20 +112,20 @@ public class MediaUploadInfo {
         this.parentType = parentType;
     }
 
-    public String getParentNode() {
-        return this.parentNode;
-    }
-
-    public void setParentNode(String parentNode) {
-        this.parentNode = parentNode;
-    }
-
     public Integer getSize() {
         return this.size;
     }
 
     public void setSize(Integer size) {
         this.size = size;
+    }
+
+    public String getParentNode() {
+        return this.parentNode;
+    }
+
+    public void setParentNode(String parentNode) {
+        this.parentNode = parentNode;
     }
 
     public String getExtra() {
@@ -135,15 +148,15 @@ public class MediaUploadInfo {
          */
         private String parentType;
         /**
-         * 上传点的标识符
-         * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
-         */
-        private String parentNode;
-        /**
          * 文件大小
          * <p> 示例值：1024
          */
         private Integer size;
+        /**
+         * 上传点的标识符
+         * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+         */
+        private String parentNode;
         /**
          * 扩展信息(可选)
          * <p> 示例值：{\"test\":\"test\"}
@@ -189,19 +202,6 @@ public class MediaUploadInfo {
 
 
         /**
-         * 上传点的标识符
-         * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
-         *
-         * @param parentNode
-         * @return
-         */
-        public Builder parentNode(String parentNode) {
-            this.parentNode = parentNode;
-            return this;
-        }
-
-
-        /**
          * 文件大小
          * <p> 示例值：1024
          *
@@ -210,6 +210,19 @@ public class MediaUploadInfo {
          */
         public Builder size(Integer size) {
             this.size = size;
+            return this;
+        }
+
+
+        /**
+         * 上传点的标识符
+         * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+         *
+         * @param parentNode
+         * @return
+         */
+        public Builder parentNode(String parentNode) {
+            this.parentNode = parentNode;
             return this;
         }
 

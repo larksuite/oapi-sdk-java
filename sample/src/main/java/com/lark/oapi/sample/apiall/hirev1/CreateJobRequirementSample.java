@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.CreateJobRequirementReq;
-import com.lark.oapi.service.hire.v1.model.CreateJobRequirementResp;
-import com.lark.oapi.service.hire.v1.model.JobRequirement;
-import com.lark.oapi.service.hire.v1.model.JobRequirementCustomizedData;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/job_requirements
 public class CreateJobRequirementSample {

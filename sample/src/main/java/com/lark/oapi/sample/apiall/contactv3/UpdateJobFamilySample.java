@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.I18nContent;
-import com.lark.oapi.service.contact.v3.model.JobFamily;
-import com.lark.oapi.service.contact.v3.model.UpdateJobFamilyReq;
-import com.lark.oapi.service.contact.v3.model.UpdateJobFamilyResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/contact/v3/job_families/:job_family_id
 public class UpdateJobFamilySample {

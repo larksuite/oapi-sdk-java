@@ -2,11 +2,12 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.UploadPersonReq;
-import com.lark.oapi.service.corehr.v1.model.UploadPersonReqBody;
-import com.lark.oapi.service.corehr.v1.model.UploadPersonResp;
+import com.lark.oapi.service.corehr.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // POST /open-apis/corehr/v1/persons/upload
 public class UploadPersonSample {

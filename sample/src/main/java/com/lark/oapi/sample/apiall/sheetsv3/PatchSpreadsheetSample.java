@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetReq;
-import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetResp;
-import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetProperties;
+import com.lark.oapi.service.sheets.v3.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/sheets/v3/spreadsheets/:spreadsheet_token
 public class PatchSpreadsheetSample {

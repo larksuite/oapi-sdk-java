@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.LeaveRequestHistoryLeaveReq;
-import com.lark.oapi.service.corehr.v1.model.LeaveRequestHistoryLeaveResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // GET /open-apis/corehr/v1/leaves/leave_request_history
 public class LeaveRequestHistoryLeaveSample {
@@ -33,6 +36,11 @@ public class LeaveRequestHistoryLeaveSample {
                 .leaveTermType(0)
                 .timeZone("Asia/Shanghai")
                 .dataSource(1)
+                .dbUpdateTimeMin("2022-10-24 10:00:00")
+                .dbUpdateTimeMax("2022-10-24 10:00:00")
+                .wdNeedAmountZeroRecords(false)
+                .wdNeedDeniedAndCanceledRecord(false)
+                .wdPaidType(1)
                 .build();
 
         // 发起请求

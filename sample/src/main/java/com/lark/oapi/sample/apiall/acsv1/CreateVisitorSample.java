@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.CreateVisitorReq;
-import com.lark.oapi.service.acs.v1.model.CreateVisitorReqBody;
-import com.lark.oapi.service.acs.v1.model.CreateVisitorResp;
-import com.lark.oapi.service.acs.v1.model.UserExternal;
+import com.lark.oapi.service.acs.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/acs/v1/visitors
 public class CreateVisitorSample {

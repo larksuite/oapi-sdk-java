@@ -2,9 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.BatchGetEmployeesJobDataReq;
-import com.lark.oapi.service.corehr.v2.model.BatchGetEmployeesJobDataReqBody;
-import com.lark.oapi.service.corehr.v2.model.BatchGetEmployeesJobDataResp;
+import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // POST /open-apis/corehr/v2/employees/job_datas/batch_get
 public class BatchGetEmployeesJobDataSample {

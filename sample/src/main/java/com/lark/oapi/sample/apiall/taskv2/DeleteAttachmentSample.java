@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.DeleteAttachmentReq;
-import com.lark.oapi.service.task.v2.model.DeleteAttachmentResp;
+import com.lark.oapi.service.task.v2.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/task/v2/attachments/:attachment_guid
 public class DeleteAttachmentSample {

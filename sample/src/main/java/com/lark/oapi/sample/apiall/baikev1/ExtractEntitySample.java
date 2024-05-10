@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.baikev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.baike.v1.model.ExtractEntityReq;
-import com.lark.oapi.service.baike.v1.model.ExtractEntityReqBody;
-import com.lark.oapi.service.baike.v1.model.ExtractEntityResp;
+import com.lark.oapi.service.baike.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/baike/v1/entities/extract
 public class ExtractEntitySample {

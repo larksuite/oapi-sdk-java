@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.blockv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.block.v2.model.CreateMessageReq;
-import com.lark.oapi.service.block.v2.model.CreateMessageResp;
-import com.lark.oapi.service.block.v2.model.Message;
+import com.lark.oapi.service.block.v2.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/block/v2/message
 public class CreateMessageSample {

@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.*;
 
+import java.util.HashMap;
+
 // POST /open-apis/task/v1/tasks
 public class CreateTaskSample {
 

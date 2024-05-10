@@ -22,6 +22,7 @@ public class BaseResponse<T> {
     private Object request;
     private int code;
     private String msg;
+    @SerializedName("error")
     private Error error;
     @SerializedName("data")
     private T data;

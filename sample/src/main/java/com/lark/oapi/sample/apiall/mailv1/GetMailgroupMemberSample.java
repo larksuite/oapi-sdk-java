@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.GetMailgroupMemberReq;
-import com.lark.oapi.service.mail.v1.model.GetMailgroupMemberResp;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id
 public class GetMailgroupMemberSample {

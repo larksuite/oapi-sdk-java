@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.DeleteFileCommentReplyReq;
-import com.lark.oapi.service.drive.v1.model.DeleteFileCommentReplyResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id
 public class DeleteFileCommentReplySample {

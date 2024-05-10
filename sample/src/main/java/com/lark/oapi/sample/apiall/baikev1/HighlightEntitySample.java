@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.baikev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.baike.v1.model.HighlightEntityReq;
-import com.lark.oapi.service.baike.v1.model.HighlightEntityReqBody;
-import com.lark.oapi.service.baike.v1.model.HighlightEntityResp;
+import com.lark.oapi.service.baike.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/baike/v1/entities/highlight
 public class HighlightEntitySample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.BatchDeleteEcoBackgroundCheckPackageReq;
-import com.lark.oapi.service.hire.v1.model.BatchDeleteEcoBackgroundCheckPackageReqBody;
-import com.lark.oapi.service.hire.v1.model.BatchDeleteEcoBackgroundCheckPackageResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/eco_background_check_packages/batch_delete
 public class BatchDeleteEcoBackgroundCheckPackageSample {

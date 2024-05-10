@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingDataAttachment {
     /**
@@ -22,6 +35,12 @@ public class ProfileSettingDataAttachment {
      */
     @SerializedName("personal_records")
     private ProfileSettingPersonalRecord[] personalRecords;
+    /**
+     * 自定义分组
+     * <p> 示例值：
+     */
+    @SerializedName("custom_groups")
+    private ProfileSettingCustomGroup[] customGroups;
 
     // builder 开始
     public ProfileSettingDataAttachment() {
@@ -33,6 +52,11 @@ public class ProfileSettingDataAttachment {
          * <p> 示例值：
          */
         this.personalRecords = builder.personalRecords;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        this.customGroups = builder.customGroups;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +71,25 @@ public class ProfileSettingDataAttachment {
         this.personalRecords = personalRecords;
     }
 
+    public ProfileSettingCustomGroup[] getCustomGroups() {
+        return this.customGroups;
+    }
+
+    public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
+        this.customGroups = customGroups;
+    }
+
     public static class Builder {
         /**
          * 资料附件记录
          * <p> 示例值：
          */
         private ProfileSettingPersonalRecord[] personalRecords;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        private ProfileSettingCustomGroup[] customGroups;
 
         /**
          * 资料附件记录
@@ -63,6 +100,19 @@ public class ProfileSettingDataAttachment {
          */
         public Builder personalRecords(ProfileSettingPersonalRecord[] personalRecords) {
             this.personalRecords = personalRecords;
+            return this;
+        }
+
+
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         *
+         * @param customGroups
+         * @return
+         */
+        public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
+            this.customGroups = customGroups;
             return this;
         }
 

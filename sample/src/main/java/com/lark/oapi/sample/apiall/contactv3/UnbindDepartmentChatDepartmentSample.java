@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.UnbindDepartmentChatDepartmentReq;
-import com.lark.oapi.service.contact.v3.model.UnbindDepartmentChatDepartmentReqBody;
-import com.lark.oapi.service.contact.v3.model.UnbindDepartmentChatDepartmentResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/contact/v3/departments/unbind_department_chat
 public class UnbindDepartmentChatDepartmentSample {

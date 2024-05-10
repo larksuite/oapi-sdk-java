@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.ListApplicationInterviewReq;
-import com.lark.oapi.service.hire.v1.model.ListApplicationInterviewResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/hire/v1/applications/:application_id/interviews
 public class ListApplicationInterviewSample {

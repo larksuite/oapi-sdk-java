@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.DeleteProgressRecordReq;
-import com.lark.oapi.service.okr.v1.model.DeleteProgressRecordResp;
+import com.lark.oapi.service.okr.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/okr/v1/progress_records/:progress_id
 public class DeleteProgressRecordSample {

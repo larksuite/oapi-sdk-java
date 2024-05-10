@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ArchiveReportData {
     /**
@@ -24,13 +37,13 @@ public class ArchiveReportData {
     private String memberId;
     /**
      * 考勤开始时间
-     * <p> 示例值：2021-01-09
+     * <p> 示例值：20210109
      */
     @SerializedName("start_time")
     private String startTime;
     /**
      * 考勤结束时间
-     * <p> 示例值：2021-01-09
+     * <p> 示例值：20210109
      */
     @SerializedName("end_time")
     private String endTime;
@@ -53,12 +66,12 @@ public class ArchiveReportData {
         this.memberId = builder.memberId;
         /**
          * 考勤开始时间
-         * <p> 示例值：2021-01-09
+         * <p> 示例值：20210109
          */
         this.startTime = builder.startTime;
         /**
          * 考勤结束时间
-         * <p> 示例值：2021-01-09
+         * <p> 示例值：20210109
          */
         this.endTime = builder.endTime;
         /**
@@ -112,12 +125,12 @@ public class ArchiveReportData {
         private String memberId;
         /**
          * 考勤开始时间
-         * <p> 示例值：2021-01-09
+         * <p> 示例值：20210109
          */
         private String startTime;
         /**
          * 考勤结束时间
-         * <p> 示例值：2021-01-09
+         * <p> 示例值：20210109
          */
         private String endTime;
         /**
@@ -141,7 +154,7 @@ public class ArchiveReportData {
 
         /**
          * 考勤开始时间
-         * <p> 示例值：2021-01-09
+         * <p> 示例值：20210109
          *
          * @param startTime
          * @return
@@ -154,7 +167,7 @@ public class ArchiveReportData {
 
         /**
          * 考勤结束时间
-         * <p> 示例值：2021-01-09
+         * <p> 示例值：20210109
          *
          * @param endTime
          * @return

@@ -14,7 +14,7 @@
 package com.lark.oapi.service.event.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.event.v1.resource.OutboundIp;
+import com.lark.oapi.service.event.v1.resource.*;
 
 public class V1 {
     private final OutboundIp outboundIp; // 事件订阅

@@ -2,7 +2,9 @@ package com.lark.oapi.sample.apiall.tenantv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.tenant.v2.model.QueryTenantProductAssignInfoResp;
+import com.lark.oapi.service.tenant.v2.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/tenant/v2/tenant/assign_info_list/query
 public class QueryTenantProductAssignInfoSample {

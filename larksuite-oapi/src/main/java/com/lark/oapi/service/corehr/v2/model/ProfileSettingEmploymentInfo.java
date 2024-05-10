@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmploymentInfo {
     /**
@@ -40,6 +53,12 @@ public class ProfileSettingEmploymentInfo {
      */
     @SerializedName("emp_contract_record")
     private ProfileSettingEmpContractRecord empContractRecord;
+    /**
+     * 自定义分组
+     * <p> 示例值：
+     */
+    @SerializedName("custom_groups")
+    private ProfileSettingCustomGroup[] customGroups;
 
     // builder 开始
     public ProfileSettingEmploymentInfo() {
@@ -66,6 +85,11 @@ public class ProfileSettingEmploymentInfo {
          * <p> 示例值：
          */
         this.empContractRecord = builder.empContractRecord;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        this.customGroups = builder.customGroups;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +128,14 @@ public class ProfileSettingEmploymentInfo {
         this.empContractRecord = empContractRecord;
     }
 
+    public ProfileSettingCustomGroup[] getCustomGroups() {
+        return this.customGroups;
+    }
+
+    public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
+        this.customGroups = customGroups;
+    }
+
     public static class Builder {
         /**
          * 基本信息
@@ -125,6 +157,11 @@ public class ProfileSettingEmploymentInfo {
          * <p> 示例值：
          */
         private ProfileSettingEmpContractRecord empContractRecord;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        private ProfileSettingCustomGroup[] customGroups;
 
         /**
          * 基本信息
@@ -174,6 +211,19 @@ public class ProfileSettingEmploymentInfo {
          */
         public Builder empContractRecord(ProfileSettingEmpContractRecord empContractRecord) {
             this.empContractRecord = empContractRecord;
+            return this;
+        }
+
+
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         *
+         * @param customGroups
+         * @return
+         */
+        public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
+            this.customGroups = customGroups;
             return this;
         }
 

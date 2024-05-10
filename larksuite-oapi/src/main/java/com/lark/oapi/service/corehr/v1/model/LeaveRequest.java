@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveRequest {
     /**
@@ -178,6 +191,12 @@ public class LeaveRequest {
      */
     @SerializedName("leave_return_process_id")
     private String[] leaveReturnProcessId;
+    /**
+     * workDay算薪类型
+     * <p> 示例值：1
+     */
+    @SerializedName("wd_paid_type")
+    private Integer wdPaidType;
 
     // builder 开始
     public LeaveRequest() {
@@ -319,6 +338,11 @@ public class LeaveRequest {
          * <p> 示例值：
          */
         this.leaveReturnProcessId = builder.leaveReturnProcessId;
+        /**
+         * workDay算薪类型
+         * <p> 示例值：1
+         */
+        this.wdPaidType = builder.wdPaidType;
     }
 
     public static Builder newBuilder() {
@@ -541,6 +565,14 @@ public class LeaveRequest {
         this.leaveReturnProcessId = leaveReturnProcessId;
     }
 
+    public Integer getWdPaidType() {
+        return this.wdPaidType;
+    }
+
+    public void setWdPaidType(Integer wdPaidType) {
+        this.wdPaidType = wdPaidType;
+    }
+
     public static class Builder {
         /**
          * 请假记录ID
@@ -677,6 +709,11 @@ public class LeaveRequest {
          * <p> 示例值：
          */
         private String[] leaveReturnProcessId;
+        /**
+         * workDay算薪类型
+         * <p> 示例值：1
+         */
+        private Integer wdPaidType;
 
         /**
          * 请假记录ID
@@ -1025,6 +1062,19 @@ public class LeaveRequest {
          */
         public Builder leaveReturnProcessId(String[] leaveReturnProcessId) {
             this.leaveReturnProcessId = leaveReturnProcessId;
+            return this;
+        }
+
+
+        /**
+         * workDay算薪类型
+         * <p> 示例值：1
+         *
+         * @param wdPaidType
+         * @return
+         */
+        public Builder wdPaidType(Integer wdPaidType) {
+            this.wdPaidType = wdPaidType;
             return this;
         }
 

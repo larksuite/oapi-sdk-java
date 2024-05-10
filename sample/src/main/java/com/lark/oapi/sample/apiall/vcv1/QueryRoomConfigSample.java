@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.QueryRoomConfigReq;
-import com.lark.oapi.service.vc.v1.model.QueryRoomConfigResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/vc/v1/room_configs/query
 public class QueryRoomConfigSample {

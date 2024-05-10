@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.UpdateAppFeedCardBatchReq;
-import com.lark.oapi.service.im.v2.model.UpdateAppFeedCardBatchReqBody;
-import com.lark.oapi.service.im.v2.model.UpdateAppFeedCardBatchResp;
-import com.lark.oapi.service.im.v2.model.UserOpenAppFeedCardUpdater;
+import com.lark.oapi.service.im.v2.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/im/v2/app_feed_card/batch
 public class UpdateAppFeedCardBatchSample {

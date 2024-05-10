@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.ExternalApplication;
-import com.lark.oapi.service.hire.v1.model.UpdateExternalApplicationReq;
-import com.lark.oapi.service.hire.v1.model.UpdateExternalApplicationResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/hire/v1/external_applications/:external_application_id
 public class UpdateExternalApplicationSample {

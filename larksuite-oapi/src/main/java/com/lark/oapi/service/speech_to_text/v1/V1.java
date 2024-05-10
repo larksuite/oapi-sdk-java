@@ -14,7 +14,7 @@
 package com.lark.oapi.service.speech_to_text.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.speech_to_text.v1.resource.Speech;
+import com.lark.oapi.service.speech_to_text.v1.resource.*;
 
 public class V1 {
     private final Speech speech; // 语音识别

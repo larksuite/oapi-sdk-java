@@ -13,26 +13,37 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAuditInfoReq {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     * <p> 示例值：user_id
      */
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
     /**
-     * 起始时间戳
+     * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
      * <p> 示例值：1668700799
      */
     @Query
     @SerializedName("latest")
     private Integer latest;
     /**
-     * 终止时间戳
+     * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
      * <p> 示例值：1668528000
      */
     @Query
@@ -46,21 +57,21 @@ public class ListAuditInfoReq {
     @SerializedName("event_name")
     private String eventName;
     /**
-     * 操作者类型
+     * 过滤操作者: 操作者类型. 与 operator_value 配合使用
      * <p> 示例值：
      */
     @Query
     @SerializedName("operator_type")
     private String operatorType;
     /**
-     * 操作者值
+     * 过滤操作者: 操作者ID. 与 operator_type 配合使用
      * <p> 示例值：55ed16fe
      */
     @Query
     @SerializedName("operator_value")
     private String operatorValue;
     /**
-     * 模块
+     * 过滤模块
      * <p> 示例值：1
      */
     @Query
@@ -81,12 +92,26 @@ public class ListAuditInfoReq {
     @SerializedName("page_size")
     private Integer pageSize;
     /**
-     * 用户类型
+     * 过滤用户类型. 仅当 operator_type=user 时生效
      * <p> 示例值：
      */
     @Query
     @SerializedName("user_type")
     private Integer userType;
+    /**
+     * 过滤操作对象: 操作对象类型. 与object_value配合使用
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("object_type")
+    private Integer objectType;
+    /**
+     * 过滤操作对象: 操作对象ID. 与object_type配合使用
+     * <p> 示例值：55ed16fe
+     */
+    @Query
+    @SerializedName("object_value")
+    private String objectValue;
 
     // builder 开始
     public ListAuditInfoReq() {
@@ -95,16 +120,16 @@ public class ListAuditInfoReq {
     public ListAuditInfoReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
+         * <p> 示例值：user_id
          */
         this.userIdType = builder.userIdType;
         /**
-         * 起始时间戳
+         * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
          * <p> 示例值：1668700799
          */
         this.latest = builder.latest;
         /**
-         * 终止时间戳
+         * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
          * <p> 示例值：1668528000
          */
         this.oldest = builder.oldest;
@@ -114,17 +139,17 @@ public class ListAuditInfoReq {
          */
         this.eventName = builder.eventName;
         /**
-         * 操作者类型
+         * 过滤操作者: 操作者类型. 与 operator_value 配合使用
          * <p> 示例值：
          */
         this.operatorType = builder.operatorType;
         /**
-         * 操作者值
+         * 过滤操作者: 操作者ID. 与 operator_type 配合使用
          * <p> 示例值：55ed16fe
          */
         this.operatorValue = builder.operatorValue;
         /**
-         * 模块
+         * 过滤模块
          * <p> 示例值：1
          */
         this.eventModule = builder.eventModule;
@@ -139,10 +164,20 @@ public class ListAuditInfoReq {
          */
         this.pageSize = builder.pageSize;
         /**
-         * 用户类型
+         * 过滤用户类型. 仅当 operator_type=user 时生效
          * <p> 示例值：
          */
         this.userType = builder.userType;
+        /**
+         * 过滤操作对象: 操作对象类型. 与object_value配合使用
+         * <p> 示例值：1
+         */
+        this.objectType = builder.objectType;
+        /**
+         * 过滤操作对象: 操作对象ID. 与object_type配合使用
+         * <p> 示例值：55ed16fe
+         */
+        this.objectValue = builder.objectValue;
     }
 
     public static Builder newBuilder() {
@@ -229,22 +264,40 @@ public class ListAuditInfoReq {
         this.userType = userType;
     }
 
+    public Integer getObjectType() {
+        return this.objectType;
+    }
+
+    public void setObjectType(Integer objectType) {
+        this.objectType = objectType;
+    }
+
+    public String getObjectValue() {
+        return this.objectValue;
+    }
+
+    public void setObjectValue(String objectValue) {
+        this.objectValue = objectValue;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
-        private Integer latest; // 起始时间戳
-        private Integer oldest; // 终止时间戳
+        private Integer latest; // 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
+        private Integer oldest; // 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
         private String eventName; // 事件名称
-        private String operatorType; // 操作者类型
-        private String operatorValue; // 操作者值
-        private Integer eventModule; // 模块
+        private String operatorType; // 过滤操作者: 操作者类型. 与 operator_value 配合使用
+        private String operatorValue; // 过滤操作者: 操作者ID. 与 operator_type 配合使用
+        private Integer eventModule; // 过滤模块
         private String pageToken; // 下一页分页的token
         private Integer pageSize; // 分页参数
-        private Integer userType; // 用户类型
+        private Integer userType; // 过滤用户类型. 仅当 operator_type=user 时生效
+        private Integer objectType; // 过滤操作对象: 操作对象类型. 与object_value配合使用
+        private String objectValue; // 过滤操作对象: 操作对象ID. 与object_type配合使用
 
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
+         * <p> 示例值：user_id
          *
          * @param userIdType
          * @return
@@ -256,7 +309,7 @@ public class ListAuditInfoReq {
 
         /**
          * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
+         * <p> 示例值：user_id
          *
          * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserIdTypeEnum}
          * @return
@@ -268,7 +321,7 @@ public class ListAuditInfoReq {
 
 
         /**
-         * 起始时间戳
+         * 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
          * <p> 示例值：1668700799
          *
          * @param latest
@@ -281,7 +334,7 @@ public class ListAuditInfoReq {
 
 
         /**
-         * 终止时间戳
+         * 日志时间范围: 起始时间. 格式: 秒级时间戳. 默认值:  30日前此刻
          * <p> 示例值：1668528000
          *
          * @param oldest
@@ -307,7 +360,7 @@ public class ListAuditInfoReq {
 
 
         /**
-         * 操作者类型
+         * 过滤操作者: 操作者类型. 与 operator_value 配合使用
          * <p> 示例值：
          *
          * @param operatorType
@@ -319,7 +372,7 @@ public class ListAuditInfoReq {
         }
 
         /**
-         * 操作者类型
+         * 过滤操作者: 操作者类型. 与 operator_value 配合使用
          * <p> 示例值：
          *
          * @param operatorType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoOperatorTypeEnum}
@@ -332,7 +385,7 @@ public class ListAuditInfoReq {
 
 
         /**
-         * 操作者值
+         * 过滤操作者: 操作者ID. 与 operator_type 配合使用
          * <p> 示例值：55ed16fe
          *
          * @param operatorValue
@@ -345,7 +398,7 @@ public class ListAuditInfoReq {
 
 
         /**
-         * 模块
+         * 过滤模块
          * <p> 示例值：1
          *
          * @param eventModule
@@ -384,7 +437,7 @@ public class ListAuditInfoReq {
 
 
         /**
-         * 用户类型
+         * 过滤用户类型. 仅当 operator_type=user 时生效
          * <p> 示例值：
          *
          * @param userType
@@ -396,7 +449,7 @@ public class ListAuditInfoReq {
         }
 
         /**
-         * 用户类型
+         * 过滤用户类型. 仅当 operator_type=user 时生效
          * <p> 示例值：
          *
          * @param userType {@link com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum}
@@ -404,6 +457,32 @@ public class ListAuditInfoReq {
          */
         public Builder userType(com.lark.oapi.service.admin.v1.enums.ListAuditInfoUserTypeEnum userType) {
             this.userType = userType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 过滤操作对象: 操作对象类型. 与object_value配合使用
+         * <p> 示例值：1
+         *
+         * @param objectType
+         * @return
+         */
+        public Builder objectType(Integer objectType) {
+            this.objectType = objectType;
+            return this;
+        }
+
+
+        /**
+         * 过滤操作对象: 操作对象ID. 与object_type配合使用
+         * <p> 示例值：55ed16fe
+         *
+         * @param objectValue
+         * @return
+         */
+        public Builder objectValue(String objectValue) {
+            this.objectValue = objectValue;
             return this;
         }
 

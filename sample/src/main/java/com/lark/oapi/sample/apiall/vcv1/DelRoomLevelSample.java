@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.DelRoomLevelReq;
-import com.lark.oapi.service.vc.v1.model.DelRoomLevelReqBody;
-import com.lark.oapi.service.vc.v1.model.DelRoomLevelResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/vc/v1/room_levels/del
 public class DelRoomLevelSample {

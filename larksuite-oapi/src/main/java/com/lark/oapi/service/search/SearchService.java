@@ -13,8 +13,14 @@
 package com.lark.oapi.service.search;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.search.v2.V2;
-import com.lark.oapi.service.search.v2.resource.*;
+import com.lark.oapi.service.search.v2.model.*;
+import com.lark.oapi.service.search.v2.resource.App;
+import com.lark.oapi.service.search.v2.resource.DataSource;
+import com.lark.oapi.service.search.v2.resource.DataSourceItem;
+import com.lark.oapi.service.search.v2.resource.Message;
+import com.lark.oapi.service.search.v2.resource.Schema;
 
 public class SearchService {
     private final V2 v2;

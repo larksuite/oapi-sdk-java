@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.*;
 
+import java.util.HashMap;
+
 // POST /open-apis/calendar/v4/calendars/:calendar_id/events
 public class CreateCalendarEventSample {
 
@@ -31,6 +33,7 @@ public class CreateCalendarEventSample {
                         .reminders(new Reminder[]{})
                         .recurrence("FREQ=DAILY;INTERVAL=1")
                         .schemas(new Schema[]{})
+                        .attachments(new Attachment[]{})
                         .build())
                 .build();
 

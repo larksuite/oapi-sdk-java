@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.UploadFinishMediaReq;
-import com.lark.oapi.service.drive.v1.model.UploadFinishMediaReqBody;
-import com.lark.oapi.service.drive.v1.model.UploadFinishMediaResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/drive/v1/medias/upload_finish
 public class UploadFinishMediaSample {

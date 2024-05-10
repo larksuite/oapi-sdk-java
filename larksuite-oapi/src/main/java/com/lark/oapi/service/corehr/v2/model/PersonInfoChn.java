@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class PersonInfoChn {
     /**
@@ -46,6 +59,12 @@ public class PersonInfoChn {
      */
     @SerializedName("leave_time")
     private String leaveTime;
+    /**
+     * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+     * <p> 示例值：
+     */
+    @SerializedName("political_affiliations")
+    private Enum[] politicalAffiliations;
 
     // builder 开始
     public PersonInfoChn() {
@@ -77,6 +96,11 @@ public class PersonInfoChn {
          * <p> 示例值：2023-07-09
          */
         this.leaveTime = builder.leaveTime;
+        /**
+         * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+         * <p> 示例值：
+         */
+        this.politicalAffiliations = builder.politicalAffiliations;
     }
 
     public static Builder newBuilder() {
@@ -123,6 +147,14 @@ public class PersonInfoChn {
         this.leaveTime = leaveTime;
     }
 
+    public Enum[] getPoliticalAffiliations() {
+        return this.politicalAffiliations;
+    }
+
+    public void setPoliticalAffiliations(Enum[] politicalAffiliations) {
+        this.politicalAffiliations = politicalAffiliations;
+    }
+
     public static class Builder {
         /**
          * 籍贯 ID
@@ -149,6 +181,11 @@ public class PersonInfoChn {
          * <p> 示例值：2023-07-09
          */
         private String leaveTime;
+        /**
+         * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+         * <p> 示例值：
+         */
+        private Enum[] politicalAffiliations;
 
         /**
          * 籍贯 ID
@@ -211,6 +248,19 @@ public class PersonInfoChn {
          */
         public Builder leaveTime(String leaveTime) {
             this.leaveTime = leaveTime;
+            return this;
+        }
+
+
+        /**
+         * 政治面貌，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：political_affiliation - object_api_name：person_info_chn
+         * <p> 示例值：
+         *
+         * @param politicalAffiliations
+         * @return
+         */
+        public Builder politicalAffiliations(Enum[] politicalAffiliations) {
+            this.politicalAffiliations = politicalAffiliations;
             return this;
         }
 

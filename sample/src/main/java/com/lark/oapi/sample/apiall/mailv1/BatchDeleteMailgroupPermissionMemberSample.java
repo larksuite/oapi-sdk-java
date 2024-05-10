@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.BatchDeleteMailgroupPermissionMemberReq;
-import com.lark.oapi.service.mail.v1.model.BatchDeleteMailgroupPermissionMemberReqBody;
-import com.lark.oapi.service.mail.v1.model.BatchDeleteMailgroupPermissionMemberResp;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/batch_delete
 public class BatchDeleteMailgroupPermissionMemberSample {

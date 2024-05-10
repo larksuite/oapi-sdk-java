@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.AnswerUserQueryTicketReq;
-import com.lark.oapi.service.helpdesk.v1.model.AnswerUserQueryTicketReqBody;
-import com.lark.oapi.service.helpdesk.v1.model.AnswerUserQueryTicketResp;
-import com.lark.oapi.service.helpdesk.v1.model.UserQueryFaqInfo;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query
 public class AnswerUserQueryTicketSample {

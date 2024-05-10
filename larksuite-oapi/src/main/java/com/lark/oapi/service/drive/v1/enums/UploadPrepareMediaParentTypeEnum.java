@@ -28,6 +28,7 @@ public enum UploadPrepareMediaParentTypeEnum {
     BITABLE_FILE("bitable_file"), // bitable文件
     MOMENTS("moments"), // 同事圈
     CCM_IMPORT_OPEN("ccm_import_open"), // 云文档导入文件
+    CALENDAR("calendar"), // 日历文件
     ;
     private String value;
 

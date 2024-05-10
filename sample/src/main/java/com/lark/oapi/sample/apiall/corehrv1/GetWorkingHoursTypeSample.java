@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.GetWorkingHoursTypeReq;
-import com.lark.oapi.service.corehr.v1.model.GetWorkingHoursTypeResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // GET /open-apis/corehr/v1/working_hours_types/:working_hours_type_id
 public class GetWorkingHoursTypeSample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.CreateTicketMessageReq;
-import com.lark.oapi.service.helpdesk.v1.model.CreateTicketMessageReqBody;
-import com.lark.oapi.service.helpdesk.v1.model.CreateTicketMessageResp;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/helpdesk/v1/tickets/:ticket_id/messages
 public class CreateTicketMessageSample {

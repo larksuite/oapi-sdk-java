@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.GetPermissionPublicReq;
-import com.lark.oapi.service.drive.v1.model.GetPermissionPublicResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/drive/v1/permissions/:token/public
 public class GetPermissionPublicSample {

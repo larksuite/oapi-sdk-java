@@ -14,7 +14,7 @@
 package com.lark.oapi.service.admin.v1.enums;
 
 /**
- * 用户类型
+ * 过滤用户类型. 仅当 operator_type=user 时生效
  */
 public enum ListAuditInfoUserTypeEnum {
     ALL(0), // 互联网上的任何人

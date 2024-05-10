@@ -25,6 +25,7 @@ import com.lark.oapi.service.im.v1.resource.ChatMemberUser;
 import com.lark.oapi.service.im.v1.resource.ChatMembers;
 import com.lark.oapi.service.im.v1.resource.ChatMenuItem;
 import com.lark.oapi.service.im.v1.resource.ChatMenuTree;
+import com.lark.oapi.service.im.v1.resource.ChatModeration;
 import com.lark.oapi.service.im.v1.resource.ChatTab;
 import com.lark.oapi.service.im.v1.resource.ChatTopNotice;
 import com.lark.oapi.service.im.v1.resource.File;
@@ -34,8 +35,8 @@ import com.lark.oapi.service.im.v1.resource.MessageReaction;
 import com.lark.oapi.service.im.v1.resource.MessageResource;
 import com.lark.oapi.service.im.v1.resource.Pin;
 import com.lark.oapi.service.im.v1.resource.Thread;
-import com.lark.oapi.service.im.v1.resource.*;
 import com.lark.oapi.service.im.v2.V2;
+import com.lark.oapi.service.im.v2.model.*;
 
 public class ImService {
     private final V1 v1;

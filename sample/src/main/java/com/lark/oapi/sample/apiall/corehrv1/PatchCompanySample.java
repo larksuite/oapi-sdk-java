@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.Enum;
 import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // PATCH /open-apis/corehr/v1/companies/:company_id
 public class PatchCompanySample {
@@ -31,6 +34,8 @@ public class PatchCompanySample {
                         .currency(Currency.newBuilder().build())
                         .phone(PhoneNumberAndAreaCode.newBuilder().build())
                         .fax(PhoneNumberAndAreaCode.newBuilder().build())
+                        .registeredOfficeAddressInfo(Address.newBuilder().build())
+                        .officeAddressInfo(Address.newBuilder().build())
                         .build())
                 .build();
 

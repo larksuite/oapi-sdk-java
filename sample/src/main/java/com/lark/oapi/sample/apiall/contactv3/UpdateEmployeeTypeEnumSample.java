@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.EmployeeTypeEnum;
-import com.lark.oapi.service.contact.v3.model.I18nContent;
-import com.lark.oapi.service.contact.v3.model.UpdateEmployeeTypeEnumReq;
-import com.lark.oapi.service.contact.v3.model.UpdateEmployeeTypeEnumResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/contact/v3/employee_type_enums/:enum_id
 public class UpdateEmployeeTypeEnumSample {

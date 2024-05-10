@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.GetCategoryReq;
-import com.lark.oapi.service.helpdesk.v1.model.GetCategoryResp;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/helpdesk/v1/categories/:id
 public class GetCategorySample {

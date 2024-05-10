@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ArchiveReportMeta {
     /**
@@ -27,7 +40,7 @@ public class ArchiveReportMeta {
      * <p> 示例值：月报汇总
      */
     @SerializedName("report_name")
-    private String reportName;
+    private I18nMap reportName;
     /**
      * 归档报表规则id
      * <p> 示例值：7341290237441605652
@@ -39,7 +52,7 @@ public class ArchiveReportMeta {
      * <p> 示例值：归档全员
      */
     @SerializedName("archive_rule_name")
-    private String archiveRuleName;
+    private I18nMap archiveRuleName;
 
     // builder 开始
     public ArchiveReportMeta() {
@@ -80,11 +93,11 @@ public class ArchiveReportMeta {
         this.reportId = reportId;
     }
 
-    public String getReportName() {
+    public I18nMap getReportName() {
         return this.reportName;
     }
 
-    public void setReportName(String reportName) {
+    public void setReportName(I18nMap reportName) {
         this.reportName = reportName;
     }
 
@@ -96,11 +109,11 @@ public class ArchiveReportMeta {
         this.archiveRuleId = archiveRuleId;
     }
 
-    public String getArchiveRuleName() {
+    public I18nMap getArchiveRuleName() {
         return this.archiveRuleName;
     }
 
-    public void setArchiveRuleName(String archiveRuleName) {
+    public void setArchiveRuleName(I18nMap archiveRuleName) {
         this.archiveRuleName = archiveRuleName;
     }
 
@@ -114,7 +127,7 @@ public class ArchiveReportMeta {
          * 引用报表name
          * <p> 示例值：月报汇总
          */
-        private String reportName;
+        private I18nMap reportName;
         /**
          * 归档报表规则id
          * <p> 示例值：7341290237441605652
@@ -124,7 +137,7 @@ public class ArchiveReportMeta {
          * 归档报表name
          * <p> 示例值：归档全员
          */
-        private String archiveRuleName;
+        private I18nMap archiveRuleName;
 
         /**
          * 引用报表 ID
@@ -146,7 +159,7 @@ public class ArchiveReportMeta {
          * @param reportName
          * @return
          */
-        public Builder reportName(String reportName) {
+        public Builder reportName(I18nMap reportName) {
             this.reportName = reportName;
             return this;
         }
@@ -172,7 +185,7 @@ public class ArchiveReportMeta {
          * @param archiveRuleName
          * @return
          */
-        public Builder archiveRuleName(String archiveRuleName) {
+        public Builder archiveRuleName(I18nMap archiveRuleName) {
             this.archiveRuleName = archiveRuleName;
             return this;
         }

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.adminv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.admin.v1.model.ListAuditInfoReq;
-import com.lark.oapi.service.admin.v1.model.ListAuditInfoResp;
+import com.lark.oapi.service.admin.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/admin/v1/audit_infos
 public class ListAuditInfoSample {
@@ -24,6 +25,8 @@ public class ListAuditInfoSample {
                 .pageToken("LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf")
                 .pageSize(20)
                 .userType(0)
+                .objectType(1)
+                .objectValue("55ed16fe")
                 .build();
 
         // 发起请求

@@ -14,7 +14,7 @@
 package com.lark.oapi.service.passport.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.passport.v1.resource.Session;
+import com.lark.oapi.service.passport.v1.resource.*;
 
 public class V1 {
     private final Session session; // 登录态

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.DeleteExternalApplicationReq;
-import com.lark.oapi.service.hire.v1.model.DeleteExternalApplicationResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/hire/v1/external_applications/:external_application_id
 public class DeleteExternalApplicationSample {

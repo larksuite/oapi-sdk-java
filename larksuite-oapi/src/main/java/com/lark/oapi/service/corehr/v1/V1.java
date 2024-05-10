@@ -18,6 +18,7 @@ import com.lark.oapi.service.corehr.v1.resource.*;
 
 public class V1 {
     private final AssignedUser assignedUser; // assigned_user
+    private final CommonDataId commonDataId; // common_data.id
     private final Company company; // 公司
     private final CompensationStandard compensationStandard; // compensation_standard
     private final Contract contract; // 合同
@@ -51,6 +52,7 @@ public class V1 {
 
     public V1(Config config) {
         this.assignedUser = new AssignedUser(config);
+        this.commonDataId = new CommonDataId(config);
         this.company = new Company(config);
         this.compensationStandard = new CompensationStandard(config);
         this.contract = new Contract(config);
@@ -85,6 +87,10 @@ public class V1 {
 
     public AssignedUser assignedUser() {
         return assignedUser;
+    }
+
+    public CommonDataId commonDataId() {
+        return commonDataId;
     }
 
     public Company company() {

@@ -13,7 +13,9 @@
 package com.lark.oapi.service.docx;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.docx.v1.V1;
+import com.lark.oapi.service.docx.v1.model.*;
 import com.lark.oapi.service.docx.v1.resource.Document;
 import com.lark.oapi.service.docx.v1.resource.DocumentBlock;
 import com.lark.oapi.service.docx.v1.resource.DocumentBlockChildren;

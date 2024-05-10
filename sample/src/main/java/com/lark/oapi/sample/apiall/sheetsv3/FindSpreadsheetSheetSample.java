@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.Find;
-import com.lark.oapi.service.sheets.v3.model.FindCondition;
-import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetResp;
+import com.lark.oapi.service.sheets.v3.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find
 public class FindSpreadsheetSheetSample {

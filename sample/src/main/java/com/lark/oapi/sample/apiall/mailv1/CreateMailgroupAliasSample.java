@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.CreateMailgroupAliasReq;
-import com.lark.oapi.service.mail.v1.model.CreateMailgroupAliasResp;
-import com.lark.oapi.service.mail.v1.model.EmailAlias;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/mail/v1/mailgroups/:mailgroup_id/aliases
 public class CreateMailgroupAliasSample {

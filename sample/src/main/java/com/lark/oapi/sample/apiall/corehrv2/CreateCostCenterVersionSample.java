@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.CostCenterVersion;
-import com.lark.oapi.service.corehr.v2.model.CreateCostCenterVersionReq;
-import com.lark.oapi.service.corehr.v2.model.CreateCostCenterVersionResp;
-import com.lark.oapi.service.corehr.v2.model.I18n;
+import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // POST /open-apis/corehr/v2/cost_centers/:cost_center_id/versions
 public class CreateCostCenterVersionSample {

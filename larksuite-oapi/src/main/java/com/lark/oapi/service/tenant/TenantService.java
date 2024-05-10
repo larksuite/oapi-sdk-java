@@ -13,7 +13,9 @@
 package com.lark.oapi.service.tenant;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.tenant.v2.V2;
+import com.lark.oapi.service.tenant.v2.model.*;
 import com.lark.oapi.service.tenant.v2.resource.Tenant;
 import com.lark.oapi.service.tenant.v2.resource.TenantProductAssignInfo;
 

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.LinkChatReq;
-import com.lark.oapi.service.im.v1.model.LinkChatReqBody;
-import com.lark.oapi.service.im.v1.model.LinkChatResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/im/v1/chats/:chat_id/link
 public class LinkChatSample {

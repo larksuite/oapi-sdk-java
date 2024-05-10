@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.document_aiv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.document_ai.v1.model.FieldExtractionContractReq;
-import com.lark.oapi.service.document_ai.v1.model.FieldExtractionContractReqBody;
-import com.lark.oapi.service.document_ai.v1.model.FieldExtractionContractResp;
+import com.lark.oapi.service.document_ai.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/document_ai/v1/contract/field_extraction
 public class FieldExtractionContractSample {

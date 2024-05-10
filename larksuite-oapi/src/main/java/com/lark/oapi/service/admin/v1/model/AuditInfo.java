@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class AuditInfo {
     /**
@@ -54,7 +67,7 @@ public class AuditInfo {
     private Integer operatorType;
     /**
      * 操作人id
-     * <p> 示例值：11111111111111
+     * <p> 示例值：4a3b8541
      */
     @SerializedName("operator_value")
     private String operatorValue;
@@ -84,7 +97,7 @@ public class AuditInfo {
     private String ip;
     /**
      * 第三方isvID
-     * <p> 示例值：xxx
+     * <p> 示例值：example_value
      */
     @SerializedName("operator_app")
     private String operatorApp;
@@ -102,7 +115,7 @@ public class AuditInfo {
     private AuditEventExtend extend;
     /**
      * 第三方isv名称
-     * <p> 示例值：xxx
+     * <p> 示例值：example_value
      */
     @SerializedName("operator_app_name")
     private String operatorAppName;
@@ -162,7 +175,7 @@ public class AuditInfo {
         this.operatorType = builder.operatorType;
         /**
          * 操作人id
-         * <p> 示例值：11111111111111
+         * <p> 示例值：4a3b8541
          */
         this.operatorValue = builder.operatorValue;
         /**
@@ -187,7 +200,7 @@ public class AuditInfo {
         this.ip = builder.ip;
         /**
          * 第三方isvID
-         * <p> 示例值：xxx
+         * <p> 示例值：example_value
          */
         this.operatorApp = builder.operatorApp;
         /**
@@ -202,7 +215,7 @@ public class AuditInfo {
         this.extend = builder.extend;
         /**
          * 第三方isv名称
-         * <p> 示例值：xxx
+         * <p> 示例值：example_value
          */
         this.operatorAppName = builder.operatorAppName;
         /**
@@ -403,7 +416,7 @@ public class AuditInfo {
         private Integer operatorType;
         /**
          * 操作人id
-         * <p> 示例值：11111111111111
+         * <p> 示例值：4a3b8541
          */
         private String operatorValue;
         /**
@@ -428,7 +441,7 @@ public class AuditInfo {
         private String ip;
         /**
          * 第三方isvID
-         * <p> 示例值：xxx
+         * <p> 示例值：example_value
          */
         private String operatorApp;
         /**
@@ -443,7 +456,7 @@ public class AuditInfo {
         private AuditEventExtend extend;
         /**
          * 第三方isv名称
-         * <p> 示例值：xxx
+         * <p> 示例值：example_value
          */
         private String operatorAppName;
         /**
@@ -554,7 +567,7 @@ public class AuditInfo {
 
         /**
          * 操作人id
-         * <p> 示例值：11111111111111
+         * <p> 示例值：4a3b8541
          *
          * @param operatorValue
          * @return
@@ -619,7 +632,7 @@ public class AuditInfo {
 
         /**
          * 第三方isvID
-         * <p> 示例值：xxx
+         * <p> 示例值：example_value
          *
          * @param operatorApp
          * @return
@@ -658,7 +671,7 @@ public class AuditInfo {
 
         /**
          * 第三方isv名称
-         * <p> 示例值：xxx
+         * <p> 示例值：example_value
          *
          * @param operatorAppName
          * @return

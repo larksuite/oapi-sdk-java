@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.DeleteRuleExternalReq;
-import com.lark.oapi.service.acs.v1.model.DeleteRuleExternalResp;
+import com.lark.oapi.service.acs.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/acs/v1/rule_external
 public class DeleteRuleExternalSample {

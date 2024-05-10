@@ -2,9 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.SearchBasicInfoBankBranchReq;
-import com.lark.oapi.service.corehr.v2.model.SearchBasicInfoBankBranchReqBody;
-import com.lark.oapi.service.corehr.v2.model.SearchBasicInfoBankBranchResp;
+import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // POST /open-apis/corehr/v2/basic_info/bank_branchs/search
 public class SearchBasicInfoBankBranchSample {

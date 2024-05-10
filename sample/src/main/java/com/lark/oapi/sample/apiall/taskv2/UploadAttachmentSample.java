@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.InputAttachment;
-import com.lark.oapi.service.task.v2.model.UploadAttachmentReq;
-import com.lark.oapi.service.task.v2.model.UploadAttachmentResp;
+import com.lark.oapi.service.task.v2.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/task/v2/attachments/upload
 public class UploadAttachmentSample {

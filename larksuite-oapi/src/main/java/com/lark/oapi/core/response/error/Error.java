@@ -12,14 +12,40 @@
 
 package com.lark.oapi.core.response.error;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Arrays;
 
 public class Error {
 
+    @SerializedName("log_id")
+    private String logId;
+    @SerializedName("message")
+    private String message;
+    @SerializedName("details")
     private ErrorDetail[] details;
+    @SerializedName("permission_violations")
     private ErrorPermissionViolation[] permissionViolations;
+    @SerializedName("field_violations")
     private ErrorFieldViolation[] fieldViolations;
+    @SerializedName("helps")
     private ErrorHelp[] helps;
+
+    public String getLogId() {
+        return logId;
+    }
+
+    public void setLogId(String logId) {
+        this.logId = logId;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public ErrorDetail[] getDetails() {
         return details;
@@ -56,7 +82,9 @@ public class Error {
     @Override
     public String toString() {
         return "{" +
-                "details=" + Arrays.toString(details) +
+                "logId=" + logId +
+                ", message=" + message +
+                ", details=" + Arrays.toString(details) +
                 ", permissionViolations=" + Arrays.toString(permissionViolations) +
                 ", fieldViolations=" + Arrays.toString(fieldViolations) +
                 ", helps=" + Arrays.toString(helps) +

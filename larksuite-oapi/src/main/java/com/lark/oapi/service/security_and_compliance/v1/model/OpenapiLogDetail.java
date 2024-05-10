@@ -13,12 +13,25 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenapiLogDetail {
     /**
      * http请求路径
-     * <p> 示例值：/open-apis/auth/v3/app_access_token
+     * <p> 示例值：/open-apis/demo/v1/example
      */
     @SerializedName("path")
     private String path;
@@ -36,7 +49,7 @@ public class OpenapiLogDetail {
     private String queryParam;
     /**
      * http请求体
-     * <p> 示例值：{"app_id": "cli_xxx", "app_secret": "xxx", "app_ticket": "xxx"}
+     * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
      */
     @SerializedName("payload")
     private String payload;
@@ -48,7 +61,7 @@ public class OpenapiLogDetail {
     private Integer statusCode;
     /**
      * http响应体，仅返回code，msg，error信息等
-     * <p> 示例值：{"code": 0, "msg": "ok"}
+     * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
      */
     @SerializedName("response")
     private String response;
@@ -60,7 +73,7 @@ public class OpenapiLogDetail {
     public OpenapiLogDetail(Builder builder) {
         /**
          * http请求路径
-         * <p> 示例值：/open-apis/auth/v3/app_access_token
+         * <p> 示例值：/open-apis/demo/v1/example
          */
         this.path = builder.path;
         /**
@@ -75,7 +88,7 @@ public class OpenapiLogDetail {
         this.queryParam = builder.queryParam;
         /**
          * http请求体
-         * <p> 示例值：{"app_id": "cli_xxx", "app_secret": "xxx", "app_ticket": "xxx"}
+         * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
          */
         this.payload = builder.payload;
         /**
@@ -85,7 +98,7 @@ public class OpenapiLogDetail {
         this.statusCode = builder.statusCode;
         /**
          * http响应体，仅返回code，msg，error信息等
-         * <p> 示例值：{"code": 0, "msg": "ok"}
+         * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
          */
         this.response = builder.response;
     }
@@ -145,7 +158,7 @@ public class OpenapiLogDetail {
     public static class Builder {
         /**
          * http请求路径
-         * <p> 示例值：/open-apis/auth/v3/app_access_token
+         * <p> 示例值：/open-apis/demo/v1/example
          */
         private String path;
         /**
@@ -160,7 +173,7 @@ public class OpenapiLogDetail {
         private String queryParam;
         /**
          * http请求体
-         * <p> 示例值：{"app_id": "cli_xxx", "app_secret": "xxx", "app_ticket": "xxx"}
+         * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
          */
         private String payload;
         /**
@@ -170,13 +183,13 @@ public class OpenapiLogDetail {
         private Integer statusCode;
         /**
          * http响应体，仅返回code，msg，error信息等
-         * <p> 示例值：{"code": 0, "msg": "ok"}
+         * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
          */
         private String response;
 
         /**
          * http请求路径
-         * <p> 示例值：/open-apis/auth/v3/app_access_token
+         * <p> 示例值：/open-apis/demo/v1/example
          *
          * @param path
          * @return
@@ -215,7 +228,7 @@ public class OpenapiLogDetail {
 
         /**
          * http请求体
-         * <p> 示例值：{"app_id": "cli_xxx", "app_secret": "xxx", "app_ticket": "xxx"}
+         * <p> 示例值：{\"param1\": \"val1\", \"param2\": \"val2\"}
          *
          * @param payload
          * @return
@@ -241,7 +254,7 @@ public class OpenapiLogDetail {
 
         /**
          * http响应体，仅返回code，msg，error信息等
-         * <p> 示例值：{"code": 0, "msg": "ok"}
+         * <p> 示例值：{\"code\": 0, \"msg\": \"ok\"}
          *
          * @param response
          * @return

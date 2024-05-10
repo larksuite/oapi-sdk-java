@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.CustomizedFieldDisplayItem;
-import com.lark.oapi.service.helpdesk.v1.model.UpdateTicketReq;
-import com.lark.oapi.service.helpdesk.v1.model.UpdateTicketReqBody;
-import com.lark.oapi.service.helpdesk.v1.model.UpdateTicketResp;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/helpdesk/v1/tickets/:ticket_id
 public class UpdateTicketSample {

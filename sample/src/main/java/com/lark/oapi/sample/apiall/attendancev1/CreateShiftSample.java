@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.*;
 
+import java.util.HashMap;
+
 // POST /open-apis/attendance/v1/shifts
 public class CreateShiftSample {
 

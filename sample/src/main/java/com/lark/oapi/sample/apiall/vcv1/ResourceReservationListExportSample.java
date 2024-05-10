@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.ResourceReservationListExportReq;
-import com.lark.oapi.service.vc.v1.model.ResourceReservationListExportReqBody;
-import com.lark.oapi.service.vc.v1.model.ResourceReservationListExportResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/vc/v1/exports/resource_reservation_list
 public class ResourceReservationListExportSample {

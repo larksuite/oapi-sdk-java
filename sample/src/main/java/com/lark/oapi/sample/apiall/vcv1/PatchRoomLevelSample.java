@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.PatchRoomLevelReq;
-import com.lark.oapi.service.vc.v1.model.PatchRoomLevelResp;
-import com.lark.oapi.service.vc.v1.model.RoomLevel;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/vc/v1/room_levels/:room_level_id
 public class PatchRoomLevelSample {

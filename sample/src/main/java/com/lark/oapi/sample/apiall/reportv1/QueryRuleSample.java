@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.reportv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.report.v1.model.QueryRuleReq;
-import com.lark.oapi.service.report.v1.model.QueryRuleResp;
+import com.lark.oapi.service.report.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/report/v1/rules/query
 public class QueryRuleSample {

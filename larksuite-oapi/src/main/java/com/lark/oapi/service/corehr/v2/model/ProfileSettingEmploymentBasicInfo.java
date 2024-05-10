@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmploymentBasicInfo {
     /**
@@ -52,6 +65,12 @@ public class ProfileSettingEmploymentBasicInfo {
      */
     @SerializedName("phone")
     private ProfileSettingPhone phone;
+    /**
+     * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
+     * <p> 示例值：cn
+     */
+    @SerializedName("user_geo")
+    private String userGeo;
     /**
      * 自定义字段
      * <p> 示例值：
@@ -94,6 +113,11 @@ public class ProfileSettingEmploymentBasicInfo {
          * <p> 示例值：
          */
         this.phone = builder.phone;
+        /**
+         * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
+         * <p> 示例值：cn
+         */
+        this.userGeo = builder.userGeo;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -153,6 +177,14 @@ public class ProfileSettingEmploymentBasicInfo {
         this.phone = phone;
     }
 
+    public String getUserGeo() {
+        return this.userGeo;
+    }
+
+    public void setUserGeo(String userGeo) {
+        this.userGeo = userGeo;
+    }
+
     public ProfileSettingCustomField[] getCustomFields() {
         return this.customFields;
     }
@@ -192,6 +224,11 @@ public class ProfileSettingEmploymentBasicInfo {
          * <p> 示例值：
          */
         private ProfileSettingPhone phone;
+        /**
+         * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
+         * <p> 示例值：cn
+         */
+        private String userGeo;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -272,6 +309,19 @@ public class ProfileSettingEmploymentBasicInfo {
          */
         public Builder phone(ProfileSettingPhone phone) {
             this.phone = phone;
+            return this;
+        }
+
+
+        /**
+         * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
+         * <p> 示例值：cn
+         *
+         * @param userGeo
+         * @return
+         */
+        public Builder userGeo(String userGeo) {
+            this.userGeo = userGeo;
             return this;
         }
 

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.BatchDeletePublicMailboxMemberReq;
-import com.lark.oapi.service.mail.v1.model.BatchDeletePublicMailboxMemberReqBody;
-import com.lark.oapi.service.mail.v1.model.BatchDeletePublicMailboxMemberResp;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/batch_delete
 public class BatchDeletePublicMailboxMemberSample {

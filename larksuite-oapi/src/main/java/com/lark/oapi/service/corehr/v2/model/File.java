@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class File {
     /**
@@ -22,6 +35,12 @@ public class File {
      */
     @SerializedName("id")
     private String id;
+    /**
+     * 文件名
+     * <p> 示例值：document.txt
+     */
+    @SerializedName("name")
+    private String name;
 
     // builder 开始
     public File() {
@@ -33,6 +52,11 @@ public class File {
          * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
          */
         this.id = builder.id;
+        /**
+         * 文件名
+         * <p> 示例值：document.txt
+         */
+        this.name = builder.name;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +71,25 @@ public class File {
         this.id = id;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public static class Builder {
         /**
          * 上传文件ID
          * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
          */
         private String id;
+        /**
+         * 文件名
+         * <p> 示例值：document.txt
+         */
+        private String name;
 
         /**
          * 上传文件ID
@@ -63,6 +100,19 @@ public class File {
          */
         public Builder id(String id) {
             this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 文件名
+         * <p> 示例值：document.txt
+         *
+         * @param name
+         * @return
+         */
+        public Builder name(String name) {
+            this.name = name;
             return this;
         }
 

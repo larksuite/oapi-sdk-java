@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.lingov1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.lingo.v1.model.ListEntityReq;
-import com.lark.oapi.service.lingo.v1.model.ListEntityResp;
+import com.lark.oapi.service.lingo.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/lingo/v1/entities
 public class ListEntitySample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.adminv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.admin.v1.model.Password;
-import com.lark.oapi.service.admin.v1.model.ResetPasswordReq;
-import com.lark.oapi.service.admin.v1.model.ResetPasswordReqBody;
-import com.lark.oapi.service.admin.v1.model.ResetPasswordResp;
+import com.lark.oapi.service.admin.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/admin/v1/password/reset
 public class ResetPasswordSample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.application.v6.model.AppContactsRangeIdList;
-import com.lark.oapi.service.application.v6.model.PatchApplicationContactsRangeReq;
-import com.lark.oapi.service.application.v6.model.PatchApplicationContactsRangeReqBody;
-import com.lark.oapi.service.application.v6.model.PatchApplicationContactsRangeResp;
+import com.lark.oapi.service.application.v6.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/application/v6/applications/:app_id/contacts_range
 public class PatchApplicationContactsRangeSample {

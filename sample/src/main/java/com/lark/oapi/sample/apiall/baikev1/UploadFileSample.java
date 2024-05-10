@@ -2,10 +2,10 @@ package com.lark.oapi.sample.apiall.baikev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.baike.v1.model.UploadFileReq;
-import com.lark.oapi.service.baike.v1.model.UploadFileResp;
+import com.lark.oapi.service.baike.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/baike/v1/files/upload
 public class UploadFileSample {

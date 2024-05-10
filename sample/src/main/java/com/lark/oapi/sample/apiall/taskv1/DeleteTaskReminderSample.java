@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v1.model.DeleteTaskReminderReq;
-import com.lark.oapi.service.task.v1.model.DeleteTaskReminderResp;
+import com.lark.oapi.service.task.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/task/v1/tasks/:task_id/reminders/:reminder_id
 public class DeleteTaskReminderSample {

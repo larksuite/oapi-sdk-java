@@ -13,18 +13,31 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenapiLog {
     /**
      * openapi日志唯一标识
-     * <p> 示例值：111
+     * <p> 示例值：10000
      */
     @SerializedName("id")
     private String id;
     /**
      * 飞书开放平台定义的API
-     * <p> 示例值：POST/open-apis/authen/v1/access_token
+     * <p> 示例值：POST/open-apis/demo/v1/example
      */
     @SerializedName("api_key")
     private String apiKey;
@@ -60,12 +73,12 @@ public class OpenapiLog {
     public OpenapiLog(Builder builder) {
         /**
          * openapi日志唯一标识
-         * <p> 示例值：111
+         * <p> 示例值：10000
          */
         this.id = builder.id;
         /**
          * 飞书开放平台定义的API
-         * <p> 示例值：POST/open-apis/authen/v1/access_token
+         * <p> 示例值：POST/open-apis/demo/v1/example
          */
         this.apiKey = builder.apiKey;
         /**
@@ -145,12 +158,12 @@ public class OpenapiLog {
     public static class Builder {
         /**
          * openapi日志唯一标识
-         * <p> 示例值：111
+         * <p> 示例值：10000
          */
         private String id;
         /**
          * 飞书开放平台定义的API
-         * <p> 示例值：POST/open-apis/authen/v1/access_token
+         * <p> 示例值：POST/open-apis/demo/v1/example
          */
         private String apiKey;
         /**
@@ -176,7 +189,7 @@ public class OpenapiLog {
 
         /**
          * openapi日志唯一标识
-         * <p> 示例值：111
+         * <p> 示例值：10000
          *
          * @param id
          * @return
@@ -189,7 +202,7 @@ public class OpenapiLog {
 
         /**
          * 飞书开放平台定义的API
-         * <p> 示例值：POST/open-apis/authen/v1/access_token
+         * <p> 示例值：POST/open-apis/demo/v1/example
          *
          * @param apiKey
          * @return

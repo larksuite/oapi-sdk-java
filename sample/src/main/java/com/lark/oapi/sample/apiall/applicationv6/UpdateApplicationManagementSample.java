@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.application.v6.model.UpdateApplicationManagementReq;
-import com.lark.oapi.service.application.v6.model.UpdateApplicationManagementReqBody;
-import com.lark.oapi.service.application.v6.model.UpdateApplicationManagementResp;
+import com.lark.oapi.service.application.v6.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/application/v6/applications/:app_id/management
 public class UpdateApplicationManagementSample {

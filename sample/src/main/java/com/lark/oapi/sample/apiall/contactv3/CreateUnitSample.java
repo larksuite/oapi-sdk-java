@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.CreateUnitReq;
-import com.lark.oapi.service.contact.v3.model.CreateUnitReqBody;
-import com.lark.oapi.service.contact.v3.model.CreateUnitResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/contact/v3/unit
 public class CreateUnitSample {

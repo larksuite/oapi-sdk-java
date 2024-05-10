@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ExportJob {
     /**
@@ -46,12 +59,6 @@ public class ExportJob {
      */
     @SerializedName("file_token")
     private String fileToken;
-    /**
-     * 导出文件大小
-     * <p> 示例值：34356
-     */
-    @SerializedName("file_size")
-    private Integer fileSize;
     /**
      * 任务失败原因
      * <p> 示例值：success
@@ -95,11 +102,6 @@ public class ExportJob {
          * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
          */
         this.fileToken = builder.fileToken;
-        /**
-         * 导出文件大小
-         * <p> 示例值：34356
-         */
-        this.fileSize = builder.fileSize;
         /**
          * 任务失败原因
          * <p> 示例值：success
@@ -156,14 +158,6 @@ public class ExportJob {
         this.fileToken = fileToken;
     }
 
-    public Integer getFileSize() {
-        return this.fileSize;
-    }
-
-    public void setFileSize(Integer fileSize) {
-        this.fileSize = fileSize;
-    }
-
     public String getJobErrorMsg() {
         return this.jobErrorMsg;
     }
@@ -206,11 +200,6 @@ public class ExportJob {
          * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
          */
         private String fileToken;
-        /**
-         * 导出文件大小
-         * <p> 示例值：34356
-         */
-        private Integer fileSize;
         /**
          * 任务失败原因
          * <p> 示例值：success
@@ -295,19 +284,6 @@ public class ExportJob {
          */
         public Builder fileToken(String fileToken) {
             this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 导出文件大小
-         * <p> 示例值：34356
-         *
-         * @param fileSize
-         * @return
-         */
-        public Builder fileSize(Integer fileSize) {
-            this.fileSize = fileSize;
             return this;
         }
 

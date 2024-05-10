@@ -46,7 +46,7 @@
 <dependency>
   <groupId>com.larksuite.oapi</groupId>
   <artifactId>oapi-sdk</artifactId>
-  <version>2.2.4</version>
+  <version>2.2.6</version>
 </dependency>
 ```
 - 如无法获取oapi-sdk依赖，请在 pom.xml 的 <project> 里增加 <repositories>

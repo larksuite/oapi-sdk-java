@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Block {
     /**
@@ -334,6 +347,12 @@ public class Block {
      */
     @SerializedName("agenda_item_content")
     private AgendaItemContent agendaItemContent;
+    /**
+     * 链接预览 Block
+     * <p> 示例值：
+     */
+    @SerializedName("link_preview")
+    private LinkPreview linkPreview;
 
     // builder 开始
     public Block() {
@@ -605,6 +624,11 @@ public class Block {
          * <p> 示例值：
          */
         this.agendaItemContent = builder.agendaItemContent;
+        /**
+         * 链接预览 Block
+         * <p> 示例值：
+         */
+        this.linkPreview = builder.linkPreview;
     }
 
     public static Builder newBuilder() {
@@ -1035,6 +1059,14 @@ public class Block {
         this.agendaItemContent = agendaItemContent;
     }
 
+    public LinkPreview getLinkPreview() {
+        return this.linkPreview;
+    }
+
+    public void setLinkPreview(LinkPreview linkPreview) {
+        this.linkPreview = linkPreview;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1301,6 +1333,11 @@ public class Block {
          * <p> 示例值：
          */
         private AgendaItemContent agendaItemContent;
+        /**
+         * 链接预览 Block
+         * <p> 示例值：
+         */
+        private LinkPreview linkPreview;
 
         /**
          * Block 唯一标识
@@ -1999,6 +2036,19 @@ public class Block {
          */
         public Builder agendaItemContent(AgendaItemContent agendaItemContent) {
             this.agendaItemContent = agendaItemContent;
+            return this;
+        }
+
+
+        /**
+         * 链接预览 Block
+         * <p> 示例值：
+         *
+         * @param linkPreview
+         * @return
+         */
+        public Builder linkPreview(LinkPreview linkPreview) {
+            this.linkPreview = linkPreview;
             return this;
         }
 

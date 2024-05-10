@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmpInfoForUpdate {
     /**
@@ -28,6 +41,12 @@ public class ProfileSettingEmpInfoForUpdate {
      */
     @SerializedName("probation_info")
     private ProfileSettingProbationInfo probationInfo;
+    /**
+     * 自定义分组
+     * <p> 示例值：
+     */
+    @SerializedName("custom_groups")
+    private ProfileSettingCustomGroup[] customGroups;
 
     // builder 开始
     public ProfileSettingEmpInfoForUpdate() {
@@ -44,6 +63,11 @@ public class ProfileSettingEmpInfoForUpdate {
          * <p> 示例值：
          */
         this.probationInfo = builder.probationInfo;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        this.customGroups = builder.customGroups;
     }
 
     public static Builder newBuilder() {
@@ -66,6 +90,14 @@ public class ProfileSettingEmpInfoForUpdate {
         this.probationInfo = probationInfo;
     }
 
+    public ProfileSettingCustomGroup[] getCustomGroups() {
+        return this.customGroups;
+    }
+
+    public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
+        this.customGroups = customGroups;
+    }
+
     public static class Builder {
         /**
          * 基本信息
@@ -77,6 +109,11 @@ public class ProfileSettingEmpInfoForUpdate {
          * <p> 示例值：
          */
         private ProfileSettingProbationInfo probationInfo;
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         */
+        private ProfileSettingCustomGroup[] customGroups;
 
         /**
          * 基本信息
@@ -100,6 +137,19 @@ public class ProfileSettingEmpInfoForUpdate {
          */
         public Builder probationInfo(ProfileSettingProbationInfo probationInfo) {
             this.probationInfo = probationInfo;
+            return this;
+        }
+
+
+        /**
+         * 自定义分组
+         * <p> 示例值：
+         *
+         * @param customGroups
+         * @return
+         */
+        public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
+            this.customGroups = customGroups;
             return this;
         }
 

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.BatchCreateFunctionalRoleMemberReq;
-import com.lark.oapi.service.contact.v3.model.BatchCreateFunctionalRoleMemberReqBody;
-import com.lark.oapi.service.contact.v3.model.BatchCreateFunctionalRoleMemberResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/contact/v3/functional_roles/:role_id/members/batch_create
 public class BatchCreateFunctionalRoleMemberSample {

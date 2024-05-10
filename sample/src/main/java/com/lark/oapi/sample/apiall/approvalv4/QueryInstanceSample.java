@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.InstanceSearch;
-import com.lark.oapi.service.approval.v4.model.QueryInstanceReq;
-import com.lark.oapi.service.approval.v4.model.QueryInstanceResp;
+import com.lark.oapi.service.approval.v4.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/approval/v4/instances/query
 public class QueryInstanceSample {

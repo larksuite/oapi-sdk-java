@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessApprover {
     /**
@@ -41,11 +54,11 @@ public class ProcessApprover {
     @SerializedName("reason")
     private String reason;
     /**
-     * 表单字段值
-     * <p> 示例值：原因自定义字符串
+     * 表单数据
+     * <p> 示例值：
      */
-    @SerializedName("field_values")
-    private ProcessFormVariable[] fieldValues;
+    @SerializedName("field_values_v2")
+    private ProcessFormVariableV2[] fieldValuesV2;
 
     // builder 开始
     public ProcessApprover() {
@@ -73,10 +86,10 @@ public class ProcessApprover {
          */
         this.reason = builder.reason;
         /**
-         * 表单字段值
-         * <p> 示例值：原因自定义字符串
+         * 表单数据
+         * <p> 示例值：
          */
-        this.fieldValues = builder.fieldValues;
+        this.fieldValuesV2 = builder.fieldValuesV2;
     }
 
     public static Builder newBuilder() {
@@ -115,12 +128,12 @@ public class ProcessApprover {
         this.reason = reason;
     }
 
-    public ProcessFormVariable[] getFieldValues() {
-        return this.fieldValues;
+    public ProcessFormVariableV2[] getFieldValuesV2() {
+        return this.fieldValuesV2;
     }
 
-    public void setFieldValues(ProcessFormVariable[] fieldValues) {
-        this.fieldValues = fieldValues;
+    public void setFieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
+        this.fieldValuesV2 = fieldValuesV2;
     }
 
     public static class Builder {
@@ -145,10 +158,10 @@ public class ProcessApprover {
          */
         private String reason;
         /**
-         * 表单字段值
-         * <p> 示例值：原因自定义字符串
+         * 表单数据
+         * <p> 示例值：
          */
-        private ProcessFormVariable[] fieldValues;
+        private ProcessFormVariableV2[] fieldValuesV2;
 
         /**
          * 将审批任务修改为同意/拒绝
@@ -215,14 +228,14 @@ public class ProcessApprover {
 
 
         /**
-         * 表单字段值
-         * <p> 示例值：原因自定义字符串
+         * 表单数据
+         * <p> 示例值：
          *
-         * @param fieldValues
+         * @param fieldValuesV2
          * @return
          */
-        public Builder fieldValues(ProcessFormVariable[] fieldValues) {
-            this.fieldValues = fieldValues;
+        public Builder fieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
+            this.fieldValuesV2 = fieldValuesV2;
             return this;
         }
 

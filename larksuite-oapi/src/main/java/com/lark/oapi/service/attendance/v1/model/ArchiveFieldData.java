@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ArchiveFieldData {
     /**
@@ -22,12 +35,6 @@ public class ArchiveFieldData {
      */
     @SerializedName("code")
     private String code;
-    /**
-     * 字段类型
-     * <p> 示例值：int
-     */
-    @SerializedName("type")
-    private String type;
     /**
      * 字段结果值
      * <p> 示例值：1
@@ -45,11 +52,6 @@ public class ArchiveFieldData {
          * <p> 示例值：abd754f7
          */
         this.code = builder.code;
-        /**
-         * 字段类型
-         * <p> 示例值：int
-         */
-        this.type = builder.type;
         /**
          * 字段结果值
          * <p> 示例值：1
@@ -69,14 +71,6 @@ public class ArchiveFieldData {
         this.code = code;
     }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getValue() {
         return this.value;
     }
@@ -92,11 +86,6 @@ public class ArchiveFieldData {
          */
         private String code;
         /**
-         * 字段类型
-         * <p> 示例值：int
-         */
-        private String type;
-        /**
          * 字段结果值
          * <p> 示例值：1
          */
@@ -111,19 +100,6 @@ public class ArchiveFieldData {
          */
         public Builder code(String code) {
             this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：int
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
             return this;
         }
 

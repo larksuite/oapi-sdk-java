@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.searchv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.search.v2.model.DeleteSchemaReq;
-import com.lark.oapi.service.search.v2.model.DeleteSchemaResp;
+import com.lark.oapi.service.search.v2.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/search/v2/schemas/:schema_id
 public class DeleteSchemaSample {

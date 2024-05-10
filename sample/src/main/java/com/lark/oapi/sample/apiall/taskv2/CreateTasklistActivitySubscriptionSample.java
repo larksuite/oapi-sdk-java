@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.CreateTasklistActivitySubscriptionReq;
-import com.lark.oapi.service.task.v2.model.CreateTasklistActivitySubscriptionResp;
-import com.lark.oapi.service.task.v2.model.Member;
-import com.lark.oapi.service.task.v2.model.TasklistActivitySubscription;
+import com.lark.oapi.service.task.v2.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions
 public class CreateTasklistActivitySubscriptionSample {

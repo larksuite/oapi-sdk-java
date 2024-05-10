@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEvent {
     /**
@@ -160,6 +173,12 @@ public class CalendarEvent {
      */
     @SerializedName("has_more_attendee")
     private Boolean hasMoreAttendee;
+    /**
+     * 日程附件
+     * <p> 示例值：
+     */
+    @SerializedName("attachments")
+    private Attachment[] attachments;
 
     // builder 开始
     public CalendarEvent() {
@@ -286,6 +305,11 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         this.hasMoreAttendee = builder.hasMoreAttendee;
+        /**
+         * 日程附件
+         * <p> 示例值：
+         */
+        this.attachments = builder.attachments;
     }
 
     public static Builder newBuilder() {
@@ -484,6 +508,14 @@ public class CalendarEvent {
         this.hasMoreAttendee = hasMoreAttendee;
     }
 
+    public Attachment[] getAttachments() {
+        return this.attachments;
+    }
+
+    public void setAttachments(Attachment[] attachments) {
+        this.attachments = attachments;
+    }
+
     public static class Builder {
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -605,6 +637,11 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         private Boolean hasMoreAttendee;
+        /**
+         * 日程附件
+         * <p> 示例值：
+         */
+        private Attachment[] attachments;
 
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -962,6 +999,19 @@ public class CalendarEvent {
          */
         public Builder hasMoreAttendee(Boolean hasMoreAttendee) {
             this.hasMoreAttendee = hasMoreAttendee;
+            return this;
+        }
+
+
+        /**
+         * 日程附件
+         * <p> 示例值：
+         *
+         * @param attachments
+         * @return
+         */
+        public Builder attachments(Attachment[] attachments) {
+            this.attachments = attachments;
             return this;
         }
 

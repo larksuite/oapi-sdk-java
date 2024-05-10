@@ -13,9 +13,19 @@
 
 package com.lark.oapi.service.im.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class GetMessageResourceReq {
     /**
@@ -43,7 +53,6 @@ public class GetMessageResourceReq {
     // builder 开始
     public GetMessageResourceReq() {
     }
-
     public GetMessageResourceReq(Builder builder) {
         /**
          * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）

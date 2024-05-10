@@ -13,7 +13,9 @@
 package com.lark.oapi.service.auth;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.auth.v3.V3;
+import com.lark.oapi.service.auth.v3.model.*;
 import com.lark.oapi.service.auth.v3.resource.AppAccessToken;
 import com.lark.oapi.service.auth.v3.resource.AppTicket;
 import com.lark.oapi.service.auth.v3.resource.TenantAccessToken;

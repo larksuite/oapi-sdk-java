@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.BatchCreateUserFlowReq;
-import com.lark.oapi.service.attendance.v1.model.BatchCreateUserFlowReqBody;
-import com.lark.oapi.service.attendance.v1.model.BatchCreateUserFlowResp;
-import com.lark.oapi.service.attendance.v1.model.UserFlow;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/attendance/v1/user_flows/batch_create
 public class BatchCreateUserFlowSample {

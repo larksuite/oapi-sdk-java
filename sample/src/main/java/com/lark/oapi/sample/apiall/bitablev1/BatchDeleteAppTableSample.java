@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppTableReq;
-import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppTableReqBody;
-import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppTableResp;
+import com.lark.oapi.service.bitable.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/bitable/v1/apps/:app_token/tables/batch_delete
 public class BatchDeleteAppTableSample {

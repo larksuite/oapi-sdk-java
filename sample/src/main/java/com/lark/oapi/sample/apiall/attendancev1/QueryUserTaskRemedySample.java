@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.QueryUserTaskRemedyReq;
-import com.lark.oapi.service.attendance.v1.model.QueryUserTaskRemedyReqBody;
-import com.lark.oapi.service.attendance.v1.model.QueryUserTaskRemedyResp;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/attendance/v1/user_task_remedys/query
 public class QueryUserTaskRemedySample {

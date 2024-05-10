@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateDocumentRequest {
     /**
@@ -22,6 +35,12 @@ public class UpdateDocumentRequest {
      */
     @SerializedName("update_display_setting")
     private DocumentDisplaySetting updateDisplaySetting;
+    /**
+     * 更新文档封面
+     * <p> 示例值：
+     */
+    @SerializedName("update_cover")
+    private UpdateCoverRequest updateCover;
 
     // builder 开始
     public UpdateDocumentRequest() {
@@ -33,6 +52,11 @@ public class UpdateDocumentRequest {
          * <p> 示例值：
          */
         this.updateDisplaySetting = builder.updateDisplaySetting;
+        /**
+         * 更新文档封面
+         * <p> 示例值：
+         */
+        this.updateCover = builder.updateCover;
     }
 
     public static Builder newBuilder() {
@@ -47,12 +71,25 @@ public class UpdateDocumentRequest {
         this.updateDisplaySetting = updateDisplaySetting;
     }
 
+    public UpdateCoverRequest getUpdateCover() {
+        return this.updateCover;
+    }
+
+    public void setUpdateCover(UpdateCoverRequest updateCover) {
+        this.updateCover = updateCover;
+    }
+
     public static class Builder {
         /**
          * 更新文档的展示设置
          * <p> 示例值：
          */
         private DocumentDisplaySetting updateDisplaySetting;
+        /**
+         * 更新文档封面
+         * <p> 示例值：
+         */
+        private UpdateCoverRequest updateCover;
 
         /**
          * 更新文档的展示设置
@@ -63,6 +100,19 @@ public class UpdateDocumentRequest {
          */
         public Builder updateDisplaySetting(DocumentDisplaySetting updateDisplaySetting) {
             this.updateDisplaySetting = updateDisplaySetting;
+            return this;
+        }
+
+
+        /**
+         * 更新文档封面
+         * <p> 示例值：
+         *
+         * @param updateCover
+         * @return
+         */
+        public Builder updateCover(UpdateCoverRequest updateCover) {
+            this.updateCover = updateCover;
             return this;
         }
 

@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.*;
 
+import java.util.HashMap;
+
 // PATCH /open-apis/vc/v1/rooms/:room_id
 public class PatchRoomSample {
 

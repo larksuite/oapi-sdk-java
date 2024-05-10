@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.GetByParamCustomFieldReq;
-import com.lark.oapi.service.corehr.v1.model.GetByParamCustomFieldResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // GET /open-apis/corehr/v1/custom_fields/get_by_param
 public class GetByParamCustomFieldSample {

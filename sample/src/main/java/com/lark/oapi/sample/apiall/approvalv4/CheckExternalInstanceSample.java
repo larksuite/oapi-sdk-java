@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.CheckExternalInstanceReq;
-import com.lark.oapi.service.approval.v4.model.CheckExternalInstanceReqBody;
-import com.lark.oapi.service.approval.v4.model.CheckExternalInstanceResp;
-import com.lark.oapi.service.approval.v4.model.ExteranlInstanceCheck;
+import com.lark.oapi.service.approval.v4.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/approval/v4/external_instances/check
 public class CheckExternalInstanceSample {

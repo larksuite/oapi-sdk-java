@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.BatchRemoveGroupMemberReq;
-import com.lark.oapi.service.contact.v3.model.BatchRemoveGroupMemberReqBody;
-import com.lark.oapi.service.contact.v3.model.BatchRemoveGroupMemberResp;
-import com.lark.oapi.service.contact.v3.model.Memberlist;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/contact/v3/group/:group_id/member/batch_remove
 public class BatchRemoveGroupMemberSample {

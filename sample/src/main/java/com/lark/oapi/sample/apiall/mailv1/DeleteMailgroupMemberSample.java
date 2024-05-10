@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.DeleteMailgroupMemberReq;
-import com.lark.oapi.service.mail.v1.model.DeleteMailgroupMemberResp;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id
 public class DeleteMailgroupMemberSample {

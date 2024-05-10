@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewConditionReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewConditionResp;
+import com.lark.oapi.service.sheets.v3.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id
 public class GetSpreadsheetSheetFilterViewConditionSample {

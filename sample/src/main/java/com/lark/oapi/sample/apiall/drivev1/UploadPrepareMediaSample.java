@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.MediaUploadInfo;
-import com.lark.oapi.service.drive.v1.model.UploadPrepareMediaReq;
-import com.lark.oapi.service.drive.v1.model.UploadPrepareMediaResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/drive/v1/medias/upload_prepare
 public class UploadPrepareMediaSample {
@@ -16,11 +16,11 @@ public class UploadPrepareMediaSample {
         // 创建请求对象
         UploadPrepareMediaReq req = UploadPrepareMediaReq.newBuilder()
                 .mediaUploadInfo(MediaUploadInfo.newBuilder()
-                        .fileName("123.txt")
-                        .parentType("doc_image")
-                        .parentNode("fldcnxxxxxx")
+                        .fileName("demo.jpeg")
+                        .parentType("ccm_import_open")
                         .size(1024)
-                        .extra("test")
+                        .parentNode("2olt0Ts4Mds7j7iqzdwrqEUnO7q")
+                        .extra("")
                         .build())
                 .build();
 

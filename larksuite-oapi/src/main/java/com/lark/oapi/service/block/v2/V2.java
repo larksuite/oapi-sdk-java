@@ -14,8 +14,7 @@
 package com.lark.oapi.service.block.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.block.v2.resource.Entity;
-import com.lark.oapi.service.block.v2.resource.Message;
+import com.lark.oapi.service.block.v2.resource.*;
 
 public class V2 {
     private final Entity entity; // 服务端 API

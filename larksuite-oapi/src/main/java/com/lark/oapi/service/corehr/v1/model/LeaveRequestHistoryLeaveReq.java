@@ -13,8 +13,19 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveRequestHistoryLeaveReq {
     /**
@@ -144,12 +155,47 @@ public class LeaveRequestHistoryLeaveReq {
     @SerializedName("time_zone")
     private String timeZone;
     /**
-     * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+     * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
      * <p> 示例值：1
      */
     @Query
     @SerializedName("data_source")
     private Integer dataSource;
+    /**
+     * 请假记录DB更新时间晚于等于的时间
+     * <p> 示例值：2022-10-24 10:00:00
+     */
+    @Query
+    @SerializedName("db_update_time_min")
+    private String dbUpdateTimeMin;
+    /**
+     * 请假记录DB更新时间早于等于的时间
+     * <p> 示例值：2022-10-24 10:00:00
+     */
+    @Query
+    @SerializedName("db_update_time_max")
+    private String dbUpdateTimeMax;
+    /**
+     * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("wd_need_amount_zero_records")
+    private Boolean wdNeedAmountZeroRecords;
+    /**
+     * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("wd_need_denied_and_canceled_record")
+    private Boolean wdNeedDeniedAndCanceledRecord;
+    /**
+     * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("wd_paid_type")
+    private Integer wdPaidType;
 
     // builder 开始
     public LeaveRequestHistoryLeaveReq() {
@@ -247,10 +293,35 @@ public class LeaveRequestHistoryLeaveReq {
          */
         this.timeZone = builder.timeZone;
         /**
-         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
          * <p> 示例值：1
          */
         this.dataSource = builder.dataSource;
+        /**
+         * 请假记录DB更新时间晚于等于的时间
+         * <p> 示例值：2022-10-24 10:00:00
+         */
+        this.dbUpdateTimeMin = builder.dbUpdateTimeMin;
+        /**
+         * 请假记录DB更新时间早于等于的时间
+         * <p> 示例值：2022-10-24 10:00:00
+         */
+        this.dbUpdateTimeMax = builder.dbUpdateTimeMax;
+        /**
+         * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+         * <p> 示例值：false
+         */
+        this.wdNeedAmountZeroRecords = builder.wdNeedAmountZeroRecords;
+        /**
+         * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+         * <p> 示例值：false
+         */
+        this.wdNeedDeniedAndCanceledRecord = builder.wdNeedDeniedAndCanceledRecord;
+        /**
+         * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+         * <p> 示例值：1
+         */
+        this.wdPaidType = builder.wdPaidType;
     }
 
     public static Builder newBuilder() {
@@ -409,6 +480,46 @@ public class LeaveRequestHistoryLeaveReq {
         this.dataSource = dataSource;
     }
 
+    public String getDbUpdateTimeMin() {
+        return this.dbUpdateTimeMin;
+    }
+
+    public void setDbUpdateTimeMin(String dbUpdateTimeMin) {
+        this.dbUpdateTimeMin = dbUpdateTimeMin;
+    }
+
+    public String getDbUpdateTimeMax() {
+        return this.dbUpdateTimeMax;
+    }
+
+    public void setDbUpdateTimeMax(String dbUpdateTimeMax) {
+        this.dbUpdateTimeMax = dbUpdateTimeMax;
+    }
+
+    public Boolean getWdNeedAmountZeroRecords() {
+        return this.wdNeedAmountZeroRecords;
+    }
+
+    public void setWdNeedAmountZeroRecords(Boolean wdNeedAmountZeroRecords) {
+        this.wdNeedAmountZeroRecords = wdNeedAmountZeroRecords;
+    }
+
+    public Boolean getWdNeedDeniedAndCanceledRecord() {
+        return this.wdNeedDeniedAndCanceledRecord;
+    }
+
+    public void setWdNeedDeniedAndCanceledRecord(Boolean wdNeedDeniedAndCanceledRecord) {
+        this.wdNeedDeniedAndCanceledRecord = wdNeedDeniedAndCanceledRecord;
+    }
+
+    public Integer getWdPaidType() {
+        return this.wdPaidType;
+    }
+
+    public void setWdPaidType(Integer wdPaidType) {
+        this.wdPaidType = wdPaidType;
+    }
+
     public static class Builder {
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
         private String pageSize; // 每页获取记录数量，最大100
@@ -428,7 +539,12 @@ public class LeaveRequestHistoryLeaveReq {
         private Boolean returnDetail; // 是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
         private Integer leaveTermType; // 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
         private String timeZone; // 请假记录所在时区
-        private Integer dataSource; // 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+        private Integer dataSource; // 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
+        private String dbUpdateTimeMin; // 请假记录DB更新时间晚于等于的时间
+        private String dbUpdateTimeMax; // 请假记录DB更新时间早于等于的时间
+        private Boolean wdNeedAmountZeroRecords; // WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+        private Boolean wdNeedDeniedAndCanceledRecord; // WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+        private Integer wdPaidType; // WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
 
 
         /**
@@ -678,7 +794,7 @@ public class LeaveRequestHistoryLeaveReq {
 
 
         /**
-         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传表示不过滤
+         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
          * <p> 示例值：1
          *
          * @param dataSource
@@ -686,6 +802,71 @@ public class LeaveRequestHistoryLeaveReq {
          */
         public Builder dataSource(Integer dataSource) {
             this.dataSource = dataSource;
+            return this;
+        }
+
+
+        /**
+         * 请假记录DB更新时间晚于等于的时间
+         * <p> 示例值：2022-10-24 10:00:00
+         *
+         * @param dbUpdateTimeMin
+         * @return
+         */
+        public Builder dbUpdateTimeMin(String dbUpdateTimeMin) {
+            this.dbUpdateTimeMin = dbUpdateTimeMin;
+            return this;
+        }
+
+
+        /**
+         * 请假记录DB更新时间早于等于的时间
+         * <p> 示例值：2022-10-24 10:00:00
+         *
+         * @param dbUpdateTimeMax
+         * @return
+         */
+        public Builder dbUpdateTimeMax(String dbUpdateTimeMax) {
+            this.dbUpdateTimeMax = dbUpdateTimeMax;
+            return this;
+        }
+
+
+        /**
+         * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+         * <p> 示例值：false
+         *
+         * @param wdNeedAmountZeroRecords
+         * @return
+         */
+        public Builder wdNeedAmountZeroRecords(Boolean wdNeedAmountZeroRecords) {
+            this.wdNeedAmountZeroRecords = wdNeedAmountZeroRecords;
+            return this;
+        }
+
+
+        /**
+         * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+         * <p> 示例值：false
+         *
+         * @param wdNeedDeniedAndCanceledRecord
+         * @return
+         */
+        public Builder wdNeedDeniedAndCanceledRecord(Boolean wdNeedDeniedAndCanceledRecord) {
+            this.wdNeedDeniedAndCanceledRecord = wdNeedDeniedAndCanceledRecord;
+            return this;
+        }
+
+
+        /**
+         * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+         * <p> 示例值：1
+         *
+         * @param wdPaidType
+         * @return
+         */
+        public Builder wdPaidType(Integer wdPaidType) {
+            this.wdPaidType = wdPaidType;
             return this;
         }
 

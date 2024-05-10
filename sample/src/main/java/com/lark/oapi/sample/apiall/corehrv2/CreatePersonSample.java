@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.Enum;
 import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // POST /open-apis/corehr/v2/persons
 public class CreatePersonSample {
@@ -37,6 +40,7 @@ public class CreatePersonSample {
                         .nativeRegion("6863326262618752111")
                         .hukouType(Enum.newBuilder().build())
                         .hukouLocation("山东省平阴县")
+                        .politicalAffiliations(new Enum[]{})
                         .talentId("6863326262618752123")
                         .customFields(new CustomFieldData[]{})
                         .bornCountryRegion("中国")

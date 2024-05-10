@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.boardv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.board.v1.model.ListWhiteboardNodeReq;
-import com.lark.oapi.service.board.v1.model.ListWhiteboardNodeResp;
+import com.lark.oapi.service.board.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/board/v1/whiteboards/:whiteboard_id/nodes
 public class ListWhiteboardNodeSample {

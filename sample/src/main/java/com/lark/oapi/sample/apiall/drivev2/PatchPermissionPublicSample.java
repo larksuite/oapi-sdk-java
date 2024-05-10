@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v2.model.PatchPermissionPublicReq;
-import com.lark.oapi.service.drive.v2.model.PatchPermissionPublicResp;
-import com.lark.oapi.service.drive.v2.model.PermissionPublic;
+import com.lark.oapi.service.drive.v2.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/drive/v2/permissions/:token/public
 public class PatchPermissionPublicSample {

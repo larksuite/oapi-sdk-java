@@ -14,8 +14,8 @@
 package com.lark.oapi.service.corehr.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.corehr.v2.resource.Process;
 import com.lark.oapi.service.corehr.v2.resource.*;
+import com.lark.oapi.service.corehr.v2.resource.Process;
 
 public class V2 {
     private final BasicInfoBank basicInfoBank; // basic_info.bank
@@ -47,6 +47,7 @@ public class V2 {
     private final Process process; // process
     private final ProcessApprover processApprover; // process.approver
     private final ProcessCc processCc; // process.cc
+    private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
     private final ProcessNode processNode; // process.node
 
     public V2(Config config) {
@@ -79,6 +80,7 @@ public class V2 {
         this.process = new Process(config);
         this.processApprover = new ProcessApprover(config);
         this.processCc = new ProcessCc(config);
+        this.processFormVariableData = new ProcessFormVariableData(config);
         this.processNode = new ProcessNode(config);
     }
 
@@ -196,6 +198,10 @@ public class V2 {
 
     public ProcessCc processCc() {
         return processCc;
+    }
+
+    public ProcessFormVariableData processFormVariableData() {
+        return processFormVariableData;
     }
 
     public ProcessNode processNode() {

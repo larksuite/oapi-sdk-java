@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.eventv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.event.v1.model.ListOutboundIpReq;
-import com.lark.oapi.service.event.v1.model.ListOutboundIpResp;
+import com.lark.oapi.service.event.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/event/v1/outbound_ip
 public class ListOutboundIpSample {

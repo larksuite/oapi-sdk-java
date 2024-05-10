@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.DeletePinReq;
-import com.lark.oapi.service.im.v1.model.DeletePinResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/im/v1/pins/:message_id
 public class DeletePinSample {

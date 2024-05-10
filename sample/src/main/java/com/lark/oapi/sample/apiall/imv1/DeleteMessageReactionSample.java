@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.DeleteMessageReactionReq;
-import com.lark.oapi.service.im.v1.model.DeleteMessageReactionResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/im/v1/messages/:message_id/reactions/:reaction_id
 public class DeleteMessageReactionSample {

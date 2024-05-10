@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.InputTasklist;
-import com.lark.oapi.service.task.v2.model.PatchTasklistReq;
-import com.lark.oapi.service.task.v2.model.PatchTasklistReqBody;
-import com.lark.oapi.service.task.v2.model.PatchTasklistResp;
+import com.lark.oapi.service.task.v2.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/task/v2/tasklists/:tasklist_guid
 public class PatchTasklistSample {
