@@ -17,6 +17,7 @@ import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.corehr.v1.V1;
 import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
+import com.lark.oapi.service.corehr.v1.resource.Authorization;
 import com.lark.oapi.service.corehr.v1.resource.CommonDataId;
 import com.lark.oapi.service.corehr.v1.resource.Company;
 import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
@@ -54,6 +55,7 @@ import com.lark.oapi.service.corehr.v2.model.*;
 public class CorehrService {
     private final V1 v1;
     private final AssignedUser assignedUser; // assigned_user
+    private final Authorization authorization; // authorization
     private final CommonDataId commonDataId; // common_data.id
     private final Company company; // 公司
     private final CompensationStandard compensationStandard; // compensation_standard
@@ -90,6 +92,7 @@ public class CorehrService {
     public CorehrService(Config config) {
         this.v1 = new V1(config);
         this.assignedUser = new AssignedUser(config);
+        this.authorization = new Authorization(config);
         this.commonDataId = new CommonDataId(config);
         this.company = new Company(config);
         this.compensationStandard = new CompensationStandard(config);
@@ -130,6 +133,10 @@ public class CorehrService {
 
     public AssignedUser assignedUser() {
         return assignedUser;
+    }
+
+    public Authorization authorization() {
+        return authorization;
     }
 
     public CommonDataId commonDataId() {

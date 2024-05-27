@@ -22,6 +22,7 @@ public class PatchJobDataSample {
                 .userIdType("people_corehr_id")
                 .departmentIdType("people_corehr_department_id")
                 .jobData(JobData.newBuilder()
+                        .versionId("6890452208593372697")
                         .jobLevelId("6890452208593372679")
                         .jobGradeId("6890452208593372679")
                         .employeeTypeId("6890452208593372679")

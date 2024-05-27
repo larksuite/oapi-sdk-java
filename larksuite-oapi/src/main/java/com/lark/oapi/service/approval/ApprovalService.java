@@ -26,7 +26,7 @@ import com.lark.oapi.service.approval.v4.resource.Task;
 
 public class ApprovalService {
     private final V4 v4;
-    private final Approval approval; // 事件
+    private final Approval approval; // 原生审批定义
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务

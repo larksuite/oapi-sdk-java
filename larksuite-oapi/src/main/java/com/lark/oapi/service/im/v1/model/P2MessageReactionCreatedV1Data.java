@@ -48,7 +48,7 @@ public class P2MessageReactionCreatedV1Data {
     private String operatorType;
     /**
      * 用户 ID
-     * <p> 示例值：
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
      */
     @SerializedName("user_id")
     private UserId userId;

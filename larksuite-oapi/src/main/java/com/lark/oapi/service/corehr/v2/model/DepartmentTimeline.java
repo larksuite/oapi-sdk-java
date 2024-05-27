@@ -36,6 +36,12 @@ public class DepartmentTimeline {
     @SerializedName("id")
     private String id;
     /**
+     * 部门版本 ID
+     * <p> 示例值：7238516215202170412
+     */
+    @SerializedName("version_id")
+    private String versionId;
+    /**
      * 部门名称
      * <p> 示例值：
      */
@@ -77,6 +83,12 @@ public class DepartmentTimeline {
      */
     @SerializedName("descriptions")
     private I18n[] descriptions;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private CustomFieldData[] customFields;
 
     // builder 开始
     public DepartmentTimeline() {
@@ -88,6 +100,11 @@ public class DepartmentTimeline {
          * <p> 示例值：4719456877659520852
          */
         this.id = builder.id;
+        /**
+         * 部门版本 ID
+         * <p> 示例值：7238516215202170412
+         */
+        this.versionId = builder.versionId;
         /**
          * 部门名称
          * <p> 示例值：
@@ -123,6 +140,11 @@ public class DepartmentTimeline {
          * <p> 示例值：
          */
         this.descriptions = builder.descriptions;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -135,6 +157,14 @@ public class DepartmentTimeline {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
     }
 
     public I18n[] getNames() {
@@ -193,12 +223,25 @@ public class DepartmentTimeline {
         this.descriptions = descriptions;
     }
 
+    public CustomFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(CustomFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
          * <p> 示例值：4719456877659520852
          */
         private String id;
+        /**
+         * 部门版本 ID
+         * <p> 示例值：7238516215202170412
+         */
+        private String versionId;
         /**
          * 部门名称
          * <p> 示例值：
@@ -234,6 +277,11 @@ public class DepartmentTimeline {
          * <p> 示例值：
          */
         private I18n[] descriptions;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private CustomFieldData[] customFields;
 
         /**
          * 部门 ID
@@ -244,6 +292,19 @@ public class DepartmentTimeline {
          */
         public Builder id(String id) {
             this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 部门版本 ID
+         * <p> 示例值：7238516215202170412
+         *
+         * @param versionId
+         * @return
+         */
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
             return this;
         }
 
@@ -335,6 +396,19 @@ public class DepartmentTimeline {
          */
         public Builder descriptions(I18n[] descriptions) {
             this.descriptions = descriptions;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(CustomFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

@@ -18,6 +18,7 @@ package com.lark.oapi.service.bitable.v1.enums;
  */
 public enum AppTableFieldUiTypeEnum {
     TEXT("Text"), // 多行文本
+    EMAIL("Email"), // 邮箱地址
     BARCODE("Barcode"), // 条码
     NUMBER("Number"), // 数字
     PROGRESS("Progress"), // 进度

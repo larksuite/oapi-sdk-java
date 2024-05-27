@@ -30,7 +30,6 @@ public class PatchCompanySample {
                         .subTypeList(new Enum[]{})
                         .branchCompany(true)
                         .primaryManager(new I18n[]{})
-                        .customFields(new ObjectFieldData[]{})
                         .currency(Currency.newBuilder().build())
                         .phone(PhoneNumberAndAreaCode.newBuilder().build())
                         .fax(PhoneNumberAndAreaCode.newBuilder().build())

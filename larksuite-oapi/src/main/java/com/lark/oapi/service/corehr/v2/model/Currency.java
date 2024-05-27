@@ -42,6 +42,12 @@ public class Currency {
     @SerializedName("country_region_id")
     private String countryRegionId;
     /**
+     * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+     * <p> 示例值：
+     */
+    @SerializedName("country_region_id_list")
+    private String[] countryRegionIdList;
+    /**
      * 货币名称
      * <p> 示例值：
      */
@@ -82,6 +88,11 @@ public class Currency {
          */
         this.countryRegionId = builder.countryRegionId;
         /**
+         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * <p> 示例值：
+         */
+        this.countryRegionIdList = builder.countryRegionIdList;
+        /**
          * 货币名称
          * <p> 示例值：
          */
@@ -121,6 +132,14 @@ public class Currency {
 
     public void setCountryRegionId(String countryRegionId) {
         this.countryRegionId = countryRegionId;
+    }
+
+    public String[] getCountryRegionIdList() {
+        return this.countryRegionIdList;
+    }
+
+    public void setCountryRegionIdList(String[] countryRegionIdList) {
+        this.countryRegionIdList = countryRegionIdList;
     }
 
     public I18n[] getCurrencyName() {
@@ -167,6 +186,11 @@ public class Currency {
          */
         private String countryRegionId;
         /**
+         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * <p> 示例值：
+         */
+        private String[] countryRegionIdList;
+        /**
          * 货币名称
          * <p> 示例值：
          */
@@ -209,6 +233,19 @@ public class Currency {
          */
         public Builder countryRegionId(String countryRegionId) {
             this.countryRegionId = countryRegionId;
+            return this;
+        }
+
+
+        /**
+         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * <p> 示例值：
+         *
+         * @param countryRegionIdList
+         * @return
+         */
+        public Builder countryRegionIdList(String[] countryRegionIdList) {
+            this.countryRegionIdList = countryRegionIdList;
             return this;
         }
 

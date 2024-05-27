@@ -29,12 +29,14 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class ListTicketCustomizedFieldReq {
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：6948728206392295444
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10；默认为20
      */
     @Query
@@ -49,12 +51,12 @@ public class ListTicketCustomizedFieldReq {
 
     public ListTicketCustomizedFieldReq(Builder builder) {
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：6948728206392295444
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10；默认为20
          */
         this.pageSize = builder.pageSize;
@@ -90,11 +92,12 @@ public class ListTicketCustomizedFieldReq {
     }
 
     public static class Builder {
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
         private ListTicketCustomizedFieldReqBody body;
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：6948728206392295444
          *
          * @param pageToken
@@ -106,6 +109,7 @@ public class ListTicketCustomizedFieldReq {
         }
 
         /**
+         * 分页大小
          * <p> 示例值：10；默认为20
          *
          * @param pageSize

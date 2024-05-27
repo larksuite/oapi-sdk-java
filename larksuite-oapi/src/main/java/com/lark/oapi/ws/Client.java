@@ -132,7 +132,9 @@ public class Client {
                     if (this.conn != null) {
                         return;
                     }
-                    tryConnect(i);
+                    if (tryConnect(i)) {
+                        return;
+                    }
                     this.sleep(this.reconnectInterval * 1000);
                 }
                 throw new ServerUnreachableException(String.format("unable to connect to the server after trying %d times", this.reconnectCount));
@@ -142,7 +144,9 @@ public class Client {
                     if (this.conn != null) {
                         return;
                     }
-                    tryConnect(i);
+                    if (tryConnect(i)) {
+                        return;
+                    }
                     this.sleep(this.reconnectInterval * 1000);
                     i++;
                 }
@@ -152,7 +156,7 @@ public class Client {
         }
     }
 
-    private void tryConnect(int cnt) {
+    private boolean tryConnect(int cnt) {
         cnt++;
         String time;
         switch (cnt) {
@@ -173,11 +177,13 @@ public class Client {
         log.info(fmtLog("trying to reconnect for the %s time", time));
         try {
             connect();
+            return true;
         } catch (ClientException e) {
             log.error(e.toString());
             throw e;
         } catch (Throwable t) {
             log.error(t.toString());
+            return false;
         }
     }
 

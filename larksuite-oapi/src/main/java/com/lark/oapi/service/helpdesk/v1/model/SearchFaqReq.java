@@ -43,12 +43,14 @@ public class SearchFaqReq {
     @SerializedName("base64")
     private String base64;
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：6936004780707807251
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10
      */
     @Query
@@ -71,12 +73,12 @@ public class SearchFaqReq {
          */
         this.base64 = builder.base64;
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：6936004780707807251
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
@@ -121,8 +123,8 @@ public class SearchFaqReq {
     public static class Builder {
         private String query; // 搜索query;，query内容如果不是英文，包含中文空格等有两种编码策略：1. url编码 2. base64编码，同时加上base64=true参数
         private String base64; // 是否转换为base64,输入true表示是，不填写表示否，中文需要转换为base64
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
 
 
         /**
@@ -152,6 +154,7 @@ public class SearchFaqReq {
 
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：6936004780707807251
          *
          * @param pageToken
@@ -164,6 +167,7 @@ public class SearchFaqReq {
 
 
         /**
+         * 分页大小
          * <p> 示例值：10
          *
          * @param pageSize

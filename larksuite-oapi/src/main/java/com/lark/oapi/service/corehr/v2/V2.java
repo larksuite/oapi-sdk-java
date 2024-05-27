@@ -38,6 +38,7 @@ public class V2 {
     private final Job job; // job
     private final JobChange jobChange; // job_change
     private final JobFamily jobFamily; // job_family
+    private final JobGrade jobGrade; // job_grade
     private final JobLevel jobLevel; // job_level
     private final Location location; // location
     private final Person person; // person
@@ -71,6 +72,7 @@ public class V2 {
         this.job = new Job(config);
         this.jobChange = new JobChange(config);
         this.jobFamily = new JobFamily(config);
+        this.jobGrade = new JobGrade(config);
         this.jobLevel = new JobLevel(config);
         this.location = new Location(config);
         this.person = new Person(config);
@@ -162,6 +164,10 @@ public class V2 {
 
     public JobFamily jobFamily() {
         return jobFamily;
+    }
+
+    public JobGrade jobGrade() {
+        return jobGrade;
     }
 
     public JobLevel jobLevel() {

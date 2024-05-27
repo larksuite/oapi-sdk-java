@@ -54,6 +54,12 @@ public class City {
     @SerializedName("code")
     private String code;
     /**
+     * 行政区代码
+     * <p> 示例值：110000
+     */
+    @SerializedName("subregion_code")
+    private String subregionCode;
+    /**
      * 状态
      * <p> 示例值：1
      */
@@ -85,6 +91,11 @@ public class City {
          * <p> 示例值：PEK
          */
         this.code = builder.code;
+        /**
+         * 行政区代码
+         * <p> 示例值：110000
+         */
+        this.subregionCode = builder.subregionCode;
         /**
          * 状态
          * <p> 示例值：1
@@ -128,6 +139,14 @@ public class City {
         this.code = code;
     }
 
+    public String getSubregionCode() {
+        return this.subregionCode;
+    }
+
+    public void setSubregionCode(String subregionCode) {
+        this.subregionCode = subregionCode;
+    }
+
     public Integer getStatus() {
         return this.status;
     }
@@ -157,6 +176,11 @@ public class City {
          * <p> 示例值：PEK
          */
         private String code;
+        /**
+         * 行政区代码
+         * <p> 示例值：110000
+         */
+        private String subregionCode;
         /**
          * 状态
          * <p> 示例值：1
@@ -211,6 +235,19 @@ public class City {
          */
         public Builder code(String code) {
             this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 行政区代码
+         * <p> 示例值：110000
+         *
+         * @param subregionCode
+         * @return
+         */
+        public Builder subregionCode(String subregionCode) {
+            this.subregionCode = subregionCode;
             return this;
         }
 

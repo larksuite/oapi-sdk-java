@@ -48,6 +48,12 @@ public class District {
     @SerializedName("city_id")
     private String cityId;
     /**
+     * 行政区代码
+     * <p> 示例值：110000
+     */
+    @SerializedName("subregion_code")
+    private String subregionCode;
+    /**
      * 状态
      * <p> 示例值：1
      */
@@ -74,6 +80,11 @@ public class District {
          * <p> 示例值：6822114062155062211
          */
         this.cityId = builder.cityId;
+        /**
+         * 行政区代码
+         * <p> 示例值：110000
+         */
+        this.subregionCode = builder.subregionCode;
         /**
          * 状态
          * <p> 示例值：1
@@ -109,6 +120,14 @@ public class District {
         this.cityId = cityId;
     }
 
+    public String getSubregionCode() {
+        return this.subregionCode;
+    }
+
+    public void setSubregionCode(String subregionCode) {
+        this.subregionCode = subregionCode;
+    }
+
     public Integer getStatus() {
         return this.status;
     }
@@ -133,6 +152,11 @@ public class District {
          * <p> 示例值：6822114062155062211
          */
         private String cityId;
+        /**
+         * 行政区代码
+         * <p> 示例值：110000
+         */
+        private String subregionCode;
         /**
          * 状态
          * <p> 示例值：1
@@ -174,6 +198,19 @@ public class District {
          */
         public Builder cityId(String cityId) {
             this.cityId = cityId;
+            return this;
+        }
+
+
+        /**
+         * 行政区代码
+         * <p> 示例值：110000
+         *
+         * @param subregionCode
+         * @return
+         */
+        public Builder subregionCode(String subregionCode) {
+            this.subregionCode = subregionCode;
             return this;
         }
 

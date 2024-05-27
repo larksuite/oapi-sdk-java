@@ -71,6 +71,18 @@ public class SignatureFile {
      */
     @SerializedName("contract_code")
     private String contractCode;
+    /**
+     * 电子签文件生效日期
+     * <p> 示例值：2024-12-01
+     */
+    @SerializedName("effective_date")
+    private String effectiveDate;
+    /**
+     * 电子签模板ID
+     * <p> 示例值：7147527056140813828
+     */
+    @SerializedName("template_id")
+    private String templateId;
 
     // builder 开始
     public SignatureFile() {
@@ -112,6 +124,16 @@ public class SignatureFile {
          * <p> 示例值：48793beea04f4e2583d50732e481d507
          */
         this.contractCode = builder.contractCode;
+        /**
+         * 电子签文件生效日期
+         * <p> 示例值：2024-12-01
+         */
+        this.effectiveDate = builder.effectiveDate;
+        /**
+         * 电子签模板ID
+         * <p> 示例值：7147527056140813828
+         */
+        this.templateId = builder.templateId;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +196,22 @@ public class SignatureFile {
         this.contractCode = contractCode;
     }
 
+    public String getEffectiveDate() {
+        return this.effectiveDate;
+    }
+
+    public void setEffectiveDate(String effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
+
+    public String getTemplateId() {
+        return this.templateId;
+    }
+
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
+    }
+
     public static class Builder {
         /**
          * 电子签文件ID
@@ -210,6 +248,16 @@ public class SignatureFile {
          * <p> 示例值：48793beea04f4e2583d50732e481d507
          */
         private String contractCode;
+        /**
+         * 电子签文件生效日期
+         * <p> 示例值：2024-12-01
+         */
+        private String effectiveDate;
+        /**
+         * 电子签模板ID
+         * <p> 示例值：7147527056140813828
+         */
+        private String templateId;
 
         /**
          * 电子签文件ID
@@ -298,6 +346,32 @@ public class SignatureFile {
          */
         public Builder contractCode(String contractCode) {
             this.contractCode = contractCode;
+            return this;
+        }
+
+
+        /**
+         * 电子签文件生效日期
+         * <p> 示例值：2024-12-01
+         *
+         * @param effectiveDate
+         * @return
+         */
+        public Builder effectiveDate(String effectiveDate) {
+            this.effectiveDate = effectiveDate;
+            return this;
+        }
+
+
+        /**
+         * 电子签模板ID
+         * <p> 示例值：7147527056140813828
+         *
+         * @param templateId
+         * @return
+         */
+        public Builder templateId(String templateId) {
+            this.templateId = templateId;
             return this;
         }
 

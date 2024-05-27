@@ -50,12 +50,14 @@ public class ListFaqReq {
     @SerializedName("search")
     private String search;
     /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
      * <p> 示例值：6856395634652479491
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 分页大小
      * <p> 示例值：10
      */
     @Query
@@ -83,12 +85,12 @@ public class ListFaqReq {
          */
         this.search = builder.search;
         /**
-         *
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：6856395634652479491
          */
         this.pageToken = builder.pageToken;
         /**
-         *
+         * 分页大小
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
@@ -142,8 +144,8 @@ public class ListFaqReq {
         private String categoryId; //  知识库分类ID
         private String status; // 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
         private String search; // 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
-        private String pageToken; //
-        private Integer pageSize; //
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+        private Integer pageSize; // 分页大小
 
 
         /**
@@ -186,6 +188,7 @@ public class ListFaqReq {
 
 
         /**
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
          * <p> 示例值：6856395634652479491
          *
          * @param pageToken
@@ -198,6 +201,7 @@ public class ListFaqReq {
 
 
         /**
+         * 分页大小
          * <p> 示例值：10
          *
          * @param pageSize

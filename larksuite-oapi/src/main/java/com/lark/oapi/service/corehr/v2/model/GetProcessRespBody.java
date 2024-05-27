@@ -118,6 +118,12 @@ public class GetProcessRespBody {
      */
     @SerializedName("done_list")
     private ProcessDoneItem[] doneList;
+    /**
+     * 普通流程或撤销流程等
+     * <p> 示例值：1
+     */
+    @SerializedName("properties")
+    private Integer properties;
 
     public String getProcessId() {
         return this.processId;
@@ -237,6 +243,14 @@ public class GetProcessRespBody {
 
     public void setDoneList(ProcessDoneItem[] doneList) {
         this.doneList = doneList;
+    }
+
+    public Integer getProperties() {
+        return this.properties;
+    }
+
+    public void setProperties(Integer properties) {
+        this.properties = properties;
     }
 
 }

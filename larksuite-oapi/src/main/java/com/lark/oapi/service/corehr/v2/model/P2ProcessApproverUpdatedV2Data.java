@@ -58,6 +58,24 @@ public class P2ProcessApproverUpdatedV2Data {
      */
     @SerializedName("biz_type")
     private String bizType;
+    /**
+     * 流程定义id
+     * <p> 示例值：people_7182520625066475540_7222929439175839532
+     */
+    @SerializedName("flow_definition_id")
+    private String flowDefinitionId;
+    /**
+     * 节点定义id
+     * <p> 示例值：approval_7c7d9c4d25b
+     */
+    @SerializedName("node_definition_id")
+    private String nodeDefinitionId;
+    /**
+     * 节点id
+     * <p> 示例值：7369419552616089132
+     */
+    @SerializedName("node_id")
+    private String nodeId;
 
     public String getProcessId() {
         return this.processId;
@@ -97,6 +115,30 @@ public class P2ProcessApproverUpdatedV2Data {
 
     public void setBizType(String bizType) {
         this.bizType = bizType;
+    }
+
+    public String getFlowDefinitionId() {
+        return this.flowDefinitionId;
+    }
+
+    public void setFlowDefinitionId(String flowDefinitionId) {
+        this.flowDefinitionId = flowDefinitionId;
+    }
+
+    public String getNodeDefinitionId() {
+        return this.nodeDefinitionId;
+    }
+
+    public void setNodeDefinitionId(String nodeDefinitionId) {
+        this.nodeDefinitionId = nodeDefinitionId;
+    }
+
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
     }
 
 }
