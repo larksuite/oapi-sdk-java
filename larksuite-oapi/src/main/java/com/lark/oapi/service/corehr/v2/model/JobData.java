@@ -185,6 +185,12 @@ public class JobData {
      */
     @SerializedName("service_company")
     private String serviceCompany;
+    /**
+     * 创建时间
+     * <p> 示例值：2020-05-02 00:00:00
+     */
+    @SerializedName("created_at")
+    private String createdAt;
 
     // builder 开始
     public JobData() {
@@ -321,6 +327,11 @@ public class JobData {
          * <p> 示例值：6890452208593372680
          */
         this.serviceCompany = builder.serviceCompany;
+        /**
+         * 创建时间
+         * <p> 示例值：2020-05-02 00:00:00
+         */
+        this.createdAt = builder.createdAt;
     }
 
     public static Builder newBuilder() {
@@ -535,6 +546,14 @@ public class JobData {
         this.serviceCompany = serviceCompany;
     }
 
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public static class Builder {
         /**
          * 任职信息 ID
@@ -666,6 +685,11 @@ public class JobData {
          * <p> 示例值：6890452208593372680
          */
         private String serviceCompany;
+        /**
+         * 创建时间
+         * <p> 示例值：2020-05-02 00:00:00
+         */
+        private String createdAt;
 
         /**
          * 任职信息 ID
@@ -1001,6 +1025,19 @@ public class JobData {
          */
         public Builder serviceCompany(String serviceCompany) {
             this.serviceCompany = serviceCompany;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2020-05-02 00:00:00
+         *
+         * @param createdAt
+         * @return
+         */
+        public Builder createdAt(String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
 

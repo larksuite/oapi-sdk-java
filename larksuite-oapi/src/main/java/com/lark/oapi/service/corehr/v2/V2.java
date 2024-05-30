@@ -41,6 +41,7 @@ public class V2 {
     private final JobGrade jobGrade; // job_grade
     private final JobLevel jobLevel; // job_level
     private final Location location; // location
+    private final Offboarding offboarding; // offboarding
     private final Person person; // person
     private final PreHire preHire; // 待入职
     private final Probation probation; // probation
@@ -75,6 +76,7 @@ public class V2 {
         this.jobGrade = new JobGrade(config);
         this.jobLevel = new JobLevel(config);
         this.location = new Location(config);
+        this.offboarding = new Offboarding(config);
         this.person = new Person(config);
         this.preHire = new PreHire(config);
         this.probation = new Probation(config);
@@ -176,6 +178,10 @@ public class V2 {
 
     public Location location() {
         return location;
+    }
+
+    public Offboarding offboarding() {
+        return offboarding;
     }
 
     public Person person() {

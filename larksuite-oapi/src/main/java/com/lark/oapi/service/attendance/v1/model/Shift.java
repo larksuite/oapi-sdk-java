@@ -103,7 +103,7 @@ public class Shift {
     private OvertimeRule[] overtimeRule;
     /**
      * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-     * <p> 示例值：60
+     * <p> 示例值：1
      */
     @SerializedName("day_type")
     private Integer dayType;
@@ -113,6 +113,24 @@ public class Shift {
      */
     @SerializedName("overtime_rest_time_rule")
     private RestRule[] overtimeRestTimeRule;
+    /**
+     * 晚到多久记为严重迟到（优先级比原有字段高）
+     * <p> 示例值：40
+     */
+    @SerializedName("late_minutes_as_serious_late")
+    private Integer lateMinutesAsSeriousLate;
+    /**
+     * 半天分割规则
+     * <p> 示例值：
+     */
+    @SerializedName("shift_middle_time_rule")
+    private ShiftMiddleTimeRule shiftMiddleTimeRule;
+    /**
+     * 晚走次日晚到配置规则
+     * <p> 示例值：
+     */
+    @SerializedName("late_off_late_on_setting")
+    private LateOffLateOnSetting lateOffLateOnSetting;
 
     // builder 开始
     public Shift() {
@@ -181,7 +199,7 @@ public class Shift {
         this.overtimeRule = builder.overtimeRule;
         /**
          * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-         * <p> 示例值：60
+         * <p> 示例值：1
          */
         this.dayType = builder.dayType;
         /**
@@ -189,6 +207,21 @@ public class Shift {
          * <p> 示例值：
          */
         this.overtimeRestTimeRule = builder.overtimeRestTimeRule;
+        /**
+         * 晚到多久记为严重迟到（优先级比原有字段高）
+         * <p> 示例值：40
+         */
+        this.lateMinutesAsSeriousLate = builder.lateMinutesAsSeriousLate;
+        /**
+         * 半天分割规则
+         * <p> 示例值：
+         */
+        this.shiftMiddleTimeRule = builder.shiftMiddleTimeRule;
+        /**
+         * 晚走次日晚到配置规则
+         * <p> 示例值：
+         */
+        this.lateOffLateOnSetting = builder.lateOffLateOnSetting;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +340,30 @@ public class Shift {
         this.overtimeRestTimeRule = overtimeRestTimeRule;
     }
 
+    public Integer getLateMinutesAsSeriousLate() {
+        return this.lateMinutesAsSeriousLate;
+    }
+
+    public void setLateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
+        this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
+    }
+
+    public ShiftMiddleTimeRule getShiftMiddleTimeRule() {
+        return this.shiftMiddleTimeRule;
+    }
+
+    public void setShiftMiddleTimeRule(ShiftMiddleTimeRule shiftMiddleTimeRule) {
+        this.shiftMiddleTimeRule = shiftMiddleTimeRule;
+    }
+
+    public LateOffLateOnSetting getLateOffLateOnSetting() {
+        return this.lateOffLateOnSetting;
+    }
+
+    public void setLateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
+        this.lateOffLateOnSetting = lateOffLateOnSetting;
+    }
+
     public static class Builder {
         /**
          * 班次 ID
@@ -370,7 +427,7 @@ public class Shift {
         private OvertimeRule[] overtimeRule;
         /**
          * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-         * <p> 示例值：60
+         * <p> 示例值：1
          */
         private Integer dayType;
         /**
@@ -378,6 +435,21 @@ public class Shift {
          * <p> 示例值：
          */
         private RestRule[] overtimeRestTimeRule;
+        /**
+         * 晚到多久记为严重迟到（优先级比原有字段高）
+         * <p> 示例值：40
+         */
+        private Integer lateMinutesAsSeriousLate;
+        /**
+         * 半天分割规则
+         * <p> 示例值：
+         */
+        private ShiftMiddleTimeRule shiftMiddleTimeRule;
+        /**
+         * 晚走次日晚到配置规则
+         * <p> 示例值：
+         */
+        private LateOffLateOnSetting lateOffLateOnSetting;
 
         /**
          * 班次 ID
@@ -537,7 +609,7 @@ public class Shift {
 
         /**
          * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-         * <p> 示例值：60
+         * <p> 示例值：1
          *
          * @param dayType
          * @return
@@ -557,6 +629,45 @@ public class Shift {
          */
         public Builder overtimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
             this.overtimeRestTimeRule = overtimeRestTimeRule;
+            return this;
+        }
+
+
+        /**
+         * 晚到多久记为严重迟到（优先级比原有字段高）
+         * <p> 示例值：40
+         *
+         * @param lateMinutesAsSeriousLate
+         * @return
+         */
+        public Builder lateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
+            this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
+            return this;
+        }
+
+
+        /**
+         * 半天分割规则
+         * <p> 示例值：
+         *
+         * @param shiftMiddleTimeRule
+         * @return
+         */
+        public Builder shiftMiddleTimeRule(ShiftMiddleTimeRule shiftMiddleTimeRule) {
+            this.shiftMiddleTimeRule = shiftMiddleTimeRule;
+            return this;
+        }
+
+
+        /**
+         * 晚走次日晚到配置规则
+         * <p> 示例值：
+         *
+         * @param lateOffLateOnSetting
+         * @return
+         */
+        public Builder lateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
+            this.lateOffLateOnSetting = lateOffLateOnSetting;
             return this;
         }
 

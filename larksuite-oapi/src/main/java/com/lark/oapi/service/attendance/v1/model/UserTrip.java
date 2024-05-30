@@ -65,6 +65,12 @@ public class UserTrip {
      */
     @SerializedName("approve_apply_time")
     private String approveApplyTime;
+    /**
+     * 唯一幂等键
+     * <p> 示例值：1233432312
+     */
+    @SerializedName("idempotent_id")
+    private String idempotentId;
 
     // builder 开始
     public UserTrip() {
@@ -101,6 +107,11 @@ public class UserTrip {
          * <p> 示例值：2021-01-04 11:00:00
          */
         this.approveApplyTime = builder.approveApplyTime;
+        /**
+         * 唯一幂等键
+         * <p> 示例值：1233432312
+         */
+        this.idempotentId = builder.idempotentId;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class UserTrip {
         this.approveApplyTime = approveApplyTime;
     }
 
+    public String getIdempotentId() {
+        return this.idempotentId;
+    }
+
+    public void setIdempotentId(String idempotentId) {
+        this.idempotentId = idempotentId;
+    }
+
     public static class Builder {
         /**
          * 审批实例 ID
@@ -186,6 +205,11 @@ public class UserTrip {
          * <p> 示例值：2021-01-04 11:00:00
          */
         private String approveApplyTime;
+        /**
+         * 唯一幂等键
+         * <p> 示例值：1233432312
+         */
+        private String idempotentId;
 
         /**
          * 审批实例 ID
@@ -261,6 +285,19 @@ public class UserTrip {
          */
         public Builder approveApplyTime(String approveApplyTime) {
             this.approveApplyTime = approveApplyTime;
+            return this;
+        }
+
+
+        /**
+         * 唯一幂等键
+         * <p> 示例值：1233432312
+         *
+         * @param idempotentId
+         * @return
+         */
+        public Builder idempotentId(String idempotentId) {
+            this.idempotentId = idempotentId;
             return this;
         }
 

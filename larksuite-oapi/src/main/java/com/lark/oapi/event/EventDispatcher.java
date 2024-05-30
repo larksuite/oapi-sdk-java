@@ -1094,6 +1094,51 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2OffboardingChecklistUpdatedV2(CorehrService.P2OffboardingChecklistUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.offboarding.checklist_updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.offboarding.checklist_updated_v2");
+            }
+            eventType2EventHandler.put("corehr.offboarding.checklist_updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2OffboardingStatusUpdatedV2(CorehrService.P2OffboardingStatusUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.offboarding.status_updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.offboarding.status_updated_v2");
+            }
+            eventType2EventHandler.put("corehr.offboarding.status_updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2OffboardingUpdatedV2(CorehrService.P2OffboardingUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.offboarding.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.offboarding.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.offboarding.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2ProbationUpdatedV2(CorehrService.P2ProbationUpdatedV2Handler handler) {
             if (eventType2EventHandler.containsKey("corehr.probation.updated_v2")) {
                 throw new EventTypeAlreadyHasHandlerException("corehr.probation.updated_v2");
@@ -1175,6 +1220,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("drive.file.bitable_field_changed_v1");
             }
             eventType2EventHandler.put("drive.file.bitable_field_changed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2FileBitableRecordChangedV1(DriveService.P2FileBitableRecordChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("drive.file.bitable_record_changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("drive.file.bitable_record_changed_v1");
+            }
+            eventType2EventHandler.put("drive.file.bitable_record_changed_v1", handler);
             return this;
         }
 

@@ -118,6 +118,12 @@ public class GetUserFlowRespBody {
      */
     @SerializedName("external_id")
     private String externalId;
+    /**
+     * 唯一幂等键
+     * <p> 示例值：****_***
+     */
+    @SerializedName("idempotent_id")
+    private String idempotentId;
 
     public String getUserId() {
         return this.userId;
@@ -238,6 +244,14 @@ public class GetUserFlowRespBody {
 
     public void setExternalId(String externalId) {
         this.externalId = externalId;
+    }
+
+    public String getIdempotentId() {
+        return this.idempotentId;
+    }
+
+    public void setIdempotentId(String idempotentId) {
+        this.idempotentId = idempotentId;
     }
 
 }

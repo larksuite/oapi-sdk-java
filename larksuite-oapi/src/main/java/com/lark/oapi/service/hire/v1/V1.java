@@ -51,6 +51,7 @@ public class V1 {
     private final ReferralWebsiteJobPost referralWebsiteJobPost; // referral_website.job_post
     private final RegistrationSchema registrationSchema; // registration_schema
     private final ResumeSource resumeSource; // 简历来源
+    private final Role role; // role
     private final Talent talent; // 人才
     private final TalentFolder talentFolder; // talent_folder
     private final TalentObject talentObject; // talent_object
@@ -90,6 +91,7 @@ public class V1 {
         this.referralWebsiteJobPost = new ReferralWebsiteJobPost(config);
         this.registrationSchema = new RegistrationSchema(config);
         this.resumeSource = new ResumeSource(config);
+        this.role = new Role(config);
         this.talent = new Talent(config);
         this.talentFolder = new TalentFolder(config);
         this.talentObject = new TalentObject(config);
@@ -229,6 +231,10 @@ public class V1 {
 
     public ResumeSource resumeSource() {
         return resumeSource;
+    }
+
+    public Role role() {
+        return role;
     }
 
     public Talent talent() {

@@ -428,6 +428,27 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2OffboardingChecklistUpdatedV2Handler implements IEventHandler<P2OffboardingChecklistUpdatedV2> {
+        @Override
+        public P2OffboardingChecklistUpdatedV2 getEvent() {
+            return new P2OffboardingChecklistUpdatedV2();
+        }
+    }
+
+    public abstract static class P2OffboardingStatusUpdatedV2Handler implements IEventHandler<P2OffboardingStatusUpdatedV2> {
+        @Override
+        public P2OffboardingStatusUpdatedV2 getEvent() {
+            return new P2OffboardingStatusUpdatedV2();
+        }
+    }
+
+    public abstract static class P2OffboardingUpdatedV2Handler implements IEventHandler<P2OffboardingUpdatedV2> {
+        @Override
+        public P2OffboardingUpdatedV2 getEvent() {
+            return new P2OffboardingUpdatedV2();
+        }
+    }
+
     public abstract static class P2ProbationUpdatedV2Handler implements IEventHandler<P2ProbationUpdatedV2> {
         @Override
         public P2ProbationUpdatedV2 getEvent() {

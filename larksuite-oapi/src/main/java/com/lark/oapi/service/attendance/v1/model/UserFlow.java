@@ -119,6 +119,12 @@ public class UserFlow {
      */
     @SerializedName("external_id")
     private String externalId;
+    /**
+     * 唯一幂等键
+     * <p> 示例值：****_***
+     */
+    @SerializedName("idempotent_id")
+    private String idempotentId;
 
     // builder 开始
     public UserFlow() {
@@ -200,6 +206,11 @@ public class UserFlow {
          * <p> 示例值：record_123
          */
         this.externalId = builder.externalId;
+        /**
+         * 唯一幂等键
+         * <p> 示例值：****_***
+         */
+        this.idempotentId = builder.idempotentId;
     }
 
     public static Builder newBuilder() {
@@ -326,6 +337,14 @@ public class UserFlow {
         this.externalId = externalId;
     }
 
+    public String getIdempotentId() {
+        return this.idempotentId;
+    }
+
+    public void setIdempotentId(String idempotentId) {
+        this.idempotentId = idempotentId;
+    }
+
     public static class Builder {
         /**
          * 用户 ID
@@ -402,6 +421,11 @@ public class UserFlow {
          * <p> 示例值：record_123
          */
         private String externalId;
+        /**
+         * 唯一幂等键
+         * <p> 示例值：****_***
+         */
+        private String idempotentId;
 
         /**
          * 用户 ID
@@ -618,6 +642,19 @@ public class UserFlow {
          */
         public Builder externalId(String externalId) {
             this.externalId = externalId;
+            return this;
+        }
+
+
+        /**
+         * 唯一幂等键
+         * <p> 示例值：****_***
+         *
+         * @param idempotentId
+         * @return
+         */
+        public Builder idempotentId(String idempotentId) {
+            this.idempotentId = idempotentId;
             return this;
         }
 

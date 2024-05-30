@@ -77,6 +77,12 @@ public class UserOvertimeWork {
      */
     @SerializedName("reason")
     private String reason;
+    /**
+     * 唯一幂等键
+     * <p> 示例值：1233432312
+     */
+    @SerializedName("idempotent_id")
+    private String idempotentId;
 
     // builder 开始
     public UserOvertimeWork() {
@@ -123,6 +129,11 @@ public class UserOvertimeWork {
          * <p> 示例值：推进项目进度
          */
         this.reason = builder.reason;
+        /**
+         * 唯一幂等键
+         * <p> 示例值：1233432312
+         */
+        this.idempotentId = builder.idempotentId;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +204,14 @@ public class UserOvertimeWork {
         this.reason = reason;
     }
 
+    public String getIdempotentId() {
+        return this.idempotentId;
+    }
+
+    public void setIdempotentId(String idempotentId) {
+        this.idempotentId = idempotentId;
+    }
+
     public static class Builder {
         /**
          * 审批实例 ID
@@ -234,6 +253,11 @@ public class UserOvertimeWork {
          * <p> 示例值：推进项目进度
          */
         private String reason;
+        /**
+         * 唯一幂等键
+         * <p> 示例值：1233432312
+         */
+        private String idempotentId;
 
         /**
          * 审批实例 ID
@@ -371,6 +395,19 @@ public class UserOvertimeWork {
          */
         public Builder reason(String reason) {
             this.reason = reason;
+            return this;
+        }
+
+
+        /**
+         * 唯一幂等键
+         * <p> 示例值：1233432312
+         *
+         * @param idempotentId
+         * @return
+         */
+        public Builder idempotentId(String idempotentId) {
+            this.idempotentId = idempotentId;
             return this;
         }
 

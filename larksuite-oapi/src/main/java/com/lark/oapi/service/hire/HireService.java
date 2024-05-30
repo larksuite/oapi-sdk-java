@@ -50,6 +50,7 @@ import com.lark.oapi.service.hire.v1.resource.ReferralAccount;
 import com.lark.oapi.service.hire.v1.resource.ReferralWebsiteJobPost;
 import com.lark.oapi.service.hire.v1.resource.RegistrationSchema;
 import com.lark.oapi.service.hire.v1.resource.ResumeSource;
+import com.lark.oapi.service.hire.v1.resource.Role;
 import com.lark.oapi.service.hire.v1.resource.Talent;
 import com.lark.oapi.service.hire.v1.resource.TalentFolder;
 import com.lark.oapi.service.hire.v1.resource.TalentObject;
@@ -90,6 +91,7 @@ public class HireService {
     private final ReferralWebsiteJobPost referralWebsiteJobPost; // referral_website.job_post
     private final RegistrationSchema registrationSchema; // registration_schema
     private final ResumeSource resumeSource; // 简历来源
+    private final Role role; // role
     private final Talent talent; // 人才
     private final TalentFolder talentFolder; // talent_folder
     private final TalentObject talentObject; // talent_object
@@ -130,6 +132,7 @@ public class HireService {
         this.referralWebsiteJobPost = new ReferralWebsiteJobPost(config);
         this.registrationSchema = new RegistrationSchema(config);
         this.resumeSource = new ResumeSource(config);
+        this.role = new Role(config);
         this.talent = new Talent(config);
         this.talentFolder = new TalentFolder(config);
         this.talentObject = new TalentObject(config);
@@ -273,6 +276,10 @@ public class HireService {
 
     public ResumeSource resumeSource() {
         return resumeSource;
+    }
+
+    public Role role() {
+        return role;
     }
 
     public Talent talent() {

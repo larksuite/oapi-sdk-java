@@ -83,6 +83,18 @@ public class PunchTimeRule {
      */
     @SerializedName("late_minutes_as_serious_late")
     private Integer lateMinutesAsSeriousLate;
+    /**
+     * 不需要打上班卡
+     * <p> 示例值：true
+     */
+    @SerializedName("no_need_on")
+    private Boolean noNeedOn;
+    /**
+     * 不需要打下班卡
+     * <p> 示例值：true
+     */
+    @SerializedName("no_need_off")
+    private Boolean noNeedOff;
 
     // builder 开始
     public PunchTimeRule() {
@@ -134,6 +146,16 @@ public class PunchTimeRule {
          * <p> 示例值：40
          */
         this.lateMinutesAsSeriousLate = builder.lateMinutesAsSeriousLate;
+        /**
+         * 不需要打上班卡
+         * <p> 示例值：true
+         */
+        this.noNeedOn = builder.noNeedOn;
+        /**
+         * 不需要打下班卡
+         * <p> 示例值：true
+         */
+        this.noNeedOff = builder.noNeedOff;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +234,22 @@ public class PunchTimeRule {
         this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
     }
 
+    public Boolean getNoNeedOn() {
+        return this.noNeedOn;
+    }
+
+    public void setNoNeedOn(Boolean noNeedOn) {
+        this.noNeedOn = noNeedOn;
+    }
+
+    public Boolean getNoNeedOff() {
+        return this.noNeedOff;
+    }
+
+    public void setNoNeedOff(Boolean noNeedOff) {
+        this.noNeedOff = noNeedOff;
+    }
+
     public static class Builder {
         /**
          * 上班时间
@@ -258,6 +296,16 @@ public class PunchTimeRule {
          * <p> 示例值：40
          */
         private Integer lateMinutesAsSeriousLate;
+        /**
+         * 不需要打上班卡
+         * <p> 示例值：true
+         */
+        private Boolean noNeedOn;
+        /**
+         * 不需要打下班卡
+         * <p> 示例值：true
+         */
+        private Boolean noNeedOff;
 
         /**
          * 上班时间
@@ -372,6 +420,32 @@ public class PunchTimeRule {
          */
         public Builder lateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
             this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
+            return this;
+        }
+
+
+        /**
+         * 不需要打上班卡
+         * <p> 示例值：true
+         *
+         * @param noNeedOn
+         * @return
+         */
+        public Builder noNeedOn(Boolean noNeedOn) {
+            this.noNeedOn = noNeedOn;
+            return this;
+        }
+
+
+        /**
+         * 不需要打下班卡
+         * <p> 示例值：true
+         *
+         * @param noNeedOff
+         * @return
+         */
+        public Builder noNeedOff(Boolean noNeedOff) {
+            this.noNeedOff = noNeedOff;
             return this;
         }
 
