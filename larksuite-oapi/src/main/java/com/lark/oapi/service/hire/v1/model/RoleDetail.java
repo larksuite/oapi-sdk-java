@@ -47,6 +47,24 @@ public class RoleDetail {
     @SerializedName("description")
     private I18n description;
     /**
+     * 更新时间
+     * <p> 示例值：1716535727510
+     */
+    @SerializedName("modify_time")
+    private String modifyTime;
+    /**
+     * 停启用状态
+     * <p> 示例值：
+     */
+    @SerializedName("role_status")
+    private Integer roleStatus;
+    /**
+     * 角色类型
+     * <p> 示例值：
+     */
+    @SerializedName("role_type")
+    private Integer roleType;
+    /**
      * 适用范围
      * <p> 示例值：
      */
@@ -91,6 +109,21 @@ public class RoleDetail {
          * <p> 示例值：
          */
         this.description = builder.description;
+        /**
+         * 更新时间
+         * <p> 示例值：1716535727510
+         */
+        this.modifyTime = builder.modifyTime;
+        /**
+         * 停启用状态
+         * <p> 示例值：
+         */
+        this.roleStatus = builder.roleStatus;
+        /**
+         * 角色类型
+         * <p> 示例值：
+         */
+        this.roleType = builder.roleType;
         /**
          * 适用范围
          * <p> 示例值：
@@ -141,6 +174,30 @@ public class RoleDetail {
         this.description = description;
     }
 
+    public String getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(String modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Integer getRoleStatus() {
+        return this.roleStatus;
+    }
+
+    public void setRoleStatus(Integer roleStatus) {
+        this.roleStatus = roleStatus;
+    }
+
+    public Integer getRoleType() {
+        return this.roleType;
+    }
+
+    public void setRoleType(Integer roleType) {
+        this.roleType = roleType;
+    }
+
     public Integer getScopeOfApplication() {
         return this.scopeOfApplication;
     }
@@ -189,6 +246,21 @@ public class RoleDetail {
          * <p> 示例值：
          */
         private I18n description;
+        /**
+         * 更新时间
+         * <p> 示例值：1716535727510
+         */
+        private String modifyTime;
+        /**
+         * 停启用状态
+         * <p> 示例值：
+         */
+        private Integer roleStatus;
+        /**
+         * 角色类型
+         * <p> 示例值：
+         */
+        private Integer roleType;
         /**
          * 适用范围
          * <p> 示例值：
@@ -245,6 +317,45 @@ public class RoleDetail {
          */
         public Builder description(I18n description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：1716535727510
+         *
+         * @param modifyTime
+         * @return
+         */
+        public Builder modifyTime(String modifyTime) {
+            this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * 停启用状态
+         * <p> 示例值：
+         *
+         * @param roleStatus
+         * @return
+         */
+        public Builder roleStatus(Integer roleStatus) {
+            this.roleStatus = roleStatus;
+            return this;
+        }
+
+
+        /**
+         * 角色类型
+         * <p> 示例值：
+         *
+         * @param roleType
+         * @return
+         */
+        public Builder roleType(Integer roleType) {
+            this.roleType = roleType;
             return this;
         }
 

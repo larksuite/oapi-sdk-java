@@ -191,12 +191,6 @@ public class GetChatRespBody {
     @SerializedName("video_conference_setting")
     private String videoConferenceSetting;
     /**
-     * 谁可以管理置顶
-     * <p> 示例值：all_members
-     */
-    @SerializedName("pin_manage_setting")
-    private String pinManageSetting;
-    /**
      * 隐藏群成员人数设置
      * <p> 示例值：all_members
      */
@@ -426,13 +420,6 @@ public class GetChatRespBody {
         this.videoConferenceSetting = videoConferenceSetting;
     }
 
-    public String getPinManageSetting() {
-        return this.pinManageSetting;
-    }
-
-    public void setPinManageSetting(String pinManageSetting) {
-        this.pinManageSetting = pinManageSetting;
-    }
 
     public String getHideMemberCountSetting() {
         return this.hideMemberCountSetting;

@@ -53,6 +53,12 @@ public class CallbackActionValue {
      */
     @SerializedName("response_type")
     private Integer responseType;
+    /**
+     * 当前会话的 id，需要透传到下一次请求中
+     * <p> 示例值：“”
+     */
+    @SerializedName("session_id")
+    private String sessionId;
 
     // builder 开始
     public CallbackActionValue() {
@@ -79,6 +85,11 @@ public class CallbackActionValue {
          * <p> 示例值：1
          */
         this.responseType = builder.responseType;
+        /**
+         * 当前会话的 id，需要透传到下一次请求中
+         * <p> 示例值：“”
+         */
+        this.sessionId = builder.sessionId;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class CallbackActionValue {
         this.responseType = responseType;
     }
 
+    public String getSessionId() {
+        return this.sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
     public static class Builder {
         /**
          * strategy_info
@@ -138,6 +157,11 @@ public class CallbackActionValue {
          * <p> 示例值：1
          */
         private Integer responseType;
+        /**
+         * 当前会话的 id，需要透传到下一次请求中
+         * <p> 示例值：“”
+         */
+        private String sessionId;
 
         /**
          * strategy_info
@@ -211,6 +235,19 @@ public class CallbackActionValue {
          */
         public Builder responseType(com.lark.oapi.service.search.v2.enums.CallbackActionValueResponseTypeEnum responseType) {
             this.responseType = responseType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 当前会话的 id，需要透传到下一次请求中
+         * <p> 示例值：“”
+         *
+         * @param sessionId
+         * @return
+         */
+        public Builder sessionId(String sessionId) {
+            this.sessionId = sessionId;
             return this;
         }
 

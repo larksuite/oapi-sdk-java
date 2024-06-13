@@ -52,6 +52,24 @@ public class Role {
      */
     @SerializedName("scope_of_application")
     private Integer scopeOfApplication;
+    /**
+     * 更新时间
+     * <p> 示例值：1716535727510
+     */
+    @SerializedName("modify_time")
+    private String modifyTime;
+    /**
+     * 停启用状态
+     * <p> 示例值：
+     */
+    @SerializedName("role_status")
+    private Integer roleStatus;
+    /**
+     * 角色类型
+     * <p> 示例值：
+     */
+    @SerializedName("role_type")
+    private Integer roleType;
 
     // builder 开始
     public Role() {
@@ -78,6 +96,21 @@ public class Role {
          * <p> 示例值：1
          */
         this.scopeOfApplication = builder.scopeOfApplication;
+        /**
+         * 更新时间
+         * <p> 示例值：1716535727510
+         */
+        this.modifyTime = builder.modifyTime;
+        /**
+         * 停启用状态
+         * <p> 示例值：
+         */
+        this.roleStatus = builder.roleStatus;
+        /**
+         * 角色类型
+         * <p> 示例值：
+         */
+        this.roleType = builder.roleType;
     }
 
     public static Builder newBuilder() {
@@ -116,6 +149,30 @@ public class Role {
         this.scopeOfApplication = scopeOfApplication;
     }
 
+    public String getModifyTime() {
+        return this.modifyTime;
+    }
+
+    public void setModifyTime(String modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Integer getRoleStatus() {
+        return this.roleStatus;
+    }
+
+    public void setRoleStatus(Integer roleStatus) {
+        this.roleStatus = roleStatus;
+    }
+
+    public Integer getRoleType() {
+        return this.roleType;
+    }
+
+    public void setRoleType(Integer roleType) {
+        this.roleType = roleType;
+    }
+
     public static class Builder {
         /**
          * 角色 ID
@@ -137,6 +194,21 @@ public class Role {
          * <p> 示例值：1
          */
         private Integer scopeOfApplication;
+        /**
+         * 更新时间
+         * <p> 示例值：1716535727510
+         */
+        private String modifyTime;
+        /**
+         * 停启用状态
+         * <p> 示例值：
+         */
+        private Integer roleStatus;
+        /**
+         * 角色类型
+         * <p> 示例值：
+         */
+        private Integer roleType;
 
         /**
          * 角色 ID
@@ -186,6 +258,45 @@ public class Role {
          */
         public Builder scopeOfApplication(Integer scopeOfApplication) {
             this.scopeOfApplication = scopeOfApplication;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：1716535727510
+         *
+         * @param modifyTime
+         * @return
+         */
+        public Builder modifyTime(String modifyTime) {
+            this.modifyTime = modifyTime;
+            return this;
+        }
+
+
+        /**
+         * 停启用状态
+         * <p> 示例值：
+         *
+         * @param roleStatus
+         * @return
+         */
+        public Builder roleStatus(Integer roleStatus) {
+            this.roleStatus = roleStatus;
+            return this;
+        }
+
+
+        /**
+         * 角色类型
+         * <p> 示例值：
+         *
+         * @param roleType
+         * @return
+         */
+        public Builder roleType(Integer roleType) {
+            this.roleType = roleType;
             return this;
         }
 

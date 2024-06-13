@@ -54,7 +54,7 @@ public class CreateExchangeBindingRespBody {
     private String status;
     /**
      * exchange绑定唯一标识id
-     * <p> 示例值：
+     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      */
     @SerializedName("exchange_binding_id")
     private String exchangeBindingId;

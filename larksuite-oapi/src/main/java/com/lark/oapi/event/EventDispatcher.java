@@ -26,6 +26,7 @@ import com.lark.oapi.service.bitable.BitableService;
 import com.lark.oapi.service.block.BlockService;
 import com.lark.oapi.service.board.BoardService;
 import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.compensation.CompensationService;
 import com.lark.oapi.service.contact.ContactService;
 import com.lark.oapi.service.corehr.CorehrService;
 import com.lark.oapi.service.corehr.CorehrService;
@@ -539,6 +540,7 @@ public class EventDispatcher implements IHandler {
             eventType2EventHandler.put("calendar.calendar.event.changed_v4", handler);
             return this;
         }
+
 
         /**
          * <p> 成员字段变更,通过该事件订阅成员字段变更。old_object 展示更新字段的原始值。
@@ -1084,6 +1086,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("corehr.pre_hire.updated_v1");
             }
             eventType2EventHandler.put("corehr.pre_hire.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobChangeUpdatedV2(CorehrService.P2JobChangeUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_change.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_change.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.job_change.updated_v2", handler);
             return this;
         }
 

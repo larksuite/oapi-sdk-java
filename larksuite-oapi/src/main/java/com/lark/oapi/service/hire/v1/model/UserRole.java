@@ -63,7 +63,7 @@ public class UserRole {
      * <p> 示例值：
      */
     @SerializedName("business_management_scopes")
-    private UserBusinessManagementScope businessManagementScopes;
+    private UserBusinessManagementScope[] businessManagementScopes;
 
     // builder 开始
     public UserRole() {
@@ -146,11 +146,11 @@ public class UserRole {
         this.roleDescription = roleDescription;
     }
 
-    public UserBusinessManagementScope getBusinessManagementScopes() {
+    public UserBusinessManagementScope[] getBusinessManagementScopes() {
         return this.businessManagementScopes;
     }
 
-    public void setBusinessManagementScopes(UserBusinessManagementScope businessManagementScopes) {
+    public void setBusinessManagementScopes(UserBusinessManagementScope[] businessManagementScopes) {
         this.businessManagementScopes = businessManagementScopes;
     }
 
@@ -184,7 +184,7 @@ public class UserRole {
          * 业务管理范围
          * <p> 示例值：
          */
-        private UserBusinessManagementScope businessManagementScopes;
+        private UserBusinessManagementScope[] businessManagementScopes;
 
         /**
          * 用户 ID
@@ -258,7 +258,7 @@ public class UserRole {
          * @param businessManagementScopes
          * @return
          */
-        public Builder businessManagementScopes(UserBusinessManagementScope businessManagementScopes) {
+        public Builder businessManagementScopes(UserBusinessManagementScope[] businessManagementScopes) {
             this.businessManagementScopes = businessManagementScopes;
             return this;
         }

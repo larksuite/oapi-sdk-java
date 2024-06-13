@@ -257,6 +257,30 @@ public class AdminDeptStat {
      */
     @SerializedName("email_receive_in_count")
     private String emailReceiveInCount;
+    /**
+     * 大搜搜索活跃人数
+     * <p> 示例值：7
+     */
+    @SerializedName("search_active_dau")
+    private String searchActiveDau;
+    /**
+     * 总搜索次数
+     * <p> 示例值：7
+     */
+    @SerializedName("total_search_count")
+    private String totalSearchCount;
+    /**
+     * 综搜次数
+     * <p> 示例值：7
+     */
+    @SerializedName("quick_search_count")
+    private String quickSearchCount;
+    /**
+     * 垂搜次数
+     * <p> 示例值：7
+     */
+    @SerializedName("tab_search_count")
+    private String tabSearchCount;
 
     // builder 开始
     public AdminDeptStat() {
@@ -453,6 +477,26 @@ public class AdminDeptStat {
          * <p> 示例值：7
          */
         this.emailReceiveInCount = builder.emailReceiveInCount;
+        /**
+         * 大搜搜索活跃人数
+         * <p> 示例值：7
+         */
+        this.searchActiveDau = builder.searchActiveDau;
+        /**
+         * 总搜索次数
+         * <p> 示例值：7
+         */
+        this.totalSearchCount = builder.totalSearchCount;
+        /**
+         * 综搜次数
+         * <p> 示例值：7
+         */
+        this.quickSearchCount = builder.quickSearchCount;
+        /**
+         * 垂搜次数
+         * <p> 示例值：7
+         */
+        this.tabSearchCount = builder.tabSearchCount;
     }
 
     public static Builder newBuilder() {
@@ -763,6 +807,38 @@ public class AdminDeptStat {
         this.emailReceiveInCount = emailReceiveInCount;
     }
 
+    public String getSearchActiveDau() {
+        return this.searchActiveDau;
+    }
+
+    public void setSearchActiveDau(String searchActiveDau) {
+        this.searchActiveDau = searchActiveDau;
+    }
+
+    public String getTotalSearchCount() {
+        return this.totalSearchCount;
+    }
+
+    public void setTotalSearchCount(String totalSearchCount) {
+        this.totalSearchCount = totalSearchCount;
+    }
+
+    public String getQuickSearchCount() {
+        return this.quickSearchCount;
+    }
+
+    public void setQuickSearchCount(String quickSearchCount) {
+        this.quickSearchCount = quickSearchCount;
+    }
+
+    public String getTabSearchCount() {
+        return this.tabSearchCount;
+    }
+
+    public void setTabSearchCount(String tabSearchCount) {
+        this.tabSearchCount = tabSearchCount;
+    }
+
     public static class Builder {
         /**
          * 日期
@@ -954,6 +1030,26 @@ public class AdminDeptStat {
          * <p> 示例值：7
          */
         private String emailReceiveInCount;
+        /**
+         * 大搜搜索活跃人数
+         * <p> 示例值：7
+         */
+        private String searchActiveDau;
+        /**
+         * 总搜索次数
+         * <p> 示例值：7
+         */
+        private String totalSearchCount;
+        /**
+         * 综搜次数
+         * <p> 示例值：7
+         */
+        private String quickSearchCount;
+        /**
+         * 垂搜次数
+         * <p> 示例值：7
+         */
+        private String tabSearchCount;
 
         /**
          * 日期
@@ -1445,6 +1541,58 @@ public class AdminDeptStat {
          */
         public Builder emailReceiveInCount(String emailReceiveInCount) {
             this.emailReceiveInCount = emailReceiveInCount;
+            return this;
+        }
+
+
+        /**
+         * 大搜搜索活跃人数
+         * <p> 示例值：7
+         *
+         * @param searchActiveDau
+         * @return
+         */
+        public Builder searchActiveDau(String searchActiveDau) {
+            this.searchActiveDau = searchActiveDau;
+            return this;
+        }
+
+
+        /**
+         * 总搜索次数
+         * <p> 示例值：7
+         *
+         * @param totalSearchCount
+         * @return
+         */
+        public Builder totalSearchCount(String totalSearchCount) {
+            this.totalSearchCount = totalSearchCount;
+            return this;
+        }
+
+
+        /**
+         * 综搜次数
+         * <p> 示例值：7
+         *
+         * @param quickSearchCount
+         * @return
+         */
+        public Builder quickSearchCount(String quickSearchCount) {
+            this.quickSearchCount = quickSearchCount;
+            return this;
+        }
+
+
+        /**
+         * 垂搜次数
+         * <p> 示例值：7
+         *
+         * @param tabSearchCount
+         * @return
+         */
+        public Builder tabSearchCount(String tabSearchCount) {
+            this.tabSearchCount = tabSearchCount;
             return this;
         }
 

@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AilyKnowledgeDataset {
     /**
      * 分析表ID
-     * <p> 示例值：xxx
+     * <p> 示例值：object_x
      */
     @SerializedName("api_name")
     private String apiName;
@@ -49,7 +49,7 @@ public class AilyKnowledgeDataset {
     public AilyKnowledgeDataset(Builder builder) {
         /**
          * 分析表ID
-         * <p> 示例值：xxx
+         * <p> 示例值：object_x
          */
         this.apiName = builder.apiName;
         /**
@@ -82,7 +82,7 @@ public class AilyKnowledgeDataset {
     public static class Builder {
         /**
          * 分析表ID
-         * <p> 示例值：xxx
+         * <p> 示例值：object_x
          */
         private String apiName;
         /**
@@ -93,7 +93,7 @@ public class AilyKnowledgeDataset {
 
         /**
          * 分析表ID
-         * <p> 示例值：xxx
+         * <p> 示例值：object_x
          *
          * @param apiName
          * @return

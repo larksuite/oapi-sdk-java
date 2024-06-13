@@ -101,6 +101,24 @@ public class Contract {
      */
     @SerializedName("signing_type")
     private Enum signingType;
+    /**
+     * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+     * <p> 示例值：
+     */
+    @SerializedName("contract_status")
+    private Enum contractStatus;
+    /**
+     * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+     * <p> 示例值：
+     */
+    @SerializedName("renewal_status")
+    private Enum renewalStatus;
+    /**
+     * 第几次签署
+     * <p> 示例值：1
+     */
+    @SerializedName("signing_times")
+    private Integer signingTimes;
 
     // builder 开始
     public Contract() {
@@ -167,6 +185,21 @@ public class Contract {
          * <p> 示例值：
          */
         this.signingType = builder.signingType;
+        /**
+         * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.contractStatus = builder.contractStatus;
+        /**
+         * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.renewalStatus = builder.renewalStatus;
+        /**
+         * 第几次签署
+         * <p> 示例值：1
+         */
+        this.signingTimes = builder.signingTimes;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +302,30 @@ public class Contract {
         this.signingType = signingType;
     }
 
+    public Enum getContractStatus() {
+        return this.contractStatus;
+    }
+
+    public void setContractStatus(Enum contractStatus) {
+        this.contractStatus = contractStatus;
+    }
+
+    public Enum getRenewalStatus() {
+        return this.renewalStatus;
+    }
+
+    public void setRenewalStatus(Enum renewalStatus) {
+        this.renewalStatus = renewalStatus;
+    }
+
+    public Integer getSigningTimes() {
+        return this.signingTimes;
+    }
+
+    public void setSigningTimes(Integer signingTimes) {
+        this.signingTimes = signingTimes;
+    }
+
     public static class Builder {
         /**
          * 合同ID
@@ -330,6 +387,21 @@ public class Contract {
          * <p> 示例值：
          */
         private Enum signingType;
+        /**
+         * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        private Enum contractStatus;
+        /**
+         * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+         * <p> 示例值：
+         */
+        private Enum renewalStatus;
+        /**
+         * 第几次签署
+         * <p> 示例值：1
+         */
+        private Integer signingTimes;
 
         /**
          * 合同ID
@@ -483,6 +555,45 @@ public class Contract {
          */
         public Builder signingType(Enum signingType) {
             this.signingType = signingType;
+            return this;
+        }
+
+
+        /**
+         * 合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得
+         * <p> 示例值：
+         *
+         * @param contractStatus
+         * @return
+         */
+        public Builder contractStatus(Enum contractStatus) {
+            this.contractStatus = contractStatus;
+            return this;
+        }
+
+
+        /**
+         * 续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得
+         * <p> 示例值：
+         *
+         * @param renewalStatus
+         * @return
+         */
+        public Builder renewalStatus(Enum renewalStatus) {
+            this.renewalStatus = renewalStatus;
+            return this;
+        }
+
+
+        /**
+         * 第几次签署
+         * <p> 示例值：1
+         *
+         * @param signingTimes
+         * @return
+         */
+        public Builder signingTimes(Integer signingTimes) {
+            this.signingTimes = signingTimes;
             return this;
         }
 

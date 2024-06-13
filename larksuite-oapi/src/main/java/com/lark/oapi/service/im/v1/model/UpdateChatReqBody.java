@@ -132,12 +132,6 @@ public class UpdateChatReqBody {
     @SerializedName("video_conference_setting")
     private String videoConferenceSetting;
     /**
-     * 谁可以管理置顶
-     * <p> 示例值：all_members
-     */
-    @SerializedName("pin_manage_setting")
-    private String pinManageSetting;
-    /**
      * 隐藏群成员人数设置
      * <p> 示例值：all_members
      */
@@ -234,11 +228,6 @@ public class UpdateChatReqBody {
          * <p> 示例值：all_members
          */
         this.videoConferenceSetting = builder.videoConferenceSetting;
-        /**
-         * 谁可以管理置顶
-         * <p> 示例值：all_members
-         */
-        this.pinManageSetting = builder.pinManageSetting;
         /**
          * 隐藏群成员人数设置
          * <p> 示例值：all_members
@@ -386,14 +375,6 @@ public class UpdateChatReqBody {
         this.videoConferenceSetting = videoConferenceSetting;
     }
 
-    public String getPinManageSetting() {
-        return this.pinManageSetting;
-    }
-
-    public void setPinManageSetting(String pinManageSetting) {
-        this.pinManageSetting = pinManageSetting;
-    }
-
     public String getHideMemberCountSetting() {
         return this.hideMemberCountSetting;
     }
@@ -488,11 +469,6 @@ public class UpdateChatReqBody {
          * <p> 示例值：all_members
          */
         private String videoConferenceSetting;
-        /**
-         * 谁可以管理置顶
-         * <p> 示例值：all_members
-         */
-        private String pinManageSetting;
         /**
          * 隐藏群成员人数设置
          * <p> 示例值：all_members
@@ -752,31 +728,6 @@ public class UpdateChatReqBody {
          */
         public Builder videoConferenceSetting(com.lark.oapi.service.im.v1.enums.UpdateChatVideoConferenceSettingTypeEnum videoConferenceSetting) {
             this.videoConferenceSetting = videoConferenceSetting.getValue();
-            return this;
-        }
-
-
-        /**
-         * 谁可以管理置顶
-         * <p> 示例值：all_members
-         *
-         * @param pinManageSetting
-         * @return
-         */
-        public Builder pinManageSetting(String pinManageSetting) {
-            this.pinManageSetting = pinManageSetting;
-            return this;
-        }
-
-        /**
-         * 谁可以管理置顶
-         * <p> 示例值：all_members
-         *
-         * @param pinManageSetting {@link com.lark.oapi.service.im.v1.enums.UpdateChatPinManageSettingTypeEnum}
-         * @return
-         */
-        public Builder pinManageSetting(com.lark.oapi.service.im.v1.enums.UpdateChatPinManageSettingTypeEnum pinManageSetting) {
-            this.pinManageSetting = pinManageSetting.getValue();
             return this;
         }
 

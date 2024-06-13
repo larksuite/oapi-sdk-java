@@ -428,6 +428,13 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2JobChangeUpdatedV2Handler implements IEventHandler<P2JobChangeUpdatedV2> {
+        @Override
+        public P2JobChangeUpdatedV2 getEvent() {
+            return new P2JobChangeUpdatedV2();
+        }
+    }
+
     public abstract static class P2OffboardingChecklistUpdatedV2Handler implements IEventHandler<P2OffboardingChecklistUpdatedV2> {
         @Override
         public P2OffboardingChecklistUpdatedV2 getEvent() {

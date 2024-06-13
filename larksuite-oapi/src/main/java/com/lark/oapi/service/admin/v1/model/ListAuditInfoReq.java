@@ -112,6 +112,13 @@ public class ListAuditInfoReq {
     @Query
     @SerializedName("object_value")
     private String objectValue;
+    /**
+     * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
+     * <p> 示例值：55ed16fe
+     */
+    @Query
+    @SerializedName("ext_filter_object_by_ccm_token")
+    private String extFilterObjectByCcmToken;
 
     // builder 开始
     public ListAuditInfoReq() {
@@ -178,6 +185,11 @@ public class ListAuditInfoReq {
          * <p> 示例值：55ed16fe
          */
         this.objectValue = builder.objectValue;
+        /**
+         * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
+         * <p> 示例值：55ed16fe
+         */
+        this.extFilterObjectByCcmToken = builder.extFilterObjectByCcmToken;
     }
 
     public static Builder newBuilder() {
@@ -280,6 +292,14 @@ public class ListAuditInfoReq {
         this.objectValue = objectValue;
     }
 
+    public String getExtFilterObjectByCcmToken() {
+        return this.extFilterObjectByCcmToken;
+    }
+
+    public void setExtFilterObjectByCcmToken(String extFilterObjectByCcmToken) {
+        this.extFilterObjectByCcmToken = extFilterObjectByCcmToken;
+    }
+
     public static class Builder {
         private String userIdType; // 此次调用中使用的用户ID的类型
         private Integer latest; // 日志时间范围: 结束时间. 格式: 秒级时间戳. 默认值: 此刻
@@ -293,6 +313,7 @@ public class ListAuditInfoReq {
         private Integer userType; // 过滤用户类型. 仅当 operator_type=user 时生效
         private Integer objectType; // 过滤操作对象: 操作对象类型. 与object_value配合使用
         private String objectValue; // 过滤操作对象: 操作对象ID. 与object_type配合使用
+        private String extFilterObjectByCcmToken; // 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
 
 
         /**
@@ -483,6 +504,19 @@ public class ListAuditInfoReq {
          */
         public Builder objectValue(String objectValue) {
             this.objectValue = objectValue;
+            return this;
+        }
+
+
+        /**
+         * 增强过滤操作对象: 操作对象ID，支持云文档侧泛token过滤。会覆盖object_type和object_value查询条件
+         * <p> 示例值：55ed16fe
+         *
+         * @param extFilterObjectByCcmToken
+         * @return
+         */
+        public Builder extFilterObjectByCcmToken(String extFilterObjectByCcmToken) {
+            this.extFilterObjectByCcmToken = extFilterObjectByCcmToken;
             return this;
         }
 

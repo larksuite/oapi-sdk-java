@@ -34,6 +34,24 @@ public class PatchNoteReqBody {
      */
     @SerializedName("content")
     private String content;
+    /**
+     * 更新人 ID
+     * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+     */
+    @SerializedName("operator_id")
+    private String operatorId;
+    /**
+     * 是否通知被@的用户
+     * <p> 示例值：false
+     */
+    @SerializedName("notify_mentioned_user")
+    private Boolean notifyMentionedUser;
+    /**
+     * 被@用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("mention_entity_list")
+    private MentionEntity[] mentionEntityList;
 
     // builder 开始
     public PatchNoteReqBody() {
@@ -45,6 +63,21 @@ public class PatchNoteReqBody {
          * <p> 示例值：111
          */
         this.content = builder.content;
+        /**
+         * 更新人 ID
+         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+         */
+        this.operatorId = builder.operatorId;
+        /**
+         * 是否通知被@的用户
+         * <p> 示例值：false
+         */
+        this.notifyMentionedUser = builder.notifyMentionedUser;
+        /**
+         * 被@用户列表
+         * <p> 示例值：
+         */
+        this.mentionEntityList = builder.mentionEntityList;
     }
 
     public static Builder newBuilder() {
@@ -59,12 +92,51 @@ public class PatchNoteReqBody {
         this.content = content;
     }
 
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    public Boolean getNotifyMentionedUser() {
+        return this.notifyMentionedUser;
+    }
+
+    public void setNotifyMentionedUser(Boolean notifyMentionedUser) {
+        this.notifyMentionedUser = notifyMentionedUser;
+    }
+
+    public MentionEntity[] getMentionEntityList() {
+        return this.mentionEntityList;
+    }
+
+    public void setMentionEntityList(MentionEntity[] mentionEntityList) {
+        this.mentionEntityList = mentionEntityList;
+    }
+
     public static class Builder {
         /**
          * 备注内容
          * <p> 示例值：111
          */
         private String content;
+        /**
+         * 更新人 ID
+         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+         */
+        private String operatorId;
+        /**
+         * 是否通知被@的用户
+         * <p> 示例值：false
+         */
+        private Boolean notifyMentionedUser;
+        /**
+         * 被@用户列表
+         * <p> 示例值：
+         */
+        private MentionEntity[] mentionEntityList;
 
         /**
          * 备注内容
@@ -75,6 +147,45 @@ public class PatchNoteReqBody {
          */
         public Builder content(String content) {
             this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 更新人 ID
+         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+         *
+         * @param operatorId
+         * @return
+         */
+        public Builder operatorId(String operatorId) {
+            this.operatorId = operatorId;
+            return this;
+        }
+
+
+        /**
+         * 是否通知被@的用户
+         * <p> 示例值：false
+         *
+         * @param notifyMentionedUser
+         * @return
+         */
+        public Builder notifyMentionedUser(Boolean notifyMentionedUser) {
+            this.notifyMentionedUser = notifyMentionedUser;
+            return this;
+        }
+
+
+        /**
+         * 被@用户列表
+         * <p> 示例值：
+         *
+         * @param mentionEntityList
+         * @return
+         */
+        public Builder mentionEntityList(MentionEntity[] mentionEntityList) {
+            this.mentionEntityList = mentionEntityList;
             return this;
         }
 

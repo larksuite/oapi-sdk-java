@@ -48,6 +48,12 @@ public class ReserveMeetingSetting {
     @SerializedName("meeting_initial_type")
     private Integer meetingInitialType;
     /**
+     * 该会议是否支持互通，不支持更新（注：该字段内测中）
+     * <p> 示例值：true
+     */
+    @SerializedName("meeting_connect")
+    private Boolean meetingConnect;
+    /**
      * 1v1呼叫相关参数
      * <p> 示例值：
      */
@@ -92,6 +98,11 @@ public class ReserveMeetingSetting {
          * <p> 示例值：1
          */
         this.meetingInitialType = builder.meetingInitialType;
+        /**
+         * 该会议是否支持互通，不支持更新（注：该字段内测中）
+         * <p> 示例值：true
+         */
+        this.meetingConnect = builder.meetingConnect;
         /**
          * 1v1呼叫相关参数
          * <p> 示例值：
@@ -142,6 +153,14 @@ public class ReserveMeetingSetting {
         this.meetingInitialType = meetingInitialType;
     }
 
+    public Boolean getMeetingConnect() {
+        return this.meetingConnect;
+    }
+
+    public void setMeetingConnect(Boolean meetingConnect) {
+        this.meetingConnect = meetingConnect;
+    }
+
     public ReserveCallSetting getCallSetting() {
         return this.callSetting;
     }
@@ -190,6 +209,11 @@ public class ReserveMeetingSetting {
          * <p> 示例值：1
          */
         private Integer meetingInitialType;
+        /**
+         * 该会议是否支持互通，不支持更新（注：该字段内测中）
+         * <p> 示例值：true
+         */
+        private Boolean meetingConnect;
         /**
          * 1v1呼叫相关参数
          * <p> 示例值：
@@ -258,6 +282,19 @@ public class ReserveMeetingSetting {
          */
         public Builder meetingInitialType(com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum meetingInitialType) {
             this.meetingInitialType = meetingInitialType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 该会议是否支持互通，不支持更新（注：该字段内测中）
+         * <p> 示例值：true
+         *
+         * @param meetingConnect
+         * @return
+         */
+        public Builder meetingConnect(Boolean meetingConnect) {
+            this.meetingConnect = meetingConnect;
             return this;
         }
 

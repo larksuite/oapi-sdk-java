@@ -82,6 +82,18 @@ public class Note {
      */
     @SerializedName("privacy")
     private Integer privacy;
+    /**
+     * 是否通知被@的用户
+     * <p> 示例值：false
+     */
+    @SerializedName("notify_mentioned_user")
+    private Boolean notifyMentionedUser;
+    /**
+     * 被@用户列表
+     * <p> 示例值：
+     */
+    @SerializedName("mention_entity_list")
+    private MentionEntity[] mentionEntityList;
 
     // builder 开始
     public Note() {
@@ -133,6 +145,16 @@ public class Note {
          * <p> 示例值：1
          */
         this.privacy = builder.privacy;
+        /**
+         * 是否通知被@的用户
+         * <p> 示例值：false
+         */
+        this.notifyMentionedUser = builder.notifyMentionedUser;
+        /**
+         * 被@用户列表
+         * <p> 示例值：
+         */
+        this.mentionEntityList = builder.mentionEntityList;
     }
 
     public static Builder newBuilder() {
@@ -211,6 +233,22 @@ public class Note {
         this.privacy = privacy;
     }
 
+    public Boolean getNotifyMentionedUser() {
+        return this.notifyMentionedUser;
+    }
+
+    public void setNotifyMentionedUser(Boolean notifyMentionedUser) {
+        this.notifyMentionedUser = notifyMentionedUser;
+    }
+
+    public MentionEntity[] getMentionEntityList() {
+        return this.mentionEntityList;
+    }
+
+    public void setMentionEntityList(MentionEntity[] mentionEntityList) {
+        this.mentionEntityList = mentionEntityList;
+    }
+
     public static class Builder {
         /**
          * 备注ID
@@ -257,6 +295,16 @@ public class Note {
          * <p> 示例值：1
          */
         private Integer privacy;
+        /**
+         * 是否通知被@的用户
+         * <p> 示例值：false
+         */
+        private Boolean notifyMentionedUser;
+        /**
+         * 被@用户列表
+         * <p> 示例值：
+         */
+        private MentionEntity[] mentionEntityList;
 
         /**
          * 备注ID
@@ -371,6 +419,32 @@ public class Note {
          */
         public Builder privacy(Integer privacy) {
             this.privacy = privacy;
+            return this;
+        }
+
+
+        /**
+         * 是否通知被@的用户
+         * <p> 示例值：false
+         *
+         * @param notifyMentionedUser
+         * @return
+         */
+        public Builder notifyMentionedUser(Boolean notifyMentionedUser) {
+            this.notifyMentionedUser = notifyMentionedUser;
+            return this;
+        }
+
+
+        /**
+         * 被@用户列表
+         * <p> 示例值：
+         *
+         * @param mentionEntityList
+         * @return
+         */
+        public Builder mentionEntityList(MentionEntity[] mentionEntityList) {
+            this.mentionEntityList = mentionEntityList;
             return this;
         }
 

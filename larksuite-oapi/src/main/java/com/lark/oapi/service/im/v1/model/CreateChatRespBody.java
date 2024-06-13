@@ -83,12 +83,6 @@ public class CreateChatRespBody {
     @SerializedName("video_conference_setting")
     private String videoConferenceSetting;
     /**
-     * 谁可以管理置顶
-     * <p> 示例值：all_members
-     */
-    @SerializedName("pin_manage_setting")
-    private String pinManageSetting;
-    /**
      * 拉 用户或机器人 入群权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
      * <p> 示例值：all members
      */
@@ -257,13 +251,6 @@ public class CreateChatRespBody {
         this.videoConferenceSetting = videoConferenceSetting;
     }
 
-    public String getPinManageSetting() {
-        return this.pinManageSetting;
-    }
-
-    public void setPinManageSetting(String pinManageSetting) {
-        this.pinManageSetting = pinManageSetting;
-    }
 
     public String getAddMemberPermission() {
         return this.addMemberPermission;

@@ -43,13 +43,13 @@ public class AilyKnowledgeDocs {
     private String type;
     /**
      * 飞书云文档标识
-     * <p> 示例值：xxx
+     * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
      */
     @SerializedName("token")
     private String token;
     /**
      * 链接
-     * <p> 示例值：xxx
+     * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
      */
     @SerializedName("url")
     private String url;
@@ -71,12 +71,12 @@ public class AilyKnowledgeDocs {
         this.type = builder.type;
         /**
          * 飞书云文档标识
-         * <p> 示例值：xxx
+         * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
          */
         this.token = builder.token;
         /**
          * 链接
-         * <p> 示例值：xxx
+         * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
          */
         this.url = builder.url;
     }
@@ -130,12 +130,12 @@ public class AilyKnowledgeDocs {
         private String type;
         /**
          * 飞书云文档标识
-         * <p> 示例值：xxx
+         * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
          */
         private String token;
         /**
          * 链接
-         * <p> 示例值：xxx
+         * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
          */
         private String url;
 
@@ -164,10 +164,22 @@ public class AilyKnowledgeDocs {
             return this;
         }
 
+        /**
+         * 飞书云文档类型
+         * <p> 示例值：docx
+         *
+         * @param type {@link com.lark.oapi.service.aily.v1.enums.AilyKnowledgeDocsTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.aily.v1.enums.AilyKnowledgeDocsTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
 
         /**
          * 飞书云文档标识
-         * <p> 示例值：xxx
+         * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
          *
          * @param token
          * @return
@@ -180,7 +192,7 @@ public class AilyKnowledgeDocs {
 
         /**
          * 链接
-         * <p> 示例值：xxx
+         * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
          *
          * @param url
          * @return
