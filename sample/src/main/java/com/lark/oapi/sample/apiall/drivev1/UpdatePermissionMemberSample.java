@@ -22,6 +22,7 @@ public class UpdatePermissionMemberSample {
                 .baseMember(BaseMember.newBuilder()
                         .memberType("openid")
                         .perm("view")
+                        .permType("container")
                         .type("user")
                         .build())
                 .build();

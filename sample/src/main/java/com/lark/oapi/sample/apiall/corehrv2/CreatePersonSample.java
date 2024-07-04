@@ -22,7 +22,6 @@ public class CreatePersonSample {
                         .nameList(new PersonName[]{})
                         .gender(Enum.newBuilder().build())
                         .dateOfBirth("2020-01-01")
-                        .nationalityIdV2("6862995757234914821")
                         .race(Enum.newBuilder().build())
                         .maritalStatus(Enum.newBuilder().build())
                         .phoneList(new Phone[]{})
@@ -52,6 +51,9 @@ public class CreatePersonSample {
                         .residentTaxes(new ResidentTax[]{})
                         .firstEntryTime("2021-01-02")
                         .leaveTime("2022-01-02")
+                        .bankAccountNumber("69928404442626824")
+                        .passportNumber("6919733936050406926")
+                        .formerEmployer(new I18n[]{})
                         .build())
                 .build();
 

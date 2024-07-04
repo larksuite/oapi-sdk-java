@@ -18,7 +18,7 @@ public class SearchBasicInfoCountryRegionSample {
         // 创建请求对象
         SearchBasicInfoCountryRegionReq req = SearchBasicInfoCountryRegionReq.newBuilder()
                 .pageSize(100)
-                .pageToken("6891251722631890445")
+                .pageToken("6862995772275688974")
                 .searchBasicInfoCountryRegionReqBody(SearchBasicInfoCountryRegionReqBody.newBuilder()
                         .countryRegionIdList(new String[]{})
                         .statusList(new Integer[]{})

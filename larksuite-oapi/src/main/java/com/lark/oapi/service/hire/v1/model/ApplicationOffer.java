@@ -76,6 +76,12 @@ public class ApplicationOffer {
      */
     @SerializedName("customized_module_list")
     private ApplicationOfferCustomModule[] customizedModuleList;
+    /**
+     * 招聘需求 ID
+     * <p> 示例值：1231231232312312
+     */
+    @SerializedName("job_requirement_id")
+    private String jobRequirementId;
 
     // builder 开始
     public ApplicationOffer() {
@@ -122,6 +128,11 @@ public class ApplicationOffer {
          * <p> 示例值：
          */
         this.customizedModuleList = builder.customizedModuleList;
+        /**
+         * 招聘需求 ID
+         * <p> 示例值：1231231232312312
+         */
+        this.jobRequirementId = builder.jobRequirementId;
     }
 
     public static Builder newBuilder() {
@@ -192,6 +203,14 @@ public class ApplicationOffer {
         this.customizedModuleList = customizedModuleList;
     }
 
+    public String getJobRequirementId() {
+        return this.jobRequirementId;
+    }
+
+    public void setJobRequirementId(String jobRequirementId) {
+        this.jobRequirementId = jobRequirementId;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -233,6 +252,11 @@ public class ApplicationOffer {
          * <p> 示例值：
          */
         private ApplicationOfferCustomModule[] customizedModuleList;
+        /**
+         * 招聘需求 ID
+         * <p> 示例值：1231231232312312
+         */
+        private String jobRequirementId;
 
         /**
          * Offer id
@@ -334,6 +358,19 @@ public class ApplicationOffer {
          */
         public Builder customizedModuleList(ApplicationOfferCustomModule[] customizedModuleList) {
             this.customizedModuleList = customizedModuleList;
+            return this;
+        }
+
+
+        /**
+         * 招聘需求 ID
+         * <p> 示例值：1231231232312312
+         *
+         * @param jobRequirementId
+         * @return
+         */
+        public Builder jobRequirementId(String jobRequirementId) {
+            this.jobRequirementId = jobRequirementId;
             return this;
         }
 

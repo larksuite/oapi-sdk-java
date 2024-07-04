@@ -53,6 +53,12 @@ public class UserStatsDataCell {
      */
     @SerializedName("title")
     private String title;
+    /**
+     * 时长
+     * <p> 示例值：
+     */
+    @SerializedName("duration_num")
+    private UserStatsDataDuration durationNum;
 
     // builder 开始
     public UserStatsDataCell() {
@@ -79,6 +85,11 @@ public class UserStatsDataCell {
          * <p> 示例值：姓名
          */
         this.title = builder.title;
+        /**
+         * 时长
+         * <p> 示例值：
+         */
+        this.durationNum = builder.durationNum;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class UserStatsDataCell {
         this.title = title;
     }
 
+    public UserStatsDataDuration getDurationNum() {
+        return this.durationNum;
+    }
+
+    public void setDurationNum(UserStatsDataDuration durationNum) {
+        this.durationNum = durationNum;
+    }
+
     public static class Builder {
         /**
          * 字段编号
@@ -138,6 +157,11 @@ public class UserStatsDataCell {
          * <p> 示例值：姓名
          */
         private String title;
+        /**
+         * 时长
+         * <p> 示例值：
+         */
+        private UserStatsDataDuration durationNum;
 
         /**
          * 字段编号
@@ -187,6 +211,19 @@ public class UserStatsDataCell {
          */
         public Builder title(String title) {
             this.title = title;
+            return this;
+        }
+
+
+        /**
+         * 时长
+         * <p> 示例值：
+         *
+         * @param durationNum
+         * @return
+         */
+        public Builder durationNum(UserStatsDataDuration durationNum) {
+            this.durationNum = durationNum;
             return this;
         }
 

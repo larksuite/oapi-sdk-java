@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoBankReqBody {
     /**
-     * 银行 ID 列表
+     * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
      * <p> 示例值：
      */
     @SerializedName("bank_id_list")
@@ -49,7 +49,7 @@ public class SearchBasicInfoBankReqBody {
     private Integer[] statusList;
     /**
      * 最早更新时间
-     * <p> 示例值：2024-01-01 00:00:00
+     * <p> 示例值：2020-01-01 00:00:00
      */
     @SerializedName("update_start_time")
     private String updateStartTime;
@@ -66,7 +66,7 @@ public class SearchBasicInfoBankReqBody {
 
     public SearchBasicInfoBankReqBody(Builder builder) {
         /**
-         * 银行 ID 列表
+         * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
          * <p> 示例值：
          */
         this.bankIdList = builder.bankIdList;
@@ -82,7 +82,7 @@ public class SearchBasicInfoBankReqBody {
         this.statusList = builder.statusList;
         /**
          * 最早更新时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         this.updateStartTime = builder.updateStartTime;
         /**
@@ -138,7 +138,7 @@ public class SearchBasicInfoBankReqBody {
 
     public static class Builder {
         /**
-         * 银行 ID 列表
+         * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
          * <p> 示例值：
          */
         private String[] bankIdList;
@@ -154,7 +154,7 @@ public class SearchBasicInfoBankReqBody {
         private Integer[] statusList;
         /**
          * 最早更新时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         private String updateStartTime;
         /**
@@ -164,7 +164,7 @@ public class SearchBasicInfoBankReqBody {
         private String updateEndTime;
 
         /**
-         * 银行 ID 列表
+         * 银行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段获取
          * <p> 示例值：
          *
          * @param bankIdList
@@ -204,7 +204,7 @@ public class SearchBasicInfoBankReqBody {
 
         /**
          * 最早更新时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          *
          * @param updateStartTime
          * @return

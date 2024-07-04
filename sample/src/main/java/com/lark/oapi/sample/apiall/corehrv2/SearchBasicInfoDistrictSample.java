@@ -18,7 +18,7 @@ public class SearchBasicInfoDistrictSample {
         // 创建请求对象
         SearchBasicInfoDistrictReq req = SearchBasicInfoDistrictReq.newBuilder()
                 .pageSize(100)
-                .pageToken("6891251722631890445")
+                .pageToken("6863333352758314504")
                 .searchBasicInfoDistrictReqBody(SearchBasicInfoDistrictReqBody.newBuilder()
                         .cityIdList(new String[]{})
                         .districtIdList(new String[]{})

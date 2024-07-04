@@ -33,7 +33,6 @@ public class PatchJobDataSample {
                         .probationStartDate("2018-03-16T00:00:00")
                         .probationEndDate("2019-05-24T00:00:00")
                         .primaryJobData(true)
-                        .employmentId("6893014062142064135")
                         .effectiveTime("2020-05-01 00:00:00")
                         .expirationTime("2020-05-02 00:00:00")
                         .jobFamilyId("1245678")

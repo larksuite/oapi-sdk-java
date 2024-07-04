@@ -101,6 +101,24 @@ public class PreHireOnboardingInfo {
      */
     @SerializedName("flow_name")
     private I18n[] flowName;
+    /**
+     * 入职流程 ID
+     * <p> 示例值：2342352325
+     */
+    @SerializedName("flow_id")
+    private String flowId;
+    /**
+     * 签到时间
+     * <p> 示例值：2023-09-01 13:21:12
+     */
+    @SerializedName("check_in_time")
+    private String checkInTime;
+    /**
+     * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+     * <p> 示例值：
+     */
+    @SerializedName("check_in_method")
+    private Enum checkInMethod;
 
     // builder 开始
     public PreHireOnboardingInfo() {
@@ -167,6 +185,21 @@ public class PreHireOnboardingInfo {
          * <p> 示例值：
          */
         this.flowName = builder.flowName;
+        /**
+         * 入职流程 ID
+         * <p> 示例值：2342352325
+         */
+        this.flowId = builder.flowId;
+        /**
+         * 签到时间
+         * <p> 示例值：2023-09-01 13:21:12
+         */
+        this.checkInTime = builder.checkInTime;
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+         * <p> 示例值：
+         */
+        this.checkInMethod = builder.checkInMethod;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +302,30 @@ public class PreHireOnboardingInfo {
         this.flowName = flowName;
     }
 
+    public String getFlowId() {
+        return this.flowId;
+    }
+
+    public void setFlowId(String flowId) {
+        this.flowId = flowId;
+    }
+
+    public String getCheckInTime() {
+        return this.checkInTime;
+    }
+
+    public void setCheckInTime(String checkInTime) {
+        this.checkInTime = checkInTime;
+    }
+
+    public Enum getCheckInMethod() {
+        return this.checkInMethod;
+    }
+
+    public void setCheckInMethod(Enum checkInMethod) {
+        this.checkInMethod = checkInMethod;
+    }
+
     public static class Builder {
         /**
          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
@@ -330,6 +387,21 @@ public class PreHireOnboardingInfo {
          * <p> 示例值：
          */
         private I18n[] flowName;
+        /**
+         * 入职流程 ID
+         * <p> 示例值：2342352325
+         */
+        private String flowId;
+        /**
+         * 签到时间
+         * <p> 示例值：2023-09-01 13:21:12
+         */
+        private String checkInTime;
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+         * <p> 示例值：
+         */
+        private Enum checkInMethod;
 
         /**
          * Offer id , 可以通过招聘【获取 Offer 列表】接口获取
@@ -483,6 +555,45 @@ public class PreHireOnboardingInfo {
          */
         public Builder flowName(I18n[] flowName) {
             this.flowName = flowName;
+            return this;
+        }
+
+
+        /**
+         * 入职流程 ID
+         * <p> 示例值：2342352325
+         *
+         * @param flowId
+         * @return
+         */
+        public Builder flowId(String flowId) {
+            this.flowId = flowId;
+            return this;
+        }
+
+
+        /**
+         * 签到时间
+         * <p> 示例值：2023-09-01 13:21:12
+         *
+         * @param checkInTime
+         * @return
+         */
+        public Builder checkInTime(String checkInTime) {
+            this.checkInTime = checkInTime;
+            return this;
+        }
+
+
+        /**
+         * -| 招聘来源 ，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "check_in_method"
+         * <p> 示例值：
+         *
+         * @param checkInMethod
+         * @return
+         */
+        public Builder checkInMethod(Enum checkInMethod) {
+            this.checkInMethod = checkInMethod;
             return this;
         }
 

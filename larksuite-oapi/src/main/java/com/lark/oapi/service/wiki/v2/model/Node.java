@@ -119,6 +119,12 @@ public class Node {
      */
     @SerializedName("owner")
     private String owner;
+    /**
+     * 节点创建者
+     * <p> 示例值：ou_xxxxx
+     */
+    @SerializedName("node_creator")
+    private String nodeCreator;
 
     // builder 开始
     public Node() {
@@ -200,6 +206,11 @@ public class Node {
          * <p> 示例值：ou_xxxxx
          */
         this.owner = builder.owner;
+        /**
+         * 节点创建者
+         * <p> 示例值：ou_xxxxx
+         */
+        this.nodeCreator = builder.nodeCreator;
     }
 
     public static Builder newBuilder() {
@@ -326,6 +337,14 @@ public class Node {
         this.owner = owner;
     }
 
+    public String getNodeCreator() {
+        return this.nodeCreator;
+    }
+
+    public void setNodeCreator(String nodeCreator) {
+        this.nodeCreator = nodeCreator;
+    }
+
     public static class Builder {
         /**
          * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
@@ -402,6 +421,11 @@ public class Node {
          * <p> 示例值：ou_xxxxx
          */
         private String owner;
+        /**
+         * 节点创建者
+         * <p> 示例值：ou_xxxxx
+         */
+        private String nodeCreator;
 
         /**
          * 知识空间id;[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
@@ -618,6 +642,19 @@ public class Node {
          */
         public Builder owner(String owner) {
             this.owner = owner;
+            return this;
+        }
+
+
+        /**
+         * 节点创建者
+         * <p> 示例值：ou_xxxxx
+         *
+         * @param nodeCreator
+         * @return
+         */
+        public Builder nodeCreator(String nodeCreator) {
+            this.nodeCreator = nodeCreator;
             return this;
         }
 

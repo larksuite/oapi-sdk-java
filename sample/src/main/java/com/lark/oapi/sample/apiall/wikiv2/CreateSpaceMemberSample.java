@@ -18,9 +18,9 @@ public class CreateSpaceMemberSample {
                 .spaceId("1565676577122621")
                 .needNotification(true)
                 .member(Member.newBuilder()
-                        .memberType("")
-                        .memberId("")
-                        .memberRole("")
+                        .memberType("openid")
+                        .memberId("ou_67e5ecb64ce1c0bd94612c17999db411")
+                        .memberRole("admin")
                         .build())
                 .build();
 

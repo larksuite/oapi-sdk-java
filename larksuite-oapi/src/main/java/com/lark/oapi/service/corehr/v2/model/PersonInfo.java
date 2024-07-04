@@ -84,12 +84,6 @@ public class PersonInfo {
     @SerializedName("date_of_birth")
     private String dateOfBirth;
     /**
-     * 国籍 ID，可通过【查询国籍信息】接口查询
-     * <p> 示例值：6862995757234914821
-     */
-    @SerializedName("nationality_id_v2")
-    private String nationalityIdV2;
-    /**
      * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
      * <p> 示例值：
      */
@@ -317,6 +311,54 @@ public class PersonInfo {
      */
     @SerializedName("religion")
     private Enum religion;
+    /**
+     * 工龄 浮点类型
+     * <p> 示例值：2.1
+     */
+    @SerializedName("working_years_v2")
+    private Double workingYearsV2;
+    /**
+     * 个人信息 创建时间
+     * <p> 示例值：2022-01-02
+     */
+    @SerializedName("created_at")
+    private String createdAt;
+    /**
+     * 个人信息 更新时间
+     * <p> 示例值：2022-01-02
+     */
+    @SerializedName("updated_at")
+    private String updatedAt;
+    /**
+     * 个人信息 创建人
+     * <p> 示例值：69928404442626824
+     */
+    @SerializedName("created_by")
+    private String createdBy;
+    /**
+     * 个人信息 更新人
+     * <p> 示例值：69928404442626824
+     */
+    @SerializedName("updated_by")
+    private String updatedBy;
+    /**
+     * 银行卡号
+     * <p> 示例值：69928404442626824
+     */
+    @SerializedName("bank_account_number")
+    private String bankAccountNumber;
+    /**
+     * 护照号码
+     * <p> 示例值：6919733936050406926
+     */
+    @SerializedName("passport_number")
+    private String passportNumber;
+    /**
+     * 上家公司
+     * <p> 示例值：
+     */
+    @SerializedName("former_employer")
+    private I18n[] formerEmployer;
 
     // builder 开始
     public PersonInfo() {
@@ -368,11 +410,6 @@ public class PersonInfo {
          * <p> 示例值：2020-01-01
          */
         this.dateOfBirth = builder.dateOfBirth;
-        /**
-         * 国籍 ID，可通过【查询国籍信息】接口查询
-         * <p> 示例值：6862995757234914821
-         */
-        this.nationalityIdV2 = builder.nationalityIdV2;
         /**
          * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
          * <p> 示例值：
@@ -563,6 +600,46 @@ public class PersonInfo {
          * <p> 示例值：
          */
         this.religion = builder.religion;
+        /**
+         * 工龄 浮点类型
+         * <p> 示例值：2.1
+         */
+        this.workingYearsV2 = builder.workingYearsV2;
+        /**
+         * 个人信息 创建时间
+         * <p> 示例值：2022-01-02
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 个人信息 更新时间
+         * <p> 示例值：2022-01-02
+         */
+        this.updatedAt = builder.updatedAt;
+        /**
+         * 个人信息 创建人
+         * <p> 示例值：69928404442626824
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 个人信息 更新人
+         * <p> 示例值：69928404442626824
+         */
+        this.updatedBy = builder.updatedBy;
+        /**
+         * 银行卡号
+         * <p> 示例值：69928404442626824
+         */
+        this.bankAccountNumber = builder.bankAccountNumber;
+        /**
+         * 护照号码
+         * <p> 示例值：6919733936050406926
+         */
+        this.passportNumber = builder.passportNumber;
+        /**
+         * 上家公司
+         * <p> 示例值：
+         */
+        this.formerEmployer = builder.formerEmployer;
     }
 
     public static Builder newBuilder() {
@@ -639,14 +716,6 @@ public class PersonInfo {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getNationalityIdV2() {
-        return this.nationalityIdV2;
-    }
-
-    public void setNationalityIdV2(String nationalityIdV2) {
-        this.nationalityIdV2 = nationalityIdV2;
     }
 
     public Enum getRace() {
@@ -953,6 +1022,70 @@ public class PersonInfo {
         this.religion = religion;
     }
 
+    public Double getWorkingYearsV2() {
+        return this.workingYearsV2;
+    }
+
+    public void setWorkingYearsV2(Double workingYearsV2) {
+        this.workingYearsV2 = workingYearsV2;
+    }
+
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public String getBankAccountNumber() {
+        return this.bankAccountNumber;
+    }
+
+    public void setBankAccountNumber(String bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
+    }
+
+    public String getPassportNumber() {
+        return this.passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
+    public I18n[] getFormerEmployer() {
+        return this.formerEmployer;
+    }
+
+    public void setFormerEmployer(I18n[] formerEmployer) {
+        this.formerEmployer = formerEmployer;
+    }
+
     public static class Builder {
         /**
          * 个人信息 ID
@@ -999,11 +1132,6 @@ public class PersonInfo {
          * <p> 示例值：2020-01-01
          */
         private String dateOfBirth;
-        /**
-         * 国籍 ID，可通过【查询国籍信息】接口查询
-         * <p> 示例值：6862995757234914821
-         */
-        private String nationalityIdV2;
         /**
          * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
          * <p> 示例值：
@@ -1194,6 +1322,46 @@ public class PersonInfo {
          * <p> 示例值：
          */
         private Enum religion;
+        /**
+         * 工龄 浮点类型
+         * <p> 示例值：2.1
+         */
+        private Double workingYearsV2;
+        /**
+         * 个人信息 创建时间
+         * <p> 示例值：2022-01-02
+         */
+        private String createdAt;
+        /**
+         * 个人信息 更新时间
+         * <p> 示例值：2022-01-02
+         */
+        private String updatedAt;
+        /**
+         * 个人信息 创建人
+         * <p> 示例值：69928404442626824
+         */
+        private String createdBy;
+        /**
+         * 个人信息 更新人
+         * <p> 示例值：69928404442626824
+         */
+        private String updatedBy;
+        /**
+         * 银行卡号
+         * <p> 示例值：69928404442626824
+         */
+        private String bankAccountNumber;
+        /**
+         * 护照号码
+         * <p> 示例值：6919733936050406926
+         */
+        private String passportNumber;
+        /**
+         * 上家公司
+         * <p> 示例值：
+         */
+        private I18n[] formerEmployer;
 
         /**
          * 个人信息 ID
@@ -1308,19 +1476,6 @@ public class PersonInfo {
          */
         public Builder dateOfBirth(String dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 国籍 ID，可通过【查询国籍信息】接口查询
-         * <p> 示例值：6862995757234914821
-         *
-         * @param nationalityIdV2
-         * @return
-         */
-        public Builder nationalityIdV2(String nationalityIdV2) {
-            this.nationalityIdV2 = nationalityIdV2;
             return this;
         }
 
@@ -1815,6 +1970,110 @@ public class PersonInfo {
          */
         public Builder religion(Enum religion) {
             this.religion = religion;
+            return this;
+        }
+
+
+        /**
+         * 工龄 浮点类型
+         * <p> 示例值：2.1
+         *
+         * @param workingYearsV2
+         * @return
+         */
+        public Builder workingYearsV2(Double workingYearsV2) {
+            this.workingYearsV2 = workingYearsV2;
+            return this;
+        }
+
+
+        /**
+         * 个人信息 创建时间
+         * <p> 示例值：2022-01-02
+         *
+         * @param createdAt
+         * @return
+         */
+        public Builder createdAt(String createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 个人信息 更新时间
+         * <p> 示例值：2022-01-02
+         *
+         * @param updatedAt
+         * @return
+         */
+        public Builder updatedAt(String updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+
+        /**
+         * 个人信息 创建人
+         * <p> 示例值：69928404442626824
+         *
+         * @param createdBy
+         * @return
+         */
+        public Builder createdBy(String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+
+        /**
+         * 个人信息 更新人
+         * <p> 示例值：69928404442626824
+         *
+         * @param updatedBy
+         * @return
+         */
+        public Builder updatedBy(String updatedBy) {
+            this.updatedBy = updatedBy;
+            return this;
+        }
+
+
+        /**
+         * 银行卡号
+         * <p> 示例值：69928404442626824
+         *
+         * @param bankAccountNumber
+         * @return
+         */
+        public Builder bankAccountNumber(String bankAccountNumber) {
+            this.bankAccountNumber = bankAccountNumber;
+            return this;
+        }
+
+
+        /**
+         * 护照号码
+         * <p> 示例值：6919733936050406926
+         *
+         * @param passportNumber
+         * @return
+         */
+        public Builder passportNumber(String passportNumber) {
+            this.passportNumber = passportNumber;
+            return this;
+        }
+
+
+        /**
+         * 上家公司
+         * <p> 示例值：
+         *
+         * @param formerEmployer
+         * @return
+         */
+        public Builder formerEmployer(I18n[] formerEmployer) {
+            this.formerEmployer = formerEmployer;
             return this;
         }
 

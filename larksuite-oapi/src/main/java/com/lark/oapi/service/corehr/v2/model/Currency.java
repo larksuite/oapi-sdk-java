@@ -31,18 +31,12 @@ import com.lark.oapi.core.response.BaseResponse;
 public class Currency {
     /**
      * 货币 ID
-     * <p> 示例值：6893114062142064111
+     * <p> 示例值：6863329932261459464
      */
     @SerializedName("currency_id")
     private String currencyId;
     /**
-     * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：6893114162142064111
-     */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
-    /**
-     * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+     * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
      * <p> 示例值：
      */
     @SerializedName("country_region_id_list")
@@ -54,13 +48,13 @@ public class Currency {
     @SerializedName("currency_name")
     private I18n[] currencyName;
     /**
-     * 数字代码
+     * 数字代码（ISO 4217）
      * <p> 示例值：156
      */
     @SerializedName("numeric_code")
     private Integer numericCode;
     /**
-     * 三位字母代码
+     * 三位字母代码（ISO 4217）
      * <p> 示例值：CNY
      */
     @SerializedName("currency_alpha_3_code")
@@ -79,16 +73,11 @@ public class Currency {
     public Currency(Builder builder) {
         /**
          * 货币 ID
-         * <p> 示例值：6893114062142064111
+         * <p> 示例值：6863329932261459464
          */
         this.currencyId = builder.currencyId;
         /**
-         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：6893114162142064111
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
          * <p> 示例值：
          */
         this.countryRegionIdList = builder.countryRegionIdList;
@@ -98,12 +87,12 @@ public class Currency {
          */
         this.currencyName = builder.currencyName;
         /**
-         * 数字代码
+         * 数字代码（ISO 4217）
          * <p> 示例值：156
          */
         this.numericCode = builder.numericCode;
         /**
-         * 三位字母代码
+         * 三位字母代码（ISO 4217）
          * <p> 示例值：CNY
          */
         this.currencyAlpha3Code = builder.currencyAlpha3Code;
@@ -124,14 +113,6 @@ public class Currency {
 
     public void setCurrencyId(String currencyId) {
         this.currencyId = currencyId;
-    }
-
-    public String getCountryRegionId() {
-        return this.countryRegionId;
-    }
-
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
     }
 
     public String[] getCountryRegionIdList() {
@@ -177,16 +158,11 @@ public class Currency {
     public static class Builder {
         /**
          * 货币 ID
-         * <p> 示例值：6893114062142064111
+         * <p> 示例值：6863329932261459464
          */
         private String currencyId;
         /**
-         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：6893114162142064111
-         */
-        private String countryRegionId;
-        /**
-         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
          * <p> 示例值：
          */
         private String[] countryRegionIdList;
@@ -196,12 +172,12 @@ public class Currency {
          */
         private I18n[] currencyName;
         /**
-         * 数字代码
+         * 数字代码（ISO 4217）
          * <p> 示例值：156
          */
         private Integer numericCode;
         /**
-         * 三位字母代码
+         * 三位字母代码（ISO 4217）
          * <p> 示例值：CNY
          */
         private String currencyAlpha3Code;
@@ -213,7 +189,7 @@ public class Currency {
 
         /**
          * 货币 ID
-         * <p> 示例值：6893114062142064111
+         * <p> 示例值：6863329932261459464
          *
          * @param currencyId
          * @return
@@ -225,20 +201,7 @@ public class Currency {
 
 
         /**
-         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：6893114162142064111
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 货币所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
          * <p> 示例值：
          *
          * @param countryRegionIdList
@@ -264,7 +227,7 @@ public class Currency {
 
 
         /**
-         * 数字代码
+         * 数字代码（ISO 4217）
          * <p> 示例值：156
          *
          * @param numericCode
@@ -277,7 +240,7 @@ public class Currency {
 
 
         /**
-         * 三位字母代码
+         * 三位字母代码（ISO 4217）
          * <p> 示例值：CNY
          *
          * @param currencyAlpha3Code

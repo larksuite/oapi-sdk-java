@@ -20,7 +20,7 @@ public class QueryAuthorizationSample {
                 .employmentIdList(new String[]{})
                 .roleIdList(new String[]{})
                 .pageToken("6969864184272078374")
-                .pageSize("100")
+                .pageSize("20")
                 .userIdType("people_corehr_id")
                 .build();
 

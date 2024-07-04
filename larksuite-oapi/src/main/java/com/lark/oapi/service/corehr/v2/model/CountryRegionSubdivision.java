@@ -30,32 +30,32 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class CountryRegionSubdivision {
     /**
-     * 省份/行政区 ID
-     * <p> 示例值：6822114062122064111
+     * 省份/主要行政区 ID
+     * <p> 示例值：6863326571462133262
      */
     @SerializedName("country_region_subdivision_id")
     private String countryRegionSubdivisionId;
     /**
-     * 省份/行政区名称
+     * 省份/主要行政区名称
      * <p> 示例值：
      */
     @SerializedName("name")
     private I18n[] name;
     /**
-     * 所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：6822114062122062211
+     * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     * <p> 示例值：6862995791674344967
      */
     @SerializedName("country_region_id")
     private String countryRegionId;
     /**
-     * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+     * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
      * <p> 示例值：
      */
     @SerializedName("subdivision_type")
     private Enum subdivisionType;
     /**
-     * 省份/行政区三字码
-     * <p> 示例值：PEK
+     * 省份/主要行政区编码（ISO 3166-2）
+     * <p> 示例值：PSE-GZA
      */
     @SerializedName("iso_code")
     private String isoCode;
@@ -72,28 +72,28 @@ public class CountryRegionSubdivision {
 
     public CountryRegionSubdivision(Builder builder) {
         /**
-         * 省份/行政区 ID
-         * <p> 示例值：6822114062122064111
+         * 省份/主要行政区 ID
+         * <p> 示例值：6863326571462133262
          */
         this.countryRegionSubdivisionId = builder.countryRegionSubdivisionId;
         /**
-         * 省份/行政区名称
+         * 省份/主要行政区名称
          * <p> 示例值：
          */
         this.name = builder.name;
         /**
-         * 所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：6822114062122062211
+         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995791674344967
          */
         this.countryRegionId = builder.countryRegionId;
         /**
-         * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+         * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
          * <p> 示例值：
          */
         this.subdivisionType = builder.subdivisionType;
         /**
-         * 省份/行政区三字码
-         * <p> 示例值：PEK
+         * 省份/主要行政区编码（ISO 3166-2）
+         * <p> 示例值：PSE-GZA
          */
         this.isoCode = builder.isoCode;
         /**
@@ -157,28 +157,28 @@ public class CountryRegionSubdivision {
 
     public static class Builder {
         /**
-         * 省份/行政区 ID
-         * <p> 示例值：6822114062122064111
+         * 省份/主要行政区 ID
+         * <p> 示例值：6863326571462133262
          */
         private String countryRegionSubdivisionId;
         /**
-         * 省份/行政区名称
+         * 省份/主要行政区名称
          * <p> 示例值：
          */
         private I18n[] name;
         /**
-         * 所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：6822114062122062211
+         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995791674344967
          */
         private String countryRegionId;
         /**
-         * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+         * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
          * <p> 示例值：
          */
         private Enum subdivisionType;
         /**
-         * 省份/行政区三字码
-         * <p> 示例值：PEK
+         * 省份/主要行政区编码（ISO 3166-2）
+         * <p> 示例值：PSE-GZA
          */
         private String isoCode;
         /**
@@ -188,8 +188,8 @@ public class CountryRegionSubdivision {
         private Integer status;
 
         /**
-         * 省份/行政区 ID
-         * <p> 示例值：6822114062122064111
+         * 省份/主要行政区 ID
+         * <p> 示例值：6863326571462133262
          *
          * @param countryRegionSubdivisionId
          * @return
@@ -201,7 +201,7 @@ public class CountryRegionSubdivision {
 
 
         /**
-         * 省份/行政区名称
+         * 省份/主要行政区名称
          * <p> 示例值：
          *
          * @param name
@@ -214,8 +214,8 @@ public class CountryRegionSubdivision {
 
 
         /**
-         * 所属国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：6822114062122062211
+         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995791674344967
          *
          * @param countryRegionId
          * @return
@@ -227,7 +227,7 @@ public class CountryRegionSubdivision {
 
 
         /**
-         * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+         * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
          * <p> 示例值：
          *
          * @param subdivisionType
@@ -240,8 +240,8 @@ public class CountryRegionSubdivision {
 
 
         /**
-         * 省份/行政区三字码
-         * <p> 示例值：PEK
+         * 省份/主要行政区编码（ISO 3166-2）
+         * <p> 示例值：PSE-GZA
          *
          * @param isoCode
          * @return

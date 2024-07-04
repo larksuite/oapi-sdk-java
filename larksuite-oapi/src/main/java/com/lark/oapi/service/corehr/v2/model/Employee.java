@@ -102,6 +102,18 @@ public class Employee {
     @SerializedName("job_family")
     private JobFamily jobFamily;
     /**
+     * 岗位 ID，详细信息可通过【查询单个岗位】接口获得
+     * <p> 示例值：6893014062142064135
+     */
+    @SerializedName("position_id")
+    private String positionId;
+    /**
+     * 岗位
+     * <p> 示例值：
+     */
+    @SerializedName("position")
+    private Position position;
+    /**
      * 职务 ID，详细信息可通过【查询单个职务】接口获得
      * <p> 示例值：6893014062142064135
      */
@@ -438,6 +450,16 @@ public class Employee {
          */
         this.jobFamily = builder.jobFamily;
         /**
+         * 岗位 ID，详细信息可通过【查询单个岗位】接口获得
+         * <p> 示例值：6893014062142064135
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 岗位
+         * <p> 示例值：
+         */
+        this.position = builder.position;
+        /**
          * 职务 ID，详细信息可通过【查询单个职务】接口获得
          * <p> 示例值：6893014062142064135
          */
@@ -762,6 +784,22 @@ public class Employee {
 
     public void setJobFamily(JobFamily jobFamily) {
         this.jobFamily = jobFamily;
+    }
+
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
+    }
+
+    public Position getPosition() {
+        return this.position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public String getJobId() {
@@ -1186,6 +1224,16 @@ public class Employee {
          */
         private JobFamily jobFamily;
         /**
+         * 岗位 ID，详细信息可通过【查询单个岗位】接口获得
+         * <p> 示例值：6893014062142064135
+         */
+        private String positionId;
+        /**
+         * 岗位
+         * <p> 示例值：
+         */
+        private Position position;
+        /**
          * 职务 ID，详细信息可通过【查询单个职务】接口获得
          * <p> 示例值：6893014062142064135
          */
@@ -1563,6 +1611,32 @@ public class Employee {
          */
         public Builder jobFamily(JobFamily jobFamily) {
             this.jobFamily = jobFamily;
+            return this;
+        }
+
+
+        /**
+         * 岗位 ID，详细信息可通过【查询单个岗位】接口获得
+         * <p> 示例值：6893014062142064135
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 岗位
+         * <p> 示例值：
+         *
+         * @param position
+         * @return
+         */
+        public Builder position(Position position) {
+            this.position = position;
             return this;
         }
 

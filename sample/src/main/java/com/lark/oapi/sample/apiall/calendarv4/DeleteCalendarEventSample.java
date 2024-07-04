@@ -17,7 +17,7 @@ public class DeleteCalendarEventSample {
         DeleteCalendarEventReq req = DeleteCalendarEventReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .eventId("xxxxxxxxx_0")
-                .needNotification(false)
+                .needNotification("true")
                 .build();
 
         // 发起请求

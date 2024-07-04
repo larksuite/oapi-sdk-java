@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CountryRegion {
     /**
      * 国家/地区 ID
-     * <p> 示例值：6893114062122064111
+     * <p> 示例值：6862995757234914824
      */
     @SerializedName("country_region_id")
     private String countryRegionId;
@@ -48,13 +48,13 @@ public class CountryRegion {
     @SerializedName("full_name")
     private I18n[] fullName;
     /**
-     * 国家地区二字码
+     * 国家/地区两位字母编码（ISO 3166-1）
      * <p> 示例值：CN
      */
     @SerializedName("alpha_2_code")
     private String alpha2Code;
     /**
-     * 国家地区三字码
+     * 国家/地区三位字母编码（ISO 3166-1）
      * <p> 示例值：CHN
      */
     @SerializedName("alpha_3_code")
@@ -79,7 +79,7 @@ public class CountryRegion {
     public CountryRegion(Builder builder) {
         /**
          * 国家/地区 ID
-         * <p> 示例值：6893114062122064111
+         * <p> 示例值：6862995757234914824
          */
         this.countryRegionId = builder.countryRegionId;
         /**
@@ -93,12 +93,12 @@ public class CountryRegion {
          */
         this.fullName = builder.fullName;
         /**
-         * 国家地区二字码
+         * 国家/地区两位字母编码（ISO 3166-1）
          * <p> 示例值：CN
          */
         this.alpha2Code = builder.alpha2Code;
         /**
-         * 国家地区三字码
+         * 国家/地区三位字母编码（ISO 3166-1）
          * <p> 示例值：CHN
          */
         this.alpha3Code = builder.alpha3Code;
@@ -177,7 +177,7 @@ public class CountryRegion {
     public static class Builder {
         /**
          * 国家/地区 ID
-         * <p> 示例值：6893114062122064111
+         * <p> 示例值：6862995757234914824
          */
         private String countryRegionId;
         /**
@@ -191,12 +191,12 @@ public class CountryRegion {
          */
         private I18n[] fullName;
         /**
-         * 国家地区二字码
+         * 国家/地区两位字母编码（ISO 3166-1）
          * <p> 示例值：CN
          */
         private String alpha2Code;
         /**
-         * 国家地区三字码
+         * 国家/地区三位字母编码（ISO 3166-1）
          * <p> 示例值：CHN
          */
         private String alpha3Code;
@@ -213,7 +213,7 @@ public class CountryRegion {
 
         /**
          * 国家/地区 ID
-         * <p> 示例值：6893114062122064111
+         * <p> 示例值：6862995757234914824
          *
          * @param countryRegionId
          * @return
@@ -251,7 +251,7 @@ public class CountryRegion {
 
 
         /**
-         * 国家地区二字码
+         * 国家/地区两位字母编码（ISO 3166-1）
          * <p> 示例值：CN
          *
          * @param alpha2Code
@@ -264,7 +264,7 @@ public class CountryRegion {
 
 
         /**
-         * 国家地区三字码
+         * 国家/地区三位字母编码（ISO 3166-1）
          * <p> 示例值：CHN
          *
          * @param alpha3Code

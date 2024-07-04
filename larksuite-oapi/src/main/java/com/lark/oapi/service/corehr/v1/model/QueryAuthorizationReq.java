@@ -50,8 +50,8 @@ public class QueryAuthorizationReq {
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 每页获取记录数量，最大20
+     * <p> 示例值：20
      */
     @Query
     @SerializedName("page_size")
@@ -85,8 +85,8 @@ public class QueryAuthorizationReq {
          */
         this.pageToken = builder.pageToken;
         /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
+         * 每页获取记录数量，最大20
+         * <p> 示例值：20
          */
         this.pageSize = builder.pageSize;
         /**
@@ -144,7 +144,7 @@ public class QueryAuthorizationReq {
         private String[] employmentIdList; // 员工ID列表，最大100个（不传则默认查询全部员工）
         private String[] roleIdList; // 角色 ID 列表，最大 100 个
         private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private String pageSize; // 每页获取记录数量，最大100
+        private String pageSize; // 每页获取记录数量，最大20
         private String userIdType; // 用户 ID 类型
 
 
@@ -188,8 +188,8 @@ public class QueryAuthorizationReq {
 
 
         /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
+         * 每页获取记录数量，最大20
+         * <p> 示例值：20
          *
          * @param pageSize
          * @return

@@ -66,6 +66,12 @@ public class JobData {
     @SerializedName("department_id")
     private String departmentId;
     /**
+     * 岗位 ID，枚举值及详细信息可通过【查询单个岗位】接口查询获得
+     * <p> 示例值：6890452208593372679
+     */
+    @SerializedName("position_id")
+    private String positionId;
+    /**
      * 职务 ID，枚举值及详细信息可通过【查询单个职务】接口查询获得
      * <p> 示例值：6890452208593372679
      */
@@ -228,6 +234,11 @@ public class JobData {
          */
         this.departmentId = builder.departmentId;
         /**
+         * 岗位 ID，枚举值及详细信息可通过【查询单个岗位】接口查询获得
+         * <p> 示例值：6890452208593372679
+         */
+        this.positionId = builder.positionId;
+        /**
          * 职务 ID，枚举值及详细信息可通过【查询单个职务】接口查询获得
          * <p> 示例值：6890452208593372679
          */
@@ -384,6 +395,14 @@ public class JobData {
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
     }
 
     public String getJobId() {
@@ -586,6 +605,11 @@ public class JobData {
          */
         private String departmentId;
         /**
+         * 岗位 ID，枚举值及详细信息可通过【查询单个岗位】接口查询获得
+         * <p> 示例值：6890452208593372679
+         */
+        private String positionId;
+        /**
          * 职务 ID，枚举值及详细信息可通过【查询单个职务】接口查询获得
          * <p> 示例值：6890452208593372679
          */
@@ -765,6 +789,19 @@ public class JobData {
          */
         public Builder departmentId(String departmentId) {
             this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 岗位 ID，枚举值及详细信息可通过【查询单个岗位】接口查询获得
+         * <p> 示例值：6890452208593372679
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
             return this;
         }
 

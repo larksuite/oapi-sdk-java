@@ -17,8 +17,8 @@ package com.lark.oapi.service.corehr.v2.enums;
  * 状态
  */
 public enum NationalityBasicDataObjStatusEnum {
-    EFFECTIVE(1), // 生效
-    EXPIRATION(0), // 失效
+    ACTIVE(1), // 生效
+    INACTIVE(0), // 失效
     ;
     private Integer value;
 

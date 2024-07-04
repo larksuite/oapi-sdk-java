@@ -84,6 +84,12 @@ public class Meeting {
     @SerializedName("host_user")
     private MeetingUser hostUser;
     /**
+     * 该会议是否支持互通
+     * <p> 示例值：true
+     */
+    @SerializedName("meeting_connect")
+    private Boolean meetingConnect;
+    /**
      * 会议状态
      * <p> 示例值：2
      */
@@ -164,6 +170,11 @@ public class Meeting {
          * <p> 示例值：
          */
         this.hostUser = builder.hostUser;
+        /**
+         * 该会议是否支持互通
+         * <p> 示例值：true
+         */
+        this.meetingConnect = builder.meetingConnect;
         /**
          * 会议状态
          * <p> 示例值：2
@@ -267,6 +278,14 @@ public class Meeting {
         this.hostUser = hostUser;
     }
 
+    public Boolean getMeetingConnect() {
+        return this.meetingConnect;
+    }
+
+    public void setMeetingConnect(Boolean meetingConnect) {
+        this.meetingConnect = meetingConnect;
+    }
+
     public Integer getStatus() {
         return this.status;
     }
@@ -353,6 +372,11 @@ public class Meeting {
          * <p> 示例值：
          */
         private MeetingUser hostUser;
+        /**
+         * 该会议是否支持互通
+         * <p> 示例值：true
+         */
+        private Boolean meetingConnect;
         /**
          * 会议状态
          * <p> 示例值：2
@@ -492,6 +516,19 @@ public class Meeting {
          */
         public Builder hostUser(MeetingUser hostUser) {
             this.hostUser = hostUser;
+            return this;
+        }
+
+
+        /**
+         * 该会议是否支持互通
+         * <p> 示例值：true
+         *
+         * @param meetingConnect
+         * @return
+         */
+        public Builder meetingConnect(Boolean meetingConnect) {
+            this.meetingConnect = meetingConnect;
             return this;
         }
 

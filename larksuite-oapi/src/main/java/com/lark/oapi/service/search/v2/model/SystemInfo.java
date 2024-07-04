@@ -83,6 +83,18 @@ public class SystemInfo {
      */
     @SerializedName("agent_id")
     private String agentId;
+    /**
+     * locale
+     * <p> 示例值：zh_cn
+     */
+    @SerializedName("locale")
+    private String locale;
+    /**
+     * app_version 客户端版本
+     * <p> 示例值：7.20.0
+     */
+    @SerializedName("app_version")
+    private String appVersion;
 
     // builder 开始
     public SystemInfo() {
@@ -134,6 +146,16 @@ public class SystemInfo {
          * <p> 示例值：7302361858671902739
          */
         this.agentId = builder.agentId;
+        /**
+         * locale
+         * <p> 示例值：zh_cn
+         */
+        this.locale = builder.locale;
+        /**
+         * app_version 客户端版本
+         * <p> 示例值：7.20.0
+         */
+        this.appVersion = builder.appVersion;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +234,22 @@ public class SystemInfo {
         this.agentId = agentId;
     }
 
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getAppVersion() {
+        return this.appVersion;
+    }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
+    }
+
     public static class Builder {
         /**
          * 用户时间
@@ -258,6 +296,16 @@ public class SystemInfo {
          * <p> 示例值：7302361858671902739
          */
         private String agentId;
+        /**
+         * locale
+         * <p> 示例值：zh_cn
+         */
+        private String locale;
+        /**
+         * app_version 客户端版本
+         * <p> 示例值：7.20.0
+         */
+        private String appVersion;
 
         /**
          * 用户时间
@@ -384,6 +432,32 @@ public class SystemInfo {
          */
         public Builder agentId(String agentId) {
             this.agentId = agentId;
+            return this;
+        }
+
+
+        /**
+         * locale
+         * <p> 示例值：zh_cn
+         *
+         * @param locale
+         * @return
+         */
+        public Builder locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+
+        /**
+         * app_version 客户端版本
+         * <p> 示例值：7.20.0
+         *
+         * @param appVersion
+         * @return
+         */
+        public Builder appVersion(String appVersion) {
+            this.appVersion = appVersion;
             return this;
         }
 

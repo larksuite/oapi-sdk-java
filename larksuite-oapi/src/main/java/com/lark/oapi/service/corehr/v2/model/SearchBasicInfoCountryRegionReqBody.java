@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoCountryRegionReqBody {
     /**
-     * 国家/地区 ID 列表
+     * 国家/地区 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.country_region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.country_region_id` 等字段中获取
      * <p> 示例值：
      */
     @SerializedName("country_region_id_list")
@@ -48,7 +48,7 @@ public class SearchBasicInfoCountryRegionReqBody {
 
     public SearchBasicInfoCountryRegionReqBody(Builder builder) {
         /**
-         * 国家/地区 ID 列表
+         * 国家/地区 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.country_region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.country_region_id` 等字段中获取
          * <p> 示例值：
          */
         this.countryRegionIdList = builder.countryRegionIdList;
@@ -81,7 +81,7 @@ public class SearchBasicInfoCountryRegionReqBody {
 
     public static class Builder {
         /**
-         * 国家/地区 ID 列表
+         * 国家/地区 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.country_region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.country_region_id` 等字段中获取
          * <p> 示例值：
          */
         private String[] countryRegionIdList;
@@ -92,7 +92,7 @@ public class SearchBasicInfoCountryRegionReqBody {
         private Integer[] statusList;
 
         /**
-         * 国家/地区 ID 列表
+         * 国家/地区 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.country_region_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.country_region_id` 等字段中获取
          * <p> 示例值：
          *
          * @param countryRegionIdList

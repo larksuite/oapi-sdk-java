@@ -54,6 +54,18 @@ public class SearchPreHireReqBody {
     @SerializedName("onboarding_date_end")
     private String onboardingDateEnd;
     /**
+     * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
+     * <p> 示例值：2006-01-02
+     */
+    @SerializedName("updated_date_start")
+    private String updatedDateStart;
+    /**
+     * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
+     * <p> 示例值：2006-01-02
+     */
+    @SerializedName("updated_date_end")
+    private String updatedDateEnd;
+    /**
      * 入职地点 ID 列表
      * <p> 示例值：
      */
@@ -133,6 +145,16 @@ public class SearchPreHireReqBody {
          * <p> 示例值：2006-01-02
          */
         this.onboardingDateEnd = builder.onboardingDateEnd;
+        /**
+         * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2006-01-02
+         */
+        this.updatedDateStart = builder.updatedDateStart;
+        /**
+         * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
+         * <p> 示例值：2006-01-02
+         */
+        this.updatedDateEnd = builder.updatedDateEnd;
         /**
          * 入职地点 ID 列表
          * <p> 示例值：
@@ -214,6 +236,22 @@ public class SearchPreHireReqBody {
 
     public void setOnboardingDateEnd(String onboardingDateEnd) {
         this.onboardingDateEnd = onboardingDateEnd;
+    }
+
+    public String getUpdatedDateStart() {
+        return this.updatedDateStart;
+    }
+
+    public void setUpdatedDateStart(String updatedDateStart) {
+        this.updatedDateStart = updatedDateStart;
+    }
+
+    public String getUpdatedDateEnd() {
+        return this.updatedDateEnd;
+    }
+
+    public void setUpdatedDateEnd(String updatedDateEnd) {
+        this.updatedDateEnd = updatedDateEnd;
     }
 
     public String[] getOnboardingLocationIds() {
@@ -310,6 +348,16 @@ public class SearchPreHireReqBody {
          */
         private String onboardingDateEnd;
         /**
+         * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2006-01-02
+         */
+        private String updatedDateStart;
+        /**
+         * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
+         * <p> 示例值：2006-01-02
+         */
+        private String updatedDateEnd;
+        /**
          * 入职地点 ID 列表
          * <p> 示例值：
          */
@@ -403,6 +451,32 @@ public class SearchPreHireReqBody {
          */
         public Builder onboardingDateEnd(String onboardingDateEnd) {
             this.onboardingDateEnd = onboardingDateEnd;
+            return this;
+        }
+
+
+        /**
+         * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
+         * <p> 示例值：2006-01-02
+         *
+         * @param updatedDateStart
+         * @return
+         */
+        public Builder updatedDateStart(String updatedDateStart) {
+            this.updatedDateStart = updatedDateStart;
+            return this;
+        }
+
+
+        /**
+         * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
+         * <p> 示例值：2006-01-02
+         *
+         * @param updatedDateEnd
+         * @return
+         */
+        public Builder updatedDateEnd(String updatedDateEnd) {
+            this.updatedDateEnd = updatedDateEnd;
             return this;
         }
 

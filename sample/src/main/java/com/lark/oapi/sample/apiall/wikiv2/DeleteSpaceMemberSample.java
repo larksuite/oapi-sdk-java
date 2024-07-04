@@ -18,8 +18,9 @@ public class DeleteSpaceMemberSample {
                 .spaceId("7008061636015554580")
                 .memberId("g64fb7g7")
                 .member(Member.newBuilder()
-                        .memberType("")
-                        .memberRole("")
+                        .memberType("openid")
+                        .memberRole("admin")
+                        .type("user")
                         .build())
                 .build();
 

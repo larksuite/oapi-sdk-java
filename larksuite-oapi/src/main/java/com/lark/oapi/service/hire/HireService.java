@@ -54,6 +54,7 @@ import com.lark.oapi.service.hire.v1.resource.Role;
 import com.lark.oapi.service.hire.v1.resource.Talent;
 import com.lark.oapi.service.hire.v1.resource.TalentFolder;
 import com.lark.oapi.service.hire.v1.resource.TalentObject;
+import com.lark.oapi.service.hire.v1.resource.TerminationReason;
 
 public class HireService {
     private final V1 v1;
@@ -95,6 +96,7 @@ public class HireService {
     private final Talent talent; // 人才
     private final TalentFolder talentFolder; // talent_folder
     private final TalentObject talentObject; // talent_object
+    private final TerminationReason terminationReason; // termination_reason
 
     public HireService(Config config) {
         this.v1 = new V1(config);
@@ -136,6 +138,7 @@ public class HireService {
         this.talent = new Talent(config);
         this.talentFolder = new TalentFolder(config);
         this.talentObject = new TalentObject(config);
+        this.terminationReason = new TerminationReason(config);
     }
 
     public V1 v1() {
@@ -292,6 +295,10 @@ public class HireService {
 
     public TalentObject talentObject() {
         return talentObject;
+    }
+
+    public TerminationReason terminationReason() {
+        return terminationReason;
     }
 
     public abstract static class P2ApplicationDeletedV1Handler implements IEventHandler<P2ApplicationDeletedV1> {

@@ -251,6 +251,48 @@ public class OfferInfo {
      */
     @SerializedName("office_address_id")
     private String officeAddressId;
+    /**
+     * 岗位id
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("position_id")
+    private String positionId;
+    /**
+     * 工作日历id
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("working_calendar_id")
+    private String workingCalendarId;
+    /**
+     * 工时制度
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("working_hours_type")
+    private String workingHoursType;
+    /**
+     * 薪资组
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("pay_group_id")
+    private String payGroupId;
+    /**
+     * 入职流程ID
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("flow_id")
+    private String flowId;
+    /**
+     * 签到日期
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("check_in_time")
+    private String checkInTime;
+    /**
+     * 签到方式
+     * <p> 示例值：6977976687350924833
+     */
+    @SerializedName("check_in_method")
+    private String checkInMethod;
 
     // builder 开始
     public OfferInfo() {
@@ -442,6 +484,41 @@ public class OfferInfo {
          * <p> 示例值：6977976687350924833
          */
         this.officeAddressId = builder.officeAddressId;
+        /**
+         * 岗位id
+         * <p> 示例值：6977976687350924833
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 工作日历id
+         * <p> 示例值：6977976687350924833
+         */
+        this.workingCalendarId = builder.workingCalendarId;
+        /**
+         * 工时制度
+         * <p> 示例值：6977976687350924833
+         */
+        this.workingHoursType = builder.workingHoursType;
+        /**
+         * 薪资组
+         * <p> 示例值：6977976687350924833
+         */
+        this.payGroupId = builder.payGroupId;
+        /**
+         * 入职流程ID
+         * <p> 示例值：6977976687350924833
+         */
+        this.flowId = builder.flowId;
+        /**
+         * 签到日期
+         * <p> 示例值：6977976687350924833
+         */
+        this.checkInTime = builder.checkInTime;
+        /**
+         * 签到方式
+         * <p> 示例值：6977976687350924833
+         */
+        this.checkInMethod = builder.checkInMethod;
     }
 
     public static Builder newBuilder() {
@@ -744,6 +821,62 @@ public class OfferInfo {
         this.officeAddressId = officeAddressId;
     }
 
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
+    }
+
+    public String getWorkingCalendarId() {
+        return this.workingCalendarId;
+    }
+
+    public void setWorkingCalendarId(String workingCalendarId) {
+        this.workingCalendarId = workingCalendarId;
+    }
+
+    public String getWorkingHoursType() {
+        return this.workingHoursType;
+    }
+
+    public void setWorkingHoursType(String workingHoursType) {
+        this.workingHoursType = workingHoursType;
+    }
+
+    public String getPayGroupId() {
+        return this.payGroupId;
+    }
+
+    public void setPayGroupId(String payGroupId) {
+        this.payGroupId = payGroupId;
+    }
+
+    public String getFlowId() {
+        return this.flowId;
+    }
+
+    public void setFlowId(String flowId) {
+        this.flowId = flowId;
+    }
+
+    public String getCheckInTime() {
+        return this.checkInTime;
+    }
+
+    public void setCheckInTime(String checkInTime) {
+        this.checkInTime = checkInTime;
+    }
+
+    public String getCheckInMethod() {
+        return this.checkInMethod;
+    }
+
+    public void setCheckInMethod(String checkInMethod) {
+        this.checkInMethod = checkInMethod;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -930,6 +1063,41 @@ public class OfferInfo {
          * <p> 示例值：6977976687350924833
          */
         private String officeAddressId;
+        /**
+         * 岗位id
+         * <p> 示例值：6977976687350924833
+         */
+        private String positionId;
+        /**
+         * 工作日历id
+         * <p> 示例值：6977976687350924833
+         */
+        private String workingCalendarId;
+        /**
+         * 工时制度
+         * <p> 示例值：6977976687350924833
+         */
+        private String workingHoursType;
+        /**
+         * 薪资组
+         * <p> 示例值：6977976687350924833
+         */
+        private String payGroupId;
+        /**
+         * 入职流程ID
+         * <p> 示例值：6977976687350924833
+         */
+        private String flowId;
+        /**
+         * 签到日期
+         * <p> 示例值：6977976687350924833
+         */
+        private String checkInTime;
+        /**
+         * 签到方式
+         * <p> 示例值：6977976687350924833
+         */
+        private String checkInMethod;
 
         /**
          * Offer id
@@ -1408,6 +1576,97 @@ public class OfferInfo {
          */
         public Builder officeAddressId(String officeAddressId) {
             this.officeAddressId = officeAddressId;
+            return this;
+        }
+
+
+        /**
+         * 岗位id
+         * <p> 示例值：6977976687350924833
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 工作日历id
+         * <p> 示例值：6977976687350924833
+         *
+         * @param workingCalendarId
+         * @return
+         */
+        public Builder workingCalendarId(String workingCalendarId) {
+            this.workingCalendarId = workingCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 工时制度
+         * <p> 示例值：6977976687350924833
+         *
+         * @param workingHoursType
+         * @return
+         */
+        public Builder workingHoursType(String workingHoursType) {
+            this.workingHoursType = workingHoursType;
+            return this;
+        }
+
+
+        /**
+         * 薪资组
+         * <p> 示例值：6977976687350924833
+         *
+         * @param payGroupId
+         * @return
+         */
+        public Builder payGroupId(String payGroupId) {
+            this.payGroupId = payGroupId;
+            return this;
+        }
+
+
+        /**
+         * 入职流程ID
+         * <p> 示例值：6977976687350924833
+         *
+         * @param flowId
+         * @return
+         */
+        public Builder flowId(String flowId) {
+            this.flowId = flowId;
+            return this;
+        }
+
+
+        /**
+         * 签到日期
+         * <p> 示例值：6977976687350924833
+         *
+         * @param checkInTime
+         * @return
+         */
+        public Builder checkInTime(String checkInTime) {
+            this.checkInTime = checkInTime;
+            return this;
+        }
+
+
+        /**
+         * 签到方式
+         * <p> 示例值：6977976687350924833
+         *
+         * @param checkInMethod
+         * @return
+         */
+        public Builder checkInMethod(String checkInMethod) {
+            this.checkInMethod = checkInMethod;
             return this;
         }
 

@@ -14,7 +14,7 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 需要增加的权限角色
+ * 协作者的权限角色
  */
 public enum UpdatePermissionMemberPermEnum {
     VIEW("view"), // 可阅读角色

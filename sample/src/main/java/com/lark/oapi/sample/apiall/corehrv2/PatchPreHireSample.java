@@ -23,6 +23,7 @@ public class PatchPreHireSample {
                         .offerInfoUpdate(OfferInfoUpdate.newBuilder().build())
                         .standardUpdateFields(new String[]{})
                         .customUpdateFields(new String[]{})
+                        .personCustomUpdateFields(new String[]{})
                         .build())
                 .build();
 

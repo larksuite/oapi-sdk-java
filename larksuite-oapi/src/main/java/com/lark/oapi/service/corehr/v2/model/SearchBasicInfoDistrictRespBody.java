@@ -29,19 +29,17 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoDistrictRespBody {
     /**
-     * 查询的区/县信息
+     * 查询到的区/县列表
      * <p> 示例值：
      */
     @SerializedName("items")
     private District[] items;
     /**
-     * 下一页页码
      * <p> 示例值：
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 是否有下一页
      * <p> 示例值：
      */
     @SerializedName("has_more")

@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class EnumFieldOption {
     /**
-     * 选项 apiname，即选项的唯一标识
+     * 枚举值选项 API Name，即选项的唯一标识
      * <p> 示例值：grade_e
      */
     @SerializedName("option_api_name")
@@ -42,7 +42,7 @@ public class EnumFieldOption {
     @SerializedName("active")
     private Boolean active;
     /**
-     * 选项名称（填写至少一个语言名称）
+     * 选项名称（需填写至少一个语种）
      * <p> 示例值：
      */
     @SerializedName("name")
@@ -54,7 +54,7 @@ public class EnumFieldOption {
 
     public EnumFieldOption(Builder builder) {
         /**
-         * 选项 apiname，即选项的唯一标识
+         * 枚举值选项 API Name，即选项的唯一标识
          * <p> 示例值：grade_e
          */
         this.optionApiName = builder.optionApiName;
@@ -64,7 +64,7 @@ public class EnumFieldOption {
          */
         this.active = builder.active;
         /**
-         * 选项名称（填写至少一个语言名称）
+         * 选项名称（需填写至少一个语种）
          * <p> 示例值：
          */
         this.name = builder.name;
@@ -100,7 +100,7 @@ public class EnumFieldOption {
 
     public static class Builder {
         /**
-         * 选项 apiname，即选项的唯一标识
+         * 枚举值选项 API Name，即选项的唯一标识
          * <p> 示例值：grade_e
          */
         private String optionApiName;
@@ -110,13 +110,13 @@ public class EnumFieldOption {
          */
         private Boolean active;
         /**
-         * 选项名称（填写至少一个语言名称）
+         * 选项名称（需填写至少一个语种）
          * <p> 示例值：
          */
         private Name name;
 
         /**
-         * 选项 apiname，即选项的唯一标识
+         * 枚举值选项 API Name，即选项的唯一标识
          * <p> 示例值：grade_e
          *
          * @param optionApiName
@@ -142,7 +142,7 @@ public class EnumFieldOption {
 
 
         /**
-         * 选项名称（填写至少一个语言名称）
+         * 选项名称（需填写至少一个语种）
          * <p> 示例值：
          *
          * @param name

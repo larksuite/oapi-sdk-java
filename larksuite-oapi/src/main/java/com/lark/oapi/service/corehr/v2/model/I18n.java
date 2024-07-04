@@ -30,14 +30,14 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class I18n {
     /**
-     * 语言
+     * 语言编码（IETF BCP 47）
      * <p> 示例值：zh-CN
      */
     @SerializedName("lang")
     private String lang;
     /**
-     * 内容
-     * <p> 示例值：张三
+     * 文本内容
+     * <p> 示例值：中文示例
      */
     @SerializedName("value")
     private String value;
@@ -48,13 +48,13 @@ public class I18n {
 
     public I18n(Builder builder) {
         /**
-         * 语言
+         * 语言编码（IETF BCP 47）
          * <p> 示例值：zh-CN
          */
         this.lang = builder.lang;
         /**
-         * 内容
-         * <p> 示例值：张三
+         * 文本内容
+         * <p> 示例值：中文示例
          */
         this.value = builder.value;
     }
@@ -81,18 +81,18 @@ public class I18n {
 
     public static class Builder {
         /**
-         * 语言
+         * 语言编码（IETF BCP 47）
          * <p> 示例值：zh-CN
          */
         private String lang;
         /**
-         * 内容
-         * <p> 示例值：张三
+         * 文本内容
+         * <p> 示例值：中文示例
          */
         private String value;
 
         /**
-         * 语言
+         * 语言编码（IETF BCP 47）
          * <p> 示例值：zh-CN
          *
          * @param lang
@@ -105,8 +105,8 @@ public class I18n {
 
 
         /**
-         * 内容
-         * <p> 示例值：张三
+         * 文本内容
+         * <p> 示例值：中文示例
          *
          * @param value
          * @return

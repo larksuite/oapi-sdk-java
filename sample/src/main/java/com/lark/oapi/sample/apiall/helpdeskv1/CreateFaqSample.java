@@ -16,7 +16,7 @@ public class CreateFaqSample {
         // 创建请求对象
         CreateFaqReq req = CreateFaqReq.newBuilder()
                 .createFaqReqBody(CreateFaqReqBody.newBuilder()
-                        .faq(FaqUpdateInfo.newBuilder().build())
+                        .faq(FaqCreateInfo.newBuilder().build())
                         .build())
                 .build();
 

@@ -47,6 +47,12 @@ public class Member {
      */
     @SerializedName("member_role")
     private String memberRole;
+    /**
+     * 知识库协作者类型
+     * <p> 示例值：user
+     */
+    @SerializedName("type")
+    private String type;
 
     // builder 开始
     public Member() {
@@ -68,6 +74,11 @@ public class Member {
          * <p> 示例值：admin
          */
         this.memberRole = builder.memberRole;
+        /**
+         * 知识库协作者类型
+         * <p> 示例值：user
+         */
+        this.type = builder.type;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class Member {
         this.memberRole = memberRole;
     }
 
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public static class Builder {
         /**
          * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
@@ -114,6 +133,11 @@ public class Member {
          * <p> 示例值：admin
          */
         private String memberRole;
+        /**
+         * 知识库协作者类型
+         * <p> 示例值：user
+         */
+        private String type;
 
         /**
          * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
@@ -150,6 +174,31 @@ public class Member {
          */
         public Builder memberRole(String memberRole) {
             this.memberRole = memberRole;
+            return this;
+        }
+
+
+        /**
+         * 知识库协作者类型
+         * <p> 示例值：user
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * 知识库协作者类型
+         * <p> 示例值：user
+         *
+         * @param type {@link com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum type) {
+            this.type = type.getValue();
             return this;
         }
 

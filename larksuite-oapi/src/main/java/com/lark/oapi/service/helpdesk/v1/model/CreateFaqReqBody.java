@@ -34,7 +34,7 @@ public class CreateFaqReqBody {
      * <p> 示例值：
      */
     @SerializedName("faq")
-    private FaqUpdateInfo faq;
+    private FaqCreateInfo faq;
 
     // builder 开始
     public CreateFaqReqBody() {
@@ -52,11 +52,11 @@ public class CreateFaqReqBody {
         return new Builder();
     }
 
-    public FaqUpdateInfo getFaq() {
+    public FaqCreateInfo getFaq() {
         return this.faq;
     }
 
-    public void setFaq(FaqUpdateInfo faq) {
+    public void setFaq(FaqCreateInfo faq) {
         this.faq = faq;
     }
 
@@ -65,7 +65,7 @@ public class CreateFaqReqBody {
          * 知识库详情
          * <p> 示例值：
          */
-        private FaqUpdateInfo faq;
+        private FaqCreateInfo faq;
 
         /**
          * 知识库详情
@@ -74,7 +74,7 @@ public class CreateFaqReqBody {
          * @param faq
          * @return
          */
-        public Builder faq(FaqUpdateInfo faq) {
+        public Builder faq(FaqCreateInfo faq) {
             this.faq = faq;
             return this;
         }

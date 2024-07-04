@@ -61,7 +61,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -93,7 +93,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -127,7 +127,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -159,7 +159,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -193,7 +193,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -225,7 +225,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -259,7 +259,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -291,7 +291,7 @@ public class AilySessionRun {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/aily/v1/sessions/:aily_session_id/runs"
-                , Sets.newHashSet(AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

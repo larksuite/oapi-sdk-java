@@ -353,6 +353,18 @@ public class TransferInfo {
      */
     @SerializedName("target_service_company")
     private String targetServiceCompany;
+    /**
+     * 原岗位
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("original_position")
+    private String originalPosition;
+    /**
+     * 新岗位
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("target_position")
+    private String targetPosition;
 
     // builder 开始
     public TransferInfo() {
@@ -629,6 +641,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         this.targetServiceCompany = builder.targetServiceCompany;
+        /**
+         * 原岗位
+         * <p> 示例值：7289005963599693367
+         */
+        this.originalPosition = builder.originalPosition;
+        /**
+         * 新岗位
+         * <p> 示例值：7289005963599693367
+         */
+        this.targetPosition = builder.targetPosition;
     }
 
     public static Builder newBuilder() {
@@ -1067,6 +1089,22 @@ public class TransferInfo {
         this.targetServiceCompany = targetServiceCompany;
     }
 
+    public String getOriginalPosition() {
+        return this.originalPosition;
+    }
+
+    public void setOriginalPosition(String originalPosition) {
+        this.originalPosition = originalPosition;
+    }
+
+    public String getTargetPosition() {
+        return this.targetPosition;
+    }
+
+    public void setTargetPosition(String targetPosition) {
+        this.targetPosition = targetPosition;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1338,6 +1376,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         private String targetServiceCompany;
+        /**
+         * 原岗位
+         * <p> 示例值：7289005963599693367
+         */
+        private String originalPosition;
+        /**
+         * 新岗位
+         * <p> 示例值：7289005963599693367
+         */
+        private String targetPosition;
 
         /**
          * 备注
@@ -2037,6 +2085,32 @@ public class TransferInfo {
          */
         public Builder targetServiceCompany(String targetServiceCompany) {
             this.targetServiceCompany = targetServiceCompany;
+            return this;
+        }
+
+
+        /**
+         * 原岗位
+         * <p> 示例值：7289005963599693367
+         *
+         * @param originalPosition
+         * @return
+         */
+        public Builder originalPosition(String originalPosition) {
+            this.originalPosition = originalPosition;
+            return this;
+        }
+
+
+        /**
+         * 新岗位
+         * <p> 示例值：7289005963599693367
+         *
+         * @param targetPosition
+         * @return
+         */
+        public Builder targetPosition(String targetPosition) {
+            this.targetPosition = targetPosition;
             return this;
         }
 

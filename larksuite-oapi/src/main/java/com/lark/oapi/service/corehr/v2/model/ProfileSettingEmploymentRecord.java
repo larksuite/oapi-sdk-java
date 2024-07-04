@@ -113,6 +113,12 @@ public class ProfileSettingEmploymentRecord {
      */
     @SerializedName("weekly_working_hours")
     private Integer weeklyWorkingHours;
+    /**
+     * 岗位ID
+     * <p> 示例值：6890452208593372684
+     */
+    @SerializedName("position")
+    private String position;
 
     // builder 开始
     public ProfileSettingEmploymentRecord() {
@@ -189,6 +195,11 @@ public class ProfileSettingEmploymentRecord {
          * <p> 示例值：100
          */
         this.weeklyWorkingHours = builder.weeklyWorkingHours;
+        /**
+         * 岗位ID
+         * <p> 示例值：6890452208593372684
+         */
+        this.position = builder.position;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +318,14 @@ public class ProfileSettingEmploymentRecord {
         this.weeklyWorkingHours = weeklyWorkingHours;
     }
 
+    public String getPosition() {
+        return this.position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public static class Builder {
         /**
          * 人员类型 ID
@@ -378,6 +397,11 @@ public class ProfileSettingEmploymentRecord {
          * <p> 示例值：100
          */
         private Integer weeklyWorkingHours;
+        /**
+         * 岗位ID
+         * <p> 示例值：6890452208593372684
+         */
+        private String position;
 
         /**
          * 人员类型 ID
@@ -557,6 +581,19 @@ public class ProfileSettingEmploymentRecord {
          */
         public Builder weeklyWorkingHours(Integer weeklyWorkingHours) {
             this.weeklyWorkingHours = weeklyWorkingHours;
+            return this;
+        }
+
+
+        /**
+         * 岗位ID
+         * <p> 示例值：6890452208593372684
+         *
+         * @param position
+         * @return
+         */
+        public Builder position(String position) {
+            this.position = position;
             return this;
         }
 

@@ -30,11 +30,11 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteCalendarEventReq {
     /**
      * 删除日程是否给日程参与人发送bot通知，默认为true
-     * <p> 示例值：false
+     * <p> 示例值：
      */
     @Query
     @SerializedName("need_notification")
-    private Boolean needNotification;
+    private String needNotification;
     /**
      * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
@@ -56,7 +56,7 @@ public class DeleteCalendarEventReq {
     public DeleteCalendarEventReq(Builder builder) {
         /**
          * 删除日程是否给日程参与人发送bot通知，默认为true
-         * <p> 示例值：false
+         * <p> 示例值：
          */
         this.needNotification = builder.needNotification;
         /**
@@ -75,11 +75,11 @@ public class DeleteCalendarEventReq {
         return new Builder();
     }
 
-    public Boolean getNeedNotification() {
+    public String getNeedNotification() {
         return this.needNotification;
     }
 
-    public void setNeedNotification(Boolean needNotification) {
+    public void setNeedNotification(String needNotification) {
         this.needNotification = needNotification;
     }
 
@@ -100,25 +100,25 @@ public class DeleteCalendarEventReq {
     }
 
     public static class Builder {
-        private Boolean needNotification; // 删除日程是否给日程参与人发送bot通知，默认为true
+        private String needNotification; // 删除日程是否给日程参与人发送bot通知，默认为true
         private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
         private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
 
         /**
          * 删除日程是否给日程参与人发送bot通知，默认为true
-         * <p> 示例值：false
+         * <p> 示例值：
          *
          * @param needNotification
          * @return
          */
-        public Builder needNotification(Boolean needNotification) {
+        public Builder needNotification(String needNotification) {
             this.needNotification = needNotification;
             return this;
         }
 
         /**
          * 删除日程是否给日程参与人发送bot通知，默认为true
-         * <p> 示例值：false
+         * <p> 示例值：
          *
          * @param needNotification {@link com.lark.oapi.service.calendar.v4.enums.DeleteCalendarEventNeedNotificationEnum}
          * @return

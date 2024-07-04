@@ -17,22 +17,22 @@ package com.lark.oapi.service.wiki.v2.enums;
  * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
  */
 public enum GetSpaceShowLanguageEnum {
-    LANGZH("zh"), // 中文（简体）（中华人民共和国）
-    LANGID("id"), // 印尼语（印度尼西亚）
-    LANGDE("de"), // 德语（德国）
-    LANGEN("en"), // 英语（美国）
-    LANGES("es"), // 西班牙语（西班牙）
-    LANGFR("fr"), // 法语（法国）
-    LANGIT("it"), // 意大利语（意大利）
-    LANGPT("pt"), // 葡萄牙语（巴西）
-    LANGVI("vi"), // 越南语（越南）
-    LANGRU("ru"), // 俄语（俄罗斯）
-    LANGHI("hi"), // 印地语（印度）
-    LANGTH("th"), // 泰语（泰国）
-    LANGKO("ko"), // 韩语（韩国）
-    LANGJA("ja"), // 日语（日本）
-    LANGZHHK("zh-HK"), // 中文（中国香港）
-    LANGZHTW("zh-TW"), // 中文（中国台湾）
+    LANGZH("zh"), // 简体中文
+    LANGID("id"), // 印尼语
+    LANGDE("de"), // 德语
+    LANGEN("en"), // 英语
+    LANGES("es"), // 西班牙语
+    LANGFR("fr"), // 法语
+    LANGIT("it"), // 意大利语
+    LANGPT("pt"), // 葡萄牙语
+    LANGVI("vi"), // 越南语
+    LANGRU("ru"), // 俄语
+    LANGHI("hi"), // 印地语
+    LANGTH("th"), // 泰语
+    LANGKO("ko"), // 韩语
+    LANGJA("ja"), // 日语
+    LANGZHHK("zh-HK"), // 繁体中文（中国香港）
+    LANGZHTW("zh-TW"), // 繁体中文（中国台湾）
     ;
     private String value;
 

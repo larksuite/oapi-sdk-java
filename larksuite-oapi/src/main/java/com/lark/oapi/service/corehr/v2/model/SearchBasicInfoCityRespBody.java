@@ -29,19 +29,17 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoCityRespBody {
     /**
-     * 查询的城市信息
+     * 查询到的城市列表
      * <p> 示例值：
      */
     @SerializedName("items")
     private City[] items;
     /**
-     * 下一页页码
      * <p> 示例值：
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 是否有下一页
      * <p> 示例值：
      */
     @SerializedName("has_more")

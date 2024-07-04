@@ -29,19 +29,17 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoBankRespBody {
     /**
-     * 查询的银行信息
+     * 查询到的银行列表
      * <p> 示例值：
      */
     @SerializedName("items")
     private Bank[] items;
     /**
-     * 下一页页码
      * <p> 示例值：
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 是否有下一页
      * <p> 示例值：
      */
     @SerializedName("has_more")

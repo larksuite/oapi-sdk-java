@@ -55,6 +55,7 @@ public class V1 {
     private final Talent talent; // 人才
     private final TalentFolder talentFolder; // talent_folder
     private final TalentObject talentObject; // talent_object
+    private final TerminationReason terminationReason; // termination_reason
 
     public V1(Config config) {
         this.application = new Application(config);
@@ -95,6 +96,7 @@ public class V1 {
         this.talent = new Talent(config);
         this.talentFolder = new TalentFolder(config);
         this.talentObject = new TalentObject(config);
+        this.terminationReason = new TerminationReason(config);
     }
 
     public Application application() {
@@ -247,5 +249,9 @@ public class V1 {
 
     public TalentObject talentObject() {
         return talentObject;
+    }
+
+    public TerminationReason terminationReason() {
+        return terminationReason;
     }
 }

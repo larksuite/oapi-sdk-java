@@ -18,6 +18,7 @@ public class ListPermissionMemberSample {
                 .token("doccnBKgoMyY5OMbUG6FioTXuBe")
                 .type("doc")
                 .fields("*")
+                .permType("container")
                 .build();
 
         // 发起请求

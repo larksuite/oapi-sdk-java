@@ -190,6 +190,24 @@ public class JobRequirementDto {
      */
     @SerializedName("job_type")
     private JobTypeInfo jobType;
+    /**
+     * 创建时间,毫秒级时间戳
+     * <p> 示例值：1718856006000
+     */
+    @SerializedName("create_time")
+    private String createTime;
+    /**
+     * 创建人ID
+     * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+     */
+    @SerializedName("creator_id")
+    private String creatorId;
+    /**
+     * 更新时间,毫秒级时间戳
+     * <p> 示例值：1718856006000
+     */
+    @SerializedName("update_time")
+    private String updateTime;
 
     // builder 开始
     public JobRequirementDto() {
@@ -331,6 +349,21 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         this.jobType = builder.jobType;
+        /**
+         * 创建时间,毫秒级时间戳
+         * <p> 示例值：1718856006000
+         */
+        this.createTime = builder.createTime;
+        /**
+         * 创建人ID
+         * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+         */
+        this.creatorId = builder.creatorId;
+        /**
+         * 更新时间,毫秒级时间戳
+         * <p> 示例值：1718856006000
+         */
+        this.updateTime = builder.updateTime;
     }
 
     public static Builder newBuilder() {
@@ -553,6 +586,30 @@ public class JobRequirementDto {
         this.jobType = jobType;
     }
 
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getCreatorId() {
+        return this.creatorId;
+    }
+
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public static class Builder {
         /**
          * 招聘需求 ID
@@ -689,6 +746,21 @@ public class JobRequirementDto {
          * <p> 示例值：
          */
         private JobTypeInfo jobType;
+        /**
+         * 创建时间,毫秒级时间戳
+         * <p> 示例值：1718856006000
+         */
+        private String createTime;
+        /**
+         * 创建人ID
+         * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+         */
+        private String creatorId;
+        /**
+         * 更新时间,毫秒级时间戳
+         * <p> 示例值：1718856006000
+         */
+        private String updateTime;
 
         /**
          * 招聘需求 ID
@@ -1037,6 +1109,45 @@ public class JobRequirementDto {
          */
         public Builder jobType(JobTypeInfo jobType) {
             this.jobType = jobType;
+            return this;
+        }
+
+
+        /**
+         * 创建时间,毫秒级时间戳
+         * <p> 示例值：1718856006000
+         *
+         * @param createTime
+         * @return
+         */
+        public Builder createTime(String createTime) {
+            this.createTime = createTime;
+            return this;
+        }
+
+
+        /**
+         * 创建人ID
+         * <p> 示例值：ou_e2fc714c4727ee9395f324cd2e7f331f
+         *
+         * @param creatorId
+         * @return
+         */
+        public Builder creatorId(String creatorId) {
+            this.creatorId = creatorId;
+            return this;
+        }
+
+
+        /**
+         * 更新时间,毫秒级时间戳
+         * <p> 示例值：1718856006000
+         *
+         * @param updateTime
+         * @return
+         */
+        public Builder updateTime(String updateTime) {
+            this.updateTime = updateTime;
             return this;
         }
 

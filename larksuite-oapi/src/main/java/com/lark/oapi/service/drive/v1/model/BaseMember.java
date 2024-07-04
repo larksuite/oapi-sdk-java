@@ -48,6 +48,12 @@ public class BaseMember {
     @SerializedName("perm")
     private String perm;
     /**
+     * 协作者的权限角色类型
+     * <p> 示例值：container
+     */
+    @SerializedName("perm_type")
+    private String permType;
+    /**
      * 协作者类型
      * <p> 示例值：user
      */
@@ -74,6 +80,11 @@ public class BaseMember {
          * <p> 示例值：view
          */
         this.perm = builder.perm;
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         */
+        this.permType = builder.permType;
         /**
          * 协作者类型
          * <p> 示例值：user
@@ -109,6 +120,14 @@ public class BaseMember {
         this.perm = perm;
     }
 
+    public String getPermType() {
+        return this.permType;
+    }
+
+    public void setPermType(String permType) {
+        this.permType = permType;
+    }
+
     public String getType() {
         return this.type;
     }
@@ -133,6 +152,11 @@ public class BaseMember {
          * <p> 示例值：view
          */
         private String perm;
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         */
+        private String permType;
         /**
          * 协作者类型
          * <p> 示例值：user
@@ -198,6 +222,31 @@ public class BaseMember {
          */
         public Builder perm(com.lark.oapi.service.drive.v1.enums.BaseMemberPermEnum perm) {
             this.perm = perm.getValue();
+            return this;
+        }
+
+
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         *
+         * @param permType
+         * @return
+         */
+        public Builder permType(String permType) {
+            this.permType = permType;
+            return this;
+        }
+
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         *
+         * @param permType {@link com.lark.oapi.service.drive.v1.enums.BaseMemberPermTypeEnum}
+         * @return
+         */
+        public Builder permType(com.lark.oapi.service.drive.v1.enums.BaseMemberPermTypeEnum permType) {
+            this.permType = permType.getValue();
             return this;
         }
 

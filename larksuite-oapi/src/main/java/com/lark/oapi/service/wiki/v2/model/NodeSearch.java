@@ -43,7 +43,7 @@ public class NodeSearch {
     private String spaceId;
     /**
      * 父节点id
-     * <p> 示例值：
+     * <p> 示例值：7067522558521772323
      */
     @SerializedName("parent_id")
     private String parentId;
@@ -61,19 +61,19 @@ public class NodeSearch {
     private String title;
     /**
      * wiki的访问url
-     * <p> 示例值：https://single-container.feishu.cn/wiki/wikbcPkzIoLp52Dh2Pj3nQaYPFO
+     * <p> 示例值：https://example.feishu.cn/wiki
      */
     @SerializedName("url")
     private String url;
     /**
      * wiki对应图标的url
-     * <p> 示例值：
+     * <p> 示例值：https://example.feishu.cn/icon
      */
     @SerializedName("icon")
     private String icon;
     /**
      * 所属权限范围id
-     * <p> 示例值：
+     * <p> 示例值：7067522558521772323
      */
     @SerializedName("area_id")
     private String areaId;
@@ -85,7 +85,7 @@ public class NodeSearch {
     private Double sortId;
     /**
      * 所在域名
-     * <p> 示例值：
+     * <p> 示例值：example.feishu.cn
      */
     @SerializedName("domain")
     private String domain;
@@ -113,7 +113,7 @@ public class NodeSearch {
         this.spaceId = builder.spaceId;
         /**
          * 父节点id
-         * <p> 示例值：
+         * <p> 示例值：7067522558521772323
          */
         this.parentId = builder.parentId;
         /**
@@ -128,17 +128,17 @@ public class NodeSearch {
         this.title = builder.title;
         /**
          * wiki的访问url
-         * <p> 示例值：https://single-container.feishu.cn/wiki/wikbcPkzIoLp52Dh2Pj3nQaYPFO
+         * <p> 示例值：https://example.feishu.cn/wiki
          */
         this.url = builder.url;
         /**
          * wiki对应图标的url
-         * <p> 示例值：
+         * <p> 示例值：https://example.feishu.cn/icon
          */
         this.icon = builder.icon;
         /**
          * 所属权限范围id
-         * <p> 示例值：
+         * <p> 示例值：7067522558521772323
          */
         this.areaId = builder.areaId;
         /**
@@ -148,7 +148,7 @@ public class NodeSearch {
         this.sortId = builder.sortId;
         /**
          * 所在域名
-         * <p> 示例值：
+         * <p> 示例值：example.feishu.cn
          */
         this.domain = builder.domain;
         /**
@@ -263,7 +263,7 @@ public class NodeSearch {
         private String spaceId;
         /**
          * 父节点id
-         * <p> 示例值：
+         * <p> 示例值：7067522558521772323
          */
         private String parentId;
         /**
@@ -278,17 +278,17 @@ public class NodeSearch {
         private String title;
         /**
          * wiki的访问url
-         * <p> 示例值：https://single-container.feishu.cn/wiki/wikbcPkzIoLp52Dh2Pj3nQaYPFO
+         * <p> 示例值：https://example.feishu.cn/wiki
          */
         private String url;
         /**
          * wiki对应图标的url
-         * <p> 示例值：
+         * <p> 示例值：https://example.feishu.cn/icon
          */
         private String icon;
         /**
          * 所属权限范围id
-         * <p> 示例值：
+         * <p> 示例值：7067522558521772323
          */
         private String areaId;
         /**
@@ -298,7 +298,7 @@ public class NodeSearch {
         private Double sortId;
         /**
          * 所在域名
-         * <p> 示例值：
+         * <p> 示例值：example.feishu.cn
          */
         private String domain;
         /**
@@ -335,7 +335,7 @@ public class NodeSearch {
 
         /**
          * 父节点id
-         * <p> 示例值：
+         * <p> 示例值：7067522558521772323
          *
          * @param parentId
          * @return
@@ -386,7 +386,7 @@ public class NodeSearch {
 
         /**
          * wiki的访问url
-         * <p> 示例值：https://single-container.feishu.cn/wiki/wikbcPkzIoLp52Dh2Pj3nQaYPFO
+         * <p> 示例值：https://example.feishu.cn/wiki
          *
          * @param url
          * @return
@@ -399,7 +399,7 @@ public class NodeSearch {
 
         /**
          * wiki对应图标的url
-         * <p> 示例值：
+         * <p> 示例值：https://example.feishu.cn/icon
          *
          * @param icon
          * @return
@@ -412,7 +412,7 @@ public class NodeSearch {
 
         /**
          * 所属权限范围id
-         * <p> 示例值：
+         * <p> 示例值：7067522558521772323
          *
          * @param areaId
          * @return
@@ -438,7 +438,7 @@ public class NodeSearch {
 
         /**
          * 所在域名
-         * <p> 示例值：
+         * <p> 示例值：example.feishu.cn
          *
          * @param domain
          * @return

@@ -46,6 +46,12 @@ public class P2ProcessUpdatedV2Data {
      */
     @SerializedName("biz_type")
     private String bizType;
+    /**
+     * 流程定义ID
+     * <p> 示例值：people_7023711013443944467_7379576600867884844v
+     */
+    @SerializedName("flow_definition_id")
+    private String flowDefinitionId;
 
     public String getProcessId() {
         return this.processId;
@@ -69,6 +75,14 @@ public class P2ProcessUpdatedV2Data {
 
     public void setBizType(String bizType) {
         this.bizType = bizType;
+    }
+
+    public String getFlowDefinitionId() {
+        return this.flowDefinitionId;
+    }
+
+    public void setFlowDefinitionId(String flowDefinitionId) {
+        this.flowDefinitionId = flowDefinitionId;
     }
 
 }

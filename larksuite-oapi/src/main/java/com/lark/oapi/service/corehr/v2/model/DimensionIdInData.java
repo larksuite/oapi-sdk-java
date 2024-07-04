@@ -37,7 +37,7 @@ public class DimensionIdInData {
     private String dimensionKey;
     /**
      * 维度 ids
-     * <p> 示例值：["id1","id2"]
+     * <p> 示例值：
      */
     @SerializedName("dimension_ids")
     private String[] dimensionIds;
@@ -54,7 +54,7 @@ public class DimensionIdInData {
         this.dimensionKey = builder.dimensionKey;
         /**
          * 维度 ids
-         * <p> 示例值：["id1","id2"]
+         * <p> 示例值：
          */
         this.dimensionIds = builder.dimensionIds;
     }
@@ -87,7 +87,7 @@ public class DimensionIdInData {
         private String dimensionKey;
         /**
          * 维度 ids
-         * <p> 示例值：["id1","id2"]
+         * <p> 示例值：
          */
         private String[] dimensionIds;
 
@@ -106,7 +106,7 @@ public class DimensionIdInData {
 
         /**
          * 维度 ids
-         * <p> 示例值：["id1","id2"]
+         * <p> 示例值：
          *
          * @param dimensionIds
          * @return

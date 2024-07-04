@@ -59,6 +59,12 @@ public class AilyMessageFile {
      */
     @SerializedName("created_at")
     private String createdAt;
+    /**
+     * 文件预览链接
+     * <p> 示例值：
+     */
+    @SerializedName("preview_url")
+    private AilyMessageFilePreview previewUrl;
 
     // builder 开始
     public AilyMessageFile() {
@@ -90,6 +96,11 @@ public class AilyMessageFile {
          * <p> 示例值：1711975665710
          */
         this.createdAt = builder.createdAt;
+        /**
+         * 文件预览链接
+         * <p> 示例值：
+         */
+        this.previewUrl = builder.previewUrl;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class AilyMessageFile {
         this.createdAt = createdAt;
     }
 
+    public AilyMessageFilePreview getPreviewUrl() {
+        return this.previewUrl;
+    }
+
+    public void setPreviewUrl(AilyMessageFilePreview previewUrl) {
+        this.previewUrl = previewUrl;
+    }
+
     public static class Builder {
         /**
          * 文件 ID
@@ -162,6 +181,11 @@ public class AilyMessageFile {
          * <p> 示例值：1711975665710
          */
         private String createdAt;
+        /**
+         * 文件预览链接
+         * <p> 示例值：
+         */
+        private AilyMessageFilePreview previewUrl;
 
         /**
          * 文件 ID
@@ -224,6 +248,19 @@ public class AilyMessageFile {
          */
         public Builder createdAt(String createdAt) {
             this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 文件预览链接
+         * <p> 示例值：
+         *
+         * @param previewUrl
+         * @return
+         */
+        public Builder previewUrl(AilyMessageFilePreview previewUrl) {
+            this.previewUrl = previewUrl;
             return this;
         }
 

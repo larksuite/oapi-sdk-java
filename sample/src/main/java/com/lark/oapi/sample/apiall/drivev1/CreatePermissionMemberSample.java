@@ -22,6 +22,7 @@ public class CreatePermissionMemberSample {
                         .memberType("openid")
                         .memberId("string")
                         .perm("view")
+                        .permType("container")
                         .type("user")
                         .build())
                 .build();

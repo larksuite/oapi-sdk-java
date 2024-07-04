@@ -21,7 +21,7 @@ public class CreateNoteSample {
                         .applicationId("6891565253964859661")
                         .creatorId("ou_f476cb099ac9227c9bae09ce46112579")
                         .content("测试5")
-                        .privacy(1)
+                        .privacy(2)
                         .notifyMentionedUser(false)
                         .mentionEntityList(new MentionEntity[]{})
                         .build())

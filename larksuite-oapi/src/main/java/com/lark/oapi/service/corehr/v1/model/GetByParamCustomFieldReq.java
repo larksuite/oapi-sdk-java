@@ -29,19 +29,19 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class GetByParamCustomFieldReq {
     /**
-     * 自定义字段 apiname
-     * <p> 示例值：custom_field_33
-     */
-    @Query
-    @SerializedName("custom_api_name")
-    private String customApiName;
-    /**
      * 所属对象 apiname
      * <p> 示例值：offboarding_info
      */
     @Query
     @SerializedName("object_api_name")
     private String objectApiName;
+    /**
+     * 自定义字段 apiname
+     * <p> 示例值：custom_field_33
+     */
+    @Query
+    @SerializedName("custom_api_name")
+    private String customApiName;
 
     // builder 开始
     public GetByParamCustomFieldReq() {
@@ -49,27 +49,19 @@ public class GetByParamCustomFieldReq {
 
     public GetByParamCustomFieldReq(Builder builder) {
         /**
-         * 自定义字段 apiname
-         * <p> 示例值：custom_field_33
-         */
-        this.customApiName = builder.customApiName;
-        /**
          * 所属对象 apiname
          * <p> 示例值：offboarding_info
          */
         this.objectApiName = builder.objectApiName;
+        /**
+         * 自定义字段 apiname
+         * <p> 示例值：custom_field_33
+         */
+        this.customApiName = builder.customApiName;
     }
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String getCustomApiName() {
-        return this.customApiName;
-    }
-
-    public void setCustomApiName(String customApiName) {
-        this.customApiName = customApiName;
     }
 
     public String getObjectApiName() {
@@ -80,22 +72,17 @@ public class GetByParamCustomFieldReq {
         this.objectApiName = objectApiName;
     }
 
+    public String getCustomApiName() {
+        return this.customApiName;
+    }
+
+    public void setCustomApiName(String customApiName) {
+        this.customApiName = customApiName;
+    }
+
     public static class Builder {
-        private String customApiName; // 自定义字段 apiname
         private String objectApiName; // 所属对象 apiname
-
-
-        /**
-         * 自定义字段 apiname
-         * <p> 示例值：custom_field_33
-         *
-         * @param customApiName
-         * @return
-         */
-        public Builder customApiName(String customApiName) {
-            this.customApiName = customApiName;
-            return this;
-        }
+        private String customApiName; // 自定义字段 apiname
 
 
         /**
@@ -107,6 +94,19 @@ public class GetByParamCustomFieldReq {
          */
         public Builder objectApiName(String objectApiName) {
             this.objectApiName = objectApiName;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段 apiname
+         * <p> 示例值：custom_field_33
+         *
+         * @param customApiName
+         * @return
+         */
+        public Builder customApiName(String customApiName) {
+            this.customApiName = customApiName;
             return this;
         }
 

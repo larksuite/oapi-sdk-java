@@ -203,6 +203,72 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 岗位 ID
+     * <p> 示例值：6977976735715373452
+     */
+    @SerializedName("position_id")
+    private String positionId;
+    /**
+     * 公司主体是否被手动修改
+     * <p> 示例值：true
+     */
+    @SerializedName("company_manual_updated")
+    private Boolean companyManualUpdated;
+    /**
+     * 薪资组信息
+     * <p> 示例值：
+     */
+    @SerializedName("pay_group")
+    private PreHirePayGroupInfo payGroup;
+    /**
+     * 是否信息异常
+     * <p> 示例值：true
+     */
+    @SerializedName("whether_the_information_is_abnormal")
+    private Boolean whetherTheInformationIsAbnormal;
+    /**
+     * 异常原因列表
+     * <p> 示例值：
+     */
+    @SerializedName("abnormal_reason")
+    private PreHireAbnormalReason[] abnormalReason;
+    /**
+     * 是否有 Offer 薪酬
+     * <p> 示例值：true
+     */
+    @SerializedName("has_offer_salary")
+    private Boolean hasOfferSalary;
+    /**
+     * 招聘项目 ID
+     * <p> 示例值：23214213152
+     */
+    @SerializedName("recruitment_project_id")
+    private String recruitmentProjectId;
+    /**
+     * -| 排班类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：work_shift - object_api_name：pre_hire
+     * <p> 示例值：
+     */
+    @SerializedName("work_shift")
+    private Enum workShift;
+    /**
+     * 创建时间
+     * <p> 示例值：2023-01-10 10:29
+     */
+    @SerializedName("created_at")
+    private String createdAt;
+    /**
+     * 待入职信息 创建人
+     * <p> 示例值：69928404442626824
+     */
+    @SerializedName("created_by")
+    private String createdBy;
+    /**
+     * 待入职信息 更新人
+     * <p> 示例值：69928404442626824
+     */
+    @SerializedName("updated_by")
+    private String updatedBy;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -354,6 +420,61 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6977976735715373452
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 公司主体是否被手动修改
+         * <p> 示例值：true
+         */
+        this.companyManualUpdated = builder.companyManualUpdated;
+        /**
+         * 薪资组信息
+         * <p> 示例值：
+         */
+        this.payGroup = builder.payGroup;
+        /**
+         * 是否信息异常
+         * <p> 示例值：true
+         */
+        this.whetherTheInformationIsAbnormal = builder.whetherTheInformationIsAbnormal;
+        /**
+         * 异常原因列表
+         * <p> 示例值：
+         */
+        this.abnormalReason = builder.abnormalReason;
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         */
+        this.hasOfferSalary = builder.hasOfferSalary;
+        /**
+         * 招聘项目 ID
+         * <p> 示例值：23214213152
+         */
+        this.recruitmentProjectId = builder.recruitmentProjectId;
+        /**
+         * -| 排班类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：work_shift - object_api_name：pre_hire
+         * <p> 示例值：
+         */
+        this.workShift = builder.workShift;
+        /**
+         * 创建时间
+         * <p> 示例值：2023-01-10 10:29
+         */
+        this.createdAt = builder.createdAt;
+        /**
+         * 待入职信息 创建人
+         * <p> 示例值：69928404442626824
+         */
+        this.createdBy = builder.createdBy;
+        /**
+         * 待入职信息 更新人
+         * <p> 示例值：69928404442626824
+         */
+        this.updatedBy = builder.updatedBy;
     }
 
     public static Builder newBuilder() {
@@ -592,6 +713,94 @@ public class PreHireEmploymentInfo {
         this.customFields = customFields;
     }
 
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
+    }
+
+    public Boolean getCompanyManualUpdated() {
+        return this.companyManualUpdated;
+    }
+
+    public void setCompanyManualUpdated(Boolean companyManualUpdated) {
+        this.companyManualUpdated = companyManualUpdated;
+    }
+
+    public PreHirePayGroupInfo getPayGroup() {
+        return this.payGroup;
+    }
+
+    public void setPayGroup(PreHirePayGroupInfo payGroup) {
+        this.payGroup = payGroup;
+    }
+
+    public Boolean getWhetherTheInformationIsAbnormal() {
+        return this.whetherTheInformationIsAbnormal;
+    }
+
+    public void setWhetherTheInformationIsAbnormal(Boolean whetherTheInformationIsAbnormal) {
+        this.whetherTheInformationIsAbnormal = whetherTheInformationIsAbnormal;
+    }
+
+    public PreHireAbnormalReason[] getAbnormalReason() {
+        return this.abnormalReason;
+    }
+
+    public void setAbnormalReason(PreHireAbnormalReason[] abnormalReason) {
+        this.abnormalReason = abnormalReason;
+    }
+
+    public Boolean getHasOfferSalary() {
+        return this.hasOfferSalary;
+    }
+
+    public void setHasOfferSalary(Boolean hasOfferSalary) {
+        this.hasOfferSalary = hasOfferSalary;
+    }
+
+    public String getRecruitmentProjectId() {
+        return this.recruitmentProjectId;
+    }
+
+    public void setRecruitmentProjectId(String recruitmentProjectId) {
+        this.recruitmentProjectId = recruitmentProjectId;
+    }
+
+    public Enum getWorkShift() {
+        return this.workShift;
+    }
+
+    public void setWorkShift(Enum workShift) {
+        this.workShift = workShift;
+    }
+
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getUpdatedBy() {
+        return this.updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -738,6 +947,61 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6977976735715373452
+         */
+        private String positionId;
+        /**
+         * 公司主体是否被手动修改
+         * <p> 示例值：true
+         */
+        private Boolean companyManualUpdated;
+        /**
+         * 薪资组信息
+         * <p> 示例值：
+         */
+        private PreHirePayGroupInfo payGroup;
+        /**
+         * 是否信息异常
+         * <p> 示例值：true
+         */
+        private Boolean whetherTheInformationIsAbnormal;
+        /**
+         * 异常原因列表
+         * <p> 示例值：
+         */
+        private PreHireAbnormalReason[] abnormalReason;
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         */
+        private Boolean hasOfferSalary;
+        /**
+         * 招聘项目 ID
+         * <p> 示例值：23214213152
+         */
+        private String recruitmentProjectId;
+        /**
+         * -| 排班类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：work_shift - object_api_name：pre_hire
+         * <p> 示例值：
+         */
+        private Enum workShift;
+        /**
+         * 创建时间
+         * <p> 示例值：2023-01-10 10:29
+         */
+        private String createdAt;
+        /**
+         * 待入职信息 创建人
+         * <p> 示例值：69928404442626824
+         */
+        private String createdBy;
+        /**
+         * 待入职信息 更新人
+         * <p> 示例值：69928404442626824
+         */
+        private String updatedBy;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -1124,6 +1388,149 @@ public class PreHireEmploymentInfo {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 岗位 ID
+         * <p> 示例值：6977976735715373452
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 公司主体是否被手动修改
+         * <p> 示例值：true
+         *
+         * @param companyManualUpdated
+         * @return
+         */
+        public Builder companyManualUpdated(Boolean companyManualUpdated) {
+            this.companyManualUpdated = companyManualUpdated;
+            return this;
+        }
+
+
+        /**
+         * 薪资组信息
+         * <p> 示例值：
+         *
+         * @param payGroup
+         * @return
+         */
+        public Builder payGroup(PreHirePayGroupInfo payGroup) {
+            this.payGroup = payGroup;
+            return this;
+        }
+
+
+        /**
+         * 是否信息异常
+         * <p> 示例值：true
+         *
+         * @param whetherTheInformationIsAbnormal
+         * @return
+         */
+        public Builder whetherTheInformationIsAbnormal(Boolean whetherTheInformationIsAbnormal) {
+            this.whetherTheInformationIsAbnormal = whetherTheInformationIsAbnormal;
+            return this;
+        }
+
+
+        /**
+         * 异常原因列表
+         * <p> 示例值：
+         *
+         * @param abnormalReason
+         * @return
+         */
+        public Builder abnormalReason(PreHireAbnormalReason[] abnormalReason) {
+            this.abnormalReason = abnormalReason;
+            return this;
+        }
+
+
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         *
+         * @param hasOfferSalary
+         * @return
+         */
+        public Builder hasOfferSalary(Boolean hasOfferSalary) {
+            this.hasOfferSalary = hasOfferSalary;
+            return this;
+        }
+
+
+        /**
+         * 招聘项目 ID
+         * <p> 示例值：23214213152
+         *
+         * @param recruitmentProjectId
+         * @return
+         */
+        public Builder recruitmentProjectId(String recruitmentProjectId) {
+            this.recruitmentProjectId = recruitmentProjectId;
+            return this;
+        }
+
+
+        /**
+         * -| 排班类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：work_shift - object_api_name：pre_hire
+         * <p> 示例值：
+         *
+         * @param workShift
+         * @return
+         */
+        public Builder workShift(Enum workShift) {
+            this.workShift = workShift;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2023-01-10 10:29
+         *
+         * @param createdAt
+         * @return
+         */
+        public Builder createdAt(String createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 待入职信息 创建人
+         * <p> 示例值：69928404442626824
+         *
+         * @param createdBy
+         * @return
+         */
+        public Builder createdBy(String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+
+        /**
+         * 待入职信息 更新人
+         * <p> 示例值：69928404442626824
+         *
+         * @param updatedBy
+         * @return
+         */
+        public Builder updatedBy(String updatedBy) {
+            this.updatedBy = updatedBy;
             return this;
         }
 

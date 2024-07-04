@@ -49,10 +49,10 @@ public class FaqUpdateInfo {
     private String answer;
     /**
      * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-     * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type": "text";                    }]
+     * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
      */
     @SerializedName("answer_richtext")
-    private String answerRichtext;
+    private Richtext[] answerRichtext;
     /**
      * 相似问题
      * <p> 示例值：["tag1","tag2","tag3"]
@@ -82,7 +82,7 @@ public class FaqUpdateInfo {
         this.answer = builder.answer;
         /**
          * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-         * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type": "text";                    }]
+         * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
          */
         this.answerRichtext = builder.answerRichtext;
         /**
@@ -120,11 +120,11 @@ public class FaqUpdateInfo {
         this.answer = answer;
     }
 
-    public String getAnswerRichtext() {
+    public Richtext[] getAnswerRichtext() {
         return this.answerRichtext;
     }
 
-    public void setAnswerRichtext(String answerRichtext) {
+    public void setAnswerRichtext(Richtext[] answerRichtext) {
         this.answerRichtext = answerRichtext;
     }
 
@@ -154,9 +154,9 @@ public class FaqUpdateInfo {
         private String answer;
         /**
          * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-         * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type": "text";                    }]
+         * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
          */
-        private String answerRichtext;
+        private Richtext[] answerRichtext;
         /**
          * 相似问题
          * <p> 示例值：["tag1","tag2","tag3"]
@@ -204,12 +204,12 @@ public class FaqUpdateInfo {
 
         /**
          * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-         * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type": "text";                    }]
+         * <p> 示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]
          *
          * @param answerRichtext
          * @return
          */
-        public Builder answerRichtext(String answerRichtext) {
+        public Builder answerRichtext(Richtext[] answerRichtext) {
             this.answerRichtext = answerRichtext;
             return this;
         }

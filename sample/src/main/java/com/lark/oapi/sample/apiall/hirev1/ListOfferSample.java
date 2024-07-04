@@ -16,7 +16,7 @@ public class ListOfferSample {
         // 创建请求对象
         ListOfferReq req = ListOfferReq.newBuilder()
                 .pageToken("1231231987")
-                .pageSize(1)
+                .pageSize(10)
                 .talentId("7096320678581242123")
                 .userIdType("user_id")
                 .employeeTypeIdType("people_admin_employee_type_id")

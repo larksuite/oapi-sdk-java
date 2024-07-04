@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class Bank {
     /**
      * 银行 ID
-     * <p> 示例值：6893014062142064135
+     * <p> 示例值：MDBH00000080
      */
     @SerializedName("bank_id")
     private String bankId;
@@ -43,13 +43,13 @@ public class Bank {
     private I18n[] bankName;
     /**
      * 总行代码
-     * <p> 示例值：BKCH
+     * <p> 示例值：CMB
      */
     @SerializedName("bank_code")
     private String bankCode;
     /**
-     * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-     * <p> 示例值：6893014062142064133
+     * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+     * <p> 示例值：6862995757234914824
      */
     @SerializedName("country_region_id")
     private String countryRegionId;
@@ -61,7 +61,7 @@ public class Bank {
     private Integer status;
     /**
      * 创建时间
-     * <p> 示例值：2024-01-01 00:00:00
+     * <p> 示例值：2020-01-01 00:00:00
      */
     @SerializedName("create_time")
     private String createTime;
@@ -79,7 +79,7 @@ public class Bank {
     public Bank(Builder builder) {
         /**
          * 银行 ID
-         * <p> 示例值：6893014062142064135
+         * <p> 示例值：MDBH00000080
          */
         this.bankId = builder.bankId;
         /**
@@ -89,12 +89,12 @@ public class Bank {
         this.bankName = builder.bankName;
         /**
          * 总行代码
-         * <p> 示例值：BKCH
+         * <p> 示例值：CMB
          */
         this.bankCode = builder.bankCode;
         /**
-         * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-         * <p> 示例值：6893014062142064133
+         * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+         * <p> 示例值：6862995757234914824
          */
         this.countryRegionId = builder.countryRegionId;
         /**
@@ -104,7 +104,7 @@ public class Bank {
         this.status = builder.status;
         /**
          * 创建时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         this.createTime = builder.createTime;
         /**
@@ -177,7 +177,7 @@ public class Bank {
     public static class Builder {
         /**
          * 银行 ID
-         * <p> 示例值：6893014062142064135
+         * <p> 示例值：MDBH00000080
          */
         private String bankId;
         /**
@@ -187,12 +187,12 @@ public class Bank {
         private I18n[] bankName;
         /**
          * 总行代码
-         * <p> 示例值：BKCH
+         * <p> 示例值：CMB
          */
         private String bankCode;
         /**
-         * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-         * <p> 示例值：6893014062142064133
+         * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+         * <p> 示例值：6862995757234914824
          */
         private String countryRegionId;
         /**
@@ -202,7 +202,7 @@ public class Bank {
         private Integer status;
         /**
          * 创建时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         private String createTime;
         /**
@@ -213,7 +213,7 @@ public class Bank {
 
         /**
          * 银行 ID
-         * <p> 示例值：6893014062142064135
+         * <p> 示例值：MDBH00000080
          *
          * @param bankId
          * @return
@@ -239,7 +239,7 @@ public class Bank {
 
         /**
          * 总行代码
-         * <p> 示例值：BKCH
+         * <p> 示例值：CMB
          *
          * @param bankCode
          * @return
@@ -251,8 +251,8 @@ public class Bank {
 
 
         /**
-         * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-         * <p> 示例值：6893014062142064133
+         * 国家/地区 ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询
+         * <p> 示例值：6862995757234914824
          *
          * @param countryRegionId
          * @return
@@ -290,7 +290,7 @@ public class Bank {
 
         /**
          * 创建时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          *
          * @param createTime
          * @return

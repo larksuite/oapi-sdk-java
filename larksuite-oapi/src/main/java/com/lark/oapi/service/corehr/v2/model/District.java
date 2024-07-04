@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class District {
     /**
      * 区/县 ID
-     * <p> 示例值：6822114462122064111
+     * <p> 示例值：6863333353496512007
      */
     @SerializedName("district_id")
     private String districtId;
@@ -42,14 +42,14 @@ public class District {
     @SerializedName("name")
     private I18n[] name;
     /**
-     * 所属城市 ID
-     * <p> 示例值：6822114062155062211
+     * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+     * <p> 示例值：6863333352603125255
      */
     @SerializedName("city_id")
     private String cityId;
     /**
-     * 行政区代码
-     * <p> 示例值：110000
+     * 行政区划代码
+     * <p> 示例值：230110
      */
     @SerializedName("subregion_code")
     private String subregionCode;
@@ -67,7 +67,7 @@ public class District {
     public District(Builder builder) {
         /**
          * 区/县 ID
-         * <p> 示例值：6822114462122064111
+         * <p> 示例值：6863333353496512007
          */
         this.districtId = builder.districtId;
         /**
@@ -76,13 +76,13 @@ public class District {
          */
         this.name = builder.name;
         /**
-         * 所属城市 ID
-         * <p> 示例值：6822114062155062211
+         * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+         * <p> 示例值：6863333352603125255
          */
         this.cityId = builder.cityId;
         /**
-         * 行政区代码
-         * <p> 示例值：110000
+         * 行政区划代码
+         * <p> 示例值：230110
          */
         this.subregionCode = builder.subregionCode;
         /**
@@ -139,7 +139,7 @@ public class District {
     public static class Builder {
         /**
          * 区/县 ID
-         * <p> 示例值：6822114462122064111
+         * <p> 示例值：6863333353496512007
          */
         private String districtId;
         /**
@@ -148,13 +148,13 @@ public class District {
          */
         private I18n[] name;
         /**
-         * 所属城市 ID
-         * <p> 示例值：6822114062155062211
+         * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+         * <p> 示例值：6863333352603125255
          */
         private String cityId;
         /**
-         * 行政区代码
-         * <p> 示例值：110000
+         * 行政区划代码
+         * <p> 示例值：230110
          */
         private String subregionCode;
         /**
@@ -165,7 +165,7 @@ public class District {
 
         /**
          * 区/县 ID
-         * <p> 示例值：6822114462122064111
+         * <p> 示例值：6863333353496512007
          *
          * @param districtId
          * @return
@@ -190,8 +190,8 @@ public class District {
 
 
         /**
-         * 所属城市 ID
-         * <p> 示例值：6822114062155062211
+         * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+         * <p> 示例值：6863333352603125255
          *
          * @param cityId
          * @return
@@ -203,8 +203,8 @@ public class District {
 
 
         /**
-         * 行政区代码
-         * <p> 示例值：110000
+         * 行政区划代码
+         * <p> 示例值：230110
          *
          * @param subregionCode
          * @return

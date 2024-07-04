@@ -30,8 +30,8 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class Nationality {
     /**
-     * 国籍 ID（对应其他查询结果的 nationality_id_v2 字段）
-     * <p> 示例值：6893014062142064135
+     * 国籍 ID，对应[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)等接口返回的 `nationality_id_v2` 字段
+     * <p> 示例值：7075702736045475372
      */
     @SerializedName("nationality_id")
     private String nationalityId;
@@ -42,13 +42,13 @@ public class Nationality {
     @SerializedName("name")
     private I18n[] name;
     /**
-     * 二字码
+     * 国家/地区两位字母编码（ISO 3166-1）
      * <p> 示例值：CN
      */
     @SerializedName("alpha_2_code")
     private String alpha2Code;
     /**
-     * 三字码
+     * 国家/地区三位字母编码（ISO 3166-1）
      * <p> 示例值：CHN
      */
     @SerializedName("alpha_3_code")
@@ -60,8 +60,8 @@ public class Nationality {
     @SerializedName("numeric_code")
     private Integer numericCode;
     /**
-     * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-     * <p> 示例值：6893014061142064135
+     * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     * <p> 示例值：6862995757234914824
      */
     @SerializedName("country_region_id")
     private String countryRegionId;
@@ -78,8 +78,8 @@ public class Nationality {
 
     public Nationality(Builder builder) {
         /**
-         * 国籍 ID（对应其他查询结果的 nationality_id_v2 字段）
-         * <p> 示例值：6893014062142064135
+         * 国籍 ID，对应[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)等接口返回的 `nationality_id_v2` 字段
+         * <p> 示例值：7075702736045475372
          */
         this.nationalityId = builder.nationalityId;
         /**
@@ -88,12 +88,12 @@ public class Nationality {
          */
         this.name = builder.name;
         /**
-         * 二字码
+         * 国家/地区两位字母编码（ISO 3166-1）
          * <p> 示例值：CN
          */
         this.alpha2Code = builder.alpha2Code;
         /**
-         * 三字码
+         * 国家/地区三位字母编码（ISO 3166-1）
          * <p> 示例值：CHN
          */
         this.alpha3Code = builder.alpha3Code;
@@ -103,8 +103,8 @@ public class Nationality {
          */
         this.numericCode = builder.numericCode;
         /**
-         * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-         * <p> 示例值：6893014061142064135
+         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995757234914824
          */
         this.countryRegionId = builder.countryRegionId;
         /**
@@ -176,8 +176,8 @@ public class Nationality {
 
     public static class Builder {
         /**
-         * 国籍 ID（对应其他查询结果的 nationality_id_v2 字段）
-         * <p> 示例值：6893014062142064135
+         * 国籍 ID，对应[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)等接口返回的 `nationality_id_v2` 字段
+         * <p> 示例值：7075702736045475372
          */
         private String nationalityId;
         /**
@@ -186,12 +186,12 @@ public class Nationality {
          */
         private I18n[] name;
         /**
-         * 二字码
+         * 国家/地区两位字母编码（ISO 3166-1）
          * <p> 示例值：CN
          */
         private String alpha2Code;
         /**
-         * 三字码
+         * 国家/地区三位字母编码（ISO 3166-1）
          * <p> 示例值：CHN
          */
         private String alpha3Code;
@@ -201,8 +201,8 @@ public class Nationality {
          */
         private Integer numericCode;
         /**
-         * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-         * <p> 示例值：6893014061142064135
+         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995757234914824
          */
         private String countryRegionId;
         /**
@@ -212,8 +212,8 @@ public class Nationality {
         private Integer status;
 
         /**
-         * 国籍 ID（对应其他查询结果的 nationality_id_v2 字段）
-         * <p> 示例值：6893014062142064135
+         * 国籍 ID，对应[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)等接口返回的 `nationality_id_v2` 字段
+         * <p> 示例值：7075702736045475372
          *
          * @param nationalityId
          * @return
@@ -238,7 +238,7 @@ public class Nationality {
 
 
         /**
-         * 二字码
+         * 国家/地区两位字母编码（ISO 3166-1）
          * <p> 示例值：CN
          *
          * @param alpha2Code
@@ -251,7 +251,7 @@ public class Nationality {
 
 
         /**
-         * 三字码
+         * 国家/地区三位字母编码（ISO 3166-1）
          * <p> 示例值：CHN
          *
          * @param alpha3Code
@@ -277,8 +277,8 @@ public class Nationality {
 
 
         /**
-         * 国家 / 地区 ID ，可通过【查询单条国家/地区信息】 接口查询
-         * <p> 示例值：6893014061142064135
+         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+         * <p> 示例值：6862995757234914824
          *
          * @param countryRegionId
          * @return

@@ -59,6 +59,12 @@ public class WorkExperience {
      */
     @SerializedName("description")
     private String description;
+    /**
+     * 部门
+     * <p> 示例值：部门名称
+     */
+    @SerializedName("department")
+    private String department;
 
     // builder 开始
     public WorkExperience() {
@@ -90,6 +96,11 @@ public class WorkExperience {
          * <p> 示例值：app
          */
         this.description = builder.description;
+        /**
+         * 部门
+         * <p> 示例值：部门名称
+         */
+        this.department = builder.department;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class WorkExperience {
         this.description = description;
     }
 
+    public String getDepartment() {
+        return this.department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     public static class Builder {
         /**
          * 公司名称
@@ -162,6 +181,11 @@ public class WorkExperience {
          * <p> 示例值：app
          */
         private String description;
+        /**
+         * 部门
+         * <p> 示例值：部门名称
+         */
+        private String department;
 
         /**
          * 公司名称
@@ -224,6 +248,19 @@ public class WorkExperience {
          */
         public Builder description(String description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 部门
+         * <p> 示例值：部门名称
+         *
+         * @param department
+         * @return
+         */
+        public Builder department(String department) {
+            this.department = department;
             return this;
         }
 

@@ -26,6 +26,8 @@ public class SearchPreHireSample {
                         .preHireIds(new String[]{})
                         .onboardingDateStart("2006-01-02")
                         .onboardingDateEnd("2006-01-02")
+                        .updatedDateStart("2006-01-02")
+                        .updatedDateEnd("2006-01-02")
                         .onboardingLocationIds(new String[]{})
                         .onboardingStatus("待入职(preboarding)")
                         .departmentIds(new String[]{})

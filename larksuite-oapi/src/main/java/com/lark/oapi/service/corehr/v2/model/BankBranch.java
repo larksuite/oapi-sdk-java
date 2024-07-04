@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BankBranch {
     /**
      * 支行 ID
-     * <p> 示例值：6893014062142064111
+     * <p> 示例值：MDBK00061194
      */
     @SerializedName("bank_branch_id")
     private String bankBranchId;
@@ -42,20 +42,20 @@ public class BankBranch {
     @SerializedName("bank_branch_name")
     private I18n[] bankBranchName;
     /**
-     * 所属银行 ID，可通过【查询银行信息】接口查询
-     * <p> 示例值：6893011062142064111
+     * 所属银行 ID，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口查询
+     * <p> 示例值：MDBH00000080
      */
     @SerializedName("bank_id")
     private String bankId;
     /**
      * 金融分支机构编码
-     * <p> 示例值：201
+     * <p> 示例值：308100005019
      */
     @SerializedName("code")
     private String code;
     /**
-     * 银行代码
-     * <p> 示例值：PBOCCNBJ
+     * SWIFT 银行代码（ISO 9362）
+     * <p> 示例值：CMBCCNBS201
      */
     @SerializedName("swift_code")
     private String swiftCode;
@@ -67,7 +67,7 @@ public class BankBranch {
     private Integer status;
     /**
      * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
-     * <p> 示例值：123456
+     * <p> 示例值：B04
      */
     @SerializedName("bank_branch_code")
     private String bankBranchCode;
@@ -85,7 +85,7 @@ public class BankBranch {
     private String bankAddress;
     /**
      * 创建时间
-     * <p> 示例值：2024-01-01 00:00:00
+     * <p> 示例值：2020-01-01 00:00:00
      */
     @SerializedName("create_time")
     private String createTime;
@@ -103,7 +103,7 @@ public class BankBranch {
     public BankBranch(Builder builder) {
         /**
          * 支行 ID
-         * <p> 示例值：6893014062142064111
+         * <p> 示例值：MDBK00061194
          */
         this.bankBranchId = builder.bankBranchId;
         /**
@@ -112,18 +112,18 @@ public class BankBranch {
          */
         this.bankBranchName = builder.bankBranchName;
         /**
-         * 所属银行 ID，可通过【查询银行信息】接口查询
-         * <p> 示例值：6893011062142064111
+         * 所属银行 ID，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口查询
+         * <p> 示例值：MDBH00000080
          */
         this.bankId = builder.bankId;
         /**
          * 金融分支机构编码
-         * <p> 示例值：201
+         * <p> 示例值：308100005019
          */
         this.code = builder.code;
         /**
-         * 银行代码
-         * <p> 示例值：PBOCCNBJ
+         * SWIFT 银行代码（ISO 9362）
+         * <p> 示例值：CMBCCNBS201
          */
         this.swiftCode = builder.swiftCode;
         /**
@@ -133,7 +133,7 @@ public class BankBranch {
         this.status = builder.status;
         /**
          * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
-         * <p> 示例值：123456
+         * <p> 示例值：B04
          */
         this.bankBranchCode = builder.bankBranchCode;
         /**
@@ -148,7 +148,7 @@ public class BankBranch {
         this.bankAddress = builder.bankAddress;
         /**
          * 创建时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         this.createTime = builder.createTime;
         /**
@@ -253,7 +253,7 @@ public class BankBranch {
     public static class Builder {
         /**
          * 支行 ID
-         * <p> 示例值：6893014062142064111
+         * <p> 示例值：MDBK00061194
          */
         private String bankBranchId;
         /**
@@ -262,18 +262,18 @@ public class BankBranch {
          */
         private I18n[] bankBranchName;
         /**
-         * 所属银行 ID，可通过【查询银行信息】接口查询
-         * <p> 示例值：6893011062142064111
+         * 所属银行 ID，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口查询
+         * <p> 示例值：MDBH00000080
          */
         private String bankId;
         /**
          * 金融分支机构编码
-         * <p> 示例值：201
+         * <p> 示例值：308100005019
          */
         private String code;
         /**
-         * 银行代码
-         * <p> 示例值：PBOCCNBJ
+         * SWIFT 银行代码（ISO 9362）
+         * <p> 示例值：CMBCCNBS201
          */
         private String swiftCode;
         /**
@@ -283,7 +283,7 @@ public class BankBranch {
         private Integer status;
         /**
          * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
-         * <p> 示例值：123456
+         * <p> 示例值：B04
          */
         private String bankBranchCode;
         /**
@@ -298,7 +298,7 @@ public class BankBranch {
         private String bankAddress;
         /**
          * 创建时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         private String createTime;
         /**
@@ -309,7 +309,7 @@ public class BankBranch {
 
         /**
          * 支行 ID
-         * <p> 示例值：6893014062142064111
+         * <p> 示例值：MDBK00061194
          *
          * @param bankBranchId
          * @return
@@ -334,8 +334,8 @@ public class BankBranch {
 
 
         /**
-         * 所属银行 ID，可通过【查询银行信息】接口查询
-         * <p> 示例值：6893011062142064111
+         * 所属银行 ID，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口查询
+         * <p> 示例值：MDBH00000080
          *
          * @param bankId
          * @return
@@ -348,7 +348,7 @@ public class BankBranch {
 
         /**
          * 金融分支机构编码
-         * <p> 示例值：201
+         * <p> 示例值：308100005019
          *
          * @param code
          * @return
@@ -360,8 +360,8 @@ public class BankBranch {
 
 
         /**
-         * 银行代码
-         * <p> 示例值：PBOCCNBJ
+         * SWIFT 银行代码（ISO 9362）
+         * <p> 示例值：CMBCCNBS201
          *
          * @param swiftCode
          * @return
@@ -399,7 +399,7 @@ public class BankBranch {
 
         /**
          * Bank Branch Code（特定国家地区汇款使用的编码，如美国银行的 ABA Number、澳大利亚银行的 BSB Code、英国银行的 Sort Code）
-         * <p> 示例值：123456
+         * <p> 示例值：B04
          *
          * @param bankBranchCode
          * @return
@@ -438,7 +438,7 @@ public class BankBranch {
 
         /**
          * 创建时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          *
          * @param createTime
          * @return

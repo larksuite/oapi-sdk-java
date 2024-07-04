@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoBankBranchReqBody {
     /**
-     * 银行 ID 列表
+     * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
      * <p> 示例值：
      */
     @SerializedName("bank_id_list")
     private String[] bankIdList;
     /**
-     * 支行 ID 列表
+     * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
      * <p> 示例值：
      */
     @SerializedName("bank_branch_id_list")
@@ -55,7 +55,7 @@ public class SearchBasicInfoBankBranchReqBody {
     private Integer[] statusList;
     /**
      * 最早更新时间
-     * <p> 示例值：2024-01-01 00:00:00
+     * <p> 示例值：2020-01-01 00:00:00
      */
     @SerializedName("update_start_time")
     private String updateStartTime;
@@ -72,12 +72,12 @@ public class SearchBasicInfoBankBranchReqBody {
 
     public SearchBasicInfoBankBranchReqBody(Builder builder) {
         /**
-         * 银行 ID 列表
+         * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
          * <p> 示例值：
          */
         this.bankIdList = builder.bankIdList;
         /**
-         * 支行 ID 列表
+         * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
          * <p> 示例值：
          */
         this.bankBranchIdList = builder.bankBranchIdList;
@@ -93,7 +93,7 @@ public class SearchBasicInfoBankBranchReqBody {
         this.statusList = builder.statusList;
         /**
          * 最早更新时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         this.updateStartTime = builder.updateStartTime;
         /**
@@ -157,12 +157,12 @@ public class SearchBasicInfoBankBranchReqBody {
 
     public static class Builder {
         /**
-         * 银行 ID 列表
+         * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
          * <p> 示例值：
          */
         private String[] bankIdList;
         /**
-         * 支行 ID 列表
+         * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
          * <p> 示例值：
          */
         private String[] bankBranchIdList;
@@ -178,7 +178,7 @@ public class SearchBasicInfoBankBranchReqBody {
         private Integer[] statusList;
         /**
          * 最早更新时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          */
         private String updateStartTime;
         /**
@@ -188,7 +188,7 @@ public class SearchBasicInfoBankBranchReqBody {
         private String updateEndTime;
 
         /**
-         * 银行 ID 列表
+         * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
          * <p> 示例值：
          *
          * @param bankIdList
@@ -201,7 +201,7 @@ public class SearchBasicInfoBankBranchReqBody {
 
 
         /**
-         * 支行 ID 列表
+         * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
          * <p> 示例值：
          *
          * @param bankBranchIdList
@@ -241,7 +241,7 @@ public class SearchBasicInfoBankBranchReqBody {
 
         /**
          * 最早更新时间
-         * <p> 示例值：2024-01-01 00:00:00
+         * <p> 示例值：2020-01-01 00:00:00
          *
          * @param updateStartTime
          * @return

@@ -95,6 +95,180 @@ public class OfferInfoUpdate {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 岗位 ID,
+     * <p> 示例值：697797668735092768
+     */
+    @SerializedName("position_id")
+    private String positionId;
+    /**
+     * 试用期时长
+     * <p> 示例值：697797668735092768
+     */
+    @SerializedName("probation_period")
+    private Integer probationPeriod;
+    /**
+     * 试用期开始日期
+     * <p> 示例值：xxx
+     */
+    @SerializedName("probation_start_date")
+    private String probationStartDate;
+    /**
+     * 试用期结束日期
+     * <p> 示例值：xxx
+     */
+    @SerializedName("probation_end_date")
+    private String probationEndDate;
+    /**
+     * 合同开始日期
+     * <p> 示例值：xxx
+     */
+    @SerializedName("contract_start_date")
+    private String contractStartDate;
+    /**
+     * 合同结束日期
+     * <p> 示例值：xxx
+     */
+    @SerializedName("contract_end_date")
+    private String contractEndDate;
+    /**
+     * 合同类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("contract_type")
+    private String contractType;
+    /**
+     * 期限类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("duration_type_id")
+    private String durationTypeId;
+    /**
+     * 签订类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("signing_type_id")
+    private String signingTypeId;
+    /**
+     * 工号
+     * <p> 示例值：xxx
+     */
+    @SerializedName("worker_id")
+    private String workerId;
+    /**
+     * 签到时间
+     * <p> 示例值：xxx
+     */
+    @SerializedName("check_in_time")
+    private String checkInTime;
+    /**
+     * 签到方式
+     * <p> 示例值：xxx
+     */
+    @SerializedName("check_in_method")
+    private String checkInMethod;
+    /**
+     * 公司主体
+     * <p> 示例值：xxx
+     */
+    @SerializedName("company")
+    private String company;
+    /**
+     * 排班
+     * <p> 示例值：xxx
+     */
+    @SerializedName("work_shift")
+    private String workShift;
+    /**
+     * 招聘类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("recruitment_type_id")
+    private String recruitmentTypeId;
+    /**
+     * 薪资类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("compensation_type")
+    private String compensationType;
+    /**
+     * 薪资组
+     * <p> 示例值：xxx
+     */
+    @SerializedName("pay_group_id")
+    private String payGroupId;
+    /**
+     * offer HR
+     * <p> 示例值：xxx
+     */
+    @SerializedName("offer_hr_id")
+    private String offerHrId;
+    /**
+     * 职务
+     * <p> 示例值：xxx
+     */
+    @SerializedName("job_id")
+    private String jobId;
+    /**
+     * 序列
+     * <p> 示例值：xxx
+     */
+    @SerializedName("job_family_id")
+    private String jobFamilyId;
+    /**
+     * 职级
+     * <p> 示例值：xxx
+     */
+    @SerializedName("job_level_id")
+    private String jobLevelId;
+    /**
+     * 职等
+     * <p> 示例值：xxx
+     */
+    @SerializedName("job_grade_id")
+    private String jobGradeId;
+    /**
+     * 人员类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("employee_type_id")
+    private String employeeTypeId;
+    /**
+     * 直属上级
+     * <p> 示例值：xxx
+     */
+    @SerializedName("direct_leader_id")
+    private String directLeaderId;
+    /**
+     * 部门
+     * <p> 示例值：xxx
+     */
+    @SerializedName("department_id")
+    private String departmentId;
+    /**
+     * 社保城市
+     * <p> 示例值：xxx
+     */
+    @SerializedName("social_security_city")
+    private String socialSecurityCity;
+    /**
+     * 工作城市
+     * <p> 示例值：xxx
+     */
+    @SerializedName("work_location_id")
+    private String workLocationId;
+    /**
+     * 工作日历
+     * <p> 示例值：xxx
+     */
+    @SerializedName("working_calendar")
+    private String workingCalendar;
+    /**
+     * 工时制度
+     * <p> 示例值：xxx
+     */
+    @SerializedName("working_hours_type")
+    private String workingHoursType;
 
     // builder 开始
     public OfferInfoUpdate() {
@@ -156,6 +330,151 @@ public class OfferInfoUpdate {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 岗位 ID,
+         * <p> 示例值：697797668735092768
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 试用期时长
+         * <p> 示例值：697797668735092768
+         */
+        this.probationPeriod = builder.probationPeriod;
+        /**
+         * 试用期开始日期
+         * <p> 示例值：xxx
+         */
+        this.probationStartDate = builder.probationStartDate;
+        /**
+         * 试用期结束日期
+         * <p> 示例值：xxx
+         */
+        this.probationEndDate = builder.probationEndDate;
+        /**
+         * 合同开始日期
+         * <p> 示例值：xxx
+         */
+        this.contractStartDate = builder.contractStartDate;
+        /**
+         * 合同结束日期
+         * <p> 示例值：xxx
+         */
+        this.contractEndDate = builder.contractEndDate;
+        /**
+         * 合同类型
+         * <p> 示例值：xxx
+         */
+        this.contractType = builder.contractType;
+        /**
+         * 期限类型
+         * <p> 示例值：xxx
+         */
+        this.durationTypeId = builder.durationTypeId;
+        /**
+         * 签订类型
+         * <p> 示例值：xxx
+         */
+        this.signingTypeId = builder.signingTypeId;
+        /**
+         * 工号
+         * <p> 示例值：xxx
+         */
+        this.workerId = builder.workerId;
+        /**
+         * 签到时间
+         * <p> 示例值：xxx
+         */
+        this.checkInTime = builder.checkInTime;
+        /**
+         * 签到方式
+         * <p> 示例值：xxx
+         */
+        this.checkInMethod = builder.checkInMethod;
+        /**
+         * 公司主体
+         * <p> 示例值：xxx
+         */
+        this.company = builder.company;
+        /**
+         * 排班
+         * <p> 示例值：xxx
+         */
+        this.workShift = builder.workShift;
+        /**
+         * 招聘类型
+         * <p> 示例值：xxx
+         */
+        this.recruitmentTypeId = builder.recruitmentTypeId;
+        /**
+         * 薪资类型
+         * <p> 示例值：xxx
+         */
+        this.compensationType = builder.compensationType;
+        /**
+         * 薪资组
+         * <p> 示例值：xxx
+         */
+        this.payGroupId = builder.payGroupId;
+        /**
+         * offer HR
+         * <p> 示例值：xxx
+         */
+        this.offerHrId = builder.offerHrId;
+        /**
+         * 职务
+         * <p> 示例值：xxx
+         */
+        this.jobId = builder.jobId;
+        /**
+         * 序列
+         * <p> 示例值：xxx
+         */
+        this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 职级
+         * <p> 示例值：xxx
+         */
+        this.jobLevelId = builder.jobLevelId;
+        /**
+         * 职等
+         * <p> 示例值：xxx
+         */
+        this.jobGradeId = builder.jobGradeId;
+        /**
+         * 人员类型
+         * <p> 示例值：xxx
+         */
+        this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 直属上级
+         * <p> 示例值：xxx
+         */
+        this.directLeaderId = builder.directLeaderId;
+        /**
+         * 部门
+         * <p> 示例值：xxx
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 社保城市
+         * <p> 示例值：xxx
+         */
+        this.socialSecurityCity = builder.socialSecurityCity;
+        /**
+         * 工作城市
+         * <p> 示例值：xxx
+         */
+        this.workLocationId = builder.workLocationId;
+        /**
+         * 工作日历
+         * <p> 示例值：xxx
+         */
+        this.workingCalendar = builder.workingCalendar;
+        /**
+         * 工时制度
+         * <p> 示例值：xxx
+         */
+        this.workingHoursType = builder.workingHoursType;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +569,238 @@ public class OfferInfoUpdate {
         this.customFields = customFields;
     }
 
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
+    }
+
+    public Integer getProbationPeriod() {
+        return this.probationPeriod;
+    }
+
+    public void setProbationPeriod(Integer probationPeriod) {
+        this.probationPeriod = probationPeriod;
+    }
+
+    public String getProbationStartDate() {
+        return this.probationStartDate;
+    }
+
+    public void setProbationStartDate(String probationStartDate) {
+        this.probationStartDate = probationStartDate;
+    }
+
+    public String getProbationEndDate() {
+        return this.probationEndDate;
+    }
+
+    public void setProbationEndDate(String probationEndDate) {
+        this.probationEndDate = probationEndDate;
+    }
+
+    public String getContractStartDate() {
+        return this.contractStartDate;
+    }
+
+    public void setContractStartDate(String contractStartDate) {
+        this.contractStartDate = contractStartDate;
+    }
+
+    public String getContractEndDate() {
+        return this.contractEndDate;
+    }
+
+    public void setContractEndDate(String contractEndDate) {
+        this.contractEndDate = contractEndDate;
+    }
+
+    public String getContractType() {
+        return this.contractType;
+    }
+
+    public void setContractType(String contractType) {
+        this.contractType = contractType;
+    }
+
+    public String getDurationTypeId() {
+        return this.durationTypeId;
+    }
+
+    public void setDurationTypeId(String durationTypeId) {
+        this.durationTypeId = durationTypeId;
+    }
+
+    public String getSigningTypeId() {
+        return this.signingTypeId;
+    }
+
+    public void setSigningTypeId(String signingTypeId) {
+        this.signingTypeId = signingTypeId;
+    }
+
+    public String getWorkerId() {
+        return this.workerId;
+    }
+
+    public void setWorkerId(String workerId) {
+        this.workerId = workerId;
+    }
+
+    public String getCheckInTime() {
+        return this.checkInTime;
+    }
+
+    public void setCheckInTime(String checkInTime) {
+        this.checkInTime = checkInTime;
+    }
+
+    public String getCheckInMethod() {
+        return this.checkInMethod;
+    }
+
+    public void setCheckInMethod(String checkInMethod) {
+        this.checkInMethod = checkInMethod;
+    }
+
+    public String getCompany() {
+        return this.company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getWorkShift() {
+        return this.workShift;
+    }
+
+    public void setWorkShift(String workShift) {
+        this.workShift = workShift;
+    }
+
+    public String getRecruitmentTypeId() {
+        return this.recruitmentTypeId;
+    }
+
+    public void setRecruitmentTypeId(String recruitmentTypeId) {
+        this.recruitmentTypeId = recruitmentTypeId;
+    }
+
+    public String getCompensationType() {
+        return this.compensationType;
+    }
+
+    public void setCompensationType(String compensationType) {
+        this.compensationType = compensationType;
+    }
+
+    public String getPayGroupId() {
+        return this.payGroupId;
+    }
+
+    public void setPayGroupId(String payGroupId) {
+        this.payGroupId = payGroupId;
+    }
+
+    public String getOfferHrId() {
+        return this.offerHrId;
+    }
+
+    public void setOfferHrId(String offerHrId) {
+        this.offerHrId = offerHrId;
+    }
+
+    public String getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
+    public String getJobFamilyId() {
+        return this.jobFamilyId;
+    }
+
+    public void setJobFamilyId(String jobFamilyId) {
+        this.jobFamilyId = jobFamilyId;
+    }
+
+    public String getJobLevelId() {
+        return this.jobLevelId;
+    }
+
+    public void setJobLevelId(String jobLevelId) {
+        this.jobLevelId = jobLevelId;
+    }
+
+    public String getJobGradeId() {
+        return this.jobGradeId;
+    }
+
+    public void setJobGradeId(String jobGradeId) {
+        this.jobGradeId = jobGradeId;
+    }
+
+    public String getEmployeeTypeId() {
+        return this.employeeTypeId;
+    }
+
+    public void setEmployeeTypeId(String employeeTypeId) {
+        this.employeeTypeId = employeeTypeId;
+    }
+
+    public String getDirectLeaderId() {
+        return this.directLeaderId;
+    }
+
+    public void setDirectLeaderId(String directLeaderId) {
+        this.directLeaderId = directLeaderId;
+    }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getSocialSecurityCity() {
+        return this.socialSecurityCity;
+    }
+
+    public void setSocialSecurityCity(String socialSecurityCity) {
+        this.socialSecurityCity = socialSecurityCity;
+    }
+
+    public String getWorkLocationId() {
+        return this.workLocationId;
+    }
+
+    public void setWorkLocationId(String workLocationId) {
+        this.workLocationId = workLocationId;
+    }
+
+    public String getWorkingCalendar() {
+        return this.workingCalendar;
+    }
+
+    public void setWorkingCalendar(String workingCalendar) {
+        this.workingCalendar = workingCalendar;
+    }
+
+    public String getWorkingHoursType() {
+        return this.workingHoursType;
+    }
+
+    public void setWorkingHoursType(String workingHoursType) {
+        this.workingHoursType = workingHoursType;
+    }
+
     public static class Builder {
         /**
          * 入职日期
@@ -306,6 +857,151 @@ public class OfferInfoUpdate {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 岗位 ID,
+         * <p> 示例值：697797668735092768
+         */
+        private String positionId;
+        /**
+         * 试用期时长
+         * <p> 示例值：697797668735092768
+         */
+        private Integer probationPeriod;
+        /**
+         * 试用期开始日期
+         * <p> 示例值：xxx
+         */
+        private String probationStartDate;
+        /**
+         * 试用期结束日期
+         * <p> 示例值：xxx
+         */
+        private String probationEndDate;
+        /**
+         * 合同开始日期
+         * <p> 示例值：xxx
+         */
+        private String contractStartDate;
+        /**
+         * 合同结束日期
+         * <p> 示例值：xxx
+         */
+        private String contractEndDate;
+        /**
+         * 合同类型
+         * <p> 示例值：xxx
+         */
+        private String contractType;
+        /**
+         * 期限类型
+         * <p> 示例值：xxx
+         */
+        private String durationTypeId;
+        /**
+         * 签订类型
+         * <p> 示例值：xxx
+         */
+        private String signingTypeId;
+        /**
+         * 工号
+         * <p> 示例值：xxx
+         */
+        private String workerId;
+        /**
+         * 签到时间
+         * <p> 示例值：xxx
+         */
+        private String checkInTime;
+        /**
+         * 签到方式
+         * <p> 示例值：xxx
+         */
+        private String checkInMethod;
+        /**
+         * 公司主体
+         * <p> 示例值：xxx
+         */
+        private String company;
+        /**
+         * 排班
+         * <p> 示例值：xxx
+         */
+        private String workShift;
+        /**
+         * 招聘类型
+         * <p> 示例值：xxx
+         */
+        private String recruitmentTypeId;
+        /**
+         * 薪资类型
+         * <p> 示例值：xxx
+         */
+        private String compensationType;
+        /**
+         * 薪资组
+         * <p> 示例值：xxx
+         */
+        private String payGroupId;
+        /**
+         * offer HR
+         * <p> 示例值：xxx
+         */
+        private String offerHrId;
+        /**
+         * 职务
+         * <p> 示例值：xxx
+         */
+        private String jobId;
+        /**
+         * 序列
+         * <p> 示例值：xxx
+         */
+        private String jobFamilyId;
+        /**
+         * 职级
+         * <p> 示例值：xxx
+         */
+        private String jobLevelId;
+        /**
+         * 职等
+         * <p> 示例值：xxx
+         */
+        private String jobGradeId;
+        /**
+         * 人员类型
+         * <p> 示例值：xxx
+         */
+        private String employeeTypeId;
+        /**
+         * 直属上级
+         * <p> 示例值：xxx
+         */
+        private String directLeaderId;
+        /**
+         * 部门
+         * <p> 示例值：xxx
+         */
+        private String departmentId;
+        /**
+         * 社保城市
+         * <p> 示例值：xxx
+         */
+        private String socialSecurityCity;
+        /**
+         * 工作城市
+         * <p> 示例值：xxx
+         */
+        private String workLocationId;
+        /**
+         * 工作日历
+         * <p> 示例值：xxx
+         */
+        private String workingCalendar;
+        /**
+         * 工时制度
+         * <p> 示例值：xxx
+         */
+        private String workingHoursType;
 
         /**
          * 入职日期
@@ -446,6 +1142,383 @@ public class OfferInfoUpdate {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 岗位 ID,
+         * <p> 示例值：697797668735092768
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 试用期时长
+         * <p> 示例值：697797668735092768
+         *
+         * @param probationPeriod
+         * @return
+         */
+        public Builder probationPeriod(Integer probationPeriod) {
+            this.probationPeriod = probationPeriod;
+            return this;
+        }
+
+
+        /**
+         * 试用期开始日期
+         * <p> 示例值：xxx
+         *
+         * @param probationStartDate
+         * @return
+         */
+        public Builder probationStartDate(String probationStartDate) {
+            this.probationStartDate = probationStartDate;
+            return this;
+        }
+
+
+        /**
+         * 试用期结束日期
+         * <p> 示例值：xxx
+         *
+         * @param probationEndDate
+         * @return
+         */
+        public Builder probationEndDate(String probationEndDate) {
+            this.probationEndDate = probationEndDate;
+            return this;
+        }
+
+
+        /**
+         * 合同开始日期
+         * <p> 示例值：xxx
+         *
+         * @param contractStartDate
+         * @return
+         */
+        public Builder contractStartDate(String contractStartDate) {
+            this.contractStartDate = contractStartDate;
+            return this;
+        }
+
+
+        /**
+         * 合同结束日期
+         * <p> 示例值：xxx
+         *
+         * @param contractEndDate
+         * @return
+         */
+        public Builder contractEndDate(String contractEndDate) {
+            this.contractEndDate = contractEndDate;
+            return this;
+        }
+
+
+        /**
+         * 合同类型
+         * <p> 示例值：xxx
+         *
+         * @param contractType
+         * @return
+         */
+        public Builder contractType(String contractType) {
+            this.contractType = contractType;
+            return this;
+        }
+
+
+        /**
+         * 期限类型
+         * <p> 示例值：xxx
+         *
+         * @param durationTypeId
+         * @return
+         */
+        public Builder durationTypeId(String durationTypeId) {
+            this.durationTypeId = durationTypeId;
+            return this;
+        }
+
+
+        /**
+         * 签订类型
+         * <p> 示例值：xxx
+         *
+         * @param signingTypeId
+         * @return
+         */
+        public Builder signingTypeId(String signingTypeId) {
+            this.signingTypeId = signingTypeId;
+            return this;
+        }
+
+
+        /**
+         * 工号
+         * <p> 示例值：xxx
+         *
+         * @param workerId
+         * @return
+         */
+        public Builder workerId(String workerId) {
+            this.workerId = workerId;
+            return this;
+        }
+
+
+        /**
+         * 签到时间
+         * <p> 示例值：xxx
+         *
+         * @param checkInTime
+         * @return
+         */
+        public Builder checkInTime(String checkInTime) {
+            this.checkInTime = checkInTime;
+            return this;
+        }
+
+
+        /**
+         * 签到方式
+         * <p> 示例值：xxx
+         *
+         * @param checkInMethod
+         * @return
+         */
+        public Builder checkInMethod(String checkInMethod) {
+            this.checkInMethod = checkInMethod;
+            return this;
+        }
+
+
+        /**
+         * 公司主体
+         * <p> 示例值：xxx
+         *
+         * @param company
+         * @return
+         */
+        public Builder company(String company) {
+            this.company = company;
+            return this;
+        }
+
+
+        /**
+         * 排班
+         * <p> 示例值：xxx
+         *
+         * @param workShift
+         * @return
+         */
+        public Builder workShift(String workShift) {
+            this.workShift = workShift;
+            return this;
+        }
+
+
+        /**
+         * 招聘类型
+         * <p> 示例值：xxx
+         *
+         * @param recruitmentTypeId
+         * @return
+         */
+        public Builder recruitmentTypeId(String recruitmentTypeId) {
+            this.recruitmentTypeId = recruitmentTypeId;
+            return this;
+        }
+
+
+        /**
+         * 薪资类型
+         * <p> 示例值：xxx
+         *
+         * @param compensationType
+         * @return
+         */
+        public Builder compensationType(String compensationType) {
+            this.compensationType = compensationType;
+            return this;
+        }
+
+
+        /**
+         * 薪资组
+         * <p> 示例值：xxx
+         *
+         * @param payGroupId
+         * @return
+         */
+        public Builder payGroupId(String payGroupId) {
+            this.payGroupId = payGroupId;
+            return this;
+        }
+
+
+        /**
+         * offer HR
+         * <p> 示例值：xxx
+         *
+         * @param offerHrId
+         * @return
+         */
+        public Builder offerHrId(String offerHrId) {
+            this.offerHrId = offerHrId;
+            return this;
+        }
+
+
+        /**
+         * 职务
+         * <p> 示例值：xxx
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 序列
+         * <p> 示例值：xxx
+         *
+         * @param jobFamilyId
+         * @return
+         */
+        public Builder jobFamilyId(String jobFamilyId) {
+            this.jobFamilyId = jobFamilyId;
+            return this;
+        }
+
+
+        /**
+         * 职级
+         * <p> 示例值：xxx
+         *
+         * @param jobLevelId
+         * @return
+         */
+        public Builder jobLevelId(String jobLevelId) {
+            this.jobLevelId = jobLevelId;
+            return this;
+        }
+
+
+        /**
+         * 职等
+         * <p> 示例值：xxx
+         *
+         * @param jobGradeId
+         * @return
+         */
+        public Builder jobGradeId(String jobGradeId) {
+            this.jobGradeId = jobGradeId;
+            return this;
+        }
+
+
+        /**
+         * 人员类型
+         * <p> 示例值：xxx
+         *
+         * @param employeeTypeId
+         * @return
+         */
+        public Builder employeeTypeId(String employeeTypeId) {
+            this.employeeTypeId = employeeTypeId;
+            return this;
+        }
+
+
+        /**
+         * 直属上级
+         * <p> 示例值：xxx
+         *
+         * @param directLeaderId
+         * @return
+         */
+        public Builder directLeaderId(String directLeaderId) {
+            this.directLeaderId = directLeaderId;
+            return this;
+        }
+
+
+        /**
+         * 部门
+         * <p> 示例值：xxx
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 社保城市
+         * <p> 示例值：xxx
+         *
+         * @param socialSecurityCity
+         * @return
+         */
+        public Builder socialSecurityCity(String socialSecurityCity) {
+            this.socialSecurityCity = socialSecurityCity;
+            return this;
+        }
+
+
+        /**
+         * 工作城市
+         * <p> 示例值：xxx
+         *
+         * @param workLocationId
+         * @return
+         */
+        public Builder workLocationId(String workLocationId) {
+            this.workLocationId = workLocationId;
+            return this;
+        }
+
+
+        /**
+         * 工作日历
+         * <p> 示例值：xxx
+         *
+         * @param workingCalendar
+         * @return
+         */
+        public Builder workingCalendar(String workingCalendar) {
+            this.workingCalendar = workingCalendar;
+            return this;
+        }
+
+
+        /**
+         * 工时制度
+         * <p> 示例值：xxx
+         *
+         * @param workingHoursType
+         * @return
+         */
+        public Builder workingHoursType(String workingHoursType) {
+            this.workingHoursType = workingHoursType;
             return this;
         }
 

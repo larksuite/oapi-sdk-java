@@ -53,6 +53,12 @@ public class PrehireUpdate {
      */
     @SerializedName("custom_update_fields")
     private String[] customUpdateFields;
+    /**
+     * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+     * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+     */
+    @SerializedName("person_custom_update_fields")
+    private String[] personCustomUpdateFields;
 
     // builder 开始
     public PrehireUpdate() {
@@ -79,6 +85,11 @@ public class PrehireUpdate {
          * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
          */
         this.customUpdateFields = builder.customUpdateFields;
+        /**
+         * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         */
+        this.personCustomUpdateFields = builder.personCustomUpdateFields;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class PrehireUpdate {
         this.customUpdateFields = customUpdateFields;
     }
 
+    public String[] getPersonCustomUpdateFields() {
+        return this.personCustomUpdateFields;
+    }
+
+    public void setPersonCustomUpdateFields(String[] personCustomUpdateFields) {
+        this.personCustomUpdateFields = personCustomUpdateFields;
+    }
+
     public static class Builder {
         /**
          * 更新个人（person）信息
@@ -138,6 +157,11 @@ public class PrehireUpdate {
          * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
          */
         private String[] customUpdateFields;
+        /**
+         * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         */
+        private String[] personCustomUpdateFields;
 
         /**
          * 更新个人（person）信息
@@ -187,6 +211,19 @@ public class PrehireUpdate {
          */
         public Builder customUpdateFields(String[] customUpdateFields) {
             this.customUpdateFields = customUpdateFields;
+            return this;
+        }
+
+
+        /**
+         * 指定需要更新的Person对象上的自定义字段，格式如下：; - custom_field1__c
+         * <p> 示例值：\["custom_field1__c","custom_field2__c"\]
+         *
+         * @param personCustomUpdateFields
+         * @return
+         */
+        public Builder personCustomUpdateFields(String[] personCustomUpdateFields) {
+            this.personCustomUpdateFields = personCustomUpdateFields;
             return this;
         }
 

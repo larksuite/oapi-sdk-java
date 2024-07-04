@@ -21,6 +21,7 @@ public class DeletePermissionMemberSample {
                 .memberType("openid")
                 .deletePermissionMemberReqBody(DeletePermissionMemberReqBody.newBuilder()
                         .type("user")
+                        .permType("container")
                         .build())
                 .build();
 

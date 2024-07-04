@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class LookupFieldSetting {
     /**
-     * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+     * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
      * <p> 示例值：employment
      */
     @SerializedName("lookup_obj_api_name")
     private String lookupObjApiName;
     /**
-     * 是否为多值
+     * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
      * <p> 示例值：false
      */
     @SerializedName("is_multiple")
@@ -48,12 +48,12 @@ public class LookupFieldSetting {
 
     public LookupFieldSetting(Builder builder) {
         /**
-         * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+         * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
          * <p> 示例值：employment
          */
         this.lookupObjApiName = builder.lookupObjApiName;
         /**
-         * 是否为多值
+         * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
          * <p> 示例值：false
          */
         this.isMultiple = builder.isMultiple;
@@ -81,18 +81,18 @@ public class LookupFieldSetting {
 
     public static class Builder {
         /**
-         * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+         * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
          * <p> 示例值：employment
          */
         private String lookupObjApiName;
         /**
-         * 是否为多值
+         * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
          * <p> 示例值：false
          */
         private Boolean isMultiple;
 
         /**
-         * 查找字段对应的对象 apiname，可通过【获取自定义字段列表】接口获取这个对象中定义的自定义字段
+         * 查找字段指向对象的 API name。例如人员单选、人员多选字段均指向 employment 系统对象，而自定义分组字段指向用户创建的自定义对象。可通过[获取自定义字段列表](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/query)接口传入此属性，以获取自定义分组中的字段。
          * <p> 示例值：employment
          *
          * @param lookupObjApiName
@@ -105,7 +105,7 @@ public class LookupFieldSetting {
 
 
         /**
-         * 是否为多值
+         * 是否为多值。例如人员单选字段此属性为 false，而人员多选字段此属性为 true。
          * <p> 示例值：false
          *
          * @param isMultiple

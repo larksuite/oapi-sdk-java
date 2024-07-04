@@ -20,6 +20,7 @@ public class V1 {
     private final AssignedUser assignedUser; // assigned_user
     private final Authorization authorization; // authorization
     private final CommonDataId commonDataId; // common_data.id
+    private final CommonDataMetaData commonDataMetaData; // common_data.meta_data
     private final Company company; // 公司
     private final CompensationStandard compensationStandard; // compensation_standard
     private final Contract contract; // 合同
@@ -55,6 +56,7 @@ public class V1 {
         this.assignedUser = new AssignedUser(config);
         this.authorization = new Authorization(config);
         this.commonDataId = new CommonDataId(config);
+        this.commonDataMetaData = new CommonDataMetaData(config);
         this.company = new Company(config);
         this.compensationStandard = new CompensationStandard(config);
         this.contract = new Contract(config);
@@ -97,6 +99,10 @@ public class V1 {
 
     public CommonDataId commonDataId() {
         return commonDataId;
+    }
+
+    public CommonDataMetaData commonDataMetaData() {
+        return commonDataMetaData;
     }
 
     public Company company() {

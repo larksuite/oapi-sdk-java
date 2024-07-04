@@ -48,6 +48,7 @@ public class MentionUser {
     @SerializedName("notify")
     private Boolean notify;
     /**
+     * 局部样式
      * <p> 示例值：
      */
     @SerializedName("segment_style")
@@ -74,7 +75,7 @@ public class MentionUser {
          */
         this.notify = builder.notify;
         /**
-         *
+         * 局部样式
          * <p> 示例值：
          */
         this.segmentStyle = builder.segmentStyle;
@@ -133,6 +134,7 @@ public class MentionUser {
          */
         private Boolean notify;
         /**
+         * 局部样式
          * <p> 示例值：
          */
         private SegmentStyle segmentStyle;
@@ -177,6 +179,7 @@ public class MentionUser {
 
 
         /**
+         * 局部样式
          * <p> 示例值：
          *
          * @param segmentStyle

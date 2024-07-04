@@ -18,7 +18,7 @@ public class SearchBasicInfoNationalitySample {
         // 创建请求对象
         SearchBasicInfoNationalityReq req = SearchBasicInfoNationalityReq.newBuilder()
                 .pageSize(100)
-                .pageToken("6891251722631890445")
+                .pageToken("7075702743846897196")
                 .searchBasicInfoNationalityReqBody(SearchBasicInfoNationalityReqBody.newBuilder()
                         .nationalityIdList(new String[]{})
                         .countryRegionIdList(new String[]{})

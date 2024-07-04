@@ -191,6 +191,12 @@ public class DlpExecuteLog {
      */
     @SerializedName("file_token")
     private String fileToken;
+    /**
+     * 触发事件类型
+     * <p> 示例值：系统送检
+     */
+    @SerializedName("trigger_event_type")
+    private String triggerEventType;
 
     // builder 开始
     public DlpExecuteLog() {
@@ -332,6 +338,11 @@ public class DlpExecuteLog {
          * <p> 示例值：token-aaddtken
          */
         this.fileToken = builder.fileToken;
+        /**
+         * 触发事件类型
+         * <p> 示例值：系统送检
+         */
+        this.triggerEventType = builder.triggerEventType;
     }
 
     public static Builder newBuilder() {
@@ -554,6 +565,14 @@ public class DlpExecuteLog {
         this.fileToken = fileToken;
     }
 
+    public String getTriggerEventType() {
+        return this.triggerEventType;
+    }
+
+    public void setTriggerEventType(String triggerEventType) {
+        this.triggerEventType = triggerEventType;
+    }
+
     public static class Builder {
         /**
          * 应用业务线
@@ -690,6 +709,11 @@ public class DlpExecuteLog {
          * <p> 示例值：token-aaddtken
          */
         private String fileToken;
+        /**
+         * 触发事件类型
+         * <p> 示例值：系统送检
+         */
+        private String triggerEventType;
 
         /**
          * 应用业务线
@@ -1038,6 +1062,19 @@ public class DlpExecuteLog {
          */
         public Builder fileToken(String fileToken) {
             this.fileToken = fileToken;
+            return this;
+        }
+
+
+        /**
+         * 触发事件类型
+         * <p> 示例值：系统送检
+         *
+         * @param triggerEventType
+         * @return
+         */
+        public Builder triggerEventType(String triggerEventType) {
+            this.triggerEventType = triggerEventType;
             return this;
         }
 

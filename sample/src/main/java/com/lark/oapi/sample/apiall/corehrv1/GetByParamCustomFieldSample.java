@@ -17,8 +17,8 @@ public class GetByParamCustomFieldSample {
 
         // 创建请求对象
         GetByParamCustomFieldReq req = GetByParamCustomFieldReq.newBuilder()
-                .customApiName("custom_field_33")
                 .objectApiName("offboarding_info")
+                .customApiName("custom_field_33")
                 .build();
 
         // 发起请求

@@ -1096,6 +1096,21 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2EmployeeDomainEventV2(CorehrService.P2EmployeeDomainEventV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.employee.domain_event_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.employee.domain_event_v2");
+            }
+            eventType2EventHandler.put("corehr.employee.domain_event_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2JobChangeUpdatedV2(CorehrService.P2JobChangeUpdatedV2Handler handler) {
             if (eventType2EventHandler.containsKey("corehr.job_change.updated_v2")) {
                 throw new EventTypeAlreadyHasHandlerException("corehr.job_change.updated_v2");

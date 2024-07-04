@@ -178,4 +178,70 @@ public class Authorization {
 
         return resp;
     }
+
+    /**
+     * ，删除组织类授权
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove_role_assign&project=corehr&resource=authorization&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove_role_assign&project=corehr&resource=authorization&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/RemoveRoleAssignAuthorizationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/RemoveRoleAssignAuthorizationSample.java</a> ;
+     */
+    public RemoveRoleAssignAuthorizationResp removeRoleAssign(RemoveRoleAssignAuthorizationReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/corehr/v1/authorizations/remove_role_assign"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        RemoveRoleAssignAuthorizationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveRoleAssignAuthorizationResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/authorizations/remove_role_assign"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，删除组织类授权
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove_role_assign&project=corehr&resource=authorization&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove_role_assign&project=corehr&resource=authorization&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/RemoveRoleAssignAuthorizationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/RemoveRoleAssignAuthorizationSample.java</a> ;
+     */
+    public RemoveRoleAssignAuthorizationResp removeRoleAssign(RemoveRoleAssignAuthorizationReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/corehr/v1/authorizations/remove_role_assign"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        RemoveRoleAssignAuthorizationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveRoleAssignAuthorizationResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/authorizations/remove_role_assign"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
 }

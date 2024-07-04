@@ -30,14 +30,14 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class OperationLogListReq {
     /**
-     * 开始时间，默认当天前30天
-     * <p> 示例值：2024-01-02
+     * 开始时间，默认当天往前 6*30 天
+     * <p> 示例值：2024-01-02 00:00:00
      */
     @SerializedName("start_time")
     private String startTime;
     /**
      * 结束时间，默认当天
-     * <p> 示例值：2024-01-02
+     * <p> 示例值：2024-01-02 00:00:00
      */
     @SerializedName("end_time")
     private String endTime;
@@ -66,13 +66,13 @@ public class OperationLogListReq {
 
     public OperationLogListReq(Builder builder) {
         /**
-         * 开始时间，默认当天前30天
-         * <p> 示例值：2024-01-02
+         * 开始时间，默认当天往前 6*30 天
+         * <p> 示例值：2024-01-02 00:00:00
          */
         this.startTime = builder.startTime;
         /**
          * 结束时间，默认当天
-         * <p> 示例值：2024-01-02
+         * <p> 示例值：2024-01-02 00:00:00
          */
         this.endTime = builder.endTime;
         /**
@@ -138,13 +138,13 @@ public class OperationLogListReq {
 
     public static class Builder {
         /**
-         * 开始时间，默认当天前30天
-         * <p> 示例值：2024-01-02
+         * 开始时间，默认当天往前 6*30 天
+         * <p> 示例值：2024-01-02 00:00:00
          */
         private String startTime;
         /**
          * 结束时间，默认当天
-         * <p> 示例值：2024-01-02
+         * <p> 示例值：2024-01-02 00:00:00
          */
         private String endTime;
         /**
@@ -164,8 +164,8 @@ public class OperationLogListReq {
         private String[] filterFields;
 
         /**
-         * 开始时间，默认当天前30天
-         * <p> 示例值：2024-01-02
+         * 开始时间，默认当天往前 6*30 天
+         * <p> 示例值：2024-01-02 00:00:00
          *
          * @param startTime
          * @return
@@ -178,7 +178,7 @@ public class OperationLogListReq {
 
         /**
          * 结束时间，默认当天
-         * <p> 示例值：2024-01-02
+         * <p> 示例值：2024-01-02 00:00:00
          *
          * @param endTime
          * @return

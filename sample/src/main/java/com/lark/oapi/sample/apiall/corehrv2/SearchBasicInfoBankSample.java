@@ -18,12 +18,12 @@ public class SearchBasicInfoBankSample {
         // 创建请求对象
         SearchBasicInfoBankReq req = SearchBasicInfoBankReq.newBuilder()
                 .pageSize(100)
-                .pageToken("6891251722631890445")
+                .pageToken("MDBH00000100")
                 .searchBasicInfoBankReqBody(SearchBasicInfoBankReqBody.newBuilder()
                         .bankIdList(new String[]{})
                         .bankNameList(new String[]{})
                         .statusList(new Integer[]{})
-                        .updateStartTime("2024-01-01 00:00:00")
+                        .updateStartTime("2020-01-01 00:00:00")
                         .updateEndTime("2024-01-01 00:00:00")
                         .build())
                 .build();

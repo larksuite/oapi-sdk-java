@@ -18,13 +18,13 @@ public class SearchBasicInfoBankBranchSample {
         // 创建请求对象
         SearchBasicInfoBankBranchReq req = SearchBasicInfoBankBranchReq.newBuilder()
                 .pageSize(100)
-                .pageToken("6891251722631890445")
+                .pageToken("MDBK00000120")
                 .searchBasicInfoBankBranchReqBody(SearchBasicInfoBankBranchReqBody.newBuilder()
                         .bankIdList(new String[]{})
                         .bankBranchIdList(new String[]{})
                         .bankBranchNameList(new String[]{})
                         .statusList(new Integer[]{})
-                        .updateStartTime("2024-01-01 00:00:00")
+                        .updateStartTime("2020-01-01 00:00:00")
                         .updateEndTime("2024-01-01 00:00:00")
                         .build())
                 .build();

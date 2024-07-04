@@ -29,19 +29,17 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoCountryRegionRespBody {
     /**
-     * 查询的国家/地区信息
+     * 查询到的国家/地区列表
      * <p> 示例值：
      */
     @SerializedName("items")
     private CountryRegion[] items;
     /**
-     * 下一页页码
-     * <p> 示例值：
+     * <p> 示例值：6862995772275688974
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 是否有下一页
      * <p> 示例值：
      */
     @SerializedName("has_more")

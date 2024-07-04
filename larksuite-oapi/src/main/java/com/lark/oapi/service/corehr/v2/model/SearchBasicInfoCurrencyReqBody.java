@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoCurrencyReqBody {
     /**
-     * 货币 ID 列表
+     * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
      * <p> 示例值：
      */
     @SerializedName("currency_id_list")
@@ -48,7 +48,7 @@ public class SearchBasicInfoCurrencyReqBody {
 
     public SearchBasicInfoCurrencyReqBody(Builder builder) {
         /**
-         * 货币 ID 列表
+         * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
          * <p> 示例值：
          */
         this.currencyIdList = builder.currencyIdList;
@@ -81,7 +81,7 @@ public class SearchBasicInfoCurrencyReqBody {
 
     public static class Builder {
         /**
-         * 货币 ID 列表
+         * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
          * <p> 示例值：
          */
         private String[] currencyIdList;
@@ -92,7 +92,7 @@ public class SearchBasicInfoCurrencyReqBody {
         private Integer[] statusList;
 
         /**
-         * 货币 ID 列表
+         * 货币 ID 列表，可通过[批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)、[批量查询员工薪资档案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)等接口返回的 `currency_id` 字段获取
          * <p> 示例值：
          *
          * @param currencyIdList

@@ -35,6 +35,12 @@ public class DeletePermissionMemberReqBody {
      */
     @SerializedName("type")
     private String type;
+    /**
+     * 协作者的权限角色类型
+     * <p> 示例值：container
+     */
+    @SerializedName("perm_type")
+    private String permType;
 
     // builder 开始
     public DeletePermissionMemberReqBody() {
@@ -46,6 +52,11 @@ public class DeletePermissionMemberReqBody {
          * <p> 示例值：user
          */
         this.type = builder.type;
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         */
+        this.permType = builder.permType;
     }
 
     public static Builder newBuilder() {
@@ -60,12 +71,25 @@ public class DeletePermissionMemberReqBody {
         this.type = type;
     }
 
+    public String getPermType() {
+        return this.permType;
+    }
+
+    public void setPermType(String permType) {
+        this.permType = permType;
+    }
+
     public static class Builder {
         /**
          * 协作者类型
          * <p> 示例值：user
          */
         private String type;
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         */
+        private String permType;
 
         /**
          * 协作者类型
@@ -88,6 +112,31 @@ public class DeletePermissionMemberReqBody {
          */
         public Builder type(com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTypeEnum type) {
             this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         *
+         * @param permType
+         * @return
+         */
+        public Builder permType(String permType) {
+            this.permType = permType;
+            return this;
+        }
+
+        /**
+         * 协作者的权限角色类型
+         * <p> 示例值：container
+         *
+         * @param permType {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberPermTypeEnum}
+         * @return
+         */
+        public Builder permType(com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberPermTypeEnum permType) {
+            this.permType = permType.getValue();
             return this;
         }
 

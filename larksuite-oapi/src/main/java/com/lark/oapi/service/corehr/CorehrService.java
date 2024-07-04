@@ -19,6 +19,7 @@ import com.lark.oapi.service.corehr.v1.model.*;
 import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
 import com.lark.oapi.service.corehr.v1.resource.Authorization;
 import com.lark.oapi.service.corehr.v1.resource.CommonDataId;
+import com.lark.oapi.service.corehr.v1.resource.CommonDataMetaData;
 import com.lark.oapi.service.corehr.v1.resource.Company;
 import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
 import com.lark.oapi.service.corehr.v1.resource.Contract;
@@ -57,6 +58,7 @@ public class CorehrService {
     private final AssignedUser assignedUser; // assigned_user
     private final Authorization authorization; // authorization
     private final CommonDataId commonDataId; // common_data.id
+    private final CommonDataMetaData commonDataMetaData; // common_data.meta_data
     private final Company company; // 公司
     private final CompensationStandard compensationStandard; // compensation_standard
     private final Contract contract; // 合同
@@ -94,6 +96,7 @@ public class CorehrService {
         this.assignedUser = new AssignedUser(config);
         this.authorization = new Authorization(config);
         this.commonDataId = new CommonDataId(config);
+        this.commonDataMetaData = new CommonDataMetaData(config);
         this.company = new Company(config);
         this.compensationStandard = new CompensationStandard(config);
         this.contract = new Contract(config);
@@ -141,6 +144,10 @@ public class CorehrService {
 
     public CommonDataId commonDataId() {
         return commonDataId;
+    }
+
+    public CommonDataMetaData commonDataMetaData() {
+        return commonDataMetaData;
     }
 
     public Company company() {
@@ -425,6 +432,13 @@ public class CorehrService {
         @Override
         public P2PreHireUpdatedV1 getEvent() {
             return new P2PreHireUpdatedV1();
+        }
+    }
+
+    public abstract static class P2EmployeeDomainEventV2Handler implements IEventHandler<P2EmployeeDomainEventV2> {
+        @Override
+        public P2EmployeeDomainEventV2 getEvent() {
+            return new P2EmployeeDomainEventV2();
         }
     }
 

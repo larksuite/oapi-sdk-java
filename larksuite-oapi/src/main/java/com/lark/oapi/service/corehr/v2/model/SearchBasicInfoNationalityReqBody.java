@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoNationalityReqBody {
     /**
-     * 国籍 ID 列表
+     * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
      * <p> 示例值：
      */
     @SerializedName("nationality_id_list")
     private String[] nationalityIdList;
     /**
-     * 国家 / 地区 ID 列表
+     * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
      * <p> 示例值：
      */
     @SerializedName("country_region_id_list")
@@ -54,12 +54,12 @@ public class SearchBasicInfoNationalityReqBody {
 
     public SearchBasicInfoNationalityReqBody(Builder builder) {
         /**
-         * 国籍 ID 列表
+         * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
          * <p> 示例值：
          */
         this.nationalityIdList = builder.nationalityIdList;
         /**
-         * 国家 / 地区 ID 列表
+         * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
          * <p> 示例值：
          */
         this.countryRegionIdList = builder.countryRegionIdList;
@@ -100,12 +100,12 @@ public class SearchBasicInfoNationalityReqBody {
 
     public static class Builder {
         /**
-         * 国籍 ID 列表
+         * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
          * <p> 示例值：
          */
         private String[] nationalityIdList;
         /**
-         * 国家 / 地区 ID 列表
+         * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
          * <p> 示例值：
          */
         private String[] countryRegionIdList;
@@ -116,7 +116,7 @@ public class SearchBasicInfoNationalityReqBody {
         private Integer[] statusList;
 
         /**
-         * 国籍 ID 列表
+         * 国籍 ID 列表，可从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.nationality_id_v2` 等字段中获取
          * <p> 示例值：
          *
          * @param nationalityIdList
@@ -129,7 +129,7 @@ public class SearchBasicInfoNationalityReqBody {
 
 
         /**
-         * 国家 / 地区 ID 列表
+         * 国家/地区 ID 列表，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口列举
          * <p> 示例值：
          *
          * @param countryRegionIdList
