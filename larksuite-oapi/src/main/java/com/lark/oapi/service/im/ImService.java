@@ -18,6 +18,7 @@ import com.lark.oapi.service.im.v1.V1;
 import com.lark.oapi.service.im.v1.model.*;
 import com.lark.oapi.service.im.v1.resource.BatchMessage;
 import com.lark.oapi.service.im.v1.resource.Chat;
+import com.lark.oapi.service.im.v1.resource.ChatAccessEvent;
 import com.lark.oapi.service.im.v1.resource.ChatAnnouncement;
 import com.lark.oapi.service.im.v1.resource.ChatManagers;
 import com.lark.oapi.service.im.v1.resource.ChatMemberBot;
@@ -42,6 +43,7 @@ public class ImService {
     private final V1 v1;
     private final BatchMessage batchMessage; // 消息 - 批量消息
     private final Chat chat; // 群组
+    private final ChatAccessEvent chatAccessEvent; // chat.access_event
     private final ChatAnnouncement chatAnnouncement; // 群组 - 群公告
     private final ChatManagers chatManagers; // 群组 - 群成员
     private final ChatMemberBot chatMemberBot; // 事件
@@ -65,6 +67,7 @@ public class ImService {
         this.v1 = new V1(config);
         this.batchMessage = new BatchMessage(config);
         this.chat = new Chat(config);
+        this.chatAccessEvent = new ChatAccessEvent(config);
         this.chatAnnouncement = new ChatAnnouncement(config);
         this.chatManagers = new ChatManagers(config);
         this.chatMemberBot = new ChatMemberBot(config);
@@ -95,6 +98,10 @@ public class ImService {
 
     public Chat chat() {
         return chat;
+    }
+
+    public ChatAccessEvent chatAccessEvent() {
+        return chatAccessEvent;
     }
 
     public ChatAnnouncement chatAnnouncement() {
@@ -180,6 +187,13 @@ public class ImService {
         @Override
         public P2ChatUpdatedV1 getEvent() {
             return new P2ChatUpdatedV1();
+        }
+    }
+
+    public abstract static class P2ChatAccessEventBotP2pChatEnteredV1Handler implements IEventHandler<P2ChatAccessEventBotP2pChatEnteredV1> {
+        @Override
+        public P2ChatAccessEventBotP2pChatEnteredV1 getEvent() {
+            return new P2ChatAccessEventBotP2pChatEnteredV1();
         }
     }
 

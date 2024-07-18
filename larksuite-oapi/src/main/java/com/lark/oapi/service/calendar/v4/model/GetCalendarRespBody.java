@@ -30,30 +30,31 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetCalendarRespBody {
     /**
      * 日历OpenId
-     * <p> 示例值：
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     @SerializedName("calendar_id")
     private String calendarId;
     /**
      * 日历标题
-     * <p> 示例值：
+     * <p> 示例值：summary
      */
     @SerializedName("summary")
     private String summary;
     /**
      * 日历描述
-     * <p> 示例值：
+     * <p> 示例值：description
      */
     @SerializedName("description")
     private String description;
     /**
+     * 权限
      * <p> 示例值：
      */
     @SerializedName("permissions")
     private String permissions;
     /**
      * 日历颜色，颜色RGB值的int32表示。客户端展示时会映射到色板上最接近的一种颜色。仅对当前身份生效
-     * <p> 示例值：
+     * <p> 示例值：11034625
      */
     @SerializedName("color")
     private Integer color;
@@ -65,13 +66,13 @@ public class GetCalendarRespBody {
     private String type;
     /**
      * 日历备注名，修改或添加后仅对当前身份生效
-     * <p> 示例值：
+     * <p> 示例值：xxx
      */
     @SerializedName("summary_alias")
     private String summaryAlias;
     /**
      * 对于当前身份，日历是否已经被标记为删除
-     * <p> 示例值：
+     * <p> 示例值：false
      */
     @SerializedName("is_deleted")
     private Boolean isDeleted;

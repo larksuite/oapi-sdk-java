@@ -17,9 +17,9 @@ public class CreateExchangeBindingSample {
         CreateExchangeBindingReq req = CreateExchangeBindingReq.newBuilder()
                 .userIdType("user_id")
                 .exchangeBinding(ExchangeBinding.newBuilder()
-                        .adminAccount("")
-                        .exchangeAccount("")
-                        .userId("")
+                        .adminAccount("email_admin_example@outlook.com")
+                        .exchangeAccount("email_account_example@outlook.com")
+                        .userId("ou_xxxxxxxxxxxxxxxxxx")
                         .build())
                 .build();
 

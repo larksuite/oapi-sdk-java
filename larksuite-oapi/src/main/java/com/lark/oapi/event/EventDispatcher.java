@@ -1620,6 +1620,21 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ChatAccessEventBotP2pChatEnteredV1(ImService.P2ChatAccessEventBotP2pChatEnteredV1Handler handler) {
+            if (eventType2EventHandler.containsKey("im.chat.access_event.bot_p2p_chat_entered_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("im.chat.access_event.bot_p2p_chat_entered_v1");
+            }
+            eventType2EventHandler.put("im.chat.access_event.bot_p2p_chat_entered_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 机器人进群,机器人被用户添加至群聊时触发此事件。
          * <p> 注意事项：;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 需要订阅 ==消息与群组== 分类下的 ==机器人进群== 事件;- 事件会向进群的机器人进行推送;- 机器人邀请机器人不会触发事件
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/added">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/added</a>

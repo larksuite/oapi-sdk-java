@@ -76,7 +76,7 @@ public class Employee {
      * <p> 示例值：
      */
     @SerializedName("job_level")
-    private JobLevel jobLevel;
+    private EmployeeJobLevel jobLevel;
     /**
      * 职等 ID
      * <p> 示例值：6893014062142064135
@@ -100,7 +100,7 @@ public class Employee {
      * <p> 示例值：
      */
     @SerializedName("job_family")
-    private JobFamily jobFamily;
+    private EmployeeJobFamily jobFamily;
     /**
      * 岗位 ID，详细信息可通过【查询单个岗位】接口获得
      * <p> 示例值：6893014062142064135
@@ -746,11 +746,11 @@ public class Employee {
         this.jobLevelId = jobLevelId;
     }
 
-    public JobLevel getJobLevel() {
+    public EmployeeJobLevel getJobLevel() {
         return this.jobLevel;
     }
 
-    public void setJobLevel(JobLevel jobLevel) {
+    public void setJobLevel(EmployeeJobLevel jobLevel) {
         this.jobLevel = jobLevel;
     }
 
@@ -778,11 +778,11 @@ public class Employee {
         this.jobFamilyId = jobFamilyId;
     }
 
-    public JobFamily getJobFamily() {
+    public EmployeeJobFamily getJobFamily() {
         return this.jobFamily;
     }
 
-    public void setJobFamily(JobFamily jobFamily) {
+    public void setJobFamily(EmployeeJobFamily jobFamily) {
         this.jobFamily = jobFamily;
     }
 
@@ -1202,7 +1202,7 @@ public class Employee {
          * 职级
          * <p> 示例值：
          */
-        private JobLevel jobLevel;
+        private EmployeeJobLevel jobLevel;
         /**
          * 职等 ID
          * <p> 示例值：6893014062142064135
@@ -1222,7 +1222,7 @@ public class Employee {
          * 序列
          * <p> 示例值：
          */
-        private JobFamily jobFamily;
+        private EmployeeJobFamily jobFamily;
         /**
          * 岗位 ID，详细信息可通过【查询单个岗位】接口获得
          * <p> 示例值：6893014062142064135
@@ -1557,7 +1557,7 @@ public class Employee {
          * @param jobLevel
          * @return
          */
-        public Builder jobLevel(JobLevel jobLevel) {
+        public Builder jobLevel(EmployeeJobLevel jobLevel) {
             this.jobLevel = jobLevel;
             return this;
         }
@@ -1609,7 +1609,7 @@ public class Employee {
          * @param jobFamily
          * @return
          */
-        public Builder jobFamily(JobFamily jobFamily) {
+        public Builder jobFamily(EmployeeJobFamily jobFamily) {
             this.jobFamily = jobFamily;
             return this;
         }

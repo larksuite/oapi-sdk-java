@@ -30,85 +30,85 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetUserInfoRespBody {
     /**
      * 用户姓名
-     * <p> 示例值：
+     * <p> 示例值：zhangsan
      */
     @SerializedName("name")
     private String name;
     /**
      * 用户英文名称
-     * <p> 示例值：
+     * <p> 示例值：zhangsan
      */
     @SerializedName("en_name")
     private String enName;
     /**
      * 用户头像
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_url")
     private String avatarUrl;
     /**
      * 用户头像 72x72
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_thumb")
     private String avatarThumb;
     /**
      * 用户头像 240x240
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_middle")
     private String avatarMiddle;
     /**
      * 用户头像 640x640
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_big")
     private String avatarBig;
     /**
      * 用户在应用内的唯一标识
-     * <p> 示例值：
+     * <p> 示例值：ou-caecc734c2e3328a62489fe0648c4b98779515d3
      */
     @SerializedName("open_id")
     private String openId;
     /**
      * 用户统一ID
-     * <p> 示例值：
+     * <p> 示例值：on-d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
      */
     @SerializedName("union_id")
     private String unionId;
     /**
      * 用户邮箱
-     * <p> 示例值：
+     * <p> 示例值：zhangsan@feishu.cn
      */
     @SerializedName("email")
     private String email;
     /**
      * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-     * <p> 示例值：
+     * <p> 示例值：zhangsan@feishu.cn
      */
     @SerializedName("enterprise_email")
     private String enterpriseEmail;
     /**
      * 用户 user_id
-     * <p> 示例值：
+     * <p> 示例值：5d9bdxxx
      */
     @SerializedName("user_id")
     private String userId;
     /**
      * 用户手机号
-     * <p> 示例值：
+     * <p> 示例值：+86130002883xx
      */
     @SerializedName("mobile")
     private String mobile;
     /**
      * 当前企业标识
-     * <p> 示例值：
+     * <p> 示例值：736588c92lxf175d
      */
     @SerializedName("tenant_key")
     private String tenantKey;
     /**
      * 用户工号
-     * <p> 示例值：
+     * <p> 示例值：111222333
      */
     @SerializedName("employee_no")
     private String employeeNo;

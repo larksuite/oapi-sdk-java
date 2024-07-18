@@ -218,10 +218,10 @@ public class ExchangeBinding {
          * exchange账户同步状态
          * <p> 示例值：doing
          *
-         * @param status {@link com.lark.oapi.service.calendar.v4.enums.ExchangeBindingStatusEnum}
+         * @param status {@link com.lark.oapi.service.calendar.v4.enums.ExchangeBindingExchangeBindingStatusEnum}
          * @return
          */
-        public Builder status(com.lark.oapi.service.calendar.v4.enums.ExchangeBindingStatusEnum status) {
+        public Builder status(com.lark.oapi.service.calendar.v4.enums.ExchangeBindingExchangeBindingStatusEnum status) {
             this.status = status.getValue();
             return this;
         }

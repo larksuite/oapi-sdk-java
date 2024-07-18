@@ -30,85 +30,85 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UserInfo {
     /**
      * 用户姓名
-     * <p> 示例值：
+     * <p> 示例值：zhangsan
      */
     @SerializedName("name")
     private String name;
     /**
      * 用户英文名称
-     * <p> 示例值：
+     * <p> 示例值：zhangsan
      */
     @SerializedName("en_name")
     private String enName;
     /**
      * 用户头像
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_url")
     private String avatarUrl;
     /**
      * 用户头像 72x72
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_thumb")
     private String avatarThumb;
     /**
      * 用户头像 240x240
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_middle")
     private String avatarMiddle;
     /**
      * 用户头像 640x640
-     * <p> 示例值：
+     * <p> 示例值：www.feishu.cn/avatar/icon
      */
     @SerializedName("avatar_big")
     private String avatarBig;
     /**
      * 用户在应用内的唯一标识
-     * <p> 示例值：
+     * <p> 示例值：ou-caecc734c2e3328a62489fe0648c4b98779515d3
      */
     @SerializedName("open_id")
     private String openId;
     /**
      * 用户统一ID
-     * <p> 示例值：
+     * <p> 示例值：on-d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
      */
     @SerializedName("union_id")
     private String unionId;
     /**
      * 用户邮箱
-     * <p> 示例值：
+     * <p> 示例值：zhangsan@feishu.cn
      */
     @SerializedName("email")
     private String email;
     /**
      * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-     * <p> 示例值：
+     * <p> 示例值：zhangsan@feishu.cn
      */
     @SerializedName("enterprise_email")
     private String enterpriseEmail;
     /**
      * 用户 user_id
-     * <p> 示例值：
+     * <p> 示例值：5d9bdxxx
      */
     @SerializedName("user_id")
     private String userId;
     /**
      * 用户手机号
-     * <p> 示例值：
+     * <p> 示例值：+86130002883xx
      */
     @SerializedName("mobile")
     private String mobile;
     /**
      * 当前企业标识
-     * <p> 示例值：
+     * <p> 示例值：736588c92lxf175d
      */
     @SerializedName("tenant_key")
     private String tenantKey;
     /**
      * 用户工号
-     * <p> 示例值：
+     * <p> 示例值：111222333
      */
     @SerializedName("employee_no")
     private String employeeNo;
@@ -120,72 +120,72 @@ public class UserInfo {
     public UserInfo(Builder builder) {
         /**
          * 用户姓名
-         * <p> 示例值：
+         * <p> 示例值：zhangsan
          */
         this.name = builder.name;
         /**
          * 用户英文名称
-         * <p> 示例值：
+         * <p> 示例值：zhangsan
          */
         this.enName = builder.enName;
         /**
          * 用户头像
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         this.avatarUrl = builder.avatarUrl;
         /**
          * 用户头像 72x72
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         this.avatarThumb = builder.avatarThumb;
         /**
          * 用户头像 240x240
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         this.avatarMiddle = builder.avatarMiddle;
         /**
          * 用户头像 640x640
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         this.avatarBig = builder.avatarBig;
         /**
          * 用户在应用内的唯一标识
-         * <p> 示例值：
+         * <p> 示例值：ou-caecc734c2e3328a62489fe0648c4b98779515d3
          */
         this.openId = builder.openId;
         /**
          * 用户统一ID
-         * <p> 示例值：
+         * <p> 示例值：on-d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
          */
         this.unionId = builder.unionId;
         /**
          * 用户邮箱
-         * <p> 示例值：
+         * <p> 示例值：zhangsan@feishu.cn
          */
         this.email = builder.email;
         /**
          * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-         * <p> 示例值：
+         * <p> 示例值：zhangsan@feishu.cn
          */
         this.enterpriseEmail = builder.enterpriseEmail;
         /**
          * 用户 user_id
-         * <p> 示例值：
+         * <p> 示例值：5d9bdxxx
          */
         this.userId = builder.userId;
         /**
          * 用户手机号
-         * <p> 示例值：
+         * <p> 示例值：+86130002883xx
          */
         this.mobile = builder.mobile;
         /**
          * 当前企业标识
-         * <p> 示例值：
+         * <p> 示例值：736588c92lxf175d
          */
         this.tenantKey = builder.tenantKey;
         /**
          * 用户工号
-         * <p> 示例值：
+         * <p> 示例值：111222333
          */
         this.employeeNo = builder.employeeNo;
     }
@@ -309,78 +309,78 @@ public class UserInfo {
     public static class Builder {
         /**
          * 用户姓名
-         * <p> 示例值：
+         * <p> 示例值：zhangsan
          */
         private String name;
         /**
          * 用户英文名称
-         * <p> 示例值：
+         * <p> 示例值：zhangsan
          */
         private String enName;
         /**
          * 用户头像
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         private String avatarUrl;
         /**
          * 用户头像 72x72
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         private String avatarThumb;
         /**
          * 用户头像 240x240
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         private String avatarMiddle;
         /**
          * 用户头像 640x640
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          */
         private String avatarBig;
         /**
          * 用户在应用内的唯一标识
-         * <p> 示例值：
+         * <p> 示例值：ou-caecc734c2e3328a62489fe0648c4b98779515d3
          */
         private String openId;
         /**
          * 用户统一ID
-         * <p> 示例值：
+         * <p> 示例值：on-d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
          */
         private String unionId;
         /**
          * 用户邮箱
-         * <p> 示例值：
+         * <p> 示例值：zhangsan@feishu.cn
          */
         private String email;
         /**
          * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-         * <p> 示例值：
+         * <p> 示例值：zhangsan@feishu.cn
          */
         private String enterpriseEmail;
         /**
          * 用户 user_id
-         * <p> 示例值：
+         * <p> 示例值：5d9bdxxx
          */
         private String userId;
         /**
          * 用户手机号
-         * <p> 示例值：
+         * <p> 示例值：+86130002883xx
          */
         private String mobile;
         /**
          * 当前企业标识
-         * <p> 示例值：
+         * <p> 示例值：736588c92lxf175d
          */
         private String tenantKey;
         /**
          * 用户工号
-         * <p> 示例值：
+         * <p> 示例值：111222333
          */
         private String employeeNo;
 
         /**
          * 用户姓名
-         * <p> 示例值：
+         * <p> 示例值：zhangsan
          *
          * @param name
          * @return
@@ -393,7 +393,7 @@ public class UserInfo {
 
         /**
          * 用户英文名称
-         * <p> 示例值：
+         * <p> 示例值：zhangsan
          *
          * @param enName
          * @return
@@ -406,7 +406,7 @@ public class UserInfo {
 
         /**
          * 用户头像
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          *
          * @param avatarUrl
          * @return
@@ -419,7 +419,7 @@ public class UserInfo {
 
         /**
          * 用户头像 72x72
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          *
          * @param avatarThumb
          * @return
@@ -432,7 +432,7 @@ public class UserInfo {
 
         /**
          * 用户头像 240x240
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          *
          * @param avatarMiddle
          * @return
@@ -445,7 +445,7 @@ public class UserInfo {
 
         /**
          * 用户头像 640x640
-         * <p> 示例值：
+         * <p> 示例值：www.feishu.cn/avatar/icon
          *
          * @param avatarBig
          * @return
@@ -458,7 +458,7 @@ public class UserInfo {
 
         /**
          * 用户在应用内的唯一标识
-         * <p> 示例值：
+         * <p> 示例值：ou-caecc734c2e3328a62489fe0648c4b98779515d3
          *
          * @param openId
          * @return
@@ -471,7 +471,7 @@ public class UserInfo {
 
         /**
          * 用户统一ID
-         * <p> 示例值：
+         * <p> 示例值：on-d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
          *
          * @param unionId
          * @return
@@ -484,7 +484,7 @@ public class UserInfo {
 
         /**
          * 用户邮箱
-         * <p> 示例值：
+         * <p> 示例值：zhangsan@feishu.cn
          *
          * @param email
          * @return
@@ -497,7 +497,7 @@ public class UserInfo {
 
         /**
          * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-         * <p> 示例值：
+         * <p> 示例值：zhangsan@feishu.cn
          *
          * @param enterpriseEmail
          * @return
@@ -510,7 +510,7 @@ public class UserInfo {
 
         /**
          * 用户 user_id
-         * <p> 示例值：
+         * <p> 示例值：5d9bdxxx
          *
          * @param userId
          * @return
@@ -523,7 +523,7 @@ public class UserInfo {
 
         /**
          * 用户手机号
-         * <p> 示例值：
+         * <p> 示例值：+86130002883xx
          *
          * @param mobile
          * @return
@@ -536,7 +536,7 @@ public class UserInfo {
 
         /**
          * 当前企业标识
-         * <p> 示例值：
+         * <p> 示例值：736588c92lxf175d
          *
          * @param tenantKey
          * @return
@@ -549,7 +549,7 @@ public class UserInfo {
 
         /**
          * 用户工号
-         * <p> 示例值：
+         * <p> 示例值：111222333
          *
          * @param employeeNo
          * @return

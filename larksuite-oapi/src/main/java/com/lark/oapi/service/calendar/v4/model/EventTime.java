@@ -30,7 +30,8 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class EventTime {
     /**
-     * <p> 示例值：
+     * 时间戳
+     * <p> 示例值：171214912293
      */
     @SerializedName("time_stamp")
     private String timeStamp;
@@ -41,8 +42,8 @@ public class EventTime {
 
     public EventTime(Builder builder) {
         /**
-         *
-         * <p> 示例值：
+         * 时间戳
+         * <p> 示例值：171214912293
          */
         this.timeStamp = builder.timeStamp;
     }
@@ -61,12 +62,14 @@ public class EventTime {
 
     public static class Builder {
         /**
-         * <p> 示例值：
+         * 时间戳
+         * <p> 示例值：171214912293
          */
         private String timeStamp;
 
         /**
-         * <p> 示例值：
+         * 时间戳
+         * <p> 示例值：171214912293
          *
          * @param timeStamp
          * @return

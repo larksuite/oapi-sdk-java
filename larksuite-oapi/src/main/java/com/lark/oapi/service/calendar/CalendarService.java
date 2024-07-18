@@ -22,6 +22,7 @@ import com.lark.oapi.service.calendar.v4.resource.CalendarEvent;
 import com.lark.oapi.service.calendar.v4.resource.CalendarEventAttendee;
 import com.lark.oapi.service.calendar.v4.resource.CalendarEventAttendeeChatMember;
 import com.lark.oapi.service.calendar.v4.resource.CalendarEventMeetingChat;
+import com.lark.oapi.service.calendar.v4.resource.CalendarEventMeetingMinute;
 import com.lark.oapi.service.calendar.v4.resource.ExchangeBinding;
 import com.lark.oapi.service.calendar.v4.resource.Freebusy;
 import com.lark.oapi.service.calendar.v4.resource.Setting;
@@ -35,6 +36,7 @@ public class CalendarService {
     private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
     private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
     private final CalendarEventMeetingChat calendarEventMeetingChat; // calendar.event.meeting_chat
+    private final CalendarEventMeetingMinute calendarEventMeetingMinute; // calendar.event.meeting_minute
     private final ExchangeBinding exchangeBinding; // Exchange绑定
     private final Freebusy freebusy; // freebusy
     private final Setting setting; // 日历设置
@@ -48,6 +50,7 @@ public class CalendarService {
         this.calendarEventAttendee = new CalendarEventAttendee(config);
         this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
         this.calendarEventMeetingChat = new CalendarEventMeetingChat(config);
+        this.calendarEventMeetingMinute = new CalendarEventMeetingMinute(config);
         this.exchangeBinding = new ExchangeBinding(config);
         this.freebusy = new Freebusy(config);
         this.setting = new Setting(config);
@@ -80,6 +83,10 @@ public class CalendarService {
 
     public CalendarEventMeetingChat calendarEventMeetingChat() {
         return calendarEventMeetingChat;
+    }
+
+    public CalendarEventMeetingMinute calendarEventMeetingMinute() {
+        return calendarEventMeetingMinute;
     }
 
     public ExchangeBinding exchangeBinding() {

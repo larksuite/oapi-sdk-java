@@ -36,6 +36,7 @@ public class CardCallback {
     @SerializedName("message_id")
     private String messageId;
     /**
+     * 卡片状态
      * <p> 示例值：
      */
     @SerializedName("status")
@@ -58,7 +59,7 @@ public class CardCallback {
          */
         this.messageId = builder.messageId;
         /**
-         *
+         * 卡片状态
          * <p> 示例值：
          */
         this.status = builder.status;
@@ -104,6 +105,7 @@ public class CardCallback {
          */
         private String messageId;
         /**
+         * 卡片状态
          * <p> 示例值：
          */
         private MyaiCardStatus status;
@@ -127,6 +129,7 @@ public class CardCallback {
 
 
         /**
+         * 卡片状态
          * <p> 示例值：
          *
          * @param status

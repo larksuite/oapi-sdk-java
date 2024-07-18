@@ -17,9 +17,9 @@ public class UpdateSpaceSettingSample {
         UpdateSpaceSettingReq req = UpdateSpaceSettingReq.newBuilder()
                 .spaceId("1565676577122621")
                 .setting(Setting.newBuilder()
-                        .createSetting("")
-                        .securitySetting("")
-                        .commentSetting("")
+                        .createSetting("admin")
+                        .securitySetting("allow")
+                        .commentSetting("allow")
                         .build())
                 .build();
 

@@ -48,6 +48,72 @@ public class Attachment {
 
 
     /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment">https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateAttachmentSample.java</a> ;
+     */
+    public CreateAttachmentResp create(RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+        reqOptions.setSupportUpload(true);
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/hire/v1/attachments"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , null);
+
+        // 反序列化
+        CreateAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAttachmentResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments"
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment">https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateAttachmentSample.java</a> ;
+     */
+    public CreateAttachmentResp create() throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setSupportUpload(true);
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/hire/v1/attachments"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , null);
+
+        // 反序列化
+        CreateAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateAttachmentResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/attachments"
+                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        return resp;
+    }
+
+    /**
      * 获取附件信息，获取招聘系统中附件的元信息，比如文件名、创建时间、文件url等
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetAttachmentSample.java</a> ;

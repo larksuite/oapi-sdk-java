@@ -47,6 +47,12 @@ public class AilyKnowledgeFile {
      */
     @SerializedName("content")
     private String content;
+    /**
+     * 文件来源URL
+     * <p> 示例值：https://www.xx.xx
+     */
+    @SerializedName("source_url")
+    private String sourceUrl;
 
     // builder 开始
     public AilyKnowledgeFile() {
@@ -68,6 +74,11 @@ public class AilyKnowledgeFile {
          * <p> 示例值：content
          */
         this.content = builder.content;
+        /**
+         * 文件来源URL
+         * <p> 示例值：https://www.xx.xx
+         */
+        this.sourceUrl = builder.sourceUrl;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class AilyKnowledgeFile {
         this.content = content;
     }
 
+    public String getSourceUrl() {
+        return this.sourceUrl;
+    }
+
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
+    }
+
     public static class Builder {
         /**
          * 标题
@@ -114,6 +133,11 @@ public class AilyKnowledgeFile {
          * <p> 示例值：content
          */
         private String content;
+        /**
+         * 文件来源URL
+         * <p> 示例值：https://www.xx.xx
+         */
+        private String sourceUrl;
 
         /**
          * 标题
@@ -150,6 +174,19 @@ public class AilyKnowledgeFile {
          */
         public Builder content(String content) {
             this.content = content;
+            return this;
+        }
+
+
+        /**
+         * 文件来源URL
+         * <p> 示例值：https://www.xx.xx
+         *
+         * @param sourceUrl
+         * @return
+         */
+        public Builder sourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
             return this;
         }
 

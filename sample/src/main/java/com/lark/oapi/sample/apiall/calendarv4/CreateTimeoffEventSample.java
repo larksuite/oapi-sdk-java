@@ -17,12 +17,12 @@ public class CreateTimeoffEventSample {
         CreateTimeoffEventReq req = CreateTimeoffEventReq.newBuilder()
                 .userIdType("user_id")
                 .timeoffEvent(TimeoffEvent.newBuilder()
-                        .userId("")
-                        .timezone("")
-                        .startTime("")
-                        .endTime("")
-                        .title("")
-                        .description("")
+                        .userId("ou_XXXXXXXXXX")
+                        .timezone("Asia/Shanghai")
+                        .startTime("2021-01-01")
+                        .endTime("2021-01-02")
+                        .title("请假日程标题")
+                        .description("请假日程描述")
                         .build())
                 .build();
 

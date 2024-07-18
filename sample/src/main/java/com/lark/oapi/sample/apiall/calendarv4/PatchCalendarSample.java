@@ -17,11 +17,11 @@ public class PatchCalendarSample {
         PatchCalendarReq req = PatchCalendarReq.newBuilder()
                 .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
                 .calendar(Calendar.newBuilder()
-                        .summary("")
-                        .description("")
+                        .summary("summary")
+                        .description("description")
                         .permissions("private")
-                        .color(0)
-                        .summaryAlias("")
+                        .color(11034625)
+                        .summaryAlias("xxx")
                         .build())
                 .build();
 

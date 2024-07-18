@@ -31,13 +31,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CalendarFreebusyError {
     /**
      * 日历id
-     * <p> 示例值：
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     @SerializedName("calendar_id")
     private String calendarId;
     /**
      * 错误信息
-     * <p> 示例值：
+     * <p> 示例值：xxx
      */
     @SerializedName("error_msg")
     private String errorMsg;
@@ -49,12 +49,12 @@ public class CalendarFreebusyError {
     public CalendarFreebusyError(Builder builder) {
         /**
          * 日历id
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          */
         this.calendarId = builder.calendarId;
         /**
          * 错误信息
-         * <p> 示例值：
+         * <p> 示例值：xxx
          */
         this.errorMsg = builder.errorMsg;
     }
@@ -82,18 +82,18 @@ public class CalendarFreebusyError {
     public static class Builder {
         /**
          * 日历id
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          */
         private String calendarId;
         /**
          * 错误信息
-         * <p> 示例值：
+         * <p> 示例值：xxx
          */
         private String errorMsg;
 
         /**
          * 日历id
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          *
          * @param calendarId
          * @return
@@ -106,7 +106,7 @@ public class CalendarFreebusyError {
 
         /**
          * 错误信息
-         * <p> 示例值：
+         * <p> 示例值：xxx
          *
          * @param errorMsg
          * @return

@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class P2CalendarAclDeletedV4Data {
     /**
      * acl资源ID
-     * <p> 示例值：
+     * <p> 示例值：user_6843287928157667331
      */
     @SerializedName("acl_id")
     private String aclId;

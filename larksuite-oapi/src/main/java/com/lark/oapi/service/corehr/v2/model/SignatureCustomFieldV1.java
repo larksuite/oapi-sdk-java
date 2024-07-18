@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureCustomFieldV1 {
     /**
-     * 自定义字段的key
+     * 模板自定义字段的key
      * <p> 示例值：ItImqNuDK
      */
     @SerializedName("key")
@@ -48,7 +48,7 @@ public class SignatureCustomFieldV1 {
 
     public SignatureCustomFieldV1(Builder builder) {
         /**
-         * 自定义字段的key
+         * 模板自定义字段的key
          * <p> 示例值：ItImqNuDK
          */
         this.key = builder.key;
@@ -81,7 +81,7 @@ public class SignatureCustomFieldV1 {
 
     public static class Builder {
         /**
-         * 自定义字段的key
+         * 模板自定义字段的key
          * <p> 示例值：ItImqNuDK
          */
         private String key;
@@ -92,7 +92,7 @@ public class SignatureCustomFieldV1 {
         private String value;
 
         /**
-         * 自定义字段的key
+         * 模板自定义字段的key
          * <p> 示例值：ItImqNuDK
          *
          * @param key

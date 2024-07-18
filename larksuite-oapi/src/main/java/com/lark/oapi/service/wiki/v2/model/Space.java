@@ -43,7 +43,7 @@ public class Space {
     private String description;
     /**
      * 知识空间id
-     * <p> 示例值：
+     * <p> 示例值：6946843325487456878
      */
     @SerializedName("space_id")
     private String spaceId;
@@ -59,6 +59,12 @@ public class Space {
      */
     @SerializedName("visibility")
     private String visibility;
+    /**
+     * 表示知识空间的分享状态
+     * <p> 示例值：open
+     */
+    @SerializedName("open_sharing")
+    private String openSharing;
 
     // builder 开始
     public Space() {
@@ -77,7 +83,7 @@ public class Space {
         this.description = builder.description;
         /**
          * 知识空间id
-         * <p> 示例值：
+         * <p> 示例值：6946843325487456878
          */
         this.spaceId = builder.spaceId;
         /**
@@ -90,6 +96,11 @@ public class Space {
          * <p> 示例值：private
          */
         this.visibility = builder.visibility;
+        /**
+         * 表示知识空间的分享状态
+         * <p> 示例值：open
+         */
+        this.openSharing = builder.openSharing;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class Space {
         this.visibility = visibility;
     }
 
+    public String getOpenSharing() {
+        return this.openSharing;
+    }
+
+    public void setOpenSharing(String openSharing) {
+        this.openSharing = openSharing;
+    }
+
     public static class Builder {
         /**
          * 知识空间名称
@@ -149,7 +168,7 @@ public class Space {
         private String description;
         /**
          * 知识空间id
-         * <p> 示例值：
+         * <p> 示例值：6946843325487456878
          */
         private String spaceId;
         /**
@@ -162,6 +181,11 @@ public class Space {
          * <p> 示例值：private
          */
         private String visibility;
+        /**
+         * 表示知识空间的分享状态
+         * <p> 示例值：open
+         */
+        private String openSharing;
 
         /**
          * 知识空间名称
@@ -191,7 +215,7 @@ public class Space {
 
         /**
          * 知识空间id
-         * <p> 示例值：
+         * <p> 示例值：6946843325487456878
          *
          * @param spaceId
          * @return
@@ -248,6 +272,31 @@ public class Space {
          */
         public Builder visibility(com.lark.oapi.service.wiki.v2.enums.SpaceSpaceVisibilityEnum visibility) {
             this.visibility = visibility.getValue();
+            return this;
+        }
+
+
+        /**
+         * 表示知识空间的分享状态
+         * <p> 示例值：open
+         *
+         * @param openSharing
+         * @return
+         */
+        public Builder openSharing(String openSharing) {
+            this.openSharing = openSharing;
+            return this;
+        }
+
+        /**
+         * 表示知识空间的分享状态
+         * <p> 示例值：open
+         *
+         * @param openSharing {@link com.lark.oapi.service.wiki.v2.enums.SpaceOpenSharingEnum}
+         * @return
+         */
+        public Builder openSharing(com.lark.oapi.service.wiki.v2.enums.SpaceOpenSharingEnum openSharing) {
+            this.openSharing = openSharing.getValue();
             return this;
         }
 

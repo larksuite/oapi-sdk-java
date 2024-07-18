@@ -173,7 +173,7 @@ public class EventController {
                     System.out.println(Jsons.DEFAULT.toJson(event));
                     System.out.println(event.getRequestId());
                 }
-            }).onCustomizedEvent("message", new CustomEventHandler() {
+            }).onCustomizedEvent("这里填入你要自定义订阅的 event 的 key,例如 out_approval", new CustomEventHandler() {
                 @Override
                 public void handle(EventReq event) {
                     System.out.println("body:" + new String(event.getBody()));

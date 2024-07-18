@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetExchangeBindingRespBody {
     /**
      * admin账户
-     * <p> 示例值：
+     * <p> 示例值：email_admin_example@outlook.com
      */
     @SerializedName("admin_account")
     private String adminAccount;
     /**
      * 用户绑定的Exchange账户
-     * <p> 示例值：
+     * <p> 示例值：email_account_example@outlook.com
      */
     @SerializedName("exchange_account")
     private String exchangeAccount;
     /**
      * Exchange账户绑定user唯一标识id
-     * <p> 示例值：
+     * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
      */
     @SerializedName("user_id")
     private String userId;
@@ -54,7 +54,7 @@ public class GetExchangeBindingRespBody {
     private String status;
     /**
      * Exchange绑定关系唯一标识ID
-     * <p> 示例值：
+     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      */
     @SerializedName("exchange_binding_id")
     private String exchangeBindingId;

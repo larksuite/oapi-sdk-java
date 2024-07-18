@@ -16,8 +16,9 @@ public class CreateSpaceSample {
         // 创建请求对象
         CreateSpaceReq req = CreateSpaceReq.newBuilder()
                 .space(Space.newBuilder()
-                        .name("")
-                        .description("")
+                        .name("测试知识库")
+                        .description("测试知识库")
+                        .openSharing("open")
                         .build())
                 .build();
 

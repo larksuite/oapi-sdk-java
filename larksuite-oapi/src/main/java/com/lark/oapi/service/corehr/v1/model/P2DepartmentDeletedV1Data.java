@@ -34,6 +34,12 @@ public class P2DepartmentDeletedV1Data {
      */
     @SerializedName("department_id")
     private String departmentId;
+    /**
+     * 部门编码
+     * <p> 示例值：A0001
+     */
+    @SerializedName("code")
+    private String code;
 
     public String getDepartmentId() {
         return this.departmentId;
@@ -41,6 +47,14 @@ public class P2DepartmentDeletedV1Data {
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
 }

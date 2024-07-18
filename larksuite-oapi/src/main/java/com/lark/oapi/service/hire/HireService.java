@@ -19,6 +19,7 @@ import com.lark.oapi.service.hire.v1.model.*;
 import com.lark.oapi.service.hire.v1.resource.Application;
 import com.lark.oapi.service.hire.v1.resource.ApplicationInterview;
 import com.lark.oapi.service.hire.v1.resource.Attachment;
+import com.lark.oapi.service.hire.v1.resource.DiversityInclusion;
 import com.lark.oapi.service.hire.v1.resource.EcoAccount;
 import com.lark.oapi.service.hire.v1.resource.EcoAccountCustomField;
 import com.lark.oapi.service.hire.v1.resource.EcoBackgroundCheck;
@@ -37,10 +38,12 @@ import com.lark.oapi.service.hire.v1.resource.ExternalInterviewAssessment;
 import com.lark.oapi.service.hire.v1.resource.Interview;
 import com.lark.oapi.service.hire.v1.resource.Job;
 import com.lark.oapi.service.hire.v1.resource.JobManager;
+import com.lark.oapi.service.hire.v1.resource.JobFunction;
 import com.lark.oapi.service.hire.v1.resource.JobProcess;
 import com.lark.oapi.service.hire.v1.resource.JobRequirement;
 import com.lark.oapi.service.hire.v1.resource.JobRequirementSchema;
 import com.lark.oapi.service.hire.v1.resource.JobType;
+import com.lark.oapi.service.hire.v1.resource.Location;
 import com.lark.oapi.service.hire.v1.resource.Note;
 import com.lark.oapi.service.hire.v1.resource.Offer;
 import com.lark.oapi.service.hire.v1.resource.OfferSchema;
@@ -51,16 +54,24 @@ import com.lark.oapi.service.hire.v1.resource.ReferralWebsiteJobPost;
 import com.lark.oapi.service.hire.v1.resource.RegistrationSchema;
 import com.lark.oapi.service.hire.v1.resource.ResumeSource;
 import com.lark.oapi.service.hire.v1.resource.Role;
+import com.lark.oapi.service.hire.v1.resource.Subject;
 import com.lark.oapi.service.hire.v1.resource.Talent;
 import com.lark.oapi.service.hire.v1.resource.TalentFolder;
 import com.lark.oapi.service.hire.v1.resource.TalentObject;
 import com.lark.oapi.service.hire.v1.resource.TerminationReason;
+import com.lark.oapi.service.hire.v1.resource.Website;
+import com.lark.oapi.service.hire.v1.resource.WebsiteChannel;
+import com.lark.oapi.service.hire.v1.resource.WebsiteDelivery;
+import com.lark.oapi.service.hire.v1.resource.WebsiteDeliveryTask;
+import com.lark.oapi.service.hire.v1.resource.WebsiteJobPost;
+import com.lark.oapi.service.hire.v1.resource.WebsiteSiteUser;
 
 public class HireService {
     private final V1 v1;
     private final Application application; // 投递
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
+    private final DiversityInclusion diversityInclusion; // diversity_inclusion
     private final EcoAccount ecoAccount; // 事件
     private final EcoAccountCustomField ecoAccountCustomField; // 生态对接账号自定义字段
     private final EcoBackgroundCheck ecoBackgroundCheck; // 背调订单
@@ -79,10 +90,12 @@ public class HireService {
     private final Interview interview; // 面试
     private final Job job; // 职位
     private final JobManager jobManager; // job.manager
+    private final JobFunction jobFunction; // job_function
     private final JobProcess jobProcess; // 流程
     private final JobRequirement jobRequirement; // 招聘需求（灰度租户可见）
     private final JobRequirementSchema jobRequirementSchema; // job_requirement_schema
     private final JobType jobType; // job_type
+    private final Location location; // 地址（灰度租户可见）
     private final Note note; // 备注
     private final Offer offer; // Offer
     private final OfferSchema offerSchema; // offer_schema
@@ -92,17 +105,25 @@ public class HireService {
     private final ReferralWebsiteJobPost referralWebsiteJobPost; // referral_website.job_post
     private final RegistrationSchema registrationSchema; // registration_schema
     private final ResumeSource resumeSource; // 简历来源
-    private final Role role; // role
+    private final Role role; // 权限
+    private final Subject subject; // 项目（灰度租户可见）
     private final Talent talent; // 人才
     private final TalentFolder talentFolder; // talent_folder
     private final TalentObject talentObject; // talent_object
     private final TerminationReason terminationReason; // termination_reason
+    private final Website website; // 官网（灰度租户可见）
+    private final WebsiteChannel websiteChannel; // website.channel
+    private final WebsiteDelivery websiteDelivery; // website.delivery
+    private final WebsiteDeliveryTask websiteDeliveryTask; // website.delivery_task
+    private final WebsiteJobPost websiteJobPost; // website.job_post
+    private final WebsiteSiteUser websiteSiteUser; // website.site_user
 
     public HireService(Config config) {
         this.v1 = new V1(config);
         this.application = new Application(config);
         this.applicationInterview = new ApplicationInterview(config);
         this.attachment = new Attachment(config);
+        this.diversityInclusion = new DiversityInclusion(config);
         this.ecoAccount = new EcoAccount(config);
         this.ecoAccountCustomField = new EcoAccountCustomField(config);
         this.ecoBackgroundCheck = new EcoBackgroundCheck(config);
@@ -121,10 +142,12 @@ public class HireService {
         this.interview = new Interview(config);
         this.job = new Job(config);
         this.jobManager = new JobManager(config);
+        this.jobFunction = new JobFunction(config);
         this.jobProcess = new JobProcess(config);
         this.jobRequirement = new JobRequirement(config);
         this.jobRequirementSchema = new JobRequirementSchema(config);
         this.jobType = new JobType(config);
+        this.location = new Location(config);
         this.note = new Note(config);
         this.offer = new Offer(config);
         this.offerSchema = new OfferSchema(config);
@@ -135,10 +158,17 @@ public class HireService {
         this.registrationSchema = new RegistrationSchema(config);
         this.resumeSource = new ResumeSource(config);
         this.role = new Role(config);
+        this.subject = new Subject(config);
         this.talent = new Talent(config);
         this.talentFolder = new TalentFolder(config);
         this.talentObject = new TalentObject(config);
         this.terminationReason = new TerminationReason(config);
+        this.website = new Website(config);
+        this.websiteChannel = new WebsiteChannel(config);
+        this.websiteDelivery = new WebsiteDelivery(config);
+        this.websiteDeliveryTask = new WebsiteDeliveryTask(config);
+        this.websiteJobPost = new WebsiteJobPost(config);
+        this.websiteSiteUser = new WebsiteSiteUser(config);
     }
 
     public V1 v1() {
@@ -155,6 +185,10 @@ public class HireService {
 
     public Attachment attachment() {
         return attachment;
+    }
+
+    public DiversityInclusion diversityInclusion() {
+        return diversityInclusion;
     }
 
     public EcoAccount ecoAccount() {
@@ -229,6 +263,10 @@ public class HireService {
         return jobManager;
     }
 
+    public JobFunction jobFunction() {
+        return jobFunction;
+    }
+
     public JobProcess jobProcess() {
         return jobProcess;
     }
@@ -243,6 +281,10 @@ public class HireService {
 
     public JobType jobType() {
         return jobType;
+    }
+
+    public Location location() {
+        return location;
     }
 
     public Note note() {
@@ -285,6 +327,10 @@ public class HireService {
         return role;
     }
 
+    public Subject subject() {
+        return subject;
+    }
+
     public Talent talent() {
         return talent;
     }
@@ -299,6 +345,30 @@ public class HireService {
 
     public TerminationReason terminationReason() {
         return terminationReason;
+    }
+
+    public Website website() {
+        return website;
+    }
+
+    public WebsiteChannel websiteChannel() {
+        return websiteChannel;
+    }
+
+    public WebsiteDelivery websiteDelivery() {
+        return websiteDelivery;
+    }
+
+    public WebsiteDeliveryTask websiteDeliveryTask() {
+        return websiteDeliveryTask;
+    }
+
+    public WebsiteJobPost websiteJobPost() {
+        return websiteJobPost;
+    }
+
+    public WebsiteSiteUser websiteSiteUser() {
+        return websiteSiteUser;
     }
 
     public abstract static class P2ApplicationDeletedV1Handler implements IEventHandler<P2ApplicationDeletedV1> {

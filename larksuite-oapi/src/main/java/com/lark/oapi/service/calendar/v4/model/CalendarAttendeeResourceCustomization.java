@@ -43,7 +43,7 @@ public class CalendarAttendeeResourceCustomization {
     private String inputContent;
     /**
      * 每个配置的选项
-     * <p> 示例值：
+     * <p> 示例值：无
      */
     @SerializedName("options")
     private CustomizationOption[] options;
@@ -65,7 +65,7 @@ public class CalendarAttendeeResourceCustomization {
         this.inputContent = builder.inputContent;
         /**
          * 每个配置的选项
-         * <p> 示例值：
+         * <p> 示例值：无
          */
         this.options = builder.options;
     }
@@ -111,7 +111,7 @@ public class CalendarAttendeeResourceCustomization {
         private String inputContent;
         /**
          * 每个配置的选项
-         * <p> 示例值：
+         * <p> 示例值：无
          */
         private CustomizationOption[] options;
 
@@ -143,7 +143,7 @@ public class CalendarAttendeeResourceCustomization {
 
         /**
          * 每个配置的选项
-         * <p> 示例值：
+         * <p> 示例值：无
          *
          * @param options
          * @return

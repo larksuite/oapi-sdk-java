@@ -20,6 +20,7 @@ import com.lark.oapi.service.im.v1.resource.Thread;
 public class V1 {
     private final BatchMessage batchMessage; // 消息 - 批量消息
     private final Chat chat; // 群组
+    private final ChatAccessEvent chatAccessEvent; // chat.access_event
     private final ChatAnnouncement chatAnnouncement; // 群组 - 群公告
     private final ChatManagers chatManagers; // 群组 - 群成员
     private final ChatMemberBot chatMemberBot; // 事件
@@ -41,6 +42,7 @@ public class V1 {
     public V1(Config config) {
         this.batchMessage = new BatchMessage(config);
         this.chat = new Chat(config);
+        this.chatAccessEvent = new ChatAccessEvent(config);
         this.chatAnnouncement = new ChatAnnouncement(config);
         this.chatManagers = new ChatManagers(config);
         this.chatMemberBot = new ChatMemberBot(config);
@@ -66,6 +68,10 @@ public class V1 {
 
     public Chat chat() {
         return chat;
+    }
+
+    public ChatAccessEvent chatAccessEvent() {
+        return chatAccessEvent;
     }
 
     public ChatAnnouncement chatAnnouncement() {

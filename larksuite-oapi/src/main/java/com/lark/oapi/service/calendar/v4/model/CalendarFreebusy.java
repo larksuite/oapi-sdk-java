@@ -31,19 +31,19 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CalendarFreebusy {
     /**
      * 忙闲信息开始时间，RFC3339 date_time格式
-     * <p> 示例值：
+     * <p> 示例值：2020-10-28T22:30:00+08:00
      */
     @SerializedName("start_time")
     private String startTime;
     /**
      * 忙闲信息结束时间，RFC3339 date_time格式
-     * <p> 示例值：
+     * <p> 示例值：2020-10-28T22:30:00+08:00
      */
     @SerializedName("end_time")
     private String endTime;
     /**
      * 日历id
-     * <p> 示例值：
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     @SerializedName("calendar_id")
     private String calendarId;
@@ -55,17 +55,17 @@ public class CalendarFreebusy {
     public CalendarFreebusy(Builder builder) {
         /**
          * 忙闲信息开始时间，RFC3339 date_time格式
-         * <p> 示例值：
+         * <p> 示例值：2020-10-28T22:30:00+08:00
          */
         this.startTime = builder.startTime;
         /**
          * 忙闲信息结束时间，RFC3339 date_time格式
-         * <p> 示例值：
+         * <p> 示例值：2020-10-28T22:30:00+08:00
          */
         this.endTime = builder.endTime;
         /**
          * 日历id
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          */
         this.calendarId = builder.calendarId;
     }
@@ -101,23 +101,23 @@ public class CalendarFreebusy {
     public static class Builder {
         /**
          * 忙闲信息开始时间，RFC3339 date_time格式
-         * <p> 示例值：
+         * <p> 示例值：2020-10-28T22:30:00+08:00
          */
         private String startTime;
         /**
          * 忙闲信息结束时间，RFC3339 date_time格式
-         * <p> 示例值：
+         * <p> 示例值：2020-10-28T22:30:00+08:00
          */
         private String endTime;
         /**
          * 日历id
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          */
         private String calendarId;
 
         /**
          * 忙闲信息开始时间，RFC3339 date_time格式
-         * <p> 示例值：
+         * <p> 示例值：2020-10-28T22:30:00+08:00
          *
          * @param startTime
          * @return
@@ -130,7 +130,7 @@ public class CalendarFreebusy {
 
         /**
          * 忙闲信息结束时间，RFC3339 date_time格式
-         * <p> 示例值：
+         * <p> 示例值：2020-10-28T22:30:00+08:00
          *
          * @param endTime
          * @return
@@ -143,7 +143,7 @@ public class CalendarFreebusy {
 
         /**
          * 日历id
-         * <p> 示例值：
+         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
          *
          * @param calendarId
          * @return

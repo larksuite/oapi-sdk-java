@@ -37,7 +37,7 @@ public class CalendarEventAttendeeId {
     private String type;
     /**
      * 参与人ID
-     * <p> 示例值：
+     * <p> 示例值：user_xxxxxx
      */
     @SerializedName("attendee_id")
     private String attendeeId;
@@ -78,7 +78,7 @@ public class CalendarEventAttendeeId {
         this.type = builder.type;
         /**
          * 参与人ID
-         * <p> 示例值：
+         * <p> 示例值：user_xxxxxx
          */
         this.attendeeId = builder.attendeeId;
         /**
@@ -163,7 +163,7 @@ public class CalendarEventAttendeeId {
         private String type;
         /**
          * 参与人ID
-         * <p> 示例值：
+         * <p> 示例值：user_xxxxxx
          */
         private String attendeeId;
         /**
@@ -214,7 +214,7 @@ public class CalendarEventAttendeeId {
 
         /**
          * 参与人ID
-         * <p> 示例值：
+         * <p> 示例值：user_xxxxxx
          *
          * @param attendeeId
          * @return

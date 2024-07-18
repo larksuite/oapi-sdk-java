@@ -14,7 +14,7 @@
 package com.lark.oapi.service.calendar.v4.enums;
 
 /**
- *
+ * 权限
  */
 public enum CreateCalendarEventPermissionsEnum {
     PRIVATE("private"), // 私密

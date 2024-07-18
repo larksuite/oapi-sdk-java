@@ -23,6 +23,7 @@ public class V4 {
     private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
     private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
     private final CalendarEventMeetingChat calendarEventMeetingChat; // calendar.event.meeting_chat
+    private final CalendarEventMeetingMinute calendarEventMeetingMinute; // calendar.event.meeting_minute
     private final ExchangeBinding exchangeBinding; // Exchange绑定
     private final Freebusy freebusy; // freebusy
     private final Setting setting; // 日历设置
@@ -35,6 +36,7 @@ public class V4 {
         this.calendarEventAttendee = new CalendarEventAttendee(config);
         this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
         this.calendarEventMeetingChat = new CalendarEventMeetingChat(config);
+        this.calendarEventMeetingMinute = new CalendarEventMeetingMinute(config);
         this.exchangeBinding = new ExchangeBinding(config);
         this.freebusy = new Freebusy(config);
         this.setting = new Setting(config);
@@ -63,6 +65,10 @@ public class V4 {
 
     public CalendarEventMeetingChat calendarEventMeetingChat() {
         return calendarEventMeetingChat;
+    }
+
+    public CalendarEventMeetingMinute calendarEventMeetingMinute() {
+        return calendarEventMeetingMinute;
     }
 
     public ExchangeBinding exchangeBinding() {

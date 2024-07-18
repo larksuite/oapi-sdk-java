@@ -16,11 +16,11 @@ public class CreateCalendarSample {
         // 创建请求对象
         CreateCalendarReq req = CreateCalendarReq.newBuilder()
                 .calendar(Calendar.newBuilder()
-                        .summary("")
-                        .description("")
+                        .summary("summary")
+                        .description("description")
                         .permissions("private")
-                        .color(0)
-                        .summaryAlias("")
+                        .color(11034625)
+                        .summaryAlias("xxx")
                         .build())
                 .build();
 

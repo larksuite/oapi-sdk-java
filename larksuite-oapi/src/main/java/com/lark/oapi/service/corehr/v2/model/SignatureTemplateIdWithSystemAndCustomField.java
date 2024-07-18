@@ -42,17 +42,17 @@ public class SignatureTemplateIdWithSystemAndCustomField {
     @SerializedName("system_field_info")
     private SignatureFileSystemField systemFieldInfo;
     /**
-     * 该电子签模板对应的自定义字段 v1版本, 不支持多语类型
+     * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
      * <p> 示例值：
      */
-    @SerializedName("custom_field_info")
-    private SignatureCustomFieldV1 customFieldInfo;
+    @SerializedName("custom_fields")
+    private SignatureCustomFieldV1[] customFields;
     /**
-     * 该电子签模板对应的自定义字段 v2 版本, 支持多语类型
+     * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
      * <p> 示例值：
      */
-    @SerializedName("custom_field_info_v2")
-    private SignatureCustomFieldV2 customFieldInfoV2;
+    @SerializedName("custom_fields_v2")
+    private SignatureCustomFieldV2[] customFieldsV2;
 
     // builder 开始
     public SignatureTemplateIdWithSystemAndCustomField() {
@@ -70,15 +70,15 @@ public class SignatureTemplateIdWithSystemAndCustomField {
          */
         this.systemFieldInfo = builder.systemFieldInfo;
         /**
-         * 该电子签模板对应的自定义字段 v1版本, 不支持多语类型
+         * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
          * <p> 示例值：
          */
-        this.customFieldInfo = builder.customFieldInfo;
+        this.customFields = builder.customFields;
         /**
-         * 该电子签模板对应的自定义字段 v2 版本, 支持多语类型
+         * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
          * <p> 示例值：
          */
-        this.customFieldInfoV2 = builder.customFieldInfoV2;
+        this.customFieldsV2 = builder.customFieldsV2;
     }
 
     public static Builder newBuilder() {
@@ -101,20 +101,20 @@ public class SignatureTemplateIdWithSystemAndCustomField {
         this.systemFieldInfo = systemFieldInfo;
     }
 
-    public SignatureCustomFieldV1 getCustomFieldInfo() {
-        return this.customFieldInfo;
+    public SignatureCustomFieldV1[] getCustomFields() {
+        return this.customFields;
     }
 
-    public void setCustomFieldInfo(SignatureCustomFieldV1 customFieldInfo) {
-        this.customFieldInfo = customFieldInfo;
+    public void setCustomFields(SignatureCustomFieldV1[] customFields) {
+        this.customFields = customFields;
     }
 
-    public SignatureCustomFieldV2 getCustomFieldInfoV2() {
-        return this.customFieldInfoV2;
+    public SignatureCustomFieldV2[] getCustomFieldsV2() {
+        return this.customFieldsV2;
     }
 
-    public void setCustomFieldInfoV2(SignatureCustomFieldV2 customFieldInfoV2) {
-        this.customFieldInfoV2 = customFieldInfoV2;
+    public void setCustomFieldsV2(SignatureCustomFieldV2[] customFieldsV2) {
+        this.customFieldsV2 = customFieldsV2;
     }
 
     public static class Builder {
@@ -129,15 +129,15 @@ public class SignatureTemplateIdWithSystemAndCustomField {
          */
         private SignatureFileSystemField systemFieldInfo;
         /**
-         * 该电子签模板对应的自定义字段 v1版本, 不支持多语类型
+         * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
          * <p> 示例值：
          */
-        private SignatureCustomFieldV1 customFieldInfo;
+        private SignatureCustomFieldV1[] customFields;
         /**
-         * 该电子签模板对应的自定义字段 v2 版本, 支持多语类型
+         * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
          * <p> 示例值：
          */
-        private SignatureCustomFieldV2 customFieldInfoV2;
+        private SignatureCustomFieldV2[] customFieldsV2;
 
         /**
          * 电子签模板id
@@ -166,27 +166,27 @@ public class SignatureTemplateIdWithSystemAndCustomField {
 
 
         /**
-         * 该电子签模板对应的自定义字段 v1版本, 不支持多语类型
+         * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
          * <p> 示例值：
          *
-         * @param customFieldInfo
+         * @param customFields
          * @return
          */
-        public Builder customFieldInfo(SignatureCustomFieldV1 customFieldInfo) {
-            this.customFieldInfo = customFieldInfo;
+        public Builder customFields(SignatureCustomFieldV1[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 
 
         /**
-         * 该电子签模板对应的自定义字段 v2 版本, 支持多语类型
+         * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
          * <p> 示例值：
          *
-         * @param customFieldInfoV2
+         * @param customFieldsV2
          * @return
          */
-        public Builder customFieldInfoV2(SignatureCustomFieldV2 customFieldInfoV2) {
-            this.customFieldInfoV2 = customFieldInfoV2;
+        public Builder customFieldsV2(SignatureCustomFieldV2[] customFieldsV2) {
+            this.customFieldsV2 = customFieldsV2;
             return this;
         }
 

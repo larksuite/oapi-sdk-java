@@ -37,7 +37,7 @@ public class CalendarEventAttendeeResp {
     private String type;
     /**
      * 参与人ID
-     * <p> 示例值：
+     * <p> 示例值：ou_xxxxx
      */
     @SerializedName("attendee_id")
     private String attendeeId;
@@ -49,13 +49,13 @@ public class CalendarEventAttendeeResp {
     private String rsvpStatus;
     /**
      * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-     * <p> 示例值：
+     * <p> 示例值：false
      */
     @SerializedName("is_optional")
     private Boolean isOptional;
     /**
      * 参与人是否为日程组织者
-     * <p> 示例值：
+     * <p> 示例值：false
      */
     @SerializedName("is_organizer")
     private Boolean isOrganizer;
@@ -67,7 +67,7 @@ public class CalendarEventAttendeeResp {
     private Boolean isExternal;
     /**
      * 参与人名称
-     * <p> 示例值：
+     * <p> 示例值：lijian
      */
     @SerializedName("display_name")
     private String displayName;
@@ -79,31 +79,31 @@ public class CalendarEventAttendeeResp {
     private AttendeeChatMember[] chatMembers;
     /**
      * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-     * <p> 示例值：
+     * <p> 示例值：ou_xxxxxxxx
      */
     @SerializedName("user_id")
     private String userId;
     /**
      * chat类型参与人的群组chat_id
-     * <p> 示例值：
+     * <p> 示例值：oc_xxxxxxxxx
      */
     @SerializedName("chat_id")
     private String chatId;
     /**
      * resource类型参与人的会议室room_id
-     * <p> 示例值：
+     * <p> 示例值：omm_xxxxxxxx
      */
     @SerializedName("room_id")
     private String roomId;
     /**
      * third_party类型参与人的邮箱
-     * <p> 示例值：
+     * <p> 示例值：wangwu@email.com
      */
     @SerializedName("third_party_email")
     private String thirdPartyEmail;
     /**
      * bot身份操作时，为预定的会议室指定实际预定人
-     * <p> 示例值：
+     * <p> 示例值：ou_xxxxxxxx
      */
     @SerializedName("operate_id")
     private String operateId;
@@ -126,7 +126,7 @@ public class CalendarEventAttendeeResp {
         this.type = builder.type;
         /**
          * 参与人ID
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxx
          */
         this.attendeeId = builder.attendeeId;
         /**
@@ -136,12 +136,12 @@ public class CalendarEventAttendeeResp {
         this.rsvpStatus = builder.rsvpStatus;
         /**
          * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         this.isOptional = builder.isOptional;
         /**
          * 参与人是否为日程组织者
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         this.isOrganizer = builder.isOrganizer;
         /**
@@ -151,7 +151,7 @@ public class CalendarEventAttendeeResp {
         this.isExternal = builder.isExternal;
         /**
          * 参与人名称
-         * <p> 示例值：
+         * <p> 示例值：lijian
          */
         this.displayName = builder.displayName;
         /**
@@ -161,27 +161,27 @@ public class CalendarEventAttendeeResp {
         this.chatMembers = builder.chatMembers;
         /**
          * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxxxxx
          */
         this.userId = builder.userId;
         /**
          * chat类型参与人的群组chat_id
-         * <p> 示例值：
+         * <p> 示例值：oc_xxxxxxxxx
          */
         this.chatId = builder.chatId;
         /**
          * resource类型参与人的会议室room_id
-         * <p> 示例值：
+         * <p> 示例值：omm_xxxxxxxx
          */
         this.roomId = builder.roomId;
         /**
          * third_party类型参与人的邮箱
-         * <p> 示例值：
+         * <p> 示例值：wangwu@email.com
          */
         this.thirdPartyEmail = builder.thirdPartyEmail;
         /**
          * bot身份操作时，为预定的会议室指定实际预定人
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxxxxx
          */
         this.operateId = builder.operateId;
         /**
@@ -315,7 +315,7 @@ public class CalendarEventAttendeeResp {
         private String type;
         /**
          * 参与人ID
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxx
          */
         private String attendeeId;
         /**
@@ -325,12 +325,12 @@ public class CalendarEventAttendeeResp {
         private String rsvpStatus;
         /**
          * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         private Boolean isOptional;
         /**
          * 参与人是否为日程组织者
-         * <p> 示例值：
+         * <p> 示例值：false
          */
         private Boolean isOrganizer;
         /**
@@ -340,7 +340,7 @@ public class CalendarEventAttendeeResp {
         private Boolean isExternal;
         /**
          * 参与人名称
-         * <p> 示例值：
+         * <p> 示例值：lijian
          */
         private String displayName;
         /**
@@ -350,27 +350,27 @@ public class CalendarEventAttendeeResp {
         private AttendeeChatMember[] chatMembers;
         /**
          * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxxxxx
          */
         private String userId;
         /**
          * chat类型参与人的群组chat_id
-         * <p> 示例值：
+         * <p> 示例值：oc_xxxxxxxxx
          */
         private String chatId;
         /**
          * resource类型参与人的会议室room_id
-         * <p> 示例值：
+         * <p> 示例值：omm_xxxxxxxx
          */
         private String roomId;
         /**
          * third_party类型参与人的邮箱
-         * <p> 示例值：
+         * <p> 示例值：wangwu@email.com
          */
         private String thirdPartyEmail;
         /**
          * bot身份操作时，为预定的会议室指定实际预定人
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxxxxx
          */
         private String operateId;
         /**
@@ -406,7 +406,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * 参与人ID
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxx
          *
          * @param attendeeId
          * @return
@@ -444,7 +444,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-         * <p> 示例值：
+         * <p> 示例值：false
          *
          * @param isOptional
          * @return
@@ -457,7 +457,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * 参与人是否为日程组织者
-         * <p> 示例值：
+         * <p> 示例值：false
          *
          * @param isOrganizer
          * @return
@@ -483,7 +483,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * 参与人名称
-         * <p> 示例值：
+         * <p> 示例值：lijian
          *
          * @param displayName
          * @return
@@ -509,7 +509,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxxxxx
          *
          * @param userId
          * @return
@@ -522,7 +522,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * chat类型参与人的群组chat_id
-         * <p> 示例值：
+         * <p> 示例值：oc_xxxxxxxxx
          *
          * @param chatId
          * @return
@@ -535,7 +535,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * resource类型参与人的会议室room_id
-         * <p> 示例值：
+         * <p> 示例值：omm_xxxxxxxx
          *
          * @param roomId
          * @return
@@ -548,7 +548,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * third_party类型参与人的邮箱
-         * <p> 示例值：
+         * <p> 示例值：wangwu@email.com
          *
          * @param thirdPartyEmail
          * @return
@@ -561,7 +561,7 @@ public class CalendarEventAttendeeResp {
 
         /**
          * bot身份操作时，为预定的会议室指定实际预定人
-         * <p> 示例值：
+         * <p> 示例值：ou_xxxxxxxx
          *
          * @param operateId
          * @return

@@ -35,11 +35,13 @@ public class ListSpaceNodeRespBody {
     @SerializedName("items")
     private Node[] items;
     /**
+     * 分页Token
      * <p> 示例值：6946843325487906839
      */
     @SerializedName("page_token")
     private String pageToken;
     /**
+     * 是否还有数据
      * <p> 示例值：true
      */
     @SerializedName("has_more")
