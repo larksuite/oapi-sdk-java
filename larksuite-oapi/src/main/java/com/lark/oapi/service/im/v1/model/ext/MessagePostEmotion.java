@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 public class MessagePostEmotion extends MessagePostElement {
 
     @SerializedName("emoji_type")
-    private String emoji_type;
+    private String emojiType;
 
     public MessagePostEmotion() {
         tag = "emotion";
@@ -25,7 +25,7 @@ public class MessagePostEmotion extends MessagePostElement {
 
     public MessagePostEmotion(Builder builder) {
         tag = "emotion";
-        this.emoji_type = builder.emoji_type;
+        this.emojiType = builder.emojiType;
     }
 
     public static Builder newBuilder() {
@@ -33,11 +33,11 @@ public class MessagePostEmotion extends MessagePostElement {
     }
 
     public String getEmojiType() {
-        return emoji_type;
+        return emojiType;
     }
 
-    public void setEmojiType(String emoji_type) {
-        this.emoji_type = emoji_type;
+    public void setEmojiType(String emojiType) {
+        this.emojiType = emojiType;
     }
 
     @Override
@@ -47,10 +47,10 @@ public class MessagePostEmotion extends MessagePostElement {
 
     public static class Builder {
 
-        private String emoji_type;
+        private String emojiType;
 
-        public Builder emoji_type(String emoji_type) {
-            this.emoji_type = emoji_type;
+        public Builder emojiType(String emojiType) {
+            this.emojiType = emojiType;
             return this;
         }
 
