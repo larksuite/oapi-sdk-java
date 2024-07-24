@@ -96,6 +96,10 @@ public class MockCardAction {
         value.put("key2", "vaue2");
         value.put("key3", "vaue3");
         action.setValue(value);
+        action.setChecked(true);
+        action.setName("测试 name");
+        action.setInputValue("测试 input values");
+        action.setFormValue(value);
         cardAction.setAction(action);
         String bodyStr = Jsons.DEFAULT.toJson(cardAction);
 

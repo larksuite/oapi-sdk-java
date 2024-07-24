@@ -14,6 +14,8 @@ package com.lark.oapi.card.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Map;
 
 public class Action {
@@ -26,6 +28,16 @@ public class Action {
     private String option;
     @SerializedName("timezone")
     private String timezone;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("form_value")
+    private Map<String, Object> formValue;
+    @SerializedName("input_value")
+    private String inputValue;
+    @SerializedName("options")
+    private String[] options;
+    @SerializedName("checked")
+    private Boolean checked;
 
     public Map<String, Object> getValue() {
         return value;
@@ -59,13 +71,57 @@ public class Action {
         this.timezone = timezone;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Map<String, Object> getFormValue() {
+        return formValue;
+    }
+
+    public void setFormValue(Map<String, Object> formValue) {
+        this.formValue = formValue;
+    }
+
+    public String getInputValue() {
+        return inputValue;
+    }
+
+    public void setInputValue(String inputValue) {
+        this.inputValue = inputValue;
+    }
+
+    public String[] getOptions() {
+        return options;
+    }
+
+    public void setOptions(String[] options) {
+        this.options = options;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
     @Override
     public String toString() {
         return "Action{" +
                 "value=" + value +
                 ", tag='" + tag + '\'' +
                 ", option='" + option + '\'' +
-                ", timezone='" + timezone + '\'' +
+                ", name='" + name + '\'' +
+                ", form_value='" + formValue + '\'' +
+                ", input_value='" + inputValue + '\'' +
+                ", options='" + Arrays.toString(options) + '\'' +
+                ", checked='" + checked + '\'' +
                 '}';
     }
 }
