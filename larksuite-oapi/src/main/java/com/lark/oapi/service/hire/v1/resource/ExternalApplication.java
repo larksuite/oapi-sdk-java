@@ -180,6 +180,72 @@ public class ExternalApplication {
     }
 
     /**
+     * ，根据人才 id 获取外部投递列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=external_application&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=external_application&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListExternalApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListExternalApplicationSample.java</a> ;
+     */
+    public ListExternalApplicationResp list(ListExternalApplicationReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/hire/v1/external_applications"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        ListExternalApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListExternalApplicationResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/external_applications"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，根据人才 id 获取外部投递列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=external_application&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=external_application&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListExternalApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListExternalApplicationSample.java</a> ;
+     */
+    public ListExternalApplicationResp list(ListExternalApplicationReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/hire/v1/external_applications"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        ListExternalApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListExternalApplicationResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/external_applications"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
      * ，更新外部投递
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=hire&resource=external_application&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=hire&resource=external_application&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateExternalApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/UpdateExternalApplicationSample.java</a> ;

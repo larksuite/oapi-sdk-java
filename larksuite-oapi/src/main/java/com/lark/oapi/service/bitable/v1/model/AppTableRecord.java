@@ -68,6 +68,12 @@ public class AppTableRecord {
      */
     @SerializedName("last_modified_time")
     private Long lastModifiedTime;
+    /**
+     * 记录链接
+     * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     */
+    @SerializedName("record_url")
+    private String recordUrl;
 
     // builder 开始
     public AppTableRecord() {
@@ -104,6 +110,11 @@ public class AppTableRecord {
          * <p> 示例值：1677556020000
          */
         this.lastModifiedTime = builder.lastModifiedTime;
+        /**
+         * 记录链接
+         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+         */
+        this.recordUrl = builder.recordUrl;
     }
 
     public static Builder newBuilder() {
@@ -158,6 +169,14 @@ public class AppTableRecord {
         this.lastModifiedTime = lastModifiedTime;
     }
 
+    public String getRecordUrl() {
+        return this.recordUrl;
+    }
+
+    public void setRecordUrl(String recordUrl) {
+        this.recordUrl = recordUrl;
+    }
+
     public static class Builder {
         /**
          * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
@@ -189,6 +208,11 @@ public class AppTableRecord {
          * <p> 示例值：1677556020000
          */
         private Long lastModifiedTime;
+        /**
+         * 记录链接
+         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+         */
+        private String recordUrl;
 
         /**
          * 数据表的字段，即数据表的列;;当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c);;不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)
@@ -264,6 +288,19 @@ public class AppTableRecord {
          */
         public Builder lastModifiedTime(Long lastModifiedTime) {
             this.lastModifiedTime = lastModifiedTime;
+            return this;
+        }
+
+
+        /**
+         * 记录链接
+         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+         *
+         * @param recordUrl
+         * @return
+         */
+        public Builder recordUrl(String recordUrl) {
+            this.recordUrl = recordUrl;
             return this;
         }
 

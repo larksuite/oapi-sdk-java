@@ -59,6 +59,12 @@ public class PrehireCreate {
      */
     @SerializedName("ats_application_id")
     private String atsApplicationId;
+    /**
+     * 外部业务唯一编码
+     * <p> 示例值：7140946969586010376
+     */
+    @SerializedName("out_biz_id")
+    private String outBizId;
 
     // builder 开始
     public PrehireCreate() {
@@ -90,6 +96,11 @@ public class PrehireCreate {
          * <p> 示例值：7140946969586010376
          */
         this.atsApplicationId = builder.atsApplicationId;
+        /**
+         * 外部业务唯一编码
+         * <p> 示例值：7140946969586010376
+         */
+        this.outBizId = builder.outBizId;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class PrehireCreate {
         this.atsApplicationId = atsApplicationId;
     }
 
+    public String getOutBizId() {
+        return this.outBizId;
+    }
+
+    public void setOutBizId(String outBizId) {
+        this.outBizId = outBizId;
+    }
+
     public static class Builder {
         /**
          * 个人信息
@@ -162,6 +181,11 @@ public class PrehireCreate {
          * <p> 示例值：7140946969586010376
          */
         private String atsApplicationId;
+        /**
+         * 外部业务唯一编码
+         * <p> 示例值：7140946969586010376
+         */
+        private String outBizId;
 
         /**
          * 个人信息
@@ -224,6 +248,19 @@ public class PrehireCreate {
          */
         public Builder atsApplicationId(String atsApplicationId) {
             this.atsApplicationId = atsApplicationId;
+            return this;
+        }
+
+
+        /**
+         * 外部业务唯一编码
+         * <p> 示例值：7140946969586010376
+         *
+         * @param outBizId
+         * @return
+         */
+        public Builder outBizId(String outBizId) {
+            this.outBizId = outBizId;
             return this;
         }
 

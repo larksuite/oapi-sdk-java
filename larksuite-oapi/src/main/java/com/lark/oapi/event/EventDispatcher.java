@@ -1586,6 +1586,21 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+        /**
+         * <p> 删除人才,删除人才
+         * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/events/deleted">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/events/deleted</a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2TalentDeletedV1(HireService.P2TalentDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("hire.talent.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("hire.talent.deleted_v1");
+            }
+            eventType2EventHandler.put("hire.talent.deleted_v1", handler);
+            return this;
+        }
+
 
         /**
          * <p> 群解散,群组被解散后触发此事件。

@@ -29,12 +29,6 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferEmailInfo {
     /**
-     * 邮件发送地址
-     * <p> 示例值：no-reply@hire.mail.feishu.cn
-     */
-    @SerializedName("sender_email")
-    private String senderEmail;
-    /**
      * 抄送人邮件列表
      * <p> 示例值：
      */
@@ -59,11 +53,6 @@ public class OfferEmailInfo {
 
     public OfferEmailInfo(Builder builder) {
         /**
-         * 邮件发送地址
-         * <p> 示例值：no-reply@hire.mail.feishu.cn
-         */
-        this.senderEmail = builder.senderEmail;
-        /**
          * 抄送人邮件列表
          * <p> 示例值：
          */
@@ -82,14 +71,6 @@ public class OfferEmailInfo {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String getSenderEmail() {
-        return this.senderEmail;
-    }
-
-    public void setSenderEmail(String senderEmail) {
-        this.senderEmail = senderEmail;
     }
 
     public String[] getCcEmailList() {
@@ -118,11 +99,6 @@ public class OfferEmailInfo {
 
     public static class Builder {
         /**
-         * 邮件发送地址
-         * <p> 示例值：no-reply@hire.mail.feishu.cn
-         */
-        private String senderEmail;
-        /**
          * 抄送人邮件列表
          * <p> 示例值：
          */
@@ -137,19 +113,6 @@ public class OfferEmailInfo {
          * <p> 示例值：This is a test email.
          */
         private String content;
-
-        /**
-         * 邮件发送地址
-         * <p> 示例值：no-reply@hire.mail.feishu.cn
-         *
-         * @param senderEmail
-         * @return
-         */
-        public Builder senderEmail(String senderEmail) {
-            this.senderEmail = senderEmail;
-            return this;
-        }
-
 
         /**
          * 抄送人邮件列表

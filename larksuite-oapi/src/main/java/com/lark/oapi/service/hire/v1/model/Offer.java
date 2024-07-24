@@ -88,6 +88,12 @@ public class Offer {
      */
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
+    /**
+     * offer 发送记录列表
+     * <p> 示例值：
+     */
+    @SerializedName("offer_send_record_list")
+    private OfferSendRecord[] offerSendRecordList;
 
     // builder 开始
     public Offer() {
@@ -144,6 +150,11 @@ public class Offer {
          * <p> 示例值：1231231232312312
          */
         this.jobRequirementId = builder.jobRequirementId;
+        /**
+         * offer 发送记录列表
+         * <p> 示例值：
+         */
+        this.offerSendRecordList = builder.offerSendRecordList;
     }
 
     public static Builder newBuilder() {
@@ -230,6 +241,14 @@ public class Offer {
         this.jobRequirementId = jobRequirementId;
     }
 
+    public OfferSendRecord[] getOfferSendRecordList() {
+        return this.offerSendRecordList;
+    }
+
+    public void setOfferSendRecordList(OfferSendRecord[] offerSendRecordList) {
+        this.offerSendRecordList = offerSendRecordList;
+    }
+
     public static class Builder {
         /**
          * Offer ID
@@ -281,6 +300,11 @@ public class Offer {
          * <p> 示例值：1231231232312312
          */
         private String jobRequirementId;
+        /**
+         * offer 发送记录列表
+         * <p> 示例值：
+         */
+        private OfferSendRecord[] offerSendRecordList;
 
         /**
          * Offer ID
@@ -408,6 +432,19 @@ public class Offer {
          */
         public Builder jobRequirementId(String jobRequirementId) {
             this.jobRequirementId = jobRequirementId;
+            return this;
+        }
+
+
+        /**
+         * offer 发送记录列表
+         * <p> 示例值：
+         *
+         * @param offerSendRecordList
+         * @return
+         */
+        public Builder offerSendRecordList(OfferSendRecord[] offerSendRecordList) {
+            this.offerSendRecordList = offerSendRecordList;
             return this;
         }
 

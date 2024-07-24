@@ -18,6 +18,7 @@ import com.lark.oapi.service.attendance.v1.resource.*;
 
 public class V1 {
     private final ApprovalInfo approvalInfo; // approval_info
+    private final ArchiveRule archiveRule; // archive_rule
     private final File file; // 文件
     private final Group group; // 考勤组管理
     private final LeaveAccrualRecord leaveAccrualRecord; // leave_accrual_record
@@ -35,6 +36,7 @@ public class V1 {
 
     public V1(Config config) {
         this.approvalInfo = new ApprovalInfo(config);
+        this.archiveRule = new ArchiveRule(config);
         this.file = new File(config);
         this.group = new Group(config);
         this.leaveAccrualRecord = new LeaveAccrualRecord(config);
@@ -53,6 +55,10 @@ public class V1 {
 
     public ApprovalInfo approvalInfo() {
         return approvalInfo;
+    }
+
+    public ArchiveRule archiveRule() {
+        return archiveRule;
     }
 
     public File file() {

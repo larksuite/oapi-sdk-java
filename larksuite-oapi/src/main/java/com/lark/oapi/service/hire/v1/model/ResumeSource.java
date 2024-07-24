@@ -54,10 +54,10 @@ public class ResumeSource {
     private Integer activeStatus;
     /**
      * 来源类型
-     * <p> 示例值：1
+     * <p> 示例值：10001
      */
     @SerializedName("resume_source_type")
-    private Integer resumeSourceType;
+    private String resumeSourceType;
 
     // builder 开始
     public ResumeSource() {
@@ -86,7 +86,7 @@ public class ResumeSource {
         this.activeStatus = builder.activeStatus;
         /**
          * 来源类型
-         * <p> 示例值：1
+         * <p> 示例值：10001
          */
         this.resumeSourceType = builder.resumeSourceType;
     }
@@ -127,11 +127,11 @@ public class ResumeSource {
         this.activeStatus = activeStatus;
     }
 
-    public Integer getResumeSourceType() {
+    public String getResumeSourceType() {
         return this.resumeSourceType;
     }
 
-    public void setResumeSourceType(Integer resumeSourceType) {
+    public void setResumeSourceType(String resumeSourceType) {
         this.resumeSourceType = resumeSourceType;
     }
 
@@ -158,9 +158,9 @@ public class ResumeSource {
         private Integer activeStatus;
         /**
          * 来源类型
-         * <p> 示例值：1
+         * <p> 示例值：10001
          */
-        private Integer resumeSourceType;
+        private String resumeSourceType;
 
         /**
          * 来源 ID
@@ -216,12 +216,12 @@ public class ResumeSource {
 
         /**
          * 来源类型
-         * <p> 示例值：1
+         * <p> 示例值：10001
          *
          * @param resumeSourceType
          * @return
          */
-        public Builder resumeSourceType(Integer resumeSourceType) {
+        public Builder resumeSourceType(String resumeSourceType) {
             this.resumeSourceType = resumeSourceType;
             return this;
         }

@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class Verification {
     /**
      * 企业主体名称
-     * <p> 示例值：
+     * <p> 示例值：无限未来科技公司
      */
     @SerializedName("name")
     private String name;
@@ -48,7 +48,7 @@ public class Verification {
     public Verification(Builder builder) {
         /**
          * 企业主体名称
-         * <p> 示例值：
+         * <p> 示例值：无限未来科技公司
          */
         this.name = builder.name;
         /**
@@ -81,7 +81,7 @@ public class Verification {
     public static class Builder {
         /**
          * 企业主体名称
-         * <p> 示例值：
+         * <p> 示例值：无限未来科技公司
          */
         private String name;
         /**
@@ -92,7 +92,7 @@ public class Verification {
 
         /**
          * 企业主体名称
-         * <p> 示例值：
+         * <p> 示例值：无限未来科技公司
          *
          * @param name
          * @return

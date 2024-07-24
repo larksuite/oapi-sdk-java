@@ -107,6 +107,12 @@ public class Message {
      */
     @SerializedName("attachments")
     private Attachment[] attachments;
+    /**
+     * 会话id
+     * <p> 示例值：tfuh9N4WnzU6jdDw=
+     */
+    @SerializedName("thread_id")
+    private String threadId;
 
     // builder 开始
     public Message() {
@@ -178,6 +184,11 @@ public class Message {
          * <p> 示例值：
          */
         this.attachments = builder.attachments;
+        /**
+         * 会话id
+         * <p> 示例值：tfuh9N4WnzU6jdDw=
+         */
+        this.threadId = builder.threadId;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +299,14 @@ public class Message {
         this.attachments = attachments;
     }
 
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public void setThreadId(String threadId) {
+        this.threadId = threadId;
+    }
+
     public static class Builder {
         /**
          * MIME邮件数据，基于base64url编码
@@ -354,6 +373,11 @@ public class Message {
          * <p> 示例值：
          */
         private Attachment[] attachments;
+        /**
+         * 会话id
+         * <p> 示例值：tfuh9N4WnzU6jdDw=
+         */
+        private String threadId;
 
         /**
          * MIME邮件数据，基于base64url编码
@@ -520,6 +544,19 @@ public class Message {
          */
         public Builder attachments(Attachment[] attachments) {
             this.attachments = attachments;
+            return this;
+        }
+
+
+        /**
+         * 会话id
+         * <p> 示例值：tfuh9N4WnzU6jdDw=
+         *
+         * @param threadId
+         * @return
+         */
+        public Builder threadId(String threadId) {
+            this.threadId = threadId;
             return this;
         }
 
