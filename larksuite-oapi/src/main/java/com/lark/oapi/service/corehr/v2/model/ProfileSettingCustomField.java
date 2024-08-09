@@ -37,7 +37,7 @@ public class ProfileSettingCustomField {
     private String fieldName;
     /**
      * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-     * <p> 示例值：["custom_enum_0__c"]
+     * <p> 示例值：[\"custom_enum_0__c\"]
      */
     @SerializedName("value")
     private String value;
@@ -54,7 +54,7 @@ public class ProfileSettingCustomField {
         this.fieldName = builder.fieldName;
         /**
          * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-         * <p> 示例值：["custom_enum_0__c"]
+         * <p> 示例值：[\"custom_enum_0__c\"]
          */
         this.value = builder.value;
     }
@@ -87,7 +87,7 @@ public class ProfileSettingCustomField {
         private String fieldName;
         /**
          * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-         * <p> 示例值：["custom_enum_0__c"]
+         * <p> 示例值：[\"custom_enum_0__c\"]
          */
         private String value;
 
@@ -106,7 +106,7 @@ public class ProfileSettingCustomField {
 
         /**
          * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-         * <p> 示例值：["custom_enum_0__c"]
+         * <p> 示例值：[\"custom_enum_0__c\"]
          *
          * @param value
          * @return

@@ -50,6 +50,13 @@ public class PatchJobDataReq {
     @SerializedName("department_id_type")
     private String departmentIdType;
     /**
+     * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("strict_verify")
+    private String strictVerify;
+    /**
      * 任职信息ID
      * <p> 示例值：151515
      */
@@ -79,6 +86,11 @@ public class PatchJobDataReq {
          * <p> 示例值：open_department_id
          */
         this.departmentIdType = builder.departmentIdType;
+        /**
+         * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
+         * <p> 示例值：false
+         */
+        this.strictVerify = builder.strictVerify;
         /**
          * 任职信息ID
          * <p> 示例值：151515
@@ -115,6 +127,14 @@ public class PatchJobDataReq {
         this.departmentIdType = departmentIdType;
     }
 
+    public String getStrictVerify() {
+        return this.strictVerify;
+    }
+
+    public void setStrictVerify(String strictVerify) {
+        this.strictVerify = strictVerify;
+    }
+
     public String getJobDataId() {
         return this.jobDataId;
     }
@@ -135,6 +155,7 @@ public class PatchJobDataReq {
         private String clientToken; // 根据client_token是否一致来判断是否为同一请求
         private String userIdType; // 用户 ID 类型
         private String departmentIdType; // 此次调用中使用的部门 ID 类型
+        private String strictVerify; // 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
         private String jobDataId; // 任职信息ID
         private JobData body;
 
@@ -195,6 +216,18 @@ public class PatchJobDataReq {
          */
         public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.PatchJobDataDepartmentIdTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
+            return this;
+        }
+
+        /**
+         * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
+         * <p> 示例值：false
+         *
+         * @param strictVerify
+         * @return
+         */
+        public Builder strictVerify(String strictVerify) {
+            this.strictVerify = strictVerify;
             return this;
         }
 

@@ -17,7 +17,6 @@ package com.lark.oapi.service.attendance.v1.enums;
  * 响应体中的 user_id 和 creator_id 的员工工号类型
  */
 public enum GetUserFlowEmployeeTypeEnum {
-    OPEN_ID("open_id"), // 开放openID
     EMPLOYEE_ID("employee_id"), // 员工employeeId
     EMPLOYEE_NO("employee_no"), // 员工工号
     ;

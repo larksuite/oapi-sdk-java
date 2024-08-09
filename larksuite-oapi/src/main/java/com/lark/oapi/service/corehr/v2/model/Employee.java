@@ -383,6 +383,12 @@ public class Employee {
      */
     @SerializedName("work_shift")
     private Enum workShift;
+    /**
+     * 自定义组织
+     * <p> 示例值：{"custom_org_02":[{"id":"1","rate":"99"}]}
+     */
+    @SerializedName("custom_org_str")
+    private String customOrgStr;
 
     // builder 开始
     public Employee() {
@@ -684,6 +690,11 @@ public class Employee {
          * <p> 示例值：
          */
         this.workShift = builder.workShift;
+        /**
+         * 自定义组织
+         * <p> 示例值：{"custom_org_02":[{"id":"1","rate":"99"}]}
+         */
+        this.customOrgStr = builder.customOrgStr;
     }
 
     public static Builder newBuilder() {
@@ -1162,6 +1173,14 @@ public class Employee {
         this.workShift = workShift;
     }
 
+    public String getCustomOrgStr() {
+        return this.customOrgStr;
+    }
+
+    public void setCustomOrgStr(String customOrgStr) {
+        this.customOrgStr = customOrgStr;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID
@@ -1458,6 +1477,11 @@ public class Employee {
          * <p> 示例值：
          */
         private Enum workShift;
+        /**
+         * 自定义组织
+         * <p> 示例值：{"custom_org_02":[{"id":"1","rate":"99"}]}
+         */
+        private String customOrgStr;
 
         /**
          * 雇佣 ID
@@ -2222,6 +2246,19 @@ public class Employee {
          */
         public Builder workShift(Enum workShift) {
             this.workShift = workShift;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织
+         * <p> 示例值：{"custom_org_02":[{"id":"1","rate":"99"}]}
+         *
+         * @param customOrgStr
+         * @return
+         */
+        public Builder customOrgStr(String customOrgStr) {
+            this.customOrgStr = customOrgStr;
             return this;
         }
 

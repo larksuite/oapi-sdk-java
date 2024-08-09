@@ -28,8 +28,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteTripartiteAgreementReq {
     /**
-     * 三方协议ID
-     * <p> 示例值：6942778198054125570
+     * <p> 示例值：
      */
     @Path
     @SerializedName("tripartite_agreement_id")
@@ -41,8 +40,8 @@ public class DeleteTripartiteAgreementReq {
 
     public DeleteTripartiteAgreementReq(Builder builder) {
         /**
-         * 三方协议ID
-         * <p> 示例值：6942778198054125570
+         *
+         * <p> 示例值：
          */
         this.tripartiteAgreementId = builder.tripartiteAgreementId;
     }
@@ -61,11 +60,10 @@ public class DeleteTripartiteAgreementReq {
 
     public static class Builder {
 
-        private String tripartiteAgreementId; // 三方协议ID
+        private String tripartiteAgreementId; //
 
         /**
-         * 三方协议ID
-         * <p> 示例值：6942778198054125570
+         * <p> 示例值：
          *
          * @param tripartiteAgreementId
          * @return

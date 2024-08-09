@@ -29,7 +29,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListInterviewRecordReq {
     /**
      * 分页大小
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @Query
     @SerializedName("page_size")
@@ -63,7 +63,7 @@ public class ListInterviewRecordReq {
     public ListInterviewRecordReq(Builder builder) {
         /**
          * 分页大小
-         * <p> 示例值：
+         * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
         /**
@@ -128,7 +128,7 @@ public class ListInterviewRecordReq {
 
         /**
          * 分页大小
-         * <p> 示例值：
+         * <p> 示例值：10
          *
          * @param pageSize
          * @return

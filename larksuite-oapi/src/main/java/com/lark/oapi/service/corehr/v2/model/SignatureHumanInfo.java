@@ -30,11 +30,23 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureHumanInfo {
     /**
-     * 归属人ID
-     * <p> 示例值：12312412413234
+     * 在职员工ID
+     * <p> 示例值：5ce6cd12
      */
-    @SerializedName("id")
-    private String id;
+    @SerializedName("employee_id")
+    private String employeeId;
+    /**
+     * 员工待入职id
+     * <p> 示例值：7278880340130022956
+     */
+    @SerializedName("pre_hire_id")
+    private String preHireId;
+    /**
+     * 用户 ID 类型，适用于employee_id
+     * <p> 示例值：people_corehr_id
+     */
+    @SerializedName("user_id_type")
+    private String userIdType;
     /**
      * 归属人类型
      * <p> 示例值：
@@ -48,10 +60,20 @@ public class SignatureHumanInfo {
 
     public SignatureHumanInfo(Builder builder) {
         /**
-         * 归属人ID
-         * <p> 示例值：12312412413234
+         * 在职员工ID
+         * <p> 示例值：5ce6cd12
          */
-        this.id = builder.id;
+        this.employeeId = builder.employeeId;
+        /**
+         * 员工待入职id
+         * <p> 示例值：7278880340130022956
+         */
+        this.preHireId = builder.preHireId;
+        /**
+         * 用户 ID 类型，适用于employee_id
+         * <p> 示例值：people_corehr_id
+         */
+        this.userIdType = builder.userIdType;
         /**
          * 归属人类型
          * <p> 示例值：
@@ -63,12 +85,28 @@ public class SignatureHumanInfo {
         return new Builder();
     }
 
-    public String getId() {
-        return this.id;
+    public String getEmployeeId() {
+        return this.employeeId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getPreHireId() {
+        return this.preHireId;
+    }
+
+    public void setPreHireId(String preHireId) {
+        this.preHireId = preHireId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
     public Enum getHumanType() {
@@ -81,10 +119,20 @@ public class SignatureHumanInfo {
 
     public static class Builder {
         /**
-         * 归属人ID
-         * <p> 示例值：12312412413234
+         * 在职员工ID
+         * <p> 示例值：5ce6cd12
          */
-        private String id;
+        private String employeeId;
+        /**
+         * 员工待入职id
+         * <p> 示例值：7278880340130022956
+         */
+        private String preHireId;
+        /**
+         * 用户 ID 类型，适用于employee_id
+         * <p> 示例值：people_corehr_id
+         */
+        private String userIdType;
         /**
          * 归属人类型
          * <p> 示例值：
@@ -92,14 +140,52 @@ public class SignatureHumanInfo {
         private Enum humanType;
 
         /**
-         * 归属人ID
-         * <p> 示例值：12312412413234
+         * 在职员工ID
+         * <p> 示例值：5ce6cd12
          *
-         * @param id
+         * @param employeeId
          * @return
          */
-        public Builder id(String id) {
-            this.id = id;
+        public Builder employeeId(String employeeId) {
+            this.employeeId = employeeId;
+            return this;
+        }
+
+
+        /**
+         * 员工待入职id
+         * <p> 示例值：7278880340130022956
+         *
+         * @param preHireId
+         * @return
+         */
+        public Builder preHireId(String preHireId) {
+            this.preHireId = preHireId;
+            return this;
+        }
+
+
+        /**
+         * 用户 ID 类型，适用于employee_id
+         * <p> 示例值：people_corehr_id
+         *
+         * @param userIdType
+         * @return
+         */
+        public Builder userIdType(String userIdType) {
+            this.userIdType = userIdType;
+            return this;
+        }
+
+        /**
+         * 用户 ID 类型，适用于employee_id
+         * <p> 示例值：people_corehr_id
+         *
+         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SignatureHumanInfoUserIdTypeEnum}
+         * @return
+         */
+        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SignatureHumanInfoUserIdTypeEnum userIdType) {
+            this.userIdType = userIdType.getValue();
             return this;
         }
 

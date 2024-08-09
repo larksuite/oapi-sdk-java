@@ -28,8 +28,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteExternalReferralRewardReq {
     /**
-     * 内推奖励ID
-     * <p> 示例值：6942778198054125570
+     * <p> 示例值：
      */
     @Path
     @SerializedName("external_referral_reward_id")
@@ -41,8 +40,8 @@ public class DeleteExternalReferralRewardReq {
 
     public DeleteExternalReferralRewardReq(Builder builder) {
         /**
-         * 内推奖励ID
-         * <p> 示例值：6942778198054125570
+         *
+         * <p> 示例值：
          */
         this.externalReferralRewardId = builder.externalReferralRewardId;
     }
@@ -61,11 +60,10 @@ public class DeleteExternalReferralRewardReq {
 
     public static class Builder {
 
-        private String externalReferralRewardId; // 内推奖励ID
+        private String externalReferralRewardId; //
 
         /**
-         * 内推奖励ID
-         * <p> 示例值：6942778198054125570
+         * <p> 示例值：
          *
          * @param externalReferralRewardId
          * @return

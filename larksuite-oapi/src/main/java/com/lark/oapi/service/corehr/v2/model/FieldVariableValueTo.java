@@ -107,6 +107,12 @@ public class FieldVariableValueTo {
      */
     @SerializedName("list_values")
     private String[] listValues;
+    /**
+     * 文件类型字段值，可通过主数据的文件下载Open API下载
+     * <p> 示例值：
+     */
+    @SerializedName("file_value")
+    private FieldVariableValueToFile fileValue;
 
     // builder 开始
     public FieldVariableValueTo() {
@@ -178,6 +184,11 @@ public class FieldVariableValueTo {
          * <p> 示例值：
          */
         this.listValues = builder.listValues;
+        /**
+         * 文件类型字段值，可通过主数据的文件下载Open API下载
+         * <p> 示例值：
+         */
+        this.fileValue = builder.fileValue;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +299,14 @@ public class FieldVariableValueTo {
         this.listValues = listValues;
     }
 
+    public FieldVariableValueToFile getFileValue() {
+        return this.fileValue;
+    }
+
+    public void setFileValue(FieldVariableValueToFile fileValue) {
+        this.fileValue = fileValue;
+    }
+
     public static class Builder {
         /**
          * 文本值
@@ -354,6 +373,11 @@ public class FieldVariableValueTo {
          * <p> 示例值：
          */
         private String[] listValues;
+        /**
+         * 文件类型字段值，可通过主数据的文件下载Open API下载
+         * <p> 示例值：
+         */
+        private FieldVariableValueToFile fileValue;
 
         /**
          * 文本值
@@ -520,6 +544,19 @@ public class FieldVariableValueTo {
          */
         public Builder listValues(String[] listValues) {
             this.listValues = listValues;
+            return this;
+        }
+
+
+        /**
+         * 文件类型字段值，可通过主数据的文件下载Open API下载
+         * <p> 示例值：
+         *
+         * @param fileValue
+         * @return
+         */
+        public Builder fileValue(FieldVariableValueToFile fileValue) {
+            this.fileValue = fileValue;
             return this;
         }
 

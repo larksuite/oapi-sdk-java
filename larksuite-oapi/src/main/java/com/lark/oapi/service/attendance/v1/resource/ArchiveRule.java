@@ -49,6 +49,72 @@ public class ArchiveRule {
 
     /**
      * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del_report&project=attendance&resource=archive_rule&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del_report&project=attendance&resource=archive_rule&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/DelReportArchiveRuleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/DelReportArchiveRuleSample.java</a> ;
+     */
+    public DelReportArchiveRuleResp delReport(DelReportArchiveRuleReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/attendance/v1/archive_rule/del_report"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        DelReportArchiveRuleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DelReportArchiveRuleResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/archive_rule/del_report"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del_report&project=attendance&resource=archive_rule&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del_report&project=attendance&resource=archive_rule&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/DelReportArchiveRuleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/DelReportArchiveRuleSample.java</a> ;
+     */
+    public DelReportArchiveRuleResp delReport(DelReportArchiveRuleReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/attendance/v1/archive_rule/del_report"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        DelReportArchiveRuleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DelReportArchiveRuleResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/archive_rule/del_report"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=attendance&resource=archive_rule&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=attendance&resource=archive_rule&version=v1</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/ListArchiveRuleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/ListArchiveRuleSample.java</a> ;
      */
@@ -101,6 +167,72 @@ public class ArchiveRule {
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/archive_rule"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload_report&project=attendance&resource=archive_rule&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload_report&project=attendance&resource=archive_rule&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/UploadReportArchiveRuleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/UploadReportArchiveRuleSample.java</a> ;
+     */
+    public UploadReportArchiveRuleResp uploadReport(UploadReportArchiveRuleReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/attendance/v1/archive_rule/upload_report"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        UploadReportArchiveRuleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadReportArchiveRuleResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/archive_rule/upload_report"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload_report&project=attendance&resource=archive_rule&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload_report&project=attendance&resource=archive_rule&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/UploadReportArchiveRuleSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1/UploadReportArchiveRuleSample.java</a> ;
+     */
+    public UploadReportArchiveRuleResp uploadReport(UploadReportArchiveRuleReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/attendance/v1/archive_rule/upload_report"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        UploadReportArchiveRuleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadReportArchiveRuleResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/attendance/v1/archive_rule/upload_report"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));

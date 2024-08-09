@@ -17,10 +17,16 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.board.v1.resource.*;
 
 public class V1 {
+    private final Whiteboard whiteboard; // whiteboard
     private final WhiteboardNode whiteboardNode; // whiteboard.node
 
     public V1(Config config) {
+        this.whiteboard = new Whiteboard(config);
         this.whiteboardNode = new WhiteboardNode(config);
+    }
+
+    public Whiteboard whiteboard() {
+        return whiteboard;
     }
 
     public WhiteboardNode whiteboardNode() {

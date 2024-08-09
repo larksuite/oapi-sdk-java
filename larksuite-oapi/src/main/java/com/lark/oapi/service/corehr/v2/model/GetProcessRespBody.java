@@ -124,6 +124,18 @@ public class GetProcessRespBody {
      */
     @SerializedName("properties")
     private Integer properties;
+    /**
+     * 系统待办列表
+     * <p> 示例值：
+     */
+    @SerializedName("system_todos")
+    private ProcessSystemTodoItem[] systemTodos;
+    /**
+     * 系统已办列表
+     * <p> 示例值：
+     */
+    @SerializedName("system_done_list")
+    private ProcessSystemDoneItem[] systemDoneList;
 
     public String getProcessId() {
         return this.processId;
@@ -251,6 +263,22 @@ public class GetProcessRespBody {
 
     public void setProperties(Integer properties) {
         this.properties = properties;
+    }
+
+    public ProcessSystemTodoItem[] getSystemTodos() {
+        return this.systemTodos;
+    }
+
+    public void setSystemTodos(ProcessSystemTodoItem[] systemTodos) {
+        this.systemTodos = systemTodos;
+    }
+
+    public ProcessSystemDoneItem[] getSystemDoneList() {
+        return this.systemDoneList;
+    }
+
+    public void setSystemDoneList(ProcessSystemDoneItem[] systemDoneList) {
+        this.systemDoneList = systemDoneList;
     }
 
 }

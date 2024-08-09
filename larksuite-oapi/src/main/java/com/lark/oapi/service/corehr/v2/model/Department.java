@@ -131,6 +131,12 @@ public class Department {
      */
     @SerializedName("staffing_model")
     private Enum staffingModel;
+    /**
+     * 成本中心id
+     * <p> 示例值：7142384817131652652
+     */
+    @SerializedName("cost_center_id")
+    private String costCenterId;
 
     // builder 开始
     public Department() {
@@ -222,6 +228,11 @@ public class Department {
          * <p> 示例值：
          */
         this.staffingModel = builder.staffingModel;
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         */
+        this.costCenterId = builder.costCenterId;
     }
 
     public static Builder newBuilder() {
@@ -364,6 +375,14 @@ public class Department {
         this.staffingModel = staffingModel;
     }
 
+    public String getCostCenterId() {
+        return this.costCenterId;
+    }
+
+    public void setCostCenterId(String costCenterId) {
+        this.costCenterId = costCenterId;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
@@ -450,6 +469,11 @@ public class Department {
          * <p> 示例值：
          */
         private Enum staffingModel;
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         */
+        private String costCenterId;
 
         /**
          * 部门 ID
@@ -668,6 +692,19 @@ public class Department {
          */
         public Builder staffingModel(Enum staffingModel) {
             this.staffingModel = staffingModel;
+            return this;
+        }
+
+
+        /**
+         * 成本中心id
+         * <p> 示例值：7142384817131652652
+         *
+         * @param costCenterId
+         * @return
+         */
+        public Builder costCenterId(String costCenterId) {
+            this.costCenterId = costCenterId;
             return this;
         }
 

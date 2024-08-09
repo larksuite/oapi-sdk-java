@@ -113,6 +113,12 @@ public class Contract {
      */
     @SerializedName("signing_times")
     private Integer signingTimes;
+    /**
+     * 原合同ID
+     * <p> 示例值：7147527056140813828
+     */
+    @SerializedName("original_contract")
+    private String originalContract;
 
     // builder 开始
     public Contract() {
@@ -189,6 +195,11 @@ public class Contract {
          * <p> 示例值：1
          */
         this.signingTimes = builder.signingTimes;
+        /**
+         * 原合同ID
+         * <p> 示例值：7147527056140813828
+         */
+        this.originalContract = builder.originalContract;
     }
 
     public static Builder newBuilder() {
@@ -307,6 +318,14 @@ public class Contract {
         this.signingTimes = signingTimes;
     }
 
+    public String getOriginalContract() {
+        return this.originalContract;
+    }
+
+    public void setOriginalContract(String originalContract) {
+        this.originalContract = originalContract;
+    }
+
     public static class Builder {
         /**
          * 合同ID
@@ -378,6 +397,11 @@ public class Contract {
          * <p> 示例值：1
          */
         private Integer signingTimes;
+        /**
+         * 原合同ID
+         * <p> 示例值：7147527056140813828
+         */
+        private String originalContract;
 
         /**
          * 合同ID
@@ -557,6 +581,19 @@ public class Contract {
          */
         public Builder signingTimes(Integer signingTimes) {
             this.signingTimes = signingTimes;
+            return this;
+        }
+
+
+        /**
+         * 原合同ID
+         * <p> 示例值：7147527056140813828
+         *
+         * @param originalContract
+         * @return
+         */
+        public Builder originalContract(String originalContract) {
+            this.originalContract = originalContract;
             return this;
         }
 

@@ -55,10 +55,16 @@ public class SignatureFile {
     private String updateTime;
     /**
      * 雇员 id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     * <p> 示例值：7123132668099919891
      */
     @SerializedName("employment_id")
     private String employmentId;
+    /**
+     * 待入职 id
+     * <p> 示例值：7123132668099919891
+     */
+    @SerializedName("pre_hire_id")
+    private String preHireId;
     /**
      * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
      * <p> 示例值：
@@ -111,9 +117,14 @@ public class SignatureFile {
         this.updateTime = builder.updateTime;
         /**
          * 雇员 id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         * <p> 示例值：7123132668099919891
          */
         this.employmentId = builder.employmentId;
+        /**
+         * 待入职 id
+         * <p> 示例值：7123132668099919891
+         */
+        this.preHireId = builder.preHireId;
         /**
          * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
          * <p> 示例值：
@@ -180,6 +191,14 @@ public class SignatureFile {
         this.employmentId = employmentId;
     }
 
+    public String getPreHireId() {
+        return this.preHireId;
+    }
+
+    public void setPreHireId(String preHireId) {
+        this.preHireId = preHireId;
+    }
+
     public Enum getSignatureFileState() {
         return this.signatureFileState;
     }
@@ -235,9 +254,14 @@ public class SignatureFile {
         private String updateTime;
         /**
          * 雇员 id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         * <p> 示例值：7123132668099919891
          */
         private String employmentId;
+        /**
+         * 待入职 id
+         * <p> 示例值：7123132668099919891
+         */
+        private String preHireId;
         /**
          * 电子签文件状态，枚举值可通过文档【飞书人事枚举常量】电子签文件状态（signature_file_state）枚举定义部分获得
          * <p> 示例值：
@@ -313,13 +337,26 @@ public class SignatureFile {
 
         /**
          * 雇员 id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+         * <p> 示例值：7123132668099919891
          *
          * @param employmentId
          * @return
          */
         public Builder employmentId(String employmentId) {
             this.employmentId = employmentId;
+            return this;
+        }
+
+
+        /**
+         * 待入职 id
+         * <p> 示例值：7123132668099919891
+         *
+         * @param preHireId
+         * @return
+         */
+        public Builder preHireId(String preHireId) {
+            this.preHireId = preHireId;
             return this;
         }
 

@@ -182,4 +182,70 @@ public class SpaceMember {
 
         return resp;
     }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=wiki&resource=space.member&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=wiki&resource=space.member&version=v2</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2/ListSpaceMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2/ListSpaceMemberSample.java</a> ;
+     */
+    public ListSpaceMemberResp list(ListSpaceMemberReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/wiki/v2/spaces/:space_id/members"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        ListSpaceMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpaceMemberResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/members"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=wiki&resource=space.member&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=wiki&resource=space.member&version=v2</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2/ListSpaceMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2/ListSpaceMemberSample.java</a> ;
+     */
+    public ListSpaceMemberResp list(ListSpaceMemberReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/wiki/v2/spaces/:space_id/members"
+                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , req);
+
+        // 反序列化
+        ListSpaceMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpaceMemberResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/wiki/v2/spaces/:space_id/members"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
 }

@@ -60,6 +60,18 @@ public class SecurityGroup {
     @SerializedName("description")
     private Name description;
     /**
+     * 角色类型
+     * <p> 示例值：1
+     */
+    @SerializedName("group_type")
+    private Integer groupType;
+    /**
+     * 创建人
+     * <p> 示例值：6967639606963471902
+     */
+    @SerializedName("created_by")
+    private String createdBy;
+    /**
      * 更新时间
      * <p> 示例值：1
      */
@@ -102,6 +114,16 @@ public class SecurityGroup {
          * <p> 示例值：
          */
         this.description = builder.description;
+        /**
+         * 角色类型
+         * <p> 示例值：1
+         */
+        this.groupType = builder.groupType;
+        /**
+         * 创建人
+         * <p> 示例值：6967639606963471902
+         */
+        this.createdBy = builder.createdBy;
         /**
          * 更新时间
          * <p> 示例值：1
@@ -158,6 +180,22 @@ public class SecurityGroup {
         this.description = description;
     }
 
+    public Integer getGroupType() {
+        return this.groupType;
+    }
+
+    public void setGroupType(Integer groupType) {
+        this.groupType = groupType;
+    }
+
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public String getUpdateTime() {
         return this.updateTime;
     }
@@ -200,6 +238,16 @@ public class SecurityGroup {
          * <p> 示例值：
          */
         private Name description;
+        /**
+         * 角色类型
+         * <p> 示例值：1
+         */
+        private Integer groupType;
+        /**
+         * 创建人
+         * <p> 示例值：6967639606963471902
+         */
+        private String createdBy;
         /**
          * 更新时间
          * <p> 示例值：1
@@ -272,6 +320,32 @@ public class SecurityGroup {
          */
         public Builder description(Name description) {
             this.description = description;
+            return this;
+        }
+
+
+        /**
+         * 角色类型
+         * <p> 示例值：1
+         *
+         * @param groupType
+         * @return
+         */
+        public Builder groupType(Integer groupType) {
+            this.groupType = groupType;
+            return this;
+        }
+
+
+        /**
+         * 创建人
+         * <p> 示例值：6967639606963471902
+         *
+         * @param createdBy
+         * @return
+         */
+        public Builder createdBy(String createdBy) {
+            this.createdBy = createdBy;
             return this;
         }
 

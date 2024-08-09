@@ -59,6 +59,12 @@ public class ProfileSettingEmploymentInfo {
      */
     @SerializedName("custom_groups")
     private ProfileSettingCustomGroup[] customGroups;
+    /**
+     * 自定义组织记录
+     * <p> 示例值：
+     */
+    @SerializedName("custom_org_groups")
+    private JobDataCustomOrg[] customOrgGroups;
 
     // builder 开始
     public ProfileSettingEmploymentInfo() {
@@ -90,6 +96,11 @@ public class ProfileSettingEmploymentInfo {
          * <p> 示例值：
          */
         this.customGroups = builder.customGroups;
+        /**
+         * 自定义组织记录
+         * <p> 示例值：
+         */
+        this.customOrgGroups = builder.customOrgGroups;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class ProfileSettingEmploymentInfo {
         this.customGroups = customGroups;
     }
 
+    public JobDataCustomOrg[] getCustomOrgGroups() {
+        return this.customOrgGroups;
+    }
+
+    public void setCustomOrgGroups(JobDataCustomOrg[] customOrgGroups) {
+        this.customOrgGroups = customOrgGroups;
+    }
+
     public static class Builder {
         /**
          * 基本信息
@@ -162,6 +181,11 @@ public class ProfileSettingEmploymentInfo {
          * <p> 示例值：
          */
         private ProfileSettingCustomGroup[] customGroups;
+        /**
+         * 自定义组织记录
+         * <p> 示例值：
+         */
+        private JobDataCustomOrg[] customOrgGroups;
 
         /**
          * 基本信息
@@ -224,6 +248,19 @@ public class ProfileSettingEmploymentInfo {
          */
         public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
             this.customGroups = customGroups;
+            return this;
+        }
+
+
+        /**
+         * 自定义组织记录
+         * <p> 示例值：
+         *
+         * @param customOrgGroups
+         * @return
+         */
+        public Builder customOrgGroups(JobDataCustomOrg[] customOrgGroups) {
+            this.customOrgGroups = customOrgGroups;
             return this;
         }
 
