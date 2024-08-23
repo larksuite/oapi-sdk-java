@@ -16,7 +16,7 @@ public class ListQuestionnaireSample {
         // 创建请求对象
         ListQuestionnaireReq req = ListQuestionnaireReq.newBuilder()
                 .pageToken("1231231987")
-                .pageSize(1)
+                .pageSize(20)
                 .applicationId("6985833807195212076")
                 .interviewId("7038435261598763308")
                 .updateStartTime("1638848468868")

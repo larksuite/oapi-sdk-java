@@ -46,7 +46,7 @@
 <dependency>
   <groupId>com.larksuite.oapi</groupId>
   <artifactId>oapi-sdk</artifactId>
-  <version>2.3.1</version>
+  <version>2.3.2</version>
 </dependency>
 ```
 - 如无法获取oapi-sdk依赖，请在 pom.xml 的 <project> 里增加 <repositories>
@@ -594,7 +594,7 @@ public class EventController {
 
   //1. 注册消息处理器
   private final EventDispatcher EVENT_DISPATCHER = EventDispatcher.newBuilder("verificationToken",
-          "encryptKey")
+          "encryptKey")  // 这里要记得改成自己应用后台配置的对应 verificationToken 和 encryptKey。没有就是传空字符串
       .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
         @Override
         public void handle(P2MessageReceiveV1 event) {
@@ -620,6 +620,13 @@ public class EventController {
           System.out.println(Jsons.DEFAULT.toJson(event));
           System.out.println(event.getRequestId());
         }
+      }).onCustomizedEvent("这里填入你要自定义订阅的 event 的 key,例如 out_approval", new CustomEventHandler() {
+          // 对于一些老事件、找不到上述结构化定义的事件，需要自行使用这种 onCustomizedEvent 的方式去订阅
+          @Override
+          public void handle(EventReq event) {
+              System.out.println("body:" + new String(event.getBody()));
+              System.out.println("plain:" + event.getPlain());
+          }
       })
       .build();
 
@@ -680,7 +687,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EventController {
   //1. 注册消息处理器
-  private final EventDispatcher EVENT_DISPATCHER = EventDispatcher.newBuilder("", "")
+  private final EventDispatcher EVENT_DISPATCHER = EventDispatcher.newBuilder("", "") // 这里要记得改成自己应用后台配置的对应 verificationToken 和 encryptKey。没有就是传空字符串
       .onP2MessageReceiveV1(new P2MessageReceiveV1Handler() {
         @Override
         public void handle(P2MessageReceiveV1 event) throws Exception {
@@ -791,7 +798,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardActionController {
 
   //1. 注册卡片处理器
-  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("v", "e",
+  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("verificationToken", 
+          "encryptKey", // 这里要记得改成自己应用后台配置的对应 verificationToken 和 encryptKey。没有就是传空字符串
       new CardActionHandler.ICardHandler() {
         @Override
         public Object handle(CardAction cardAction) {
@@ -840,7 +848,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardActionController {
 
   //1. 注册卡片处理器
-  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("v", "e",
+  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("verificationToken",
+          "encryptKey", // 这里要记得改成自己应用后台配置的对应 verificationToken 和 encryptKey。没有就是传空字符串
       new CardActionHandler.ICardHandler() {
         @Override
         public Object handle(CardAction cardAction) {
@@ -880,7 +889,7 @@ public class CardActionController {
 
 如开发者需卡片处理器内返回自定义内容，则可以使用下面方式进行处理：
 
-```go 
+```java
 import com.lark.oapi.card.CardActionHandler;
 import com.lark.oapi.card.model.CardAction;
 import com.lark.oapi.card.model.CustomResponse;
@@ -900,7 +909,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardActionController {
 
   //1. 注册卡片处理器
-  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("v", "e",
+  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("verificationToken", 
+          "encryptKey", // 这里要记得改成自己应用后台配置的对应 verificationToken 和 encryptKey。没有就是传空字符串
       new CardActionHandler.ICardHandler() {
         @Override
         public Object handle(CardAction cardAction) {
@@ -963,7 +973,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardActionController {
 
   //1. 注册卡片处理器
-  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("v", "e",
+  private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("verificationToken",
+          "encryptKey", // 这里要记得改成自己应用后台配置的对应 verificationToken 和 encryptKey。没有就是传空字符串
       new CardActionHandler.ICardHandler() {
         @Override
         public Object handle(CardAction cardAction) {

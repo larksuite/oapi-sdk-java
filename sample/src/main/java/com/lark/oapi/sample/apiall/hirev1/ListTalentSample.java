@@ -15,9 +15,11 @@ public class ListTalentSample {
 
         // 创建请求对象
         ListTalentReq req = ListTalentReq.newBuilder()
+                .keyword("张三 and 产品经理")
                 .updateStartTime("1618500278663")
                 .updateEndTime("1618500278663")
                 .pageSize(10)
+                .sortBy(1)
                 .pageToken("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==")
                 .userIdType("people_admin_id")
                 .queryOption("ignore_empty_error")

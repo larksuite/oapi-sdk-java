@@ -20,6 +20,7 @@ public class ListApplicationSample {
                 .talentId("6891560630172518670")
                 .activeStatus("1")
                 .jobId("7334134355464633")
+                .lockStatus(new Integer[]{})
                 .pageToken("1")
                 .pageSize(10)
                 .updateStartTime("1618500278663")

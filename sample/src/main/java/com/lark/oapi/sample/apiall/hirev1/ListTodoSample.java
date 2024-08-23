@@ -16,7 +16,7 @@ public class ListTodoSample {
         // 创建请求对象
         ListTodoReq req = ListTodoReq.newBuilder()
                 .pageToken("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==")
-                .pageSize("100")
+                .pageSize("10")
                 .userId("ou_xxx")
                 .userIdType("people_admin_id")
                 .type("interview")

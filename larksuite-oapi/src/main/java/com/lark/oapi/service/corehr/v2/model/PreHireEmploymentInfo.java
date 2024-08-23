@@ -186,7 +186,7 @@ public class PreHireEmploymentInfo {
     @SerializedName("working_calendar_id")
     private String workingCalendarId;
     /**
-     * 更新时间
+     * 待入职信息 更新时间
      * <p> 示例值：2023-01-10 10:29
      */
     @SerializedName("updated_at")
@@ -252,7 +252,7 @@ public class PreHireEmploymentInfo {
     @SerializedName("work_shift")
     private Enum workShift;
     /**
-     * 创建时间
+     * 待入职信息 创建时间
      * <p> 示例值：2023-01-10 10:29
      */
     @SerializedName("created_at")
@@ -269,6 +269,12 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("updated_by")
     private String updatedBy;
+    /**
+     * 司龄起算日期
+     * <p> 示例值：2023-01-10
+     */
+    @SerializedName("seniority_date")
+    private String seniorityDate;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -406,7 +412,7 @@ public class PreHireEmploymentInfo {
          */
         this.workingCalendarId = builder.workingCalendarId;
         /**
-         * 更新时间
+         * 待入职信息 更新时间
          * <p> 示例值：2023-01-10 10:29
          */
         this.updatedAt = builder.updatedAt;
@@ -461,7 +467,7 @@ public class PreHireEmploymentInfo {
          */
         this.workShift = builder.workShift;
         /**
-         * 创建时间
+         * 待入职信息 创建时间
          * <p> 示例值：2023-01-10 10:29
          */
         this.createdAt = builder.createdAt;
@@ -475,6 +481,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：69928404442626824
          */
         this.updatedBy = builder.updatedBy;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2023-01-10
+         */
+        this.seniorityDate = builder.seniorityDate;
     }
 
     public static Builder newBuilder() {
@@ -801,6 +812,14 @@ public class PreHireEmploymentInfo {
         this.updatedBy = updatedBy;
     }
 
+    public String getSeniorityDate() {
+        return this.seniorityDate;
+    }
+
+    public void setSeniorityDate(String seniorityDate) {
+        this.seniorityDate = seniorityDate;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -933,7 +952,7 @@ public class PreHireEmploymentInfo {
          */
         private String workingCalendarId;
         /**
-         * 更新时间
+         * 待入职信息 更新时间
          * <p> 示例值：2023-01-10 10:29
          */
         private String updatedAt;
@@ -988,7 +1007,7 @@ public class PreHireEmploymentInfo {
          */
         private Enum workShift;
         /**
-         * 创建时间
+         * 待入职信息 创建时间
          * <p> 示例值：2023-01-10 10:29
          */
         private String createdAt;
@@ -1002,6 +1021,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：69928404442626824
          */
         private String updatedBy;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2023-01-10
+         */
+        private String seniorityDate;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -1354,7 +1378,7 @@ public class PreHireEmploymentInfo {
 
 
         /**
-         * 更新时间
+         * 待入职信息 更新时间
          * <p> 示例值：2023-01-10 10:29
          *
          * @param updatedAt
@@ -1497,7 +1521,7 @@ public class PreHireEmploymentInfo {
 
 
         /**
-         * 创建时间
+         * 待入职信息 创建时间
          * <p> 示例值：2023-01-10 10:29
          *
          * @param createdAt
@@ -1531,6 +1555,19 @@ public class PreHireEmploymentInfo {
          */
         public Builder updatedBy(String updatedBy) {
             this.updatedBy = updatedBy;
+            return this;
+        }
+
+
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2023-01-10
+         *
+         * @param seniorityDate
+         * @return
+         */
+        public Builder seniorityDate(String seniorityDate) {
+            this.seniorityDate = seniorityDate;
             return this;
         }
 

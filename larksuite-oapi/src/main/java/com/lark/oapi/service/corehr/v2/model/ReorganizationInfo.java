@@ -114,18 +114,6 @@ public class ReorganizationInfo {
     @SerializedName("target_is_confidential")
     private Boolean targetIsConfidential;
     /**
-     * 原是否使用职务
-     * <p> 示例值：true
-     */
-    @SerializedName("original_staffing_model")
-    private Boolean originalStaffingModel;
-    /**
-     * 调整后是否使用职务
-     * <p> 示例值：false
-     */
-    @SerializedName("target_staffing_model")
-    private Boolean targetStaffingModel;
-    /**
      * 原上级部门
      * <p> 示例值：6974659700705068581
      */
@@ -237,16 +225,6 @@ public class ReorganizationInfo {
          * <p> 示例值：true
          */
         this.targetIsConfidential = builder.targetIsConfidential;
-        /**
-         * 原是否使用职务
-         * <p> 示例值：true
-         */
-        this.originalStaffingModel = builder.originalStaffingModel;
-        /**
-         * 调整后是否使用职务
-         * <p> 示例值：false
-         */
-        this.targetStaffingModel = builder.targetStaffingModel;
         /**
          * 原上级部门
          * <p> 示例值：6974659700705068581
@@ -395,22 +373,6 @@ public class ReorganizationInfo {
         this.targetIsConfidential = targetIsConfidential;
     }
 
-    public Boolean getOriginalStaffingModel() {
-        return this.originalStaffingModel;
-    }
-
-    public void setOriginalStaffingModel(Boolean originalStaffingModel) {
-        this.originalStaffingModel = originalStaffingModel;
-    }
-
-    public Boolean getTargetStaffingModel() {
-        return this.targetStaffingModel;
-    }
-
-    public void setTargetStaffingModel(Boolean targetStaffingModel) {
-        this.targetStaffingModel = targetStaffingModel;
-    }
-
     public String getOriginalParentDepartmentId() {
         return this.originalParentDepartmentId;
     }
@@ -530,16 +492,6 @@ public class ReorganizationInfo {
          * <p> 示例值：true
          */
         private Boolean targetIsConfidential;
-        /**
-         * 原是否使用职务
-         * <p> 示例值：true
-         */
-        private Boolean originalStaffingModel;
-        /**
-         * 调整后是否使用职务
-         * <p> 示例值：false
-         */
-        private Boolean targetStaffingModel;
         /**
          * 原上级部门
          * <p> 示例值：6974659700705068581
@@ -749,32 +701,6 @@ public class ReorganizationInfo {
          */
         public Builder targetIsConfidential(Boolean targetIsConfidential) {
             this.targetIsConfidential = targetIsConfidential;
-            return this;
-        }
-
-
-        /**
-         * 原是否使用职务
-         * <p> 示例值：true
-         *
-         * @param originalStaffingModel
-         * @return
-         */
-        public Builder originalStaffingModel(Boolean originalStaffingModel) {
-            this.originalStaffingModel = originalStaffingModel;
-            return this;
-        }
-
-
-        /**
-         * 调整后是否使用职务
-         * <p> 示例值：false
-         *
-         * @param targetStaffingModel
-         * @return
-         */
-        public Builder targetStaffingModel(Boolean targetStaffingModel) {
-            this.targetStaffingModel = targetStaffingModel;
             return this;
         }
 

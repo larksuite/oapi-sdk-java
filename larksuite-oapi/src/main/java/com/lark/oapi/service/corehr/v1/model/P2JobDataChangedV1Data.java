@@ -46,6 +46,12 @@ public class P2JobDataChangedV1Data {
      */
     @SerializedName("target_user_id")
     private UserId targetUserId;
+    /**
+     * 员工异动 ID
+     * <p> 示例值：7072306364927985196
+     */
+    @SerializedName("job_change_id")
+    private String jobChangeId;
 
     public String getJobDataId() {
         return this.jobDataId;
@@ -69,6 +75,14 @@ public class P2JobDataChangedV1Data {
 
     public void setTargetUserId(UserId targetUserId) {
         this.targetUserId = targetUserId;
+    }
+
+    public String getJobChangeId() {
+        return this.jobChangeId;
+    }
+
+    public void setJobChangeId(String jobChangeId) {
+        this.jobChangeId = jobChangeId;
     }
 
 }

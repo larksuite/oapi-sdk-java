@@ -20,6 +20,7 @@ public enum QueryArchiveUserIDTypeEnum {
     USER_ID("user_id"), // 以user_id来识别用户
     UNION_ID("union_id"), // 以union_id来识别用户
     OPEN_ID("open_id"), // 以open_id来识别用户
+    PEOPLE_COREHR_ID("people_corehr_id"), // 以people_corehr_id来识别用户
     ;
     private String value;
 

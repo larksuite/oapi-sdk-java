@@ -29,6 +29,7 @@ public class SearchJobChangeSample {
                         .effectiveDateEnd("2022-01-01")
                         .updatedTimeStart("1704084635000")
                         .updatedTimeEnd("1704084635000")
+                        .targetDepartmentIds(new String[]{})
                         .build())
                 .build();
 

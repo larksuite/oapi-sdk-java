@@ -71,6 +71,12 @@ public class SearchJobChangeReqBody {
      */
     @SerializedName("updated_time_end")
     private String updatedTimeEnd;
+    /**
+     * 新部门 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("target_department_ids")
+    private String[] targetDepartmentIds;
 
     // builder 开始
     public SearchJobChangeReqBody() {
@@ -112,6 +118,11 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：1704084635000
          */
         this.updatedTimeEnd = builder.updatedTimeEnd;
+        /**
+         * 新部门 ID 列表
+         * <p> 示例值：
+         */
+        this.targetDepartmentIds = builder.targetDepartmentIds;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class SearchJobChangeReqBody {
         this.updatedTimeEnd = updatedTimeEnd;
     }
 
+    public String[] getTargetDepartmentIds() {
+        return this.targetDepartmentIds;
+    }
+
+    public void setTargetDepartmentIds(String[] targetDepartmentIds) {
+        this.targetDepartmentIds = targetDepartmentIds;
+    }
+
     public static class Builder {
         /**
          * 雇员 ID 列表
@@ -210,6 +229,11 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：1704084635000
          */
         private String updatedTimeEnd;
+        /**
+         * 新部门 ID 列表
+         * <p> 示例值：
+         */
+        private String[] targetDepartmentIds;
 
         /**
          * 雇员 ID 列表
@@ -298,6 +322,19 @@ public class SearchJobChangeReqBody {
          */
         public Builder updatedTimeEnd(String updatedTimeEnd) {
             this.updatedTimeEnd = updatedTimeEnd;
+            return this;
+        }
+
+
+        /**
+         * 新部门 ID 列表
+         * <p> 示例值：
+         *
+         * @param targetDepartmentIds
+         * @return
+         */
+        public Builder targetDepartmentIds(String[] targetDepartmentIds) {
+            this.targetDepartmentIds = targetDepartmentIds;
             return this;
         }
 

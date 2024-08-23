@@ -63,6 +63,13 @@ public class ListApplicationReq {
     @SerializedName("job_id")
     private String jobId;
     /**
+     * 锁定状态
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("lock_status")
+    private Integer[] lockStatus;
+    /**
      * 查询游标, 由上一页结果返回, 第一页不传
      * <p> 示例值：1
      */
@@ -121,6 +128,11 @@ public class ListApplicationReq {
          * <p> 示例值：7334134355464633
          */
         this.jobId = builder.jobId;
+        /**
+         * 锁定状态
+         * <p> 示例值：
+         */
+        this.lockStatus = builder.lockStatus;
         /**
          * 查询游标, 由上一页结果返回, 第一页不传
          * <p> 示例值：1
@@ -187,6 +199,14 @@ public class ListApplicationReq {
         this.jobId = jobId;
     }
 
+    public Integer[] getLockStatus() {
+        return this.lockStatus;
+    }
+
+    public void setLockStatus(Integer[] lockStatus) {
+        this.lockStatus = lockStatus;
+    }
+
     public String getPageToken() {
         return this.pageToken;
     }
@@ -225,6 +245,7 @@ public class ListApplicationReq {
         private String talentId; // 按人才过滤
         private String activeStatus; // 按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部
         private String jobId; // 职位 ID
+        private Integer[] lockStatus; // 锁定状态
         private String pageToken; // 查询游标, 由上一页结果返回, 第一页不传
         private Integer pageSize; // 每页限制, 每页最大不超过100
         private String updateStartTime; // 最早更新时间，毫秒级时间戳
@@ -292,6 +313,19 @@ public class ListApplicationReq {
          */
         public Builder jobId(String jobId) {
             this.jobId = jobId;
+            return this;
+        }
+
+
+        /**
+         * 锁定状态
+         * <p> 示例值：
+         *
+         * @param lockStatus
+         * @return
+         */
+        public Builder lockStatus(Integer[] lockStatus) {
+            this.lockStatus = lockStatus;
             return this;
         }
 

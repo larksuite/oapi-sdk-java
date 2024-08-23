@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicEmployee {
     /**
-     * 雇佣 ID
+     * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
      * <p> 示例值：6893014062142064135
      */
     @SerializedName("employment_id")
@@ -60,7 +60,7 @@ public class BasicEmployee {
 
     public BasicEmployee(Builder builder) {
         /**
-         * 雇佣 ID
+         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
          */
         this.employmentId = builder.employmentId;
@@ -119,7 +119,7 @@ public class BasicEmployee {
 
     public static class Builder {
         /**
-         * 雇佣 ID
+         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
          */
         private String employmentId;
@@ -140,7 +140,7 @@ public class BasicEmployee {
         private BasicPersonInfo personInfo;
 
         /**
-         * 雇佣 ID
+         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
          *
          * @param employmentId

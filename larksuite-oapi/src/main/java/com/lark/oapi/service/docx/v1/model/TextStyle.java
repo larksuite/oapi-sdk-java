@@ -71,6 +71,12 @@ public class TextStyle {
      */
     @SerializedName("indentation_level")
     private String indentationLevel;
+    /**
+     * 用于确定有序列表项编号，为具体数值或'auto'
+     * <p> 示例值："auto"
+     */
+    @SerializedName("sequence")
+    private String sequence;
 
     // builder 开始
     public TextStyle() {
@@ -112,6 +118,11 @@ public class TextStyle {
          * <p> 示例值：NoIndent
          */
         this.indentationLevel = builder.indentationLevel;
+        /**
+         * 用于确定有序列表项编号，为具体数值或'auto'
+         * <p> 示例值："auto"
+         */
+        this.sequence = builder.sequence;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class TextStyle {
         this.indentationLevel = indentationLevel;
     }
 
+    public String getSequence() {
+        return this.sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
+    }
+
     public static class Builder {
         /**
          * 对齐方式
@@ -210,6 +229,11 @@ public class TextStyle {
          * <p> 示例值：NoIndent
          */
         private String indentationLevel;
+        /**
+         * 用于确定有序列表项编号，为具体数值或'auto'
+         * <p> 示例值："auto"
+         */
+        private String sequence;
 
         /**
          * 对齐方式
@@ -346,6 +370,19 @@ public class TextStyle {
          */
         public Builder indentationLevel(com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum indentationLevel) {
             this.indentationLevel = indentationLevel.getValue();
+            return this;
+        }
+
+
+        /**
+         * 用于确定有序列表项编号，为具体数值或'auto'
+         * <p> 示例值："auto"
+         *
+         * @param sequence
+         * @return
+         */
+        public Builder sequence(String sequence) {
+            this.sequence = sequence;
             return this;
         }
 

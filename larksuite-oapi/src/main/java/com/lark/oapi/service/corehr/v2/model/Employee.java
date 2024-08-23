@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class Employee {
     /**
-     * 雇佣 ID
+     * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
      * <p> 示例值：6893014062142064135
      */
     @SerializedName("employment_id")
@@ -60,7 +60,7 @@ public class Employee {
     @SerializedName("employee_type_id")
     private String employeeTypeId;
     /**
-     * 部门 ID，详细信息可通过【查询单个部门】接口获得
+     * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
      * <p> 示例值：6893014062142064135
      */
     @SerializedName("department_id")
@@ -180,13 +180,13 @@ public class Employee {
     @SerializedName("probation_end_date")
     private String probationEndDate;
     /**
-     * 直接上级的雇佣 ID
+     * 直接上级的雇佣 ID;- 类型与 user_id_type 一致;- 请使用 direct_manager_id_v2
      * <p> 示例值：7027024823985411287
      */
     @SerializedName("direct_manager_id")
     private String directManagerId;
     /**
-     * 虚线上级的雇佣 ID
+     * 虚线上级的雇佣 ID; - 类型与 user_id_type 一致; - 请使用 dotted_line_manager_id_v2
      * <p> 示例值：7027024823985411782
      */
     @SerializedName("dotted_line_manager_id")
@@ -396,7 +396,7 @@ public class Employee {
 
     public Employee(Builder builder) {
         /**
-         * 雇佣 ID
+         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
          */
         this.employmentId = builder.employmentId;
@@ -421,7 +421,7 @@ public class Employee {
          */
         this.employeeTypeId = builder.employeeTypeId;
         /**
-         * 部门 ID，详细信息可通过【查询单个部门】接口获得
+         * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
          * <p> 示例值：6893014062142064135
          */
         this.departmentId = builder.departmentId;
@@ -521,12 +521,12 @@ public class Employee {
          */
         this.probationEndDate = builder.probationEndDate;
         /**
-         * 直接上级的雇佣 ID
+         * 直接上级的雇佣 ID;- 类型与 user_id_type 一致;- 请使用 direct_manager_id_v2
          * <p> 示例值：7027024823985411287
          */
         this.directManagerId = builder.directManagerId;
         /**
-         * 虚线上级的雇佣 ID
+         * 虚线上级的雇佣 ID; - 类型与 user_id_type 一致; - 请使用 dotted_line_manager_id_v2
          * <p> 示例值：7027024823985411782
          */
         this.dottedLineManagerId = builder.dottedLineManagerId;
@@ -1183,7 +1183,7 @@ public class Employee {
 
     public static class Builder {
         /**
-         * 雇佣 ID
+         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
          */
         private String employmentId;
@@ -1208,7 +1208,7 @@ public class Employee {
          */
         private String employeeTypeId;
         /**
-         * 部门 ID，详细信息可通过【查询单个部门】接口获得
+         * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
          * <p> 示例值：6893014062142064135
          */
         private String departmentId;
@@ -1308,12 +1308,12 @@ public class Employee {
          */
         private String probationEndDate;
         /**
-         * 直接上级的雇佣 ID
+         * 直接上级的雇佣 ID;- 类型与 user_id_type 一致;- 请使用 direct_manager_id_v2
          * <p> 示例值：7027024823985411287
          */
         private String directManagerId;
         /**
-         * 虚线上级的雇佣 ID
+         * 虚线上级的雇佣 ID; - 类型与 user_id_type 一致; - 请使用 dotted_line_manager_id_v2
          * <p> 示例值：7027024823985411782
          */
         private String dottedLineManagerId;
@@ -1484,7 +1484,7 @@ public class Employee {
         private String customOrgStr;
 
         /**
-         * 雇佣 ID
+         * 雇佣 ID;- 类型与 user_id_type 一致;- 请使用 employment_id_v2
          * <p> 示例值：6893014062142064135
          *
          * @param employmentId
@@ -1549,7 +1549,7 @@ public class Employee {
 
 
         /**
-         * 部门 ID，详细信息可通过【查询单个部门】接口获得
+         * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
          * <p> 示例值：6893014062142064135
          *
          * @param departmentId
@@ -1809,7 +1809,7 @@ public class Employee {
 
 
         /**
-         * 直接上级的雇佣 ID
+         * 直接上级的雇佣 ID;- 类型与 user_id_type 一致;- 请使用 direct_manager_id_v2
          * <p> 示例值：7027024823985411287
          *
          * @param directManagerId
@@ -1822,7 +1822,7 @@ public class Employee {
 
 
         /**
-         * 虚线上级的雇佣 ID
+         * 虚线上级的雇佣 ID; - 类型与 user_id_type 一致; - 请使用 dotted_line_manager_id_v2
          * <p> 示例值：7027024823985411782
          *
          * @param dottedLineManagerId

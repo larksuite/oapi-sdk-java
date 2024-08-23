@@ -89,6 +89,12 @@ public class SignatureFile {
      */
     @SerializedName("template_id")
     private String templateId;
+    /**
+     * 签署链接
+     * <p> 示例值：123213
+     */
+    @SerializedName("sign_url")
+    private String signUrl;
 
     // builder 开始
     public SignatureFile() {
@@ -145,6 +151,11 @@ public class SignatureFile {
          * <p> 示例值：7147527056140813828
          */
         this.templateId = builder.templateId;
+        /**
+         * 签署链接
+         * <p> 示例值：123213
+         */
+        this.signUrl = builder.signUrl;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +242,14 @@ public class SignatureFile {
         this.templateId = templateId;
     }
 
+    public String getSignUrl() {
+        return this.signUrl;
+    }
+
+    public void setSignUrl(String signUrl) {
+        this.signUrl = signUrl;
+    }
+
     public static class Builder {
         /**
          * 电子签文件ID
@@ -282,6 +301,11 @@ public class SignatureFile {
          * <p> 示例值：7147527056140813828
          */
         private String templateId;
+        /**
+         * 签署链接
+         * <p> 示例值：123213
+         */
+        private String signUrl;
 
         /**
          * 电子签文件ID
@@ -409,6 +433,19 @@ public class SignatureFile {
          */
         public Builder templateId(String templateId) {
             this.templateId = templateId;
+            return this;
+        }
+
+
+        /**
+         * 签署链接
+         * <p> 示例值：123213
+         *
+         * @param signUrl
+         * @return
+         */
+        public Builder signUrl(String signUrl) {
+            this.signUrl = signUrl;
             return this;
         }
 

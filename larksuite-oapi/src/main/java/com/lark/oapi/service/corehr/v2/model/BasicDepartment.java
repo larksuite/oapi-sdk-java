@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicDepartment {
     /**
-     * 部门 ID
+     * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
      * <p> 示例值：4719456877659520852
      */
     @SerializedName("id")
@@ -48,7 +48,7 @@ public class BasicDepartment {
 
     public BasicDepartment(Builder builder) {
         /**
-         * 部门 ID
+         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
          * <p> 示例值：4719456877659520852
          */
         this.id = builder.id;
@@ -81,7 +81,7 @@ public class BasicDepartment {
 
     public static class Builder {
         /**
-         * 部门 ID
+         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
          * <p> 示例值：4719456877659520852
          */
         private String id;
@@ -92,7 +92,7 @@ public class BasicDepartment {
         private I18n[] departmentName;
 
         /**
-         * 部门 ID
+         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
          * <p> 示例值：4719456877659520852
          *
          * @param id

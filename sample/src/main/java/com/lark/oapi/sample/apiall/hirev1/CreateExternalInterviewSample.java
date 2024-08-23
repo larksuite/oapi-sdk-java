@@ -21,6 +21,7 @@ public class CreateExternalInterviewSample {
                         .participateStatus(1)
                         .beginTime(1618500278)
                         .endTime(1618500278)
+                        .interviewAssessments(new ExternalInterviewAssessment[]{})
                         .build())
                 .build();
 

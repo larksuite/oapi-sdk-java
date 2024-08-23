@@ -64,6 +64,12 @@ public class ExternalInterview {
      */
     @SerializedName("end_time")
     private Integer endTime;
+    /**
+     * 面试评价列表
+     * <p> 示例值：
+     */
+    @SerializedName("interview_assessments")
+    private ExternalInterviewAssessment[] interviewAssessments;
 
     // builder 开始
     public ExternalInterview() {
@@ -100,6 +106,11 @@ public class ExternalInterview {
          * <p> 示例值：1618500278639
          */
         this.endTime = builder.endTime;
+        /**
+         * 面试评价列表
+         * <p> 示例值：
+         */
+        this.interviewAssessments = builder.interviewAssessments;
     }
 
     public static Builder newBuilder() {
@@ -154,6 +165,14 @@ public class ExternalInterview {
         this.endTime = endTime;
     }
 
+    public ExternalInterviewAssessment[] getInterviewAssessments() {
+        return this.interviewAssessments;
+    }
+
+    public void setInterviewAssessments(ExternalInterviewAssessment[] interviewAssessments) {
+        this.interviewAssessments = interviewAssessments;
+    }
+
     public static class Builder {
         /**
          * 外部系统面试主键 （仅用于幂等）
@@ -185,6 +204,11 @@ public class ExternalInterview {
          * <p> 示例值：1618500278639
          */
         private Integer endTime;
+        /**
+         * 面试评价列表
+         * <p> 示例值：
+         */
+        private ExternalInterviewAssessment[] interviewAssessments;
 
         /**
          * 外部系统面试主键 （仅用于幂等）
@@ -260,6 +284,19 @@ public class ExternalInterview {
          */
         public Builder endTime(Integer endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+
+        /**
+         * 面试评价列表
+         * <p> 示例值：
+         *
+         * @param interviewAssessments
+         * @return
+         */
+        public Builder interviewAssessments(ExternalInterviewAssessment[] interviewAssessments) {
+            this.interviewAssessments = interviewAssessments;
             return this;
         }
 

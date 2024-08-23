@@ -269,6 +269,12 @@ public class OfferInfoUpdate {
      */
     @SerializedName("working_hours_type")
     private String workingHoursType;
+    /**
+     * 司龄起算日期
+     * <p> 示例值：2022-10-08
+     */
+    @SerializedName("seniority_date")
+    private String seniorityDate;
 
     // builder 开始
     public OfferInfoUpdate() {
@@ -475,6 +481,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：xxx
          */
         this.workingHoursType = builder.workingHoursType;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2022-10-08
+         */
+        this.seniorityDate = builder.seniorityDate;
     }
 
     public static Builder newBuilder() {
@@ -801,6 +812,14 @@ public class OfferInfoUpdate {
         this.workingHoursType = workingHoursType;
     }
 
+    public String getSeniorityDate() {
+        return this.seniorityDate;
+    }
+
+    public void setSeniorityDate(String seniorityDate) {
+        this.seniorityDate = seniorityDate;
+    }
+
     public static class Builder {
         /**
          * 入职日期
@@ -1002,6 +1021,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：xxx
          */
         private String workingHoursType;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2022-10-08
+         */
+        private String seniorityDate;
 
         /**
          * 入职日期
@@ -1519,6 +1543,19 @@ public class OfferInfoUpdate {
          */
         public Builder workingHoursType(String workingHoursType) {
             this.workingHoursType = workingHoursType;
+            return this;
+        }
+
+
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2022-10-08
+         *
+         * @param seniorityDate
+         * @return
+         */
+        public Builder seniorityDate(String seniorityDate) {
+            this.seniorityDate = seniorityDate;
             return this;
         }
 

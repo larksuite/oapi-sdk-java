@@ -283,7 +283,7 @@ public class OfferInfo {
     private String flowId;
     /**
      * 签到日期
-     * <p> 示例值：6977976687350924833
+     * <p> 示例值：2024-08-01
      */
     @SerializedName("check_in_time")
     private String checkInTime;
@@ -293,6 +293,12 @@ public class OfferInfo {
      */
     @SerializedName("check_in_method")
     private String checkInMethod;
+    /**
+     * 司龄起算日期
+     * <p> 示例值：2024-08-01
+     */
+    @SerializedName("seniority_date")
+    private String seniorityDate;
 
     // builder 开始
     public OfferInfo() {
@@ -511,7 +517,7 @@ public class OfferInfo {
         this.flowId = builder.flowId;
         /**
          * 签到日期
-         * <p> 示例值：6977976687350924833
+         * <p> 示例值：2024-08-01
          */
         this.checkInTime = builder.checkInTime;
         /**
@@ -519,6 +525,11 @@ public class OfferInfo {
          * <p> 示例值：6977976687350924833
          */
         this.checkInMethod = builder.checkInMethod;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2024-08-01
+         */
+        this.seniorityDate = builder.seniorityDate;
     }
 
     public static Builder newBuilder() {
@@ -877,6 +888,14 @@ public class OfferInfo {
         this.checkInMethod = checkInMethod;
     }
 
+    public String getSeniorityDate() {
+        return this.seniorityDate;
+    }
+
+    public void setSeniorityDate(String seniorityDate) {
+        this.seniorityDate = seniorityDate;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -1090,7 +1109,7 @@ public class OfferInfo {
         private String flowId;
         /**
          * 签到日期
-         * <p> 示例值：6977976687350924833
+         * <p> 示例值：2024-08-01
          */
         private String checkInTime;
         /**
@@ -1098,6 +1117,11 @@ public class OfferInfo {
          * <p> 示例值：6977976687350924833
          */
         private String checkInMethod;
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2024-08-01
+         */
+        private String seniorityDate;
 
         /**
          * Offer id
@@ -1647,7 +1671,7 @@ public class OfferInfo {
 
         /**
          * 签到日期
-         * <p> 示例值：6977976687350924833
+         * <p> 示例值：2024-08-01
          *
          * @param checkInTime
          * @return
@@ -1667,6 +1691,19 @@ public class OfferInfo {
          */
         public Builder checkInMethod(String checkInMethod) {
             this.checkInMethod = checkInMethod;
+            return this;
+        }
+
+
+        /**
+         * 司龄起算日期
+         * <p> 示例值：2024-08-01
+         *
+         * @param seniorityDate
+         * @return
+         */
+        public Builder seniorityDate(String seniorityDate) {
+            this.seniorityDate = seniorityDate;
             return this;
         }
 

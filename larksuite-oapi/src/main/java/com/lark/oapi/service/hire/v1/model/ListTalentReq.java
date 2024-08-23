@@ -28,6 +28,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class ListTalentReq {
     /**
+     * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
+     * <p> 示例值：张三 and 产品经理
+     */
+    @Query
+    @SerializedName("keyword")
+    private String keyword;
+    /**
      * 最早更新时间，毫秒级时间戳
      * <p> 示例值：1618500278663
      */
@@ -48,6 +55,13 @@ public class ListTalentReq {
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    /**
+     * 排序规则
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("sort_by")
+    private Integer sortBy;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
      * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
@@ -76,6 +90,11 @@ public class ListTalentReq {
 
     public ListTalentReq(Builder builder) {
         /**
+         * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
+         * <p> 示例值：张三 and 产品经理
+         */
+        this.keyword = builder.keyword;
+        /**
          * 最早更新时间，毫秒级时间戳
          * <p> 示例值：1618500278663
          */
@@ -90,6 +109,11 @@ public class ListTalentReq {
          * <p> 示例值：10
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 排序规则
+         * <p> 示例值：1
+         */
+        this.sortBy = builder.sortBy;
         /**
          * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
          * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
@@ -109,6 +133,14 @@ public class ListTalentReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getKeyword() {
+        return this.keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public String getUpdateStartTime() {
@@ -133,6 +165,14 @@ public class ListTalentReq {
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public Integer getSortBy() {
+        return this.sortBy;
+    }
+
+    public void setSortBy(Integer sortBy) {
+        this.sortBy = sortBy;
     }
 
     public String getPageToken() {
@@ -160,12 +200,27 @@ public class ListTalentReq {
     }
 
     public static class Builder {
+        private String keyword; // 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
         private String updateStartTime; // 最早更新时间，毫秒级时间戳
         private String updateEndTime; // 最晚更新时间，毫秒级时间戳
         private Integer pageSize; // 分页大小, 不能超过 20
+        private Integer sortBy; // 排序规则
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 用户 ID 类型
         private String queryOption; // 请求控制参数
+
+
+        /**
+         * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
+         * <p> 示例值：张三 and 产品经理
+         *
+         * @param keyword
+         * @return
+         */
+        public Builder keyword(String keyword) {
+            this.keyword = keyword;
+            return this;
+        }
 
 
         /**
@@ -203,6 +258,19 @@ public class ListTalentReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+
+        /**
+         * 排序规则
+         * <p> 示例值：1
+         *
+         * @param sortBy
+         * @return
+         */
+        public Builder sortBy(Integer sortBy) {
+            this.sortBy = sortBy;
             return this;
         }
 
