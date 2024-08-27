@@ -26,6 +26,7 @@ import com.lark.oapi.service.application.v6.resource.ApplicationFeedback;
 import com.lark.oapi.service.application.v6.resource.ApplicationManagement;
 import com.lark.oapi.service.application.v6.resource.ApplicationVisibility;
 import com.lark.oapi.service.application.v6.resource.Bot;
+import com.lark.oapi.service.application.v6.resource.Scope;
 
 public class ApplicationService {
     private final V6 v6;
@@ -39,6 +40,7 @@ public class ApplicationService {
     private final ApplicationManagement applicationManagement; // application.management
     private final ApplicationVisibility applicationVisibility; // 事件
     private final Bot bot; // 事件
+    private final Scope scope; // scope
 
     public ApplicationService(Config config) {
         this.v6 = new V6(config);
@@ -52,6 +54,7 @@ public class ApplicationService {
         this.applicationManagement = new ApplicationManagement(config);
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
+        this.scope = new Scope(config);
     }
 
     public V6 v6() {
@@ -96,6 +99,10 @@ public class ApplicationService {
 
     public Bot bot() {
         return bot;
+    }
+
+    public Scope scope() {
+        return scope;
     }
 
     public abstract static class P2ApplicationCreatedV6Handler implements IEventHandler<P2ApplicationCreatedV6> {

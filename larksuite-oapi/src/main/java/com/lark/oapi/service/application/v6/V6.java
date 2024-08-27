@@ -27,6 +27,7 @@ public class V6 {
     private final ApplicationManagement applicationManagement; // application.management
     private final ApplicationVisibility applicationVisibility; // 事件
     private final Bot bot; // 事件
+    private final Scope scope; // scope
 
     public V6(Config config) {
         this.appBadge = new AppBadge(config);
@@ -39,6 +40,7 @@ public class V6 {
         this.applicationManagement = new ApplicationManagement(config);
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
+        this.scope = new Scope(config);
     }
 
     public AppBadge appBadge() {
@@ -79,5 +81,9 @@ public class V6 {
 
     public Bot bot() {
         return bot;
+    }
+
+    public Scope scope() {
+        return scope;
     }
 }

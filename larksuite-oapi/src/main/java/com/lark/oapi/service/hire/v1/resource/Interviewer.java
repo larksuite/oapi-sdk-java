@@ -11,7 +11,7 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.helpdesk.v1.resource;
+package com.lark.oapi.service.hire.v1.resource;
 
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
@@ -29,7 +29,7 @@ import com.lark.oapi.core.request.RequestOptions;
 
 import java.io.ByteArrayOutputStream;
 
-import com.lark.oapi.service.helpdesk.v1.model.*;
+import com.lark.oapi.service.hire.v1.model.*;
 
 import java.io.*;
 import java.util.Map;
@@ -38,104 +38,37 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Agent {
-    private static final Logger log = LoggerFactory.getLogger(Agent.class);
+public class Interviewer {
+    private static final Logger log = LoggerFactory.getLogger(Interviewer.class);
     private final Config config;
 
-    public Agent(Config config) {
+    public Interviewer(Config config) {
         this.config = config;
     }
 
 
     /**
-     * 获取客服邮箱地址，该接口用于获取客服邮箱地址
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/agent_email">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/agent_email</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/AgentEmailAgentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/AgentEmailAgentSample.java</a> ;
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interviewer&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interviewer&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewerSample.java</a> ;
      */
-    public AgentEmailAgentResp agentEmail(RequestOptions reqOptions) throws Exception {
+    public ListInterviewerResp list(ListInterviewerReq req, RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
-        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/helpdesk/v1/agent_emails"
+                , "/open-apis/hire/v1/interviewers"
                 , Sets.newHashSet(AccessTokenType.Tenant)
-                , null);
-
-        // 反序列化
-        AgentEmailAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AgentEmailAgentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agent_emails"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        return resp;
-    }
-
-    /**
-     * 获取客服邮箱地址，该接口用于获取客服邮箱地址
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/agent_email">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/agent_email</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/AgentEmailAgentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/AgentEmailAgentSample.java</a> ;
-     */
-    public AgentEmailAgentResp agentEmail() throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setNeedHelpDeskAuth(true);
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/helpdesk/v1/agent_emails"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , null);
-
-        // 反序列化
-        AgentEmailAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AgentEmailAgentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agent_emails"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        return resp;
-    }
-
-    /**
-     * 更新客服信息，更新客服状态等信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/patch</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/PatchAgentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/PatchAgentSample.java</a> ;
-     */
-    public PatchAgentResp patch(PatchAgentReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-        reqOptions.setNeedHelpDeskAuth(true);
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/helpdesk/v1/agents/:agent_id"
-                , Sets.newHashSet(AccessTokenType.User)
                 , req);
 
         // 反序列化
-        PatchAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAgentResp.class);
+        ListInterviewerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListInterviewerResp.class);
         if (resp == null) {
             log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agents/:agent_id"
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/interviewers"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));
@@ -149,26 +82,91 @@ public class Agent {
     }
 
     /**
-     * 更新客服信息，更新客服状态等信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent/patch</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/PatchAgentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/PatchAgentSample.java</a> ;
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interviewer&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interviewer&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewerSample.java</a> ;
      */
-    public PatchAgentResp patch(PatchAgentReq req) throws Exception {
+    public ListInterviewerResp list(ListInterviewerReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/helpdesk/v1/agents/:agent_id"
-                , Sets.newHashSet(AccessTokenType.User)
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/hire/v1/interviewers"
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
-        PatchAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAgentResp.class);
+        ListInterviewerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListInterviewerResp.class);
         if (resp == null) {
             log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/agents/:agent_id"
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/interviewers"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=hire&resource=interviewer&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=hire&resource=interviewer&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchInterviewerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchInterviewerSample.java</a> ;
+     */
+    public PatchInterviewerResp patch(PatchInterviewerReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                , "/open-apis/hire/v1/interviewers/:interviewer_id"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        PatchInterviewerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchInterviewerResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/interviewers/:interviewer_id"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=hire&resource=interviewer&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=hire&resource=interviewer&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchInterviewerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/PatchInterviewerSample.java</a> ;
+     */
+    public PatchInterviewerResp patch(PatchInterviewerReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+                , "/open-apis/hire/v1/interviewers/:interviewer_id"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        PatchInterviewerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchInterviewerResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/interviewers/:interviewer_id"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));

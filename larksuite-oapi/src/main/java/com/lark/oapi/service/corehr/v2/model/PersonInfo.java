@@ -84,6 +84,12 @@ public class PersonInfo {
     @SerializedName("date_of_birth")
     private String dateOfBirth;
     /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     * <p> 示例值：6862995757234914821
+     */
+    @SerializedName("nationality_id_v2")
+    private String nationalityIdV2;
+    /**
      * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
      * <p> 示例值：
      */
@@ -411,6 +417,11 @@ public class PersonInfo {
          */
         this.dateOfBirth = builder.dateOfBirth;
         /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：6862995757234914821
+         */
+        this.nationalityIdV2 = builder.nationalityIdV2;
+        /**
          * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
          * <p> 示例值：
          */
@@ -716,6 +727,14 @@ public class PersonInfo {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getNationalityIdV2() {
+        return this.nationalityIdV2;
+    }
+
+    public void setNationalityIdV2(String nationalityIdV2) {
+        this.nationalityIdV2 = nationalityIdV2;
     }
 
     public Enum getRace() {
@@ -1133,6 +1152,11 @@ public class PersonInfo {
          */
         private String dateOfBirth;
         /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：6862995757234914821
+         */
+        private String nationalityIdV2;
+        /**
          * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
          * <p> 示例值：
          */
@@ -1476,6 +1500,19 @@ public class PersonInfo {
          */
         public Builder dateOfBirth(String dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
+
+        /**
+         * 国籍 ID，可通过【查询国籍信息】接口查询
+         * <p> 示例值：6862995757234914821
+         *
+         * @param nationalityIdV2
+         * @return
+         */
+        public Builder nationalityIdV2(String nationalityIdV2) {
+            this.nationalityIdV2 = nationalityIdV2;
             return this;
         }
 

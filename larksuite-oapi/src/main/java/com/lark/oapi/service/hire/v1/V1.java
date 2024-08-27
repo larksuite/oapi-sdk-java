@@ -19,7 +19,7 @@ import com.lark.oapi.service.hire.v1.resource.*;
 public class V1 {
     private final Advertisement advertisement; // advertisement
     private final Agency agency; // 猎头（灰度租户可见）
-    private final Application application; // 入职
+    private final Application application; // 投递
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
     private final BackgroundCheckOrder backgroundCheckOrder; // 背调 （灰度租户可见）
@@ -50,6 +50,7 @@ public class V1 {
     private final InterviewRegistrationSchema interviewRegistrationSchema; // interview_registration_schema
     private final InterviewRoundType interviewRoundType; // 面试轮次类型
     private final InterviewTask interviewTask; // 面试任务
+    private final Interviewer interviewer; // interviewer
     private final Job job; // 职位
     private final JobManager jobManager; // job.manager
     private final JobFunction jobFunction; // job_function
@@ -60,6 +61,7 @@ public class V1 {
     private final JobSchema jobSchema; // job_schema
     private final JobType jobType; // job_type
     private final Location location; // 地址（灰度租户可见）
+    private final Minutes minutes; // minutes
     private final Note note; // 备注
     private final Offer offer; // Offer
     private final OfferApplicationForm offerApplicationForm; // Offer 申请表（灰度租户可见）
@@ -124,6 +126,7 @@ public class V1 {
         this.interviewRegistrationSchema = new InterviewRegistrationSchema(config);
         this.interviewRoundType = new InterviewRoundType(config);
         this.interviewTask = new InterviewTask(config);
+        this.interviewer = new Interviewer(config);
         this.job = new Job(config);
         this.jobManager = new JobManager(config);
         this.jobFunction = new JobFunction(config);
@@ -134,6 +137,7 @@ public class V1 {
         this.jobSchema = new JobSchema(config);
         this.jobType = new JobType(config);
         this.location = new Location(config);
+        this.minutes = new Minutes(config);
         this.note = new Note(config);
         this.offer = new Offer(config);
         this.offerApplicationForm = new OfferApplicationForm(config);
@@ -297,6 +301,10 @@ public class V1 {
         return interviewTask;
     }
 
+    public Interviewer interviewer() {
+        return interviewer;
+    }
+
     public Job job() {
         return job;
     }
@@ -335,6 +343,10 @@ public class V1 {
 
     public Location location() {
         return location;
+    }
+
+    public Minutes minutes() {
+        return minutes;
     }
 
     public Note note() {

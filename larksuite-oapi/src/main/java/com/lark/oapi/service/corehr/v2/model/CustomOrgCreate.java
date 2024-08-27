@@ -83,6 +83,12 @@ public class CustomOrgCreate {
      */
     @SerializedName("match_rule_groups")
     private MatchRules[] matchRuleGroups;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private CustomFieldData[] customFields;
 
     // builder 开始
     public CustomOrgCreate() {
@@ -134,6 +140,11 @@ public class CustomOrgCreate {
          * <p> 示例值：
          */
         this.matchRuleGroups = builder.matchRuleGroups;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +223,14 @@ public class CustomOrgCreate {
         this.matchRuleGroups = matchRuleGroups;
     }
 
+    public CustomFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(CustomFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 组织类型编码
@@ -258,6 +277,11 @@ public class CustomOrgCreate {
          * <p> 示例值：
          */
         private MatchRules[] matchRuleGroups;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private CustomFieldData[] customFields;
 
         /**
          * 组织类型编码
@@ -372,6 +396,19 @@ public class CustomOrgCreate {
          */
         public Builder matchRuleGroups(MatchRules[] matchRuleGroups) {
             this.matchRuleGroups = matchRuleGroups;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(CustomFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

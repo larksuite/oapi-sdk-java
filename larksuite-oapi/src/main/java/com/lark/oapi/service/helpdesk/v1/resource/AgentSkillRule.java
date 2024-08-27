@@ -57,6 +57,7 @@ public class AgentSkillRule {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -88,6 +89,7 @@ public class AgentSkillRule {
     public ListAgentSkillRuleResp list() throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

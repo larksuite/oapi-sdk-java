@@ -57,6 +57,7 @@ public class Event {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -89,6 +90,7 @@ public class Event {
     public SubscribeEventResp subscribe(SubscribeEventReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -123,6 +125,7 @@ public class Event {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -155,6 +158,7 @@ public class Event {
     public UnsubscribeEventResp unsubscribe(UnsubscribeEventReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"

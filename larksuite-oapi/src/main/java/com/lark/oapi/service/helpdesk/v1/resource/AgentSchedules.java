@@ -57,6 +57,7 @@ public class AgentSchedules {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -89,6 +90,7 @@ public class AgentSchedules {
     public DeleteAgentSchedulesResp delete(DeleteAgentSchedulesReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -123,6 +125,7 @@ public class AgentSchedules {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -155,6 +158,7 @@ public class AgentSchedules {
     public GetAgentSchedulesResp get(GetAgentSchedulesReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -189,6 +193,7 @@ public class AgentSchedules {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -221,6 +226,7 @@ public class AgentSchedules {
     public PatchAgentSchedulesResp patch(PatchAgentSchedulesReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"

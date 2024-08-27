@@ -67,6 +67,10 @@ public class ReqTranslator {
             headers.put(Constants.CUSTOM_REQUEST_ID, Lists.newArrayList(requestOptions.getRequestId()));
         }
 
+        if (requestOptions.isNeedHelpDeskAuth()) {
+            headers.put(Constants.X_HELPDESK_AUTHORIZATION, Lists.newArrayList(config.getHelpDeskAuthToken()));
+        }
+
         // 获取并缓存token
         if (accessTokenType != AccessTokenType.None) {
             String token = getToken(requestOptions.getTenantKey(), accessTokenType, config,

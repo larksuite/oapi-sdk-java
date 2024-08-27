@@ -57,6 +57,7 @@ public class Faq {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -89,6 +90,7 @@ public class Faq {
     public CreateFaqResp create(CreateFaqReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -123,6 +125,7 @@ public class Faq {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -155,6 +158,7 @@ public class Faq {
     public DeleteFaqResp delete(DeleteFaqReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -190,6 +194,7 @@ public class Faq {
             reqOptions = new RequestOptions();
         }
         reqOptions.setSupportDownLoad(true);
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -232,6 +237,7 @@ public class Faq {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
         reqOptions.setSupportDownLoad(true);
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -276,6 +282,7 @@ public class Faq {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -308,6 +315,7 @@ public class Faq {
     public GetFaqResp get(GetFaqReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -342,6 +350,7 @@ public class Faq {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -374,6 +383,7 @@ public class Faq {
     public ListFaqResp list(ListFaqReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -408,6 +418,7 @@ public class Faq {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -440,6 +451,7 @@ public class Faq {
     public PatchFaqResp patch(PatchFaqReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -474,6 +486,7 @@ public class Faq {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -506,6 +519,7 @@ public class Faq {
     public SearchFaqResp search(SearchFaqReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

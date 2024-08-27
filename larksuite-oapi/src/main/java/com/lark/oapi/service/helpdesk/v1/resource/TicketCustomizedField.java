@@ -57,6 +57,7 @@ public class TicketCustomizedField {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -89,6 +90,7 @@ public class TicketCustomizedField {
     public CreateTicketCustomizedFieldResp create(CreateTicketCustomizedFieldReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -123,6 +125,7 @@ public class TicketCustomizedField {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -155,6 +158,7 @@ public class TicketCustomizedField {
     public DeleteTicketCustomizedFieldResp delete(DeleteTicketCustomizedFieldReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -189,6 +193,7 @@ public class TicketCustomizedField {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -221,6 +226,7 @@ public class TicketCustomizedField {
     public GetTicketCustomizedFieldResp get(GetTicketCustomizedFieldReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -255,6 +261,7 @@ public class TicketCustomizedField {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -287,6 +294,7 @@ public class TicketCustomizedField {
     public ListTicketCustomizedFieldResp list(ListTicketCustomizedFieldReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -321,6 +329,7 @@ public class TicketCustomizedField {
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -353,6 +362,7 @@ public class TicketCustomizedField {
     public PatchTicketCustomizedFieldResp patch(PatchTicketCustomizedFieldReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
+        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"

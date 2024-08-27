@@ -32,6 +32,7 @@ public interface Constants {
     public static final String X_LARK_REQUEST_NONCE = "X-Lark-Request-Nonce";
     public static final String X_LARK_SIGNATURE = "X-Lark-Signature";
     public static final String X_REFRESH_TOKEN = "X-Refresh-Token";
+    public static final String X_HELPDESK_AUTHORIZATION = "X-Lark-Helpdesk-Authorization";
     String VERSION = "v2.0.0";
 
 

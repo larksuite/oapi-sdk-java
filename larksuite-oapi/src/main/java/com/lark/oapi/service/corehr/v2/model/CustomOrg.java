@@ -95,6 +95,12 @@ public class CustomOrg {
      */
     @SerializedName("org_id")
     private String orgId;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private CustomFieldData[] customFields;
 
     // builder 开始
     public CustomOrg() {
@@ -156,6 +162,11 @@ public class CustomOrg {
          * <p> 示例值：6862995757234914824
          */
         this.orgId = builder.orgId;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +261,14 @@ public class CustomOrg {
         this.orgId = orgId;
     }
 
+    public CustomFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(CustomFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 组织类型编码
@@ -306,6 +325,11 @@ public class CustomOrg {
          * <p> 示例值：6862995757234914824
          */
         private String orgId;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private CustomFieldData[] customFields;
 
         /**
          * 组织类型编码
@@ -446,6 +470,19 @@ public class CustomOrg {
          */
         public Builder orgId(String orgId) {
             this.orgId = orgId;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(CustomFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

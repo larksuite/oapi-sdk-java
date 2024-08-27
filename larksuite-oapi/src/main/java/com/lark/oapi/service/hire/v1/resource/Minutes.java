@@ -11,7 +11,7 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.helpdesk.v1.resource;
+package com.lark.oapi.service.hire.v1.resource;
 
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.Transport;
@@ -29,7 +29,7 @@ import com.lark.oapi.core.request.RequestOptions;
 
 import java.io.ByteArrayOutputStream;
 
-import com.lark.oapi.service.helpdesk.v1.model.*;
+import com.lark.oapi.service.hire.v1.model.*;
 
 import java.io.*;
 import java.util.Map;
@@ -38,38 +38,37 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
-public class BotMessage {
-    private static final Logger log = LoggerFactory.getLogger(BotMessage.class);
+public class Minutes {
+    private static final Logger log = LoggerFactory.getLogger(Minutes.class);
     private final Config config;
 
-    public BotMessage(Config config) {
+    public Minutes(Config config) {
         this.config = config;
     }
 
 
     /**
-     * 服务台机器人发送消息，通过服务台机器人给指定用户的服务台专属群或私聊发送消息，支持文本、富文本、卡片、图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/bot-message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/bot-message/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/CreateBotMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/CreateBotMessageSample.java</a> ;
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=minutes&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=minutes&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetMinutesSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetMinutesSample.java</a> ;
      */
-    public CreateBotMessageResp create(CreateBotMessageReq req, RequestOptions reqOptions) throws Exception {
+    public GetMinutesResp get(GetMinutesReq req, RequestOptions reqOptions) throws Exception {
         // 请求参数选项
         if (reqOptions == null) {
             reqOptions = new RequestOptions();
         }
-        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/helpdesk/v1/message"
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/hire/v1/minutes"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
-        CreateBotMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBotMessageResp.class);
+        GetMinutesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMinutesResp.class);
         if (resp == null) {
             log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/message"
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/minutes"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));
@@ -83,26 +82,25 @@ public class BotMessage {
     }
 
     /**
-     * 服务台机器人发送消息，通过服务台机器人给指定用户的服务台专属群或私聊发送消息，支持文本、富文本、卡片、图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/bot-message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/bot-message/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/CreateBotMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/helpdeskv1/CreateBotMessageSample.java</a> ;
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=minutes&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=hire&resource=minutes&version=v1</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetMinutesSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetMinutesSample.java</a> ;
      */
-    public CreateBotMessageResp create(CreateBotMessageReq req) throws Exception {
+    public GetMinutesResp get(GetMinutesReq req) throws Exception {
         // 请求参数选项
         RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setNeedHelpDeskAuth(true);
 
         // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/helpdesk/v1/message"
+        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+                , "/open-apis/hire/v1/minutes"
                 , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
-        CreateBotMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBotMessageResp.class);
+        GetMinutesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMinutesResp.class);
         if (resp == null) {
             log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/helpdesk/v1/message"
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/minutes"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));
