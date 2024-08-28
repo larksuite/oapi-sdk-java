@@ -117,7 +117,7 @@ public class CardActionHandler implements IHandler {
     public EventResp handle(EventReq eventReq) throws Throwable {
         EventResp eventResp = new EventResp();
         eventResp.setStatusCode(200);
-        eventResp.setContentType(Constants.CONTENT_TYPE);
+        eventResp.setContentType(Constants.JSON_CONTENT_TYPE);
         try {
             // 消息解密
             String plain = decrypt(eventReq.getBody());
