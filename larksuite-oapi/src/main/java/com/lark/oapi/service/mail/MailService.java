@@ -27,6 +27,7 @@ import com.lark.oapi.service.mail.v1.resource.PublicMailboxMember;
 import com.lark.oapi.service.mail.v1.resource.User;
 import com.lark.oapi.service.mail.v1.resource.UserMailbox;
 import com.lark.oapi.service.mail.v1.resource.UserMailboxAlias;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMessage;
 
 public class MailService {
     private final V1 v1;
@@ -41,6 +42,7 @@ public class MailService {
     private final User user; // 邮箱地址
     private final UserMailbox userMailbox; // 用户邮箱
     private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
+    private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
 
     public MailService(Config config) {
         this.v1 = new V1(config);
@@ -55,6 +57,7 @@ public class MailService {
         this.user = new User(config);
         this.userMailbox = new UserMailbox(config);
         this.userMailboxAlias = new UserMailboxAlias(config);
+        this.userMailboxMessage = new UserMailboxMessage(config);
     }
 
     public V1 v1() {
@@ -103,5 +106,9 @@ public class MailService {
 
     public UserMailboxAlias userMailboxAlias() {
         return userMailboxAlias;
+    }
+
+    public UserMailboxMessage userMailboxMessage() {
+        return userMailboxMessage;
     }
 }

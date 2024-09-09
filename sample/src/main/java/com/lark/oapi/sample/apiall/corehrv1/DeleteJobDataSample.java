@@ -18,6 +18,7 @@ public class DeleteJobDataSample {
         // 创建请求对象
         DeleteJobDataReq req = DeleteJobDataReq.newBuilder()
                 .jobDataId("467642764726472")
+                .versionId("1616161616")
                 .build();
 
         // 发起请求

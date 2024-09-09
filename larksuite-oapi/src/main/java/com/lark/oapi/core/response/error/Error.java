@@ -22,6 +22,8 @@ public class Error {
     private String logId;
     @SerializedName("message")
     private String message;
+    @SerializedName("troubleshooter")
+    private String troubleshooter;
     @SerializedName("details")
     private ErrorDetail[] details;
     @SerializedName("permission_violations")
@@ -45,6 +47,14 @@ public class Error {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTroubleshooter() {
+        return troubleshooter;
+    }
+
+    public void setTroubleshooter(String troubleshooter) {
+        this.troubleshooter = troubleshooter;
     }
 
     public ErrorDetail[] getDetails() {
@@ -84,6 +94,7 @@ public class Error {
         return "{" +
                 "logId=" + logId +
                 ", message=" + message +
+                ", troubleshooter=" + troubleshooter +
                 ", details=" + Arrays.toString(details) +
                 ", permissionViolations=" + Arrays.toString(permissionViolations) +
                 ", fieldViolations=" + Arrays.toString(fieldViolations) +

@@ -69,7 +69,13 @@ public class AppTableRecord {
     @SerializedName("last_modified_time")
     private Long lastModifiedTime;
     /**
-     * 记录链接
+     * 记录分享链接(批量获取记录接口将返回该字段)
+     * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     */
+    @SerializedName("shared_url")
+    private String sharedUrl;
+    /**
+     * 记录链接(检索记录接口将返回该字段)
      * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
      */
     @SerializedName("record_url")
@@ -111,7 +117,12 @@ public class AppTableRecord {
          */
         this.lastModifiedTime = builder.lastModifiedTime;
         /**
-         * 记录链接
+         * 记录分享链接(批量获取记录接口将返回该字段)
+         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+         */
+        this.sharedUrl = builder.sharedUrl;
+        /**
+         * 记录链接(检索记录接口将返回该字段)
          * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
          */
         this.recordUrl = builder.recordUrl;
@@ -169,6 +180,14 @@ public class AppTableRecord {
         this.lastModifiedTime = lastModifiedTime;
     }
 
+    public String getSharedUrl() {
+        return this.sharedUrl;
+    }
+
+    public void setSharedUrl(String sharedUrl) {
+        this.sharedUrl = sharedUrl;
+    }
+
     public String getRecordUrl() {
         return this.recordUrl;
     }
@@ -209,7 +228,12 @@ public class AppTableRecord {
          */
         private Long lastModifiedTime;
         /**
-         * 记录链接
+         * 记录分享链接(批量获取记录接口将返回该字段)
+         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+         */
+        private String sharedUrl;
+        /**
+         * 记录链接(检索记录接口将返回该字段)
          * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
          */
         private String recordUrl;
@@ -293,7 +317,20 @@ public class AppTableRecord {
 
 
         /**
-         * 记录链接
+         * 记录分享链接(批量获取记录接口将返回该字段)
+         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+         *
+         * @param sharedUrl
+         * @return
+         */
+        public Builder sharedUrl(String sharedUrl) {
+            this.sharedUrl = sharedUrl;
+            return this;
+        }
+
+
+        /**
+         * 记录链接(检索记录接口将返回该字段)
          * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
          *
          * @param recordUrl

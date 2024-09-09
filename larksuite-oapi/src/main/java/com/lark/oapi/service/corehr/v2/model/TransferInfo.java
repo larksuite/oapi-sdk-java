@@ -383,6 +383,18 @@ public class TransferInfo {
      */
     @SerializedName("target_position")
     private String targetPosition;
+    /**
+     * 原社保城市
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("original_social_security_city")
+    private String originalSocialSecurityCity;
+    /**
+     * 新社保城市
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("target_social_security_city")
+    private String targetSocialSecurityCity;
 
     // builder 开始
     public TransferInfo() {
@@ -684,6 +696,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         this.targetPosition = builder.targetPosition;
+        /**
+         * 原社保城市
+         * <p> 示例值：7289005963599693367
+         */
+        this.originalSocialSecurityCity = builder.originalSocialSecurityCity;
+        /**
+         * 新社保城市
+         * <p> 示例值：7289005963599693367
+         */
+        this.targetSocialSecurityCity = builder.targetSocialSecurityCity;
     }
 
     public static Builder newBuilder() {
@@ -1162,6 +1184,22 @@ public class TransferInfo {
         this.targetPosition = targetPosition;
     }
 
+    public String getOriginalSocialSecurityCity() {
+        return this.originalSocialSecurityCity;
+    }
+
+    public void setOriginalSocialSecurityCity(String originalSocialSecurityCity) {
+        this.originalSocialSecurityCity = originalSocialSecurityCity;
+    }
+
+    public String getTargetSocialSecurityCity() {
+        return this.targetSocialSecurityCity;
+    }
+
+    public void setTargetSocialSecurityCity(String targetSocialSecurityCity) {
+        this.targetSocialSecurityCity = targetSocialSecurityCity;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1458,6 +1496,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         private String targetPosition;
+        /**
+         * 原社保城市
+         * <p> 示例值：7289005963599693367
+         */
+        private String originalSocialSecurityCity;
+        /**
+         * 新社保城市
+         * <p> 示例值：7289005963599693367
+         */
+        private String targetSocialSecurityCity;
 
         /**
          * 备注
@@ -2222,6 +2270,32 @@ public class TransferInfo {
          */
         public Builder targetPosition(String targetPosition) {
             this.targetPosition = targetPosition;
+            return this;
+        }
+
+
+        /**
+         * 原社保城市
+         * <p> 示例值：7289005963599693367
+         *
+         * @param originalSocialSecurityCity
+         * @return
+         */
+        public Builder originalSocialSecurityCity(String originalSocialSecurityCity) {
+            this.originalSocialSecurityCity = originalSocialSecurityCity;
+            return this;
+        }
+
+
+        /**
+         * 新社保城市
+         * <p> 示例值：7289005963599693367
+         *
+         * @param targetSocialSecurityCity
+         * @return
+         */
+        public Builder targetSocialSecurityCity(String targetSocialSecurityCity) {
+            this.targetSocialSecurityCity = targetSocialSecurityCity;
             return this;
         }
 

@@ -59,6 +59,12 @@ public class UserDailyShift {
      */
     @SerializedName("day_no")
     private Integer dayNo;
+    /**
+     * 是否清空班次 (此字段优先于 shift_id，若为true ，shift_id 将失效)
+     * <p> 示例值：true
+     */
+    @SerializedName("is_clear_schedule")
+    private Boolean isClearSchedule;
 
     // builder 开始
     public UserDailyShift() {
@@ -90,6 +96,11 @@ public class UserDailyShift {
          * <p> 示例值：21
          */
         this.dayNo = builder.dayNo;
+        /**
+         * 是否清空班次 (此字段优先于 shift_id，若为true ，shift_id 将失效)
+         * <p> 示例值：true
+         */
+        this.isClearSchedule = builder.isClearSchedule;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class UserDailyShift {
         this.dayNo = dayNo;
     }
 
+    public Boolean getIsClearSchedule() {
+        return this.isClearSchedule;
+    }
+
+    public void setIsClearSchedule(Boolean isClearSchedule) {
+        this.isClearSchedule = isClearSchedule;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
@@ -162,6 +181,11 @@ public class UserDailyShift {
          * <p> 示例值：21
          */
         private Integer dayNo;
+        /**
+         * 是否清空班次 (此字段优先于 shift_id，若为true ，shift_id 将失效)
+         * <p> 示例值：true
+         */
+        private Boolean isClearSchedule;
 
         /**
          * 考勤组 ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
@@ -224,6 +248,19 @@ public class UserDailyShift {
          */
         public Builder dayNo(Integer dayNo) {
             this.dayNo = dayNo;
+            return this;
+        }
+
+
+        /**
+         * 是否清空班次 (此字段优先于 shift_id，若为true ，shift_id 将失效)
+         * <p> 示例值：true
+         *
+         * @param isClearSchedule
+         * @return
+         */
+        public Builder isClearSchedule(Boolean isClearSchedule) {
+            this.isClearSchedule = isClearSchedule;
             return this;
         }
 

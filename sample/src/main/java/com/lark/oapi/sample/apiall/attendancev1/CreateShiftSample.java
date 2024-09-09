@@ -15,6 +15,7 @@ public class CreateShiftSample {
 
         // 创建请求对象
         CreateShiftReq req = CreateShiftReq.newBuilder()
+                .employeeType("employee_id")
                 .shift(Shift.newBuilder()
                         .shiftName("早班")
                         .punchTimes(1)

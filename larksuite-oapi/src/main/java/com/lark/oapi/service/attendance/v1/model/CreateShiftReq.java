@@ -28,6 +28,13 @@ import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateShiftReq {
+    /**
+     * 用户 ID 的类型 不提供则用户相关字段无效
+     * <p> 示例值：
+     */
+    @Query
+    @SerializedName("employee_type")
+    private String employeeType;
     @Body
     private Shift body;
 
@@ -36,11 +43,24 @@ public class CreateShiftReq {
     }
 
     public CreateShiftReq(Builder builder) {
+        /**
+         * 用户 ID 的类型 不提供则用户相关字段无效
+         * <p> 示例值：
+         */
+        this.employeeType = builder.employeeType;
         this.body = builder.body;
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
     }
 
     public Shift getShift() {
@@ -52,8 +72,32 @@ public class CreateShiftReq {
     }
 
     public static class Builder {
-
+        private String employeeType; // 用户 ID 的类型 不提供则用户相关字段无效
         private Shift body;
+
+        /**
+         * 用户 ID 的类型 不提供则用户相关字段无效
+         * <p> 示例值：
+         *
+         * @param employeeType
+         * @return
+         */
+        public Builder employeeType(String employeeType) {
+            this.employeeType = employeeType;
+            return this;
+        }
+
+        /**
+         * 用户 ID 的类型 不提供则用户相关字段无效
+         * <p> 示例值：
+         *
+         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateShiftEmployeeTypeEnum}
+         * @return
+         */
+        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateShiftEmployeeTypeEnum employeeType) {
+            this.employeeType = employeeType.getValue();
+            return this;
+        }
 
         public Shift getShift() {
             return this.body;

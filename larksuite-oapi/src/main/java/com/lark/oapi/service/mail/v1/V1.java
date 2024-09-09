@@ -28,6 +28,7 @@ public class V1 {
     private final User user; // 邮箱地址
     private final UserMailbox userMailbox; // 用户邮箱
     private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
+    private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
 
     public V1(Config config) {
         this.mailgroup = new Mailgroup(config);
@@ -41,6 +42,7 @@ public class V1 {
         this.user = new User(config);
         this.userMailbox = new UserMailbox(config);
         this.userMailboxAlias = new UserMailboxAlias(config);
+        this.userMailboxMessage = new UserMailboxMessage(config);
     }
 
     public Mailgroup mailgroup() {
@@ -85,5 +87,9 @@ public class V1 {
 
     public UserMailboxAlias userMailboxAlias() {
         return userMailboxAlias;
+    }
+
+    public UserMailboxMessage userMailboxMessage() {
+        return userMailboxMessage;
     }
 }

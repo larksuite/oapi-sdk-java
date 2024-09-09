@@ -94,6 +94,18 @@ public class P2JobChangeUpdatedV2Data {
      */
     @SerializedName("updated_fields")
     private String[] updatedFields;
+    /**
+     * 异动类型
+     * <p> 示例值：assignment_start_reason_option1
+     */
+    @SerializedName("transform_type")
+    private String transformType;
+    /**
+     * 异动原因
+     * <p> 示例值：reason_for_job_change_option1
+     */
+    @SerializedName("transform_reason")
+    private String transformReason;
 
     public String getEmploymentId() {
         return this.employmentId;
@@ -181,6 +193,22 @@ public class P2JobChangeUpdatedV2Data {
 
     public void setUpdatedFields(String[] updatedFields) {
         this.updatedFields = updatedFields;
+    }
+
+    public String getTransformType() {
+        return this.transformType;
+    }
+
+    public void setTransformType(String transformType) {
+        this.transformType = transformType;
+    }
+
+    public String getTransformReason() {
+        return this.transformReason;
+    }
+
+    public void setTransformReason(String transformReason) {
+        this.transformReason = transformReason;
     }
 
 }

@@ -29,6 +29,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteJobDataReq {
     /**
+     * 需要删除的任职记录版本 ID
+     * <p> 示例值：1616161616
+     */
+    @Query
+    @SerializedName("version_id")
+    private String versionId;
+    /**
      * 需要删除的任职信息 ID
      * <p> 示例值：467642764726472
      */
@@ -42,6 +49,11 @@ public class DeleteJobDataReq {
 
     public DeleteJobDataReq(Builder builder) {
         /**
+         * 需要删除的任职记录版本 ID
+         * <p> 示例值：1616161616
+         */
+        this.versionId = builder.versionId;
+        /**
          * 需要删除的任职信息 ID
          * <p> 示例值：467642764726472
          */
@@ -50,6 +62,14 @@ public class DeleteJobDataReq {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
     }
 
     public String getJobDataId() {
@@ -61,8 +81,20 @@ public class DeleteJobDataReq {
     }
 
     public static class Builder {
-
+        private String versionId; // 需要删除的任职记录版本 ID
         private String jobDataId; // 需要删除的任职信息 ID
+
+        /**
+         * 需要删除的任职记录版本 ID
+         * <p> 示例值：1616161616
+         *
+         * @param versionId
+         * @return
+         */
+        public Builder versionId(String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
 
         /**
          * 需要删除的任职信息 ID

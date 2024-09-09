@@ -46,6 +46,7 @@ import com.lark.oapi.service.lingo.LingoService;
 import com.lark.oapi.service.mail.MailService;
 import com.lark.oapi.service.mdm.MdmService;
 import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.moments.MomentsService;
 import com.lark.oapi.service.okr.OkrService;
 import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.PassportService;
@@ -985,6 +986,36 @@ public class EventDispatcher implements IHandler {
         }
 
         /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobDataCreatedV1(CorehrService.P2JobDataCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_data.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_data.created_v1");
+            }
+            eventType2EventHandler.put("corehr.job_data.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobDataDeletedV1(CorehrService.P2JobDataDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_data.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_data.deleted_v1");
+            }
+            eventType2EventHandler.put("corehr.job_data.deleted_v1", handler);
+            return this;
+        }
+
+        /**
          * <p> 员工完成入职,在「飞书人事」将待入职员工手动操作“完成入职”后，触发该事件
          * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/events/employed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/events/employed</a>
          *
@@ -996,6 +1027,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("corehr.job_data.employed_v1");
             }
             eventType2EventHandler.put("corehr.job_data.employed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobDataUpdatedV1(CorehrService.P2JobDataUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_data.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_data.updated_v1");
+            }
+            eventType2EventHandler.put("corehr.job_data.updated_v1", handler);
             return this;
         }
 
@@ -1882,6 +1928,141 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("meeting_room.meeting_room.updated_v1");
             }
             eventType2EventHandler.put("meeting_room.meeting_room.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2CommentCreatedV1(MomentsService.P2CommentCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.comment.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.comment.created_v1");
+            }
+            eventType2EventHandler.put("moments.comment.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2CommentDeletedV1(MomentsService.P2CommentDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.comment.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.comment.deleted_v1");
+            }
+            eventType2EventHandler.put("moments.comment.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DislikeCreatedV1(MomentsService.P2DislikeCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.dislike.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.dislike.created_v1");
+            }
+            eventType2EventHandler.put("moments.dislike.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DislikeDeletedV1(MomentsService.P2DislikeDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.dislike.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.dislike.deleted_v1");
+            }
+            eventType2EventHandler.put("moments.dislike.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PostCreatedV1(MomentsService.P2PostCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.post.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.post.created_v1");
+            }
+            eventType2EventHandler.put("moments.post.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PostDeletedV1(MomentsService.P2PostDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.post.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.post.deleted_v1");
+            }
+            eventType2EventHandler.put("moments.post.deleted_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PostStatisticsUpdatedV1(MomentsService.P2PostStatisticsUpdatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.post_statistics.updated_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.post_statistics.updated_v1");
+            }
+            eventType2EventHandler.put("moments.post_statistics.updated_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ReactionCreatedV1(MomentsService.P2ReactionCreatedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.reaction.created_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.reaction.created_v1");
+            }
+            eventType2EventHandler.put("moments.reaction.created_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ReactionDeletedV1(MomentsService.P2ReactionDeletedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("moments.reaction.deleted_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("moments.reaction.deleted_v1");
+            }
+            eventType2EventHandler.put("moments.reaction.deleted_v1", handler);
             return this;
         }
 

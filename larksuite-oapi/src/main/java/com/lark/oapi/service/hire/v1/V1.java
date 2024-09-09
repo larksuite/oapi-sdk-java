@@ -85,6 +85,7 @@ public class V1 {
     private final Test test; // test
     private final Todo todo; // 待办
     private final TripartiteAgreement tripartiteAgreement; // tripartite_agreement
+    private final UserRole userRole; // 权限
     private final Website website; // 官网（灰度租户可见）
     private final WebsiteChannel websiteChannel; // website.channel
     private final WebsiteDelivery websiteDelivery; // website.delivery
@@ -161,6 +162,7 @@ public class V1 {
         this.test = new Test(config);
         this.todo = new Todo(config);
         this.tripartiteAgreement = new TripartiteAgreement(config);
+        this.userRole = new UserRole(config);
         this.website = new Website(config);
         this.websiteChannel = new WebsiteChannel(config);
         this.websiteDelivery = new WebsiteDelivery(config);
@@ -439,6 +441,10 @@ public class V1 {
 
     public TripartiteAgreement tripartiteAgreement() {
         return tripartiteAgreement;
+    }
+
+    public UserRole userRole() {
+        return userRole;
     }
 
     public Website website() {

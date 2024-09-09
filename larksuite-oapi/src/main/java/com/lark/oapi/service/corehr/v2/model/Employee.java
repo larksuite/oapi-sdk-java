@@ -36,6 +36,12 @@ public class Employee {
     @SerializedName("employment_id")
     private String employmentId;
     /**
+     * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+     * <p> 示例值：6893014062142064135
+     */
+    @SerializedName("employment_id_v2")
+    private String employmentIdV2;
+    /**
      * 招聘投递 ID ，详细信息可以通过【获取投递信息】接口查询获得
      * <p> 示例值：6838119494196871234
      */
@@ -65,6 +71,12 @@ public class Employee {
      */
     @SerializedName("department_id")
     private String departmentId;
+    /**
+     * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致，转换失败时返回空值
+     * <p> 示例值：6893014062142064135
+     */
+    @SerializedName("department_id_v2")
+    private String departmentIdV2;
     /**
      * 职级 ID，详细信息可通过【查询单个职务级别】接口获得
      * <p> 示例值：6893014062142064135
@@ -191,6 +203,18 @@ public class Employee {
      */
     @SerializedName("dotted_line_manager_id")
     private String dottedLineManagerId;
+    /**
+     * 直接上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+     * <p> 示例值：7027024823985411287
+     */
+    @SerializedName("direct_manager_id_v2")
+    private String directManagerIdV2;
+    /**
+     * 虚线上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+     * <p> 示例值：7027024823985411782
+     */
+    @SerializedName("dotted_line_manager_id_v2")
+    private String dottedLineManagerIdV2;
     /**
      * 雇佣类型，枚举值可通过文档【飞书人事枚举常量】雇佣类型（employment_type）枚举定义获得
      * <p> 示例值：
@@ -401,6 +425,11 @@ public class Employee {
          */
         this.employmentId = builder.employmentId;
         /**
+         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         */
+        this.employmentIdV2 = builder.employmentIdV2;
+        /**
          * 招聘投递 ID ，详细信息可以通过【获取投递信息】接口查询获得
          * <p> 示例值：6838119494196871234
          */
@@ -425,6 +454,11 @@ public class Employee {
          * <p> 示例值：6893014062142064135
          */
         this.departmentId = builder.departmentId;
+        /**
+         * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         */
+        this.departmentIdV2 = builder.departmentIdV2;
         /**
          * 职级 ID，详细信息可通过【查询单个职务级别】接口获得
          * <p> 示例值：6893014062142064135
@@ -530,6 +564,16 @@ public class Employee {
          * <p> 示例值：7027024823985411782
          */
         this.dottedLineManagerId = builder.dottedLineManagerId;
+        /**
+         * 直接上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+         * <p> 示例值：7027024823985411287
+         */
+        this.directManagerIdV2 = builder.directManagerIdV2;
+        /**
+         * 虚线上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+         * <p> 示例值：7027024823985411782
+         */
+        this.dottedLineManagerIdV2 = builder.dottedLineManagerIdV2;
         /**
          * 雇佣类型，枚举值可通过文档【飞书人事枚举常量】雇佣类型（employment_type）枚举定义获得
          * <p> 示例值：
@@ -709,6 +753,14 @@ public class Employee {
         this.employmentId = employmentId;
     }
 
+    public String getEmploymentIdV2() {
+        return this.employmentIdV2;
+    }
+
+    public void setEmploymentIdV2(String employmentIdV2) {
+        this.employmentIdV2 = employmentIdV2;
+    }
+
     public String getAtsApplicationId() {
         return this.atsApplicationId;
     }
@@ -747,6 +799,14 @@ public class Employee {
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public String getDepartmentIdV2() {
+        return this.departmentIdV2;
+    }
+
+    public void setDepartmentIdV2(String departmentIdV2) {
+        this.departmentIdV2 = departmentIdV2;
     }
 
     public String getJobLevelId() {
@@ -915,6 +975,22 @@ public class Employee {
 
     public void setDottedLineManagerId(String dottedLineManagerId) {
         this.dottedLineManagerId = dottedLineManagerId;
+    }
+
+    public String getDirectManagerIdV2() {
+        return this.directManagerIdV2;
+    }
+
+    public void setDirectManagerIdV2(String directManagerIdV2) {
+        this.directManagerIdV2 = directManagerIdV2;
+    }
+
+    public String getDottedLineManagerIdV2() {
+        return this.dottedLineManagerIdV2;
+    }
+
+    public void setDottedLineManagerIdV2(String dottedLineManagerIdV2) {
+        this.dottedLineManagerIdV2 = dottedLineManagerIdV2;
     }
 
     public Enum getEmploymentType() {
@@ -1188,6 +1264,11 @@ public class Employee {
          */
         private String employmentId;
         /**
+         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         */
+        private String employmentIdV2;
+        /**
          * 招聘投递 ID ，详细信息可以通过【获取投递信息】接口查询获得
          * <p> 示例值：6838119494196871234
          */
@@ -1212,6 +1293,11 @@ public class Employee {
          * <p> 示例值：6893014062142064135
          */
         private String departmentId;
+        /**
+         * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         */
+        private String departmentIdV2;
         /**
          * 职级 ID，详细信息可通过【查询单个职务级别】接口获得
          * <p> 示例值：6893014062142064135
@@ -1317,6 +1403,16 @@ public class Employee {
          * <p> 示例值：7027024823985411782
          */
         private String dottedLineManagerId;
+        /**
+         * 直接上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+         * <p> 示例值：7027024823985411287
+         */
+        private String directManagerIdV2;
+        /**
+         * 虚线上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+         * <p> 示例值：7027024823985411782
+         */
+        private String dottedLineManagerIdV2;
         /**
          * 雇佣类型，枚举值可通过文档【飞书人事枚举常量】雇佣类型（employment_type）枚举定义获得
          * <p> 示例值：
@@ -1497,6 +1593,19 @@ public class Employee {
 
 
         /**
+         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         *
+         * @param employmentIdV2
+         * @return
+         */
+        public Builder employmentIdV2(String employmentIdV2) {
+            this.employmentIdV2 = employmentIdV2;
+            return this;
+        }
+
+
+        /**
          * 招聘投递 ID ，详细信息可以通过【获取投递信息】接口查询获得
          * <p> 示例值：6838119494196871234
          *
@@ -1557,6 +1666,19 @@ public class Employee {
          */
         public Builder departmentId(String departmentId) {
             this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         *
+         * @param departmentIdV2
+         * @return
+         */
+        public Builder departmentIdV2(String departmentIdV2) {
+            this.departmentIdV2 = departmentIdV2;
             return this;
         }
 
@@ -1830,6 +1952,32 @@ public class Employee {
          */
         public Builder dottedLineManagerId(String dottedLineManagerId) {
             this.dottedLineManagerId = dottedLineManagerId;
+            return this;
+        }
+
+
+        /**
+         * 直接上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+         * <p> 示例值：7027024823985411287
+         *
+         * @param directManagerIdV2
+         * @return
+         */
+        public Builder directManagerIdV2(String directManagerIdV2) {
+            this.directManagerIdV2 = directManagerIdV2;
+            return this;
+        }
+
+
+        /**
+         * 虚线上级的雇佣 ID;- 类型与 user_id_type 一致，转换失败返回空值
+         * <p> 示例值：7027024823985411782
+         *
+         * @param dottedLineManagerIdV2
+         * @return
+         */
+        public Builder dottedLineManagerIdV2(String dottedLineManagerIdV2) {
+            this.dottedLineManagerIdV2 = dottedLineManagerIdV2;
             return this;
         }
 

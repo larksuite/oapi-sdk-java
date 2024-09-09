@@ -42,6 +42,7 @@ public enum ImportTaskJobStatusEnum {
     IMPORTTYPENOTMATCH(120), // 导入文件和任务指定文件类型不匹配
     IMPORTFILEEXPIRED(121), // 导入文件已过期
     EXPORTDENIEDONCOPYING(122), // 创建副本中禁止导出
+    CORRUPTEDFILEFORMAT(129), // 文件格式损坏另存为新文件后导入
     INTERNALERROR7(5000), // 内部错误
     BLOCKQUANTITYEXCEEDLIMIT(7000), // docx block 数量超过系统上限
     BLOCKLEVELEXCEEDLIMIT(7001), // docx block 层级超过系统上线

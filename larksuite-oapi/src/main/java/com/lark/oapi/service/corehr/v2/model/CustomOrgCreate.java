@@ -78,7 +78,7 @@ public class CustomOrgCreate {
     @SerializedName("org_roles")
     private OrgRoleUpdate[] orgRoles;
     /**
-     * 匹配规则组，组间并集
+     * 匹配规则组 ，组间并集
      * <p> 示例值：
      */
     @SerializedName("match_rule_groups")
@@ -136,7 +136,7 @@ public class CustomOrgCreate {
          */
         this.orgRoles = builder.orgRoles;
         /**
-         * 匹配规则组，组间并集
+         * 匹配规则组 ，组间并集
          * <p> 示例值：
          */
         this.matchRuleGroups = builder.matchRuleGroups;
@@ -273,7 +273,7 @@ public class CustomOrgCreate {
          */
         private OrgRoleUpdate[] orgRoles;
         /**
-         * 匹配规则组，组间并集
+         * 匹配规则组 ，组间并集
          * <p> 示例值：
          */
         private MatchRules[] matchRuleGroups;
@@ -388,7 +388,7 @@ public class CustomOrgCreate {
 
 
         /**
-         * 匹配规则组，组间并集
+         * 匹配规则组 ，组间并集
          * <p> 示例值：
          *
          * @param matchRuleGroups

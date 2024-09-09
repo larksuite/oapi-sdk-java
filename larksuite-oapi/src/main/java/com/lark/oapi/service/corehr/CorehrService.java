@@ -386,10 +386,31 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2JobDataCreatedV1Handler implements IEventHandler<P2JobDataCreatedV1> {
+        @Override
+        public P2JobDataCreatedV1 getEvent() {
+            return new P2JobDataCreatedV1();
+        }
+    }
+
+    public abstract static class P2JobDataDeletedV1Handler implements IEventHandler<P2JobDataDeletedV1> {
+        @Override
+        public P2JobDataDeletedV1 getEvent() {
+            return new P2JobDataDeletedV1();
+        }
+    }
+
     public abstract static class P2JobDataEmployedV1Handler implements IEventHandler<P2JobDataEmployedV1> {
         @Override
         public P2JobDataEmployedV1 getEvent() {
             return new P2JobDataEmployedV1();
+        }
+    }
+
+    public abstract static class P2JobDataUpdatedV1Handler implements IEventHandler<P2JobDataUpdatedV1> {
+        @Override
+        public P2JobDataUpdatedV1 getEvent() {
+            return new P2JobDataUpdatedV1();
         }
     }
 

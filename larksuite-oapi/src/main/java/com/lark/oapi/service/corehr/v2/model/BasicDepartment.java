@@ -36,6 +36,12 @@ public class BasicDepartment {
     @SerializedName("id")
     private String id;
     /**
+     * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+     * <p> 示例值：4719456877659520852
+     */
+    @SerializedName("id_v2")
+    private String idV2;
+    /**
      * 部门名称
      * <p> 示例值：
      */
@@ -52,6 +58,11 @@ public class BasicDepartment {
          * <p> 示例值：4719456877659520852
          */
         this.id = builder.id;
+        /**
+         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+         * <p> 示例值：4719456877659520852
+         */
+        this.idV2 = builder.idV2;
         /**
          * 部门名称
          * <p> 示例值：
@@ -71,6 +82,14 @@ public class BasicDepartment {
         this.id = id;
     }
 
+    public String getIdV2() {
+        return this.idV2;
+    }
+
+    public void setIdV2(String idV2) {
+        this.idV2 = idV2;
+    }
+
     public I18n[] getDepartmentName() {
         return this.departmentName;
     }
@@ -86,6 +105,11 @@ public class BasicDepartment {
          */
         private String id;
         /**
+         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+         * <p> 示例值：4719456877659520852
+         */
+        private String idV2;
+        /**
          * 部门名称
          * <p> 示例值：
          */
@@ -100,6 +124,19 @@ public class BasicDepartment {
          */
         public Builder id(String id) {
             this.id = id;
+            return this;
+        }
+
+
+        /**
+         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+         * <p> 示例值：4719456877659520852
+         *
+         * @param idV2
+         * @return
+         */
+        public Builder idV2(String idV2) {
+            this.idV2 = idV2;
             return this;
         }
 

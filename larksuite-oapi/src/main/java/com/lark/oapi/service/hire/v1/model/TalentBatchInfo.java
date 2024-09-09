@@ -64,6 +64,12 @@ public class TalentBatchInfo {
      */
     @SerializedName("identification_number")
     private String identificationNumber;
+    /**
+     * 是否已入职
+     * <p> 示例值：true
+     */
+    @SerializedName("is_onboarded")
+    private Boolean isOnboarded;
 
     // builder 开始
     public TalentBatchInfo() {
@@ -100,6 +106,11 @@ public class TalentBatchInfo {
          * <p> 示例值：130xxxxxxxxx
          */
         this.identificationNumber = builder.identificationNumber;
+        /**
+         * 是否已入职
+         * <p> 示例值：true
+         */
+        this.isOnboarded = builder.isOnboarded;
     }
 
     public static Builder newBuilder() {
@@ -154,6 +165,14 @@ public class TalentBatchInfo {
         this.identificationNumber = identificationNumber;
     }
 
+    public Boolean getIsOnboarded() {
+        return this.isOnboarded;
+    }
+
+    public void setIsOnboarded(Boolean isOnboarded) {
+        this.isOnboarded = isOnboarded;
+    }
+
     public static class Builder {
         /**
          * 人才 ID
@@ -185,6 +204,11 @@ public class TalentBatchInfo {
          * <p> 示例值：130xxxxxxxxx
          */
         private String identificationNumber;
+        /**
+         * 是否已入职
+         * <p> 示例值：true
+         */
+        private Boolean isOnboarded;
 
         /**
          * 人才 ID
@@ -260,6 +284,19 @@ public class TalentBatchInfo {
          */
         public Builder identificationNumber(String identificationNumber) {
             this.identificationNumber = identificationNumber;
+            return this;
+        }
+
+
+        /**
+         * 是否已入职
+         * <p> 示例值：true
+         *
+         * @param isOnboarded
+         * @return
+         */
+        public Builder isOnboarded(Boolean isOnboarded) {
+            this.isOnboarded = isOnboarded;
             return this;
         }
 

@@ -36,6 +36,12 @@ public class BasicEmployee {
     @SerializedName("employment_id")
     private String employmentId;
     /**
+     * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+     * <p> 示例值：6893014062142064135
+     */
+    @SerializedName("employment_id_v2")
+    private String employmentIdV2;
+    /**
      * 工号
      * <p> 示例值：1000000
      */
@@ -65,6 +71,11 @@ public class BasicEmployee {
          */
         this.employmentId = builder.employmentId;
         /**
+         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         */
+        this.employmentIdV2 = builder.employmentIdV2;
+        /**
          * 工号
          * <p> 示例值：1000000
          */
@@ -91,6 +102,14 @@ public class BasicEmployee {
 
     public void setEmploymentId(String employmentId) {
         this.employmentId = employmentId;
+    }
+
+    public String getEmploymentIdV2() {
+        return this.employmentIdV2;
+    }
+
+    public void setEmploymentIdV2(String employmentIdV2) {
+        this.employmentIdV2 = employmentIdV2;
     }
 
     public String getEmployeeNumber() {
@@ -124,6 +143,11 @@ public class BasicEmployee {
          */
         private String employmentId;
         /**
+         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         */
+        private String employmentIdV2;
+        /**
          * 工号
          * <p> 示例值：1000000
          */
@@ -148,6 +172,19 @@ public class BasicEmployee {
          */
         public Builder employmentId(String employmentId) {
             this.employmentId = employmentId;
+            return this;
+        }
+
+
+        /**
+         * 雇佣 ID;- 类型与 user_id_type 一致，转换失败时返回空值
+         * <p> 示例值：6893014062142064135
+         *
+         * @param employmentIdV2
+         * @return
+         */
+        public Builder employmentIdV2(String employmentIdV2) {
+            this.employmentIdV2 = employmentIdV2;
             return this;
         }
 

@@ -89,6 +89,18 @@ public class JobChange {
      */
     @SerializedName("transfer_info")
     private TransferInfo transferInfo;
+    /**
+     * 是否调整薪酬
+     * <p> 示例值：true
+     */
+    @SerializedName("is_adjust_salary")
+    private Boolean isAdjustSalary;
+    /**
+     * 异动自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private CustomFieldData[] customFields;
 
     // builder 开始
     public JobChange() {
@@ -145,6 +157,16 @@ public class JobChange {
          * <p> 示例值：
          */
         this.transferInfo = builder.transferInfo;
+        /**
+         * 是否调整薪酬
+         * <p> 示例值：true
+         */
+        this.isAdjustSalary = builder.isAdjustSalary;
+        /**
+         * 异动自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +253,22 @@ public class JobChange {
         this.transferInfo = transferInfo;
     }
 
+    public Boolean getIsAdjustSalary() {
+        return this.isAdjustSalary;
+    }
+
+    public void setIsAdjustSalary(Boolean isAdjustSalary) {
+        this.isAdjustSalary = isAdjustSalary;
+    }
+
+    public CustomFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(CustomFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 异动记录 id
@@ -282,6 +320,16 @@ public class JobChange {
          * <p> 示例值：
          */
         private TransferInfo transferInfo;
+        /**
+         * 是否调整薪酬
+         * <p> 示例值：true
+         */
+        private Boolean isAdjustSalary;
+        /**
+         * 异动自定义字段
+         * <p> 示例值：
+         */
+        private CustomFieldData[] customFields;
 
         /**
          * 异动记录 id
@@ -421,6 +469,32 @@ public class JobChange {
          */
         public Builder transferInfo(TransferInfo transferInfo) {
             this.transferInfo = transferInfo;
+            return this;
+        }
+
+
+        /**
+         * 是否调整薪酬
+         * <p> 示例值：true
+         *
+         * @param isAdjustSalary
+         * @return
+         */
+        public Builder isAdjustSalary(Boolean isAdjustSalary) {
+            this.isAdjustSalary = isAdjustSalary;
+            return this;
+        }
+
+
+        /**
+         * 异动自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(CustomFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 
