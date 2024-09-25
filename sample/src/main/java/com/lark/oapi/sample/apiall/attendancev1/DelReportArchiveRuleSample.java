@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.attendance.v1.model.DelReportArchiveRuleReq;
+import com.lark.oapi.service.attendance.v1.model.DelReportArchiveRuleReqBody;
+import com.lark.oapi.service.attendance.v1.model.DelReportArchiveRuleResp;
 
 // POST /open-apis/attendance/v1/archive_rule/del_report
 public class DelReportArchiveRuleSample {

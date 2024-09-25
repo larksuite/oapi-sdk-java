@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BonusAmount {
     /**
@@ -34,6 +22,12 @@ public class BonusAmount {
      */
     @SerializedName("point_bonus")
     private Integer pointBonus;
+    /**
+     * 现金奖励
+     * <p> 示例值：
+     */
+    @SerializedName("cash_bonus")
+    private Cash[] cashBonus;
 
     // builder 开始
     public BonusAmount() {
@@ -45,6 +39,11 @@ public class BonusAmount {
          * <p> 示例值：100
          */
         this.pointBonus = builder.pointBonus;
+        /**
+         * 现金奖励
+         * <p> 示例值：
+         */
+        this.cashBonus = builder.cashBonus;
     }
 
     public static Builder newBuilder() {
@@ -59,12 +58,25 @@ public class BonusAmount {
         this.pointBonus = pointBonus;
     }
 
+    public Cash[] getCashBonus() {
+        return this.cashBonus;
+    }
+
+    public void setCashBonus(Cash[] cashBonus) {
+        this.cashBonus = cashBonus;
+    }
+
     public static class Builder {
         /**
          * 积分奖励
          * <p> 示例值：100
          */
         private Integer pointBonus;
+        /**
+         * 现金奖励
+         * <p> 示例值：
+         */
+        private Cash[] cashBonus;
 
 
         /**
@@ -76,6 +88,19 @@ public class BonusAmount {
          */
         public Builder pointBonus(Integer pointBonus) {
             this.pointBonus = pointBonus;
+            return this;
+        }
+
+
+        /**
+         * 现金奖励
+         * <p> 示例值：
+         *
+         * @param cashBonus
+         * @return
+         */
+        public Builder cashBonus(Cash[] cashBonus) {
+            this.cashBonus = cashBonus;
             return this;
         }
 

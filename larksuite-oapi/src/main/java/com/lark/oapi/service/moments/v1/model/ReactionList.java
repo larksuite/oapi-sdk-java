@@ -13,29 +13,18 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReactionList {
     /**
-     * <p> 示例值：
+     * 表情类型
+     * <p> 示例值：OK
      */
     @SerializedName("type")
     private String type;
     /**
-     * <p> 示例值：
+     * 回复该表情的人数
+     * <p> 示例值：3
      */
     @SerializedName("count")
     private Integer count;
@@ -46,13 +35,13 @@ public class ReactionList {
 
     public ReactionList(Builder builder) {
         /**
-         *
-         * <p> 示例值：
+         * 表情类型
+         * <p> 示例值：OK
          */
         this.type = builder.type;
         /**
-         *
-         * <p> 示例值：
+         * 回复该表情的人数
+         * <p> 示例值：3
          */
         this.count = builder.count;
     }
@@ -79,16 +68,19 @@ public class ReactionList {
 
     public static class Builder {
         /**
-         * <p> 示例值：
+         * 表情类型
+         * <p> 示例值：OK
          */
         private String type;
         /**
-         * <p> 示例值：
+         * 回复该表情的人数
+         * <p> 示例值：3
          */
         private Integer count;
 
         /**
-         * <p> 示例值：
+         * 表情类型
+         * <p> 示例值：OK
          *
          * @param type
          * @return
@@ -100,7 +92,8 @@ public class ReactionList {
 
 
         /**
-         * <p> 示例值：
+         * 回复该表情的人数
+         * <p> 示例值：3
          *
          * @param count
          * @return

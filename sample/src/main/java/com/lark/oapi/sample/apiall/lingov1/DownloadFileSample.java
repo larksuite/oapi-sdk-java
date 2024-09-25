@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.lingov1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.lingo.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.lingo.v1.model.DownloadFileReq;
+import com.lark.oapi.service.lingo.v1.model.DownloadFileResp;
 
 // GET /open-apis/lingo/v1/files/:file_token/download
 public class DownloadFileSample {

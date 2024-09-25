@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableValueTo {
     /**
@@ -93,8 +80,8 @@ public class FieldVariableValueTo {
      * 记录类型字段值
      * <p> 示例值：1
      */
-    @SerializedName("record_value")
-    private FieldVariableValueToRecord recordValue;
+    @SerializedName("record_values")
+    private FieldVariableValueToRecord[] recordValues;
     /**
      * 员工类型字段值，为用户id，根据入参选择返回的用户id
      * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
@@ -173,7 +160,7 @@ public class FieldVariableValueTo {
          * 记录类型字段值
          * <p> 示例值：1
          */
-        this.recordValue = builder.recordValue;
+        this.recordValues = builder.recordValues;
         /**
          * 员工类型字段值，为用户id，根据入参选择返回的用户id
          * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
@@ -275,12 +262,12 @@ public class FieldVariableValueTo {
         this.departmentValue = departmentValue;
     }
 
-    public FieldVariableValueToRecord getRecordValue() {
-        return this.recordValue;
+    public FieldVariableValueToRecord[] getRecordValues() {
+        return this.recordValues;
     }
 
-    public void setRecordValue(FieldVariableValueToRecord recordValue) {
-        this.recordValue = recordValue;
+    public void setRecordValues(FieldVariableValueToRecord[] recordValues) {
+        this.recordValues = recordValues;
     }
 
     public String getEmploymentValue() {
@@ -362,7 +349,7 @@ public class FieldVariableValueTo {
          * 记录类型字段值
          * <p> 示例值：1
          */
-        private FieldVariableValueToRecord recordValue;
+        private FieldVariableValueToRecord[] recordValues;
         /**
          * 员工类型字段值，为用户id，根据入参选择返回的用户id
          * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
@@ -513,11 +500,11 @@ public class FieldVariableValueTo {
          * 记录类型字段值
          * <p> 示例值：1
          *
-         * @param recordValue
+         * @param recordValues
          * @return
          */
-        public Builder recordValue(FieldVariableValueToRecord recordValue) {
-            this.recordValue = recordValue;
+        public Builder recordValues(FieldVariableValueToRecord[] recordValues) {
+            this.recordValues = recordValues;
             return this;
         }
 

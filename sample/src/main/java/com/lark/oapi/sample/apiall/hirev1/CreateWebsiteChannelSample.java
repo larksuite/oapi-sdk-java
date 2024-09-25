@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.CreateWebsiteChannelReq;
+import com.lark.oapi.service.hire.v1.model.CreateWebsiteChannelReqBody;
+import com.lark.oapi.service.hire.v1.model.CreateWebsiteChannelResp;
 
 // POST /open-apis/hire/v1/websites/:website_id/channels
 public class CreateWebsiteChannelSample {

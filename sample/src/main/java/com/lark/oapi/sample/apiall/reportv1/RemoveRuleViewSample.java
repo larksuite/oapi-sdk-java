@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.reportv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.report.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.report.v1.model.RemoveRuleViewReq;
+import com.lark.oapi.service.report.v1.model.RemoveRuleViewReqBody;
+import com.lark.oapi.service.report.v1.model.RemoveRuleViewResp;
 
 // POST /open-apis/report/v1/rules/:rule_id/views/remove
 public class RemoveRuleViewSample {

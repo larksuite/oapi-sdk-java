@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.helpdesk.v1.model.AgentScheduleUpdateInfo;
+import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSchedulesReq;
+import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSchedulesReqBody;
+import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSchedulesResp;
 
 // PATCH /open-apis/helpdesk/v1/agents/:agent_id/schedules
 public class PatchAgentSchedulesSample {

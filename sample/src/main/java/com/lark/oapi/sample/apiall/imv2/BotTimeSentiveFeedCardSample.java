@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v2.model.BotTimeSentiveFeedCardReq;
+import com.lark.oapi.service.im.v2.model.BotTimeSentiveFeedCardReqBody;
+import com.lark.oapi.service.im.v2.model.BotTimeSentiveFeedCardResp;
 
 // PATCH /open-apis/im/v2/feed_cards/bot_time_sentive
 public class BotTimeSentiveFeedCardSample {

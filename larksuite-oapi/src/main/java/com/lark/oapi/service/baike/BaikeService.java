@@ -13,9 +13,7 @@
 package com.lark.oapi.service.baike;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.baike.v1.V1;
-import com.lark.oapi.service.baike.v1.model.*;
 import com.lark.oapi.service.baike.v1.resource.Classification;
 import com.lark.oapi.service.baike.v1.resource.Draft;
 import com.lark.oapi.service.baike.v1.resource.Entity;

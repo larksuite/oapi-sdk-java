@@ -16,12 +16,7 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.corehr.v1.V1;
 import com.lark.oapi.service.corehr.v1.model.*;
-import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
-import com.lark.oapi.service.corehr.v1.resource.Authorization;
-import com.lark.oapi.service.corehr.v1.resource.CommonDataId;
-import com.lark.oapi.service.corehr.v1.resource.CommonDataMetaData;
 import com.lark.oapi.service.corehr.v1.resource.Company;
-import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
 import com.lark.oapi.service.corehr.v1.resource.Contract;
 import com.lark.oapi.service.corehr.v1.resource.CountryRegion;
 import com.lark.oapi.service.corehr.v1.resource.Currency;
@@ -35,21 +30,19 @@ import com.lark.oapi.service.corehr.v1.resource.JobChange;
 import com.lark.oapi.service.corehr.v1.resource.JobData;
 import com.lark.oapi.service.corehr.v1.resource.JobFamily;
 import com.lark.oapi.service.corehr.v1.resource.JobLevel;
-import com.lark.oapi.service.corehr.v1.resource.Leave;
 import com.lark.oapi.service.corehr.v1.resource.LeaveGrantingRecord;
 import com.lark.oapi.service.corehr.v1.resource.Location;
 import com.lark.oapi.service.corehr.v1.resource.NationalIdType;
 import com.lark.oapi.service.corehr.v1.resource.Offboarding;
-import com.lark.oapi.service.corehr.v1.resource.OrgRoleAuthorization;
 import com.lark.oapi.service.corehr.v1.resource.Person;
 import com.lark.oapi.service.corehr.v1.resource.PreHire;
-import com.lark.oapi.service.corehr.v1.resource.ProcessFormVariableData;
 import com.lark.oapi.service.corehr.v1.resource.SecurityGroup;
 import com.lark.oapi.service.corehr.v1.resource.Subdivision;
 import com.lark.oapi.service.corehr.v1.resource.Subregion;
 import com.lark.oapi.service.corehr.v1.resource.TransferReason;
 import com.lark.oapi.service.corehr.v1.resource.TransferType;
 import com.lark.oapi.service.corehr.v1.resource.WorkingHoursType;
+import com.lark.oapi.service.corehr.v1.resource.*;
 import com.lark.oapi.service.corehr.v2.V2;
 import com.lark.oapi.service.corehr.v2.model.*;
 
@@ -477,6 +470,48 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2JobFamilyCreatedV2Handler implements IEventHandler<P2JobFamilyCreatedV2> {
+        @Override
+        public P2JobFamilyCreatedV2 getEvent() {
+            return new P2JobFamilyCreatedV2();
+        }
+    }
+
+    public abstract static class P2JobFamilyDeletedV2Handler implements IEventHandler<P2JobFamilyDeletedV2> {
+        @Override
+        public P2JobFamilyDeletedV2 getEvent() {
+            return new P2JobFamilyDeletedV2();
+        }
+    }
+
+    public abstract static class P2JobFamilyUpdatedV2Handler implements IEventHandler<P2JobFamilyUpdatedV2> {
+        @Override
+        public P2JobFamilyUpdatedV2 getEvent() {
+            return new P2JobFamilyUpdatedV2();
+        }
+    }
+
+    public abstract static class P2JobLevelCreatedV2Handler implements IEventHandler<P2JobLevelCreatedV2> {
+        @Override
+        public P2JobLevelCreatedV2 getEvent() {
+            return new P2JobLevelCreatedV2();
+        }
+    }
+
+    public abstract static class P2JobLevelDeletedV2Handler implements IEventHandler<P2JobLevelDeletedV2> {
+        @Override
+        public P2JobLevelDeletedV2 getEvent() {
+            return new P2JobLevelDeletedV2();
+        }
+    }
+
+    public abstract static class P2JobLevelUpdatedV2Handler implements IEventHandler<P2JobLevelUpdatedV2> {
+        @Override
+        public P2JobLevelUpdatedV2 getEvent() {
+            return new P2JobLevelUpdatedV2();
+        }
+    }
+
     public abstract static class P2OffboardingChecklistUpdatedV2Handler implements IEventHandler<P2OffboardingChecklistUpdatedV2> {
         @Override
         public P2OffboardingChecklistUpdatedV2 getEvent() {
@@ -495,6 +530,13 @@ public class CorehrService {
         @Override
         public P2OffboardingUpdatedV2 getEvent() {
             return new P2OffboardingUpdatedV2();
+        }
+    }
+
+    public abstract static class P2PreHireOnboardingTaskChangedV2Handler implements IEventHandler<P2PreHireOnboardingTaskChangedV2> {
+        @Override
+        public P2PreHireOnboardingTaskChangedV2 getEvent() {
+            return new P2PreHireOnboardingTaskChangedV2();
         }
     }
 

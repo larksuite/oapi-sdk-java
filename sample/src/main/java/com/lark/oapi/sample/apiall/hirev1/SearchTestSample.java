@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.SearchTestReq;
+import com.lark.oapi.service.hire.v1.model.SearchTestReqBody;
+import com.lark.oapi.service.hire.v1.model.SearchTestResp;
 
 // POST /open-apis/hire/v1/tests/search
 public class SearchTestSample {

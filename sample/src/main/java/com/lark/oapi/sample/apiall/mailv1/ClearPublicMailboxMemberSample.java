@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.mail.v1.model.ClearPublicMailboxMemberReq;
+import com.lark.oapi.service.mail.v1.model.ClearPublicMailboxMemberResp;
 
 // POST /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear
 public class ClearPublicMailboxMemberSample {

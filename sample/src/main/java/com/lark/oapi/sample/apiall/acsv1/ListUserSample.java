@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.acs.v1.model.ListUserReq;
+import com.lark.oapi.service.acs.v1.model.ListUserResp;
 
 // GET /open-apis/acs/v1/users
 public class ListUserSample {

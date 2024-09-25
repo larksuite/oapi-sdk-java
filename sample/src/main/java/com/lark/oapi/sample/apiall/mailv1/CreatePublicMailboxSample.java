@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxReq;
+import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxResp;
+import com.lark.oapi.service.mail.v1.model.PublicMailbox;
 
 // POST /open-apis/mail/v1/public_mailboxes
 public class CreatePublicMailboxSample {

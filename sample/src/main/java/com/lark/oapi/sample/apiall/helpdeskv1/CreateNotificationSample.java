@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/helpdesk/v1/notifications
 public class CreateNotificationSample {
 

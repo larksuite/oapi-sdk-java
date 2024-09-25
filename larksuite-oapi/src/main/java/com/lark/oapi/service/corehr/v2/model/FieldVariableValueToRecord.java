@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableValueToRecord {
     /**
@@ -39,8 +26,8 @@ public class FieldVariableValueToRecord {
      * 变量值，对应subValues中的key
      * <p> 示例值：key1
      */
-    @SerializedName("variable_value")
-    private String variableValue;
+    @SerializedName("sub_value_key")
+    private String subValueKey;
 
     // builder 开始
     public FieldVariableValueToRecord() {
@@ -56,7 +43,7 @@ public class FieldVariableValueToRecord {
          * 变量值，对应subValues中的key
          * <p> 示例值：key1
          */
-        this.variableValue = builder.variableValue;
+        this.subValueKey = builder.subValueKey;
     }
 
     public static Builder newBuilder() {
@@ -71,12 +58,12 @@ public class FieldVariableValueToRecord {
         this.variableApiName = variableApiName;
     }
 
-    public String getVariableValue() {
-        return this.variableValue;
+    public String getSubValueKey() {
+        return this.subValueKey;
     }
 
-    public void setVariableValue(String variableValue) {
-        this.variableValue = variableValue;
+    public void setSubValueKey(String subValueKey) {
+        this.subValueKey = subValueKey;
     }
 
     public static class Builder {
@@ -89,7 +76,7 @@ public class FieldVariableValueToRecord {
          * 变量值，对应subValues中的key
          * <p> 示例值：key1
          */
-        private String variableValue;
+        private String subValueKey;
 
         /**
          * 变量唯一标识
@@ -108,11 +95,11 @@ public class FieldVariableValueToRecord {
          * 变量值，对应subValues中的key
          * <p> 示例值：key1
          *
-         * @param variableValue
+         * @param subValueKey
          * @return
          */
-        public Builder variableValue(String variableValue) {
-            this.variableValue = variableValue;
+        public Builder subValueKey(String subValueKey) {
+            this.subValueKey = subValueKey;
             return this;
         }
 

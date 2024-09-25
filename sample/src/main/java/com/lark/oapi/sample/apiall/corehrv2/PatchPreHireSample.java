@@ -4,10 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.corehr.v2.model.*;
 
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
-
 // PATCH /open-apis/corehr/v2/pre_hires/:pre_hire_id
 public class PatchPreHireSample {
 

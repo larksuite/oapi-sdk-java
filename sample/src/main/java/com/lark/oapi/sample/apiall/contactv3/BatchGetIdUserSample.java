@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.contact.v3.model.BatchGetIdUserReq;
+import com.lark.oapi.service.contact.v3.model.BatchGetIdUserReqBody;
+import com.lark.oapi.service.contact.v3.model.BatchGetIdUserResp;
 
 // POST /open-apis/contact/v3/users/batch_get_id
 public class BatchGetIdUserSample {

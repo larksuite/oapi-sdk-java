@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.helpdesk.v1.model.Event;
+import com.lark.oapi.service.helpdesk.v1.model.UnsubscribeEventReq;
+import com.lark.oapi.service.helpdesk.v1.model.UnsubscribeEventReqBody;
+import com.lark.oapi.service.helpdesk.v1.model.UnsubscribeEventResp;
 
 // POST /open-apis/helpdesk/v1/events/unsubscribe
 public class UnsubscribeEventSample {

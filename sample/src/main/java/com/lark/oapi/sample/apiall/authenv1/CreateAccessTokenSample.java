@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.authenv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.authen.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.authen.v1.model.CreateAccessTokenReq;
+import com.lark.oapi.service.authen.v1.model.CreateAccessTokenReqBody;
+import com.lark.oapi.service.authen.v1.model.CreateAccessTokenResp;
 
 // POST /open-apis/authen/v1/access_token
 public class CreateAccessTokenSample {

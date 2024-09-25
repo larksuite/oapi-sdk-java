@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.QueryLocationReq;
+import com.lark.oapi.service.hire.v1.model.QueryLocationReqBody;
+import com.lark.oapi.service.hire.v1.model.QueryLocationResp;
 
 // POST /open-apis/hire/v1/locations/query
 public class QueryLocationSample {

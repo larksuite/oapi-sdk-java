@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BankAccount {
     /**
@@ -84,8 +71,32 @@ public class BankAccount {
     @SerializedName("bank_account_type")
     private Enum bankAccountType;
     /**
+     * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+     * <p> 示例值：balance
+     */
+    @SerializedName("payment_type")
+    private Enum paymentType;
+    /**
+     * 分配比例
+     * <p> 示例值：70.21
+     */
+    @SerializedName("payment_rate")
+    private String paymentRate;
+    /**
+     * 分配金额
+     * <p> 示例值：5000
+     */
+    @SerializedName("payment_amount")
+    private String paymentAmount;
+    /**
+     * 分配优先级
+     * <p> 示例值：1
+     */
+    @SerializedName("priority")
+    private Integer priority;
+    /**
      * 货币id
-     * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+     * <p> 示例值：12
      */
     @SerializedName("currency_id")
     private String currencyId;
@@ -153,8 +164,28 @@ public class BankAccount {
          */
         this.bankAccountType = builder.bankAccountType;
         /**
+         * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+         * <p> 示例值：balance
+         */
+        this.paymentType = builder.paymentType;
+        /**
+         * 分配比例
+         * <p> 示例值：70.21
+         */
+        this.paymentRate = builder.paymentRate;
+        /**
+         * 分配金额
+         * <p> 示例值：5000
+         */
+        this.paymentAmount = builder.paymentAmount;
+        /**
+         * 分配优先级
+         * <p> 示例值：1
+         */
+        this.priority = builder.priority;
+        /**
          * 货币id
-         * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+         * <p> 示例值：12
          */
         this.currencyId = builder.currencyId;
         /**
@@ -245,6 +276,38 @@ public class BankAccount {
         this.bankAccountType = bankAccountType;
     }
 
+    public Enum getPaymentType() {
+        return this.paymentType;
+    }
+
+    public void setPaymentType(Enum paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public String getPaymentRate() {
+        return this.paymentRate;
+    }
+
+    public void setPaymentRate(String paymentRate) {
+        this.paymentRate = paymentRate;
+    }
+
+    public String getPaymentAmount() {
+        return this.paymentAmount;
+    }
+
+    public void setPaymentAmount(String paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
+
+    public Integer getPriority() {
+        return this.priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
     public String getCurrencyId() {
         return this.currencyId;
     }
@@ -316,8 +379,28 @@ public class BankAccount {
          */
         private Enum bankAccountType;
         /**
+         * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+         * <p> 示例值：balance
+         */
+        private Enum paymentType;
+        /**
+         * 分配比例
+         * <p> 示例值：70.21
+         */
+        private String paymentRate;
+        /**
+         * 分配金额
+         * <p> 示例值：5000
+         */
+        private String paymentAmount;
+        /**
+         * 分配优先级
+         * <p> 示例值：1
+         */
+        private Integer priority;
+        /**
          * 货币id
-         * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+         * <p> 示例值：12
          */
         private String currencyId;
         /**
@@ -449,8 +532,60 @@ public class BankAccount {
 
 
         /**
+         * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+         * <p> 示例值：balance
+         *
+         * @param paymentType
+         * @return
+         */
+        public Builder paymentType(Enum paymentType) {
+            this.paymentType = paymentType;
+            return this;
+        }
+
+
+        /**
+         * 分配比例
+         * <p> 示例值：70.21
+         *
+         * @param paymentRate
+         * @return
+         */
+        public Builder paymentRate(String paymentRate) {
+            this.paymentRate = paymentRate;
+            return this;
+        }
+
+
+        /**
+         * 分配金额
+         * <p> 示例值：5000
+         *
+         * @param paymentAmount
+         * @return
+         */
+        public Builder paymentAmount(String paymentAmount) {
+            this.paymentAmount = paymentAmount;
+            return this;
+        }
+
+
+        /**
+         * 分配优先级
+         * <p> 示例值：1
+         *
+         * @param priority
+         * @return
+         */
+        public Builder priority(Integer priority) {
+            this.priority = priority;
+            return this;
+        }
+
+
+        /**
          * 货币id
-         * <p> 示例值：12QueryCountryRegionSubdivisionDataReq
+         * <p> 示例值：12
          *
          * @param currencyId
          * @return

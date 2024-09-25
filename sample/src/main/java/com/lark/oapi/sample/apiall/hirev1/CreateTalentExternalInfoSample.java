@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.CreateTalentExternalInfoReq;
+import com.lark.oapi.service.hire.v1.model.CreateTalentExternalInfoReqBody;
+import com.lark.oapi.service.hire.v1.model.CreateTalentExternalInfoResp;
 
 // POST /open-apis/hire/v1/talents/:talent_id/external_info
 public class CreateTalentExternalInfoSample {

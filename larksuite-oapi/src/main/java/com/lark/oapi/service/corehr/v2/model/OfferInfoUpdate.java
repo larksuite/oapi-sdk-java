@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferInfoUpdate {
     /**
@@ -233,6 +220,12 @@ public class OfferInfoUpdate {
      */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
+    /**
+     * 人员子类型
+     * <p> 示例值：xxx
+     */
+    @SerializedName("employee_subtype_id")
+    private String employeeSubtypeId;
     /**
      * 直属上级
      * <p> 示例值：xxx
@@ -451,6 +444,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：xxx
          */
         this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 人员子类型
+         * <p> 示例值：xxx
+         */
+        this.employeeSubtypeId = builder.employeeSubtypeId;
         /**
          * 直属上级
          * <p> 示例值：xxx
@@ -764,6 +762,14 @@ public class OfferInfoUpdate {
         this.employeeTypeId = employeeTypeId;
     }
 
+    public String getEmployeeSubtypeId() {
+        return this.employeeSubtypeId;
+    }
+
+    public void setEmployeeSubtypeId(String employeeSubtypeId) {
+        this.employeeSubtypeId = employeeSubtypeId;
+    }
+
     public String getDirectLeaderId() {
         return this.directLeaderId;
     }
@@ -991,6 +997,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：xxx
          */
         private String employeeTypeId;
+        /**
+         * 人员子类型
+         * <p> 示例值：xxx
+         */
+        private String employeeSubtypeId;
         /**
          * 直属上级
          * <p> 示例值：xxx
@@ -1465,6 +1476,19 @@ public class OfferInfoUpdate {
          */
         public Builder employeeTypeId(String employeeTypeId) {
             this.employeeTypeId = employeeTypeId;
+            return this;
+        }
+
+
+        /**
+         * 人员子类型
+         * <p> 示例值：xxx
+         *
+         * @param employeeSubtypeId
+         * @return
+         */
+        public Builder employeeSubtypeId(String employeeSubtypeId) {
+            this.employeeSubtypeId = employeeSubtypeId;
             return this;
         }
 

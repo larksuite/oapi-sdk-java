@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.drive.v1.model.ListFileViewRecordReq;
+import com.lark.oapi.service.drive.v1.model.ListFileViewRecordResp;
 
 // GET /open-apis/drive/v1/files/:file_token/view_records
 public class ListFileViewRecordSample {

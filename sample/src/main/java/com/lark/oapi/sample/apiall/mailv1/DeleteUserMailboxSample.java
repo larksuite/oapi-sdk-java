@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.mail.v1.model.DeleteUserMailboxReq;
+import com.lark.oapi.service.mail.v1.model.DeleteUserMailboxResp;
 
 // DELETE /open-apis/mail/v1/user_mailboxes/:user_mailbox_id
 public class DeleteUserMailboxSample {

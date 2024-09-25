@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.compensationv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.compensation.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.compensation.v1.model.ListItemCategoryReq;
+import com.lark.oapi.service.compensation.v1.model.ListItemCategoryResp;
 
 // GET /open-apis/compensation/v1/item_categories
 public class ListItemCategorySample {

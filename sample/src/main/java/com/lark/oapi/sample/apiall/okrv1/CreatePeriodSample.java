@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.okr.v1.model.CreatePeriodReq;
+import com.lark.oapi.service.okr.v1.model.CreatePeriodReqBody;
+import com.lark.oapi.service.okr.v1.model.CreatePeriodResp;
 
 // POST /open-apis/okr/v1/periods
 public class CreatePeriodSample {

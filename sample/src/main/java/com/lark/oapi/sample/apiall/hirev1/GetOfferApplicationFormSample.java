@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.GetOfferApplicationFormReq;
+import com.lark.oapi.service.hire.v1.model.GetOfferApplicationFormResp;
 
 // GET /open-apis/hire/v1/offer_application_forms/:offer_application_form_id
 public class GetOfferApplicationFormSample {

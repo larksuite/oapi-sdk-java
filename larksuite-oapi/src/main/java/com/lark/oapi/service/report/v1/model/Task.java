@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.report.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Task {
     /**
@@ -77,6 +64,24 @@ public class Task {
      */
     @SerializedName("rule_id")
     private String ruleId;
+    /**
+     * 部门id
+     * <p> 示例值：
+     */
+    @SerializedName("department_ids")
+    private String[] departmentIds;
+    /**
+     * 汇报给谁
+     * <p> 示例值：
+     */
+    @SerializedName("to_user_ids")
+    private String[] toUserIds;
+    /**
+     * 汇报给谁的名字
+     * <p> 示例值：
+     */
+    @SerializedName("to_user_names")
+    private String[] toUserNames;
 
     // builder 开始
     public Task() {
@@ -123,6 +128,21 @@ public class Task {
          * <p> 示例值：6968793659214921747
          */
         this.ruleId = builder.ruleId;
+        /**
+         * 部门id
+         * <p> 示例值：
+         */
+        this.departmentIds = builder.departmentIds;
+        /**
+         * 汇报给谁
+         * <p> 示例值：
+         */
+        this.toUserIds = builder.toUserIds;
+        /**
+         * 汇报给谁的名字
+         * <p> 示例值：
+         */
+        this.toUserNames = builder.toUserNames;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +213,30 @@ public class Task {
         this.ruleId = ruleId;
     }
 
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
+    }
+
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
+    }
+
+    public String[] getToUserIds() {
+        return this.toUserIds;
+    }
+
+    public void setToUserIds(String[] toUserIds) {
+        this.toUserIds = toUserIds;
+    }
+
+    public String[] getToUserNames() {
+        return this.toUserNames;
+    }
+
+    public void setToUserNames(String[] toUserNames) {
+        this.toUserNames = toUserNames;
+    }
+
     public static class Builder {
         /**
          * 汇报任务ID
@@ -234,6 +278,21 @@ public class Task {
          * <p> 示例值：6968793659214921747
          */
         private String ruleId;
+        /**
+         * 部门id
+         * <p> 示例值：
+         */
+        private String[] departmentIds;
+        /**
+         * 汇报给谁
+         * <p> 示例值：
+         */
+        private String[] toUserIds;
+        /**
+         * 汇报给谁的名字
+         * <p> 示例值：
+         */
+        private String[] toUserNames;
 
         /**
          * 汇报任务ID
@@ -335,6 +394,45 @@ public class Task {
          */
         public Builder ruleId(String ruleId) {
             this.ruleId = ruleId;
+            return this;
+        }
+
+
+        /**
+         * 部门id
+         * <p> 示例值：
+         *
+         * @param departmentIds
+         * @return
+         */
+        public Builder departmentIds(String[] departmentIds) {
+            this.departmentIds = departmentIds;
+            return this;
+        }
+
+
+        /**
+         * 汇报给谁
+         * <p> 示例值：
+         *
+         * @param toUserIds
+         * @return
+         */
+        public Builder toUserIds(String[] toUserIds) {
+            this.toUserIds = toUserIds;
+            return this;
+        }
+
+
+        /**
+         * 汇报给谁的名字
+         * <p> 示例值：
+         *
+         * @param toUserNames
+         * @return
+         */
+        public Builder toUserNames(String[] toUserNames) {
+            this.toUserNames = toUserNames;
             return this;
         }
 

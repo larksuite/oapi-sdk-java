@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.ListWebsiteJobPostReq;
+import com.lark.oapi.service.hire.v1.model.ListWebsiteJobPostResp;
 
 // GET /open-apis/hire/v1/websites/:website_id/job_posts
 public class ListWebsiteJobPostSample {

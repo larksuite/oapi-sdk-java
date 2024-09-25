@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.bitable.v1.model.CreateAppTableReq;
+import com.lark.oapi.service.bitable.v1.model.CreateAppTableReqBody;
+import com.lark.oapi.service.bitable.v1.model.CreateAppTableResp;
+import com.lark.oapi.service.bitable.v1.model.ReqTable;
 
 // POST /open-apis/bitable/v1/apps/:app_token/tables
 public class CreateAppTableSample {

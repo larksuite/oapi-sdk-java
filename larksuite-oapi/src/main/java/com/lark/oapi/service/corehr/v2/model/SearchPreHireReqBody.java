@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchPreHireReqBody {
     /**
@@ -41,6 +28,12 @@ public class SearchPreHireReqBody {
      */
     @SerializedName("pre_hire_ids")
     private String[] preHireIds;
+    /**
+     * 个人信息 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("person_ids")
+    private String[] personIds;
     /**
      * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
      * <p> 示例值：2006-01-02
@@ -96,6 +89,12 @@ public class SearchPreHireReqBody {
     @SerializedName("employee_type_ids")
     private String[] employeeTypeIds;
     /**
+     * 人员子类型 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("employee_subtype_ids")
+    private String[] employeeSubtypeIds;
+    /**
      * 序列 ID 列表
      * <p> 示例值：
      */
@@ -135,6 +134,11 @@ public class SearchPreHireReqBody {
          * <p> 示例值：
          */
         this.preHireIds = builder.preHireIds;
+        /**
+         * 个人信息 ID 列表
+         * <p> 示例值：
+         */
+        this.personIds = builder.personIds;
         /**
          * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2006-01-02
@@ -181,6 +185,11 @@ public class SearchPreHireReqBody {
          */
         this.employeeTypeIds = builder.employeeTypeIds;
         /**
+         * 人员子类型 ID 列表
+         * <p> 示例值：
+         */
+        this.employeeSubtypeIds = builder.employeeSubtypeIds;
+        /**
          * 序列 ID 列表
          * <p> 示例值：
          */
@@ -220,6 +229,14 @@ public class SearchPreHireReqBody {
 
     public void setPreHireIds(String[] preHireIds) {
         this.preHireIds = preHireIds;
+    }
+
+    public String[] getPersonIds() {
+        return this.personIds;
+    }
+
+    public void setPersonIds(String[] personIds) {
+        this.personIds = personIds;
     }
 
     public String getOnboardingDateStart() {
@@ -294,6 +311,14 @@ public class SearchPreHireReqBody {
         this.employeeTypeIds = employeeTypeIds;
     }
 
+    public String[] getEmployeeSubtypeIds() {
+        return this.employeeSubtypeIds;
+    }
+
+    public void setEmployeeSubtypeIds(String[] employeeSubtypeIds) {
+        this.employeeSubtypeIds = employeeSubtypeIds;
+    }
+
     public String[] getJobFamilyIds() {
         return this.jobFamilyIds;
     }
@@ -337,6 +362,11 @@ public class SearchPreHireReqBody {
          * <p> 示例值：
          */
         private String[] preHireIds;
+        /**
+         * 个人信息 ID 列表
+         * <p> 示例值：
+         */
+        private String[] personIds;
         /**
          * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
          * <p> 示例值：2006-01-02
@@ -383,6 +413,11 @@ public class SearchPreHireReqBody {
          */
         private String[] employeeTypeIds;
         /**
+         * 人员子类型 ID 列表
+         * <p> 示例值：
+         */
+        private String[] employeeSubtypeIds;
+        /**
          * 序列 ID 列表
          * <p> 示例值：
          */
@@ -425,6 +460,19 @@ public class SearchPreHireReqBody {
          */
         public Builder preHireIds(String[] preHireIds) {
             this.preHireIds = preHireIds;
+            return this;
+        }
+
+
+        /**
+         * 个人信息 ID 列表
+         * <p> 示例值：
+         *
+         * @param personIds
+         * @return
+         */
+        public Builder personIds(String[] personIds) {
+            this.personIds = personIds;
             return this;
         }
 
@@ -554,6 +602,19 @@ public class SearchPreHireReqBody {
          */
         public Builder employeeTypeIds(String[] employeeTypeIds) {
             this.employeeTypeIds = employeeTypeIds;
+            return this;
+        }
+
+
+        /**
+         * 人员子类型 ID 列表
+         * <p> 示例值：
+         *
+         * @param employeeSubtypeIds
+         * @return
+         */
+        public Builder employeeSubtypeIds(String[] employeeSubtypeIds) {
+            this.employeeSubtypeIds = employeeSubtypeIds;
             return this;
         }
 

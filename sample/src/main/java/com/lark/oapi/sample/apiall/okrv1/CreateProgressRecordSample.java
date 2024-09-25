@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.okr.v1.model.ContentBlock;
+import com.lark.oapi.service.okr.v1.model.CreateProgressRecordReq;
+import com.lark.oapi.service.okr.v1.model.CreateProgressRecordReqBody;
+import com.lark.oapi.service.okr.v1.model.CreateProgressRecordResp;
 
 // POST /open-apis/okr/v1/progress_records
 public class CreateProgressRecordSample {

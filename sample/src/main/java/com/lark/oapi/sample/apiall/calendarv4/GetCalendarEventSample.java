@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.calendar.v4.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.calendar.v4.model.GetCalendarEventReq;
+import com.lark.oapi.service.calendar.v4.model.GetCalendarEventResp;
 
 // GET /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id
 public class GetCalendarEventSample {

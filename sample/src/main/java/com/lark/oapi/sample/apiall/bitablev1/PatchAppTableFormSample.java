@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.bitable.v1.model.AppTableForm;
+import com.lark.oapi.service.bitable.v1.model.PatchAppTableFormReq;
+import com.lark.oapi.service.bitable.v1.model.PatchAppTableFormResp;
 
 // PATCH /open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id
 public class PatchAppTableFormSample {

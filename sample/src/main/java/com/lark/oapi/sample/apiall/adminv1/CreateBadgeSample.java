@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.adminv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.admin.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.admin.v1.model.Badge;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeReq;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeResp;
+import com.lark.oapi.service.admin.v1.model.I18n;
 
 // POST /open-apis/admin/v1/badges
 public class CreateBadgeSample {

@@ -27,6 +27,7 @@ public enum ChatTabTabTypeEnum {
     FILE("file"), // 文件
     FILES_RESOURCES("files_resources"), // 合并类型, 包含文件、Doc文档、URL链接
     IMAGES_VIDEOS("images_videos"), // 合并类型，包含图片、视频
+    TASK("task"), // 任务
     ;
     private String value;
 

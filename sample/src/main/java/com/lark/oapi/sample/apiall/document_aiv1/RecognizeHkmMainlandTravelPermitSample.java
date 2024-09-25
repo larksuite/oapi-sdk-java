@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.document_aiv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.document_ai.v1.model.*;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeHkmMainlandTravelPermitReq;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeHkmMainlandTravelPermitReqBody;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeHkmMainlandTravelPermitResp;
 
 import java.io.File;
-import java.util.HashMap;
 
 // POST /open-apis/document_ai/v1/hkm_mainland_travel_permit/recognize
 public class RecognizeHkmMainlandTravelPermitSample {

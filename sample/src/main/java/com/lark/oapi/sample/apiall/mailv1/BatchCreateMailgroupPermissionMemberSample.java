@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.mail.v1.model.BatchCreateMailgroupPermissionMemberReq;
+import com.lark.oapi.service.mail.v1.model.BatchCreateMailgroupPermissionMemberReqBody;
+import com.lark.oapi.service.mail.v1.model.BatchCreateMailgroupPermissionMemberResp;
+import com.lark.oapi.service.mail.v1.model.MailgroupPermissionMember;
 
 // POST /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/batch_create
 public class BatchCreateMailgroupPermissionMemberSample {

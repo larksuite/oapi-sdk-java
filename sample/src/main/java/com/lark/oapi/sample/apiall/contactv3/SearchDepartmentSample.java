@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.contact.v3.model.SearchDepartmentReq;
+import com.lark.oapi.service.contact.v3.model.SearchDepartmentReqBody;
+import com.lark.oapi.service.contact.v3.model.SearchDepartmentResp;
 
 // POST /open-apis/contact/v3/departments/search
 public class SearchDepartmentSample {

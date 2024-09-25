@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProbationInfo {
     /**
@@ -155,6 +142,30 @@ public class ProbationInfo {
      */
     @SerializedName("assessments")
     private Assessment[] assessments;
+    /**
+     * 试用期延长后的预计结束日期
+     * <p> 示例值：2022-05-20
+     */
+    @SerializedName("probation_extend_expected_end_date")
+    private String probationExtendExpectedEndDate;
+    /**
+     * 试用期延长时间
+     * <p> 示例值：1
+     */
+    @SerializedName("extended_probation_period_duration")
+    private Integer extendedProbationPeriodDuration;
+    /**
+     * 试用期延长时间单位
+     * <p> 示例值：month
+     */
+    @SerializedName("extended_probation_period_unit")
+    private Enum extendedProbationPeriodUnit;
+    /**
+     * 试用期结果
+     * <p> 示例值：passed
+     */
+    @SerializedName("probation_outcome")
+    private Enum probationOutcome;
 
     // builder 开始
     public ProbationInfo() {
@@ -266,6 +277,26 @@ public class ProbationInfo {
          * <p> 示例值：
          */
         this.assessments = builder.assessments;
+        /**
+         * 试用期延长后的预计结束日期
+         * <p> 示例值：2022-05-20
+         */
+        this.probationExtendExpectedEndDate = builder.probationExtendExpectedEndDate;
+        /**
+         * 试用期延长时间
+         * <p> 示例值：1
+         */
+        this.extendedProbationPeriodDuration = builder.extendedProbationPeriodDuration;
+        /**
+         * 试用期延长时间单位
+         * <p> 示例值：month
+         */
+        this.extendedProbationPeriodUnit = builder.extendedProbationPeriodUnit;
+        /**
+         * 试用期结果
+         * <p> 示例值：passed
+         */
+        this.probationOutcome = builder.probationOutcome;
     }
 
     public static Builder newBuilder() {
@@ -440,6 +471,38 @@ public class ProbationInfo {
         this.assessments = assessments;
     }
 
+    public String getProbationExtendExpectedEndDate() {
+        return this.probationExtendExpectedEndDate;
+    }
+
+    public void setProbationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
+        this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
+    }
+
+    public Integer getExtendedProbationPeriodDuration() {
+        return this.extendedProbationPeriodDuration;
+    }
+
+    public void setExtendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
+        this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
+    }
+
+    public Enum getExtendedProbationPeriodUnit() {
+        return this.extendedProbationPeriodUnit;
+    }
+
+    public void setExtendedProbationPeriodUnit(Enum extendedProbationPeriodUnit) {
+        this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
+    }
+
+    public Enum getProbationOutcome() {
+        return this.probationOutcome;
+    }
+
+    public void setProbationOutcome(Enum probationOutcome) {
+        this.probationOutcome = probationOutcome;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID
@@ -546,6 +609,26 @@ public class ProbationInfo {
          * <p> 示例值：
          */
         private Assessment[] assessments;
+        /**
+         * 试用期延长后的预计结束日期
+         * <p> 示例值：2022-05-20
+         */
+        private String probationExtendExpectedEndDate;
+        /**
+         * 试用期延长时间
+         * <p> 示例值：1
+         */
+        private Integer extendedProbationPeriodDuration;
+        /**
+         * 试用期延长时间单位
+         * <p> 示例值：month
+         */
+        private Enum extendedProbationPeriodUnit;
+        /**
+         * 试用期结果
+         * <p> 示例值：passed
+         */
+        private Enum probationOutcome;
 
         /**
          * 雇佣 ID
@@ -816,6 +899,58 @@ public class ProbationInfo {
          */
         public Builder assessments(Assessment[] assessments) {
             this.assessments = assessments;
+            return this;
+        }
+
+
+        /**
+         * 试用期延长后的预计结束日期
+         * <p> 示例值：2022-05-20
+         *
+         * @param probationExtendExpectedEndDate
+         * @return
+         */
+        public Builder probationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
+            this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
+            return this;
+        }
+
+
+        /**
+         * 试用期延长时间
+         * <p> 示例值：1
+         *
+         * @param extendedProbationPeriodDuration
+         * @return
+         */
+        public Builder extendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
+            this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
+            return this;
+        }
+
+
+        /**
+         * 试用期延长时间单位
+         * <p> 示例值：month
+         *
+         * @param extendedProbationPeriodUnit
+         * @return
+         */
+        public Builder extendedProbationPeriodUnit(Enum extendedProbationPeriodUnit) {
+            this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
+            return this;
+        }
+
+
+        /**
+         * 试用期结果
+         * <p> 示例值：passed
+         *
+         * @param probationOutcome
+         * @return
+         */
+        public Builder probationOutcome(Enum probationOutcome) {
+            this.probationOutcome = probationOutcome;
             return this;
         }
 

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocChunkResult {
     /**
@@ -89,6 +76,24 @@ public class DocChunkResult {
      */
     @SerializedName("table_detail")
     private DocChunkTableDetail tableDetail;
+    /**
+     * 多模态返回的详细信息
+     * <p> 示例值：
+     */
+    @SerializedName("llm_detail")
+    private LlmDetail llmDetail;
+    /**
+     * 图片内容详细信息
+     * <p> 示例值：
+     */
+    @SerializedName("image_detail")
+    private ImageDetail imageDetail;
+    /**
+     * pptx文件里面的页码
+     * <p> 示例值：1
+     */
+    @SerializedName("slide_index")
+    private String slideIndex;
 
     // builder 开始
     public DocChunkResult() {
@@ -145,6 +150,21 @@ public class DocChunkResult {
          * <p> 示例值：
          */
         this.tableDetail = builder.tableDetail;
+        /**
+         * 多模态返回的详细信息
+         * <p> 示例值：
+         */
+        this.llmDetail = builder.llmDetail;
+        /**
+         * 图片内容详细信息
+         * <p> 示例值：
+         */
+        this.imageDetail = builder.imageDetail;
+        /**
+         * pptx文件里面的页码
+         * <p> 示例值：1
+         */
+        this.slideIndex = builder.slideIndex;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +251,30 @@ public class DocChunkResult {
         this.tableDetail = tableDetail;
     }
 
+    public LlmDetail getLlmDetail() {
+        return this.llmDetail;
+    }
+
+    public void setLlmDetail(LlmDetail llmDetail) {
+        this.llmDetail = llmDetail;
+    }
+
+    public ImageDetail getImageDetail() {
+        return this.imageDetail;
+    }
+
+    public void setImageDetail(ImageDetail imageDetail) {
+        this.imageDetail = imageDetail;
+    }
+
+    public String getSlideIndex() {
+        return this.slideIndex;
+    }
+
+    public void setSlideIndex(String slideIndex) {
+        this.slideIndex = slideIndex;
+    }
+
     public static class Builder {
         /**
          * 段落索引
@@ -282,6 +326,21 @@ public class DocChunkResult {
          * <p> 示例值：
          */
         private DocChunkTableDetail tableDetail;
+        /**
+         * 多模态返回的详细信息
+         * <p> 示例值：
+         */
+        private LlmDetail llmDetail;
+        /**
+         * 图片内容详细信息
+         * <p> 示例值：
+         */
+        private ImageDetail imageDetail;
+        /**
+         * pptx文件里面的页码
+         * <p> 示例值：1
+         */
+        private String slideIndex;
 
         /**
          * 段落索引
@@ -421,6 +480,45 @@ public class DocChunkResult {
          */
         public Builder tableDetail(DocChunkTableDetail tableDetail) {
             this.tableDetail = tableDetail;
+            return this;
+        }
+
+
+        /**
+         * 多模态返回的详细信息
+         * <p> 示例值：
+         *
+         * @param llmDetail
+         * @return
+         */
+        public Builder llmDetail(LlmDetail llmDetail) {
+            this.llmDetail = llmDetail;
+            return this;
+        }
+
+
+        /**
+         * 图片内容详细信息
+         * <p> 示例值：
+         *
+         * @param imageDetail
+         * @return
+         */
+        public Builder imageDetail(ImageDetail imageDetail) {
+            this.imageDetail = imageDetail;
+            return this;
+        }
+
+
+        /**
+         * pptx文件里面的页码
+         * <p> 示例值：1
+         *
+         * @param slideIndex
+         * @return
+         */
+        public Builder slideIndex(String slideIndex) {
+            this.slideIndex = slideIndex;
             return this;
         }
 

@@ -2,11 +2,9 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.BatchGetCompanyReq;
+import com.lark.oapi.service.corehr.v2.model.BatchGetCompanyReqBody;
+import com.lark.oapi.service.corehr.v2.model.BatchGetCompanyResp;
 
 // POST /open-apis/corehr/v2/companies/batch_get
 public class BatchGetCompanySample {

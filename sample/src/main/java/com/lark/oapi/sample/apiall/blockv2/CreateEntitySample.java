@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.blockv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.block.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.block.v2.model.CreateEntityReq;
+import com.lark.oapi.service.block.v2.model.CreateEntityReqBody;
+import com.lark.oapi.service.block.v2.model.CreateEntityResp;
 
 // POST /open-apis/block/v2/entities
 public class CreateEntitySample {

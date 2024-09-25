@@ -2,9 +2,7 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.helpdesk.v1.model.ListAgentSkillResp;
 
 // GET /open-apis/helpdesk/v1/agent_skills
 public class ListAgentSkillSample {

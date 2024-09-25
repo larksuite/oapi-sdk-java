@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteUserReqBody {
     /**
@@ -77,6 +64,12 @@ public class DeleteUserReqBody {
      */
     @SerializedName("email_acceptor")
     private ResourceAcceptor emailAcceptor;
+    /**
+     * 用户集成平台资源接收者
+     * <p> 示例值：
+     */
+    @SerializedName("anycross_acceptor_user_id")
+    private String anycrossAcceptorUserId;
 
     // builder 开始
     public DeleteUserReqBody() {
@@ -123,6 +116,11 @@ public class DeleteUserReqBody {
          * <p> 示例值：
          */
         this.emailAcceptor = builder.emailAcceptor;
+        /**
+         * 用户集成平台资源接收者
+         * <p> 示例值：
+         */
+        this.anycrossAcceptorUserId = builder.anycrossAcceptorUserId;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +191,14 @@ public class DeleteUserReqBody {
         this.emailAcceptor = emailAcceptor;
     }
 
+    public String getAnycrossAcceptorUserId() {
+        return this.anycrossAcceptorUserId;
+    }
+
+    public void setAnycrossAcceptorUserId(String anycrossAcceptorUserId) {
+        this.anycrossAcceptorUserId = anycrossAcceptorUserId;
+    }
+
     public static class Builder {
         /**
          * 部门群接收者。被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人
@@ -234,6 +240,11 @@ public class DeleteUserReqBody {
          * <p> 示例值：
          */
         private ResourceAcceptor emailAcceptor;
+        /**
+         * 用户集成平台资源接收者
+         * <p> 示例值：
+         */
+        private String anycrossAcceptorUserId;
 
         /**
          * 部门群接收者。被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人
@@ -335,6 +346,19 @@ public class DeleteUserReqBody {
          */
         public Builder emailAcceptor(ResourceAcceptor emailAcceptor) {
             this.emailAcceptor = emailAcceptor;
+            return this;
+        }
+
+
+        /**
+         * 用户集成平台资源接收者
+         * <p> 示例值：
+         *
+         * @param anycrossAcceptorUserId
+         * @return
+         */
+        public Builder anycrossAcceptorUserId(String anycrossAcceptorUserId) {
+            this.anycrossAcceptorUserId = anycrossAcceptorUserId;
             return this;
         }
 

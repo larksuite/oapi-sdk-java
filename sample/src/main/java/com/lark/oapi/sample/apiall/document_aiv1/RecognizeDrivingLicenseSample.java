@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.document_aiv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.document_ai.v1.model.*;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeDrivingLicenseReq;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeDrivingLicenseReqBody;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeDrivingLicenseResp;
 
 import java.io.File;
-import java.util.HashMap;
 
 // POST /open-apis/document_ai/v1/driving_license/recognize
 public class RecognizeDrivingLicenseSample {

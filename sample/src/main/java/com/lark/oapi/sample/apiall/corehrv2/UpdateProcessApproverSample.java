@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.ProcessApprover;
+import com.lark.oapi.service.corehr.v2.model.ProcessFormVariableV2;
+import com.lark.oapi.service.corehr.v2.model.UpdateProcessApproverReq;
+import com.lark.oapi.service.corehr.v2.model.UpdateProcessApproverResp;
 
 // PUT /open-apis/corehr/v2/processes/:process_id/approvers/:approver_id
 public class UpdateProcessApproverSample {

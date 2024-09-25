@@ -13,54 +13,42 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Category {
     /**
      * 板块的ID
-     * <p> 示例值：
+     * <p> 示例值：6560906191909683220
      */
     @SerializedName("id")
     private String id;
     /**
      * 板块名
-     * <p> 示例值：
+     * <p> 示例值：示例板块
      */
     @SerializedName("name")
     private String name;
     /**
      * 板块描述
-     * <p> 示例值：
+     * <p> 示例值：一个有趣的板块描述
      */
     @SerializedName("description")
     private String description;
     /**
      * 板块创建时间
-     * <p> 示例值：
+     * <p> 示例值：2022-05-23T00:00:00+08:00
      */
     @SerializedName("create_time")
     private String createTime;
     /**
      * 板块下帖子总数
-     * <p> 示例值：
+     * <p> 示例值：5
      */
     @SerializedName("post_count")
     private Integer postCount;
     /**
-     * <p> 示例值：
+     * 板块参与人数
+     * <p> 示例值：10
      */
     @SerializedName("participant_count")
     private Integer participantCount;
@@ -72,32 +60,32 @@ public class Category {
     public Category(Builder builder) {
         /**
          * 板块的ID
-         * <p> 示例值：
+         * <p> 示例值：6560906191909683220
          */
         this.id = builder.id;
         /**
          * 板块名
-         * <p> 示例值：
+         * <p> 示例值：示例板块
          */
         this.name = builder.name;
         /**
          * 板块描述
-         * <p> 示例值：
+         * <p> 示例值：一个有趣的板块描述
          */
         this.description = builder.description;
         /**
          * 板块创建时间
-         * <p> 示例值：
+         * <p> 示例值：2022-05-23T00:00:00+08:00
          */
         this.createTime = builder.createTime;
         /**
          * 板块下帖子总数
-         * <p> 示例值：
+         * <p> 示例值：5
          */
         this.postCount = builder.postCount;
         /**
-         *
-         * <p> 示例值：
+         * 板块参与人数
+         * <p> 示例值：10
          */
         this.participantCount = builder.participantCount;
     }
@@ -157,37 +145,38 @@ public class Category {
     public static class Builder {
         /**
          * 板块的ID
-         * <p> 示例值：
+         * <p> 示例值：6560906191909683220
          */
         private String id;
         /**
          * 板块名
-         * <p> 示例值：
+         * <p> 示例值：示例板块
          */
         private String name;
         /**
          * 板块描述
-         * <p> 示例值：
+         * <p> 示例值：一个有趣的板块描述
          */
         private String description;
         /**
          * 板块创建时间
-         * <p> 示例值：
+         * <p> 示例值：2022-05-23T00:00:00+08:00
          */
         private String createTime;
         /**
          * 板块下帖子总数
-         * <p> 示例值：
+         * <p> 示例值：5
          */
         private Integer postCount;
         /**
-         * <p> 示例值：
+         * 板块参与人数
+         * <p> 示例值：10
          */
         private Integer participantCount;
 
         /**
          * 板块的ID
-         * <p> 示例值：
+         * <p> 示例值：6560906191909683220
          *
          * @param id
          * @return
@@ -200,7 +189,7 @@ public class Category {
 
         /**
          * 板块名
-         * <p> 示例值：
+         * <p> 示例值：示例板块
          *
          * @param name
          * @return
@@ -213,7 +202,7 @@ public class Category {
 
         /**
          * 板块描述
-         * <p> 示例值：
+         * <p> 示例值：一个有趣的板块描述
          *
          * @param description
          * @return
@@ -226,7 +215,7 @@ public class Category {
 
         /**
          * 板块创建时间
-         * <p> 示例值：
+         * <p> 示例值：2022-05-23T00:00:00+08:00
          *
          * @param createTime
          * @return
@@ -239,7 +228,7 @@ public class Category {
 
         /**
          * 板块下帖子总数
-         * <p> 示例值：
+         * <p> 示例值：5
          *
          * @param postCount
          * @return
@@ -251,7 +240,8 @@ public class Category {
 
 
         /**
-         * <p> 示例值：
+         * 板块参与人数
+         * <p> 示例值：10
          *
          * @param participantCount
          * @return

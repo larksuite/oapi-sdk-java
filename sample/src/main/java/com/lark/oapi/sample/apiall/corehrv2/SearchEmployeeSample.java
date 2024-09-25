@@ -2,11 +2,9 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.SearchEmployeeReq;
+import com.lark.oapi.service.corehr.v2.model.SearchEmployeeReqBody;
+import com.lark.oapi.service.corehr.v2.model.SearchEmployeeResp;
 
 // POST /open-apis/corehr/v2/employees/search
 public class SearchEmployeeSample {
@@ -44,6 +42,7 @@ public class SearchEmployeeSample {
                         .phoneNumberList(new String[]{})
                         .emailAddressList(new String[]{})
                         .departmentIdListIncludeSub(new String[]{})
+                        .costCenterIdList(new String[]{})
                         .build())
                 .build();
 

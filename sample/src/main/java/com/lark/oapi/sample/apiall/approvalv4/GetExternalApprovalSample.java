@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.approval.v4.model.GetExternalApprovalReq;
+import com.lark.oapi.service.approval.v4.model.GetExternalApprovalResp;
 
 // GET /open-apis/approval/v4/external_approvals/:approval_code
 public class GetExternalApprovalSample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabReq;
+import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabReqBody;
+import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabResp;
 
 // DELETE /open-apis/im/v1/chats/:chat_id/chat_tabs/delete_tabs
 public class DeleteTabsChatTabSample {

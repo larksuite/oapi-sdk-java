@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.sheets.v3.model.Condition;
+import com.lark.oapi.service.sheets.v3.model.UpdateSheetFilter;
+import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterReq;
+import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterResp;
 
 // PUT /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter
 public class UpdateSpreadsheetSheetFilterSample {

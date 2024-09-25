@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.adminv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.admin.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.admin.v1.model.ListAdminDeptStatReq;
+import com.lark.oapi.service.admin.v1.model.ListAdminDeptStatResp;
 
 // GET /open-apis/admin/v1/admin_dept_stats
 public class ListAdminDeptStatSample {

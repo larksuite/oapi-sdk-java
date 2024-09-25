@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobLevel {
     /**
@@ -71,6 +58,12 @@ public class JobLevel {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 职等 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("job_grade")
+    private String[] jobGrade;
 
     // builder 开始
     public JobLevel() {
@@ -112,6 +105,11 @@ public class JobLevel {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 职等 ID 列表
+         * <p> 示例值：
+         */
+        this.jobGrade = builder.jobGrade;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +172,14 @@ public class JobLevel {
         this.customFields = customFields;
     }
 
+    public String[] getJobGrade() {
+        return this.jobGrade;
+    }
+
+    public void setJobGrade(String[] jobGrade) {
+        this.jobGrade = jobGrade;
+    }
+
     public static class Builder {
         /**
          * 职级 ID
@@ -210,6 +216,11 @@ public class JobLevel {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 职等 ID 列表
+         * <p> 示例值：
+         */
+        private String[] jobGrade;
 
         /**
          * 职级 ID
@@ -298,6 +309,19 @@ public class JobLevel {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 职等 ID 列表
+         * <p> 示例值：
+         *
+         * @param jobGrade
+         * @return
+         */
+        public Builder jobGrade(String[] jobGrade) {
+            this.jobGrade = jobGrade;
             return this;
         }
 

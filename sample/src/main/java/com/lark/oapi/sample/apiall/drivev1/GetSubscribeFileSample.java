@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.drive.v1.model.GetSubscribeFileReq;
+import com.lark.oapi.service.drive.v1.model.GetSubscribeFileResp;
 
 // GET /open-apis/drive/v1/files/:file_token/get_subscribe
 public class GetSubscribeFileSample {

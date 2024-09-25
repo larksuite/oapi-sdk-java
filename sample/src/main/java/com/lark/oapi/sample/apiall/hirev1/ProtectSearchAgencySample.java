@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.ProtectSearchAgencyReq;
+import com.lark.oapi.service.hire.v1.model.ProtectSearchAgencyReqBody;
+import com.lark.oapi.service.hire.v1.model.ProtectSearchAgencyResp;
 
 // POST /open-apis/hire/v1/agencies/protection_period/search
 public class ProtectSearchAgencySample {

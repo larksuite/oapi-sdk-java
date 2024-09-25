@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.attendance.v1.model.GetShiftReq;
+import com.lark.oapi.service.attendance.v1.model.GetShiftResp;
 
 // GET /open-apis/attendance/v1/shifts/:shift_id
 public class GetShiftSample {

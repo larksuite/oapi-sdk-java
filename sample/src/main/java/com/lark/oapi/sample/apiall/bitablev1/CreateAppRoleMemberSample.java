@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.bitable.v1.model.AppRoleMember;
+import com.lark.oapi.service.bitable.v1.model.CreateAppRoleMemberReq;
+import com.lark.oapi.service.bitable.v1.model.CreateAppRoleMemberResp;
 
 // POST /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members
 public class CreateAppRoleMemberSample {

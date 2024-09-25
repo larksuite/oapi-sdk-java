@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.contact.v3.model.BindDepartmentUnitReq;
+import com.lark.oapi.service.contact.v3.model.BindDepartmentUnitReqBody;
+import com.lark.oapi.service.contact.v3.model.BindDepartmentUnitResp;
 
 // POST /open-apis/contact/v3/unit/bind_department
 public class BindDepartmentUnitSample {

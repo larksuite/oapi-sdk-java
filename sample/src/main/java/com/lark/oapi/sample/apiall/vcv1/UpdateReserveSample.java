@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.vc.v1.model.ReserveMeetingSetting;
+import com.lark.oapi.service.vc.v1.model.UpdateReserveReq;
+import com.lark.oapi.service.vc.v1.model.UpdateReserveReqBody;
+import com.lark.oapi.service.vc.v1.model.UpdateReserveResp;
 
 // PUT /open-apis/vc/v1/reserves/:reserve_id
 public class UpdateReserveSample {

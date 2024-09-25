@@ -2,11 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v1.model.Enum;
+import com.lark.oapi.service.corehr.v1.model.GetPersonReq;
+import com.lark.oapi.service.corehr.v1.model.GetPersonResp;
 
 // GET /open-apis/corehr/v1/persons/:person_id
 public class GetPersonSample {

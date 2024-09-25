@@ -2,11 +2,9 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.ParentsDepartmentReq;
+import com.lark.oapi.service.corehr.v2.model.ParentsDepartmentReqBody;
+import com.lark.oapi.service.corehr.v2.model.ParentsDepartmentResp;
 
 // POST /open-apis/corehr/v2/departments/parents
 public class ParentsDepartmentSample {

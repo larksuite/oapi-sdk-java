@@ -2,11 +2,9 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.SearchPreHireReq;
+import com.lark.oapi.service.corehr.v2.model.SearchPreHireReqBody;
+import com.lark.oapi.service.corehr.v2.model.SearchPreHireResp;
 
 // POST /open-apis/corehr/v2/pre_hires/search
 public class SearchPreHireSample {
@@ -24,6 +22,7 @@ public class SearchPreHireSample {
                 .searchPreHireReqBody(SearchPreHireReqBody.newBuilder()
                         .workerIds(new String[]{})
                         .preHireIds(new String[]{})
+                        .personIds(new String[]{})
                         .onboardingDateStart("2006-01-02")
                         .onboardingDateEnd("2006-01-02")
                         .updatedDateStart("2006-01-02")
@@ -33,6 +32,7 @@ public class SearchPreHireSample {
                         .departmentIds(new String[]{})
                         .directManagerIds(new String[]{})
                         .employeeTypeIds(new String[]{})
+                        .employeeSubtypeIds(new String[]{})
                         .jobFamilyIds(new String[]{})
                         .keyWord("张三")
                         .rehire("张三")

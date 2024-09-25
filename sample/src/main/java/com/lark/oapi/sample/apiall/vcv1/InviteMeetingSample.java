@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.vc.v1.model.InviteMeetingReq;
+import com.lark.oapi.service.vc.v1.model.InviteMeetingReqBody;
+import com.lark.oapi.service.vc.v1.model.InviteMeetingResp;
+import com.lark.oapi.service.vc.v1.model.MeetingUser;
 
 // PATCH /open-apis/vc/v1/meetings/:meeting_id/invite
 public class InviteMeetingSample {

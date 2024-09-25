@@ -2,11 +2,9 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.DeleteCostCenterReq;
+import com.lark.oapi.service.corehr.v2.model.DeleteCostCenterReqBody;
+import com.lark.oapi.service.corehr.v2.model.DeleteCostCenterResp;
 
 // DELETE /open-apis/corehr/v2/cost_centers/:cost_center_id
 public class DeleteCostCenterSample {

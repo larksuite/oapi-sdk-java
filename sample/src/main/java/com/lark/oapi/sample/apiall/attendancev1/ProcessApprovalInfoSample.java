@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.attendance.v1.model.ProcessApprovalInfoReq;
+import com.lark.oapi.service.attendance.v1.model.ProcessApprovalInfoReqBody;
+import com.lark.oapi.service.attendance.v1.model.ProcessApprovalInfoResp;
 
 // POST /open-apis/attendance/v1/approval_infos/process
 public class ProcessApprovalInfoSample {

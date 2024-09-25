@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v2.model.OpenAppFeedCardButtons;
+import com.lark.oapi.service.im.v2.model.UpdateChatButtonReq;
+import com.lark.oapi.service.im.v2.model.UpdateChatButtonReqBody;
+import com.lark.oapi.service.im.v2.model.UpdateChatButtonResp;
 
 // PUT /open-apis/im/v2/chat_button
 public class UpdateChatButtonSample {

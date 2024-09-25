@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.speech_to_text.v1.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/speech_to_text/v1/speech/file_recognize
 public class FileRecognizeSpeechSample {
 

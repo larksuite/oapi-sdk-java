@@ -13,19 +13,8 @@
 package com.lark.oapi.service.bitable;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.bitable.v1.V1;
-import com.lark.oapi.service.bitable.v1.model.*;
-import com.lark.oapi.service.bitable.v1.resource.App;
-import com.lark.oapi.service.bitable.v1.resource.AppDashboard;
-import com.lark.oapi.service.bitable.v1.resource.AppRole;
-import com.lark.oapi.service.bitable.v1.resource.AppRoleMember;
-import com.lark.oapi.service.bitable.v1.resource.AppTable;
-import com.lark.oapi.service.bitable.v1.resource.AppTableField;
-import com.lark.oapi.service.bitable.v1.resource.AppTableForm;
-import com.lark.oapi.service.bitable.v1.resource.AppTableFormField;
-import com.lark.oapi.service.bitable.v1.resource.AppTableRecord;
-import com.lark.oapi.service.bitable.v1.resource.AppTableView;
+import com.lark.oapi.service.bitable.v1.resource.*;
 
 public class BitableService {
     private final V1 v1;

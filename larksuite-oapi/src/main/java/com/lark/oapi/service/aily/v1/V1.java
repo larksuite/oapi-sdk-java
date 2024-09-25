@@ -14,7 +14,9 @@
 package com.lark.oapi.service.aily.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.aily.v1.resource.*;
+import com.lark.oapi.service.aily.v1.resource.AilySession;
+import com.lark.oapi.service.aily.v1.resource.AilySessionAilyMessage;
+import com.lark.oapi.service.aily.v1.resource.AilySessionRun;
 
 public class V1 {
     private final AilySession ailySession; // aily_session

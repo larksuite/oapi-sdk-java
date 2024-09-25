@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.passportv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.passport.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.passport.v1.model.QuerySessionReq;
+import com.lark.oapi.service.passport.v1.model.QuerySessionReqBody;
+import com.lark.oapi.service.passport.v1.model.QuerySessionResp;
 
 // POST /open-apis/passport/v1/sessions/query
 public class QuerySessionSample {

@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.task.v2.model.ListAttachmentReq;
+import com.lark.oapi.service.task.v2.model.ListAttachmentResp;
 
 // GET /open-apis/task/v2/attachments
 public class ListAttachmentSample {

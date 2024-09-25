@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.ailyv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.aily.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.aily.v1.model.CreateAilySessionRunReq;
+import com.lark.oapi.service.aily.v1.model.CreateAilySessionRunReqBody;
+import com.lark.oapi.service.aily.v1.model.CreateAilySessionRunResp;
 
 // POST /open-apis/aily/v1/sessions/:aily_session_id/runs
 public class CreateAilySessionRunSample {

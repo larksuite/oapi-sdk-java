@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v1.model.ForwardThreadReq;
+import com.lark.oapi.service.im.v1.model.ForwardThreadReqBody;
+import com.lark.oapi.service.im.v1.model.ForwardThreadResp;
 
 // POST /open-apis/im/v1/threads/:thread_id/forward
 public class ForwardThreadSample {

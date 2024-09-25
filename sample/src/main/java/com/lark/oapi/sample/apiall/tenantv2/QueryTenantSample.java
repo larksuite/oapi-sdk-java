@@ -2,9 +2,7 @@ package com.lark.oapi.sample.apiall.tenantv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.tenant.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.tenant.v2.model.QueryTenantResp;
 
 // GET /open-apis/tenant/v2/tenant/query
 public class QueryTenantSample {

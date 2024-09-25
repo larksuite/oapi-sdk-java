@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.okr.v1.model.PatchPeriodReq;
+import com.lark.oapi.service.okr.v1.model.PatchPeriodReqBody;
+import com.lark.oapi.service.okr.v1.model.PatchPeriodResp;
 
 // PATCH /open-apis/okr/v1/periods/:period_id
 public class PatchPeriodSample {

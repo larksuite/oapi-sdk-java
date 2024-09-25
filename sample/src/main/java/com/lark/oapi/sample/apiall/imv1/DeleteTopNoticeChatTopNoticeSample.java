@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v1.model.DeleteTopNoticeChatTopNoticeReq;
+import com.lark.oapi.service.im.v1.model.DeleteTopNoticeChatTopNoticeResp;
 
 // POST /open-apis/im/v1/chats/:chat_id/top_notice/delete_top_notice
 public class DeleteTopNoticeChatTopNoticeSample {

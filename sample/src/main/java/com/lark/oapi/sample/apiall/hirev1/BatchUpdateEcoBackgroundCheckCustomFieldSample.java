@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.BatchUpdateEcoBackgroundCheckCustomFieldReq;
+import com.lark.oapi.service.hire.v1.model.BatchUpdateEcoBackgroundCheckCustomFieldResp;
+import com.lark.oapi.service.hire.v1.model.EcoBackgroundCheckCustomField;
+import com.lark.oapi.service.hire.v1.model.EcoBackgroundCheckCustomFieldData;
 
 // PATCH /open-apis/hire/v1/eco_background_check_custom_fields/batch_update
 public class BatchUpdateEcoBackgroundCheckCustomFieldSample {

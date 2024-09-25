@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialArchiveAdjustRecord {
     /**
@@ -42,11 +29,11 @@ public class SocialArchiveAdjustRecord {
     @SerializedName("record_type")
     private String recordType;
     /**
-     * 参保档案
+     * 员工增减员记录，包括社保、公积金记录
      * <p> 示例值：
      */
     @SerializedName("details")
-    private SocialArchiveDetail details;
+    private SocialArchiveDetail[] details;
 
     // builder 开始
     public SocialArchiveAdjustRecord() {
@@ -64,7 +51,7 @@ public class SocialArchiveAdjustRecord {
          */
         this.recordType = builder.recordType;
         /**
-         * 参保档案
+         * 员工增减员记录，包括社保、公积金记录
          * <p> 示例值：
          */
         this.details = builder.details;
@@ -90,11 +77,11 @@ public class SocialArchiveAdjustRecord {
         this.recordType = recordType;
     }
 
-    public SocialArchiveDetail getDetails() {
+    public SocialArchiveDetail[] getDetails() {
         return this.details;
     }
 
-    public void setDetails(SocialArchiveDetail details) {
+    public void setDetails(SocialArchiveDetail[] details) {
         this.details = details;
     }
 
@@ -110,10 +97,10 @@ public class SocialArchiveAdjustRecord {
          */
         private String recordType;
         /**
-         * 参保档案
+         * 员工增减员记录，包括社保、公积金记录
          * <p> 示例值：
          */
-        private SocialArchiveDetail details;
+        private SocialArchiveDetail[] details;
 
         /**
          * 员工ID
@@ -154,13 +141,13 @@ public class SocialArchiveAdjustRecord {
 
 
         /**
-         * 参保档案
+         * 员工增减员记录，包括社保、公积金记录
          * <p> 示例值：
          *
          * @param details
          * @return
          */
-        public Builder details(SocialArchiveDetail details) {
+        public Builder details(SocialArchiveDetail[] details) {
             this.details = details;
             return this;
         }

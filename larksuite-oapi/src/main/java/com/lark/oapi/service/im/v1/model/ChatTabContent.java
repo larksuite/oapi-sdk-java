@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatTabContent {
     /**
@@ -47,6 +34,12 @@ public class ChatTabContent {
      */
     @SerializedName("meeting_minute")
     private String meetingMinute;
+    /**
+     * 任务
+     * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
+     */
+    @SerializedName("task")
+    private String task;
 
     // builder 开始
     public ChatTabContent() {
@@ -68,6 +61,11 @@ public class ChatTabContent {
          * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
          */
         this.meetingMinute = builder.meetingMinute;
+        /**
+         * 任务
+         * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
+         */
+        this.task = builder.task;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +96,14 @@ public class ChatTabContent {
         this.meetingMinute = meetingMinute;
     }
 
+    public String getTask() {
+        return this.task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
     public static class Builder {
         /**
          * URL类型
@@ -114,6 +120,11 @@ public class ChatTabContent {
          * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
          */
         private String meetingMinute;
+        /**
+         * 任务
+         * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
+         */
+        private String task;
 
         /**
          * URL类型
@@ -150,6 +161,19 @@ public class ChatTabContent {
          */
         public Builder meetingMinute(String meetingMinute) {
             this.meetingMinute = meetingMinute;
+            return this;
+        }
+
+
+        /**
+         * 任务
+         * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
+         *
+         * @param task
+         * @return
+         */
+        public Builder task(String task) {
+            this.task = task;
             return this;
         }
 

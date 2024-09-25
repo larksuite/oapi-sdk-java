@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.sheets.v3.model.FilterView;
+import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewReq;
+import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewResp;
 
 // PATCH /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id
 public class PatchSpreadsheetSheetFilterViewSample {

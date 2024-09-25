@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.task.v2.model.GetTasklistReq;
+import com.lark.oapi.service.task.v2.model.GetTasklistResp;
 
 // GET /open-apis/task/v2/tasklists/:tasklist_guid
 public class GetTasklistSample {

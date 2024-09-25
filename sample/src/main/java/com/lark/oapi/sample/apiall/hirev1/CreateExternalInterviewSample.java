@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.CreateExternalInterviewReq;
+import com.lark.oapi.service.hire.v1.model.CreateExternalInterviewResp;
+import com.lark.oapi.service.hire.v1.model.ExternalInterview;
+import com.lark.oapi.service.hire.v1.model.ExternalInterviewAssessment;
 
 // POST /open-apis/hire/v1/external_interviews
 public class CreateExternalInterviewSample {

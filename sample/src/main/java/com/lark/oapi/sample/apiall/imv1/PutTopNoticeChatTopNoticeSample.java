@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v1.model.ChatTopNotice;
+import com.lark.oapi.service.im.v1.model.PutTopNoticeChatTopNoticeReq;
+import com.lark.oapi.service.im.v1.model.PutTopNoticeChatTopNoticeReqBody;
+import com.lark.oapi.service.im.v1.model.PutTopNoticeChatTopNoticeResp;
 
 // POST /open-apis/im/v1/chats/:chat_id/top_notice/put_top_notice
 public class PutTopNoticeChatTopNoticeSample {

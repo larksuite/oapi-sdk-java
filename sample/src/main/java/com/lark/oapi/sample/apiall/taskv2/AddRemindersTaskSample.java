@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.task.v2.model.AddRemindersTaskReq;
+import com.lark.oapi.service.task.v2.model.AddRemindersTaskReqBody;
+import com.lark.oapi.service.task.v2.model.AddRemindersTaskResp;
+import com.lark.oapi.service.task.v2.model.Reminder;
 
 // POST /open-apis/task/v2/tasks/:task_guid/add_reminders
 public class AddRemindersTaskSample {

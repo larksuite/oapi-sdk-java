@@ -14,7 +14,7 @@
 package com.lark.oapi.service.personal_settings.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.personal_settings.v1.resource.*;
+import com.lark.oapi.service.personal_settings.v1.resource.SystemStatus;
 
 public class V1 {
     private final SystemStatus systemStatus; // 系统状态

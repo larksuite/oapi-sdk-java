@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.personal_settings.v1.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/personal_settings/v1/system_statuses
 public class CreateSystemStatusSample {
 

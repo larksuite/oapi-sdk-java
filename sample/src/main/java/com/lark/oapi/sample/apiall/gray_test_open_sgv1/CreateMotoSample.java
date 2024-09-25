@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.gray_test_open_sgv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoReq;
+import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoResp;
+import com.lark.oapi.service.gray_test_open_sg.v1.model.Level;
 
 // POST /open-apis/gray_test_open_sg/v1/motos
 public class CreateMotoSample {

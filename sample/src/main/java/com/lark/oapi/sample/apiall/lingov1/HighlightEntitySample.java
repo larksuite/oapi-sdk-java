@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.lingov1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.lingo.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.lingo.v1.model.HighlightEntityReq;
+import com.lark.oapi.service.lingo.v1.model.HighlightEntityReqBody;
+import com.lark.oapi.service.lingo.v1.model.HighlightEntityResp;
 
 // POST /open-apis/lingo/v1/entities/highlight
 public class HighlightEntitySample {

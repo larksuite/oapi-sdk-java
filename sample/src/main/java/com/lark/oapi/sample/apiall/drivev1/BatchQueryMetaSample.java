@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.drive.v1.model.BatchQueryMetaReq;
+import com.lark.oapi.service.drive.v1.model.BatchQueryMetaResp;
+import com.lark.oapi.service.drive.v1.model.MetaRequest;
+import com.lark.oapi.service.drive.v1.model.RequestDoc;
 
 // POST /open-apis/drive/v1/metas/batch_query
 public class BatchQueryMetaSample {

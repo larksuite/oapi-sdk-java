@@ -4,10 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.corehr.v1.model.*;
 
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v1.model.Enum;
-
 // POST /open-apis/corehr/v1/job_levels
 public class CreateJobLevelSample {
 
@@ -25,6 +21,7 @@ public class CreateJobLevelSample {
                         .description(new I18n[]{})
                         .active(true)
                         .customFields(new ObjectFieldData[]{})
+                        .jobGrade(new String[]{})
                         .build())
                 .build();
 

@@ -14,7 +14,6 @@ package com.lark.oapi.card.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Map;
 

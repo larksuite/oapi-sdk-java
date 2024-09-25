@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.baikev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.baike.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.baike.v1.model.GetEntityReq;
+import com.lark.oapi.service.baike.v1.model.GetEntityResp;
 
 // GET /open-apis/baike/v1/entities/:entity_id
 public class GetEntitySample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.task.v2.model.RemoveTasklistTaskReq;
+import com.lark.oapi.service.task.v2.model.RemoveTasklistTaskReqBody;
+import com.lark.oapi.service.task.v2.model.RemoveTasklistTaskResp;
 
 // POST /open-apis/task/v2/tasks/:task_guid/remove_tasklist
 public class RemoveTasklistTaskSample {

@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.Interviewer;
+import com.lark.oapi.service.hire.v1.model.PatchInterviewerReq;
+import com.lark.oapi.service.hire.v1.model.PatchInterviewerReqBody;
+import com.lark.oapi.service.hire.v1.model.PatchInterviewerResp;
 
 // PATCH /open-apis/hire/v1/interviewers/:interviewer_id
 public class PatchInterviewerSample {

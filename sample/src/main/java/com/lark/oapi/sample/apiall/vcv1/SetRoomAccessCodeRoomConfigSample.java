@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.vc.v1.model.SetRoomAccessCodeRoomConfigReq;
+import com.lark.oapi.service.vc.v1.model.SetRoomAccessCodeRoomConfigReqBody;
+import com.lark.oapi.service.vc.v1.model.SetRoomAccessCodeRoomConfigResp;
 
 // POST /open-apis/vc/v1/room_configs/set_room_access_code
 public class SetRoomAccessCodeRoomConfigSample {

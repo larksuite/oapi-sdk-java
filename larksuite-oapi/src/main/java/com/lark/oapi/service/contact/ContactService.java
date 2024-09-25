@@ -23,7 +23,6 @@ import com.lark.oapi.service.contact.v3.resource.EmployeeTypeEnum;
 import com.lark.oapi.service.contact.v3.resource.FunctionalRole;
 import com.lark.oapi.service.contact.v3.resource.FunctionalRoleMember;
 import com.lark.oapi.service.contact.v3.resource.Group;
-import com.lark.oapi.service.contact.v3.resource.GroupMember;
 import com.lark.oapi.service.contact.v3.resource.JobFamily;
 import com.lark.oapi.service.contact.v3.resource.JobLevel;
 import com.lark.oapi.service.contact.v3.resource.JobTitle;
@@ -31,6 +30,7 @@ import com.lark.oapi.service.contact.v3.resource.Scope;
 import com.lark.oapi.service.contact.v3.resource.Unit;
 import com.lark.oapi.service.contact.v3.resource.User;
 import com.lark.oapi.service.contact.v3.resource.WorkCity;
+import com.lark.oapi.service.contact.v3.resource.*;
 
 public class ContactService {
     private final V3 v3;

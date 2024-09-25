@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Employee {
     /**
@@ -65,6 +52,12 @@ public class Employee {
      */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
+    /**
+     * 人员子类型 ID
+     * <p> 示例值：6971090097697521317
+     */
+    @SerializedName("employee_subtype_id")
+    private String employeeSubtypeId;
     /**
      * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
      * <p> 示例值：6893014062142064135
@@ -450,6 +443,11 @@ public class Employee {
          */
         this.employeeTypeId = builder.employeeTypeId;
         /**
+         * 人员子类型 ID
+         * <p> 示例值：6971090097697521317
+         */
+        this.employeeSubtypeId = builder.employeeSubtypeId;
+        /**
          * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
          * <p> 示例值：6893014062142064135
          */
@@ -791,6 +789,14 @@ public class Employee {
 
     public void setEmployeeTypeId(String employeeTypeId) {
         this.employeeTypeId = employeeTypeId;
+    }
+
+    public String getEmployeeSubtypeId() {
+        return this.employeeSubtypeId;
+    }
+
+    public void setEmployeeSubtypeId(String employeeSubtypeId) {
+        this.employeeSubtypeId = employeeSubtypeId;
     }
 
     public String getDepartmentId() {
@@ -1289,6 +1295,11 @@ public class Employee {
          */
         private String employeeTypeId;
         /**
+         * 人员子类型 ID
+         * <p> 示例值：6971090097697521317
+         */
+        private String employeeSubtypeId;
+        /**
          * 部门 ID;- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息;- 类型与 department_id_type 一致;- 请使用 department_id_v2
          * <p> 示例值：6893014062142064135
          */
@@ -1653,6 +1664,19 @@ public class Employee {
          */
         public Builder employeeTypeId(String employeeTypeId) {
             this.employeeTypeId = employeeTypeId;
+            return this;
+        }
+
+
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6971090097697521317
+         *
+         * @param employeeSubtypeId
+         * @return
+         */
+        public Builder employeeSubtypeId(String employeeSubtypeId) {
+            this.employeeSubtypeId = employeeSubtypeId;
             return this;
         }
 

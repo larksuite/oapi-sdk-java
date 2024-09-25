@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.authv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.auth.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.auth.v3.model.ResendAppTicketReq;
+import com.lark.oapi.service.auth.v3.model.ResendAppTicketReqBody;
+import com.lark.oapi.service.auth.v3.model.ResendAppTicketResp;
 
 // POST /open-apis/auth/v3/app_ticket/resend
 public class ResendAppTicketSample {

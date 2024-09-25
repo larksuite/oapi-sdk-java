@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.BatchUpdateEcoAccountCustomFieldReq;
+import com.lark.oapi.service.hire.v1.model.BatchUpdateEcoAccountCustomFieldResp;
+import com.lark.oapi.service.hire.v1.model.EcoAccountCustomField;
+import com.lark.oapi.service.hire.v1.model.EcoAccountCustomFieldData;
 
 // PATCH /open-apis/hire/v1/eco_account_custom_fields/batch_update
 public class BatchUpdateEcoAccountCustomFieldSample {

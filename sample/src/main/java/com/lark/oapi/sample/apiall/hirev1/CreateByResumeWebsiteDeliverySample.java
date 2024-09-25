@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.CreateByResumeWebsiteDeliveryReq;
+import com.lark.oapi.service.hire.v1.model.CreateByResumeWebsiteDeliveryResp;
+import com.lark.oapi.service.hire.v1.model.WebsiteDelivery;
+import com.lark.oapi.service.hire.v1.model.WebsiteDeliveryResume;
 
 // POST /open-apis/hire/v1/websites/:website_id/deliveries/create_by_resume
 public class CreateByResumeWebsiteDeliverySample {

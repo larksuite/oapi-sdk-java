@@ -2,11 +2,9 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.SearchBasicInfoCityReq;
+import com.lark.oapi.service.corehr.v2.model.SearchBasicInfoCityReqBody;
+import com.lark.oapi.service.corehr.v2.model.SearchBasicInfoCityResp;
 
 // POST /open-apis/corehr/v2/basic_info/cities/search
 public class SearchBasicInfoCitySample {

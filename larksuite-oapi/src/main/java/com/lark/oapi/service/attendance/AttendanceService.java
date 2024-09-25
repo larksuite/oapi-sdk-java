@@ -13,25 +13,8 @@
 package com.lark.oapi.service.attendance;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.attendance.v1.V1;
-import com.lark.oapi.service.attendance.v1.model.*;
-import com.lark.oapi.service.attendance.v1.resource.ApprovalInfo;
-import com.lark.oapi.service.attendance.v1.resource.ArchiveRule;
-import com.lark.oapi.service.attendance.v1.resource.File;
-import com.lark.oapi.service.attendance.v1.resource.Group;
-import com.lark.oapi.service.attendance.v1.resource.LeaveAccrualRecord;
-import com.lark.oapi.service.attendance.v1.resource.LeaveEmployExpireRecord;
-import com.lark.oapi.service.attendance.v1.resource.Shift;
-import com.lark.oapi.service.attendance.v1.resource.UserApproval;
-import com.lark.oapi.service.attendance.v1.resource.UserDailyShift;
-import com.lark.oapi.service.attendance.v1.resource.UserFlow;
-import com.lark.oapi.service.attendance.v1.resource.UserSetting;
-import com.lark.oapi.service.attendance.v1.resource.UserStatsData;
-import com.lark.oapi.service.attendance.v1.resource.UserStatsField;
-import com.lark.oapi.service.attendance.v1.resource.UserStatsView;
-import com.lark.oapi.service.attendance.v1.resource.UserTask;
-import com.lark.oapi.service.attendance.v1.resource.UserTaskRemedy;
+import com.lark.oapi.service.attendance.v1.resource.*;
 
 public class AttendanceService {
     private final V1 v1;

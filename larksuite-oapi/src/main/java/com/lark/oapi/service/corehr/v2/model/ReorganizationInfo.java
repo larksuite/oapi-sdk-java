@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReorganizationInfo {
     /**
@@ -113,6 +100,18 @@ public class ReorganizationInfo {
      */
     @SerializedName("target_is_confidential")
     private Boolean targetIsConfidential;
+    /**
+     * 原岗职模式
+     * <p> 示例值：
+     */
+    @SerializedName("original_staffing_mode_option")
+    private Enum originalStaffingModeOption;
+    /**
+     * 调整后岗职模式
+     * <p> 示例值：
+     */
+    @SerializedName("target_staffing_mode_option")
+    private Enum targetStaffingModeOption;
     /**
      * 原上级部门
      * <p> 示例值：6974659700705068581
@@ -225,6 +224,16 @@ public class ReorganizationInfo {
          * <p> 示例值：true
          */
         this.targetIsConfidential = builder.targetIsConfidential;
+        /**
+         * 原岗职模式
+         * <p> 示例值：
+         */
+        this.originalStaffingModeOption = builder.originalStaffingModeOption;
+        /**
+         * 调整后岗职模式
+         * <p> 示例值：
+         */
+        this.targetStaffingModeOption = builder.targetStaffingModeOption;
         /**
          * 原上级部门
          * <p> 示例值：6974659700705068581
@@ -373,6 +382,22 @@ public class ReorganizationInfo {
         this.targetIsConfidential = targetIsConfidential;
     }
 
+    public Enum getOriginalStaffingModeOption() {
+        return this.originalStaffingModeOption;
+    }
+
+    public void setOriginalStaffingModeOption(Enum originalStaffingModeOption) {
+        this.originalStaffingModeOption = originalStaffingModeOption;
+    }
+
+    public Enum getTargetStaffingModeOption() {
+        return this.targetStaffingModeOption;
+    }
+
+    public void setTargetStaffingModeOption(Enum targetStaffingModeOption) {
+        this.targetStaffingModeOption = targetStaffingModeOption;
+    }
+
     public String getOriginalParentDepartmentId() {
         return this.originalParentDepartmentId;
     }
@@ -492,6 +517,16 @@ public class ReorganizationInfo {
          * <p> 示例值：true
          */
         private Boolean targetIsConfidential;
+        /**
+         * 原岗职模式
+         * <p> 示例值：
+         */
+        private Enum originalStaffingModeOption;
+        /**
+         * 调整后岗职模式
+         * <p> 示例值：
+         */
+        private Enum targetStaffingModeOption;
         /**
          * 原上级部门
          * <p> 示例值：6974659700705068581
@@ -701,6 +736,32 @@ public class ReorganizationInfo {
          */
         public Builder targetIsConfidential(Boolean targetIsConfidential) {
             this.targetIsConfidential = targetIsConfidential;
+            return this;
+        }
+
+
+        /**
+         * 原岗职模式
+         * <p> 示例值：
+         *
+         * @param originalStaffingModeOption
+         * @return
+         */
+        public Builder originalStaffingModeOption(Enum originalStaffingModeOption) {
+            this.originalStaffingModeOption = originalStaffingModeOption;
+            return this;
+        }
+
+
+        /**
+         * 调整后岗职模式
+         * <p> 示例值：
+         *
+         * @param targetStaffingModeOption
+         * @return
+         */
+        public Builder targetStaffingModeOption(Enum targetStaffingModeOption) {
+            this.targetStaffingModeOption = targetStaffingModeOption;
             return this;
         }
 

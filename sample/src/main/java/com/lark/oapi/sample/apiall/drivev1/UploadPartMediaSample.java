@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.*;
+import com.lark.oapi.service.drive.v1.model.UploadPartMediaReq;
+import com.lark.oapi.service.drive.v1.model.UploadPartMediaReqBody;
+import com.lark.oapi.service.drive.v1.model.UploadPartMediaResp;
 
 import java.io.File;
-import java.util.HashMap;
 
 // POST /open-apis/drive/v1/medias/upload_part
 public class UploadPartMediaSample {

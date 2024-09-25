@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.bitable.v1.model.GetAppReq;
+import com.lark.oapi.service.bitable.v1.model.GetAppResp;
 
 // GET /open-apis/bitable/v1/apps/:app_token
 public class GetAppSample {

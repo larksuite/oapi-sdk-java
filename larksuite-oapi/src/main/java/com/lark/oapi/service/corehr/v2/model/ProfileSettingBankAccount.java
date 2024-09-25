@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingBankAccount {
     /**
@@ -83,6 +70,30 @@ public class ProfileSettingBankAccount {
      */
     @SerializedName("branch_id")
     private String branchId;
+    /**
+     * 分配方式，枚举值
+     * <p> 示例值：percent,balance,amount
+     */
+    @SerializedName("payment_type")
+    private String paymentType;
+    /**
+     * 分配比例，0～100，保留两位小数
+     * <p> 示例值：80.28
+     */
+    @SerializedName("payment_rate")
+    private String paymentRate;
+    /**
+     * 分配金额，保留两位小数
+     * <p> 示例值：5000
+     */
+    @SerializedName("payment_amount")
+    private String paymentAmount;
+    /**
+     * 优先级，不能低于0
+     * <p> 示例值：1
+     */
+    @SerializedName("priority")
+    private String priority;
 
     // builder 开始
     public ProfileSettingBankAccount() {
@@ -134,6 +145,26 @@ public class ProfileSettingBankAccount {
          * <p> 示例值：6862995757234914833
          */
         this.branchId = builder.branchId;
+        /**
+         * 分配方式，枚举值
+         * <p> 示例值：percent,balance,amount
+         */
+        this.paymentType = builder.paymentType;
+        /**
+         * 分配比例，0～100，保留两位小数
+         * <p> 示例值：80.28
+         */
+        this.paymentRate = builder.paymentRate;
+        /**
+         * 分配金额，保留两位小数
+         * <p> 示例值：5000
+         */
+        this.paymentAmount = builder.paymentAmount;
+        /**
+         * 优先级，不能低于0
+         * <p> 示例值：1
+         */
+        this.priority = builder.priority;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +243,38 @@ public class ProfileSettingBankAccount {
         this.branchId = branchId;
     }
 
+    public String getPaymentType() {
+        return this.paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public String getPaymentRate() {
+        return this.paymentRate;
+    }
+
+    public void setPaymentRate(String paymentRate) {
+        this.paymentRate = paymentRate;
+    }
+
+    public String getPaymentAmount() {
+        return this.paymentAmount;
+    }
+
+    public void setPaymentAmount(String paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
+
+    public String getPriority() {
+        return this.priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
     public static class Builder {
         /**
          * 国家 / 地区ID
@@ -258,6 +321,26 @@ public class ProfileSettingBankAccount {
          * <p> 示例值：6862995757234914833
          */
         private String branchId;
+        /**
+         * 分配方式，枚举值
+         * <p> 示例值：percent,balance,amount
+         */
+        private String paymentType;
+        /**
+         * 分配比例，0～100，保留两位小数
+         * <p> 示例值：80.28
+         */
+        private String paymentRate;
+        /**
+         * 分配金额，保留两位小数
+         * <p> 示例值：5000
+         */
+        private String paymentAmount;
+        /**
+         * 优先级，不能低于0
+         * <p> 示例值：1
+         */
+        private String priority;
 
         /**
          * 国家 / 地区ID
@@ -372,6 +455,70 @@ public class ProfileSettingBankAccount {
          */
         public Builder branchId(String branchId) {
             this.branchId = branchId;
+            return this;
+        }
+
+
+        /**
+         * 分配方式，枚举值
+         * <p> 示例值：percent,balance,amount
+         *
+         * @param paymentType
+         * @return
+         */
+        public Builder paymentType(String paymentType) {
+            this.paymentType = paymentType;
+            return this;
+        }
+
+        /**
+         * 分配方式，枚举值
+         * <p> 示例值：percent,balance,amount
+         *
+         * @param paymentType {@link com.lark.oapi.service.corehr.v2.enums.ProfileSettingBankAccountPaymentTypeEnum}
+         * @return
+         */
+        public Builder paymentType(com.lark.oapi.service.corehr.v2.enums.ProfileSettingBankAccountPaymentTypeEnum paymentType) {
+            this.paymentType = paymentType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 分配比例，0～100，保留两位小数
+         * <p> 示例值：80.28
+         *
+         * @param paymentRate
+         * @return
+         */
+        public Builder paymentRate(String paymentRate) {
+            this.paymentRate = paymentRate;
+            return this;
+        }
+
+
+        /**
+         * 分配金额，保留两位小数
+         * <p> 示例值：5000
+         *
+         * @param paymentAmount
+         * @return
+         */
+        public Builder paymentAmount(String paymentAmount) {
+            this.paymentAmount = paymentAmount;
+            return this;
+        }
+
+
+        /**
+         * 优先级，不能低于0
+         * <p> 示例值：1
+         *
+         * @param priority
+         * @return
+         */
+        public Builder priority(String priority) {
+            this.priority = priority;
             return this;
         }
 

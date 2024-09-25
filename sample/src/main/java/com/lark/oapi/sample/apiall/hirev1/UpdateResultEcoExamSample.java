@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.hire.v1.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/hire/v1/eco_exams/:exam_id/update_result
 public class UpdateResultEcoExamSample {
 

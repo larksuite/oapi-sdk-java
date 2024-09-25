@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.authenv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.authen.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.authen.v1.model.CreateOidcRefreshAccessTokenReq;
+import com.lark.oapi.service.authen.v1.model.CreateOidcRefreshAccessTokenReqBody;
+import com.lark.oapi.service.authen.v1.model.CreateOidcRefreshAccessTokenResp;
 
 // POST /open-apis/authen/v1/oidc/refresh_access_token
 public class CreateOidcRefreshAccessTokenSample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.acs.v1.model.DeviceBindRuleExternalReq;
+import com.lark.oapi.service.acs.v1.model.DeviceBindRuleExternalReqBody;
+import com.lark.oapi.service.acs.v1.model.DeviceBindRuleExternalResp;
 
 // POST /open-apis/acs/v1/rule_external/device_bind
 public class DeviceBindRuleExternalSample {

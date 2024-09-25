@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mdmv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mdm.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.mdm.v1.model.BindUserAuthDataRelationReq;
+import com.lark.oapi.service.mdm.v1.model.BindUserAuthDataRelationResp;
+import com.lark.oapi.service.mdm.v1.model.UserAuthDataRelation;
 
 // POST /open-apis/mdm/v1/user_auth_data_relations/bind
 public class BindUserAuthDataRelationSample {

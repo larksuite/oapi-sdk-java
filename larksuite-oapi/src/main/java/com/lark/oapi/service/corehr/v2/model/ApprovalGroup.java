@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalGroup {
     /**
@@ -95,6 +82,12 @@ public class ApprovalGroup {
      */
     @SerializedName("job_changes")
     private String[] jobChanges;
+    /**
+     * 关联的岗位调整记录 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("position_changes")
+    private String[] positionChanges;
 
     // builder 开始
     public ApprovalGroup() {
@@ -156,6 +149,11 @@ public class ApprovalGroup {
          * <p> 示例值：
          */
         this.jobChanges = builder.jobChanges;
+        /**
+         * 关联的岗位调整记录 ID 列表
+         * <p> 示例值：
+         */
+        this.positionChanges = builder.positionChanges;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +248,14 @@ public class ApprovalGroup {
         this.jobChanges = jobChanges;
     }
 
+    public String[] getPositionChanges() {
+        return this.positionChanges;
+    }
+
+    public void setPositionChanges(String[] positionChanges) {
+        this.positionChanges = positionChanges;
+    }
+
     public static class Builder {
         /**
          * 组织架构调整审批组 ID
@@ -306,6 +312,11 @@ public class ApprovalGroup {
          * <p> 示例值：
          */
         private String[] jobChanges;
+        /**
+         * 关联的岗位调整记录 ID 列表
+         * <p> 示例值：
+         */
+        private String[] positionChanges;
 
         /**
          * 组织架构调整审批组 ID
@@ -470,6 +481,19 @@ public class ApprovalGroup {
          */
         public Builder jobChanges(String[] jobChanges) {
             this.jobChanges = jobChanges;
+            return this;
+        }
+
+
+        /**
+         * 关联的岗位调整记录 ID 列表
+         * <p> 示例值：
+         *
+         * @param positionChanges
+         * @return
+         */
+        public Builder positionChanges(String[] positionChanges) {
+            this.positionChanges = positionChanges;
             return this;
         }
 

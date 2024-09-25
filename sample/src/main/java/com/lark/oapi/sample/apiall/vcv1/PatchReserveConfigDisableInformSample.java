@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.vc.v1.model.DisableInformConfig;
+import com.lark.oapi.service.vc.v1.model.PatchReserveConfigDisableInformReq;
+import com.lark.oapi.service.vc.v1.model.PatchReserveConfigDisableInformReqBody;
+import com.lark.oapi.service.vc.v1.model.PatchReserveConfigDisableInformResp;
 
 // PATCH /open-apis/vc/v1/reserve_configs/:reserve_config_id/disable_inform
 public class PatchReserveConfigDisableInformSample {

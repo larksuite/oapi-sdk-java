@@ -2,9 +2,7 @@ package com.lark.oapi.sample.apiall.authenv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.authen.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.authen.v1.model.GetUserInfoResp;
 
 // GET /open-apis/authen/v1/user_info
 public class GetUserInfoSample {

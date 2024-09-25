@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.hire.v1.model.*;
 
-import java.util.HashMap;
-
 // PUT /open-apis/hire/v1/offer_custom_fields/:offer_custom_field_id
 public class UpdateOfferCustomFieldSample {
 

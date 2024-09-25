@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHireEmploymentInfo {
     /**
@@ -113,6 +100,12 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("employee_type_id")
     private String employeeTypeId;
+    /**
+     * 人员子类型 ID
+     * <p> 示例值：6977973225846343171
+     */
+    @SerializedName("employee_subtype_id")
+    private String employeeSubtypeId;
     /**
      * -| 雇佣类型， 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "employment_type"
      * <p> 示例值：employee
@@ -351,6 +344,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：6977973225846343171
          */
         this.employeeTypeId = builder.employeeTypeId;
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6977973225846343171
+         */
+        this.employeeSubtypeId = builder.employeeSubtypeId;
         /**
          * -| 雇佣类型， 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "employment_type"
          * <p> 示例值：employee
@@ -602,6 +600,14 @@ public class PreHireEmploymentInfo {
 
     public void setEmployeeTypeId(String employeeTypeId) {
         this.employeeTypeId = employeeTypeId;
+    }
+
+    public String getEmployeeSubtypeId() {
+        return this.employeeSubtypeId;
+    }
+
+    public void setEmployeeSubtypeId(String employeeSubtypeId) {
+        this.employeeSubtypeId = employeeSubtypeId;
     }
 
     public String getEmploymentType() {
@@ -891,6 +897,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：6977973225846343171
          */
         private String employeeTypeId;
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6977973225846343171
+         */
+        private String employeeSubtypeId;
         /**
          * -| 雇佣类型， 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "employment_type"
          * <p> 示例值：employee
@@ -1205,6 +1216,19 @@ public class PreHireEmploymentInfo {
          */
         public Builder employeeTypeId(String employeeTypeId) {
             this.employeeTypeId = employeeTypeId;
+            return this;
+        }
+
+
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6977973225846343171
+         *
+         * @param employeeSubtypeId
+         * @return
+         */
+        public Builder employeeSubtypeId(String employeeSubtypeId) {
+            this.employeeSubtypeId = employeeSubtypeId;
             return this;
         }
 

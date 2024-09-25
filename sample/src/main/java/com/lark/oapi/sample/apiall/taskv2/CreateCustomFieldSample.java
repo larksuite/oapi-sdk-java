@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v2.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/task/v2/custom_fields
 public class CreateCustomFieldSample {
 

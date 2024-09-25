@@ -13,78 +13,38 @@
 
 package com.lark.oapi.event;
 
-import com.lark.oapi.service.acs.AcsService;
-import com.lark.oapi.service.admin.AdminService;
-import com.lark.oapi.service.aily.AilyService;
-import com.lark.oapi.service.application.ApplicationService;
-import com.lark.oapi.service.approval.ApprovalService;
-import com.lark.oapi.service.attendance.AttendanceService;
-import com.lark.oapi.service.auth.AuthService;
-import com.lark.oapi.service.authen.AuthenService;
-import com.lark.oapi.service.baike.BaikeService;
-import com.lark.oapi.service.bitable.BitableService;
-import com.lark.oapi.service.block.BlockService;
-import com.lark.oapi.service.board.BoardService;
-import com.lark.oapi.service.calendar.CalendarService;
-import com.lark.oapi.service.compensation.CompensationService;
-import com.lark.oapi.service.contact.ContactService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.document_ai.DocumentAiService;
-import com.lark.oapi.service.docx.DocxService;
-import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.ehr.EhrService;
-import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.gray_test_open_sg.GrayTestOpenSgService;
-import com.lark.oapi.service.helpdesk.HelpdeskService;
-import com.lark.oapi.service.hire.HireService;
-import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.lingo.LingoService;
-import com.lark.oapi.service.mail.MailService;
-import com.lark.oapi.service.mdm.MdmService;
-import com.lark.oapi.service.meeting_room.MeetingRoomService;
-import com.lark.oapi.service.moments.MomentsService;
-import com.lark.oapi.service.okr.OkrService;
-import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
-import com.lark.oapi.service.passport.PassportService;
-import com.lark.oapi.service.personal_settings.PersonalSettingsService;
-import com.lark.oapi.service.report.ReportService;
-import com.lark.oapi.service.search.SearchService;
-import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
-import com.lark.oapi.service.sheets.SheetsService;
-import com.lark.oapi.service.speech_to_text.SpeechToTextService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.tenant.TenantService;
-import com.lark.oapi.service.translation.TranslationService;
-import com.lark.oapi.service.vc.VcService;
-import com.lark.oapi.service.verification.VerificationService;
-import com.lark.oapi.service.wiki.WikiService;
-import com.lark.oapi.service.workplace.WorkplaceService;
-
-
-import com.lark.oapi.core.IHandler;
-import com.lark.oapi.core.IHttpAdapter;
 import com.lark.oapi.core.Constants;
-import com.lark.oapi.core.utils.Decryptor;
-import com.lark.oapi.event.exception.HandlerNotFoundException;
-import com.lark.oapi.event.model.Fuzzy;
+import com.lark.oapi.core.IHandler;
 import com.lark.oapi.core.exception.DecryptException;
-import com.lark.oapi.core.exception.IncorrectChallengeException;
 import com.lark.oapi.core.exception.EventTypeAlreadyHasHandlerException;
+import com.lark.oapi.core.exception.IncorrectChallengeException;
 import com.lark.oapi.core.exception.IncorrectSignatureException;
 import com.lark.oapi.core.request.EventReq;
 import com.lark.oapi.core.response.EventResp;
+import com.lark.oapi.core.utils.Decryptor;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.apache.commons.codec.binary.Hex;
+import com.lark.oapi.event.exception.HandlerNotFoundException;
 import com.lark.oapi.event.model.BaseEvent;
 import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.event.model.Fuzzy;
+import com.lark.oapi.service.acs.AcsService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.approval.ApprovalService;
+import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.contact.ContactService;
+import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.drive.DriveService;
+import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.hire.HireService;
+import com.lark.oapi.service.im.ImService;
+import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.moments.MomentsService;
+import com.lark.oapi.service.task.TaskService;
+import com.lark.oapi.service.vc.VcService;
+import org.apache.commons.codec.binary.Hex;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -1187,6 +1147,96 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2JobFamilyCreatedV2(CorehrService.P2JobFamilyCreatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_family.created_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_family.created_v2");
+            }
+            eventType2EventHandler.put("corehr.job_family.created_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobFamilyDeletedV2(CorehrService.P2JobFamilyDeletedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_family.deleted_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_family.deleted_v2");
+            }
+            eventType2EventHandler.put("corehr.job_family.deleted_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobFamilyUpdatedV2(CorehrService.P2JobFamilyUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_family.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_family.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.job_family.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobLevelCreatedV2(CorehrService.P2JobLevelCreatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_level.created_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_level.created_v2");
+            }
+            eventType2EventHandler.put("corehr.job_level.created_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobLevelDeletedV2(CorehrService.P2JobLevelDeletedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_level.deleted_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_level.deleted_v2");
+            }
+            eventType2EventHandler.put("corehr.job_level.deleted_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2JobLevelUpdatedV2(CorehrService.P2JobLevelUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.job_level.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.job_level.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.job_level.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2OffboardingChecklistUpdatedV2(CorehrService.P2OffboardingChecklistUpdatedV2Handler handler) {
             if (eventType2EventHandler.containsKey("corehr.offboarding.checklist_updated_v2")) {
                 throw new EventTypeAlreadyHasHandlerException("corehr.offboarding.checklist_updated_v2");
@@ -1222,6 +1272,21 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("corehr.offboarding.updated_v2");
             }
             eventType2EventHandler.put("corehr.offboarding.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PreHireOnboardingTaskChangedV2(CorehrService.P2PreHireOnboardingTaskChangedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.pre_hire.onboarding_task_changed_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.pre_hire.onboarding_task_changed_v2");
+            }
+            eventType2EventHandler.put("corehr.pre_hire.onboarding_task_changed_v2", handler);
             return this;
         }
 

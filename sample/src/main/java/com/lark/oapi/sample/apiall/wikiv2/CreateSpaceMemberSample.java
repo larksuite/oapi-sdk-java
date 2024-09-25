@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.wikiv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.wiki.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.wiki.v2.model.CreateSpaceMemberReq;
+import com.lark.oapi.service.wiki.v2.model.CreateSpaceMemberResp;
+import com.lark.oapi.service.wiki.v2.model.Member;
 
 // POST /open-apis/wiki/v2/spaces/:space_id/members
 public class CreateSpaceMemberSample {

@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.acs.v1.model.GetAccessRecordAccessPhotoReq;
+import com.lark.oapi.service.acs.v1.model.GetAccessRecordAccessPhotoResp;
 
 // GET /open-apis/acs/v1/access_records/:access_record_id/access_photo
 public class GetAccessRecordAccessPhotoSample {

@@ -13,29 +13,18 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReactionSet {
     /**
+     * 表情列表
      * <p> 示例值：
      */
     @SerializedName("reactions")
     private ReactionList[] reactions;
     /**
-     * <p> 示例值：
+     * 全部表情计数
+     * <p> 示例值：20
      */
     @SerializedName("total_count")
     private Integer totalCount;
@@ -46,13 +35,13 @@ public class ReactionSet {
 
     public ReactionSet(Builder builder) {
         /**
-         *
+         * 表情列表
          * <p> 示例值：
          */
         this.reactions = builder.reactions;
         /**
-         *
-         * <p> 示例值：
+         * 全部表情计数
+         * <p> 示例值：20
          */
         this.totalCount = builder.totalCount;
     }
@@ -79,15 +68,18 @@ public class ReactionSet {
 
     public static class Builder {
         /**
+         * 表情列表
          * <p> 示例值：
          */
         private ReactionList[] reactions;
         /**
-         * <p> 示例值：
+         * 全部表情计数
+         * <p> 示例值：20
          */
         private Integer totalCount;
 
         /**
+         * 表情列表
          * <p> 示例值：
          *
          * @param reactions
@@ -100,7 +92,8 @@ public class ReactionSet {
 
 
         /**
-         * <p> 示例值：
+         * 全部表情计数
+         * <p> 示例值：20
          *
          * @param totalCount
          * @return

@@ -2,11 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.DeleteProbationAssessmentReq;
+import com.lark.oapi.service.corehr.v2.model.DeleteProbationAssessmentResp;
 
 // DELETE /open-apis/corehr/v2/probation/assessments/:assessment_id
 public class DeleteProbationAssessmentSample {

@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/send
 public class SendUserMailboxMessageSample {
 

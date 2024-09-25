@@ -2,10 +2,10 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.*;
+import com.lark.oapi.service.acs.v1.model.UpdateUserFaceReq;
+import com.lark.oapi.service.acs.v1.model.UpdateUserFaceResp;
 
 import java.io.File;
-import java.util.HashMap;
 
 // PUT /open-apis/acs/v1/users/:user_id/face
 public class UpdateUserFaceSample {

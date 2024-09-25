@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.hire.v1.model.BonusAmount;
+import com.lark.oapi.service.hire.v1.model.CreateExternalReferralRewardReq;
+import com.lark.oapi.service.hire.v1.model.CreateExternalReferralRewardResp;
+import com.lark.oapi.service.hire.v1.model.ExternalReward;
 
 // POST /open-apis/hire/v1/external_referral_rewards
 public class CreateExternalReferralRewardSample {

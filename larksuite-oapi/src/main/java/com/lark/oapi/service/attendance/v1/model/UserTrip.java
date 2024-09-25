@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserTrip {
     /**
@@ -71,6 +58,24 @@ public class UserTrip {
      */
     @SerializedName("idempotent_id")
     private String idempotentId;
+    /**
+     * 更正流程实例 ID
+     * <p> 示例值：
+     */
+    @SerializedName("correct_process_id")
+    private String[] correctProcessId;
+    /**
+     * 撤销流程实例 ID
+     * <p> 示例值：
+     */
+    @SerializedName("cancel_process_id")
+    private String[] cancelProcessId;
+    /**
+     * 发起流程实例 ID
+     * <p> 示例值：
+     */
+    @SerializedName("process_id")
+    private String[] processId;
 
     // builder 开始
     public UserTrip() {
@@ -112,6 +117,21 @@ public class UserTrip {
          * <p> 示例值：1233432312
          */
         this.idempotentId = builder.idempotentId;
+        /**
+         * 更正流程实例 ID
+         * <p> 示例值：
+         */
+        this.correctProcessId = builder.correctProcessId;
+        /**
+         * 撤销流程实例 ID
+         * <p> 示例值：
+         */
+        this.cancelProcessId = builder.cancelProcessId;
+        /**
+         * 发起流程实例 ID
+         * <p> 示例值：
+         */
+        this.processId = builder.processId;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +194,30 @@ public class UserTrip {
         this.idempotentId = idempotentId;
     }
 
+    public String[] getCorrectProcessId() {
+        return this.correctProcessId;
+    }
+
+    public void setCorrectProcessId(String[] correctProcessId) {
+        this.correctProcessId = correctProcessId;
+    }
+
+    public String[] getCancelProcessId() {
+        return this.cancelProcessId;
+    }
+
+    public void setCancelProcessId(String[] cancelProcessId) {
+        this.cancelProcessId = cancelProcessId;
+    }
+
+    public String[] getProcessId() {
+        return this.processId;
+    }
+
+    public void setProcessId(String[] processId) {
+        this.processId = processId;
+    }
+
     public static class Builder {
         /**
          * 审批实例 ID
@@ -210,6 +254,21 @@ public class UserTrip {
          * <p> 示例值：1233432312
          */
         private String idempotentId;
+        /**
+         * 更正流程实例 ID
+         * <p> 示例值：
+         */
+        private String[] correctProcessId;
+        /**
+         * 撤销流程实例 ID
+         * <p> 示例值：
+         */
+        private String[] cancelProcessId;
+        /**
+         * 发起流程实例 ID
+         * <p> 示例值：
+         */
+        private String[] processId;
 
         /**
          * 审批实例 ID
@@ -298,6 +357,45 @@ public class UserTrip {
          */
         public Builder idempotentId(String idempotentId) {
             this.idempotentId = idempotentId;
+            return this;
+        }
+
+
+        /**
+         * 更正流程实例 ID
+         * <p> 示例值：
+         *
+         * @param correctProcessId
+         * @return
+         */
+        public Builder correctProcessId(String[] correctProcessId) {
+            this.correctProcessId = correctProcessId;
+            return this;
+        }
+
+
+        /**
+         * 撤销流程实例 ID
+         * <p> 示例值：
+         *
+         * @param cancelProcessId
+         * @return
+         */
+        public Builder cancelProcessId(String[] cancelProcessId) {
+            this.cancelProcessId = cancelProcessId;
+            return this;
+        }
+
+
+        /**
+         * 发起流程实例 ID
+         * <p> 示例值：
+         *
+         * @param processId
+         * @return
+         */
+        public Builder processId(String[] processId) {
+            this.processId = processId;
             return this;
         }
 

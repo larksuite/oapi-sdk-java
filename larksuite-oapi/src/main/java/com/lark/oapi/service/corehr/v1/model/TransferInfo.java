@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TransferInfo {
     /**
@@ -149,6 +136,18 @@ public class TransferInfo {
      */
     @SerializedName("target_workforce_type")
     private String targetWorkforceType;
+    /**
+     * 原人员子类型
+     * <p> 示例值：6968386026792289828
+     */
+    @SerializedName("original_employee_subtype")
+    private String originalEmployeeSubtype;
+    /**
+     * 新人员子类型
+     * <p> 示例值：7036268995372303885
+     */
+    @SerializedName("target_employee_subtype")
+    private String targetEmployeeSubtype;
     /**
      * 原公司
      * <p> 示例值：6974659700705068581
@@ -471,6 +470,16 @@ public class TransferInfo {
          * <p> 示例值：7036268995372303885
          */
         this.targetWorkforceType = builder.targetWorkforceType;
+        /**
+         * 原人员子类型
+         * <p> 示例值：6968386026792289828
+         */
+        this.originalEmployeeSubtype = builder.originalEmployeeSubtype;
+        /**
+         * 新人员子类型
+         * <p> 示例值：7036268995372303885
+         */
+        this.targetEmployeeSubtype = builder.targetEmployeeSubtype;
         /**
          * 原公司
          * <p> 示例值：6974659700705068581
@@ -815,6 +824,22 @@ public class TransferInfo {
 
     public void setTargetWorkforceType(String targetWorkforceType) {
         this.targetWorkforceType = targetWorkforceType;
+    }
+
+    public String getOriginalEmployeeSubtype() {
+        return this.originalEmployeeSubtype;
+    }
+
+    public void setOriginalEmployeeSubtype(String originalEmployeeSubtype) {
+        this.originalEmployeeSubtype = originalEmployeeSubtype;
+    }
+
+    public String getTargetEmployeeSubtype() {
+        return this.targetEmployeeSubtype;
+    }
+
+    public void setTargetEmployeeSubtype(String targetEmployeeSubtype) {
+        this.targetEmployeeSubtype = targetEmployeeSubtype;
     }
 
     public String getOriginalCompany() {
@@ -1206,6 +1231,16 @@ public class TransferInfo {
          * <p> 示例值：7036268995372303885
          */
         private String targetWorkforceType;
+        /**
+         * 原人员子类型
+         * <p> 示例值：6968386026792289828
+         */
+        private String originalEmployeeSubtype;
+        /**
+         * 新人员子类型
+         * <p> 示例值：7036268995372303885
+         */
+        private String targetEmployeeSubtype;
         /**
          * 原公司
          * <p> 示例值：6974659700705068581
@@ -1643,6 +1678,32 @@ public class TransferInfo {
          */
         public Builder targetWorkforceType(String targetWorkforceType) {
             this.targetWorkforceType = targetWorkforceType;
+            return this;
+        }
+
+
+        /**
+         * 原人员子类型
+         * <p> 示例值：6968386026792289828
+         *
+         * @param originalEmployeeSubtype
+         * @return
+         */
+        public Builder originalEmployeeSubtype(String originalEmployeeSubtype) {
+            this.originalEmployeeSubtype = originalEmployeeSubtype;
+            return this;
+        }
+
+
+        /**
+         * 新人员子类型
+         * <p> 示例值：7036268995372303885
+         *
+         * @param targetEmployeeSubtype
+         * @return
+         */
+        public Builder targetEmployeeSubtype(String targetEmployeeSubtype) {
+            this.targetEmployeeSubtype = targetEmployeeSubtype;
             return this;
         }
 

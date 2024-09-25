@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.adminv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.admin.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.admin.v1.model.ListAuditInfoReq;
+import com.lark.oapi.service.admin.v1.model.ListAuditInfoResp;
 
 // GET /open-apis/admin/v1/audit_infos
 public class ListAuditInfoSample {

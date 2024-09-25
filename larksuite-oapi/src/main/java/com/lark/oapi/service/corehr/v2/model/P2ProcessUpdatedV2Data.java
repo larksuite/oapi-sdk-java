@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessUpdatedV2Data {
     /**
@@ -52,6 +40,12 @@ public class P2ProcessUpdatedV2Data {
      */
     @SerializedName("flow_definition_id")
     private String flowDefinitionId;
+    /**
+     * 流程属性
+     * <p> 示例值：1
+     */
+    @SerializedName("properties")
+    private Integer properties;
 
     public String getProcessId() {
         return this.processId;
@@ -83,6 +77,14 @@ public class P2ProcessUpdatedV2Data {
 
     public void setFlowDefinitionId(String flowDefinitionId) {
         this.flowDefinitionId = flowDefinitionId;
+    }
+
+    public Integer getProperties() {
+        return this.properties;
+    }
+
+    public void setProperties(Integer properties) {
+        this.properties = properties;
     }
 
 }

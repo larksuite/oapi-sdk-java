@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.personal_settingsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.personal_settings.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.personal_settings.v1.model.PatchSystemStatusReq;
+import com.lark.oapi.service.personal_settings.v1.model.PatchSystemStatusReqBody;
+import com.lark.oapi.service.personal_settings.v1.model.PatchSystemStatusResp;
+import com.lark.oapi.service.personal_settings.v1.model.SystemStatus;
 
 // PATCH /open-apis/personal_settings/v1/system_statuses/:system_status_id
 public class PatchSystemStatusSample {

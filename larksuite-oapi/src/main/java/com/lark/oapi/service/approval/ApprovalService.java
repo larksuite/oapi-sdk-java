@@ -19,10 +19,10 @@ import com.lark.oapi.service.approval.v4.model.*;
 import com.lark.oapi.service.approval.v4.resource.Approval;
 import com.lark.oapi.service.approval.v4.resource.ExternalApproval;
 import com.lark.oapi.service.approval.v4.resource.ExternalInstance;
-import com.lark.oapi.service.approval.v4.resource.ExternalTask;
 import com.lark.oapi.service.approval.v4.resource.Instance;
 import com.lark.oapi.service.approval.v4.resource.InstanceComment;
 import com.lark.oapi.service.approval.v4.resource.Task;
+import com.lark.oapi.service.approval.v4.resource.*;
 
 public class ApprovalService {
     private final V4 v4;
@@ -30,9 +30,9 @@ public class ApprovalService {
     private final ExternalApproval externalApproval; // 三方审批定义
     private final ExternalInstance externalInstance; // 三方审批实例
     private final ExternalTask externalTask; // 三方审批任务
-    private final Instance instance; // 原生审批实例
+    private final Instance instance; // 审批查询
     private final InstanceComment instanceComment; // 原生审批评论
-    private final Task task; // 审批查询
+    private final Task task; // 原生审批任务
 
     public ApprovalService(Config config) {
         this.v4 = new V4(config);

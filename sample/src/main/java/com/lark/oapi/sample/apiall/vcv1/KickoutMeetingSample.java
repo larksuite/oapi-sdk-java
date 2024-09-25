@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.vc.v1.model.KickoutMeetingReq;
+import com.lark.oapi.service.vc.v1.model.KickoutMeetingReqBody;
+import com.lark.oapi.service.vc.v1.model.KickoutMeetingResp;
+import com.lark.oapi.service.vc.v1.model.MeetingUser;
 
 // POST /open-apis/vc/v1/meetings/:meeting_id/kickout
 public class KickoutMeetingSample {

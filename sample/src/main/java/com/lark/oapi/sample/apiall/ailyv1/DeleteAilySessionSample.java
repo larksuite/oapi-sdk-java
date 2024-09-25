@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.ailyv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.aily.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.aily.v1.model.DeleteAilySessionReq;
+import com.lark.oapi.service.aily.v1.model.DeleteAilySessionResp;
 
 // DELETE /open-apis/aily/v1/sessions/:aily_session_id
 public class DeleteAilySessionSample {

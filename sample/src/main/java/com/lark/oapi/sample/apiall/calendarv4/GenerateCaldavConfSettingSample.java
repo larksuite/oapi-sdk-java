@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.calendar.v4.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingReq;
+import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingReqBody;
+import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingResp;
 
 // POST /open-apis/calendar/v4/settings/generate_caldav_conf
 public class GenerateCaldavConfSettingSample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v1.model.CreatePinReq;
+import com.lark.oapi.service.im.v1.model.CreatePinReqBody;
+import com.lark.oapi.service.im.v1.model.CreatePinResp;
 
 // POST /open-apis/im/v1/pins
 public class CreatePinSample {

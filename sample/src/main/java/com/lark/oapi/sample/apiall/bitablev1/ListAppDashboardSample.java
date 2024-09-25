@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.bitable.v1.model.ListAppDashboardReq;
+import com.lark.oapi.service.bitable.v1.model.ListAppDashboardResp;
 
 // GET /open-apis/bitable/v1/apps/:app_token/dashboards
 public class ListAppDashboardSample {

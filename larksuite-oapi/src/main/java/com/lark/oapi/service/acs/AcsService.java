@@ -15,14 +15,9 @@ package com.lark.oapi.service.acs;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.acs.v1.V1;
-import com.lark.oapi.service.acs.v1.model.*;
-import com.lark.oapi.service.acs.v1.resource.AccessRecord;
-import com.lark.oapi.service.acs.v1.resource.AccessRecordAccessPhoto;
-import com.lark.oapi.service.acs.v1.resource.Device;
-import com.lark.oapi.service.acs.v1.resource.RuleExternal;
-import com.lark.oapi.service.acs.v1.resource.User;
-import com.lark.oapi.service.acs.v1.resource.UserFace;
-import com.lark.oapi.service.acs.v1.resource.Visitor;
+import com.lark.oapi.service.acs.v1.model.P2AccessRecordCreatedV1;
+import com.lark.oapi.service.acs.v1.model.P2UserUpdatedV1;
+import com.lark.oapi.service.acs.v1.resource.*;
 
 public class AcsService {
     private final V1 v1;

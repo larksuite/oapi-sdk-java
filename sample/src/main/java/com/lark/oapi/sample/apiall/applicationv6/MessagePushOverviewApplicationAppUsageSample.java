@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.application.v6.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.application.v6.model.MessagePushOverviewApplicationAppUsageReq;
+import com.lark.oapi.service.application.v6.model.MessagePushOverviewApplicationAppUsageReqBody;
+import com.lark.oapi.service.application.v6.model.MessagePushOverviewApplicationAppUsageResp;
 
 // POST /open-apis/application/v6/applications/:app_id/app_usage/message_push_overview
 public class MessagePushOverviewApplicationAppUsageSample {

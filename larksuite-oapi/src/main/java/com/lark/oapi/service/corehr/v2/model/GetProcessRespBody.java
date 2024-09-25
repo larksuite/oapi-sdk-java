@@ -13,19 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetProcessRespBody {
     /**
@@ -136,6 +124,24 @@ public class GetProcessRespBody {
      */
     @SerializedName("system_done_list")
     private ProcessSystemDoneItem[] systemDoneList;
+    /**
+     * 评论列表
+     * <p> 示例值：
+     */
+    @SerializedName("comment_infos")
+    private ProcessCommentInfo[] commentInfos;
+    /**
+     * 更正流程原流程ID
+     * <p> 示例值：7278949005675988535
+     */
+    @SerializedName("original_process_id")
+    private String originalProcessId;
+    /**
+     * 是否最新的「已完成」的更正流程
+     * <p> 示例值：false
+     */
+    @SerializedName("is_last_completed_correct_process")
+    private Boolean isLastCompletedCorrectProcess;
 
     public String getProcessId() {
         return this.processId;
@@ -279,6 +285,30 @@ public class GetProcessRespBody {
 
     public void setSystemDoneList(ProcessSystemDoneItem[] systemDoneList) {
         this.systemDoneList = systemDoneList;
+    }
+
+    public ProcessCommentInfo[] getCommentInfos() {
+        return this.commentInfos;
+    }
+
+    public void setCommentInfos(ProcessCommentInfo[] commentInfos) {
+        this.commentInfos = commentInfos;
+    }
+
+    public String getOriginalProcessId() {
+        return this.originalProcessId;
+    }
+
+    public void setOriginalProcessId(String originalProcessId) {
+        this.originalProcessId = originalProcessId;
+    }
+
+    public Boolean getIsLastCompletedCorrectProcess() {
+        return this.isLastCompletedCorrectProcess;
+    }
+
+    public void setIsLastCompletedCorrectProcess(Boolean isLastCompletedCorrectProcess) {
+        this.isLastCompletedCorrectProcess = isLastCompletedCorrectProcess;
     }
 
 }

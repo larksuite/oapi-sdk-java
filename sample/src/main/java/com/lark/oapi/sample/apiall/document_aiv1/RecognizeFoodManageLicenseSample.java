@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.document_aiv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.document_ai.v1.model.*;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeFoodManageLicenseReq;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeFoodManageLicenseReqBody;
+import com.lark.oapi.service.document_ai.v1.model.RecognizeFoodManageLicenseResp;
 
 import java.io.File;
-import java.util.HashMap;
 
 // POST /open-apis/document_ai/v1/food_manage_license/recognize
 public class RecognizeFoodManageLicenseSample {

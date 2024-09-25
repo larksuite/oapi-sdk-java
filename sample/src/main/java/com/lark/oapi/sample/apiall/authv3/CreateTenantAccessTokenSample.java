@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.authv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.auth.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.auth.v3.model.CreateTenantAccessTokenReq;
+import com.lark.oapi.service.auth.v3.model.CreateTenantAccessTokenReqBody;
+import com.lark.oapi.service.auth.v3.model.CreateTenantAccessTokenResp;
 
 // POST /open-apis/auth/v3/tenant_access_token
 public class CreateTenantAccessTokenSample {

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.contact.v3.model.UpdateFunctionalRoleReq;
+import com.lark.oapi.service.contact.v3.model.UpdateFunctionalRoleReqBody;
+import com.lark.oapi.service.contact.v3.model.UpdateFunctionalRoleResp;
 
 // PUT /open-apis/contact/v3/functional_roles/:role_id
 public class UpdateFunctionalRoleSample {

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeesAdditionalJob {
     /**
@@ -132,11 +119,17 @@ public class EmployeesAdditionalJob {
     @SerializedName("weekly_working_hours")
     private String weeklyWorkingHours;
     /**
-     * 工作日历ID
+     * 工作日历ID，可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取详细信息
      * <p> 示例值：6890452208593372680
      */
     @SerializedName("work_calendar_id")
     private String workCalendarId;
+    /**
+     * 岗位 ID
+     * <p> 示例值：6890452208593372680
+     */
+    @SerializedName("position_id")
+    private String positionId;
 
     // builder 开始
     public EmployeesAdditionalJob() {
@@ -229,10 +222,15 @@ public class EmployeesAdditionalJob {
          */
         this.weeklyWorkingHours = builder.weeklyWorkingHours;
         /**
-         * 工作日历ID
+         * 工作日历ID，可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取详细信息
          * <p> 示例值：6890452208593372680
          */
         this.workCalendarId = builder.workCalendarId;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6890452208593372680
+         */
+        this.positionId = builder.positionId;
     }
 
     public static Builder newBuilder() {
@@ -383,6 +381,14 @@ public class EmployeesAdditionalJob {
         this.workCalendarId = workCalendarId;
     }
 
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
+    }
+
     public static class Builder {
         /**
          * 兼职记录ID
@@ -470,10 +476,15 @@ public class EmployeesAdditionalJob {
          */
         private String weeklyWorkingHours;
         /**
-         * 工作日历ID
+         * 工作日历ID，可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取详细信息
          * <p> 示例值：6890452208593372680
          */
         private String workCalendarId;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6890452208593372680
+         */
+        private String positionId;
 
         /**
          * 兼职记录ID
@@ -697,7 +708,7 @@ public class EmployeesAdditionalJob {
 
 
         /**
-         * 工作日历ID
+         * 工作日历ID，可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取详细信息
          * <p> 示例值：6890452208593372680
          *
          * @param workCalendarId
@@ -705,6 +716,19 @@ public class EmployeesAdditionalJob {
          */
         public Builder workCalendarId(String workCalendarId) {
             this.workCalendarId = workCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 岗位 ID
+         * <p> 示例值：6890452208593372680
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
             return this;
         }
 

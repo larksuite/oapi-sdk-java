@@ -13,22 +13,15 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmergencyContact {
+    /**
+     * ID
+     * <p> 示例值：123
+     */
+    @SerializedName("id")
+    private String id;
     /**
      * 姓名
      * <p> 示例值：
@@ -84,6 +77,11 @@ public class EmergencyContact {
 
     public EmergencyContact(Builder builder) {
         /**
+         * ID
+         * <p> 示例值：123
+         */
+        this.id = builder.id;
+        /**
          * 姓名
          * <p> 示例值：
          */
@@ -127,6 +125,14 @@ public class EmergencyContact {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public PersonName getName() {
@@ -195,6 +201,11 @@ public class EmergencyContact {
 
     public static class Builder {
         /**
+         * ID
+         * <p> 示例值：123
+         */
+        private String id;
+        /**
          * 姓名
          * <p> 示例值：
          */
@@ -234,6 +245,19 @@ public class EmergencyContact {
          * <p> 示例值：
          */
         private Email email;
+
+        /**
+         * ID
+         * <p> 示例值：123
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
 
         /**
          * 姓名

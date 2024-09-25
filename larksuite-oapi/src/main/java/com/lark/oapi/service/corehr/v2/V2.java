@@ -51,6 +51,7 @@ public class V2 {
     private final ProcessCc processCc; // process.cc
     private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
     private final ProcessNode processNode; // process.node
+    private final WorkforcePlanDetail workforcePlanDetail; // workforce_plan_detail
 
     public V2(Config config) {
         this.basicInfoBank = new BasicInfoBank(config);
@@ -86,6 +87,7 @@ public class V2 {
         this.processCc = new ProcessCc(config);
         this.processFormVariableData = new ProcessFormVariableData(config);
         this.processNode = new ProcessNode(config);
+        this.workforcePlanDetail = new WorkforcePlanDetail(config);
     }
 
     public BasicInfoBank basicInfoBank() {
@@ -218,5 +220,9 @@ public class V2 {
 
     public ProcessNode processNode() {
         return processNode;
+    }
+
+    public WorkforcePlanDetail workforcePlanDetail() {
+        return workforcePlanDetail;
     }
 }

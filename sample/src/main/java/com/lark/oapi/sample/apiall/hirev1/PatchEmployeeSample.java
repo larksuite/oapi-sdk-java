@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.hire.v1.model.*;
 
-import java.util.HashMap;
-
 // PATCH /open-apis/hire/v1/employees/:employee_id
 public class PatchEmployeeSample {
 

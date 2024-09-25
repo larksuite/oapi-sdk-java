@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.okr.v1.model.BatchGetOkrReq;
+import com.lark.oapi.service.okr.v1.model.BatchGetOkrResp;
 
 // GET /open-apis/okr/v1/okrs/batch_get
 public class BatchGetOkrSample {

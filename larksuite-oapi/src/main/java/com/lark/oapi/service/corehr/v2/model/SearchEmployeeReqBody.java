@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchEmployeeReqBody {
     /**
@@ -161,6 +148,12 @@ public class SearchEmployeeReqBody {
      */
     @SerializedName("department_id_list_include_sub")
     private String[] departmentIdListIncludeSub;
+    /**
+     * 成本中心ID;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+     * <p> 示例值：
+     */
+    @SerializedName("cost_center_id_list")
+    private String[] costCenterIdList;
 
     // builder 开始
     public SearchEmployeeReqBody() {
@@ -277,6 +270,11 @@ public class SearchEmployeeReqBody {
          * <p> 示例值：
          */
         this.departmentIdListIncludeSub = builder.departmentIdListIncludeSub;
+        /**
+         * 成本中心ID;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+         * <p> 示例值：
+         */
+        this.costCenterIdList = builder.costCenterIdList;
     }
 
     public static Builder newBuilder() {
@@ -459,6 +457,14 @@ public class SearchEmployeeReqBody {
         this.departmentIdListIncludeSub = departmentIdListIncludeSub;
     }
 
+    public String[] getCostCenterIdList() {
+        return this.costCenterIdList;
+    }
+
+    public void setCostCenterIdList(String[] costCenterIdList) {
+        this.costCenterIdList = costCenterIdList;
+    }
+
     public static class Builder {
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
@@ -570,6 +576,11 @@ public class SearchEmployeeReqBody {
          * <p> 示例值：
          */
         private String[] departmentIdListIncludeSub;
+        /**
+         * 成本中心ID;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+         * <p> 示例值：
+         */
+        private String[] costCenterIdList;
 
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
@@ -865,6 +876,19 @@ public class SearchEmployeeReqBody {
          */
         public Builder departmentIdListIncludeSub(String[] departmentIdListIncludeSub) {
             this.departmentIdListIncludeSub = departmentIdListIncludeSub;
+            return this;
+        }
+
+
+        /**
+         * 成本中心ID;- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取
+         * <p> 示例值：
+         *
+         * @param costCenterIdList
+         * @return
+         */
+        public Builder costCenterIdList(String[] costCenterIdList) {
+            this.costCenterIdList = costCenterIdList;
             return this;
         }
 

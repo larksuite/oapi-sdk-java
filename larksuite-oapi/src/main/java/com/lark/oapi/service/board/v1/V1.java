@@ -14,7 +14,8 @@
 package com.lark.oapi.service.board.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.board.v1.resource.*;
+import com.lark.oapi.service.board.v1.resource.Whiteboard;
+import com.lark.oapi.service.board.v1.resource.WhiteboardNode;
 
 public class V1 {
     private final Whiteboard whiteboard; // whiteboard

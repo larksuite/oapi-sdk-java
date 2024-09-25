@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.lingov1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.lingo.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.lingo.v1.model.ClassificationFilter;
+import com.lark.oapi.service.lingo.v1.model.SearchEntityReq;
+import com.lark.oapi.service.lingo.v1.model.SearchEntityReqBody;
+import com.lark.oapi.service.lingo.v1.model.SearchEntityResp;
 
 // POST /open-apis/lingo/v1/entities/search
 public class SearchEntitySample {

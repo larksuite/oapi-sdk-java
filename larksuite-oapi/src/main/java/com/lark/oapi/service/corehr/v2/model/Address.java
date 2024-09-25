@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Address {
     /**
@@ -197,6 +184,30 @@ public class Address {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 城市往下细分 1 层的行政区
+     * <p> 示例值：123
+     */
+    @SerializedName("city_subdivision_1")
+    private String citySubdivision1;
+    /**
+     * 城市往下细分 2 层的行政区
+     * <p> 示例值：123
+     */
+    @SerializedName("city_subdivision_2")
+    private String citySubdivision2;
+    /**
+     * 主要行政区往下细分 1 层的行政区
+     * <p> 示例值：123
+     */
+    @SerializedName("region_subdivision_1")
+    private String regionSubdivision1;
+    /**
+     * 主要行政区往下细分 2 层的行政区
+     * <p> 示例值：123
+     */
+    @SerializedName("region_subdivision_2")
+    private String regionSubdivision2;
 
     // builder 开始
     public Address() {
@@ -343,6 +354,26 @@ public class Address {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 城市往下细分 1 层的行政区
+         * <p> 示例值：123
+         */
+        this.citySubdivision1 = builder.citySubdivision1;
+        /**
+         * 城市往下细分 2 层的行政区
+         * <p> 示例值：123
+         */
+        this.citySubdivision2 = builder.citySubdivision2;
+        /**
+         * 主要行政区往下细分 1 层的行政区
+         * <p> 示例值：123
+         */
+        this.regionSubdivision1 = builder.regionSubdivision1;
+        /**
+         * 主要行政区往下细分 2 层的行政区
+         * <p> 示例值：123
+         */
+        this.regionSubdivision2 = builder.regionSubdivision2;
     }
 
     public static Builder newBuilder() {
@@ -573,6 +604,38 @@ public class Address {
         this.customFields = customFields;
     }
 
+    public String getCitySubdivision1() {
+        return this.citySubdivision1;
+    }
+
+    public void setCitySubdivision1(String citySubdivision1) {
+        this.citySubdivision1 = citySubdivision1;
+    }
+
+    public String getCitySubdivision2() {
+        return this.citySubdivision2;
+    }
+
+    public void setCitySubdivision2(String citySubdivision2) {
+        this.citySubdivision2 = citySubdivision2;
+    }
+
+    public String getRegionSubdivision1() {
+        return this.regionSubdivision1;
+    }
+
+    public void setRegionSubdivision1(String regionSubdivision1) {
+        this.regionSubdivision1 = regionSubdivision1;
+    }
+
+    public String getRegionSubdivision2() {
+        return this.regionSubdivision2;
+    }
+
+    public void setRegionSubdivision2(String regionSubdivision2) {
+        this.regionSubdivision2 = regionSubdivision2;
+    }
+
     public static class Builder {
         /**
          * 完整地址（本地文字）
@@ -714,6 +777,26 @@ public class Address {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 城市往下细分 1 层的行政区
+         * <p> 示例值：123
+         */
+        private String citySubdivision1;
+        /**
+         * 城市往下细分 2 层的行政区
+         * <p> 示例值：123
+         */
+        private String citySubdivision2;
+        /**
+         * 主要行政区往下细分 1 层的行政区
+         * <p> 示例值：123
+         */
+        private String regionSubdivision1;
+        /**
+         * 主要行政区往下细分 2 层的行政区
+         * <p> 示例值：123
+         */
+        private String regionSubdivision2;
 
         /**
          * 完整地址（本地文字）
@@ -1075,6 +1158,58 @@ public class Address {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 城市往下细分 1 层的行政区
+         * <p> 示例值：123
+         *
+         * @param citySubdivision1
+         * @return
+         */
+        public Builder citySubdivision1(String citySubdivision1) {
+            this.citySubdivision1 = citySubdivision1;
+            return this;
+        }
+
+
+        /**
+         * 城市往下细分 2 层的行政区
+         * <p> 示例值：123
+         *
+         * @param citySubdivision2
+         * @return
+         */
+        public Builder citySubdivision2(String citySubdivision2) {
+            this.citySubdivision2 = citySubdivision2;
+            return this;
+        }
+
+
+        /**
+         * 主要行政区往下细分 1 层的行政区
+         * <p> 示例值：123
+         *
+         * @param regionSubdivision1
+         * @return
+         */
+        public Builder regionSubdivision1(String regionSubdivision1) {
+            this.regionSubdivision1 = regionSubdivision1;
+            return this;
+        }
+
+
+        /**
+         * 主要行政区往下细分 2 层的行政区
+         * <p> 示例值：123
+         *
+         * @param regionSubdivision2
+         * @return
+         */
+        public Builder regionSubdivision2(String regionSubdivision2) {
+            this.regionSubdivision2 = regionSubdivision2;
             return this;
         }
 

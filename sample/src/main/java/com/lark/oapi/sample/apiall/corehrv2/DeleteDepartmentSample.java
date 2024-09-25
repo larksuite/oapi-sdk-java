@@ -2,11 +2,8 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.util.HashMap;
-
-import com.lark.oapi.service.corehr.v2.model.Enum;
+import com.lark.oapi.service.corehr.v2.model.DeleteDepartmentReq;
+import com.lark.oapi.service.corehr.v2.model.DeleteDepartmentResp;
 
 // DELETE /open-apis/corehr/v2/departments/:department_id
 public class DeleteDepartmentSample {

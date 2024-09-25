@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.application.v6.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.application.v6.model.GetApplicationAppVersionReq;
+import com.lark.oapi.service.application.v6.model.GetApplicationAppVersionResp;
 
 // GET /open-apis/application/v6/applications/:app_id/app_versions/:version_id
 public class GetApplicationAppVersionSample {

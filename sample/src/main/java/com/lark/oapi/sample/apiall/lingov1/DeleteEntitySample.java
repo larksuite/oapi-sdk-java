@@ -2,9 +2,8 @@ package com.lark.oapi.sample.apiall.lingov1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.lingo.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.lingo.v1.model.DeleteEntityReq;
+import com.lark.oapi.service.lingo.v1.model.DeleteEntityResp;
 
 // DELETE /open-apis/lingo/v1/entities/:entity_id
 public class DeleteEntitySample {

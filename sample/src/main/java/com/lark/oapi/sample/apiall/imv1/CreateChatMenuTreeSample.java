@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v1.model.ChatMenuTree;
+import com.lark.oapi.service.im.v1.model.CreateChatMenuTreeReq;
+import com.lark.oapi.service.im.v1.model.CreateChatMenuTreeReqBody;
+import com.lark.oapi.service.im.v1.model.CreateChatMenuTreeResp;
 
 // POST /open-apis/im/v1/chats/:chat_id/menu_tree
 public class CreateChatMenuTreeSample {

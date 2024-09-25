@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.approval.v4.model.AddSignInstanceReq;
+import com.lark.oapi.service.approval.v4.model.AddSignInstanceReqBody;
+import com.lark.oapi.service.approval.v4.model.AddSignInstanceResp;
 
 // POST /open-apis/approval/v4/instances/add_sign
 public class AddSignInstanceSample {

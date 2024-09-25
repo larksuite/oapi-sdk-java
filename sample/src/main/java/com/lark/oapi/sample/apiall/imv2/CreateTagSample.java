@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v2.model.CreateTag;
+import com.lark.oapi.service.im.v2.model.CreateTagReq;
+import com.lark.oapi.service.im.v2.model.CreateTagReqBody;
+import com.lark.oapi.service.im.v2.model.CreateTagResp;
 
 // POST /open-apis/im/v2/tags
 public class CreateTagSample {

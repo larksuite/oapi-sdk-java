@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.contact.v3.model.DeleteUserReq;
+import com.lark.oapi.service.contact.v3.model.DeleteUserReqBody;
+import com.lark.oapi.service.contact.v3.model.DeleteUserResp;
+import com.lark.oapi.service.contact.v3.model.ResourceAcceptor;
 
 // DELETE /open-apis/contact/v3/users/:user_id
 public class DeleteUserSample {
@@ -26,6 +27,7 @@ public class DeleteUserSample {
                         .minutesAcceptorUserId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
                         .surveyAcceptorUserId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
                         .emailAcceptor(ResourceAcceptor.newBuilder().build())
+                        .anycrossAcceptorUserId("")
                         .build())
                 .build();
 

@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessSystemDoneItem {
     /**
@@ -83,6 +70,12 @@ public class ProcessSystemDoneItem {
      */
     @SerializedName("node_definition_id")
     private String nodeDefinitionId;
+    /**
+     * 审批意见
+     * <p> 示例值：审批意见
+     */
+    @SerializedName("approval_opinion")
+    private String approvalOpinion;
 
     // builder 开始
     public ProcessSystemDoneItem() {
@@ -134,6 +127,11 @@ public class ProcessSystemDoneItem {
          * <p> 示例值：approval_d25b5eddfef
          */
         this.nodeDefinitionId = builder.nodeDefinitionId;
+        /**
+         * 审批意见
+         * <p> 示例值：审批意见
+         */
+        this.approvalOpinion = builder.approvalOpinion;
     }
 
     public static Builder newBuilder() {
@@ -212,6 +210,14 @@ public class ProcessSystemDoneItem {
         this.nodeDefinitionId = nodeDefinitionId;
     }
 
+    public String getApprovalOpinion() {
+        return this.approvalOpinion;
+    }
+
+    public void setApprovalOpinion(String approvalOpinion) {
+        this.approvalOpinion = approvalOpinion;
+    }
+
     public static class Builder {
         /**
          * 单据ID
@@ -258,6 +264,11 @@ public class ProcessSystemDoneItem {
          * <p> 示例值：approval_d25b5eddfef
          */
         private String nodeDefinitionId;
+        /**
+         * 审批意见
+         * <p> 示例值：审批意见
+         */
+        private String approvalOpinion;
 
         /**
          * 单据ID
@@ -396,6 +407,19 @@ public class ProcessSystemDoneItem {
          */
         public Builder nodeDefinitionId(String nodeDefinitionId) {
             this.nodeDefinitionId = nodeDefinitionId;
+            return this;
+        }
+
+
+        /**
+         * 审批意见
+         * <p> 示例值：审批意见
+         *
+         * @param approvalOpinion
+         * @return
+         */
+        public Builder approvalOpinion(String approvalOpinion) {
+            this.approvalOpinion = approvalOpinion;
             return this;
         }
 

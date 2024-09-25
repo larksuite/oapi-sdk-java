@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.human_authenticationv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.human_authentication.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityReq;
+import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityReqBody;
+import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityResp;
 
 // POST /open-apis/human_authentication/v1/identities
 public class CreateIdentitySample {

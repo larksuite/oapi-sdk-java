@@ -4,8 +4,6 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.*;
 
-import java.util.HashMap;
-
 // POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields
 public class CreateAppTableFieldSample {
 

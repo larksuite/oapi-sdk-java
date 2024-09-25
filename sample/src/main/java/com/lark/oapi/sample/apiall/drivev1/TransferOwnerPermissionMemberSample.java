@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.drive.v1.model.Owner;
+import com.lark.oapi.service.drive.v1.model.TransferOwnerPermissionMemberReq;
+import com.lark.oapi.service.drive.v1.model.TransferOwnerPermissionMemberResp;
 
 // POST /open-apis/drive/v1/permissions/:token/members/transfer_owner
 public class TransferOwnerPermissionMemberSample {

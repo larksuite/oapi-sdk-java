@@ -13,9 +13,7 @@
 package com.lark.oapi.service.speech_to_text;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.speech_to_text.v1.V1;
-import com.lark.oapi.service.speech_to_text.v1.model.*;
 import com.lark.oapi.service.speech_to_text.v1.resource.Speech;
 
 public class SpeechToTextService {

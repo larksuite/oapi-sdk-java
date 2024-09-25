@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialPlanScope {
     /**
@@ -40,7 +27,7 @@ public class SocialPlanScope {
      * <p> 示例值：
      */
     @SerializedName("rules")
-    private PlanCondition[][] rules;
+    private SocialPlanCondition[][] rules;
 
     // builder 开始
     public SocialPlanScope() {
@@ -71,11 +58,11 @@ public class SocialPlanScope {
         this.isAll = isAll;
     }
 
-    public PlanCondition[][] getRules() {
+    public SocialPlanCondition[][] getRules() {
         return this.rules;
     }
 
-    public void setRules(PlanCondition[][] rules) {
+    public void setRules(SocialPlanCondition[][] rules) {
         this.rules = rules;
     }
 
@@ -89,7 +76,7 @@ public class SocialPlanScope {
          * 适用范围，二维。外层or连接，内层and连接
          * <p> 示例值：
          */
-        private PlanCondition[][] rules;
+        private SocialPlanCondition[][] rules;
 
         /**
          * 是否适用于全部
@@ -111,7 +98,7 @@ public class SocialPlanScope {
          * @param rules
          * @return
          */
-        public Builder rules(PlanCondition[][] rules) {
+        public Builder rules(SocialPlanCondition[][] rules) {
             this.rules = rules;
             return this;
         }

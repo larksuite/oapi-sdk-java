@@ -2,9 +2,10 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.*;
-
-import java.util.HashMap;
+import com.lark.oapi.service.im.v2.model.DeleteAppFeedCardBatchReq;
+import com.lark.oapi.service.im.v2.model.DeleteAppFeedCardBatchReqBody;
+import com.lark.oapi.service.im.v2.model.DeleteAppFeedCardBatchResp;
+import com.lark.oapi.service.im.v2.model.UserOpenAppFeedCardDeleter;
 
 // DELETE /open-apis/im/v2/app_feed_card/batch
 public class DeleteAppFeedCardBatchSample {
