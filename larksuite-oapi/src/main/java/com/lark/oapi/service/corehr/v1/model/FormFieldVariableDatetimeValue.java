@@ -21,7 +21,7 @@ public class FormFieldVariableDatetimeValue {
      * <p> 示例值：1670227428803
      */
     @SerializedName("value")
-    private Integer value;
+    private Long value;
     /**
      * 时区
      * <p> 示例值：+08:00
@@ -50,11 +50,11 @@ public class FormFieldVariableDatetimeValue {
         return new Builder();
     }
 
-    public Integer getValue() {
+    public Long getValue() {
         return this.value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 
@@ -71,7 +71,7 @@ public class FormFieldVariableDatetimeValue {
          * 毫秒的时间戳
          * <p> 示例值：1670227428803
          */
-        private Integer value;
+        private Long value;
         /**
          * 时区
          * <p> 示例值：+08:00
@@ -85,7 +85,7 @@ public class FormFieldVariableDatetimeValue {
          * @param value
          * @return
          */
-        public Builder value(Integer value) {
+        public Builder value(Long value) {
             this.value = value;
             return this;
         }
