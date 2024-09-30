@@ -179,4 +179,39 @@ public class TestEventDispatcher {
         assert resp != null;
 
     }
+
+    @Test
+    public void testProcessCustomEncyEvent() throws Throwable {
+        EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "1212121212")
+                .onCustomizedEvent("contact.user.created_v3", new CustomEventV2Handler<P2UserCreatedV3>() {
+                    @Override
+                    public P2UserCreatedV3 getEvent() {
+                        return new P2UserCreatedV3();
+                    }
+
+                    @Override
+                    public void handle(P2UserCreatedV3 event) throws Exception {
+                        System.out.println(Jsons.DEFAULT.toJson(event));
+                        System.out.println("---------------------");
+                        System.out.println(Jsons.DEFAULT.toJson(event.getEvent()));
+                    }
+                })
+                .build();
+
+        String body = "{\"encrypt\":\"4T4ivT/PR2APX9OYkhRKtu54s1rtIpj9xJU69Hs1yWQ/1RutbufsBs9xjx5YC3u/0hMRF49sN0kevQiEL8iB3bVEdpfyJXzXGDfKUjvKQTmG64GbMdTW6qRpadVPem3f32jHuT6fc+4TRg4BigwoUId+l/D+vcIwu3mDgAEbaqzWfmvccmpiRMfQbh9JhdK/akmrRjo/CXPLM+hZciFXJMSpKueV3SjZJoSls5y0ZTHC8zak/Mp/DSl1wa4mYe5laP367Lnl4ylGiXBKx3Ku29oWv79rYcO/5QT63H4rkl8bwYmAzScpb2KNnV11L3xiDzJp3hFdfXczUvm93FXu4Lw8eDAsRzIWCccKrqHh0UvtDJD95tNn6LvYew4+Xbk1RD4k7UzWJS9AMobOK778NLNxfQ+Kn7MKzBHilXnSIVY5V+dcsOOdfqJviW4yWmT73JHYKq1qJip7Cw7lbkmRMUmettUwdVFWxeXH6iTex3YXCgqoriCx/MzeQhdNEycipooB/vHItRt1CF44uFWj9tf8n3TdbdH4dNMD0hw8ejHJSbEHb9HAGCugUniN8BzL9wxE959JU4cu3BKjDuIk5oS9hLR1mSc3vKBuSa3VKOE=\"}";
+
+        Map<String, List<String>> map = new HashMap<>();
+        map.put(Constants.X_LARK_REQUEST_TIMESTAMP.toLowerCase(), Arrays.asList("timestamp"));
+        map.put(Constants.X_LARK_REQUEST_NONCE.toLowerCase(), Arrays.asList("nonce"));
+        String signature = eventDispatcher.calculateSignature("timestamp", "nonce", "1212121212", body);
+        map.put(Constants.X_LARK_SIGNATURE.toLowerCase(), Arrays.asList(signature));
+
+        EventReq req = new EventReq();
+        req.setHeaders(map);
+        req.setBody(body.getBytes(StandardCharsets.UTF_8));
+
+        EventResp resp = eventDispatcher.handle(req);
+        assert resp != null;
+
+    }
 }

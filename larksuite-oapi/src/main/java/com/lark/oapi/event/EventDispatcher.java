@@ -2461,6 +2461,30 @@ public class EventDispatcher implements IHandler {
             return this;
         }
 
+
+        /**
+         * 订阅事件扩展：开发者可自己传递事件类型，并传递对应事件类型的处理器
+         */
+        public <T extends BaseEvent> Builder onCustomizedEvent(String eventType, CustomEventV1Handler<T> handler) {
+            if (eventType2EventHandler.containsKey(eventType)) {
+                throw new EventTypeAlreadyHasHandlerException(eventType);
+            }
+            eventType2EventHandler.put(eventType, handler);
+            return this;
+        }
+
+
+        /**
+         * 订阅事件扩展：开发者可自己传递事件类型，并传递对应事件类型的处理器
+         */
+        public <T extends BaseEventV2> Builder onCustomizedEvent(String eventType, CustomEventV2Handler<T> handler) {
+            if (eventType2EventHandler.containsKey(eventType)) {
+                throw new EventTypeAlreadyHasHandlerException(eventType);
+            }
+            eventType2EventHandler.put(eventType, handler);
+            return this;
+        }
+
         /**
          * <p> 用户阅读机器人发送的消息后触发此事件。
          * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/ugzMugzMugzM/event/message-read">https://open.feishu.cn/document/ukTMukTMukTM/ugzMugzMugzM/event/message-read</a>
