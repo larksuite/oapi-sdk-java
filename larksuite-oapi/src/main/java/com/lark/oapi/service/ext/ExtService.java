@@ -20,9 +20,13 @@ import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.token.GlobalJsSdkTicketManager;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.okio.ByteString;
 import com.lark.oapi.service.ext.model.*;
+
+import java.util.UUID;
 
 public class ExtService {
 
@@ -38,14 +42,14 @@ public class ExtService {
     link: https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN
    */
     public CreateFileResp createFile(CreateFileReq req, RequestOptions requestOptions)
-            throws Exception {
+        throws Exception {
         RawResponse resp = Transport.send(config
-                , requestOptions, "POST"
-                , "/open-apis/drive/explorer/v2/file/:folderToken"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User), req);
+            , requestOptions, "POST"
+            , "/open-apis/drive/explorer/v2/file/:folderToken"
+            , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User), req);
 
         CreateFileResp createFileResp = UnmarshalRespUtil.unmarshalResp(resp,
-                CreateFileResp.class);
+            CreateFileResp.class);
         createFileResp.setRawResponse(resp);
         return createFileResp;
     }
@@ -60,137 +64,156 @@ public class ExtService {
     }
 
     public AppAccessTokenResp getAppAccessTokenBySelfBuiltApp(SelfBuiltAppAccessTokenReq req)
-            throws Exception {
+        throws Exception {
         RawResponse resp = Transport.send(config
-                , new RequestOptions(), "POST"
-                , Constants.APP_ACCESS_TOKEN_INTERNAL_URL_PATH
-                , Sets.newHashSet(AccessTokenType.None), req);
+            , new RequestOptions(), "POST"
+            , Constants.APP_ACCESS_TOKEN_INTERNAL_URL_PATH
+            , Sets.newHashSet(AccessTokenType.None), req);
 
         AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                AppAccessTokenResp.class);
+            AppAccessTokenResp.class);
         appAccessTokenResp.setRawResponse(resp);
         return appAccessTokenResp;
     }
 
     public AppAccessTokenResp getAppAccessTokenByMarketplaceApp(MarketplaceAppAccessTokenReq req)
-            throws Exception {
+        throws Exception {
         RawResponse resp = Transport.send(config
-                , new RequestOptions(), "POST"
-                , Constants.APP_ACCESS_TOKEN_ISV_URL_PATH
-                , Sets.newHashSet(AccessTokenType.None), req);
+            , new RequestOptions(), "POST"
+            , Constants.APP_ACCESS_TOKEN_ISV_URL_PATH
+            , Sets.newHashSet(AccessTokenType.None), req);
 
         // 结果处理
         AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                AppAccessTokenResp.class);
+            AppAccessTokenResp.class);
         appAccessTokenResp.setRawResponse(resp);
         return appAccessTokenResp;
     }
 
     public TenantAccessTokenResp getTenantAccessTokenBySelfBuiltApp(SelfBuiltTenantAccessTokenReq req)
-            throws Exception {
+        throws Exception {
         RawResponse resp = Transport.send(config
-                , new RequestOptions(), "POST"
-                , Constants.TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH
-                , Sets.newHashSet(AccessTokenType.None), req);
+            , new RequestOptions(), "POST"
+            , Constants.TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH
+            , Sets.newHashSet(AccessTokenType.None), req);
 
         TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                TenantAccessTokenResp.class);
+            TenantAccessTokenResp.class);
         tenantAccessTokenResp.setRawResponse(resp);
         return tenantAccessTokenResp;
     }
 
     public TenantAccessTokenResp getTenantAccessTokenByMarketplaceApp(
-            MarketplaceTenantAccessTokenReq req)
-            throws Exception {
+        MarketplaceTenantAccessTokenReq req)
+        throws Exception {
 
         RawResponse resp = Transport.send(config
-                , new RequestOptions(), "POST"
-                , Constants.TENANT_ACCESS_TOKEN_ISV_URL_PATH
-                , Sets.newHashSet(AccessTokenType.None), req);
+            , new RequestOptions(), "POST"
+            , Constants.TENANT_ACCESS_TOKEN_ISV_URL_PATH
+            , Sets.newHashSet(AccessTokenType.None), req);
 
         TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                TenantAccessTokenResp.class);
+            TenantAccessTokenResp.class);
         tenantAccessTokenResp.setRawResponse(resp);
         return tenantAccessTokenResp;
     }
 
     public AuthenAccessTokenResp getAuthenAccessToken(
-            AuthenAccessTokenReq req)
-            throws Exception {
+        AuthenAccessTokenReq req)
+        throws Exception {
 
         RawResponse resp = Transport.send(config
-                , new RequestOptions(), "POST"
-                , Constants.GET_AUTHEN_ACCESS_TOKEN
-                , Sets.newHashSet(AccessTokenType.App), req);
+            , new RequestOptions(), "POST"
+            , Constants.GET_AUTHEN_ACCESS_TOKEN
+            , Sets.newHashSet(AccessTokenType.App), req);
 
         AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                AuthenAccessTokenResp.class);
+            AuthenAccessTokenResp.class);
         authenAccessTokenResp.setRawResponse(resp);
         return authenAccessTokenResp;
     }
 
     public AuthenAccessTokenResp getAuthenAccessToken(
-            AuthenAccessTokenReq req, RequestOptions requestOptions)
-            throws Exception {
+        AuthenAccessTokenReq req, RequestOptions requestOptions)
+        throws Exception {
 
         RawResponse resp = Transport.send(config
-                , requestOptions
-                , "POST"
-                , Constants.GET_AUTHEN_ACCESS_TOKEN
-                , Sets.newHashSet(AccessTokenType.App), req);
+            , requestOptions
+            , "POST"
+            , Constants.GET_AUTHEN_ACCESS_TOKEN
+            , Sets.newHashSet(AccessTokenType.App), req);
 
         AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                AuthenAccessTokenResp.class);
+            AuthenAccessTokenResp.class);
         authenAccessTokenResp.setRawResponse(resp);
         return authenAccessTokenResp;
     }
 
     public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
-            RefreshAuthenAccessTokenReq req, RequestOptions requestOptions)
-            throws Exception {
+        RefreshAuthenAccessTokenReq req, RequestOptions requestOptions)
+        throws Exception {
 
         RawResponse resp = Transport.send(config
-                , requestOptions
-                , "POST"
-                , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
-                , Sets.newHashSet(AccessTokenType.App), req);
+            , requestOptions
+            , "POST"
+            , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
+            , Sets.newHashSet(AccessTokenType.App), req);
 
         RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                RefreshAuthenAccessTokenResp.class);
+            RefreshAuthenAccessTokenResp.class);
         authenAccessTokenResp.setRawResponse(resp);
         return authenAccessTokenResp;
     }
 
     public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
-            RefreshAuthenAccessTokenReq req)
-            throws Exception {
+        RefreshAuthenAccessTokenReq req)
+        throws Exception {
 
         RawResponse resp = Transport.send(config
-                , new RequestOptions()
-                , "POST"
-                , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
-                , Sets.newHashSet(AccessTokenType.App), req);
+            , new RequestOptions()
+            , "POST"
+            , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
+            , Sets.newHashSet(AccessTokenType.App), req);
 
         RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                RefreshAuthenAccessTokenResp.class);
+            RefreshAuthenAccessTokenResp.class);
         authenAccessTokenResp.setRawResponse(resp);
         return authenAccessTokenResp;
     }
 
     public GetAuthenUserInfoResp getAuthenUserInfo(RequestOptions requestOptions)
-            throws Exception {
+        throws Exception {
 
         RawResponse resp = Transport.send(config
-                , requestOptions
-                , "GET"
-                , Constants.GET_AUTHEN_USER_INFO
-                , Sets.newHashSet(AccessTokenType.User), null);
+            , requestOptions
+            , "GET"
+            , Constants.GET_AUTHEN_USER_INFO
+            , Sets.newHashSet(AccessTokenType.User), null);
 
         GetAuthenUserInfoResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-                GetAuthenUserInfoResp.class);
+            GetAuthenUserInfoResp.class);
         authenAccessTokenResp.setRawResponse(resp);
         return authenAccessTokenResp;
     }
 
+    public JsSdkSignature getJsSdkSignature(String url)
+        throws Exception {
+        return getJsSdkSignature(url, UUID.randomUUID().toString());
+    }
 
+    public JsSdkSignature getJsSdkSignature(String url, String noncestr)
+        throws Exception {
+        JsSdkSignature jsSdkSignature = new JsSdkSignature();
+        String ticket = GlobalJsSdkTicketManager.getGlobalAppTicketManager().get(config);
+        long timestamp = System.currentTimeMillis();
+        String verifyStr = String.format("jsapi_ticket=%s&noncestr=%s&timestamp=%d&url=%s", ticket, noncestr, timestamp, url);
+        String signature = ByteString.encodeUtf8(verifyStr).sha1().hex();
+
+        jsSdkSignature.setAppid(config.getAppId());
+        jsSdkSignature.setTicket(ticket);
+        jsSdkSignature.setNoncestr(noncestr);
+        jsSdkSignature.setTimestamp(Long.toString(timestamp));
+        jsSdkSignature.setSignature(signature);
+        return jsSdkSignature;
+    }
 }

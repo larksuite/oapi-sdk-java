@@ -480,10 +480,12 @@ public class Client {
             if (config.getCache() != null) {
                 GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
                 GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
+                GlobalJsSdkTicketManager.setGlobalAppTicketManager(new JsSdkTicketManager(config.getCache()));
             } else {
                 ICache cache = LocalCache.getInstance();
                 GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
                 GlobalTokenManager.setTokenManager(new TokenManager(cache));
+                GlobalJsSdkTicketManager.setGlobalAppTicketManager(new JsSdkTicketManager(cache));
             }
         }
 
