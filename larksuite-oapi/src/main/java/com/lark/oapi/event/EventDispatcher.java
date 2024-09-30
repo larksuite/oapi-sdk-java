@@ -186,6 +186,7 @@ public class EventDispatcher implements IHandler {
 
         EventReq req = new EventReq();
         req.setBody(payload);
+        req.setPlain(pl);
         Object eventMsg = handler.getEvent();
         if (handler instanceof CustomEventHandler) {
             eventMsg = req;
