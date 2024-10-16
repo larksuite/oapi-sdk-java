@@ -13,20 +13,7 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Richtext {
     /**
@@ -41,6 +28,42 @@ public class Richtext {
      */
     @SerializedName("type")
     private String type;
+    /**
+     * 图像key：type=img生效
+     * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+     */
+    @SerializedName("key")
+    private String key;
+    /**
+     * 图片来源：type=img生效
+     * <p> 示例值：https://link.to.image/image.jpg
+     */
+    @SerializedName("src")
+    private String src;
+    /**
+     * 图像高度：type=img生效
+     * <p> 示例值：1080
+     */
+    @SerializedName("height")
+    private Integer height;
+    /**
+     * 图像宽度：type=img生效
+     * <p> 示例值：1920
+     */
+    @SerializedName("width")
+    private Integer width;
+    /**
+     * 链接：type=hyperlink生效
+     * <p> 示例值：https://bytedance.com
+     */
+    @SerializedName("url")
+    private String url;
+    /**
+     * 链接：type=hyperlink生效
+     * <p> 示例值：字节跳动
+     */
+    @SerializedName("text")
+    private String text;
 
     // builder 开始
     public Richtext() {
@@ -57,6 +80,36 @@ public class Richtext {
          * <p> 示例值：text
          */
         this.type = builder.type;
+        /**
+         * 图像key：type=img生效
+         * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+         */
+        this.key = builder.key;
+        /**
+         * 图片来源：type=img生效
+         * <p> 示例值：https://link.to.image/image.jpg
+         */
+        this.src = builder.src;
+        /**
+         * 图像高度：type=img生效
+         * <p> 示例值：1080
+         */
+        this.height = builder.height;
+        /**
+         * 图像宽度：type=img生效
+         * <p> 示例值：1920
+         */
+        this.width = builder.width;
+        /**
+         * 链接：type=hyperlink生效
+         * <p> 示例值：https://bytedance.com
+         */
+        this.url = builder.url;
+        /**
+         * 链接：type=hyperlink生效
+         * <p> 示例值：字节跳动
+         */
+        this.text = builder.text;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +132,54 @@ public class Richtext {
         this.type = type;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public static class Builder {
         /**
          * 内容
@@ -90,7 +191,36 @@ public class Richtext {
          * <p> 示例值：text
          */
         private String type;
-
+        /**
+         * 图像key：type=img生效
+         * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+         */
+        private String key;
+        /**
+         * 图片来源：type=img生效
+         * <p> 示例值：https://link.to.image/image.jpg
+         */
+        private String src;
+        /**
+         * 图像高度：type=img生效
+         * <p> 示例值：1080
+         */
+        private Integer height;
+        /**
+         * 图像宽度：type=img生效
+         * <p> 示例值：1920
+         */
+        private Integer width;
+        /**
+         * 链接：type=hyperlink生效
+         * <p> 示例值：https://bytedance.com
+         */
+        private String url;
+        /**
+         * 链接：type=hyperlink生效
+         * <p> 示例值：字节跳动
+         */
+        private String text;
         /**
          * 内容
          * <p> 示例值：我的答案
@@ -102,7 +232,6 @@ public class Richtext {
             this.content = content;
             return this;
         }
-
 
         /**
          * 类型
@@ -116,6 +245,59 @@ public class Richtext {
             return this;
         }
 
+        /**
+         * 图像key：type=img生效
+         * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+         */
+        public Builder key(String key) {
+            this.key = key;
+            return this;
+        }
+
+        /**
+         * 图片来源：type=img生效
+         * <p> 示例值：https://link.to.image/image.jpg
+         */
+        public Builder src(String src) {
+            this.src = src;
+            return this;
+        }
+
+        /**
+         * 图像高度：type=img生效
+         * <p> 示例值：1080
+         */
+        public Builder height(Integer height) {
+            this.height = height;
+            return this;
+        }
+
+        /**
+         * 图像宽度：type=img生效
+         * <p> 示例值：1920
+         */
+        public Builder width(Integer width) {
+            this.width = width;
+            return this;
+        }
+
+        /**
+         * 链接：type=hyperlink生效
+         * <p> 示例值：https://bytedance.com
+         */
+        public Builder width(String url) {
+            this.url = url;
+            return this;
+        }
+
+        /**
+         * 链接：type=hyperlink生效
+         * <p> 示例值：字节跳动
+         */
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
 
         public Richtext build() {
             return new Richtext(this);
