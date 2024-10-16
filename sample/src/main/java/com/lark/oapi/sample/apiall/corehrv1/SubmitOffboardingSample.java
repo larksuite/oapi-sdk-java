@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.ObjectFieldData;
-import com.lark.oapi.service.corehr.v1.model.SubmitOffboardingReq;
-import com.lark.oapi.service.corehr.v1.model.SubmitOffboardingReqBody;
-import com.lark.oapi.service.corehr.v1.model.SubmitOffboardingResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // POST /open-apis/corehr/v1/offboardings/submit
 public class SubmitOffboardingSample {

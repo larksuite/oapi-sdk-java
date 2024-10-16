@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.ReconciliationReferralAccountReq;
-import com.lark.oapi.service.hire.v1.model.ReconciliationReferralAccountReqBody;
-import com.lark.oapi.service.hire.v1.model.ReconciliationReferralAccountResp;
-import com.lark.oapi.service.hire.v1.model.TradeDetail;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/referral_account/reconciliation
 public class ReconciliationReferralAccountSample {

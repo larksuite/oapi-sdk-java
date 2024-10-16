@@ -14,7 +14,7 @@
 package com.lark.oapi.service.passport.v1.enums;
 
 /**
- *
+ * 用户id类型
  */
 public enum QuerySessionUserIdTypeEnum {
     OPEN_ID("open_id"), // 用户的 open id

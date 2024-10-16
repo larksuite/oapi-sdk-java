@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.EhrImportTask;
-import com.lark.oapi.service.hire.v1.model.PatchEhrImportTaskReq;
-import com.lark.oapi.service.hire.v1.model.PatchEhrImportTaskResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/hire/v1/ehr_import_tasks/:ehr_import_task_id
 public class PatchEhrImportTaskSample {

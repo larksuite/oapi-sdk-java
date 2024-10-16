@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.*;
 
+import java.util.HashMap;
+
 // POST /open-apis/search/v2/data_sources/:data_source_id/items
 public class CreateDataSourceItemSample {
 

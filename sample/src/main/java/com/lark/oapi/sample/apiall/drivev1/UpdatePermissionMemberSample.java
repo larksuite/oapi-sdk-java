@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.BaseMember;
-import com.lark.oapi.service.drive.v1.model.UpdatePermissionMemberReq;
-import com.lark.oapi.service.drive.v1.model.UpdatePermissionMemberResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/drive/v1/permissions/:token/members/:member_id
 public class UpdatePermissionMemberSample {

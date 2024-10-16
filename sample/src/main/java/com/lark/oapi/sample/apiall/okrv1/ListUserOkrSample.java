@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.ListUserOkrReq;
-import com.lark.oapi.service.okr.v1.model.ListUserOkrResp;
+import com.lark.oapi.service.okr.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/okr/v1/users/:user_id/okrs
 public class ListUserOkrSample {

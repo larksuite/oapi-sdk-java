@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.BatchUpdateJobManagerReq;
-import com.lark.oapi.service.hire.v1.model.BatchUpdateJobManagerReqBody;
-import com.lark.oapi.service.hire.v1.model.BatchUpdateJobManagerResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/jobs/:job_id/managers/batch_update
 public class BatchUpdateJobManagerSample {

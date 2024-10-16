@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.ReadUsersMessageReq;
-import com.lark.oapi.service.im.v1.model.ReadUsersMessageResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/im/v1/messages/:message_id/read_users
 public class ReadUsersMessageSample {

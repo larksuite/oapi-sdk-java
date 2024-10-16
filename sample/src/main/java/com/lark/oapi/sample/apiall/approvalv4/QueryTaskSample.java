@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.QueryTaskReq;
-import com.lark.oapi.service.approval.v4.model.QueryTaskResp;
+import com.lark.oapi.service.approval.v4.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/approval/v4/tasks/query
 public class QueryTaskSample {

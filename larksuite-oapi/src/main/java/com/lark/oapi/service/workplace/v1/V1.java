@@ -14,9 +14,7 @@
 package com.lark.oapi.service.workplace.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.workplace.v1.resource.CustomWorkplaceAccessData;
-import com.lark.oapi.service.workplace.v1.resource.WorkplaceAccessData;
-import com.lark.oapi.service.workplace.v1.resource.WorkplaceBlockAccessData;
+import com.lark.oapi.service.workplace.v1.resource.*;
 
 public class V1 {
     private final CustomWorkplaceAccessData customWorkplaceAccessData; // custom_workplace_access_data

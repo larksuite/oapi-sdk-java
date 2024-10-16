@@ -2,9 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.WithdrawProbationReq;
-import com.lark.oapi.service.corehr.v2.model.WithdrawProbationReqBody;
-import com.lark.oapi.service.corehr.v2.model.WithdrawProbationResp;
+import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // POST /open-apis/corehr/v2/probation/withdraw
 public class WithdrawProbationSample {

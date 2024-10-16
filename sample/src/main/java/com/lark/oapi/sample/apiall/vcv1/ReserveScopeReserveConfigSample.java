@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.ReserveScopeReserveConfigReq;
-import com.lark.oapi.service.vc.v1.model.ReserveScopeReserveConfigResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/vc/v1/reserve_configs/reserve_scope
 public class ReserveScopeReserveConfigSample {

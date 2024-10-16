@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.ChatMenuItem;
-import com.lark.oapi.service.im.v1.model.PatchChatMenuItemReq;
-import com.lark.oapi.service.im.v1.model.PatchChatMenuItemReqBody;
-import com.lark.oapi.service.im.v1.model.PatchChatMenuItemResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/im/v1/chats/:chat_id/menu_items/:menu_item_id
 public class PatchChatMenuItemSample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.ResurrectUserReq;
-import com.lark.oapi.service.contact.v3.model.ResurrectUserReqBody;
-import com.lark.oapi.service.contact.v3.model.ResurrectUserResp;
-import com.lark.oapi.service.contact.v3.model.UserDepartmentInfo;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/contact/v3/users/:user_id/resurrect
 public class ResurrectUserSample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.personal_settingsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.personal_settings.v1.model.BatchOpenSystemStatusReq;
-import com.lark.oapi.service.personal_settings.v1.model.BatchOpenSystemStatusReqBody;
-import com.lark.oapi.service.personal_settings.v1.model.BatchOpenSystemStatusResp;
-import com.lark.oapi.service.personal_settings.v1.model.SystemStatusUserOpenParam;
+import com.lark.oapi.service.personal_settings.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_open
 public class BatchOpenSystemStatusSample {

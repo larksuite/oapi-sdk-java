@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.ConfigJobReq;
-import com.lark.oapi.service.hire.v1.model.ConfigJobResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/hire/v1/jobs/:job_id/config
 public class ConfigJobSample {

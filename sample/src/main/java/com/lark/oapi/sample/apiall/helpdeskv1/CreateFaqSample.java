@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.CreateFaqReq;
-import com.lark.oapi.service.helpdesk.v1.model.CreateFaqReqBody;
-import com.lark.oapi.service.helpdesk.v1.model.CreateFaqResp;
-import com.lark.oapi.service.helpdesk.v1.model.FaqCreateInfo;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/helpdesk/v1/faqs
 public class CreateFaqSample {

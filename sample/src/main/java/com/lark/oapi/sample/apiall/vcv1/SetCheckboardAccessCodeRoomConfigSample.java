@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.SetCheckboardAccessCodeRoomConfigReq;
-import com.lark.oapi.service.vc.v1.model.SetCheckboardAccessCodeRoomConfigReqBody;
-import com.lark.oapi.service.vc.v1.model.SetCheckboardAccessCodeRoomConfigResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/vc/v1/room_configs/set_checkboard_access_code
 public class SetCheckboardAccessCodeRoomConfigSample {

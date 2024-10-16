@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.DeleteBatchMessageReq;
-import com.lark.oapi.service.im.v1.model.DeleteBatchMessageResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/im/v1/batch_messages/:batch_message_id
 public class DeleteBatchMessageSample {

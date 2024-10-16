@@ -14,7 +14,7 @@
 package com.lark.oapi.service.compensation.v1.enums;
 
 /**
- * 薪资项数值类型
+ * 薪酬项数值类型
  */
 public enum ItemValueTypeEnum {
     MONEY("money"), // 金额

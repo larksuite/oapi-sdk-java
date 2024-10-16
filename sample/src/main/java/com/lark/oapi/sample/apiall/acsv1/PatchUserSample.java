@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.Feature;
-import com.lark.oapi.service.acs.v1.model.PatchUserReq;
-import com.lark.oapi.service.acs.v1.model.PatchUserResp;
-import com.lark.oapi.service.acs.v1.model.User;
+import com.lark.oapi.service.acs.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/acs/v1/users/:user_id
 public class PatchUserSample {

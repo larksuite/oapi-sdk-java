@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.ParticipantListExportReq;
-import com.lark.oapi.service.vc.v1.model.ParticipantListExportReqBody;
-import com.lark.oapi.service.vc.v1.model.ParticipantListExportResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/vc/v1/exports/participant_list
 public class ParticipantListExportSample {

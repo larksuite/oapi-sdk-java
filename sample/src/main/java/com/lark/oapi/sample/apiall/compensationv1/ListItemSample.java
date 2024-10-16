@@ -17,6 +17,7 @@ public class ListItemSample {
         ListItemReq req = ListItemReq.newBuilder()
                 .pageSize(100)
                 .pageToken("5234233214")
+                .itemType("bonus")
                 .build();
 
         // 发起请求

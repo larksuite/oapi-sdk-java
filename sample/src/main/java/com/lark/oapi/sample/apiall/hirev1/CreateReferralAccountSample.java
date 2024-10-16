@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.CreateReferralAccountReq;
-import com.lark.oapi.service.hire.v1.model.CreateReferralAccountReqBody;
-import com.lark.oapi.service.hire.v1.model.CreateReferralAccountResp;
-import com.lark.oapi.service.hire.v1.model.Mobile;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/referral_account
 public class CreateReferralAccountSample {

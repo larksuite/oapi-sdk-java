@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.BatchGetAppTableRecordReq;
-import com.lark.oapi.service.bitable.v1.model.BatchGetAppTableRecordReqBody;
-import com.lark.oapi.service.bitable.v1.model.BatchGetAppTableRecordResp;
+import com.lark.oapi.service.bitable.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get
 public class BatchGetAppTableRecordSample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.CreateScopeConfigReq;
-import com.lark.oapi.service.vc.v1.model.CreateScopeConfigResp;
-import com.lark.oapi.service.vc.v1.model.RoomConfig;
-import com.lark.oapi.service.vc.v1.model.ScopeConfig;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/vc/v1/scope_config
 public class CreateScopeConfigSample {

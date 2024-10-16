@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.SortTabsChatTabReq;
-import com.lark.oapi.service.im.v1.model.SortTabsChatTabReqBody;
-import com.lark.oapi.service.im.v1.model.SortTabsChatTabResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/im/v1/chats/:chat_id/chat_tabs/sort_tabs
 public class SortTabsChatTabSample {

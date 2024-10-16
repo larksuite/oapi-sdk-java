@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.compensationv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.compensation.v1.model.ListChangeReasonReq;
-import com.lark.oapi.service.compensation.v1.model.ListChangeReasonResp;
+import com.lark.oapi.service.compensation.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/compensation/v1/change_reasons
 public class ListChangeReasonSample {

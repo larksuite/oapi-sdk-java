@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.GetNotificationReq;
-import com.lark.oapi.service.helpdesk.v1.model.GetNotificationResp;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/helpdesk/v1/notifications/:notification_id
 public class GetNotificationSample {

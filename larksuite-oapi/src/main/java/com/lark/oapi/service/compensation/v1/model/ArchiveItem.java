@@ -13,23 +13,36 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ArchiveItem {
     /**
-     * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+     * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
      * <p> 示例值：213423144
      */
     @SerializedName("item_id")
     private String itemId;
     /**
-     * 档案关联薪资项数值
+     * 档案关联薪酬项数值
      * <p> 示例值：15000
      */
     @SerializedName("item_result")
     private String itemResult;
     /**
-     * 档案关联薪资项转正后数值
+     * 档案关联薪酬项转正后数值
      * <p> 示例值：18000
      */
     @SerializedName("item_result_regular")
@@ -41,17 +54,17 @@ public class ArchiveItem {
 
     public ArchiveItem(Builder builder) {
         /**
-         * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+         * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
          * <p> 示例值：213423144
          */
         this.itemId = builder.itemId;
         /**
-         * 档案关联薪资项数值
+         * 档案关联薪酬项数值
          * <p> 示例值：15000
          */
         this.itemResult = builder.itemResult;
         /**
-         * 档案关联薪资项转正后数值
+         * 档案关联薪酬项转正后数值
          * <p> 示例值：18000
          */
         this.itemResultRegular = builder.itemResultRegular;
@@ -87,23 +100,23 @@ public class ArchiveItem {
 
     public static class Builder {
         /**
-         * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+         * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
          * <p> 示例值：213423144
          */
         private String itemId;
         /**
-         * 档案关联薪资项数值
+         * 档案关联薪酬项数值
          * <p> 示例值：15000
          */
         private String itemResult;
         /**
-         * 档案关联薪资项转正后数值
+         * 档案关联薪酬项转正后数值
          * <p> 示例值：18000
          */
         private String itemResultRegular;
 
         /**
-         * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+         * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
          * <p> 示例值：213423144
          *
          * @param itemId
@@ -116,7 +129,7 @@ public class ArchiveItem {
 
 
         /**
-         * 档案关联薪资项数值
+         * 档案关联薪酬项数值
          * <p> 示例值：15000
          *
          * @param itemResult
@@ -129,7 +142,7 @@ public class ArchiveItem {
 
 
         /**
-         * 档案关联薪资项转正后数值
+         * 档案关联薪酬项转正后数值
          * <p> 示例值：18000
          *
          * @param itemResultRegular

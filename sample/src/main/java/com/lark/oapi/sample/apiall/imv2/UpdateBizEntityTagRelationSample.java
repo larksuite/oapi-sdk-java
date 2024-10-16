@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.UpdateBizEntityTagRelationReq;
-import com.lark.oapi.service.im.v2.model.UpdateBizEntityTagRelationReqBody;
-import com.lark.oapi.service.im.v2.model.UpdateBizEntityTagRelationResp;
+import com.lark.oapi.service.im.v2.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/im/v2/biz_entity_tag_relation
 public class UpdateBizEntityTagRelationSample {

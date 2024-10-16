@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.approval.v4.model.DeleteInstanceCommentReq;
-import com.lark.oapi.service.approval.v4.model.DeleteInstanceCommentResp;
+import com.lark.oapi.service.approval.v4.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/approval/v4/instances/:instance_id/comments/:comment_id
 public class DeleteInstanceCommentSample {

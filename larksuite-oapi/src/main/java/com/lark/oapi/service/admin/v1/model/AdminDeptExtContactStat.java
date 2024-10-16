@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class AdminDeptExtContactStat {
     /**
@@ -45,7 +58,7 @@ public class AdminDeptExtContactStat {
      * <p> 示例值：200
      */
     @SerializedName("ref_contact_ucnt")
-    private Integer refContactUcnt;
+    private String refContactUcnt;
     /**
      * 外部联系人所属租户数
      * <p> 示例值：10
@@ -126,11 +139,11 @@ public class AdminDeptExtContactStat {
         this.hasRefContactUcnt = hasRefContactUcnt;
     }
 
-    public Integer getRefContactUcnt() {
+    public String getRefContactUcnt() {
         return this.refContactUcnt;
     }
 
-    public void setRefContactUcnt(Integer refContactUcnt) {
+    public void setRefContactUcnt(String refContactUcnt) {
         this.refContactUcnt = refContactUcnt;
     }
 
@@ -167,7 +180,7 @@ public class AdminDeptExtContactStat {
          * 外部联系人总数
          * <p> 示例值：200
          */
-        private Integer refContactUcnt;
+        private String refContactUcnt;
         /**
          * 外部联系人所属租户数
          * <p> 示例值：10
@@ -233,7 +246,7 @@ public class AdminDeptExtContactStat {
          * @param refContactUcnt
          * @return
          */
-        public Builder refContactUcnt(Integer refContactUcnt) {
+        public Builder refContactUcnt(String refContactUcnt) {
             this.refContactUcnt = refContactUcnt;
             return this;
         }

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.translationv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.translation.v1.model.DetectTextReq;
-import com.lark.oapi.service.translation.v1.model.DetectTextReqBody;
-import com.lark.oapi.service.translation.v1.model.DetectTextResp;
+import com.lark.oapi.service.translation.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/translation/v1/text/detect
 public class DetectTextSample {

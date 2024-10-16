@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.CreateGroupReq;
-import com.lark.oapi.service.attendance.v1.model.CreateGroupReqBody;
-import com.lark.oapi.service.attendance.v1.model.CreateGroupResp;
-import com.lark.oapi.service.attendance.v1.model.Group;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/attendance/v1/groups
 public class CreateGroupSample {

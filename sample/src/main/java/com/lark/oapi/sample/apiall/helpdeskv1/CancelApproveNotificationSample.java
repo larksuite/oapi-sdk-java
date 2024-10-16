@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.CancelApproveNotificationReq;
-import com.lark.oapi.service.helpdesk.v1.model.CancelApproveNotificationResp;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/helpdesk/v1/notifications/:notification_id/cancel_approve
 public class CancelApproveNotificationSample {

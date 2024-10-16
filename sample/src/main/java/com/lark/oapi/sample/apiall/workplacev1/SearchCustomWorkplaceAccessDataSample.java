@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.workplacev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.workplace.v1.model.SearchCustomWorkplaceAccessDataReq;
-import com.lark.oapi.service.workplace.v1.model.SearchCustomWorkplaceAccessDataResp;
+import com.lark.oapi.service.workplace.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/workplace/v1/custom_workplace_access_data/search
 public class SearchCustomWorkplaceAccessDataSample {

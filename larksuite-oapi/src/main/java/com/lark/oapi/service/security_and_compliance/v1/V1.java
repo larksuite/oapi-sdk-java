@@ -14,7 +14,7 @@
 package com.lark.oapi.service.security_and_compliance.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.security_and_compliance.v1.resource.OpenapiLog;
+import com.lark.oapi.service.security_and_compliance.v1.resource.*;
 
 public class V1 {
     private final OpenapiLog openapiLog; // openapi_log

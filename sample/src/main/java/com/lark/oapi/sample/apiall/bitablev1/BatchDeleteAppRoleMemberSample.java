@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.AppRoleMemberId;
-import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppRoleMemberReq;
-import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppRoleMemberReqBody;
-import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppRoleMemberResp;
+import com.lark.oapi.service.bitable.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete
 public class BatchDeleteAppRoleMemberSample {

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.ListDepartmentUnitReq;
-import com.lark.oapi.service.contact.v3.model.ListDepartmentUnitResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/contact/v3/unit/list_department
 public class ListDepartmentUnitSample {

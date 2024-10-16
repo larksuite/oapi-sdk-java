@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.DeleteEmployeeTypeReq;
-import com.lark.oapi.service.corehr.v1.model.DeleteEmployeeTypeResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // DELETE /open-apis/corehr/v1/employee_types/:employee_type_id
 public class DeleteEmployeeTypeSample {

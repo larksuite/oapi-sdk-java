@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.CreateShortcutFileReq;
-import com.lark.oapi.service.drive.v1.model.CreateShortcutFileReqBody;
-import com.lark.oapi.service.drive.v1.model.CreateShortcutFileResp;
-import com.lark.oapi.service.drive.v1.model.ReferEntity;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/drive/v1/files/create_shortcut
 public class CreateShortcutFileSample {

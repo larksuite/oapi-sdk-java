@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.GetMeetingReq;
-import com.lark.oapi.service.vc.v1.model.GetMeetingResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/vc/v1/meetings/:meeting_id
 public class GetMeetingSample {

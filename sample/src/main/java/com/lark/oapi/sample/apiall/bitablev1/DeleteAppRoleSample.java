@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.DeleteAppRoleReq;
-import com.lark.oapi.service.bitable.v1.model.DeleteAppRoleResp;
+import com.lark.oapi.service.bitable.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/bitable/v1/apps/:app_token/roles/:role_id
 public class DeleteAppRoleSample {

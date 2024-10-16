@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeesAdditionalJobWriteResp {
     /**
@@ -124,6 +137,18 @@ public class EmployeesAdditionalJobWriteResp {
      */
     @SerializedName("work_calendar_id")
     private String workCalendarId;
+    /**
+     * 岗位 ID
+     * <p> 示例值：6890452208593372680
+     */
+    @SerializedName("position_id")
+    private String positionId;
+    /**
+     * 人员子类型 ID
+     * <p> 示例值：6890452208593372680
+     */
+    @SerializedName("employee_subtype_id")
+    private String employeeSubtypeId;
 
     // builder 开始
     public EmployeesAdditionalJobWriteResp() {
@@ -220,6 +245,16 @@ public class EmployeesAdditionalJobWriteResp {
          * <p> 示例值：6890452208593372680
          */
         this.workCalendarId = builder.workCalendarId;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6890452208593372680
+         */
+        this.positionId = builder.positionId;
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6890452208593372680
+         */
+        this.employeeSubtypeId = builder.employeeSubtypeId;
     }
 
     public static Builder newBuilder() {
@@ -370,6 +405,22 @@ public class EmployeesAdditionalJobWriteResp {
         this.workCalendarId = workCalendarId;
     }
 
+    public String getPositionId() {
+        return this.positionId;
+    }
+
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
+    }
+
+    public String getEmployeeSubtypeId() {
+        return this.employeeSubtypeId;
+    }
+
+    public void setEmployeeSubtypeId(String employeeSubtypeId) {
+        this.employeeSubtypeId = employeeSubtypeId;
+    }
+
     public static class Builder {
         /**
          * 兼职记录ID
@@ -461,6 +512,16 @@ public class EmployeesAdditionalJobWriteResp {
          * <p> 示例值：6890452208593372680
          */
         private String workCalendarId;
+        /**
+         * 岗位 ID
+         * <p> 示例值：6890452208593372680
+         */
+        private String positionId;
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6890452208593372680
+         */
+        private String employeeSubtypeId;
 
         /**
          * 兼职记录ID
@@ -692,6 +753,32 @@ public class EmployeesAdditionalJobWriteResp {
          */
         public Builder workCalendarId(String workCalendarId) {
             this.workCalendarId = workCalendarId;
+            return this;
+        }
+
+
+        /**
+         * 岗位 ID
+         * <p> 示例值：6890452208593372680
+         *
+         * @param positionId
+         * @return
+         */
+        public Builder positionId(String positionId) {
+            this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6890452208593372680
+         *
+         * @param employeeSubtypeId
+         * @return
+         */
+        public Builder employeeSubtypeId(String employeeSubtypeId) {
+            this.employeeSubtypeId = employeeSubtypeId;
             return this;
         }
 

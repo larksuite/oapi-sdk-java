@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.EcoExamLoginInfo;
-import com.lark.oapi.service.hire.v1.model.LoginInfoEcoExamReq;
-import com.lark.oapi.service.hire.v1.model.LoginInfoEcoExamReqBody;
-import com.lark.oapi.service.hire.v1.model.LoginInfoEcoExamResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/eco_exams/:exam_id/login_info
 public class LoginInfoEcoExamSample {

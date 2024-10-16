@@ -2,9 +2,7 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.AppTableRecord;
-import com.lark.oapi.service.bitable.v1.model.CreateAppTableRecordReq;
-import com.lark.oapi.service.bitable.v1.model.CreateAppTableRecordResp;
+import com.lark.oapi.service.bitable.v1.model.*;
 
 import java.util.HashMap;
 

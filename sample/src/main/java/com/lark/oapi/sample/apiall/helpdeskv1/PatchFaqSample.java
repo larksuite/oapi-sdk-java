@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.helpdesk.v1.model.FaqUpdateInfo;
-import com.lark.oapi.service.helpdesk.v1.model.PatchFaqReq;
-import com.lark.oapi.service.helpdesk.v1.model.PatchFaqReqBody;
-import com.lark.oapi.service.helpdesk.v1.model.PatchFaqResp;
+import com.lark.oapi.service.helpdesk.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/helpdesk/v1/faqs/:id
 public class PatchFaqSample {

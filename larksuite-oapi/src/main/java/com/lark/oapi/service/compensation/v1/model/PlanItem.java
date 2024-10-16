@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class PlanItem {
     /**
@@ -23,7 +36,7 @@ public class PlanItem {
     @SerializedName("adjustment_type")
     private String adjustmentType;
     /**
-     * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+     * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
      * <p> 示例值：21341234
      */
     @SerializedName("item_id")
@@ -58,7 +71,7 @@ public class PlanItem {
          */
         this.adjustmentType = builder.adjustmentType;
         /**
-         * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+         * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
          * <p> 示例值：21341234
          */
         this.itemId = builder.itemId;
@@ -130,7 +143,7 @@ public class PlanItem {
          */
         private String adjustmentType;
         /**
-         * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+         * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
          * <p> 示例值：21341234
          */
         private String itemId;
@@ -176,7 +189,7 @@ public class PlanItem {
 
 
         /**
-         * 薪资项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
+         * 薪酬项ID，详细信息可以通过[批量查询薪资项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)接口查询获得
          * <p> 示例值：21341234
          *
          * @param itemId

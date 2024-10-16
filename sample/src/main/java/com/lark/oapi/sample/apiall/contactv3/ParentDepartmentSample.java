@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.ParentDepartmentReq;
-import com.lark.oapi.service.contact.v3.model.ParentDepartmentResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/contact/v3/departments/parent
 public class ParentDepartmentSample {

@@ -2,10 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.AssignedOrganizationWithCode;
-import com.lark.oapi.service.corehr.v1.model.UpdateRoleAssignAuthorizationReq;
-import com.lark.oapi.service.corehr.v1.model.UpdateRoleAssignAuthorizationReqBody;
-import com.lark.oapi.service.corehr.v1.model.UpdateRoleAssignAuthorizationResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // POST /open-apis/corehr/v1/authorizations/update_role_assign
 public class UpdateRoleAssignAuthorizationSample {

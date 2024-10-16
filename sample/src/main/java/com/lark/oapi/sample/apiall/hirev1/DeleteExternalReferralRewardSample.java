@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.DeleteExternalReferralRewardReq;
-import com.lark.oapi.service.hire.v1.model.DeleteExternalReferralRewardResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/hire/v1/external_referral_rewards/:external_referral_reward_id
 public class DeleteExternalReferralRewardSample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.PatchTag;
-import com.lark.oapi.service.im.v2.model.PatchTagReq;
-import com.lark.oapi.service.im.v2.model.PatchTagReqBody;
-import com.lark.oapi.service.im.v2.model.PatchTagResp;
+import com.lark.oapi.service.im.v2.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/im/v2/tags/:tag_id
 public class PatchTagSample {

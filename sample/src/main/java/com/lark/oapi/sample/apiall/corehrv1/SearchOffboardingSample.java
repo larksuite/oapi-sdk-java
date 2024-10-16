@@ -2,9 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.SearchOffboardingReq;
-import com.lark.oapi.service.corehr.v1.model.SearchOffboardingReqBody;
-import com.lark.oapi.service.corehr.v1.model.SearchOffboardingResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // POST /open-apis/corehr/v1/offboardings/search
 public class SearchOffboardingSample {

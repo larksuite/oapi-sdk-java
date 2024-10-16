@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.application.v6.model.AppBadge;
-import com.lark.oapi.service.application.v6.model.ClientBadgeNum;
-import com.lark.oapi.service.application.v6.model.SetAppBadgeReq;
-import com.lark.oapi.service.application.v6.model.SetAppBadgeResp;
+import com.lark.oapi.service.application.v6.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/application/v6/app_badge/set
 public class SetAppBadgeSample {

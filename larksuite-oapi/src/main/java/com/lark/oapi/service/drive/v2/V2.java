@@ -14,7 +14,7 @@
 package com.lark.oapi.service.drive.v2;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.drive.v2.resource.PermissionPublic;
+import com.lark.oapi.service.drive.v2.resource.*;
 
 public class V2 {
     private final PermissionPublic permissionPublic; // permission.public

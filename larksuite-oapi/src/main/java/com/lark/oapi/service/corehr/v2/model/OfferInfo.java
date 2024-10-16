@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferInfo {
     /**
@@ -40,6 +53,12 @@ public class OfferInfo {
      */
     @SerializedName("direct_leader_id")
     private String directLeaderId;
+    /**
+     * 虚线上级id
+     * <p> 示例值：7032210902531327521
+     */
+    @SerializedName("dotted_line_manager_id")
+    private String dottedLineManagerId;
     /**
      * 职务id
      * <p> 示例值：6977976735715378724
@@ -319,6 +338,11 @@ public class OfferInfo {
          */
         this.directLeaderId = builder.directLeaderId;
         /**
+         * 虚线上级id
+         * <p> 示例值：7032210902531327521
+         */
+        this.dottedLineManagerId = builder.dottedLineManagerId;
+        /**
          * 职务id
          * <p> 示例值：6977976735715378724
          */
@@ -564,6 +588,14 @@ public class OfferInfo {
 
     public void setDirectLeaderId(String directLeaderId) {
         this.directLeaderId = directLeaderId;
+    }
+
+    public String getDottedLineManagerId() {
+        return this.dottedLineManagerId;
+    }
+
+    public void setDottedLineManagerId(String dottedLineManagerId) {
+        this.dottedLineManagerId = dottedLineManagerId;
     }
 
     public String getJobId() {
@@ -924,6 +956,11 @@ public class OfferInfo {
          */
         private String directLeaderId;
         /**
+         * 虚线上级id
+         * <p> 示例值：7032210902531327521
+         */
+        private String dottedLineManagerId;
+        /**
          * 职务id
          * <p> 示例值：6977976735715378724
          */
@@ -1182,6 +1219,19 @@ public class OfferInfo {
          */
         public Builder directLeaderId(String directLeaderId) {
             this.directLeaderId = directLeaderId;
+            return this;
+        }
+
+
+        /**
+         * 虚线上级id
+         * <p> 示例值：7032210902531327521
+         *
+         * @param dottedLineManagerId
+         * @return
+         */
+        public Builder dottedLineManagerId(String dottedLineManagerId) {
+            this.dottedLineManagerId = dottedLineManagerId;
             return this;
         }
 

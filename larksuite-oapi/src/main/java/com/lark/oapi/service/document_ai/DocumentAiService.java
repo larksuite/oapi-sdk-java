@@ -13,8 +13,27 @@
 package com.lark.oapi.service.document_ai;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.document_ai.v1.V1;
-import com.lark.oapi.service.document_ai.v1.resource.*;
+import com.lark.oapi.service.document_ai.v1.model.*;
+import com.lark.oapi.service.document_ai.v1.resource.BankCard;
+import com.lark.oapi.service.document_ai.v1.resource.BusinessCard;
+import com.lark.oapi.service.document_ai.v1.resource.BusinessLicense;
+import com.lark.oapi.service.document_ai.v1.resource.ChinesePassport;
+import com.lark.oapi.service.document_ai.v1.resource.Contract;
+import com.lark.oapi.service.document_ai.v1.resource.DrivingLicense;
+import com.lark.oapi.service.document_ai.v1.resource.FoodManageLicense;
+import com.lark.oapi.service.document_ai.v1.resource.FoodProduceLicense;
+import com.lark.oapi.service.document_ai.v1.resource.HealthCertificate;
+import com.lark.oapi.service.document_ai.v1.resource.HkmMainlandTravelPermit;
+import com.lark.oapi.service.document_ai.v1.resource.IdCard;
+import com.lark.oapi.service.document_ai.v1.resource.Resume;
+import com.lark.oapi.service.document_ai.v1.resource.TaxiInvoice;
+import com.lark.oapi.service.document_ai.v1.resource.TrainInvoice;
+import com.lark.oapi.service.document_ai.v1.resource.TwMainlandTravelPermit;
+import com.lark.oapi.service.document_ai.v1.resource.VatInvoice;
+import com.lark.oapi.service.document_ai.v1.resource.VehicleInvoice;
+import com.lark.oapi.service.document_ai.v1.resource.VehicleLicense;
 
 public class DocumentAiService {
     private final V1 v1;

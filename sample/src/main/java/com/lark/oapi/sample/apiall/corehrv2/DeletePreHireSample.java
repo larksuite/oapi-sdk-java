@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.DeletePreHireReq;
-import com.lark.oapi.service.corehr.v2.model.DeletePreHireResp;
+import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // DELETE /open-apis/corehr/v2/pre_hires/:pre_hire_id
 public class DeletePreHireSample {

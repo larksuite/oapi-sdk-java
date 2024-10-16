@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.MentionEntity;
-import com.lark.oapi.service.hire.v1.model.PatchNoteReq;
-import com.lark.oapi.service.hire.v1.model.PatchNoteReqBody;
-import com.lark.oapi.service.hire.v1.model.PatchNoteResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/hire/v1/notes/:note_id
 public class PatchNoteSample {

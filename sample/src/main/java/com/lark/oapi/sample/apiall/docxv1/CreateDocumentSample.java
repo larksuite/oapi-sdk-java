@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.docxv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.docx.v1.model.CreateDocumentReq;
-import com.lark.oapi.service.docx.v1.model.CreateDocumentReqBody;
-import com.lark.oapi.service.docx.v1.model.CreateDocumentResp;
+import com.lark.oapi.service.docx.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/docx/v1/documents
 public class CreateDocumentSample {

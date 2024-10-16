@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.DeleteManagersChatManagersReq;
-import com.lark.oapi.service.im.v1.model.DeleteManagersChatManagersReqBody;
-import com.lark.oapi.service.im.v1.model.DeleteManagersChatManagersResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/im/v1/chats/:chat_id/managers/delete_managers
 public class DeleteManagersChatManagersSample {

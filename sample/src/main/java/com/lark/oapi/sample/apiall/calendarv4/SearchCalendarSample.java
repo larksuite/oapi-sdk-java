@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarReqBody;
-import com.lark.oapi.service.calendar.v4.model.SearchCalendarResp;
+import com.lark.oapi.service.calendar.v4.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/calendar/v4/calendars/search
 public class SearchCalendarSample {

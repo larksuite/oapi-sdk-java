@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.personal_settingsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.personal_settings.v1.model.BatchCloseSystemStatusReq;
-import com.lark.oapi.service.personal_settings.v1.model.BatchCloseSystemStatusReqBody;
-import com.lark.oapi.service.personal_settings.v1.model.BatchCloseSystemStatusResp;
+import com.lark.oapi.service.personal_settings.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/personal_settings/v1/system_statuses/:system_status_id/batch_close
 public class BatchCloseSystemStatusSample {

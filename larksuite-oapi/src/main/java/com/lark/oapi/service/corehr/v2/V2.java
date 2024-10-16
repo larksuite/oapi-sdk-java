@@ -25,7 +25,9 @@ public class V2 {
     private final BasicInfoCountryRegionSubdivision basicInfoCountryRegionSubdivision; // basic_info.country_region_subdivision
     private final BasicInfoCurrency basicInfoCurrency; // basic_info.currency
     private final BasicInfoDistrict basicInfoDistrict; // basic_info.district
+    private final BasicInfoLanguage basicInfoLanguage; // basic_info.language
     private final BasicInfoNationality basicInfoNationality; // basic_info.nationality
+    private final BasicInfoTimeZone basicInfoTimeZone; // basic_info.time_zone
     private final Bp bp; // bp
     private final Company company; // company
     private final Contract contract; // contract
@@ -51,6 +53,7 @@ public class V2 {
     private final ProcessCc processCc; // process.cc
     private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
     private final ProcessNode processNode; // process.node
+    private final ProcessStatus processStatus; // process.status
     private final WorkforcePlanDetail workforcePlanDetail; // workforce_plan_detail
 
     public V2(Config config) {
@@ -61,7 +64,9 @@ public class V2 {
         this.basicInfoCountryRegionSubdivision = new BasicInfoCountryRegionSubdivision(config);
         this.basicInfoCurrency = new BasicInfoCurrency(config);
         this.basicInfoDistrict = new BasicInfoDistrict(config);
+        this.basicInfoLanguage = new BasicInfoLanguage(config);
         this.basicInfoNationality = new BasicInfoNationality(config);
+        this.basicInfoTimeZone = new BasicInfoTimeZone(config);
         this.bp = new Bp(config);
         this.company = new Company(config);
         this.contract = new Contract(config);
@@ -87,6 +92,7 @@ public class V2 {
         this.processCc = new ProcessCc(config);
         this.processFormVariableData = new ProcessFormVariableData(config);
         this.processNode = new ProcessNode(config);
+        this.processStatus = new ProcessStatus(config);
         this.workforcePlanDetail = new WorkforcePlanDetail(config);
     }
 
@@ -118,8 +124,16 @@ public class V2 {
         return basicInfoDistrict;
     }
 
+    public BasicInfoLanguage basicInfoLanguage() {
+        return basicInfoLanguage;
+    }
+
     public BasicInfoNationality basicInfoNationality() {
         return basicInfoNationality;
+    }
+
+    public BasicInfoTimeZone basicInfoTimeZone() {
+        return basicInfoTimeZone;
     }
 
     public Bp bp() {
@@ -220,6 +234,10 @@ public class V2 {
 
     public ProcessNode processNode() {
         return processNode;
+    }
+
+    public ProcessStatus processStatus() {
+        return processStatus;
     }
 
     public WorkforcePlanDetail workforcePlanDetail() {

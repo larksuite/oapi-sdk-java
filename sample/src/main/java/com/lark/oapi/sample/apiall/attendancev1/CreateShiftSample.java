@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.*;
 
+import java.util.HashMap;
+
 // POST /open-apis/attendance/v1/shifts
 public class CreateShiftSample {
 
@@ -30,7 +32,9 @@ public class CreateShiftSample {
                         .overtimeRestTimeRule(new RestRule[]{})
                         .lateMinutesAsSeriousLate(40)
                         .shiftMiddleTimeRule(ShiftMiddleTimeRule.newBuilder().build())
+                        .shiftAttendanceTimeConfig(ShiftAttendanceTimeConfig.newBuilder().build())
                         .lateOffLateOnSetting(LateOffLateOnSetting.newBuilder().build())
+                        .id("6919358778597097404")
                         .build())
                 .build();
 

@@ -2,9 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v2.model.QueryEmployeesJobDataReq;
-import com.lark.oapi.service.corehr.v2.model.QueryEmployeesJobDataReqBody;
-import com.lark.oapi.service.corehr.v2.model.QueryEmployeesJobDataResp;
+import com.lark.oapi.service.corehr.v2.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v2.model.Enum;
 
 // POST /open-apis/corehr/v2/employees/job_datas/query
 public class QueryEmployeesJobDataSample {
@@ -24,6 +26,8 @@ public class QueryEmployeesJobDataSample {
                         .dataDate("2020-01-01")
                         .effectiveDateStart("2020-01-01")
                         .effectiveDateEnd("2020-01-01")
+                        .departmentId("6891251722631890445")
+                        .employmentIds(new String[]{})
                         .build())
                 .build();
 

@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.baike.v1.model.*;
 
+import java.util.HashMap;
+
 // PUT /open-apis/baike/v1/drafts/:draft_id
 public class UpdateDraftSample {
 

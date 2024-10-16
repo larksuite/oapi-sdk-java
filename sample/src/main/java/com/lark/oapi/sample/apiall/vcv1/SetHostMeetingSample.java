@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.MeetingUser;
-import com.lark.oapi.service.vc.v1.model.SetHostMeetingReq;
-import com.lark.oapi.service.vc.v1.model.SetHostMeetingReqBody;
-import com.lark.oapi.service.vc.v1.model.SetHostMeetingResp;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/vc/v1/meetings/:meeting_id/set_host
 public class SetHostMeetingSample {

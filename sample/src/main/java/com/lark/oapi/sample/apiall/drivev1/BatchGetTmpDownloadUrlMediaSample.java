@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.BatchGetTmpDownloadUrlMediaReq;
-import com.lark.oapi.service.drive.v1.model.BatchGetTmpDownloadUrlMediaResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/drive/v1/medias/batch_get_tmp_download_url
 public class BatchGetTmpDownloadUrlMediaSample {

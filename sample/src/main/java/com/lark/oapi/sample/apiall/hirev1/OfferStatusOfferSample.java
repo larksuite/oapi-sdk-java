@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.OfferStatusOfferReq;
-import com.lark.oapi.service.hire.v1.model.OfferStatusOfferReqBody;
-import com.lark.oapi.service.hire.v1.model.OfferStatusOfferResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/hire/v1/offers/:offer_id/offer_status
 public class OfferStatusOfferSample {

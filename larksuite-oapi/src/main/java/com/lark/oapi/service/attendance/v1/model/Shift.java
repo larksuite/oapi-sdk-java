@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Shift {
     /**
@@ -113,11 +126,23 @@ public class Shift {
     @SerializedName("shift_middle_time_rule")
     private ShiftMiddleTimeRule shiftMiddleTimeRule;
     /**
+     * 应出勤配置
+     * <p> 示例值：
+     */
+    @SerializedName("shift_attendance_time_config")
+    private ShiftAttendanceTimeConfig shiftAttendanceTimeConfig;
+    /**
      * 晚走次日晚到配置规则
      * <p> 示例值：
      */
     @SerializedName("late_off_late_on_setting")
     private LateOffLateOnSetting lateOffLateOnSetting;
+    /**
+     * 班次id(更新班次时需要传递)
+     * <p> 示例值：6919358778597097404
+     */
+    @SerializedName("id")
+    private String id;
 
     // builder 开始
     public Shift() {
@@ -205,10 +230,20 @@ public class Shift {
          */
         this.shiftMiddleTimeRule = builder.shiftMiddleTimeRule;
         /**
+         * 应出勤配置
+         * <p> 示例值：
+         */
+        this.shiftAttendanceTimeConfig = builder.shiftAttendanceTimeConfig;
+        /**
          * 晚走次日晚到配置规则
          * <p> 示例值：
          */
         this.lateOffLateOnSetting = builder.lateOffLateOnSetting;
+        /**
+         * 班次id(更新班次时需要传递)
+         * <p> 示例值：6919358778597097404
+         */
+        this.id = builder.id;
     }
 
     public static Builder newBuilder() {
@@ -343,12 +378,28 @@ public class Shift {
         this.shiftMiddleTimeRule = shiftMiddleTimeRule;
     }
 
+    public ShiftAttendanceTimeConfig getShiftAttendanceTimeConfig() {
+        return this.shiftAttendanceTimeConfig;
+    }
+
+    public void setShiftAttendanceTimeConfig(ShiftAttendanceTimeConfig shiftAttendanceTimeConfig) {
+        this.shiftAttendanceTimeConfig = shiftAttendanceTimeConfig;
+    }
+
     public LateOffLateOnSetting getLateOffLateOnSetting() {
         return this.lateOffLateOnSetting;
     }
 
     public void setLateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
         this.lateOffLateOnSetting = lateOffLateOnSetting;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public static class Builder {
@@ -433,10 +484,20 @@ public class Shift {
          */
         private ShiftMiddleTimeRule shiftMiddleTimeRule;
         /**
+         * 应出勤配置
+         * <p> 示例值：
+         */
+        private ShiftAttendanceTimeConfig shiftAttendanceTimeConfig;
+        /**
          * 晚走次日晚到配置规则
          * <p> 示例值：
          */
         private LateOffLateOnSetting lateOffLateOnSetting;
+        /**
+         * 班次id(更新班次时需要传递)
+         * <p> 示例值：6919358778597097404
+         */
+        private String id;
 
         /**
          * 班次 ID
@@ -647,6 +708,19 @@ public class Shift {
 
 
         /**
+         * 应出勤配置
+         * <p> 示例值：
+         *
+         * @param shiftAttendanceTimeConfig
+         * @return
+         */
+        public Builder shiftAttendanceTimeConfig(ShiftAttendanceTimeConfig shiftAttendanceTimeConfig) {
+            this.shiftAttendanceTimeConfig = shiftAttendanceTimeConfig;
+            return this;
+        }
+
+
+        /**
          * 晚走次日晚到配置规则
          * <p> 示例值：
          *
@@ -655,6 +729,19 @@ public class Shift {
          */
         public Builder lateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
             this.lateOffLateOnSetting = lateOffLateOnSetting;
+            return this;
+        }
+
+
+        /**
+         * 班次id(更新班次时需要传递)
+         * <p> 示例值：6919358778597097404
+         *
+         * @param id
+         * @return
+         */
+        public Builder id(String id) {
+            this.id = id;
             return this;
         }
 

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.calendar.v4.model.PrimaryCalendarReq;
-import com.lark.oapi.service.calendar.v4.model.PrimaryCalendarResp;
+import com.lark.oapi.service.calendar.v4.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/calendar/v4/calendars/primary
 public class PrimaryCalendarSample {

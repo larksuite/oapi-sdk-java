@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.adminv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.admin.v1.model.CreateBadgeGrantReq;
-import com.lark.oapi.service.admin.v1.model.CreateBadgeGrantResp;
-import com.lark.oapi.service.admin.v1.model.Grant;
-import com.lark.oapi.service.admin.v1.model.RuleDetail;
+import com.lark.oapi.service.admin.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/admin/v1/badges/:badge_id/grants
 public class CreateBadgeGrantSample {

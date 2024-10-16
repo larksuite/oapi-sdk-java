@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v1.model.Collaborator;
-import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorReq;
-import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorResp;
+import com.lark.oapi.service.task.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/task/v1/tasks/:task_id/collaborators
 public class CreateTaskCollaboratorSample {

@@ -2,8 +2,11 @@ package com.lark.oapi.sample.apiall.corehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.corehr.v1.model.DeleteLeaveGrantingRecordReq;
-import com.lark.oapi.service.corehr.v1.model.DeleteLeaveGrantingRecordResp;
+import com.lark.oapi.service.corehr.v1.model.*;
+
+import java.util.HashMap;
+
+import com.lark.oapi.service.corehr.v1.model.Enum;
 
 // DELETE /open-apis/corehr/v1/leave_granting_records/:leave_granting_record_id
 public class DeleteLeaveGrantingRecordSample {

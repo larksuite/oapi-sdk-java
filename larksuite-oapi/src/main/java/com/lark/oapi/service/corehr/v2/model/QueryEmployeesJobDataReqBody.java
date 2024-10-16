@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryEmployeesJobDataReqBody {
     /**
@@ -40,6 +53,18 @@ public class QueryEmployeesJobDataReqBody {
      */
     @SerializedName("effective_date_end")
     private String effectiveDateEnd;
+    /**
+     * 部门 ID
+     * <p> 示例值：6891251722631890445
+     */
+    @SerializedName("department_id")
+    private String departmentId;
+    /**
+     * 员工雇佣 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("employment_ids")
+    private String[] employmentIds;
 
     // builder 开始
     public QueryEmployeesJobDataReqBody() {
@@ -66,6 +91,16 @@ public class QueryEmployeesJobDataReqBody {
          * <p> 示例值：2020-01-01
          */
         this.effectiveDateEnd = builder.effectiveDateEnd;
+        /**
+         * 部门 ID
+         * <p> 示例值：6891251722631890445
+         */
+        this.departmentId = builder.departmentId;
+        /**
+         * 员工雇佣 ID 列表
+         * <p> 示例值：
+         */
+        this.employmentIds = builder.employmentIds;
     }
 
     public static Builder newBuilder() {
@@ -104,6 +139,22 @@ public class QueryEmployeesJobDataReqBody {
         this.effectiveDateEnd = effectiveDateEnd;
     }
 
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String[] getEmploymentIds() {
+        return this.employmentIds;
+    }
+
+    public void setEmploymentIds(String[] employmentIds) {
+        this.employmentIds = employmentIds;
+    }
+
     public static class Builder {
         /**
          * 是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false
@@ -125,6 +176,16 @@ public class QueryEmployeesJobDataReqBody {
          * <p> 示例值：2020-01-01
          */
         private String effectiveDateEnd;
+        /**
+         * 部门 ID
+         * <p> 示例值：6891251722631890445
+         */
+        private String departmentId;
+        /**
+         * 员工雇佣 ID 列表
+         * <p> 示例值：
+         */
+        private String[] employmentIds;
 
         /**
          * 是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false
@@ -174,6 +235,32 @@ public class QueryEmployeesJobDataReqBody {
          */
         public Builder effectiveDateEnd(String effectiveDateEnd) {
             this.effectiveDateEnd = effectiveDateEnd;
+            return this;
+        }
+
+
+        /**
+         * 部门 ID
+         * <p> 示例值：6891251722631890445
+         *
+         * @param departmentId
+         * @return
+         */
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+
+        /**
+         * 员工雇佣 ID 列表
+         * <p> 示例值：
+         *
+         * @param employmentIds
+         * @return
+         */
+        public Builder employmentIds(String[] employmentIds) {
+            this.employmentIds = employmentIds;
             return this;
         }
 

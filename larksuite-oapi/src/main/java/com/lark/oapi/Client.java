@@ -13,122 +13,140 @@
 
 package com.lark.oapi;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.cache.ICache;
-import com.lark.oapi.core.cache.LocalCache;
-import com.lark.oapi.core.enums.AppType;
-import com.lark.oapi.core.enums.BaseUrlEnum;
+import com.lark.oapi.service.docx.DocxService;
+import com.lark.oapi.service.search.SearchService;
+import com.lark.oapi.service.workplace.WorkplaceService;
+import com.lark.oapi.service.auth.AuthService;
+import com.lark.oapi.service.compensation.CompensationService;
+import com.lark.oapi.service.authen.AuthenService;
+import com.lark.oapi.service.board.BoardService;
+import com.lark.oapi.service.document_ai.DocumentAiService;
+import com.lark.oapi.service.event.EventService;
+import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.passport.PassportService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.attendance.AttendanceService;
+import com.lark.oapi.service.tenant.TenantService;
+import com.lark.oapi.service.vc.VcService;
+import com.lark.oapi.service.wiki.WikiService;
+import com.lark.oapi.service.personal_settings.PersonalSettingsService;
+import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
+import com.lark.oapi.service.gray_test_open_sg.GrayTestOpenSgService;
+import com.lark.oapi.service.bitable.BitableService;
+import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.approval.ApprovalService;
+import com.lark.oapi.service.mail.MailService;
+import com.lark.oapi.service.mdm.MdmService;
+import com.lark.oapi.service.okr.OkrService;
+import com.lark.oapi.service.report.ReportService;
+import com.lark.oapi.service.sheets.SheetsService;
+import com.lark.oapi.service.admin.AdminService;
+import com.lark.oapi.service.aily.AilyService;
+import com.lark.oapi.service.translation.TranslationService;
+import com.lark.oapi.service.im.ImService;
+import com.lark.oapi.service.task.TaskService;
+import com.lark.oapi.service.verification.VerificationService;
+import com.lark.oapi.service.baike.BaikeService;
+import com.lark.oapi.service.hire.HireService;
+import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
+import com.lark.oapi.service.lingo.LingoService;
+import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
+import com.lark.oapi.service.block.BlockService;
+import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.drive.DriveService;
+import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.acs.AcsService;
+import com.lark.oapi.service.contact.ContactService;
+import com.lark.oapi.service.speech_to_text.SpeechToTextService;
+import com.lark.oapi.service.ehr.EhrService;
+import com.lark.oapi.service.moments.MomentsService;
+
+import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
+import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.*;
-import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.enums.AppType;
+import com.lark.oapi.core.Config;
+import com.lark.oapi.okhttp.OkHttpClient;
+import com.lark.oapi.core.cache.ICache;
+import com.lark.oapi.core.cache.LocalCache;
+import com.lark.oapi.core.token.AppTicketManager;
+import com.lark.oapi.core.token.TokenManager;
+import com.lark.oapi.core.token.GlobalAppTicketManager;
+import com.lark.oapi.core.token.GlobalTokenManager;
+
+import java.util.concurrent.TimeUnit;
+
+import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.service.acs.AcsService;
-import com.lark.oapi.service.admin.AdminService;
-import com.lark.oapi.service.aily.AilyService;
-import com.lark.oapi.service.application.ApplicationService;
-import com.lark.oapi.service.approval.ApprovalService;
-import com.lark.oapi.service.attendance.AttendanceService;
-import com.lark.oapi.service.auth.AuthService;
-import com.lark.oapi.service.authen.AuthenService;
-import com.lark.oapi.service.baike.BaikeService;
-import com.lark.oapi.service.bitable.BitableService;
-import com.lark.oapi.service.block.BlockService;
-import com.lark.oapi.service.board.BoardService;
-import com.lark.oapi.service.calendar.CalendarService;
-import com.lark.oapi.service.compensation.CompensationService;
-import com.lark.oapi.service.contact.ContactService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.document_ai.DocumentAiService;
-import com.lark.oapi.service.docx.DocxService;
-import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.ehr.EhrService;
-import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.ext.ExtService;
-import com.lark.oapi.service.gray_test_open_sg.GrayTestOpenSgService;
-import com.lark.oapi.service.helpdesk.HelpdeskService;
-import com.lark.oapi.service.hire.HireService;
-import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.lingo.LingoService;
-import com.lark.oapi.service.mail.MailService;
-import com.lark.oapi.service.mdm.MdmService;
-import com.lark.oapi.service.meeting_room.MeetingRoomService;
-import com.lark.oapi.service.moments.MomentsService;
-import com.lark.oapi.service.okr.OkrService;
-import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
-import com.lark.oapi.service.passport.PassportService;
-import com.lark.oapi.service.personal_settings.PersonalSettingsService;
-import com.lark.oapi.service.report.ReportService;
-import com.lark.oapi.service.search.SearchService;
-import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
-import com.lark.oapi.service.sheets.SheetsService;
-import com.lark.oapi.service.speech_to_text.SpeechToTextService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.tenant.TenantService;
-import com.lark.oapi.service.translation.TranslationService;
-import com.lark.oapi.service.vc.VcService;
-import com.lark.oapi.service.verification.VerificationService;
-import com.lark.oapi.service.wiki.WikiService;
-import com.lark.oapi.service.workplace.WorkplaceService;
 
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.TimeUnit;
+
+import com.lark.oapi.core.enums.BaseUrlEnum;
+import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
+import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
+import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
+import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
+import com.lark.oapi.core.response.AppAccessTokenResp;
+import com.lark.oapi.core.response.TenantAccessTokenResp;
+import com.lark.oapi.core.exception.ObtainAccessTokenException;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.Constants;
 
 
 public class Client {
     private Config config;
-    private TenantService tenant;
-    private TranslationService translation;
-    private AcsService acs;
-    private CalendarService calendar;
     private DocxService docx;
-    private ImService im;
-    private ReportService report;
-    private TaskService task;
+    private SearchService search;
     private WorkplaceService workplace;
     private AuthService auth;
-    private PassportService passport;
-    private SpeechToTextService speechToText;
-    private BaikeService baike;
-    private CorehrService corehr;
+    private CompensationService compensation;
+    private AuthenService authen;
+    private BoardService board;
+    private DocumentAiService documentAi;
     private EventService event;
-    private MdmService mdm;
-    private SecurityAndComplianceService securityAndCompliance;
-    private MeetingRoomService meetingRoom;
-    private OkrService okr;
-    private AdminService admin;
-    private ApplicationService application;
-    private DriveService drive;
     private HelpdeskService helpdesk;
+    private PassportService passport;
+    private ApplicationService application;
+    private AttendanceService attendance;
+    private TenantService tenant;
+    private VcService vc;
+    private WikiService wiki;
+    private PersonalSettingsService personalSettings;
+    private SecurityAndComplianceService securityAndCompliance;
+    private GrayTestOpenSgService grayTestOpenSg;
+    private BitableService bitable;
+    private CorehrService corehr;
+    private ApprovalService approval;
+    private MailService mail;
+    private MdmService mdm;
+    private OkrService okr;
+    private ReportService report;
+    private SheetsService sheets;
+    private AdminService admin;
+    private AilyService aily;
+    private TranslationService translation;
+    private ImService im;
+    private TaskService task;
+    private VerificationService verification;
+    private BaikeService baike;
+    private HireService hire;
     private HumanAuthenticationService humanAuthentication;
     private LingoService lingo;
     private OpticalCharRecognitionService opticalCharRecognition;
-    private ApprovalService approval;
-    private SheetsService sheets;
-    private WikiService wiki;
-    private AilyService aily;
-    private AuthenService authen;
-    private BoardService board;
-    private AttendanceService attendance;
-    private CompensationService compensation;
+    private BlockService block;
+    private CalendarService calendar;
+    private DriveService drive;
+    private MeetingRoomService meetingRoom;
+    private AcsService acs;
+    private ContactService contact;
+    private SpeechToTextService speechToText;
     private EhrService ehr;
     private MomentsService moments;
-    private SearchService search;
-    private VerificationService verification;
-    private MailService mail;
-    private PersonalSettingsService personalSettings;
-    private BitableService bitable;
-    private BlockService block;
-    private ContactService contact;
-    private DocumentAiService documentAi;
-    private GrayTestOpenSgService grayTestOpenSg;
-    private HireService hire;
-    private VcService vc;
 
     private ExtService extService;
 
@@ -144,36 +162,12 @@ public class Client {
         this.config = config;
     }
 
-    public TenantService tenant() {
-        return tenant;
-    }
-
-    public TranslationService translation() {
-        return translation;
-    }
-
-    public AcsService acs() {
-        return acs;
-    }
-
-    public CalendarService calendar() {
-        return calendar;
-    }
-
     public DocxService docx() {
         return docx;
     }
 
-    public ImService im() {
-        return im;
-    }
-
-    public ReportService report() {
-        return report;
-    }
-
-    public TaskService task() {
-        return task;
+    public SearchService search() {
+        return search;
     }
 
     public WorkplaceService workplace() {
@@ -184,56 +178,128 @@ public class Client {
         return auth;
     }
 
-    public PassportService passport() {
-        return passport;
+    public CompensationService compensation() {
+        return compensation;
     }
 
-    public SpeechToTextService speechToText() {
-        return speechToText;
+    public AuthenService authen() {
+        return authen;
     }
 
-    public BaikeService baike() {
-        return baike;
+    public BoardService board() {
+        return board;
     }
 
-    public CorehrService corehr() {
-        return corehr;
+    public DocumentAiService documentAi() {
+        return documentAi;
     }
 
     public EventService event() {
         return event;
     }
 
-    public MdmService mdm() {
-        return mdm;
+    public HelpdeskService helpdesk() {
+        return helpdesk;
     }
 
-    public SecurityAndComplianceService securityAndCompliance() {
-        return securityAndCompliance;
-    }
-
-    public MeetingRoomService meetingRoom() {
-        return meetingRoom;
-    }
-
-    public OkrService okr() {
-        return okr;
-    }
-
-    public AdminService admin() {
-        return admin;
+    public PassportService passport() {
+        return passport;
     }
 
     public ApplicationService application() {
         return application;
     }
 
-    public DriveService drive() {
-        return drive;
+    public AttendanceService attendance() {
+        return attendance;
     }
 
-    public HelpdeskService helpdesk() {
-        return helpdesk;
+    public TenantService tenant() {
+        return tenant;
+    }
+
+    public VcService vc() {
+        return vc;
+    }
+
+    public WikiService wiki() {
+        return wiki;
+    }
+
+    public PersonalSettingsService personalSettings() {
+        return personalSettings;
+    }
+
+    public SecurityAndComplianceService securityAndCompliance() {
+        return securityAndCompliance;
+    }
+
+    public GrayTestOpenSgService grayTestOpenSg() {
+        return grayTestOpenSg;
+    }
+
+    public BitableService bitable() {
+        return bitable;
+    }
+
+    public CorehrService corehr() {
+        return corehr;
+    }
+
+    public ApprovalService approval() {
+        return approval;
+    }
+
+    public MailService mail() {
+        return mail;
+    }
+
+    public MdmService mdm() {
+        return mdm;
+    }
+
+    public OkrService okr() {
+        return okr;
+    }
+
+    public ReportService report() {
+        return report;
+    }
+
+    public SheetsService sheets() {
+        return sheets;
+    }
+
+    public AdminService admin() {
+        return admin;
+    }
+
+    public AilyService aily() {
+        return aily;
+    }
+
+    public TranslationService translation() {
+        return translation;
+    }
+
+    public ImService im() {
+        return im;
+    }
+
+    public TaskService task() {
+        return task;
+    }
+
+    public VerificationService verification() {
+        return verification;
+    }
+
+    public BaikeService baike() {
+        return baike;
+    }
+
+    public HireService hire() {
+        return hire;
     }
 
     public HumanAuthenticationService humanAuthentication() {
@@ -248,36 +314,32 @@ public class Client {
         return opticalCharRecognition;
     }
 
-    public ApprovalService approval() {
-        return approval;
+    public BlockService block() {
+        return block;
     }
 
-    public SheetsService sheets() {
-        return sheets;
+    public CalendarService calendar() {
+        return calendar;
     }
 
-    public WikiService wiki() {
-        return wiki;
+    public DriveService drive() {
+        return drive;
     }
 
-    public AilyService aily() {
-        return aily;
+    public MeetingRoomService meetingRoom() {
+        return meetingRoom;
     }
 
-    public AuthenService authen() {
-        return authen;
+    public AcsService acs() {
+        return acs;
     }
 
-    public BoardService board() {
-        return board;
+    public ContactService contact() {
+        return contact;
     }
 
-    public AttendanceService attendance() {
-        return attendance;
-    }
-
-    public CompensationService compensation() {
-        return compensation;
+    public SpeechToTextService speechToText() {
+        return speechToText;
     }
 
     public EhrService ehr() {
@@ -286,50 +348,6 @@ public class Client {
 
     public MomentsService moments() {
         return moments;
-    }
-
-    public SearchService search() {
-        return search;
-    }
-
-    public VerificationService verification() {
-        return verification;
-    }
-
-    public MailService mail() {
-        return mail;
-    }
-
-    public PersonalSettingsService personalSettings() {
-        return personalSettings;
-    }
-
-    public BitableService bitable() {
-        return bitable;
-    }
-
-    public BlockService block() {
-        return block;
-    }
-
-    public ContactService contact() {
-        return contact;
-    }
-
-    public DocumentAiService documentAi() {
-        return documentAi;
-    }
-
-    public GrayTestOpenSgService grayTestOpenSg() {
-        return grayTestOpenSg;
-    }
-
-    public HireService hire() {
-        return hire;
-    }
-
-    public VcService vc() {
-        return vc;
     }
 
     public RawResponse post(String httpPath
@@ -503,53 +521,53 @@ public class Client {
             initCache(config);
             initHttpTransport(config);
             client.extService = new ExtService(config);
-            client.tenant = new TenantService(config);
-            client.translation = new TranslationService(config);
-            client.acs = new AcsService(config);
-            client.calendar = new CalendarService(config);
             client.docx = new DocxService(config);
-            client.im = new ImService(config);
-            client.report = new ReportService(config);
-            client.task = new TaskService(config);
+            client.search = new SearchService(config);
             client.workplace = new WorkplaceService(config);
             client.auth = new AuthService(config);
-            client.passport = new PassportService(config);
-            client.speechToText = new SpeechToTextService(config);
-            client.baike = new BaikeService(config);
-            client.corehr = new CorehrService(config);
+            client.compensation = new CompensationService(config);
+            client.authen = new AuthenService(config);
+            client.board = new BoardService(config);
+            client.documentAi = new DocumentAiService(config);
             client.event = new EventService(config);
-            client.mdm = new MdmService(config);
-            client.securityAndCompliance = new SecurityAndComplianceService(config);
-            client.meetingRoom = new MeetingRoomService(config);
-            client.okr = new OkrService(config);
-            client.admin = new AdminService(config);
-            client.application = new ApplicationService(config);
-            client.drive = new DriveService(config);
             client.helpdesk = new HelpdeskService(config);
+            client.passport = new PassportService(config);
+            client.application = new ApplicationService(config);
+            client.attendance = new AttendanceService(config);
+            client.tenant = new TenantService(config);
+            client.vc = new VcService(config);
+            client.wiki = new WikiService(config);
+            client.personalSettings = new PersonalSettingsService(config);
+            client.securityAndCompliance = new SecurityAndComplianceService(config);
+            client.grayTestOpenSg = new GrayTestOpenSgService(config);
+            client.bitable = new BitableService(config);
+            client.corehr = new CorehrService(config);
+            client.approval = new ApprovalService(config);
+            client.mail = new MailService(config);
+            client.mdm = new MdmService(config);
+            client.okr = new OkrService(config);
+            client.report = new ReportService(config);
+            client.sheets = new SheetsService(config);
+            client.admin = new AdminService(config);
+            client.aily = new AilyService(config);
+            client.translation = new TranslationService(config);
+            client.im = new ImService(config);
+            client.task = new TaskService(config);
+            client.verification = new VerificationService(config);
+            client.baike = new BaikeService(config);
+            client.hire = new HireService(config);
             client.humanAuthentication = new HumanAuthenticationService(config);
             client.lingo = new LingoService(config);
             client.opticalCharRecognition = new OpticalCharRecognitionService(config);
-            client.approval = new ApprovalService(config);
-            client.sheets = new SheetsService(config);
-            client.wiki = new WikiService(config);
-            client.aily = new AilyService(config);
-            client.authen = new AuthenService(config);
-            client.board = new BoardService(config);
-            client.attendance = new AttendanceService(config);
-            client.compensation = new CompensationService(config);
+            client.block = new BlockService(config);
+            client.calendar = new CalendarService(config);
+            client.drive = new DriveService(config);
+            client.meetingRoom = new MeetingRoomService(config);
+            client.acs = new AcsService(config);
+            client.contact = new ContactService(config);
+            client.speechToText = new SpeechToTextService(config);
             client.ehr = new EhrService(config);
             client.moments = new MomentsService(config);
-            client.search = new SearchService(config);
-            client.verification = new VerificationService(config);
-            client.mail = new MailService(config);
-            client.personalSettings = new PersonalSettingsService(config);
-            client.bitable = new BitableService(config);
-            client.block = new BlockService(config);
-            client.contact = new ContactService(config);
-            client.documentAi = new DocumentAiService(config);
-            client.grayTestOpenSg = new GrayTestOpenSgService(config);
-            client.hire = new HireService(config);
-            client.vc = new VcService(config);
 
             return client;
         }

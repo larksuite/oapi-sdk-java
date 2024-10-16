@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.TripartiteAgreementInfo;
-import com.lark.oapi.service.hire.v1.model.UpdateTripartiteAgreementReq;
-import com.lark.oapi.service.hire.v1.model.UpdateTripartiteAgreementResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/hire/v1/tripartite_agreements/:tripartite_agreement_id
 public class UpdateTripartiteAgreementSample {

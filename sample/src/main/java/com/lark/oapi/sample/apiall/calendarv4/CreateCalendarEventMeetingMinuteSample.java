@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventMeetingMinuteReq;
-import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventMeetingMinuteResp;
+import com.lark.oapi.service.calendar.v4.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/meeting_minute
 public class CreateCalendarEventMeetingMinuteSample {

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.searchv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.search.v2.model.GetDataSourceReq;
-import com.lark.oapi.service.search.v2.model.GetDataSourceResp;
+import com.lark.oapi.service.search.v2.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/search/v2/data_sources/:data_source_id
 public class GetDataSourceSample {

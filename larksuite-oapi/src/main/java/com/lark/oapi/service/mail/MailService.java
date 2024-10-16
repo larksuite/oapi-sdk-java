@@ -13,8 +13,21 @@
 package com.lark.oapi.service.mail;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.mail.v1.V1;
-import com.lark.oapi.service.mail.v1.resource.*;
+import com.lark.oapi.service.mail.v1.model.*;
+import com.lark.oapi.service.mail.v1.resource.Mailgroup;
+import com.lark.oapi.service.mail.v1.resource.MailgroupAlias;
+import com.lark.oapi.service.mail.v1.resource.MailgroupManager;
+import com.lark.oapi.service.mail.v1.resource.MailgroupMember;
+import com.lark.oapi.service.mail.v1.resource.MailgroupPermissionMember;
+import com.lark.oapi.service.mail.v1.resource.PublicMailbox;
+import com.lark.oapi.service.mail.v1.resource.PublicMailboxAlias;
+import com.lark.oapi.service.mail.v1.resource.PublicMailboxMember;
+import com.lark.oapi.service.mail.v1.resource.User;
+import com.lark.oapi.service.mail.v1.resource.UserMailbox;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxAlias;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMessage;
 
 public class MailService {
     private final V1 v1;

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.docxv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.docx.v1.model.GetDocumentBlockChildrenReq;
-import com.lark.oapi.service.docx.v1.model.GetDocumentBlockChildrenResp;
+import com.lark.oapi.service.docx.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children
 public class GetDocumentBlockChildrenSample {

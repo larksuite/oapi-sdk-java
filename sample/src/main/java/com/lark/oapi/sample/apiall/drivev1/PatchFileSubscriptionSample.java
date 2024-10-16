@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionReq;
-import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionReqBody;
-import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionResp;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id
 public class PatchFileSubscriptionSample {

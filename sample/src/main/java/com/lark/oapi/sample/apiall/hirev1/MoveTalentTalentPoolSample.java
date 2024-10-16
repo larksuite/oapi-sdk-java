@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.MoveTalentTalentPoolReq;
-import com.lark.oapi.service.hire.v1.model.MoveTalentTalentPoolReqBody;
-import com.lark.oapi.service.hire.v1.model.MoveTalentTalentPoolResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/talent_pools/:talent_pool_id/talent_relationship
 public class MoveTalentTalentPoolSample {

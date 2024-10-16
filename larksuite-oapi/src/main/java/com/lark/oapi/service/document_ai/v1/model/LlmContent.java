@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.document_ai.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class LlmContent {
     /**
@@ -23,7 +36,7 @@ public class LlmContent {
     @SerializedName("type")
     private String type;
     /**
-     * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径
+     * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
      * <p> 示例值：输入图片按顺序描述了一件什么事情
      */
     @SerializedName("content")
@@ -40,7 +53,7 @@ public class LlmContent {
          */
         this.type = builder.type;
         /**
-         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径
+         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
          * <p> 示例值：输入图片按顺序描述了一件什么事情
          */
         this.content = builder.content;
@@ -73,7 +86,7 @@ public class LlmContent {
          */
         private String type;
         /**
-         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径
+         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
          * <p> 示例值：输入图片按顺序描述了一件什么事情
          */
         private String content;
@@ -104,7 +117,7 @@ public class LlmContent {
 
 
         /**
-         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径
+         * 内容：text类型就是对应的输入文本， image_zip是文件的相对路径，文件需要以zip格式输入
          * <p> 示例值：输入图片按顺序描述了一件什么事情
          *
          * @param content

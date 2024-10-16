@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mdmv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mdm.v1.model.UnbindUserAuthDataRelationReq;
-import com.lark.oapi.service.mdm.v1.model.UnbindUserAuthDataRelationResp;
-import com.lark.oapi.service.mdm.v1.model.UserAuthDataRelation;
+import com.lark.oapi.service.mdm.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/mdm/v1/user_auth_data_relations/unbind
 public class UnbindUserAuthDataRelationSample {

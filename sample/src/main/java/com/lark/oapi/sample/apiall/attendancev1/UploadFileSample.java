@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.UploadFileReq;
-import com.lark.oapi.service.attendance.v1.model.UploadFileReqBody;
-import com.lark.oapi.service.attendance.v1.model.UploadFileResp;
+import com.lark.oapi.service.attendance.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/attendance/v1/files/upload
 public class UploadFileSample {

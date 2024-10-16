@@ -13,7 +13,19 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationOffer {
     /**
@@ -70,6 +82,12 @@ public class ApplicationOffer {
      */
     @SerializedName("job_requirement_id")
     private String jobRequirementId;
+    /**
+     * offer 发送记录列表
+     * <p> 示例值：
+     */
+    @SerializedName("offer_send_record_list")
+    private OfferSendRecord[] offerSendRecordList;
 
     // builder 开始
     public ApplicationOffer() {
@@ -121,6 +139,11 @@ public class ApplicationOffer {
          * <p> 示例值：1231231232312312
          */
         this.jobRequirementId = builder.jobRequirementId;
+        /**
+         * offer 发送记录列表
+         * <p> 示例值：
+         */
+        this.offerSendRecordList = builder.offerSendRecordList;
     }
 
     public static Builder newBuilder() {
@@ -199,6 +222,14 @@ public class ApplicationOffer {
         this.jobRequirementId = jobRequirementId;
     }
 
+    public OfferSendRecord[] getOfferSendRecordList() {
+        return this.offerSendRecordList;
+    }
+
+    public void setOfferSendRecordList(OfferSendRecord[] offerSendRecordList) {
+        this.offerSendRecordList = offerSendRecordList;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -245,6 +276,11 @@ public class ApplicationOffer {
          * <p> 示例值：1231231232312312
          */
         private String jobRequirementId;
+        /**
+         * offer 发送记录列表
+         * <p> 示例值：
+         */
+        private OfferSendRecord[] offerSendRecordList;
 
         /**
          * Offer id
@@ -359,6 +395,19 @@ public class ApplicationOffer {
          */
         public Builder jobRequirementId(String jobRequirementId) {
             this.jobRequirementId = jobRequirementId;
+            return this;
+        }
+
+
+        /**
+         * offer 发送记录列表
+         * <p> 示例值：
+         *
+         * @param offerSendRecordList
+         * @return
+         */
+        public Builder offerSendRecordList(OfferSendRecord[] offerSendRecordList) {
+            this.offerSendRecordList = offerSendRecordList;
             return this;
         }
 

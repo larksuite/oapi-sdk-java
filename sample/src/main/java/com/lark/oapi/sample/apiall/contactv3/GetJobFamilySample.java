@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.GetJobFamilyReq;
-import com.lark.oapi.service.contact.v3.model.GetJobFamilyResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/contact/v3/job_families/:job_family_id
 public class GetJobFamilySample {

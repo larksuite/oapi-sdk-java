@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.document_aiv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.document_ai.v1.model.RecognizeHealthCertificateReq;
-import com.lark.oapi.service.document_ai.v1.model.RecognizeHealthCertificateReqBody;
-import com.lark.oapi.service.document_ai.v1.model.RecognizeHealthCertificateResp;
+import com.lark.oapi.service.document_ai.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/document_ai/v1/health_certificate/recognize
 public class RecognizeHealthCertificateSample {

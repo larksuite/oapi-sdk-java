@@ -13,7 +13,19 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class JobRequirement {
     /**
@@ -166,6 +178,12 @@ public class JobRequirement {
      */
     @SerializedName("job_type_id")
     private String jobTypeId;
+    /**
+     * 关联的职位 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("job_id_list")
+    private String[] jobIdList;
 
     // builder 开始
     public JobRequirement() {
@@ -297,6 +315,11 @@ public class JobRequirement {
          * <p> 示例值：6930815272790114324
          */
         this.jobTypeId = builder.jobTypeId;
+        /**
+         * 关联的职位 ID 列表
+         * <p> 示例值：
+         */
+        this.jobIdList = builder.jobIdList;
     }
 
     public static Builder newBuilder() {
@@ -503,6 +526,14 @@ public class JobRequirement {
         this.jobTypeId = jobTypeId;
     }
 
+    public String[] getJobIdList() {
+        return this.jobIdList;
+    }
+
+    public void setJobIdList(String[] jobIdList) {
+        this.jobIdList = jobIdList;
+    }
+
     public static class Builder {
         /**
          * 招聘需求编号
@@ -629,6 +660,11 @@ public class JobRequirement {
          * <p> 示例值：6930815272790114324
          */
         private String jobTypeId;
+        /**
+         * 关联的职位 ID 列表
+         * <p> 示例值：
+         */
+        private String[] jobIdList;
 
         /**
          * 招聘需求编号
@@ -951,6 +987,19 @@ public class JobRequirement {
          */
         public Builder jobTypeId(String jobTypeId) {
             this.jobTypeId = jobTypeId;
+            return this;
+        }
+
+
+        /**
+         * 关联的职位 ID 列表
+         * <p> 示例值：
+         *
+         * @param jobIdList
+         * @return
+         */
+        public Builder jobIdList(String[] jobIdList) {
+            this.jobIdList = jobIdList;
             return this;
         }
 

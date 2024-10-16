@@ -13,8 +13,15 @@
 package com.lark.oapi.service.sheets;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.sheets.v3.V3;
-import com.lark.oapi.service.sheets.v3.resource.*;
+import com.lark.oapi.service.sheets.v3.model.*;
+import com.lark.oapi.service.sheets.v3.resource.Spreadsheet;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheet;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilter;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilterView;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFilterViewCondition;
+import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFloatImage;
 
 public class SheetsService {
     private final V3 v3;

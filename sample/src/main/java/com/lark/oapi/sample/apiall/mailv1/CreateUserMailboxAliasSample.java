@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.CreateUserMailboxAliasReq;
-import com.lark.oapi.service.mail.v1.model.CreateUserMailboxAliasResp;
-import com.lark.oapi.service.mail.v1.model.EmailAlias;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases
 public class CreateUserMailboxAliasSample {

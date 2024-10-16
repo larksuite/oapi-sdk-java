@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.BatchDeleteMailgroupManagerReq;
-import com.lark.oapi.service.mail.v1.model.BatchDeleteMailgroupManagerReqBody;
-import com.lark.oapi.service.mail.v1.model.BatchDeleteMailgroupManagerResp;
-import com.lark.oapi.service.mail.v1.model.MailgroupManager;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/mail/v1/mailgroups/:mailgroup_id/managers/batch_delete
 public class BatchDeleteMailgroupManagerSample {

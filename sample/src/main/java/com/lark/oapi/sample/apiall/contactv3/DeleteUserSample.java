@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.DeleteUserReq;
-import com.lark.oapi.service.contact.v3.model.DeleteUserReqBody;
-import com.lark.oapi.service.contact.v3.model.DeleteUserResp;
-import com.lark.oapi.service.contact.v3.model.ResourceAcceptor;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/contact/v3/users/:user_id
 public class DeleteUserSample {

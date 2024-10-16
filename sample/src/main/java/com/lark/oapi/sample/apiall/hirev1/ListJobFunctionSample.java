@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.ListJobFunctionReq;
-import com.lark.oapi.service.hire.v1.model.ListJobFunctionResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/hire/v1/job_functions
 public class ListJobFunctionSample {

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetReq;
-import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetResp;
+import com.lark.oapi.service.sheets.v3.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id
 public class GetSpreadsheetSheetSample {

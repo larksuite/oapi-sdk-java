@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.GetLeaveEmployExpireRecordReq;
-import com.lark.oapi.service.attendance.v1.model.GetLeaveEmployExpireRecordReqBody;
-import com.lark.oapi.service.attendance.v1.model.GetLeaveEmployExpireRecordResp;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/attendance/v1/leave_employ_expire_records/:leave_id
 public class GetLeaveEmployExpireRecordSample {

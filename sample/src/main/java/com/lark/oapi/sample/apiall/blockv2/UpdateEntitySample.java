@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.blockv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.block.v2.model.Entity;
-import com.lark.oapi.service.block.v2.model.UpdateEntityReq;
-import com.lark.oapi.service.block.v2.model.UpdateEntityResp;
+import com.lark.oapi.service.block.v2.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/block/v2/entities/:block_id
 public class UpdateEntitySample {

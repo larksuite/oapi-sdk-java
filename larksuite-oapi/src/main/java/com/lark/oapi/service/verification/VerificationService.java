@@ -13,7 +13,9 @@
 package com.lark.oapi.service.verification;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.verification.v1.V1;
+import com.lark.oapi.service.verification.v1.model.*;
 
 public class VerificationService {
     private final V1 v1;

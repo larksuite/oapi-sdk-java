@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.QueryReviewReq;
-import com.lark.oapi.service.okr.v1.model.QueryReviewResp;
+import com.lark.oapi.service.okr.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/okr/v1/reviews/query
 public class QueryReviewSample {

@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class JobData {
     /**
@@ -184,6 +197,18 @@ public class JobData {
      */
     @SerializedName("created_at")
     private String createdAt;
+    /**
+     * 周工作时长
+     * <p> 示例值：10
+     */
+    @SerializedName("weekly_working_hours_v2")
+    private String weeklyWorkingHoursV2;
+    /**
+     * 人员子类型 ID
+     * <p> 示例值：6890452208593372680
+     */
+    @SerializedName("employee_subtype_id")
+    private String employeeSubtypeId;
 
     // builder 开始
     public JobData() {
@@ -330,6 +355,16 @@ public class JobData {
          * <p> 示例值：2020-05-02 00:00:00
          */
         this.createdAt = builder.createdAt;
+        /**
+         * 周工作时长
+         * <p> 示例值：10
+         */
+        this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6890452208593372680
+         */
+        this.employeeSubtypeId = builder.employeeSubtypeId;
     }
 
     public static Builder newBuilder() {
@@ -560,6 +595,22 @@ public class JobData {
         this.createdAt = createdAt;
     }
 
+    public String getWeeklyWorkingHoursV2() {
+        return this.weeklyWorkingHoursV2;
+    }
+
+    public void setWeeklyWorkingHoursV2(String weeklyWorkingHoursV2) {
+        this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+    }
+
+    public String getEmployeeSubtypeId() {
+        return this.employeeSubtypeId;
+    }
+
+    public void setEmployeeSubtypeId(String employeeSubtypeId) {
+        this.employeeSubtypeId = employeeSubtypeId;
+    }
+
     public static class Builder {
         /**
          * 任职信息 ID
@@ -701,6 +752,16 @@ public class JobData {
          * <p> 示例值：2020-05-02 00:00:00
          */
         private String createdAt;
+        /**
+         * 周工作时长
+         * <p> 示例值：10
+         */
+        private String weeklyWorkingHoursV2;
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6890452208593372680
+         */
+        private String employeeSubtypeId;
 
         /**
          * 任职信息 ID
@@ -1062,6 +1123,32 @@ public class JobData {
          */
         public Builder createdAt(String createdAt) {
             this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * 周工作时长
+         * <p> 示例值：10
+         *
+         * @param weeklyWorkingHoursV2
+         * @return
+         */
+        public Builder weeklyWorkingHoursV2(String weeklyWorkingHoursV2) {
+            this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+            return this;
+        }
+
+
+        /**
+         * 人员子类型 ID
+         * <p> 示例值：6890452208593372680
+         *
+         * @param employeeSubtypeId
+         * @return
+         */
+        public Builder employeeSubtypeId(String employeeSubtypeId) {
+            this.employeeSubtypeId = employeeSubtypeId;
             return this;
         }
 

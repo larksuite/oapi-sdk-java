@@ -15,11 +15,14 @@ package com.lark.oapi.service.task;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.task.v1.V1;
-import com.lark.oapi.service.task.v1.model.P2TaskCommentUpdatedV1;
-import com.lark.oapi.service.task.v1.model.P2TaskUpdateTenantV1;
-import com.lark.oapi.service.task.v1.model.P2TaskUpdatedV1;
-import com.lark.oapi.service.task.v1.resource.*;
+import com.lark.oapi.service.task.v1.model.*;
+import com.lark.oapi.service.task.v1.resource.Task;
+import com.lark.oapi.service.task.v1.resource.TaskCollaborator;
+import com.lark.oapi.service.task.v1.resource.TaskComment;
+import com.lark.oapi.service.task.v1.resource.TaskFollower;
+import com.lark.oapi.service.task.v1.resource.TaskReminder;
 import com.lark.oapi.service.task.v2.V2;
+import com.lark.oapi.service.task.v2.model.*;
 
 public class TaskService {
     private final V1 v1;

@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.drive.v1.model.CreateFileVersionReq;
-import com.lark.oapi.service.drive.v1.model.CreateFileVersionResp;
-import com.lark.oapi.service.drive.v1.model.Version;
+import com.lark.oapi.service.drive.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/drive/v1/files/:file_token/versions
 public class CreateFileVersionSample {

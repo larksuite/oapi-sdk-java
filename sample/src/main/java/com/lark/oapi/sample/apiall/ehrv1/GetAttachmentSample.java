@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.ehrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.ehr.v1.model.GetAttachmentReq;
-import com.lark.oapi.service.ehr.v1.model.GetAttachmentResp;
+import com.lark.oapi.service.ehr.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/ehr/v1/attachments/:token
 public class GetAttachmentSample {

@@ -13,27 +13,46 @@
 
 package com.lark.oapi.service.passport.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class MaskSession {
     /**
      * 创建时间
-     * <p> 示例值：
+     * <p> 示例值：1724233829
      */
     @SerializedName("create_time")
     private String createTime;
     /**
      * 客户端类型
-     * <p> 示例值：
+     * <p> 示例值：2
      */
     @SerializedName("terminal_type")
     private Integer terminalType;
     /**
      * 用户ID
-     * <p> 示例值：
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     @SerializedName("user_id")
     private String userId;
+    /**
+     * 需要登出的 session 标识符
+     * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+     */
+    @SerializedName("sid")
+    private String sid;
 
     // builder 开始
     public MaskSession() {
@@ -42,19 +61,24 @@ public class MaskSession {
     public MaskSession(Builder builder) {
         /**
          * 创建时间
-         * <p> 示例值：
+         * <p> 示例值：1724233829
          */
         this.createTime = builder.createTime;
         /**
          * 客户端类型
-         * <p> 示例值：
+         * <p> 示例值：2
          */
         this.terminalType = builder.terminalType;
         /**
          * 用户ID
-         * <p> 示例值：
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
          */
         this.userId = builder.userId;
+        /**
+         * 需要登出的 session 标识符
+         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+         */
+        this.sid = builder.sid;
     }
 
     public static Builder newBuilder() {
@@ -85,26 +109,39 @@ public class MaskSession {
         this.userId = userId;
     }
 
+    public String getSid() {
+        return this.sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
     public static class Builder {
         /**
          * 创建时间
-         * <p> 示例值：
+         * <p> 示例值：1724233829
          */
         private String createTime;
         /**
          * 客户端类型
-         * <p> 示例值：
+         * <p> 示例值：2
          */
         private Integer terminalType;
         /**
          * 用户ID
-         * <p> 示例值：
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
          */
         private String userId;
+        /**
+         * 需要登出的 session 标识符
+         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+         */
+        private String sid;
 
         /**
          * 创建时间
-         * <p> 示例值：
+         * <p> 示例值：1724233829
          *
          * @param createTime
          * @return
@@ -117,7 +154,7 @@ public class MaskSession {
 
         /**
          * 客户端类型
-         * <p> 示例值：
+         * <p> 示例值：2
          *
          * @param terminalType
          * @return
@@ -129,7 +166,7 @@ public class MaskSession {
 
         /**
          * 客户端类型
-         * <p> 示例值：
+         * <p> 示例值：2
          *
          * @param terminalType {@link com.lark.oapi.service.passport.v1.enums.MaskSessionTerminalTypeEnum}
          * @return
@@ -142,13 +179,26 @@ public class MaskSession {
 
         /**
          * 用户ID
-         * <p> 示例值：
+         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
          *
          * @param userId
          * @return
          */
         public Builder userId(String userId) {
             this.userId = userId;
+            return this;
+        }
+
+
+        /**
+         * 需要登出的 session 标识符
+         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+         *
+         * @param sid
+         * @return
+         */
+        public Builder sid(String sid) {
+            this.sid = sid;
             return this;
         }
 

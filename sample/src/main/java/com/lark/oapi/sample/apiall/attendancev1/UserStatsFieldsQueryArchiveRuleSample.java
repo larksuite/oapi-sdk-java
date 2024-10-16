@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.UserStatsFieldsQueryArchiveRuleReq;
-import com.lark.oapi.service.attendance.v1.model.UserStatsFieldsQueryArchiveRuleReqBody;
-import com.lark.oapi.service.attendance.v1.model.UserStatsFieldsQueryArchiveRuleResp;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/attendance/v1/archive_rule/user_stats_fields_query
 public class UserStatsFieldsQueryArchiveRuleSample {

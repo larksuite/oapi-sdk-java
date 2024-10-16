@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v1.model.UpdateChatModerationReq;
-import com.lark.oapi.service.im.v1.model.UpdateChatModerationReqBody;
-import com.lark.oapi.service.im.v1.model.UpdateChatModerationResp;
+import com.lark.oapi.service.im.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/im/v1/chats/:chat_id/moderation
 public class UpdateChatModerationSample {

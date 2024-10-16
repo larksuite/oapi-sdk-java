@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.model.AppTableViewProperty;
-import com.lark.oapi.service.bitable.v1.model.PatchAppTableViewReq;
-import com.lark.oapi.service.bitable.v1.model.PatchAppTableViewReqBody;
-import com.lark.oapi.service.bitable.v1.model.PatchAppTableViewResp;
+import com.lark.oapi.service.bitable.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id
 public class PatchAppTableViewSample {

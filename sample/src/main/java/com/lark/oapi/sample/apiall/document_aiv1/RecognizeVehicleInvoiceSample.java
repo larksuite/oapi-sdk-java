@@ -2,11 +2,10 @@ package com.lark.oapi.sample.apiall.document_aiv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.document_ai.v1.model.RecognizeVehicleInvoiceReq;
-import com.lark.oapi.service.document_ai.v1.model.RecognizeVehicleInvoiceReqBody;
-import com.lark.oapi.service.document_ai.v1.model.RecognizeVehicleInvoiceResp;
+import com.lark.oapi.service.document_ai.v1.model.*;
 
 import java.io.File;
+import java.util.HashMap;
 
 // POST /open-apis/document_ai/v1/vehicle_invoice/recognize
 public class RecognizeVehicleInvoiceSample {

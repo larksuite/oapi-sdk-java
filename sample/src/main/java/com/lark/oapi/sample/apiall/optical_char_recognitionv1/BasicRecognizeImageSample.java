@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.optical_char_recognitionv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeImageReq;
-import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeImageReqBody;
-import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeImageResp;
+import com.lark.oapi.service.optical_char_recognition.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/optical_char_recognition/v1/image/basic_recognize
 public class BasicRecognizeImageSample {

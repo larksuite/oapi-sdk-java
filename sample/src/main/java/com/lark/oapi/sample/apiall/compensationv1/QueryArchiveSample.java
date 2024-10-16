@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.compensationv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.compensation.v1.model.QueryArchiveReq;
-import com.lark.oapi.service.compensation.v1.model.QueryArchiveReqBody;
-import com.lark.oapi.service.compensation.v1.model.QueryArchiveResp;
+import com.lark.oapi.service.compensation.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/compensation/v1/archives/query
 public class QueryArchiveSample {

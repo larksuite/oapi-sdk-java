@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.hirev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.hire.v1.model.AddToFolderTalentReq;
-import com.lark.oapi.service.hire.v1.model.AddToFolderTalentReqBody;
-import com.lark.oapi.service.hire.v1.model.AddToFolderTalentResp;
+import com.lark.oapi.service.hire.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/hire/v1/talents/add_to_folder
 public class AddToFolderTalentSample {

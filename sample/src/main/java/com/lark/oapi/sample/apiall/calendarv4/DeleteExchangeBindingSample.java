@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.calendar.v4.model.DeleteExchangeBindingReq;
-import com.lark.oapi.service.calendar.v4.model.DeleteExchangeBindingResp;
+import com.lark.oapi.service.calendar.v4.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/calendar/v4/exchange_bindings/:exchange_binding_id
 public class DeleteExchangeBindingSample {

@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferInfoUpdate {
     /**
@@ -232,6 +245,12 @@ public class OfferInfoUpdate {
      */
     @SerializedName("direct_leader_id")
     private String directLeaderId;
+    /**
+     * 虚线上级
+     * <p> 示例值：xxx
+     */
+    @SerializedName("dotted_line_manager_id")
+    private String dottedLineManagerId;
     /**
      * 部门
      * <p> 示例值：xxx
@@ -454,6 +473,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：xxx
          */
         this.directLeaderId = builder.directLeaderId;
+        /**
+         * 虚线上级
+         * <p> 示例值：xxx
+         */
+        this.dottedLineManagerId = builder.dottedLineManagerId;
         /**
          * 部门
          * <p> 示例值：xxx
@@ -778,6 +802,14 @@ public class OfferInfoUpdate {
         this.directLeaderId = directLeaderId;
     }
 
+    public String getDottedLineManagerId() {
+        return this.dottedLineManagerId;
+    }
+
+    public void setDottedLineManagerId(String dottedLineManagerId) {
+        this.dottedLineManagerId = dottedLineManagerId;
+    }
+
     public String getDepartmentId() {
         return this.departmentId;
     }
@@ -1007,6 +1039,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：xxx
          */
         private String directLeaderId;
+        /**
+         * 虚线上级
+         * <p> 示例值：xxx
+         */
+        private String dottedLineManagerId;
         /**
          * 部门
          * <p> 示例值：xxx
@@ -1502,6 +1539,19 @@ public class OfferInfoUpdate {
          */
         public Builder directLeaderId(String directLeaderId) {
             this.directLeaderId = directLeaderId;
+            return this;
+        }
+
+
+        /**
+         * 虚线上级
+         * <p> 示例值：xxx
+         *
+         * @param dottedLineManagerId
+         * @return
+         */
+        public Builder dottedLineManagerId(String dottedLineManagerId) {
+            this.dottedLineManagerId = dottedLineManagerId;
             return this;
         }
 

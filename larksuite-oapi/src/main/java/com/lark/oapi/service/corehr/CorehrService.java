@@ -16,7 +16,12 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.corehr.v1.V1;
 import com.lark.oapi.service.corehr.v1.model.*;
+import com.lark.oapi.service.corehr.v1.resource.AssignedUser;
+import com.lark.oapi.service.corehr.v1.resource.Authorization;
+import com.lark.oapi.service.corehr.v1.resource.CommonDataId;
+import com.lark.oapi.service.corehr.v1.resource.CommonDataMetaData;
 import com.lark.oapi.service.corehr.v1.resource.Company;
+import com.lark.oapi.service.corehr.v1.resource.CompensationStandard;
 import com.lark.oapi.service.corehr.v1.resource.Contract;
 import com.lark.oapi.service.corehr.v1.resource.CountryRegion;
 import com.lark.oapi.service.corehr.v1.resource.Currency;
@@ -30,19 +35,21 @@ import com.lark.oapi.service.corehr.v1.resource.JobChange;
 import com.lark.oapi.service.corehr.v1.resource.JobData;
 import com.lark.oapi.service.corehr.v1.resource.JobFamily;
 import com.lark.oapi.service.corehr.v1.resource.JobLevel;
+import com.lark.oapi.service.corehr.v1.resource.Leave;
 import com.lark.oapi.service.corehr.v1.resource.LeaveGrantingRecord;
 import com.lark.oapi.service.corehr.v1.resource.Location;
 import com.lark.oapi.service.corehr.v1.resource.NationalIdType;
 import com.lark.oapi.service.corehr.v1.resource.Offboarding;
+import com.lark.oapi.service.corehr.v1.resource.OrgRoleAuthorization;
 import com.lark.oapi.service.corehr.v1.resource.Person;
 import com.lark.oapi.service.corehr.v1.resource.PreHire;
+import com.lark.oapi.service.corehr.v1.resource.ProcessFormVariableData;
 import com.lark.oapi.service.corehr.v1.resource.SecurityGroup;
 import com.lark.oapi.service.corehr.v1.resource.Subdivision;
 import com.lark.oapi.service.corehr.v1.resource.Subregion;
 import com.lark.oapi.service.corehr.v1.resource.TransferReason;
 import com.lark.oapi.service.corehr.v1.resource.TransferType;
 import com.lark.oapi.service.corehr.v1.resource.WorkingHoursType;
-import com.lark.oapi.service.corehr.v1.resource.*;
 import com.lark.oapi.service.corehr.v2.V2;
 import com.lark.oapi.service.corehr.v2.model.*;
 
@@ -449,6 +456,48 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2CompanyCreatedV2Handler implements IEventHandler<P2CompanyCreatedV2> {
+        @Override
+        public P2CompanyCreatedV2 getEvent() {
+            return new P2CompanyCreatedV2();
+        }
+    }
+
+    public abstract static class P2CompanyDeletedV2Handler implements IEventHandler<P2CompanyDeletedV2> {
+        @Override
+        public P2CompanyDeletedV2 getEvent() {
+            return new P2CompanyDeletedV2();
+        }
+    }
+
+    public abstract static class P2CompanyUpdatedV2Handler implements IEventHandler<P2CompanyUpdatedV2> {
+        @Override
+        public P2CompanyUpdatedV2 getEvent() {
+            return new P2CompanyUpdatedV2();
+        }
+    }
+
+    public abstract static class P2CostCenterCreatedV2Handler implements IEventHandler<P2CostCenterCreatedV2> {
+        @Override
+        public P2CostCenterCreatedV2 getEvent() {
+            return new P2CostCenterCreatedV2();
+        }
+    }
+
+    public abstract static class P2CostCenterDeletedV2Handler implements IEventHandler<P2CostCenterDeletedV2> {
+        @Override
+        public P2CostCenterDeletedV2 getEvent() {
+            return new P2CostCenterDeletedV2();
+        }
+    }
+
+    public abstract static class P2CostCenterUpdatedV2Handler implements IEventHandler<P2CostCenterUpdatedV2> {
+        @Override
+        public P2CostCenterUpdatedV2 getEvent() {
+            return new P2CostCenterUpdatedV2();
+        }
+    }
+
     public abstract static class P2EmployeeDomainEventV2Handler implements IEventHandler<P2EmployeeDomainEventV2> {
         @Override
         public P2EmployeeDomainEventV2 getEvent() {
@@ -491,6 +540,27 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2JobGradeCreatedV2Handler implements IEventHandler<P2JobGradeCreatedV2> {
+        @Override
+        public P2JobGradeCreatedV2 getEvent() {
+            return new P2JobGradeCreatedV2();
+        }
+    }
+
+    public abstract static class P2JobGradeDeletedV2Handler implements IEventHandler<P2JobGradeDeletedV2> {
+        @Override
+        public P2JobGradeDeletedV2 getEvent() {
+            return new P2JobGradeDeletedV2();
+        }
+    }
+
+    public abstract static class P2JobGradeUpdatedV2Handler implements IEventHandler<P2JobGradeUpdatedV2> {
+        @Override
+        public P2JobGradeUpdatedV2 getEvent() {
+            return new P2JobGradeUpdatedV2();
+        }
+    }
+
     public abstract static class P2JobLevelCreatedV2Handler implements IEventHandler<P2JobLevelCreatedV2> {
         @Override
         public P2JobLevelCreatedV2 getEvent() {
@@ -509,6 +579,27 @@ public class CorehrService {
         @Override
         public P2JobLevelUpdatedV2 getEvent() {
             return new P2JobLevelUpdatedV2();
+        }
+    }
+
+    public abstract static class P2LocationCreatedV2Handler implements IEventHandler<P2LocationCreatedV2> {
+        @Override
+        public P2LocationCreatedV2 getEvent() {
+            return new P2LocationCreatedV2();
+        }
+    }
+
+    public abstract static class P2LocationDeletedV2Handler implements IEventHandler<P2LocationDeletedV2> {
+        @Override
+        public P2LocationDeletedV2 getEvent() {
+            return new P2LocationDeletedV2();
+        }
+    }
+
+    public abstract static class P2LocationUpdatedV2Handler implements IEventHandler<P2LocationUpdatedV2> {
+        @Override
+        public P2LocationUpdatedV2 getEvent() {
+            return new P2LocationUpdatedV2();
         }
     }
 
@@ -572,6 +663,13 @@ public class CorehrService {
         @Override
         public P2ProcessNodeUpdatedV2 getEvent() {
             return new P2ProcessNodeUpdatedV2();
+        }
+    }
+
+    public abstract static class P2ProcessStatusUpdateV2Handler implements IEventHandler<P2ProcessStatusUpdateV2> {
+        @Override
+        public P2ProcessStatusUpdateV2 getEvent() {
+            return new P2ProcessStatusUpdateV2();
         }
     }
 }

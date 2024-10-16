@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.lingo.v1.model.*;
 
+import java.util.HashMap;
+
 // PUT /open-apis/lingo/v1/entities/:entity_id
 public class UpdateEntitySample {
 

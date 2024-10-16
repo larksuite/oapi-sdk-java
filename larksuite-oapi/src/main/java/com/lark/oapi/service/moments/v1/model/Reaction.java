@@ -13,7 +13,20 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.moments.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 
 public class Reaction {
     /**
@@ -36,7 +49,7 @@ public class Reaction {
     private String entityId;
     /**
      * Reaction的ID
-     * <p> 示例值："248381243"
+     * <p> 示例值："MS8yL1NPQg=="
      */
     @SerializedName("id")
     private String id;
@@ -81,7 +94,7 @@ public class Reaction {
         this.entityId = builder.entityId;
         /**
          * Reaction的ID
-         * <p> 示例值："248381243"
+         * <p> 示例值："MS8yL1NPQg=="
          */
         this.id = builder.id;
         /**
@@ -179,7 +192,7 @@ public class Reaction {
         private String entityId;
         /**
          * Reaction的ID
-         * <p> 示例值："248381243"
+         * <p> 示例值："MS8yL1NPQg=="
          */
         private String id;
         /**
@@ -239,7 +252,7 @@ public class Reaction {
 
         /**
          * Reaction的ID
-         * <p> 示例值："248381243"
+         * <p> 示例值："MS8yL1NPQg=="
          *
          * @param id
          * @return

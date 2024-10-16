@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v1.model.UpdateTaskCommentReq;
-import com.lark.oapi.service.task.v1.model.UpdateTaskCommentReqBody;
-import com.lark.oapi.service.task.v1.model.UpdateTaskCommentResp;
+import com.lark.oapi.service.task.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/task/v1/tasks/:task_id/comments/:comment_id
 public class UpdateTaskCommentSample {

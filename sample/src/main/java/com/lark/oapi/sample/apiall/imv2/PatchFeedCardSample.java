@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.imv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.im.v2.model.PatchFeedCardReq;
-import com.lark.oapi.service.im.v2.model.PatchFeedCardReqBody;
-import com.lark.oapi.service.im.v2.model.PatchFeedCardResp;
+import com.lark.oapi.service.im.v2.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/im/v2/feed_cards/:feed_card_id
 public class PatchFeedCardSample {

@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.vcv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.vc.v1.model.PatchReserveConfigAdminReq;
-import com.lark.oapi.service.vc.v1.model.PatchReserveConfigAdminReqBody;
-import com.lark.oapi.service.vc.v1.model.PatchReserveConfigAdminResp;
-import com.lark.oapi.service.vc.v1.model.ReserveAdminConfig;
+import com.lark.oapi.service.vc.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/vc/v1/reserve_configs/:reserve_config_id/admin
 public class PatchReserveConfigAdminSample {

@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.*;
 
+import java.util.HashMap;
+
 // PATCH /open-apis/contact/v3/departments/:department_id
 public class PatchDepartmentSample {
 

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.contact.v3.model.DeleteUnitReq;
-import com.lark.oapi.service.contact.v3.model.DeleteUnitResp;
+import com.lark.oapi.service.contact.v3.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/contact/v3/unit/:unit_id
 public class DeleteUnitSample {

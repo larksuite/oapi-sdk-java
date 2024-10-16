@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.DeleteShiftReq;
-import com.lark.oapi.service.attendance.v1.model.DeleteShiftResp;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // DELETE /open-apis/attendance/v1/shifts/:shift_id
 public class DeleteShiftSample {

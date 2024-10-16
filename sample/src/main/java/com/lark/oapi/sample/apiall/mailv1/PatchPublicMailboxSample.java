@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.mail.v1.model.PatchPublicMailboxReq;
-import com.lark.oapi.service.mail.v1.model.PatchPublicMailboxResp;
-import com.lark.oapi.service.mail.v1.model.PublicMailbox;
+import com.lark.oapi.service.mail.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/mail/v1/public_mailboxes/:public_mailbox_id
 public class PatchPublicMailboxSample {

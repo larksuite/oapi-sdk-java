@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.taskv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v2.model.InputOption;
-import com.lark.oapi.service.task.v2.model.PatchCustomFieldOptionReq;
-import com.lark.oapi.service.task.v2.model.PatchCustomFieldOptionReqBody;
-import com.lark.oapi.service.task.v2.model.PatchCustomFieldOptionResp;
+import com.lark.oapi.service.task.v2.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/task/v2/custom_fields/:custom_field_guid/options/:option_guid
 public class PatchCustomFieldOptionSample {

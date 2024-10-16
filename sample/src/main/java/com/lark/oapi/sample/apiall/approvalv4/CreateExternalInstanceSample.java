@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.*;
 
+import java.util.HashMap;
+
 // POST /open-apis/approval/v4/external_instances
 public class CreateExternalInstanceSample {
 

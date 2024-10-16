@@ -14,19 +14,19 @@
 package com.lark.oapi.service.docx.v1;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.service.docx.v1.resource.Document;
-import com.lark.oapi.service.docx.v1.resource.DocumentBlock;
-import com.lark.oapi.service.docx.v1.resource.DocumentBlockChildren;
+import com.lark.oapi.service.docx.v1.resource.*;
 
 public class V1 {
     private final Document document; // 文档
     private final DocumentBlock documentBlock; // 块
     private final DocumentBlockChildren documentBlockChildren; // document.block.children
+    private final DocumentBlockDescendant documentBlockDescendant; // document.block.descendant
 
     public V1(Config config) {
         this.document = new Document(config);
         this.documentBlock = new DocumentBlock(config);
         this.documentBlockChildren = new DocumentBlockChildren(config);
+        this.documentBlockDescendant = new DocumentBlockDescendant(config);
     }
 
     public Document document() {
@@ -39,5 +39,9 @@ public class V1 {
 
     public DocumentBlockChildren documentBlockChildren() {
         return documentBlockChildren;
+    }
+
+    public DocumentBlockDescendant documentBlockDescendant() {
+        return documentBlockDescendant;
     }
 }

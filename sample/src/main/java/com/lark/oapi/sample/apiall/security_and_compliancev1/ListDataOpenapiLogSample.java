@@ -2,9 +2,9 @@ package com.lark.oapi.sample.apiall.security_and_compliancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.security_and_compliance.v1.model.ListDataOpenapiLogReq;
-import com.lark.oapi.service.security_and_compliance.v1.model.ListDataOpenapiLogResp;
-import com.lark.oapi.service.security_and_compliance.v1.model.ListOpenapiLogRequest;
+import com.lark.oapi.service.security_and_compliance.v1.model.*;
+
+import java.util.HashMap;
 
 // POST /open-apis/security_and_compliance/v1/openapi_logs/list_data
 public class ListDataOpenapiLogSample {

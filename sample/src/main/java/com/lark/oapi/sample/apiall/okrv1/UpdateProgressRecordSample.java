@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.okrv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.okr.v1.model.ContentBlock;
-import com.lark.oapi.service.okr.v1.model.UpdateProgressRecordReq;
-import com.lark.oapi.service.okr.v1.model.UpdateProgressRecordReqBody;
-import com.lark.oapi.service.okr.v1.model.UpdateProgressRecordResp;
+import com.lark.oapi.service.okr.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/okr/v1/progress_records/:progress_id
 public class UpdateProgressRecordSample {

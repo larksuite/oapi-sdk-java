@@ -18,11 +18,13 @@ package com.lark.oapi.service.passport.v1.enums;
  */
 public enum MaskSessionTerminalTypeEnum {
     UNKNOW(0), // 未知
-    PC(1), // 个人电脑
-    WEB(2), // 浏览器
-    ANDROID(3), // 安卓手机
-    IOS(4), // Apple手机
+    PC(1), // 桌面版
+    WEB(2), // 网页版
+    ANDROID(3), // 安卓移动端
+    IOS(4), // Apple移动端
     SERVER(5), // 服务端
+    EMBEDDED(6), // 旧版小程序端
+    OTHER_MOBILE(8), // 其他移动端
     ;
     private Integer value;
 

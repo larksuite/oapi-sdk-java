@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.attendancev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.attendance.v1.model.UpdateUserStatsViewReq;
-import com.lark.oapi.service.attendance.v1.model.UpdateUserStatsViewReqBody;
-import com.lark.oapi.service.attendance.v1.model.UpdateUserStatsViewResp;
-import com.lark.oapi.service.attendance.v1.model.UserStatsView;
+import com.lark.oapi.service.attendance.v1.model.*;
+
+import java.util.HashMap;
 
 // PUT /open-apis/attendance/v1/user_stats_views/:user_stats_view_id
 public class UpdateUserStatsViewSample {

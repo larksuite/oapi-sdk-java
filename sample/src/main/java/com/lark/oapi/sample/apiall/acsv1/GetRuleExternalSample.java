@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.acs.v1.model.GetRuleExternalReq;
-import com.lark.oapi.service.acs.v1.model.GetRuleExternalResp;
+import com.lark.oapi.service.acs.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/acs/v1/rule_external
 public class GetRuleExternalSample {

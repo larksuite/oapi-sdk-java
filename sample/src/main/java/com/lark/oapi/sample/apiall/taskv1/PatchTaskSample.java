@@ -2,10 +2,9 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v1.model.PatchTaskReq;
-import com.lark.oapi.service.task.v1.model.PatchTaskReqBody;
-import com.lark.oapi.service.task.v1.model.PatchTaskResp;
-import com.lark.oapi.service.task.v1.model.Task;
+import com.lark.oapi.service.task.v1.model.*;
+
+import java.util.HashMap;
 
 // PATCH /open-apis/task/v1/tasks/:task_id
 public class PatchTaskSample {

@@ -2,8 +2,9 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v1.model.GetTaskReq;
-import com.lark.oapi.service.task.v1.model.GetTaskResp;
+import com.lark.oapi.service.task.v1.model.*;
+
+import java.util.HashMap;
 
 // GET /open-apis/task/v1/tasks/:task_id
 public class GetTaskSample {

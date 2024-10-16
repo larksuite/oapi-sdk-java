@@ -13,7 +13,9 @@
 package com.lark.oapi.service.board;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.board.v1.V1;
+import com.lark.oapi.service.board.v1.model.*;
 
 public class BoardService {
     private final V1 v1;
