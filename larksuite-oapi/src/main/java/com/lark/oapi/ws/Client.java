@@ -352,7 +352,7 @@ public class Client {
     }
 
     private HttpUrl parseUrl(String url) {
-        String httpUrl = connUrl.replace("wss://", "https://").replace("ws://", "https://");
+        String httpUrl = url.replace("wss://", "https://").replace("ws://", "https://");
         HttpUrl u = HttpUrl.parse(httpUrl);
         if (u == null) {
             throw new ServerException(500, "connect url is invalid");
