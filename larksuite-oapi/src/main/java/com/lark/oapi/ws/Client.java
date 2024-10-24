@@ -194,28 +194,29 @@ public class Client {
                 .addHeader("locale", "zh")
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
                 .build();
-        Response response = this.httpClient.newCall(request).execute();
-        if (response.code() != 200 || response.body() == null) {
-            throw new ServerException(response.code(), "system busy");
-        }
+        try (Response response = this.httpClient.newCall(request).execute()) {
+            if (response.code() != 200 || response.body() == null) {
+                throw new ServerException(response.code(), "system busy");
+            }
 
-        EndpointResp resp = Jsons.DEFAULT.fromJson(response.body().string(), EndpointResp.class);
-        if (resp.getCode() == OK) {
-            // do nothing
-        } else if (resp.getCode() == SYSTEM_BUSY) {
-            throw new ServerException(resp.getCode(), "system busy");
-        } else if (resp.getCode() == INTERNAL_ERROR) {
-            throw new ServerException(resp.getCode(), resp.getMsg());
-        } else {
-            throw new ClientException(resp.getCode(), resp.getMsg());
-        }
+            EndpointResp resp = Jsons.DEFAULT.fromJson(response.body().string(), EndpointResp.class);
+            if (resp.getCode() == OK) {
+                // do nothing
+            } else if (resp.getCode() == SYSTEM_BUSY) {
+                throw new ServerException(resp.getCode(), "system busy");
+            } else if (resp.getCode() == INTERNAL_ERROR) {
+                throw new ServerException(resp.getCode(), resp.getMsg());
+            } else {
+                throw new ClientException(resp.getCode(), resp.getMsg());
+            }
 
-        Endpoint data = resp.getData();
-        if (data.getClientConfig() != null) {
-            this.configure(data.getClientConfig());
-        }
+            Endpoint data = resp.getData();
+            if (data.getClientConfig() != null) {
+                this.configure(data.getClientConfig());
+            }
 
-        return data.getUrl();
+            return data.getUrl();
+        }
     }
 
     private synchronized void connect() throws IOException {
