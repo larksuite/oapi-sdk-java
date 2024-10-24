@@ -2,7 +2,7 @@ package com.lark.oapi.ws;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.protobuf.ByteString;
+import com.lark.oapi.google.protobuf.ByteString;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.EventDispatcher;
