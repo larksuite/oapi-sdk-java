@@ -23,6 +23,8 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -295,7 +297,10 @@ public class Client {
         try {
             switch (mt) {
                 case EVENT:
-                    this.eventHandler.doWithoutValidation(pl);
+                    Object r = this.eventHandler.doWithoutValidation(pl);
+                    if (r != null)  {
+                        response.setData(Jsons.DEFAULT.toJson(r).getBytes(StandardCharsets.UTF_8));
+                    }
                     break;
                 case CARD:
                     return;

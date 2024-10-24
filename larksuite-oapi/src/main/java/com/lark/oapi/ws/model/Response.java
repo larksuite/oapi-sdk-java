@@ -1,13 +1,18 @@
 package com.lark.oapi.ws.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.JsonAdapter;
+import com.lark.oapi.core.utils.Base64TypeAdapterFactory;
 
 import java.util.Map;
 
 public class Response {
     @SerializedName("code")
     private int statusCode;
+    @SerializedName("headers")
     private Map<String, String> headers;
+    @SerializedName("data")
+    @JsonAdapter(Base64TypeAdapterFactory.class)
     private byte[] data;
 
     public Response() {

@@ -16,6 +16,9 @@ import com.lark.oapi.core.request.EventReq;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.CustomEventHandler;
 import com.lark.oapi.event.EventDispatcher;
+import com.lark.oapi.event.cardcallback.P2CardActionTriggerHandler;
+import com.lark.oapi.event.cardcallback.P2URLPreviewGetHandler;
+import com.lark.oapi.event.cardcallback.model.*;
 import com.lark.oapi.sdk.servlet.ext.ServletAdapter;
 import com.lark.oapi.service.application.ApplicationService.P1AppOpenV6Handler;
 import com.lark.oapi.service.application.ApplicationService.P1AppStatusChangedV6Handler;
@@ -178,6 +181,25 @@ public class EventController {
                 public void handle(EventReq event) {
                     System.out.println("body:" + new String(event.getBody()));
                     System.out.println("plain:" + event.getPlain());
+                }
+            })
+            .onP2CardActionTrigger(new P2CardActionTriggerHandler() {
+                @Override
+                public P2CardActionTriggerResponse handle(P2CardActionTrigger event) throws Exception {
+                    System.out.printf("[ P2CardActionTrigger access ], data: %s\n", Jsons.DEFAULT.toJson(event.getEvent()));
+                    P2CardActionTriggerResponse resp = new P2CardActionTriggerResponse();
+                    CallBackToast toast = new CallBackToast();
+                    toast.setType("info");
+                    toast.setContent("卡片交互成功 from Java SDk");
+                    resp.setToast(toast);
+                    return resp;
+                }
+            })
+            .onP2URLPreviewGet(new P2URLPreviewGetHandler() {
+                @Override
+                public P2URLPreviewGetResponse handle(P2URLPreviewGet event) throws Exception {
+                    System.out.printf("[ P2URLPreviewGet access ], data: %s\n", Jsons.DEFAULT.toJson(event.getEvent()));
+                    return null;
                 }
             })
             .build();

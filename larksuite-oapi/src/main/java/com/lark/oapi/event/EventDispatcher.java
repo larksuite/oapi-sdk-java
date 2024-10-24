@@ -13,61 +13,25 @@
 
 package com.lark.oapi.event;
 
+import com.lark.oapi.event.cardcallback.P2CardActionTriggerHandler;
+import com.lark.oapi.event.cardcallback.P2URLPreviewGetHandler;
 import com.lark.oapi.service.acs.AcsService;
-import com.lark.oapi.service.admin.AdminService;
-import com.lark.oapi.service.aily.AilyService;
 import com.lark.oapi.service.application.ApplicationService;
 import com.lark.oapi.service.approval.ApprovalService;
-import com.lark.oapi.service.attendance.AttendanceService;
-import com.lark.oapi.service.auth.AuthService;
-import com.lark.oapi.service.authen.AuthenService;
-import com.lark.oapi.service.baike.BaikeService;
-import com.lark.oapi.service.bitable.BitableService;
-import com.lark.oapi.service.block.BlockService;
-import com.lark.oapi.service.board.BoardService;
 import com.lark.oapi.service.calendar.CalendarService;
-import com.lark.oapi.service.compensation.CompensationService;
 import com.lark.oapi.service.contact.ContactService;
 import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.document_ai.DocumentAiService;
-import com.lark.oapi.service.docx.DocxService;
 import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.ehr.EhrService;
-import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.gray_test_open_sg.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.HelpdeskService;
 import com.lark.oapi.service.hire.HireService;
-import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
 import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.lingo.LingoService;
-import com.lark.oapi.service.mail.MailService;
-import com.lark.oapi.service.mdm.MdmService;
 import com.lark.oapi.service.meeting_room.MeetingRoomService;
 import com.lark.oapi.service.moments.MomentsService;
-import com.lark.oapi.service.okr.OkrService;
-import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
-import com.lark.oapi.service.passport.PassportService;
-import com.lark.oapi.service.personal_settings.PersonalSettingsService;
-import com.lark.oapi.service.report.ReportService;
-import com.lark.oapi.service.search.SearchService;
-import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
-import com.lark.oapi.service.sheets.SheetsService;
-import com.lark.oapi.service.speech_to_text.SpeechToTextService;
 import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.tenant.TenantService;
-import com.lark.oapi.service.translation.TranslationService;
 import com.lark.oapi.service.vc.VcService;
-import com.lark.oapi.service.verification.VerificationService;
-import com.lark.oapi.service.wiki.WikiService;
-import com.lark.oapi.service.workplace.WorkplaceService;
 
 
 import com.lark.oapi.core.IHandler;
-import com.lark.oapi.core.IHttpAdapter;
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.utils.Decryptor;
 import com.lark.oapi.event.exception.HandlerNotFoundException;
@@ -96,6 +60,7 @@ import java.util.Map;
 public class EventDispatcher implements IHandler {
     private static final Logger log = LoggerFactory.getLogger(EventDispatcher.class);
     private Map<String, IEventHandler> eventType2EventHandler = new HashMap<>();
+    private Map<String, ICallBackHandler> eventType2CardCallBackHandler = new HashMap<>();
     private String verificationToken;
     private String encryptKey;
 
@@ -103,6 +68,7 @@ public class EventDispatcher implements IHandler {
         this.verificationToken = builder.verificationToken;
         this.encryptKey = builder.encryptKey;
         this.eventType2EventHandler = builder.eventType2EventHandler;
+        this.eventType2CardCallBackHandler = builder.eventType2CardCallbackHandler;
     }
 
     public static Builder newBuilder(String verificationToken, String encryptKey) {
@@ -180,6 +146,29 @@ public class EventDispatcher implements IHandler {
             return resp;
         }
 
+        // TODO cardcallback
+        ICallBackHandler callBackHandler = eventType2CardCallBackHandler.get(eventType);
+        if (callBackHandler != null) {
+            // 装配参数
+            Object eventMsg = callBackHandler.getEvent();
+            if (callBackHandler instanceof CustomEventHandler) {
+                eventMsg = req;
+            } else {
+                eventMsg = Jsons.DEFAULT.fromJson(plainEventJsonStr, eventMsg.getClass());
+            }
+
+            if (eventMsg instanceof BaseEventV2) {
+                ((BaseEventV2) eventMsg).setEventReq(req);
+            } else if (eventMsg instanceof BaseEvent) {
+                ((BaseEvent) eventMsg).setEventReq(req);
+            }
+
+            // 执行处理器
+            Object r = callBackHandler.handle(eventMsg);
+            resp.setBody(Jsons.DEFAULT.toJson(r).getBytes(StandardCharsets.UTF_8));
+            return resp;
+        }
+
         // 查找处理器，进行处理
         IEventHandler handler = eventType2EventHandler.get(eventType);
         if (handler == null) {
@@ -207,7 +196,7 @@ public class EventDispatcher implements IHandler {
         return resp;
     }
 
-    public void doWithoutValidation(byte[] payload) throws Throwable {
+    public Object doWithoutValidation(byte[] payload) throws Throwable {
         String pl = new String(payload, StandardCharsets.UTF_8);
 
         Fuzzy fuzzy = Jsons.DEFAULT.fromJson(pl, Fuzzy.class);
@@ -217,6 +206,26 @@ public class EventDispatcher implements IHandler {
         }
         if (fuzzy.getHeader() != null) {
             eventType = fuzzy.getHeader().getEventType();
+        }
+
+        ICallBackHandler callBackHandler = eventType2CardCallBackHandler.get(eventType);
+        if (callBackHandler != null) {
+            EventReq req = new EventReq();
+            req.setBody(payload);
+            Object eventMsg = callBackHandler.getEvent();
+            if (callBackHandler instanceof CustomEventHandler) {
+                eventMsg = req;
+            } else {
+                eventMsg = Jsons.DEFAULT.fromJson(pl, eventMsg.getClass());
+            }
+
+            if (eventMsg instanceof BaseEventV2) {
+                ((BaseEventV2) eventMsg).setEventReq(req);
+            } else if (eventMsg instanceof BaseEvent) {
+                ((BaseEvent) eventMsg).setEventReq(req);
+            }
+
+            return callBackHandler.handle(eventMsg);
         }
 
         IEventHandler handler = eventType2EventHandler.get(eventType);
@@ -240,6 +249,7 @@ public class EventDispatcher implements IHandler {
         }
 
         handler.handle(eventMsg);
+        return null;
     }
 
     public EventResp handle(EventReq eventReq) throws Throwable {
@@ -298,6 +308,7 @@ public class EventDispatcher implements IHandler {
 
     public static class Builder {
         private Map<String, IEventHandler> eventType2EventHandler = new HashMap<>();
+        private Map<String, ICallBackHandler> eventType2CardCallbackHandler = new HashMap<>();
         private String verificationToken;
         private String encryptKey;
 
@@ -309,6 +320,22 @@ public class EventDispatcher implements IHandler {
 
         public EventDispatcher build() {
             return new EventDispatcher(this);
+        }
+
+        public Builder onP2CardActionTrigger(P2CardActionTriggerHandler handler) {
+            if (eventType2CardCallbackHandler.containsKey("card.action.trigger")) {
+                throw new EventTypeAlreadyHasHandlerException("card.action.trigger");
+            }
+            eventType2CardCallbackHandler.put("card.action.trigger", handler);
+            return this;
+        }
+
+        public Builder onP2URLPreviewGet(P2URLPreviewGetHandler handler) {
+            if (eventType2CardCallbackHandler.containsKey("url.preview.get")) {
+                throw new EventTypeAlreadyHasHandlerException("url.preview.get");
+            }
+            eventType2CardCallbackHandler.put("url.preview.get", handler);
+            return this;
         }
 
         /**
