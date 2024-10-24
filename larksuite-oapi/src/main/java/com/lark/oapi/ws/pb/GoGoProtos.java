@@ -9,9 +9,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.EnumOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.EnumOptions,
-            Boolean> goprotoEnumPrefix = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.EnumOptions,
+            Boolean> goprotoEnumPrefix = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -20,9 +20,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.EnumOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.EnumOptions,
-            Boolean> goprotoEnumStringer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.EnumOptions,
+            Boolean> goprotoEnumStringer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -31,9 +31,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.EnumOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.EnumOptions,
-            Boolean> enumStringer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.EnumOptions,
+            Boolean> enumStringer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -42,9 +42,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.EnumOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.EnumOptions,
-            String> enumCustomname = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.EnumOptions,
+            String> enumCustomname = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -53,9 +53,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.EnumOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.EnumOptions,
-            Boolean> enumdecl = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.EnumOptions,
+            Boolean> enumdecl = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -64,9 +64,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.EnumValueOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.EnumValueOptions,
-            String> enumvalueCustomname = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.EnumValueOptions,
+            String> enumvalueCustomname = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -75,9 +75,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoGettersAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoGettersAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -86,9 +86,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoEnumPrefixAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoEnumPrefixAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -97,9 +97,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoStringerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoStringerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -108,9 +108,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> verboseEqualAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> verboseEqualAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -119,9 +119,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> faceAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> faceAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -130,9 +130,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> gostringAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> gostringAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -141,9 +141,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> populateAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> populateAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -152,9 +152,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> stringerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> stringerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -163,9 +163,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> onlyoneAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> onlyoneAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -174,9 +174,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> equalAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> equalAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -185,9 +185,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> descriptionAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> descriptionAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -196,9 +196,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> testgenAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> testgenAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -207,9 +207,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> benchgenAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> benchgenAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -218,9 +218,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> marshalerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> marshalerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -229,9 +229,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> unmarshalerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> unmarshalerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -240,9 +240,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> stableMarshalerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> stableMarshalerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -251,9 +251,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> sizerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> sizerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -262,9 +262,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoEnumStringerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoEnumStringerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -273,9 +273,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> enumStringerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> enumStringerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -284,9 +284,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> unsafeMarshalerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> unsafeMarshalerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -295,9 +295,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> unsafeUnmarshalerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> unsafeUnmarshalerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -306,9 +306,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoExtensionsMapAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoExtensionsMapAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -317,9 +317,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoUnrecognizedAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoUnrecognizedAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -328,9 +328,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> gogoprotoImport = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> gogoprotoImport = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -339,9 +339,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> protosizerAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> protosizerAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -350,9 +350,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> compareAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> compareAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -361,9 +361,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> typedeclAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> typedeclAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -372,9 +372,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> enumdeclAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> enumdeclAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -383,9 +383,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoRegistration = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoRegistration = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -394,9 +394,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> messagenameAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> messagenameAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -405,9 +405,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoSizecacheAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoSizecacheAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -416,9 +416,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FileOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FileOptions,
-            Boolean> goprotoUnkeyedAll = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FileOptions,
+            Boolean> goprotoUnkeyedAll = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -427,9 +427,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> goprotoGetters = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> goprotoGetters = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -438,9 +438,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> goprotoStringer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> goprotoStringer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -449,9 +449,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> verboseEqual = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> verboseEqual = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -460,9 +460,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> face = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> face = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -471,9 +471,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> gostring = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> gostring = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -482,9 +482,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> populate = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> populate = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -493,9 +493,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> stringer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> stringer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -504,9 +504,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> onlyone = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> onlyone = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -515,9 +515,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> equal = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> equal = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -526,9 +526,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> description = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> description = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -537,9 +537,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> testgen = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> testgen = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -548,9 +548,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> benchgen = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> benchgen = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -559,9 +559,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> marshaler = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> marshaler = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -570,9 +570,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> unmarshaler = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> unmarshaler = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -581,9 +581,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> stableMarshaler = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> stableMarshaler = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -592,9 +592,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> sizer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> sizer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -603,9 +603,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> unsafeMarshaler = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> unsafeMarshaler = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -614,9 +614,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> unsafeUnmarshaler = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> unsafeUnmarshaler = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -625,9 +625,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> goprotoExtensionsMap = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> goprotoExtensionsMap = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -636,9 +636,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> goprotoUnrecognized = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> goprotoUnrecognized = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -647,9 +647,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> protosizer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> protosizer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -658,9 +658,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> compare = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> compare = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -669,9 +669,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> typedecl = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> typedecl = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -680,9 +680,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> messagename = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> messagename = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -691,9 +691,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> goprotoSizecache = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> goprotoSizecache = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -702,9 +702,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.MessageOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.MessageOptions,
-            Boolean> goprotoUnkeyed = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.MessageOptions,
+            Boolean> goprotoUnkeyed = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -713,9 +713,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            Boolean> nullable = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            Boolean> nullable = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -724,9 +724,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            Boolean> embed = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            Boolean> embed = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -735,9 +735,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> customtype = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> customtype = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -746,9 +746,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> customname = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> customname = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -757,9 +757,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> jsontag = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> jsontag = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -768,9 +768,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> moretags = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> moretags = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -779,9 +779,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> casttype = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> casttype = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -790,9 +790,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> castkey = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> castkey = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -801,9 +801,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            String> castvalue = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            String> castvalue = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     String.class,
                     null);
@@ -812,9 +812,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            Boolean> stdtime = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            Boolean> stdtime = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -823,9 +823,9 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            Boolean> stdduration = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            Boolean> stdduration = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
@@ -834,13 +834,13 @@ public final class GoGoProtos {
      * <code>extend .google.protobuf.FieldOptions { ... }</code>
      */
     public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-            com.google.protobuf.DescriptorProtos.FieldOptions,
-            Boolean> wktpointer = com.google.protobuf.GeneratedMessage
+    com.lark.oapi.google.protobuf.GeneratedMessage.GeneratedExtension<
+            com.lark.oapi.google.protobuf.DescriptorProtos.FieldOptions,
+            Boolean> wktpointer = com.lark.oapi.google.protobuf.GeneratedMessage
             .newFileScopedGeneratedExtension(
                     Boolean.class,
                     null);
-    private static com.google.protobuf.Descriptors.FileDescriptor
+    private static com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
             descriptor;
 
     static {
@@ -957,10 +957,10 @@ public final class GoGoProtos {
                         "oapi.ws.pbB\nGoGoProtosZ\"github.com/gogo/" +
                         "protobuf/gogoproto"
         };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+        descriptor = com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
                 .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                com.google.protobuf.DescriptorProtos.getDescriptor(),
+                        new com.lark.oapi.google.protobuf.Descriptors.FileDescriptor[]{
+                                com.lark.oapi.google.protobuf.DescriptorProtos.getDescriptor(),
                         });
         goprotoEnumPrefix.internalInit(descriptor.getExtensions().get(0));
         goprotoEnumStringer.internalInit(descriptor.getExtensions().get(1));
@@ -1038,14 +1038,14 @@ public final class GoGoProtos {
         stdtime.internalInit(descriptor.getExtensions().get(73));
         stdduration.internalInit(descriptor.getExtensions().get(74));
         wktpointer.internalInit(descriptor.getExtensions().get(75));
-        com.google.protobuf.DescriptorProtos.getDescriptor();
+        com.lark.oapi.google.protobuf.DescriptorProtos.getDescriptor();
     }
 
     private GoGoProtos() {
     }
 
     public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
+            com.lark.oapi.google.protobuf.ExtensionRegistryLite registry) {
         registry.add(GoGoProtos.goprotoEnumPrefix);
         registry.add(GoGoProtos.goprotoEnumStringer);
         registry.add(GoGoProtos.enumStringer);
@@ -1125,12 +1125,12 @@ public final class GoGoProtos {
     }
 
     public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
+            com.lark.oapi.google.protobuf.ExtensionRegistry registry) {
         registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
+                (com.lark.oapi.google.protobuf.ExtensionRegistryLite) registry);
     }
 
-    public static com.google.protobuf.Descriptors.FileDescriptor
+    public static com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
     getDescriptor() {
         return descriptor;
     }
