@@ -488,7 +488,7 @@ public class RawApiCall {
         .atUser("ou_155184d1e73cbfb8973e5a9e698e74f2", "Tom")
         .text("test content")
         .build());
-    body.put("msg_type", MsgTypeEnum.MSG_TYPE_TEXT);
+    body.put("msg_type", MsgTypeEnum.MsgTypeEnum.MSG_TYPE_TEXT.getValue());
 
     // 发起请求
     RawResponse resp = client.post(
