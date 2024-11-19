@@ -4,17 +4,17 @@
 package com.lark.oapi.ws.pb;
 
 public final class Pbbp2 {
-    private static final com.google.protobuf.Descriptors.Descriptor
+    private static final com.lark.oapi.google.protobuf.Descriptors.Descriptor
             internal_static_pbbp2_Header_descriptor;
     private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    com.lark.oapi.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_pbbp2_Header_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
+    private static final com.lark.oapi.google.protobuf.Descriptors.Descriptor
             internal_static_pbbp2_Frame_descriptor;
     private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    com.lark.oapi.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_pbbp2_Frame_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
+    private static com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
             descriptor;
 
     static {
@@ -28,27 +28,27 @@ public final class Pbbp2 {
                         "\030\010 \001(\014\022\020\n\010LogIDNew\030\t \001(\tB\025\n\023com.lark.oap" +
                         "i.ws.pb"
         };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+        descriptor = com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
                 .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        new com.lark.oapi.google.protobuf.Descriptors.FileDescriptor[]{
                                 GoGoProtos.getDescriptor(),
                         });
         internal_static_pbbp2_Header_descriptor =
                 getDescriptor().getMessageTypes().get(0);
         internal_static_pbbp2_Header_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_pbbp2_Header_descriptor,
                 new String[]{"Key", "Value",});
         internal_static_pbbp2_Frame_descriptor =
                 getDescriptor().getMessageTypes().get(1);
         internal_static_pbbp2_Frame_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_pbbp2_Frame_descriptor,
                 new String[]{"SeqID", "LogID", "Service", "Method", "Headers", "PayloadEncoding", "PayloadType", "Payload", "LogIDNew",});
-        com.google.protobuf.ExtensionRegistry registry =
-                com.google.protobuf.ExtensionRegistry.newInstance();
+        com.lark.oapi.google.protobuf.ExtensionRegistry registry =
+                com.lark.oapi.google.protobuf.ExtensionRegistry.newInstance();
         registry.add(GoGoProtos.nullable);
-        com.google.protobuf.Descriptors.FileDescriptor
+        com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
                 .internalUpdateFileDescriptor(descriptor, registry);
         GoGoProtos.getDescriptor();
     }
@@ -57,23 +57,23 @@ public final class Pbbp2 {
     }
 
     public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
+            com.lark.oapi.google.protobuf.ExtensionRegistryLite registry) {
     }
 
     public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
+            com.lark.oapi.google.protobuf.ExtensionRegistry registry) {
         registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
+                (com.lark.oapi.google.protobuf.ExtensionRegistryLite) registry);
     }
 
-    public static com.google.protobuf.Descriptors.FileDescriptor
+    public static com.lark.oapi.google.protobuf.Descriptors.FileDescriptor
     getDescriptor() {
         return descriptor;
     }
 
     public interface HeaderOrBuilder extends
             // @@protoc_insertion_point(interface_extends:pbbp2.Header)
-            com.google.protobuf.MessageOrBuilder {
+            com.lark.oapi.google.protobuf.MessageOrBuilder {
 
         /**
          * <code>required string key = 1;</code>
@@ -94,7 +94,7 @@ public final class Pbbp2 {
          *
          * @return The bytes for key.
          */
-        com.google.protobuf.ByteString
+        com.lark.oapi.google.protobuf.ByteString
         getKeyBytes();
 
         /**
@@ -116,13 +116,13 @@ public final class Pbbp2 {
          *
          * @return The bytes for value.
          */
-        com.google.protobuf.ByteString
+        com.lark.oapi.google.protobuf.ByteString
         getValueBytes();
     }
 
     public interface FrameOrBuilder extends
             // @@protoc_insertion_point(interface_extends:pbbp2.Frame)
-            com.google.protobuf.MessageOrBuilder {
+            com.lark.oapi.google.protobuf.MessageOrBuilder {
 
         /**
          * <code>required uint64 SeqID = 1;</code>
@@ -239,7 +239,7 @@ public final class Pbbp2 {
          *
          * @return The bytes for payloadEncoding.
          */
-        com.google.protobuf.ByteString
+        com.lark.oapi.google.protobuf.ByteString
         getPayloadEncodingBytes();
 
         /**
@@ -273,7 +273,7 @@ public final class Pbbp2 {
          *
          * @return The bytes for payloadType.
          */
-        com.google.protobuf.ByteString
+        com.lark.oapi.google.protobuf.ByteString
         getPayloadTypeBytes();
 
         /**
@@ -296,7 +296,7 @@ public final class Pbbp2 {
          *
          * @return The payload.
          */
-        com.google.protobuf.ByteString getPayload();
+        com.lark.oapi.google.protobuf.ByteString getPayload();
 
         /**
          * <code>optional string LogIDNew = 9;</code>
@@ -317,7 +317,7 @@ public final class Pbbp2 {
          *
          * @return The bytes for logIDNew.
          */
-        com.google.protobuf.ByteString
+        com.lark.oapi.google.protobuf.ByteString
         getLogIDNewBytes();
     }
 
@@ -325,19 +325,19 @@ public final class Pbbp2 {
      * Protobuf type {@code pbbp2.Header}
      */
     public static final class Header extends
-            com.google.protobuf.GeneratedMessageV3 implements
+            com.lark.oapi.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:pbbp2.Header)
             HeaderOrBuilder {
         public static final int KEY_FIELD_NUMBER = 1;
         public static final int VALUE_FIELD_NUMBER = 2;
         @Deprecated
-        public static final com.google.protobuf.Parser<Header>
-                PARSER = new com.google.protobuf.AbstractParser<Header>() {
+        public static final com.lark.oapi.google.protobuf.Parser<Header>
+                PARSER = new com.lark.oapi.google.protobuf.AbstractParser<Header>() {
             @Override
             public Header parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
+                    com.lark.oapi.google.protobuf.CodedInputStream input,
+                    com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
                 return new Header(input, extensionRegistry);
             }
         };
@@ -355,7 +355,7 @@ public final class Pbbp2 {
         private byte memoizedIsInitialized = -1;
 
         // Use Header.newBuilder() to construct.
-        private Header(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        private Header(com.lark.oapi.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
 
@@ -365,16 +365,16 @@ public final class Pbbp2 {
         }
 
         private Header(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.CodedInputStream input,
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
                 throw new NullPointerException();
             }
             int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            com.lark.oapi.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.lark.oapi.google.protobuf.UnknownFieldSet.newBuilder();
             try {
                 boolean done = false;
                 while (!done) {
@@ -384,13 +384,13 @@ public final class Pbbp2 {
                             done = true;
                             break;
                         case 10: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            com.lark.oapi.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000001;
                             key_ = bs;
                             break;
                         }
                         case 18: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            com.lark.oapi.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000002;
                             value_ = bs;
                             break;
@@ -404,10 +404,10 @@ public final class Pbbp2 {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (com.lark.oapi.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
             } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
+                throw new com.lark.oapi.google.protobuf.InvalidProtocolBufferException(
                         e).setUnfinishedMessage(this);
             } finally {
                 this.unknownFields = unknownFields.build();
@@ -415,89 +415,89 @@ public final class Pbbp2 {
             }
         }
 
-        public static final com.google.protobuf.Descriptors.Descriptor
+        public static final com.lark.oapi.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return Pbbp2.internal_static_pbbp2_Header_descriptor;
         }
 
         public static Header parseFrom(
                 java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static Header parseFrom(
                 java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static Header parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ByteString data)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static Header parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ByteString data,
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static Header parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static Header parseFrom(
                 byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static Header parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
         public static Header parseFrom(
                 java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
         public static Header parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
 
         public static Header parseDelimitedFrom(
                 java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
 
         public static Header parseFrom(
-                com.google.protobuf.CodedInputStream input)
+                com.lark.oapi.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
         public static Header parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                com.lark.oapi.google.protobuf.CodedInputStream input,
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
@@ -513,7 +513,7 @@ public final class Pbbp2 {
             return DEFAULT_INSTANCE;
         }
 
-        public static com.google.protobuf.Parser<Header> parser() {
+        public static com.lark.oapi.google.protobuf.Parser<Header> parser() {
             return PARSER;
         }
 
@@ -525,7 +525,7 @@ public final class Pbbp2 {
         }
 
         @Override
-        public final com.google.protobuf.UnknownFieldSet
+        public final com.lark.oapi.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
@@ -559,8 +559,8 @@ public final class Pbbp2 {
             if (ref instanceof String) {
                 return (String) ref;
             } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
+                com.lark.oapi.google.protobuf.ByteString bs =
+                        (com.lark.oapi.google.protobuf.ByteString) ref;
                 String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     key_ = s;
@@ -575,17 +575,17 @@ public final class Pbbp2 {
          * @return The bytes for key.
          */
         @Override
-        public com.google.protobuf.ByteString
+        public com.lark.oapi.google.protobuf.ByteString
         getKeyBytes() {
             Object ref = key_;
             if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
+                com.lark.oapi.google.protobuf.ByteString b =
+                        com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                 (String) ref);
                 key_ = b;
                 return b;
             } else {
-                return (com.google.protobuf.ByteString) ref;
+                return (com.lark.oapi.google.protobuf.ByteString) ref;
             }
         }
 
@@ -610,8 +610,8 @@ public final class Pbbp2 {
             if (ref instanceof String) {
                 return (String) ref;
             } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
+                com.lark.oapi.google.protobuf.ByteString bs =
+                        (com.lark.oapi.google.protobuf.ByteString) ref;
                 String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     value_ = s;
@@ -626,17 +626,17 @@ public final class Pbbp2 {
          * @return The bytes for value.
          */
         @Override
-        public com.google.protobuf.ByteString
+        public com.lark.oapi.google.protobuf.ByteString
         getValueBytes() {
             Object ref = value_;
             if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
+                com.lark.oapi.google.protobuf.ByteString b =
+                        com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                 (String) ref);
                 value_ = b;
                 return b;
             } else {
-                return (com.google.protobuf.ByteString) ref;
+                return (com.lark.oapi.google.protobuf.ByteString) ref;
             }
         }
 
@@ -659,13 +659,13 @@ public final class Pbbp2 {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
+        public void writeTo(com.lark.oapi.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (((bitField0_ & 0x00000001) != 0)) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
             }
             if (((bitField0_ & 0x00000002) != 0)) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
             }
             unknownFields.writeTo(output);
         }
@@ -677,10 +677,10 @@ public final class Pbbp2 {
 
             size = 0;
             if (((bitField0_ & 0x00000001) != 0)) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+                size += com.lark.oapi.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
             }
             if (((bitField0_ & 0x00000002) != 0)) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+                size += com.lark.oapi.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
             }
             size += unknownFields.getSerializedSize();
             memoizedSize = size;
@@ -750,7 +750,7 @@ public final class Pbbp2 {
         }
 
         @Override
-        public com.google.protobuf.Parser<Header> getParserForType() {
+        public com.lark.oapi.google.protobuf.Parser<Header> getParserForType() {
             return PARSER;
         }
 
@@ -763,7 +763,7 @@ public final class Pbbp2 {
          * Protobuf type {@code pbbp2.Header}
          */
         public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:pbbp2.Header)
                 HeaderOrBuilder {
             private int bitField0_;
@@ -781,7 +781,7 @@ public final class Pbbp2 {
                 maybeForceBuilderInitialization();
             }
 
-            public static final com.google.protobuf.Descriptors.Descriptor
+            public static final com.lark.oapi.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
                 return Pbbp2.internal_static_pbbp2_Header_descriptor;
             }
@@ -795,7 +795,7 @@ public final class Pbbp2 {
             }
 
             private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
+                if (com.lark.oapi.google.protobuf.GeneratedMessageV3
                         .alwaysUseFieldBuilders) {
                 }
             }
@@ -811,7 +811,7 @@ public final class Pbbp2 {
             }
 
             @Override
-            public com.google.protobuf.Descriptors.Descriptor
+            public com.lark.oapi.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
                 return Pbbp2.internal_static_pbbp2_Header_descriptor;
             }
@@ -855,39 +855,39 @@ public final class Pbbp2 {
 
             @Override
             public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
                 return super.setField(field, value);
             }
 
             @Override
             public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field) {
                 return super.clearField(field);
             }
 
             @Override
             public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                    com.lark.oapi.google.protobuf.Descriptors.OneofDescriptor oneof) {
                 return super.clearOneof(oneof);
             }
 
             @Override
             public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field,
                     int index, Object value) {
                 return super.setRepeatedField(field, index, value);
             }
 
             @Override
             public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
                 return super.addRepeatedField(field, value);
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.Message other) {
+            public Builder mergeFrom(com.lark.oapi.google.protobuf.Message other) {
                 if (other instanceof Header) {
                     return mergeFrom((Header) other);
                 } else {
@@ -926,13 +926,13 @@ public final class Pbbp2 {
 
             @Override
             public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    com.lark.oapi.google.protobuf.CodedInputStream input,
+                    com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws java.io.IOException {
                 Header parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (com.lark.oapi.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (Header) e.getUnfinishedMessage();
                     throw e.unwrapIOException();
                 } finally {
@@ -960,8 +960,8 @@ public final class Pbbp2 {
             public String getKey() {
                 Object ref = key_;
                 if (!(ref instanceof String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
+                    com.lark.oapi.google.protobuf.ByteString bs =
+                            (com.lark.oapi.google.protobuf.ByteString) ref;
                     String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         key_ = s;
@@ -994,17 +994,17 @@ public final class Pbbp2 {
              *
              * @return The bytes for key.
              */
-            public com.google.protobuf.ByteString
+            public com.lark.oapi.google.protobuf.ByteString
             getKeyBytes() {
                 Object ref = key_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
+                    com.lark.oapi.google.protobuf.ByteString b =
+                            com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                     (String) ref);
                     key_ = b;
                     return b;
                 } else {
-                    return (com.google.protobuf.ByteString) ref;
+                    return (com.lark.oapi.google.protobuf.ByteString) ref;
                 }
             }
 
@@ -1015,7 +1015,7 @@ public final class Pbbp2 {
              * @return This builder for chaining.
              */
             public Builder setKeyBytes(
-                    com.google.protobuf.ByteString value) {
+                    com.lark.oapi.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1054,8 +1054,8 @@ public final class Pbbp2 {
             public String getValue() {
                 Object ref = value_;
                 if (!(ref instanceof String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
+                    com.lark.oapi.google.protobuf.ByteString bs =
+                            (com.lark.oapi.google.protobuf.ByteString) ref;
                     String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         value_ = s;
@@ -1088,17 +1088,17 @@ public final class Pbbp2 {
              *
              * @return The bytes for value.
              */
-            public com.google.protobuf.ByteString
+            public com.lark.oapi.google.protobuf.ByteString
             getValueBytes() {
                 Object ref = value_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
+                    com.lark.oapi.google.protobuf.ByteString b =
+                            com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                     (String) ref);
                     value_ = b;
                     return b;
                 } else {
-                    return (com.google.protobuf.ByteString) ref;
+                    return (com.lark.oapi.google.protobuf.ByteString) ref;
                 }
             }
 
@@ -1109,7 +1109,7 @@ public final class Pbbp2 {
              * @return This builder for chaining.
              */
             public Builder setValueBytes(
-                    com.google.protobuf.ByteString value) {
+                    com.lark.oapi.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1133,13 +1133,13 @@ public final class Pbbp2 {
 
             @Override
             public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                    final com.lark.oapi.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFields(unknownFields);
             }
 
             @Override
             public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                    final com.lark.oapi.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.mergeUnknownFields(unknownFields);
             }
 
@@ -1157,7 +1157,7 @@ public final class Pbbp2 {
      * Protobuf type {@code pbbp2.Frame}
      */
     public static final class Frame extends
-            com.google.protobuf.GeneratedMessageV3 implements
+            com.lark.oapi.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:pbbp2.Frame)
             FrameOrBuilder {
         public static final int SEQID_FIELD_NUMBER = 1;
@@ -1170,13 +1170,13 @@ public final class Pbbp2 {
         public static final int PAYLOAD_FIELD_NUMBER = 8;
         public static final int LOGIDNEW_FIELD_NUMBER = 9;
         @Deprecated
-        public static final com.google.protobuf.Parser<Frame>
-                PARSER = new com.google.protobuf.AbstractParser<Frame>() {
+        public static final com.lark.oapi.google.protobuf.Parser<Frame>
+                PARSER = new com.lark.oapi.google.protobuf.AbstractParser<Frame>() {
             @Override
             public Frame parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
+                    com.lark.oapi.google.protobuf.CodedInputStream input,
+                    com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
                 return new Frame(input, extensionRegistry);
             }
         };
@@ -1196,12 +1196,12 @@ public final class Pbbp2 {
         private java.util.List<Header> headers_;
         private volatile Object payloadEncoding_;
         private volatile Object payloadType_;
-        private com.google.protobuf.ByteString payload_;
+        private com.lark.oapi.google.protobuf.ByteString payload_;
         private volatile Object logIDNew_;
         private byte memoizedIsInitialized = -1;
 
         // Use Frame.newBuilder() to construct.
-        private Frame(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        private Frame(com.lark.oapi.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
 
@@ -1209,21 +1209,21 @@ public final class Pbbp2 {
             headers_ = java.util.Collections.emptyList();
             payloadEncoding_ = "";
             payloadType_ = "";
-            payload_ = com.google.protobuf.ByteString.EMPTY;
+            payload_ = com.lark.oapi.google.protobuf.ByteString.EMPTY;
             logIDNew_ = "";
         }
 
         private Frame(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.CodedInputStream input,
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
                 throw new NullPointerException();
             }
             int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            com.lark.oapi.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.lark.oapi.google.protobuf.UnknownFieldSet.newBuilder();
             try {
                 boolean done = false;
                 while (!done) {
@@ -1262,13 +1262,13 @@ public final class Pbbp2 {
                             break;
                         }
                         case 50: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            com.lark.oapi.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000010;
                             payloadEncoding_ = bs;
                             break;
                         }
                         case 58: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            com.lark.oapi.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000020;
                             payloadType_ = bs;
                             break;
@@ -1279,7 +1279,7 @@ public final class Pbbp2 {
                             break;
                         }
                         case 74: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            com.lark.oapi.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000080;
                             logIDNew_ = bs;
                             break;
@@ -1293,10 +1293,10 @@ public final class Pbbp2 {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (com.lark.oapi.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
             } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
+                throw new com.lark.oapi.google.protobuf.InvalidProtocolBufferException(
                         e).setUnfinishedMessage(this);
             } finally {
                 if (((mutable_bitField0_ & 0x00000010) != 0)) {
@@ -1307,89 +1307,89 @@ public final class Pbbp2 {
             }
         }
 
-        public static final com.google.protobuf.Descriptors.Descriptor
+        public static final com.lark.oapi.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return Pbbp2.internal_static_pbbp2_Frame_descriptor;
         }
 
         public static Frame parseFrom(
                 java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static Frame parseFrom(
                 java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static Frame parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ByteString data)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static Frame parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ByteString data,
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static Frame parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static Frame parseFrom(
                 byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.lark.oapi.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static Frame parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
         public static Frame parseFrom(
                 java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
         public static Frame parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
 
         public static Frame parseDelimitedFrom(
                 java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
 
         public static Frame parseFrom(
-                com.google.protobuf.CodedInputStream input)
+                com.lark.oapi.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
         public static Frame parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                com.lark.oapi.google.protobuf.CodedInputStream input,
+                com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
+            return com.lark.oapi.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
@@ -1405,7 +1405,7 @@ public final class Pbbp2 {
             return DEFAULT_INSTANCE;
         }
 
-        public static com.google.protobuf.Parser<Frame> parser() {
+        public static com.lark.oapi.google.protobuf.Parser<Frame> parser() {
             return PARSER;
         }
 
@@ -1417,7 +1417,7 @@ public final class Pbbp2 {
         }
 
         @Override
-        public final com.google.protobuf.UnknownFieldSet
+        public final com.lark.oapi.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
@@ -1581,8 +1581,8 @@ public final class Pbbp2 {
             if (ref instanceof String) {
                 return (String) ref;
             } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
+                com.lark.oapi.google.protobuf.ByteString bs =
+                        (com.lark.oapi.google.protobuf.ByteString) ref;
                 String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     payloadEncoding_ = s;
@@ -1601,17 +1601,17 @@ public final class Pbbp2 {
          * @return The bytes for payloadEncoding.
          */
         @Override
-        public com.google.protobuf.ByteString
+        public com.lark.oapi.google.protobuf.ByteString
         getPayloadEncodingBytes() {
             Object ref = payloadEncoding_;
             if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
+                com.lark.oapi.google.protobuf.ByteString b =
+                        com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                 (String) ref);
                 payloadEncoding_ = b;
                 return b;
             } else {
-                return (com.google.protobuf.ByteString) ref;
+                return (com.lark.oapi.google.protobuf.ByteString) ref;
             }
         }
 
@@ -1644,8 +1644,8 @@ public final class Pbbp2 {
             if (ref instanceof String) {
                 return (String) ref;
             } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
+                com.lark.oapi.google.protobuf.ByteString bs =
+                        (com.lark.oapi.google.protobuf.ByteString) ref;
                 String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     payloadType_ = s;
@@ -1664,17 +1664,17 @@ public final class Pbbp2 {
          * @return The bytes for payloadType.
          */
         @Override
-        public com.google.protobuf.ByteString
+        public com.lark.oapi.google.protobuf.ByteString
         getPayloadTypeBytes() {
             Object ref = payloadType_;
             if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
+                com.lark.oapi.google.protobuf.ByteString b =
+                        com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                 (String) ref);
                 payloadType_ = b;
                 return b;
             } else {
-                return (com.google.protobuf.ByteString) ref;
+                return (com.lark.oapi.google.protobuf.ByteString) ref;
             }
         }
 
@@ -1702,7 +1702,7 @@ public final class Pbbp2 {
          * @return The payload.
          */
         @Override
-        public com.google.protobuf.ByteString getPayload() {
+        public com.lark.oapi.google.protobuf.ByteString getPayload() {
             return payload_;
         }
 
@@ -1727,8 +1727,8 @@ public final class Pbbp2 {
             if (ref instanceof String) {
                 return (String) ref;
             } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
+                com.lark.oapi.google.protobuf.ByteString bs =
+                        (com.lark.oapi.google.protobuf.ByteString) ref;
                 String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     logIDNew_ = s;
@@ -1743,17 +1743,17 @@ public final class Pbbp2 {
          * @return The bytes for logIDNew.
          */
         @Override
-        public com.google.protobuf.ByteString
+        public com.lark.oapi.google.protobuf.ByteString
         getLogIDNewBytes() {
             Object ref = logIDNew_;
             if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
+                com.lark.oapi.google.protobuf.ByteString b =
+                        com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                 (String) ref);
                 logIDNew_ = b;
                 return b;
             } else {
-                return (com.google.protobuf.ByteString) ref;
+                return (com.lark.oapi.google.protobuf.ByteString) ref;
             }
         }
 
@@ -1790,7 +1790,7 @@ public final class Pbbp2 {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
+        public void writeTo(com.lark.oapi.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (((bitField0_ & 0x00000001) != 0)) {
                 output.writeUInt64(1, seqID_);
@@ -1808,16 +1808,16 @@ public final class Pbbp2 {
                 output.writeMessage(5, headers_.get(i));
             }
             if (((bitField0_ & 0x00000010) != 0)) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 6, payloadEncoding_);
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.writeString(output, 6, payloadEncoding_);
             }
             if (((bitField0_ & 0x00000020) != 0)) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 7, payloadType_);
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.writeString(output, 7, payloadType_);
             }
             if (((bitField0_ & 0x00000040) != 0)) {
                 output.writeBytes(8, payload_);
             }
             if (((bitField0_ & 0x00000080) != 0)) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 9, logIDNew_);
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.writeString(output, 9, logIDNew_);
             }
             unknownFields.writeTo(output);
         }
@@ -1829,37 +1829,37 @@ public final class Pbbp2 {
 
             size = 0;
             if (((bitField0_ & 0x00000001) != 0)) {
-                size += com.google.protobuf.CodedOutputStream
+                size += com.lark.oapi.google.protobuf.CodedOutputStream
                         .computeUInt64Size(1, seqID_);
             }
             if (((bitField0_ & 0x00000002) != 0)) {
-                size += com.google.protobuf.CodedOutputStream
+                size += com.lark.oapi.google.protobuf.CodedOutputStream
                         .computeUInt64Size(2, logID_);
             }
             if (((bitField0_ & 0x00000004) != 0)) {
-                size += com.google.protobuf.CodedOutputStream
+                size += com.lark.oapi.google.protobuf.CodedOutputStream
                         .computeInt32Size(3, service_);
             }
             if (((bitField0_ & 0x00000008) != 0)) {
-                size += com.google.protobuf.CodedOutputStream
+                size += com.lark.oapi.google.protobuf.CodedOutputStream
                         .computeInt32Size(4, method_);
             }
             for (int i = 0; i < headers_.size(); i++) {
-                size += com.google.protobuf.CodedOutputStream
+                size += com.lark.oapi.google.protobuf.CodedOutputStream
                         .computeMessageSize(5, headers_.get(i));
             }
             if (((bitField0_ & 0x00000010) != 0)) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, payloadEncoding_);
+                size += com.lark.oapi.google.protobuf.GeneratedMessageV3.computeStringSize(6, payloadEncoding_);
             }
             if (((bitField0_ & 0x00000020) != 0)) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, payloadType_);
+                size += com.lark.oapi.google.protobuf.GeneratedMessageV3.computeStringSize(7, payloadType_);
             }
             if (((bitField0_ & 0x00000040) != 0)) {
-                size += com.google.protobuf.CodedOutputStream
+                size += com.lark.oapi.google.protobuf.CodedOutputStream
                         .computeBytesSize(8, payload_);
             }
             if (((bitField0_ & 0x00000080) != 0)) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, logIDNew_);
+                size += com.lark.oapi.google.protobuf.GeneratedMessageV3.computeStringSize(9, logIDNew_);
             }
             size += unknownFields.getSerializedSize();
             memoizedSize = size;
@@ -1931,12 +1931,12 @@ public final class Pbbp2 {
             hash = (19 * hash) + getDescriptor().hashCode();
             if (hasSeqID()) {
                 hash = (37 * hash) + SEQID_FIELD_NUMBER;
-                hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                hash = (53 * hash) + com.lark.oapi.google.protobuf.Internal.hashLong(
                         getSeqID());
             }
             if (hasLogID()) {
                 hash = (37 * hash) + LOGID_FIELD_NUMBER;
-                hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                hash = (53 * hash) + com.lark.oapi.google.protobuf.Internal.hashLong(
                         getLogID());
             }
             if (hasService()) {
@@ -1991,7 +1991,7 @@ public final class Pbbp2 {
         }
 
         @Override
-        public com.google.protobuf.Parser<Frame> getParserForType() {
+        public com.lark.oapi.google.protobuf.Parser<Frame> getParserForType() {
             return PARSER;
         }
 
@@ -2008,7 +2008,7 @@ public final class Pbbp2 {
          * Protobuf type {@code pbbp2.Frame}
          */
         public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                com.lark.oapi.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:pbbp2.Frame)
                 FrameOrBuilder {
             private int bitField0_;
@@ -2018,11 +2018,11 @@ public final class Pbbp2 {
             private int method_;
             private java.util.List<Header> headers_ =
                     java.util.Collections.emptyList();
-            private com.google.protobuf.RepeatedFieldBuilderV3<
+            private com.lark.oapi.google.protobuf.RepeatedFieldBuilderV3<
                     Header, Header.Builder, HeaderOrBuilder> headersBuilder_;
             private Object payloadEncoding_ = "";
             private Object payloadType_ = "";
-            private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+            private com.lark.oapi.google.protobuf.ByteString payload_ = com.lark.oapi.google.protobuf.ByteString.EMPTY;
             private Object logIDNew_ = "";
 
             // Construct using com.lark.oapi.ws.pb.Pbbp2.Frame.newBuilder()
@@ -2036,7 +2036,7 @@ public final class Pbbp2 {
                 maybeForceBuilderInitialization();
             }
 
-            public static final com.google.protobuf.Descriptors.Descriptor
+            public static final com.lark.oapi.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
                 return Pbbp2.internal_static_pbbp2_Frame_descriptor;
             }
@@ -2050,7 +2050,7 @@ public final class Pbbp2 {
             }
 
             private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
+                if (com.lark.oapi.google.protobuf.GeneratedMessageV3
                         .alwaysUseFieldBuilders) {
                     getHeadersFieldBuilder();
                 }
@@ -2077,7 +2077,7 @@ public final class Pbbp2 {
                 bitField0_ = (bitField0_ & ~0x00000020);
                 payloadType_ = "";
                 bitField0_ = (bitField0_ & ~0x00000040);
-                payload_ = com.google.protobuf.ByteString.EMPTY;
+                payload_ = com.lark.oapi.google.protobuf.ByteString.EMPTY;
                 bitField0_ = (bitField0_ & ~0x00000080);
                 logIDNew_ = "";
                 bitField0_ = (bitField0_ & ~0x00000100);
@@ -2085,7 +2085,7 @@ public final class Pbbp2 {
             }
 
             @Override
-            public com.google.protobuf.Descriptors.Descriptor
+            public com.lark.oapi.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
                 return Pbbp2.internal_static_pbbp2_Frame_descriptor;
             }
@@ -2162,39 +2162,39 @@ public final class Pbbp2 {
 
             @Override
             public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
                 return super.setField(field, value);
             }
 
             @Override
             public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field) {
                 return super.clearField(field);
             }
 
             @Override
             public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                    com.lark.oapi.google.protobuf.Descriptors.OneofDescriptor oneof) {
                 return super.clearOneof(oneof);
             }
 
             @Override
             public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field,
                     int index, Object value) {
                 return super.setRepeatedField(field, index, value);
             }
 
             @Override
             public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    com.lark.oapi.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
                 return super.addRepeatedField(field, value);
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.Message other) {
+            public Builder mergeFrom(com.lark.oapi.google.protobuf.Message other) {
                 if (other instanceof Frame) {
                     return mergeFrom((Frame) other);
                 } else {
@@ -2236,7 +2236,7 @@ public final class Pbbp2 {
                             headers_ = other.headers_;
                             bitField0_ = (bitField0_ & ~0x00000010);
                             headersBuilder_ =
-                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                                    com.lark.oapi.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                                             getHeadersFieldBuilder() : null;
                         } else {
                             headersBuilder_.addAllMessages(other.headers_);
@@ -2290,13 +2290,13 @@ public final class Pbbp2 {
 
             @Override
             public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    com.lark.oapi.google.protobuf.CodedInputStream input,
+                    com.lark.oapi.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws java.io.IOException {
                 Frame parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (com.lark.oapi.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (Frame) e.getUnfinishedMessage();
                     throw e.unwrapIOException();
                 } finally {
@@ -2632,7 +2632,7 @@ public final class Pbbp2 {
                     Iterable<? extends Header> values) {
                 if (headersBuilder_ == null) {
                     ensureHeadersIsMutable();
-                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    com.lark.oapi.google.protobuf.AbstractMessageLite.Builder.addAll(
                             values, headers_);
                     onChanged();
                 } else {
@@ -2726,11 +2726,11 @@ public final class Pbbp2 {
                 return getHeadersFieldBuilder().getBuilderList();
             }
 
-            private com.google.protobuf.RepeatedFieldBuilderV3<
+            private com.lark.oapi.google.protobuf.RepeatedFieldBuilderV3<
                     Header, Header.Builder, HeaderOrBuilder>
             getHeadersFieldBuilder() {
                 if (headersBuilder_ == null) {
-                    headersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                    headersBuilder_ = new com.lark.oapi.google.protobuf.RepeatedFieldBuilderV3<
                             Header, Header.Builder, HeaderOrBuilder>(
                             headers_,
                             ((bitField0_ & 0x00000010) != 0),
@@ -2766,8 +2766,8 @@ public final class Pbbp2 {
             public String getPayloadEncoding() {
                 Object ref = payloadEncoding_;
                 if (!(ref instanceof String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
+                    com.lark.oapi.google.protobuf.ByteString bs =
+                            (com.lark.oapi.google.protobuf.ByteString) ref;
                     String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         payloadEncoding_ = s;
@@ -2808,17 +2808,17 @@ public final class Pbbp2 {
              *
              * @return The bytes for payloadEncoding.
              */
-            public com.google.protobuf.ByteString
+            public com.lark.oapi.google.protobuf.ByteString
             getPayloadEncodingBytes() {
                 Object ref = payloadEncoding_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
+                    com.lark.oapi.google.protobuf.ByteString b =
+                            com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                     (String) ref);
                     payloadEncoding_ = b;
                     return b;
                 } else {
-                    return (com.google.protobuf.ByteString) ref;
+                    return (com.lark.oapi.google.protobuf.ByteString) ref;
                 }
             }
 
@@ -2833,7 +2833,7 @@ public final class Pbbp2 {
              * @return This builder for chaining.
              */
             public Builder setPayloadEncodingBytes(
-                    com.google.protobuf.ByteString value) {
+                    com.lark.oapi.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2884,8 +2884,8 @@ public final class Pbbp2 {
             public String getPayloadType() {
                 Object ref = payloadType_;
                 if (!(ref instanceof String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
+                    com.lark.oapi.google.protobuf.ByteString bs =
+                            (com.lark.oapi.google.protobuf.ByteString) ref;
                     String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         payloadType_ = s;
@@ -2926,17 +2926,17 @@ public final class Pbbp2 {
              *
              * @return The bytes for payloadType.
              */
-            public com.google.protobuf.ByteString
+            public com.lark.oapi.google.protobuf.ByteString
             getPayloadTypeBytes() {
                 Object ref = payloadType_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
+                    com.lark.oapi.google.protobuf.ByteString b =
+                            com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                     (String) ref);
                     payloadType_ = b;
                     return b;
                 } else {
-                    return (com.google.protobuf.ByteString) ref;
+                    return (com.lark.oapi.google.protobuf.ByteString) ref;
                 }
             }
 
@@ -2951,7 +2951,7 @@ public final class Pbbp2 {
              * @return This builder for chaining.
              */
             public Builder setPayloadTypeBytes(
-                    com.google.protobuf.ByteString value) {
+                    com.lark.oapi.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -3001,7 +3001,7 @@ public final class Pbbp2 {
              * @return The payload.
              */
             @Override
-            public com.google.protobuf.ByteString getPayload() {
+            public com.lark.oapi.google.protobuf.ByteString getPayload() {
                 return payload_;
             }
 
@@ -3015,7 +3015,7 @@ public final class Pbbp2 {
              * @param value The payload to set.
              * @return This builder for chaining.
              */
-            public Builder setPayload(com.google.protobuf.ByteString value) {
+            public Builder setPayload(com.lark.oapi.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -3058,8 +3058,8 @@ public final class Pbbp2 {
             public String getLogIDNew() {
                 Object ref = logIDNew_;
                 if (!(ref instanceof String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
+                    com.lark.oapi.google.protobuf.ByteString bs =
+                            (com.lark.oapi.google.protobuf.ByteString) ref;
                     String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         logIDNew_ = s;
@@ -3092,17 +3092,17 @@ public final class Pbbp2 {
              *
              * @return The bytes for logIDNew.
              */
-            public com.google.protobuf.ByteString
+            public com.lark.oapi.google.protobuf.ByteString
             getLogIDNewBytes() {
                 Object ref = logIDNew_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
+                    com.lark.oapi.google.protobuf.ByteString b =
+                            com.lark.oapi.google.protobuf.ByteString.copyFromUtf8(
                                     (String) ref);
                     logIDNew_ = b;
                     return b;
                 } else {
-                    return (com.google.protobuf.ByteString) ref;
+                    return (com.lark.oapi.google.protobuf.ByteString) ref;
                 }
             }
 
@@ -3113,7 +3113,7 @@ public final class Pbbp2 {
              * @return This builder for chaining.
              */
             public Builder setLogIDNewBytes(
-                    com.google.protobuf.ByteString value) {
+                    com.lark.oapi.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -3137,13 +3137,13 @@ public final class Pbbp2 {
 
             @Override
             public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                    final com.lark.oapi.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFields(unknownFields);
             }
 
             @Override
             public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                    final com.lark.oapi.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.mergeUnknownFields(unknownFields);
             }
 

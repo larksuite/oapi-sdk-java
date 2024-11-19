@@ -24,6 +24,7 @@
   <modules>
     <module>larksuite-oapi</module>
     <module>sample</module>
+    <module>larksuite-oapi-shaded-protobuf</module>
   </modules>
   <name>larksuite</name>
   <packaging>pom</packaging>
