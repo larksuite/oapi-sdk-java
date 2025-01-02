@@ -47,6 +47,12 @@ public class AppScope {
      */
     @SerializedName("level")
     private Integer level;
+    /**
+     * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+     * <p> 示例值：
+     */
+    @SerializedName("token_types")
+    private String[] tokenTypes;
 
     // builder 开始
     public AppScope() {
@@ -68,6 +74,11 @@ public class AppScope {
          * <p> 示例值：1
          */
         this.level = builder.level;
+        /**
+         * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+         * <p> 示例值：
+         */
+        this.tokenTypes = builder.tokenTypes;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class AppScope {
         this.level = level;
     }
 
+    public String[] getTokenTypes() {
+        return this.tokenTypes;
+    }
+
+    public void setTokenTypes(String[] tokenTypes) {
+        this.tokenTypes = tokenTypes;
+    }
+
     public static class Builder {
         /**
          * 应用权限
@@ -114,6 +133,11 @@ public class AppScope {
          * <p> 示例值：1
          */
         private Integer level;
+        /**
+         * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+         * <p> 示例值：
+         */
+        private String[] tokenTypes;
 
         /**
          * 应用权限
@@ -162,6 +186,19 @@ public class AppScope {
          */
         public Builder level(com.lark.oapi.service.application.v6.enums.AppScopeScopeLevelEnum level) {
             this.level = level.getValue();
+            return this;
+        }
+
+
+        /**
+         * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+         * <p> 示例值：
+         *
+         * @param tokenTypes
+         * @return
+         */
+        public Builder tokenTypes(String[] tokenTypes) {
+            this.tokenTypes = tokenTypes;
             return this;
         }
 

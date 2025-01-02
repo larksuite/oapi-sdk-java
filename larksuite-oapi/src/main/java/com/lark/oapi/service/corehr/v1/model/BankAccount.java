@@ -54,7 +54,7 @@ public class BankAccount {
     @SerializedName("bank")
     private Enum bank;
     /**
-     * 银行识别码（该字段待作废，请勿使用）
+     * 银行识别码
      * <p> 示例值：1234
      */
     @SerializedName("bank_identification_code")
@@ -66,13 +66,13 @@ public class BankAccount {
     @SerializedName("branch_name")
     private String branchName;
     /**
-     * 银行 ID，该字段已作废，请使用 bank_id_v2
+     * 银行 ID
      * <p> 示例值：8
      */
     @SerializedName("bank_id")
     private String bankId;
     /**
-     * 支行 ID，该字段已作废，请使用 branch_id_v2
+     * 支行 ID
      * <p> 示例值：12
      */
     @SerializedName("branch_id")
@@ -146,7 +146,7 @@ public class BankAccount {
          */
         this.bank = builder.bank;
         /**
-         * 银行识别码（该字段待作废，请勿使用）
+         * 银行识别码
          * <p> 示例值：1234
          */
         this.bankIdentificationCode = builder.bankIdentificationCode;
@@ -156,12 +156,12 @@ public class BankAccount {
          */
         this.branchName = builder.branchName;
         /**
-         * 银行 ID，该字段已作废，请使用 bank_id_v2
+         * 银行 ID
          * <p> 示例值：8
          */
         this.bankId = builder.bankId;
         /**
-         * 支行 ID，该字段已作废，请使用 branch_id_v2
+         * 支行 ID
          * <p> 示例值：12
          */
         this.branchId = builder.branchId;
@@ -348,7 +348,7 @@ public class BankAccount {
          */
         private Enum bank;
         /**
-         * 银行识别码（该字段待作废，请勿使用）
+         * 银行识别码
          * <p> 示例值：1234
          */
         private String bankIdentificationCode;
@@ -358,12 +358,12 @@ public class BankAccount {
          */
         private String branchName;
         /**
-         * 银行 ID，该字段已作废，请使用 bank_id_v2
+         * 银行 ID
          * <p> 示例值：8
          */
         private String bankId;
         /**
-         * 支行 ID，该字段已作废，请使用 branch_id_v2
+         * 支行 ID
          * <p> 示例值：12
          */
         private String branchId;
@@ -456,7 +456,7 @@ public class BankAccount {
 
 
         /**
-         * 银行识别码（该字段待作废，请勿使用）
+         * 银行识别码
          * <p> 示例值：1234
          *
          * @param bankIdentificationCode
@@ -482,7 +482,7 @@ public class BankAccount {
 
 
         /**
-         * 银行 ID，该字段已作废，请使用 bank_id_v2
+         * 银行 ID
          * <p> 示例值：8
          *
          * @param bankId
@@ -495,7 +495,7 @@ public class BankAccount {
 
 
         /**
-         * 支行 ID，该字段已作废，请使用 branch_id_v2
+         * 支行 ID
          * <p> 示例值：12
          *
          * @param branchId

@@ -64,6 +64,12 @@ public class CombinedJobResult {
      */
     @SerializedName("target_major_list")
     private TargetMajorInfo[] targetMajorList;
+    /**
+     * 官网申请表
+     * <p> 示例值：
+     */
+    @SerializedName("portal_website_apply_form_schema_info")
+    private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
 
     // builder 开始
     public CombinedJobResult() {
@@ -100,6 +106,11 @@ public class CombinedJobResult {
          * <p> 示例值：
          */
         this.targetMajorList = builder.targetMajorList;
+        /**
+         * 官网申请表
+         * <p> 示例值：
+         */
+        this.portalWebsiteApplyFormSchemaInfo = builder.portalWebsiteApplyFormSchemaInfo;
     }
 
     public static Builder newBuilder() {
@@ -154,6 +165,14 @@ public class CombinedJobResult {
         this.targetMajorList = targetMajorList;
     }
 
+    public RegistrationSchemaInfo getPortalWebsiteApplyFormSchemaInfo() {
+        return this.portalWebsiteApplyFormSchemaInfo;
+    }
+
+    public void setPortalWebsiteApplyFormSchemaInfo(RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
+        this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
+    }
+
     public static class Builder {
         /**
          * 职位广告
@@ -185,6 +204,11 @@ public class CombinedJobResult {
          * <p> 示例值：
          */
         private TargetMajorInfo[] targetMajorList;
+        /**
+         * 官网申请表
+         * <p> 示例值：
+         */
+        private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
 
         /**
          * 职位广告
@@ -260,6 +284,19 @@ public class CombinedJobResult {
          */
         public Builder targetMajorList(TargetMajorInfo[] targetMajorList) {
             this.targetMajorList = targetMajorList;
+            return this;
+        }
+
+
+        /**
+         * 官网申请表
+         * <p> 示例值：
+         *
+         * @param portalWebsiteApplyFormSchemaInfo
+         * @return
+         */
+        public Builder portalWebsiteApplyFormSchemaInfo(RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
+            this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
             return this;
         }
 

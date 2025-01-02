@@ -41,6 +41,18 @@ public class Test {
     @SerializedName("application_id")
     private String applicationId;
     /**
+     * 人才 ID
+     * <p> 示例值：6830437484509675522
+     */
+    @SerializedName("talent_id")
+    private String talentId;
+    /**
+     * 职位 ID
+     * <p> 示例值：6920544531948800269
+     */
+    @SerializedName("job_id")
+    private String jobId;
+    /**
      * 试卷 ID
      * <p> 示例值：6963549885526346028
      */
@@ -125,6 +137,12 @@ public class Test {
     @SerializedName("reviewer")
     private String reviewer;
     /**
+     * 阅卷安排时间
+     * <p> 示例值：1608725989000
+     */
+    @SerializedName("review_created_at")
+    private String reviewCreatedAt;
+    /**
      * 笔试创建时间
      * <p> 示例值：1608725989000
      */
@@ -146,6 +164,16 @@ public class Test {
          * <p> 示例值：6920544531948800269
          */
         this.applicationId = builder.applicationId;
+        /**
+         * 人才 ID
+         * <p> 示例值：6830437484509675522
+         */
+        this.talentId = builder.talentId;
+        /**
+         * 职位 ID
+         * <p> 示例值：6920544531948800269
+         */
+        this.jobId = builder.jobId;
         /**
          * 试卷 ID
          * <p> 示例值：6963549885526346028
@@ -217,6 +245,11 @@ public class Test {
          */
         this.reviewer = builder.reviewer;
         /**
+         * 阅卷安排时间
+         * <p> 示例值：1608725989000
+         */
+        this.reviewCreatedAt = builder.reviewCreatedAt;
+        /**
          * 笔试创建时间
          * <p> 示例值：1608725989000
          */
@@ -241,6 +274,22 @@ public class Test {
 
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
+    }
+
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
+    public String getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
     }
 
     public String getTestPaperId() {
@@ -355,6 +404,14 @@ public class Test {
         this.reviewer = reviewer;
     }
 
+    public String getReviewCreatedAt() {
+        return this.reviewCreatedAt;
+    }
+
+    public void setReviewCreatedAt(String reviewCreatedAt) {
+        this.reviewCreatedAt = reviewCreatedAt;
+    }
+
     public String getCreatedAt() {
         return this.createdAt;
     }
@@ -374,6 +431,16 @@ public class Test {
          * <p> 示例值：6920544531948800269
          */
         private String applicationId;
+        /**
+         * 人才 ID
+         * <p> 示例值：6830437484509675522
+         */
+        private String talentId;
+        /**
+         * 职位 ID
+         * <p> 示例值：6920544531948800269
+         */
+        private String jobId;
         /**
          * 试卷 ID
          * <p> 示例值：6963549885526346028
@@ -445,6 +512,11 @@ public class Test {
          */
         private String reviewer;
         /**
+         * 阅卷安排时间
+         * <p> 示例值：1608725989000
+         */
+        private String reviewCreatedAt;
+        /**
          * 笔试创建时间
          * <p> 示例值：1608725989000
          */
@@ -472,6 +544,32 @@ public class Test {
          */
         public Builder applicationId(String applicationId) {
             this.applicationId = applicationId;
+            return this;
+        }
+
+
+        /**
+         * 人才 ID
+         * <p> 示例值：6830437484509675522
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
+            return this;
+        }
+
+
+        /**
+         * 职位 ID
+         * <p> 示例值：6920544531948800269
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
             return this;
         }
 
@@ -654,6 +752,19 @@ public class Test {
          */
         public Builder reviewer(String reviewer) {
             this.reviewer = reviewer;
+            return this;
+        }
+
+
+        /**
+         * 阅卷安排时间
+         * <p> 示例值：1608725989000
+         *
+         * @param reviewCreatedAt
+         * @return
+         */
+        public Builder reviewCreatedAt(String reviewCreatedAt) {
+            this.reviewCreatedAt = reviewCreatedAt;
             return this;
         }
 

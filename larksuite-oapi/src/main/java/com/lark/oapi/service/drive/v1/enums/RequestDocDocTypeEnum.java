@@ -26,6 +26,7 @@ public enum RequestDocDocTypeEnum {
     DOCX("docx"), // 飞书新版文档
     FOLDER("folder"), // 飞书文件夹
     SYNCEDBLOCK("synced_block"), // 文档同步块
+    SLIDES("slides"), // 文档幻灯片
     ;
     private String value;
 

@@ -106,6 +106,12 @@ public class JobConfigResult {
      */
     @SerializedName("interview_appointment_config")
     private InterviewAppointmentConfig interviewAppointmentConfig;
+    /**
+     * 官网申请表
+     * <p> 示例值：
+     */
+    @SerializedName("portal_website_apply_form_schema_info")
+    private RegistrationInfo portalWebsiteApplyFormSchemaInfo;
 
     // builder 开始
     public JobConfigResult() {
@@ -177,6 +183,11 @@ public class JobConfigResult {
          * <p> 示例值：
          */
         this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
+        /**
+         * 官网申请表
+         * <p> 示例值：
+         */
+        this.portalWebsiteApplyFormSchemaInfo = builder.portalWebsiteApplyFormSchemaInfo;
     }
 
     public static Builder newBuilder() {
@@ -287,6 +298,14 @@ public class JobConfigResult {
         this.interviewAppointmentConfig = interviewAppointmentConfig;
     }
 
+    public RegistrationInfo getPortalWebsiteApplyFormSchemaInfo() {
+        return this.portalWebsiteApplyFormSchemaInfo;
+    }
+
+    public void setPortalWebsiteApplyFormSchemaInfo(RegistrationInfo portalWebsiteApplyFormSchemaInfo) {
+        this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
+    }
+
     public static class Builder {
         /**
          * Offer 申请表
@@ -353,6 +372,11 @@ public class JobConfigResult {
          * <p> 示例值：
          */
         private InterviewAppointmentConfig interviewAppointmentConfig;
+        /**
+         * 官网申请表
+         * <p> 示例值：
+         */
+        private RegistrationInfo portalWebsiteApplyFormSchemaInfo;
 
         /**
          * Offer 申请表
@@ -519,6 +543,19 @@ public class JobConfigResult {
          */
         public Builder interviewAppointmentConfig(InterviewAppointmentConfig interviewAppointmentConfig) {
             this.interviewAppointmentConfig = interviewAppointmentConfig;
+            return this;
+        }
+
+
+        /**
+         * 官网申请表
+         * <p> 示例值：
+         *
+         * @param portalWebsiteApplyFormSchemaInfo
+         * @return
+         */
+        public Builder portalWebsiteApplyFormSchemaInfo(RegistrationInfo portalWebsiteApplyFormSchemaInfo) {
+            this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
             return this;
         }
 

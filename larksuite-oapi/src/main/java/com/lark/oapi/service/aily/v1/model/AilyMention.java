@@ -188,6 +188,18 @@ public class AilyMention {
             return this;
         }
 
+        /**
+         * 身份提供者
+         * <p> 示例值：FEISHU
+         *
+         * @param identityProvider {@link com.lark.oapi.service.aily.v1.enums.AilyMentionIdentityProviderEnum}
+         * @return
+         */
+        public Builder identityProvider(com.lark.oapi.service.aily.v1.enums.AilyMentionIdentityProviderEnum identityProvider) {
+            this.identityProvider = identityProvider.getValue();
+            return this;
+        }
+
 
         /**
          * 被@实体在消息体中的占位符

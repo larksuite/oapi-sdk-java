@@ -382,6 +382,18 @@ public class AilyMessage {
             return this;
         }
 
+        /**
+         * 消息内容类型
+         * <p> 示例值：MDX
+         *
+         * @param contentType {@link com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageContentTypeEnum}
+         * @return
+         */
+        public Builder contentType(com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageContentTypeEnum contentType) {
+            this.contentType = contentType.getValue();
+            return this;
+        }
+
 
         /**
          * 消息内容
@@ -483,6 +495,18 @@ public class AilyMessage {
          */
         public Builder status(String status) {
             this.status = status;
+            return this;
+        }
+
+        /**
+         * 状态
+         * <p> 示例值：IN_PROGRESS
+         *
+         * @param status {@link com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum status) {
+            this.status = status.getValue();
             return this;
         }
 

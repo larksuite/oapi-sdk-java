@@ -65,6 +65,12 @@ public class ScenarioContextExtra {
      */
     @SerializedName("button_regenerate_message")
     private String buttonRegenerateMessage;
+    /**
+     * 主会话链路前端透传给后端的参数
+     * <p> 示例值：1
+     */
+    @SerializedName("enterprise_qa_channel_info")
+    private String enterpriseQaChannelInfo;
 
     // builder 开始
     public ScenarioContextExtra() {
@@ -101,6 +107,11 @@ public class ScenarioContextExtra {
          * <p> 示例值：1
          */
         this.buttonRegenerateMessage = builder.buttonRegenerateMessage;
+        /**
+         * 主会话链路前端透传给后端的参数
+         * <p> 示例值：1
+         */
+        this.enterpriseQaChannelInfo = builder.enterpriseQaChannelInfo;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class ScenarioContextExtra {
         this.buttonRegenerateMessage = buttonRegenerateMessage;
     }
 
+    public String getEnterpriseQaChannelInfo() {
+        return this.enterpriseQaChannelInfo;
+    }
+
+    public void setEnterpriseQaChannelInfo(String enterpriseQaChannelInfo) {
+        this.enterpriseQaChannelInfo = enterpriseQaChannelInfo;
+    }
+
     public static class Builder {
         /**
          * Grounding ID
@@ -186,6 +205,11 @@ public class ScenarioContextExtra {
          * <p> 示例值：1
          */
         private String buttonRegenerateMessage;
+        /**
+         * 主会话链路前端透传给后端的参数
+         * <p> 示例值：1
+         */
+        private String enterpriseQaChannelInfo;
 
         /**
          * Grounding ID
@@ -261,6 +285,19 @@ public class ScenarioContextExtra {
          */
         public Builder buttonRegenerateMessage(String buttonRegenerateMessage) {
             this.buttonRegenerateMessage = buttonRegenerateMessage;
+            return this;
+        }
+
+
+        /**
+         * 主会话链路前端透传给后端的参数
+         * <p> 示例值：1
+         *
+         * @param enterpriseQaChannelInfo
+         * @return
+         */
+        public Builder enterpriseQaChannelInfo(String enterpriseQaChannelInfo) {
+            this.enterpriseQaChannelInfo = enterpriseQaChannelInfo;
             return this;
         }
 

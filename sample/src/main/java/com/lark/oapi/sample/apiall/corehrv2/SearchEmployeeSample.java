@@ -62,7 +62,6 @@ public class SearchEmployeeSample {
                         .assignmentPayGroupIdList(new String[]{})
                         .contractTypeList(new String[]{})
                         .archiveCpstPlanIdList(new String[]{})
-                        .attendanceGroupIdList(new String[]{})
                         .build())
                 .build();
 

@@ -40,6 +40,12 @@ public class Interviewer {
      */
     @SerializedName("verify_status")
     private Integer verifyStatus;
+    /**
+     * 面试官标签ID
+     * <p> 示例值：
+     */
+    @SerializedName("tag_id_list")
+    private String[] tagIdList;
 
     // builder 开始
     public Interviewer() {
@@ -56,6 +62,11 @@ public class Interviewer {
          * <p> 示例值：1
          */
         this.verifyStatus = builder.verifyStatus;
+        /**
+         * 面试官标签ID
+         * <p> 示例值：
+         */
+        this.tagIdList = builder.tagIdList;
     }
 
     public static Builder newBuilder() {
@@ -78,6 +89,14 @@ public class Interviewer {
         this.verifyStatus = verifyStatus;
     }
 
+    public String[] getTagIdList() {
+        return this.tagIdList;
+    }
+
+    public void setTagIdList(String[] tagIdList) {
+        this.tagIdList = tagIdList;
+    }
+
     public static class Builder {
         /**
          * 面试官userID
@@ -89,6 +108,11 @@ public class Interviewer {
          * <p> 示例值：1
          */
         private Integer verifyStatus;
+        /**
+         * 面试官标签ID
+         * <p> 示例值：
+         */
+        private String[] tagIdList;
 
         /**
          * 面试官userID
@@ -112,6 +136,19 @@ public class Interviewer {
          */
         public Builder verifyStatus(Integer verifyStatus) {
             this.verifyStatus = verifyStatus;
+            return this;
+        }
+
+
+        /**
+         * 面试官标签ID
+         * <p> 示例值：
+         *
+         * @param tagIdList
+         * @return
+         */
+        public Builder tagIdList(String[] tagIdList) {
+            this.tagIdList = tagIdList;
             return this;
         }
 

@@ -215,6 +215,12 @@ public class JobData {
      */
     @SerializedName("position_id")
     private String positionId;
+    /**
+     * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+     * <p> 示例值：
+     */
+    @SerializedName("job_data_reason")
+    private Enum jobDataReason;
 
     // builder 开始
     public JobData() {
@@ -376,6 +382,11 @@ public class JobData {
          * <p> 示例值：6890452208593372679
          */
         this.positionId = builder.positionId;
+        /**
+         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+         * <p> 示例值：
+         */
+        this.jobDataReason = builder.jobDataReason;
     }
 
     public static Builder newBuilder() {
@@ -630,6 +641,14 @@ public class JobData {
         this.positionId = positionId;
     }
 
+    public Enum getJobDataReason() {
+        return this.jobDataReason;
+    }
+
+    public void setJobDataReason(Enum jobDataReason) {
+        this.jobDataReason = jobDataReason;
+    }
+
     public static class Builder {
         /**
          * 任职信息 ID
@@ -786,6 +805,11 @@ public class JobData {
          * <p> 示例值：6890452208593372679
          */
         private String positionId;
+        /**
+         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+         * <p> 示例值：
+         */
+        private Enum jobDataReason;
 
         /**
          * 任职信息 ID
@@ -1186,6 +1210,19 @@ public class JobData {
          */
         public Builder positionId(String positionId) {
             this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+         * <p> 示例值：
+         *
+         * @param jobDataReason
+         * @return
+         */
+        public Builder jobDataReason(Enum jobDataReason) {
+            this.jobDataReason = jobDataReason;
             return this;
         }
 

@@ -30,6 +30,7 @@ public class UpdateConfigJobSample {
                         .interviewRoundTypeConfList(new JobConfigRoundType[]{})
                         .relatedJobIdList(new String[]{})
                         .interviewAppointmentConfig(InterviewAppointmentConfig.newBuilder().build())
+                        .portalWebsiteApplyFormSchemaId("6930815272790114324")
                         .build())
                 .build();
 

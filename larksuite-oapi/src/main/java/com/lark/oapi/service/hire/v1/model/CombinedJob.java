@@ -220,6 +220,12 @@ public class CombinedJob {
      */
     @SerializedName("target_major_id_list")
     private String[] targetMajorIdList;
+    /**
+     * 官网申请表ID
+     * <p> 示例值：7397638158859323692
+     */
+    @SerializedName("portal_website_apply_form_schema_id")
+    private String portalWebsiteApplyFormSchemaId;
 
     // builder 开始
     public CombinedJob() {
@@ -386,6 +392,11 @@ public class CombinedJob {
          * <p> 示例值：
          */
         this.targetMajorIdList = builder.targetMajorIdList;
+        /**
+         * 官网申请表ID
+         * <p> 示例值：7397638158859323692
+         */
+        this.portalWebsiteApplyFormSchemaId = builder.portalWebsiteApplyFormSchemaId;
     }
 
     public static Builder newBuilder() {
@@ -648,6 +659,14 @@ public class CombinedJob {
         this.targetMajorIdList = targetMajorIdList;
     }
 
+    public String getPortalWebsiteApplyFormSchemaId() {
+        return this.portalWebsiteApplyFormSchemaId;
+    }
+
+    public void setPortalWebsiteApplyFormSchemaId(String portalWebsiteApplyFormSchemaId) {
+        this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
+    }
+
     public static class Builder {
         /**
          * 职位 ID
@@ -809,6 +828,11 @@ public class CombinedJob {
          * <p> 示例值：
          */
         private String[] targetMajorIdList;
+        /**
+         * 官网申请表ID
+         * <p> 示例值：7397638158859323692
+         */
+        private String portalWebsiteApplyFormSchemaId;
 
         /**
          * 职位 ID
@@ -1222,6 +1246,19 @@ public class CombinedJob {
          */
         public Builder targetMajorIdList(String[] targetMajorIdList) {
             this.targetMajorIdList = targetMajorIdList;
+            return this;
+        }
+
+
+        /**
+         * 官网申请表ID
+         * <p> 示例值：7397638158859323692
+         *
+         * @param portalWebsiteApplyFormSchemaId
+         * @return
+         */
+        public Builder portalWebsiteApplyFormSchemaId(String portalWebsiteApplyFormSchemaId) {
+            this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
             return this;
         }
 

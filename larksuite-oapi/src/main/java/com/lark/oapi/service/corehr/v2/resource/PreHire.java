@@ -378,6 +378,72 @@ public class PreHire {
     }
 
     /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=restore_flow_instance&project=corehr&resource=pre_hire&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=restore_flow_instance&project=corehr&resource=pre_hire&version=v2</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/RestoreFlowInstancePreHireSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/RestoreFlowInstancePreHireSample.java</a> ;
+     */
+    public RestoreFlowInstancePreHireResp restoreFlowInstance(RestoreFlowInstancePreHireReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/corehr/v2/pre_hires/restore_flow_instance"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        RestoreFlowInstancePreHireResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RestoreFlowInstancePreHireResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/pre_hires/restore_flow_instance"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=restore_flow_instance&project=corehr&resource=pre_hire&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=restore_flow_instance&project=corehr&resource=pre_hire&version=v2</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/RestoreFlowInstancePreHireSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/RestoreFlowInstancePreHireSample.java</a> ;
+     */
+    public RestoreFlowInstancePreHireResp restoreFlowInstance(RestoreFlowInstancePreHireReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/corehr/v2/pre_hires/restore_flow_instance"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        RestoreFlowInstancePreHireResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RestoreFlowInstancePreHireResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/pre_hires/restore_flow_instance"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
      * ，根据部门 ID，上级部门查询部门列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=corehr&resource=pre_hire&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=corehr&resource=pre_hire&version=v2</a> ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/SearchPreHireSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/SearchPreHireSample.java</a> ;
@@ -497,6 +563,72 @@ public class PreHire {
         if (resp == null) {
             log.error(String.format(
                     "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/pre_hires/:pre_hire_id/transit_task"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw_onboarding&project=corehr&resource=pre_hire&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw_onboarding&project=corehr&resource=pre_hire&version=v2</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/WithdrawOnboardingPreHireSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/WithdrawOnboardingPreHireSample.java</a> ;
+     */
+    public WithdrawOnboardingPreHireResp withdrawOnboarding(WithdrawOnboardingPreHireReq req, RequestOptions reqOptions) throws Exception {
+        // 请求参数选项
+        if (reqOptions == null) {
+            reqOptions = new RequestOptions();
+        }
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        WithdrawOnboardingPreHireResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, WithdrawOnboardingPreHireResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
+                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                            StandardCharsets.UTF_8)));
+            throw new IllegalArgumentException("The result returned by the server is illegal");
+        }
+
+        resp.setRawResponse(httpResponse);
+        resp.setRequest(req);
+
+        return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw_onboarding&project=corehr&resource=pre_hire&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=withdraw_onboarding&project=corehr&resource=pre_hire&version=v2</a> ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/WithdrawOnboardingPreHireSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/WithdrawOnboardingPreHireSample.java</a> ;
+     */
+    public WithdrawOnboardingPreHireResp withdrawOnboarding(WithdrawOnboardingPreHireReq req) throws Exception {
+        // 请求参数选项
+        RequestOptions reqOptions = new RequestOptions();
+
+        // 发起请求
+        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+                , "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
+                , Sets.newHashSet(AccessTokenType.Tenant)
+                , req);
+
+        // 反序列化
+        WithdrawOnboardingPreHireResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, WithdrawOnboardingPreHireResp.class);
+        if (resp == null) {
+            log.error(String.format(
+                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/pre_hires/withdraw_onboarding"
                     , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
                     httpResponse.getStatusCode(), new String(httpResponse.getBody(),
                             StandardCharsets.UTF_8)));

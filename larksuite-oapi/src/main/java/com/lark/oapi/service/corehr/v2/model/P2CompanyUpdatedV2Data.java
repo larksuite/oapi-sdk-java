@@ -45,7 +45,7 @@ public class P2CompanyUpdatedV2Data {
      * <p> 示例值：
      */
     @SerializedName("sub_events")
-    private OrganizationDomainEventData subEvents;
+    private OrganizationDomainEventData[] subEvents;
 
     public String getCompanyId() {
         return this.companyId;
@@ -63,11 +63,11 @@ public class P2CompanyUpdatedV2Data {
         this.fieldChanges = fieldChanges;
     }
 
-    public OrganizationDomainEventData getSubEvents() {
+    public OrganizationDomainEventData[] getSubEvents() {
         return this.subEvents;
     }
 
-    public void setSubEvents(OrganizationDomainEventData subEvents) {
+    public void setSubEvents(OrganizationDomainEventData[] subEvents) {
         this.subEvents = subEvents;
     }
 

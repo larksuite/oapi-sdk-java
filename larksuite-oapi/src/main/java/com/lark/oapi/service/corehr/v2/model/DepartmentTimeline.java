@@ -48,6 +48,12 @@ public class DepartmentTimeline {
     @SerializedName("names")
     private I18n[] names;
     /**
+     * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+     * <p> 示例值：
+     */
+    @SerializedName("sub_type")
+    private Enum subType;
+    /**
      * 上级部门 ID
      * <p> 示例值：4719456877659520111
      */
@@ -111,6 +117,11 @@ public class DepartmentTimeline {
          */
         this.names = builder.names;
         /**
+         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        this.subType = builder.subType;
+        /**
          * 上级部门 ID
          * <p> 示例值：4719456877659520111
          */
@@ -173,6 +184,14 @@ public class DepartmentTimeline {
 
     public void setNames(I18n[] names) {
         this.names = names;
+    }
+
+    public Enum getSubType() {
+        return this.subType;
+    }
+
+    public void setSubType(Enum subType) {
+        this.subType = subType;
     }
 
     public String getParentDepartmentId() {
@@ -248,6 +267,11 @@ public class DepartmentTimeline {
          */
         private I18n[] names;
         /**
+         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+         * <p> 示例值：
+         */
+        private Enum subType;
+        /**
          * 上级部门 ID
          * <p> 示例值：4719456877659520111
          */
@@ -318,6 +342,19 @@ public class DepartmentTimeline {
          */
         public Builder names(I18n[] names) {
             this.names = names;
+            return this;
+        }
+
+
+        /**
+         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+         * <p> 示例值：
+         *
+         * @param subType
+         * @return
+         */
+        public Builder subType(Enum subType) {
+            this.subType = subType;
             return this;
         }
 

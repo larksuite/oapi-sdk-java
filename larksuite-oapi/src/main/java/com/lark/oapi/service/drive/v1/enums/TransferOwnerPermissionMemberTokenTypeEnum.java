@@ -26,6 +26,7 @@ public enum TransferOwnerPermissionMemberTokenTypeEnum {
     MINDNOTE("mindnote"), // 思维笔记
     MINUTES("minutes"), // 妙记
     SLIDES("slides"), // 幻灯片
+    FOLDER("folder"), // 文件夹
     ;
     private String value;
 

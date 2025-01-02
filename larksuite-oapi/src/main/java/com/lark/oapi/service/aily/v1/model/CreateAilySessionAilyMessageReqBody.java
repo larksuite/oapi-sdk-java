@@ -212,6 +212,18 @@ public class CreateAilySessionAilyMessageReqBody {
             return this;
         }
 
+        /**
+         * 消息内容类型
+         * <p> 示例值：MDX
+         *
+         * @param contentType {@link com.lark.oapi.service.aily.v1.enums.CreateAilySessionAilyMessageAilyMessageContentTypeEnum}
+         * @return
+         */
+        public Builder contentType(com.lark.oapi.service.aily.v1.enums.CreateAilySessionAilyMessageAilyMessageContentTypeEnum contentType) {
+            this.contentType = contentType.getValue();
+            return this;
+        }
+
 
         /**
          * 消息内容

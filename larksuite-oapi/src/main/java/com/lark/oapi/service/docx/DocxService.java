@@ -16,6 +16,9 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.docx.v1.V1;
 import com.lark.oapi.service.docx.v1.model.*;
+import com.lark.oapi.service.docx.v1.resource.ChatAnnouncement;
+import com.lark.oapi.service.docx.v1.resource.ChatAnnouncementBlock;
+import com.lark.oapi.service.docx.v1.resource.ChatAnnouncementBlockChildren;
 import com.lark.oapi.service.docx.v1.resource.Document;
 import com.lark.oapi.service.docx.v1.resource.DocumentBlock;
 import com.lark.oapi.service.docx.v1.resource.DocumentBlockChildren;
@@ -23,6 +26,9 @@ import com.lark.oapi.service.docx.v1.resource.DocumentBlockDescendant;
 
 public class DocxService {
     private final V1 v1;
+    private final ChatAnnouncement chatAnnouncement; // chat.announcement
+    private final ChatAnnouncementBlock chatAnnouncementBlock; // chat.announcement.block
+    private final ChatAnnouncementBlockChildren chatAnnouncementBlockChildren; // chat.announcement.block.children
     private final Document document; // 文档
     private final DocumentBlock documentBlock; // 块
     private final DocumentBlockChildren documentBlockChildren; // document.block.children
@@ -30,6 +36,9 @@ public class DocxService {
 
     public DocxService(Config config) {
         this.v1 = new V1(config);
+        this.chatAnnouncement = new ChatAnnouncement(config);
+        this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
+        this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
         this.document = new Document(config);
         this.documentBlock = new DocumentBlock(config);
         this.documentBlockChildren = new DocumentBlockChildren(config);
@@ -38,6 +47,18 @@ public class DocxService {
 
     public V1 v1() {
         return v1;
+    }
+
+    public ChatAnnouncement chatAnnouncement() {
+        return chatAnnouncement;
+    }
+
+    public ChatAnnouncementBlock chatAnnouncementBlock() {
+        return chatAnnouncementBlock;
+    }
+
+    public ChatAnnouncementBlockChildren chatAnnouncementBlockChildren() {
+        return chatAnnouncementBlockChildren;
     }
 
     public Document document() {

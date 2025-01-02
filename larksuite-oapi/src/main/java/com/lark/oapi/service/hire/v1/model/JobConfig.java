@@ -100,6 +100,12 @@ public class JobConfig {
      */
     @SerializedName("interview_appointment_config")
     private InterviewAppointmentConfig interviewAppointmentConfig;
+    /**
+     * 官网申请表ID
+     * <p> 示例值：6930815272790114324
+     */
+    @SerializedName("portal_website_apply_form_schema_id")
+    private String portalWebsiteApplyFormSchemaId;
 
     // builder 开始
     public JobConfig() {
@@ -166,6 +172,11 @@ public class JobConfig {
          * <p> 示例值：
          */
         this.interviewAppointmentConfig = builder.interviewAppointmentConfig;
+        /**
+         * 官网申请表ID
+         * <p> 示例值：6930815272790114324
+         */
+        this.portalWebsiteApplyFormSchemaId = builder.portalWebsiteApplyFormSchemaId;
     }
 
     public static Builder newBuilder() {
@@ -268,6 +279,14 @@ public class JobConfig {
         this.interviewAppointmentConfig = interviewAppointmentConfig;
     }
 
+    public String getPortalWebsiteApplyFormSchemaId() {
+        return this.portalWebsiteApplyFormSchemaId;
+    }
+
+    public void setPortalWebsiteApplyFormSchemaId(String portalWebsiteApplyFormSchemaId) {
+        this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
+    }
+
     public static class Builder {
         /**
          * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
@@ -329,6 +348,11 @@ public class JobConfig {
          * <p> 示例值：
          */
         private InterviewAppointmentConfig interviewAppointmentConfig;
+        /**
+         * 官网申请表ID
+         * <p> 示例值：6930815272790114324
+         */
+        private String portalWebsiteApplyFormSchemaId;
 
         /**
          * Offer 申请表，枚举通过接口「获取 Offer 申请表列表」获取
@@ -482,6 +506,19 @@ public class JobConfig {
          */
         public Builder interviewAppointmentConfig(InterviewAppointmentConfig interviewAppointmentConfig) {
             this.interviewAppointmentConfig = interviewAppointmentConfig;
+            return this;
+        }
+
+
+        /**
+         * 官网申请表ID
+         * <p> 示例值：6930815272790114324
+         *
+         * @param portalWebsiteApplyFormSchemaId
+         * @return
+         */
+        public Builder portalWebsiteApplyFormSchemaId(String portalWebsiteApplyFormSchemaId) {
+            this.portalWebsiteApplyFormSchemaId = portalWebsiteApplyFormSchemaId;
             return this;
         }
 

@@ -50,6 +50,7 @@ public class CombinedCreateJobSample {
                         .interviewRegistrationSchemaId("6930815272790114324")
                         .onboardRegistrationSchemaId("6930815272790114325")
                         .targetMajorIdList(new String[]{})
+                        .portalWebsiteApplyFormSchemaId("7397638158859323692")
                         .build())
                 .build();
 

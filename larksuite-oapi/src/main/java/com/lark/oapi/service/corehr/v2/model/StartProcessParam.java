@@ -42,7 +42,7 @@ public class StartProcessParam {
     @SerializedName("initiator_id")
     private String initiatorId;
     /**
-     * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
+     * 是否为系统身份发起流程
      * <p> 示例值：true
      */
     @SerializedName("system_initiator")
@@ -70,7 +70,7 @@ public class StartProcessParam {
          */
         this.initiatorId = builder.initiatorId;
         /**
-         * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
+         * 是否为系统身份发起流程
          * <p> 示例值：true
          */
         this.systemInitiator = builder.systemInitiator;
@@ -129,7 +129,7 @@ public class StartProcessParam {
          */
         private String initiatorId;
         /**
-         * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
+         * 是否为系统身份发起流程
          * <p> 示例值：true
          */
         private Boolean systemInitiator;
@@ -166,7 +166,7 @@ public class StartProcessParam {
 
 
         /**
-         * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
+         * 是否为系统身份发起流程
          * <p> 示例值：true
          *
          * @param systemInitiator

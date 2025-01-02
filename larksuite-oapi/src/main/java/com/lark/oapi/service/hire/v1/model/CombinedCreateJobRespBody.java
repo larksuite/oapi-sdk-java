@@ -64,6 +64,12 @@ public class CombinedCreateJobRespBody {
      */
     @SerializedName("target_major_list")
     private TargetMajorInfo[] targetMajorList;
+    /**
+     * 官网申请表
+     * <p> 示例值：
+     */
+    @SerializedName("portal_website_apply_form_schema_info")
+    private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
 
     public CombinedJobResultDefaultJobPost getDefaultJobPost() {
         return this.defaultJobPost;
@@ -111,6 +117,14 @@ public class CombinedCreateJobRespBody {
 
     public void setTargetMajorList(TargetMajorInfo[] targetMajorList) {
         this.targetMajorList = targetMajorList;
+    }
+
+    public RegistrationSchemaInfo getPortalWebsiteApplyFormSchemaInfo() {
+        return this.portalWebsiteApplyFormSchemaInfo;
+    }
+
+    public void setPortalWebsiteApplyFormSchemaInfo(RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
+        this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
     }
 
 }

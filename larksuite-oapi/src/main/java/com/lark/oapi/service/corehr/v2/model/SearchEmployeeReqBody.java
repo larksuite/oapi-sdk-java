@@ -275,12 +275,6 @@ public class SearchEmployeeReqBody {
      */
     @SerializedName("archive_cpst_plan_id_list")
     private String[] archiveCpstPlanIdList;
-    /**
-     * 员工当前所属考勤组 ID 列表;- 可通过[【查询所有考勤组】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list)获取;- 需要有字段读取权限
-     * <p> 示例值：
-     */
-    @SerializedName("attendance_group_id_list")
-    private String[] attendanceGroupIdList;
 
     // builder 开始
     public SearchEmployeeReqBody() {
@@ -492,11 +486,6 @@ public class SearchEmployeeReqBody {
          * <p> 示例值：
          */
         this.archiveCpstPlanIdList = builder.archiveCpstPlanIdList;
-        /**
-         * 员工当前所属考勤组 ID 列表;- 可通过[【查询所有考勤组】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list)获取;- 需要有字段读取权限
-         * <p> 示例值：
-         */
-        this.attendanceGroupIdList = builder.attendanceGroupIdList;
     }
 
     public static Builder newBuilder() {
@@ -831,14 +820,6 @@ public class SearchEmployeeReqBody {
         this.archiveCpstPlanIdList = archiveCpstPlanIdList;
     }
 
-    public String[] getAttendanceGroupIdList() {
-        return this.attendanceGroupIdList;
-    }
-
-    public void setAttendanceGroupIdList(String[] attendanceGroupIdList) {
-        this.attendanceGroupIdList = attendanceGroupIdList;
-    }
-
     public static class Builder {
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
@@ -1045,11 +1026,6 @@ public class SearchEmployeeReqBody {
          * <p> 示例值：
          */
         private String[] archiveCpstPlanIdList;
-        /**
-         * 员工当前所属考勤组 ID 列表;- 可通过[【查询所有考勤组】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list)获取;- 需要有字段读取权限
-         * <p> 示例值：
-         */
-        private String[] attendanceGroupIdList;
 
         /**
          * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
@@ -1592,19 +1568,6 @@ public class SearchEmployeeReqBody {
          */
         public Builder archiveCpstPlanIdList(String[] archiveCpstPlanIdList) {
             this.archiveCpstPlanIdList = archiveCpstPlanIdList;
-            return this;
-        }
-
-
-        /**
-         * 员工当前所属考勤组 ID 列表;- 可通过[【查询所有考勤组】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list)获取;- 需要有字段读取权限
-         * <p> 示例值：
-         *
-         * @param attendanceGroupIdList
-         * @return
-         */
-        public Builder attendanceGroupIdList(String[] attendanceGroupIdList) {
-            this.attendanceGroupIdList = attendanceGroupIdList;
             return this;
         }
 

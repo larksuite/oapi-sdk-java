@@ -323,6 +323,18 @@ public class Run {
             return this;
         }
 
+        /**
+         * 状态
+         * <p> 示例值：IN_PROGRESS
+         *
+         * @param status {@link com.lark.oapi.service.aily.v1.enums.RunRunStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.aily.v1.enums.RunRunStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
 
         /**
          * 开始时间，毫秒时间戳

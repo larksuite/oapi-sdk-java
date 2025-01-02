@@ -90,7 +90,7 @@ public class CreateChatReqBody {
     @SerializedName("chat_type")
     private String chatType;
     /**
-     * 是否是外部群
+     * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
      * <p> 示例值：false
      */
     @SerializedName("external")
@@ -224,7 +224,7 @@ public class CreateChatReqBody {
          */
         this.chatType = builder.chatType;
         /**
-         * 是否是外部群
+         * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
          * <p> 示例值：false
          */
         this.external = builder.external;
@@ -530,7 +530,7 @@ public class CreateChatReqBody {
          */
         private String chatType;
         /**
-         * 是否是外部群
+         * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
          * <p> 示例值：false
          */
         private Boolean external;
@@ -738,7 +738,7 @@ public class CreateChatReqBody {
 
 
         /**
-         * 是否是外部群
+         * 是否是外部群；若群组需要邀请不同租户的用户或机器人，请指定为外部群；
          * <p> 示例值：false
          *
          * @param external

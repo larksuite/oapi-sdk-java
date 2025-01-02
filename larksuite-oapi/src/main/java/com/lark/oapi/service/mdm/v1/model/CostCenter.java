@@ -60,8 +60,8 @@ public class CostCenter {
     @SerializedName("co_area_code")
     private String coAreaCode;
     /**
-     * 公司编码
-     * <p> 示例值：1001
+     * 公司唯一ID
+     * <p> 示例值：U1404700185187065856
      */
     @SerializedName("company_code")
     private String companyCode;
@@ -133,8 +133,8 @@ public class CostCenter {
          */
         this.coAreaCode = builder.coAreaCode;
         /**
-         * 公司编码
-         * <p> 示例值：1001
+         * 公司唯一ID
+         * <p> 示例值：U1404700185187065856
          */
         this.companyCode = builder.companyCode;
         /**
@@ -296,8 +296,8 @@ public class CostCenter {
          */
         private String coAreaCode;
         /**
-         * 公司编码
-         * <p> 示例值：1001
+         * 公司唯一ID
+         * <p> 示例值：U1404700185187065856
          */
         private String companyCode;
         /**
@@ -397,8 +397,8 @@ public class CostCenter {
 
 
         /**
-         * 公司编码
-         * <p> 示例值：1001
+         * 公司唯一ID
+         * <p> 示例值：U1404700185187065856
          *
          * @param companyCode
          * @return

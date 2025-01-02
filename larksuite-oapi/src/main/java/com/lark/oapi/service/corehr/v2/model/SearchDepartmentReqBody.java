@@ -72,8 +72,7 @@ public class SearchDepartmentReqBody {
     @SerializedName("code_list")
     private String[] codeList;
     /**
-     * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false
-     * *字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+     * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
      * <p> 示例值：false
      */
     @SerializedName("get_all_version")
@@ -126,8 +125,7 @@ public class SearchDepartmentReqBody {
          */
         this.codeList = builder.codeList;
         /**
-         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false
-         **字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
          * <p> 示例值：false
          */
         this.getAllVersion = builder.getAllVersion;
@@ -251,8 +249,7 @@ public class SearchDepartmentReqBody {
          */
         private String[] codeList;
         /**
-         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false
-         * *字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
          * <p> 示例值：false
          */
         private Boolean getAllVersion;
@@ -354,8 +351,7 @@ public class SearchDepartmentReqBody {
 
 
         /**
-         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false
-         * *字段权限要求：查询历史版本 (corehr:department.version.search:read) **
+         * 是否获取所有部门记录，true 为获取部门所有版本记录，false 为仅获取当前生效的部门记录，默认为 false;**字段权限要求：查询历史版本 (corehr:department.version.search:read) **
          * <p> 示例值：false
          *
          * @param getAllVersion

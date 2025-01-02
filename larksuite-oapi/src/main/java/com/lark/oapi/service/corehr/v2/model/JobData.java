@@ -132,7 +132,7 @@ public class JobData {
     @SerializedName("expiration_time")
     private String expirationTime;
     /**
-     * 任职原因，枚举值可通过文档【飞书人事枚举常量】任职原因（assignment_start_reason）枚举定义部分获得
+     * 业务类型（原任职原因）
      * <p> 示例值：onboarding
      */
     @SerializedName("assignment_start_reason")
@@ -221,6 +221,12 @@ public class JobData {
      */
     @SerializedName("employee_subtype_id")
     private String employeeSubtypeId;
+    /**
+     * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+     * <p> 示例值：
+     */
+    @SerializedName("job_data_reason")
+    private Enum jobDataReason;
 
     // builder 开始
     public JobData() {
@@ -313,7 +319,7 @@ public class JobData {
          */
         this.expirationTime = builder.expirationTime;
         /**
-         * 任职原因，枚举值可通过文档【飞书人事枚举常量】任职原因（assignment_start_reason）枚举定义部分获得
+         * 业务类型（原任职原因）
          * <p> 示例值：onboarding
          */
         this.assignmentStartReason = builder.assignmentStartReason;
@@ -387,6 +393,11 @@ public class JobData {
          * <p> 示例值：6890452208593372680
          */
         this.employeeSubtypeId = builder.employeeSubtypeId;
+        /**
+         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+         * <p> 示例值：
+         */
+        this.jobDataReason = builder.jobDataReason;
     }
 
     public static Builder newBuilder() {
@@ -649,6 +660,14 @@ public class JobData {
         this.employeeSubtypeId = employeeSubtypeId;
     }
 
+    public Enum getJobDataReason() {
+        return this.jobDataReason;
+    }
+
+    public void setJobDataReason(Enum jobDataReason) {
+        this.jobDataReason = jobDataReason;
+    }
+
     public static class Builder {
         /**
          * 任职信息 ID
@@ -736,7 +755,7 @@ public class JobData {
          */
         private String expirationTime;
         /**
-         * 任职原因，枚举值可通过文档【飞书人事枚举常量】任职原因（assignment_start_reason）枚举定义部分获得
+         * 业务类型（原任职原因）
          * <p> 示例值：onboarding
          */
         private Enum assignmentStartReason;
@@ -810,6 +829,11 @@ public class JobData {
          * <p> 示例值：6890452208593372680
          */
         private String employeeSubtypeId;
+        /**
+         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+         * <p> 示例值：
+         */
+        private Enum jobDataReason;
 
         /**
          * 任职信息 ID
@@ -1033,7 +1057,7 @@ public class JobData {
 
 
         /**
-         * 任职原因，枚举值可通过文档【飞书人事枚举常量】任职原因（assignment_start_reason）枚举定义部分获得
+         * 业务类型（原任职原因）
          * <p> 示例值：onboarding
          *
          * @param assignmentStartReason
@@ -1223,6 +1247,19 @@ public class JobData {
          */
         public Builder employeeSubtypeId(String employeeSubtypeId) {
             this.employeeSubtypeId = employeeSubtypeId;
+            return this;
+        }
+
+
+        /**
+         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
+         * <p> 示例值：
+         *
+         * @param jobDataReason
+         * @return
+         */
+        public Builder jobDataReason(Enum jobDataReason) {
+            this.jobDataReason = jobDataReason;
             return this;
         }
 

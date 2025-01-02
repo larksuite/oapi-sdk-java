@@ -489,6 +489,18 @@ public class Knowledge {
             return this;
         }
 
+        /**
+         * 学习状态
+         * <p> 示例值：
+         *
+         * @param status {@link com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeStatusEnum}
+         * @return
+         */
+        public Builder status(com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeStatusEnum status) {
+            this.status = status.getValue();
+            return this;
+        }
+
 
         /**
          * 知识标题
@@ -512,6 +524,18 @@ public class Knowledge {
          */
         public Builder type(String type) {
             this.type = type;
+            return this;
+        }
+
+        /**
+         * 知识类型
+         * <p> 示例值：
+         *
+         * @param type {@link com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeTypeEnum type) {
+            this.type = type.getValue();
             return this;
         }
 
