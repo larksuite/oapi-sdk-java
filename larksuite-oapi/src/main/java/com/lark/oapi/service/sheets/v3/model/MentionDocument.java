@@ -48,10 +48,17 @@ public class MentionDocument {
     @SerializedName("token")
     private String token;
     /**
+     * 局部样式
      * <p> 示例值：
      */
     @SerializedName("segment_style")
     private SegmentStyle segmentStyle;
+    /**
+     * mention 链接
+     * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+     */
+    @SerializedName("link")
+    private String link;
 
     // builder 开始
     public MentionDocument() {
@@ -74,10 +81,15 @@ public class MentionDocument {
          */
         this.token = builder.token;
         /**
-         *
+         * 局部样式
          * <p> 示例值：
          */
         this.segmentStyle = builder.segmentStyle;
+        /**
+         * mention 链接
+         * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+         */
+        this.link = builder.link;
     }
 
     public static Builder newBuilder() {
@@ -116,6 +128,14 @@ public class MentionDocument {
         this.segmentStyle = segmentStyle;
     }
 
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     public static class Builder {
         /**
          * 文档标题
@@ -133,9 +153,15 @@ public class MentionDocument {
          */
         private String token;
         /**
+         * 局部样式
          * <p> 示例值：
          */
         private SegmentStyle segmentStyle;
+        /**
+         * mention 链接
+         * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+         */
+        private String link;
 
         /**
          * 文档标题
@@ -177,6 +203,7 @@ public class MentionDocument {
 
 
         /**
+         * 局部样式
          * <p> 示例值：
          *
          * @param segmentStyle
@@ -184,6 +211,19 @@ public class MentionDocument {
          */
         public Builder segmentStyle(SegmentStyle segmentStyle) {
             this.segmentStyle = segmentStyle;
+            return this;
+        }
+
+
+        /**
+         * mention 链接
+         * <p> 示例值：https://example.feishu.cn/sheets/TLLKdcpDro9ijQxA33ycNMabcef
+         *
+         * @param link
+         * @return
+         */
+        public Builder link(String link) {
+            this.link = link;
             return this;
         }
 

@@ -347,6 +347,36 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("seniority_adjust_information_list")
     private PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList;
+    /**
+     * 工时制度是否被手动修改
+     * <p> 示例值：true
+     */
+    @SerializedName("working_hours_type_manual_updated")
+    private Boolean workingHoursTypeManualUpdated;
+    /**
+     * 入职任务是否逾期
+     * <p> 示例值：true
+     */
+    @SerializedName("is_over_due")
+    private Boolean isOverDue;
+    /**
+     * 入职任务是否完成
+     * <p> 示例值：true
+     */
+    @SerializedName("task_completed")
+    private Boolean taskCompleted;
+    /**
+     * 预计毕业日期
+     * <p> 示例值：2023-01-10
+     */
+    @SerializedName("expected_graduate_date")
+    private String expectedGraduateDate;
+    /**
+     * 任职公司 ID , 详细信息可通过【批量查询公司】接口获得
+     * <p> 示例值：6738317738688661772
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -618,6 +648,31 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
+        /**
+         * 工时制度是否被手动修改
+         * <p> 示例值：true
+         */
+        this.workingHoursTypeManualUpdated = builder.workingHoursTypeManualUpdated;
+        /**
+         * 入职任务是否逾期
+         * <p> 示例值：true
+         */
+        this.isOverDue = builder.isOverDue;
+        /**
+         * 入职任务是否完成
+         * <p> 示例值：true
+         */
+        this.taskCompleted = builder.taskCompleted;
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         */
+        this.expectedGraduateDate = builder.expectedGraduateDate;
+        /**
+         * 任职公司 ID , 详细信息可通过【批量查询公司】接口获得
+         * <p> 示例值：6738317738688661772
+         */
+        this.serviceCompany = builder.serviceCompany;
     }
 
     public static Builder newBuilder() {
@@ -1048,6 +1103,46 @@ public class PreHireEmploymentInfo {
         this.seniorityAdjustInformationList = seniorityAdjustInformationList;
     }
 
+    public Boolean getWorkingHoursTypeManualUpdated() {
+        return this.workingHoursTypeManualUpdated;
+    }
+
+    public void setWorkingHoursTypeManualUpdated(Boolean workingHoursTypeManualUpdated) {
+        this.workingHoursTypeManualUpdated = workingHoursTypeManualUpdated;
+    }
+
+    public Boolean getIsOverDue() {
+        return this.isOverDue;
+    }
+
+    public void setIsOverDue(Boolean isOverDue) {
+        this.isOverDue = isOverDue;
+    }
+
+    public Boolean getTaskCompleted() {
+        return this.taskCompleted;
+    }
+
+    public void setTaskCompleted(Boolean taskCompleted) {
+        this.taskCompleted = taskCompleted;
+    }
+
+    public String getExpectedGraduateDate() {
+        return this.expectedGraduateDate;
+    }
+
+    public void setExpectedGraduateDate(String expectedGraduateDate) {
+        this.expectedGraduateDate = expectedGraduateDate;
+    }
+
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -1314,6 +1409,31 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         private PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList;
+        /**
+         * 工时制度是否被手动修改
+         * <p> 示例值：true
+         */
+        private Boolean workingHoursTypeManualUpdated;
+        /**
+         * 入职任务是否逾期
+         * <p> 示例值：true
+         */
+        private Boolean isOverDue;
+        /**
+         * 入职任务是否完成
+         * <p> 示例值：true
+         */
+        private Boolean taskCompleted;
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         */
+        private String expectedGraduateDate;
+        /**
+         * 任职公司 ID , 详细信息可通过【批量查询公司】接口获得
+         * <p> 示例值：6738317738688661772
+         */
+        private String serviceCompany;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -2012,6 +2132,71 @@ public class PreHireEmploymentInfo {
          */
         public Builder seniorityAdjustInformationList(PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList) {
             this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+            return this;
+        }
+
+
+        /**
+         * 工时制度是否被手动修改
+         * <p> 示例值：true
+         *
+         * @param workingHoursTypeManualUpdated
+         * @return
+         */
+        public Builder workingHoursTypeManualUpdated(Boolean workingHoursTypeManualUpdated) {
+            this.workingHoursTypeManualUpdated = workingHoursTypeManualUpdated;
+            return this;
+        }
+
+
+        /**
+         * 入职任务是否逾期
+         * <p> 示例值：true
+         *
+         * @param isOverDue
+         * @return
+         */
+        public Builder isOverDue(Boolean isOverDue) {
+            this.isOverDue = isOverDue;
+            return this;
+        }
+
+
+        /**
+         * 入职任务是否完成
+         * <p> 示例值：true
+         *
+         * @param taskCompleted
+         * @return
+         */
+        public Builder taskCompleted(Boolean taskCompleted) {
+            this.taskCompleted = taskCompleted;
+            return this;
+        }
+
+
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         *
+         * @param expectedGraduateDate
+         * @return
+         */
+        public Builder expectedGraduateDate(String expectedGraduateDate) {
+            this.expectedGraduateDate = expectedGraduateDate;
+            return this;
+        }
+
+
+        /**
+         * 任职公司 ID , 详细信息可通过【批量查询公司】接口获得
+         * <p> 示例值：6738317738688661772
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
             return this;
         }
 

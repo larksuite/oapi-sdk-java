@@ -26,6 +26,7 @@ import com.lark.oapi.service.bitable.BitableService;
 import com.lark.oapi.service.block.BlockService;
 import com.lark.oapi.service.board.BoardService;
 import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.cardkit.CardkitService;
 import com.lark.oapi.service.compensation.CompensationService;
 import com.lark.oapi.service.contact.ContactService;
 import com.lark.oapi.service.corehr.CorehrService;

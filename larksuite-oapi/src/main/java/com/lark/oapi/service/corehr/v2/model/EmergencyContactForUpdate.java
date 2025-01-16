@@ -59,6 +59,12 @@ public class EmergencyContactForUpdate {
      */
     @SerializedName("email")
     private EmailForUpdate email;
+    /**
+     * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+     * <p> 示例值：true
+     */
+    @SerializedName("is_primary")
+    private Boolean isPrimary;
 
     // builder 开始
     public EmergencyContactForUpdate() {
@@ -90,6 +96,11 @@ public class EmergencyContactForUpdate {
          * <p> 示例值：
          */
         this.email = builder.email;
+        /**
+         * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+         * <p> 示例值：true
+         */
+        this.isPrimary = builder.isPrimary;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class EmergencyContactForUpdate {
         this.email = email;
     }
 
+    public Boolean getIsPrimary() {
+        return this.isPrimary;
+    }
+
+    public void setIsPrimary(Boolean isPrimary) {
+        this.isPrimary = isPrimary;
+    }
+
     public static class Builder {
         /**
          * 紧急联系人姓名
@@ -162,6 +181,11 @@ public class EmergencyContactForUpdate {
          * <p> 示例值：
          */
         private EmailForUpdate email;
+        /**
+         * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+         * <p> 示例值：true
+         */
+        private Boolean isPrimary;
 
         /**
          * 紧急联系人姓名
@@ -224,6 +248,19 @@ public class EmergencyContactForUpdate {
          */
         public Builder email(EmailForUpdate email) {
             this.email = email;
+            return this;
+        }
+
+
+        /**
+         * 主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true
+         * <p> 示例值：true
+         *
+         * @param isPrimary
+         * @return
+         */
+        public Builder isPrimary(Boolean isPrimary) {
+            this.isPrimary = isPrimary;
             return this;
         }
 

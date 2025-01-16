@@ -15,6 +15,7 @@ package com.lark.oapi.service.corehr.v2;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.service.corehr.v2.resource.*;
+import com.lark.oapi.service.corehr.v2.resource.Enum;
 import com.lark.oapi.service.corehr.v2.resource.Process;
 
 public class V2 {
@@ -40,6 +41,7 @@ public class V2 {
     private final EmployeesAdditionalJob employeesAdditionalJob; // employees.additional_job
     private final EmployeesBp employeesBp; // employees.bp
     private final EmployeesJobData employeesJobData; // employees.job_data
+    private final Enum enum_; // enum
     private final Job job; // job
     private final JobChange jobChange; // job_change
     private final JobFamily jobFamily; // job_family
@@ -90,6 +92,7 @@ public class V2 {
         this.employeesAdditionalJob = new EmployeesAdditionalJob(config);
         this.employeesBp = new EmployeesBp(config);
         this.employeesJobData = new EmployeesJobData(config);
+        this.enum_ = new Enum(config);
         this.job = new Job(config);
         this.jobChange = new JobChange(config);
         this.jobFamily = new JobFamily(config);
@@ -204,6 +207,10 @@ public class V2 {
 
     public EmployeesJobData employeesJobData() {
         return employeesJobData;
+    }
+
+    public Enum enum_() {
+        return enum_;
     }
 
     public Job job() {

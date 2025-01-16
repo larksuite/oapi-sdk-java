@@ -46,6 +46,12 @@ public class P2CommonDataMetaDataUpdatedV1Data {
      */
     @SerializedName("metadata_type")
     private String metadataType;
+    /**
+     * 变更的枚举
+     * <p> 示例值：
+     */
+    @SerializedName("enum_value_changes")
+    private String[] enumValueChanges;
 
     public String getApiName() {
         return this.apiName;
@@ -69,6 +75,14 @@ public class P2CommonDataMetaDataUpdatedV1Data {
 
     public void setMetadataType(String metadataType) {
         this.metadataType = metadataType;
+    }
+
+    public String[] getEnumValueChanges() {
+        return this.enumValueChanges;
+    }
+
+    public void setEnumValueChanges(String[] enumValueChanges) {
+        this.enumValueChanges = enumValueChanges;
     }
 
 }

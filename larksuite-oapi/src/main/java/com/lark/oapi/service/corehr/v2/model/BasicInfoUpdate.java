@@ -179,6 +179,48 @@ public class BasicInfoUpdate {
      */
     @SerializedName("hukou_location")
     private String hukouLocation;
+    /**
+     * 性别
+     * <p> 示例值：male
+     */
+    @SerializedName("gender_id")
+    private String genderId;
+    /**
+     * 生日
+     * <p> 示例值：2011-99-99
+     */
+    @SerializedName("date_of_birth")
+    private String dateOfBirth;
+    /**
+     * 参加工作日期
+     * <p> 示例值：2100-09-09
+     */
+    @SerializedName("date_entered_workforce")
+    private String dateEnteredWorkforce;
+    /**
+     * 预计毕业日期
+     * <p> 示例值：2023-01-10
+     */
+    @SerializedName("expected_graduate_date")
+    private String expectedGraduateDate;
+    /**
+     * 公民身份
+     * <p> 示例值：[6862995757234914824]
+     */
+    @SerializedName("citizenship_status_id_list")
+    private String[] citizenshipStatusIdList;
+    /**
+     * 工作履历
+     * <p> 示例值：
+     */
+    @SerializedName("work_experience")
+    private WorkExperienceForUpdate[] workExperience;
+    /**
+     * 教育经历
+     * <p> 示例值：
+     */
+    @SerializedName("education_info")
+    private EducationInfoForUpdate[] educationInfo;
 
     // builder 开始
     public BasicInfoUpdate() {
@@ -310,6 +352,41 @@ public class BasicInfoUpdate {
          * <p> 示例值：6862995757234914824
          */
         this.hukouLocation = builder.hukouLocation;
+        /**
+         * 性别
+         * <p> 示例值：male
+         */
+        this.genderId = builder.genderId;
+        /**
+         * 生日
+         * <p> 示例值：2011-99-99
+         */
+        this.dateOfBirth = builder.dateOfBirth;
+        /**
+         * 参加工作日期
+         * <p> 示例值：2100-09-09
+         */
+        this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         */
+        this.expectedGraduateDate = builder.expectedGraduateDate;
+        /**
+         * 公民身份
+         * <p> 示例值：[6862995757234914824]
+         */
+        this.citizenshipStatusIdList = builder.citizenshipStatusIdList;
+        /**
+         * 工作履历
+         * <p> 示例值：
+         */
+        this.workExperience = builder.workExperience;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        this.educationInfo = builder.educationInfo;
     }
 
     public static Builder newBuilder() {
@@ -516,6 +593,62 @@ public class BasicInfoUpdate {
         this.hukouLocation = hukouLocation;
     }
 
+    public String getGenderId() {
+        return this.genderId;
+    }
+
+    public void setGenderId(String genderId) {
+        this.genderId = genderId;
+    }
+
+    public String getDateOfBirth() {
+        return this.dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getDateEnteredWorkforce() {
+        return this.dateEnteredWorkforce;
+    }
+
+    public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
+        this.dateEnteredWorkforce = dateEnteredWorkforce;
+    }
+
+    public String getExpectedGraduateDate() {
+        return this.expectedGraduateDate;
+    }
+
+    public void setExpectedGraduateDate(String expectedGraduateDate) {
+        this.expectedGraduateDate = expectedGraduateDate;
+    }
+
+    public String[] getCitizenshipStatusIdList() {
+        return this.citizenshipStatusIdList;
+    }
+
+    public void setCitizenshipStatusIdList(String[] citizenshipStatusIdList) {
+        this.citizenshipStatusIdList = citizenshipStatusIdList;
+    }
+
+    public WorkExperienceForUpdate[] getWorkExperience() {
+        return this.workExperience;
+    }
+
+    public void setWorkExperience(WorkExperienceForUpdate[] workExperience) {
+        this.workExperience = workExperience;
+    }
+
+    public EducationInfoForUpdate[] getEducationInfo() {
+        return this.educationInfo;
+    }
+
+    public void setEducationInfo(EducationInfoForUpdate[] educationInfo) {
+        this.educationInfo = educationInfo;
+    }
+
     public static class Builder {
         /**
          * 姓名,该值是一个list，会全量更新
@@ -642,6 +775,41 @@ public class BasicInfoUpdate {
          * <p> 示例值：6862995757234914824
          */
         private String hukouLocation;
+        /**
+         * 性别
+         * <p> 示例值：male
+         */
+        private String genderId;
+        /**
+         * 生日
+         * <p> 示例值：2011-99-99
+         */
+        private String dateOfBirth;
+        /**
+         * 参加工作日期
+         * <p> 示例值：2100-09-09
+         */
+        private String dateEnteredWorkforce;
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         */
+        private String expectedGraduateDate;
+        /**
+         * 公民身份
+         * <p> 示例值：[6862995757234914824]
+         */
+        private String[] citizenshipStatusIdList;
+        /**
+         * 工作履历
+         * <p> 示例值：
+         */
+        private WorkExperienceForUpdate[] workExperience;
+        /**
+         * 教育经历
+         * <p> 示例值：
+         */
+        private EducationInfoForUpdate[] educationInfo;
 
         /**
          * 姓名,该值是一个list，会全量更新
@@ -964,6 +1132,97 @@ public class BasicInfoUpdate {
          */
         public Builder hukouLocation(String hukouLocation) {
             this.hukouLocation = hukouLocation;
+            return this;
+        }
+
+
+        /**
+         * 性别
+         * <p> 示例值：male
+         *
+         * @param genderId
+         * @return
+         */
+        public Builder genderId(String genderId) {
+            this.genderId = genderId;
+            return this;
+        }
+
+
+        /**
+         * 生日
+         * <p> 示例值：2011-99-99
+         *
+         * @param dateOfBirth
+         * @return
+         */
+        public Builder dateOfBirth(String dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
+
+        /**
+         * 参加工作日期
+         * <p> 示例值：2100-09-09
+         *
+         * @param dateEnteredWorkforce
+         * @return
+         */
+        public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
+            this.dateEnteredWorkforce = dateEnteredWorkforce;
+            return this;
+        }
+
+
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         *
+         * @param expectedGraduateDate
+         * @return
+         */
+        public Builder expectedGraduateDate(String expectedGraduateDate) {
+            this.expectedGraduateDate = expectedGraduateDate;
+            return this;
+        }
+
+
+        /**
+         * 公民身份
+         * <p> 示例值：[6862995757234914824]
+         *
+         * @param citizenshipStatusIdList
+         * @return
+         */
+        public Builder citizenshipStatusIdList(String[] citizenshipStatusIdList) {
+            this.citizenshipStatusIdList = citizenshipStatusIdList;
+            return this;
+        }
+
+
+        /**
+         * 工作履历
+         * <p> 示例值：
+         *
+         * @param workExperience
+         * @return
+         */
+        public Builder workExperience(WorkExperienceForUpdate[] workExperience) {
+            this.workExperience = workExperience;
+            return this;
+        }
+
+
+        /**
+         * 教育经历
+         * <p> 示例值：
+         *
+         * @param educationInfo
+         * @return
+         */
+        public Builder educationInfo(EducationInfoForUpdate[] educationInfo) {
+            this.educationInfo = educationInfo;
             return this;
         }
 

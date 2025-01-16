@@ -131,6 +131,12 @@ public class AppTableFieldProperty {
      */
     @SerializedName("rating")
     private Rating rating;
+    /**
+     * 公式字段数据类型
+     * <p> 示例值：
+     */
+    @SerializedName("type")
+    private AppTableFieldPropertyType type;
 
     // builder 开始
     public AppTableFieldProperty() {
@@ -222,6 +228,11 @@ public class AppTableFieldProperty {
          * <p> 示例值：
          */
         this.rating = builder.rating;
+        /**
+         * 公式字段数据类型
+         * <p> 示例值：
+         */
+        this.type = builder.type;
     }
 
     public static Builder newBuilder() {
@@ -364,6 +375,14 @@ public class AppTableFieldProperty {
         this.rating = rating;
     }
 
+    public AppTableFieldPropertyType getType() {
+        return this.type;
+    }
+
+    public void setType(AppTableFieldPropertyType type) {
+        this.type = type;
+    }
+
     public static class Builder {
         /**
          * 单选、多选字段的选项信息
@@ -450,6 +469,11 @@ public class AppTableFieldProperty {
          * <p> 示例值：
          */
         private Rating rating;
+        /**
+         * 公式字段数据类型
+         * <p> 示例值：
+         */
+        private AppTableFieldPropertyType type;
 
         /**
          * 单选、多选字段的选项信息
@@ -668,6 +692,19 @@ public class AppTableFieldProperty {
          */
         public Builder rating(Rating rating) {
             this.rating = rating;
+            return this;
+        }
+
+
+        /**
+         * 公式字段数据类型
+         * <p> 示例值：
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(AppTableFieldPropertyType type) {
+            this.type = type;
             return this;
         }
 

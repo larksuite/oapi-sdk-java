@@ -293,6 +293,42 @@ public class OfferInfoUpdate {
      */
     @SerializedName("seniority_adjust_information_list")
     private PrehireSeniorityAdjustInformationUpdate[] seniorityAdjustInformationList;
+    /**
+     * 需要公司办理签证
+     * <p> 示例值：true
+     */
+    @SerializedName("company_sponsored_visa")
+    private Boolean companySponsoredVisa;
+    /**
+     * 周工作时长（单位：小时）
+     * <p> 示例值：8.5
+     */
+    @SerializedName("weekly_working_hours_v2")
+    private Double weeklyWorkingHoursV2;
+    /**
+     * 工位
+     * <p> 示例值：5-1-2
+     */
+    @SerializedName("work_station")
+    private String workStation;
+    /**
+     * 是否有 Offer 薪酬
+     * <p> 示例值：true
+     */
+    @SerializedName("has_offer_salary")
+    private Boolean hasOfferSalary;
+    /**
+     * 任职公司
+     * <p> 示例值：6738317738688661772
+     */
+    @SerializedName("service_company")
+    private String serviceCompany;
+    /**
+     * 是否包含竞业条款
+     * <p> 示例值：true
+     */
+    @SerializedName("non_compete_covenant")
+    private Boolean nonCompeteCovenant;
 
     // builder 开始
     public OfferInfoUpdate() {
@@ -519,6 +555,36 @@ public class OfferInfoUpdate {
          * <p> 示例值：
          */
         this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
+        /**
+         * 需要公司办理签证
+         * <p> 示例值：true
+         */
+        this.companySponsoredVisa = builder.companySponsoredVisa;
+        /**
+         * 周工作时长（单位：小时）
+         * <p> 示例值：8.5
+         */
+        this.weeklyWorkingHoursV2 = builder.weeklyWorkingHoursV2;
+        /**
+         * 工位
+         * <p> 示例值：5-1-2
+         */
+        this.workStation = builder.workStation;
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         */
+        this.hasOfferSalary = builder.hasOfferSalary;
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         */
+        this.serviceCompany = builder.serviceCompany;
+        /**
+         * 是否包含竞业条款
+         * <p> 示例值：true
+         */
+        this.nonCompeteCovenant = builder.nonCompeteCovenant;
     }
 
     public static Builder newBuilder() {
@@ -877,6 +943,54 @@ public class OfferInfoUpdate {
         this.seniorityAdjustInformationList = seniorityAdjustInformationList;
     }
 
+    public Boolean getCompanySponsoredVisa() {
+        return this.companySponsoredVisa;
+    }
+
+    public void setCompanySponsoredVisa(Boolean companySponsoredVisa) {
+        this.companySponsoredVisa = companySponsoredVisa;
+    }
+
+    public Double getWeeklyWorkingHoursV2() {
+        return this.weeklyWorkingHoursV2;
+    }
+
+    public void setWeeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
+        this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+    }
+
+    public String getWorkStation() {
+        return this.workStation;
+    }
+
+    public void setWorkStation(String workStation) {
+        this.workStation = workStation;
+    }
+
+    public Boolean getHasOfferSalary() {
+        return this.hasOfferSalary;
+    }
+
+    public void setHasOfferSalary(Boolean hasOfferSalary) {
+        this.hasOfferSalary = hasOfferSalary;
+    }
+
+    public String getServiceCompany() {
+        return this.serviceCompany;
+    }
+
+    public void setServiceCompany(String serviceCompany) {
+        this.serviceCompany = serviceCompany;
+    }
+
+    public Boolean getNonCompeteCovenant() {
+        return this.nonCompeteCovenant;
+    }
+
+    public void setNonCompeteCovenant(Boolean nonCompeteCovenant) {
+        this.nonCompeteCovenant = nonCompeteCovenant;
+    }
+
     public static class Builder {
         /**
          * 入职日期
@@ -1098,6 +1212,36 @@ public class OfferInfoUpdate {
          * <p> 示例值：
          */
         private PrehireSeniorityAdjustInformationUpdate[] seniorityAdjustInformationList;
+        /**
+         * 需要公司办理签证
+         * <p> 示例值：true
+         */
+        private Boolean companySponsoredVisa;
+        /**
+         * 周工作时长（单位：小时）
+         * <p> 示例值：8.5
+         */
+        private Double weeklyWorkingHoursV2;
+        /**
+         * 工位
+         * <p> 示例值：5-1-2
+         */
+        private String workStation;
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         */
+        private Boolean hasOfferSalary;
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         */
+        private String serviceCompany;
+        /**
+         * 是否包含竞业条款
+         * <p> 示例值：true
+         */
+        private Boolean nonCompeteCovenant;
 
         /**
          * 入职日期
@@ -1667,6 +1811,84 @@ public class OfferInfoUpdate {
          */
         public Builder seniorityAdjustInformationList(PrehireSeniorityAdjustInformationUpdate[] seniorityAdjustInformationList) {
             this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+            return this;
+        }
+
+
+        /**
+         * 需要公司办理签证
+         * <p> 示例值：true
+         *
+         * @param companySponsoredVisa
+         * @return
+         */
+        public Builder companySponsoredVisa(Boolean companySponsoredVisa) {
+            this.companySponsoredVisa = companySponsoredVisa;
+            return this;
+        }
+
+
+        /**
+         * 周工作时长（单位：小时）
+         * <p> 示例值：8.5
+         *
+         * @param weeklyWorkingHoursV2
+         * @return
+         */
+        public Builder weeklyWorkingHoursV2(Double weeklyWorkingHoursV2) {
+            this.weeklyWorkingHoursV2 = weeklyWorkingHoursV2;
+            return this;
+        }
+
+
+        /**
+         * 工位
+         * <p> 示例值：5-1-2
+         *
+         * @param workStation
+         * @return
+         */
+        public Builder workStation(String workStation) {
+            this.workStation = workStation;
+            return this;
+        }
+
+
+        /**
+         * 是否有 Offer 薪酬
+         * <p> 示例值：true
+         *
+         * @param hasOfferSalary
+         * @return
+         */
+        public Builder hasOfferSalary(Boolean hasOfferSalary) {
+            this.hasOfferSalary = hasOfferSalary;
+            return this;
+        }
+
+
+        /**
+         * 任职公司
+         * <p> 示例值：6738317738688661772
+         *
+         * @param serviceCompany
+         * @return
+         */
+        public Builder serviceCompany(String serviceCompany) {
+            this.serviceCompany = serviceCompany;
+            return this;
+        }
+
+
+        /**
+         * 是否包含竞业条款
+         * <p> 示例值：true
+         *
+         * @param nonCompeteCovenant
+         * @return
+         */
+        public Builder nonCompeteCovenant(Boolean nonCompeteCovenant) {
+            this.nonCompeteCovenant = nonCompeteCovenant;
             return this;
         }
 

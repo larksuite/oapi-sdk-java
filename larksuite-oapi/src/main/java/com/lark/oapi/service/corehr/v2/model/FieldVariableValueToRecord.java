@@ -41,6 +41,12 @@ public class FieldVariableValueToRecord {
      */
     @SerializedName("sub_value_key")
     private String subValueKey;
+    /**
+     * 记录唯一ID
+     * <p> 示例值：6863326263210149383
+     */
+    @SerializedName("record_id")
+    private String recordId;
 
     // builder 开始
     public FieldVariableValueToRecord() {
@@ -57,6 +63,11 @@ public class FieldVariableValueToRecord {
          * <p> 示例值：key1
          */
         this.subValueKey = builder.subValueKey;
+        /**
+         * 记录唯一ID
+         * <p> 示例值：6863326263210149383
+         */
+        this.recordId = builder.recordId;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +90,14 @@ public class FieldVariableValueToRecord {
         this.subValueKey = subValueKey;
     }
 
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
+
     public static class Builder {
         /**
          * 变量唯一标识
@@ -90,6 +109,11 @@ public class FieldVariableValueToRecord {
          * <p> 示例值：key1
          */
         private String subValueKey;
+        /**
+         * 记录唯一ID
+         * <p> 示例值：6863326263210149383
+         */
+        private String recordId;
 
         /**
          * 变量唯一标识
@@ -113,6 +137,19 @@ public class FieldVariableValueToRecord {
          */
         public Builder subValueKey(String subValueKey) {
             this.subValueKey = subValueKey;
+            return this;
+        }
+
+
+        /**
+         * 记录唯一ID
+         * <p> 示例值：6863326263210149383
+         *
+         * @param recordId
+         * @return
+         */
+        public Builder recordId(String recordId) {
+            this.recordId = recordId;
             return this;
         }
 

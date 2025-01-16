@@ -62,6 +62,24 @@ public class DataAssetChunk {
      */
     @SerializedName("data_asset_source_url")
     private String dataAssetSourceUrl;
+    /**
+     * 归属数据知识的数据资源类型
+     * <p> 示例值：excel
+     */
+    @SerializedName("data_asset_data_source_type")
+    private String dataAssetDataSourceType;
+    /**
+     * 归属数据知识的数据连接类型
+     * <p> 示例值：direct
+     */
+    @SerializedName("data_asset_connect_type")
+    private String dataAssetConnectType;
+    /**
+     * 切片所归属数据源信息
+     * <p> 示例值：
+     */
+    @SerializedName("source_info")
+    private DataAssetChunkSourceInfo sourceInfo;
 
     // builder 开始
     public DataAssetChunk() {
@@ -93,6 +111,21 @@ public class DataAssetChunk {
          * <p> 示例值：https://doclink.com/1
          */
         this.dataAssetSourceUrl = builder.dataAssetSourceUrl;
+        /**
+         * 归属数据知识的数据资源类型
+         * <p> 示例值：excel
+         */
+        this.dataAssetDataSourceType = builder.dataAssetDataSourceType;
+        /**
+         * 归属数据知识的数据连接类型
+         * <p> 示例值：direct
+         */
+        this.dataAssetConnectType = builder.dataAssetConnectType;
+        /**
+         * 切片所归属数据源信息
+         * <p> 示例值：
+         */
+        this.sourceInfo = builder.sourceInfo;
     }
 
     public static Builder newBuilder() {
@@ -139,6 +172,30 @@ public class DataAssetChunk {
         this.dataAssetSourceUrl = dataAssetSourceUrl;
     }
 
+    public String getDataAssetDataSourceType() {
+        return this.dataAssetDataSourceType;
+    }
+
+    public void setDataAssetDataSourceType(String dataAssetDataSourceType) {
+        this.dataAssetDataSourceType = dataAssetDataSourceType;
+    }
+
+    public String getDataAssetConnectType() {
+        return this.dataAssetConnectType;
+    }
+
+    public void setDataAssetConnectType(String dataAssetConnectType) {
+        this.dataAssetConnectType = dataAssetConnectType;
+    }
+
+    public DataAssetChunkSourceInfo getSourceInfo() {
+        return this.sourceInfo;
+    }
+
+    public void setSourceInfo(DataAssetChunkSourceInfo sourceInfo) {
+        this.sourceInfo = sourceInfo;
+    }
+
     public static class Builder {
         /**
          * 切片内容
@@ -165,6 +222,21 @@ public class DataAssetChunk {
          * <p> 示例值：https://doclink.com/1
          */
         private String dataAssetSourceUrl;
+        /**
+         * 归属数据知识的数据资源类型
+         * <p> 示例值：excel
+         */
+        private String dataAssetDataSourceType;
+        /**
+         * 归属数据知识的数据连接类型
+         * <p> 示例值：direct
+         */
+        private String dataAssetConnectType;
+        /**
+         * 切片所归属数据源信息
+         * <p> 示例值：
+         */
+        private DataAssetChunkSourceInfo sourceInfo;
 
         /**
          * 切片内容
@@ -227,6 +299,69 @@ public class DataAssetChunk {
          */
         public Builder dataAssetSourceUrl(String dataAssetSourceUrl) {
             this.dataAssetSourceUrl = dataAssetSourceUrl;
+            return this;
+        }
+
+
+        /**
+         * 归属数据知识的数据资源类型
+         * <p> 示例值：excel
+         *
+         * @param dataAssetDataSourceType
+         * @return
+         */
+        public Builder dataAssetDataSourceType(String dataAssetDataSourceType) {
+            this.dataAssetDataSourceType = dataAssetDataSourceType;
+            return this;
+        }
+
+        /**
+         * 归属数据知识的数据资源类型
+         * <p> 示例值：excel
+         *
+         * @param dataAssetDataSourceType {@link com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetDataSourceTypeEnum}
+         * @return
+         */
+        public Builder dataAssetDataSourceType(com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetDataSourceTypeEnum dataAssetDataSourceType) {
+            this.dataAssetDataSourceType = dataAssetDataSourceType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 归属数据知识的数据连接类型
+         * <p> 示例值：direct
+         *
+         * @param dataAssetConnectType
+         * @return
+         */
+        public Builder dataAssetConnectType(String dataAssetConnectType) {
+            this.dataAssetConnectType = dataAssetConnectType;
+            return this;
+        }
+
+        /**
+         * 归属数据知识的数据连接类型
+         * <p> 示例值：direct
+         *
+         * @param dataAssetConnectType {@link com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetConnectTypeEnum}
+         * @return
+         */
+        public Builder dataAssetConnectType(com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetConnectTypeEnum dataAssetConnectType) {
+            this.dataAssetConnectType = dataAssetConnectType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 切片所归属数据源信息
+         * <p> 示例值：
+         *
+         * @param sourceInfo
+         * @return
+         */
+        public Builder sourceInfo(DataAssetChunkSourceInfo sourceInfo) {
+            this.sourceInfo = sourceInfo;
             return this;
         }
 

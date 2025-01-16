@@ -59,6 +59,18 @@ public class DisplayApp {
      */
     @SerializedName("time_zone")
     private String timeZone;
+    /**
+     * 文档公式字段类型
+     * <p> 示例值：
+     */
+    @SerializedName("formula_type")
+    private Integer formulaType;
+    /**
+     * 文档高级权限版本
+     * <p> 示例值：
+     */
+    @SerializedName("advance_version")
+    private String advanceVersion;
 
     // builder 开始
     public DisplayApp() {
@@ -90,6 +102,16 @@ public class DisplayApp {
          * <p> 示例值：
          */
         this.timeZone = builder.timeZone;
+        /**
+         * 文档公式字段类型
+         * <p> 示例值：
+         */
+        this.formulaType = builder.formulaType;
+        /**
+         * 文档高级权限版本
+         * <p> 示例值：
+         */
+        this.advanceVersion = builder.advanceVersion;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +158,22 @@ public class DisplayApp {
         this.timeZone = timeZone;
     }
 
+    public Integer getFormulaType() {
+        return this.formulaType;
+    }
+
+    public void setFormulaType(Integer formulaType) {
+        this.formulaType = formulaType;
+    }
+
+    public String getAdvanceVersion() {
+        return this.advanceVersion;
+    }
+
+    public void setAdvanceVersion(String advanceVersion) {
+        this.advanceVersion = advanceVersion;
+    }
+
     public static class Builder {
         /**
          * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
@@ -162,6 +200,16 @@ public class DisplayApp {
          * <p> 示例值：
          */
         private String timeZone;
+        /**
+         * 文档公式字段类型
+         * <p> 示例值：
+         */
+        private Integer formulaType;
+        /**
+         * 文档高级权限版本
+         * <p> 示例值：
+         */
+        private String advanceVersion;
 
         /**
          * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
@@ -224,6 +272,56 @@ public class DisplayApp {
          */
         public Builder timeZone(String timeZone) {
             this.timeZone = timeZone;
+            return this;
+        }
+
+
+        /**
+         * 文档公式字段类型
+         * <p> 示例值：
+         *
+         * @param formulaType
+         * @return
+         */
+        public Builder formulaType(Integer formulaType) {
+            this.formulaType = formulaType;
+            return this;
+        }
+
+        /**
+         * 文档公式字段类型
+         * <p> 示例值：
+         *
+         * @param formulaType {@link com.lark.oapi.service.bitable.v1.enums.DisplayAppFormulaTypeEnum}
+         * @return
+         */
+        public Builder formulaType(com.lark.oapi.service.bitable.v1.enums.DisplayAppFormulaTypeEnum formulaType) {
+            this.formulaType = formulaType.getValue();
+            return this;
+        }
+
+
+        /**
+         * 文档高级权限版本
+         * <p> 示例值：
+         *
+         * @param advanceVersion
+         * @return
+         */
+        public Builder advanceVersion(String advanceVersion) {
+            this.advanceVersion = advanceVersion;
+            return this;
+        }
+
+        /**
+         * 文档高级权限版本
+         * <p> 示例值：
+         *
+         * @param advanceVersion {@link com.lark.oapi.service.bitable.v1.enums.DisplayAppAdvanceVersionEnum}
+         * @return
+         */
+        public Builder advanceVersion(com.lark.oapi.service.bitable.v1.enums.DisplayAppAdvanceVersionEnum advanceVersion) {
+            this.advanceVersion = advanceVersion.getValue();
             return this;
         }
 

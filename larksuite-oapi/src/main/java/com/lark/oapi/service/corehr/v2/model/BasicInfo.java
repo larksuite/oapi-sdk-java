@@ -251,6 +251,12 @@ public class BasicInfo {
      */
     @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
+    /**
+     * 预计毕业日期
+     * <p> 示例值：2023-01-10
+     */
+    @SerializedName("expected_graduate_date")
+    private String expectedGraduateDate;
 
     // builder 开始
     public BasicInfo() {
@@ -442,6 +448,11 @@ public class BasicInfo {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         */
+        this.expectedGraduateDate = builder.expectedGraduateDate;
     }
 
     public static Builder newBuilder() {
@@ -744,6 +755,14 @@ public class BasicInfo {
         this.customFields = customFields;
     }
 
+    public String getExpectedGraduateDate() {
+        return this.expectedGraduateDate;
+    }
+
+    public void setExpectedGraduateDate(String expectedGraduateDate) {
+        this.expectedGraduateDate = expectedGraduateDate;
+    }
+
     public static class Builder {
         /**
          * 描述
@@ -930,6 +949,11 @@ public class BasicInfo {
          * <p> 示例值：
          */
         private ObjectFieldData[] customFields;
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         */
+        private String expectedGraduateDate;
 
         /**
          * 描述
@@ -1408,6 +1432,19 @@ public class BasicInfo {
          */
         public Builder customFields(ObjectFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 预计毕业日期
+         * <p> 示例值：2023-01-10
+         *
+         * @param expectedGraduateDate
+         * @return
+         */
+        public Builder expectedGraduateDate(String expectedGraduateDate) {
+            this.expectedGraduateDate = expectedGraduateDate;
             return this;
         }
 
