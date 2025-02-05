@@ -41,6 +41,12 @@ public class FileRiskDetectionRecordResult {
      */
     @SerializedName("risk_tag")
     private String riskTag;
+    /**
+     * 是否需要机器人通知
+     * <p> 示例值：true
+     */
+    @SerializedName("need_bot_notify")
+    private Boolean needBotNotify;
 
     // builder 开始
     public FileRiskDetectionRecordResult() {
@@ -57,6 +63,11 @@ public class FileRiskDetectionRecordResult {
          * <p> 示例值：RISK
          */
         this.riskTag = builder.riskTag;
+        /**
+         * 是否需要机器人通知
+         * <p> 示例值：true
+         */
+        this.needBotNotify = builder.needBotNotify;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +90,14 @@ public class FileRiskDetectionRecordResult {
         this.riskTag = riskTag;
     }
 
+    public Boolean getNeedBotNotify() {
+        return this.needBotNotify;
+    }
+
+    public void setNeedBotNotify(Boolean needBotNotify) {
+        this.needBotNotify = needBotNotify;
+    }
+
     public static class Builder {
         /**
          * 检测状态
@@ -90,6 +109,11 @@ public class FileRiskDetectionRecordResult {
          * <p> 示例值：RISK
          */
         private String riskTag;
+        /**
+         * 是否需要机器人通知
+         * <p> 示例值：true
+         */
+        private Boolean needBotNotify;
 
         /**
          * 检测状态
@@ -137,6 +161,19 @@ public class FileRiskDetectionRecordResult {
          */
         public Builder riskTag(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultRiskTagEnum riskTag) {
             this.riskTag = riskTag.getValue();
+            return this;
+        }
+
+
+        /**
+         * 是否需要机器人通知
+         * <p> 示例值：true
+         *
+         * @param needBotNotify
+         * @return
+         */
+        public Builder needBotNotify(Boolean needBotNotify) {
+            this.needBotNotify = needBotNotify;
             return this;
         }
 

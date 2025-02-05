@@ -48,6 +48,12 @@ public class PersonInfoBt {
     @SerializedName("legal_name")
     private String legalName;
     /**
+     * 别名
+     * <p> 示例值：张三
+     */
+    @SerializedName("additional_name")
+    private String additionalName;
+    /**
      * 常用名
      * <p> 示例值：刘梓新(Henry)
      */
@@ -357,6 +363,11 @@ public class PersonInfoBt {
          */
         this.legalName = builder.legalName;
         /**
+         * 别名
+         * <p> 示例值：张三
+         */
+        this.additionalName = builder.additionalName;
+        /**
          * 常用名
          * <p> 示例值：刘梓新(Henry)
          */
@@ -624,6 +635,14 @@ public class PersonInfoBt {
 
     public void setLegalName(String legalName) {
         this.legalName = legalName;
+    }
+
+    public String getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(String additionalName) {
+        this.additionalName = additionalName;
     }
 
     public String getPreferredName() {
@@ -1027,6 +1046,11 @@ public class PersonInfoBt {
          */
         private String legalName;
         /**
+         * 别名
+         * <p> 示例值：张三
+         */
+        private String additionalName;
+        /**
          * 常用名
          * <p> 示例值：刘梓新(Henry)
          */
@@ -1302,6 +1326,19 @@ public class PersonInfoBt {
          */
         public Builder legalName(String legalName) {
             this.legalName = legalName;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：张三
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(String additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

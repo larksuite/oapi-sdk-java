@@ -42,6 +42,12 @@ public class ProfileSettingPersonalBasicInfo {
     @SerializedName("preferred_name")
     private ProfileSettingName preferredName;
     /**
+     * 别名
+     * <p> 示例值：王帅
+     */
+    @SerializedName("additional_name")
+    private String additionalName;
+    /**
      * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
      * <p> 示例值：female
      */
@@ -178,6 +184,11 @@ public class ProfileSettingPersonalBasicInfo {
          */
         this.preferredName = builder.preferredName;
         /**
+         * 别名
+         * <p> 示例值：王帅
+         */
+        this.additionalName = builder.additionalName;
+        /**
          * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
          * <p> 示例值：female
          */
@@ -297,6 +308,14 @@ public class ProfileSettingPersonalBasicInfo {
 
     public void setPreferredName(ProfileSettingName preferredName) {
         this.preferredName = preferredName;
+    }
+
+    public String getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(String additionalName) {
+        this.additionalName = additionalName;
     }
 
     public String getGender() {
@@ -471,6 +490,11 @@ public class ProfileSettingPersonalBasicInfo {
          */
         private ProfileSettingName preferredName;
         /**
+         * 别名
+         * <p> 示例值：王帅
+         */
+        private String additionalName;
+        /**
          * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
          * <p> 示例值：female
          */
@@ -593,6 +617,19 @@ public class ProfileSettingPersonalBasicInfo {
          */
         public Builder preferredName(ProfileSettingName preferredName) {
             this.preferredName = preferredName;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：王帅
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(String additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

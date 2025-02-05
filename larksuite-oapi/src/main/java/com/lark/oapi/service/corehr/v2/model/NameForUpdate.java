@@ -91,10 +91,16 @@ public class NameForUpdate {
     private String countryRegion;
     /**
      * 姓名类型，枚举值
-     * <p> 示例值：legal_name，preferred_name
+     * <p> 示例值：legal_name，preferred_name，additional_name
      */
     @SerializedName("name_type")
     private String nameType;
+    /**
+     * 别名
+     * <p> 示例值：别名
+     */
+    @SerializedName("additional_name")
+    private String additionalName;
 
     // builder 开始
     public NameForUpdate() {
@@ -153,9 +159,14 @@ public class NameForUpdate {
         this.countryRegion = builder.countryRegion;
         /**
          * 姓名类型，枚举值
-         * <p> 示例值：legal_name，preferred_name
+         * <p> 示例值：legal_name，preferred_name，additional_name
          */
         this.nameType = builder.nameType;
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        this.additionalName = builder.additionalName;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +261,14 @@ public class NameForUpdate {
         this.nameType = nameType;
     }
 
+    public String getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(String additionalName) {
+        this.additionalName = additionalName;
+    }
+
     public static class Builder {
         /**
          * 全名
@@ -303,9 +322,14 @@ public class NameForUpdate {
         private String countryRegion;
         /**
          * 姓名类型，枚举值
-         * <p> 示例值：legal_name，preferred_name
+         * <p> 示例值：legal_name，preferred_name，additional_name
          */
         private String nameType;
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        private String additionalName;
 
         /**
          * 全名
@@ -439,13 +463,26 @@ public class NameForUpdate {
 
         /**
          * 姓名类型，枚举值
-         * <p> 示例值：legal_name，preferred_name
+         * <p> 示例值：legal_name，preferred_name，additional_name
          *
          * @param nameType
          * @return
          */
         public Builder nameType(String nameType) {
             this.nameType = nameType;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：别名
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(String additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

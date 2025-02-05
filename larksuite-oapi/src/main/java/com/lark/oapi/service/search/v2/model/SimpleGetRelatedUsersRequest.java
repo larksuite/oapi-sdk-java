@@ -31,7 +31,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SimpleGetRelatedUsersRequest {
     /**
      * 用户id
-     * <p> 示例值：7075326257193287699
+     * <p> 示例值：fdsfds2
      */
     @SerializedName("user_id")
     private String userId;
@@ -42,13 +42,13 @@ public class SimpleGetRelatedUsersRequest {
     @SerializedName("top_k")
     private Integer topK;
     /**
-     * 最早的交互时间，闭区间，默认不限制，ms
+     * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
      * <p> 示例值：1704768318000
      */
     @SerializedName("start_time_filter")
     private String startTimeFilter;
     /**
-     * 最晚交互时间，闭区间，默认不限制，ms
+     * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
      * <p> 示例值：1736390718000
      */
     @SerializedName("end_time_filter")
@@ -61,7 +61,7 @@ public class SimpleGetRelatedUsersRequest {
     public SimpleGetRelatedUsersRequest(Builder builder) {
         /**
          * 用户id
-         * <p> 示例值：7075326257193287699
+         * <p> 示例值：fdsfds2
          */
         this.userId = builder.userId;
         /**
@@ -70,12 +70,12 @@ public class SimpleGetRelatedUsersRequest {
          */
         this.topK = builder.topK;
         /**
-         * 最早的交互时间，闭区间，默认不限制，ms
+         * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
          * <p> 示例值：1704768318000
          */
         this.startTimeFilter = builder.startTimeFilter;
         /**
-         * 最晚交互时间，闭区间，默认不限制，ms
+         * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
          * <p> 示例值：1736390718000
          */
         this.endTimeFilter = builder.endTimeFilter;
@@ -120,7 +120,7 @@ public class SimpleGetRelatedUsersRequest {
     public static class Builder {
         /**
          * 用户id
-         * <p> 示例值：7075326257193287699
+         * <p> 示例值：fdsfds2
          */
         private String userId;
         /**
@@ -129,19 +129,19 @@ public class SimpleGetRelatedUsersRequest {
          */
         private Integer topK;
         /**
-         * 最早的交互时间，闭区间，默认不限制，ms
+         * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
          * <p> 示例值：1704768318000
          */
         private String startTimeFilter;
         /**
-         * 最晚交互时间，闭区间，默认不限制，ms
+         * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
          * <p> 示例值：1736390718000
          */
         private String endTimeFilter;
 
         /**
          * 用户id
-         * <p> 示例值：7075326257193287699
+         * <p> 示例值：fdsfds2
          *
          * @param userId
          * @return
@@ -166,7 +166,7 @@ public class SimpleGetRelatedUsersRequest {
 
 
         /**
-         * 最早的交互时间，闭区间，默认不限制，ms
+         * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
          * <p> 示例值：1704768318000
          *
          * @param startTimeFilter
@@ -179,7 +179,7 @@ public class SimpleGetRelatedUsersRequest {
 
 
         /**
-         * 最晚交互时间，闭区间，默认不限制，ms
+         * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
          * <p> 示例值：1736390718000
          *
          * @param endTimeFilter

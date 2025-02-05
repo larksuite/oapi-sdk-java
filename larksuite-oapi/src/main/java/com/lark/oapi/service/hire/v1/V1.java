@@ -19,7 +19,7 @@ import com.lark.oapi.service.hire.v1.resource.*;
 public class V1 {
     private final Advertisement advertisement; // advertisement
     private final Agency agency; // 猎头（灰度租户可见）
-    private final Application application; // 投递
+    private final Application application; // 入职
     private final ApplicationInterview applicationInterview; // application.interview
     private final Attachment attachment; // 附件
     private final BackgroundCheckOrder backgroundCheckOrder; // 背调 （灰度租户可见）

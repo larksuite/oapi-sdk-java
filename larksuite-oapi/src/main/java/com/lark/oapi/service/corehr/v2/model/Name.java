@@ -89,6 +89,12 @@ public class Name {
      */
     @SerializedName("custom_western_name")
     private String customWesternName;
+    /**
+     * 别名
+     * <p> 示例值：别名
+     */
+    @SerializedName("additional_name")
+    private String additionalName;
 
     // builder 开始
     public Name() {
@@ -145,6 +151,11 @@ public class Name {
          * <p> 示例值：YiyiLi
          */
         this.customWesternName = builder.customWesternName;
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        this.additionalName = builder.additionalName;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +242,14 @@ public class Name {
         this.customWesternName = customWesternName;
     }
 
+    public String getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(String additionalName) {
+        this.additionalName = additionalName;
+    }
+
     public static class Builder {
         /**
          * 全名
@@ -282,6 +301,11 @@ public class Name {
          * <p> 示例值：YiyiLi
          */
         private String customWesternName;
+        /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        private String additionalName;
 
         /**
          * 全名
@@ -409,6 +433,19 @@ public class Name {
          */
         public Builder customWesternName(String customWesternName) {
             this.customWesternName = customWesternName;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：别名
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(String additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

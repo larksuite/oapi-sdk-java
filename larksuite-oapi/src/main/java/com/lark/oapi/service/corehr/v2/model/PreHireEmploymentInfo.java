@@ -210,6 +210,12 @@ public class PreHireEmploymentInfo {
     @SerializedName("suspected_rehiring")
     private Boolean suspectedRehiring;
     /**
+     * 是否外部人员
+     * <p> 示例值：false
+     */
+    @SerializedName("condition_worker")
+    private Boolean conditionWorker;
+    /**
      * 自定义字段
      * <p> 示例值：
      */
@@ -347,6 +353,30 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("seniority_adjust_information_list")
     private PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList;
+    /**
+     * 转正后通知期（主动离职）
+     * <p> 示例值：
+     */
+    @SerializedName("notice_period_positive_voluntary")
+    private NoticePeriodDetail noticePeriodPositiveVoluntary;
+    /**
+     * 试用期内通知期（被动离职）
+     * <p> 示例值：
+     */
+    @SerializedName("notice_period_probation_involuntary")
+    private NoticePeriodDetail noticePeriodProbationInvoluntary;
+    /**
+     * 转正后通知期（被动离职）
+     * <p> 示例值：
+     */
+    @SerializedName("notice_period_positive_involuntary")
+    private NoticePeriodDetail noticePeriodPositiveInvoluntary;
+    /**
+     * 试用期内通知期（主动离职)
+     * <p> 示例值：
+     */
+    @SerializedName("notice_period_probation_voluntary")
+    private NoticePeriodDetail noticePeriodProbationVoluntary;
     /**
      * 工时制度是否被手动修改
      * <p> 示例值：true
@@ -534,6 +564,11 @@ public class PreHireEmploymentInfo {
          */
         this.suspectedRehiring = builder.suspectedRehiring;
         /**
+         * 是否外部人员
+         * <p> 示例值：false
+         */
+        this.conditionWorker = builder.conditionWorker;
+        /**
          * 自定义字段
          * <p> 示例值：
          */
@@ -648,6 +683,26 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
+        /**
+         * 转正后通知期（主动离职）
+         * <p> 示例值：
+         */
+        this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
+        /**
+         * 试用期内通知期（被动离职）
+         * <p> 示例值：
+         */
+        this.noticePeriodProbationInvoluntary = builder.noticePeriodProbationInvoluntary;
+        /**
+         * 转正后通知期（被动离职）
+         * <p> 示例值：
+         */
+        this.noticePeriodPositiveInvoluntary = builder.noticePeriodPositiveInvoluntary;
+        /**
+         * 试用期内通知期（主动离职)
+         * <p> 示例值：
+         */
+        this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
         /**
          * 工时制度是否被手动修改
          * <p> 示例值：true
@@ -919,6 +974,14 @@ public class PreHireEmploymentInfo {
         this.suspectedRehiring = suspectedRehiring;
     }
 
+    public Boolean getConditionWorker() {
+        return this.conditionWorker;
+    }
+
+    public void setConditionWorker(Boolean conditionWorker) {
+        this.conditionWorker = conditionWorker;
+    }
+
     public CustomFieldData[] getCustomFields() {
         return this.customFields;
     }
@@ -1101,6 +1164,38 @@ public class PreHireEmploymentInfo {
 
     public void setSeniorityAdjustInformationList(PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList) {
         this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+    }
+
+    public NoticePeriodDetail getNoticePeriodPositiveVoluntary() {
+        return this.noticePeriodPositiveVoluntary;
+    }
+
+    public void setNoticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
+        this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+    }
+
+    public NoticePeriodDetail getNoticePeriodProbationInvoluntary() {
+        return this.noticePeriodProbationInvoluntary;
+    }
+
+    public void setNoticePeriodProbationInvoluntary(NoticePeriodDetail noticePeriodProbationInvoluntary) {
+        this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
+    }
+
+    public NoticePeriodDetail getNoticePeriodPositiveInvoluntary() {
+        return this.noticePeriodPositiveInvoluntary;
+    }
+
+    public void setNoticePeriodPositiveInvoluntary(NoticePeriodDetail noticePeriodPositiveInvoluntary) {
+        this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
+    }
+
+    public NoticePeriodDetail getNoticePeriodProbationVoluntary() {
+        return this.noticePeriodProbationVoluntary;
+    }
+
+    public void setNoticePeriodProbationVoluntary(NoticePeriodDetail noticePeriodProbationVoluntary) {
+        this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
     }
 
     public Boolean getWorkingHoursTypeManualUpdated() {
@@ -1295,6 +1390,11 @@ public class PreHireEmploymentInfo {
          */
         private Boolean suspectedRehiring;
         /**
+         * 是否外部人员
+         * <p> 示例值：false
+         */
+        private Boolean conditionWorker;
+        /**
          * 自定义字段
          * <p> 示例值：
          */
@@ -1409,6 +1509,26 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：
          */
         private PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList;
+        /**
+         * 转正后通知期（主动离职）
+         * <p> 示例值：
+         */
+        private NoticePeriodDetail noticePeriodPositiveVoluntary;
+        /**
+         * 试用期内通知期（被动离职）
+         * <p> 示例值：
+         */
+        private NoticePeriodDetail noticePeriodProbationInvoluntary;
+        /**
+         * 转正后通知期（被动离职）
+         * <p> 示例值：
+         */
+        private NoticePeriodDetail noticePeriodPositiveInvoluntary;
+        /**
+         * 试用期内通知期（主动离职)
+         * <p> 示例值：
+         */
+        private NoticePeriodDetail noticePeriodProbationVoluntary;
         /**
          * 工时制度是否被手动修改
          * <p> 示例值：true
@@ -1838,6 +1958,19 @@ public class PreHireEmploymentInfo {
 
 
         /**
+         * 是否外部人员
+         * <p> 示例值：false
+         *
+         * @param conditionWorker
+         * @return
+         */
+        public Builder conditionWorker(Boolean conditionWorker) {
+            this.conditionWorker = conditionWorker;
+            return this;
+        }
+
+
+        /**
          * 自定义字段
          * <p> 示例值：
          *
@@ -2132,6 +2265,58 @@ public class PreHireEmploymentInfo {
          */
         public Builder seniorityAdjustInformationList(PrehireSeniorityAdjustInformationQuery[] seniorityAdjustInformationList) {
             this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+            return this;
+        }
+
+
+        /**
+         * 转正后通知期（主动离职）
+         * <p> 示例值：
+         *
+         * @param noticePeriodPositiveVoluntary
+         * @return
+         */
+        public Builder noticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
+            this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+            return this;
+        }
+
+
+        /**
+         * 试用期内通知期（被动离职）
+         * <p> 示例值：
+         *
+         * @param noticePeriodProbationInvoluntary
+         * @return
+         */
+        public Builder noticePeriodProbationInvoluntary(NoticePeriodDetail noticePeriodProbationInvoluntary) {
+            this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
+            return this;
+        }
+
+
+        /**
+         * 转正后通知期（被动离职）
+         * <p> 示例值：
+         *
+         * @param noticePeriodPositiveInvoluntary
+         * @return
+         */
+        public Builder noticePeriodPositiveInvoluntary(NoticePeriodDetail noticePeriodPositiveInvoluntary) {
+            this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
+            return this;
+        }
+
+
+        /**
+         * 试用期内通知期（主动离职)
+         * <p> 示例值：
+         *
+         * @param noticePeriodProbationVoluntary
+         * @return
+         */
+        public Builder noticePeriodProbationVoluntary(NoticePeriodDetail noticePeriodProbationVoluntary) {
+            this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
             return this;
         }
 

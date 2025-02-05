@@ -66,6 +66,12 @@ public class PersonName {
     @SerializedName("local_primary_2")
     private String localPrimary2;
     /**
+     * 别名
+     * <p> 示例值：别名
+     */
+    @SerializedName("additional_name")
+    private String additionalName;
+    /**
      * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
      * <p> 示例值：
      */
@@ -204,6 +210,11 @@ public class PersonName {
          */
         this.localPrimary2 = builder.localPrimary2;
         /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        this.additionalName = builder.additionalName;
+        /**
          * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
          * <p> 示例值：
          */
@@ -340,6 +351,14 @@ public class PersonName {
 
     public void setLocalPrimary2(String localPrimary2) {
         this.localPrimary2 = localPrimary2;
+    }
+
+    public String getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(String additionalName) {
+        this.additionalName = additionalName;
     }
 
     public Enum getAdditionalNameType() {
@@ -510,6 +529,11 @@ public class PersonName {
          */
         private String localPrimary2;
         /**
+         * 别名
+         * <p> 示例值：别名
+         */
+        private String additionalName;
+        /**
          * 补充姓名类型;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：person_name;  - custom_api_name：additional_name_type
          * <p> 示例值：
          */
@@ -669,6 +693,19 @@ public class PersonName {
          */
         public Builder localPrimary2(String localPrimary2) {
             this.localPrimary2 = localPrimary2;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：别名
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(String additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

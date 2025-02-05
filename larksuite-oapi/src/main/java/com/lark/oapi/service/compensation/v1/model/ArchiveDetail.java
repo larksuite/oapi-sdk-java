@@ -96,6 +96,18 @@ public class ArchiveDetail {
     @SerializedName("salary_level_id")
     private String salaryLevelId;
     /**
+     * 创建时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("created_time")
+    private String createdTime;
+    /**
+     * 更新时间
+     * <p> 示例值：2024-01-01 00:00:00
+     */
+    @SerializedName("updated_time")
+    private String updatedTime;
+    /**
      * 档案关联的薪资项
      * <p> 示例值：
      */
@@ -168,6 +180,16 @@ public class ArchiveDetail {
          * <p> 示例值：12342313
          */
         this.salaryLevelId = builder.salaryLevelId;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.createdTime = builder.createdTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        this.updatedTime = builder.updatedTime;
         /**
          * 档案关联的薪资项
          * <p> 示例值：
@@ -272,6 +294,22 @@ public class ArchiveDetail {
         this.salaryLevelId = salaryLevelId;
     }
 
+    public String getCreatedTime() {
+        return this.createdTime;
+    }
+
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUpdatedTime() {
+        return this.updatedTime;
+    }
+
+    public void setUpdatedTime(String updatedTime) {
+        this.updatedTime = updatedTime;
+    }
+
     public ArchiveItem[] getArchiveItems() {
         return this.archiveItems;
     }
@@ -344,6 +382,16 @@ public class ArchiveDetail {
          * <p> 示例值：12342313
          */
         private String salaryLevelId;
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String createdTime;
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         */
+        private String updatedTime;
         /**
          * 档案关联的薪资项
          * <p> 示例值：
@@ -494,6 +542,32 @@ public class ArchiveDetail {
          */
         public Builder salaryLevelId(String salaryLevelId) {
             this.salaryLevelId = salaryLevelId;
+            return this;
+        }
+
+
+        /**
+         * 创建时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param createdTime
+         * @return
+         */
+        public Builder createdTime(String createdTime) {
+            this.createdTime = createdTime;
+            return this;
+        }
+
+
+        /**
+         * 更新时间
+         * <p> 示例值：2024-01-01 00:00:00
+         *
+         * @param updatedTime
+         * @return
+         */
+        public Builder updatedTime(String updatedTime) {
+            this.updatedTime = updatedTime;
             return this;
         }
 

@@ -54,6 +54,12 @@ public class PersonInfo {
     @SerializedName("preferred_name")
     private String preferredName;
     /**
+     * 别名
+     * <p> 示例值：梓新
+     */
+    @SerializedName("additional_name")
+    private String additionalName;
+    /**
      * 常用本地全名
      * <p> 示例值：刘梓新
      */
@@ -410,6 +416,11 @@ public class PersonInfo {
          */
         this.preferredName = builder.preferredName;
         /**
+         * 别名
+         * <p> 示例值：梓新
+         */
+        this.additionalName = builder.additionalName;
+        /**
          * 常用本地全名
          * <p> 示例值：刘梓新
          */
@@ -720,6 +731,14 @@ public class PersonInfo {
 
     public void setPreferredName(String preferredName) {
         this.preferredName = preferredName;
+    }
+
+    public String getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(String additionalName) {
+        this.additionalName = additionalName;
     }
 
     public String getPreferredLocalFullName() {
@@ -1184,6 +1203,11 @@ public class PersonInfo {
          */
         private String preferredName;
         /**
+         * 别名
+         * <p> 示例值：梓新
+         */
+        private String additionalName;
+        /**
          * 常用本地全名
          * <p> 示例值：刘梓新
          */
@@ -1507,6 +1531,19 @@ public class PersonInfo {
          */
         public Builder preferredName(String preferredName) {
             this.preferredName = preferredName;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：梓新
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(String additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

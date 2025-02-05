@@ -132,6 +132,12 @@ public class BasicInfo {
     @SerializedName("legal_name")
     private Name legalName;
     /**
+     * 别名
+     * <p> 示例值：
+     */
+    @SerializedName("additional_name")
+    private Name additionalName;
+    /**
      * 纳税身份信息
      * <p> 示例值：
      */
@@ -348,6 +354,11 @@ public class BasicInfo {
          * <p> 示例值：
          */
         this.legalName = builder.legalName;
+        /**
+         * 别名
+         * <p> 示例值：
+         */
+        this.additionalName = builder.additionalName;
         /**
          * 纳税身份信息
          * <p> 示例值：
@@ -593,6 +604,14 @@ public class BasicInfo {
 
     public void setLegalName(Name legalName) {
         this.legalName = legalName;
+    }
+
+    public Name getAdditionalName() {
+        return this.additionalName;
+    }
+
+    public void setAdditionalName(Name additionalName) {
+        this.additionalName = additionalName;
     }
 
     public ResidentTaxForUpdate[] getResidentTaxList() {
@@ -849,6 +868,11 @@ public class BasicInfo {
          * <p> 示例值：
          */
         private Name legalName;
+        /**
+         * 别名
+         * <p> 示例值：
+         */
+        private Name additionalName;
         /**
          * 纳税身份信息
          * <p> 示例值：
@@ -1172,6 +1196,19 @@ public class BasicInfo {
          */
         public Builder legalName(Name legalName) {
             this.legalName = legalName;
+            return this;
+        }
+
+
+        /**
+         * 别名
+         * <p> 示例值：
+         *
+         * @param additionalName
+         * @return
+         */
+        public Builder additionalName(Name additionalName) {
+            this.additionalName = additionalName;
             return this;
         }
 

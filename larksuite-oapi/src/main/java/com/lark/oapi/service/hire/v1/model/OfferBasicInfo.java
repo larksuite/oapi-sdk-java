@@ -154,6 +154,12 @@ public class OfferBasicInfo {
      */
     @SerializedName("job_offered")
     private String jobOffered;
+    /**
+     * 职等 ID
+     * <p> 示例值：6897079709306259720
+     */
+    @SerializedName("job_grade_id")
+    private String jobGradeId;
 
     // builder 开始
     public OfferBasicInfo() {
@@ -265,6 +271,11 @@ public class OfferBasicInfo {
          * <p> 示例值：测试职位
          */
         this.jobOffered = builder.jobOffered;
+        /**
+         * 职等 ID
+         * <p> 示例值：6897079709306259720
+         */
+        this.jobGradeId = builder.jobGradeId;
     }
 
     public static Builder newBuilder() {
@@ -439,6 +450,14 @@ public class OfferBasicInfo {
         this.jobOffered = jobOffered;
     }
 
+    public String getJobGradeId() {
+        return this.jobGradeId;
+    }
+
+    public void setJobGradeId(String jobGradeId) {
+        this.jobGradeId = jobGradeId;
+    }
+
     public static class Builder {
         /**
          * 部门 ID
@@ -545,6 +564,11 @@ public class OfferBasicInfo {
          * <p> 示例值：测试职位
          */
         private String jobOffered;
+        /**
+         * 职等 ID
+         * <p> 示例值：6897079709306259720
+         */
+        private String jobGradeId;
 
         /**
          * 部门 ID
@@ -815,6 +839,19 @@ public class OfferBasicInfo {
          */
         public Builder jobOffered(String jobOffered) {
             this.jobOffered = jobOffered;
+            return this;
+        }
+
+
+        /**
+         * 职等 ID
+         * <p> 示例值：6897079709306259720
+         *
+         * @param jobGradeId
+         * @return
+         */
+        public Builder jobGradeId(String jobGradeId) {
+            this.jobGradeId = jobGradeId;
             return this;
         }
 
