@@ -26,5 +26,5 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class RevokeJobChangeResp extends BaseResponse<EmptyData> {
+public class RevokeJobChangeResp extends BaseResponse<RevokeJobChangeRespBody> {
 }

@@ -419,6 +419,12 @@ public class EmployeeBt {
      */
     @SerializedName("attendance_group_id")
     private String attendanceGroupId;
+    /**
+     * 是否回流
+     * <p> 示例值：true
+     */
+    @SerializedName("whether_returnee")
+    private Boolean whetherReturnee;
 
     // builder 开始
     public EmployeeBt() {
@@ -750,6 +756,11 @@ public class EmployeeBt {
          * <p> 示例值：123456789
          */
         this.attendanceGroupId = builder.attendanceGroupId;
+        /**
+         * 是否回流
+         * <p> 示例值：true
+         */
+        this.whetherReturnee = builder.whetherReturnee;
     }
 
     public static Builder newBuilder() {
@@ -1276,6 +1287,14 @@ public class EmployeeBt {
         this.attendanceGroupId = attendanceGroupId;
     }
 
+    public Boolean getWhetherReturnee() {
+        return this.whetherReturnee;
+    }
+
+    public void setWhetherReturnee(Boolean whetherReturnee) {
+        this.whetherReturnee = whetherReturnee;
+    }
+
     public static class Builder {
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -1602,6 +1621,11 @@ public class EmployeeBt {
          * <p> 示例值：123456789
          */
         private String attendanceGroupId;
+        /**
+         * 是否回流
+         * <p> 示例值：true
+         */
+        private Boolean whetherReturnee;
 
         /**
          * 雇佣 ID;- 类型与 user_id_type 一致
@@ -2444,6 +2468,19 @@ public class EmployeeBt {
          */
         public Builder attendanceGroupId(String attendanceGroupId) {
             this.attendanceGroupId = attendanceGroupId;
+            return this;
+        }
+
+
+        /**
+         * 是否回流
+         * <p> 示例值：true
+         *
+         * @param whetherReturnee
+         * @return
+         */
+        public Builder whetherReturnee(Boolean whetherReturnee) {
+            this.whetherReturnee = whetherReturnee;
             return this;
         }
 

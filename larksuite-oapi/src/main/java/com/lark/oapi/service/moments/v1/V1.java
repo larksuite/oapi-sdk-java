@@ -18,14 +18,12 @@ import com.lark.oapi.service.moments.v1.resource.*;
 
 public class V1 {
     private final Comment comment; // comment
-    private final Dislike dislike; // dislike
     private final Post post; // post
     private final PostStatistics postStatistics; // post_statistics
     private final Reaction reaction; // reaction
 
     public V1(Config config) {
         this.comment = new Comment(config);
-        this.dislike = new Dislike(config);
         this.post = new Post(config);
         this.postStatistics = new PostStatistics(config);
         this.reaction = new Reaction(config);
@@ -33,10 +31,6 @@ public class V1 {
 
     public Comment comment() {
         return comment;
-    }
-
-    public Dislike dislike() {
-        return dislike;
     }
 
     public Post post() {

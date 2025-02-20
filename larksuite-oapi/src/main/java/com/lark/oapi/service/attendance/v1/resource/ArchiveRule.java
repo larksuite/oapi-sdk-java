@@ -193,7 +193,7 @@ public class ArchiveRule {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/attendance/v1/archive_rule/upload_report"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化
@@ -225,7 +225,7 @@ public class ArchiveRule {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
                 , "/open-apis/attendance/v1/archive_rule/upload_report"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.Tenant)
                 , req);
 
         // 反序列化

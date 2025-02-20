@@ -227,6 +227,12 @@ public class JobData {
      */
     @SerializedName("job_data_reason")
     private Enum jobDataReason;
+    /**
+     * 通道 ID
+     * <p> 示例值：6890452208593372679
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
 
     // builder 开始
     public JobData() {
@@ -398,6 +404,11 @@ public class JobData {
          * <p> 示例值：
          */
         this.jobDataReason = builder.jobDataReason;
+        /**
+         * 通道 ID
+         * <p> 示例值：6890452208593372679
+         */
+        this.pathwayId = builder.pathwayId;
     }
 
     public static Builder newBuilder() {
@@ -668,6 +679,14 @@ public class JobData {
         this.jobDataReason = jobDataReason;
     }
 
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
     public static class Builder {
         /**
          * 任职信息 ID
@@ -834,6 +853,11 @@ public class JobData {
          * <p> 示例值：
          */
         private Enum jobDataReason;
+        /**
+         * 通道 ID
+         * <p> 示例值：6890452208593372679
+         */
+        private String pathwayId;
 
         /**
          * 任职信息 ID
@@ -1260,6 +1284,19 @@ public class JobData {
          */
         public Builder jobDataReason(Enum jobDataReason) {
             this.jobDataReason = jobDataReason;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID
+         * <p> 示例值：6890452208593372679
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
             return this;
         }
 

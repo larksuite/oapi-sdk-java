@@ -66,12 +66,6 @@ public class LumpSumPaymentForCreate {
     @SerializedName("issuance_frequency")
     private Integer issuanceFrequency;
     /**
-     * 授予日期
-     * <p> 示例值：2024-08-01
-     */
-    @SerializedName("grant_date")
-    private String grantDate;
-    /**
      * 薪酬项id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list?appId=cli_a3077e2bb03c100d 进行查询）
      * <p> 示例值：7411039006180312620
      */
@@ -125,11 +119,6 @@ public class LumpSumPaymentForCreate {
          * <p> 示例值：3
          */
         this.issuanceFrequency = builder.issuanceFrequency;
-        /**
-         * 授予日期
-         * <p> 示例值：2024-08-01
-         */
-        this.grantDate = builder.grantDate;
         /**
          * 薪酬项id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list?appId=cli_a3077e2bb03c100d 进行查询）
          * <p> 示例值：7411039006180312620
@@ -199,14 +188,6 @@ public class LumpSumPaymentForCreate {
         this.issuanceFrequency = issuanceFrequency;
     }
 
-    public String getGrantDate() {
-        return this.grantDate;
-    }
-
-    public void setGrantDate(String grantDate) {
-        this.grantDate = grantDate;
-    }
-
     public String getItemId() {
         return this.itemId;
     }
@@ -262,11 +243,6 @@ public class LumpSumPaymentForCreate {
          * <p> 示例值：3
          */
         private Integer issuanceFrequency;
-        /**
-         * 授予日期
-         * <p> 示例值：2024-08-01
-         */
-        private String grantDate;
         /**
          * 薪酬项id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list?appId=cli_a3077e2bb03c100d 进行查询）
          * <p> 示例值：7411039006180312620
@@ -357,19 +333,6 @@ public class LumpSumPaymentForCreate {
          */
         public Builder issuanceFrequency(Integer issuanceFrequency) {
             this.issuanceFrequency = issuanceFrequency;
-            return this;
-        }
-
-
-        /**
-         * 授予日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param grantDate
-         * @return
-         */
-        public Builder grantDate(String grantDate) {
-            this.grantDate = grantDate;
             return this;
         }
 

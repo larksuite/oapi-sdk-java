@@ -37,6 +37,7 @@ public class SearchPreHireSample {
                         .employeeSubtypeIds(new String[]{})
                         .jobFamilyIds(new String[]{})
                         .keyWord("张三")
+                        .conditionWorker(true)
                         .rehire("张三")
                         .fields(new String[]{})
                         .build())

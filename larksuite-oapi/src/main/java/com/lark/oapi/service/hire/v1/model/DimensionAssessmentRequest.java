@@ -54,13 +54,13 @@ public class DimensionAssessmentRequest {
     private Integer scoreValue;
     /**
      * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-     * <p> 示例值：7484008015926434905
+     * <p> 示例值：1z3278jv8apy9yb
      */
     @SerializedName("min_job_level_id")
     private String minJobLevelId;
     /**
      * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-     * <p> 示例值：7484008015926434905
+     * <p> 示例值：1z3278jv8apy9yb
      */
     @SerializedName("max_job_level_id")
     private String maxJobLevelId;
@@ -92,12 +92,12 @@ public class DimensionAssessmentRequest {
         this.scoreValue = builder.scoreValue;
         /**
          * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：7484008015926434905
+         * <p> 示例值：1z3278jv8apy9yb
          */
         this.minJobLevelId = builder.minJobLevelId;
         /**
          * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：7484008015926434905
+         * <p> 示例值：1z3278jv8apy9yb
          */
         this.maxJobLevelId = builder.maxJobLevelId;
     }
@@ -177,12 +177,12 @@ public class DimensionAssessmentRequest {
         private Integer scoreValue;
         /**
          * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：7484008015926434905
+         * <p> 示例值：1z3278jv8apy9yb
          */
         private String minJobLevelId;
         /**
          * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：7484008015926434905
+         * <p> 示例值：1z3278jv8apy9yb
          */
         private String maxJobLevelId;
 
@@ -240,7 +240,7 @@ public class DimensionAssessmentRequest {
 
         /**
          * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：7484008015926434905
+         * <p> 示例值：1z3278jv8apy9yb
          *
          * @param minJobLevelId
          * @return
@@ -253,7 +253,7 @@ public class DimensionAssessmentRequest {
 
         /**
          * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：7484008015926434905
+         * <p> 示例值：1z3278jv8apy9yb
          *
          * @param maxJobLevelId
          * @return

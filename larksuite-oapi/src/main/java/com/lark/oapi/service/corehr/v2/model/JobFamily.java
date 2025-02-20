@@ -72,6 +72,12 @@ public class JobFamily {
     @SerializedName("code")
     private String code;
     /**
+     * 描述
+     * <p> 示例值：
+     */
+    @SerializedName("description")
+    private I18n[] description;
+    /**
      * 自定义字段
      * <p> 示例值：
      */
@@ -118,6 +124,11 @@ public class JobFamily {
          * <p> 示例值：123456
          */
         this.code = builder.code;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -185,6 +196,14 @@ public class JobFamily {
         this.code = code;
     }
 
+    public I18n[] getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(I18n[] description) {
+        this.description = description;
+    }
+
     public CustomFieldData[] getCustomFields() {
         return this.customFields;
     }
@@ -229,6 +248,11 @@ public class JobFamily {
          * <p> 示例值：123456
          */
         private String code;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private I18n[] description;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -322,6 +346,19 @@ public class JobFamily {
          */
         public Builder code(String code) {
             this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(I18n[] description) {
+            this.description = description;
             return this;
         }
 

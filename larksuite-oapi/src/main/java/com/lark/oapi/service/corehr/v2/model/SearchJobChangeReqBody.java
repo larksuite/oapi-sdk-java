@@ -77,6 +77,24 @@ public class SearchJobChangeReqBody {
      */
     @SerializedName("target_department_ids")
     private String[] targetDepartmentIds;
+    /**
+     * 异动类型唯一标识
+     * <p> 示例值：internal_transfer
+     */
+    @SerializedName("transfer_type_unique_identifier")
+    private String[] transferTypeUniqueIdentifier;
+    /**
+     * 异动原因唯一标识
+     * <p> 示例值：involuntary_transfer
+     */
+    @SerializedName("transfer_reason_unique_identifier")
+    private String[] transferReasonUniqueIdentifier;
+    /**
+     * 异常处理状态，多个状态之间为「或」的关系
+     * <p> 示例值：pending
+     */
+    @SerializedName("exception_statuses")
+    private String[] exceptionStatuses;
 
     // builder 开始
     public SearchJobChangeReqBody() {
@@ -123,6 +141,21 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：
          */
         this.targetDepartmentIds = builder.targetDepartmentIds;
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         */
+        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：involuntary_transfer
+         */
+        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
+        /**
+         * 异常处理状态，多个状态之间为「或」的关系
+         * <p> 示例值：pending
+         */
+        this.exceptionStatuses = builder.exceptionStatuses;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +226,30 @@ public class SearchJobChangeReqBody {
         this.targetDepartmentIds = targetDepartmentIds;
     }
 
+    public String[] getTransferTypeUniqueIdentifier() {
+        return this.transferTypeUniqueIdentifier;
+    }
+
+    public void setTransferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
+        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+    }
+
+    public String[] getTransferReasonUniqueIdentifier() {
+        return this.transferReasonUniqueIdentifier;
+    }
+
+    public void setTransferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
+        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+    }
+
+    public String[] getExceptionStatuses() {
+        return this.exceptionStatuses;
+    }
+
+    public void setExceptionStatuses(String[] exceptionStatuses) {
+        this.exceptionStatuses = exceptionStatuses;
+    }
+
     public static class Builder {
         /**
          * 雇员 ID 列表
@@ -234,6 +291,21 @@ public class SearchJobChangeReqBody {
          * <p> 示例值：
          */
         private String[] targetDepartmentIds;
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         */
+        private String[] transferTypeUniqueIdentifier;
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：involuntary_transfer
+         */
+        private String[] transferReasonUniqueIdentifier;
+        /**
+         * 异常处理状态，多个状态之间为「或」的关系
+         * <p> 示例值：pending
+         */
+        private String[] exceptionStatuses;
 
         /**
          * 雇员 ID 列表
@@ -335,6 +407,45 @@ public class SearchJobChangeReqBody {
          */
         public Builder targetDepartmentIds(String[] targetDepartmentIds) {
             this.targetDepartmentIds = targetDepartmentIds;
+            return this;
+        }
+
+
+        /**
+         * 异动类型唯一标识
+         * <p> 示例值：internal_transfer
+         *
+         * @param transferTypeUniqueIdentifier
+         * @return
+         */
+        public Builder transferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
+            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+            return this;
+        }
+
+
+        /**
+         * 异动原因唯一标识
+         * <p> 示例值：involuntary_transfer
+         *
+         * @param transferReasonUniqueIdentifier
+         * @return
+         */
+        public Builder transferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
+            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+            return this;
+        }
+
+
+        /**
+         * 异常处理状态，多个状态之间为「或」的关系
+         * <p> 示例值：pending
+         *
+         * @param exceptionStatuses
+         * @return
+         */
+        public Builder exceptionStatuses(String[] exceptionStatuses) {
+            this.exceptionStatuses = exceptionStatuses;
             return this;
         }
 

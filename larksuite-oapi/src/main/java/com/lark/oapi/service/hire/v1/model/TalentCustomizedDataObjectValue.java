@@ -35,6 +35,12 @@ public class TalentCustomizedDataObjectValue {
     @SerializedName("object_id")
     private String objectId;
     /**
+     * 自定义字段 value
+     * <p> 示例值：自定字段值
+     */
+    @SerializedName("value")
+    private String value;
+    /**
      * 子字段列表
      * <p> 示例值：
      */
@@ -51,6 +57,11 @@ public class TalentCustomizedDataObjectValue {
          * <p> 示例值：6934193211960330504
          */
         this.objectId = builder.objectId;
+        /**
+         * 自定义字段 value
+         * <p> 示例值：自定字段值
+         */
+        this.value = builder.value;
         /**
          * 子字段列表
          * <p> 示例值：
@@ -70,6 +81,14 @@ public class TalentCustomizedDataObjectValue {
         this.objectId = objectId;
     }
 
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
     public TalentCustomizedDataObjectValueChild[] getChildren() {
         return this.children;
     }
@@ -85,6 +104,11 @@ public class TalentCustomizedDataObjectValue {
          */
         private String objectId;
         /**
+         * 自定义字段 value
+         * <p> 示例值：自定字段值
+         */
+        private String value;
+        /**
          * 子字段列表
          * <p> 示例值：
          */
@@ -99,6 +123,19 @@ public class TalentCustomizedDataObjectValue {
          */
         public Builder objectId(String objectId) {
             this.objectId = objectId;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段 value
+         * <p> 示例值：自定字段值
+         *
+         * @param value
+         * @return
+         */
+        public Builder value(String value) {
+            this.value = value;
             return this;
         }
 

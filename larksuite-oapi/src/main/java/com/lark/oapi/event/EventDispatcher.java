@@ -1328,6 +1328,36 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2DepartmentCreatedV2(CorehrService.P2DepartmentCreatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.department.created_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.department.created_v2");
+            }
+            eventType2EventHandler.put("corehr.department.created_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2DepartmentUpdatedV2(CorehrService.P2DepartmentUpdatedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("corehr.department.updated_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("corehr.department.updated_v2");
+            }
+            eventType2EventHandler.put("corehr.department.updated_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2EmployeeDomainEventV2(CorehrService.P2EmployeeDomainEventV2Handler handler) {
             if (eventType2EventHandler.containsKey("corehr.employee.domain_event_v2")) {
                 throw new EventTypeAlreadyHasHandlerException("corehr.employee.domain_event_v2");
@@ -2399,36 +2429,6 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("moments.comment.deleted_v1");
             }
             eventType2EventHandler.put("moments.comment.deleted_v1", handler);
-            return this;
-        }
-
-        /**
-         * <p> ,
-         * <p> 事件描述文档链接:<a href=""></a>
-         *
-         * @param handler
-         * @return
-         */
-        public Builder onP2DislikeCreatedV1(MomentsService.P2DislikeCreatedV1Handler handler) {
-            if (eventType2EventHandler.containsKey("moments.dislike.created_v1")) {
-                throw new EventTypeAlreadyHasHandlerException("moments.dislike.created_v1");
-            }
-            eventType2EventHandler.put("moments.dislike.created_v1", handler);
-            return this;
-        }
-
-        /**
-         * <p> ,
-         * <p> 事件描述文档链接:<a href=""></a>
-         *
-         * @param handler
-         * @return
-         */
-        public Builder onP2DislikeDeletedV1(MomentsService.P2DislikeDeletedV1Handler handler) {
-            if (eventType2EventHandler.containsKey("moments.dislike.deleted_v1")) {
-                throw new EventTypeAlreadyHasHandlerException("moments.dislike.deleted_v1");
-            }
-            eventType2EventHandler.put("moments.dislike.deleted_v1", handler);
             return this;
         }
 

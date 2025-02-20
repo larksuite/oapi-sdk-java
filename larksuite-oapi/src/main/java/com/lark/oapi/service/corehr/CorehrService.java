@@ -512,6 +512,20 @@ public class CorehrService {
         }
     }
 
+    public abstract static class P2DepartmentCreatedV2Handler implements IEventHandler<P2DepartmentCreatedV2> {
+        @Override
+        public P2DepartmentCreatedV2 getEvent() {
+            return new P2DepartmentCreatedV2();
+        }
+    }
+
+    public abstract static class P2DepartmentUpdatedV2Handler implements IEventHandler<P2DepartmentUpdatedV2> {
+        @Override
+        public P2DepartmentUpdatedV2 getEvent() {
+            return new P2DepartmentUpdatedV2();
+        }
+    }
+
     public abstract static class P2EmployeeDomainEventV2Handler implements IEventHandler<P2EmployeeDomainEventV2> {
         @Override
         public P2EmployeeDomainEventV2 getEvent() {

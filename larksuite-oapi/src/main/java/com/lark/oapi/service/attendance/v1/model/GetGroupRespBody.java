@@ -239,6 +239,12 @@ public class GetGroupRespBody {
     @SerializedName("replace_basic_pic")
     private Boolean replaceBasicPic;
     /**
+     * 防作弊打卡配置
+     * <p> 示例值：
+     */
+    @SerializedName("anti_cheat_punch_cfg")
+    private AntiCheatPunch antiCheatPunchCfg;
+    /**
      * 考勤机信息
      * <p> 示例值：
      */
@@ -720,6 +726,14 @@ public class GetGroupRespBody {
 
     public void setReplaceBasicPic(Boolean replaceBasicPic) {
         this.replaceBasicPic = replaceBasicPic;
+    }
+
+    public AntiCheatPunch getAntiCheatPunchCfg() {
+        return this.antiCheatPunchCfg;
+    }
+
+    public void setAntiCheatPunchCfg(AntiCheatPunch antiCheatPunchCfg) {
+        this.antiCheatPunchCfg = antiCheatPunchCfg;
     }
 
     public Machine[] getMachines() {

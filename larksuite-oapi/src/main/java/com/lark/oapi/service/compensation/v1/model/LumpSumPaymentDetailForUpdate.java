@@ -54,11 +54,17 @@ public class LumpSumPaymentDetailForUpdate {
     @SerializedName("issuance_way")
     private String issuanceWay;
     /**
-     * 发放时间
-     * <p> 示例值：2024-08-01
+     * 发放日期
+     * <p> 示例值：2024-08-20
      */
     @SerializedName("issuance_time")
     private String issuanceTime;
+    /**
+     * 申请发放日期
+     * <p> 示例值：2025-01-20
+     */
+    @SerializedName("belong_time")
+    private String belongTime;
 
     // builder 开始
     public LumpSumPaymentDetailForUpdate() {
@@ -86,10 +92,15 @@ public class LumpSumPaymentDetailForUpdate {
          */
         this.issuanceWay = builder.issuanceWay;
         /**
-         * 发放时间
-         * <p> 示例值：2024-08-01
+         * 发放日期
+         * <p> 示例值：2024-08-20
          */
         this.issuanceTime = builder.issuanceTime;
+        /**
+         * 申请发放日期
+         * <p> 示例值：2025-01-20
+         */
+        this.belongTime = builder.belongTime;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class LumpSumPaymentDetailForUpdate {
         this.issuanceTime = issuanceTime;
     }
 
+    public String getBelongTime() {
+        return this.belongTime;
+    }
+
+    public void setBelongTime(String belongTime) {
+        this.belongTime = belongTime;
+    }
+
     public static class Builder {
         /**
          * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
@@ -158,10 +177,15 @@ public class LumpSumPaymentDetailForUpdate {
          */
         private String issuanceWay;
         /**
-         * 发放时间
-         * <p> 示例值：2024-08-01
+         * 发放日期
+         * <p> 示例值：2024-08-20
          */
         private String issuanceTime;
+        /**
+         * 申请发放日期
+         * <p> 示例值：2025-01-20
+         */
+        private String belongTime;
 
         /**
          * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
@@ -240,14 +264,27 @@ public class LumpSumPaymentDetailForUpdate {
 
 
         /**
-         * 发放时间
-         * <p> 示例值：2024-08-01
+         * 发放日期
+         * <p> 示例值：2024-08-20
          *
          * @param issuanceTime
          * @return
          */
         public Builder issuanceTime(String issuanceTime) {
             this.issuanceTime = issuanceTime;
+            return this;
+        }
+
+
+        /**
+         * 申请发放日期
+         * <p> 示例值：2025-01-20
+         *
+         * @param belongTime
+         * @return
+         */
+        public Builder belongTime(String belongTime) {
+            this.belongTime = belongTime;
             return this;
         }
 

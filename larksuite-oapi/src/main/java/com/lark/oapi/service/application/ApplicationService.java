@@ -21,9 +21,11 @@ import com.lark.oapi.service.application.v6.resource.AppRecommendRule;
 import com.lark.oapi.service.application.v6.resource.Application;
 import com.lark.oapi.service.application.v6.resource.ApplicationAppUsage;
 import com.lark.oapi.service.application.v6.resource.ApplicationAppVersion;
+import com.lark.oapi.service.application.v6.resource.ApplicationCollaborators;
 import com.lark.oapi.service.application.v6.resource.ApplicationContactsRange;
 import com.lark.oapi.service.application.v6.resource.ApplicationFeedback;
 import com.lark.oapi.service.application.v6.resource.ApplicationManagement;
+import com.lark.oapi.service.application.v6.resource.ApplicationOwner;
 import com.lark.oapi.service.application.v6.resource.ApplicationVisibility;
 import com.lark.oapi.service.application.v6.resource.Bot;
 import com.lark.oapi.service.application.v6.resource.Scope;
@@ -32,12 +34,14 @@ public class ApplicationService {
     private final V6 v6;
     private final AppBadge appBadge; // 应用红点
     private final AppRecommendRule appRecommendRule; // 我的常用推荐规则
-    private final Application application; // 应用
+    private final Application application; // 应用管理
     private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
     private final ApplicationAppVersion applicationAppVersion; // 事件
+    private final ApplicationCollaborators applicationCollaborators; // application.collaborators
     private final ApplicationContactsRange applicationContactsRange; // application.contacts_range
     private final ApplicationFeedback applicationFeedback; // 应用反馈
     private final ApplicationManagement applicationManagement; // application.management
+    private final ApplicationOwner applicationOwner; // application.owner
     private final ApplicationVisibility applicationVisibility; // 事件
     private final Bot bot; // 事件
     private final Scope scope; // scope
@@ -49,9 +53,11 @@ public class ApplicationService {
         this.application = new Application(config);
         this.applicationAppUsage = new ApplicationAppUsage(config);
         this.applicationAppVersion = new ApplicationAppVersion(config);
+        this.applicationCollaborators = new ApplicationCollaborators(config);
         this.applicationContactsRange = new ApplicationContactsRange(config);
         this.applicationFeedback = new ApplicationFeedback(config);
         this.applicationManagement = new ApplicationManagement(config);
+        this.applicationOwner = new ApplicationOwner(config);
         this.applicationVisibility = new ApplicationVisibility(config);
         this.bot = new Bot(config);
         this.scope = new Scope(config);
@@ -81,6 +87,10 @@ public class ApplicationService {
         return applicationAppVersion;
     }
 
+    public ApplicationCollaborators applicationCollaborators() {
+        return applicationCollaborators;
+    }
+
     public ApplicationContactsRange applicationContactsRange() {
         return applicationContactsRange;
     }
@@ -91,6 +101,10 @@ public class ApplicationService {
 
     public ApplicationManagement applicationManagement() {
         return applicationManagement;
+    }
+
+    public ApplicationOwner applicationOwner() {
+        return applicationOwner;
     }
 
     public ApplicationVisibility applicationVisibility() {

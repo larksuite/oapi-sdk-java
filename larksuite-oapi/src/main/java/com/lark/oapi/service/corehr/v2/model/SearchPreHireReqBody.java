@@ -120,6 +120,12 @@ public class SearchPreHireReqBody {
     @SerializedName("key_word")
     private String keyWord;
     /**
+     * 是否外部人员
+     * <p> 示例值：true
+     */
+    @SerializedName("condition_worker")
+    private Boolean conditionWorker;
+    /**
      * 是否离职重聘
      * <p> 示例值：张三
      */
@@ -212,6 +218,11 @@ public class SearchPreHireReqBody {
          * <p> 示例值：张三
          */
         this.keyWord = builder.keyWord;
+        /**
+         * 是否外部人员
+         * <p> 示例值：true
+         */
+        this.conditionWorker = builder.conditionWorker;
         /**
          * 是否离职重聘
          * <p> 示例值：张三
@@ -348,6 +359,14 @@ public class SearchPreHireReqBody {
         this.keyWord = keyWord;
     }
 
+    public Boolean getConditionWorker() {
+        return this.conditionWorker;
+    }
+
+    public void setConditionWorker(Boolean conditionWorker) {
+        this.conditionWorker = conditionWorker;
+    }
+
     public String getRehire() {
         return this.rehire;
     }
@@ -440,6 +459,11 @@ public class SearchPreHireReqBody {
          * <p> 示例值：张三
          */
         private String keyWord;
+        /**
+         * 是否外部人员
+         * <p> 示例值：true
+         */
+        private Boolean conditionWorker;
         /**
          * 是否离职重聘
          * <p> 示例值：张三
@@ -654,6 +678,19 @@ public class SearchPreHireReqBody {
          */
         public Builder keyWord(String keyWord) {
             this.keyWord = keyWord;
+            return this;
+        }
+
+
+        /**
+         * 是否外部人员
+         * <p> 示例值：true
+         *
+         * @param conditionWorker
+         * @return
+         */
+        public Builder conditionWorker(Boolean conditionWorker) {
+            this.conditionWorker = conditionWorker;
             return this;
         }
 

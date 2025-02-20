@@ -42,20 +42,6 @@ public class MomentsService {
         }
     }
 
-    public abstract static class P2DislikeCreatedV1Handler implements IEventHandler<P2DislikeCreatedV1> {
-        @Override
-        public P2DislikeCreatedV1 getEvent() {
-            return new P2DislikeCreatedV1();
-        }
-    }
-
-    public abstract static class P2DislikeDeletedV1Handler implements IEventHandler<P2DislikeDeletedV1> {
-        @Override
-        public P2DislikeDeletedV1 getEvent() {
-            return new P2DislikeDeletedV1();
-        }
-    }
-
     public abstract static class P2PostCreatedV1Handler implements IEventHandler<P2PostCreatedV1> {
         @Override
         public P2PostCreatedV1 getEvent() {

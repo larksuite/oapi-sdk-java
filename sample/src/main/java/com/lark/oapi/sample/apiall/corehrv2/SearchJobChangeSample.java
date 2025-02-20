@@ -30,6 +30,9 @@ public class SearchJobChangeSample {
                         .updatedTimeStart("1704084635000")
                         .updatedTimeEnd("1704084635000")
                         .targetDepartmentIds(new String[]{})
+                        .transferTypeUniqueIdentifier(new String[]{})
+                        .transferReasonUniqueIdentifier(new String[]{})
+                        .exceptionStatuses(new String[]{})
                         .build())
                 .build();
 

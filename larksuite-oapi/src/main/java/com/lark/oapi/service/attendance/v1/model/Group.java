@@ -240,6 +240,12 @@ public class Group {
     @SerializedName("replace_basic_pic")
     private Boolean replaceBasicPic;
     /**
+     * 防作弊打卡配置
+     * <p> 示例值：
+     */
+    @SerializedName("anti_cheat_punch_cfg")
+    private AntiCheatPunch antiCheatPunchCfg;
+    /**
      * 考勤机列表
      * <p> 示例值：
      */
@@ -630,6 +636,11 @@ public class Group {
          * <p> 示例值：true
          */
         this.replaceBasicPic = builder.replaceBasicPic;
+        /**
+         * 防作弊打卡配置
+         * <p> 示例值：
+         */
+        this.antiCheatPunchCfg = builder.antiCheatPunchCfg;
         /**
          * 考勤机列表
          * <p> 示例值：
@@ -1091,6 +1102,14 @@ public class Group {
         this.replaceBasicPic = replaceBasicPic;
     }
 
+    public AntiCheatPunch getAntiCheatPunchCfg() {
+        return this.antiCheatPunchCfg;
+    }
+
+    public void setAntiCheatPunchCfg(AntiCheatPunch antiCheatPunchCfg) {
+        this.antiCheatPunchCfg = antiCheatPunchCfg;
+    }
+
     public Machine[] getMachines() {
         return this.machines;
     }
@@ -1547,6 +1566,11 @@ public class Group {
          * <p> 示例值：true
          */
         private Boolean replaceBasicPic;
+        /**
+         * 防作弊打卡配置
+         * <p> 示例值：
+         */
+        private AntiCheatPunch antiCheatPunchCfg;
         /**
          * 考勤机列表
          * <p> 示例值：
@@ -2174,6 +2198,19 @@ public class Group {
          */
         public Builder replaceBasicPic(Boolean replaceBasicPic) {
             this.replaceBasicPic = replaceBasicPic;
+            return this;
+        }
+
+
+        /**
+         * 防作弊打卡配置
+         * <p> 示例值：
+         *
+         * @param antiCheatPunchCfg
+         * @return
+         */
+        public Builder antiCheatPunchCfg(AntiCheatPunch antiCheatPunchCfg) {
+            this.antiCheatPunchCfg = antiCheatPunchCfg;
             return this;
         }
 

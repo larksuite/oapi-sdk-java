@@ -48,7 +48,7 @@ public class ProcessApprover {
     @SerializedName("system_approval")
     private Boolean systemApproval;
     /**
-     * 通过原因，长度限制为500
+     * 通过原因，长度限制为1000
      * <p> 示例值：原因自定义字符串
      */
     @SerializedName("reason")
@@ -81,7 +81,7 @@ public class ProcessApprover {
          */
         this.systemApproval = builder.systemApproval;
         /**
-         * 通过原因，长度限制为500
+         * 通过原因，长度限制为1000
          * <p> 示例值：原因自定义字符串
          */
         this.reason = builder.reason;
@@ -153,7 +153,7 @@ public class ProcessApprover {
          */
         private Boolean systemApproval;
         /**
-         * 通过原因，长度限制为500
+         * 通过原因，长度限制为1000
          * <p> 示例值：原因自定义字符串
          */
         private String reason;
@@ -215,7 +215,7 @@ public class ProcessApprover {
 
 
         /**
-         * 通过原因，长度限制为500
+         * 通过原因，长度限制为1000
          * <p> 示例值：原因自定义字符串
          *
          * @param reason

@@ -96,6 +96,18 @@ public class Employee {
     @SerializedName("job_level")
     private EmployeeJobLevel jobLevel;
     /**
+     * 通道 ID
+     * <p> 示例值：6893014062142064135
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
+    /**
+     * 通道
+     * <p> 示例值：
+     */
+    @SerializedName("pathway")
+    private EmployeePathway pathway;
+    /**
      * 职等 ID
      * <p> 示例值：6893014062142064135
      */
@@ -541,6 +553,16 @@ public class Employee {
          */
         this.jobLevel = builder.jobLevel;
         /**
+         * 通道 ID
+         * <p> 示例值：6893014062142064135
+         */
+        this.pathwayId = builder.pathwayId;
+        /**
+         * 通道
+         * <p> 示例值：
+         */
+        this.pathway = builder.pathway;
+        /**
          * 职等 ID
          * <p> 示例值：6893014062142064135
          */
@@ -952,6 +974,22 @@ public class Employee {
 
     public void setJobLevel(EmployeeJobLevel jobLevel) {
         this.jobLevel = jobLevel;
+    }
+
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
+    public EmployeePathway getPathway() {
+        return this.pathway;
+    }
+
+    public void setPathway(EmployeePathway pathway) {
+        this.pathway = pathway;
     }
 
     public String getJobGradeId() {
@@ -1523,6 +1561,16 @@ public class Employee {
          */
         private EmployeeJobLevel jobLevel;
         /**
+         * 通道 ID
+         * <p> 示例值：6893014062142064135
+         */
+        private String pathwayId;
+        /**
+         * 通道
+         * <p> 示例值：
+         */
+        private EmployeePathway pathway;
+        /**
          * 职等 ID
          * <p> 示例值：6893014062142064135
          */
@@ -1982,6 +2030,32 @@ public class Employee {
          */
         public Builder jobLevel(EmployeeJobLevel jobLevel) {
             this.jobLevel = jobLevel;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID
+         * <p> 示例值：6893014062142064135
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
+            return this;
+        }
+
+
+        /**
+         * 通道
+         * <p> 示例值：
+         *
+         * @param pathway
+         * @return
+         */
+        public Builder pathway(EmployeePathway pathway) {
+            this.pathway = pathway;
             return this;
         }
 

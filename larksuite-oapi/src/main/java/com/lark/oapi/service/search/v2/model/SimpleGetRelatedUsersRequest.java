@@ -42,13 +42,13 @@ public class SimpleGetRelatedUsersRequest {
     @SerializedName("top_k")
     private Integer topK;
     /**
-     * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
-     * <p> 示例值：1704768318000
+     * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+     * <p> 示例值：5
      */
     @SerializedName("start_time_filter")
     private String startTimeFilter;
     /**
-     * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
+     * 最晚交互时间，毫秒级时间戳。
      * <p> 示例值：1736390718000
      */
     @SerializedName("end_time_filter")
@@ -70,12 +70,12 @@ public class SimpleGetRelatedUsersRequest {
          */
         this.topK = builder.topK;
         /**
-         * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
-         * <p> 示例值：1704768318000
+         * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+         * <p> 示例值：5
          */
         this.startTimeFilter = builder.startTimeFilter;
         /**
-         * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
+         * 最晚交互时间，毫秒级时间戳。
          * <p> 示例值：1736390718000
          */
         this.endTimeFilter = builder.endTimeFilter;
@@ -129,12 +129,12 @@ public class SimpleGetRelatedUsersRequest {
          */
         private Integer topK;
         /**
-         * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
-         * <p> 示例值：1704768318000
+         * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+         * <p> 示例值：5
          */
         private String startTimeFilter;
         /**
-         * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
+         * 最晚交互时间，毫秒级时间戳。
          * <p> 示例值：1736390718000
          */
         private String endTimeFilter;
@@ -166,8 +166,8 @@ public class SimpleGetRelatedUsersRequest {
 
 
         /**
-         * 最早的交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
-         * <p> 示例值：1704768318000
+         * 方式一：传入时间范围枚举值，“1”代表近一个月，“2”代表近两个月，“3”代表近三个月，“4”代表近六个月，“5”代表近一年，推荐采取该方式。若采用方式一，则end_time_filter无需传入。若start_time_filter和end_time_filter都不传入，则默认搜索范围为半年。 方式二：传入最早的交互时间，毫秒级时间戳。若采用方式二，建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年。
+         * <p> 示例值：5
          *
          * @param startTimeFilter
          * @return
@@ -179,7 +179,7 @@ public class SimpleGetRelatedUsersRequest {
 
 
         /**
-         * 最晚交互时间，毫秒级时间戳。建议start_time_filter和end_time_filter都传入，若不传入，则默认搜索范围为半年
+         * 最晚交互时间，毫秒级时间戳。
          * <p> 示例值：1736390718000
          *
          * @param endTimeFilter

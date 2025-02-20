@@ -72,12 +72,6 @@ public class LumpSumPayment {
     @SerializedName("issuance_frequency")
     private Integer issuanceFrequency;
     /**
-     * 授予日期
-     * <p> 示例值：2024-08-01
-     */
-    @SerializedName("grant_date")
-    private String grantDate;
-    /**
      * 薪酬项id
      * <p> 示例值：7411039006180312620
      */
@@ -101,6 +95,24 @@ public class LumpSumPayment {
      */
     @SerializedName("apply_source")
     private Integer applySource;
+    /**
+     * 应退回金额（税前）
+     * <p> 示例值：2000.00
+     */
+    @SerializedName("return_amount_before_tax")
+    private String returnAmountBeforeTax;
+    /**
+     * 应退回金额（税后）
+     * <p> 示例值：2000.00
+     */
+    @SerializedName("return_amount_after_tax")
+    private String returnAmountAfterTax;
+    /**
+     * 绑定期内离职类型
+     * <p> 示例值：
+     */
+    @SerializedName("binding_period_offboarding_type")
+    private String bindingPeriodOffboardingType;
     /**
      * 创建时间
      * <p> 示例值：2024-08-01 12:34:56
@@ -161,11 +173,6 @@ public class LumpSumPayment {
          */
         this.issuanceFrequency = builder.issuanceFrequency;
         /**
-         * 授予日期
-         * <p> 示例值：2024-08-01
-         */
-        this.grantDate = builder.grantDate;
-        /**
          * 薪酬项id
          * <p> 示例值：7411039006180312620
          */
@@ -185,6 +192,21 @@ public class LumpSumPayment {
          * <p> 示例值：1
          */
         this.applySource = builder.applySource;
+        /**
+         * 应退回金额（税前）
+         * <p> 示例值：2000.00
+         */
+        this.returnAmountBeforeTax = builder.returnAmountBeforeTax;
+        /**
+         * 应退回金额（税后）
+         * <p> 示例值：2000.00
+         */
+        this.returnAmountAfterTax = builder.returnAmountAfterTax;
+        /**
+         * 绑定期内离职类型
+         * <p> 示例值：
+         */
+        this.bindingPeriodOffboardingType = builder.bindingPeriodOffboardingType;
         /**
          * 创建时间
          * <p> 示例值：2024-08-01 12:34:56
@@ -262,14 +284,6 @@ public class LumpSumPayment {
         this.issuanceFrequency = issuanceFrequency;
     }
 
-    public String getGrantDate() {
-        return this.grantDate;
-    }
-
-    public void setGrantDate(String grantDate) {
-        this.grantDate = grantDate;
-    }
-
     public String getItemId() {
         return this.itemId;
     }
@@ -300,6 +314,30 @@ public class LumpSumPayment {
 
     public void setApplySource(Integer applySource) {
         this.applySource = applySource;
+    }
+
+    public String getReturnAmountBeforeTax() {
+        return this.returnAmountBeforeTax;
+    }
+
+    public void setReturnAmountBeforeTax(String returnAmountBeforeTax) {
+        this.returnAmountBeforeTax = returnAmountBeforeTax;
+    }
+
+    public String getReturnAmountAfterTax() {
+        return this.returnAmountAfterTax;
+    }
+
+    public void setReturnAmountAfterTax(String returnAmountAfterTax) {
+        this.returnAmountAfterTax = returnAmountAfterTax;
+    }
+
+    public String getBindingPeriodOffboardingType() {
+        return this.bindingPeriodOffboardingType;
+    }
+
+    public void setBindingPeriodOffboardingType(String bindingPeriodOffboardingType) {
+        this.bindingPeriodOffboardingType = bindingPeriodOffboardingType;
     }
 
     public String getCreateTime() {
@@ -363,11 +401,6 @@ public class LumpSumPayment {
          */
         private Integer issuanceFrequency;
         /**
-         * 授予日期
-         * <p> 示例值：2024-08-01
-         */
-        private String grantDate;
-        /**
          * 薪酬项id
          * <p> 示例值：7411039006180312620
          */
@@ -387,6 +420,21 @@ public class LumpSumPayment {
          * <p> 示例值：1
          */
         private Integer applySource;
+        /**
+         * 应退回金额（税前）
+         * <p> 示例值：2000.00
+         */
+        private String returnAmountBeforeTax;
+        /**
+         * 应退回金额（税后）
+         * <p> 示例值：2000.00
+         */
+        private String returnAmountAfterTax;
+        /**
+         * 绑定期内离职类型
+         * <p> 示例值：
+         */
+        private String bindingPeriodOffboardingType;
         /**
          * 创建时间
          * <p> 示例值：2024-08-01 12:34:56
@@ -495,19 +543,6 @@ public class LumpSumPayment {
 
 
         /**
-         * 授予日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param grantDate
-         * @return
-         */
-        public Builder grantDate(String grantDate) {
-            this.grantDate = grantDate;
-            return this;
-        }
-
-
-        /**
          * 薪酬项id
          * <p> 示例值：7411039006180312620
          *
@@ -567,6 +602,57 @@ public class LumpSumPayment {
          */
         public Builder applySource(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentApplySourceEnum applySource) {
             this.applySource = applySource.getValue();
+            return this;
+        }
+
+
+        /**
+         * 应退回金额（税前）
+         * <p> 示例值：2000.00
+         *
+         * @param returnAmountBeforeTax
+         * @return
+         */
+        public Builder returnAmountBeforeTax(String returnAmountBeforeTax) {
+            this.returnAmountBeforeTax = returnAmountBeforeTax;
+            return this;
+        }
+
+
+        /**
+         * 应退回金额（税后）
+         * <p> 示例值：2000.00
+         *
+         * @param returnAmountAfterTax
+         * @return
+         */
+        public Builder returnAmountAfterTax(String returnAmountAfterTax) {
+            this.returnAmountAfterTax = returnAmountAfterTax;
+            return this;
+        }
+
+
+        /**
+         * 绑定期内离职类型
+         * <p> 示例值：
+         *
+         * @param bindingPeriodOffboardingType
+         * @return
+         */
+        public Builder bindingPeriodOffboardingType(String bindingPeriodOffboardingType) {
+            this.bindingPeriodOffboardingType = bindingPeriodOffboardingType;
+            return this;
+        }
+
+        /**
+         * 绑定期内离职类型
+         * <p> 示例值：
+         *
+         * @param bindingPeriodOffboardingType {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentBindingPeriodOffboardingTypeEnum}
+         * @return
+         */
+        public Builder bindingPeriodOffboardingType(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentBindingPeriodOffboardingTypeEnum bindingPeriodOffboardingType) {
+            this.bindingPeriodOffboardingType = bindingPeriodOffboardingType.getValue();
             return this;
         }
 

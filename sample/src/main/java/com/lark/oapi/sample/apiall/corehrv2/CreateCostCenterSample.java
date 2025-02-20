@@ -19,6 +19,7 @@ public class CreateCostCenterSample {
         CreateCostCenterReq req = CreateCostCenterReq.newBuilder()
                 .userIdType("people_corehr_id")
                 .costCenter(CostCenter.newBuilder()
+                        .costCenterVersionId("6969828847121885087")
                         .name(new I18n[]{})
                         .code("MDPD00000023")
                         .parentCostCenterId("6862995757234914824")

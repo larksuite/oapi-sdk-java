@@ -66,7 +66,7 @@ public class LumpSumPaymentDetail {
     @SerializedName("issuance_way")
     private String issuanceWay;
     /**
-     * 发放时间
+     * 发放日期
      * <p> 示例值：2024-08-01
      */
     @SerializedName("issuance_time")
@@ -77,6 +77,12 @@ public class LumpSumPaymentDetail {
      */
     @SerializedName("currency_id")
     private String currencyId;
+    /**
+     * 申请发放日期
+     * <p> 示例值：2025-01-20
+     */
+    @SerializedName("belong_time")
+    private String belongTime;
     /**
      * 创建时间
      * <p> 示例值：2024-08-01 12:34:56
@@ -126,7 +132,7 @@ public class LumpSumPaymentDetail {
          */
         this.issuanceWay = builder.issuanceWay;
         /**
-         * 发放时间
+         * 发放日期
          * <p> 示例值：2024-08-01
          */
         this.issuanceTime = builder.issuanceTime;
@@ -135,6 +141,11 @@ public class LumpSumPaymentDetail {
          * <p> 示例值：6863329932261459464
          */
         this.currencyId = builder.currencyId;
+        /**
+         * 申请发放日期
+         * <p> 示例值：2025-01-20
+         */
+        this.belongTime = builder.belongTime;
         /**
          * 创建时间
          * <p> 示例值：2024-08-01 12:34:56
@@ -215,6 +226,14 @@ public class LumpSumPaymentDetail {
         this.currencyId = currencyId;
     }
 
+    public String getBelongTime() {
+        return this.belongTime;
+    }
+
+    public void setBelongTime(String belongTime) {
+        this.belongTime = belongTime;
+    }
+
     public String getCreateTime() {
         return this.createTime;
     }
@@ -263,7 +282,7 @@ public class LumpSumPaymentDetail {
          */
         private String issuanceWay;
         /**
-         * 发放时间
+         * 发放日期
          * <p> 示例值：2024-08-01
          */
         private String issuanceTime;
@@ -272,6 +291,11 @@ public class LumpSumPaymentDetail {
          * <p> 示例值：6863329932261459464
          */
         private String currencyId;
+        /**
+         * 申请发放日期
+         * <p> 示例值：2025-01-20
+         */
+        private String belongTime;
         /**
          * 创建时间
          * <p> 示例值：2024-08-01 12:34:56
@@ -386,7 +410,7 @@ public class LumpSumPaymentDetail {
 
 
         /**
-         * 发放时间
+         * 发放日期
          * <p> 示例值：2024-08-01
          *
          * @param issuanceTime
@@ -407,6 +431,19 @@ public class LumpSumPaymentDetail {
          */
         public Builder currencyId(String currencyId) {
             this.currencyId = currencyId;
+            return this;
+        }
+
+
+        /**
+         * 申请发放日期
+         * <p> 示例值：2025-01-20
+         *
+         * @param belongTime
+         * @return
+         */
+        public Builder belongTime(String belongTime) {
+            this.belongTime = belongTime;
             return this;
         }
 

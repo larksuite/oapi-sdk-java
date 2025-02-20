@@ -156,6 +156,12 @@ public class Employment {
     @SerializedName("primary_employment")
     private Boolean primaryEmployment;
     /**
+     * 是否是外部人员
+     * <p> 示例值：true
+     */
+    @SerializedName("condition_worker")
+    private Boolean conditionWorker;
+    /**
      * 雇员状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇员状态（employment_status）枚举定义获得
      * <p> 示例值：
      */
@@ -338,6 +344,11 @@ public class Employment {
          * <p> 示例值：true
          */
         this.primaryEmployment = builder.primaryEmployment;
+        /**
+         * 是否是外部人员
+         * <p> 示例值：true
+         */
+        this.conditionWorker = builder.conditionWorker;
         /**
          * 雇员状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇员状态（employment_status）枚举定义获得
          * <p> 示例值：
@@ -572,6 +583,14 @@ public class Employment {
         this.primaryEmployment = primaryEmployment;
     }
 
+    public Boolean getConditionWorker() {
+        return this.conditionWorker;
+    }
+
+    public void setConditionWorker(Boolean conditionWorker) {
+        this.conditionWorker = conditionWorker;
+    }
+
     public Enum getEmploymentStatus() {
         return this.employmentStatus;
     }
@@ -774,6 +793,11 @@ public class Employment {
          * <p> 示例值：true
          */
         private Boolean primaryEmployment;
+        /**
+         * 是否是外部人员
+         * <p> 示例值：true
+         */
+        private Boolean conditionWorker;
         /**
          * 雇员状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇员状态（employment_status）枚举定义获得
          * <p> 示例值：
@@ -1104,6 +1128,19 @@ public class Employment {
          */
         public Builder primaryEmployment(Boolean primaryEmployment) {
             this.primaryEmployment = primaryEmployment;
+            return this;
+        }
+
+
+        /**
+         * 是否是外部人员
+         * <p> 示例值：true
+         *
+         * @param conditionWorker
+         * @return
+         */
+        public Builder conditionWorker(Boolean conditionWorker) {
+            this.conditionWorker = conditionWorker;
             return this;
         }
 

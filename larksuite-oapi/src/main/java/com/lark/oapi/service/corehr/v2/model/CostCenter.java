@@ -36,6 +36,12 @@ public class CostCenter {
     @SerializedName("cost_center_id")
     private String costCenterId;
     /**
+     * 成本中心版本ID
+     * <p> 示例值：6969828847121885087
+     */
+    @SerializedName("cost_center_version_id")
+    private String costCenterVersionId;
+    /**
      * 成本中心名称
      * <p> 示例值：
      */
@@ -101,6 +107,11 @@ public class CostCenter {
          */
         this.costCenterId = builder.costCenterId;
         /**
+         * 成本中心版本ID
+         * <p> 示例值：6969828847121885087
+         */
+        this.costCenterVersionId = builder.costCenterVersionId;
+        /**
          * 成本中心名称
          * <p> 示例值：
          */
@@ -157,6 +168,14 @@ public class CostCenter {
 
     public void setCostCenterId(String costCenterId) {
         this.costCenterId = costCenterId;
+    }
+
+    public String getCostCenterVersionId() {
+        return this.costCenterVersionId;
+    }
+
+    public void setCostCenterVersionId(String costCenterVersionId) {
+        this.costCenterVersionId = costCenterVersionId;
     }
 
     public I18n[] getName() {
@@ -238,6 +257,11 @@ public class CostCenter {
          */
         private String costCenterId;
         /**
+         * 成本中心版本ID
+         * <p> 示例值：6969828847121885087
+         */
+        private String costCenterVersionId;
+        /**
          * 成本中心名称
          * <p> 示例值：
          */
@@ -292,6 +316,19 @@ public class CostCenter {
          */
         public Builder costCenterId(String costCenterId) {
             this.costCenterId = costCenterId;
+            return this;
+        }
+
+
+        /**
+         * 成本中心版本ID
+         * <p> 示例值：6969828847121885087
+         *
+         * @param costCenterVersionId
+         * @return
+         */
+        public Builder costCenterVersionId(String costCenterVersionId) {
+            this.costCenterVersionId = costCenterVersionId;
             return this;
         }
 

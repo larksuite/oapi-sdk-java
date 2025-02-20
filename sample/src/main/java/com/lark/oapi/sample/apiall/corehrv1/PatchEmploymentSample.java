@@ -27,6 +27,7 @@ public class PatchEmploymentSample {
                         .employmentType(Enum.newBuilder().build())
                         .personId("6919733936050406926")
                         .primaryEmployment(true)
+                        .conditionWorker(true)
                         .customFields(new ObjectFieldData[]{})
                         .workEmailList(new Email[]{})
                         .reasonForOffboarding(Enum.newBuilder().build())
