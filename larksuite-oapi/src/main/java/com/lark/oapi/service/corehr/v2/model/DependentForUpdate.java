@@ -107,6 +107,12 @@ public class DependentForUpdate {
      */
     @SerializedName("birth_certificate_of_children")
     private File[] birthCertificateOfChildren;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private ObjectFieldData[] customFields;
 
     // builder 开始
     public DependentForUpdate() {
@@ -178,6 +184,11 @@ public class DependentForUpdate {
          * <p> 示例值：
          */
         this.birthCertificateOfChildren = builder.birthCertificateOfChildren;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -288,6 +299,14 @@ public class DependentForUpdate {
         this.birthCertificateOfChildren = birthCertificateOfChildren;
     }
 
+    public ObjectFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(ObjectFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 关系
@@ -354,6 +373,11 @@ public class DependentForUpdate {
          * <p> 示例值：
          */
         private File[] birthCertificateOfChildren;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private ObjectFieldData[] customFields;
 
         /**
          * 关系
@@ -520,6 +544,19 @@ public class DependentForUpdate {
          */
         public Builder birthCertificateOfChildren(File[] birthCertificateOfChildren) {
             this.birthCertificateOfChildren = birthCertificateOfChildren;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(ObjectFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

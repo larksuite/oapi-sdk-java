@@ -11,9 +11,10 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.hire.v1.model;
+package com.lark.oapi.service.calendar.v4.model;
 
 import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
@@ -27,97 +28,109 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListByIdJobRequirementReqBody {
+public class CheckInTime {
     /**
-     * 招聘需求ID列表
+     * (分钟)偏移量相对于的日程时间节点类型
      * <p> 示例值：
      */
-    @SerializedName("id_list")
-    private String[] idList;
+    @SerializedName("time_type")
+    private String timeType;
     /**
-     * 招聘需求编号列表
-     * <p> 示例值：
+     * 相对于日程开始或者结束的偏移量(分钟)
+     * <p> 示例值：15
      */
-    @SerializedName("short_code_list")
-    private String[] shortCodeList;
+    @SerializedName("duration")
+    private Integer duration;
 
     // builder 开始
-    public ListByIdJobRequirementReqBody() {
+    public CheckInTime() {
     }
 
-    public ListByIdJobRequirementReqBody(Builder builder) {
+    public CheckInTime(Builder builder) {
         /**
-         * 招聘需求ID列表
+         * (分钟)偏移量相对于的日程时间节点类型
          * <p> 示例值：
          */
-        this.idList = builder.idList;
+        this.timeType = builder.timeType;
         /**
-         * 招聘需求编号列表
-         * <p> 示例值：
+         * 相对于日程开始或者结束的偏移量(分钟)
+         * <p> 示例值：15
          */
-        this.shortCodeList = builder.shortCodeList;
+        this.duration = builder.duration;
     }
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
-    public String[] getIdList() {
-        return this.idList;
+    public String getTimeType() {
+        return this.timeType;
     }
 
-    public void setIdList(String[] idList) {
-        this.idList = idList;
+    public void setTimeType(String timeType) {
+        this.timeType = timeType;
     }
 
-    public String[] getShortCodeList() {
-        return this.shortCodeList;
+    public Integer getDuration() {
+        return this.duration;
     }
 
-    public void setShortCodeList(String[] shortCodeList) {
-        this.shortCodeList = shortCodeList;
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 
     public static class Builder {
         /**
-         * 招聘需求ID列表
+         * (分钟)偏移量相对于的日程时间节点类型
          * <p> 示例值：
          */
-        private String[] idList;
+        private String timeType;
         /**
-         * 招聘需求编号列表
-         * <p> 示例值：
+         * 相对于日程开始或者结束的偏移量(分钟)
+         * <p> 示例值：15
          */
-        private String[] shortCodeList;
+        private Integer duration;
 
         /**
-         * 招聘需求ID列表
+         * (分钟)偏移量相对于的日程时间节点类型
          * <p> 示例值：
          *
-         * @param idList
+         * @param timeType
          * @return
          */
-        public Builder idList(String[] idList) {
-            this.idList = idList;
+        public Builder timeType(String timeType) {
+            this.timeType = timeType;
+            return this;
+        }
+
+        /**
+         * (分钟)偏移量相对于的日程时间节点类型
+         * <p> 示例值：
+         *
+         * @param timeType {@link com.lark.oapi.service.calendar.v4.enums.CheckInTimeTimeTypeEnum}
+         * @return
+         */
+        public Builder timeType(com.lark.oapi.service.calendar.v4.enums.CheckInTimeTimeTypeEnum timeType) {
+            this.timeType = timeType.getValue();
             return this;
         }
 
 
         /**
-         * 招聘需求编号列表
-         * <p> 示例值：
+         * 相对于日程开始或者结束的偏移量(分钟)
+         * <p> 示例值：15
          *
-         * @param shortCodeList
+         * @param duration
          * @return
          */
-        public Builder shortCodeList(String[] shortCodeList) {
-            this.shortCodeList = shortCodeList;
+        public Builder duration(Integer duration) {
+            this.duration = duration;
             return this;
         }
 
 
-        public ListByIdJobRequirementReqBody build() {
-            return new ListByIdJobRequirementReqBody(this);
+        public CheckInTime build() {
+            return new CheckInTime(this);
         }
     }
 }

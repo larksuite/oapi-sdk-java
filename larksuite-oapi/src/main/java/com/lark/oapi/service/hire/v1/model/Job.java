@@ -123,13 +123,13 @@ public class Job {
      * <p> 示例值：1617170925462
      */
     @SerializedName("create_time")
-    private Integer createTime;
+    private Long createTime;
     /**
      * 更新时间
      * <p> 示例值：1617170925462
      */
     @SerializedName("update_time")
-    private Integer updateTime;
+    private Long updateTime;
     /**
      * 招聘流程类型
      * <p> 示例值：1
@@ -556,19 +556,19 @@ public class Job {
         this.createUserId = createUserId;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return this.updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -804,12 +804,12 @@ public class Job {
          * 创建时间
          * <p> 示例值：1617170925462
          */
-        private Integer createTime;
+        private Long createTime;
         /**
          * 更新时间
          * <p> 示例值：1617170925462
          */
-        private Integer updateTime;
+        private Long updateTime;
         /**
          * 招聘流程类型
          * <p> 示例值：1
@@ -1108,7 +1108,7 @@ public class Job {
          * @param createTime
          * @return
          */
-        public Builder createTime(Integer createTime) {
+        public Builder createTime(Long createTime) {
             this.createTime = createTime;
             return this;
         }
@@ -1121,7 +1121,7 @@ public class Job {
          * @param updateTime
          * @return
          */
-        public Builder updateTime(Integer updateTime) {
+        public Builder updateTime(Long updateTime) {
             this.updateTime = updateTime;
             return this;
         }

@@ -179,6 +179,12 @@ public class CalendarEvent {
      */
     @SerializedName("attachments")
     private Attachment[] attachments;
+    /**
+     * 日程签到设置，为空则不进行日程签到设置
+     * <p> 示例值：
+     */
+    @SerializedName("event_check_in")
+    private EventCheckIn eventCheckIn;
 
     // builder 开始
     public CalendarEvent() {
@@ -310,6 +316,11 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         this.attachments = builder.attachments;
+        /**
+         * 日程签到设置，为空则不进行日程签到设置
+         * <p> 示例值：
+         */
+        this.eventCheckIn = builder.eventCheckIn;
     }
 
     public static Builder newBuilder() {
@@ -516,6 +527,14 @@ public class CalendarEvent {
         this.attachments = attachments;
     }
 
+    public EventCheckIn getEventCheckIn() {
+        return this.eventCheckIn;
+    }
+
+    public void setEventCheckIn(EventCheckIn eventCheckIn) {
+        this.eventCheckIn = eventCheckIn;
+    }
+
     public static class Builder {
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -642,6 +661,11 @@ public class CalendarEvent {
          * <p> 示例值：
          */
         private Attachment[] attachments;
+        /**
+         * 日程签到设置，为空则不进行日程签到设置
+         * <p> 示例值：
+         */
+        private EventCheckIn eventCheckIn;
 
         /**
          * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
@@ -1012,6 +1036,19 @@ public class CalendarEvent {
          */
         public Builder attachments(Attachment[] attachments) {
             this.attachments = attachments;
+            return this;
+        }
+
+
+        /**
+         * 日程签到设置，为空则不进行日程签到设置
+         * <p> 示例值：
+         *
+         * @param eventCheckIn
+         * @return
+         */
+        public Builder eventCheckIn(EventCheckIn eventCheckIn) {
+            this.eventCheckIn = eventCheckIn;
             return this;
         }
 

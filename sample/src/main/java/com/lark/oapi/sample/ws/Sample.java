@@ -50,7 +50,7 @@ public class Sample {
             .build();
 
     public static void main(String[] args) {
-        Client client = new Client.Builder("", "")
+        Client client = new Client.Builder(System.getenv("APP_ID"), System.getenv( "APP_SECRET"))
                 .eventHandler(EVENT_HANDLER)
                 .build();
         client.start();

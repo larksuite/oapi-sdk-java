@@ -71,6 +71,12 @@ public class BankAccountForUpdate {
      */
     @SerializedName("bank_account_type")
     private String bankAccountType;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private ObjectFieldData[] customFields;
 
     // builder 开始
     public BankAccountForUpdate() {
@@ -112,6 +118,11 @@ public class BankAccountForUpdate {
          * <p> 示例值：checking
          */
         this.bankAccountType = builder.bankAccountType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +185,14 @@ public class BankAccountForUpdate {
         this.bankAccountType = bankAccountType;
     }
 
+    public ObjectFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(ObjectFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
@@ -210,6 +229,11 @@ public class BankAccountForUpdate {
          * <p> 示例值：checking
          */
         private String bankAccountType;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private ObjectFieldData[] customFields;
 
         /**
          * 银行名称：- 当填入 bank_id 时，自动填入 bank 的名称 - 未填入 bank_id ，取传入的银行名称
@@ -298,6 +322,19 @@ public class BankAccountForUpdate {
          */
         public Builder bankAccountType(String bankAccountType) {
             this.bankAccountType = bankAccountType;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(ObjectFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

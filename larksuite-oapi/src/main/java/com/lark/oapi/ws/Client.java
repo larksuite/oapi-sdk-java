@@ -86,6 +86,7 @@ public class Client {
     }
 
     private void pingLoop() {
+        this.sleep(2000);
         while (true) {
             try {
                 if (this.conn != null) {

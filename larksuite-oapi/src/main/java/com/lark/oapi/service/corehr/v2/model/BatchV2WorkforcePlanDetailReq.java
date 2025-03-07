@@ -11,9 +11,10 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.hire.v1.model;
+package com.lark.oapi.service.corehr.v2.model;
 
 import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
@@ -26,37 +27,40 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListInterviewRegistrationSchemaReq {
+public class BatchV2WorkforcePlanDetailReq {
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：["123456"]
      */
     @Query
     @SerializedName("page_token")
     private String pageToken;
     /**
-     * 每页获取记录数量，最大10
-     * <p> 示例值：10
+     * 分页大小
+     * <p> 示例值：100
      */
     @Query
     @SerializedName("page_size")
     private Integer pageSize;
+    @Body
+    private BatchV2WorkforcePlanDetailReqBody body;
 
     // builder 开始
-    public ListInterviewRegistrationSchemaReq() {
+    public BatchV2WorkforcePlanDetailReq() {
     }
 
-    public ListInterviewRegistrationSchemaReq(Builder builder) {
+    public BatchV2WorkforcePlanDetailReq(Builder builder) {
         /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：["123456"]
          */
         this.pageToken = builder.pageToken;
         /**
-         * 每页获取记录数量，最大10
-         * <p> 示例值：10
+         * 分页大小
+         * <p> 示例值：100
          */
         this.pageSize = builder.pageSize;
+        this.body = builder.body;
     }
 
     public static Builder newBuilder() {
@@ -79,13 +83,22 @@ public class ListInterviewRegistrationSchemaReq {
         this.pageSize = pageSize;
     }
 
+    public BatchV2WorkforcePlanDetailReqBody getBatchV2WorkforcePlanDetailReqBody() {
+        return this.body;
+    }
+
+    public void setBatchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody body) {
+        this.body = body;
+    }
+
     public static class Builder {
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private Integer pageSize; // 每页获取记录数量，最大10
+        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+        private Integer pageSize; // 分页大小
+        private BatchV2WorkforcePlanDetailReqBody body;
 
         /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+         * <p> 示例值：["123456"]
          *
          * @param pageToken
          * @return
@@ -95,10 +108,9 @@ public class ListInterviewRegistrationSchemaReq {
             return this;
         }
 
-
         /**
-         * 每页获取记录数量，最大10
-         * <p> 示例值：10
+         * 分页大小
+         * <p> 示例值：100
          *
          * @param pageSize
          * @return
@@ -108,9 +120,23 @@ public class ListInterviewRegistrationSchemaReq {
             return this;
         }
 
+        public BatchV2WorkforcePlanDetailReqBody getBatchV2WorkforcePlanDetailReqBody() {
+            return this.body;
+        }
 
-        public ListInterviewRegistrationSchemaReq build() {
-            return new ListInterviewRegistrationSchemaReq(this);
+        /**
+         * body
+         *
+         * @param body
+         * @return
+         */
+        public Builder batchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody body) {
+            this.body = body;
+            return this;
+        }
+
+        public BatchV2WorkforcePlanDetailReq build() {
+            return new BatchV2WorkforcePlanDetailReq(this);
         }
     }
 }

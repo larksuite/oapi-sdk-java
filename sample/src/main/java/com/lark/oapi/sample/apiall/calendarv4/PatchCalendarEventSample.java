@@ -34,6 +34,7 @@ public class PatchCalendarEventSample {
                         .recurrence("FREQ=DAILY;INTERVAL=1")
                         .schemas(new Schema[]{})
                         .attachments(new Attachment[]{})
+                        .eventCheckIn(EventCheckIn.newBuilder().build())
                         .build())
                 .build();
 

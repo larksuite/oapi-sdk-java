@@ -243,8 +243,8 @@ public class Group {
      * 防作弊打卡配置
      * <p> 示例值：
      */
-    @SerializedName("anti_cheat_punch_cfg")
-    private AntiCheatPunch antiCheatPunchCfg;
+    @SerializedName("anti_cheat_punch_config")
+    private AntiCheatConfig antiCheatPunchConfig;
     /**
      * 考勤机列表
      * <p> 示例值：
@@ -455,6 +455,12 @@ public class Group {
      */
     @SerializedName("allow_apply_punch")
     private Boolean allowApplyPunch;
+    /**
+     * 异常卡豁免配置
+     * <p> 示例值：
+     */
+    @SerializedName("clock_in_abnormal_settings")
+    private ClockInAbnormalSettings clockInAbnormalSettings;
 
     // builder 开始
     public Group() {
@@ -640,7 +646,7 @@ public class Group {
          * 防作弊打卡配置
          * <p> 示例值：
          */
-        this.antiCheatPunchCfg = builder.antiCheatPunchCfg;
+        this.antiCheatPunchConfig = builder.antiCheatPunchConfig;
         /**
          * 考勤机列表
          * <p> 示例值：
@@ -816,6 +822,11 @@ public class Group {
          * <p> 示例值：true
          */
         this.allowApplyPunch = builder.allowApplyPunch;
+        /**
+         * 异常卡豁免配置
+         * <p> 示例值：
+         */
+        this.clockInAbnormalSettings = builder.clockInAbnormalSettings;
     }
 
     public static Builder newBuilder() {
@@ -1102,12 +1113,12 @@ public class Group {
         this.replaceBasicPic = replaceBasicPic;
     }
 
-    public AntiCheatPunch getAntiCheatPunchCfg() {
-        return this.antiCheatPunchCfg;
+    public AntiCheatConfig getAntiCheatPunchConfig() {
+        return this.antiCheatPunchConfig;
     }
 
-    public void setAntiCheatPunchCfg(AntiCheatPunch antiCheatPunchCfg) {
-        this.antiCheatPunchCfg = antiCheatPunchCfg;
+    public void setAntiCheatPunchConfig(AntiCheatConfig antiCheatPunchConfig) {
+        this.antiCheatPunchConfig = antiCheatPunchConfig;
     }
 
     public Machine[] getMachines() {
@@ -1390,6 +1401,14 @@ public class Group {
         this.allowApplyPunch = allowApplyPunch;
     }
 
+    public ClockInAbnormalSettings getClockInAbnormalSettings() {
+        return this.clockInAbnormalSettings;
+    }
+
+    public void setClockInAbnormalSettings(ClockInAbnormalSettings clockInAbnormalSettings) {
+        this.clockInAbnormalSettings = clockInAbnormalSettings;
+    }
+
     public static class Builder {
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -1570,7 +1589,7 @@ public class Group {
          * 防作弊打卡配置
          * <p> 示例值：
          */
-        private AntiCheatPunch antiCheatPunchCfg;
+        private AntiCheatConfig antiCheatPunchConfig;
         /**
          * 考勤机列表
          * <p> 示例值：
@@ -1746,6 +1765,11 @@ public class Group {
          * <p> 示例值：true
          */
         private Boolean allowApplyPunch;
+        /**
+         * 异常卡豁免配置
+         * <p> 示例值：
+         */
+        private ClockInAbnormalSettings clockInAbnormalSettings;
 
         /**
          * 考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId
@@ -2206,11 +2230,11 @@ public class Group {
          * 防作弊打卡配置
          * <p> 示例值：
          *
-         * @param antiCheatPunchCfg
+         * @param antiCheatPunchConfig
          * @return
          */
-        public Builder antiCheatPunchCfg(AntiCheatPunch antiCheatPunchCfg) {
-            this.antiCheatPunchCfg = antiCheatPunchCfg;
+        public Builder antiCheatPunchConfig(AntiCheatConfig antiCheatPunchConfig) {
+            this.antiCheatPunchConfig = antiCheatPunchConfig;
             return this;
         }
 
@@ -2666,6 +2690,19 @@ public class Group {
          */
         public Builder allowApplyPunch(Boolean allowApplyPunch) {
             this.allowApplyPunch = allowApplyPunch;
+            return this;
+        }
+
+
+        /**
+         * 异常卡豁免配置
+         * <p> 示例值：
+         *
+         * @param clockInAbnormalSettings
+         * @return
+         */
+        public Builder clockInAbnormalSettings(ClockInAbnormalSettings clockInAbnormalSettings) {
+            this.clockInAbnormalSettings = clockInAbnormalSettings;
             return this;
         }
 

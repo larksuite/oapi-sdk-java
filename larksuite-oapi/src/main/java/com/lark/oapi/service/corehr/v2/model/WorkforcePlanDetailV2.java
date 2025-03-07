@@ -95,6 +95,12 @@ public class WorkforcePlanDetailV2 {
      */
     @SerializedName("estimated_active_individuals_details")
     private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails;
+    /**
+     * 多周期的编制规划信息
+     * <p> 示例值：
+     */
+    @SerializedName("multi_period_values")
+    private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
     // builder 开始
     public WorkforcePlanDetailV2() {
@@ -156,6 +162,11 @@ public class WorkforcePlanDetailV2 {
          * <p> 示例值：
          */
         this.estimatedActiveIndividualsDetails = builder.estimatedActiveIndividualsDetails;
+        /**
+         * 多周期的编制规划信息
+         * <p> 示例值：
+         */
+        this.multiPeriodValues = builder.multiPeriodValues;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +261,14 @@ public class WorkforcePlanDetailV2 {
         this.estimatedActiveIndividualsDetails = estimatedActiveIndividualsDetails;
     }
 
+    public WorkforcePlanMultiPeriodValue[] getMultiPeriodValues() {
+        return this.multiPeriodValues;
+    }
+
+    public void setMultiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+        this.multiPeriodValues = multiPeriodValues;
+    }
+
     public static class Builder {
         /**
          * 编制规划明细 ID
@@ -306,6 +325,11 @@ public class WorkforcePlanDetailV2 {
          * <p> 示例值：
          */
         private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails;
+        /**
+         * 多周期的编制规划信息
+         * <p> 示例值：
+         */
+        private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
         /**
          * 编制规划明细 ID
@@ -446,6 +470,19 @@ public class WorkforcePlanDetailV2 {
          */
         public Builder estimatedActiveIndividualsDetails(WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails) {
             this.estimatedActiveIndividualsDetails = estimatedActiveIndividualsDetails;
+            return this;
+        }
+
+
+        /**
+         * 多周期的编制规划信息
+         * <p> 示例值：
+         *
+         * @param multiPeriodValues
+         * @return
+         */
+        public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+            this.multiPeriodValues = multiPeriodValues;
             return this;
         }
 

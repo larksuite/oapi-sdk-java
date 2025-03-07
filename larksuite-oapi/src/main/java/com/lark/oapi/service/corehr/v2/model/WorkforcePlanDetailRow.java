@@ -47,6 +47,12 @@ public class WorkforcePlanDetailRow {
      */
     @SerializedName("plan_value")
     private String planValue;
+    /**
+     * 多周期编制规划信息
+     * <p> 示例值：
+     */
+    @SerializedName("multi_period_values")
+    private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
     // builder 开始
     public WorkforcePlanDetailRow() {
@@ -68,6 +74,11 @@ public class WorkforcePlanDetailRow {
          * <p> 示例值：12
          */
         this.planValue = builder.planValue;
+        /**
+         * 多周期编制规划信息
+         * <p> 示例值：
+         */
+        this.multiPeriodValues = builder.multiPeriodValues;
     }
 
     public static Builder newBuilder() {
@@ -98,6 +109,14 @@ public class WorkforcePlanDetailRow {
         this.planValue = planValue;
     }
 
+    public WorkforcePlanMultiPeriodValue[] getMultiPeriodValues() {
+        return this.multiPeriodValues;
+    }
+
+    public void setMultiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+        this.multiPeriodValues = multiPeriodValues;
+    }
+
     public static class Builder {
         /**
          * 维度信息
@@ -114,6 +133,11 @@ public class WorkforcePlanDetailRow {
          * <p> 示例值：12
          */
         private String planValue;
+        /**
+         * 多周期编制规划信息
+         * <p> 示例值：
+         */
+        private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
         /**
          * 维度信息
@@ -150,6 +174,19 @@ public class WorkforcePlanDetailRow {
          */
         public Builder planValue(String planValue) {
             this.planValue = planValue;
+            return this;
+        }
+
+
+        /**
+         * 多周期编制规划信息
+         * <p> 示例值：
+         *
+         * @param multiPeriodValues
+         * @return
+         */
+        public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+            this.multiPeriodValues = multiPeriodValues;
             return this;
         }
 

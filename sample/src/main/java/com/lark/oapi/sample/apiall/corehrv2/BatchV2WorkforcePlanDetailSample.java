@@ -8,28 +8,27 @@ import java.util.HashMap;
 
 import com.lark.oapi.service.corehr.v2.model.Enum;
 
-// POST /open-apis/corehr/v2/cost_centers
-public class CreateCostCenterSample {
+// POST /open-apis/corehr/v2/workforce_plan_details/batch_v2
+public class BatchV2WorkforcePlanDetailSample {
 
     public static void main(String arg[]) throws Exception {
         // 构建client
         Client client = Client.newBuilder("appId", "appSecret").build();
 
         // 创建请求对象
-        CreateCostCenterReq req = CreateCostCenterReq.newBuilder()
-                .userIdType("people_corehr_id")
-                .costCenter(CostCenter.newBuilder()
-                        .name(new I18n[]{})
-                        .code("MDPD00000023")
-                        .parentCostCenterId("6862995757234914824")
-                        .managers(new String[]{})
-                        .description(new I18n[]{})
-                        .effectiveTime("2020-01-01")
+        BatchV2WorkforcePlanDetailReq req = BatchV2WorkforcePlanDetailReq.newBuilder()
+                .pageToken("")
+                .pageSize(100)
+                .batchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody.newBuilder()
+                        .workforcePlanId("781234834512")
+                        .isCentralizedReportingProject(false)
+                        .centralizedReportingProjectId("7140964208476371111")
+                        .dimensionIdInDatas(new DimensionIdInData[]{})
                         .build())
                 .build();
 
         // 发起请求
-        CreateCostCenterResp resp = client.corehr().v2().costCenter().create(req);
+        BatchV2WorkforcePlanDetailResp resp = client.corehr().v2().workforcePlanDetail().batchV2(req);
 
         // 处理服务端错误
         if (!resp.success()) {

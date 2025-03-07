@@ -22,6 +22,7 @@ public class ListByIdJobRequirementSample {
                 .employeeTypeIdType("people_admin_employee_type_id")
                 .listByIdJobRequirementReqBody(ListByIdJobRequirementReqBody.newBuilder()
                         .idList(new String[]{})
+                        .shortCodeList(new String[]{})
                         .build())
                 .build();
 

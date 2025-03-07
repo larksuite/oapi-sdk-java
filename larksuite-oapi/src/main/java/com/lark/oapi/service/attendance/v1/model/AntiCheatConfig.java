@@ -28,7 +28,7 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class AntiCheatPunch {
+public class AntiCheatConfig {
     /**
      * 拦截疑似作弊打卡，默认关闭；关闭时，其余防作弊开关都会关闭
      * <p> 示例值：true
@@ -61,7 +61,7 @@ public class AntiCheatPunch {
     private Boolean checkChangeDevicePunch;
     /**
      * 同一考勤人员最多可绑定打卡设备数量上限，开启校验更换设备打卡时必填
-     * <p> 示例值：2
+     * <p> 示例值：1
      */
     @SerializedName("allow_change_device_num")
     private Integer allowChangeDeviceNum;
@@ -73,10 +73,10 @@ public class AntiCheatPunch {
     private Integer suspectedCheatHandleMethod;
 
     // builder 开始
-    public AntiCheatPunch() {
+    public AntiCheatConfig() {
     }
 
-    public AntiCheatPunch(Builder builder) {
+    public AntiCheatConfig(Builder builder) {
         /**
          * 拦截疑似作弊打卡，默认关闭；关闭时，其余防作弊开关都会关闭
          * <p> 示例值：true
@@ -104,7 +104,7 @@ public class AntiCheatPunch {
         this.checkChangeDevicePunch = builder.checkChangeDevicePunch;
         /**
          * 同一考勤人员最多可绑定打卡设备数量上限，开启校验更换设备打卡时必填
-         * <p> 示例值：2
+         * <p> 示例值：1
          */
         this.allowChangeDeviceNum = builder.allowChangeDeviceNum;
         /**
@@ -202,7 +202,7 @@ public class AntiCheatPunch {
         private Boolean checkChangeDevicePunch;
         /**
          * 同一考勤人员最多可绑定打卡设备数量上限，开启校验更换设备打卡时必填
-         * <p> 示例值：2
+         * <p> 示例值：1
          */
         private Integer allowChangeDeviceNum;
         /**
@@ -278,7 +278,7 @@ public class AntiCheatPunch {
 
         /**
          * 同一考勤人员最多可绑定打卡设备数量上限，开启校验更换设备打卡时必填
-         * <p> 示例值：2
+         * <p> 示例值：1
          *
          * @param allowChangeDeviceNum
          * @return
@@ -305,17 +305,17 @@ public class AntiCheatPunch {
          * 疑似作弊打卡时的处理方式
          * <p> 示例值：1
          *
-         * @param suspectedCheatHandleMethod {@link com.lark.oapi.service.attendance.v1.enums.AntiCheatPunchSuspectedCheatHandleMethodEnum}
+         * @param suspectedCheatHandleMethod {@link com.lark.oapi.service.attendance.v1.enums.AntiCheatConfigSuspectedCheatHandleMethodEnum}
          * @return
          */
-        public Builder suspectedCheatHandleMethod(com.lark.oapi.service.attendance.v1.enums.AntiCheatPunchSuspectedCheatHandleMethodEnum suspectedCheatHandleMethod) {
+        public Builder suspectedCheatHandleMethod(com.lark.oapi.service.attendance.v1.enums.AntiCheatConfigSuspectedCheatHandleMethodEnum suspectedCheatHandleMethod) {
             this.suspectedCheatHandleMethod = suspectedCheatHandleMethod.getValue();
             return this;
         }
 
 
-        public AntiCheatPunch build() {
-            return new AntiCheatPunch(this);
+        public AntiCheatConfig build() {
+            return new AntiCheatConfig(this);
         }
     }
 }

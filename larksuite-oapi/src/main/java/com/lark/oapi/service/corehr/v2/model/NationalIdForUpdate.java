@@ -65,6 +65,12 @@ public class NationalIdForUpdate {
      */
     @SerializedName("issued_by")
     private String issuedBy;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private ObjectFieldData[] customFields;
 
     // builder 开始
     public NationalIdForUpdate() {
@@ -101,6 +107,11 @@ public class NationalIdForUpdate {
          * <p> 示例值：北京市公安局
          */
         this.issuedBy = builder.issuedBy;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class NationalIdForUpdate {
         this.issuedBy = issuedBy;
     }
 
+    public ObjectFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(ObjectFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 国家 / 地区
@@ -186,6 +205,11 @@ public class NationalIdForUpdate {
          * <p> 示例值：北京市公安局
          */
         private String issuedBy;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private ObjectFieldData[] customFields;
 
         /**
          * 国家 / 地区
@@ -261,6 +285,19 @@ public class NationalIdForUpdate {
          */
         public Builder issuedBy(String issuedBy) {
             this.issuedBy = issuedBy;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(ObjectFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

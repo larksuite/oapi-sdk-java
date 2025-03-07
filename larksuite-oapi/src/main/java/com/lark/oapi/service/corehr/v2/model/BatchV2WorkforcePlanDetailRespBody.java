@@ -27,76 +27,76 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class P2ProcessStatusUpdateV2Data {
+public class BatchV2WorkforcePlanDetailRespBody {
     /**
-     * 流程实例ID
-     * <p> 示例值：7072306364927985196
+     * 编制规划方案 ID
+     * <p> 示例值：7128319234123
      */
-    @SerializedName("process_id")
-    private String processId;
+    @SerializedName("workforce_plan_id")
+    private String workforcePlanId;
     /**
-     * 变更后状态：1 发起/进行中，9 完成，2拒绝，4 撤回，8 撤销，15 撤销中
-     * <p> 示例值：1
+     * 集中填报项目 ID
+     * <p> 示例值：7128319234123
      */
-    @SerializedName("status")
-    private Integer status;
+    @SerializedName("centralized_reporting_project_id")
+    private String centralizedReportingProjectId;
     /**
-     * 业务类型
-     * <p> 示例值：renewal_record
+     * 编制规划明细信息
+     * <p> 示例值：
      */
-    @SerializedName("biz_type")
-    private String bizType;
+    @SerializedName("items")
+    private WorkforcePlanDetailV2[] items;
     /**
-     * 流程定义ID
-     * <p> 示例值：people_7023711013443944467_7379576600867884844v
+     * 分页标识
+     * <p> 示例值：34523459
      */
-    @SerializedName("flow_definition_id")
-    private String flowDefinitionId;
+    @SerializedName("page_token")
+    private String pageToken;
     /**
-     * 流程属性
-     * <p> 示例值：1
+     * 是否还有更多项
+     * <p> 示例值：true
      */
-    @SerializedName("properties")
-    private Integer properties;
+    @SerializedName("has_more")
+    private Boolean hasMore;
 
-    public String getProcessId() {
-        return this.processId;
+    public String getWorkforcePlanId() {
+        return this.workforcePlanId;
     }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
+    public void setWorkforcePlanId(String workforcePlanId) {
+        this.workforcePlanId = workforcePlanId;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    public String getCentralizedReportingProjectId() {
+        return this.centralizedReportingProjectId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setCentralizedReportingProjectId(String centralizedReportingProjectId) {
+        this.centralizedReportingProjectId = centralizedReportingProjectId;
     }
 
-    public String getBizType() {
-        return this.bizType;
+    public WorkforcePlanDetailV2[] getItems() {
+        return this.items;
     }
 
-    public void setBizType(String bizType) {
-        this.bizType = bizType;
+    public void setItems(WorkforcePlanDetailV2[] items) {
+        this.items = items;
     }
 
-    public String getFlowDefinitionId() {
-        return this.flowDefinitionId;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public void setFlowDefinitionId(String flowDefinitionId) {
-        this.flowDefinitionId = flowDefinitionId;
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
-    public Integer getProperties() {
-        return this.properties;
+    public Boolean getHasMore() {
+        return this.hasMore;
     }
 
-    public void setProperties(Integer properties) {
-        this.properties = properties;
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
     }
 
 }

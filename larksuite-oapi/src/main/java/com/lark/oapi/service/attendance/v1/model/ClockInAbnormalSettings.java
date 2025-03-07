@@ -11,9 +11,10 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.hire.v1.model;
+package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
@@ -27,97 +28,60 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListByIdJobRequirementReqBody {
+public class ClockInAbnormalSettings {
     /**
-     * 招聘需求ID列表
+     * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
      * <p> 示例值：
      */
-    @SerializedName("id_list")
-    private String[] idList;
-    /**
-     * 招聘需求编号列表
-     * <p> 示例值：
-     */
-    @SerializedName("short_code_list")
-    private String[] shortCodeList;
+    @SerializedName("ignore_until_latest_clockout")
+    private Boolean ignoreUntilLatestClockout;
 
     // builder 开始
-    public ListByIdJobRequirementReqBody() {
+    public ClockInAbnormalSettings() {
     }
 
-    public ListByIdJobRequirementReqBody(Builder builder) {
+    public ClockInAbnormalSettings(Builder builder) {
         /**
-         * 招聘需求ID列表
+         * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
          * <p> 示例值：
          */
-        this.idList = builder.idList;
-        /**
-         * 招聘需求编号列表
-         * <p> 示例值：
-         */
-        this.shortCodeList = builder.shortCodeList;
+        this.ignoreUntilLatestClockout = builder.ignoreUntilLatestClockout;
     }
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
-    public String[] getIdList() {
-        return this.idList;
+    public Boolean getIgnoreUntilLatestClockout() {
+        return this.ignoreUntilLatestClockout;
     }
 
-    public void setIdList(String[] idList) {
-        this.idList = idList;
-    }
-
-    public String[] getShortCodeList() {
-        return this.shortCodeList;
-    }
-
-    public void setShortCodeList(String[] shortCodeList) {
-        this.shortCodeList = shortCodeList;
+    public void setIgnoreUntilLatestClockout(Boolean ignoreUntilLatestClockout) {
+        this.ignoreUntilLatestClockout = ignoreUntilLatestClockout;
     }
 
     public static class Builder {
         /**
-         * 招聘需求ID列表
+         * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
          * <p> 示例值：
          */
-        private String[] idList;
-        /**
-         * 招聘需求编号列表
-         * <p> 示例值：
-         */
-        private String[] shortCodeList;
+        private Boolean ignoreUntilLatestClockout;
 
         /**
-         * 招聘需求ID列表
+         * 在最晚下班打卡之前忽略异常卡（仅灰度租户有效）
          * <p> 示例值：
          *
-         * @param idList
+         * @param ignoreUntilLatestClockout
          * @return
          */
-        public Builder idList(String[] idList) {
-            this.idList = idList;
+        public Builder ignoreUntilLatestClockout(Boolean ignoreUntilLatestClockout) {
+            this.ignoreUntilLatestClockout = ignoreUntilLatestClockout;
             return this;
         }
 
 
-        /**
-         * 招聘需求编号列表
-         * <p> 示例值：
-         *
-         * @param shortCodeList
-         * @return
-         */
-        public Builder shortCodeList(String[] shortCodeList) {
-            this.shortCodeList = shortCodeList;
-            return this;
-        }
-
-
-        public ListByIdJobRequirementReqBody build() {
-            return new ListByIdJobRequirementReqBody(this);
+        public ClockInAbnormalSettings build() {
+            return new ClockInAbnormalSettings(this);
         }
     }
 }

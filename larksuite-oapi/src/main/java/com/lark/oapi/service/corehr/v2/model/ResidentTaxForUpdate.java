@@ -59,6 +59,12 @@ public class ResidentTaxForUpdate {
      */
     @SerializedName("year_resident_tax")
     private String yearResidentTax;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private ObjectFieldData[] customFields;
 
     // builder 开始
     public ResidentTaxForUpdate() {
@@ -90,6 +96,11 @@ public class ResidentTaxForUpdate {
          * <p> 示例值：2006-01-01
          */
         this.yearResidentTax = builder.yearResidentTax;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class ResidentTaxForUpdate {
         this.yearResidentTax = yearResidentTax;
     }
 
+    public ObjectFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(ObjectFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 国家 / 地区ID
@@ -162,6 +181,11 @@ public class ResidentTaxForUpdate {
          * <p> 示例值：2006-01-01
          */
         private String yearResidentTax;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private ObjectFieldData[] customFields;
 
         /**
          * 国家 / 地区ID
@@ -224,6 +248,19 @@ public class ResidentTaxForUpdate {
          */
         public Builder yearResidentTax(String yearResidentTax) {
             this.yearResidentTax = yearResidentTax;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(ObjectFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 

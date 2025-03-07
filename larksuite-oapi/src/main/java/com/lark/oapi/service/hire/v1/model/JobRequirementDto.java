@@ -220,6 +220,18 @@ public class JobRequirementDto {
      */
     @SerializedName("position_id")
     private String positionId;
+    /**
+     * 完成时间，毫秒级时间戳
+     * <p> 示例值：1736846689278
+     */
+    @SerializedName("completion_time")
+    private String completionTime;
+    /**
+     * 审批状态
+     * <p> 示例值：1
+     */
+    @SerializedName("approval_status")
+    private Integer approvalStatus;
 
     // builder 开始
     public JobRequirementDto() {
@@ -386,6 +398,16 @@ public class JobRequirementDto {
          * <p> 示例值：123
          */
         this.positionId = builder.positionId;
+        /**
+         * 完成时间，毫秒级时间戳
+         * <p> 示例值：1736846689278
+         */
+        this.completionTime = builder.completionTime;
+        /**
+         * 审批状态
+         * <p> 示例值：1
+         */
+        this.approvalStatus = builder.approvalStatus;
     }
 
     public static Builder newBuilder() {
@@ -648,6 +670,22 @@ public class JobRequirementDto {
         this.positionId = positionId;
     }
 
+    public String getCompletionTime() {
+        return this.completionTime;
+    }
+
+    public void setCompletionTime(String completionTime) {
+        this.completionTime = completionTime;
+    }
+
+    public Integer getApprovalStatus() {
+        return this.approvalStatus;
+    }
+
+    public void setApprovalStatus(Integer approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
+
     public static class Builder {
         /**
          * 招聘需求 ID
@@ -809,6 +847,16 @@ public class JobRequirementDto {
          * <p> 示例值：123
          */
         private String positionId;
+        /**
+         * 完成时间，毫秒级时间戳
+         * <p> 示例值：1736846689278
+         */
+        private String completionTime;
+        /**
+         * 审批状态
+         * <p> 示例值：1
+         */
+        private Integer approvalStatus;
 
         /**
          * 招聘需求 ID
@@ -1222,6 +1270,32 @@ public class JobRequirementDto {
          */
         public Builder positionId(String positionId) {
             this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 完成时间，毫秒级时间戳
+         * <p> 示例值：1736846689278
+         *
+         * @param completionTime
+         * @return
+         */
+        public Builder completionTime(String completionTime) {
+            this.completionTime = completionTime;
+            return this;
+        }
+
+
+        /**
+         * 审批状态
+         * <p> 示例值：1
+         *
+         * @param approvalStatus
+         * @return
+         */
+        public Builder approvalStatus(Integer approvalStatus) {
+            this.approvalStatus = approvalStatus;
             return this;
         }
 

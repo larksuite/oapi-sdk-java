@@ -32,3 +32,5 @@ target/
 hs_err_pid*
 
 sensitive_info_result.txt
+
+.env

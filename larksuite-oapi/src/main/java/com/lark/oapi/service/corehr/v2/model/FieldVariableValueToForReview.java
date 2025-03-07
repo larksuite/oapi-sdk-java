@@ -95,6 +95,18 @@ public class FieldVariableValueToForReview {
      */
     @SerializedName("list_values")
     private String[] listValues;
+    /**
+     * 文件类型字段值
+     * <p> 示例值：
+     */
+    @SerializedName("file_value")
+    private FieldVariableValueToFileForWrite fileValue;
+    /**
+     * record类型字段值
+     * <p> 示例值：
+     */
+    @SerializedName("record_values")
+    private FieldVariableValueToRecord[] recordValues;
 
     // builder 开始
     public FieldVariableValueToForReview() {
@@ -156,6 +168,16 @@ public class FieldVariableValueToForReview {
          * <p> 示例值：
          */
         this.listValues = builder.listValues;
+        /**
+         * 文件类型字段值
+         * <p> 示例值：
+         */
+        this.fileValue = builder.fileValue;
+        /**
+         * record类型字段值
+         * <p> 示例值：
+         */
+        this.recordValues = builder.recordValues;
     }
 
     public static Builder newBuilder() {
@@ -250,6 +272,22 @@ public class FieldVariableValueToForReview {
         this.listValues = listValues;
     }
 
+    public FieldVariableValueToFileForWrite getFileValue() {
+        return this.fileValue;
+    }
+
+    public void setFileValue(FieldVariableValueToFileForWrite fileValue) {
+        this.fileValue = fileValue;
+    }
+
+    public FieldVariableValueToRecord[] getRecordValues() {
+        return this.recordValues;
+    }
+
+    public void setRecordValues(FieldVariableValueToRecord[] recordValues) {
+        this.recordValues = recordValues;
+    }
+
     public static class Builder {
         /**
          * 文本值
@@ -306,6 +344,16 @@ public class FieldVariableValueToForReview {
          * <p> 示例值：
          */
         private String[] listValues;
+        /**
+         * 文件类型字段值
+         * <p> 示例值：
+         */
+        private FieldVariableValueToFileForWrite fileValue;
+        /**
+         * record类型字段值
+         * <p> 示例值：
+         */
+        private FieldVariableValueToRecord[] recordValues;
 
         /**
          * 文本值
@@ -446,6 +494,32 @@ public class FieldVariableValueToForReview {
          */
         public Builder listValues(String[] listValues) {
             this.listValues = listValues;
+            return this;
+        }
+
+
+        /**
+         * 文件类型字段值
+         * <p> 示例值：
+         *
+         * @param fileValue
+         * @return
+         */
+        public Builder fileValue(FieldVariableValueToFileForWrite fileValue) {
+            this.fileValue = fileValue;
+            return this;
+        }
+
+
+        /**
+         * record类型字段值
+         * <p> 示例值：
+         *
+         * @param recordValues
+         * @return
+         */
+        public Builder recordValues(FieldVariableValueToRecord[] recordValues) {
+            this.recordValues = recordValues;
             return this;
         }
 

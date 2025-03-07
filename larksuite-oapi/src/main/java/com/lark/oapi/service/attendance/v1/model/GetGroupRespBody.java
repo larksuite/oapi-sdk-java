@@ -242,8 +242,8 @@ public class GetGroupRespBody {
      * 防作弊打卡配置
      * <p> 示例值：
      */
-    @SerializedName("anti_cheat_punch_cfg")
-    private AntiCheatPunch antiCheatPunchCfg;
+    @SerializedName("anti_cheat_punch_config")
+    private AntiCheatConfig antiCheatPunchConfig;
     /**
      * 考勤机信息
      * <p> 示例值：
@@ -447,6 +447,12 @@ public class GetGroupRespBody {
      */
     @SerializedName("allow_apply_punch")
     private Boolean allowApplyPunch;
+    /**
+     * 异常卡豁免配置
+     * <p> 示例值：
+     */
+    @SerializedName("clock_in_abnormal_settings")
+    private ClockInAbnormalSettings clockInAbnormalSettings;
 
     public String getGroupId() {
         return this.groupId;
@@ -728,12 +734,12 @@ public class GetGroupRespBody {
         this.replaceBasicPic = replaceBasicPic;
     }
 
-    public AntiCheatPunch getAntiCheatPunchCfg() {
-        return this.antiCheatPunchCfg;
+    public AntiCheatConfig getAntiCheatPunchConfig() {
+        return this.antiCheatPunchConfig;
     }
 
-    public void setAntiCheatPunchCfg(AntiCheatPunch antiCheatPunchCfg) {
-        this.antiCheatPunchCfg = antiCheatPunchCfg;
+    public void setAntiCheatPunchConfig(AntiCheatConfig antiCheatPunchConfig) {
+        this.antiCheatPunchConfig = antiCheatPunchConfig;
     }
 
     public Machine[] getMachines() {
@@ -1006,6 +1012,14 @@ public class GetGroupRespBody {
 
     public void setAllowApplyPunch(Boolean allowApplyPunch) {
         this.allowApplyPunch = allowApplyPunch;
+    }
+
+    public ClockInAbnormalSettings getClockInAbnormalSettings() {
+        return this.clockInAbnormalSettings;
+    }
+
+    public void setClockInAbnormalSettings(ClockInAbnormalSettings clockInAbnormalSettings) {
+        this.clockInAbnormalSettings = clockInAbnormalSettings;
     }
 
 }

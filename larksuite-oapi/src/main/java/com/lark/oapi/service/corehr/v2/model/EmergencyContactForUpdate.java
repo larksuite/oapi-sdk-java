@@ -65,6 +65,12 @@ public class EmergencyContactForUpdate {
      */
     @SerializedName("is_primary")
     private Boolean isPrimary;
+    /**
+     * 自定义字段
+     * <p> 示例值：
+     */
+    @SerializedName("custom_fields")
+    private ObjectFieldData[] customFields;
 
     // builder 开始
     public EmergencyContactForUpdate() {
@@ -101,6 +107,11 @@ public class EmergencyContactForUpdate {
          * <p> 示例值：true
          */
         this.isPrimary = builder.isPrimary;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        this.customFields = builder.customFields;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +166,14 @@ public class EmergencyContactForUpdate {
         this.isPrimary = isPrimary;
     }
 
+    public ObjectFieldData[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(ObjectFieldData[] customFields) {
+        this.customFields = customFields;
+    }
+
     public static class Builder {
         /**
          * 紧急联系人姓名
@@ -186,6 +205,11 @@ public class EmergencyContactForUpdate {
          * <p> 示例值：true
          */
         private Boolean isPrimary;
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         */
+        private ObjectFieldData[] customFields;
 
         /**
          * 紧急联系人姓名
@@ -261,6 +285,19 @@ public class EmergencyContactForUpdate {
          */
         public Builder isPrimary(Boolean isPrimary) {
             this.isPrimary = isPrimary;
+            return this;
+        }
+
+
+        /**
+         * 自定义字段
+         * <p> 示例值：
+         *
+         * @param customFields
+         * @return
+         */
+        public Builder customFields(ObjectFieldData[] customFields) {
+            this.customFields = customFields;
             return this;
         }
 
