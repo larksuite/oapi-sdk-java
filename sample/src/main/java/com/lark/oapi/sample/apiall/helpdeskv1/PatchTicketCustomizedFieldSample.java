@@ -20,8 +20,8 @@ public class PatchTicketCustomizedFieldSample {
                         .displayName("")
                         .position("")
                         .description("")
-                        .visible(false)
-                        .required(false)
+                        .visible(true)
+                        .required(true)
                         .build())
                 .build();
 

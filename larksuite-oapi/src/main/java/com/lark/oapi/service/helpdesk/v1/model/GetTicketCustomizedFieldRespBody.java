@@ -30,73 +30,73 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetTicketCustomizedFieldRespBody {
     /**
      * ticket customized field id
-     * <p> 示例值：
+     * <p> 示例值：1542164574896126
      */
     @SerializedName("ticket_customized_field_id")
     private String ticketCustomizedFieldId;
     /**
      * help desk id
-     * <p> 示例值：
+     * <p> 示例值：7836004780707807251
      */
     @SerializedName("helpdesk_id")
     private String helpdeskId;
     /**
      * key name
-     * <p> 示例值：
+     * <p> 示例值："test dropdown"
      */
     @SerializedName("key_name")
     private String keyName;
     /**
      * display name
-     * <p> 示例值：
+     * <p> 示例值："test dropdown"
      */
     @SerializedName("display_name")
     private String displayName;
     /**
      * the position of ticket customized field in the page
-     * <p> 示例值：
+     * <p> 示例值："3"
      */
     @SerializedName("position")
     private String position;
     /**
      * type of the field
-     * <p> 示例值：
+     * <p> 示例值："dropdown"
      */
     @SerializedName("field_type")
     private String fieldType;
     /**
      * description of the field
-     * <p> 示例值：
+     * <p> 示例值："下拉示例"
      */
     @SerializedName("description")
     private String description;
     /**
      * if the field is visible
-     * <p> 示例值：
+     * <p> 示例值：true
      */
     @SerializedName("visible")
     private Boolean visible;
     /**
      * if the field is editable
-     * <p> 示例值：
+     * <p> 示例值：true
      */
     @SerializedName("editable")
     private Boolean editable;
     /**
      * if the field is required
-     * <p> 示例值：
+     * <p> 示例值：true
      */
     @SerializedName("required")
     private Boolean required;
     /**
      * the time when the field is created
-     * <p> 示例值：
+     * <p> 示例值：1591239289000
      */
     @SerializedName("created_at")
     private String createdAt;
     /**
      * the time when the field is updated
-     * <p> 示例值：
+     * <p> 示例值：1591239289000
      */
     @SerializedName("updated_at")
     private String updatedAt;
@@ -114,7 +114,7 @@ public class GetTicketCustomizedFieldRespBody {
     private TicketUser updatedBy;
     /**
      * if the dropdown field supports multi-select
-     * <p> 示例值：
+     * <p> 示例值：true
      */
     @SerializedName("dropdown_allow_multiple")
     private Boolean dropdownAllowMultiple;

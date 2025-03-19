@@ -407,6 +407,12 @@ public class PreHireEmploymentInfo {
      */
     @SerializedName("service_company")
     private String serviceCompany;
+    /**
+     * 通道
+     * <p> 示例值：7460865381179115052
+     */
+    @SerializedName("pathway")
+    private String pathway;
 
     // builder 开始
     public PreHireEmploymentInfo() {
@@ -728,6 +734,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：6738317738688661772
          */
         this.serviceCompany = builder.serviceCompany;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        this.pathway = builder.pathway;
     }
 
     public static Builder newBuilder() {
@@ -1238,6 +1249,14 @@ public class PreHireEmploymentInfo {
         this.serviceCompany = serviceCompany;
     }
 
+    public String getPathway() {
+        return this.pathway;
+    }
+
+    public void setPathway(String pathway) {
+        this.pathway = pathway;
+    }
+
     public static class Builder {
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -1554,6 +1573,11 @@ public class PreHireEmploymentInfo {
          * <p> 示例值：6738317738688661772
          */
         private String serviceCompany;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        private String pathway;
 
         /**
          * 部门 ID ，可以通过【搜索部门信息】接口获取
@@ -2382,6 +2406,19 @@ public class PreHireEmploymentInfo {
          */
         public Builder serviceCompany(String serviceCompany) {
             this.serviceCompany = serviceCompany;
+            return this;
+        }
+
+
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         *
+         * @param pathway
+         * @return
+         */
+        public Builder pathway(String pathway) {
+            this.pathway = pathway;
             return this;
         }
 

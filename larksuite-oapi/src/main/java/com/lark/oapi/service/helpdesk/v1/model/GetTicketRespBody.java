@@ -33,13 +33,13 @@ public class GetTicketRespBody {
      * <p> 示例值：
      */
     @SerializedName("ticket")
-    private Ticket ticket;
+    private TicketV2 ticket;
 
-    public Ticket getTicket() {
+    public TicketV2 getTicket() {
         return this.ticket;
     }
 
-    public void setTicket(Ticket ticket) {
+    public void setTicket(TicketV2 ticket) {
         this.ticket = ticket;
     }
 

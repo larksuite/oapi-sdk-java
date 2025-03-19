@@ -359,6 +359,12 @@ public class OfferInfoUpdate {
      */
     @SerializedName("non_compete_covenant")
     private Boolean nonCompeteCovenant;
+    /**
+     * 通道
+     * <p> 示例值：7460865381179115052
+     */
+    @SerializedName("pathway")
+    private String pathway;
 
     // builder 开始
     public OfferInfoUpdate() {
@@ -640,6 +646,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：true
          */
         this.nonCompeteCovenant = builder.nonCompeteCovenant;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        this.pathway = builder.pathway;
     }
 
     public static Builder newBuilder() {
@@ -1086,6 +1097,14 @@ public class OfferInfoUpdate {
         this.nonCompeteCovenant = nonCompeteCovenant;
     }
 
+    public String getPathway() {
+        return this.pathway;
+    }
+
+    public void setPathway(String pathway) {
+        this.pathway = pathway;
+    }
+
     public static class Builder {
         /**
          * 入职日期
@@ -1362,6 +1381,11 @@ public class OfferInfoUpdate {
          * <p> 示例值：true
          */
         private Boolean nonCompeteCovenant;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        private String pathway;
 
         /**
          * 入职日期
@@ -2074,6 +2098,19 @@ public class OfferInfoUpdate {
          */
         public Builder nonCompeteCovenant(Boolean nonCompeteCovenant) {
             this.nonCompeteCovenant = nonCompeteCovenant;
+            return this;
+        }
+
+
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         *
+         * @param pathway
+         * @return
+         */
+        public Builder pathway(String pathway) {
+            this.pathway = pathway;
             return this;
         }
 

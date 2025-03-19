@@ -54,6 +54,12 @@ public class JobFamily {
     @SerializedName("parent_id")
     private String parentId;
     /**
+     * 通道ID
+     * <p> 示例值：
+     */
+    @SerializedName("pathway_ids")
+    private String[] pathwayIds;
+    /**
      * 生效时间
      * <p> 示例值：2020-05-01 00:00:00
      */
@@ -71,6 +77,12 @@ public class JobFamily {
      */
     @SerializedName("code")
     private String code;
+    /**
+     * 描述
+     * <p> 示例值：
+     */
+    @SerializedName("description")
+    private I18n[] description;
     /**
      * 自定义字段
      * <p> 示例值：
@@ -104,6 +116,11 @@ public class JobFamily {
          */
         this.parentId = builder.parentId;
         /**
+         * 通道ID
+         * <p> 示例值：
+         */
+        this.pathwayIds = builder.pathwayIds;
+        /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
          */
@@ -118,6 +135,11 @@ public class JobFamily {
          * <p> 示例值：123456
          */
         this.code = builder.code;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -161,6 +183,14 @@ public class JobFamily {
         this.parentId = parentId;
     }
 
+    public String[] getPathwayIds() {
+        return this.pathwayIds;
+    }
+
+    public void setPathwayIds(String[] pathwayIds) {
+        this.pathwayIds = pathwayIds;
+    }
+
     public String getEffectiveTime() {
         return this.effectiveTime;
     }
@@ -183,6 +213,14 @@ public class JobFamily {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public I18n[] getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(I18n[] description) {
+        this.description = description;
     }
 
     public ObjectFieldData[] getCustomFields() {
@@ -215,6 +253,11 @@ public class JobFamily {
          */
         private String parentId;
         /**
+         * 通道ID
+         * <p> 示例值：
+         */
+        private String[] pathwayIds;
+        /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
          */
@@ -229,6 +272,11 @@ public class JobFamily {
          * <p> 示例值：123456
          */
         private String code;
+        /**
+         * 描述
+         * <p> 示例值：
+         */
+        private I18n[] description;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -288,6 +336,19 @@ public class JobFamily {
 
 
         /**
+         * 通道ID
+         * <p> 示例值：
+         *
+         * @param pathwayIds
+         * @return
+         */
+        public Builder pathwayIds(String[] pathwayIds) {
+            this.pathwayIds = pathwayIds;
+            return this;
+        }
+
+
+        /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
          *
@@ -322,6 +383,19 @@ public class JobFamily {
          */
         public Builder code(String code) {
             this.code = code;
+            return this;
+        }
+
+
+        /**
+         * 描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(I18n[] description) {
+            this.description = description;
             return this;
         }
 

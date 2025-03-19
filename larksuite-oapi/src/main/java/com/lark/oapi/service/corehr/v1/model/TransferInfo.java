@@ -377,6 +377,18 @@ public class TransferInfo {
      */
     @SerializedName("target_position")
     private String targetPosition;
+    /**
+     * 原通道
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("original_pathway")
+    private String originalPathway;
+    /**
+     * 新通道
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("target_pathway")
+    private String targetPathway;
 
     // builder 开始
     public TransferInfo() {
@@ -673,6 +685,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         this.targetPosition = builder.targetPosition;
+        /**
+         * 原通道
+         * <p> 示例值：7289005963599693367
+         */
+        this.originalPathway = builder.originalPathway;
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693367
+         */
+        this.targetPathway = builder.targetPathway;
     }
 
     public static Builder newBuilder() {
@@ -1143,6 +1165,22 @@ public class TransferInfo {
         this.targetPosition = targetPosition;
     }
 
+    public String getOriginalPathway() {
+        return this.originalPathway;
+    }
+
+    public void setOriginalPathway(String originalPathway) {
+        this.originalPathway = originalPathway;
+    }
+
+    public String getTargetPathway() {
+        return this.targetPathway;
+    }
+
+    public void setTargetPathway(String targetPathway) {
+        this.targetPathway = targetPathway;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -1434,6 +1472,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         private String targetPosition;
+        /**
+         * 原通道
+         * <p> 示例值：7289005963599693367
+         */
+        private String originalPathway;
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693367
+         */
+        private String targetPathway;
 
         /**
          * 备注
@@ -2185,6 +2233,32 @@ public class TransferInfo {
          */
         public Builder targetPosition(String targetPosition) {
             this.targetPosition = targetPosition;
+            return this;
+        }
+
+
+        /**
+         * 原通道
+         * <p> 示例值：7289005963599693367
+         *
+         * @param originalPathway
+         * @return
+         */
+        public Builder originalPathway(String originalPathway) {
+            this.originalPathway = originalPathway;
+            return this;
+        }
+
+
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693367
+         *
+         * @param targetPathway
+         * @return
+         */
+        public Builder targetPathway(String targetPathway) {
+            this.targetPathway = targetPathway;
             return this;
         }
 

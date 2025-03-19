@@ -24,6 +24,7 @@ public class CreateJobSample {
                         .description(new I18n[]{})
                         .active(true)
                         .jobTitle(new I18n[]{})
+                        .pathwayId("4719519211875096301")
                         .jobFamilyIdList(new String[]{})
                         .jobLevelIdList(new String[]{})
                         .workingHoursTypeId("6890452208593372679")

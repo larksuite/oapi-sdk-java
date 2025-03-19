@@ -96,6 +96,12 @@ public class JobVersionData {
     @SerializedName("job_level_ids")
     private String[] jobLevelIds;
     /**
+     * 通道ID
+     * <p> 示例值：4719519211875096301
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
+    /**
      * 工时制度，引用WorkingHoursType的ID
      * <p> 示例值：6890452208593372679
      */
@@ -162,6 +168,11 @@ public class JobVersionData {
          * <p> 示例值：
          */
         this.jobLevelIds = builder.jobLevelIds;
+        /**
+         * 通道ID
+         * <p> 示例值：4719519211875096301
+         */
+        this.pathwayId = builder.pathwayId;
         /**
          * 工时制度，引用WorkingHoursType的ID
          * <p> 示例值：6890452208593372679
@@ -261,6 +272,14 @@ public class JobVersionData {
         this.jobLevelIds = jobLevelIds;
     }
 
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
     public String getWorkingHoursTypeId() {
         return this.workingHoursTypeId;
     }
@@ -325,6 +344,11 @@ public class JobVersionData {
          * <p> 示例值：
          */
         private String[] jobLevelIds;
+        /**
+         * 通道ID
+         * <p> 示例值：4719519211875096301
+         */
+        private String pathwayId;
         /**
          * 工时制度，引用WorkingHoursType的ID
          * <p> 示例值：6890452208593372679
@@ -470,6 +494,19 @@ public class JobVersionData {
          */
         public Builder jobLevelIds(String[] jobLevelIds) {
             this.jobLevelIds = jobLevelIds;
+            return this;
+        }
+
+
+        /**
+         * 通道ID
+         * <p> 示例值：4719519211875096301
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
             return this;
         }
 

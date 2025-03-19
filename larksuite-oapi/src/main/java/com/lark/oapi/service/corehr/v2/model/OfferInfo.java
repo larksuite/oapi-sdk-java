@@ -371,6 +371,12 @@ public class OfferInfo {
      */
     @SerializedName("work_station")
     private String workStation;
+    /**
+     * 通道
+     * <p> 示例值：7460865381179115052
+     */
+    @SerializedName("pathway")
+    private String pathway;
 
     // builder 开始
     public OfferInfo() {
@@ -662,6 +668,11 @@ public class OfferInfo {
          * <p> 示例值：5-1-2
          */
         this.workStation = builder.workStation;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        this.pathway = builder.pathway;
     }
 
     public static Builder newBuilder() {
@@ -1124,6 +1135,14 @@ public class OfferInfo {
         this.workStation = workStation;
     }
 
+    public String getPathway() {
+        return this.pathway;
+    }
+
+    public void setPathway(String pathway) {
+        this.pathway = pathway;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -1410,6 +1429,11 @@ public class OfferInfo {
          * <p> 示例值：5-1-2
          */
         private String workStation;
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         */
+        private String pathway;
 
         /**
          * Offer id
@@ -2148,6 +2172,19 @@ public class OfferInfo {
          */
         public Builder workStation(String workStation) {
             this.workStation = workStation;
+            return this;
+        }
+
+
+        /**
+         * 通道
+         * <p> 示例值：7460865381179115052
+         *
+         * @param pathway
+         * @return
+         */
+        public Builder pathway(String pathway) {
+            this.pathway = pathway;
             return this;
         }
 

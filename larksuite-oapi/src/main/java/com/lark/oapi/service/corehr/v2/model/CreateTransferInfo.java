@@ -227,6 +227,12 @@ public class CreateTransferInfo {
      */
     @SerializedName("is_transfer_with_workforce")
     private Boolean isTransferWithWorkforce;
+    /**
+     * 新通道
+     * <p> 示例值：7289005963599693368
+     */
+    @SerializedName("target_pathway")
+    private String targetPathway;
 
     // builder 开始
     public CreateTransferInfo() {
@@ -398,6 +404,11 @@ public class CreateTransferInfo {
          * <p> 示例值：false
          */
         this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693368
+         */
+        this.targetPathway = builder.targetPathway;
     }
 
     public static Builder newBuilder() {
@@ -668,6 +679,14 @@ public class CreateTransferInfo {
         this.isTransferWithWorkforce = isTransferWithWorkforce;
     }
 
+    public String getTargetPathway() {
+        return this.targetPathway;
+    }
+
+    public void setTargetPathway(String targetPathway) {
+        this.targetPathway = targetPathway;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -834,6 +853,11 @@ public class CreateTransferInfo {
          * <p> 示例值：false
          */
         private Boolean isTransferWithWorkforce;
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693368
+         */
+        private String targetPathway;
 
         /**
          * 备注
@@ -1260,6 +1284,19 @@ public class CreateTransferInfo {
          */
         public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
             this.isTransferWithWorkforce = isTransferWithWorkforce;
+            return this;
+        }
+
+
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693368
+         *
+         * @param targetPathway
+         * @return
+         */
+        public Builder targetPathway(String targetPathway) {
+            this.targetPathway = targetPathway;
             return this;
         }
 

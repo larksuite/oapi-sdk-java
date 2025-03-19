@@ -77,6 +77,12 @@ public class JobLevel {
      */
     @SerializedName("job_grade")
     private String[] jobGrade;
+    /**
+     * 通道 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("pathway_ids")
+    private String[] pathwayIds;
 
     // builder 开始
     public JobLevel() {
@@ -123,6 +129,11 @@ public class JobLevel {
          * <p> 示例值：
          */
         this.jobGrade = builder.jobGrade;
+        /**
+         * 通道 ID 列表
+         * <p> 示例值：
+         */
+        this.pathwayIds = builder.pathwayIds;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +204,14 @@ public class JobLevel {
         this.jobGrade = jobGrade;
     }
 
+    public String[] getPathwayIds() {
+        return this.pathwayIds;
+    }
+
+    public void setPathwayIds(String[] pathwayIds) {
+        this.pathwayIds = pathwayIds;
+    }
+
     public static class Builder {
         /**
          * 职级 ID
@@ -234,6 +253,11 @@ public class JobLevel {
          * <p> 示例值：
          */
         private String[] jobGrade;
+        /**
+         * 通道 ID 列表
+         * <p> 示例值：
+         */
+        private String[] pathwayIds;
 
         /**
          * 职级 ID
@@ -335,6 +359,19 @@ public class JobLevel {
          */
         public Builder jobGrade(String[] jobGrade) {
             this.jobGrade = jobGrade;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID 列表
+         * <p> 示例值：
+         *
+         * @param pathwayIds
+         * @return
+         */
+        public Builder pathwayIds(String[] pathwayIds) {
+            this.pathwayIds = pathwayIds;
             return this;
         }
 

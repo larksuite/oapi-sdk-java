@@ -119,6 +119,12 @@ public class ProfileSettingEmploymentRecord {
      */
     @SerializedName("position")
     private String position;
+    /**
+     * 通道ID
+     * <p> 示例值：6890452208593372684
+     */
+    @SerializedName("pathway")
+    private String pathway;
 
     // builder 开始
     public ProfileSettingEmploymentRecord() {
@@ -200,6 +206,11 @@ public class ProfileSettingEmploymentRecord {
          * <p> 示例值：6890452208593372684
          */
         this.position = builder.position;
+        /**
+         * 通道ID
+         * <p> 示例值：6890452208593372684
+         */
+        this.pathway = builder.pathway;
     }
 
     public static Builder newBuilder() {
@@ -326,6 +337,14 @@ public class ProfileSettingEmploymentRecord {
         this.position = position;
     }
 
+    public String getPathway() {
+        return this.pathway;
+    }
+
+    public void setPathway(String pathway) {
+        this.pathway = pathway;
+    }
+
     public static class Builder {
         /**
          * 人员类型 ID
@@ -402,6 +421,11 @@ public class ProfileSettingEmploymentRecord {
          * <p> 示例值：6890452208593372684
          */
         private String position;
+        /**
+         * 通道ID
+         * <p> 示例值：6890452208593372684
+         */
+        private String pathway;
 
         /**
          * 人员类型 ID
@@ -594,6 +618,19 @@ public class ProfileSettingEmploymentRecord {
          */
         public Builder position(String position) {
             this.position = position;
+            return this;
+        }
+
+
+        /**
+         * 通道ID
+         * <p> 示例值：6890452208593372684
+         *
+         * @param pathway
+         * @return
+         */
+        public Builder pathway(String pathway) {
+            this.pathway = pathway;
             return this;
         }
 

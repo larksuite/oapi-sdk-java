@@ -34,6 +34,12 @@ public class StartServiceTicketRespBody {
      */
     @SerializedName("chat_id")
     private String chatId;
+    /**
+     * ticket id
+     * <p> 示例值：7474857595946745884
+     */
+    @SerializedName("ticket_id")
+    private String ticketId;
 
     public String getChatId() {
         return this.chatId;
@@ -41,6 +47,14 @@ public class StartServiceTicketRespBody {
 
     public void setChatId(String chatId) {
         this.chatId = chatId;
+    }
+
+    public String getTicketId() {
+        return this.ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
 }

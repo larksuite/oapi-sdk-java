@@ -216,6 +216,12 @@ public class JobData {
     @SerializedName("position_id")
     private String positionId;
     /**
+     * 通道 ID
+     * <p> 示例值：6890452208593372671
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
+    /**
      * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
      * <p> 示例值：
      */
@@ -382,6 +388,11 @@ public class JobData {
          * <p> 示例值：6890452208593372679
          */
         this.positionId = builder.positionId;
+        /**
+         * 通道 ID
+         * <p> 示例值：6890452208593372671
+         */
+        this.pathwayId = builder.pathwayId;
         /**
          * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
          * <p> 示例值：
@@ -641,6 +652,14 @@ public class JobData {
         this.positionId = positionId;
     }
 
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
     public Enum getJobDataReason() {
         return this.jobDataReason;
     }
@@ -805,6 +824,11 @@ public class JobData {
          * <p> 示例值：6890452208593372679
          */
         private String positionId;
+        /**
+         * 通道 ID
+         * <p> 示例值：6890452208593372671
+         */
+        private String pathwayId;
         /**
          * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name = "job_data";  - custom_api_name = "job_data_reason"
          * <p> 示例值：
@@ -1210,6 +1234,19 @@ public class JobData {
          */
         public Builder positionId(String positionId) {
             this.positionId = positionId;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID
+         * <p> 示例值：6890452208593372671
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
             return this;
         }
 

@@ -414,6 +414,18 @@ public class TransferInfo {
     @SerializedName("target_social_security_city")
     private String targetSocialSecurityCity;
     /**
+     * 原通道
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("original_pathway")
+    private String originalPathway;
+    /**
+     * 新通道
+     * <p> 示例值：7289005963599693367
+     */
+    @SerializedName("target_pathway")
+    private String targetPathway;
+    /**
      * 编制随人员一起调整
      * <p> 示例值：false
      */
@@ -745,6 +757,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         this.targetSocialSecurityCity = builder.targetSocialSecurityCity;
+        /**
+         * 原通道
+         * <p> 示例值：7289005963599693367
+         */
+        this.originalPathway = builder.originalPathway;
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693367
+         */
+        this.targetPathway = builder.targetPathway;
         /**
          * 编制随人员一起调整
          * <p> 示例值：false
@@ -1268,6 +1290,22 @@ public class TransferInfo {
         this.targetSocialSecurityCity = targetSocialSecurityCity;
     }
 
+    public String getOriginalPathway() {
+        return this.originalPathway;
+    }
+
+    public void setOriginalPathway(String originalPathway) {
+        this.originalPathway = originalPathway;
+    }
+
+    public String getTargetPathway() {
+        return this.targetPathway;
+    }
+
+    public void setTargetPathway(String targetPathway) {
+        this.targetPathway = targetPathway;
+    }
+
     public Boolean getIsTransferWithWorkforce() {
         return this.isTransferWithWorkforce;
     }
@@ -1597,6 +1635,16 @@ public class TransferInfo {
          * <p> 示例值：7289005963599693367
          */
         private String targetSocialSecurityCity;
+        /**
+         * 原通道
+         * <p> 示例值：7289005963599693367
+         */
+        private String originalPathway;
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693367
+         */
+        private String targetPathway;
         /**
          * 编制随人员一起调整
          * <p> 示例值：false
@@ -2431,6 +2479,32 @@ public class TransferInfo {
          */
         public Builder targetSocialSecurityCity(String targetSocialSecurityCity) {
             this.targetSocialSecurityCity = targetSocialSecurityCity;
+            return this;
+        }
+
+
+        /**
+         * 原通道
+         * <p> 示例值：7289005963599693367
+         *
+         * @param originalPathway
+         * @return
+         */
+        public Builder originalPathway(String originalPathway) {
+            this.originalPathway = originalPathway;
+            return this;
+        }
+
+
+        /**
+         * 新通道
+         * <p> 示例值：7289005963599693367
+         *
+         * @param targetPathway
+         * @return
+         */
+        public Builder targetPathway(String targetPathway) {
+            this.targetPathway = targetPathway;
             return this;
         }
 

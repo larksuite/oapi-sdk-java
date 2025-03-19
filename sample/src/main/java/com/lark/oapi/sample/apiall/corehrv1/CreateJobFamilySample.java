@@ -22,8 +22,10 @@ public class CreateJobFamilySample {
                         .name(new I18n[]{})
                         .active(true)
                         .parentId("4698020757495316313")
+                        .pathwayIds(new String[]{})
                         .effectiveTime("2020-05-01 00:00:00")
                         .code("123456")
+                        .description(new I18n[]{})
                         .customFields(new ObjectFieldData[]{})
                         .build())
                 .build();

@@ -78,6 +78,12 @@ public class JobFamilyVersionData {
     @SerializedName("parent_job_family_id")
     private String parentJobFamilyId;
     /**
+     * 通道 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("pathway_ids")
+    private String[] pathwayIds;
+    /**
      * 编码
      * <p> 示例值：123456
      */
@@ -129,6 +135,11 @@ public class JobFamilyVersionData {
          * <p> 示例值：4698020757495316313
          */
         this.parentJobFamilyId = builder.parentJobFamilyId;
+        /**
+         * 通道 ID 列表
+         * <p> 示例值：
+         */
+        this.pathwayIds = builder.pathwayIds;
         /**
          * 编码
          * <p> 示例值：123456
@@ -204,6 +215,14 @@ public class JobFamilyVersionData {
         this.parentJobFamilyId = parentJobFamilyId;
     }
 
+    public String[] getPathwayIds() {
+        return this.pathwayIds;
+    }
+
+    public void setPathwayIds(String[] pathwayIds) {
+        this.pathwayIds = pathwayIds;
+    }
+
     public String getCode() {
         return this.code;
     }
@@ -253,6 +272,11 @@ public class JobFamilyVersionData {
          * <p> 示例值：4698020757495316313
          */
         private String parentJobFamilyId;
+        /**
+         * 通道 ID 列表
+         * <p> 示例值：
+         */
+        private String[] pathwayIds;
         /**
          * 编码
          * <p> 示例值：123456
@@ -359,6 +383,19 @@ public class JobFamilyVersionData {
          */
         public Builder parentJobFamilyId(String parentJobFamilyId) {
             this.parentJobFamilyId = parentJobFamilyId;
+            return this;
+        }
+
+
+        /**
+         * 通道 ID 列表
+         * <p> 示例值：
+         *
+         * @param pathwayIds
+         * @return
+         */
+        public Builder pathwayIds(String[] pathwayIds) {
+            this.pathwayIds = pathwayIds;
             return this;
         }
 

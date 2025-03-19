@@ -16,16 +16,16 @@ public class CreateTicketCustomizedFieldSample {
         // 创建请求对象
         CreateTicketCustomizedFieldReq req = CreateTicketCustomizedFieldReq.newBuilder()
                 .ticketCustomizedField(TicketCustomizedField.newBuilder()
-                        .helpdeskId("")
+                        .helpdeskId("7836004780707807251")
                         .keyName("")
                         .displayName("")
                         .position("")
                         .fieldType("")
                         .description("")
-                        .visible(false)
-                        .editable(false)
-                        .required(false)
-                        .dropdownAllowMultiple(false)
+                        .visible(true)
+                        .editable(true)
+                        .required(true)
+                        .dropdownAllowMultiple(true)
                         .build())
                 .build();
 

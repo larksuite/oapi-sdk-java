@@ -101,6 +101,12 @@ public class AilyMessage {
      */
     @SerializedName("status")
     private String status;
+    /**
+     * 推理内容
+     * <p> 示例值：推理内容
+     */
+    @SerializedName("reasoning_content")
+    private String reasoningContent;
 
     // builder 开始
     public AilyMessage() {
@@ -167,6 +173,11 @@ public class AilyMessage {
          * <p> 示例值：IN_PROGRESS
          */
         this.status = builder.status;
+        /**
+         * 推理内容
+         * <p> 示例值：推理内容
+         */
+        this.reasoningContent = builder.reasoningContent;
     }
 
     public static Builder newBuilder() {
@@ -269,6 +280,14 @@ public class AilyMessage {
         this.status = status;
     }
 
+    public String getReasoningContent() {
+        return this.reasoningContent;
+    }
+
+    public void setReasoningContent(String reasoningContent) {
+        this.reasoningContent = reasoningContent;
+    }
+
     public static class Builder {
         /**
          * 消息 ID
@@ -330,6 +349,11 @@ public class AilyMessage {
          * <p> 示例值：IN_PROGRESS
          */
         private String status;
+        /**
+         * 推理内容
+         * <p> 示例值：推理内容
+         */
+        private String reasoningContent;
 
         /**
          * 消息 ID
@@ -507,6 +531,19 @@ public class AilyMessage {
          */
         public Builder status(com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum status) {
             this.status = status.getValue();
+            return this;
+        }
+
+
+        /**
+         * 推理内容
+         * <p> 示例值：推理内容
+         *
+         * @param reasoningContent
+         * @return
+         */
+        public Builder reasoningContent(String reasoningContent) {
+            this.reasoningContent = reasoningContent;
             return this;
         }
 

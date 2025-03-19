@@ -39,7 +39,7 @@ public class ListTicketRespBody {
      * <p> 示例值：
      */
     @SerializedName("tickets")
-    private Ticket[] tickets;
+    private TicketV2[] tickets;
 
     public Integer getTotal() {
         return this.total;
@@ -49,11 +49,11 @@ public class ListTicketRespBody {
         this.total = total;
     }
 
-    public Ticket[] getTickets() {
+    public TicketV2[] getTickets() {
         return this.tickets;
     }
 
-    public void setTickets(Ticket[] tickets) {
+    public void setTickets(TicketV2[] tickets) {
         this.tickets = tickets;
     }
 

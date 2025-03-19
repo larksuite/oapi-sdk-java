@@ -54,6 +54,12 @@ public class JobFamily {
     @SerializedName("parent_id")
     private String parentId;
     /**
+     * 通道ID
+     * <p> 示例值：
+     */
+    @SerializedName("pathway_ids")
+    private String[] pathwayIds;
+    /**
      * 生效时间
      * <p> 示例值：2020-05-01 00:00:00
      */
@@ -109,6 +115,11 @@ public class JobFamily {
          * <p> 示例值：4698020757495316313
          */
         this.parentId = builder.parentId;
+        /**
+         * 通道ID
+         * <p> 示例值：
+         */
+        this.pathwayIds = builder.pathwayIds;
         /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
@@ -172,6 +183,14 @@ public class JobFamily {
         this.parentId = parentId;
     }
 
+    public String[] getPathwayIds() {
+        return this.pathwayIds;
+    }
+
+    public void setPathwayIds(String[] pathwayIds) {
+        this.pathwayIds = pathwayIds;
+    }
+
     public String getEffectiveTime() {
         return this.effectiveTime;
     }
@@ -233,6 +252,11 @@ public class JobFamily {
          * <p> 示例值：4698020757495316313
          */
         private String parentId;
+        /**
+         * 通道ID
+         * <p> 示例值：
+         */
+        private String[] pathwayIds;
         /**
          * 生效时间
          * <p> 示例值：2020-05-01 00:00:00
@@ -307,6 +331,19 @@ public class JobFamily {
          */
         public Builder parentId(String parentId) {
             this.parentId = parentId;
+            return this;
+        }
+
+
+        /**
+         * 通道ID
+         * <p> 示例值：
+         *
+         * @param pathwayIds
+         * @return
+         */
+        public Builder pathwayIds(String[] pathwayIds) {
+            this.pathwayIds = pathwayIds;
             return this;
         }
 

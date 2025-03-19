@@ -66,6 +66,12 @@ public class Job {
     @SerializedName("job_title")
     private I18n[] jobTitle;
     /**
+     * 通道ID
+     * <p> 示例值：4719519211875096301
+     */
+    @SerializedName("pathway_id")
+    private String pathwayId;
+    /**
      * 序列
      * <p> 示例值：
      */
@@ -137,6 +143,11 @@ public class Job {
          * <p> 示例值：
          */
         this.jobTitle = builder.jobTitle;
+        /**
+         * 通道ID
+         * <p> 示例值：4719519211875096301
+         */
+        this.pathwayId = builder.pathwayId;
         /**
          * 序列
          * <p> 示例值：
@@ -221,6 +232,14 @@ public class Job {
         this.jobTitle = jobTitle;
     }
 
+    public String getPathwayId() {
+        return this.pathwayId;
+    }
+
+    public void setPathwayId(String pathwayId) {
+        this.pathwayId = pathwayId;
+    }
+
     public String[] getJobFamilyIdList() {
         return this.jobFamilyIdList;
     }
@@ -300,6 +319,11 @@ public class Job {
          * <p> 示例值：
          */
         private I18n[] jobTitle;
+        /**
+         * 通道ID
+         * <p> 示例值：4719519211875096301
+         */
+        private String pathwayId;
         /**
          * 序列
          * <p> 示例值：
@@ -405,6 +429,19 @@ public class Job {
          */
         public Builder jobTitle(I18n[] jobTitle) {
             this.jobTitle = jobTitle;
+            return this;
+        }
+
+
+        /**
+         * 通道ID
+         * <p> 示例值：4719519211875096301
+         *
+         * @param pathwayId
+         * @return
+         */
+        public Builder pathwayId(String pathwayId) {
+            this.pathwayId = pathwayId;
             return this;
         }
 

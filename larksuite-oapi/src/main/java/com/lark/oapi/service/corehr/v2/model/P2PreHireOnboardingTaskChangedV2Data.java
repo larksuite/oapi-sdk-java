@@ -58,6 +58,12 @@ public class P2PreHireOnboardingTaskChangedV2Data {
      */
     @SerializedName("onboarding_flow_id")
     private String onboardingFlowId;
+    /**
+     * 流程信息
+     * <p> 示例值：
+     */
+    @SerializedName("flow_info")
+    private OnboardingFlow flowInfo;
 
     public String getTenantId() {
         return this.tenantId;
@@ -97,6 +103,14 @@ public class P2PreHireOnboardingTaskChangedV2Data {
 
     public void setOnboardingFlowId(String onboardingFlowId) {
         this.onboardingFlowId = onboardingFlowId;
+    }
+
+    public OnboardingFlow getFlowInfo() {
+        return this.flowInfo;
+    }
+
+    public void setFlowInfo(OnboardingFlow flowInfo) {
+        this.flowInfo = flowInfo;
     }
 
 }

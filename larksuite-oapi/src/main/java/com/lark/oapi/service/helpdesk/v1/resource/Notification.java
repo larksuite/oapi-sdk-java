@@ -334,7 +334,7 @@ public class Notification {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/helpdesk/v1/notifications/:notification_id"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User)
                 , req);
 
         // 反序列化
@@ -367,7 +367,7 @@ public class Notification {
         // 发起请求
         RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
                 , "/open-apis/helpdesk/v1/notifications/:notification_id"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                , Sets.newHashSet(AccessTokenType.User)
                 , req);
 
         // 反序列化

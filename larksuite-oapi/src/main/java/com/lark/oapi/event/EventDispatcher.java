@@ -48,6 +48,7 @@ import com.lark.oapi.service.lingo.LingoService;
 import com.lark.oapi.service.mail.MailService;
 import com.lark.oapi.service.mdm.MdmService;
 import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.minutes.MinutesService;
 import com.lark.oapi.service.moments.MomentsService;
 import com.lark.oapi.service.okr.OkrService;
 import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
@@ -2401,6 +2402,7 @@ public class EventDispatcher implements IHandler {
             eventType2EventHandler.put("meeting_room.meeting_room.updated_v1", handler);
             return this;
         }
+
 
         /**
          * <p> ,
