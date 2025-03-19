@@ -11,6 +11,8 @@ public class URLPreviewGetInline {
     private Map<String, String> i18nTitle;
     @SerializedName("image_key")
     private String imageKey;
+    @SerializedName("url")
+    private URLPreviewGetInlineURL url;
 
     public String getTitle() {
         return this.title;
@@ -34,5 +36,13 @@ public class URLPreviewGetInline {
 
     public void setImageKey(String imageKey) {
         this.imageKey = imageKey;
+    }
+
+    public URLPreviewGetInlineURL getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(URLPreviewGetInlineURL url) {
+        this.url = url;
     }
 }
