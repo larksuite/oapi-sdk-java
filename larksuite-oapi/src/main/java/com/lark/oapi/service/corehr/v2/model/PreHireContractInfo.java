@@ -59,6 +59,12 @@ public class PreHireContractInfo {
      */
     @SerializedName("signing_type")
     private String signingType;
+    /**
+     * 合同文件
+     * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
+     */
+    @SerializedName("contract_file_ids")
+    private String[] contractFileIds;
 
     // builder 开始
     public PreHireContractInfo() {
@@ -90,6 +96,11 @@ public class PreHireContractInfo {
          * <p> 示例值：renewed
          */
         this.signingType = builder.signingType;
+        /**
+         * 合同文件
+         * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
+         */
+        this.contractFileIds = builder.contractFileIds;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class PreHireContractInfo {
         this.signingType = signingType;
     }
 
+    public String[] getContractFileIds() {
+        return this.contractFileIds;
+    }
+
+    public void setContractFileIds(String[] contractFileIds) {
+        this.contractFileIds = contractFileIds;
+    }
+
     public static class Builder {
         /**
          * 合同开始日期
@@ -162,6 +181,11 @@ public class PreHireContractInfo {
          * <p> 示例值：renewed
          */
         private String signingType;
+        /**
+         * 合同文件
+         * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
+         */
+        private String[] contractFileIds;
 
         /**
          * 合同开始日期
@@ -224,6 +248,19 @@ public class PreHireContractInfo {
          */
         public Builder signingType(String signingType) {
             this.signingType = signingType;
+            return this;
+        }
+
+
+        /**
+         * 合同文件
+         * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
+         *
+         * @param contractFileIds
+         * @return
+         */
+        public Builder contractFileIds(String[] contractFileIds) {
+            this.contractFileIds = contractFileIds;
             return this;
         }
 

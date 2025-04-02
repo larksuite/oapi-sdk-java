@@ -31,13 +31,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class TimeRange {
     /**
      * 时间范围的起始时间戳
-     * <p> 示例值：123345
+     * <p> 示例值：1742348544
      */
     @SerializedName("start")
     private Integer start;
     /**
      * 时间范围的截止时间戳
-     * <p> 示例值：123456
+     * <p> 示例值：1742348544
      */
     @SerializedName("end")
     private Integer end;
@@ -49,12 +49,12 @@ public class TimeRange {
     public TimeRange(Builder builder) {
         /**
          * 时间范围的起始时间戳
-         * <p> 示例值：123345
+         * <p> 示例值：1742348544
          */
         this.start = builder.start;
         /**
          * 时间范围的截止时间戳
-         * <p> 示例值：123456
+         * <p> 示例值：1742348544
          */
         this.end = builder.end;
     }
@@ -82,18 +82,18 @@ public class TimeRange {
     public static class Builder {
         /**
          * 时间范围的起始时间戳
-         * <p> 示例值：123345
+         * <p> 示例值：1742348544
          */
         private Integer start;
         /**
          * 时间范围的截止时间戳
-         * <p> 示例值：123456
+         * <p> 示例值：1742348544
          */
         private Integer end;
 
         /**
          * 时间范围的起始时间戳
-         * <p> 示例值：123345
+         * <p> 示例值：1742348544
          *
          * @param start
          * @return
@@ -106,7 +106,7 @@ public class TimeRange {
 
         /**
          * 时间范围的截止时间戳
-         * <p> 示例值：123456
+         * <p> 示例值：1742348544
          *
          * @param end
          * @return

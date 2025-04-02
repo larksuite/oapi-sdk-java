@@ -336,6 +336,54 @@ public class TransferInfo {
     @SerializedName("target_cost_center_rate")
     private JobDataCostCenter[] targetCostCenterRate;
     /**
+     * 新分摊失效时间
+     * <p> 示例值：2022-03-01
+     */
+    @SerializedName("target_allocation_expiration_time")
+    private String targetAllocationExpirationTime;
+    /**
+     * 原分摊失效时间
+     * <p> 示例值：2022-03-01
+     */
+    @SerializedName("original_allocation_expiration_time")
+    private String originalAllocationExpirationTime;
+    /**
+     * 新分摊生效时间
+     * <p> 示例值：2022-03-01
+     */
+    @SerializedName("target_allocation_effective_time")
+    private String targetAllocationEffectiveTime;
+    /**
+     * 原分摊生效时间
+     * <p> 示例值：2022-03-01
+     */
+    @SerializedName("original_allocation_effective_time")
+    private String originalAllocationEffectiveTime;
+    /**
+     * 原默认成本中心
+     * <p> 示例值：7380264299728602661
+     */
+    @SerializedName("original_default_cost_center")
+    private String originalDefaultCostCenter;
+    /**
+     * 新默认成本中心
+     * <p> 示例值：7380264299728602661
+     */
+    @SerializedName("target_default_cost_center")
+    private String targetDefaultCostCenter;
+    /**
+     * 原默认成本中心是否继承
+     * <p> 示例值：
+     */
+    @SerializedName("original_is_default_cost_center_inherited")
+    private Boolean originalIsDefaultCostCenterInherited;
+    /**
+     * 新默认成本中心是否继承
+     * <p> 示例值：
+     */
+    @SerializedName("target_is_default_cost_center_inherited")
+    private Boolean targetIsDefaultCostCenterInherited;
+    /**
      * 原工作信息
      * <p> 示例值：
      */
@@ -692,6 +740,46 @@ public class TransferInfo {
          * <p> 示例值：
          */
         this.targetCostCenterRate = builder.targetCostCenterRate;
+        /**
+         * 新分摊失效时间
+         * <p> 示例值：2022-03-01
+         */
+        this.targetAllocationExpirationTime = builder.targetAllocationExpirationTime;
+        /**
+         * 原分摊失效时间
+         * <p> 示例值：2022-03-01
+         */
+        this.originalAllocationExpirationTime = builder.originalAllocationExpirationTime;
+        /**
+         * 新分摊生效时间
+         * <p> 示例值：2022-03-01
+         */
+        this.targetAllocationEffectiveTime = builder.targetAllocationEffectiveTime;
+        /**
+         * 原分摊生效时间
+         * <p> 示例值：2022-03-01
+         */
+        this.originalAllocationEffectiveTime = builder.originalAllocationEffectiveTime;
+        /**
+         * 原默认成本中心
+         * <p> 示例值：7380264299728602661
+         */
+        this.originalDefaultCostCenter = builder.originalDefaultCostCenter;
+        /**
+         * 新默认成本中心
+         * <p> 示例值：7380264299728602661
+         */
+        this.targetDefaultCostCenter = builder.targetDefaultCostCenter;
+        /**
+         * 原默认成本中心是否继承
+         * <p> 示例值：
+         */
+        this.originalIsDefaultCostCenterInherited = builder.originalIsDefaultCostCenterInherited;
+        /**
+         * 新默认成本中心是否继承
+         * <p> 示例值：
+         */
+        this.targetIsDefaultCostCenterInherited = builder.targetIsDefaultCostCenterInherited;
         /**
          * 原工作信息
          * <p> 示例值：
@@ -1186,6 +1274,70 @@ public class TransferInfo {
         this.targetCostCenterRate = targetCostCenterRate;
     }
 
+    public String getTargetAllocationExpirationTime() {
+        return this.targetAllocationExpirationTime;
+    }
+
+    public void setTargetAllocationExpirationTime(String targetAllocationExpirationTime) {
+        this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+    }
+
+    public String getOriginalAllocationExpirationTime() {
+        return this.originalAllocationExpirationTime;
+    }
+
+    public void setOriginalAllocationExpirationTime(String originalAllocationExpirationTime) {
+        this.originalAllocationExpirationTime = originalAllocationExpirationTime;
+    }
+
+    public String getTargetAllocationEffectiveTime() {
+        return this.targetAllocationEffectiveTime;
+    }
+
+    public void setTargetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
+        this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+    }
+
+    public String getOriginalAllocationEffectiveTime() {
+        return this.originalAllocationEffectiveTime;
+    }
+
+    public void setOriginalAllocationEffectiveTime(String originalAllocationEffectiveTime) {
+        this.originalAllocationEffectiveTime = originalAllocationEffectiveTime;
+    }
+
+    public String getOriginalDefaultCostCenter() {
+        return this.originalDefaultCostCenter;
+    }
+
+    public void setOriginalDefaultCostCenter(String originalDefaultCostCenter) {
+        this.originalDefaultCostCenter = originalDefaultCostCenter;
+    }
+
+    public String getTargetDefaultCostCenter() {
+        return this.targetDefaultCostCenter;
+    }
+
+    public void setTargetDefaultCostCenter(String targetDefaultCostCenter) {
+        this.targetDefaultCostCenter = targetDefaultCostCenter;
+    }
+
+    public Boolean getOriginalIsDefaultCostCenterInherited() {
+        return this.originalIsDefaultCostCenterInherited;
+    }
+
+    public void setOriginalIsDefaultCostCenterInherited(Boolean originalIsDefaultCostCenterInherited) {
+        this.originalIsDefaultCostCenterInherited = originalIsDefaultCostCenterInherited;
+    }
+
+    public Boolean getTargetIsDefaultCostCenterInherited() {
+        return this.targetIsDefaultCostCenterInherited;
+    }
+
+    public void setTargetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
+        this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
+    }
+
     public TranferEmploymentInfo getOriginalEmploymentChange() {
         return this.originalEmploymentChange;
     }
@@ -1570,6 +1722,46 @@ public class TransferInfo {
          * <p> 示例值：
          */
         private JobDataCostCenter[] targetCostCenterRate;
+        /**
+         * 新分摊失效时间
+         * <p> 示例值：2022-03-01
+         */
+        private String targetAllocationExpirationTime;
+        /**
+         * 原分摊失效时间
+         * <p> 示例值：2022-03-01
+         */
+        private String originalAllocationExpirationTime;
+        /**
+         * 新分摊生效时间
+         * <p> 示例值：2022-03-01
+         */
+        private String targetAllocationEffectiveTime;
+        /**
+         * 原分摊生效时间
+         * <p> 示例值：2022-03-01
+         */
+        private String originalAllocationEffectiveTime;
+        /**
+         * 原默认成本中心
+         * <p> 示例值：7380264299728602661
+         */
+        private String originalDefaultCostCenter;
+        /**
+         * 新默认成本中心
+         * <p> 示例值：7380264299728602661
+         */
+        private String targetDefaultCostCenter;
+        /**
+         * 原默认成本中心是否继承
+         * <p> 示例值：
+         */
+        private Boolean originalIsDefaultCostCenterInherited;
+        /**
+         * 新默认成本中心是否继承
+         * <p> 示例值：
+         */
+        private Boolean targetIsDefaultCostCenterInherited;
         /**
          * 原工作信息
          * <p> 示例值：
@@ -2310,6 +2502,110 @@ public class TransferInfo {
          */
         public Builder targetCostCenterRate(JobDataCostCenter[] targetCostCenterRate) {
             this.targetCostCenterRate = targetCostCenterRate;
+            return this;
+        }
+
+
+        /**
+         * 新分摊失效时间
+         * <p> 示例值：2022-03-01
+         *
+         * @param targetAllocationExpirationTime
+         * @return
+         */
+        public Builder targetAllocationExpirationTime(String targetAllocationExpirationTime) {
+            this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+            return this;
+        }
+
+
+        /**
+         * 原分摊失效时间
+         * <p> 示例值：2022-03-01
+         *
+         * @param originalAllocationExpirationTime
+         * @return
+         */
+        public Builder originalAllocationExpirationTime(String originalAllocationExpirationTime) {
+            this.originalAllocationExpirationTime = originalAllocationExpirationTime;
+            return this;
+        }
+
+
+        /**
+         * 新分摊生效时间
+         * <p> 示例值：2022-03-01
+         *
+         * @param targetAllocationEffectiveTime
+         * @return
+         */
+        public Builder targetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
+            this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+            return this;
+        }
+
+
+        /**
+         * 原分摊生效时间
+         * <p> 示例值：2022-03-01
+         *
+         * @param originalAllocationEffectiveTime
+         * @return
+         */
+        public Builder originalAllocationEffectiveTime(String originalAllocationEffectiveTime) {
+            this.originalAllocationEffectiveTime = originalAllocationEffectiveTime;
+            return this;
+        }
+
+
+        /**
+         * 原默认成本中心
+         * <p> 示例值：7380264299728602661
+         *
+         * @param originalDefaultCostCenter
+         * @return
+         */
+        public Builder originalDefaultCostCenter(String originalDefaultCostCenter) {
+            this.originalDefaultCostCenter = originalDefaultCostCenter;
+            return this;
+        }
+
+
+        /**
+         * 新默认成本中心
+         * <p> 示例值：7380264299728602661
+         *
+         * @param targetDefaultCostCenter
+         * @return
+         */
+        public Builder targetDefaultCostCenter(String targetDefaultCostCenter) {
+            this.targetDefaultCostCenter = targetDefaultCostCenter;
+            return this;
+        }
+
+
+        /**
+         * 原默认成本中心是否继承
+         * <p> 示例值：
+         *
+         * @param originalIsDefaultCostCenterInherited
+         * @return
+         */
+        public Builder originalIsDefaultCostCenterInherited(Boolean originalIsDefaultCostCenterInherited) {
+            this.originalIsDefaultCostCenterInherited = originalIsDefaultCostCenterInherited;
+            return this;
+        }
+
+
+        /**
+         * 新默认成本中心是否继承
+         * <p> 示例值：
+         *
+         * @param targetIsDefaultCostCenterInherited
+         * @return
+         */
+        public Builder targetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
+            this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
             return this;
         }
 

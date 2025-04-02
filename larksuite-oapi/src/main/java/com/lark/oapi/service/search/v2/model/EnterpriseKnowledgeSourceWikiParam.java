@@ -46,7 +46,7 @@ public class EnterpriseKnowledgeSourceWikiParam {
      * <p> 示例值：
      */
     @SerializedName("reject")
-    private KnowledgeSourceWikiFilter reject;
+    private KnowledgeSourceWikiReject reject;
 
     // builder 开始
     public EnterpriseKnowledgeSourceWikiParam() {
@@ -90,11 +90,11 @@ public class EnterpriseKnowledgeSourceWikiParam {
         this.filter = filter;
     }
 
-    public KnowledgeSourceWikiFilter getReject() {
+    public KnowledgeSourceWikiReject getReject() {
         return this.reject;
     }
 
-    public void setReject(KnowledgeSourceWikiFilter reject) {
+    public void setReject(KnowledgeSourceWikiReject reject) {
         this.reject = reject;
     }
 
@@ -113,7 +113,7 @@ public class EnterpriseKnowledgeSourceWikiParam {
          * reject
          * <p> 示例值：
          */
-        private KnowledgeSourceWikiFilter reject;
+        private KnowledgeSourceWikiReject reject;
 
         /**
          * searchable
@@ -148,7 +148,7 @@ public class EnterpriseKnowledgeSourceWikiParam {
          * @param reject
          * @return
          */
-        public Builder reject(KnowledgeSourceWikiFilter reject) {
+        public Builder reject(KnowledgeSourceWikiReject reject) {
             this.reject = reject;
             return this;
         }

@@ -14,7 +14,7 @@
 package com.lark.oapi.service.attendance.v1.enums;
 
 /**
- * 疑似作弊打卡时的处理方式
+ * 疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填
  */
 public enum AntiCheatConfigSuspectedCheatHandleMethodEnum {
     USE_FACE_PUNCH(1), // 使用人脸识别打卡

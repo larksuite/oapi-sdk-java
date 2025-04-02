@@ -18,9 +18,10 @@ package com.lark.oapi.service.drive.v1.enums;
  */
 public enum ListFileCommentFileTypeEnum {
     DOC("doc"), // 文档
+    DOCX("docx"), // 新版文档
     SHEET("sheet"), // 表格
     FILE("file"), // 文件
-    DOCX("docx"), // 新版文档
+    SLIDES("slides"), // 幻灯片
     ;
     private String value;
 

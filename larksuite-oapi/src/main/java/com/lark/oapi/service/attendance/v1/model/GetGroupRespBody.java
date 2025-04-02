@@ -209,6 +209,12 @@ public class GetGroupRespBody {
     @SerializedName("hide_staff_punch_time")
     private Boolean hideStaffPunchTime;
     /**
+     * 是否隐藏打卡规则
+     * <p> 示例值：false
+     */
+    @SerializedName("hide_clock_in_rule")
+    private Boolean hideClockInRule;
+    /**
      * 是否开启人脸打卡
      * <p> 示例值：true
      */
@@ -692,6 +698,14 @@ public class GetGroupRespBody {
 
     public void setHideStaffPunchTime(Boolean hideStaffPunchTime) {
         this.hideStaffPunchTime = hideStaffPunchTime;
+    }
+
+    public Boolean getHideClockInRule() {
+        return this.hideClockInRule;
+    }
+
+    public void setHideClockInRule(Boolean hideClockInRule) {
+        this.hideClockInRule = hideClockInRule;
     }
 
     public Boolean getFacePunch() {

@@ -71,6 +71,18 @@ public class ProfileSettingEmploymentInfo {
      */
     @SerializedName("seniority_adjust_informations")
     private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
+    /**
+     * 默认成本中心
+     * <p> 示例值：
+     */
+    @SerializedName("default_cost_center")
+    private DefaultCostCenterRecord defaultCostCenter;
+    /**
+     * 成本分摊
+     * <p> 示例值：
+     */
+    @SerializedName("cost_allocation")
+    private CostAllocation costAllocation;
 
     // builder 开始
     public ProfileSettingEmploymentInfo() {
@@ -112,6 +124,16 @@ public class ProfileSettingEmploymentInfo {
          * <p> 示例值：
          */
         this.seniorityAdjustInformations = builder.seniorityAdjustInformations;
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
+        this.defaultCostCenter = builder.defaultCostCenter;
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
+        this.costAllocation = builder.costAllocation;
     }
 
     public static Builder newBuilder() {
@@ -174,6 +196,22 @@ public class ProfileSettingEmploymentInfo {
         this.seniorityAdjustInformations = seniorityAdjustInformations;
     }
 
+    public DefaultCostCenterRecord getDefaultCostCenter() {
+        return this.defaultCostCenter;
+    }
+
+    public void setDefaultCostCenter(DefaultCostCenterRecord defaultCostCenter) {
+        this.defaultCostCenter = defaultCostCenter;
+    }
+
+    public CostAllocation getCostAllocation() {
+        return this.costAllocation;
+    }
+
+    public void setCostAllocation(CostAllocation costAllocation) {
+        this.costAllocation = costAllocation;
+    }
+
     public static class Builder {
         /**
          * 基本信息
@@ -210,6 +248,16 @@ public class ProfileSettingEmploymentInfo {
          * <p> 示例值：
          */
         private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
+        private DefaultCostCenterRecord defaultCostCenter;
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
+        private CostAllocation costAllocation;
 
         /**
          * 基本信息
@@ -298,6 +346,32 @@ public class ProfileSettingEmploymentInfo {
          */
         public Builder seniorityAdjustInformations(SeniorityAdjustInformationEdit[] seniorityAdjustInformations) {
             this.seniorityAdjustInformations = seniorityAdjustInformations;
+            return this;
+        }
+
+
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         *
+         * @param defaultCostCenter
+         * @return
+         */
+        public Builder defaultCostCenter(DefaultCostCenterRecord defaultCostCenter) {
+            this.defaultCostCenter = defaultCostCenter;
+            return this;
+        }
+
+
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         *
+         * @param costAllocation
+         * @return
+         */
+        public Builder costAllocation(CostAllocation costAllocation) {
+            this.costAllocation = costAllocation;
             return this;
         }
 

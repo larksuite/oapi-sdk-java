@@ -64,6 +64,8 @@ public enum BlockBlockTypeEnum {
     AGENDAITEMTITLE(46), // 议程项标题 Block
     AGENDAITEMCONTENT(47), // 议程项内容 Block
     LINKPREVIEW(48), // 链接预览 Block
+    SOURCESYNCED(49), // 源同步块
+    REFERENCESYNCED(50), // 引用同步块
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

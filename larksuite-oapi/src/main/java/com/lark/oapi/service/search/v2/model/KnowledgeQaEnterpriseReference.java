@@ -188,6 +188,18 @@ public class KnowledgeQaEnterpriseReference {
             return this;
         }
 
+        /**
+         * source_type
+         * <p> 示例值：1
+         *
+         * @param sourceType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum}
+         * @return
+         */
+        public Builder sourceType(com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum sourceType) {
+            this.sourceType = sourceType.getValue();
+            return this;
+        }
+
 
         /**
          * title

@@ -20,6 +20,7 @@ public class ListFileSample {
                 .folderToken("fldbcO1UuPz8VwnpPx5a9abcef")
                 .orderBy("EditedTime")
                 .direction("DESC")
+                .option("get_all_children_unsort")
                 .userIdType("user_id")
                 .build();
 

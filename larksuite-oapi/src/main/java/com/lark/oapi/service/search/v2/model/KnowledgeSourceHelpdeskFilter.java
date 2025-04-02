@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceHelpdeskFilter {
     /**
-     * helpdesk_ids
+     * 服务台 ID 列表
      * <p> 示例值：
      */
     @SerializedName("helpdesk_ids")
@@ -42,7 +42,7 @@ public class KnowledgeSourceHelpdeskFilter {
 
     public KnowledgeSourceHelpdeskFilter(Builder builder) {
         /**
-         * helpdesk_ids
+         * 服务台 ID 列表
          * <p> 示例值：
          */
         this.helpdeskIds = builder.helpdeskIds;
@@ -62,13 +62,13 @@ public class KnowledgeSourceHelpdeskFilter {
 
     public static class Builder {
         /**
-         * helpdesk_ids
+         * 服务台 ID 列表
          * <p> 示例值：
          */
         private String[] helpdeskIds;
 
         /**
-         * helpdesk_ids
+         * 服务台 ID 列表
          * <p> 示例值：
          *
          * @param helpdeskIds

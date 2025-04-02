@@ -353,6 +353,18 @@ public class Block {
      */
     @SerializedName("link_preview")
     private LinkPreview linkPreview;
+    /**
+     * 源同步块
+     * <p> 示例值：
+     */
+    @SerializedName("source_synced")
+    private SourceSynced sourceSynced;
+    /**
+     * 引用同步块
+     * <p> 示例值：
+     */
+    @SerializedName("reference_synced")
+    private ReferenceSynced referenceSynced;
 
     // builder 开始
     public Block() {
@@ -629,6 +641,16 @@ public class Block {
          * <p> 示例值：
          */
         this.linkPreview = builder.linkPreview;
+        /**
+         * 源同步块
+         * <p> 示例值：
+         */
+        this.sourceSynced = builder.sourceSynced;
+        /**
+         * 引用同步块
+         * <p> 示例值：
+         */
+        this.referenceSynced = builder.referenceSynced;
     }
 
     public static Builder newBuilder() {
@@ -1067,6 +1089,22 @@ public class Block {
         this.linkPreview = linkPreview;
     }
 
+    public SourceSynced getSourceSynced() {
+        return this.sourceSynced;
+    }
+
+    public void setSourceSynced(SourceSynced sourceSynced) {
+        this.sourceSynced = sourceSynced;
+    }
+
+    public ReferenceSynced getReferenceSynced() {
+        return this.referenceSynced;
+    }
+
+    public void setReferenceSynced(ReferenceSynced referenceSynced) {
+        this.referenceSynced = referenceSynced;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1338,6 +1376,16 @@ public class Block {
          * <p> 示例值：
          */
         private LinkPreview linkPreview;
+        /**
+         * 源同步块
+         * <p> 示例值：
+         */
+        private SourceSynced sourceSynced;
+        /**
+         * 引用同步块
+         * <p> 示例值：
+         */
+        private ReferenceSynced referenceSynced;
 
         /**
          * Block 唯一标识
@@ -2049,6 +2097,32 @@ public class Block {
          */
         public Builder linkPreview(LinkPreview linkPreview) {
             this.linkPreview = linkPreview;
+            return this;
+        }
+
+
+        /**
+         * 源同步块
+         * <p> 示例值：
+         *
+         * @param sourceSynced
+         * @return
+         */
+        public Builder sourceSynced(SourceSynced sourceSynced) {
+            this.sourceSynced = sourceSynced;
+            return this;
+        }
+
+
+        /**
+         * 引用同步块
+         * <p> 示例值：
+         *
+         * @param referenceSynced
+         * @return
+         */
+        public Builder referenceSynced(ReferenceSynced referenceSynced) {
+            this.referenceSynced = referenceSynced;
             return this;
         }
 

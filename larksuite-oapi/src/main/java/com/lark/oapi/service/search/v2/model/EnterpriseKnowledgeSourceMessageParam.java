@@ -46,7 +46,7 @@ public class EnterpriseKnowledgeSourceMessageParam {
      * <p> 示例值：
      */
     @SerializedName("reject")
-    private KnowledgeSourceMessageRejectFilter reject;
+    private KnowledgeSourceMessageReject reject;
 
     // builder 开始
     public EnterpriseKnowledgeSourceMessageParam() {
@@ -90,11 +90,11 @@ public class EnterpriseKnowledgeSourceMessageParam {
         this.filter = filter;
     }
 
-    public KnowledgeSourceMessageRejectFilter getReject() {
+    public KnowledgeSourceMessageReject getReject() {
         return this.reject;
     }
 
-    public void setReject(KnowledgeSourceMessageRejectFilter reject) {
+    public void setReject(KnowledgeSourceMessageReject reject) {
         this.reject = reject;
     }
 
@@ -113,7 +113,7 @@ public class EnterpriseKnowledgeSourceMessageParam {
          * reject
          * <p> 示例值：
          */
-        private KnowledgeSourceMessageRejectFilter reject;
+        private KnowledgeSourceMessageReject reject;
 
         /**
          * searchable
@@ -148,7 +148,7 @@ public class EnterpriseKnowledgeSourceMessageParam {
          * @param reject
          * @return
          */
-        public Builder reject(KnowledgeSourceMessageRejectFilter reject) {
+        public Builder reject(KnowledgeSourceMessageReject reject) {
             this.reject = reject;
             return this;
         }

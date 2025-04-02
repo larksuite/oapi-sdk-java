@@ -30,19 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceMessageFilter {
     /**
-     * message_ids
-     * <p> 示例值：
-     */
-    @SerializedName("message_ids")
-    private String[] messageIds;
-    /**
-     * chat_ids
+     * 会话 ID 列表
      * <p> 示例值：
      */
     @SerializedName("chat_ids")
     private String[] chatIds;
     /**
-     * time_range
+     * 时间范围
      * <p> 示例值：
      */
     @SerializedName("time_range")
@@ -54,17 +48,12 @@ public class KnowledgeSourceMessageFilter {
 
     public KnowledgeSourceMessageFilter(Builder builder) {
         /**
-         * message_ids
-         * <p> 示例值：
-         */
-        this.messageIds = builder.messageIds;
-        /**
-         * chat_ids
+         * 会话 ID 列表
          * <p> 示例值：
          */
         this.chatIds = builder.chatIds;
         /**
-         * time_range
+         * 时间范围
          * <p> 示例值：
          */
         this.timeRange = builder.timeRange;
@@ -72,14 +61,6 @@ public class KnowledgeSourceMessageFilter {
 
     public static Builder newBuilder() {
         return new Builder();
-    }
-
-    public String[] getMessageIds() {
-        return this.messageIds;
-    }
-
-    public void setMessageIds(String[] messageIds) {
-        this.messageIds = messageIds;
     }
 
     public String[] getChatIds() {
@@ -100,36 +81,18 @@ public class KnowledgeSourceMessageFilter {
 
     public static class Builder {
         /**
-         * message_ids
-         * <p> 示例值：
-         */
-        private String[] messageIds;
-        /**
-         * chat_ids
+         * 会话 ID 列表
          * <p> 示例值：
          */
         private String[] chatIds;
         /**
-         * time_range
+         * 时间范围
          * <p> 示例值：
          */
         private TimeRange timeRange;
 
         /**
-         * message_ids
-         * <p> 示例值：
-         *
-         * @param messageIds
-         * @return
-         */
-        public Builder messageIds(String[] messageIds) {
-            this.messageIds = messageIds;
-            return this;
-        }
-
-
-        /**
-         * chat_ids
+         * 会话 ID 列表
          * <p> 示例值：
          *
          * @param chatIds
@@ -142,7 +105,7 @@ public class KnowledgeSourceMessageFilter {
 
 
         /**
-         * time_range
+         * 时间范围
          * <p> 示例值：
          *
          * @param timeRange

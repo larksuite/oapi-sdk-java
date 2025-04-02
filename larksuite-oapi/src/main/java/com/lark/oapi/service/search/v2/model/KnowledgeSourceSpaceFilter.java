@@ -30,13 +30,13 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceSpaceFilter {
     /**
-     * space召回范围doc_tokens过滤器
+     * 云空间文档 token 列表
      * <p> 示例值：
      */
     @SerializedName("doc_tokens")
     private String[] docTokens;
     /**
-     * space召回范围文件夹列表过滤器
+     * 云空间文件夹 token 列表
      * <p> 示例值：
      */
     @SerializedName("folder_tokens")
@@ -48,12 +48,12 @@ public class KnowledgeSourceSpaceFilter {
 
     public KnowledgeSourceSpaceFilter(Builder builder) {
         /**
-         * space召回范围doc_tokens过滤器
+         * 云空间文档 token 列表
          * <p> 示例值：
          */
         this.docTokens = builder.docTokens;
         /**
-         * space召回范围文件夹列表过滤器
+         * 云空间文件夹 token 列表
          * <p> 示例值：
          */
         this.folderTokens = builder.folderTokens;
@@ -81,18 +81,18 @@ public class KnowledgeSourceSpaceFilter {
 
     public static class Builder {
         /**
-         * space召回范围doc_tokens过滤器
+         * 云空间文档 token 列表
          * <p> 示例值：
          */
         private String[] docTokens;
         /**
-         * space召回范围文件夹列表过滤器
+         * 云空间文件夹 token 列表
          * <p> 示例值：
          */
         private String[] folderTokens;
 
         /**
-         * space召回范围doc_tokens过滤器
+         * 云空间文档 token 列表
          * <p> 示例值：
          *
          * @param docTokens
@@ -105,7 +105,7 @@ public class KnowledgeSourceSpaceFilter {
 
 
         /**
-         * space召回范围文件夹列表过滤器
+         * 云空间文件夹 token 列表
          * <p> 示例值：
          *
          * @param folderTokens

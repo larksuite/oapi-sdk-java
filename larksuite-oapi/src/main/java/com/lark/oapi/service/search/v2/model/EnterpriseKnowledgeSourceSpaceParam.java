@@ -46,7 +46,7 @@ public class EnterpriseKnowledgeSourceSpaceParam {
      * <p> 示例值：
      */
     @SerializedName("reject")
-    private KnowledgeSourceSpaceFilter reject;
+    private KnowledgeSourceSpaceReject reject;
 
     // builder 开始
     public EnterpriseKnowledgeSourceSpaceParam() {
@@ -90,11 +90,11 @@ public class EnterpriseKnowledgeSourceSpaceParam {
         this.filter = filter;
     }
 
-    public KnowledgeSourceSpaceFilter getReject() {
+    public KnowledgeSourceSpaceReject getReject() {
         return this.reject;
     }
 
-    public void setReject(KnowledgeSourceSpaceFilter reject) {
+    public void setReject(KnowledgeSourceSpaceReject reject) {
         this.reject = reject;
     }
 
@@ -113,7 +113,7 @@ public class EnterpriseKnowledgeSourceSpaceParam {
          * reject
          * <p> 示例值：
          */
-        private KnowledgeSourceSpaceFilter reject;
+        private KnowledgeSourceSpaceReject reject;
 
         /**
          * searchable
@@ -148,7 +148,7 @@ public class EnterpriseKnowledgeSourceSpaceParam {
          * @param reject
          * @return
          */
-        public Builder reject(KnowledgeSourceSpaceFilter reject) {
+        public Builder reject(KnowledgeSourceSpaceReject reject) {
             this.reject = reject;
             return this;
         }

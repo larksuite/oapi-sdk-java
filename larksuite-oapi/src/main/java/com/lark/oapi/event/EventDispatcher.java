@@ -16,6 +16,7 @@ package com.lark.oapi.event;
 import com.lark.oapi.service.acs.AcsService;
 import com.lark.oapi.service.admin.AdminService;
 import com.lark.oapi.service.aily.AilyService;
+import com.lark.oapi.service.apaas.ApaasService;
 import com.lark.oapi.service.application.ApplicationService;
 import com.lark.oapi.service.approval.ApprovalService;
 import com.lark.oapi.service.attendance.AttendanceService;
@@ -38,8 +39,8 @@ import com.lark.oapi.service.drive.DriveService;
 import com.lark.oapi.service.drive.DriveService;
 import com.lark.oapi.service.ehr.EhrService;
 import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.gray_test_open_sg.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.hire.HireService;
 import com.lark.oapi.service.hire.HireService;
 import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
 import com.lark.oapi.service.im.ImService;
@@ -53,6 +54,8 @@ import com.lark.oapi.service.moments.MomentsService;
 import com.lark.oapi.service.okr.OkrService;
 import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.PassportService;
+import com.lark.oapi.service.payroll.PayrollService;
+import com.lark.oapi.service.performance.PerformanceService;
 import com.lark.oapi.service.personal_settings.PersonalSettingsService;
 import com.lark.oapi.service.report.ReportService;
 import com.lark.oapi.service.search.SearchService;
@@ -2506,6 +2509,67 @@ public class EventDispatcher implements IHandler {
                 throw new EventTypeAlreadyHasHandlerException("moments.reaction.deleted_v1");
             }
             eventType2EventHandler.put("moments.reaction.deleted_v1", handler);
+            return this;
+        }
+
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PaymentActivityApprovedV1(PayrollService.P2PaymentActivityApprovedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("payroll.payment_activity.approved_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("payroll.payment_activity.approved_v1");
+            }
+            eventType2EventHandler.put("payroll.payment_activity.approved_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2PaymentActivityStatusChangedV1(PayrollService.P2PaymentActivityStatusChangedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("payroll.payment_activity.status_changed_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("payroll.payment_activity.status_changed_v1");
+            }
+            eventType2EventHandler.put("payroll.payment_activity.status_changed_v1", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2ReviewDataChangedV2(PerformanceService.P2ReviewDataChangedV2Handler handler) {
+            if (eventType2EventHandler.containsKey("performance.review_data.changed_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("performance.review_data.changed_v2");
+            }
+            eventType2EventHandler.put("performance.review_data.changed_v2", handler);
+            return this;
+        }
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
+        public Builder onP2StageTaskOpenResultV2(PerformanceService.P2StageTaskOpenResultV2Handler handler) {
+            if (eventType2EventHandler.containsKey("performance.stage_task.open_result_v2")) {
+                throw new EventTypeAlreadyHasHandlerException("performance.stage_task.open_result_v2");
+            }
+            eventType2EventHandler.put("performance.stage_task.open_result_v2", handler);
             return this;
         }
 

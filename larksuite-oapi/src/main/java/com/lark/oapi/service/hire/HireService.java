@@ -94,6 +94,8 @@ import com.lark.oapi.service.hire.v1.resource.WebsiteDelivery;
 import com.lark.oapi.service.hire.v1.resource.WebsiteDeliveryTask;
 import com.lark.oapi.service.hire.v1.resource.WebsiteJobPost;
 import com.lark.oapi.service.hire.v1.resource.WebsiteSiteUser;
+import com.lark.oapi.service.hire.v2.V2;
+import com.lark.oapi.service.hire.v2.model.*;
 
 public class HireService {
     private final V1 v1;
@@ -175,6 +177,7 @@ public class HireService {
     private final WebsiteDeliveryTask websiteDeliveryTask; // website.delivery_task
     private final WebsiteJobPost websiteJobPost; // website.job_post
     private final WebsiteSiteUser websiteSiteUser; // website.site_user
+    private final V2 v2;
 
     public HireService(Config config) {
         this.v1 = new V1(config);
@@ -256,6 +259,7 @@ public class HireService {
         this.websiteDeliveryTask = new WebsiteDeliveryTask(config);
         this.websiteJobPost = new WebsiteJobPost(config);
         this.websiteSiteUser = new WebsiteSiteUser(config);
+        this.v2 = new V2(config);
     }
 
     public V1 v1() {
@@ -572,6 +576,10 @@ public class HireService {
 
     public WebsiteSiteUser websiteSiteUser() {
         return websiteSiteUser;
+    }
+
+    public V2 v2() {
+        return v2;
     }
 
     public abstract static class P2ApplicationDeletedV1Handler implements IEventHandler<P2ApplicationDeletedV1> {

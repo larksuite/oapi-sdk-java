@@ -210,6 +210,12 @@ public class Group {
     @SerializedName("hide_staff_punch_time")
     private Boolean hideStaffPunchTime;
     /**
+     * 是否隐藏打卡规则
+     * <p> 示例值：false
+     */
+    @SerializedName("hide_clock_in_rule")
+    private Boolean hideClockInRule;
+    /**
      * 是否开启人脸识别打卡
      * <p> 示例值：true
      */
@@ -617,6 +623,11 @@ public class Group {
          * <p> 示例值：true
          */
         this.hideStaffPunchTime = builder.hideStaffPunchTime;
+        /**
+         * 是否隐藏打卡规则
+         * <p> 示例值：false
+         */
+        this.hideClockInRule = builder.hideClockInRule;
         /**
          * 是否开启人脸识别打卡
          * <p> 示例值：true
@@ -1071,6 +1082,14 @@ public class Group {
 
     public void setHideStaffPunchTime(Boolean hideStaffPunchTime) {
         this.hideStaffPunchTime = hideStaffPunchTime;
+    }
+
+    public Boolean getHideClockInRule() {
+        return this.hideClockInRule;
+    }
+
+    public void setHideClockInRule(Boolean hideClockInRule) {
+        this.hideClockInRule = hideClockInRule;
     }
 
     public Boolean getFacePunch() {
@@ -1560,6 +1579,11 @@ public class Group {
          * <p> 示例值：true
          */
         private Boolean hideStaffPunchTime;
+        /**
+         * 是否隐藏打卡规则
+         * <p> 示例值：false
+         */
+        private Boolean hideClockInRule;
         /**
          * 是否开启人脸识别打卡
          * <p> 示例值：true
@@ -2157,6 +2181,19 @@ public class Group {
          */
         public Builder hideStaffPunchTime(Boolean hideStaffPunchTime) {
             this.hideStaffPunchTime = hideStaffPunchTime;
+            return this;
+        }
+
+
+        /**
+         * 是否隐藏打卡规则
+         * <p> 示例值：false
+         *
+         * @param hideClockInRule
+         * @return
+         */
+        public Builder hideClockInRule(Boolean hideClockInRule) {
+            this.hideClockInRule = hideClockInRule;
             return this;
         }
 

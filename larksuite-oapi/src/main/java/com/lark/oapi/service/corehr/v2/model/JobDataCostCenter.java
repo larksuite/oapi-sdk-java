@@ -36,11 +36,17 @@ public class JobDataCostCenter {
     @SerializedName("cost_center_id")
     private String costCenterId;
     /**
-     * 分摊比例
+     * 分摊比例(整数)
      * <p> 示例值：100
      */
     @SerializedName("rate")
     private Integer rate;
+    /**
+     * 分摊比例
+     * <p> 示例值：50.2
+     */
+    @SerializedName("new_rate")
+    private Double newRate;
 
     // builder 开始
     public JobDataCostCenter() {
@@ -53,10 +59,15 @@ public class JobDataCostCenter {
          */
         this.costCenterId = builder.costCenterId;
         /**
-         * 分摊比例
+         * 分摊比例(整数)
          * <p> 示例值：100
          */
         this.rate = builder.rate;
+        /**
+         * 分摊比例
+         * <p> 示例值：50.2
+         */
+        this.newRate = builder.newRate;
     }
 
     public static Builder newBuilder() {
@@ -79,6 +90,14 @@ public class JobDataCostCenter {
         this.rate = rate;
     }
 
+    public Double getNewRate() {
+        return this.newRate;
+    }
+
+    public void setNewRate(Double newRate) {
+        this.newRate = newRate;
+    }
+
     public static class Builder {
         /**
          * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
@@ -86,10 +105,15 @@ public class JobDataCostCenter {
          */
         private String costCenterId;
         /**
-         * 分摊比例
+         * 分摊比例(整数)
          * <p> 示例值：100
          */
         private Integer rate;
+        /**
+         * 分摊比例
+         * <p> 示例值：50.2
+         */
+        private Double newRate;
 
         /**
          * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
@@ -105,7 +129,7 @@ public class JobDataCostCenter {
 
 
         /**
-         * 分摊比例
+         * 分摊比例(整数)
          * <p> 示例值：100
          *
          * @param rate
@@ -113,6 +137,19 @@ public class JobDataCostCenter {
          */
         public Builder rate(Integer rate) {
             this.rate = rate;
+            return this;
+        }
+
+
+        /**
+         * 分摊比例
+         * <p> 示例值：50.2
+         *
+         * @param newRate
+         * @return
+         */
+        public Builder newRate(Double newRate) {
+            this.newRate = newRate;
             return this;
         }
 

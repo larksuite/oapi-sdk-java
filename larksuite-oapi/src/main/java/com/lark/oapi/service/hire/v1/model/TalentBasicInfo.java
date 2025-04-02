@@ -123,7 +123,7 @@ public class TalentBasicInfo {
      * <p> 示例值：293016767159
      */
     @SerializedName("birthday")
-    private Integer birthday;
+    private Long birthday;
     /**
      * 创建人
      * <p> 示例值：ou-xxx
@@ -402,11 +402,11 @@ public class TalentBasicInfo {
         this.identification = identification;
     }
 
-    public Integer getBirthday() {
+    public Long getBirthday() {
         return this.birthday;
     }
 
-    public void setBirthday(Integer birthday) {
+    public void setBirthday(Long birthday) {
         this.birthday = birthday;
     }
 
@@ -538,7 +538,7 @@ public class TalentBasicInfo {
          * 生日
          * <p> 示例值：293016767159
          */
-        private Integer birthday;
+        private Long birthday;
         /**
          * 创建人
          * <p> 示例值：ou-xxx
@@ -772,7 +772,7 @@ public class TalentBasicInfo {
          * @param birthday
          * @return
          */
-        public Builder birthday(Integer birthday) {
+        public Builder birthday(Long birthday) {
             this.birthday = birthday;
             return this;
         }

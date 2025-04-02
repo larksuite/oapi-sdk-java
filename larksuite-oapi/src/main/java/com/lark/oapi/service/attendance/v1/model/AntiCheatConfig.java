@@ -30,31 +30,31 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class AntiCheatConfig {
     /**
-     * 拦截疑似作弊打卡，默认关闭；关闭时，其余防作弊开关都会关闭
+     * 拦截疑似作弊打卡；关闭时，其余防作弊开关都会关闭
      * <p> 示例值：true
      */
     @SerializedName("intercept_suspected_cheat_punch")
     private Boolean interceptSuspectedCheatPunch;
     /**
-     * 是否校验疑似作弊软件打卡，默认关闭
+     * 是否校验疑似作弊软件打卡
      * <p> 示例值：true
      */
     @SerializedName("check_cheat_software_punch")
     private Boolean checkCheatSoftwarePunch;
     /**
-     * 是否校验疑似他人代打卡，默认关闭
+     * 是否校验疑似他人代打卡
      * <p> 示例值：true
      */
     @SerializedName("check_buddy_punch")
     private Boolean checkBuddyPunch;
     /**
-     * 是否校验疑似模拟 WI-FI 打卡，默认关闭
+     * 是否校验疑似模拟 WI-FI 打卡
      * <p> 示例值：true
      */
     @SerializedName("check_simulate_wifi_punch")
     private Boolean checkSimulateWifiPunch;
     /**
-     * 是否校验更换设备打卡，默认关闭
+     * 是否校验更换设备打卡
      * <p> 示例值：true
      */
     @SerializedName("check_change_device_punch")
@@ -66,7 +66,7 @@ public class AntiCheatConfig {
     @SerializedName("allow_change_device_num")
     private Integer allowChangeDeviceNum;
     /**
-     * 疑似作弊打卡时的处理方式
+     * 疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填
      * <p> 示例值：1
      */
     @SerializedName("suspected_cheat_handle_method")
@@ -78,27 +78,27 @@ public class AntiCheatConfig {
 
     public AntiCheatConfig(Builder builder) {
         /**
-         * 拦截疑似作弊打卡，默认关闭；关闭时，其余防作弊开关都会关闭
+         * 拦截疑似作弊打卡；关闭时，其余防作弊开关都会关闭
          * <p> 示例值：true
          */
         this.interceptSuspectedCheatPunch = builder.interceptSuspectedCheatPunch;
         /**
-         * 是否校验疑似作弊软件打卡，默认关闭
+         * 是否校验疑似作弊软件打卡
          * <p> 示例值：true
          */
         this.checkCheatSoftwarePunch = builder.checkCheatSoftwarePunch;
         /**
-         * 是否校验疑似他人代打卡，默认关闭
+         * 是否校验疑似他人代打卡
          * <p> 示例值：true
          */
         this.checkBuddyPunch = builder.checkBuddyPunch;
         /**
-         * 是否校验疑似模拟 WI-FI 打卡，默认关闭
+         * 是否校验疑似模拟 WI-FI 打卡
          * <p> 示例值：true
          */
         this.checkSimulateWifiPunch = builder.checkSimulateWifiPunch;
         /**
-         * 是否校验更换设备打卡，默认关闭
+         * 是否校验更换设备打卡
          * <p> 示例值：true
          */
         this.checkChangeDevicePunch = builder.checkChangeDevicePunch;
@@ -108,7 +108,7 @@ public class AntiCheatConfig {
          */
         this.allowChangeDeviceNum = builder.allowChangeDeviceNum;
         /**
-         * 疑似作弊打卡时的处理方式
+         * 疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填
          * <p> 示例值：1
          */
         this.suspectedCheatHandleMethod = builder.suspectedCheatHandleMethod;
@@ -176,27 +176,27 @@ public class AntiCheatConfig {
 
     public static class Builder {
         /**
-         * 拦截疑似作弊打卡，默认关闭；关闭时，其余防作弊开关都会关闭
+         * 拦截疑似作弊打卡；关闭时，其余防作弊开关都会关闭
          * <p> 示例值：true
          */
         private Boolean interceptSuspectedCheatPunch;
         /**
-         * 是否校验疑似作弊软件打卡，默认关闭
+         * 是否校验疑似作弊软件打卡
          * <p> 示例值：true
          */
         private Boolean checkCheatSoftwarePunch;
         /**
-         * 是否校验疑似他人代打卡，默认关闭
+         * 是否校验疑似他人代打卡
          * <p> 示例值：true
          */
         private Boolean checkBuddyPunch;
         /**
-         * 是否校验疑似模拟 WI-FI 打卡，默认关闭
+         * 是否校验疑似模拟 WI-FI 打卡
          * <p> 示例值：true
          */
         private Boolean checkSimulateWifiPunch;
         /**
-         * 是否校验更换设备打卡，默认关闭
+         * 是否校验更换设备打卡
          * <p> 示例值：true
          */
         private Boolean checkChangeDevicePunch;
@@ -206,13 +206,13 @@ public class AntiCheatConfig {
          */
         private Integer allowChangeDeviceNum;
         /**
-         * 疑似作弊打卡时的处理方式
+         * 疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填
          * <p> 示例值：1
          */
         private Integer suspectedCheatHandleMethod;
 
         /**
-         * 拦截疑似作弊打卡，默认关闭；关闭时，其余防作弊开关都会关闭
+         * 拦截疑似作弊打卡；关闭时，其余防作弊开关都会关闭
          * <p> 示例值：true
          *
          * @param interceptSuspectedCheatPunch
@@ -225,7 +225,7 @@ public class AntiCheatConfig {
 
 
         /**
-         * 是否校验疑似作弊软件打卡，默认关闭
+         * 是否校验疑似作弊软件打卡
          * <p> 示例值：true
          *
          * @param checkCheatSoftwarePunch
@@ -238,7 +238,7 @@ public class AntiCheatConfig {
 
 
         /**
-         * 是否校验疑似他人代打卡，默认关闭
+         * 是否校验疑似他人代打卡
          * <p> 示例值：true
          *
          * @param checkBuddyPunch
@@ -251,7 +251,7 @@ public class AntiCheatConfig {
 
 
         /**
-         * 是否校验疑似模拟 WI-FI 打卡，默认关闭
+         * 是否校验疑似模拟 WI-FI 打卡
          * <p> 示例值：true
          *
          * @param checkSimulateWifiPunch
@@ -264,7 +264,7 @@ public class AntiCheatConfig {
 
 
         /**
-         * 是否校验更换设备打卡，默认关闭
+         * 是否校验更换设备打卡
          * <p> 示例值：true
          *
          * @param checkChangeDevicePunch
@@ -290,7 +290,7 @@ public class AntiCheatConfig {
 
 
         /**
-         * 疑似作弊打卡时的处理方式
+         * 疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填
          * <p> 示例值：1
          *
          * @param suspectedCheatHandleMethod
@@ -302,7 +302,7 @@ public class AntiCheatConfig {
         }
 
         /**
-         * 疑似作弊打卡时的处理方式
+         * 疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填
          * <p> 示例值：1
          *
          * @param suspectedCheatHandleMethod {@link com.lark.oapi.service.attendance.v1.enums.AntiCheatConfigSuspectedCheatHandleMethodEnum}

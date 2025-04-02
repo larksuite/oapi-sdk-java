@@ -23,6 +23,7 @@ public enum DeleteSubscribeFileFileTypeEnum {
     BITABLE("bitable"), // 多维表格
     FILE("file"), // 文件
     FOLDER("folder"), // 文件夹
+    SLIDES("slides"), // 幻灯片
     ;
     private String value;
 

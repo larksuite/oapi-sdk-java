@@ -50,6 +50,13 @@ public class GetDocumentBlockChildrenReq {
     @SerializedName("page_size")
     private Integer pageSize;
     /**
+     * 查询的结果中是否返回指定块的所有子孙块。 with_descendants 为 false 时，仅会返回指定块的所有子块列表。 with_descendants 为 true 时，会以先序遍历的方式返回指定块的所有子孙块列表，包括当前指定的块。
+     * <p> 示例值：false
+     */
+    @Query
+    @SerializedName("with_descendants")
+    private Boolean withDescendants;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -91,6 +98,11 @@ public class GetDocumentBlockChildrenReq {
          * <p> 示例值：500
          */
         this.pageSize = builder.pageSize;
+        /**
+         * 查询的结果中是否返回指定块的所有子孙块。 with_descendants 为 false 时，仅会返回指定块的所有子块列表。 with_descendants 为 true 时，会以先序遍历的方式返回指定块的所有子孙块列表，包括当前指定的块。
+         * <p> 示例值：false
+         */
+        this.withDescendants = builder.withDescendants;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -136,6 +148,14 @@ public class GetDocumentBlockChildrenReq {
         this.pageSize = pageSize;
     }
 
+    public Boolean getWithDescendants() {
+        return this.withDescendants;
+    }
+
+    public void setWithDescendants(Boolean withDescendants) {
+        this.withDescendants = withDescendants;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -164,6 +184,7 @@ public class GetDocumentBlockChildrenReq {
         private Integer documentRevisionId; // 操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private Integer pageSize; // 分页大小
+        private Boolean withDescendants; // 查询的结果中是否返回指定块的所有子孙块。 with_descendants 为 false 时，仅会返回指定块的所有子块列表。 with_descendants 为 true 时，会以先序遍历的方式返回指定块的所有子孙块列表，包括当前指定的块。
         private String userIdType; // 此次调用中使用的用户ID的类型
         private String documentId; // 文档的唯一标识
         private String blockId; // Block 的唯一标识
@@ -201,6 +222,18 @@ public class GetDocumentBlockChildrenReq {
          */
         public Builder pageSize(Integer pageSize) {
             this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * 查询的结果中是否返回指定块的所有子孙块。 with_descendants 为 false 时，仅会返回指定块的所有子块列表。 with_descendants 为 true 时，会以先序遍历的方式返回指定块的所有子孙块列表，包括当前指定的块。
+         * <p> 示例值：false
+         *
+         * @param withDescendants
+         * @return
+         */
+        public Builder withDescendants(Boolean withDescendants) {
+            this.withDescendants = withDescendants;
             return this;
         }
 

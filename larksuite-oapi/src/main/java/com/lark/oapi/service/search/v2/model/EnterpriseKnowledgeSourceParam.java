@@ -30,31 +30,31 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceParam {
     /**
-     * space
+     * 云空间文档
      * <p> 示例值：
      */
     @SerializedName("space")
     private EnterpriseKnowledgeSourceSpaceParam space;
     /**
-     * wiki
+     * 知识库文档
      * <p> 示例值：
      */
     @SerializedName("wiki")
     private EnterpriseKnowledgeSourceWikiParam wiki;
     /**
-     * message
+     * 消息
      * <p> 示例值：
      */
     @SerializedName("message")
     private EnterpriseKnowledgeSourceMessageParam message;
     /**
-     * helpdesk_faq
+     * 服务台 FAQ
      * <p> 示例值：
      */
     @SerializedName("helpdesk_faq")
     private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
     /**
-     * lingo
+     * Lingo企业词典
      * <p> 示例值：
      */
     @SerializedName("lingo")
@@ -66,27 +66,27 @@ public class EnterpriseKnowledgeSourceParam {
 
     public EnterpriseKnowledgeSourceParam(Builder builder) {
         /**
-         * space
+         * 云空间文档
          * <p> 示例值：
          */
         this.space = builder.space;
         /**
-         * wiki
+         * 知识库文档
          * <p> 示例值：
          */
         this.wiki = builder.wiki;
         /**
-         * message
+         * 消息
          * <p> 示例值：
          */
         this.message = builder.message;
         /**
-         * helpdesk_faq
+         * 服务台 FAQ
          * <p> 示例值：
          */
         this.helpdeskFaq = builder.helpdeskFaq;
         /**
-         * lingo
+         * Lingo企业词典
          * <p> 示例值：
          */
         this.lingo = builder.lingo;
@@ -138,33 +138,33 @@ public class EnterpriseKnowledgeSourceParam {
 
     public static class Builder {
         /**
-         * space
+         * 云空间文档
          * <p> 示例值：
          */
         private EnterpriseKnowledgeSourceSpaceParam space;
         /**
-         * wiki
+         * 知识库文档
          * <p> 示例值：
          */
         private EnterpriseKnowledgeSourceWikiParam wiki;
         /**
-         * message
+         * 消息
          * <p> 示例值：
          */
         private EnterpriseKnowledgeSourceMessageParam message;
         /**
-         * helpdesk_faq
+         * 服务台 FAQ
          * <p> 示例值：
          */
         private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
         /**
-         * lingo
+         * Lingo企业词典
          * <p> 示例值：
          */
         private EnterpriseKnowledgeSourceLingoParam lingo;
 
         /**
-         * space
+         * 云空间文档
          * <p> 示例值：
          *
          * @param space
@@ -177,7 +177,7 @@ public class EnterpriseKnowledgeSourceParam {
 
 
         /**
-         * wiki
+         * 知识库文档
          * <p> 示例值：
          *
          * @param wiki
@@ -190,7 +190,7 @@ public class EnterpriseKnowledgeSourceParam {
 
 
         /**
-         * message
+         * 消息
          * <p> 示例值：
          *
          * @param message
@@ -203,7 +203,7 @@ public class EnterpriseKnowledgeSourceParam {
 
 
         /**
-         * helpdesk_faq
+         * 服务台 FAQ
          * <p> 示例值：
          *
          * @param helpdeskFaq
@@ -216,7 +216,7 @@ public class EnterpriseKnowledgeSourceParam {
 
 
         /**
-         * lingo
+         * Lingo企业词典
          * <p> 示例值：
          *
          * @param lingo

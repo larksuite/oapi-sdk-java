@@ -64,6 +64,13 @@ public class ListFileReq {
     @SerializedName("direction")
     private String direction;
     /**
+     * 指定获取文件清单的特殊方式
+     * <p> 示例值：get_all_children_unsort
+     */
+    @Query
+    @SerializedName("option")
+    private String option;
+    /**
      * 此次调用中使用的用户ID的类型
      * <p> 示例值：
      */
@@ -101,6 +108,11 @@ public class ListFileReq {
          * <p> 示例值：DESC
          */
         this.direction = builder.direction;
+        /**
+         * 指定获取文件清单的特殊方式
+         * <p> 示例值：get_all_children_unsort
+         */
+        this.option = builder.option;
         /**
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
@@ -152,6 +164,14 @@ public class ListFileReq {
         this.direction = direction;
     }
 
+    public String getOption() {
+        return this.option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
     public String getUserIdType() {
         return this.userIdType;
     }
@@ -166,6 +186,7 @@ public class ListFileReq {
         private String folderToken; // 文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）
         private String orderBy; // 排序规则
         private String direction; // 升序降序
+        private String option; // 指定获取文件清单的特殊方式
         private String userIdType; // 此次调用中使用的用户ID的类型
 
         /**
@@ -253,6 +274,19 @@ public class ListFileReq {
          */
         public Builder direction(com.lark.oapi.service.drive.v1.enums.ListFileDirectionEnum direction) {
             this.direction = direction.getValue();
+            return this;
+        }
+
+
+        /**
+         * 指定获取文件清单的特殊方式
+         * <p> 示例值：get_all_children_unsort
+         *
+         * @param option
+         * @return
+         */
+        public Builder option(String option) {
+            this.option = option;
             return this;
         }
 

@@ -260,7 +260,6 @@ public class SubmitProbationReqBody {
             return this;
         }
 
-
         /**
          * 实际结束日期，如果为空则默认填入试用期预计结束日期，填入日期需满足：试用期开始时间 <= 实际结束日期 <= 试用期预计结束日期
          * <p> 示例值：2022-05-20

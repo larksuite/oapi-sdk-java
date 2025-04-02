@@ -53,6 +53,12 @@ public class LeaveNeedPunchCfg {
      */
     @SerializedName("early_minutes_as_lack")
     private Integer earlyMinutesAsLack;
+    /**
+     * 非班中离返岗。为true时，不产生班中离返岗
+     * <p> 示例值：false
+     */
+    @SerializedName("not_during_shift")
+    private Boolean notDuringShift;
 
     // builder 开始
     public LeaveNeedPunchCfg() {
@@ -79,6 +85,11 @@ public class LeaveNeedPunchCfg {
          * <p> 示例值：0
          */
         this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
+        /**
+         * 非班中离返岗。为true时，不产生班中离返岗
+         * <p> 示例值：false
+         */
+        this.notDuringShift = builder.notDuringShift;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class LeaveNeedPunchCfg {
         this.earlyMinutesAsLack = earlyMinutesAsLack;
     }
 
+    public Boolean getNotDuringShift() {
+        return this.notDuringShift;
+    }
+
+    public void setNotDuringShift(Boolean notDuringShift) {
+        this.notDuringShift = notDuringShift;
+    }
+
     public static class Builder {
         /**
          * 晚到超过多久记为迟到
@@ -138,6 +157,11 @@ public class LeaveNeedPunchCfg {
          * <p> 示例值：0
          */
         private Integer earlyMinutesAsLack;
+        /**
+         * 非班中离返岗。为true时，不产生班中离返岗
+         * <p> 示例值：false
+         */
+        private Boolean notDuringShift;
 
         /**
          * 晚到超过多久记为迟到
@@ -187,6 +211,19 @@ public class LeaveNeedPunchCfg {
          */
         public Builder earlyMinutesAsLack(Integer earlyMinutesAsLack) {
             this.earlyMinutesAsLack = earlyMinutesAsLack;
+            return this;
+        }
+
+
+        /**
+         * 非班中离返岗。为true时，不产生班中离返岗
+         * <p> 示例值：false
+         *
+         * @param notDuringShift
+         * @return
+         */
+        public Builder notDuringShift(Boolean notDuringShift) {
+            this.notDuringShift = notDuringShift;
             return this;
         }
 

@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceWikiFilter {
     /**
-     * wiki_tokens
+     * 知识库文档 token 列表
      * <p> 示例值：
      */
     @SerializedName("wiki_tokens")
     private String[] wikiTokens;
     /**
-     * node_ids
+     * 知识库节点 token 列表
      * <p> 示例值：
      */
-    @SerializedName("node_ids")
-    private String[] nodeIds;
+    @SerializedName("node_tokens")
+    private String[] nodeTokens;
     /**
-     * space_ids
+     * 知识库空间 ID 列表
      * <p> 示例值：
      */
     @SerializedName("space_ids")
@@ -54,17 +54,17 @@ public class KnowledgeSourceWikiFilter {
 
     public KnowledgeSourceWikiFilter(Builder builder) {
         /**
-         * wiki_tokens
+         * 知识库文档 token 列表
          * <p> 示例值：
          */
         this.wikiTokens = builder.wikiTokens;
         /**
-         * node_ids
+         * 知识库节点 token 列表
          * <p> 示例值：
          */
-        this.nodeIds = builder.nodeIds;
+        this.nodeTokens = builder.nodeTokens;
         /**
-         * space_ids
+         * 知识库空间 ID 列表
          * <p> 示例值：
          */
         this.spaceIds = builder.spaceIds;
@@ -82,12 +82,12 @@ public class KnowledgeSourceWikiFilter {
         this.wikiTokens = wikiTokens;
     }
 
-    public String[] getNodeIds() {
-        return this.nodeIds;
+    public String[] getNodeTokens() {
+        return this.nodeTokens;
     }
 
-    public void setNodeIds(String[] nodeIds) {
-        this.nodeIds = nodeIds;
+    public void setNodeTokens(String[] nodeTokens) {
+        this.nodeTokens = nodeTokens;
     }
 
     public String[] getSpaceIds() {
@@ -100,23 +100,23 @@ public class KnowledgeSourceWikiFilter {
 
     public static class Builder {
         /**
-         * wiki_tokens
+         * 知识库文档 token 列表
          * <p> 示例值：
          */
         private String[] wikiTokens;
         /**
-         * node_ids
+         * 知识库节点 token 列表
          * <p> 示例值：
          */
-        private String[] nodeIds;
+        private String[] nodeTokens;
         /**
-         * space_ids
+         * 知识库空间 ID 列表
          * <p> 示例值：
          */
         private String[] spaceIds;
 
         /**
-         * wiki_tokens
+         * 知识库文档 token 列表
          * <p> 示例值：
          *
          * @param wikiTokens
@@ -129,20 +129,20 @@ public class KnowledgeSourceWikiFilter {
 
 
         /**
-         * node_ids
+         * 知识库节点 token 列表
          * <p> 示例值：
          *
-         * @param nodeIds
+         * @param nodeTokens
          * @return
          */
-        public Builder nodeIds(String[] nodeIds) {
-            this.nodeIds = nodeIds;
+        public Builder nodeTokens(String[] nodeTokens) {
+            this.nodeTokens = nodeTokens;
             return this;
         }
 
 
         /**
-         * space_ids
+         * 知识库空间 ID 列表
          * <p> 示例值：
          *
          * @param spaceIds
