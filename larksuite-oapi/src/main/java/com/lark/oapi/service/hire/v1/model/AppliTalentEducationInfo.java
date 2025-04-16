@@ -30,52 +30,52 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AppliTalentEducationInfo {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("id")
     private String id;
     /**
      * 学历
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("degree")
-    private Integer degree;
+    private Long degree;
     /**
      * 学校
-     * <p> 示例值：
+     * <p> 示例值：某某大学
      */
     @SerializedName("school")
     private String school;
     /**
      * 专业
-     * <p> 示例值：
+     * <p> 示例值：软件工程
      */
     @SerializedName("field_of_study")
     private String fieldOfStudy;
     /**
      * 开始时间
-     * <p> 示例值：
+     * <p> 示例值：1735664461000
      */
     @SerializedName("start_time")
     private String startTime;
     /**
      * 结束时间
-     * <p> 示例值：
+     * <p> 示例值：1735664461000
      */
     @SerializedName("end_time")
     private String endTime;
     /**
      * 学历类型
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("education_type")
-    private Integer educationType;
+    private Long educationType;
     /**
      * 排名
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("academic_ranking")
-    private Integer academicRanking;
+    private Long academicRanking;
     /**
      * 标签列表
      * <p> 示例值：
@@ -90,42 +90,42 @@ public class AppliTalentEducationInfo {
     public AppliTalentEducationInfo(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.id = builder.id;
         /**
          * 学历
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.degree = builder.degree;
         /**
          * 学校
-         * <p> 示例值：
+         * <p> 示例值：某某大学
          */
         this.school = builder.school;
         /**
          * 专业
-         * <p> 示例值：
+         * <p> 示例值：软件工程
          */
         this.fieldOfStudy = builder.fieldOfStudy;
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         this.startTime = builder.startTime;
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         this.endTime = builder.endTime;
         /**
          * 学历类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.educationType = builder.educationType;
         /**
          * 排名
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.academicRanking = builder.academicRanking;
         /**
@@ -147,11 +147,11 @@ public class AppliTalentEducationInfo {
         this.id = id;
     }
 
-    public Integer getDegree() {
+    public Long getDegree() {
         return this.degree;
     }
 
-    public void setDegree(Integer degree) {
+    public void setDegree(Long degree) {
         this.degree = degree;
     }
 
@@ -187,19 +187,19 @@ public class AppliTalentEducationInfo {
         this.endTime = endTime;
     }
 
-    public Integer getEducationType() {
+    public Long getEducationType() {
         return this.educationType;
     }
 
-    public void setEducationType(Integer educationType) {
+    public void setEducationType(Long educationType) {
         this.educationType = educationType;
     }
 
-    public Integer getAcademicRanking() {
+    public Long getAcademicRanking() {
         return this.academicRanking;
     }
 
-    public void setAcademicRanking(Integer academicRanking) {
+    public void setAcademicRanking(Long academicRanking) {
         this.academicRanking = academicRanking;
     }
 
@@ -214,44 +214,44 @@ public class AppliTalentEducationInfo {
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String id;
         /**
          * 学历
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer degree;
+        private Long degree;
         /**
          * 学校
-         * <p> 示例值：
+         * <p> 示例值：某某大学
          */
         private String school;
         /**
          * 专业
-         * <p> 示例值：
+         * <p> 示例值：软件工程
          */
         private String fieldOfStudy;
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         private String startTime;
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         private String endTime;
         /**
          * 学历类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer educationType;
+        private Long educationType;
         /**
          * 排名
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer academicRanking;
+        private Long academicRanking;
         /**
          * 标签列表
          * <p> 示例值：
@@ -260,7 +260,7 @@ public class AppliTalentEducationInfo {
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param id
          * @return
@@ -273,12 +273,12 @@ public class AppliTalentEducationInfo {
 
         /**
          * 学历
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param degree
          * @return
          */
-        public Builder degree(Integer degree) {
+        public Builder degree(Long degree) {
             this.degree = degree;
             return this;
         }
@@ -286,7 +286,7 @@ public class AppliTalentEducationInfo {
 
         /**
          * 学校
-         * <p> 示例值：
+         * <p> 示例值：某某大学
          *
          * @param school
          * @return
@@ -299,7 +299,7 @@ public class AppliTalentEducationInfo {
 
         /**
          * 专业
-         * <p> 示例值：
+         * <p> 示例值：软件工程
          *
          * @param fieldOfStudy
          * @return
@@ -312,7 +312,7 @@ public class AppliTalentEducationInfo {
 
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          *
          * @param startTime
          * @return
@@ -325,7 +325,7 @@ public class AppliTalentEducationInfo {
 
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          *
          * @param endTime
          * @return
@@ -338,12 +338,12 @@ public class AppliTalentEducationInfo {
 
         /**
          * 学历类型
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param educationType
          * @return
          */
-        public Builder educationType(Integer educationType) {
+        public Builder educationType(Long educationType) {
             this.educationType = educationType;
             return this;
         }
@@ -351,12 +351,12 @@ public class AppliTalentEducationInfo {
 
         /**
          * 排名
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param academicRanking
          * @return
          */
-        public Builder academicRanking(Integer academicRanking) {
+        public Builder academicRanking(Long academicRanking) {
             this.academicRanking = academicRanking;
             return this;
         }

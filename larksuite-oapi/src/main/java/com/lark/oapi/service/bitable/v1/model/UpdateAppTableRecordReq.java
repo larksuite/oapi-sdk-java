@@ -69,6 +69,7 @@ public class UpdateAppTableRecordReq {
     // builder 开始
     public UpdateAppTableRecordReq() {
     }
+
     public UpdateAppTableRecordReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型

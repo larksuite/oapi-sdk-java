@@ -133,10 +133,10 @@ public class BatchCreateMailgroupMemberReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberBatchCreateMailGroupMemberUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberBatchCreateMailGroupMemberUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -157,10 +157,10 @@ public class BatchCreateMailgroupMemberReq {
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：
          *
-         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberBatchCreateMailGroupMemberDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.BatchCreateMailgroupMemberBatchCreateMailGroupMemberDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

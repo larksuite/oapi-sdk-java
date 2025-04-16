@@ -57,13 +57,13 @@ public class Note {
      * <p> 示例值：1618209327096
      */
     @SerializedName("create_time")
-    private Integer createTime;
+    private Long createTime;
     /**
      * 更新时间
      * <p> 示例值：1618209327096
      */
     @SerializedName("modify_time")
-    private Integer modifyTime;
+    private Long modifyTime;
     /**
      * 创建人ID
      * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
@@ -193,19 +193,19 @@ public class Note {
         this.isPrivate = isPrivate;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Integer getModifyTime() {
+    public Long getModifyTime() {
         return this.modifyTime;
     }
 
-    public void setModifyTime(Integer modifyTime) {
+    public void setModifyTime(Long modifyTime) {
         this.modifyTime = modifyTime;
     }
 
@@ -274,12 +274,12 @@ public class Note {
          * 创建时间
          * <p> 示例值：1618209327096
          */
-        private Integer createTime;
+        private Long createTime;
         /**
          * 更新时间
          * <p> 示例值：1618209327096
          */
-        private Integer modifyTime;
+        private Long modifyTime;
         /**
          * 创建人ID
          * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
@@ -365,7 +365,7 @@ public class Note {
          * @param createTime
          * @return
          */
-        public Builder createTime(Integer createTime) {
+        public Builder createTime(Long createTime) {
             this.createTime = createTime;
             return this;
         }
@@ -378,7 +378,7 @@ public class Note {
          * @param modifyTime
          * @return
          */
-        public Builder modifyTime(Integer modifyTime) {
+        public Builder modifyTime(Long modifyTime) {
             this.modifyTime = modifyTime;
             return this;
         }

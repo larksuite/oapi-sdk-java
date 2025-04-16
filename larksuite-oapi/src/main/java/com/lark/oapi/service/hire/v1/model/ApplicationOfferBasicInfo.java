@@ -45,7 +45,7 @@ public class ApplicationOfferBasicInfo {
      * <p> 示例值：1653383498000
      */
     @SerializedName("expire_time")
-    private Integer expireTime;
+    private Long expireTime;
     /**
      * Offer 负责人 ID
      * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
@@ -93,13 +93,13 @@ public class ApplicationOfferBasicInfo {
      * <p> 示例值：1
      */
     @SerializedName("probation_month")
-    private Integer probationMonth;
+    private Long probationMonth;
     /**
      * 合同期, 比如3年
      * <p> 示例值：3
      */
     @SerializedName("contract_year")
-    private Integer contractYear;
+    private Long contractYear;
     /**
      * 合同期（年/月）
      * <p> 示例值：
@@ -166,6 +166,12 @@ public class ApplicationOfferBasicInfo {
      */
     @SerializedName("job_grade_id")
     private String jobGradeId;
+    /**
+     * Offer 附件 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("common_attachment_id_list")
+    private String[] commonAttachmentIdList;
 
     // builder 开始
     public ApplicationOfferBasicInfo() {
@@ -287,6 +293,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：123
          */
         this.jobGradeId = builder.jobGradeId;
+        /**
+         * Offer 附件 ID 列表
+         * <p> 示例值：
+         */
+        this.commonAttachmentIdList = builder.commonAttachmentIdList;
     }
 
     public static Builder newBuilder() {
@@ -309,11 +320,11 @@ public class ApplicationOfferBasicInfo {
         this.remark = remark;
     }
 
-    public Integer getExpireTime() {
+    public Long getExpireTime() {
         return this.expireTime;
     }
 
-    public void setExpireTime(Integer expireTime) {
+    public void setExpireTime(Long expireTime) {
         this.expireTime = expireTime;
     }
 
@@ -373,19 +384,19 @@ public class ApplicationOfferBasicInfo {
         this.departmentId = departmentId;
     }
 
-    public Integer getProbationMonth() {
+    public Long getProbationMonth() {
         return this.probationMonth;
     }
 
-    public void setProbationMonth(Integer probationMonth) {
+    public void setProbationMonth(Long probationMonth) {
         this.probationMonth = probationMonth;
     }
 
-    public Integer getContractYear() {
+    public Long getContractYear() {
         return this.contractYear;
     }
 
-    public void setContractYear(Integer contractYear) {
+    public void setContractYear(Long contractYear) {
         this.contractYear = contractYear;
     }
 
@@ -477,6 +488,14 @@ public class ApplicationOfferBasicInfo {
         this.jobGradeId = jobGradeId;
     }
 
+    public String[] getCommonAttachmentIdList() {
+        return this.commonAttachmentIdList;
+    }
+
+    public void setCommonAttachmentIdList(String[] commonAttachmentIdList) {
+        this.commonAttachmentIdList = commonAttachmentIdList;
+    }
+
     public static class Builder {
         /**
          * Offer 类型
@@ -492,7 +511,7 @@ public class ApplicationOfferBasicInfo {
          * Offer 过期时间
          * <p> 示例值：1653383498000
          */
-        private Integer expireTime;
+        private Long expireTime;
         /**
          * Offer 负责人 ID
          * <p> 示例值：ou_99be8e24ad1ad390b6cd3b8916940df1
@@ -532,12 +551,12 @@ public class ApplicationOfferBasicInfo {
          * 试用期, 比如试用期6个月
          * <p> 示例值：1
          */
-        private Integer probationMonth;
+        private Long probationMonth;
         /**
          * 合同期, 比如3年
          * <p> 示例值：3
          */
-        private Integer contractYear;
+        private Long contractYear;
         /**
          * 合同期（年/月）
          * <p> 示例值：
@@ -593,6 +612,11 @@ public class ApplicationOfferBasicInfo {
          * <p> 示例值：123
          */
         private String jobGradeId;
+        /**
+         * Offer 附件 ID 列表
+         * <p> 示例值：
+         */
+        private String[] commonAttachmentIdList;
 
         /**
          * Offer 类型
@@ -627,7 +651,7 @@ public class ApplicationOfferBasicInfo {
          * @param expireTime
          * @return
          */
-        public Builder expireTime(Integer expireTime) {
+        public Builder expireTime(Long expireTime) {
             this.expireTime = expireTime;
             return this;
         }
@@ -731,7 +755,7 @@ public class ApplicationOfferBasicInfo {
          * @param probationMonth
          * @return
          */
-        public Builder probationMonth(Integer probationMonth) {
+        public Builder probationMonth(Long probationMonth) {
             this.probationMonth = probationMonth;
             return this;
         }
@@ -744,7 +768,7 @@ public class ApplicationOfferBasicInfo {
          * @param contractYear
          * @return
          */
-        public Builder contractYear(Integer contractYear) {
+        public Builder contractYear(Long contractYear) {
             this.contractYear = contractYear;
             return this;
         }
@@ -889,6 +913,19 @@ public class ApplicationOfferBasicInfo {
          */
         public Builder jobGradeId(String jobGradeId) {
             this.jobGradeId = jobGradeId;
+            return this;
+        }
+
+
+        /**
+         * Offer 附件 ID 列表
+         * <p> 示例值：
+         *
+         * @param commonAttachmentIdList
+         * @return
+         */
+        public Builder commonAttachmentIdList(String[] commonAttachmentIdList) {
+            this.commonAttachmentIdList = commonAttachmentIdList;
             return this;
         }
 

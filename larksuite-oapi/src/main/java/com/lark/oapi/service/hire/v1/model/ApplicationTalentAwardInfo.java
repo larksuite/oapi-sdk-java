@@ -30,25 +30,25 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationTalentAwardInfo {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("id")
     private String id;
     /**
      * 名称
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("title")
     private String title;
     /**
      * 获奖时间
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("award_time")
-    private Integer awardTime;
+    private Long awardTime;
     /**
      * 描述
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("desc")
     private String desc;
@@ -60,22 +60,22 @@ public class ApplicationTalentAwardInfo {
     public ApplicationTalentAwardInfo(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.id = builder.id;
         /**
          * 名称
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.title = builder.title;
         /**
          * 获奖时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.awardTime = builder.awardTime;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.desc = builder.desc;
     }
@@ -100,11 +100,11 @@ public class ApplicationTalentAwardInfo {
         this.title = title;
     }
 
-    public Integer getAwardTime() {
+    public Long getAwardTime() {
         return this.awardTime;
     }
 
-    public void setAwardTime(Integer awardTime) {
+    public void setAwardTime(Long awardTime) {
         this.awardTime = awardTime;
     }
 
@@ -119,28 +119,28 @@ public class ApplicationTalentAwardInfo {
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String id;
         /**
          * 名称
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String title;
         /**
          * 获奖时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer awardTime;
+        private Long awardTime;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String desc;
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param id
          * @return
@@ -153,7 +153,7 @@ public class ApplicationTalentAwardInfo {
 
         /**
          * 名称
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param title
          * @return
@@ -166,12 +166,12 @@ public class ApplicationTalentAwardInfo {
 
         /**
          * 获奖时间
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param awardTime
          * @return
          */
-        public Builder awardTime(Integer awardTime) {
+        public Builder awardTime(Long awardTime) {
             this.awardTime = awardTime;
             return this;
         }
@@ -179,7 +179,7 @@ public class ApplicationTalentAwardInfo {
 
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param desc
          * @return

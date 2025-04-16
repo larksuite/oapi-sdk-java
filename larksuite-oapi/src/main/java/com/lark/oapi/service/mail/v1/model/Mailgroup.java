@@ -342,10 +342,10 @@ public class Mailgroup {
          * 谁可发送邮件到此邮件组
          * <p> 示例值：ALL_INTERNAL_USERS
          *
-         * @param whoCanSendMail {@link com.lark.oapi.service.mail.v1.enums.MailgroupWhoCanSendMailEnum}
+         * @param whoCanSendMail {@link com.lark.oapi.service.mail.v1.enums.MailgroupMailgroupWhoCanSendMailEnum}
          * @return
          */
-        public Builder whoCanSendMail(com.lark.oapi.service.mail.v1.enums.MailgroupWhoCanSendMailEnum whoCanSendMail) {
+        public Builder whoCanSendMail(com.lark.oapi.service.mail.v1.enums.MailgroupMailgroupWhoCanSendMailEnum whoCanSendMail) {
             this.whoCanSendMail = whoCanSendMail.getValue();
             return this;
         }

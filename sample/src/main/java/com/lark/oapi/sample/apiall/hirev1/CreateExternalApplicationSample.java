@@ -24,8 +24,8 @@ public class CreateExternalApplicationSample {
                         .talentId("6960663240925956459")
                         .terminationReason("不合适")
                         .deliveryType(1)
-                        .modifyTime(1618500278)
-                        .createTime(1618500278)
+                        .modifyTime(1618500278L)
+                        .createTime(1618500278L)
                         .terminationType("health")
                         .build())
                 .build();

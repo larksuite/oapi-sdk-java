@@ -28,7 +28,12 @@ public class V1 {
     private final User user; // 邮箱地址
     private final UserMailbox userMailbox; // 用户邮箱
     private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
+    private final UserMailboxEvent userMailboxEvent; // user_mailbox.event
+    private final UserMailboxFolder userMailboxFolder; // user_mailbox.folder
+    private final UserMailboxMailContact userMailboxMailContact; // user_mailbox.mail_contact
     private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
+    private final UserMailboxMessageAttachment userMailboxMessageAttachment; // user_mailbox.message.attachment
+    private final UserMailboxRule userMailboxRule; // user_mailbox.rule
 
     public V1(Config config) {
         this.mailgroup = new Mailgroup(config);
@@ -42,7 +47,12 @@ public class V1 {
         this.user = new User(config);
         this.userMailbox = new UserMailbox(config);
         this.userMailboxAlias = new UserMailboxAlias(config);
+        this.userMailboxEvent = new UserMailboxEvent(config);
+        this.userMailboxFolder = new UserMailboxFolder(config);
+        this.userMailboxMailContact = new UserMailboxMailContact(config);
         this.userMailboxMessage = new UserMailboxMessage(config);
+        this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
+        this.userMailboxRule = new UserMailboxRule(config);
     }
 
     public Mailgroup mailgroup() {
@@ -89,7 +99,27 @@ public class V1 {
         return userMailboxAlias;
     }
 
+    public UserMailboxEvent userMailboxEvent() {
+        return userMailboxEvent;
+    }
+
+    public UserMailboxFolder userMailboxFolder() {
+        return userMailboxFolder;
+    }
+
+    public UserMailboxMailContact userMailboxMailContact() {
+        return userMailboxMailContact;
+    }
+
     public UserMailboxMessage userMailboxMessage() {
         return userMailboxMessage;
+    }
+
+    public UserMailboxMessageAttachment userMailboxMessageAttachment() {
+        return userMailboxMessageAttachment;
+    }
+
+    public UserMailboxRule userMailboxRule() {
+        return userMailboxRule;
     }
 }

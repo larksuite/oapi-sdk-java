@@ -27,7 +27,12 @@ import com.lark.oapi.service.mail.v1.resource.PublicMailboxMember;
 import com.lark.oapi.service.mail.v1.resource.User;
 import com.lark.oapi.service.mail.v1.resource.UserMailbox;
 import com.lark.oapi.service.mail.v1.resource.UserMailboxAlias;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxEvent;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxFolder;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMailContact;
 import com.lark.oapi.service.mail.v1.resource.UserMailboxMessage;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxMessageAttachment;
+import com.lark.oapi.service.mail.v1.resource.UserMailboxRule;
 
 public class MailService {
     private final V1 v1;
@@ -42,7 +47,12 @@ public class MailService {
     private final User user; // 邮箱地址
     private final UserMailbox userMailbox; // 用户邮箱
     private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
+    private final UserMailboxEvent userMailboxEvent; // user_mailbox.event
+    private final UserMailboxFolder userMailboxFolder; // user_mailbox.folder
+    private final UserMailboxMailContact userMailboxMailContact; // user_mailbox.mail_contact
     private final UserMailboxMessage userMailboxMessage; // user_mailbox.message
+    private final UserMailboxMessageAttachment userMailboxMessageAttachment; // user_mailbox.message.attachment
+    private final UserMailboxRule userMailboxRule; // user_mailbox.rule
 
     public MailService(Config config) {
         this.v1 = new V1(config);
@@ -57,7 +67,12 @@ public class MailService {
         this.user = new User(config);
         this.userMailbox = new UserMailbox(config);
         this.userMailboxAlias = new UserMailboxAlias(config);
+        this.userMailboxEvent = new UserMailboxEvent(config);
+        this.userMailboxFolder = new UserMailboxFolder(config);
+        this.userMailboxMailContact = new UserMailboxMailContact(config);
         this.userMailboxMessage = new UserMailboxMessage(config);
+        this.userMailboxMessageAttachment = new UserMailboxMessageAttachment(config);
+        this.userMailboxRule = new UserMailboxRule(config);
     }
 
     public V1 v1() {
@@ -108,7 +123,34 @@ public class MailService {
         return userMailboxAlias;
     }
 
+    public UserMailboxEvent userMailboxEvent() {
+        return userMailboxEvent;
+    }
+
+    public UserMailboxFolder userMailboxFolder() {
+        return userMailboxFolder;
+    }
+
+    public UserMailboxMailContact userMailboxMailContact() {
+        return userMailboxMailContact;
+    }
+
     public UserMailboxMessage userMailboxMessage() {
         return userMailboxMessage;
+    }
+
+    public UserMailboxMessageAttachment userMailboxMessageAttachment() {
+        return userMailboxMessageAttachment;
+    }
+
+    public UserMailboxRule userMailboxRule() {
+        return userMailboxRule;
+    }
+
+    public abstract static class P2UserMailboxEventMessageReceivedV1Handler implements IEventHandler<P2UserMailboxEventMessageReceivedV1> {
+        @Override
+        public P2UserMailboxEventMessageReceivedV1 getEvent() {
+            return new P2UserMailboxEventMessageReceivedV1();
+        }
     }
 }

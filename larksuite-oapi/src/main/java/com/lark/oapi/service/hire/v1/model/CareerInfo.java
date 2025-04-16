@@ -30,37 +30,37 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CareerInfo {
     /**
      * 类型
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("career_type")
-    private Integer careerType;
+    private Long careerType;
     /**
      * 公司
-     * <p> 示例值：
+     * <p> 示例值：11
      */
     @SerializedName("company")
     private String company;
     /**
      * 描述
-     * <p> 示例值：
+     * <p> 示例值：11
      */
     @SerializedName("desc")
     private String desc;
     /**
      * 结束时间
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 开始时间
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("start_time")
-    private Integer startTime;
+    private Long startTime;
     /**
      * 职称
-     * <p> 示例值：
+     * <p> 示例值：11
      */
     @SerializedName("title")
     private String title;
@@ -72,32 +72,32 @@ public class CareerInfo {
     public CareerInfo(Builder builder) {
         /**
          * 类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.careerType = builder.careerType;
         /**
          * 公司
-         * <p> 示例值：
+         * <p> 示例值：11
          */
         this.company = builder.company;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：11
          */
         this.desc = builder.desc;
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.endTime = builder.endTime;
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.startTime = builder.startTime;
         /**
          * 职称
-         * <p> 示例值：
+         * <p> 示例值：11
          */
         this.title = builder.title;
     }
@@ -106,11 +106,11 @@ public class CareerInfo {
         return new Builder();
     }
 
-    public Integer getCareerType() {
+    public Long getCareerType() {
         return this.careerType;
     }
 
-    public void setCareerType(Integer careerType) {
+    public void setCareerType(Long careerType) {
         this.careerType = careerType;
     }
 
@@ -130,19 +130,19 @@ public class CareerInfo {
         this.desc = desc;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
@@ -157,43 +157,43 @@ public class CareerInfo {
     public static class Builder {
         /**
          * 类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer careerType;
+        private Long careerType;
         /**
          * 公司
-         * <p> 示例值：
+         * <p> 示例值：11
          */
         private String company;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：11
          */
         private String desc;
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer startTime;
+        private Long startTime;
         /**
          * 职称
-         * <p> 示例值：
+         * <p> 示例值：11
          */
         private String title;
 
         /**
          * 类型
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param careerType
          * @return
          */
-        public Builder careerType(Integer careerType) {
+        public Builder careerType(Long careerType) {
             this.careerType = careerType;
             return this;
         }
@@ -201,7 +201,7 @@ public class CareerInfo {
 
         /**
          * 公司
-         * <p> 示例值：
+         * <p> 示例值：11
          *
          * @param company
          * @return
@@ -214,7 +214,7 @@ public class CareerInfo {
 
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：11
          *
          * @param desc
          * @return
@@ -227,12 +227,12 @@ public class CareerInfo {
 
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }
@@ -240,12 +240,12 @@ public class CareerInfo {
 
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param startTime
          * @return
          */
-        public Builder startTime(Integer startTime) {
+        public Builder startTime(Long startTime) {
             this.startTime = startTime;
             return this;
         }
@@ -253,7 +253,7 @@ public class CareerInfo {
 
         /**
          * 职称
-         * <p> 示例值：
+         * <p> 示例值：11
          *
          * @param title
          * @return

@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AwardInfo {
     /**
      * 获奖时间
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("award_time")
-    private Integer awardTime;
+    private Long awardTime;
     /**
      * 描述
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("desc")
     private String desc;
     /**
      * 名称
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("title")
     private String title;
@@ -54,17 +54,17 @@ public class AwardInfo {
     public AwardInfo(Builder builder) {
         /**
          * 获奖时间
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.awardTime = builder.awardTime;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.desc = builder.desc;
         /**
          * 名称
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.title = builder.title;
     }
@@ -73,11 +73,11 @@ public class AwardInfo {
         return new Builder();
     }
 
-    public Integer getAwardTime() {
+    public Long getAwardTime() {
         return this.awardTime;
     }
 
-    public void setAwardTime(Integer awardTime) {
+    public void setAwardTime(Long awardTime) {
         this.awardTime = awardTime;
     }
 
@@ -100,28 +100,28 @@ public class AwardInfo {
     public static class Builder {
         /**
          * 获奖时间
-         * <p> 示例值：
+         * <p> 示例值：123
          */
-        private Integer awardTime;
+        private Long awardTime;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String desc;
         /**
          * 名称
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String title;
 
         /**
          * 获奖时间
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param awardTime
          * @return
          */
-        public Builder awardTime(Integer awardTime) {
+        public Builder awardTime(Long awardTime) {
             this.awardTime = awardTime;
             return this;
         }
@@ -129,7 +129,7 @@ public class AwardInfo {
 
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param desc
          * @return
@@ -142,7 +142,7 @@ public class AwardInfo {
 
         /**
          * 名称
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param title
          * @return

@@ -189,7 +189,7 @@ public class Job {
      * <p> 示例值：1622484739955
      */
     @SerializedName("expiry_time")
-    private Integer expiryTime;
+    private Long expiryTime;
     /**
      * 最低薪资，单位:k
      * <p> 示例值：10
@@ -644,11 +644,11 @@ public class Job {
         this.experience = experience;
     }
 
-    public Integer getExpiryTime() {
+    public Long getExpiryTime() {
         return this.expiryTime;
     }
 
-    public void setExpiryTime(Integer expiryTime) {
+    public void setExpiryTime(Long expiryTime) {
         this.expiryTime = expiryTime;
     }
 
@@ -859,7 +859,7 @@ public class Job {
          * 到期日期
          * <p> 示例值：1622484739955
          */
-        private Integer expiryTime;
+        private Long expiryTime;
         /**
          * 最低薪资，单位:k
          * <p> 示例值：10
@@ -1251,7 +1251,7 @@ public class Job {
          * @param expiryTime
          * @return
          */
-        public Builder expiryTime(Integer expiryTime) {
+        public Builder expiryTime(Long expiryTime) {
             this.expiryTime = expiryTime;
             return this;
         }

@@ -166,10 +166,10 @@ public class ListMailgroupManagerReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupManagerUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupManagerListMailGroupManagerUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupManagerUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupManagerListMailGroupManagerUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

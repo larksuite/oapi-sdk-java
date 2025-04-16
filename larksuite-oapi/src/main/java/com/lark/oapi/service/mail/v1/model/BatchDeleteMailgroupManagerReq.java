@@ -112,10 +112,10 @@ public class BatchDeleteMailgroupManagerReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：open_id
          *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.BatchDeleteMailgroupManagerUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.BatchDeleteMailgroupManagerBatchDeleteMailGroupManagerUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.BatchDeleteMailgroupManagerUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.BatchDeleteMailgroupManagerBatchDeleteMailGroupManagerUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

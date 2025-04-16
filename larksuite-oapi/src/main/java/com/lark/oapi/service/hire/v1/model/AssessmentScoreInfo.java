@@ -36,7 +36,7 @@ public class AssessmentScoreInfo {
     private Integer calculateType;
     /**
      * 分数(精确到小数点后两位)
-     * <p> 示例值：
+     * <p> 示例值：3.21
      */
     @SerializedName("score")
     private Double score;
@@ -45,7 +45,7 @@ public class AssessmentScoreInfo {
      * <p> 示例值：100
      */
     @SerializedName("full_score")
-    private Integer fullScore;
+    private Long fullScore;
 
     // builder 开始
     public AssessmentScoreInfo() {
@@ -59,7 +59,7 @@ public class AssessmentScoreInfo {
         this.calculateType = builder.calculateType;
         /**
          * 分数(精确到小数点后两位)
-         * <p> 示例值：
+         * <p> 示例值：3.21
          */
         this.score = builder.score;
         /**
@@ -89,11 +89,11 @@ public class AssessmentScoreInfo {
         this.score = score;
     }
 
-    public Integer getFullScore() {
+    public Long getFullScore() {
         return this.fullScore;
     }
 
-    public void setFullScore(Integer fullScore) {
+    public void setFullScore(Long fullScore) {
         this.fullScore = fullScore;
     }
 
@@ -105,14 +105,14 @@ public class AssessmentScoreInfo {
         private Integer calculateType;
         /**
          * 分数(精确到小数点后两位)
-         * <p> 示例值：
+         * <p> 示例值：3.21
          */
         private Double score;
         /**
          * 满分
          * <p> 示例值：100
          */
-        private Integer fullScore;
+        private Long fullScore;
 
         /**
          * 计分方式
@@ -129,7 +129,7 @@ public class AssessmentScoreInfo {
 
         /**
          * 分数(精确到小数点后两位)
-         * <p> 示例值：
+         * <p> 示例值：3.21
          *
          * @param score
          * @return
@@ -147,7 +147,7 @@ public class AssessmentScoreInfo {
          * @param fullScore
          * @return
          */
-        public Builder fullScore(Integer fullScore) {
+        public Builder fullScore(Long fullScore) {
             this.fullScore = fullScore;
             return this;
         }

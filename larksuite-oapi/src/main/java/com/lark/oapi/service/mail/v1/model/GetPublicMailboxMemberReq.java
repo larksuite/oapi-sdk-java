@@ -53,6 +53,7 @@ public class GetPublicMailboxMemberReq {
     // builder 开始
     public GetPublicMailboxMemberReq() {
     }
+
     public GetPublicMailboxMemberReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型
@@ -120,10 +121,10 @@ public class GetPublicMailboxMemberReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberGetPublicMailboxMemberUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberGetPublicMailboxMemberUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }

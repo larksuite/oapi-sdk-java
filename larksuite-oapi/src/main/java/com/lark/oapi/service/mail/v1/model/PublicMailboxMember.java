@@ -157,10 +157,10 @@ public class PublicMailboxMember {
          * 成员类型
          * <p> 示例值：USER
          *
-         * @param type {@link com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberTypeEnum}
+         * @param type {@link com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberPublicMailboxMemberTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberTypeEnum type) {
+        public Builder type(com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberPublicMailboxMemberTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

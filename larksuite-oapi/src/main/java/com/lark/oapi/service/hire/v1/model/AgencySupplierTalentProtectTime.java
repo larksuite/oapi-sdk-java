@@ -33,7 +33,7 @@ public class AgencySupplierTalentProtectTime {
      * <p> 示例值：180
      */
     @SerializedName("day")
-    private Integer day;
+    private Long day;
     /**
      * 是否使用统一设置
      * <p> 示例值：true
@@ -73,11 +73,11 @@ public class AgencySupplierTalentProtectTime {
         return new Builder();
     }
 
-    public Integer getDay() {
+    public Long getDay() {
         return this.day;
     }
 
-    public void setDay(Integer day) {
+    public void setDay(Long day) {
         this.day = day;
     }
 
@@ -102,7 +102,7 @@ public class AgencySupplierTalentProtectTime {
          * 保护时长，单位（天）
          * <p> 示例值：180
          */
-        private Integer day;
+        private Long day;
         /**
          * 是否使用统一设置
          * <p> 示例值：true
@@ -121,7 +121,7 @@ public class AgencySupplierTalentProtectTime {
          * @param day
          * @return
          */
-        public Builder day(Integer day) {
+        public Builder day(Long day) {
             this.day = day;
             return this;
         }

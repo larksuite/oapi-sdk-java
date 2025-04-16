@@ -2352,6 +2352,22 @@ public class EventDispatcher implements IHandler {
          * @param handler
          * @return
          */
+        public Builder onP2UserMailboxEventMessageReceivedV1(MailService.P2UserMailboxEventMessageReceivedV1Handler handler) {
+            if (eventType2EventHandler.containsKey("mail.user_mailbox.event.message_received_v1")) {
+                throw new EventTypeAlreadyHasHandlerException("mail.user_mailbox.event.message_received_v1");
+            }
+            eventType2EventHandler.put("mail.user_mailbox.event.message_received_v1", handler);
+            return this;
+        }
+
+
+        /**
+         * <p> ,
+         * <p> 事件描述文档链接:<a href=""></a>
+         *
+         * @param handler
+         * @return
+         */
         public Builder onP2MeetingRoomCreatedV1(MeetingRoomService.P2MeetingRoomCreatedV1Handler handler) {
             if (eventType2EventHandler.containsKey("meeting_room.meeting_room.created_v1")) {
                 throw new EventTypeAlreadyHasHandlerException("meeting_room.meeting_room.created_v1");

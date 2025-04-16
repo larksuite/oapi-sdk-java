@@ -33,7 +33,7 @@ public class EmployeeOverboardInfo {
      * <p> 示例值：1637596800000
      */
     @SerializedName("actual_overboard_time")
-    private Integer actualOverboardTime;
+    private Long actualOverboardTime;
     /**
      * 离职原因
      * <p> 示例值：职业发展考虑
@@ -62,11 +62,11 @@ public class EmployeeOverboardInfo {
         return new Builder();
     }
 
-    public Integer getActualOverboardTime() {
+    public Long getActualOverboardTime() {
         return this.actualOverboardTime;
     }
 
-    public void setActualOverboardTime(Integer actualOverboardTime) {
+    public void setActualOverboardTime(Long actualOverboardTime) {
         this.actualOverboardTime = actualOverboardTime;
     }
 
@@ -83,7 +83,7 @@ public class EmployeeOverboardInfo {
          * 实际离职日期
          * <p> 示例值：1637596800000
          */
-        private Integer actualOverboardTime;
+        private Long actualOverboardTime;
         /**
          * 离职原因
          * <p> 示例值：职业发展考虑
@@ -97,7 +97,7 @@ public class EmployeeOverboardInfo {
          * @param actualOverboardTime
          * @return
          */
-        public Builder actualOverboardTime(Integer actualOverboardTime) {
+        public Builder actualOverboardTime(Long actualOverboardTime) {
             this.actualOverboardTime = actualOverboardTime;
             return this;
         }

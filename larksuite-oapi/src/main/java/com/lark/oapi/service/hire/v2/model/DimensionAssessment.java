@@ -75,7 +75,7 @@ public class DimensionAssessment {
      * <p> 示例值：10
      */
     @SerializedName("dimension_score")
-    private Integer dimensionScore;
+    private Long dimensionScore;
     /**
      * 当维度为「职级建议」时，从此取值
      * <p> 示例值：
@@ -206,11 +206,11 @@ public class DimensionAssessment {
         this.dimensionOptions = dimensionOptions;
     }
 
-    public Integer getDimensionScore() {
+    public Long getDimensionScore() {
         return this.dimensionScore;
     }
 
-    public void setDimensionScore(Integer dimensionScore) {
+    public void setDimensionScore(Long dimensionScore) {
         this.dimensionScore = dimensionScore;
     }
 
@@ -270,7 +270,7 @@ public class DimensionAssessment {
          * 当维度评价方式为「打分题(填空)时」，从此取值
          * <p> 示例值：10
          */
-        private Integer dimensionScore;
+        private Long dimensionScore;
         /**
          * 当维度为「职级建议」时，从此取值
          * <p> 示例值：
@@ -380,7 +380,7 @@ public class DimensionAssessment {
          * @param dimensionScore
          * @return
          */
-        public Builder dimensionScore(Integer dimensionScore) {
+        public Builder dimensionScore(Long dimensionScore) {
             this.dimensionScore = dimensionScore;
             return this;
         }

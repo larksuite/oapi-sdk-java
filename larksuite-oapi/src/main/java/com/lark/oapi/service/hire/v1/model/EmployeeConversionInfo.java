@@ -33,7 +33,7 @@ public class EmployeeConversionInfo {
      * <p> 示例值：1637596800000
      */
     @SerializedName("actual_conversion_time")
-    private Integer actualConversionTime;
+    private Long actualConversionTime;
 
     // builder 开始
     public EmployeeConversionInfo() {
@@ -51,11 +51,11 @@ public class EmployeeConversionInfo {
         return new Builder();
     }
 
-    public Integer getActualConversionTime() {
+    public Long getActualConversionTime() {
         return this.actualConversionTime;
     }
 
-    public void setActualConversionTime(Integer actualConversionTime) {
+    public void setActualConversionTime(Long actualConversionTime) {
         this.actualConversionTime = actualConversionTime;
     }
 
@@ -64,7 +64,7 @@ public class EmployeeConversionInfo {
          * 实际转正日期
          * <p> 示例值：1637596800000
          */
-        private Integer actualConversionTime;
+        private Long actualConversionTime;
 
         /**
          * 实际转正日期
@@ -73,7 +73,7 @@ public class EmployeeConversionInfo {
          * @param actualConversionTime
          * @return
          */
-        public Builder actualConversionTime(Integer actualConversionTime) {
+        public Builder actualConversionTime(Long actualConversionTime) {
             this.actualConversionTime = actualConversionTime;
             return this;
         }

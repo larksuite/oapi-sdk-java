@@ -49,10 +49,10 @@ public class EventLog {
     private String smtpMessageId;
     /**
      * 行为类型
-     * <p> 示例值：auto_forward
+     * <p> 示例值：1
      */
     @SerializedName("event_type")
-    private String eventType;
+    private Integer eventType;
     /**
      * 时间戳
      * <p> 示例值：1706882657
@@ -82,7 +82,7 @@ public class EventLog {
         this.smtpMessageId = builder.smtpMessageId;
         /**
          * 行为类型
-         * <p> 示例值：auto_forward
+         * <p> 示例值：1
          */
         this.eventType = builder.eventType;
         /**
@@ -120,11 +120,11 @@ public class EventLog {
         this.smtpMessageId = smtpMessageId;
     }
 
-    public String getEventType() {
+    public Integer getEventType() {
         return this.eventType;
     }
 
-    public void setEventType(String eventType) {
+    public void setEventType(Integer eventType) {
         this.eventType = eventType;
     }
 
@@ -154,9 +154,9 @@ public class EventLog {
         private String smtpMessageId;
         /**
          * 行为类型
-         * <p> 示例值：auto_forward
+         * <p> 示例值：1
          */
-        private String eventType;
+        private Integer eventType;
         /**
          * 时间戳
          * <p> 示例值：1706882657
@@ -204,24 +204,24 @@ public class EventLog {
 
         /**
          * 行为类型
-         * <p> 示例值：auto_forward
+         * <p> 示例值：1
          *
          * @param eventType
          * @return
          */
-        public Builder eventType(String eventType) {
+        public Builder eventType(Integer eventType) {
             this.eventType = eventType;
             return this;
         }
 
         /**
          * 行为类型
-         * <p> 示例值：auto_forward
+         * <p> 示例值：1
          *
-         * @param eventType {@link com.lark.oapi.service.mail.v1.enums.EventLogEventTypeEnum}
+         * @param eventType {@link com.lark.oapi.service.mail.v1.enums.EventLogEventLogTypeEnum}
          * @return
          */
-        public Builder eventType(com.lark.oapi.service.mail.v1.enums.EventLogEventTypeEnum eventType) {
+        public Builder eventType(com.lark.oapi.service.mail.v1.enums.EventLogEventLogTypeEnum eventType) {
             this.eventType = eventType.getValue();
             return this;
         }

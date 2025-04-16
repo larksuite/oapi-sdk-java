@@ -45,7 +45,13 @@ public class OfferAttachmentInfo {
      * <p> 示例值：4096
      */
     @SerializedName("size")
-    private Integer size;
+    private Long size;
+    /**
+     * 通用附件ID
+     * <p> 示例值：7118398769038182701
+     */
+    @SerializedName("common_attachment_id")
+    private String commonAttachmentId;
 
     // builder 开始
     public OfferAttachmentInfo() {
@@ -67,6 +73,11 @@ public class OfferAttachmentInfo {
          * <p> 示例值：4096
          */
         this.size = builder.size;
+        /**
+         * 通用附件ID
+         * <p> 示例值：7118398769038182701
+         */
+        this.commonAttachmentId = builder.commonAttachmentId;
     }
 
     public static Builder newBuilder() {
@@ -89,12 +100,20 @@ public class OfferAttachmentInfo {
         this.name = name;
     }
 
-    public Integer getSize() {
+    public Long getSize() {
         return this.size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(Long size) {
         this.size = size;
+    }
+
+    public String getCommonAttachmentId() {
+        return this.commonAttachmentId;
+    }
+
+    public void setCommonAttachmentId(String commonAttachmentId) {
+        this.commonAttachmentId = commonAttachmentId;
     }
 
     public static class Builder {
@@ -112,7 +131,12 @@ public class OfferAttachmentInfo {
          * Offer 附件大小
          * <p> 示例值：4096
          */
-        private Integer size;
+        private Long size;
+        /**
+         * 通用附件ID
+         * <p> 示例值：7118398769038182701
+         */
+        private String commonAttachmentId;
 
         /**
          * Offer 附件 ID
@@ -147,8 +171,21 @@ public class OfferAttachmentInfo {
          * @param size
          * @return
          */
-        public Builder size(Integer size) {
+        public Builder size(Long size) {
             this.size = size;
+            return this;
+        }
+
+
+        /**
+         * 通用附件ID
+         * <p> 示例值：7118398769038182701
+         *
+         * @param commonAttachmentId
+         * @return
+         */
+        public Builder commonAttachmentId(String commonAttachmentId) {
+            this.commonAttachmentId = commonAttachmentId;
             return this;
         }
 

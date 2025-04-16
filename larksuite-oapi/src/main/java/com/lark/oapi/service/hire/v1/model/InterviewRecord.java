@@ -69,7 +69,7 @@ public class InterviewRecord {
      * <p> 示例值：1659318415000
      */
     @SerializedName("feedback_submit_time")
-    private Integer feedbackSubmitTime;
+    private Long feedbackSubmitTime;
     /**
      * 面试结论
      * <p> 示例值：1
@@ -253,11 +253,11 @@ public class InterviewRecord {
         this.commitStatus = commitStatus;
     }
 
-    public Integer getFeedbackSubmitTime() {
+    public Long getFeedbackSubmitTime() {
         return this.feedbackSubmitTime;
     }
 
-    public void setFeedbackSubmitTime(Integer feedbackSubmitTime) {
+    public void setFeedbackSubmitTime(Long feedbackSubmitTime) {
         this.feedbackSubmitTime = feedbackSubmitTime;
     }
 
@@ -360,7 +360,7 @@ public class InterviewRecord {
          * 面试评价提交时间
          * <p> 示例值：1659318415000
          */
-        private Integer feedbackSubmitTime;
+        private Long feedbackSubmitTime;
         /**
          * 面试结论
          * <p> 示例值：1
@@ -487,7 +487,7 @@ public class InterviewRecord {
          * @param feedbackSubmitTime
          * @return
          */
-        public Builder feedbackSubmitTime(Integer feedbackSubmitTime) {
+        public Builder feedbackSubmitTime(Long feedbackSubmitTime) {
             this.feedbackSubmitTime = feedbackSubmitTime;
             return this;
         }

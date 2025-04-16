@@ -51,7 +51,7 @@ public class ExternalBackgroundCheck {
      * <p> 示例值：1626602069393
      */
     @SerializedName("date")
-    private Integer date;
+    private Long date;
     /**
      * 背调名字
      * <p> 示例值：测试.pdf
@@ -152,11 +152,11 @@ public class ExternalBackgroundCheck {
         this.externalApplicationId = externalApplicationId;
     }
 
-    public Integer getDate() {
+    public Long getDate() {
         return this.date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 
@@ -212,7 +212,7 @@ public class ExternalBackgroundCheck {
          * 背调日期
          * <p> 示例值：1626602069393
          */
-        private Integer date;
+        private Long date;
         /**
          * 背调名字
          * <p> 示例值：测试.pdf
@@ -280,7 +280,7 @@ public class ExternalBackgroundCheck {
          * @param date
          * @return
          */
-        public Builder date(Integer date) {
+        public Builder date(Long date) {
             this.date = date;
             return this;
         }

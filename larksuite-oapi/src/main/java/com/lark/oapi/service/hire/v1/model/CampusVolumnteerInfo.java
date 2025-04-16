@@ -33,7 +33,7 @@ public class CampusVolumnteerInfo {
      * <p> 示例值：1
      */
     @SerializedName("volunteer_seq")
-    private Integer volunteerSeq;
+    private Long volunteerSeq;
 
     // builder 开始
     public CampusVolumnteerInfo() {
@@ -51,11 +51,11 @@ public class CampusVolumnteerInfo {
         return new Builder();
     }
 
-    public Integer getVolunteerSeq() {
+    public Long getVolunteerSeq() {
         return this.volunteerSeq;
     }
 
-    public void setVolunteerSeq(Integer volunteerSeq) {
+    public void setVolunteerSeq(Long volunteerSeq) {
         this.volunteerSeq = volunteerSeq;
     }
 
@@ -64,7 +64,7 @@ public class CampusVolumnteerInfo {
          * 志愿顺序
          * <p> 示例值：1
          */
-        private Integer volunteerSeq;
+        private Long volunteerSeq;
 
         /**
          * 志愿顺序
@@ -73,7 +73,7 @@ public class CampusVolumnteerInfo {
          * @param volunteerSeq
          * @return
          */
-        public Builder volunteerSeq(Integer volunteerSeq) {
+        public Builder volunteerSeq(Long volunteerSeq) {
             this.volunteerSeq = volunteerSeq;
             return this;
         }

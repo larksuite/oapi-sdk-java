@@ -35,17 +35,17 @@ public class GetChatAnnouncementRespBody {
     @SerializedName("revision_id")
     private Integer revisionId;
     /**
-     * 群公告生成的时间戳（秒）
+     * 群公告生成的时间戳（秒）（已废弃）
      * <p> 示例值：1609296809
      */
     @SerializedName("create_time")
-    private String createTime;
+    private Long createTime;
     /**
-     * 群公告更新的时间戳（秒）
+     * 群公告更新的时间戳（秒）（已废弃）
      * <p> 示例值：1609296809
      */
     @SerializedName("update_time")
-    private String updateTime;
+    private Long updateTime;
     /**
      * 群公告所有者 ID，ID 值与 owner_id_type 中的ID类型对应
      * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
@@ -76,6 +76,18 @@ public class GetChatAnnouncementRespBody {
      */
     @SerializedName("announcement_type")
     private String announcementType;
+    /**
+     * 群公告生成的时间戳（秒）
+     * <p> 示例值：1609296809
+     */
+    @SerializedName("create_time_v2")
+    private String createTimeV2;
+    /**
+     * 群公告更新的时间戳（秒）
+     * <p> 示例值：1609296809
+     */
+    @SerializedName("update_time_v2")
+    private String updateTimeV2;
 
     public Integer getRevisionId() {
         return this.revisionId;
@@ -85,19 +97,19 @@ public class GetChatAnnouncementRespBody {
         this.revisionId = revisionId;
     }
 
-    public String getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public String getUpdateTime() {
+    public Long getUpdateTime() {
         return this.updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -139,6 +151,22 @@ public class GetChatAnnouncementRespBody {
 
     public void setAnnouncementType(String announcementType) {
         this.announcementType = announcementType;
+    }
+
+    public String getCreateTimeV2() {
+        return this.createTimeV2;
+    }
+
+    public void setCreateTimeV2(String createTimeV2) {
+        this.createTimeV2 = createTimeV2;
+    }
+
+    public String getUpdateTimeV2() {
+        return this.updateTimeV2;
+    }
+
+    public void setUpdateTimeV2(String updateTimeV2) {
+        this.updateTimeV2 = updateTimeV2;
     }
 
 }

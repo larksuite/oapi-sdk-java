@@ -21,6 +21,7 @@ public class CreateJobFamilySample {
                 .jobFamily(JobFamily.newBuilder()
                         .name(new I18n[]{})
                         .active(true)
+                        .selectable(true)
                         .parentId("4698020757495316313")
                         .pathwayIds(new String[]{})
                         .effectiveTime("2020-05-01 00:00:00")

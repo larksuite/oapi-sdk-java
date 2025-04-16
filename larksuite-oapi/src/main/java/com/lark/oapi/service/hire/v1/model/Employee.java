@@ -57,25 +57,25 @@ public class Employee {
      * <p> 示例值：1637596800000
      */
     @SerializedName("onboard_time")
-    private Integer onboardTime;
+    private Long onboardTime;
     /**
      * 预期转正时间
      * <p> 示例值：1637596800000
      */
     @SerializedName("expected_conversion_time")
-    private Integer expectedConversionTime;
+    private Long expectedConversionTime;
     /**
      * 实际转正时间
      * <p> 示例值：1637596800000
      */
     @SerializedName("actual_conversion_time")
-    private Integer actualConversionTime;
+    private Long actualConversionTime;
     /**
      * 离职时间
      * <p> 示例值：1637596800000
      */
     @SerializedName("overboard_time")
-    private Integer overboardTime;
+    private Long overboardTime;
     /**
      * 离职原因
      * <p> 示例值：职业发展考虑
@@ -248,35 +248,35 @@ public class Employee {
         this.conversionStatus = conversionStatus;
     }
 
-    public Integer getOnboardTime() {
+    public Long getOnboardTime() {
         return this.onboardTime;
     }
 
-    public void setOnboardTime(Integer onboardTime) {
+    public void setOnboardTime(Long onboardTime) {
         this.onboardTime = onboardTime;
     }
 
-    public Integer getExpectedConversionTime() {
+    public Long getExpectedConversionTime() {
         return this.expectedConversionTime;
     }
 
-    public void setExpectedConversionTime(Integer expectedConversionTime) {
+    public void setExpectedConversionTime(Long expectedConversionTime) {
         this.expectedConversionTime = expectedConversionTime;
     }
 
-    public Integer getActualConversionTime() {
+    public Long getActualConversionTime() {
         return this.actualConversionTime;
     }
 
-    public void setActualConversionTime(Integer actualConversionTime) {
+    public void setActualConversionTime(Long actualConversionTime) {
         this.actualConversionTime = actualConversionTime;
     }
 
-    public Integer getOverboardTime() {
+    public Long getOverboardTime() {
         return this.overboardTime;
     }
 
-    public void setOverboardTime(Integer overboardTime) {
+    public void setOverboardTime(Long overboardTime) {
         this.overboardTime = overboardTime;
     }
 
@@ -369,22 +369,22 @@ public class Employee {
          * 实际入职时间
          * <p> 示例值：1637596800000
          */
-        private Integer onboardTime;
+        private Long onboardTime;
         /**
          * 预期转正时间
          * <p> 示例值：1637596800000
          */
-        private Integer expectedConversionTime;
+        private Long expectedConversionTime;
         /**
          * 实际转正时间
          * <p> 示例值：1637596800000
          */
-        private Integer actualConversionTime;
+        private Long actualConversionTime;
         /**
          * 离职时间
          * <p> 示例值：1637596800000
          */
-        private Integer overboardTime;
+        private Long overboardTime;
         /**
          * 离职原因
          * <p> 示例值：职业发展考虑
@@ -485,7 +485,7 @@ public class Employee {
          * @param onboardTime
          * @return
          */
-        public Builder onboardTime(Integer onboardTime) {
+        public Builder onboardTime(Long onboardTime) {
             this.onboardTime = onboardTime;
             return this;
         }
@@ -498,7 +498,7 @@ public class Employee {
          * @param expectedConversionTime
          * @return
          */
-        public Builder expectedConversionTime(Integer expectedConversionTime) {
+        public Builder expectedConversionTime(Long expectedConversionTime) {
             this.expectedConversionTime = expectedConversionTime;
             return this;
         }
@@ -511,7 +511,7 @@ public class Employee {
          * @param actualConversionTime
          * @return
          */
-        public Builder actualConversionTime(Integer actualConversionTime) {
+        public Builder actualConversionTime(Long actualConversionTime) {
             this.actualConversionTime = actualConversionTime;
             return this;
         }
@@ -524,7 +524,7 @@ public class Employee {
          * @param overboardTime
          * @return
          */
-        public Builder overboardTime(Integer overboardTime) {
+        public Builder overboardTime(Long overboardTime) {
             this.overboardTime = overboardTime;
             return this;
         }

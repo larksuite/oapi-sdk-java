@@ -131,6 +131,12 @@ public class OfferBasicInfo {
     @SerializedName("attachment_id_list")
     private String[] attachmentIdList;
     /**
+     * Offer 附件 ID 列表
+     * <p> 示例值：
+     */
+    @SerializedName("common_attachment_id_list")
+    private String[] commonAttachmentIdList;
+    /**
      * 附件描述
      * <p> 示例值：张三的简历
      */
@@ -251,6 +257,11 @@ public class OfferBasicInfo {
          * <p> 示例值：["7081582717280831752"]
          */
         this.attachmentIdList = builder.attachmentIdList;
+        /**
+         * Offer 附件 ID 列表
+         * <p> 示例值：
+         */
+        this.commonAttachmentIdList = builder.commonAttachmentIdList;
         /**
          * 附件描述
          * <p> 示例值：张三的简历
@@ -418,6 +429,14 @@ public class OfferBasicInfo {
         this.attachmentIdList = attachmentIdList;
     }
 
+    public String[] getCommonAttachmentIdList() {
+        return this.commonAttachmentIdList;
+    }
+
+    public void setCommonAttachmentIdList(String[] commonAttachmentIdList) {
+        this.commonAttachmentIdList = commonAttachmentIdList;
+    }
+
     public String getAttachmentDescription() {
         return this.attachmentDescription;
     }
@@ -544,6 +563,11 @@ public class OfferBasicInfo {
          * <p> 示例值：["7081582717280831752"]
          */
         private String[] attachmentIdList;
+        /**
+         * Offer 附件 ID 列表
+         * <p> 示例值：
+         */
+        private String[] commonAttachmentIdList;
         /**
          * 附件描述
          * <p> 示例值：张三的简历
@@ -787,6 +811,19 @@ public class OfferBasicInfo {
          */
         public Builder attachmentIdList(String[] attachmentIdList) {
             this.attachmentIdList = attachmentIdList;
+            return this;
+        }
+
+
+        /**
+         * Offer 附件 ID 列表
+         * <p> 示例值：
+         *
+         * @param commonAttachmentIdList
+         * @return
+         */
+        public Builder commonAttachmentIdList(String[] commonAttachmentIdList) {
+            this.commonAttachmentIdList = commonAttachmentIdList;
             return this;
         }
 

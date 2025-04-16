@@ -30,46 +30,46 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationTalentProjectInfo {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("id")
     private String id;
     /**
      * 名字
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("name")
     private String name;
     /**
      * 角色
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("role")
     private String role;
     /**
      * 链接
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("link")
     private String link;
     /**
      * 描述
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("desc")
     private String desc;
     /**
      * 开始时间
-     * <p> 示例值：
+     * <p> 示例值：1735664461000
      */
     @SerializedName("start_time")
-    private Integer startTime;
+    private Long startTime;
     /**
      * 结束时间
-     * <p> 示例值：
+     * <p> 示例值：1735664461000
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
 
     // builder 开始
     public ApplicationTalentProjectInfo() {
@@ -78,37 +78,37 @@ public class ApplicationTalentProjectInfo {
     public ApplicationTalentProjectInfo(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.id = builder.id;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.name = builder.name;
         /**
          * 角色
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.role = builder.role;
         /**
          * 链接
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.link = builder.link;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.desc = builder.desc;
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         this.startTime = builder.startTime;
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         this.endTime = builder.endTime;
     }
@@ -157,62 +157,62 @@ public class ApplicationTalentProjectInfo {
         this.desc = desc;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String id;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String name;
         /**
          * 角色
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String role;
         /**
          * 链接
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String link;
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String desc;
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
-        private Integer startTime;
+        private Long startTime;
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
-        private Integer endTime;
+        private Long endTime;
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param id
          * @return
@@ -225,7 +225,7 @@ public class ApplicationTalentProjectInfo {
 
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param name
          * @return
@@ -238,7 +238,7 @@ public class ApplicationTalentProjectInfo {
 
         /**
          * 角色
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param role
          * @return
@@ -251,7 +251,7 @@ public class ApplicationTalentProjectInfo {
 
         /**
          * 链接
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param link
          * @return
@@ -264,7 +264,7 @@ public class ApplicationTalentProjectInfo {
 
         /**
          * 描述
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param desc
          * @return
@@ -277,12 +277,12 @@ public class ApplicationTalentProjectInfo {
 
         /**
          * 开始时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          *
          * @param startTime
          * @return
          */
-        public Builder startTime(Integer startTime) {
+        public Builder startTime(Long startTime) {
             this.startTime = startTime;
             return this;
         }
@@ -290,12 +290,12 @@ public class ApplicationTalentProjectInfo {
 
         /**
          * 结束时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          *
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }

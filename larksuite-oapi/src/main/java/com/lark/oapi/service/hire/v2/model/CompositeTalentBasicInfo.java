@@ -57,13 +57,13 @@ public class CompositeTalentBasicInfo {
      * <p> 示例值：5
      */
     @SerializedName("experience_years")
-    private Integer experienceYears;
+    private Long experienceYears;
     /**
      * 年龄
      * <p> 示例值：22
      */
     @SerializedName("age")
-    private Integer age;
+    private Long age;
     /**
      * 国籍
      * <p> 示例值：CN_1
@@ -303,19 +303,19 @@ public class CompositeTalentBasicInfo {
         this.email = email;
     }
 
-    public Integer getExperienceYears() {
+    public Long getExperienceYears() {
         return this.experienceYears;
     }
 
-    public void setExperienceYears(Integer experienceYears) {
+    public void setExperienceYears(Long experienceYears) {
         this.experienceYears = experienceYears;
     }
 
-    public Integer getAge() {
+    public Long getAge() {
         return this.age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 
@@ -464,12 +464,12 @@ public class CompositeTalentBasicInfo {
          * 工作年限
          * <p> 示例值：5
          */
-        private Integer experienceYears;
+        private Long experienceYears;
         /**
          * 年龄
          * <p> 示例值：22
          */
-        private Integer age;
+        private Long age;
         /**
          * 国籍
          * <p> 示例值：CN_1
@@ -605,7 +605,7 @@ public class CompositeTalentBasicInfo {
          * @param experienceYears
          * @return
          */
-        public Builder experienceYears(Integer experienceYears) {
+        public Builder experienceYears(Long experienceYears) {
             this.experienceYears = experienceYears;
             return this;
         }
@@ -618,7 +618,7 @@ public class CompositeTalentBasicInfo {
          * @param age
          * @return
          */
-        public Builder age(Integer age) {
+        public Builder age(Long age) {
             this.age = age;
             return this;
         }

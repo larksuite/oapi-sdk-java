@@ -51,7 +51,7 @@ public class WebsiteDeliveryAward {
      * <p> 示例值：1609430400
      */
     @SerializedName("award_time")
-    private Integer awardTime;
+    private Long awardTime;
 
     // builder 开始
     public WebsiteDeliveryAward() {
@@ -108,11 +108,11 @@ public class WebsiteDeliveryAward {
         this.title = title;
     }
 
-    public Integer getAwardTime() {
+    public Long getAwardTime() {
         return this.awardTime;
     }
 
-    public void setAwardTime(Integer awardTime) {
+    public void setAwardTime(Long awardTime) {
         this.awardTime = awardTime;
     }
 
@@ -136,7 +136,7 @@ public class WebsiteDeliveryAward {
          * 获奖时间
          * <p> 示例值：1609430400
          */
-        private Integer awardTime;
+        private Long awardTime;
 
         /**
          * 自定义字段
@@ -184,7 +184,7 @@ public class WebsiteDeliveryAward {
          * @param awardTime
          * @return
          */
-        public Builder awardTime(Integer awardTime) {
+        public Builder awardTime(Long awardTime) {
             this.awardTime = awardTime;
             return this;
         }

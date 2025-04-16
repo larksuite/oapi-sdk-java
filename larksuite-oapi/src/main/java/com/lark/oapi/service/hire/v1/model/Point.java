@@ -33,7 +33,7 @@ public class Point {
      * <p> 示例值：100
      */
     @SerializedName("amount")
-    private Integer amount;
+    private Long amount;
 
     // builder 开始
     public Point() {
@@ -51,11 +51,11 @@ public class Point {
         return new Builder();
     }
 
-    public Integer getAmount() {
+    public Long getAmount() {
         return this.amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 
@@ -64,7 +64,7 @@ public class Point {
          * 数额
          * <p> 示例值：100
          */
-        private Integer amount;
+        private Long amount;
 
         /**
          * 数额
@@ -73,7 +73,7 @@ public class Point {
          * @param amount
          * @return
          */
-        public Builder amount(Integer amount) {
+        public Builder amount(Long amount) {
             this.amount = amount;
             return this;
         }

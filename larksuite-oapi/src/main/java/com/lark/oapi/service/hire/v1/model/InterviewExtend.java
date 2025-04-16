@@ -39,13 +39,13 @@ public class InterviewExtend {
      * <p> 示例值：1618899376474
      */
     @SerializedName("begin_time")
-    private Integer beginTime;
+    private Long beginTime;
     /**
      * 面试结束时间（ms）
      * <p> 示例值：1618999376474
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 面试轮次
      * <p> 示例值：0
@@ -63,7 +63,7 @@ public class InterviewExtend {
      * <p> 示例值：1659318415000
      */
     @SerializedName("feedback_submit_time")
-    private Integer feedbackSubmitTime;
+    private Long feedbackSubmitTime;
     /**
      * 面试关联的投递阶段
      * <p> 示例值：634324253532232
@@ -93,13 +93,13 @@ public class InterviewExtend {
      * <p> 示例值：1618999376474
      */
     @SerializedName("biz_create_time")
-    private Integer bizCreateTime;
+    private Long bizCreateTime;
     /**
      * 最近更新时间（ms）
      * <p> 示例值：1618999376474
      */
     @SerializedName("biz_modify_time")
-    private Integer bizModifyTime;
+    private Long bizModifyTime;
     /**
      * 面试状态
      * <p> 示例值：1
@@ -334,19 +334,19 @@ public class InterviewExtend {
         this.id = id;
     }
 
-    public Integer getBeginTime() {
+    public Long getBeginTime() {
         return this.beginTime;
     }
 
-    public void setBeginTime(Integer beginTime) {
+    public void setBeginTime(Long beginTime) {
         this.beginTime = beginTime;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
@@ -366,11 +366,11 @@ public class InterviewExtend {
         this.interviewRecordList = interviewRecordList;
     }
 
-    public Integer getFeedbackSubmitTime() {
+    public Long getFeedbackSubmitTime() {
         return this.feedbackSubmitTime;
     }
 
-    public void setFeedbackSubmitTime(Integer feedbackSubmitTime) {
+    public void setFeedbackSubmitTime(Long feedbackSubmitTime) {
         this.feedbackSubmitTime = feedbackSubmitTime;
     }
 
@@ -406,19 +406,19 @@ public class InterviewExtend {
         this.creator = creator;
     }
 
-    public Integer getBizCreateTime() {
+    public Long getBizCreateTime() {
         return this.bizCreateTime;
     }
 
-    public void setBizCreateTime(Integer bizCreateTime) {
+    public void setBizCreateTime(Long bizCreateTime) {
         this.bizCreateTime = bizCreateTime;
     }
 
-    public Integer getBizModifyTime() {
+    public Long getBizModifyTime() {
         return this.bizModifyTime;
     }
 
-    public void setBizModifyTime(Integer bizModifyTime) {
+    public void setBizModifyTime(Long bizModifyTime) {
         this.bizModifyTime = bizModifyTime;
     }
 
@@ -544,12 +544,12 @@ public class InterviewExtend {
          * 面试开始时间（ms）
          * <p> 示例值：1618899376474
          */
-        private Integer beginTime;
+        private Long beginTime;
         /**
          * 面试结束时间（ms）
          * <p> 示例值：1618999376474
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 面试轮次
          * <p> 示例值：0
@@ -564,7 +564,7 @@ public class InterviewExtend {
          * 面试评价提交时间
          * <p> 示例值：1659318415000
          */
-        private Integer feedbackSubmitTime;
+        private Long feedbackSubmitTime;
         /**
          * 面试关联的投递阶段
          * <p> 示例值：634324253532232
@@ -589,12 +589,12 @@ public class InterviewExtend {
          * 创建时间（ms）
          * <p> 示例值：1618999376474
          */
-        private Integer bizCreateTime;
+        private Long bizCreateTime;
         /**
          * 最近更新时间（ms）
          * <p> 示例值：1618999376474
          */
-        private Integer bizModifyTime;
+        private Long bizModifyTime;
         /**
          * 面试状态
          * <p> 示例值：1
@@ -686,7 +686,7 @@ public class InterviewExtend {
          * @param beginTime
          * @return
          */
-        public Builder beginTime(Integer beginTime) {
+        public Builder beginTime(Long beginTime) {
             this.beginTime = beginTime;
             return this;
         }
@@ -699,7 +699,7 @@ public class InterviewExtend {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }
@@ -738,7 +738,7 @@ public class InterviewExtend {
          * @param feedbackSubmitTime
          * @return
          */
-        public Builder feedbackSubmitTime(Integer feedbackSubmitTime) {
+        public Builder feedbackSubmitTime(Long feedbackSubmitTime) {
             this.feedbackSubmitTime = feedbackSubmitTime;
             return this;
         }
@@ -803,7 +803,7 @@ public class InterviewExtend {
          * @param bizCreateTime
          * @return
          */
-        public Builder bizCreateTime(Integer bizCreateTime) {
+        public Builder bizCreateTime(Long bizCreateTime) {
             this.bizCreateTime = bizCreateTime;
             return this;
         }
@@ -816,7 +816,7 @@ public class InterviewExtend {
          * @param bizModifyTime
          * @return
          */
-        public Builder bizModifyTime(Integer bizModifyTime) {
+        public Builder bizModifyTime(Long bizModifyTime) {
             this.bizModifyTime = bizModifyTime;
             return this;
         }

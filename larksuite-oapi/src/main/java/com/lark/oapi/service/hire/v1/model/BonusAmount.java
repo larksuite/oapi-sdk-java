@@ -39,7 +39,7 @@ public class BonusAmount {
      * <p> 示例值：100
      */
     @SerializedName("point_bonus")
-    private Integer pointBonus;
+    private Long pointBonus;
     /**
      * 现金奖励
      * <p> 示例值：
@@ -92,11 +92,11 @@ public class BonusAmount {
         this.bonusType = bonusType;
     }
 
-    public Integer getPointBonus() {
+    public Long getPointBonus() {
         return this.pointBonus;
     }
 
-    public void setPointBonus(Integer pointBonus) {
+    public void setPointBonus(Long pointBonus) {
         this.pointBonus = pointBonus;
     }
 
@@ -126,7 +126,7 @@ public class BonusAmount {
          * 积分奖励
          * <p> 示例值：100
          */
-        private Integer pointBonus;
+        private Long pointBonus;
         /**
          * 现金奖励
          * <p> 示例值：
@@ -158,7 +158,7 @@ public class BonusAmount {
          * @param pointBonus
          * @return
          */
-        public Builder pointBonus(Integer pointBonus) {
+        public Builder pointBonus(Long pointBonus) {
             this.pointBonus = pointBonus;
             return this;
         }

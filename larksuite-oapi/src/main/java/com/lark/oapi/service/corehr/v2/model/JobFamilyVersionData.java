@@ -72,6 +72,12 @@ public class JobFamilyVersionData {
     @SerializedName("descriptions")
     private I18n[] descriptions;
     /**
+     * 可选
+     * <p> 示例值：true
+     */
+    @SerializedName("selectable")
+    private Boolean selectable;
+    /**
      * 上级序列
      * <p> 示例值：4698020757495316313
      */
@@ -130,6 +136,11 @@ public class JobFamilyVersionData {
          * <p> 示例值：
          */
         this.descriptions = builder.descriptions;
+        /**
+         * 可选
+         * <p> 示例值：true
+         */
+        this.selectable = builder.selectable;
         /**
          * 上级序列
          * <p> 示例值：4698020757495316313
@@ -207,6 +218,14 @@ public class JobFamilyVersionData {
         this.descriptions = descriptions;
     }
 
+    public Boolean getSelectable() {
+        return this.selectable;
+    }
+
+    public void setSelectable(Boolean selectable) {
+        this.selectable = selectable;
+    }
+
     public String getParentJobFamilyId() {
         return this.parentJobFamilyId;
     }
@@ -267,6 +286,11 @@ public class JobFamilyVersionData {
          * <p> 示例值：
          */
         private I18n[] descriptions;
+        /**
+         * 可选
+         * <p> 示例值：true
+         */
+        private Boolean selectable;
         /**
          * 上级序列
          * <p> 示例值：4698020757495316313
@@ -370,6 +394,19 @@ public class JobFamilyVersionData {
          */
         public Builder descriptions(I18n[] descriptions) {
             this.descriptions = descriptions;
+            return this;
+        }
+
+
+        /**
+         * 可选
+         * <p> 示例值：true
+         *
+         * @param selectable
+         * @return
+         */
+        public Builder selectable(Boolean selectable) {
+            this.selectable = selectable;
             return this;
         }
 

@@ -51,7 +51,7 @@ public class Attachment {
      * <p> 示例值：16615
      */
     @SerializedName("file_size")
-    private Integer fileSize;
+    private Long fileSize;
     /**
      * 附件创建时间(ms)
      * <p> 示例值：1710399930151
@@ -119,11 +119,11 @@ public class Attachment {
         this.contentType = contentType;
     }
 
-    public Integer getFileSize() {
+    public Long getFileSize() {
         return this.fileSize;
     }
 
-    public void setFileSize(Integer fileSize) {
+    public void setFileSize(Long fileSize) {
         this.fileSize = fileSize;
     }
 
@@ -155,7 +155,7 @@ public class Attachment {
          * 附件大小
          * <p> 示例值：16615
          */
-        private Integer fileSize;
+        private Long fileSize;
         /**
          * 附件创建时间(ms)
          * <p> 示例值：1710399930151
@@ -208,7 +208,7 @@ public class Attachment {
          * @param fileSize
          * @return
          */
-        public Builder fileSize(Integer fileSize) {
+        public Builder fileSize(Long fileSize) {
             this.fileSize = fileSize;
             return this;
         }

@@ -45,7 +45,7 @@ public class ExternalCommonAttachment {
      * <p> 示例值：126371
      */
     @SerializedName("size")
-    private Integer size;
+    private Long size;
 
     // builder 开始
     public ExternalCommonAttachment() {
@@ -89,11 +89,11 @@ public class ExternalCommonAttachment {
         this.name = name;
     }
 
-    public Integer getSize() {
+    public Long getSize() {
         return this.size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(Long size) {
         this.size = size;
     }
 
@@ -112,7 +112,7 @@ public class ExternalCommonAttachment {
          * 附件大小
          * <p> 示例值：126371
          */
-        private Integer size;
+        private Long size;
 
         /**
          * 附件 ID
@@ -147,7 +147,7 @@ public class ExternalCommonAttachment {
          * @param size
          * @return
          */
-        public Builder size(Integer size) {
+        public Builder size(Long size) {
             this.size = size;
             return this;
         }

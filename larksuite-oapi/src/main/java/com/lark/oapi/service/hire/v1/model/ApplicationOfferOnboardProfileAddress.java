@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationOfferOnboardProfileAddress {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("id")
     private String id;
     /**
      * 名字
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("name")
     private String name;
     /**
      * 英文名
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("en_name")
     private String enName;
@@ -78,10 +78,10 @@ public class ApplicationOfferOnboardProfileAddress {
     private String[] usageIdList;
     /**
      * 状态
-     * <p> 示例值：
+     * <p> 示例值：111
      */
     @SerializedName("active_status")
-    private Integer activeStatus;
+    private Long activeStatus;
 
     // builder 开始
     public ApplicationOfferOnboardProfileAddress() {
@@ -90,17 +90,17 @@ public class ApplicationOfferOnboardProfileAddress {
     public ApplicationOfferOnboardProfileAddress(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.id = builder.id;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.name = builder.name;
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.enName = builder.enName;
         /**
@@ -130,7 +130,7 @@ public class ApplicationOfferOnboardProfileAddress {
         this.usageIdList = builder.usageIdList;
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：111
          */
         this.activeStatus = builder.activeStatus;
     }
@@ -203,28 +203,28 @@ public class ApplicationOfferOnboardProfileAddress {
         this.usageIdList = usageIdList;
     }
 
-    public Integer getActiveStatus() {
+    public Long getActiveStatus() {
         return this.activeStatus;
     }
 
-    public void setActiveStatus(Integer activeStatus) {
+    public void setActiveStatus(Long activeStatus) {
         this.activeStatus = activeStatus;
     }
 
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String id;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String name;
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String enName;
         /**
@@ -254,13 +254,13 @@ public class ApplicationOfferOnboardProfileAddress {
         private String[] usageIdList;
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：111
          */
-        private Integer activeStatus;
+        private Long activeStatus;
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param id
          * @return
@@ -273,7 +273,7 @@ public class ApplicationOfferOnboardProfileAddress {
 
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param name
          * @return
@@ -286,7 +286,7 @@ public class ApplicationOfferOnboardProfileAddress {
 
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param enName
          * @return
@@ -364,12 +364,12 @@ public class ApplicationOfferOnboardProfileAddress {
 
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：111
          *
          * @param activeStatus
          * @return
          */
-        public Builder activeStatus(Integer activeStatus) {
+        public Builder activeStatus(Long activeStatus) {
             this.activeStatus = activeStatus;
             return this;
         }

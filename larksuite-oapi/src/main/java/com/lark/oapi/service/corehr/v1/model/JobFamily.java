@@ -48,6 +48,12 @@ public class JobFamily {
     @SerializedName("active")
     private Boolean active;
     /**
+     * 可选
+     * <p> 示例值：true
+     */
+    @SerializedName("selectable")
+    private Boolean selectable;
+    /**
      * 上级职务序列 ID，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
      * <p> 示例值：4698020757495316313
      */
@@ -111,6 +117,11 @@ public class JobFamily {
          */
         this.active = builder.active;
         /**
+         * 可选
+         * <p> 示例值：true
+         */
+        this.selectable = builder.selectable;
+        /**
          * 上级职务序列 ID，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
          * <p> 示例值：4698020757495316313
          */
@@ -173,6 +184,14 @@ public class JobFamily {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public Boolean getSelectable() {
+        return this.selectable;
+    }
+
+    public void setSelectable(Boolean selectable) {
+        this.selectable = selectable;
     }
 
     public String getParentId() {
@@ -248,6 +267,11 @@ public class JobFamily {
          */
         private Boolean active;
         /**
+         * 可选
+         * <p> 示例值：true
+         */
+        private Boolean selectable;
+        /**
          * 上级职务序列 ID，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
          * <p> 示例值：4698020757495316313
          */
@@ -318,6 +342,19 @@ public class JobFamily {
          */
         public Builder active(Boolean active) {
             this.active = active;
+            return this;
+        }
+
+
+        /**
+         * 可选
+         * <p> 示例值：true
+         *
+         * @param selectable
+         * @return
+         */
+        public Builder selectable(Boolean selectable) {
+            this.selectable = selectable;
             return this;
         }
 

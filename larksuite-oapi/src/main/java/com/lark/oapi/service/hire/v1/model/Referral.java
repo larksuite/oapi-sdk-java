@@ -45,7 +45,7 @@ public class Referral {
      * <p> 示例值：1618899376474
      */
     @SerializedName("create_time")
-    private Integer createTime;
+    private Long createTime;
     /**
      * 内推人的 ID
      * <p> 示例值：ou_xxxx
@@ -111,11 +111,11 @@ public class Referral {
         this.applicationId = applicationId;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
@@ -150,7 +150,7 @@ public class Referral {
          * 创建时间（ms）
          * <p> 示例值：1618899376474
          */
-        private Integer createTime;
+        private Long createTime;
         /**
          * 内推人的 ID
          * <p> 示例值：ou_xxxx
@@ -195,7 +195,7 @@ public class Referral {
          * @param createTime
          * @return
          */
-        public Builder createTime(Integer createTime) {
+        public Builder createTime(Long createTime) {
             this.createTime = createTime;
             return this;
         }

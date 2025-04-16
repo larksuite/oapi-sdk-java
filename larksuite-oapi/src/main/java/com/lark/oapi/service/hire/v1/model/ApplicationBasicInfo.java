@@ -42,22 +42,22 @@ public class ApplicationBasicInfo {
     private ApplicationReferral referral;
     /**
      * 状态
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("active_status")
-    private Integer activeStatus;
+    private Long activeStatus;
     /**
      * 创建时间
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("biz_create_time")
-    private Integer bizCreateTime;
+    private Long bizCreateTime;
     /**
      * 修改时间
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("biz_modify_time")
-    private Integer bizModifyTime;
+    private Long bizModifyTime;
 
     // builder 开始
     public ApplicationBasicInfo() {
@@ -76,17 +76,17 @@ public class ApplicationBasicInfo {
         this.referral = builder.referral;
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.activeStatus = builder.activeStatus;
         /**
          * 创建时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.bizCreateTime = builder.bizCreateTime;
         /**
          * 修改时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.bizModifyTime = builder.bizModifyTime;
     }
@@ -111,27 +111,27 @@ public class ApplicationBasicInfo {
         this.referral = referral;
     }
 
-    public Integer getActiveStatus() {
+    public Long getActiveStatus() {
         return this.activeStatus;
     }
 
-    public void setActiveStatus(Integer activeStatus) {
+    public void setActiveStatus(Long activeStatus) {
         this.activeStatus = activeStatus;
     }
 
-    public Integer getBizCreateTime() {
+    public Long getBizCreateTime() {
         return this.bizCreateTime;
     }
 
-    public void setBizCreateTime(Integer bizCreateTime) {
+    public void setBizCreateTime(Long bizCreateTime) {
         this.bizCreateTime = bizCreateTime;
     }
 
-    public Integer getBizModifyTime() {
+    public Long getBizModifyTime() {
         return this.bizModifyTime;
     }
 
-    public void setBizModifyTime(Integer bizModifyTime) {
+    public void setBizModifyTime(Long bizModifyTime) {
         this.bizModifyTime = bizModifyTime;
     }
 
@@ -148,19 +148,19 @@ public class ApplicationBasicInfo {
         private ApplicationReferral referral;
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer activeStatus;
+        private Long activeStatus;
         /**
          * 创建时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer bizCreateTime;
+        private Long bizCreateTime;
         /**
          * 修改时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer bizModifyTime;
+        private Long bizModifyTime;
 
         /**
          * 阶段信息
@@ -190,12 +190,12 @@ public class ApplicationBasicInfo {
 
         /**
          * 状态
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param activeStatus
          * @return
          */
-        public Builder activeStatus(Integer activeStatus) {
+        public Builder activeStatus(Long activeStatus) {
             this.activeStatus = activeStatus;
             return this;
         }
@@ -203,12 +203,12 @@ public class ApplicationBasicInfo {
 
         /**
          * 创建时间
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param bizCreateTime
          * @return
          */
-        public Builder bizCreateTime(Integer bizCreateTime) {
+        public Builder bizCreateTime(Long bizCreateTime) {
             this.bizCreateTime = bizCreateTime;
             return this;
         }
@@ -216,12 +216,12 @@ public class ApplicationBasicInfo {
 
         /**
          * 修改时间
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param bizModifyTime
          * @return
          */
-        public Builder bizModifyTime(Integer bizModifyTime) {
+        public Builder bizModifyTime(Long bizModifyTime) {
             this.bizModifyTime = bizModifyTime;
             return this;
         }

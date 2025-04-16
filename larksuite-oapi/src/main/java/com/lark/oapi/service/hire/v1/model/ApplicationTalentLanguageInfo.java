@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationTalentLanguageInfo {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("id")
     private String id;
     /**
      * 语言
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("language")
-    private Integer language;
+    private Long language;
     /**
      * 熟练程度
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("proficiency")
     private Integer proficiency;
@@ -54,17 +54,17 @@ public class ApplicationTalentLanguageInfo {
     public ApplicationTalentLanguageInfo(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.id = builder.id;
         /**
          * 语言
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.language = builder.language;
         /**
          * 熟练程度
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.proficiency = builder.proficiency;
     }
@@ -81,11 +81,11 @@ public class ApplicationTalentLanguageInfo {
         this.id = id;
     }
 
-    public Integer getLanguage() {
+    public Long getLanguage() {
         return this.language;
     }
 
-    public void setLanguage(Integer language) {
+    public void setLanguage(Long language) {
         this.language = language;
     }
 
@@ -100,23 +100,23 @@ public class ApplicationTalentLanguageInfo {
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String id;
         /**
          * 语言
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer language;
+        private Long language;
         /**
          * 熟练程度
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Integer proficiency;
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param id
          * @return
@@ -129,12 +129,12 @@ public class ApplicationTalentLanguageInfo {
 
         /**
          * 语言
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param language
          * @return
          */
-        public Builder language(Integer language) {
+        public Builder language(Long language) {
             this.language = language;
             return this;
         }
@@ -142,7 +142,7 @@ public class ApplicationTalentLanguageInfo {
 
         /**
          * 熟练程度
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param proficiency
          * @return

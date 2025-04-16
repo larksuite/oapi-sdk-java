@@ -45,7 +45,7 @@ public class WebsiteDeliveryProject {
      * <p> 示例值：1618500278669
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 项目链接
      * <p> 示例值：www.toutiao.com
@@ -69,7 +69,7 @@ public class WebsiteDeliveryProject {
      * <p> 示例值：1609430400
      */
     @SerializedName("start_time")
-    private Integer startTime;
+    private Long startTime;
 
     // builder 开始
     public WebsiteDeliveryProject() {
@@ -133,11 +133,11 @@ public class WebsiteDeliveryProject {
         this.desc = desc;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
@@ -165,11 +165,11 @@ public class WebsiteDeliveryProject {
         this.role = role;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
@@ -188,7 +188,7 @@ public class WebsiteDeliveryProject {
          * 结束时间, 如果是至今传值-1
          * <p> 示例值：1618500278669
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 项目链接
          * <p> 示例值：www.toutiao.com
@@ -208,7 +208,7 @@ public class WebsiteDeliveryProject {
          * 开始时间
          * <p> 示例值：1609430400
          */
-        private Integer startTime;
+        private Long startTime;
 
         /**
          * 自定义字段
@@ -243,7 +243,7 @@ public class WebsiteDeliveryProject {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }
@@ -295,7 +295,7 @@ public class WebsiteDeliveryProject {
          * @param startTime
          * @return
          */
-        public Builder startTime(Integer startTime) {
+        public Builder startTime(Long startTime) {
             this.startTime = startTime;
             return this;
         }

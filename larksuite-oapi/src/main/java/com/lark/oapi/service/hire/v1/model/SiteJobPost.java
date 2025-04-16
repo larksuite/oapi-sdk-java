@@ -30,25 +30,25 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SiteJobPost {
     /**
      * 职位id
-     * <p> 示例值：
+     * <p> 示例值：6949805467799537964
      */
     @SerializedName("id")
     private String id;
     /**
      * 职位名称
-     * <p> 示例值：
+     * <p> 示例值：6949805467799537964
      */
     @SerializedName("title")
     private String title;
     /**
      * 职位描述
-     * <p> 示例值：
+     * <p> 示例值：6949805467799537964
      */
     @SerializedName("description")
     private String description;
     /**
      * 职位要求
-     * <p> 示例值：
+     * <p> 示例值：6949805467799537964
      */
     @SerializedName("requirement")
     private String requirement;
@@ -72,10 +72,10 @@ public class SiteJobPost {
     private SiteJobRecruitmentType recruitmentType;
     /**
      * 职位发布时间
-     * <p> 示例值：
+     * <p> 示例值：1735664461000
      */
     @SerializedName("publish_time")
-    private Integer publishTime;
+    private Long publishTime;
 
     // builder 开始
     public SiteJobPost() {
@@ -84,22 +84,22 @@ public class SiteJobPost {
     public SiteJobPost(Builder builder) {
         /**
          * 职位id
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         this.id = builder.id;
         /**
          * 职位名称
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         this.title = builder.title;
         /**
          * 职位描述
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         this.description = builder.description;
         /**
          * 职位要求
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         this.requirement = builder.requirement;
         /**
@@ -119,7 +119,7 @@ public class SiteJobPost {
         this.recruitmentType = builder.recruitmentType;
         /**
          * 职位发布时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
         this.publishTime = builder.publishTime;
     }
@@ -184,33 +184,33 @@ public class SiteJobPost {
         this.recruitmentType = recruitmentType;
     }
 
-    public Integer getPublishTime() {
+    public Long getPublishTime() {
         return this.publishTime;
     }
 
-    public void setPublishTime(Integer publishTime) {
+    public void setPublishTime(Long publishTime) {
         this.publishTime = publishTime;
     }
 
     public static class Builder {
         /**
          * 职位id
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         private String id;
         /**
          * 职位名称
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         private String title;
         /**
          * 职位描述
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         private String description;
         /**
          * 职位要求
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          */
         private String requirement;
         /**
@@ -230,13 +230,13 @@ public class SiteJobPost {
         private SiteJobRecruitmentType recruitmentType;
         /**
          * 职位发布时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          */
-        private Integer publishTime;
+        private Long publishTime;
 
         /**
          * 职位id
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          *
          * @param id
          * @return
@@ -249,7 +249,7 @@ public class SiteJobPost {
 
         /**
          * 职位名称
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          *
          * @param title
          * @return
@@ -262,7 +262,7 @@ public class SiteJobPost {
 
         /**
          * 职位描述
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          *
          * @param description
          * @return
@@ -275,7 +275,7 @@ public class SiteJobPost {
 
         /**
          * 职位要求
-         * <p> 示例值：
+         * <p> 示例值：6949805467799537964
          *
          * @param requirement
          * @return
@@ -327,12 +327,12 @@ public class SiteJobPost {
 
         /**
          * 职位发布时间
-         * <p> 示例值：
+         * <p> 示例值：1735664461000
          *
          * @param publishTime
          * @return
          */
-        public Builder publishTime(Integer publishTime) {
+        public Builder publishTime(Long publishTime) {
             this.publishTime = publishTime;
             return this;
         }

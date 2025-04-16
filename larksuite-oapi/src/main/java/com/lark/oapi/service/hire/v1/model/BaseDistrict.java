@@ -51,7 +51,7 @@ public class BaseDistrict {
      * <p> 示例值：1
      */
     @SerializedName("location_type")
-    private Integer locationType;
+    private Long locationType;
 
     // builder 开始
     public BaseDistrict() {
@@ -108,11 +108,11 @@ public class BaseDistrict {
         this.code = code;
     }
 
-    public Integer getLocationType() {
+    public Long getLocationType() {
         return this.locationType;
     }
 
-    public void setLocationType(Integer locationType) {
+    public void setLocationType(Long locationType) {
         this.locationType = locationType;
     }
 
@@ -136,7 +136,7 @@ public class BaseDistrict {
          * 地址类型
          * <p> 示例值：1
          */
-        private Integer locationType;
+        private Long locationType;
 
         /**
          * 中文名称
@@ -184,7 +184,7 @@ public class BaseDistrict {
          * @param locationType
          * @return
          */
-        public Builder locationType(Integer locationType) {
+        public Builder locationType(Long locationType) {
             this.locationType = locationType;
             return this;
         }

@@ -30,19 +30,19 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationTalentSnsInfo {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("id")
     private String id;
     /**
      * SNS类型
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("sns_type")
-    private Integer snsType;
+    private Long snsType;
     /**
      * SNS链接
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("link")
     private String link;
@@ -54,17 +54,17 @@ public class ApplicationTalentSnsInfo {
     public ApplicationTalentSnsInfo(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.id = builder.id;
         /**
          * SNS类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.snsType = builder.snsType;
         /**
          * SNS链接
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.link = builder.link;
     }
@@ -81,11 +81,11 @@ public class ApplicationTalentSnsInfo {
         this.id = id;
     }
 
-    public Integer getSnsType() {
+    public Long getSnsType() {
         return this.snsType;
     }
 
-    public void setSnsType(Integer snsType) {
+    public void setSnsType(Long snsType) {
         this.snsType = snsType;
     }
 
@@ -100,23 +100,23 @@ public class ApplicationTalentSnsInfo {
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String id;
         /**
          * SNS类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer snsType;
+        private Long snsType;
         /**
          * SNS链接
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String link;
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param id
          * @return
@@ -129,12 +129,12 @@ public class ApplicationTalentSnsInfo {
 
         /**
          * SNS类型
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param snsType
          * @return
          */
-        public Builder snsType(Integer snsType) {
+        public Builder snsType(Long snsType) {
             this.snsType = snsType;
             return this;
         }
@@ -142,7 +142,7 @@ public class ApplicationTalentSnsInfo {
 
         /**
          * SNS链接
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param link
          * @return

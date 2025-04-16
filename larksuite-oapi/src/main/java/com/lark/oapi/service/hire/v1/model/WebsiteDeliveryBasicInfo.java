@@ -39,7 +39,7 @@ public class WebsiteDeliveryBasicInfo {
      * <p> 示例值：1625648596
      */
     @SerializedName("start_work_time")
-    private Integer startWorkTime;
+    private Long startWorkTime;
     /**
      * 家庭住址
      * <p> 示例值：成都
@@ -99,7 +99,7 @@ public class WebsiteDeliveryBasicInfo {
      * <p> 示例值：1609430400
      */
     @SerializedName("birthday")
-    private Integer birthday;
+    private Long birthday;
     /**
      * 姓名
      * <p> 示例值：张三
@@ -246,11 +246,11 @@ public class WebsiteDeliveryBasicInfo {
         this.nationalityId = nationalityId;
     }
 
-    public Integer getStartWorkTime() {
+    public Long getStartWorkTime() {
         return this.startWorkTime;
     }
 
-    public void setStartWorkTime(Integer startWorkTime) {
+    public void setStartWorkTime(Long startWorkTime) {
         this.startWorkTime = startWorkTime;
     }
 
@@ -326,11 +326,11 @@ public class WebsiteDeliveryBasicInfo {
         this.gender = gender;
     }
 
-    public Integer getBirthday() {
+    public Long getBirthday() {
         return this.birthday;
     }
 
-    public void setBirthday(Integer birthday) {
+    public void setBirthday(Long birthday) {
         this.birthday = birthday;
     }
 
@@ -392,7 +392,7 @@ public class WebsiteDeliveryBasicInfo {
          * 起始工作时间
          * <p> 示例值：1625648596
          */
-        private Integer startWorkTime;
+        private Long startWorkTime;
         /**
          * 家庭住址
          * <p> 示例值：成都
@@ -442,7 +442,7 @@ public class WebsiteDeliveryBasicInfo {
          * 出生日期
          * <p> 示例值：1609430400
          */
-        private Integer birthday;
+        private Long birthday;
         /**
          * 姓名
          * <p> 示例值：张三
@@ -494,7 +494,7 @@ public class WebsiteDeliveryBasicInfo {
          * @param startWorkTime
          * @return
          */
-        public Builder startWorkTime(Integer startWorkTime) {
+        public Builder startWorkTime(Long startWorkTime) {
             this.startWorkTime = startWorkTime;
             return this;
         }
@@ -624,7 +624,7 @@ public class WebsiteDeliveryBasicInfo {
          * @param birthday
          * @return
          */
-        public Builder birthday(Integer birthday) {
+        public Builder birthday(Long birthday) {
             this.birthday = birthday;
             return this;
         }

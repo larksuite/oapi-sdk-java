@@ -30,28 +30,28 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationOfferOnboardProfileCity {
     /**
      * 编码
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("code")
     private String code;
     /**
      * 名字
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("name")
     private String name;
     /**
      * 英文名
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("en_name")
     private String enName;
     /**
      * 地址类型
-     * <p> 示例值：
+     * <p> 示例值：123
      */
     @SerializedName("location_type")
-    private Integer locationType;
+    private Long locationType;
 
     // builder 开始
     public ApplicationOfferOnboardProfileCity() {
@@ -60,22 +60,22 @@ public class ApplicationOfferOnboardProfileCity {
     public ApplicationOfferOnboardProfileCity(Builder builder) {
         /**
          * 编码
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.code = builder.code;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.name = builder.name;
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.enName = builder.enName;
         /**
          * 地址类型
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         this.locationType = builder.locationType;
     }
@@ -108,39 +108,39 @@ public class ApplicationOfferOnboardProfileCity {
         this.enName = enName;
     }
 
-    public Integer getLocationType() {
+    public Long getLocationType() {
         return this.locationType;
     }
 
-    public void setLocationType(Integer locationType) {
+    public void setLocationType(Long locationType) {
         this.locationType = locationType;
     }
 
     public static class Builder {
         /**
          * 编码
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String code;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String name;
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：123
          */
         private String enName;
         /**
          * 地址类型
-         * <p> 示例值：
+         * <p> 示例值：123
          */
-        private Integer locationType;
+        private Long locationType;
 
         /**
          * 编码
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param code
          * @return
@@ -153,7 +153,7 @@ public class ApplicationOfferOnboardProfileCity {
 
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param name
          * @return
@@ -166,7 +166,7 @@ public class ApplicationOfferOnboardProfileCity {
 
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param enName
          * @return
@@ -179,12 +179,12 @@ public class ApplicationOfferOnboardProfileCity {
 
         /**
          * 地址类型
-         * <p> 示例值：
+         * <p> 示例值：123
          *
          * @param locationType
          * @return
          */
-        public Builder locationType(Integer locationType) {
+        public Builder locationType(Long locationType) {
             this.locationType = locationType;
             return this;
         }

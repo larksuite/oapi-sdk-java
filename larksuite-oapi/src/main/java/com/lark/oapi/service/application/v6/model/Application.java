@@ -149,6 +149,12 @@ public class Application {
      */
     @SerializedName("pc_default_ability")
     private String pcDefaultAbility;
+    /**
+     * 应用密钥
+     * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+     */
+    @SerializedName("secret")
+    private String secret;
 
     // builder 开始
     public Application() {
@@ -255,6 +261,11 @@ public class Application {
          * <p> 示例值：gadget
          */
         this.pcDefaultAbility = builder.pcDefaultAbility;
+        /**
+         * 应用密钥
+         * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+         */
+        this.secret = builder.secret;
     }
 
     public static Builder newBuilder() {
@@ -421,6 +432,14 @@ public class Application {
         this.pcDefaultAbility = pcDefaultAbility;
     }
 
+    public String getSecret() {
+        return this.secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
     public static class Builder {
         /**
          * 应用的 app_id
@@ -522,6 +541,11 @@ public class Application {
          * <p> 示例值：gadget
          */
         private String pcDefaultAbility;
+        /**
+         * 应用密钥
+         * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+         */
+        private String secret;
 
         /**
          * 应用的 app_id
@@ -863,6 +887,19 @@ public class Application {
          */
         public Builder pcDefaultAbility(com.lark.oapi.service.application.v6.enums.ApplicationApplicationPcDefaultAbilityEnum pcDefaultAbility) {
             this.pcDefaultAbility = pcDefaultAbility.getValue();
+            return this;
+        }
+
+
+        /**
+         * 应用密钥
+         * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+         *
+         * @param secret
+         * @return
+         */
+        public Builder secret(String secret) {
+            this.secret = secret;
             return this;
         }
 

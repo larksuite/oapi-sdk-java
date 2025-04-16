@@ -30,55 +30,55 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationStage {
     /**
      * ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("id")
     private String id;
     /**
      * 名字
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("name")
     private String name;
     /**
      * 英文名
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("en_name")
     private String enName;
     /**
      * 类型
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("type")
-    private Integer type;
+    private Long type;
     /**
      * 参数
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("args")
     private String args;
     /**
      * 创建者ID
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("creator_id")
     private String creatorId;
     /**
      * 序列
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("seq")
-    private Integer seq;
+    private Long seq;
     /**
      * 发布名称
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("publish_name")
     private String publishName;
     /**
      * 发布英文名
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("publish_en_name")
     private String publishEnName;
@@ -90,47 +90,47 @@ public class ApplicationStage {
     public ApplicationStage(Builder builder) {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.id = builder.id;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.name = builder.name;
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.enName = builder.enName;
         /**
          * 类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.type = builder.type;
         /**
          * 参数
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.args = builder.args;
         /**
          * 创建者ID
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.creatorId = builder.creatorId;
         /**
          * 序列
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.seq = builder.seq;
         /**
          * 发布名称
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.publishName = builder.publishName;
         /**
          * 发布英文名
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.publishEnName = builder.publishEnName;
     }
@@ -163,11 +163,11 @@ public class ApplicationStage {
         this.enName = enName;
     }
 
-    public Integer getType() {
+    public Long getType() {
         return this.type;
     }
 
-    public void setType(Integer type) {
+    public void setType(Long type) {
         this.type = type;
     }
 
@@ -187,11 +187,11 @@ public class ApplicationStage {
         this.creatorId = creatorId;
     }
 
-    public Integer getSeq() {
+    public Long getSeq() {
         return this.seq;
     }
 
-    public void setSeq(Integer seq) {
+    public void setSeq(Long seq) {
         this.seq = seq;
     }
 
@@ -214,53 +214,53 @@ public class ApplicationStage {
     public static class Builder {
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String id;
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String name;
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String enName;
         /**
          * 类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer type;
+        private Long type;
         /**
          * 参数
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String args;
         /**
          * 创建者ID
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String creatorId;
         /**
          * 序列
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer seq;
+        private Long seq;
         /**
          * 发布名称
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String publishName;
         /**
          * 发布英文名
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String publishEnName;
 
         /**
          * ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param id
          * @return
@@ -273,7 +273,7 @@ public class ApplicationStage {
 
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param name
          * @return
@@ -286,7 +286,7 @@ public class ApplicationStage {
 
         /**
          * 英文名
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param enName
          * @return
@@ -299,12 +299,12 @@ public class ApplicationStage {
 
         /**
          * 类型
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param type
          * @return
          */
-        public Builder type(Integer type) {
+        public Builder type(Long type) {
             this.type = type;
             return this;
         }
@@ -312,7 +312,7 @@ public class ApplicationStage {
 
         /**
          * 参数
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param args
          * @return
@@ -325,7 +325,7 @@ public class ApplicationStage {
 
         /**
          * 创建者ID
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param creatorId
          * @return
@@ -338,12 +338,12 @@ public class ApplicationStage {
 
         /**
          * 序列
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param seq
          * @return
          */
-        public Builder seq(Integer seq) {
+        public Builder seq(Long seq) {
             this.seq = seq;
             return this;
         }
@@ -351,7 +351,7 @@ public class ApplicationStage {
 
         /**
          * 发布名称
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param publishName
          * @return
@@ -364,7 +364,7 @@ public class ApplicationStage {
 
         /**
          * 发布英文名
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param publishEnName
          * @return

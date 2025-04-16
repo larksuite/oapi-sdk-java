@@ -39,13 +39,13 @@ public class WebsiteDeliveryEducation {
      * <p> 示例值：1618500278663
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
      * <p> 示例值：1618500278663
      */
     @SerializedName("end_time_v2")
-    private Integer endTimeV2;
+    private Long endTimeV2;
     /**
      * 专业
      * <p> 示例值：汉语言文学
@@ -63,7 +63,7 @@ public class WebsiteDeliveryEducation {
      * <p> 示例值：1609430400
      */
     @SerializedName("start_time")
-    private Integer startTime;
+    private Long startTime;
     /**
      * 专业排名
      * <p> 示例值：5
@@ -147,19 +147,19 @@ public class WebsiteDeliveryEducation {
         this.educationType = educationType;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
-    public Integer getEndTimeV2() {
+    public Long getEndTimeV2() {
         return this.endTimeV2;
     }
 
-    public void setEndTimeV2(Integer endTimeV2) {
+    public void setEndTimeV2(Long endTimeV2) {
         this.endTimeV2 = endTimeV2;
     }
 
@@ -179,11 +179,11 @@ public class WebsiteDeliveryEducation {
         this.school = school;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
@@ -221,12 +221,12 @@ public class WebsiteDeliveryEducation {
          * 结束时间 ,如果是至今传值 -1
          * <p> 示例值：1618500278663
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选
          * <p> 示例值：1618500278663
          */
-        private Integer endTimeV2;
+        private Long endTimeV2;
         /**
          * 专业
          * <p> 示例值：汉语言文学
@@ -241,7 +241,7 @@ public class WebsiteDeliveryEducation {
          * 开始时间
          * <p> 示例值：1609430400
          */
-        private Integer startTime;
+        private Long startTime;
         /**
          * 专业排名
          * <p> 示例值：5
@@ -278,7 +278,7 @@ public class WebsiteDeliveryEducation {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }
@@ -291,7 +291,7 @@ public class WebsiteDeliveryEducation {
          * @param endTimeV2
          * @return
          */
-        public Builder endTimeV2(Integer endTimeV2) {
+        public Builder endTimeV2(Long endTimeV2) {
             this.endTimeV2 = endTimeV2;
             return this;
         }
@@ -330,7 +330,7 @@ public class WebsiteDeliveryEducation {
          * @param startTime
          * @return
          */
-        public Builder startTime(Integer startTime) {
+        public Builder startTime(Long startTime) {
             this.startTime = startTime;
             return this;
         }

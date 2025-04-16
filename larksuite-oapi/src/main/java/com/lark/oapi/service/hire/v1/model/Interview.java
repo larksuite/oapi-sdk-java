@@ -39,13 +39,13 @@ public class Interview {
      * <p> 示例值：1618899376474
      */
     @SerializedName("begin_time")
-    private Integer beginTime;
+    private Long beginTime;
     /**
      * 面试结束时间（ms）
      * <p> 示例值：1618999376474
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 面试轮次（从0开始计数）
      * <p> 示例值：0
@@ -114,19 +114,19 @@ public class Interview {
         this.id = id;
     }
 
-    public Integer getBeginTime() {
+    public Long getBeginTime() {
         return this.beginTime;
     }
 
-    public void setBeginTime(Integer beginTime) {
+    public void setBeginTime(Long beginTime) {
         this.beginTime = beginTime;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
@@ -164,12 +164,12 @@ public class Interview {
          * 面试开始时间（ms）
          * <p> 示例值：1618899376474
          */
-        private Integer beginTime;
+        private Long beginTime;
         /**
          * 面试结束时间（ms）
          * <p> 示例值：1618999376474
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 面试轮次（从0开始计数）
          * <p> 示例值：0
@@ -206,7 +206,7 @@ public class Interview {
          * @param beginTime
          * @return
          */
-        public Builder beginTime(Integer beginTime) {
+        public Builder beginTime(Long beginTime) {
             this.beginTime = beginTime;
             return this;
         }
@@ -219,7 +219,7 @@ public class Interview {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }

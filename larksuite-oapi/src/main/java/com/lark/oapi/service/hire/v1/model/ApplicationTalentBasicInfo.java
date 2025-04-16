@@ -30,40 +30,40 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationTalentBasicInfo {
     /**
      * 名字
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("name")
     private String name;
     /**
      * 手机
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("mobile")
     private String mobile;
     /**
      * 手机国家代码
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("mobile_country_code")
     private String mobileCountryCode;
     /**
      * 邮箱
-     * <p> 示例值：
+     * <p> 示例值：xx
      */
     @SerializedName("email")
     private String email;
     /**
      * 工作年限
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("experience_years")
     private Integer experienceYears;
     /**
      * 年龄
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("age")
-    private Integer age;
+    private Long age;
     /**
      * 国籍
      * <p> 示例值：
@@ -72,7 +72,7 @@ public class ApplicationTalentBasicInfo {
     private Nationality nationality;
     /**
      * 性别
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("gender")
     private Integer gender;
@@ -96,19 +96,19 @@ public class ApplicationTalentBasicInfo {
     private City[] preferredCityList;
     /**
      * 手机国家代码
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("mobile_code")
     private String mobileCode;
     /**
      * 证件类型
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("identification_type")
     private Integer identificationType;
     /**
      * 证件号码
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("identification_number")
     private String identificationNumber;
@@ -120,32 +120,32 @@ public class ApplicationTalentBasicInfo {
     public ApplicationTalentBasicInfo(Builder builder) {
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.name = builder.name;
         /**
          * 手机
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.mobile = builder.mobile;
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.mobileCountryCode = builder.mobileCountryCode;
         /**
          * 邮箱
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         this.email = builder.email;
         /**
          * 工作年限
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.experienceYears = builder.experienceYears;
         /**
          * 年龄
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.age = builder.age;
         /**
@@ -155,7 +155,7 @@ public class ApplicationTalentBasicInfo {
         this.nationality = builder.nationality;
         /**
          * 性别
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.gender = builder.gender;
         /**
@@ -175,17 +175,17 @@ public class ApplicationTalentBasicInfo {
         this.preferredCityList = builder.preferredCityList;
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.mobileCode = builder.mobileCode;
         /**
          * 证件类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.identificationType = builder.identificationType;
         /**
          * 证件号码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.identificationNumber = builder.identificationNumber;
     }
@@ -234,11 +234,11 @@ public class ApplicationTalentBasicInfo {
         this.experienceYears = experienceYears;
     }
 
-    public Integer getAge() {
+    public Long getAge() {
         return this.age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 
@@ -309,34 +309,34 @@ public class ApplicationTalentBasicInfo {
     public static class Builder {
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String name;
         /**
          * 手机
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String mobile;
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String mobileCountryCode;
         /**
          * 邮箱
-         * <p> 示例值：
+         * <p> 示例值：xx
          */
         private String email;
         /**
          * 工作年限
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Integer experienceYears;
         /**
          * 年龄
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer age;
+        private Long age;
         /**
          * 国籍
          * <p> 示例值：
@@ -344,7 +344,7 @@ public class ApplicationTalentBasicInfo {
         private Nationality nationality;
         /**
          * 性别
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Integer gender;
         /**
@@ -364,23 +364,23 @@ public class ApplicationTalentBasicInfo {
         private City[] preferredCityList;
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String mobileCode;
         /**
          * 证件类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Integer identificationType;
         /**
          * 证件号码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String identificationNumber;
 
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param name
          * @return
@@ -393,7 +393,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 手机
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param mobile
          * @return
@@ -406,7 +406,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param mobileCountryCode
          * @return
@@ -419,7 +419,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 邮箱
-         * <p> 示例值：
+         * <p> 示例值：xx
          *
          * @param email
          * @return
@@ -432,7 +432,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 工作年限
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param experienceYears
          * @return
@@ -445,12 +445,12 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 年龄
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param age
          * @return
          */
-        public Builder age(Integer age) {
+        public Builder age(Long age) {
             this.age = age;
             return this;
         }
@@ -471,7 +471,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 性别
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param gender
          * @return
@@ -523,7 +523,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param mobileCode
          * @return
@@ -536,7 +536,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 证件类型
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param identificationType
          * @return
@@ -549,7 +549,7 @@ public class ApplicationTalentBasicInfo {
 
         /**
          * 证件号码
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param identificationNumber
          * @return

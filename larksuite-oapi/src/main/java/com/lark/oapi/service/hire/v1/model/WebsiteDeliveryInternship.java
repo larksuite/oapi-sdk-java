@@ -39,13 +39,13 @@ public class WebsiteDeliveryInternship {
      * <p> 示例值：1618500278667
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 开始时间
      * <p> 示例值：1609430400
      */
     @SerializedName("start_time")
-    private Integer startTime;
+    private Long startTime;
     /**
      * 职位名称
      * <p> 示例值：后端研发实习生
@@ -114,19 +114,19 @@ public class WebsiteDeliveryInternship {
         this.desc = desc;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
@@ -164,12 +164,12 @@ public class WebsiteDeliveryInternship {
          * 结束时间, 如果是至今传值 -1
          * <p> 示例值：1618500278667
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 开始时间
          * <p> 示例值：1609430400
          */
-        private Integer startTime;
+        private Long startTime;
         /**
          * 职位名称
          * <p> 示例值：后端研发实习生
@@ -206,7 +206,7 @@ public class WebsiteDeliveryInternship {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }
@@ -219,7 +219,7 @@ public class WebsiteDeliveryInternship {
          * @param startTime
          * @return
          */
-        public Builder startTime(Integer startTime) {
+        public Builder startTime(Long startTime) {
             this.startTime = startTime;
             return this;
         }

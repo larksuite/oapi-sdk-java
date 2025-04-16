@@ -57,13 +57,13 @@ public class ExternalInterview {
      * <p> 示例值：1618500278638
      */
     @SerializedName("begin_time")
-    private Integer beginTime;
+    private Long beginTime;
     /**
      * 结束时间
      * <p> 示例值：1618500278639
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 面试评价列表
      * <p> 示例值：
@@ -149,19 +149,19 @@ public class ExternalInterview {
         this.participateStatus = participateStatus;
     }
 
-    public Integer getBeginTime() {
+    public Long getBeginTime() {
         return this.beginTime;
     }
 
-    public void setBeginTime(Integer beginTime) {
+    public void setBeginTime(Long beginTime) {
         this.beginTime = beginTime;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
@@ -198,12 +198,12 @@ public class ExternalInterview {
          * 开始时间
          * <p> 示例值：1618500278638
          */
-        private Integer beginTime;
+        private Long beginTime;
         /**
          * 结束时间
          * <p> 示例值：1618500278639
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 面试评价列表
          * <p> 示例值：
@@ -269,7 +269,7 @@ public class ExternalInterview {
          * @param beginTime
          * @return
          */
-        public Builder beginTime(Integer beginTime) {
+        public Builder beginTime(Long beginTime) {
             this.beginTime = beginTime;
             return this;
         }
@@ -282,7 +282,7 @@ public class ExternalInterview {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }

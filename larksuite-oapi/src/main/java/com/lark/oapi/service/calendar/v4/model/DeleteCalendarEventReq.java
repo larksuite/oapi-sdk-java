@@ -53,6 +53,7 @@ public class DeleteCalendarEventReq {
     // builder 开始
     public DeleteCalendarEventReq() {
     }
+
     public DeleteCalendarEventReq(Builder builder) {
         /**
          * 删除日程是否给日程参与人发送bot通知，默认为true

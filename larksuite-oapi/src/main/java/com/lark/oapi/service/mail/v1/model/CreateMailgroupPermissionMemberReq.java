@@ -133,10 +133,10 @@ public class CreateMailgroupPermissionMemberReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -157,10 +157,10 @@ public class CreateMailgroupPermissionMemberReq {
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：xxx
          *
-         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }

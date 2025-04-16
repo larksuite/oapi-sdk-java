@@ -51,13 +51,13 @@ public class TalentInternshipInfo {
      * <p> 示例值：1618500278638
      */
     @SerializedName("end_time")
-    private Integer endTime;
+    private Long endTime;
     /**
      * 开始时间
      * <p> 示例值：1618500278639
      */
     @SerializedName("start_time")
-    private Integer startTime;
+    private Long startTime;
     /**
      * 职称
      * <p> 示例值：高级工程师
@@ -66,7 +66,7 @@ public class TalentInternshipInfo {
     private String title;
     /**
      * 标记, 只会出现学校部分
-     * <p> 示例值：
+     * <p> 示例值：[1, 2, 3]
      */
     @SerializedName("tag_list")
     private Integer[] tagList;
@@ -108,7 +108,7 @@ public class TalentInternshipInfo {
         this.title = builder.title;
         /**
          * 标记, 只会出现学校部分
-         * <p> 示例值：
+         * <p> 示例值：[1, 2, 3]
          */
         this.tagList = builder.tagList;
     }
@@ -141,19 +141,19 @@ public class TalentInternshipInfo {
         this.desc = desc;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
@@ -193,12 +193,12 @@ public class TalentInternshipInfo {
          * 结束时间
          * <p> 示例值：1618500278638
          */
-        private Integer endTime;
+        private Long endTime;
         /**
          * 开始时间
          * <p> 示例值：1618500278639
          */
-        private Integer startTime;
+        private Long startTime;
         /**
          * 职称
          * <p> 示例值：高级工程师
@@ -206,7 +206,7 @@ public class TalentInternshipInfo {
         private String title;
         /**
          * 标记, 只会出现学校部分
-         * <p> 示例值：
+         * <p> 示例值：[1, 2, 3]
          */
         private Integer[] tagList;
 
@@ -256,7 +256,7 @@ public class TalentInternshipInfo {
          * @param endTime
          * @return
          */
-        public Builder endTime(Integer endTime) {
+        public Builder endTime(Long endTime) {
             this.endTime = endTime;
             return this;
         }
@@ -269,7 +269,7 @@ public class TalentInternshipInfo {
          * @param startTime
          * @return
          */
-        public Builder startTime(Integer startTime) {
+        public Builder startTime(Long startTime) {
             this.startTime = startTime;
             return this;
         }
@@ -290,7 +290,7 @@ public class TalentInternshipInfo {
 
         /**
          * 标记, 只会出现学校部分
-         * <p> 示例值：
+         * <p> 示例值：[1, 2, 3]
          *
          * @param tagList
          * @return

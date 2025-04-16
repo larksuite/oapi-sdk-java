@@ -45,7 +45,7 @@ public class DimensionOption {
      * <p> 示例值：10
      */
     @SerializedName("score_val")
-    private Integer scoreVal;
+    private Long scoreVal;
 
     // builder 开始
     public DimensionOption() {
@@ -89,11 +89,11 @@ public class DimensionOption {
         this.name = name;
     }
 
-    public Integer getScoreVal() {
+    public Long getScoreVal() {
         return this.scoreVal;
     }
 
-    public void setScoreVal(Integer scoreVal) {
+    public void setScoreVal(Long scoreVal) {
         this.scoreVal = scoreVal;
     }
 
@@ -112,7 +112,7 @@ public class DimensionOption {
          * 选项对应的分数
          * <p> 示例值：10
          */
-        private Integer scoreVal;
+        private Long scoreVal;
 
         /**
          * 选项ID
@@ -147,7 +147,7 @@ public class DimensionOption {
          * @param scoreVal
          * @return
          */
-        public Builder scoreVal(Integer scoreVal) {
+        public Builder scoreVal(Long scoreVal) {
             this.scoreVal = scoreVal;
             return this;
         }

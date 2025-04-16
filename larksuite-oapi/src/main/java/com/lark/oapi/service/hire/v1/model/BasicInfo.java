@@ -30,106 +30,106 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BasicInfo {
     /**
      * 名字
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("name")
     private String name;
     /**
      * 手机
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("mobile")
     private String mobile;
     /**
      * 手机国家代码
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("mobile_country_code")
     private String mobileCountryCode;
     /**
      * 邮箱
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("email")
     private String email;
     /**
      * 生日
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("birthday")
-    private Integer birthday;
+    private Long birthday;
     /**
      * 保密
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("confidentiality")
-    private Integer confidentiality;
+    private Long confidentiality;
     /**
      * 创建者账户类型
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("creator_account_type")
-    private Integer creatorAccountType;
+    private Long creatorAccountType;
     /**
      * 创建者ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("creator_id")
     private String creatorId;
     /**
      * 现居住城市
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("current_city_code")
     private String currentCityCode;
     /**
      * 性别
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("gender")
-    private Integer gender;
+    private Long gender;
     /**
      * 家乡所在城市
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("hometown_city_code")
     private String hometownCityCode;
     /**
      * 证件
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("identification")
     private Identification identification;
     /**
      * 来源
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("init_source_id")
     private String initSourceId;
     /**
      * 国籍编号
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("nationality_id")
     private String nationalityId;
     /**
      * 附件简历ID
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("resume_attachment_id")
     private String resumeAttachmentId;
     /**
      * 自我评价
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("self_evaluation")
     private String selfEvaluation;
     /**
      * 开始工作时间
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("start_work_time")
-    private Integer startWorkTime;
+    private Long startWorkTime;
 
     // builder 开始
     public BasicInfo() {
@@ -138,87 +138,87 @@ public class BasicInfo {
     public BasicInfo(Builder builder) {
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.name = builder.name;
         /**
          * 手机
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.mobile = builder.mobile;
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.mobileCountryCode = builder.mobileCountryCode;
         /**
          * 邮箱
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.email = builder.email;
         /**
          * 生日
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.birthday = builder.birthday;
         /**
          * 保密
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.confidentiality = builder.confidentiality;
         /**
          * 创建者账户类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.creatorAccountType = builder.creatorAccountType;
         /**
          * 创建者ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.creatorId = builder.creatorId;
         /**
          * 现居住城市
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.currentCityCode = builder.currentCityCode;
         /**
          * 性别
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.gender = builder.gender;
         /**
          * 家乡所在城市
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.hometownCityCode = builder.hometownCityCode;
         /**
          * 证件
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.identification = builder.identification;
         /**
          * 来源
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.initSourceId = builder.initSourceId;
         /**
          * 国籍编号
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.nationalityId = builder.nationalityId;
         /**
          * 附件简历ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.resumeAttachmentId = builder.resumeAttachmentId;
         /**
          * 自我评价
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.selfEvaluation = builder.selfEvaluation;
         /**
          * 开始工作时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.startWorkTime = builder.startWorkTime;
     }
@@ -259,27 +259,27 @@ public class BasicInfo {
         this.email = email;
     }
 
-    public Integer getBirthday() {
+    public Long getBirthday() {
         return this.birthday;
     }
 
-    public void setBirthday(Integer birthday) {
+    public void setBirthday(Long birthday) {
         this.birthday = birthday;
     }
 
-    public Integer getConfidentiality() {
+    public Long getConfidentiality() {
         return this.confidentiality;
     }
 
-    public void setConfidentiality(Integer confidentiality) {
+    public void setConfidentiality(Long confidentiality) {
         this.confidentiality = confidentiality;
     }
 
-    public Integer getCreatorAccountType() {
+    public Long getCreatorAccountType() {
         return this.creatorAccountType;
     }
 
-    public void setCreatorAccountType(Integer creatorAccountType) {
+    public void setCreatorAccountType(Long creatorAccountType) {
         this.creatorAccountType = creatorAccountType;
     }
 
@@ -299,11 +299,11 @@ public class BasicInfo {
         this.currentCityCode = currentCityCode;
     }
 
-    public Integer getGender() {
+    public Long getGender() {
         return this.gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(Long gender) {
         this.gender = gender;
     }
 
@@ -355,104 +355,104 @@ public class BasicInfo {
         this.selfEvaluation = selfEvaluation;
     }
 
-    public Integer getStartWorkTime() {
+    public Long getStartWorkTime() {
         return this.startWorkTime;
     }
 
-    public void setStartWorkTime(Integer startWorkTime) {
+    public void setStartWorkTime(Long startWorkTime) {
         this.startWorkTime = startWorkTime;
     }
 
     public static class Builder {
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String name;
         /**
          * 手机
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String mobile;
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String mobileCountryCode;
         /**
          * 邮箱
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String email;
         /**
          * 生日
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer birthday;
+        private Long birthday;
         /**
          * 保密
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer confidentiality;
+        private Long confidentiality;
         /**
          * 创建者账户类型
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer creatorAccountType;
+        private Long creatorAccountType;
         /**
          * 创建者ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String creatorId;
         /**
          * 现居住城市
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String currentCityCode;
         /**
          * 性别
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer gender;
+        private Long gender;
         /**
          * 家乡所在城市
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String hometownCityCode;
         /**
          * 证件
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private Identification identification;
         /**
          * 来源
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String initSourceId;
         /**
          * 国籍编号
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String nationalityId;
         /**
          * 附件简历ID
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String resumeAttachmentId;
         /**
          * 自我评价
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String selfEvaluation;
         /**
          * 开始工作时间
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer startWorkTime;
+        private Long startWorkTime;
 
         /**
          * 名字
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param name
          * @return
@@ -465,7 +465,7 @@ public class BasicInfo {
 
         /**
          * 手机
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param mobile
          * @return
@@ -478,7 +478,7 @@ public class BasicInfo {
 
         /**
          * 手机国家代码
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param mobileCountryCode
          * @return
@@ -491,7 +491,7 @@ public class BasicInfo {
 
         /**
          * 邮箱
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param email
          * @return
@@ -504,12 +504,12 @@ public class BasicInfo {
 
         /**
          * 生日
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param birthday
          * @return
          */
-        public Builder birthday(Integer birthday) {
+        public Builder birthday(Long birthday) {
             this.birthday = birthday;
             return this;
         }
@@ -517,12 +517,12 @@ public class BasicInfo {
 
         /**
          * 保密
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param confidentiality
          * @return
          */
-        public Builder confidentiality(Integer confidentiality) {
+        public Builder confidentiality(Long confidentiality) {
             this.confidentiality = confidentiality;
             return this;
         }
@@ -530,12 +530,12 @@ public class BasicInfo {
 
         /**
          * 创建者账户类型
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param creatorAccountType
          * @return
          */
-        public Builder creatorAccountType(Integer creatorAccountType) {
+        public Builder creatorAccountType(Long creatorAccountType) {
             this.creatorAccountType = creatorAccountType;
             return this;
         }
@@ -543,7 +543,7 @@ public class BasicInfo {
 
         /**
          * 创建者ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param creatorId
          * @return
@@ -556,7 +556,7 @@ public class BasicInfo {
 
         /**
          * 现居住城市
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param currentCityCode
          * @return
@@ -569,12 +569,12 @@ public class BasicInfo {
 
         /**
          * 性别
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param gender
          * @return
          */
-        public Builder gender(Integer gender) {
+        public Builder gender(Long gender) {
             this.gender = gender;
             return this;
         }
@@ -582,7 +582,7 @@ public class BasicInfo {
 
         /**
          * 家乡所在城市
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param hometownCityCode
          * @return
@@ -595,7 +595,7 @@ public class BasicInfo {
 
         /**
          * 证件
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param identification
          * @return
@@ -608,7 +608,7 @@ public class BasicInfo {
 
         /**
          * 来源
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param initSourceId
          * @return
@@ -621,7 +621,7 @@ public class BasicInfo {
 
         /**
          * 国籍编号
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param nationalityId
          * @return
@@ -634,7 +634,7 @@ public class BasicInfo {
 
         /**
          * 附件简历ID
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param resumeAttachmentId
          * @return
@@ -647,7 +647,7 @@ public class BasicInfo {
 
         /**
          * 自我评价
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param selfEvaluation
          * @return
@@ -660,12 +660,12 @@ public class BasicInfo {
 
         /**
          * 开始工作时间
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param startWorkTime
          * @return
          */
-        public Builder startWorkTime(Integer startWorkTime) {
+        public Builder startWorkTime(Long startWorkTime) {
             this.startWorkTime = startWorkTime;
             return this;
         }

@@ -30,16 +30,16 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BaseResp {
     /**
      * 响应信息
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("StatusMessage")
     private String statusMessage;
     /**
      * 响应码
-     * <p> 示例值：
+     * <p> 示例值：1
      */
     @SerializedName("StatusCode")
-    private Integer statusCode;
+    private Long statusCode;
 
     // builder 开始
     public BaseResp() {
@@ -48,12 +48,12 @@ public class BaseResp {
     public BaseResp(Builder builder) {
         /**
          * 响应信息
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.statusMessage = builder.statusMessage;
         /**
          * 响应码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         this.statusCode = builder.statusCode;
     }
@@ -70,29 +70,29 @@ public class BaseResp {
         this.statusMessage = statusMessage;
     }
 
-    public Integer getStatusCode() {
+    public Long getStatusCode() {
         return this.statusCode;
     }
 
-    public void setStatusCode(Integer statusCode) {
+    public void setStatusCode(Long statusCode) {
         this.statusCode = statusCode;
     }
 
     public static class Builder {
         /**
          * 响应信息
-         * <p> 示例值：
+         * <p> 示例值：1
          */
         private String statusMessage;
         /**
          * 响应码
-         * <p> 示例值：
+         * <p> 示例值：1
          */
-        private Integer statusCode;
+        private Long statusCode;
 
         /**
          * 响应信息
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param statusMessage
          * @return
@@ -105,12 +105,12 @@ public class BaseResp {
 
         /**
          * 响应码
-         * <p> 示例值：
+         * <p> 示例值：1
          *
          * @param statusCode
          * @return
          */
-        public Builder statusCode(Integer statusCode) {
+        public Builder statusCode(Long statusCode) {
             this.statusCode = statusCode;
             return this;
         }

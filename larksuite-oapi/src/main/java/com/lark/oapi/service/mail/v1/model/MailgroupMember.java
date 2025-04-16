@@ -231,10 +231,10 @@ public class MailgroupMember {
          * 成员类型
          * <p> 示例值：USER
          *
-         * @param type {@link com.lark.oapi.service.mail.v1.enums.MailgroupMemberTypeEnum}
+         * @param type {@link com.lark.oapi.service.mail.v1.enums.MailgroupMemberMailgroupMemberTypeEnum}
          * @return
          */
-        public Builder type(com.lark.oapi.service.mail.v1.enums.MailgroupMemberTypeEnum type) {
+        public Builder type(com.lark.oapi.service.mail.v1.enums.MailgroupMemberMailgroupMemberTypeEnum type) {
             this.type = type.getValue();
             return this;
         }

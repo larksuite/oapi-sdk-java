@@ -51,7 +51,7 @@ public class CombinedJob {
      * <p> 示例值：1622484739955
      */
     @SerializedName("expiry_time")
-    private Integer expiryTime;
+    private Long expiryTime;
     /**
      * 自定义字段
      * <p> 示例值：
@@ -69,7 +69,7 @@ public class CombinedJob {
      * <p> 示例值：1000
      */
     @SerializedName("min_salary")
-    private Integer minSalary;
+    private Long minSalary;
     /**
      * 职位名称
      * <p> 示例值：后端研发
@@ -117,7 +117,7 @@ public class CombinedJob {
      * <p> 示例值：100
      */
     @SerializedName("head_count")
-    private Integer headCount;
+    private Long headCount;
     /**
      * 是否长期有效
      * <p> 示例值：false
@@ -129,7 +129,7 @@ public class CombinedJob {
      * <p> 示例值：2000
      */
     @SerializedName("max_salary")
-    private Integer maxSalary;
+    private Long maxSalary;
     /**
      * 职位要求
      * <p> 示例值：熟悉后端研发
@@ -427,11 +427,11 @@ public class CombinedJob {
         this.experience = experience;
     }
 
-    public Integer getExpiryTime() {
+    public Long getExpiryTime() {
         return this.expiryTime;
     }
 
-    public void setExpiryTime(Integer expiryTime) {
+    public void setExpiryTime(Long expiryTime) {
         this.expiryTime = expiryTime;
     }
 
@@ -451,11 +451,11 @@ public class CombinedJob {
         this.minLevelId = minLevelId;
     }
 
-    public Integer getMinSalary() {
+    public Long getMinSalary() {
         return this.minSalary;
     }
 
-    public void setMinSalary(Integer minSalary) {
+    public void setMinSalary(Long minSalary) {
         this.minSalary = minSalary;
     }
 
@@ -515,11 +515,11 @@ public class CombinedJob {
         this.departmentId = departmentId;
     }
 
-    public Integer getHeadCount() {
+    public Long getHeadCount() {
         return this.headCount;
     }
 
-    public void setHeadCount(Integer headCount) {
+    public void setHeadCount(Long headCount) {
         this.headCount = headCount;
     }
 
@@ -531,11 +531,11 @@ public class CombinedJob {
         this.isNeverExpired = isNeverExpired;
     }
 
-    public Integer getMaxSalary() {
+    public Long getMaxSalary() {
         return this.maxSalary;
     }
 
-    public void setMaxSalary(Integer maxSalary) {
+    public void setMaxSalary(Long maxSalary) {
         this.maxSalary = maxSalary;
     }
 
@@ -687,7 +687,7 @@ public class CombinedJob {
          * 到期日期
          * <p> 示例值：1622484739955
          */
-        private Integer expiryTime;
+        private Long expiryTime;
         /**
          * 自定义字段
          * <p> 示例值：
@@ -702,7 +702,7 @@ public class CombinedJob {
          * 最低薪资，单位：k
          * <p> 示例值：1000
          */
-        private Integer minSalary;
+        private Long minSalary;
         /**
          * 职位名称
          * <p> 示例值：后端研发
@@ -742,7 +742,7 @@ public class CombinedJob {
          * 招聘数量
          * <p> 示例值：100
          */
-        private Integer headCount;
+        private Long headCount;
         /**
          * 是否长期有效
          * <p> 示例值：false
@@ -752,7 +752,7 @@ public class CombinedJob {
          * 最高薪资，单位：k
          * <p> 示例值：2000
          */
-        private Integer maxSalary;
+        private Long maxSalary;
         /**
          * 职位要求
          * <p> 示例值：熟悉后端研发
@@ -880,7 +880,7 @@ public class CombinedJob {
          * @param expiryTime
          * @return
          */
-        public Builder expiryTime(Integer expiryTime) {
+        public Builder expiryTime(Long expiryTime) {
             this.expiryTime = expiryTime;
             return this;
         }
@@ -919,7 +919,7 @@ public class CombinedJob {
          * @param minSalary
          * @return
          */
-        public Builder minSalary(Integer minSalary) {
+        public Builder minSalary(Long minSalary) {
             this.minSalary = minSalary;
             return this;
         }
@@ -1023,7 +1023,7 @@ public class CombinedJob {
          * @param headCount
          * @return
          */
-        public Builder headCount(Integer headCount) {
+        public Builder headCount(Long headCount) {
             this.headCount = headCount;
             return this;
         }
@@ -1049,7 +1049,7 @@ public class CombinedJob {
          * @param maxSalary
          * @return
          */
-        public Builder maxSalary(Integer maxSalary) {
+        public Builder maxSalary(Long maxSalary) {
             this.maxSalary = maxSalary;
             return this;
         }

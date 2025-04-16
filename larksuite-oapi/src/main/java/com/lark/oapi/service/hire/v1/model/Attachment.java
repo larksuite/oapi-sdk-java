@@ -57,7 +57,7 @@ public class Attachment {
      * <p> 示例值：1618899376480
      */
     @SerializedName("create_time")
-    private Integer createTime;
+    private Long createTime;
 
     // builder 开始
     public Attachment() {
@@ -127,11 +127,11 @@ public class Attachment {
         this.mime = mime;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
@@ -160,7 +160,7 @@ public class Attachment {
          * 附件创建时间（单位ms）
          * <p> 示例值：1618899376480
          */
-        private Integer createTime;
+        private Long createTime;
 
         /**
          * 附件id
@@ -221,7 +221,7 @@ public class Attachment {
          * @param createTime
          * @return
          */
-        public Builder createTime(Integer createTime) {
+        public Builder createTime(Long createTime) {
             this.createTime = createTime;
             return this;
         }

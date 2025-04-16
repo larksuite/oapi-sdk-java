@@ -30,7 +30,7 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AppliOfferOnboardProfile {
     /**
      * offer ID
-     * <p> 示例值：
+     * <p> 示例值：6942778198054125570
      */
     @SerializedName("offer_id")
     private String offerId;
@@ -84,16 +84,16 @@ public class AppliOfferOnboardProfile {
     private Boolean isWorkAddressSameToOnboard;
     /**
      * 试用期
-     * <p> 示例值：
+     * <p> 示例值：90
      */
     @SerializedName("probation_month")
-    private Integer probationMonth;
+    private Long probationMonth;
     /**
      * 合同年限
-     * <p> 示例值：
+     * <p> 示例值：10
      */
     @SerializedName("contract_year")
-    private Integer contractYear;
+    private Long contractYear;
 
     // builder 开始
     public AppliOfferOnboardProfile() {
@@ -102,7 +102,7 @@ public class AppliOfferOnboardProfile {
     public AppliOfferOnboardProfile(Builder builder) {
         /**
          * offer ID
-         * <p> 示例值：
+         * <p> 示例值：6942778198054125570
          */
         this.offerId = builder.offerId;
         /**
@@ -147,12 +147,12 @@ public class AppliOfferOnboardProfile {
         this.isWorkAddressSameToOnboard = builder.isWorkAddressSameToOnboard;
         /**
          * 试用期
-         * <p> 示例值：
+         * <p> 示例值：90
          */
         this.probationMonth = builder.probationMonth;
         /**
          * 合同年限
-         * <p> 示例值：
+         * <p> 示例值：10
          */
         this.contractYear = builder.contractYear;
     }
@@ -233,26 +233,26 @@ public class AppliOfferOnboardProfile {
         this.isWorkAddressSameToOnboard = isWorkAddressSameToOnboard;
     }
 
-    public Integer getProbationMonth() {
+    public Long getProbationMonth() {
         return this.probationMonth;
     }
 
-    public void setProbationMonth(Integer probationMonth) {
+    public void setProbationMonth(Long probationMonth) {
         this.probationMonth = probationMonth;
     }
 
-    public Integer getContractYear() {
+    public Long getContractYear() {
         return this.contractYear;
     }
 
-    public void setContractYear(Integer contractYear) {
+    public void setContractYear(Long contractYear) {
         this.contractYear = contractYear;
     }
 
     public static class Builder {
         /**
          * offer ID
-         * <p> 示例值：
+         * <p> 示例值：6942778198054125570
          */
         private String offerId;
         /**
@@ -297,18 +297,18 @@ public class AppliOfferOnboardProfile {
         private Boolean isWorkAddressSameToOnboard;
         /**
          * 试用期
-         * <p> 示例值：
+         * <p> 示例值：90
          */
-        private Integer probationMonth;
+        private Long probationMonth;
         /**
          * 合同年限
-         * <p> 示例值：
+         * <p> 示例值：10
          */
-        private Integer contractYear;
+        private Long contractYear;
 
         /**
          * offer ID
-         * <p> 示例值：
+         * <p> 示例值：6942778198054125570
          *
          * @param offerId
          * @return
@@ -425,12 +425,12 @@ public class AppliOfferOnboardProfile {
 
         /**
          * 试用期
-         * <p> 示例值：
+         * <p> 示例值：90
          *
          * @param probationMonth
          * @return
          */
-        public Builder probationMonth(Integer probationMonth) {
+        public Builder probationMonth(Long probationMonth) {
             this.probationMonth = probationMonth;
             return this;
         }
@@ -438,12 +438,12 @@ public class AppliOfferOnboardProfile {
 
         /**
          * 合同年限
-         * <p> 示例值：
+         * <p> 示例值：10
          *
          * @param contractYear
          * @return
          */
-        public Builder contractYear(Integer contractYear) {
+        public Builder contractYear(Long contractYear) {
             this.contractYear = contractYear;
             return this;
         }

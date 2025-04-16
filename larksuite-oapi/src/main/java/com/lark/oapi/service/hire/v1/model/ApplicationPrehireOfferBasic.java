@@ -29,41 +29,49 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationPrehireOfferBasic {
     /**
+     * Offer ID
      * <p> 示例值：11111
      */
     @SerializedName("offer_id")
     private String offerId;
     /**
+     * 候选人 ID
      * <p> 示例值：11111
      */
     @SerializedName("application_id")
     private String applicationId;
     /**
+     * 人才 ID
      * <p> 示例值：11111
      */
     @SerializedName("talent_id")
     private String talentId;
     /**
+     * 职位 ID
      * <p> 示例值：11111
      */
     @SerializedName("job_id")
     private String jobId;
     /**
+     * 备注
      * <p> 示例值：test
      */
     @SerializedName("remark")
     private String remark;
     /**
+     * 过期时间
      * <p> 示例值：1111233344
      */
     @SerializedName("expire_time")
-    private Integer expireTime;
+    private Long expireTime;
     /**
+     * 入职时间
      * <p> 示例值：1111233344
      */
     @SerializedName("onboard_time")
     private Integer onboardTime;
     /**
+     * 时区
      * <p> 示例值：111
      */
     @SerializedName("time_zone")
@@ -81,11 +89,13 @@ public class ApplicationPrehireOfferBasic {
     @SerializedName("offer_status")
     private Integer offerStatus;
     /**
+     * Offer负责人
      * <p> 示例值：
      */
     @SerializedName("owner")
     private AppliOfferBasicInfoUser owner;
     /**
+     * Offer职位名称
      * <p> 示例值：test
      */
     @SerializedName("offer_job_title")
@@ -97,42 +107,42 @@ public class ApplicationPrehireOfferBasic {
 
     public ApplicationPrehireOfferBasic(Builder builder) {
         /**
-         *
+         * Offer ID
          * <p> 示例值：11111
          */
         this.offerId = builder.offerId;
         /**
-         *
+         * 候选人 ID
          * <p> 示例值：11111
          */
         this.applicationId = builder.applicationId;
         /**
-         *
+         * 人才 ID
          * <p> 示例值：11111
          */
         this.talentId = builder.talentId;
         /**
-         *
+         * 职位 ID
          * <p> 示例值：11111
          */
         this.jobId = builder.jobId;
         /**
-         *
+         * 备注
          * <p> 示例值：test
          */
         this.remark = builder.remark;
         /**
-         *
+         * 过期时间
          * <p> 示例值：1111233344
          */
         this.expireTime = builder.expireTime;
         /**
-         *
+         * 入职时间
          * <p> 示例值：1111233344
          */
         this.onboardTime = builder.onboardTime;
         /**
-         *
+         * 时区
          * <p> 示例值：111
          */
         this.timeZone = builder.timeZone;
@@ -147,12 +157,12 @@ public class ApplicationPrehireOfferBasic {
          */
         this.offerStatus = builder.offerStatus;
         /**
-         *
+         * Offer负责人
          * <p> 示例值：
          */
         this.owner = builder.owner;
         /**
-         *
+         * Offer职位名称
          * <p> 示例值：test
          */
         this.offerJobTitle = builder.offerJobTitle;
@@ -202,11 +212,11 @@ public class ApplicationPrehireOfferBasic {
         this.remark = remark;
     }
 
-    public Integer getExpireTime() {
+    public Long getExpireTime() {
         return this.expireTime;
     }
 
-    public void setExpireTime(Integer expireTime) {
+    public void setExpireTime(Long expireTime) {
         this.expireTime = expireTime;
     }
 
@@ -260,34 +270,42 @@ public class ApplicationPrehireOfferBasic {
 
     public static class Builder {
         /**
+         * Offer ID
          * <p> 示例值：11111
          */
         private String offerId;
         /**
+         * 候选人 ID
          * <p> 示例值：11111
          */
         private String applicationId;
         /**
+         * 人才 ID
          * <p> 示例值：11111
          */
         private String talentId;
         /**
+         * 职位 ID
          * <p> 示例值：11111
          */
         private String jobId;
         /**
+         * 备注
          * <p> 示例值：test
          */
         private String remark;
         /**
+         * 过期时间
          * <p> 示例值：1111233344
          */
-        private Integer expireTime;
+        private Long expireTime;
         /**
+         * 入职时间
          * <p> 示例值：1111233344
          */
         private Integer onboardTime;
         /**
+         * 时区
          * <p> 示例值：111
          */
         private String timeZone;
@@ -302,15 +320,18 @@ public class ApplicationPrehireOfferBasic {
          */
         private Integer offerStatus;
         /**
+         * Offer负责人
          * <p> 示例值：
          */
         private AppliOfferBasicInfoUser owner;
         /**
+         * Offer职位名称
          * <p> 示例值：test
          */
         private String offerJobTitle;
 
         /**
+         * Offer ID
          * <p> 示例值：11111
          *
          * @param offerId
@@ -323,6 +344,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * 候选人 ID
          * <p> 示例值：11111
          *
          * @param applicationId
@@ -335,6 +357,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * 人才 ID
          * <p> 示例值：11111
          *
          * @param talentId
@@ -347,6 +370,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * 职位 ID
          * <p> 示例值：11111
          *
          * @param jobId
@@ -359,6 +383,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * 备注
          * <p> 示例值：test
          *
          * @param remark
@@ -371,18 +396,20 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * 过期时间
          * <p> 示例值：1111233344
          *
          * @param expireTime
          * @return
          */
-        public Builder expireTime(Integer expireTime) {
+        public Builder expireTime(Long expireTime) {
             this.expireTime = expireTime;
             return this;
         }
 
 
         /**
+         * 入职时间
          * <p> 示例值：1111233344
          *
          * @param onboardTime
@@ -395,6 +422,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * 时区
          * <p> 示例值：111
          *
          * @param timeZone
@@ -433,6 +461,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * Offer负责人
          * <p> 示例值：
          *
          * @param owner
@@ -445,6 +474,7 @@ public class ApplicationPrehireOfferBasic {
 
 
         /**
+         * Offer职位名称
          * <p> 示例值：test
          *
          * @param offerJobTitle

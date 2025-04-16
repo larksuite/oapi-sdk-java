@@ -163,10 +163,10 @@ public class ListMailgroupMemberReq {
          * 此次调用中使用的用户ID的类型
          * <p> 示例值：
          *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberUserIdTypeEnum}
+         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberListMailGroupMemberUserIDTypeEnum}
          * @return
          */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberUserIdTypeEnum userIdType) {
+        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberListMailGroupMemberUserIDTypeEnum userIdType) {
             this.userIdType = userIdType.getValue();
             return this;
         }
@@ -187,10 +187,10 @@ public class ListMailgroupMemberReq {
          * 此次调用中使用的部门ID的类型
          * <p> 示例值：open_department_id
          *
-         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberDepartmentIdTypeEnum}
+         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberListMailGroupMemberDepartmentIDTypeEnum}
          * @return
          */
-        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberDepartmentIdTypeEnum departmentIdType) {
+        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.ListMailgroupMemberListMailGroupMemberDepartmentIDTypeEnum departmentIdType) {
             this.departmentIdType = departmentIdType.getValue();
             return this;
         }
