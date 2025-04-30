@@ -131,6 +131,12 @@ public class InputTask {
      */
     @SerializedName("docx_source")
     private DocxSource docxSource;
+    /**
+     * 正数协议每日提醒
+     * <p> 示例值：
+     */
+    @SerializedName("positive_reminders")
+    private Reminder[] positiveReminders;
 
     // builder 开始
     public InputTask() {
@@ -222,6 +228,11 @@ public class InputTask {
          * <p> 示例值：
          */
         this.docxSource = builder.docxSource;
+        /**
+         * 正数协议每日提醒
+         * <p> 示例值：
+         */
+        this.positiveReminders = builder.positiveReminders;
     }
 
     public static Builder newBuilder() {
@@ -364,6 +375,14 @@ public class InputTask {
         this.docxSource = docxSource;
     }
 
+    public Reminder[] getPositiveReminders() {
+        return this.positiveReminders;
+    }
+
+    public void setPositiveReminders(Reminder[] positiveReminders) {
+        this.positiveReminders = positiveReminders;
+    }
+
     public static class Builder {
         /**
          * 任务标题
@@ -450,6 +469,11 @@ public class InputTask {
          * <p> 示例值：
          */
         private DocxSource docxSource;
+        /**
+         * 正数协议每日提醒
+         * <p> 示例值：
+         */
+        private Reminder[] positiveReminders;
 
         /**
          * 任务标题
@@ -668,6 +692,19 @@ public class InputTask {
          */
         public Builder docxSource(DocxSource docxSource) {
             this.docxSource = docxSource;
+            return this;
+        }
+
+
+        /**
+         * 正数协议每日提醒
+         * <p> 示例值：
+         *
+         * @param positiveReminders
+         * @return
+         */
+        public Builder positiveReminders(Reminder[] positiveReminders) {
+            this.positiveReminders = positiveReminders;
             return this;
         }
 

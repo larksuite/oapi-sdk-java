@@ -92,6 +92,13 @@ public class MatchCompensationStandardReq {
     @SerializedName("job_family_id")
     private String jobFamilyId;
     /**
+     * 职务ID
+     * <p> 示例值：7342883436321097257
+     */
+    @Query
+    @SerializedName("job_id")
+    private String jobId;
+    /**
      * 职级ID
      * <p> 示例值：7086415175263258156
      */
@@ -191,6 +198,11 @@ public class MatchCompensationStandardReq {
          * <p> 示例值：7039313681989502508
          */
         this.jobFamilyId = builder.jobFamilyId;
+        /**
+         * 职务ID
+         * <p> 示例值：7342883436321097257
+         */
+        this.jobId = builder.jobId;
         /**
          * 职级ID
          * <p> 示例值：7086415175263258156
@@ -304,6 +316,14 @@ public class MatchCompensationStandardReq {
         this.jobFamilyId = jobFamilyId;
     }
 
+    public String getJobId() {
+        return this.jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
+
     public String getJobLevelId() {
         return this.jobLevelId;
     }
@@ -370,6 +390,7 @@ public class MatchCompensationStandardReq {
         private String workLocationId; // 工作地点ID
         private String companyId; // 公司ID
         private String jobFamilyId; // 职务序列ID
+        private String jobId; // 职务ID
         private String jobLevelId; // 职级ID
         private String employeeTypeId; // 人员类型ID
         private String recruitmentType; // 招聘类型
@@ -527,6 +548,19 @@ public class MatchCompensationStandardReq {
          */
         public Builder jobFamilyId(String jobFamilyId) {
             this.jobFamilyId = jobFamilyId;
+            return this;
+        }
+
+
+        /**
+         * 职务ID
+         * <p> 示例值：7342883436321097257
+         *
+         * @param jobId
+         * @return
+         */
+        public Builder jobId(String jobId) {
+            this.jobId = jobId;
             return this;
         }
 

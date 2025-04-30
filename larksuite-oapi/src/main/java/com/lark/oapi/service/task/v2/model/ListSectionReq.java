@@ -63,6 +63,13 @@ public class ListSectionReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 更新时间戳过滤(ms)
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("update_msec")
+    private String updateMsec;
 
     // builder 开始
     public ListSectionReq() {
@@ -94,6 +101,11 @@ public class ListSectionReq {
          * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         * 更新时间戳过滤(ms)
+         * <p> 示例值：1
+         */
+        this.updateMsec = builder.updateMsec;
     }
 
     public static Builder newBuilder() {
@@ -140,12 +152,21 @@ public class ListSectionReq {
         this.userIdType = userIdType;
     }
 
+    public String getUpdateMsec() {
+        return this.updateMsec;
+    }
+
+    public void setUpdateMsec(String updateMsec) {
+        this.updateMsec = updateMsec;
+    }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String resourceType; // 自定义分组所属的资源类型。支持"my_tasks"(我负责的）和"tasklist"（清单）。当使用"tasklist"时，需要用resource_id提供清单GUID。
         private String resourceId; // 如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+        private String updateMsec; // 更新时间戳过滤(ms)
 
         /**
          * 分页大小
@@ -208,6 +229,19 @@ public class ListSectionReq {
          */
         public Builder userIdType(String userIdType) {
             this.userIdType = userIdType;
+            return this;
+        }
+
+
+        /**
+         * 更新时间戳过滤(ms)
+         * <p> 示例值：1
+         *
+         * @param updateMsec
+         * @return
+         */
+        public Builder updateMsec(String updateMsec) {
+            this.updateMsec = updateMsec;
             return this;
         }
 

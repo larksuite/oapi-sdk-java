@@ -19,6 +19,7 @@ public class CreateTasklistSample {
                 .inputTasklist(InputTasklist.newBuilder()
                         .name("年会工作任务清单")
                         .members(new Member[]{})
+                        .archiveTasklist(false)
                         .build())
                 .build();
 

@@ -20,6 +20,7 @@ public class ListAttachmentSample {
                 .resourceType("task")
                 .resourceId("9842501a-9f47-4ff5-a622-d319eeecb97f")
                 .userIdType("open_id")
+                .updatedMesc("123")
                 .build();
 
         // 发起请求

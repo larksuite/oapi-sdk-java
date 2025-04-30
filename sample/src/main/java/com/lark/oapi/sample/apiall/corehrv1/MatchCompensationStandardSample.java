@@ -26,6 +26,7 @@ public class MatchCompensationStandardSample {
                 .workLocationId("7094869485965870636")
                 .companyId("7091599096804394540")
                 .jobFamilyId("7039313681989502508")
+                .jobId("7342883436321097257")
                 .jobLevelId("7086415175263258156")
                 .employeeTypeId("7039310401359775276")
                 .recruitmentType("experienced_professionals")

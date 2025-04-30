@@ -26,5 +26,5 @@ import java.io.IOException;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateTripartiteAgreementResp extends BaseResponse<UpdateTripartiteAgreementRespBody> {
+public class UpdateTripartiteAgreementResp extends BaseResponse<EmptyData> {
 }

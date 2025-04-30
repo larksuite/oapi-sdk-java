@@ -28,7 +28,8 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateTripartiteAgreementReq {
     /**
-     * <p> 示例值：
+     * 三方协议的 id
+     * <p> 示例值：7084008015948283905
      */
     @Path
     @SerializedName("tripartite_agreement_id")
@@ -42,8 +43,8 @@ public class UpdateTripartiteAgreementReq {
 
     public UpdateTripartiteAgreementReq(Builder builder) {
         /**
-         *
-         * <p> 示例值：
+         * 三方协议的 id
+         * <p> 示例值：7084008015948283905
          */
         this.tripartiteAgreementId = builder.tripartiteAgreementId;
         this.body = builder.body;
@@ -71,11 +72,12 @@ public class UpdateTripartiteAgreementReq {
 
     public static class Builder {
 
-        private String tripartiteAgreementId; //
+        private String tripartiteAgreementId; // 三方协议的 id
         private TripartiteAgreementInfo body;
 
         /**
-         * <p> 示例值：
+         * 三方协议的 id
+         * <p> 示例值：7084008015948283905
          *
          * @param tripartiteAgreementId
          * @return

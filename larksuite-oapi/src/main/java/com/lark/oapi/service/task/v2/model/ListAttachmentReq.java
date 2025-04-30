@@ -63,6 +63,13 @@ public class ListAttachmentReq {
     @Query
     @SerializedName("user_id_type")
     private String userIdType;
+    /**
+     * 附件的最早上传时间
+     * <p> 示例值：123
+     */
+    @Query
+    @SerializedName("updated_mesc")
+    private String updatedMesc;
 
     // builder 开始
     public ListAttachmentReq() {
@@ -94,6 +101,11 @@ public class ListAttachmentReq {
          * <p> 示例值：open_id
          */
         this.userIdType = builder.userIdType;
+        /**
+         *    附件的最早上传时间
+         * <p> 示例值：123
+         */
+        this.updatedMesc = builder.updatedMesc;
     }
 
     public static Builder newBuilder() {
@@ -140,12 +152,21 @@ public class ListAttachmentReq {
         this.userIdType = userIdType;
     }
 
+    public String getUpdatedMesc() {
+        return this.updatedMesc;
+    }
+
+    public void setUpdatedMesc(String updatedMesc) {
+        this.updatedMesc = updatedMesc;
+    }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String resourceType; // 附件归属的资源类型
         private String resourceId; // 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务的全局唯一ID
         private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+        private String updatedMesc; //    附件的最早上传时间
 
         /**
          * 分页大小
@@ -208,6 +229,19 @@ public class ListAttachmentReq {
          */
         public Builder userIdType(String userIdType) {
             this.userIdType = userIdType;
+            return this;
+        }
+
+
+        /**
+         * 附件的最早上传时间
+         * <p> 示例值：123
+         *
+         * @param updatedMesc
+         * @return
+         */
+        public Builder updatedMesc(String updatedMesc) {
+            this.updatedMesc = updatedMesc;
             return this;
         }
 

@@ -89,6 +89,12 @@ public class RecurringPaymentForCreate {
      */
     @SerializedName("remark")
     private String remark;
+    /**
+     * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+     * <p> 示例值：6862995745046267400
+     */
+    @SerializedName("issuance_country_region_id")
+    private String issuanceCountryRegionId;
 
     // builder 开始
     public RecurringPaymentForCreate() {
@@ -145,6 +151,11 @@ public class RecurringPaymentForCreate {
          * <p> 示例值：这是个备注
          */
         this.remark = builder.remark;
+        /**
+         * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995745046267400
+         */
+        this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
     }
 
     public static Builder newBuilder() {
@@ -231,6 +242,14 @@ public class RecurringPaymentForCreate {
         this.remark = remark;
     }
 
+    public String getIssuanceCountryRegionId() {
+        return this.issuanceCountryRegionId;
+    }
+
+    public void setIssuanceCountryRegionId(String issuanceCountryRegionId) {
+        this.issuanceCountryRegionId = issuanceCountryRegionId;
+    }
+
     public static class Builder {
         /**
          * 外部幂等id，由上游业务决定
@@ -282,6 +301,11 @@ public class RecurringPaymentForCreate {
          * <p> 示例值：这是个备注
          */
         private String remark;
+        /**
+         * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995745046267400
+         */
+        private String issuanceCountryRegionId;
 
         /**
          * 外部幂等id，由上游业务决定
@@ -433,6 +457,19 @@ public class RecurringPaymentForCreate {
          */
         public Builder remark(String remark) {
             this.remark = remark;
+            return this;
+        }
+
+
+        /**
+         * 发放国家id（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995745046267400
+         *
+         * @param issuanceCountryRegionId
+         * @return
+         */
+        public Builder issuanceCountryRegionId(String issuanceCountryRegionId) {
+            this.issuanceCountryRegionId = issuanceCountryRegionId;
             return this;
         }
 

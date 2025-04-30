@@ -155,6 +155,30 @@ public class Application {
      */
     @SerializedName("secret")
     private String secret;
+    /**
+     * 应用事件订阅信息
+     * <p> 示例值：
+     */
+    @SerializedName("event")
+    private SubscribedEvent event;
+    /**
+     * 应用回调配置
+     * <p> 示例值：
+     */
+    @SerializedName("callback")
+    private Callback callback;
+    /**
+     * 应用加密策略
+     * <p> 示例值：
+     */
+    @SerializedName("encryption")
+    private EventAndCallbackEncryptStrategy encryption;
+    /**
+     * 应用安全配置
+     * <p> 示例值：
+     */
+    @SerializedName("security")
+    private AppConfigSecurityItem security;
 
     // builder 开始
     public Application() {
@@ -266,6 +290,26 @@ public class Application {
          * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
          */
         this.secret = builder.secret;
+        /**
+         * 应用事件订阅信息
+         * <p> 示例值：
+         */
+        this.event = builder.event;
+        /**
+         * 应用回调配置
+         * <p> 示例值：
+         */
+        this.callback = builder.callback;
+        /**
+         * 应用加密策略
+         * <p> 示例值：
+         */
+        this.encryption = builder.encryption;
+        /**
+         * 应用安全配置
+         * <p> 示例值：
+         */
+        this.security = builder.security;
     }
 
     public static Builder newBuilder() {
@@ -440,6 +484,38 @@ public class Application {
         this.secret = secret;
     }
 
+    public SubscribedEvent getEvent() {
+        return this.event;
+    }
+
+    public void setEvent(SubscribedEvent event) {
+        this.event = event;
+    }
+
+    public Callback getCallback() {
+        return this.callback;
+    }
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
+
+    public EventAndCallbackEncryptStrategy getEncryption() {
+        return this.encryption;
+    }
+
+    public void setEncryption(EventAndCallbackEncryptStrategy encryption) {
+        this.encryption = encryption;
+    }
+
+    public AppConfigSecurityItem getSecurity() {
+        return this.security;
+    }
+
+    public void setSecurity(AppConfigSecurityItem security) {
+        this.security = security;
+    }
+
     public static class Builder {
         /**
          * 应用的 app_id
@@ -546,6 +622,26 @@ public class Application {
          * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
          */
         private String secret;
+        /**
+         * 应用事件订阅信息
+         * <p> 示例值：
+         */
+        private SubscribedEvent event;
+        /**
+         * 应用回调配置
+         * <p> 示例值：
+         */
+        private Callback callback;
+        /**
+         * 应用加密策略
+         * <p> 示例值：
+         */
+        private EventAndCallbackEncryptStrategy encryption;
+        /**
+         * 应用安全配置
+         * <p> 示例值：
+         */
+        private AppConfigSecurityItem security;
 
         /**
          * 应用的 app_id
@@ -900,6 +996,58 @@ public class Application {
          */
         public Builder secret(String secret) {
             this.secret = secret;
+            return this;
+        }
+
+
+        /**
+         * 应用事件订阅信息
+         * <p> 示例值：
+         *
+         * @param event
+         * @return
+         */
+        public Builder event(SubscribedEvent event) {
+            this.event = event;
+            return this;
+        }
+
+
+        /**
+         * 应用回调配置
+         * <p> 示例值：
+         *
+         * @param callback
+         * @return
+         */
+        public Builder callback(Callback callback) {
+            this.callback = callback;
+            return this;
+        }
+
+
+        /**
+         * 应用加密策略
+         * <p> 示例值：
+         *
+         * @param encryption
+         * @return
+         */
+        public Builder encryption(EventAndCallbackEncryptStrategy encryption) {
+            this.encryption = encryption;
+            return this;
+        }
+
+
+        /**
+         * 应用安全配置
+         * <p> 示例值：
+         *
+         * @param security
+         * @return
+         */
+        public Builder security(AppConfigSecurityItem security) {
+            this.security = security;
             return this;
         }
 

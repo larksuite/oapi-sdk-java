@@ -20,6 +20,7 @@ public class ListSectionSample {
                 .resourceType("tasklist")
                 .resourceId("caef228f-2342-23c1-c36d-91186414dc64")
                 .userIdType("open_id")
+                .updateMsec("1")
                 .build();
 
         // 发起请求

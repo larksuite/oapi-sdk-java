@@ -15,7 +15,7 @@ public class UpdateTripartiteAgreementSample {
 
         // 创建请求对象
         UpdateTripartiteAgreementReq req = UpdateTripartiteAgreementReq.newBuilder()
-                .tripartiteAgreementId("")
+                .tripartiteAgreementId("7084008015948283905")
                 .tripartiteAgreementInfo(TripartiteAgreementInfo.newBuilder()
                         .state(1)
                         .modifyTime("1698292282661")

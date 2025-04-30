@@ -34,8 +34,10 @@ public class V2 {
     private final Bp bp; // bp
     private final Company company; // company
     private final Contract contract; // contract
+    private final CostAllocation costAllocation; // cost_allocation
     private final CostCenter costCenter; // cost_center
     private final CostCenterVersion costCenterVersion; // cost_center.version
+    private final DefaultCostCenter defaultCostCenter; // default_cost_center
     private final Department department; // department
     private final Employee employee; // employee
     private final EmployeesAdditionalJob employeesAdditionalJob; // employees.additional_job
@@ -85,8 +87,10 @@ public class V2 {
         this.bp = new Bp(config);
         this.company = new Company(config);
         this.contract = new Contract(config);
+        this.costAllocation = new CostAllocation(config);
         this.costCenter = new CostCenter(config);
         this.costCenterVersion = new CostCenterVersion(config);
+        this.defaultCostCenter = new DefaultCostCenter(config);
         this.department = new Department(config);
         this.employee = new Employee(config);
         this.employeesAdditionalJob = new EmployeesAdditionalJob(config);
@@ -181,12 +185,20 @@ public class V2 {
         return contract;
     }
 
+    public CostAllocation costAllocation() {
+        return costAllocation;
+    }
+
     public CostCenter costCenter() {
         return costCenter;
     }
 
     public CostCenterVersion costCenterVersion() {
         return costCenterVersion;
+    }
+
+    public DefaultCostCenter defaultCostCenter() {
+        return defaultCostCenter;
     }
 
     public Department department() {

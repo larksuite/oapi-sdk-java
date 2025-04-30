@@ -53,6 +53,12 @@ public class Spreadsheet {
      */
     @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
+    /**
+     * 是否挂载到云空间
+     * <p> 示例值：false
+     */
+    @SerializedName("without_mount")
+    private Boolean withoutMount;
 
     // builder 开始
     public Spreadsheet() {
@@ -79,6 +85,11 @@ public class Spreadsheet {
          * <p> 示例值：shtcnmBA*****yGehy8
          */
         this.spreadsheetToken = builder.spreadsheetToken;
+        /**
+         * 是否挂载到云空间
+         * <p> 示例值：false
+         */
+        this.withoutMount = builder.withoutMount;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class Spreadsheet {
         this.spreadsheetToken = spreadsheetToken;
     }
 
+    public Boolean getWithoutMount() {
+        return this.withoutMount;
+    }
+
+    public void setWithoutMount(Boolean withoutMount) {
+        this.withoutMount = withoutMount;
+    }
+
     public static class Builder {
         /**
          * 表格标题
@@ -138,6 +157,11 @@ public class Spreadsheet {
          * <p> 示例值：shtcnmBA*****yGehy8
          */
         private String spreadsheetToken;
+        /**
+         * 是否挂载到云空间
+         * <p> 示例值：false
+         */
+        private Boolean withoutMount;
 
         /**
          * 表格标题
@@ -187,6 +211,19 @@ public class Spreadsheet {
          */
         public Builder spreadsheetToken(String spreadsheetToken) {
             this.spreadsheetToken = spreadsheetToken;
+            return this;
+        }
+
+
+        /**
+         * 是否挂载到云空间
+         * <p> 示例值：false
+         *
+         * @param withoutMount
+         * @return
+         */
+        public Builder withoutMount(Boolean withoutMount) {
+            this.withoutMount = withoutMount;
             return this;
         }
 

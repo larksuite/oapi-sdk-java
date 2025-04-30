@@ -34,6 +34,7 @@ public class CreateTaskSample {
                         .isMilestone(false)
                         .customFields(new InputCustomFieldValue[]{})
                         .docxSource(DocxSource.newBuilder().build())
+                        .positiveReminders(new Reminder[]{})
                         .build())
                 .build();
 

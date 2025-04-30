@@ -18,7 +18,7 @@ public class CreateExternalBackgroundCheckSample {
                 .externalBackgroundCheck(ExternalBackgroundCheck.newBuilder()
                         .externalId("123")
                         .externalApplicationId("1234111")
-                        .date(1626602069L)
+                        .date(1626602069393L)
                         .name("测试.pdf")
                         .result("1")
                         .attachmentIdList(new String[]{})

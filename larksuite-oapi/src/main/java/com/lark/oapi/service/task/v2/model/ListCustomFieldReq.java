@@ -63,6 +63,13 @@ public class ListCustomFieldReq {
     @Query
     @SerializedName("resource_id")
     private String resourceId;
+    /**
+     * 更新时间戳过滤条件(ms)
+     * <p> 示例值：1
+     */
+    @Query
+    @SerializedName("update_msec")
+    private String updateMsec;
 
     // builder 开始
     public ListCustomFieldReq() {
@@ -94,6 +101,11 @@ public class ListCustomFieldReq {
          * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
          */
         this.resourceId = builder.resourceId;
+        /**
+         * 更新时间戳过滤条件(ms)
+         * <p> 示例值：1
+         */
+        this.updateMsec = builder.updateMsec;
     }
 
     public static Builder newBuilder() {
@@ -140,12 +152,21 @@ public class ListCustomFieldReq {
         this.resourceId = resourceId;
     }
 
+    public String getUpdateMsec() {
+        return this.updateMsec;
+    }
+
+    public void setUpdateMsec(String updateMsec) {
+        this.updateMsec = updateMsec;
+    }
+
     public static class Builder {
         private Integer pageSize; // 分页大小
         private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
         private String userIdType; // 用户ID格式，支持open_id, user_id, union_id
         private String resourceType; // 资源类型，如提供表示仅查询特定资源下的自定义字段。目前只支持tasklist。
         private String resourceId; // 要查询自定义字段的归属resource_id
+        private String updateMsec; // 更新时间戳过滤条件(ms)
 
         /**
          * 分页大小
@@ -220,6 +241,19 @@ public class ListCustomFieldReq {
          */
         public Builder resourceId(String resourceId) {
             this.resourceId = resourceId;
+            return this;
+        }
+
+
+        /**
+         * 更新时间戳过滤条件(ms)
+         * <p> 示例值：1
+         *
+         * @param updateMsec
+         * @return
+         */
+        public Builder updateMsec(String updateMsec) {
+            this.updateMsec = updateMsec;
             return this;
         }
 

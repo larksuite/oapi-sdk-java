@@ -72,6 +72,18 @@ public class LumpSumPaymentForCreate {
     @SerializedName("item_id")
     private String itemId;
     /**
+     * 所属期开始日期
+     * <p> 示例值：2024-08-01
+     */
+    @SerializedName("reference_period_start_date")
+    private String referencePeriodStartDate;
+    /**
+     * 所属期结束日期
+     * <p> 示例值：2024-08-01
+     */
+    @SerializedName("reference_period_end_date")
+    private String referencePeriodEndDate;
+    /**
      * 发放明细列表
      * <p> 示例值：
      */
@@ -124,6 +136,16 @@ public class LumpSumPaymentForCreate {
          * <p> 示例值：7411039006180312620
          */
         this.itemId = builder.itemId;
+        /**
+         * 所属期开始日期
+         * <p> 示例值：2024-08-01
+         */
+        this.referencePeriodStartDate = builder.referencePeriodStartDate;
+        /**
+         * 所属期结束日期
+         * <p> 示例值：2024-08-01
+         */
+        this.referencePeriodEndDate = builder.referencePeriodEndDate;
         /**
          * 发放明细列表
          * <p> 示例值：
@@ -196,6 +218,22 @@ public class LumpSumPaymentForCreate {
         this.itemId = itemId;
     }
 
+    public String getReferencePeriodStartDate() {
+        return this.referencePeriodStartDate;
+    }
+
+    public void setReferencePeriodStartDate(String referencePeriodStartDate) {
+        this.referencePeriodStartDate = referencePeriodStartDate;
+    }
+
+    public String getReferencePeriodEndDate() {
+        return this.referencePeriodEndDate;
+    }
+
+    public void setReferencePeriodEndDate(String referencePeriodEndDate) {
+        this.referencePeriodEndDate = referencePeriodEndDate;
+    }
+
     public LumpSumPaymentDetailForCreate[] getDetails() {
         return this.details;
     }
@@ -248,6 +286,16 @@ public class LumpSumPaymentForCreate {
          * <p> 示例值：7411039006180312620
          */
         private String itemId;
+        /**
+         * 所属期开始日期
+         * <p> 示例值：2024-08-01
+         */
+        private String referencePeriodStartDate;
+        /**
+         * 所属期结束日期
+         * <p> 示例值：2024-08-01
+         */
+        private String referencePeriodEndDate;
         /**
          * 发放明细列表
          * <p> 示例值：
@@ -346,6 +394,32 @@ public class LumpSumPaymentForCreate {
          */
         public Builder itemId(String itemId) {
             this.itemId = itemId;
+            return this;
+        }
+
+
+        /**
+         * 所属期开始日期
+         * <p> 示例值：2024-08-01
+         *
+         * @param referencePeriodStartDate
+         * @return
+         */
+        public Builder referencePeriodStartDate(String referencePeriodStartDate) {
+            this.referencePeriodStartDate = referencePeriodStartDate;
+            return this;
+        }
+
+
+        /**
+         * 所属期结束日期
+         * <p> 示例值：2024-08-01
+         *
+         * @param referencePeriodEndDate
+         * @return
+         */
+        public Builder referencePeriodEndDate(String referencePeriodEndDate) {
+            this.referencePeriodEndDate = referencePeriodEndDate;
             return this;
         }
 

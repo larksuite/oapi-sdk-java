@@ -53,6 +53,12 @@ public class InputTasklist {
      */
     @SerializedName("owner")
     private Member owner;
+    /**
+     * 是否归档清单
+     * <p> 示例值：
+     */
+    @SerializedName("archive_tasklist")
+    private Boolean archiveTasklist;
 
     // builder 开始
     public InputTasklist() {
@@ -79,6 +85,11 @@ public class InputTasklist {
          * <p> 示例值：
          */
         this.owner = builder.owner;
+        /**
+         * 是否归档清单
+         * <p> 示例值：
+         */
+        this.archiveTasklist = builder.archiveTasklist;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class InputTasklist {
         this.owner = owner;
     }
 
+    public Boolean getArchiveTasklist() {
+        return this.archiveTasklist;
+    }
+
+    public void setArchiveTasklist(Boolean archiveTasklist) {
+        this.archiveTasklist = archiveTasklist;
+    }
+
     public static class Builder {
         /**
          * 清单名称
@@ -138,6 +157,11 @@ public class InputTasklist {
          * <p> 示例值：
          */
         private Member owner;
+        /**
+         * 是否归档清单
+         * <p> 示例值：
+         */
+        private Boolean archiveTasklist;
 
         /**
          * 清单名称
@@ -187,6 +211,19 @@ public class InputTasklist {
          */
         public Builder owner(Member owner) {
             this.owner = owner;
+            return this;
+        }
+
+
+        /**
+         * 是否归档清单
+         * <p> 示例值：
+         *
+         * @param archiveTasklist
+         * @return
+         */
+        public Builder archiveTasklist(Boolean archiveTasklist) {
+            this.archiveTasklist = archiveTasklist;
             return this;
         }
 

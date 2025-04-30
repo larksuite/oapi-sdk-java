@@ -275,6 +275,7 @@ public class ImService {
         }
     }
 
+
     public abstract static class P1MessageReceivedV1Handler implements IEventHandler<P1MessageReceivedV1> {
         @Override
         public P1MessageReceivedV1 getEvent() {

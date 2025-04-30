@@ -77,6 +77,12 @@ public class Tasklist {
      */
     @SerializedName("updated_at")
     private String updatedAt;
+    /**
+     * 清单归档时间戳(ms)
+     * <p> 示例值：1675742789470
+     */
+    @SerializedName("archive_msec")
+    private String archiveMsec;
 
     // builder 开始
     public Tasklist() {
@@ -123,6 +129,11 @@ public class Tasklist {
          * <p> 示例值：1675742789470
          */
         this.updatedAt = builder.updatedAt;
+        /**
+         * 清单归档时间戳(ms)
+         * <p> 示例值：1675742789470
+         */
+        this.archiveMsec = builder.archiveMsec;
     }
 
     public static Builder newBuilder() {
@@ -193,6 +204,14 @@ public class Tasklist {
         this.updatedAt = updatedAt;
     }
 
+    public String getArchiveMsec() {
+        return this.archiveMsec;
+    }
+
+    public void setArchiveMsec(String archiveMsec) {
+        this.archiveMsec = archiveMsec;
+    }
+
     public static class Builder {
         /**
          * 清单的全局唯一ID
@@ -234,6 +253,11 @@ public class Tasklist {
          * <p> 示例值：1675742789470
          */
         private String updatedAt;
+        /**
+         * 清单归档时间戳(ms)
+         * <p> 示例值：1675742789470
+         */
+        private String archiveMsec;
 
         /**
          * 清单的全局唯一ID
@@ -335,6 +359,19 @@ public class Tasklist {
          */
         public Builder updatedAt(String updatedAt) {
             this.updatedAt = updatedAt;
+            return this;
+        }
+
+
+        /**
+         * 清单归档时间戳(ms)
+         * <p> 示例值：1675742789470
+         *
+         * @param archiveMsec
+         * @return
+         */
+        public Builder archiveMsec(String archiveMsec) {
+            this.archiveMsec = archiveMsec;
             return this;
         }
 

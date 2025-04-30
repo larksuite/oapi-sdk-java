@@ -377,6 +377,18 @@ public class OfferInfo {
      */
     @SerializedName("pathway")
     private String pathway;
+    /**
+     * 默认成本中心
+     * <p> 示例值：
+     */
+    @SerializedName("default_cost_center")
+    private PrehireDefaultCostCenterUpdate defaultCostCenter;
+    /**
+     * 成本分摊
+     * <p> 示例值：
+     */
+    @SerializedName("cost_allocation")
+    private CostAllocation costAllocation;
 
     // builder 开始
     public OfferInfo() {
@@ -673,6 +685,16 @@ public class OfferInfo {
          * <p> 示例值：7460865381179115052
          */
         this.pathway = builder.pathway;
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
+        this.defaultCostCenter = builder.defaultCostCenter;
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
+        this.costAllocation = builder.costAllocation;
     }
 
     public static Builder newBuilder() {
@@ -1143,6 +1165,22 @@ public class OfferInfo {
         this.pathway = pathway;
     }
 
+    public PrehireDefaultCostCenterUpdate getDefaultCostCenter() {
+        return this.defaultCostCenter;
+    }
+
+    public void setDefaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
+        this.defaultCostCenter = defaultCostCenter;
+    }
+
+    public CostAllocation getCostAllocation() {
+        return this.costAllocation;
+    }
+
+    public void setCostAllocation(CostAllocation costAllocation) {
+        this.costAllocation = costAllocation;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -1434,6 +1472,16 @@ public class OfferInfo {
          * <p> 示例值：7460865381179115052
          */
         private String pathway;
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         */
+        private PrehireDefaultCostCenterUpdate defaultCostCenter;
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         */
+        private CostAllocation costAllocation;
 
         /**
          * Offer id
@@ -2185,6 +2233,32 @@ public class OfferInfo {
          */
         public Builder pathway(String pathway) {
             this.pathway = pathway;
+            return this;
+        }
+
+
+        /**
+         * 默认成本中心
+         * <p> 示例值：
+         *
+         * @param defaultCostCenter
+         * @return
+         */
+        public Builder defaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
+            this.defaultCostCenter = defaultCostCenter;
+            return this;
+        }
+
+
+        /**
+         * 成本分摊
+         * <p> 示例值：
+         *
+         * @param costAllocation
+         * @return
+         */
+        public Builder costAllocation(CostAllocation costAllocation) {
+            this.costAllocation = costAllocation;
             return this;
         }
 

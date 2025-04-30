@@ -197,6 +197,12 @@ public class Task {
      */
     @SerializedName("assignee_related")
     private TaskAssignee[] assigneeRelated;
+    /**
+     * 正数协议任务提醒
+     * <p> 示例值：
+     */
+    @SerializedName("positive_reminders")
+    private Reminder[] positiveReminders;
 
     // builder 开始
     public Task() {
@@ -343,6 +349,11 @@ public class Task {
          * <p> 示例值：
          */
         this.assigneeRelated = builder.assigneeRelated;
+        /**
+         * 正数协议任务提醒
+         * <p> 示例值：
+         */
+        this.positiveReminders = builder.positiveReminders;
     }
 
     public static Builder newBuilder() {
@@ -573,6 +584,14 @@ public class Task {
         this.assigneeRelated = assigneeRelated;
     }
 
+    public Reminder[] getPositiveReminders() {
+        return this.positiveReminders;
+    }
+
+    public void setPositiveReminders(Reminder[] positiveReminders) {
+        this.positiveReminders = positiveReminders;
+    }
+
     public static class Builder {
         /**
          * 任务guid，任务的唯一ID
@@ -714,6 +733,11 @@ public class Task {
          * <p> 示例值：
          */
         private TaskAssignee[] assigneeRelated;
+        /**
+         * 正数协议任务提醒
+         * <p> 示例值：
+         */
+        private Reminder[] positiveReminders;
 
         /**
          * 任务guid，任务的唯一ID
@@ -1087,6 +1111,19 @@ public class Task {
          */
         public Builder assigneeRelated(TaskAssignee[] assigneeRelated) {
             this.assigneeRelated = assigneeRelated;
+            return this;
+        }
+
+
+        /**
+         * 正数协议任务提醒
+         * <p> 示例值：
+         *
+         * @param positiveReminders
+         * @return
+         */
+        public Builder positiveReminders(Reminder[] positiveReminders) {
+            this.positiveReminders = positiveReminders;
             return this;
         }
 

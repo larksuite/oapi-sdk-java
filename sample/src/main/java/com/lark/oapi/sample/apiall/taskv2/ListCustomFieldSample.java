@@ -20,6 +20,7 @@ public class ListCustomFieldSample {
                 .userIdType("open_id")
                 .resourceType("tasklist")
                 .resourceId("5ffbe0ca-6600-41e0-a634-2b38cbcf13b8")
+                .updateMsec("1")
                 .build();
 
         // 发起请求

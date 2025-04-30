@@ -65,6 +65,18 @@ public class LumpSumPaymentDetailForUpdate {
      */
     @SerializedName("belong_time")
     private String belongTime;
+    /**
+     * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+     * <p> 示例值：6862995757234914824
+     */
+    @SerializedName("issuance_country_region_id")
+    private String issuanceCountryRegionId;
+    /**
+     * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+     * <p> 示例值：6862995757234914824
+     */
+    @SerializedName("issuance_pay_group_id")
+    private String issuancePayGroupId;
 
     // builder 开始
     public LumpSumPaymentDetailForUpdate() {
@@ -101,6 +113,16 @@ public class LumpSumPaymentDetailForUpdate {
          * <p> 示例值：2025-01-20
          */
         this.belongTime = builder.belongTime;
+        /**
+         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995757234914824
+         */
+        this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
+        /**
+         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+         * <p> 示例值：6862995757234914824
+         */
+        this.issuancePayGroupId = builder.issuancePayGroupId;
     }
 
     public static Builder newBuilder() {
@@ -155,6 +177,22 @@ public class LumpSumPaymentDetailForUpdate {
         this.belongTime = belongTime;
     }
 
+    public String getIssuanceCountryRegionId() {
+        return this.issuanceCountryRegionId;
+    }
+
+    public void setIssuanceCountryRegionId(String issuanceCountryRegionId) {
+        this.issuanceCountryRegionId = issuanceCountryRegionId;
+    }
+
+    public String getIssuancePayGroupId() {
+        return this.issuancePayGroupId;
+    }
+
+    public void setIssuancePayGroupId(String issuancePayGroupId) {
+        this.issuancePayGroupId = issuancePayGroupId;
+    }
+
     public static class Builder {
         /**
          * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
@@ -186,6 +224,16 @@ public class LumpSumPaymentDetailForUpdate {
          * <p> 示例值：2025-01-20
          */
         private String belongTime;
+        /**
+         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995757234914824
+         */
+        private String issuanceCountryRegionId;
+        /**
+         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+         * <p> 示例值：6862995757234914824
+         */
+        private String issuancePayGroupId;
 
         /**
          * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
@@ -285,6 +333,32 @@ public class LumpSumPaymentDetailForUpdate {
          */
         public Builder belongTime(String belongTime) {
             this.belongTime = belongTime;
+            return this;
+        }
+
+
+        /**
+         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
+         * <p> 示例值：6862995757234914824
+         *
+         * @param issuanceCountryRegionId
+         * @return
+         */
+        public Builder issuanceCountryRegionId(String issuanceCountryRegionId) {
+            this.issuanceCountryRegionId = issuanceCountryRegionId;
+            return this;
+        }
+
+
+        /**
+         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
+         * <p> 示例值：6862995757234914824
+         *
+         * @param issuancePayGroupId
+         * @return
+         */
+        public Builder issuancePayGroupId(String issuancePayGroupId) {
+            this.issuancePayGroupId = issuancePayGroupId;
             return this;
         }
 
