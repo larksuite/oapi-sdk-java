@@ -51,7 +51,6 @@ public class PatchFileCommentReq {
     private String commentId;
     @Body
     private PatchFileCommentReqBody body;
-
     // builder 开始
     public PatchFileCommentReq() {
     }

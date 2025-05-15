@@ -365,6 +365,18 @@ public class Block {
      */
     @SerializedName("reference_synced")
     private ReferenceSynced referenceSynced;
+    /**
+     * 新版 Wiki 子目录 Block
+     * <p> 示例值：
+     */
+    @SerializedName("sub_page_list")
+    private SubPageList subPageList;
+    /**
+     * AI 模板 Block
+     * <p> 示例值：
+     */
+    @SerializedName("ai_template")
+    private AiTemplate aiTemplate;
 
     // builder 开始
     public Block() {
@@ -651,6 +663,16 @@ public class Block {
          * <p> 示例值：
          */
         this.referenceSynced = builder.referenceSynced;
+        /**
+         * 新版 Wiki 子目录 Block
+         * <p> 示例值：
+         */
+        this.subPageList = builder.subPageList;
+        /**
+         * AI 模板 Block
+         * <p> 示例值：
+         */
+        this.aiTemplate = builder.aiTemplate;
     }
 
     public static Builder newBuilder() {
@@ -1105,6 +1127,22 @@ public class Block {
         this.referenceSynced = referenceSynced;
     }
 
+    public SubPageList getSubPageList() {
+        return this.subPageList;
+    }
+
+    public void setSubPageList(SubPageList subPageList) {
+        this.subPageList = subPageList;
+    }
+
+    public AiTemplate getAiTemplate() {
+        return this.aiTemplate;
+    }
+
+    public void setAiTemplate(AiTemplate aiTemplate) {
+        this.aiTemplate = aiTemplate;
+    }
+
     public static class Builder {
         /**
          * Block 唯一标识
@@ -1386,6 +1424,16 @@ public class Block {
          * <p> 示例值：
          */
         private ReferenceSynced referenceSynced;
+        /**
+         * 新版 Wiki 子目录 Block
+         * <p> 示例值：
+         */
+        private SubPageList subPageList;
+        /**
+         * AI 模板 Block
+         * <p> 示例值：
+         */
+        private AiTemplate aiTemplate;
 
         /**
          * Block 唯一标识
@@ -2123,6 +2171,32 @@ public class Block {
          */
         public Builder referenceSynced(ReferenceSynced referenceSynced) {
             this.referenceSynced = referenceSynced;
+            return this;
+        }
+
+
+        /**
+         * 新版 Wiki 子目录 Block
+         * <p> 示例值：
+         *
+         * @param subPageList
+         * @return
+         */
+        public Builder subPageList(SubPageList subPageList) {
+            this.subPageList = subPageList;
+            return this;
+        }
+
+
+        /**
+         * AI 模板 Block
+         * <p> 示例值：
+         *
+         * @param aiTemplate
+         * @return
+         */
+        public Builder aiTemplate(AiTemplate aiTemplate) {
+            this.aiTemplate = aiTemplate;
             return this;
         }
 

@@ -53,6 +53,12 @@ public class Image {
      */
     @SerializedName("align")
     private Integer align;
+    /**
+     * 图片描述
+     * <p> 示例值：
+     */
+    @SerializedName("caption")
+    private Caption caption;
 
     // builder 开始
     public Image() {
@@ -79,6 +85,11 @@ public class Image {
          * <p> 示例值：2
          */
         this.align = builder.align;
+        /**
+         * 图片描述
+         * <p> 示例值：
+         */
+        this.caption = builder.caption;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class Image {
         this.align = align;
     }
 
+    public Caption getCaption() {
+        return this.caption;
+    }
+
+    public void setCaption(Caption caption) {
+        this.caption = caption;
+    }
+
     public static class Builder {
         /**
          * 宽度单位 px
@@ -138,6 +157,11 @@ public class Image {
          * <p> 示例值：2
          */
         private Integer align;
+        /**
+         * 图片描述
+         * <p> 示例值：
+         */
+        private Caption caption;
 
         /**
          * 宽度单位 px
@@ -199,6 +223,19 @@ public class Image {
          */
         public Builder align(com.lark.oapi.service.docx.v1.enums.ImageAlignEnum align) {
             this.align = align.getValue();
+            return this;
+        }
+
+
+        /**
+         * 图片描述
+         * <p> 示例值：
+         *
+         * @param caption
+         * @return
+         */
+        public Builder caption(Caption caption) {
+            this.caption = caption;
             return this;
         }
 

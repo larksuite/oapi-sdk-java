@@ -59,6 +59,12 @@ public class MentionDoc {
      */
     @SerializedName("text_element_style")
     private TextElementStyle textElementStyle;
+    /**
+     * 无云文档阅读权限或云文档已删除时的降级方式
+     * <p> 示例值：FallbackToLink
+     */
+    @SerializedName("fallback_type")
+    private String fallbackType;
 
     // builder 开始
     public MentionDoc() {
@@ -90,6 +96,11 @@ public class MentionDoc {
          * <p> 示例值：
          */
         this.textElementStyle = builder.textElementStyle;
+        /**
+         * 无云文档阅读权限或云文档已删除时的降级方式
+         * <p> 示例值：FallbackToLink
+         */
+        this.fallbackType = builder.fallbackType;
     }
 
     public static Builder newBuilder() {
@@ -136,6 +147,14 @@ public class MentionDoc {
         this.textElementStyle = textElementStyle;
     }
 
+    public String getFallbackType() {
+        return this.fallbackType;
+    }
+
+    public void setFallbackType(String fallbackType) {
+        this.fallbackType = fallbackType;
+    }
+
     public static class Builder {
         /**
          * 云文档 token
@@ -162,6 +181,11 @@ public class MentionDoc {
          * <p> 示例值：
          */
         private TextElementStyle textElementStyle;
+        /**
+         * 无云文档阅读权限或云文档已删除时的降级方式
+         * <p> 示例值：FallbackToLink
+         */
+        private String fallbackType;
 
         /**
          * 云文档 token
@@ -236,6 +260,31 @@ public class MentionDoc {
          */
         public Builder textElementStyle(TextElementStyle textElementStyle) {
             this.textElementStyle = textElementStyle;
+            return this;
+        }
+
+
+        /**
+         * 无云文档阅读权限或云文档已删除时的降级方式
+         * <p> 示例值：FallbackToLink
+         *
+         * @param fallbackType
+         * @return
+         */
+        public Builder fallbackType(String fallbackType) {
+            this.fallbackType = fallbackType;
+            return this;
+        }
+
+        /**
+         * 无云文档阅读权限或云文档已删除时的降级方式
+         * <p> 示例值：FallbackToLink
+         *
+         * @param fallbackType {@link com.lark.oapi.service.docx.v1.enums.MentionDocFallbackTypeEnum}
+         * @return
+         */
+        public Builder fallbackType(com.lark.oapi.service.docx.v1.enums.MentionDocFallbackTypeEnum fallbackType) {
+            this.fallbackType = fallbackType.getValue();
             return this;
         }
 

@@ -66,6 +66,8 @@ public enum BlockBlockTypeEnum {
     LINKPREVIEW(48), // 链接预览 Block
     SOURCESYNCED(49), // 源同步块
     REFERENCESYNCED(50), // 引用同步块
+    SUBPAGELIST(51), // 新版 Wiki 子目录 Block
+    AITEMPLATE(52), // AI 模板 Block
     UNDEFINED(999), // 未支持 Block
     ;
     private Integer value;

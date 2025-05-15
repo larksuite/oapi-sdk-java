@@ -23,6 +23,7 @@ import com.lark.oapi.service.attendance.AttendanceService;
 import com.lark.oapi.service.auth.AuthService;
 import com.lark.oapi.service.authen.AuthenService;
 import com.lark.oapi.service.baike.BaikeService;
+import com.lark.oapi.service.base.BaseService;
 import com.lark.oapi.service.bitable.BitableService;
 import com.lark.oapi.service.block.BlockService;
 import com.lark.oapi.service.board.BoardService;

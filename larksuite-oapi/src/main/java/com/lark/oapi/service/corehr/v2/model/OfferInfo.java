@@ -389,6 +389,12 @@ public class OfferInfo {
      */
     @SerializedName("cost_allocation")
     private CostAllocation costAllocation;
+    /**
+     * 人才ID
+     * <p> 示例值：8234698927348
+     */
+    @SerializedName("talent_id")
+    private String talentId;
 
     // builder 开始
     public OfferInfo() {
@@ -695,6 +701,11 @@ public class OfferInfo {
          * <p> 示例值：
          */
         this.costAllocation = builder.costAllocation;
+        /**
+         * 人才ID
+         * <p> 示例值：8234698927348
+         */
+        this.talentId = builder.talentId;
     }
 
     public static Builder newBuilder() {
@@ -1181,6 +1192,14 @@ public class OfferInfo {
         this.costAllocation = costAllocation;
     }
 
+    public String getTalentId() {
+        return this.talentId;
+    }
+
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
+    }
+
     public static class Builder {
         /**
          * Offer id
@@ -1482,6 +1501,11 @@ public class OfferInfo {
          * <p> 示例值：
          */
         private CostAllocation costAllocation;
+        /**
+         * 人才ID
+         * <p> 示例值：8234698927348
+         */
+        private String talentId;
 
         /**
          * Offer id
@@ -2259,6 +2283,19 @@ public class OfferInfo {
          */
         public Builder costAllocation(CostAllocation costAllocation) {
             this.costAllocation = costAllocation;
+            return this;
+        }
+
+
+        /**
+         * 人才ID
+         * <p> 示例值：8234698927348
+         *
+         * @param talentId
+         * @return
+         */
+        public Builder talentId(String talentId) {
+            this.talentId = talentId;
             return this;
         }
 

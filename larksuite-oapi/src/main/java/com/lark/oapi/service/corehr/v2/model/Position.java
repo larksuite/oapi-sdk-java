@@ -149,6 +149,12 @@ public class Position {
      */
     @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+    /**
+     * 创建人
+     * <p> 示例值：4719519211875096301
+     */
+    @SerializedName("created_by")
+    private String createdBy;
 
     // builder 开始
     public Position() {
@@ -255,6 +261,11 @@ public class Position {
          * <p> 示例值：
          */
         this.customFields = builder.customFields;
+        /**
+         * 创建人
+         * <p> 示例值：4719519211875096301
+         */
+        this.createdBy = builder.createdBy;
     }
 
     public static Builder newBuilder() {
@@ -421,6 +432,14 @@ public class Position {
         this.customFields = customFields;
     }
 
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public static class Builder {
         /**
          * 岗位 ID
@@ -522,6 +541,11 @@ public class Position {
          * <p> 示例值：
          */
         private CustomFieldData[] customFields;
+        /**
+         * 创建人
+         * <p> 示例值：4719519211875096301
+         */
+        private String createdBy;
 
         /**
          * 岗位 ID
@@ -779,6 +803,19 @@ public class Position {
          */
         public Builder customFields(CustomFieldData[] customFields) {
             this.customFields = customFields;
+            return this;
+        }
+
+
+        /**
+         * 创建人
+         * <p> 示例值：4719519211875096301
+         *
+         * @param createdBy
+         * @return
+         */
+        public Builder createdBy(String createdBy) {
+            this.createdBy = createdBy;
             return this;
         }
 

@@ -48,6 +48,12 @@ public class App {
     @SerializedName("created_at")
     private Integer createdAt;
     /**
+     * aPaaS 产品应用的创建者
+     * <p> 示例值：1818624575806604
+     */
+    @SerializedName("creator")
+    private Integer creator;
+    /**
      * aPaaS 产品应用的所有者
      * <p> 示例值：1818624575806604
      */
@@ -65,6 +71,66 @@ public class App {
      */
     @SerializedName("app_roles_info")
     private AppRolesInfo appRolesInfo;
+    /**
+     * aPaaS 产品应用的图标
+     * <p> 示例值：https://ae.feishu.cn/img/namespaces/_global/download/namespace_8aed421832fa4586968596f70e6eaebd_p.jpg
+     */
+    @SerializedName("icon")
+    private String icon;
+    /**
+     * aPaaS 产品应用的描述
+     * <p> 示例值：
+     */
+    @SerializedName("description")
+    private I18n[] description;
+    /**
+     * aPaaS 产品应用的类型
+     * <p> 示例值：custom
+     */
+    @SerializedName("type")
+    private String type;
+    /**
+     * aPaaS 产品应用的启用状态
+     * <p> 示例值：enabled
+     */
+    @SerializedName("enable_status")
+    private String enableStatus;
+    /**
+     * aPaaS 产品应用的发布状态
+     * <p> 示例值：released
+     */
+    @SerializedName("release_status")
+    private String releaseStatus;
+    /**
+     * aPaaS 产品应用的服务状态
+     * <p> 示例值：available
+     */
+    @SerializedName("service_status")
+    private String serviceStatus;
+    /**
+     * aPaaS 产品应用的停服原因
+     * <p> 示例值：entitlement_expire
+     */
+    @SerializedName("service_unavailable_reason")
+    private String serviceUnavailableReason;
+    /**
+     * aPaaS 产品应用的版本
+     * <p> 示例值：paid
+     */
+    @SerializedName("feature_set")
+    private String featureSet;
+    /**
+     * aPaaS 产品应用的计费方式
+     * <p> 示例值：per_user_per_app
+     */
+    @SerializedName("charge_mode")
+    private String chargeMode;
+    /**
+     * aPaaS 产品应用的服务商信息
+     * <p> 示例值：
+     */
+    @SerializedName("isv_tenant")
+    private ClientIsvTenant isvTenant;
 
     // builder 开始
     public App() {
@@ -87,6 +153,11 @@ public class App {
          */
         this.createdAt = builder.createdAt;
         /**
+         * aPaaS 产品应用的创建者
+         * <p> 示例值：1818624575806604
+         */
+        this.creator = builder.creator;
+        /**
          * aPaaS 产品应用的所有者
          * <p> 示例值：1818624575806604
          */
@@ -101,6 +172,56 @@ public class App {
          * <p> 示例值：
          */
         this.appRolesInfo = builder.appRolesInfo;
+        /**
+         * aPaaS 产品应用的图标
+         * <p> 示例值：https://ae.feishu.cn/img/namespaces/_global/download/namespace_8aed421832fa4586968596f70e6eaebd_p.jpg
+         */
+        this.icon = builder.icon;
+        /**
+         * aPaaS 产品应用的描述
+         * <p> 示例值：
+         */
+        this.description = builder.description;
+        /**
+         * aPaaS 产品应用的类型
+         * <p> 示例值：custom
+         */
+        this.type = builder.type;
+        /**
+         * aPaaS 产品应用的启用状态
+         * <p> 示例值：enabled
+         */
+        this.enableStatus = builder.enableStatus;
+        /**
+         * aPaaS 产品应用的发布状态
+         * <p> 示例值：released
+         */
+        this.releaseStatus = builder.releaseStatus;
+        /**
+         * aPaaS 产品应用的服务状态
+         * <p> 示例值：available
+         */
+        this.serviceStatus = builder.serviceStatus;
+        /**
+         * aPaaS 产品应用的停服原因
+         * <p> 示例值：entitlement_expire
+         */
+        this.serviceUnavailableReason = builder.serviceUnavailableReason;
+        /**
+         * aPaaS 产品应用的版本
+         * <p> 示例值：paid
+         */
+        this.featureSet = builder.featureSet;
+        /**
+         * aPaaS 产品应用的计费方式
+         * <p> 示例值：per_user_per_app
+         */
+        this.chargeMode = builder.chargeMode;
+        /**
+         * aPaaS 产品应用的服务商信息
+         * <p> 示例值：
+         */
+        this.isvTenant = builder.isvTenant;
     }
 
     public static Builder newBuilder() {
@@ -131,6 +252,14 @@ public class App {
         this.createdAt = createdAt;
     }
 
+    public Integer getCreator() {
+        return this.creator;
+    }
+
+    public void setCreator(Integer creator) {
+        this.creator = creator;
+    }
+
     public Integer getOwner() {
         return this.owner;
     }
@@ -155,6 +284,86 @@ public class App {
         this.appRolesInfo = appRolesInfo;
     }
 
+    public String getIcon() {
+        return this.icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public I18n[] getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(I18n[] description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getEnableStatus() {
+        return this.enableStatus;
+    }
+
+    public void setEnableStatus(String enableStatus) {
+        this.enableStatus = enableStatus;
+    }
+
+    public String getReleaseStatus() {
+        return this.releaseStatus;
+    }
+
+    public void setReleaseStatus(String releaseStatus) {
+        this.releaseStatus = releaseStatus;
+    }
+
+    public String getServiceStatus() {
+        return this.serviceStatus;
+    }
+
+    public void setServiceStatus(String serviceStatus) {
+        this.serviceStatus = serviceStatus;
+    }
+
+    public String getServiceUnavailableReason() {
+        return this.serviceUnavailableReason;
+    }
+
+    public void setServiceUnavailableReason(String serviceUnavailableReason) {
+        this.serviceUnavailableReason = serviceUnavailableReason;
+    }
+
+    public String getFeatureSet() {
+        return this.featureSet;
+    }
+
+    public void setFeatureSet(String featureSet) {
+        this.featureSet = featureSet;
+    }
+
+    public String getChargeMode() {
+        return this.chargeMode;
+    }
+
+    public void setChargeMode(String chargeMode) {
+        this.chargeMode = chargeMode;
+    }
+
+    public ClientIsvTenant getIsvTenant() {
+        return this.isvTenant;
+    }
+
+    public void setIsvTenant(ClientIsvTenant isvTenant) {
+        this.isvTenant = isvTenant;
+    }
+
     public static class Builder {
         /**
          * aPaaS 产品应用的名称
@@ -172,6 +381,11 @@ public class App {
          */
         private Integer createdAt;
         /**
+         * aPaaS 产品应用的创建者
+         * <p> 示例值：1818624575806604
+         */
+        private Integer creator;
+        /**
          * aPaaS 产品应用的所有者
          * <p> 示例值：1818624575806604
          */
@@ -186,6 +400,56 @@ public class App {
          * <p> 示例值：
          */
         private AppRolesInfo appRolesInfo;
+        /**
+         * aPaaS 产品应用的图标
+         * <p> 示例值：https://ae.feishu.cn/img/namespaces/_global/download/namespace_8aed421832fa4586968596f70e6eaebd_p.jpg
+         */
+        private String icon;
+        /**
+         * aPaaS 产品应用的描述
+         * <p> 示例值：
+         */
+        private I18n[] description;
+        /**
+         * aPaaS 产品应用的类型
+         * <p> 示例值：custom
+         */
+        private String type;
+        /**
+         * aPaaS 产品应用的启用状态
+         * <p> 示例值：enabled
+         */
+        private String enableStatus;
+        /**
+         * aPaaS 产品应用的发布状态
+         * <p> 示例值：released
+         */
+        private String releaseStatus;
+        /**
+         * aPaaS 产品应用的服务状态
+         * <p> 示例值：available
+         */
+        private String serviceStatus;
+        /**
+         * aPaaS 产品应用的停服原因
+         * <p> 示例值：entitlement_expire
+         */
+        private String serviceUnavailableReason;
+        /**
+         * aPaaS 产品应用的版本
+         * <p> 示例值：paid
+         */
+        private String featureSet;
+        /**
+         * aPaaS 产品应用的计费方式
+         * <p> 示例值：per_user_per_app
+         */
+        private String chargeMode;
+        /**
+         * aPaaS 产品应用的服务商信息
+         * <p> 示例值：
+         */
+        private ClientIsvTenant isvTenant;
 
         /**
          * aPaaS 产品应用的名称
@@ -222,6 +486,19 @@ public class App {
          */
         public Builder createdAt(Integer createdAt) {
             this.createdAt = createdAt;
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的创建者
+         * <p> 示例值：1818624575806604
+         *
+         * @param creator
+         * @return
+         */
+        public Builder creator(Integer creator) {
+            this.creator = creator;
             return this;
         }
 
@@ -273,6 +550,220 @@ public class App {
          */
         public Builder appRolesInfo(AppRolesInfo appRolesInfo) {
             this.appRolesInfo = appRolesInfo;
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的图标
+         * <p> 示例值：https://ae.feishu.cn/img/namespaces/_global/download/namespace_8aed421832fa4586968596f70e6eaebd_p.jpg
+         *
+         * @param icon
+         * @return
+         */
+        public Builder icon(String icon) {
+            this.icon = icon;
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的描述
+         * <p> 示例值：
+         *
+         * @param description
+         * @return
+         */
+        public Builder description(I18n[] description) {
+            this.description = description;
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的类型
+         * <p> 示例值：custom
+         *
+         * @param type
+         * @return
+         */
+        public Builder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的类型
+         * <p> 示例值：custom
+         *
+         * @param type {@link com.lark.oapi.service.apaas.v1.enums.AppTypeEnum}
+         * @return
+         */
+        public Builder type(com.lark.oapi.service.apaas.v1.enums.AppTypeEnum type) {
+            this.type = type.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的启用状态
+         * <p> 示例值：enabled
+         *
+         * @param enableStatus
+         * @return
+         */
+        public Builder enableStatus(String enableStatus) {
+            this.enableStatus = enableStatus;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的启用状态
+         * <p> 示例值：enabled
+         *
+         * @param enableStatus {@link com.lark.oapi.service.apaas.v1.enums.AppEnableStatusEnum}
+         * @return
+         */
+        public Builder enableStatus(com.lark.oapi.service.apaas.v1.enums.AppEnableStatusEnum enableStatus) {
+            this.enableStatus = enableStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的发布状态
+         * <p> 示例值：released
+         *
+         * @param releaseStatus
+         * @return
+         */
+        public Builder releaseStatus(String releaseStatus) {
+            this.releaseStatus = releaseStatus;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的发布状态
+         * <p> 示例值：released
+         *
+         * @param releaseStatus {@link com.lark.oapi.service.apaas.v1.enums.AppReleaseStatusEnum}
+         * @return
+         */
+        public Builder releaseStatus(com.lark.oapi.service.apaas.v1.enums.AppReleaseStatusEnum releaseStatus) {
+            this.releaseStatus = releaseStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的服务状态
+         * <p> 示例值：available
+         *
+         * @param serviceStatus
+         * @return
+         */
+        public Builder serviceStatus(String serviceStatus) {
+            this.serviceStatus = serviceStatus;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的服务状态
+         * <p> 示例值：available
+         *
+         * @param serviceStatus {@link com.lark.oapi.service.apaas.v1.enums.AppServiceStatusEnum}
+         * @return
+         */
+        public Builder serviceStatus(com.lark.oapi.service.apaas.v1.enums.AppServiceStatusEnum serviceStatus) {
+            this.serviceStatus = serviceStatus.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的停服原因
+         * <p> 示例值：entitlement_expire
+         *
+         * @param serviceUnavailableReason
+         * @return
+         */
+        public Builder serviceUnavailableReason(String serviceUnavailableReason) {
+            this.serviceUnavailableReason = serviceUnavailableReason;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的停服原因
+         * <p> 示例值：entitlement_expire
+         *
+         * @param serviceUnavailableReason {@link com.lark.oapi.service.apaas.v1.enums.AppServiceUnavailableReasonEnum}
+         * @return
+         */
+        public Builder serviceUnavailableReason(com.lark.oapi.service.apaas.v1.enums.AppServiceUnavailableReasonEnum serviceUnavailableReason) {
+            this.serviceUnavailableReason = serviceUnavailableReason.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的版本
+         * <p> 示例值：paid
+         *
+         * @param featureSet
+         * @return
+         */
+        public Builder featureSet(String featureSet) {
+            this.featureSet = featureSet;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的版本
+         * <p> 示例值：paid
+         *
+         * @param featureSet {@link com.lark.oapi.service.apaas.v1.enums.AppFeatureSetEnum}
+         * @return
+         */
+        public Builder featureSet(com.lark.oapi.service.apaas.v1.enums.AppFeatureSetEnum featureSet) {
+            this.featureSet = featureSet.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的计费方式
+         * <p> 示例值：per_user_per_app
+         *
+         * @param chargeMode
+         * @return
+         */
+        public Builder chargeMode(String chargeMode) {
+            this.chargeMode = chargeMode;
+            return this;
+        }
+
+        /**
+         * aPaaS 产品应用的计费方式
+         * <p> 示例值：per_user_per_app
+         *
+         * @param chargeMode {@link com.lark.oapi.service.apaas.v1.enums.AppChargeModeEnum}
+         * @return
+         */
+        public Builder chargeMode(com.lark.oapi.service.apaas.v1.enums.AppChargeModeEnum chargeMode) {
+            this.chargeMode = chargeMode.getValue();
+            return this;
+        }
+
+
+        /**
+         * aPaaS 产品应用的服务商信息
+         * <p> 示例值：
+         *
+         * @param isvTenant
+         * @return
+         */
+        public Builder isvTenant(ClientIsvTenant isvTenant) {
+            this.isvTenant = isvTenant;
             return this;
         }
 

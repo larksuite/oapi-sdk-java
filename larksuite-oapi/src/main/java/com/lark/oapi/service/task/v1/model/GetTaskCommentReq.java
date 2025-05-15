@@ -53,7 +53,6 @@ public class GetTaskCommentReq {
     // builder 开始
     public GetTaskCommentReq() {
     }
-
     public GetTaskCommentReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型

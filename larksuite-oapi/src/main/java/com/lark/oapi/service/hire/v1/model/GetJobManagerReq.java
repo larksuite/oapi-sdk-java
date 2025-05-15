@@ -52,7 +52,6 @@ public class GetJobManagerReq {
     // builder 开始
     public GetJobManagerReq() {
     }
-
     public GetJobManagerReq(Builder builder) {
         /**
          * 此次调用中使用的用户ID的类型

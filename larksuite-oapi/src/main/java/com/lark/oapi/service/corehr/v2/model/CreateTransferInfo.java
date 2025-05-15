@@ -233,6 +233,30 @@ public class CreateTransferInfo {
      */
     @SerializedName("target_pathway")
     private String targetPathway;
+    /**
+     * 新分摊生效时间
+     * <p> 示例值：2022-03-01
+     */
+    @SerializedName("target_allocation_effective_time")
+    private String targetAllocationEffectiveTime;
+    /**
+     * 新分摊失效时间
+     * <p> 示例值：2022-03-01
+     */
+    @SerializedName("target_allocation_expiration_time")
+    private String targetAllocationExpirationTime;
+    /**
+     * 新默认成本中心
+     * <p> 示例值：7380264299728602661
+     */
+    @SerializedName("target_default_cost_center")
+    private String targetDefaultCostCenter;
+    /**
+     * 新默认成本中心是否继承
+     * <p> 示例值：
+     */
+    @SerializedName("target_is_default_cost_center_inherited")
+    private Boolean targetIsDefaultCostCenterInherited;
 
     // builder 开始
     public CreateTransferInfo() {
@@ -409,6 +433,26 @@ public class CreateTransferInfo {
          * <p> 示例值：7289005963599693368
          */
         this.targetPathway = builder.targetPathway;
+        /**
+         * 新分摊生效时间
+         * <p> 示例值：2022-03-01
+         */
+        this.targetAllocationEffectiveTime = builder.targetAllocationEffectiveTime;
+        /**
+         * 新分摊失效时间
+         * <p> 示例值：2022-03-01
+         */
+        this.targetAllocationExpirationTime = builder.targetAllocationExpirationTime;
+        /**
+         * 新默认成本中心
+         * <p> 示例值：7380264299728602661
+         */
+        this.targetDefaultCostCenter = builder.targetDefaultCostCenter;
+        /**
+         * 新默认成本中心是否继承
+         * <p> 示例值：
+         */
+        this.targetIsDefaultCostCenterInherited = builder.targetIsDefaultCostCenterInherited;
     }
 
     public static Builder newBuilder() {
@@ -687,6 +731,38 @@ public class CreateTransferInfo {
         this.targetPathway = targetPathway;
     }
 
+    public String getTargetAllocationEffectiveTime() {
+        return this.targetAllocationEffectiveTime;
+    }
+
+    public void setTargetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
+        this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+    }
+
+    public String getTargetAllocationExpirationTime() {
+        return this.targetAllocationExpirationTime;
+    }
+
+    public void setTargetAllocationExpirationTime(String targetAllocationExpirationTime) {
+        this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+    }
+
+    public String getTargetDefaultCostCenter() {
+        return this.targetDefaultCostCenter;
+    }
+
+    public void setTargetDefaultCostCenter(String targetDefaultCostCenter) {
+        this.targetDefaultCostCenter = targetDefaultCostCenter;
+    }
+
+    public Boolean getTargetIsDefaultCostCenterInherited() {
+        return this.targetIsDefaultCostCenterInherited;
+    }
+
+    public void setTargetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
+        this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
+    }
+
     public static class Builder {
         /**
          * 备注
@@ -858,6 +934,26 @@ public class CreateTransferInfo {
          * <p> 示例值：7289005963599693368
          */
         private String targetPathway;
+        /**
+         * 新分摊生效时间
+         * <p> 示例值：2022-03-01
+         */
+        private String targetAllocationEffectiveTime;
+        /**
+         * 新分摊失效时间
+         * <p> 示例值：2022-03-01
+         */
+        private String targetAllocationExpirationTime;
+        /**
+         * 新默认成本中心
+         * <p> 示例值：7380264299728602661
+         */
+        private String targetDefaultCostCenter;
+        /**
+         * 新默认成本中心是否继承
+         * <p> 示例值：
+         */
+        private Boolean targetIsDefaultCostCenterInherited;
 
         /**
          * 备注
@@ -1297,6 +1393,58 @@ public class CreateTransferInfo {
          */
         public Builder targetPathway(String targetPathway) {
             this.targetPathway = targetPathway;
+            return this;
+        }
+
+
+        /**
+         * 新分摊生效时间
+         * <p> 示例值：2022-03-01
+         *
+         * @param targetAllocationEffectiveTime
+         * @return
+         */
+        public Builder targetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
+            this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+            return this;
+        }
+
+
+        /**
+         * 新分摊失效时间
+         * <p> 示例值：2022-03-01
+         *
+         * @param targetAllocationExpirationTime
+         * @return
+         */
+        public Builder targetAllocationExpirationTime(String targetAllocationExpirationTime) {
+            this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+            return this;
+        }
+
+
+        /**
+         * 新默认成本中心
+         * <p> 示例值：7380264299728602661
+         *
+         * @param targetDefaultCostCenter
+         * @return
+         */
+        public Builder targetDefaultCostCenter(String targetDefaultCostCenter) {
+            this.targetDefaultCostCenter = targetDefaultCostCenter;
+            return this;
+        }
+
+
+        /**
+         * 新默认成本中心是否继承
+         * <p> 示例值：
+         *
+         * @param targetIsDefaultCostCenterInherited
+         * @return
+         */
+        public Builder targetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
+            this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
             return this;
         }
 

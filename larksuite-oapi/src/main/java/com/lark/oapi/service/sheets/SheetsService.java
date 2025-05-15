@@ -26,7 +26,7 @@ import com.lark.oapi.service.sheets.v3.resource.SpreadsheetSheetFloatImage;
 public class SheetsService {
     private final V3 v3;
     private final Spreadsheet spreadsheet; // 表格
-    private final SpreadsheetSheet spreadsheetSheet; // 工作表
+    private final SpreadsheetSheet spreadsheetSheet; // 行列
     private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
     private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
     private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件

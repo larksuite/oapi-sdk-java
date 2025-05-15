@@ -51,7 +51,6 @@ public class UpdateTaskCommentReq {
     private String commentId;
     @Body
     private UpdateTaskCommentReqBody body;
-
     // builder 开始
     public UpdateTaskCommentReq() {
     }

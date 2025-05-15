@@ -30,11 +30,17 @@ import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgRole {
     /**
-     * 唯一标识
+     * 角色key
      * <p> 示例值：hrbp
      */
     @SerializedName("api_name")
     private String apiName;
+    /**
+     * 角色ID
+     * <p> 示例值：7034393015968122400
+     */
+    @SerializedName("security_group_id")
+    private String securityGroupId;
     /**
      * 授权员工列表
      * <p> 示例值：
@@ -54,10 +60,15 @@ public class OrgRole {
 
     public OrgRole(Builder builder) {
         /**
-         * 唯一标识
+         * 角色key
          * <p> 示例值：hrbp
          */
         this.apiName = builder.apiName;
+        /**
+         * 角色ID
+         * <p> 示例值：7034393015968122400
+         */
+        this.securityGroupId = builder.securityGroupId;
         /**
          * 授权员工列表
          * <p> 示例值：
@@ -82,6 +93,14 @@ public class OrgRole {
         this.apiName = apiName;
     }
 
+    public String getSecurityGroupId() {
+        return this.securityGroupId;
+    }
+
+    public void setSecurityGroupId(String securityGroupId) {
+        this.securityGroupId = securityGroupId;
+    }
+
     public String[] getEmploymentIds() {
         return this.employmentIds;
     }
@@ -100,10 +119,15 @@ public class OrgRole {
 
     public static class Builder {
         /**
-         * 唯一标识
+         * 角色key
          * <p> 示例值：hrbp
          */
         private String apiName;
+        /**
+         * 角色ID
+         * <p> 示例值：7034393015968122400
+         */
+        private String securityGroupId;
         /**
          * 授权员工列表
          * <p> 示例值：
@@ -116,7 +140,7 @@ public class OrgRole {
         private String[] inheritEmploymentIds;
 
         /**
-         * 唯一标识
+         * 角色key
          * <p> 示例值：hrbp
          *
          * @param apiName
@@ -124,6 +148,19 @@ public class OrgRole {
          */
         public Builder apiName(String apiName) {
             this.apiName = apiName;
+            return this;
+        }
+
+
+        /**
+         * 角色ID
+         * <p> 示例值：7034393015968122400
+         *
+         * @param securityGroupId
+         * @return
+         */
+        public Builder securityGroupId(String securityGroupId) {
+            this.securityGroupId = securityGroupId;
             return this;
         }
 

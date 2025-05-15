@@ -53,6 +53,12 @@ public class RevertEvent {
      */
     @SerializedName("status")
     private String status;
+    /**
+     * 审批定义 Code
+     * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+     */
+    @SerializedName("approval_code")
+    private String approvalCode;
 
     // builder 开始
     public RevertEvent() {
@@ -79,6 +85,11 @@ public class RevertEvent {
          * <p> 示例值：REVERTED
          */
         this.status = builder.status;
+        /**
+         * 审批定义 Code
+         * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+         */
+        this.approvalCode = builder.approvalCode;
     }
 
     public static Builder newBuilder() {
@@ -117,6 +128,14 @@ public class RevertEvent {
         this.status = status;
     }
 
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
+
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
     public static class Builder {
         /**
          * 类型
@@ -138,6 +157,11 @@ public class RevertEvent {
          * <p> 示例值：REVERTED
          */
         private String status;
+        /**
+         * 审批定义 Code
+         * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+         */
+        private String approvalCode;
 
         /**
          * 类型
@@ -187,6 +211,19 @@ public class RevertEvent {
          */
         public Builder status(String status) {
             this.status = status;
+            return this;
+        }
+
+
+        /**
+         * 审批定义 Code
+         * <p> 示例值：D0CA783E-F0BB-4U36-LADC-91BECS6DDA29
+         *
+         * @param approvalCode
+         * @return
+         */
+        public Builder approvalCode(String approvalCode) {
+            this.approvalCode = approvalCode;
             return this;
         }
 
